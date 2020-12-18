@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6F32EB1-2463-48D6-AFA6-BBDB9AB4B75A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotFix_Project</RootNamespace>
+    <AssemblyName>HotFix_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Assets\StreamingAssets\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\StreamingAssets\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>UnityDlls\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>UnityDlls\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>UnityDlls\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>UnityDlls\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BeanBase.cs" />
+    <Compile Include="Core\ITypeId.cs" />
+    <Compile Include="Gen\ai\BehaviorTree.cs" />
+    <Compile Include="Gen\ai\BinaryOperator.cs" />
+    <Compile Include="Gen\ai\Blackboard.cs" />
+    <Compile Include="Gen\ai\BlackboardKey.cs" />
+    <Compile Include="Gen\ai\BlackboardKeyData.cs" />
+    <Compile Include="Gen\ai\ChooseSkill.cs" />
+    <Compile Include="Gen\ai\ChooseTarget.cs" />
+    <Compile Include="Gen\ai\ComposeNode.cs" />
+    <Compile Include="Gen\ai\DebugPrint.cs" />
+    <Compile Include="Gen\ai\Decorator.cs" />
+    <Compile Include="Gen\ai\DistanceLessThan.cs" />
+    <Compile Include="Gen\ai\EExecutor.cs" />
+    <Compile Include="Gen\ai\EFinishMode.cs" />
+    <Compile Include="Gen\ai\EFlowAbortMode.cs" />
+    <Compile Include="Gen\ai\EKeyType.cs" />
+    <Compile Include="Gen\ai\ENotifyObserverMode.cs" />
+    <Compile Include="Gen\ai\EOperator.cs" />
+    <Compile Include="Gen\ai\ExecuteTimeStatistic.cs" />
+    <Compile Include="Gen\ai\FloatKeyData.cs" />
+    <Compile Include="Gen\ai\FlowNode.cs" />
+    <Compile Include="Gen\ai\GetOwnerPlayer.cs" />
+    <Compile Include="Gen\ai\IntKeyData.cs" />
+    <Compile Include="Gen\ai\IsAtLocation.cs" />
+    <Compile Include="Gen\ai\IsNotSet.cs" />
+    <Compile Include="Gen\ai\IsSet.cs" />
+    <Compile Include="Gen\ai\KeepFaceTarget.cs" />
+    <Compile Include="Gen\ai\KeyData.cs" />
+    <Compile Include="Gen\ai\KeyQueryOperator.cs" />
+    <Compile Include="Gen\ai\MoveToLocation.cs" />
+    <Compile Include="Gen\ai\MoveToRandomLocation.cs" />
+    <Compile Include="Gen\ai\MoveToTarget.cs" />
+    <Compile Include="Gen\ai\Node.cs" />
+    <Compile Include="Gen\ai\Selector.cs" />
+    <Compile Include="Gen\ai\Sequence.cs" />
+    <Compile Include="Gen\ai\Service.cs" />
+    <Compile Include="Gen\ai\SimpleParallel.cs" />
+    <Compile Include="Gen\ai\StringKeyData.cs" />
+    <Compile Include="Gen\ai\Task.cs" />
+    <Compile Include="Gen\ai\TbBehaviorTree.cs" />
+    <Compile Include="Gen\ai\TbBlackboard.cs" />
+    <Compile Include="Gen\ai\UeBlackboard.cs" />
+    <Compile Include="Gen\ai\UeCooldown.cs" />
+    <Compile Include="Gen\ai\UeForceSuccess.cs" />
+    <Compile Include="Gen\ai\UeLoop.cs" />
+    <Compile Include="Gen\ai\UeSetDefaultFocus.cs" />
+    <Compile Include="Gen\ai\UeTimeLimit.cs" />
+    <Compile Include="Gen\ai\UeWait.cs" />
+    <Compile Include="Gen\ai\UeWaitBlackboardTime.cs" />
+    <Compile Include="Gen\ai\UpdateDailyBehaviorProps.cs" />
+    <Compile Include="Gen\blueprint\AbstraceMethod.cs" />
+    <Compile Include="Gen\blueprint\BlueprintMethod.cs" />
+    <Compile Include="Gen\blueprint\Clazz.cs" />
+    <Compile Include="Gen\blueprint\EnumClazz.cs" />
+    <Compile Include="Gen\blueprint\EnumField.cs" />
+    <Compile Include="Gen\blueprint\ExternalMethod.cs" />
+    <Compile Include="Gen\blueprint\Field.cs" />
+    <Compile Include="Gen\blueprint\Interface.cs" />
+    <Compile Include="Gen\blueprint\Method.cs" />
+    <Compile Include="Gen\blueprint\NormalClazz.cs" />
+    <Compile Include="Gen\blueprint\ParamInfo.cs" />
+    <Compile Include="Gen\blueprint\TbClazz.cs" />
+    <Compile Include="Gen\bonus\Bonus.cs" />
+    <Compile Include="Gen\bonus\CoefficientItem.cs" />
+    <Compile Include="Gen\bonus\DropBonus.cs" />
+    <Compile Include="Gen\bonus\DropInfo.cs" />
+    <Compile Include="Gen\bonus\Item.cs" />
+    <Compile Include="Gen\bonus\Items.cs" />
+    <Compile Include="Gen\bonus\MultiBonus.cs" />
+    <Compile Include="Gen\bonus\OneItem.cs" />
+    <Compile Include="Gen\bonus\OneItems.cs" />
+    <Compile Include="Gen\bonus\ProbabilityBonus.cs" />
+    <Compile Include="Gen\bonus\ProbabilityBonusInfo.cs" />
+    <Compile Include="Gen\bonus\ProbabilityItemInfo.cs" />
+    <Compile Include="Gen\bonus\ProbabilityItems.cs" />
+    <Compile Include="Gen\bonus\ShowItemInfo.cs" />
+    <Compile Include="Gen\bonus\TbDrop.cs" />
+    <Compile Include="Gen\bonus\WeightBonus.cs" />
+    <Compile Include="Gen\bonus\WeightBonusInfo.cs" />
+    <Compile Include="Gen\bonus\WeightItemInfo.cs" />
+    <Compile Include="Gen\bonus\WeightItems.cs" />
+    <Compile Include="Gen\common\DateTimeRange.cs" />
+    <Compile Include="Gen\common\Dummy.cs" />
+    <Compile Include="Gen\common\EBoolOperator.cs" />
+    <Compile Include="Gen\common\GlobalConfig.cs" />
+    <Compile Include="Gen\common\TbDummy.cs" />
+    <Compile Include="Gen\common\TbGlobalConfig.cs" />
+    <Compile Include="Gen\condition\BoolRoleCondition.cs" />
+    <Compile Include="Gen\condition\ClothesPropertyScoreGreaterThan.cs" />
+    <Compile Include="Gen\condition\Condition.cs" />
+    <Compile Include="Gen\condition\ContainsItem.cs" />
+    <Compile Include="Gen\condition\GenderLimit.cs" />
+    <Compile Include="Gen\condition\MaxLevel.cs" />
+    <Compile Include="Gen\condition\MinLevel.cs" />
+    <Compile Include="Gen\condition\MinMaxLevel.cs" />
+    <Compile Include="Gen\condition\MultiRoleCondition.cs" />
+    <Compile Include="Gen\condition\RoleCondition.cs" />
+    <Compile Include="Gen\condition\TimeRange.cs" />
+    <Compile Include="Gen\cost\Cost.cs" />
+    <Compile Include="Gen\cost\CostCurrencies.cs" />
+    <Compile Include="Gen\cost\CostCurrency.cs" />
+    <Compile Include="Gen\cost\CostItem.cs" />
+    <Compile Include="Gen\cost\CostItems.cs" />
+    <Compile Include="Gen\cost\CostOneItem.cs" />
+    <Compile Include="Gen\error\CodeInfo.cs" />
+    <Compile Include="Gen\error\EErrorCode.cs" />
+    <Compile Include="Gen\error\EOperation.cs" />
+    <Compile Include="Gen\error\ErrorInfo.cs" />
+    <Compile Include="Gen\error\ErrorStyle.cs" />
+    <Compile Include="Gen\error\ErrorStyleDlgOk.cs" />
+    <Compile Include="Gen\error\ErrorStyleDlgOkCancel.cs" />
+    <Compile Include="Gen\error\ErrorStyleMsgbox.cs" />
+    <Compile Include="Gen\error\ErrorStyleTip.cs" />
+    <Compile Include="Gen\error\TbCodeInfo.cs" />
+    <Compile Include="Gen\error\TbErrorInfo.cs" />
+    <Compile Include="Gen\item\ChooseOneBonus.cs" />
+    <Compile Include="Gen\item\Clothes.cs" />
+    <Compile Include="Gen\item\DesignDrawing.cs" />
+    <Compile Include="Gen\item\Dymmy.cs" />
+    <Compile Include="Gen\item\EClothersStarQualityType.cs" />
+    <Compile Include="Gen\item\EClothersTag.cs" />
+    <Compile Include="Gen\item\EClothesHidePartType.cs" />
+    <Compile Include="Gen\item\EClothesPropertyType.cs" />
+    <Compile Include="Gen\item\ECurrencyType.cs" />
+    <Compile Include="Gen\item\EItemFunctionType.cs" />
+    <Compile Include="Gen\item\EItemQuality.cs" />
+    <Compile Include="Gen\item\EMajorType.cs" />
+    <Compile Include="Gen\item\EMinorType.cs" />
+    <Compile Include="Gen\item\EUseType.cs" />
+    <Compile Include="Gen\item\InteractionItem.cs" />
+    <Compile Include="Gen\item\Item.cs" />
+    <Compile Include="Gen\item\ItemExtra.cs" />
+    <Compile Include="Gen\item\ItemFunction.cs" />
+    <Compile Include="Gen\item\TbItem.cs" />
+    <Compile Include="Gen\item\TbItemExtra.cs" />
+    <Compile Include="Gen\item\TbItemFunc.cs" />
+    <Compile Include="Gen\item\TreasureBox.cs" />
+    <Compile Include="Gen\limit\CoolDown.cs" />
+    <Compile Include="Gen\limit\DailyLimit.cs" />
+    <Compile Include="Gen\limit\DailyLimitBase.cs" />
+    <Compile Include="Gen\limit\ENamespace.cs" />
+    <Compile Include="Gen\limit\GroupCoolDown.cs" />
+    <Compile Include="Gen\limit\LimitBase.cs" />
+    <Compile Include="Gen\limit\MonthlyLimit.cs" />
+    <Compile Include="Gen\limit\MultiDayLimit.cs" />
+    <Compile Include="Gen\limit\WeeklyLimit.cs" />
+    <Compile Include="Gen\mail\EMailType.cs" />
+    <Compile Include="Gen\mail\GlobalMail.cs" />
+    <Compile Include="Gen\mail\SystemMail.cs" />
+    <Compile Include="Gen\mail\TbGlobalMail.cs" />
+    <Compile Include="Gen\mail\TbSystemMail.cs" />
+    <Compile Include="Gen\role\BonusInfo.cs" />
+    <Compile Include="Gen\role\Consts.cs" />
+    <Compile Include="Gen\role\DistinctBonusInfos.cs" />
+    <Compile Include="Gen\role\EGenderType.cs" />
+    <Compile Include="Gen\role\EProfession.cs" />
+    <Compile Include="Gen\role\LevelBonus.cs" />
+    <Compile Include="Gen\role\LevelExpAttr.cs" />
+    <Compile Include="Gen\role\TbRoleLevelBonusCoefficient.cs" />
+    <Compile Include="Gen\role\TbRoleLevelExpAttr.cs" />
+    <Compile Include="Gen\Tables.cs" />
+    <Compile Include="InstanceClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
