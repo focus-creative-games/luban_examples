@@ -34,7 +34,8 @@ public final class TbClazz
     public java.util.HashMap<String, cfg.blueprint.Clazz> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.blueprint.Clazz> getDataList() { return _dataList; }
 
-    public T getAs<T extends cfg.blueprint.Clazz>(String key) { return (T)_dataMap.get(key); }
+    @SuppressWarnings("unchecked")
+    public <T extends cfg.blueprint.Clazz> T getAs(String key) { return (T)_dataMap.get(key); }
     public cfg.blueprint.Clazz get(String key) { return _dataMap.get(key); }
 
     public void resolve(java.util.HashMap<String, Object> _tables)

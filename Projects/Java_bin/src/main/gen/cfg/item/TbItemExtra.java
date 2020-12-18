@@ -34,7 +34,8 @@ public final class TbItemExtra
     public java.util.HashMap<Integer, cfg.item.ItemExtra> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.item.ItemExtra> getDataList() { return _dataList; }
 
-    public T getAs<T extends cfg.item.ItemExtra>(Integer key) { return (T)_dataMap.get(key); }
+    @SuppressWarnings("unchecked")
+    public <T extends cfg.item.ItemExtra> T getAs(int key) { return (T)_dataMap.get(key); }
     public cfg.item.ItemExtra get(int key) { return _dataMap.get(key); }
 
     public void resolve(java.util.HashMap<String, Object> _tables)

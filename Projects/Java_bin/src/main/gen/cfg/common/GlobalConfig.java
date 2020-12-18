@@ -117,7 +117,7 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
 
-            this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(bagInitItemsDropId.Value) : null;
+            this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(bagInitItemsDropId) : null;
     }
 
     @Override
