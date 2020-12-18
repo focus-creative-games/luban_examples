@@ -285,9 +285,5 @@ gradle/
 .vscode/
 
 
-/CfgDatas/CfgCheck/Gen/Data
-/CfgDatas/CfgCheck/Gen/Code
-
-
-/DemoProjects/Javascript_NodeJs_TypeScript/DemoJs/*.map
-/DemoProjects/Javascript_NodeJs_TypeScript/DemoJs/package-lock.json
+/Projects/java_bin/out/
+/Projects/Csharp_Unity_ILRuntime_bin/Logs
