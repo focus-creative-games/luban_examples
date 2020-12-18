@@ -90,7 +90,7 @@ local tables = {}
 ---@param configFileloader function
 function Load(typeDefs, configFileloader)
 
-    local configPath = UnityEngine.Application.dataPath .. "/../output_data/"
+    local configPath = UnityEngine.Application.dataPath .. "/../config_data/"
 	
     enumDefs = typeDefs.enums
     constDefs = typeDefs.consts

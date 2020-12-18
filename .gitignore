@@ -287,3 +287,5 @@ gradle/
 
 /Projects/java_bin/out/
 /Projects/Csharp_Unity_ILRuntime_bin/Logs
+/Projects/Lua_Unity_tolua_bin/Logs
+/Projects/Lua_Unity_tolua_lua/Logs

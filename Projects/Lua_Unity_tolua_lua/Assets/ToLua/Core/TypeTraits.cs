@@ -160,11 +160,6 @@ namespace LuaInterface
 
             return false;
         }
-    }    
-
-    public class DelegateFactory
-    {
-        public delegate Delegate DelegateCreate(LuaFunction func, LuaTable self, bool c);
     }
 
     public static class DelegateTraits<T>
