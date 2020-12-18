@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/man/java'
+            srcDirs 'src/main/corelib'
+            srcDirs 'src/main/gen'
+        }
+    }
+}
+
+dependencies {
+
+}
