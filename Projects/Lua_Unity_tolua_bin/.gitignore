@@ -1,0 +1,12 @@
+# untrack 
+
+.cache.meta
+Assets/Lua/Gen/*
+output_data/*
+*.csproj
+*.sln
+*.ProjectVersion.txt
+Library/
+Temp/
+Assets/Lua/Gen*
+Assets/Source/Generate/*
