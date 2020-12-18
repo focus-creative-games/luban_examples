@@ -1,0 +1,360 @@
+[
+  {
+    "code": "EXAMPLE_FLASH",
+    "desc": "\u8FD9\u662F\u4E00\u4E2A\u4F8B\u5B50\u98D8\u7A97",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "EXAMPLE_MSGBOX",
+    "desc": "\u4F8B\u5B50\u5F39\u6846\uFF0C\u6D88\u606F\u51B3\u5B9A\u884C\u4E3A",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "\u8981\u91CD\u542F\u4E86",
+      "operation": 1
+    }
+  },
+  {
+    "code": "EXAMPLE_DLG_OK",
+    "desc": "\u4F8B\u5B50\uFF1A\u5355\u6309\u94AE\u63D0\u793A\uFF0C\u7528\u6237\u81EA\u5DF1\u63D0\u4F9B\u56DE\u8C03",
+    "style": {
+      "__type__": "ErrorStyleDlgOk",
+      "btn_name": "\u8054\u77E5\u9053\u4E86"
+    }
+  },
+  {
+    "code": "EXAMPLE_DLG_OK_CANCEL",
+    "desc": "\u4F8B\u5B50\uFF1A\u53CC\u6309\u94AE\u63D0\u793A\uFF0C\u7528\u6237\u81EA\u5DF1\u63D0\u4F9B\u56DE\u8C03",
+    "style": {
+      "__type__": "ErrorStyleDlgOkCancel",
+      "btn1_name": "\u522B",
+      "btn2_name": "\u597D"
+    }
+  },
+  {
+    "code": "ROLE_CREATE_NAME_INVALID_CHAR",
+    "desc": "\u89D2\u8272\u540D\u5B57\u6709\u975E\u6CD5\u5B57\u7B26",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ROLE_CREATE_NAME_EMPTY",
+    "desc": "\u540D\u5B57\u4E3A\u7A7A",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ROLE_CREATE_NAME_EXCEED_MAX_LENGTH",
+    "desc": "\u540D\u5B57\u592A\u957F",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ROLE_CREATE_ROLE_LIST_FULL",
+    "desc": "\u89D2\u8272\u5217\u8868\u5DF2\u6EE1",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ROLE_CREATE_INVALID_PROFESSION",
+    "desc": "\u975E\u6CD5\u804C\u4E1A",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "PARAM_ILLEGAL",
+    "desc": "\u53C2\u6570\u975E\u6CD5",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "BAG_IS_FULL",
+    "desc": "\u80CC\u5305\u5DF2\u6EE1",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ITEM_NOT_ENOUGH",
+    "desc": "\u9053\u5177\u4E0D\u8DB3",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "ITEM_IN_BAG",
+    "desc": "\u9053\u5177\u5DF2\u5728\u80CC\u5305\u4E2D",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "GENDER_NOT_MATCH",
+    "desc": "",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "LEVEL_TOO_LOW",
+    "desc": "\u7B49\u7EA7\u592A\u4F4E",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "LEVEL_TOO_HIGH",
+    "desc": "\u7B49\u7EA7\u592A\u9AD8",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "EXCEED_LIMIT",
+    "desc": "\u8D85\u8FC7\u9650\u5236",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "OVER_TIME",
+    "desc": "\u8D85\u65F6",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_NOT_IN_LIST",
+    "desc": "",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_NOT_COOLDOWN",
+    "desc": "",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_TARGET_NOT_EXIST",
+    "desc": "",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_ANOTHER_CASTING",
+    "desc": "",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_TYPE_ERROR",
+    "desc": "\u90AE\u4EF6\u7C7B\u578B\u9519\u8BEF",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_HAVE_DELETED",
+    "desc": "\u90AE\u4EF6\u5DF2\u5220\u9664",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_AWARD_HAVE_RECEIVED",
+    "desc": "\u90AE\u4EF6\u5956\u52B1\u5DF2\u9886\u53D6",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_OPERATE_TYPE_ERROR",
+    "desc": "\u90AE\u4EF6\u64CD\u4F5C\u7C7B\u578B\u9519\u8BEF",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_CONDITION_NOT_MEET",
+    "desc": "\u90AE\u4EF6\u6761\u4EF6\u4E0D\u6EE1\u8DB3",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_NO_AWARD",
+    "desc": "\u90AE\u4EF6\u6CA1\u6709\u5956\u52B1",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "MAIL_BOX_IS_FULL",
+    "desc": "\u90AE\u7BB1\u5DF2\u6EE1",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "NO_INTERACTION_COMPONENT",
+    "desc": "\u5728\u88AB\u62FE\u53D6\u5BF9\u8C61\u4E0A\uFF0C\u627E\u4E0D\u5230\u4EA4\u4E92\u7EC4\u4EF6\uFF01\uFF01",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "BUTTON_TOO_MANY_CLICKS",
+    "desc": "\u70B9\u51FB\u6B21\u6570\u592A\u591A\u4E86",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_ENEYGY_LACK",
+    "desc": "\u6280\u80FD\u80FD\u91CF\u4E0D\u8DB3",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_IS_COOLINGDOWN",
+    "desc": "\u6280\u80FD\u51B7\u5374\u4E2D",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_NO_REACTION_OBJ",
+    "desc": "\u5F53\u524D\u6CA1\u6709\u5BF9\u6280\u80FD\u751F\u6548\u7684\u7269\u4F53",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_NOT_UNLOCKED",
+    "desc": "\u6280\u80FD\u5C1A\u672A\u89E3\u9501",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SKILL_IS_GROUP_COLLINGDOWN",
+    "desc": "\u6280\u80FD\u91CA\u653E\u4E2D",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "CLOTH_CHANGE_TOO_FAST",
+    "desc": "\u6696\u6696\u6B63\u5728\u6362\u8863\u670D\u4E2D\uFF0C\u8BF7\u7A0D\u7B49",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "CLOTH_CHANGE_NOT_ALLOW",
+    "desc": "\u5F53\u524D\u72B6\u6001\u4E0D\u5141\u8BB8\u6362\u88C5",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "CLOTH_CHANGE_SAME",
+    "desc": "\u6362\u7684\u8FD8\u662F\u76EE\u524D\u7684\u5957\u88C5",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "HAS_BIND_SERVER",
+    "desc": "\u5DF2\u7ECF\u7ED1\u5B9A\u8FC7\u8BE5\u670D\u52A1\u5668",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  {
+    "code": "AUTH_FAIL",
+    "desc": "\u8BA4\u8BC1\u5931\u8D25",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  {
+    "code": "NOT_BIND_SERVER",
+    "desc": "\u6CA1\u6709\u7ED1\u5B9A\u670D\u52A1\u5668",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  {
+    "code": "SERVER_ACCESS_FAIL",
+    "desc": "\u8BBF\u95EE\u670D\u52A1\u5668\u5931\u8D25",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  {
+    "code": "SERVER_NOT_EXISTS",
+    "desc": "\u8BE5\u670D\u52A1\u5668\u4E0D\u5B58\u5728",
+    "style": {
+      "__type__": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  {
+    "code": "SUIT_NOT_UNLOCK",
+    "desc": "\u5957\u88C5\u5C1A\u672A\u89E3\u9501",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SUIT_COMPONENT_NOT_UNLOCK",
+    "desc": "\u90E8\u4EF6\u5C1A\u672A\u89E3\u9501",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SUIT_STATE_ERROR",
+    "desc": "\u5957\u88C5\u72B6\u6001\u9519\u8BEF",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SUIT_COMPONENT_STATE_ERROR",
+    "desc": "\u90E8\u4EF6\u72B6\u6001\u9519\u8BEF",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  },
+  {
+    "code": "SUIT_COMPONENT_NO_NEED_LEARN",
+    "desc": "\u8BBE\u8BA1\u56FE\u7EB8\u5BF9\u5E94\u7684\u90E8\u4EF6\u5747\u5DF2\u5B8C\u6210\u5B66\u4E60",
+    "style": {
+      "__type__": "ErrorStyleTip"
+    }
+  }
+]
