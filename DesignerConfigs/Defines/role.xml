@@ -1,0 +1,37 @@
+﻿<module name="role">
+
+	<const name="Consts">
+		<var name="MAX_NAME_LENGTH" type="int" value="20"/>
+		<var name="MAX_USER_ROLE_NUM" type="int" value="10"/>
+	</const>
+
+	<enum name="EGenderType">
+		<var name="MALE" alias="男" value="1"/>
+		<var name="FEMALE" alias="女" value="2"/>
+	</enum>
+
+	<enum name="EProfession">
+		<var name="TEST_PROFESSION" value="1"/>
+	</enum>
+	
+	<bean name="LevelExpAttr">
+		<var name="level" type="int"/>
+		<var name="need_exp" type="long"/>
+		<var name="clothes_attrs" type="list,int"/> 
+	</bean>
+	<table name="TbRoleLevelExpAttr" value="LevelExpAttr" input="等级经验数值表@role/等级信息表.xlsx"/> 
+
+	<bean name="BonusInfo">
+		<var name="type" type="item.ECurrencyType"/>
+		<var name="coefficient" type="float"/>
+	</bean>
+	<bean name="DistinctBonusInfos">
+		<var name="effective_level" type="int"/> 
+		<var name="bonus_info" type="list,BonusInfo"/>  
+	</bean>
+	<bean name="LevelBonus">
+		<var name="id" type="int"/>
+		<var name="distinct_bonus_infos" type="list,DistinctBonusInfos" multi_rows="1"/>
+	</bean>
+	<table name="TbRoleLevelBonusCoefficient" value="LevelBonus" input="等级奖励系数表@role/等级信息表.xlsx"/>
+</module>
