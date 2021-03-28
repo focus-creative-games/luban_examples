@@ -1,2 +1,3 @@
 rem setx LUBAN_SERVER_IP 81.69.4.240
 setx LUBAN_SERVER_IP 127.0.0.1
+pause
