@@ -13,5 +13,8 @@
   "devDependencies": {
     "@types/node": "^8.10.66",
     "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "nodejs": "^0.0.0"
   }
 }

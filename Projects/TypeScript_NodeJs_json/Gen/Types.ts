@@ -18,7 +18,7 @@ export class Vector2 {
             this.y = y;
         }
 
-        static fromJson(_json_: any): Vector2 {
+        static from(_json_: any): Vector2 {
             let x = _json_['x'];
             let y = _json_['y'];
             if (x == null || y == null) {
@@ -39,7 +39,7 @@ export class Vector2 {
             this.z = z;
         }
 
-        static fromJson(_json_: any): Vector3 {
+        static from(_json_: any): Vector3 {
             let x = _json_['x'];
             let y = _json_['y'];
             let z = _json_['z'];
@@ -62,7 +62,7 @@ export class Vector2 {
             this.w = w;
         }
 
-        static fromJson(_json_: any): Vector4 {
+        static from(_json_: any): Vector4 {
             let x = _json_['x'];
             let y = _json_['y'];
             let z = _json_['z'];
@@ -468,8 +468,8 @@ export enum EProfession {
 
 namespace role {
 export class Consts {
-    static MAX_NAME_LENGTH : number  = 20;
-    static MAX_USER_ROLE_NUM : number  = 10;
+    static MAX_NAME_LENGTH = 20;
+    static MAX_USER_ROLE_NUM = 10;
 }
 }
 
@@ -490,7 +490,7 @@ export  class Blackboard  {
         if (_json_.parent_name == null) { throw new Error(); }
         this.parentName = _json_.parent_name;
         if (_json_.keys == null) { throw new Error(); }
-        { this.keys = []; for(var _ele of _json_.keys) { let _e : ai.BlackboardKey;_e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
+        { this.keys = []; for(let _ele of _json_.keys) { let _e : ai.BlackboardKey;_e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
     }
 
      name : string;
@@ -523,7 +523,7 @@ export  class BlackboardKey  {
         if (_json_.is_static == null) { throw new Error(); }
         this.isStatic = _json_.is_static;
         if (_json_.type == null) { throw new Error(); }
-        this.type = _json_.type as number;
+        this.type = _json_.type;
         if (_json_.type_class_name == null) { throw new Error(); }
         this.typeClassName = _json_.type_class_name;
     }
@@ -565,7 +565,7 @@ export  class BehaviorTree  {
      desc : string;
      blackboardId : string;
     blackboardId_Ref : ai.Blackboard;
-     root : ai.ComposeNode;
+     root? : ai.ComposeNode;
 
     resolve(_tables : Map<string, any>) : void {
             this.blackboardId_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.blackboardId);
@@ -583,8 +583,7 @@ namespace ai {
 
 export  abstract  class Node  {
     static deserialize(_json_ : any) : Node {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_);
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_);
@@ -637,8 +636,7 @@ namespace ai {
 
 export  abstract  class Service  extends ai.Node {
     static deserialize(_json_ : any) : Service {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_);
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_);
@@ -829,8 +827,7 @@ namespace ai {
 
 export  abstract  class Decorator  extends ai.Node {
     static deserialize(_json_ : any) : Decorator {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'UeLoop': return new ai.UeLoop(_json_);
             case 'UeCooldown': return new ai.UeCooldown(_json_);
@@ -846,7 +843,7 @@ export  abstract  class Decorator  extends ai.Node {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.flow_abort_mode == null) { throw new Error(); }
-        this.flowAbortMode = _json_.flow_abort_mode as number;
+        this.flowAbortMode = _json_.flow_abort_mode;
     }
 
      flowAbortMode : ai.EFlowAbortMode;
@@ -944,7 +941,7 @@ export  class UeBlackboard  extends ai.Decorator {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.notify_observer == null) { throw new Error(); }
-        this.notifyObserver = _json_.notify_observer as number;
+        this.notifyObserver = _json_.notify_observer;
         if (_json_.blackboard_key == null) { throw new Error(); }
         this.blackboardKey = _json_.blackboard_key;
         this.keyQuery = ai.KeyQueryOperator.deserialize(_json_.key_query);
@@ -952,7 +949,7 @@ export  class UeBlackboard  extends ai.Decorator {
 
      notifyObserver : ai.ENotifyObserverMode;
      blackboardKey : string;
-     keyQuery : ai.KeyQueryOperator;
+     keyQuery? : ai.KeyQueryOperator;
 
     resolve(_tables : Map<string, any>) : void {
         super.resolve(_tables);
@@ -970,8 +967,7 @@ namespace ai {
 
 export  abstract  class KeyQueryOperator  {
     static deserialize(_json_ : any) : KeyQueryOperator {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'IsSet': return new ai.IsSet(_json_);
             case 'IsNotSet': return new ai.IsNotSet(_json_);
@@ -1041,12 +1037,12 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.oper == null) { throw new Error(); }
-        this.oper = _json_.oper as number;
+        this.oper = _json_.oper;
         this.data = ai.KeyData.deserialize(_json_.data);
     }
 
      oper : ai.EOperator;
-     data : ai.KeyData;
+     data? : ai.KeyData;
 
     resolve(_tables : Map<string, any>) : void {
         super.resolve(_tables);
@@ -1064,8 +1060,7 @@ namespace ai {
 
 export  abstract  class KeyData  {
     static deserialize(_json_ : any) : KeyData {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'FloatKeyData': return new ai.FloatKeyData(_json_);
             case 'IntKeyData': return new ai.IntKeyData(_json_);
@@ -1266,8 +1261,7 @@ namespace ai {
 
 export  abstract  class FlowNode  extends ai.Node {
     static deserialize(_json_ : any) : FlowNode {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'Sequence': return new ai.Sequence(_json_);
             case 'Selector': return new ai.Selector(_json_);
@@ -1286,9 +1280,9 @@ export  abstract  class FlowNode  extends ai.Node {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.decorators == null) { throw new Error(); }
-        { this.decorators = []; for(var _ele of _json_.decorators) { let _e : ai.Decorator;_e = ai.Decorator.deserialize(_ele); this.decorators.push(_e);}}
+        { this.decorators = []; for(let _ele of _json_.decorators) { let _e : ai.Decorator;_e = ai.Decorator.deserialize(_ele); this.decorators.push(_e);}}
         if (_json_.services == null) { throw new Error(); }
-        { this.services = []; for(var _ele of _json_.services) { let _e : ai.Service;_e = ai.Service.deserialize(_ele); this.services.push(_e);}}
+        { this.services = []; for(let _ele of _json_.services) { let _e : ai.Service;_e = ai.Service.deserialize(_ele); this.services.push(_e);}}
     }
 
      decorators : ai.Decorator[];
@@ -1311,8 +1305,7 @@ namespace ai {
 
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static deserialize(_json_ : any) : ComposeNode {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'Sequence': return new ai.Sequence(_json_);
             case 'Selector': return new ai.Selector(_json_);
@@ -1344,7 +1337,7 @@ export  class Sequence  extends ai.ComposeNode {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.children == null) { throw new Error(); }
-        { this.children = []; for(var _ele of _json_.children) { let _e : ai.FlowNode;_e = ai.FlowNode.deserialize(_ele); this.children.push(_e);}}
+        { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode;_e = ai.FlowNode.deserialize(_ele); this.children.push(_e);}}
     }
 
      children : ai.FlowNode[];
@@ -1368,7 +1361,7 @@ export  class Selector  extends ai.ComposeNode {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.children == null) { throw new Error(); }
-        { this.children = []; for(var _ele of _json_.children) { let _e : ai.FlowNode;_e = ai.FlowNode.deserialize(_ele); this.children.push(_e);}}
+        { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode;_e = ai.FlowNode.deserialize(_ele); this.children.push(_e);}}
     }
 
      children : ai.FlowNode[];
@@ -1392,14 +1385,14 @@ export  class SimpleParallel  extends ai.ComposeNode {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.finish_mode == null) { throw new Error(); }
-        this.finishMode = _json_.finish_mode as number;
+        this.finishMode = _json_.finish_mode;
         this.mainTask = ai.Task.deserialize(_json_.main_task);
         this.backgroundNode = ai.FlowNode.deserialize(_json_.background_node);
     }
 
      finishMode : ai.EFinishMode;
-     mainTask : ai.Task;
-     backgroundNode : ai.FlowNode;
+     mainTask? : ai.Task;
+     backgroundNode? : ai.FlowNode;
 
     resolve(_tables : Map<string, any>) : void {
         super.resolve(_tables);
@@ -1418,8 +1411,7 @@ namespace ai {
 
 export  abstract  class Task  extends ai.FlowNode {
     static deserialize(_json_ : any) : Task {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'UeWait': return new ai.UeWait(_json_);
             case 'UeWaitBlackboardTime': return new ai.UeWaitBlackboardTime(_json_);
@@ -1585,7 +1577,7 @@ export  class MoveToLocation  extends ai.Task {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.location == null) { throw new Error(); }
-        this.location = Vector3.fromJson(_json_.location);
+        this.location = Vector3.from(_json_.location);
         if (_json_.acceptable_radius == null) { throw new Error(); }
         this.acceptableRadius = _json_.acceptable_radius;
     }
@@ -1631,8 +1623,7 @@ namespace blueprint {
 
 export  abstract  class Clazz  {
     static deserialize(_json_ : any) : Clazz {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'Interface': return new blueprint.Interface(_json_);
             case 'NormalClazz': return new blueprint.NormalClazz(_json_);
@@ -1647,9 +1638,9 @@ export  abstract  class Clazz  {
         if (_json_.desc == null) { throw new Error(); }
         this.desc = _json_.desc;
         if (_json_.parents == null) { throw new Error(); }
-        { this.parents = []; for(var _ele of _json_.parents) { let _e : blueprint.Clazz;_e = blueprint.Clazz.deserialize(_ele); this.parents.push(_e);}}
+        { this.parents = []; for(let _ele of _json_.parents) { let _e : blueprint.Clazz;_e = blueprint.Clazz.deserialize(_ele); this.parents.push(_e);}}
         if (_json_.methods == null) { throw new Error(); }
-        { this.methods = []; for(var _ele of _json_.methods) { let _e : blueprint.Method;_e = blueprint.Method.deserialize(_ele); this.methods.push(_e);}}
+        { this.methods = []; for(let _ele of _json_.methods) { let _e : blueprint.Method;_e = blueprint.Method.deserialize(_ele); this.methods.push(_e);}}
     }
 
      name : string;
@@ -1673,8 +1664,7 @@ namespace blueprint {
 
 export  abstract  class Method  {
     static deserialize(_json_ : any) : Method {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'AbstraceMethod': return new blueprint.AbstraceMethod(_json_);
             case 'ExternalMethod': return new blueprint.ExternalMethod(_json_);
@@ -1693,7 +1683,7 @@ export  abstract  class Method  {
         if (_json_.return_type == null) { throw new Error(); }
         this.returnType = _json_.return_type;
         if (_json_.parameters == null) { throw new Error(); }
-        { this.parameters = []; for(var _ele of _json_.parameters) { let _e : blueprint.ParamInfo;_e = new blueprint.ParamInfo(_ele); this.parameters.push(_e);}}
+        { this.parameters = []; for(let _ele of _json_.parameters) { let _e : blueprint.ParamInfo;_e = new blueprint.ParamInfo(_ele); this.parameters.push(_e);}}
     }
 
      name : string;
@@ -1829,7 +1819,7 @@ export  class NormalClazz  extends blueprint.Clazz {
         if (_json_.is_abstract == null) { throw new Error(); }
         this.isAbstract = _json_.is_abstract;
         if (_json_.fields == null) { throw new Error(); }
-        { this.fields = []; for(var _ele of _json_.fields) { let _e : blueprint.Field;_e = new blueprint.Field(_ele); this.fields.push(_e);}}
+        { this.fields = []; for(let _ele of _json_.fields) { let _e : blueprint.Field;_e = new blueprint.Field(_ele); this.fields.push(_e);}}
     }
 
      isAbstract : boolean;
@@ -1881,7 +1871,7 @@ export  class EnumClazz  extends blueprint.Clazz {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.enums == null) { throw new Error(); }
-        { this.enums = []; for(var _ele of _json_.enums) { let _e : blueprint.EnumField;_e = new blueprint.EnumField(_ele); this.enums.push(_e);}}
+        { this.enums = []; for(let _ele of _json_.enums) { let _e : blueprint.EnumField;_e = new blueprint.EnumField(_ele); this.enums.push(_e);}}
     }
 
      enums : blueprint.EnumField[];
@@ -1932,14 +1922,14 @@ export  class DropInfo  {
         if (_json_.desc == null) { throw new Error(); }
         this.desc = _json_.desc;
         if (_json_.client_show_items == null) { throw new Error(); }
-        { this.clientShowItems = []; for(var _ele of _json_.client_show_items) { let _e : bonus.ShowItemInfo;_e = new bonus.ShowItemInfo(_ele); this.clientShowItems.push(_e);}}
+        { this.clientShowItems = []; for(let _ele of _json_.client_show_items) { let _e : bonus.ShowItemInfo;_e = new bonus.ShowItemInfo(_ele); this.clientShowItems.push(_e);}}
         this.bonus = bonus.Bonus.deserialize(_json_.bonus);
     }
 
      id : number;
      desc : string;
      clientShowItems : bonus.ShowItemInfo[];
-     bonus : bonus.Bonus;
+     bonus? : bonus.Bonus;
 
     resolve(_tables : Map<string, any>) : void {
             for(let _e of this.clientShowItems) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1966,7 +1956,7 @@ export  class ShowItemInfo  {
 
      itemId : number;
     itemId_Ref : item.Item;
-     itemNum : number;
+     itemNum : bigint;
 
     resolve(_tables : Map<string, any>) : void {
             this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId);
@@ -1983,8 +1973,7 @@ namespace bonus {
 
 export  abstract  class Bonus  {
     static deserialize(_json_ : any) : Bonus {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'OneItem': return new bonus.OneItem(_json_);
             case 'OneItems': return new bonus.OneItems(_json_);
@@ -2098,7 +2087,7 @@ export  class Items  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.item_list == null) { throw new Error(); }
-        { this.itemList = []; for(var _ele of _json_.item_list) { let _e :bonus.Item;_e = new bonus.Item(_ele); this.itemList.push(_e);}}
+        { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.Item;_e = new bonus.Item(_ele); this.itemList.push(_e);}}
     }
 
      itemList : bonus.Item[];
@@ -2149,7 +2138,7 @@ export  class WeightItems  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.item_list == null) { throw new Error(); }
-        { this.itemList = []; for(var _ele of _json_.item_list) { let _e :bonus.WeightItemInfo;_e = new bonus.WeightItemInfo(_ele); this.itemList.push(_e);}}
+        { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.WeightItemInfo;_e = new bonus.WeightItemInfo(_ele); this.itemList.push(_e);}}
     }
 
      itemList : bonus.WeightItemInfo[];
@@ -2202,7 +2191,7 @@ export  class ProbabilityItems  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.item_list == null) { throw new Error(); }
-        { this.itemList = []; for(var _ele of _json_.item_list) { let _e :bonus.ProbabilityItemInfo;_e = new bonus.ProbabilityItemInfo(_ele); this.itemList.push(_e);}}
+        { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.ProbabilityItemInfo;_e = new bonus.ProbabilityItemInfo(_ele); this.itemList.push(_e);}}
     }
 
      itemList : bonus.ProbabilityItemInfo[];
@@ -2255,7 +2244,7 @@ export  class MultiBonus  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.bonuses == null) { throw new Error(); }
-        { this.bonuses = []; for(var _ele of _json_.bonuses) { let _e :bonus.Bonus;_e = bonus.Bonus.deserialize(_ele); this.bonuses.push(_e);}}
+        { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.Bonus;_e = bonus.Bonus.deserialize(_ele); this.bonuses.push(_e);}}
     }
 
      bonuses : bonus.Bonus[];
@@ -2279,7 +2268,7 @@ export  class ProbabilityBonus  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.bonuses == null) { throw new Error(); }
-        { this.bonuses = []; for(var _ele of _json_.bonuses) { let _e :bonus.ProbabilityBonusInfo;_e = new bonus.ProbabilityBonusInfo(_ele); this.bonuses.push(_e);}}
+        { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.ProbabilityBonusInfo;_e = new bonus.ProbabilityBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
      bonuses : bonus.ProbabilityBonusInfo[];
@@ -2306,7 +2295,7 @@ export  class ProbabilityBonusInfo  {
         this.probability = _json_.probability;
     }
 
-     bonus : bonus.Bonus;
+     bonus? : bonus.Bonus;
      probability : number;
 
     resolve(_tables : Map<string, any>) : void {
@@ -2327,7 +2316,7 @@ export  class WeightBonus  extends bonus.Bonus {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.bonuses == null) { throw new Error(); }
-        { this.bonuses = []; for(var _ele of _json_.bonuses) { let _e :bonus.WeightBonusInfo;_e = new bonus.WeightBonusInfo(_ele); this.bonuses.push(_e);}}
+        { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.WeightBonusInfo;_e = new bonus.WeightBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
      bonuses : bonus.WeightBonusInfo[];
@@ -2354,7 +2343,7 @@ export  class WeightBonusInfo  {
         this.weight = _json_.weight;
     }
 
-     bonus : bonus.Bonus;
+     bonus? : bonus.Bonus;
      weight : number;
 
     resolve(_tables : Map<string, any>) : void {
@@ -2450,7 +2439,7 @@ export  class GlobalConfig  {
      clothBagCapacity : number;
      clothBagInitCapacity : number;
      clothBagCapacitySpecial : number;
-     bagInitItemsDropId : number;
+     bagInitItemsDropId? : number;
     bagInitItemsDropId_Ref : bonus.DropInfo;
      mailBoxCapacity : number;
      damageParamC : number;
@@ -2486,7 +2475,7 @@ export  class Dummy  {
     }
 
      id : number;
-     limit : limit.LimitBase;
+     limit? : limit.LimitBase;
 
     resolve(_tables : Map<string, any>) : void {
             if (this.limit != null) { this.limit.resolve(_tables);}
@@ -2503,8 +2492,7 @@ namespace limit {
 
 export  abstract  class LimitBase  {
     static deserialize(_json_ : any) : LimitBase {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'DailyLimit': return new limit.DailyLimit(_json_);
             case 'MultiDayLimit': return new limit.MultiDayLimit(_json_);
@@ -2534,8 +2522,7 @@ namespace limit {
 
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static deserialize(_json_ : any) : DailyLimitBase {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'DailyLimit': return new limit.DailyLimit(_json_);
             default: throw new Error();
@@ -2716,7 +2703,7 @@ export  class ErrorInfo  {
 
      code : string;
      desc : string;
-     style : error.ErrorStyle;
+     style? : error.ErrorStyle;
 
     resolve(_tables : Map<string, any>) : void {
             if (this.style != null) { this.style.resolve(_tables);}
@@ -2733,8 +2720,7 @@ namespace error {
 
 export  abstract  class ErrorStyle  {
     static deserialize(_json_ : any) : ErrorStyle {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'ErrorStyleTip': return new error.ErrorStyleTip(_json_);
             case 'ErrorStyleMsgbox': return new error.ErrorStyleMsgbox(_json_);
@@ -2787,7 +2773,7 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
         if (_json_.btn_name == null) { throw new Error(); }
         this.btnName = _json_.btn_name;
         if (_json_.operation == null) { throw new Error(); }
-        this.operation = _json_.operation as number;
+        this.operation = _json_.operation;
     }
 
      btnName : string;
@@ -2859,7 +2845,7 @@ export  class CodeInfo  {
 
     constructor(_json_ : any) {
         if (_json_.code == null) { throw new Error(); }
-        this.code = _json_.code as number;
+        this.code = _json_.code;
         if (_json_.key == null) { throw new Error(); }
         this.key = _json_.key;
     }
@@ -2887,13 +2873,13 @@ export  class Item  {
         if (_json_.name == null) { throw new Error(); }
         this.name = _json_.name;
         if (_json_.major_type == null) { throw new Error(); }
-        this.majorType = _json_.major_type as number;
+        this.majorType = _json_.major_type;
         if (_json_.minor_type == null) { throw new Error(); }
-        this.minorType = _json_.minor_type as number;
+        this.minorType = _json_.minor_type;
         if (_json_.max_pile_num == null) { throw new Error(); }
         this.maxPileNum = _json_.max_pile_num;
         if (_json_.quality == null) { throw new Error(); }
-        this.quality = _json_.quality as number;
+        this.quality = _json_.quality;
         if (_json_.icon == null) { throw new Error(); }
         this.icon = _json_.icon;
         if (_json_.icon_backgroud == null) { throw new Error(); }
@@ -2920,7 +2906,7 @@ export  class Item  {
         this.droppable = _json_.droppable;
         if(_json_.price != null) { this.price = _json_.price; } else { this.price = null; }
         if (_json_.use_type == null) { throw new Error(); }
-        this.useType = _json_.use_type as number;
+        this.useType = _json_.use_type;
         if(_json_.level_up_id != null) { this.levelUpId = _json_.level_up_id; } else { this.levelUpId = null; }
     }
 
@@ -2942,9 +2928,9 @@ export  class Item  {
      progressTimeWhenUse : number;
      showHintWhenUse : boolean;
      droppable : boolean;
-     price : number;
+     price? : number;
      useType : item.EUseType;
-     levelUpId : number;
+     levelUpId? : number;
 
     resolve(_tables : Map<string, any>) : void {
     }
@@ -2962,9 +2948,9 @@ export  class ItemFunction  {
 
     constructor(_json_ : any) {
         if (_json_.minor_type == null) { throw new Error(); }
-        this.minorType = _json_.minor_type as number;
+        this.minorType = _json_.minor_type;
         if (_json_.func_type == null) { throw new Error(); }
-        this.funcType = _json_.func_type as number;
+        this.funcType = _json_.func_type;
         if (_json_.method == null) { throw new Error(); }
         this.method = _json_.method;
         if (_json_.close_bag_ui == null) { throw new Error(); }
@@ -2990,8 +2976,7 @@ namespace item {
 
 export  abstract  class ItemExtra  {
     static deserialize(_json_ : any) : ItemExtra {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'TreasureBox': return new item.TreasureBox(_json_);
             case 'InteractionItem': return new item.InteractionItem(_json_);
@@ -3033,13 +3018,13 @@ export  class TreasureBox  extends item.ItemExtra {
         if (_json_.drop_ids == null) { throw new Error(); }
         this.dropIds = _json_.drop_ids;
         if (_json_.choose_list == null) { throw new Error(); }
-        { this.chooseList = []; for(var _ele of _json_.choose_list) { let _e : item.ChooseOneBonus;_e = new item.ChooseOneBonus(_ele); this.chooseList.push(_e);}}
+        { this.chooseList = []; for(let _ele of _json_.choose_list) { let _e : item.ChooseOneBonus;_e = new item.ChooseOneBonus(_ele); this.chooseList.push(_e);}}
     }
 
-     keyItemId : number;
+     keyItemId? : number;
      openLevel : condition.MinLevel;
      useOnObtain : boolean;
-     dropIds : Int32Array;
+     dropIds : number[];
      chooseList : item.ChooseOneBonus[];
 
     resolve(_tables : Map<string, any>) : void {
@@ -3059,8 +3044,7 @@ namespace condition {
 
 export  abstract  class Condition  {
     static deserialize(_json_ : any) : Condition {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'TimeRange': return new condition.TimeRange(_json_);
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_);
@@ -3121,8 +3105,8 @@ export  class DateTimeRange  {
         if(_json_.end_time != null) { this.endTime = _json_.end_time; } else { this.endTime = null; }
     }
 
-     startTime : number;
-     endTime : number;
+     startTime? : number;
+     endTime? : number;
 
     resolve(_tables : Map<string, any>) : void {
     }
@@ -3138,8 +3122,7 @@ namespace condition {
 
 export  abstract  class RoleCondition  extends condition.Condition {
     static deserialize(_json_ : any) : RoleCondition {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_);
             case 'GenderLimit': return new condition.GenderLimit(_json_);
@@ -3175,7 +3158,7 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.conditions == null) { throw new Error(); }
-        { this.conditions = []; for(var _ele of _json_.conditions) { let _e :condition.RoleCondition;_e = condition.RoleCondition.deserialize(_ele); this.conditions.push(_e);}}
+        { this.conditions = []; for(let _ele of _json_.conditions) { let _e :condition.RoleCondition;_e = condition.RoleCondition.deserialize(_ele); this.conditions.push(_e);}}
     }
 
      conditions : condition.RoleCondition[];
@@ -3196,8 +3179,7 @@ namespace condition {
 
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
     static deserialize(_json_ : any) : BoolRoleCondition {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'GenderLimit': return new condition.GenderLimit(_json_);
             case 'MinLevel': return new condition.MinLevel(_json_);
@@ -3231,7 +3213,7 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.gender == null) { throw new Error(); }
-        this.gender = _json_.gender as number;
+        this.gender = _json_.gender;
     }
 
      gender : role.EGenderType;
@@ -3326,7 +3308,7 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.prop == null) { throw new Error(); }
-        this.prop = _json_.prop as number;
+        this.prop = _json_.prop;
         if (_json_.value == null) { throw new Error(); }
         this.value = _json_.value;
     }
@@ -3415,7 +3397,7 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _json_.holding_static_mesh_mat;
     }
 
-     attackNum : number;
+     attackNum? : number;
      holdingStaticMesh : string;
      holdingStaticMeshMat : string;
 
@@ -3447,7 +3429,7 @@ export  class Clothes  extends item.ItemExtra {
     }
 
      attack : number;
-     hp : number;
+     hp : bigint;
      energyLimit : number;
      energyResume : number;
 
@@ -3472,7 +3454,7 @@ export  class DesignDrawing  extends item.ItemExtra {
         this.learnComponentId = _json_.learn_component_id;
     }
 
-     learnComponentId : Int32Array;
+     learnComponentId : number[];
 
     resolve(_tables : Map<string, any>) : void {
         super.resolve(_tables);
@@ -3494,7 +3476,7 @@ export  class Dymmy  extends item.ItemExtra {
         this.cost = cost.Cost.deserialize(_json_.cost);
     }
 
-     cost : cost.Cost;
+     cost? : cost.Cost;
 
     resolve(_tables : Map<string, any>) : void {
         super.resolve(_tables);
@@ -3512,8 +3494,7 @@ namespace cost {
 
 export  abstract  class Cost  {
     static deserialize(_json_ : any) : Cost {
-        switch (_json_.__type__)
-        {
+        switch (_json_.__type__) {
             case null : return null;
             case 'CostCurrency': return new cost.CostCurrency(_json_);
             case 'CostCurrencies': return new cost.CostCurrencies(_json_);
@@ -3545,7 +3526,7 @@ export  class CostCurrency  extends cost.Cost {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.type == null) { throw new Error(); }
-        this.type = _json_.type as number;
+        this.type = _json_.type;
         if (_json_.num == null) { throw new Error(); }
         this.num = _json_.num;
     }
@@ -3571,7 +3552,7 @@ export  class CostCurrencies  extends cost.Cost {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.currencies == null) { throw new Error(); }
-        { this.currencies = []; for(var _ele of _json_.currencies) { let _e : cost.CostCurrency;_e = new cost.CostCurrency(_ele); this.currencies.push(_e);}}
+        { this.currencies = []; for(let _ele of _json_.currencies) { let _e : cost.CostCurrency;_e = new cost.CostCurrency(_ele); this.currencies.push(_e);}}
     }
 
      currencies : cost.CostCurrency[];
@@ -3648,7 +3629,7 @@ export  class CostItems  extends cost.Cost {
     constructor(_json_ : any) {
         super(_json_);
         if (_json_.item_list == null) { throw new Error(); }
-        { this.itemList = []; for(var _ele of _json_.item_list) { let _e :cost.CostItem;_e = new cost.CostItem(_ele); this.itemList.push(_e);}}
+        { this.itemList = []; for(let _ele of _json_.item_list) { let _e :cost.CostItem;_e = new cost.CostItem(_ele); this.itemList.push(_e);}}
     }
 
      itemList : cost.CostItem[];
@@ -3686,7 +3667,7 @@ export  class SystemMail  {
      title : string;
      sender : string;
      content : string;
-     award : Int32Array;
+     award : number[];
 
     resolve(_tables : Map<string, any>) : void {
     }
@@ -3733,9 +3714,9 @@ export  class GlobalMail  {
      title : string;
      sender : string;
      content : string;
-     award : Int32Array;
+     award : number[];
      allServer : boolean;
-     serverList : Int32Array;
+     serverList : number[];
      platform : string;
      channel : string;
      minMaxLevel : condition.MinMaxLevel;
@@ -3769,8 +3750,8 @@ export  class LevelExpAttr  {
     }
 
      level : number;
-     needExp : number;
-     clothesAttrs : Int32Array;
+     needExp : bigint;
+     clothesAttrs : number[];
 
     resolve(_tables : Map<string, any>) : void {
     }
@@ -3790,7 +3771,7 @@ export  class LevelBonus  {
         if (_json_.id == null) { throw new Error(); }
         this.id = _json_.id;
         if (_json_.distinct_bonus_infos == null) { throw new Error(); }
-        { this.distinctBonusInfos = []; for(var _ele of _json_.distinct_bonus_infos) { let _e : role.DistinctBonusInfos;_e = new role.DistinctBonusInfos(_ele); this.distinctBonusInfos.push(_e);}}
+        { this.distinctBonusInfos = []; for(let _ele of _json_.distinct_bonus_infos) { let _e : role.DistinctBonusInfos;_e = new role.DistinctBonusInfos(_ele); this.distinctBonusInfos.push(_e);}}
     }
 
      id : number;
@@ -3815,7 +3796,7 @@ export  class DistinctBonusInfos  {
         if (_json_.effective_level == null) { throw new Error(); }
         this.effectiveLevel = _json_.effective_level;
         if (_json_.bonus_info == null) { throw new Error(); }
-        { this.bonusInfo = []; for(var _ele of _json_.bonus_info) { let _e : role.BonusInfo;_e = new role.BonusInfo(_ele); this.bonusInfo.push(_e);}}
+        { this.bonusInfo = []; for(let _ele of _json_.bonus_info) { let _e : role.BonusInfo;_e = new role.BonusInfo(_ele); this.bonusInfo.push(_e);}}
     }
 
      effectiveLevel : number;
@@ -3838,7 +3819,7 @@ export  class BonusInfo  {
 
     constructor(_json_ : any) {
         if (_json_.type == null) { throw new Error(); }
-        this.type = _json_.type as number;
+        this.type = _json_.type;
         if (_json_.coefficient == null) { throw new Error(); }
         this.coefficient = _json_.coefficient;
     }

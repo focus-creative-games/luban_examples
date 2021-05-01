@@ -15,7 +15,7 @@ var cfg;
             this.x = x;
             this.y = y;
         }
-        static fromJson(_json_) {
+        static from(_json_) {
             let x = _json_['x'];
             let y = _json_['y'];
             if (x == null || y == null) {
@@ -31,7 +31,7 @@ var cfg;
             this.y = y;
             this.z = z;
         }
-        static fromJson(_json_) {
+        static from(_json_) {
             let x = _json_['x'];
             let y = _json_['y'];
             let z = _json_['z'];
@@ -49,7 +49,7 @@ var cfg;
             this.z = z;
             this.w = w;
         }
-        static fromJson(_json_) {
+        static from(_json_) {
             let x = _json_['x'];
             let y = _json_['y'];
             let z = _json_['z'];
@@ -439,7 +439,7 @@ var cfg;
                 }
                 {
                     this.keys = [];
-                    for (var _ele of _json_.keys) {
+                    for (let _ele of _json_.keys) {
                         let _e;
                         _e = new ai.BlackboardKey(_ele);
                         this.keys.push(_e);
@@ -1015,7 +1015,7 @@ var cfg;
                 }
                 {
                     this.decorators = [];
-                    for (var _ele of _json_.decorators) {
+                    for (let _ele of _json_.decorators) {
                         let _e;
                         _e = ai.Decorator.deserialize(_ele);
                         this.decorators.push(_e);
@@ -1026,7 +1026,7 @@ var cfg;
                 }
                 {
                     this.services = [];
-                    for (var _ele of _json_.services) {
+                    for (let _ele of _json_.services) {
                         let _e;
                         _e = ai.Service.deserialize(_ele);
                         this.services.push(_e);
@@ -1094,7 +1094,7 @@ var cfg;
                 }
                 {
                     this.children = [];
-                    for (var _ele of _json_.children) {
+                    for (let _ele of _json_.children) {
                         let _e;
                         _e = ai.FlowNode.deserialize(_ele);
                         this.children.push(_e);
@@ -1121,7 +1121,7 @@ var cfg;
                 }
                 {
                     this.children = [];
-                    for (var _ele of _json_.children) {
+                    for (let _ele of _json_.children) {
                         let _e;
                         _e = ai.FlowNode.deserialize(_ele);
                         this.children.push(_e);
@@ -1288,7 +1288,7 @@ var cfg;
                 if (_json_.location == null) {
                     throw new Error();
                 }
-                this.location = Vector3.fromJson(_json_.location);
+                this.location = Vector3.from(_json_.location);
                 if (_json_.acceptable_radius == null) {
                     throw new Error();
                 }
@@ -1332,7 +1332,7 @@ var cfg;
                 }
                 {
                     this.parents = [];
-                    for (var _ele of _json_.parents) {
+                    for (let _ele of _json_.parents) {
                         let _e;
                         _e = blueprint.Clazz.deserialize(_ele);
                         this.parents.push(_e);
@@ -1343,7 +1343,7 @@ var cfg;
                 }
                 {
                     this.methods = [];
-                    for (var _ele of _json_.methods) {
+                    for (let _ele of _json_.methods) {
                         let _e;
                         _e = blueprint.Method.deserialize(_ele);
                         this.methods.push(_e);
@@ -1398,7 +1398,7 @@ var cfg;
                 }
                 {
                     this.parameters = [];
-                    for (var _ele of _json_.parameters) {
+                    for (let _ele of _json_.parameters) {
                         let _e;
                         _e = new blueprint.ParamInfo(_ele);
                         this.parameters.push(_e);
@@ -1502,7 +1502,7 @@ var cfg;
                 }
                 {
                     this.fields = [];
-                    for (var _ele of _json_.fields) {
+                    for (let _ele of _json_.fields) {
                         let _e;
                         _e = new blueprint.Field(_ele);
                         this.fields.push(_e);
@@ -1550,7 +1550,7 @@ var cfg;
                 }
                 {
                     this.enums = [];
-                    for (var _ele of _json_.enums) {
+                    for (let _ele of _json_.enums) {
                         let _e;
                         _e = new blueprint.EnumField(_ele);
                         this.enums.push(_e);
@@ -1602,7 +1602,7 @@ var cfg;
                 }
                 {
                     this.clientShowItems = [];
-                    for (var _ele of _json_.client_show_items) {
+                    for (let _ele of _json_.client_show_items) {
                         let _e;
                         _e = new bonus.ShowItemInfo(_ele);
                         this.clientShowItems.push(_e);
@@ -1727,7 +1727,7 @@ var cfg;
                 }
                 {
                     this.itemList = [];
-                    for (var _ele of _json_.item_list) {
+                    for (let _ele of _json_.item_list) {
                         let _e;
                         _e = new bonus.Item(_ele);
                         this.itemList.push(_e);
@@ -1776,7 +1776,7 @@ var cfg;
                 }
                 {
                     this.itemList = [];
-                    for (var _ele of _json_.item_list) {
+                    for (let _ele of _json_.item_list) {
                         let _e;
                         _e = new bonus.WeightItemInfo(_ele);
                         this.itemList.push(_e);
@@ -1825,7 +1825,7 @@ var cfg;
                 }
                 {
                     this.itemList = [];
-                    for (var _ele of _json_.item_list) {
+                    for (let _ele of _json_.item_list) {
                         let _e;
                         _e = new bonus.ProbabilityItemInfo(_ele);
                         this.itemList.push(_e);
@@ -1874,7 +1874,7 @@ var cfg;
                 }
                 {
                     this.bonuses = [];
-                    for (var _ele of _json_.bonuses) {
+                    for (let _ele of _json_.bonuses) {
                         let _e;
                         _e = bonus.Bonus.deserialize(_ele);
                         this.bonuses.push(_e);
@@ -1901,7 +1901,7 @@ var cfg;
                 }
                 {
                     this.bonuses = [];
-                    for (var _ele of _json_.bonuses) {
+                    for (let _ele of _json_.bonuses) {
                         let _e;
                         _e = new bonus.ProbabilityBonusInfo(_ele);
                         this.bonuses.push(_e);
@@ -1945,7 +1945,7 @@ var cfg;
                 }
                 {
                     this.bonuses = [];
-                    for (var _ele of _json_.bonuses) {
+                    for (let _ele of _json_.bonuses) {
                         let _e;
                         _e = new bonus.WeightBonusInfo(_ele);
                         this.bonuses.push(_e);
@@ -2540,7 +2540,7 @@ var cfg;
                 }
                 {
                     this.chooseList = [];
-                    for (var _ele of _json_.choose_list) {
+                    for (let _ele of _json_.choose_list) {
                         let _e;
                         _e = new item.ChooseOneBonus(_ele);
                         this.chooseList.push(_e);
@@ -2657,7 +2657,7 @@ var cfg;
                 }
                 {
                     this.conditions = [];
-                    for (var _ele of _json_.conditions) {
+                    for (let _ele of _json_.conditions) {
                         let _e;
                         _e = condition.RoleCondition.deserialize(_ele);
                         this.conditions.push(_e);
@@ -2953,7 +2953,7 @@ var cfg;
                 }
                 {
                     this.currencies = [];
-                    for (var _ele of _json_.currencies) {
+                    for (let _ele of _json_.currencies) {
                         let _e;
                         _e = new cost.CostCurrency(_ele);
                         this.currencies.push(_e);
@@ -3016,7 +3016,7 @@ var cfg;
                 }
                 {
                     this.itemList = [];
-                    for (var _ele of _json_.item_list) {
+                    for (let _ele of _json_.item_list) {
                         let _e;
                         _e = new cost.CostItem(_ele);
                         this.itemList.push(_e);
@@ -3162,7 +3162,7 @@ var cfg;
                 }
                 {
                     this.distinctBonusInfos = [];
-                    for (var _ele of _json_.distinct_bonus_infos) {
+                    for (let _ele of _json_.distinct_bonus_infos) {
                         let _e;
                         _e = new role.DistinctBonusInfos(_ele);
                         this.distinctBonusInfos.push(_e);
@@ -3191,7 +3191,7 @@ var cfg;
                 }
                 {
                     this.bonusInfo = [];
-                    for (var _ele of _json_.bonus_info) {
+                    for (let _ele of _json_.bonus_info) {
                         let _e;
                         _e = new role.BonusInfo(_ele);
                         this.bonusInfo.push(_e);

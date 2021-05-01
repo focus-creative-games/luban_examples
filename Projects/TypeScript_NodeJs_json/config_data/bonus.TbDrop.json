@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "desc": "\u5956\u52B1\u4E00\u4E2A\u7269\u54C1",
+    "desc": "奖励一个物品",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "desc": "\u968F\u673A\u6389\u843D\u4E00\u4E2A",
+    "desc": "随机掉落一个",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "desc": "\u5956\u52B1\u7269\u54C1",
+    "desc": "奖励物品",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "desc": "\u5956\u52B1\u7269\u54C1",
+    "desc": "奖励物品",
     "client_show_items": [
       {
         "item_id": 1,
@@ -46,7 +46,7 @@
   },
   {
     "id": 5,
-    "desc": "\u5956\u52B1\u7269\u54C1",
+    "desc": "奖励物品",
     "client_show_items": [
       {
         "item_id": 1,
@@ -64,7 +64,7 @@
   },
   {
     "id": 6,
-    "desc": "\u5956\u52B1\u7269\u54C1",
+    "desc": "奖励物品",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -73,7 +73,7 @@
   },
   {
     "id": 7,
-    "desc": "\u7A7A\u6389\u843D\u5305",
+    "desc": "空掉落包",
     "client_show_items": [],
     "bonus": {
       "__type__": "MultiBonus",
@@ -82,7 +82,7 @@
   },
   {
     "id": 1001,
-    "desc": "\u521D\u59CB\u8863\u670D\u5927\u793C\u5305",
+    "desc": "初始衣服大礼包",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItems",
@@ -163,7 +163,7 @@
   },
   {
     "id": 1002,
-    "desc": "\u5185\u90E8\u8865\u507F\u5305",
+    "desc": "内部补偿包",
     "client_show_items": [],
     "bonus": {
       "__type__": "MultiBonus",
@@ -193,7 +193,7 @@
   },
   {
     "id": 1003,
-    "desc": "\u6D4B\u8BD5\u9053\u5177",
+    "desc": "测试道具",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -202,7 +202,7 @@
   },
   {
     "id": 1004,
-    "desc": "\u7FBD\u6BDB\u6750\u6599\uFF08\u9E3D\u5B50\uFF09",
+    "desc": "羽毛材料（鸽子）",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -211,7 +211,7 @@
   },
   {
     "id": 1010,
-    "desc": "10\u91D1\u5E01",
+    "desc": "10金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -221,7 +221,7 @@
   },
   {
     "id": 1011,
-    "desc": "20\u91D1\u5E01",
+    "desc": "20金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -231,7 +231,7 @@
   },
   {
     "id": 1012,
-    "desc": "50\u91D1\u5E01",
+    "desc": "50金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -241,7 +241,7 @@
   },
   {
     "id": 1013,
-    "desc": "100\u91D1\u5E01",
+    "desc": "100金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -251,7 +251,7 @@
   },
   {
     "id": 1014,
-    "desc": "200\u91D1\u5E01",
+    "desc": "200金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -261,7 +261,7 @@
   },
   {
     "id": 1015,
-    "desc": "500\u91D1\u5E01",
+    "desc": "500金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -271,7 +271,7 @@
   },
   {
     "id": 1016,
-    "desc": "1000\u91D1\u5E01",
+    "desc": "1000金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -281,7 +281,7 @@
   },
   {
     "id": 1017,
-    "desc": "2000\u91D1\u5E01",
+    "desc": "2000金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -291,7 +291,7 @@
   },
   {
     "id": 1018,
-    "desc": "5000\u91D1\u5E01",
+    "desc": "5000金币",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -301,7 +301,7 @@
   },
   {
     "id": 1020,
-    "desc": "1\u94BB\u77F3",
+    "desc": "1钻石",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -311,7 +311,7 @@
   },
   {
     "id": 1021,
-    "desc": "\u767E\u5473\u679C\u6750\u6599",
+    "desc": "百味果材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -320,7 +320,7 @@
   },
   {
     "id": 1022,
-    "desc": "\u8D1D\u58F3\u6750\u6599",
+    "desc": "贝壳材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -329,7 +329,7 @@
   },
   {
     "id": 1023,
-    "desc": "\u8774\u8776\u6750\u6599",
+    "desc": "蝴蝶材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -338,7 +338,7 @@
   },
   {
     "id": 1024,
-    "desc": "\u871C\u8702\u6750\u6599",
+    "desc": "蜜蜂材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -347,7 +347,7 @@
   },
   {
     "id": 1025,
-    "desc": "\u82B1\u74E3\u6750\u6599",
+    "desc": "花瓣材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -356,7 +356,7 @@
   },
   {
     "id": 1026,
-    "desc": "\u739B\u7459\u6750\u6599",
+    "desc": "玛瑙材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -365,7 +365,7 @@
   },
   {
     "id": 1027,
-    "desc": "\u96EA\u7ED2\u82B1\u6750\u6599",
+    "desc": "雪绒花材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -374,7 +374,7 @@
   },
   {
     "id": 1028,
-    "desc": "\u6D41\u661F\u788E\u7247\u6750\u6599",
+    "desc": "流星碎片材料",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -383,7 +383,7 @@
   },
   {
     "id": 1029,
-    "desc": "\u773C\u955C\u67B6\u968F\u673A\u6389\u843D\u7269",
+    "desc": "眼镜架随机掉落物",
     "client_show_items": [
       {
         "item_id": 1110010015,
@@ -423,7 +423,7 @@
   },
   {
     "id": 1030,
-    "desc": "\u8BB0\u5FC6\u6D46\u679C",
+    "desc": "记忆浆果",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -432,7 +432,7 @@
   },
   {
     "id": 1031,
-    "desc": "\u8BB8\u613F\u74F6",
+    "desc": "许愿瓶",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -441,7 +441,7 @@
   },
   {
     "id": 1032,
-    "desc": "\u6728\u679D",
+    "desc": "木枝",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -450,7 +450,7 @@
   },
   {
     "id": 1033,
-    "desc": "\u679C\u5B50",
+    "desc": "果子",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -459,7 +459,7 @@
   },
   {
     "id": 1034,
-    "desc": "\u968F\u673A\u6389\u843D\u793C\u76D2",
+    "desc": "随机掉落礼盒",
     "client_show_items": [
       {
         "item_id": 1110010015,
@@ -499,7 +499,7 @@
   },
   {
     "id": 1110020007,
-    "desc": "\u7CBE\u7075\u53D1\u578B\u56FE\u7EB8",
+    "desc": "精灵发型图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -508,7 +508,7 @@
   },
   {
     "id": 1110020008,
-    "desc": "\u7CBE\u7075\u4E0A\u8863\u56FE\u7EB8",
+    "desc": "精灵上衣图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -517,7 +517,7 @@
   },
   {
     "id": 1110020009,
-    "desc": "\u7CBE\u7075\u88D9\u5B50\u56FE\u7EB8",
+    "desc": "精灵裙子图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -526,7 +526,7 @@
   },
   {
     "id": 1110020010,
-    "desc": "\u7CBE\u7075\u889C\u5B50\u56FE\u7EB8",
+    "desc": "精灵袜子图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -535,7 +535,7 @@
   },
   {
     "id": 1110020011,
-    "desc": "\u7CBE\u7075\u978B\u5B50\u56FE\u7EB8",
+    "desc": "精灵鞋子图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -544,7 +544,7 @@
   },
   {
     "id": 1110020012,
-    "desc": "\u7CBE\u7075\u5E3D\u5B50\u56FE\u7EB8",
+    "desc": "精灵帽子图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -553,7 +553,7 @@
   },
   {
     "id": 1110020013,
-    "desc": "\u7CBE\u7075\u53D1\u9970\u56FE\u7EB8",
+    "desc": "精灵发饰图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -562,7 +562,7 @@
   },
   {
     "id": 1110020014,
-    "desc": "\u7CBE\u7075\u9888\u9970\u56FE\u7EB8",
+    "desc": "精灵颈饰图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -571,7 +571,7 @@
   },
   {
     "id": 1110020015,
-    "desc": "\u7CBE\u7075\u624B\u6301\u7269\u56FE\u7EB8",
+    "desc": "精灵手持物图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -580,7 +580,7 @@
   },
   {
     "id": 1110020016,
-    "desc": "\u5957\u88C50132\u624B\u5957\u56FE\u7EB8",
+    "desc": "套装0132手套图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -589,7 +589,7 @@
   },
   {
     "id": 1110020017,
-    "desc": "\u5957\u88C50132\u8033\u9970\u56FE\u7EB8",
+    "desc": "套装0132耳饰图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -598,7 +598,7 @@
   },
   {
     "id": 1021500007,
-    "desc": "\u7279\u6B8AP0099AXK",
+    "desc": "特殊P0099AXK",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -607,7 +607,7 @@
   },
   {
     "id": 1110020080,
-    "desc": "\u6D41\u661F\u9879\u94FE\u56FE\u7EB8",
+    "desc": "流星项链图纸",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -616,7 +616,7 @@
   },
   {
     "id": 9999,
-    "desc": "\u521D\u59CB\u8863\u670D\u793C\u5305",
+    "desc": "初始衣服礼包",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItems",
@@ -847,7 +847,7 @@
   },
   {
     "id": 42014,
-    "desc": "\u68EE\u6797\u4EFB\u52A1201-4\u5956\u52B1",
+    "desc": "森林任务201-4奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -856,7 +856,7 @@
   },
   {
     "id": 42026,
-    "desc": "\u68EE\u6797\u4EFB\u52A1202-6\u5956\u52B1",
+    "desc": "森林任务202-6奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -865,7 +865,7 @@
   },
   {
     "id": 43013,
-    "desc": "\u68EE\u6797\u4EFB\u52A1301-3\u5956\u52B1",
+    "desc": "森林任务301-3奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -874,7 +874,7 @@
   },
   {
     "id": 41011,
-    "desc": "\u68EE\u6797\u652F\u7EBF\u4EFB\u52A1101-1\u5956\u52B1",
+    "desc": "森林支线任务101-1奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "OneItem",
@@ -883,7 +883,7 @@
   },
   {
     "id": 90200101,
-    "desc": "\u65E5\u5E38\u4EFB\u52A1\u5956\u52B1\u57FA\u6570",
+    "desc": "日常任务奖励基数",
     "client_show_items": [],
     "bonus": {
       "__type__": "CoefficientItem",
@@ -900,7 +900,7 @@
   },
   {
     "id": 90200102,
-    "desc": "\u65E5\u5E38\u4EFB\u52A1\u5956\u52B1\u57FA\u6570",
+    "desc": "日常任务奖励基数",
     "client_show_items": [],
     "bonus": {
       "__type__": "CoefficientItem",
@@ -917,7 +917,7 @@
   },
   {
     "id": 90100101,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [
       {
         "item_id": 4,
@@ -932,7 +932,7 @@
   },
   {
     "id": 90100102,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [
       {
         "item_id": 4,
@@ -947,7 +947,7 @@
   },
   {
     "id": 90100103,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -957,7 +957,7 @@
   },
   {
     "id": 90100104,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -967,7 +967,7 @@
   },
   {
     "id": 90100105,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -977,7 +977,7 @@
   },
   {
     "id": 90100201,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -987,7 +987,7 @@
   },
   {
     "id": 90100202,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -997,7 +997,7 @@
   },
   {
     "id": 90100203,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1007,7 +1007,7 @@
   },
   {
     "id": 90100204,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1017,7 +1017,7 @@
   },
   {
     "id": 90100205,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1027,7 +1027,7 @@
   },
   {
     "id": 90100301,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1037,7 +1037,7 @@
   },
   {
     "id": 90100302,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1047,7 +1047,7 @@
   },
   {
     "id": 90100303,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": 90100401,
-    "desc": "\u4E3B\u7EBF\u4EFB\u52A1\u7ECF\u9A8C\u5956\u52B1",
+    "desc": "主线任务经验奖励",
     "client_show_items": [],
     "bonus": {
       "__type__": "Item",
