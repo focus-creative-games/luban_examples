@@ -1,0 +1,9 @@
+{
+  "name": "tsscripts",
+  "version": "1.0.0",
+  "description": "ts project",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+	  "watch": "watch 'npm run build' src"
+  }
+}
