@@ -1,0 +1,10 @@
+{
+  "name": "tsscripts",
+  "version": "1.0.0",
+  "description": "ts project",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "postbuild2": "node copyJsFile.js output ../Assets/Puerts/Resources",
+	  "watch": "watch 'npm run build' src"
+  }
+}
