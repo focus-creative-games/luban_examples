@@ -1,9 +1,11 @@
-import AppConf from 'Conf/AppConfig'
-import GameConfig from 'Conf/GameConfig'
+import {cfg} from 'Gen/Cfg/Types'
+import {JsHelpers, UnityEngine} from 'csharp'
 
-import {Bright} from 'csharp'
+let tables = new cfg.Tables(f => {
+    let data = JsHelpers.ReadAllText(UnityEngine.Application.dataPath + "/../ConfigData", f);
+    return JSON.parse(data);
+})
 
-console.log("data  path:" + AppConf.configPath)
-GameConfig.Ins.load(AppConf.configPath)
-
-
+console.log(tables.TbGlobalConfig.bagCapacity)
+console.log(tables.TbItem.get(1).name)
+console.log("== load succ ==")

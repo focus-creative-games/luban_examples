@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const AppConfig_1 = require("Conf/AppConfig");
-const GameConfig_1 = require("Conf/GameConfig");
-console.log("data  path:" + AppConfig_1.default.configPath);
-GameConfig_1.default.Ins.load(AppConfig_1.default.configPath);
+const Types_1 = require("Gen/Cfg/Types");
+const csharp_1 = require("csharp");
+let tables = new Types_1.cfg.Tables(f => csharp_1.JsHelpers.LoadFromFile(csharp_1.UnityEngine.Application.dataPath + "/../ConfigData", f));
+console.log(tables.TbGlobalConfig.bagCapacity);
+console.log("== load succ ==");
 //# sourceMappingURL=Main.js.map
