@@ -289,3 +289,6 @@ gradle/
 /Projects/Csharp_Unity_ILRuntime_bin/Logs
 /Projects/Lua_Unity_tolua_bin/Logs
 /Projects/Lua_Unity_tolua_lua/Logs
+/Projects/TypeScript_NodeJs_json/package-lock.json
+/Projects/TypeScript_Puerts_Bin/*.csproj
+/Projects/TypeScript_Unity_Puerts_Bin/*.csproj
