@@ -65,7 +65,7 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return "{ "
         + "Id:" + Id + ","
         + "Desc:" + Desc + ","
-        + "ClientShowItems:" + ClientShowItems + ","
+        + "ClientShowItems:" + Bright.Common.StringUtil.CollectionToString(ClientShowItems) + ","
         + "Bonus:" + Bonus + ","
         + "}";
     }

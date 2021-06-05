@@ -1,27 +1,27 @@
 [
   {
     "id": 11,
-    "title": "\u6D4B\u8BD51",
-    "sender": "\u7CFB\u7EDF",
-    "content": "\u6D4B\u8BD5\u5185\u5BB91",
+    "title": "测试1",
+    "sender": "系统",
+    "content": "测试内容1",
     "award": [
       1
     ]
   },
   {
     "id": 12,
-    "title": "\u6D4B\u8BD52",
-    "sender": "\u7CFB\u7EDF",
-    "content": "\u6D4B\u8BD5\u5185\u5BB92",
+    "title": "测试2",
+    "sender": "系统",
+    "content": "测试内容2",
     "award": [
       1
     ]
   },
   {
     "id": 13,
-    "title": "\u6D4B\u8BD53",
-    "sender": "\u7CFB\u7EDF",
-    "content": "\u6D4B\u8BD5\u5185\u5BB93",
+    "title": "测试3",
+    "sender": "系统",
+    "content": "测试内容3",
     "award": [
       1,
       2,
@@ -30,9 +30,9 @@
   },
   {
     "id": 14,
-    "title": "\u6D4B\u8BD54",
-    "sender": "\u7CFB\u7EDF",
-    "content": "\u6D4B\u8BD5\u5185\u5BB94",
+    "title": "测试4",
+    "sender": "系统",
+    "content": "测试内容4",
     "award": [
       2,
       3
@@ -40,9 +40,9 @@
   },
   {
     "id": 15,
-    "title": "\u6D4B\u8BD55",
-    "sender": "\u7CFB\u7EDF",
-    "content": "\u6D4B\u8BD5\u5185\u5BB95",
+    "title": "测试5",
+    "sender": "系统",
+    "content": "测试内容5",
     "award": [
       1
     ]

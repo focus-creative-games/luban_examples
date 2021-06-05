@@ -60,7 +60,7 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         return "{ "
         + "Level:" + Level + ","
         + "NeedExp:" + NeedExp + ","
-        + "ClothesAttrs:" + ClothesAttrs + ","
+        + "ClothesAttrs:" + Bright.Common.StringUtil.CollectionToString(ClothesAttrs) + ","
         + "}";
     }
     }

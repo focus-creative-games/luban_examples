@@ -74,7 +74,7 @@ public abstract partial class Method :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "IsStatic:" + IsStatic + ","
         + "ReturnType:" + ReturnType + ","
-        + "Parameters:" + Parameters + ","
+        + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
     }

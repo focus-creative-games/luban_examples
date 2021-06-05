@@ -59,10 +59,10 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "IsAbstract:" + IsAbstract + ","
-        + "Fields:" + Fields + ","
+        + "Fields:" + Bright.Common.StringUtil.CollectionToString(Fields) + ","
         + "}";
     }
     }

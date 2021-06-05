@@ -56,9 +56,9 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
-        + "Children:" + Children + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
+        + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
     }

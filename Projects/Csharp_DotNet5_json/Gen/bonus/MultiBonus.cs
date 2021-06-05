@@ -54,7 +54,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Bonuses:" + Bonuses + ","
+        + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
     }

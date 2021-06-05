@@ -58,7 +58,7 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     {
         return "{ "
         + "EffectiveLevel:" + EffectiveLevel + ","
-        + "BonusInfo:" + BonusInfo + ","
+        + "BonusInfo:" + Bright.Common.StringUtil.CollectionToString(BonusInfo) + ","
         + "}";
     }
     }

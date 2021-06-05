@@ -55,9 +55,9 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
-        + "Enums:" + Enums + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
+        + "Enums:" + Bright.Common.StringUtil.CollectionToString(Enums) + ","
         + "}";
     }
     }

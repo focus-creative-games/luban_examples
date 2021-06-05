@@ -57,7 +57,7 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     {
         return "{ "
         + "Id:" + Id + ","
-        + "DistinctBonusInfos:" + DistinctBonusInfos + ","
+        + "DistinctBonusInfos:" + Bright.Common.StringUtil.CollectionToString(DistinctBonusInfos) + ","
         + "}";
     }
     }

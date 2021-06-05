@@ -54,7 +54,7 @@ base.Resolve(_tables);
         + "Desc:" + Desc + ","
         + "IsStatic:" + IsStatic + ","
         + "ReturnType:" + ReturnType + ","
-        + "Parameters:" + Parameters + ","
+        + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
     }

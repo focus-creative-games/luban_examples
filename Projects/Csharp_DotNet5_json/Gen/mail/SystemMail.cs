@@ -69,7 +69,7 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         + "Title:" + Title + ","
         + "Sender:" + Sender + ","
         + "Content:" + Content + ","
-        + "Award:" + Award + ","
+        + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
     }

@@ -70,8 +70,8 @@ base.Resolve(_tables);
         + "KeyItemId:" + KeyItemId + ","
         + "OpenLevel:" + OpenLevel + ","
         + "UseOnObtain:" + UseOnObtain + ","
-        + "DropIds:" + DropIds + ","
-        + "ChooseList:" + ChooseList + ","
+        + "DropIds:" + Bright.Common.StringUtil.CollectionToString(DropIds) + ","
+        + "ChooseList:" + Bright.Common.StringUtil.CollectionToString(ChooseList) + ","
         + "}";
     }
     }

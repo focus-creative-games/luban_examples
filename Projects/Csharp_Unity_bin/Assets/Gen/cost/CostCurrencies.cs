@@ -53,7 +53,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Currencies:" + Currencies + ","
+        + "Currencies:" + Bright.Common.StringUtil.CollectionToString(Currencies) + ","
         + "}";
     }
     }

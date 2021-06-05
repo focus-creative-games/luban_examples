@@ -67,7 +67,7 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "ParentName:" + ParentName + ","
-        + "Keys:" + Keys + ","
+        + "Keys:" + Bright.Common.StringUtil.CollectionToString(Keys) + ","
         + "}";
     }
     }

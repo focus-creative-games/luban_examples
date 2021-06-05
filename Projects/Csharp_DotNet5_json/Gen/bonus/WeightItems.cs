@@ -54,7 +54,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "ItemList:" + ItemList + ","
+        + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
     }

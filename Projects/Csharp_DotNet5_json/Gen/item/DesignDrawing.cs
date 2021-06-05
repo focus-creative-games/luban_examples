@@ -54,7 +54,7 @@ base.Resolve(_tables);
     {
         return "{ "
         + "Id:" + Id + ","
-        + "LearnComponentId:" + LearnComponentId + ","
+        + "LearnComponentId:" + Bright.Common.StringUtil.CollectionToString(LearnComponentId) + ","
         + "}";
     }
     }

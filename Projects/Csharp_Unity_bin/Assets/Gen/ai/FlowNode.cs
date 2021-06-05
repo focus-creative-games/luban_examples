@@ -70,8 +70,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
     }

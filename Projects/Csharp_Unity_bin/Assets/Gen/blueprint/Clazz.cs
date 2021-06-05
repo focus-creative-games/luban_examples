@@ -69,8 +69,8 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
     }

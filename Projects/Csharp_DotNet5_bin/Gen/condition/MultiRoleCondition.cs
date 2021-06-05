@@ -53,7 +53,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Conditions:" + Conditions + ","
+        + "Conditions:" + Bright.Common.StringUtil.CollectionToString(Conditions) + ","
         + "}";
     }
     }
