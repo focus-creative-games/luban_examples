@@ -132,11 +132,11 @@
 	<bean name="Item">
 		<var name="id" type="int"/>
 		<var name="name" type="string"/>
-		<var name="major_type" type="EMajorType" />
+		<var name="major_type" type="EMajorType" group="c,s"/>
 		<var name="minor_type" type="EMinorType"/>
-		<var name="max_pile_num" type="int"/>
+		<var name="max_pile_num" type="int" group="s"/>
 		<var name="quality" type="EItemQuality"/>
-		<var name="icon" type="string" res="Item" path="ue"/>
+		<var name="icon" type="string" path="ue" group="c"/>
 		<var name="icon_backgroud" type="string"/>
 		<var name="icon_mask" type="string"/>
 		<var name="desc" type="string"/>
@@ -173,7 +173,7 @@
 		<var name="close_bag_ui" type="bool"/>
 	</bean>
 
-	<table name="TbItemFunc" value="ItemFunction" input="道具功能表@item/道具系统表.xlsx"/>
+	<table name="TbItemFunc" value="ItemFunction" input="道具功能表@item/道具系统表.xlsx" group="c"/>
 	
 	<bean name="ClothesProp" sep=",">
 		<var name="prop_enum" type="EClothesPropertyType" />

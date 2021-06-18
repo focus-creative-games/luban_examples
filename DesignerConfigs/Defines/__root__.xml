@@ -2,6 +2,11 @@
 
 	<topmodule name="cfg"/>
 
+	<branch name="cn"/>
+	<branch name="tw"/>
+	<branch name="en"/>
+	<branch name="jp"/>
+
 	<group name="c" default="1"/> client
 	<group name="s" default="1"/> server
 	<group name="e" default="1"/> editor
