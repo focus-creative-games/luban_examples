@@ -292,3 +292,5 @@ gradle/
 /Projects/TypeScript_NodeJs_json/package-lock.json
 /Projects/TypeScript_Puerts_Bin/*.csproj
 /Projects/TypeScript_Unity_Puerts_Bin/*.csproj
+/Tools/build_luban_client.bat
+/Tools/build_luban_server.bat
