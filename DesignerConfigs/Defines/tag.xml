@@ -1,0 +1,7 @@
+<module name="tag">
+	<bean name="TestTag">
+		<var name="id" type="int"/>
+		<var name="value" type="string"/>
+	</bean>
+	<table name="TbTestTag" value="TestTag" input="tag_datas"/>
+</module>
