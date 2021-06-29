@@ -34,7 +34,7 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
     
     }
 
-     public readonly int Num;
+    public readonly int Num;
 
 
     public const int ID = 2063279905;

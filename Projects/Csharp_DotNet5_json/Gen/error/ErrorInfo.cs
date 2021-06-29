@@ -39,9 +39,9 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Code;
-     public readonly string Desc;
-     public readonly error.ErrorStyle Style;
+    public readonly string Code;
+    public readonly string Desc;
+    public readonly error.ErrorStyle Style;
 
 
     public const int ID = 1389347408;
@@ -51,7 +51,7 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            Style?.Resolve(_tables);
+        Style?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

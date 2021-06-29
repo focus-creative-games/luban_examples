@@ -36,8 +36,8 @@ public sealed partial class MoveToRandomLocation :  ai.Task
     
     }
 
-     public readonly string OriginPositionKey;
-     public readonly float Radius;
+    public readonly string OriginPositionKey;
+    public readonly float Radius;
 
 
     public const int ID = -2140042998;

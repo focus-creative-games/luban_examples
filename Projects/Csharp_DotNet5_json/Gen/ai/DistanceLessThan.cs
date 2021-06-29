@@ -41,10 +41,10 @@ public sealed partial class DistanceLessThan :  ai.Decorator
     
     }
 
-     public readonly string Actor1Key;
-     public readonly string Actor2Key;
-     public readonly float Distance;
-     public readonly bool ReverseResult;
+    public readonly string Actor1Key;
+    public readonly string Actor2Key;
+    public readonly float Distance;
+    public readonly bool ReverseResult;
 
 
     public const int ID = -1207170283;

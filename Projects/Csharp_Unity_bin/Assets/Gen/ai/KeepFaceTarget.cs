@@ -34,7 +34,7 @@ public sealed partial class KeepFaceTarget :  ai.Service
     
     }
 
-     public readonly string TargetActorKey;
+    public readonly string TargetActorKey;
 
 
     public const int ID = 1195270745;

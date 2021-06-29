@@ -34,7 +34,7 @@ public sealed partial class Dymmy :  item.ItemExtra
     
     }
 
-     public readonly cost.Cost Cost;
+    public readonly cost.Cost Cost;
 
 
     public const int ID = 896889705;
@@ -44,7 +44,7 @@ public sealed partial class Dymmy :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            Cost?.Resolve(_tables);
+        Cost?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

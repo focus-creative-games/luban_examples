@@ -35,7 +35,7 @@ public sealed partial class DailyLimit :  limit.DailyLimitBase
     
     }
 
-     public readonly int Num;
+    public readonly int Num;
 
 
     public const int ID = 303235413;

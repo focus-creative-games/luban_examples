@@ -34,7 +34,7 @@ public sealed partial class Items :  bonus.Bonus
     
     }
 
-     public readonly bonus.Item[] ItemList;
+    public readonly bonus.Item[] ItemList;
 
 
     public const int ID = 819736849;
@@ -44,7 +44,7 @@ public sealed partial class Items :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

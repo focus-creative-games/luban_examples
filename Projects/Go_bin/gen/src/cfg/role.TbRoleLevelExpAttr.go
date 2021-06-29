@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Role_TbRoleLevelExpAttr struct {
     _dataMap map[int32]*Role_LevelExpAttr
     _dataList []*Role_LevelExpAttr

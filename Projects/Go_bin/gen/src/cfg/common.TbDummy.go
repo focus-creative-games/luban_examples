@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Common_TbDummy struct {
     _dataMap map[int32]*Common_Dummy
     _dataList []*Common_Dummy

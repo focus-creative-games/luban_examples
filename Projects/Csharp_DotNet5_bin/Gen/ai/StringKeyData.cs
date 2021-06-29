@@ -34,7 +34,7 @@ public sealed partial class StringKeyData :  ai.KeyData
     
     }
 
-     public readonly string Value;
+    public readonly string Value;
 
 
     public const int ID = -307888654;

@@ -42,11 +42,11 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string Title;
-     public readonly string Sender;
-     public readonly string Content;
-     public readonly System.Collections.Generic.List<int> Award;
+    public readonly int Id;
+    public readonly string Title;
+    public readonly string Sender;
+    public readonly string Content;
+    public readonly System.Collections.Generic.List<int> Award;
 
 
     public const int ID = 1214073149;

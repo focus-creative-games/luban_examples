@@ -38,9 +38,9 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly string Type;
-     public readonly bool IsRef;
+    public readonly string Name;
+    public readonly string Type;
+    public readonly bool IsRef;
 
 
     public const int ID = -729799392;

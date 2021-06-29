@@ -41,10 +41,10 @@ public sealed partial class Clothes :  item.ItemExtra
     
     }
 
-     public readonly int Attack;
-     public readonly long Hp;
-     public readonly int EnergyLimit;
-     public readonly int EnergyResume;
+    public readonly int Attack;
+    public readonly long Hp;
+    public readonly int EnergyLimit;
+    public readonly int EnergyResume;
 
 
     public const int ID = 1659907149;

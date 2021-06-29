@@ -36,8 +36,8 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly int Value;
+    public readonly string Name;
+    public readonly int Value;
 
 
     public const int ID = 1830049470;

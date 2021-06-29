@@ -35,7 +35,7 @@ public sealed partial class GetOwnerPlayer :  ai.Service
     
     }
 
-     public readonly string PlayerActorKey;
+    public readonly string PlayerActorKey;
 
 
     public const int ID = -999247644;

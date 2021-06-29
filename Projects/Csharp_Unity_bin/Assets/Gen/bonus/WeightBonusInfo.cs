@@ -36,8 +36,8 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly bonus.Bonus Bonus;
-     public readonly int Weight;
+    public readonly bonus.Bonus Bonus;
+    public readonly int Weight;
 
 
     public const int ID = -907244058;
@@ -47,7 +47,7 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            Bonus?.Resolve(_tables);
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

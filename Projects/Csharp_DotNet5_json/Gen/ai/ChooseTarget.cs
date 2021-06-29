@@ -35,7 +35,7 @@ public sealed partial class ChooseTarget :  ai.Service
     
     }
 
-     public readonly string ResultTargetKey;
+    public readonly string ResultTargetKey;
 
 
     public const int ID = 1601247918;

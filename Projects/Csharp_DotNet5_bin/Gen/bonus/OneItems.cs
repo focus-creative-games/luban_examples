@@ -34,7 +34,7 @@ public sealed partial class OneItems :  bonus.Bonus
     
     }
 
-     public readonly int[] Items;
+    public readonly int[] Items;
 
 
     public const int ID = 400179721;

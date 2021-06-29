@@ -37,8 +37,8 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly bonus.Bonus Bonus;
-     public readonly float Probability;
+    public readonly bonus.Bonus Bonus;
+    public readonly float Probability;
 
 
     public const int ID = 46960455;
@@ -48,7 +48,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            Bonus?.Resolve(_tables);
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

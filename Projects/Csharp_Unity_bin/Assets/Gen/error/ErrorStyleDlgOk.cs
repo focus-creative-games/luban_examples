@@ -34,7 +34,7 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
     
     }
 
-     public readonly string BtnName;
+    public readonly string BtnName;
 
 
     public const int ID = -2010134516;

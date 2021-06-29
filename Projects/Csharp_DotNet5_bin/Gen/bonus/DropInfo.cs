@@ -40,10 +40,10 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string Desc;
-     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
-     public readonly bonus.Bonus Bonus;
+    public readonly int Id;
+    public readonly string Desc;
+    public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
+    public readonly bonus.Bonus Bonus;
 
 
     public const int ID = -2014781108;
@@ -53,8 +53,8 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
-            Bonus?.Resolve(_tables);
+        foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

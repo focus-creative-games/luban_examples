@@ -35,7 +35,7 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
     
     }
 
-     public readonly string KeyboardKey;
+    public readonly string KeyboardKey;
 
 
     public const int ID = 1812449155;

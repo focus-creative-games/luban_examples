@@ -35,7 +35,7 @@ public sealed partial class CostItems :  cost.Cost
     
     }
 
-     public readonly cost.CostItem[] ItemList;
+    public readonly cost.CostItem[] ItemList;
 
 
     public const int ID = -77945102;
@@ -45,7 +45,7 @@ public sealed partial class CostItems :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

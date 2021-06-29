@@ -35,8 +35,8 @@ public sealed partial class CostOneItem :  cost.Cost
     
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
 
 
     public const int ID = -1033587381;
@@ -46,7 +46,7 @@ public sealed partial class CostOneItem :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 

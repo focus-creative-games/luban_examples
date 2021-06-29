@@ -35,7 +35,7 @@ public sealed partial class EnumClazz :  blueprint.Clazz
     
     }
 
-     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
+    public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
 
     public const int ID = 1827364892;
@@ -45,7 +45,7 @@ public sealed partial class EnumClazz :  blueprint.Clazz
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Enums) { _e?.Resolve(_tables); }
+        foreach(var _e in Enums) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

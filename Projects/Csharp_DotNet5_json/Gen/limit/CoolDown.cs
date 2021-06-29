@@ -35,7 +35,7 @@ public sealed partial class CoolDown :  limit.LimitBase
     
     }
 
-     public readonly int Duration;
+    public readonly int Duration;
 
 
     public const int ID = -1366194050;

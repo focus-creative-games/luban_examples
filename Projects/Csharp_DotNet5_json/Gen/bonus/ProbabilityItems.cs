@@ -35,7 +35,7 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
     
     }
 
-     public readonly bonus.ProbabilityItemInfo[] ItemList;
+    public readonly bonus.ProbabilityItemInfo[] ItemList;
 
 
     public const int ID = 366387866;
@@ -45,7 +45,7 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

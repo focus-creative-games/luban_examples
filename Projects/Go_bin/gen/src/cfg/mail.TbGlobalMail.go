@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Mail_TbGlobalMail struct {
     _dataMap map[int32]*Mail_GlobalMail
     _dataList []*Mail_GlobalMail

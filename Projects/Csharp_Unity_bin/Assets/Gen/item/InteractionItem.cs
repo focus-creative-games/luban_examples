@@ -38,9 +38,9 @@ public sealed partial class InteractionItem :  item.ItemExtra
     
     }
 
-     public readonly int? AttackNum;
-     public readonly string HoldingStaticMesh;
-     public readonly string HoldingStaticMeshMat;
+    public readonly int? AttackNum;
+    public readonly string HoldingStaticMesh;
+    public readonly string HoldingStaticMeshMat;
 
 
     public const int ID = 640937802;

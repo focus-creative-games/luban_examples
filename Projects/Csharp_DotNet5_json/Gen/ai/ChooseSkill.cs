@@ -37,8 +37,8 @@ public sealed partial class ChooseSkill :  ai.Task
     
     }
 
-     public readonly string TargetActorKey;
-     public readonly string ResultSkillIdKey;
+    public readonly string TargetActorKey;
+    public readonly string ResultSkillIdKey;
 
 
     public const int ID = -918812268;

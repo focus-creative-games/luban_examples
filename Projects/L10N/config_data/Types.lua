@@ -1655,6 +1655,15 @@ beans['role.LevelBonus'] =
     { name='distinct_bonus_infos', type='role.DistinctBonusInfos[]'},
 }
 
+---@class tag.TestTag 
+---@field public id int
+---@field public value string
+beans['tag.TestTag'] =
+{
+    { name='id', type='int'},
+    { name='value', type='string'},
+}
+
 
 local tables =
 {
@@ -1691,6 +1700,8 @@ local tables =
     { name='TbRoleLevelExpAttr', file='role.TbRoleLevelExpAttr.bin', mode='map', index='level', value_type='role.LevelExpAttr' },
 
     { name='TbRoleLevelBonusCoefficient', file='role.TbRoleLevelBonusCoefficient.bin', mode='map', index='id', value_type='role.LevelBonus' },
+
+    { name='TbTestTag', file='tag.TbTestTag.bin', mode='map', index='id', value_type='tag.TestTag' },
 
 }
 

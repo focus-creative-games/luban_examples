@@ -34,7 +34,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
     
     }
 
-     public readonly role.EGenderType Gender;
+    public readonly role.EGenderType Gender;
 
 
     public const int ID = 103675143;

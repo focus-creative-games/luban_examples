@@ -49,18 +49,18 @@ public abstract partial class Method :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly bool IsStatic;
-     public readonly string ReturnType;
-     public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly bool IsStatic;
+    public readonly string ReturnType;
+    public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
 
-            foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        foreach(var _e in Parameters) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

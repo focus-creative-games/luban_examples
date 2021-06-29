@@ -34,7 +34,7 @@ public sealed partial class WeightItems :  bonus.Bonus
     
     }
 
-     public readonly bonus.WeightItemInfo[] ItemList;
+    public readonly bonus.WeightItemInfo[] ItemList;
 
 
     public const int ID = -356202311;
@@ -44,7 +44,7 @@ public sealed partial class WeightItems :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

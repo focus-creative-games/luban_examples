@@ -47,18 +47,18 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
-     public readonly System.Collections.Generic.List<blueprint.Method> Methods;
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
+    public readonly System.Collections.Generic.List<blueprint.Method> Methods;
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
 
-            foreach(var _e in Parents) { _e?.Resolve(_tables); }
-            foreach(var _e in Methods) { _e?.Resolve(_tables); }
+        foreach(var _e in Parents) { _e?.Resolve(_tables); }
+        foreach(var _e in Methods) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

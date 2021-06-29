@@ -38,9 +38,9 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Level;
-     public readonly long NeedExp;
-     public readonly System.Collections.Generic.List<int> ClothesAttrs;
+    public readonly int Level;
+    public readonly long NeedExp;
+    public readonly System.Collections.Generic.List<int> ClothesAttrs;
 
 
     public const int ID = -1569837022;

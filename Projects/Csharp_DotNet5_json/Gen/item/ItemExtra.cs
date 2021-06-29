@@ -44,7 +44,7 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
+    public readonly int Id;
 
 
 

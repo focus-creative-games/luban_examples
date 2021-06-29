@@ -36,8 +36,8 @@ public sealed partial class MoveToLocation :  ai.Task
     
     }
 
-     public readonly System.Numerics.Vector3 Location;
-     public readonly float AcceptableRadius;
+    public readonly System.Numerics.Vector3 Location;
+    public readonly float AcceptableRadius;
 
 
     public const int ID = -969953113;

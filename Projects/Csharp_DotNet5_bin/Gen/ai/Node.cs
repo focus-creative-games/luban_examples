@@ -63,8 +63,8 @@ public abstract partial class Node :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string NodeName;
+    public readonly int Id;
+    public readonly string NodeName;
 
 
 

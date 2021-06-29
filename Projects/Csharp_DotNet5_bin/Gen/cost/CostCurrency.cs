@@ -36,8 +36,8 @@ public sealed partial class CostCurrency :  cost.Cost
     
     }
 
-     public readonly item.ECurrencyType Type;
-     public readonly int Num;
+    public readonly item.ECurrencyType Type;
+    public readonly int Num;
 
 
     public const int ID = 911838111;

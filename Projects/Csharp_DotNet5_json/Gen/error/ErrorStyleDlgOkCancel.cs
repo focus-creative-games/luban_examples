@@ -37,8 +37,8 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
     
     }
 
-     public readonly string Btn1Name;
-     public readonly string Btn2Name;
+    public readonly string Btn1Name;
+    public readonly string Btn2Name;
 
 
     public const int ID = 971221414;

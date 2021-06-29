@@ -1499,6 +1499,24 @@ beans['item.Dymmy'] =
     { name='cost', type='cost.Cost'},
 }
 
+---@class l10n.L10NDemo 
+---@field public id int
+---@field public text string
+beans['l10n.L10NDemo'] =
+{
+    { name='id', type='int'},
+    { name='text', type='string'},
+}
+
+---@class l10n.PatchDemo 
+---@field public id int
+---@field public value int
+beans['l10n.PatchDemo'] =
+{
+    { name='id', type='int'},
+    { name='value', type='int'},
+}
+
 ---@class limit.LimitBase 
 beans['limit.LimitBase'] =
 {
@@ -1637,6 +1655,15 @@ beans['role.LevelBonus'] =
     { name='distinct_bonus_infos', type='role.DistinctBonusInfos[]'},
 }
 
+---@class tag.TestTag 
+---@field public id int
+---@field public value string
+beans['tag.TestTag'] =
+{
+    { name='id', type='int'},
+    { name='value', type='string'},
+}
+
 
 local tables =
 {
@@ -1662,6 +1689,10 @@ local tables =
 
     { name='TbItemExtra', file='item.TbItemExtra.bin', mode='map', index='id', value_type='item.ItemExtra' },
 
+    { name='TbL10NDemo', file='l10n.TbL10NDemo.bin', mode='map', index='id', value_type='l10n.L10NDemo' },
+
+    { name='TbPatchDemo', file='l10n.TbPatchDemo.bin', mode='map', index='id', value_type='l10n.PatchDemo' },
+
     { name='TbSystemMail', file='mail.TbSystemMail.bin', mode='map', index='id', value_type='mail.SystemMail' },
 
     { name='TbGlobalMail', file='mail.TbGlobalMail.bin', mode='map', index='id', value_type='mail.GlobalMail' },
@@ -1669,6 +1700,8 @@ local tables =
     { name='TbRoleLevelExpAttr', file='role.TbRoleLevelExpAttr.bin', mode='map', index='level', value_type='role.LevelExpAttr' },
 
     { name='TbRoleLevelBonusCoefficient', file='role.TbRoleLevelBonusCoefficient.bin', mode='map', index='id', value_type='role.LevelBonus' },
+
+    { name='TbTestTag', file='tag.TbTestTag.bin', mode='map', index='id', value_type='tag.TestTag' },
 
 }
 

@@ -39,9 +39,9 @@ public sealed partial class UeLoop :  ai.Decorator
     
     }
 
-     public readonly int NumLoops;
-     public readonly bool InfiniteLoop;
-     public readonly float InfiniteLoopTimeoutTime;
+    public readonly int NumLoops;
+    public readonly bool InfiniteLoop;
+    public readonly float InfiniteLoopTimeoutTime;
 
 
     public const int ID = -513308166;

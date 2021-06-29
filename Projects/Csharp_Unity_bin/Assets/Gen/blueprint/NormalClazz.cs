@@ -36,8 +36,8 @@ public sealed partial class NormalClazz :  blueprint.Clazz
     
     }
 
-     public readonly bool IsAbstract;
-     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
+    public readonly bool IsAbstract;
+    public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
 
     public const int ID = -2073576778;
@@ -47,7 +47,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Fields) { _e?.Resolve(_tables); }
+        foreach(var _e in Fields) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

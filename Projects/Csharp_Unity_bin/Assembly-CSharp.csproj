@@ -59,6 +59,7 @@
     <Compile Include="Assets\Gen\ai\DebugPrint.cs" />
     <Compile Include="Assets\Gen\limit\WeeklyLimit.cs" />
     <Compile Include="Assets\Gen\item\EUseType.cs" />
+    <Compile Include="Assets\Core\StringUtil.cs" />
     <Compile Include="Assets\Gen\blueprint\EnumClazz.cs" />
     <Compile Include="Assets\Gen\item\EMajorType.cs" />
     <Compile Include="Assets\Gen\condition\BoolRoleCondition.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Gen\bonus\WeightItemInfo.cs" />
     <Compile Include="Assets\Gen\cost\CostItems.cs" />
     <Compile Include="Assets\Gen\ai\Decorator.cs" />
+    <Compile Include="Assets\Gen\l10n\TbL10NDemo.cs" />
     <Compile Include="Assets\Gen\cost\CostItem.cs" />
     <Compile Include="Assets\Gen\bonus\TbDrop.cs" />
     <Compile Include="Assets\Gen\bonus\ProbabilityBonusInfo.cs" />
@@ -123,9 +125,11 @@
     <Compile Include="Assets\Gen\common\TbDummy.cs" />
     <Compile Include="Assets\Gen\ai\Sequence.cs" />
     <Compile Include="Assets\Gen\ai\IsSet.cs" />
+    <Compile Include="Assets\Gen\tag\TbTestTag.cs" />
     <Compile Include="Assets\Gen\role\LevelExpAttr.cs" />
     <Compile Include="Assets\Gen\ai\SimpleParallel.cs" />
     <Compile Include="Assets\Core\ITypeId.cs" />
+    <Compile Include="Assets\Gen\l10n\L10NDemo.cs" />
     <Compile Include="Assets\Gen\bonus\CoefficientItem.cs" />
     <Compile Include="Assets\Gen\limit\MonthlyLimit.cs" />
     <Compile Include="Assets\Gen\item\EClothesHidePartType.cs" />
@@ -180,7 +184,9 @@
     <Compile Include="Assets\Gen\role\TbRoleLevelBonusCoefficient.cs" />
     <Compile Include="Assets\Gen\item\Dymmy.cs" />
     <Compile Include="Assets\Gen\mail\TbGlobalMail.cs" />
+    <Compile Include="Assets\Gen\tag\TestTag.cs" />
     <Compile Include="Assets\Gen\common\Dummy.cs" />
+    <Compile Include="Assets\Gen\l10n\PatchDemo.cs" />
     <Compile Include="Assets\Gen\condition\MinMaxLevel.cs" />
     <Compile Include="Assets\Gen\cost\CostOneItem.cs" />
     <Compile Include="Assets\Gen\ai\BlackboardKeyData.cs" />
@@ -216,11 +222,11 @@
     <Compile Include="Assets\Gen\bonus\OneItems.cs" />
     <Compile Include="Assets\Gen\item\ItemExtra.cs" />
     <Compile Include="Assets\Gen\ai\EKeyType.cs" />
+    <Compile Include="Assets\Gen\l10n\TbPatchDemo.cs" />
     <Compile Include="Assets\Gen\bonus\MultiBonus.cs" />
     <Compile Include="Assets\Gen\condition\MinLevel.cs" />
     <Compile Include="Assets\Gen\common\EBoolOperator.cs" />
     <Compile Include="Assets\Gen\blueprint\NormalClazz.cs" />
-    <Compile Include="Assets\Core\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

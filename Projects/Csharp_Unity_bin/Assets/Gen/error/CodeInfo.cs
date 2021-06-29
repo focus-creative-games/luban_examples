@@ -36,8 +36,8 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly error.EErrorCode Code;
-     public readonly string Key;
+    public readonly error.EErrorCode Code;
+    public readonly string Key;
 
 
     public const int ID = -1942481535;

@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Blueprint_TbClazz struct {
     _dataMap map[string]interface{}
     _dataList []interface{}

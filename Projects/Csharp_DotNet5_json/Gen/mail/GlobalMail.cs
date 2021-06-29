@@ -57,18 +57,18 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string Title;
-     public readonly string Sender;
-     public readonly string Content;
-     public readonly System.Collections.Generic.List<int> Award;
-     public readonly bool AllServer;
-     public readonly System.Collections.Generic.List<int> ServerList;
-     public readonly string Platform;
-     public readonly string Channel;
-     public readonly condition.MinMaxLevel MinMaxLevel;
-     public readonly condition.TimeRange RegisterTime;
-     public readonly condition.TimeRange MailTime;
+    public readonly int Id;
+    public readonly string Title;
+    public readonly string Sender;
+    public readonly string Content;
+    public readonly System.Collections.Generic.List<int> Award;
+    public readonly bool AllServer;
+    public readonly System.Collections.Generic.List<int> ServerList;
+    public readonly string Platform;
+    public readonly string Channel;
+    public readonly condition.MinMaxLevel MinMaxLevel;
+    public readonly condition.TimeRange RegisterTime;
+    public readonly condition.TimeRange MailTime;
 
 
     public const int ID = -287571791;
@@ -78,9 +78,9 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            MinMaxLevel?.Resolve(_tables);
-            RegisterTime?.Resolve(_tables);
-            MailTime?.Resolve(_tables);
+        MinMaxLevel?.Resolve(_tables);
+        RegisterTime?.Resolve(_tables);
+        MailTime?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

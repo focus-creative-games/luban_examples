@@ -1009,6 +1009,7 @@ namespace bright
                 }
             }
 
+        public:
             inline void reserveWrite(int size)
             {
                 if (endPos_ + size > (int)capacity_)
@@ -1016,7 +1017,7 @@ namespace bright
                     compactOrResize(size);
                 }
             }
-
+        private:
             inline bool ensureRead(int size)
             {
                 return (beginPos_ + size <= endPos_);

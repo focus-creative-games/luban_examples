@@ -35,7 +35,7 @@ public sealed partial class FloatKeyData :  ai.KeyData
     
     }
 
-     public readonly float Value;
+    public readonly float Value;
 
 
     public const int ID = -719747885;

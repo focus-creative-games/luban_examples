@@ -36,8 +36,8 @@ public sealed partial class UeWait :  ai.Task
     
     }
 
-     public readonly float WaitTime;
-     public readonly float RandomDeviation;
+    public readonly float WaitTime;
+    public readonly float RandomDeviation;
 
 
     public const int ID = -512994101;

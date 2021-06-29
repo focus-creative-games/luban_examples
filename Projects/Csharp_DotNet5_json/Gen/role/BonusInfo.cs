@@ -37,8 +37,8 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly item.ECurrencyType Type;
-     public readonly float Coefficient;
+    public readonly item.ECurrencyType Type;
+    public readonly float Coefficient;
 
 
     public const int ID = -1354421803;

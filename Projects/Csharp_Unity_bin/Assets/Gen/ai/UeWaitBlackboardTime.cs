@@ -34,7 +34,7 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
     
     }
 
-     public readonly string BlackboardKey;
+    public readonly string BlackboardKey;
 
 
     public const int ID = 1215378271;

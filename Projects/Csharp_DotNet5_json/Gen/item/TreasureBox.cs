@@ -43,11 +43,11 @@ public sealed partial class TreasureBox :  item.ItemExtra
     
     }
 
-     public readonly int? KeyItemId;
-     public readonly condition.MinLevel OpenLevel;
-     public readonly bool UseOnObtain;
-     public readonly System.Collections.Generic.List<int> DropIds;
-     public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
+    public readonly int? KeyItemId;
+    public readonly condition.MinLevel OpenLevel;
+    public readonly bool UseOnObtain;
+    public readonly System.Collections.Generic.List<int> DropIds;
+    public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
 
 
     public const int ID = 1494222369;
@@ -57,8 +57,8 @@ public sealed partial class TreasureBox :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            OpenLevel?.Resolve(_tables);
-            foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
+        OpenLevel?.Resolve(_tables);
+        foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

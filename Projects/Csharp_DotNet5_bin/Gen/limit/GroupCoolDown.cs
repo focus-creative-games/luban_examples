@@ -36,8 +36,8 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
     
     }
 
-     public readonly int GroupId;
-     public readonly int Duration;
+    public readonly int GroupId;
+    public readonly int Duration;
 
 
     public const int ID = 394328599;

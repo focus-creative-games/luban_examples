@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Role_TbRoleLevelBonusCoefficient struct {
     _dataMap map[int32]*Role_LevelBonus
     _dataList []*Role_LevelBonus

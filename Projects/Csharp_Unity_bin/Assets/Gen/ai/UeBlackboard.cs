@@ -38,9 +38,9 @@ public sealed partial class UeBlackboard :  ai.Decorator
     
     }
 
-     public readonly ai.ENotifyObserverMode NotifyObserver;
-     public readonly string BlackboardKey;
-     public readonly ai.KeyQueryOperator KeyQuery;
+    public readonly ai.ENotifyObserverMode NotifyObserver;
+    public readonly string BlackboardKey;
+    public readonly ai.KeyQueryOperator KeyQuery;
 
 
     public const int ID = -315297507;
@@ -50,7 +50,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            KeyQuery?.Resolve(_tables);
+        KeyQuery?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

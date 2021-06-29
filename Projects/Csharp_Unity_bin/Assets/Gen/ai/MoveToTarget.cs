@@ -36,8 +36,8 @@ public sealed partial class MoveToTarget :  ai.Task
     
     }
 
-     public readonly string TargetActorKey;
-     public readonly float AcceptableRadius;
+    public readonly string TargetActorKey;
+    public readonly float AcceptableRadius;
 
 
     public const int ID = 514987779;

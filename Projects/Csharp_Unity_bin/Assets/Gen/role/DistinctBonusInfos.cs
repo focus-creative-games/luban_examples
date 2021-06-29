@@ -36,8 +36,8 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     
     }
 
-     public readonly int EffectiveLevel;
-     public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
+    public readonly int EffectiveLevel;
+    public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
 
 
     public const int ID = -854361766;
@@ -47,7 +47,7 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
+        foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

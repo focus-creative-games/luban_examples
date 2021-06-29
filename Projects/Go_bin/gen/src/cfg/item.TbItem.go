@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Item_TbItem struct {
     _dataMap map[int32]*Item_Item
     _dataList []*Item_Item

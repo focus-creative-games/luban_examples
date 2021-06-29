@@ -34,7 +34,7 @@ public sealed partial class TimeRange :  condition.Condition
     
     }
 
-     public readonly common.DateTimeRange DateTimeRange;
+    public readonly common.DateTimeRange DateTimeRange;
 
 
     public const int ID = 1069033789;
@@ -44,7 +44,7 @@ public sealed partial class TimeRange :  condition.Condition
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            DateTimeRange?.Resolve(_tables);
+        DateTimeRange?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

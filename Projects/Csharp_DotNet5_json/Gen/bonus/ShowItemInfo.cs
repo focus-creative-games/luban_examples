@@ -37,9 +37,9 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly long ItemNum;
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly long ItemNum;
 
 
     public const int ID = -1496363507;
@@ -49,7 +49,7 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 

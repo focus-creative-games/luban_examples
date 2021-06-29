@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Error_TbCodeInfo struct {
     _dataMap map[int32]*Error_CodeInfo
     _dataList []*Error_CodeInfo

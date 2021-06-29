@@ -38,10 +38,10 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Num;
-     public readonly float Probability;
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Num;
+    public readonly float Probability;
 
 
     public const int ID = 1547874631;
@@ -51,7 +51,7 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 

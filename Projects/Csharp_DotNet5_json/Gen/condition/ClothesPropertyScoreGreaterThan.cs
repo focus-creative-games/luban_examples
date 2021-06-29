@@ -37,8 +37,8 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
     
     }
 
-     public readonly item.EClothesPropertyType Prop;
-     public readonly int Value;
+    public readonly item.EClothesPropertyType Prop;
+    public readonly int Value;
 
 
     public const int ID = 696630835;

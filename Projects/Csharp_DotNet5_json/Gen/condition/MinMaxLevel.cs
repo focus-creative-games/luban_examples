@@ -37,8 +37,8 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
     
     }
 
-     public readonly int Min;
-     public readonly int Max;
+    public readonly int Min;
+    public readonly int Max;
 
 
     public const int ID = 907499647;

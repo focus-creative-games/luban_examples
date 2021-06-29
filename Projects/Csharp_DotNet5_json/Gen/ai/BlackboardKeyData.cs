@@ -35,7 +35,7 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
     
     }
 
-     public readonly string Value;
+    public readonly string Value;
 
 
     public const int ID = 1517269500;

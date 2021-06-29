@@ -37,8 +37,8 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     
     }
 
-     public readonly ai.EOperator Oper;
-     public readonly ai.KeyData Data;
+    public readonly ai.EOperator Oper;
+    public readonly ai.KeyData Data;
 
 
     public const int ID = -979891605;
@@ -48,7 +48,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            Data?.Resolve(_tables);
+        Data?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Ai_TbBehaviorTree struct {
     _dataMap map[int32]*Ai_BehaviorTree
     _dataList []*Ai_BehaviorTree

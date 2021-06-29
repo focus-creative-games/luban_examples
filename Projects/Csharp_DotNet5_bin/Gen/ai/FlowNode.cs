@@ -50,16 +50,16 @@ public abstract partial class FlowNode :  ai.Node
     
     }
 
-     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-     public readonly System.Collections.Generic.List<ai.Service> Services;
+    public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
+    public readonly System.Collections.Generic.List<ai.Service> Services;
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Decorators) { _e?.Resolve(_tables); }
-            foreach(var _e in Services) { _e?.Resolve(_tables); }
+        foreach(var _e in Decorators) { _e?.Resolve(_tables); }
+        foreach(var _e in Services) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

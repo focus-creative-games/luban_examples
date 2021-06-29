@@ -27,10 +27,13 @@ public final class Tables
     public final cfg.item.TbItem TbItem;
     public final cfg.item.TbItemFunc TbItemFunc;
     public final cfg.item.TbItemExtra TbItemExtra;
+    public final cfg.l10n.TbL10NDemo TbL10NDemo;
+    public final cfg.l10n.TbPatchDemo TbPatchDemo;
     public final cfg.mail.TbSystemMail TbSystemMail;
     public final cfg.mail.TbGlobalMail TbGlobalMail;
     public final cfg.role.TbRoleLevelExpAttr TbRoleLevelExpAttr;
     public final cfg.role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
+    public final cfg.tag.TbTestTag TbTestTag;
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
         var tables = new java.util.HashMap<String, Object>();
@@ -56,6 +59,10 @@ public final class Tables
         tables.put("item.TbItemFunc", TbItemFunc);
         TbItemExtra = new cfg.item.TbItemExtra(loader.load("item.TbItemExtra.bin")); 
         tables.put("item.TbItemExtra", TbItemExtra);
+        TbL10NDemo = new cfg.l10n.TbL10NDemo(loader.load("l10n.TbL10NDemo.bin")); 
+        tables.put("l10n.TbL10NDemo", TbL10NDemo);
+        TbPatchDemo = new cfg.l10n.TbPatchDemo(loader.load("l10n.TbPatchDemo.bin")); 
+        tables.put("l10n.TbPatchDemo", TbPatchDemo);
         TbSystemMail = new cfg.mail.TbSystemMail(loader.load("mail.TbSystemMail.bin")); 
         tables.put("mail.TbSystemMail", TbSystemMail);
         TbGlobalMail = new cfg.mail.TbGlobalMail(loader.load("mail.TbGlobalMail.bin")); 
@@ -64,6 +71,8 @@ public final class Tables
         tables.put("role.TbRoleLevelExpAttr", TbRoleLevelExpAttr);
         TbRoleLevelBonusCoefficient = new cfg.role.TbRoleLevelBonusCoefficient(loader.load("role.TbRoleLevelBonusCoefficient.bin")); 
         tables.put("role.TbRoleLevelBonusCoefficient", TbRoleLevelBonusCoefficient);
+        TbTestTag = new cfg.tag.TbTestTag(loader.load("tag.TbTestTag.bin")); 
+        tables.put("tag.TbTestTag", TbTestTag);
         TbBlackboard.resolve(tables);
         TbBehaviorTree.resolve(tables);
         TbClazz.resolve(tables);
@@ -75,10 +84,13 @@ public final class Tables
         TbItem.resolve(tables);
         TbItemFunc.resolve(tables);
         TbItemExtra.resolve(tables);
+        TbL10NDemo.resolve(tables);
+        TbPatchDemo.resolve(tables);
         TbSystemMail.resolve(tables);
         TbGlobalMail.resolve(tables);
         TbRoleLevelExpAttr.resolve(tables);
         TbRoleLevelBonusCoefficient.resolve(tables);
+        TbTestTag.resolve(tables);
     }
 }
 

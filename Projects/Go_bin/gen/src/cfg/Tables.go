@@ -25,10 +25,13 @@ type Tables struct {
     TbItem *Item_TbItem
     TbItemFunc *Item_TbItemFunc
     TbItemExtra *Item_TbItemExtra
+    TbL10NDemo *L10n_TbL10NDemo
+    TbPatchDemo *L10n_TbPatchDemo
     TbSystemMail *Mail_TbSystemMail
     TbGlobalMail *Mail_TbGlobalMail
     TbRoleLevelExpAttr *Role_TbRoleLevelExpAttr
     TbRoleLevelBonusCoefficient *Role_TbRoleLevelBonusCoefficient
+    TbTestTag *Tag_TbTestTag
 }
 
 func NewTables(loader ByteBufLoader) (*Tables, error) {
@@ -102,6 +105,18 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     if tables.TbItemExtra, err = NewItem_TbItemExtra(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("l10n.TbL10NDemo.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbL10NDemo, err = NewL10n_TbL10NDemo(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("l10n.TbPatchDemo.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbPatchDemo, err = NewL10n_TbPatchDemo(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("mail.TbSystemMail.bin") ; err != nil {
         return nil, err
     }
@@ -124,6 +139,12 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbRoleLevelBonusCoefficient, err = NewRole_TbRoleLevelBonusCoefficient(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("tag.TbTestTag.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestTag, err = NewTag_TbTestTag(buf) ; err != nil {
         return nil, err
     }
     return tables, nil

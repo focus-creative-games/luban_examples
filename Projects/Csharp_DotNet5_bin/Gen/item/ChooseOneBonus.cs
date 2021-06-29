@@ -36,9 +36,9 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
     
     }
 
-     public readonly int DropId;
-        public bonus.DropInfo DropId_Ref;
-     public readonly bool IsUnique;
+    public readonly int DropId;
+    public bonus.DropInfo DropId_Ref;
+    public readonly bool IsUnique;
 
 
     public const int ID = 228058347;
@@ -48,7 +48,7 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            this.DropId_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(DropId);
+        this.DropId_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(DropId);
         OnResolveFinish(_tables);
     }
 

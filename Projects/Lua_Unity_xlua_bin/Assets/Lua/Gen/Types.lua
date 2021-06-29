@@ -2603,6 +2603,42 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
+    ---@class l10n.L10NDemo 
+     ---@field public id int
+     ---@field public text string
+        local class = SimpleClass()
+        class._id = -331195887
+        class._name = 'l10n.L10NDemo'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            text = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class l10n.PatchDemo 
+     ---@field public id int
+     ---@field public value int
+        local class = SimpleClass()
+        class._id = -1707294656
+        class._name = 'l10n.PatchDemo'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            value = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
     ---@class limit.LimitBase 
         local class = SimpleClass()
         class._id = 2120549017
@@ -2862,6 +2898,24 @@ local function InitTypes(methods)
         end
         beans[class._name] = class
     end
+    do
+    ---@class tag.TestTag 
+     ---@field public id int
+     ---@field public value string
+        local class = SimpleClass()
+        class._id = 1742933812
+        class._name = 'tag.TestTag'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            value = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
 
     local tables =
     {
@@ -2876,10 +2930,13 @@ local function InitTypes(methods)
     { name='TbItem', file='item.TbItem.bin', mode='map', index='id', value_type='item.Item' },
     { name='TbItemFunc', file='item.TbItemFunc.bin', mode='map', index='minor_type', value_type='item.ItemFunction' },
     { name='TbItemExtra', file='item.TbItemExtra.bin', mode='map', index='id', value_type='item.ItemExtra' },
+    { name='TbL10NDemo', file='l10n.TbL10NDemo.bin', mode='map', index='id', value_type='l10n.L10NDemo' },
+    { name='TbPatchDemo', file='l10n.TbPatchDemo.bin', mode='map', index='id', value_type='l10n.PatchDemo' },
     { name='TbSystemMail', file='mail.TbSystemMail.bin', mode='map', index='id', value_type='mail.SystemMail' },
     { name='TbGlobalMail', file='mail.TbGlobalMail.bin', mode='map', index='id', value_type='mail.GlobalMail' },
     { name='TbRoleLevelExpAttr', file='role.TbRoleLevelExpAttr.bin', mode='map', index='level', value_type='role.LevelExpAttr' },
     { name='TbRoleLevelBonusCoefficient', file='role.TbRoleLevelBonusCoefficient.bin', mode='map', index='id', value_type='role.LevelBonus' },
+    { name='TbTestTag', file='tag.TbTestTag.bin', mode='map', index='id', value_type='tag.TestTag' },
     }
     return { consts = consts, enums = enums, beans = beans, tables = tables }
     end

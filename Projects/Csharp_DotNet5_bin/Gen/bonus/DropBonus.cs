@@ -34,8 +34,8 @@ public sealed partial class DropBonus :  bonus.Bonus
     
     }
 
-     public readonly int Id;
-        public bonus.DropInfo Id_Ref;
+    public readonly int Id;
+    public bonus.DropInfo Id_Ref;
 
 
     public const int ID = 1959868225;
@@ -45,7 +45,7 @@ public sealed partial class DropBonus :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
+        this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
         OnResolveFinish(_tables);
     }
 

@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Item_TbItemExtra struct {
     _dataMap map[int32]interface{}
     _dataList []interface{}

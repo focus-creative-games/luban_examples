@@ -34,7 +34,7 @@ public sealed partial class Selector :  ai.ComposeNode
     
     }
 
-     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
+    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
 
     public const int ID = -1946981627;
@@ -44,7 +44,7 @@ public sealed partial class Selector :  ai.ComposeNode
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Children) { _e?.Resolve(_tables); }
+        foreach(var _e in Children) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

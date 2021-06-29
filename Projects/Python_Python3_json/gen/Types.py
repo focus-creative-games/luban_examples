@@ -10,21 +10,21 @@
 from enum import Enum
 import abc
 
-class Vector2:
-        def __init__(self, x, y):
-            self.x = x
-            self.y = y
-            self.a = Vector4(1,2,3,4)
-        def __str__(self):
-            return '{%g,%g}' % (self.x, self.y)
 
-        @staticmethod
-        def fromJson(_json_):
-            x = _json_['x']
-            y = _json_['y']
-            if (x == None or y == None):
-                raise Exception()
-            return Vector2(x, y)
+class Vector2:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return '{%g,%g}' % (self.x, self.y)
+
+    @staticmethod
+    def fromJson(_json_):
+        x = _json_['x']
+        y = _json_['y']
+        if (x == None or y == None):
+            raise Exception()
+        return Vector2(x, y)
 
 
 class Vector3:
@@ -2304,6 +2304,30 @@ class cost_CostItems (cost_Cost):
 
 
 
+class l10n_L10NDemo :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['text'] == None: raise Exception()
+        self.text = _json_["text"]
+
+
+
+
+
+class l10n_PatchDemo :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['value'] == None: raise Exception()
+        self.value = _json_["value"]
+
+
+
+
+
 class mail_SystemMail :
 
     def __init__(self, _json_):
@@ -2401,6 +2425,18 @@ class role_BonusInfo :
         self.type = item_ECurrencyType(_json_["type"])
         if _json_['coefficient'] == None: raise Exception()
         self.coefficient = _json_["coefficient"]
+
+
+
+
+
+class tag_TestTag :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['value'] == None: raise Exception()
+        self.value = _json_["value"]
 
 
 
@@ -2638,6 +2674,46 @@ class item_TbItemExtra:
 
 
 
+class l10n_TbL10NDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_L10NDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class l10n_TbPatchDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_PatchDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 class mail_TbSystemMail:
 
     def __init__(self, _json_ ):
@@ -2718,6 +2794,26 @@ class role_TbRoleLevelBonusCoefficient:
 
 
 
+class tag_TbTestTag:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = tag_TestTag(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 class Tables:
     #def TbBlackboard : return self._TbBlackboard
     #def TbBehaviorTree : return self._TbBehaviorTree
@@ -2730,10 +2826,13 @@ class Tables:
     #def TbItem : return self._TbItem
     #def TbItemFunc : return self._TbItemFunc
     #def TbItemExtra : return self._TbItemExtra
+    #def TbL10NDemo : return self._TbL10NDemo
+    #def TbPatchDemo : return self._TbPatchDemo
     #def TbSystemMail : return self._TbSystemMail
     #def TbGlobalMail : return self._TbGlobalMail
     #def TbRoleLevelExpAttr : return self._TbRoleLevelExpAttr
     #def TbRoleLevelBonusCoefficient : return self._TbRoleLevelBonusCoefficient
+    #def TbTestTag : return self._TbTestTag
 
     def __init__(self, loader):
         self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard.json')); 
@@ -2747,8 +2846,11 @@ class Tables:
         self.TbItem = item_TbItem(loader('item.TbItem.json')); 
         self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc.json')); 
         self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra.json')); 
+        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo.json')); 
+        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo.json')); 
         self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail.json')); 
         self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail.json')); 
         self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr.json')); 
         self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient.json')); 
+        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag.json')); 
 

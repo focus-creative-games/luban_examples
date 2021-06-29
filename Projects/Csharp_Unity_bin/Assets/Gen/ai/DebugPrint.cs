@@ -34,7 +34,7 @@ public sealed partial class DebugPrint :  ai.Task
     
     }
 
-     public readonly string Text;
+    public readonly string Text;
 
 
     public const int ID = 1357409728;

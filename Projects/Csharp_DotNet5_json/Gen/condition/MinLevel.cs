@@ -35,7 +35,7 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
     
     }
 
-     public readonly int Level;
+    public readonly int Level;
 
 
     public const int ID = -1075273755;

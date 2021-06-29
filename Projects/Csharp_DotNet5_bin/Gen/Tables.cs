@@ -26,10 +26,13 @@ public sealed class Tables
     public item.TbItem TbItem {get; }
     public item.TbItemFunc TbItemFunc {get; }
     public item.TbItemExtra TbItemExtra {get; }
+    public l10n.TbL10NDemo TbL10NDemo {get; }
+    public l10n.TbPatchDemo TbPatchDemo {get; }
     public mail.TbSystemMail TbSystemMail {get; }
     public mail.TbGlobalMail TbGlobalMail {get; }
     public role.TbRoleLevelExpAttr TbRoleLevelExpAttr {get; }
     public role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient {get; }
+    public tag.TbTestTag TbTestTag {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -56,6 +59,10 @@ public sealed class Tables
         tables.Add("item.TbItemFunc", TbItemFunc);
         TbItemExtra = new item.TbItemExtra(loader("item.TbItemExtra.bin")); 
         tables.Add("item.TbItemExtra", TbItemExtra);
+        TbL10NDemo = new l10n.TbL10NDemo(loader("l10n.TbL10NDemo.bin")); 
+        tables.Add("l10n.TbL10NDemo", TbL10NDemo);
+        TbPatchDemo = new l10n.TbPatchDemo(loader("l10n.TbPatchDemo.bin")); 
+        tables.Add("l10n.TbPatchDemo", TbPatchDemo);
         TbSystemMail = new mail.TbSystemMail(loader("mail.TbSystemMail.bin")); 
         tables.Add("mail.TbSystemMail", TbSystemMail);
         TbGlobalMail = new mail.TbGlobalMail(loader("mail.TbGlobalMail.bin")); 
@@ -64,6 +71,8 @@ public sealed class Tables
         tables.Add("role.TbRoleLevelExpAttr", TbRoleLevelExpAttr);
         TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader("role.TbRoleLevelBonusCoefficient.bin")); 
         tables.Add("role.TbRoleLevelBonusCoefficient", TbRoleLevelBonusCoefficient);
+        TbTestTag = new tag.TbTestTag(loader("tag.TbTestTag.bin")); 
+        tables.Add("tag.TbTestTag", TbTestTag);
         TbBlackboard.Resolve(tables);
         TbBehaviorTree.Resolve(tables);
         TbClazz.Resolve(tables);
@@ -75,10 +84,13 @@ public sealed class Tables
         TbItem.Resolve(tables);
         TbItemFunc.Resolve(tables);
         TbItemExtra.Resolve(tables);
+        TbL10NDemo.Resolve(tables);
+        TbPatchDemo.Resolve(tables);
         TbSystemMail.Resolve(tables);
         TbGlobalMail.Resolve(tables);
         TbRoleLevelExpAttr.Resolve(tables);
         TbRoleLevelBonusCoefficient.Resolve(tables);
+        TbTestTag.Resolve(tables);
     }
 }
 

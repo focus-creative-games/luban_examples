@@ -34,7 +34,7 @@ public sealed partial class UeCooldown :  ai.Decorator
     
     }
 
-     public readonly float CooldownTime;
+    public readonly float CooldownTime;
 
 
     public const int ID = -951439423;

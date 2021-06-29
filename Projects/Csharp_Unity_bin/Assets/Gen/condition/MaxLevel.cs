@@ -34,7 +34,7 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
     
     }
 
-     public readonly int Level;
+    public readonly int Level;
 
 
     public const int ID = 700922899;

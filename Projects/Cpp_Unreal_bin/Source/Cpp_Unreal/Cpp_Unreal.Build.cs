@@ -21,6 +21,6 @@ public class Cpp_Unreal : ModuleRules
         // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
 
 
-        PublicDefinitions.Add("USE_UE_STRING=1");
+        //PublicDefinitions.Add("USE_UE_STRING=1");
     }
 }

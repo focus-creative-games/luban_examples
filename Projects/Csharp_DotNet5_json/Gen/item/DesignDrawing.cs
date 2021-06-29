@@ -35,7 +35,7 @@ public sealed partial class DesignDrawing :  item.ItemExtra
     
     }
 
-     public readonly System.Collections.Generic.List<int> LearnComponentId;
+    public readonly System.Collections.Generic.List<int> LearnComponentId;
 
 
     public const int ID = -1679179579;

@@ -34,7 +34,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     
     }
 
-     public readonly condition.RoleCondition[] Conditions;
+    public readonly condition.RoleCondition[] Conditions;
 
 
     public const int ID = 934079583;
@@ -44,7 +44,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Conditions) { _e?.Resolve(_tables); }
+        foreach(var _e in Conditions) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

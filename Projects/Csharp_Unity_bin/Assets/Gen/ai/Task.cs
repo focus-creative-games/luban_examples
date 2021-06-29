@@ -45,7 +45,7 @@ public abstract partial class Task :  ai.FlowNode
     
     }
 
-     public readonly bool IgnoreRestartSelf;
+    public readonly bool IgnoreRestartSelf;
 
 
 

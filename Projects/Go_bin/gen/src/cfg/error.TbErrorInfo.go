@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Error_TbErrorInfo struct {
     _dataMap map[string]*Error_ErrorInfo
     _dataList []*Error_ErrorInfo

@@ -74,27 +74,27 @@ public sealed partial class Item :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string Name;
-     public readonly item.EMajorType MajorType;
-     public readonly item.EMinorType MinorType;
-     public readonly int MaxPileNum;
-     public readonly item.EItemQuality Quality;
-     public readonly string Icon;
-     public readonly string IconBackgroud;
-     public readonly string IconMask;
-     public readonly string Desc;
-     public readonly int ShowOrder;
-     public readonly string Quantifier;
-     public readonly bool ShowInBag;
-     public readonly int MinShowLevel;
-     public readonly bool BatchUsable;
-     public readonly float ProgressTimeWhenUse;
-     public readonly bool ShowHintWhenUse;
-     public readonly bool Droppable;
-     public readonly int? Price;
-     public readonly item.EUseType UseType;
-     public readonly int? LevelUpId;
+    public readonly int Id;
+    public readonly string Name;
+    public readonly item.EMajorType MajorType;
+    public readonly item.EMinorType MinorType;
+    public readonly int MaxPileNum;
+    public readonly item.EItemQuality Quality;
+    public readonly string Icon;
+    public readonly string IconBackgroud;
+    public readonly string IconMask;
+    public readonly string Desc;
+    public readonly int ShowOrder;
+    public readonly string Quantifier;
+    public readonly bool ShowInBag;
+    public readonly int MinShowLevel;
+    public readonly bool BatchUsable;
+    public readonly float ProgressTimeWhenUse;
+    public readonly bool ShowHintWhenUse;
+    public readonly bool Droppable;
+    public readonly int? Price;
+    public readonly item.EUseType UseType;
+    public readonly int? LevelUpId;
 
 
     public const int ID = 2107285806;

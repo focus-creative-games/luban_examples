@@ -46,7 +46,7 @@ public abstract partial class Decorator :  ai.Node
     
     }
 
-     public readonly ai.EFlowAbortMode FlowAbortMode;
+    public readonly ai.EFlowAbortMode FlowAbortMode;
 
 
 

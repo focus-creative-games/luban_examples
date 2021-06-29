@@ -557,12 +557,15 @@ namespace cost { class CostCurrencies; }
 namespace cost { class CostOneItem; } 
 namespace cost { class CostItem; } 
 namespace cost { class CostItems; } 
+namespace l10n { class L10NDemo; } 
+namespace l10n { class PatchDemo; } 
 namespace mail { class SystemMail; } 
 namespace mail { class GlobalMail; } 
 namespace role { class LevelExpAttr; } 
 namespace role { class LevelBonus; } 
 namespace role { class DistinctBonusInfos; } 
 namespace role { class BonusInfo; } 
+namespace tag { class TestTag; } 
 
 namespace ai {
 
@@ -5115,6 +5118,88 @@ class CostItems : public  cost::Cost
 
 
 
+namespace l10n {
+
+
+
+
+
+class L10NDemo : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeL10NDemo(ByteBuf& _buf, L10NDemo*& _out);
+
+    L10NDemo()
+    { 
+
+    }
+
+    L10NDemo(int32_t id, bright::String text ){
+
+        this->id = id;
+        this->text = text;
+    }
+    virtual ~L10NDemo() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String text;
+
+
+    static constexpr int ID = -331195887;
+
+    int getTypeId() const { return ID; }
+
+
+};
+
+}
+
+
+
+namespace l10n {
+
+
+
+
+
+class PatchDemo : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializePatchDemo(ByteBuf& _buf, PatchDemo*& _out);
+
+    PatchDemo()
+    { 
+
+    }
+
+    PatchDemo(int32_t id, int32_t value ){
+
+        this->id = id;
+        this->value = value;
+    }
+    virtual ~PatchDemo() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    int32_t value;
+
+
+    static constexpr int ID = -1707294656;
+
+    int getTypeId() const { return ID; }
+
+
+};
+
+}
+
+
+
 namespace mail {
 
 
@@ -5379,6 +5464,47 @@ class BonusInfo : public  bright::CfgBean
 
 
     static constexpr int ID = -1354421803;
+
+    int getTypeId() const { return ID; }
+
+
+};
+
+}
+
+
+
+namespace tag {
+
+
+
+
+
+class TestTag : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestTag(ByteBuf& _buf, TestTag*& _out);
+
+    TestTag()
+    { 
+
+    }
+
+    TestTag(int32_t id, bright::String value ){
+
+        this->id = id;
+        this->value = value;
+    }
+    virtual ~TestTag() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String value;
+
+
+    static constexpr int ID = 1742933812;
 
     int getTypeId() const { return ID; }
 
@@ -5817,6 +5943,82 @@ class TbItemExtra
 }
 
 
+namespace l10n {
+
+
+class TbL10NDemo
+{
+    private:
+    std::unordered_map<int32_t, l10n::L10NDemo*> _dataMap;
+    std::vector<l10n::L10NDemo*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            l10n::L10NDemo* _v;
+            if(!l10n::L10NDemo::deserializeL10NDemo(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, l10n::L10NDemo*>& getDataMap() const { return _dataMap; }
+    const std::vector<l10n::L10NDemo*>& getDataList() const { return _dataList; }
+
+    const l10n::L10NDemo* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+
+};
+}
+
+
+namespace l10n {
+
+
+class TbPatchDemo
+{
+    private:
+    std::unordered_map<int32_t, l10n::PatchDemo*> _dataMap;
+    std::vector<l10n::PatchDemo*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            l10n::PatchDemo* _v;
+            if(!l10n::PatchDemo::deserializePatchDemo(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, l10n::PatchDemo*>& getDataMap() const { return _dataMap; }
+    const std::vector<l10n::PatchDemo*>& getDataList() const { return _dataList; }
+
+    const l10n::PatchDemo* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+
+};
+}
+
+
 namespace mail {
 
 
@@ -5969,6 +6171,44 @@ class TbRoleLevelBonusCoefficient
 }
 
 
+namespace tag {
+
+
+class TbTestTag
+{
+    private:
+    std::unordered_map<int32_t, tag::TestTag*> _dataMap;
+    std::vector<tag::TestTag*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            tag::TestTag* _v;
+            if(!tag::TestTag::deserializeTestTag(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, tag::TestTag*>& getDataMap() const { return _dataMap; }
+    const std::vector<tag::TestTag*>& getDataList() const { return _dataList; }
+
+    const tag::TestTag* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+
+};
+}
+
+
 class Tables
 {
     public:
@@ -5983,10 +6223,13 @@ class Tables
      item::TbItem TbItem;
      item::TbItemFunc TbItemFunc;
      item::TbItemExtra TbItemExtra;
+     l10n::TbL10NDemo TbL10NDemo;
+     l10n::TbPatchDemo TbPatchDemo;
      mail::TbSystemMail TbSystemMail;
      mail::TbGlobalMail TbGlobalMail;
      role::TbRoleLevelExpAttr TbRoleLevelExpAttr;
      role::TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
+     tag::TbTestTag TbTestTag;
 
     bool load(std::function<bool(ByteBuf&, const std::string&)> loader)
     {
@@ -6013,6 +6256,10 @@ class Tables
         if (!TbItemFunc.load(buf)) return false;
         if (!loader(buf, "item.TbItemExtra.bin")) return false;
         if (!TbItemExtra.load(buf)) return false;
+        if (!loader(buf, "l10n.TbL10NDemo.bin")) return false;
+        if (!TbL10NDemo.load(buf)) return false;
+        if (!loader(buf, "l10n.TbPatchDemo.bin")) return false;
+        if (!TbPatchDemo.load(buf)) return false;
         if (!loader(buf, "mail.TbSystemMail.bin")) return false;
         if (!TbSystemMail.load(buf)) return false;
         if (!loader(buf, "mail.TbGlobalMail.bin")) return false;
@@ -6021,6 +6268,8 @@ class Tables
         if (!TbRoleLevelExpAttr.load(buf)) return false;
         if (!loader(buf, "role.TbRoleLevelBonusCoefficient.bin")) return false;
         if (!TbRoleLevelBonusCoefficient.load(buf)) return false;
+        if (!loader(buf, "tag.TbTestTag.bin")) return false;
+        if (!TbTestTag.load(buf)) return false;
         return true;
     }
 };

@@ -50,15 +50,15 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
     
     }
 
-     public readonly string SatietyKey;
-     public readonly string EnergyKey;
-     public readonly string MoodKey;
-     public readonly string SatietyLowerThresholdKey;
-     public readonly string SatietyUpperThresholdKey;
-     public readonly string EnergyLowerThresholdKey;
-     public readonly string EnergyUpperThresholdKey;
-     public readonly string MoodLowerThresholdKey;
-     public readonly string MoodUpperThresholdKey;
+    public readonly string SatietyKey;
+    public readonly string EnergyKey;
+    public readonly string MoodKey;
+    public readonly string SatietyLowerThresholdKey;
+    public readonly string SatietyUpperThresholdKey;
+    public readonly string EnergyLowerThresholdKey;
+    public readonly string EnergyUpperThresholdKey;
+    public readonly string MoodLowerThresholdKey;
+    public readonly string MoodUpperThresholdKey;
 
 
     public const int ID = -61887372;

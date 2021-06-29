@@ -36,8 +36,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
     
     }
 
-     public readonly int? StartTime;
-     public readonly int? EndTime;
+    public readonly int? StartTime;
+    public readonly int? EndTime;
 
 
     public const int ID = 1642200959;

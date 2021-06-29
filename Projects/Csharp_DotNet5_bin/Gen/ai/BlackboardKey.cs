@@ -42,11 +42,11 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly bool IsStatic;
-     public readonly ai.EKeyType Type;
-     public readonly string TypeClassName;
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly bool IsStatic;
+    public readonly ai.EKeyType Type;
+    public readonly string TypeClassName;
 
 
     public const int ID = -511559886;

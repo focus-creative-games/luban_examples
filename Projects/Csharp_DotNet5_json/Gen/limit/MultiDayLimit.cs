@@ -37,8 +37,8 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
     
     }
 
-     public readonly int Day;
-     public readonly int Num;
+    public readonly int Day;
+    public readonly int Num;
 
 
     public const int ID = -1753629499;

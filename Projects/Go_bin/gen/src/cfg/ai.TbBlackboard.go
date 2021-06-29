@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Ai_TbBlackboard struct {
     _dataMap map[string]*Ai_Blackboard
     _dataList []*Ai_Blackboard

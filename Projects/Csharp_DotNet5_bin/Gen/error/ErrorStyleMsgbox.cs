@@ -36,8 +36,8 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
     
     }
 
-     public readonly string BtnName;
-     public readonly error.EOperation Operation;
+    public readonly string BtnName;
+    public readonly error.EOperation Operation;
 
 
     public const int ID = -1920482343;

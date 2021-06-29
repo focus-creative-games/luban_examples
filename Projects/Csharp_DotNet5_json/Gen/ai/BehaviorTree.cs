@@ -43,12 +43,12 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
     
     }
 
-     public readonly int Id;
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly string BlackboardId;
-        public ai.Blackboard BlackboardId_Ref;
-     public readonly ai.ComposeNode Root;
+    public readonly int Id;
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly string BlackboardId;
+    public ai.Blackboard BlackboardId_Ref;
+    public readonly ai.ComposeNode Root;
 
 
     public const int ID = 159552822;
@@ -58,8 +58,8 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
 
-            this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
-            Root?.Resolve(_tables);
+        this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
+        Root?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

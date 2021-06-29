@@ -39,9 +39,9 @@ public sealed partial class IsAtLocation :  ai.Decorator
     
     }
 
-     public readonly float AcceptableRadius;
-     public readonly string KeyboardKey;
-     public readonly bool InverseCondition;
+    public readonly float AcceptableRadius;
+    public readonly string KeyboardKey;
+    public readonly bool InverseCondition;
 
 
     public const int ID = 1255972344;

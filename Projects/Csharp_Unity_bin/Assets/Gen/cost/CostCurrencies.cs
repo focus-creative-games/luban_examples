@@ -34,7 +34,7 @@ public sealed partial class CostCurrencies :  cost.Cost
     
     }
 
-     public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
+    public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
 
 
     public const int ID = 103084157;
@@ -44,7 +44,7 @@ public sealed partial class CostCurrencies :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
 base.Resolve(_tables);
-            foreach(var _e in Currencies) { _e?.Resolve(_tables); }
+        foreach(var _e in Currencies) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 

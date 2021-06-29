@@ -35,7 +35,7 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
     
     }
 
-     public readonly int Num;
+    public readonly int Num;
 
 
     public const int ID = -252187161;

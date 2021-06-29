@@ -410,6 +410,56 @@ namespace cfg
         }
     
     }
+    bool l10n::L10NDemo::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readString(text)) return false;
+
+        return true;
+    }
+
+    bool l10n::L10NDemo::deserializeL10NDemo(ByteBuf& _buf, l10n::L10NDemo*& _out)
+    {
+    
+        _out = new l10n::L10NDemo();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    
+    }
+    bool l10n::PatchDemo::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(value)) return false;
+
+        return true;
+    }
+
+    bool l10n::PatchDemo::deserializePatchDemo(ByteBuf& _buf, l10n::PatchDemo*& _out)
+    {
+    
+        _out = new l10n::PatchDemo();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    
+    }
     bool mail::SystemMail::deserialize(ByteBuf& _buf)
     {
 
@@ -562,6 +612,31 @@ namespace cfg
     {
     
         _out = new role::BonusInfo();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    
+    }
+    bool tag::TestTag::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, value)) return false;
+
+        return true;
+    }
+
+    bool tag::TestTag::deserializeTestTag(ByteBuf& _buf, tag::TestTag*& _out)
+    {
+    
+        _out = new tag::TestTag();
         if (_out->deserialize(_buf))
         {
             return true;

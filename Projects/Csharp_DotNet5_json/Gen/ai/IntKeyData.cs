@@ -35,7 +35,7 @@ public sealed partial class IntKeyData :  ai.KeyData
     
     }
 
-     public readonly int Value;
+    public readonly int Value;
 
 
     public const int ID = -342751904;

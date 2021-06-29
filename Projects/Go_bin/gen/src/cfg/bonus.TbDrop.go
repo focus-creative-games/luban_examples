@@ -10,7 +10,6 @@ package cfg
 
 import "bright/serialization"
 
-
 type Bonus_TbDrop struct {
     _dataMap map[int32]*Bonus_DropInfo
     _dataList []*Bonus_DropInfo

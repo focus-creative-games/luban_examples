@@ -1058,9 +1058,7 @@ namespace PuertsStaticWrap
         {
             try
             {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                obj.onEndEdit = argHelper.Get<UnityEngine.UI.InputField.SubmitEvent>(false);
+
                 
             }
             catch (Exception e)

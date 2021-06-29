@@ -39,9 +39,9 @@ public sealed partial class Field :  Bright.Config.BeanBase
     
     }
 
-     public readonly string Name;
-     public readonly string Type;
-     public readonly string Desc;
+    public readonly string Name;
+    public readonly string Type;
+    public readonly string Desc;
 
 
     public const int ID = 1694158271;
