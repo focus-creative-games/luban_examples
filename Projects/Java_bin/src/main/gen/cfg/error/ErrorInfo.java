@@ -31,21 +31,17 @@ public final class ErrorInfo extends  bright.serialization.AbstractBean
 
     public static ErrorInfo deserializeErrorInfo(ByteBuf _buf)
     {
-    
         return new ErrorInfo(_buf);
-    
     }
 
-     public final String code;
-     public final String desc;
-     public final cfg.error.ErrorStyle style;
-
+    public final String code;
+    public final String desc;
+    public final cfg.error.ErrorStyle style;
 
     public static final int ID = 1389347408;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -61,7 +57,6 @@ public final class ErrorInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             if (style != null) {style.resolve(_tables);}
     }
 

@@ -27,10 +27,8 @@ public abstract class ItemExtra extends  bright.serialization.AbstractBean
 
     public static ItemExtra deserializeItemExtra(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.item.TreasureBox.ID: return new cfg.item.TreasureBox(_buf);
             case cfg.item.InteractionItem.ID: return new cfg.item.InteractionItem(_buf);
             case cfg.item.Clothes.ID: return new cfg.item.Clothes(_buf);
@@ -38,11 +36,9 @@ public abstract class ItemExtra extends  bright.serialization.AbstractBean
             case cfg.item.Dymmy.ID: return new cfg.item.Dymmy(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final int id;
-
+    public final int id;
 
 
     @Override
@@ -59,7 +55,6 @@ public abstract class ItemExtra extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

@@ -49,7 +49,6 @@ public sealed partial class TbItem
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

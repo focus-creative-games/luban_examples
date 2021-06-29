@@ -23,25 +23,21 @@ public final class MinLevel extends  cfg.condition.BoolRoleCondition
 
     public MinLevel(int level )
     {
-            super();
+        super();
         this.level = level;
     }
 
     public static MinLevel deserializeMinLevel(ByteBuf _buf)
     {
-    
         return new MinLevel(_buf);
-    
     }
 
-     public final int level;
-
+    public final int level;
 
     public static final int ID = -1075273755;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class MinLevel extends  cfg.condition.BoolRoleCondition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -25,19 +25,15 @@ public abstract class KeyData extends  bright.serialization.AbstractBean
 
     public static KeyData deserializeKeyData(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.FloatKeyData.ID: return new cfg.ai.FloatKeyData(_buf);
             case cfg.ai.IntKeyData.ID: return new cfg.ai.IntKeyData(_buf);
             case cfg.ai.StringKeyData.ID: return new cfg.ai.StringKeyData(_buf);
             case cfg.ai.BlackboardKeyData.ID: return new cfg.ai.BlackboardKeyData(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -55,7 +51,6 @@ public abstract class KeyData extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

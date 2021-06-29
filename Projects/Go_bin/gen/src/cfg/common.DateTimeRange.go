@@ -13,23 +13,18 @@ import "bright/serialization"
 
 
 type Common_DateTimeRange struct {
-    
     StartTime int32
     EndTime int32
 }
-
 
 func (Common_DateTimeRange) GetTypeId() int {
     return 1642200959
 }
 
-
 func NewCommon_DateTimeRange(_buf *serialization.ByteBuf) (_v *Common_DateTimeRange, err error) {
     _v = &Common_DateTimeRange{}
-
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.StartTime, err = _buf.ReadInt(); err != nil  { return } } }
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.EndTime, err = _buf.ReadInt(); err != nil  { return } } }
     return
 }
-
 

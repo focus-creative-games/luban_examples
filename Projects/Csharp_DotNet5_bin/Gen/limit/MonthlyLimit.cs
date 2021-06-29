@@ -29,21 +29,17 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
 
     public static MonthlyLimit DeserializeMonthlyLimit(ByteBuf _buf)
     {
-    
         return new limit.MonthlyLimit(_buf);
-    
     }
 
     public readonly int Num;
 
-
     public const int ID = 2063279905;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -29,20 +29,16 @@ public final class LevelBonus extends  bright.serialization.AbstractBean
 
     public static LevelBonus deserializeLevelBonus(ByteBuf _buf)
     {
-    
         return new LevelBonus(_buf);
-    
     }
 
-     public final int id;
-     public final java.util.ArrayList<cfg.role.DistinctBonusInfos> distinctBonusInfos;
-
+    public final int id;
+    public final java.util.ArrayList<cfg.role.DistinctBonusInfos> distinctBonusInfos;
 
     public static final int ID = -572269677;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class LevelBonus extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             for(cfg.role.DistinctBonusInfos _e : distinctBonusInfos) { if (_e != null) _e.resolve(_tables); }
     }
 

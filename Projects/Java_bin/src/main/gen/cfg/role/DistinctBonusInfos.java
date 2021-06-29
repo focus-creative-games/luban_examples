@@ -29,20 +29,16 @@ public final class DistinctBonusInfos extends  bright.serialization.AbstractBean
 
     public static DistinctBonusInfos deserializeDistinctBonusInfos(ByteBuf _buf)
     {
-    
         return new DistinctBonusInfos(_buf);
-    
     }
 
-     public final int effectiveLevel;
-     public final java.util.ArrayList<cfg.role.BonusInfo> bonusInfo;
-
+    public final int effectiveLevel;
+    public final java.util.ArrayList<cfg.role.BonusInfo> bonusInfo;
 
     public static final int ID = -854361766;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class DistinctBonusInfos extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             for(cfg.role.BonusInfo _e : bonusInfo) { if (_e != null) _e.resolve(_tables); }
     }
 

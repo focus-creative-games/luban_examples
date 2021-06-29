@@ -17,21 +17,16 @@ type Condition_MinLevel struct {
     Level int32
 }
 
-
 func (Condition_MinLevel) GetTypeId() int {
     return -1075273755
 }
 
-
 func NewCondition_MinLevel(_buf *serialization.ByteBuf) (_v *Condition_MinLevel, err error) {
     _v = &Condition_MinLevel{}
-
     var _p *Condition_BoolRoleCondition
      if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
-
     if _v.Level, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

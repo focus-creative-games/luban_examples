@@ -23,25 +23,21 @@ public final class FloatKeyData extends  cfg.ai.KeyData
 
     public FloatKeyData(float value )
     {
-            super();
+        super();
         this.value = value;
     }
 
     public static FloatKeyData deserializeFloatKeyData(ByteBuf _buf)
     {
-    
         return new FloatKeyData(_buf);
-    
     }
 
-     public final float value;
-
+    public final float value;
 
     public static final int ID = -719747885;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class FloatKeyData extends  cfg.ai.KeyData
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

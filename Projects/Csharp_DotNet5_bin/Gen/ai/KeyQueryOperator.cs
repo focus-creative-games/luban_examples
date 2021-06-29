@@ -27,24 +27,19 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
 
     public static KeyQueryOperator DeserializeKeyQueryOperator(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.IsSet.ID: return new ai.IsSet(_buf);
             case ai.IsNotSet.ID: return new ai.IsNotSet(_buf);
             case ai.BinaryOperator.ID: return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

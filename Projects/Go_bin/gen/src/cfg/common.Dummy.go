@@ -13,23 +13,18 @@ import "bright/serialization"
 
 
 type Common_Dummy struct {
-    
     Id int32
     Limit interface{}
 }
-
 
 func (Common_Dummy) GetTypeId() int {
     return -985084219
 }
 
-
 func NewCommon_Dummy(_buf *serialization.ByteBuf) (_v *Common_Dummy, err error) {
     _v = &Common_Dummy{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Limit, err = NewChildLimit_LimitBase(_buf); err != nil  { return } 
     return
 }
-
 

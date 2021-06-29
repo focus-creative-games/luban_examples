@@ -23,25 +23,21 @@ public final class DesignDrawing extends  cfg.item.ItemExtra
 
     public DesignDrawing(int id, java.util.ArrayList<Integer> learn_component_id )
     {
-            super(id);
+        super(id);
         this.learnComponentId = learn_component_id;
     }
 
     public static DesignDrawing deserializeDesignDrawing(ByteBuf _buf)
     {
-    
         return new DesignDrawing(_buf);
-    
     }
 
-     public final java.util.ArrayList<Integer> learnComponentId;
-
+    public final java.util.ArrayList<Integer> learnComponentId;
 
     public static final int ID = -1679179579;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class DesignDrawing extends  cfg.item.ItemExtra
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -34,23 +34,19 @@ public sealed partial class InteractionItem :  item.ItemExtra
 
     public static InteractionItem DeserializeInteractionItem(JsonElement _buf)
     {
-    
         return new item.InteractionItem(_buf);
-    
     }
 
     public readonly int? AttackNum;
     public readonly string HoldingStaticMesh;
     public readonly string HoldingStaticMeshMat;
 
-
     public const int ID = 640937802;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

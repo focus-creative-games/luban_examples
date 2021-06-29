@@ -34,9 +34,7 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
 
     public static WeightItemInfo DeserializeWeightItemInfo(JsonElement _buf)
     {
-    
         return new bonus.WeightItemInfo(_buf);
-    
     }
 
     public readonly int ItemId;
@@ -44,14 +42,11 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
     public readonly int Num;
     public readonly int Weight;
 
-
     public const int ID = 1239999176;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }

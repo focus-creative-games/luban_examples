@@ -32,22 +32,18 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
 
     public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(JsonElement _buf)
     {
-    
         return new error.ErrorStyleMsgbox(_buf);
-    
     }
 
     public readonly string BtnName;
     public readonly error.EOperation Operation;
 
-
     public const int ID = -1920482343;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

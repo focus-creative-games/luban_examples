@@ -29,21 +29,17 @@ public sealed partial class Items :  bonus.Bonus
 
     public static Items DeserializeItems(ByteBuf _buf)
     {
-    
         return new bonus.Items(_buf);
-    
     }
 
     public readonly bonus.Item[] ItemList;
 
-
     public const int ID = 819736849;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

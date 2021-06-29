@@ -27,22 +27,18 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
 
     public static DailyLimitBase DeserializeDailyLimitBase(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case limit.DailyLimit.ID: return new limit.DailyLimit(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -24,27 +24,23 @@ public final class BinaryOperator extends  cfg.ai.KeyQueryOperator
 
     public BinaryOperator(cfg.ai.EOperator oper, cfg.ai.KeyData data )
     {
-            super();
+        super();
         this.oper = oper;
         this.data = data;
     }
 
     public static BinaryOperator deserializeBinaryOperator(ByteBuf _buf)
     {
-    
         return new BinaryOperator(_buf);
-    
     }
 
-     public final cfg.ai.EOperator oper;
-     public final cfg.ai.KeyData data;
-
+    public final cfg.ai.EOperator oper;
+    public final cfg.ai.KeyData data;
 
     public static final int ID = -979891605;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class BinaryOperator extends  cfg.ai.KeyQueryOperator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (data != null) {data.resolve(_tables);}
     }
 

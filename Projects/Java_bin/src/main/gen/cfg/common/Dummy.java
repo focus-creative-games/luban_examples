@@ -29,20 +29,16 @@ public final class Dummy extends  bright.serialization.AbstractBean
 
     public static Dummy deserializeDummy(ByteBuf _buf)
     {
-    
         return new Dummy(_buf);
-    
     }
 
-     public final int id;
-     public final cfg.limit.LimitBase limit;
-
+    public final int id;
+    public final cfg.limit.LimitBase limit;
 
     public static final int ID = -985084219;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class Dummy extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             if (limit != null) {limit.resolve(_tables);}
     }
 

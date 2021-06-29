@@ -38,9 +38,7 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public static TreasureBox DeserializeTreasureBox(JsonElement _buf)
     {
-    
         return new item.TreasureBox(_buf);
-    
     }
 
     public readonly int? KeyItemId;
@@ -49,14 +47,12 @@ public sealed partial class TreasureBox :  item.ItemExtra
     public readonly System.Collections.Generic.List<int> DropIds;
     public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
 
-
     public const int ID = 1494222369;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);

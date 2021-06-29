@@ -34,9 +34,7 @@ public sealed partial class ContainsItem :  condition.RoleCondition
 
     public static ContainsItem DeserializeContainsItem(JsonElement _buf)
     {
-    
         return new condition.ContainsItem(_buf);
-    
     }
 
     public readonly int ItemId;
@@ -44,14 +42,12 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     public readonly int Num;
     public readonly bool Reverse;
 
-
     public const int ID = 1961145317;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }

@@ -26,7 +26,7 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
 
     public DistanceLessThan(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, String actor1_key, String actor2_key, float distance, boolean reverse_result )
     {
-            super(id, node_name, flow_abort_mode);
+        super(id, node_name, flow_abort_mode);
         this.actor1Key = actor1_key;
         this.actor2Key = actor2_key;
         this.distance = distance;
@@ -35,22 +35,18 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
 
     public static DistanceLessThan deserializeDistanceLessThan(ByteBuf _buf)
     {
-    
         return new DistanceLessThan(_buf);
-    
     }
 
-     public final String actor1Key;
-     public final String actor2Key;
-     public final float distance;
-     public final boolean reverseResult;
-
+    public final String actor1Key;
+    public final String actor2Key;
+    public final float distance;
+    public final boolean reverseResult;
 
     public static final int ID = -1207170283;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -66,7 +62,7 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

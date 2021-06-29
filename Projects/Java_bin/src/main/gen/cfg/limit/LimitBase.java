@@ -25,10 +25,8 @@ public abstract class LimitBase extends  bright.serialization.AbstractBean
 
     public static LimitBase deserializeLimitBase(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.limit.DailyLimit.ID: return new cfg.limit.DailyLimit(_buf);
             case cfg.limit.MultiDayLimit.ID: return new cfg.limit.MultiDayLimit(_buf);
             case cfg.limit.WeeklyLimit.ID: return new cfg.limit.WeeklyLimit(_buf);
@@ -37,9 +35,7 @@ public abstract class LimitBase extends  bright.serialization.AbstractBean
             case cfg.limit.GroupCoolDown.ID: return new cfg.limit.GroupCoolDown(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -57,7 +53,6 @@ public abstract class LimitBase extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

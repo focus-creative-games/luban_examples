@@ -47,4 +47,3 @@ func (table *Role_TbRoleLevelExpAttr) Get(key int32) *Role_LevelExpAttr {
 }
 
 
-

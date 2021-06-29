@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Ai_BehaviorTree struct {
-    
     Id int32
     Name string
     Desc string
@@ -21,15 +20,12 @@ type Ai_BehaviorTree struct {
     Root interface{}
 }
 
-
 func (Ai_BehaviorTree) GetTypeId() int {
     return 159552822
 }
 
-
 func NewAi_BehaviorTree(_buf *serialization.ByteBuf) (_v *Ai_BehaviorTree, err error) {
     _v = &Ai_BehaviorTree{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
@@ -37,5 +33,4 @@ func NewAi_BehaviorTree(_buf *serialization.ByteBuf) (_v *Ai_BehaviorTree, err e
     if _v.Root, err = NewChildAi_ComposeNode(_buf); err != nil  { return } 
     return
 }
-
 

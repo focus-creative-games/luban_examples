@@ -21,8 +21,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     public SimpleParallel(JsonElement _buf)  : base(_buf) 
     {
         FinishMode = (ai.EFinishMode)_buf.GetProperty("finish_mode").GetInt32();
-        { var _j = _buf.GetProperty("main_task"); if (_j.ValueKind != JsonValueKind.Null) { MainTask =  ai.Task.DeserializeTask(_j); } else { MainTask = null; } }
-        { var _j = _buf.GetProperty("background_node"); if (_j.ValueKind != JsonValueKind.Null) { BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_j); } else { BackgroundNode = null; } }
+        MainTask =  ai.Task.DeserializeTask(_buf.GetProperty("main_task"));
+        BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_buf.GetProperty("background_node"));
     }
 
     public SimpleParallel(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, ai.EFinishMode finish_mode, ai.Task main_task, ai.FlowNode background_node )  : base(id,node_name,decorators,services) 
@@ -34,23 +34,19 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public static SimpleParallel DeserializeSimpleParallel(JsonElement _buf)
     {
-    
         return new ai.SimpleParallel(_buf);
-    
     }
 
     public readonly ai.EFinishMode FinishMode;
     public readonly ai.Task MainTask;
     public readonly ai.FlowNode BackgroundNode;
 
-
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
         OnResolveFinish(_tables);

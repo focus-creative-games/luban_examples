@@ -17,21 +17,16 @@ type Limit_CoolDown struct {
     Duration int32
 }
 
-
 func (Limit_CoolDown) GetTypeId() int {
     return -1366194050
 }
 
-
 func NewLimit_CoolDown(_buf *serialization.ByteBuf) (_v *Limit_CoolDown, err error) {
     _v = &Limit_CoolDown{}
-
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-
     if _v.Duration, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

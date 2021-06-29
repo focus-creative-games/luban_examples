@@ -31,7 +31,7 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
 
     public UpdateDailyBehaviorProps(int id, String node_name, String satiety_key, String energy_key, String mood_key, String satiety_lower_threshold_key, String satiety_upper_threshold_key, String energy_lower_threshold_key, String energy_upper_threshold_key, String mood_lower_threshold_key, String mood_upper_threshold_key )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.satietyKey = satiety_key;
         this.energyKey = energy_key;
         this.moodKey = mood_key;
@@ -45,27 +45,23 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
 
     public static UpdateDailyBehaviorProps deserializeUpdateDailyBehaviorProps(ByteBuf _buf)
     {
-    
         return new UpdateDailyBehaviorProps(_buf);
-    
     }
 
-     public final String satietyKey;
-     public final String energyKey;
-     public final String moodKey;
-     public final String satietyLowerThresholdKey;
-     public final String satietyUpperThresholdKey;
-     public final String energyLowerThresholdKey;
-     public final String energyUpperThresholdKey;
-     public final String moodLowerThresholdKey;
-     public final String moodUpperThresholdKey;
-
+    public final String satietyKey;
+    public final String energyKey;
+    public final String moodKey;
+    public final String satietyLowerThresholdKey;
+    public final String satietyUpperThresholdKey;
+    public final String energyLowerThresholdKey;
+    public final String energyUpperThresholdKey;
+    public final String moodLowerThresholdKey;
+    public final String moodUpperThresholdKey;
 
     public static final int ID = -61887372;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -81,7 +77,7 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -13,24 +13,19 @@ import "bright/serialization"
 
 
 type Condition_Condition struct {
-    
 }
-
 
 
 func NewCondition_Condition(_buf *serialization.ByteBuf) (_v *Condition_Condition, err error) {
     _v = &Condition_Condition{}
-
     return
 }
-
 func NewChildCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1069033789: return NewCondition_TimeRange(_buf);
             case 934079583: return NewCondition_MultiRoleCondition(_buf);
             case 103675143: return NewCondition_GenderLimit(_buf);
@@ -42,5 +37,4 @@ func NewChildCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, e
     }
     return
 }
-
 

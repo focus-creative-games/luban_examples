@@ -30,21 +30,17 @@ public sealed partial class UeTimeLimit :  ai.Decorator
 
     public static UeTimeLimit DeserializeUeTimeLimit(JsonElement _buf)
     {
-    
         return new ai.UeTimeLimit(_buf);
-    
     }
 
     public readonly float LimitTime;
 
-
     public const int ID = 338469720;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

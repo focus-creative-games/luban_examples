@@ -28,20 +28,16 @@ public sealed partial class AbstraceMethod :  blueprint.Method
 
     public static AbstraceMethod DeserializeAbstraceMethod(JsonElement _buf)
     {
-    
         return new blueprint.AbstraceMethod(_buf);
-    
     }
-
 
 
     public const int ID = -392137809;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

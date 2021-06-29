@@ -23,7 +23,7 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         Id = _buf.GetProperty("id").GetInt32();
         Desc = _buf.GetProperty("desc").GetString();
         { var _json = _buf.GetProperty("client_show_items"); ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { bonus.ShowItemInfo __v;  __v =  bonus.ShowItemInfo.DeserializeShowItemInfo(__e);  ClientShowItems.Add(__v); }   }
-        { var _j = _buf.GetProperty("bonus"); if (_j.ValueKind != JsonValueKind.Null) { Bonus =  bonus.Bonus.DeserializeBonus(_j); } else { Bonus = null; } }
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
     }
 
     public DropInfo(int id, string desc, System.Collections.Generic.List<bonus.ShowItemInfo> client_show_items, bonus.Bonus bonus ) 
@@ -36,9 +36,7 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
 
     public static DropInfo DeserializeDropInfo(JsonElement _buf)
     {
-    
         return new bonus.DropInfo(_buf);
-    
     }
 
     public readonly int Id;
@@ -46,14 +44,11 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
     public readonly bonus.Bonus Bonus;
 
-
     public const int ID = -2014781108;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);

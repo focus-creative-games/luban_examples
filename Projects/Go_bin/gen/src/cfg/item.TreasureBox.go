@@ -21,19 +21,15 @@ type Item_TreasureBox struct {
     ChooseList []*Item_ChooseOneBonus
 }
 
-
 func (Item_TreasureBox) GetTypeId() int {
     return 1494222369
 }
 
-
 func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err error) {
     _v = &Item_TreasureBox{}
-
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.KeyItemId, err = _buf.ReadInt(); err != nil  { return } } }
     if _v.OpenLevel, err = NewCondition_MinLevel (_buf); err != nil  { return } 
     if _v.UseOnObtain, err = _buf.ReadBool(); err != nil  { return } 
@@ -61,5 +57,4 @@ func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err
                 }(_buf); err != nil  { return } 
     return
 }
-
 

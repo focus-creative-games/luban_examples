@@ -32,22 +32,18 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
 
     public static MultiDayLimit DeserializeMultiDayLimit(JsonElement _buf)
     {
-    
         return new limit.MultiDayLimit(_buf);
-    
     }
 
     public readonly int Day;
     public readonly int Num;
 
-
     public const int ID = -1753629499;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

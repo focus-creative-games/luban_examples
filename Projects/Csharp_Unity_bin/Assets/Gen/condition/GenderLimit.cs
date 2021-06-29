@@ -29,21 +29,17 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
 
     public static GenderLimit DeserializeGenderLimit(ByteBuf _buf)
     {
-    
         return new condition.GenderLimit(_buf);
-    
     }
 
     public readonly role.EGenderType Gender;
 
-
     public const int ID = 103675143;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

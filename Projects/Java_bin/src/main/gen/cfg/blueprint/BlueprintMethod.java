@@ -22,23 +22,19 @@ public final class BlueprintMethod extends  cfg.blueprint.Method
 
     public BlueprintMethod(String name, String desc, boolean is_static, String return_type, java.util.ArrayList<cfg.blueprint.ParamInfo> parameters )
     {
-            super(name, desc, is_static, return_type, parameters);
+        super(name, desc, is_static, return_type, parameters);
     }
 
     public static BlueprintMethod deserializeBlueprintMethod(ByteBuf _buf)
     {
-    
         return new BlueprintMethod(_buf);
-    
     }
-
 
 
     public static final int ID = -696408103;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -54,7 +50,7 @@ public final class BlueprintMethod extends  cfg.blueprint.Method
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

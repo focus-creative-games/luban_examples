@@ -23,25 +23,21 @@ public final class GetOwnerPlayer extends  cfg.ai.Service
 
     public GetOwnerPlayer(int id, String node_name, String player_actor_key )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.playerActorKey = player_actor_key;
     }
 
     public static GetOwnerPlayer deserializeGetOwnerPlayer(ByteBuf _buf)
     {
-    
         return new GetOwnerPlayer(_buf);
-    
     }
 
-     public final String playerActorKey;
-
+    public final String playerActorKey;
 
     public static final int ID = -999247644;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class GetOwnerPlayer extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

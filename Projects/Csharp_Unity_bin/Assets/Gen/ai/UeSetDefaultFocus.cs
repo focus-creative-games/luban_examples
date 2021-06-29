@@ -29,21 +29,17 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
 
     public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(ByteBuf _buf)
     {
-    
         return new ai.UeSetDefaultFocus(_buf);
-    
     }
 
     public readonly string KeyboardKey;
 
-
     public const int ID = 1812449155;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

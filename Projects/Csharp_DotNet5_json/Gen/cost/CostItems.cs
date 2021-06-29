@@ -30,21 +30,17 @@ public sealed partial class CostItems :  cost.Cost
 
     public static CostItems DeserializeCostItems(JsonElement _buf)
     {
-    
         return new cost.CostItems(_buf);
-    
     }
 
     public readonly cost.CostItem[] ItemList;
 
-
     public const int ID = -77945102;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

@@ -35,23 +35,19 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
 
     public static BlackboardKey deserializeBlackboardKey(ByteBuf _buf)
     {
-    
         return new BlackboardKey(_buf);
-    
     }
 
-     public final String name;
-     public final String desc;
-     public final boolean isStatic;
-     public final cfg.ai.EKeyType type;
-     public final String typeClassName;
-
+    public final String name;
+    public final String desc;
+    public final boolean isStatic;
+    public final cfg.ai.EKeyType type;
+    public final String typeClassName;
 
     public static final int ID = -511559886;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -67,7 +63,6 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

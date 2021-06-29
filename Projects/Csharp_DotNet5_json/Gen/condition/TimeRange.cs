@@ -30,21 +30,17 @@ public sealed partial class TimeRange :  condition.Condition
 
     public static TimeRange DeserializeTimeRange(JsonElement _buf)
     {
-    
         return new condition.TimeRange(_buf);
-    
     }
 
     public readonly common.DateTimeRange DateTimeRange;
 
-
     public const int ID = 1069033789;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         DateTimeRange?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

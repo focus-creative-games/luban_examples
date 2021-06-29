@@ -16,6 +16,7 @@ public final class Tables
     public  static interface  IByteBufLoader {
         ByteBuf load(String file) throws java.io.IOException;
     }
+
     public final cfg.ai.TbBlackboard TbBlackboard;
     public final cfg.ai.TbBehaviorTree TbBehaviorTree;
     public final cfg.blueprint.TbClazz TbClazz;
@@ -34,6 +35,14 @@ public final class Tables
     public final cfg.role.TbRoleLevelExpAttr TbRoleLevelExpAttr;
     public final cfg.role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
     public final cfg.tag.TbTestTag TbTestTag;
+    public final cfg.test.TbFullTypes TbFullTypes;
+    public final cfg.test.TbSingleton TbSingleton;
+    public final cfg.test.TbDataFromJson TbDataFromJson;
+    public final cfg.test.TbDataFromXml TbDataFromXml;
+    public final cfg.test.TbDataFromLua TbDataFromLua;
+    public final cfg.test.TbMultiRowRecord TbMultiRowRecord;
+    public final cfg.test.TbMultiRowTitle TbMultiRowTitle;
+    public final cfg.test.TbTestNull TbTestNull;
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
         var tables = new java.util.HashMap<String, Object>();
@@ -73,24 +82,49 @@ public final class Tables
         tables.put("role.TbRoleLevelBonusCoefficient", TbRoleLevelBonusCoefficient);
         TbTestTag = new cfg.tag.TbTestTag(loader.load("tag.TbTestTag.bin")); 
         tables.put("tag.TbTestTag", TbTestTag);
-        TbBlackboard.resolve(tables);
-        TbBehaviorTree.resolve(tables);
-        TbClazz.resolve(tables);
-        TbDrop.resolve(tables);
-        TbGlobalConfig.resolve(tables);
-        TbDummy.resolve(tables);
-        TbErrorInfo.resolve(tables);
-        TbCodeInfo.resolve(tables);
-        TbItem.resolve(tables);
-        TbItemFunc.resolve(tables);
-        TbItemExtra.resolve(tables);
-        TbL10NDemo.resolve(tables);
-        TbPatchDemo.resolve(tables);
-        TbSystemMail.resolve(tables);
-        TbGlobalMail.resolve(tables);
-        TbRoleLevelExpAttr.resolve(tables);
-        TbRoleLevelBonusCoefficient.resolve(tables);
-        TbTestTag.resolve(tables);
+        TbFullTypes = new cfg.test.TbFullTypes(loader.load("test.TbFullTypes.bin")); 
+        tables.put("test.TbFullTypes", TbFullTypes);
+        TbSingleton = new cfg.test.TbSingleton(loader.load("test.TbSingleton.bin")); 
+        tables.put("test.TbSingleton", TbSingleton);
+        TbDataFromJson = new cfg.test.TbDataFromJson(loader.load("test.TbDataFromJson.bin")); 
+        tables.put("test.TbDataFromJson", TbDataFromJson);
+        TbDataFromXml = new cfg.test.TbDataFromXml(loader.load("test.TbDataFromXml.bin")); 
+        tables.put("test.TbDataFromXml", TbDataFromXml);
+        TbDataFromLua = new cfg.test.TbDataFromLua(loader.load("test.TbDataFromLua.bin")); 
+        tables.put("test.TbDataFromLua", TbDataFromLua);
+        TbMultiRowRecord = new cfg.test.TbMultiRowRecord(loader.load("test.TbMultiRowRecord.bin")); 
+        tables.put("test.TbMultiRowRecord", TbMultiRowRecord);
+        TbMultiRowTitle = new cfg.test.TbMultiRowTitle(loader.load("test.TbMultiRowTitle.bin")); 
+        tables.put("test.TbMultiRowTitle", TbMultiRowTitle);
+        TbTestNull = new cfg.test.TbTestNull(loader.load("test.TbTestNull.bin")); 
+        tables.put("test.TbTestNull", TbTestNull);
+
+        TbBlackboard.resolve(tables); 
+        TbBehaviorTree.resolve(tables); 
+        TbClazz.resolve(tables); 
+        TbDrop.resolve(tables); 
+        TbGlobalConfig.resolve(tables); 
+        TbDummy.resolve(tables); 
+        TbErrorInfo.resolve(tables); 
+        TbCodeInfo.resolve(tables); 
+        TbItem.resolve(tables); 
+        TbItemFunc.resolve(tables); 
+        TbItemExtra.resolve(tables); 
+        TbL10NDemo.resolve(tables); 
+        TbPatchDemo.resolve(tables); 
+        TbSystemMail.resolve(tables); 
+        TbGlobalMail.resolve(tables); 
+        TbRoleLevelExpAttr.resolve(tables); 
+        TbRoleLevelBonusCoefficient.resolve(tables); 
+        TbTestTag.resolve(tables); 
+        TbFullTypes.resolve(tables); 
+        TbSingleton.resolve(tables); 
+        TbDataFromJson.resolve(tables); 
+        TbDataFromXml.resolve(tables); 
+        TbDataFromLua.resolve(tables); 
+        TbMultiRowRecord.resolve(tables); 
+        TbMultiRowTitle.resolve(tables); 
+        TbTestNull.resolve(tables); 
     }
 }
 

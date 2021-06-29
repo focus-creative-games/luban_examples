@@ -51,9 +51,7 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public static GlobalMail DeserializeGlobalMail(ByteBuf _buf)
     {
-    
         return new mail.GlobalMail(_buf);
-    
     }
 
     public readonly int Id;
@@ -69,14 +67,11 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     public readonly condition.TimeRange RegisterTime;
     public readonly condition.TimeRange MailTime;
 
-
     public const int ID = -287571791;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);

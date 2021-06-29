@@ -28,20 +28,16 @@ public sealed partial class BlueprintMethod :  blueprint.Method
 
     public static BlueprintMethod DeserializeBlueprintMethod(JsonElement _buf)
     {
-    
         return new blueprint.BlueprintMethod(_buf);
-    
     }
-
 
 
     public const int ID = -696408103;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -23,26 +23,22 @@ public final class CostOneItem extends  cfg.cost.Cost
 
     public CostOneItem(int item_id )
     {
-            super();
+        super();
         this.itemId = item_id;
     }
 
     public static CostOneItem deserializeCostOneItem(ByteBuf _buf)
     {
-    
         return new CostOneItem(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
 
     public static final int ID = -1033587381;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,7 @@ public final class CostOneItem extends  cfg.cost.Cost
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

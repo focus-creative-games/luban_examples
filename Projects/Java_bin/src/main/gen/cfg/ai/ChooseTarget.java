@@ -23,25 +23,21 @@ public final class ChooseTarget extends  cfg.ai.Service
 
     public ChooseTarget(int id, String node_name, String result_target_key )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.resultTargetKey = result_target_key;
     }
 
     public static ChooseTarget deserializeChooseTarget(ByteBuf _buf)
     {
-    
         return new ChooseTarget(_buf);
-    
     }
 
-     public final String resultTargetKey;
-
+    public final String resultTargetKey;
 
     public static final int ID = 1601247918;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class ChooseTarget extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

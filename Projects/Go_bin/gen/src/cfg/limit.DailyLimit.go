@@ -17,21 +17,16 @@ type Limit_DailyLimit struct {
     Num int32
 }
 
-
 func (Limit_DailyLimit) GetTypeId() int {
     return 303235413
 }
 
-
 func NewLimit_DailyLimit(_buf *serialization.ByteBuf) (_v *Limit_DailyLimit, err error) {
     _v = &Limit_DailyLimit{}
-
     var _p *Limit_DailyLimitBase
      if _p, err = NewLimit_DailyLimitBase(_buf) ; err != nil { return }
     _v.Limit_DailyLimitBase = *_p
-
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

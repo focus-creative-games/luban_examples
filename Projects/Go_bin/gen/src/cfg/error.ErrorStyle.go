@@ -13,24 +13,19 @@ import "bright/serialization"
 
 
 type Error_ErrorStyle struct {
-    
 }
-
 
 
 func NewError_ErrorStyle(_buf *serialization.ByteBuf) (_v *Error_ErrorStyle, err error) {
     _v = &Error_ErrorStyle{}
-
     return
 }
-
 func NewChildError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1915239884: return NewError_ErrorStyleTip(_buf);
             case -1920482343: return NewError_ErrorStyleMsgbox(_buf);
             case -2010134516: return NewError_ErrorStyleDlgOk(_buf);
@@ -38,5 +33,4 @@ func NewChildError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err 
     }
     return
 }
-
 

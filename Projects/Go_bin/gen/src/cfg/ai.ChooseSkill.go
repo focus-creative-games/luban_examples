@@ -18,22 +18,17 @@ type Ai_ChooseSkill struct {
     ResultSkillIdKey string
 }
 
-
 func (Ai_ChooseSkill) GetTypeId() int {
     return -918812268
 }
 
-
 func NewAi_ChooseSkill(_buf *serialization.ByteBuf) (_v *Ai_ChooseSkill, err error) {
     _v = &Ai_ChooseSkill{}
-
     var _p *Ai_Task
      if _p, err = NewAi_Task(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
-
     if _v.TargetActorKey, err = _buf.ReadString(); err != nil  { return } 
     if _v.ResultSkillIdKey, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

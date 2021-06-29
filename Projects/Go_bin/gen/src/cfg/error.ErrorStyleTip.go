@@ -16,20 +16,15 @@ type Error_ErrorStyleTip struct {
     Error_ErrorStyle
 }
 
-
 func (Error_ErrorStyleTip) GetTypeId() int {
     return 1915239884
 }
 
-
 func NewError_ErrorStyleTip(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleTip, err error) {
     _v = &Error_ErrorStyleTip{}
-
     var _p *Error_ErrorStyle
      if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
-
     return
 }
-
 

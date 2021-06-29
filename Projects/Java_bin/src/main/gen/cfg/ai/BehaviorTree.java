@@ -35,24 +35,20 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
 
     public static BehaviorTree deserializeBehaviorTree(ByteBuf _buf)
     {
-    
         return new BehaviorTree(_buf);
-    
     }
 
-     public final int id;
-     public final String name;
-     public final String desc;
-     public final String blackboardId;
-        public cfg.ai.Blackboard blackboardId_Ref;
-     public final cfg.ai.ComposeNode root;
-
+    public final int id;
+    public final String name;
+    public final String desc;
+    public final String blackboardId;
+    public cfg.ai.Blackboard blackboardId_Ref;
+    public final cfg.ai.ComposeNode root;
 
     public static final int ID = 159552822;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -68,7 +64,6 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.blackboardId_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(blackboardId);
             if (root != null) {root.resolve(_tables);}
     }

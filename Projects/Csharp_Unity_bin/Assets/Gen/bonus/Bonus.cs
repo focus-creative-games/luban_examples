@@ -27,10 +27,8 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
 
     public static Bonus DeserializeBonus(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case bonus.OneItem.ID: return new bonus.OneItem(_buf);
             case bonus.OneItems.ID: return new bonus.OneItems(_buf);
             case bonus.Item.ID: return new bonus.Item(_buf);
@@ -44,15 +42,12 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
             case bonus.DropBonus.ID: return new bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

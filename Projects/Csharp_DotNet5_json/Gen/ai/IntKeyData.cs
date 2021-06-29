@@ -30,21 +30,17 @@ public sealed partial class IntKeyData :  ai.KeyData
 
     public static IntKeyData DeserializeIntKeyData(JsonElement _buf)
     {
-    
         return new ai.IntKeyData(_buf);
-    
     }
 
     public readonly int Value;
 
-
     public const int ID = -342751904;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

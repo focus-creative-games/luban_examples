@@ -47,4 +47,3 @@ func (table *Role_TbRoleLevelBonusCoefficient) Get(key int32) *Role_LevelBonus {
 }
 
 
-

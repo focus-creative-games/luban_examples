@@ -34,9 +34,7 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
 
     public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JsonElement _buf)
     {
-    
         return new bonus.ProbabilityItemInfo(_buf);
-    
     }
 
     public readonly int ItemId;
@@ -44,14 +42,11 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     public readonly int Num;
     public readonly float Probability;
 
-
     public const int ID = 1547874631;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }

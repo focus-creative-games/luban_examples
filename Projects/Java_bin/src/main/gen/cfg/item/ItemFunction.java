@@ -33,22 +33,18 @@ public final class ItemFunction extends  bright.serialization.AbstractBean
 
     public static ItemFunction deserializeItemFunction(ByteBuf _buf)
     {
-    
         return new ItemFunction(_buf);
-    
     }
 
-     public final cfg.item.EMinorType minorType;
-     public final cfg.item.EItemFunctionType funcType;
-     public final String method;
-     public final boolean closeBagUi;
-
+    public final cfg.item.EMinorType minorType;
+    public final cfg.item.EItemFunctionType funcType;
+    public final String method;
+    public final boolean closeBagUi;
 
     public static final int ID = 1205824294;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -64,7 +60,6 @@ public final class ItemFunction extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

@@ -20,7 +20,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 {
     public ProbabilityBonusInfo(JsonElement _buf) 
     {
-        { var _j = _buf.GetProperty("bonus"); if (_j.ValueKind != JsonValueKind.Null) { Bonus =  bonus.Bonus.DeserializeBonus(_j); } else { Bonus = null; } }
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
         Probability = _buf.GetProperty("probability").GetSingle();
     }
 
@@ -32,22 +32,17 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(JsonElement _buf)
     {
-    
         return new bonus.ProbabilityBonusInfo(_buf);
-    
     }
 
     public readonly bonus.Bonus Bonus;
     public readonly float Probability;
 
-
     public const int ID = 46960455;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

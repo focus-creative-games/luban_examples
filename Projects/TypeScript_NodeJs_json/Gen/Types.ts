@@ -11,66 +11,66 @@ export namespace cfg {
 
 
 export class Vector2 {
-        x: number;
-        y: number;
+        x: number
+        y: number
         constructor(x: number, y: number) {
-            this.x = x;
-            this.y = y;
+            this.x = x
+            this.y = y
         }
 
         static from(_json_: any): Vector2 {
-            let x = _json_['x'];
-            let y = _json_['y'];
+            let x = _json_['x']
+            let y = _json_['y']
             if (x == null || y == null) {
-                throw new Error();
+                throw new Error()
             }
-            return new Vector2(x, y);
+            return new Vector2(x, y)
         }
     }
 
 
     export class Vector3 {
-        x: number;
-        y: number;
-        z: number;
+        x: number
+        y: number
+        z: number
         constructor(x: number, y: number, z: number) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.x = x
+            this.y = y
+            this.z = z
         }
 
         static from(_json_: any): Vector3 {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
+            let x = _json_['x']
+            let y = _json_['y']
+            let z = _json_['z']
             if (x == null || y == null || z == null) {
-                throw new Error();
+                throw new Error()
             }
-            return new Vector3(x, y, z);
+            return new Vector3(x, y, z)
         }
     }
 
     export class Vector4 {
-        x: number;
-        y: number;
-        z: number;
-        w: number;
+        x: number
+        y: number
+        z: number
+        w: number
         constructor(x: number, y: number, z: number, w: number) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
+            this.x = x
+            this.y = y
+            this.z = z
+            this.w = w
         }
 
         static from(_json_: any): Vector4 {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
-            let w = _json_['w'];
+            let x = _json_['x']
+            let y = _json_['y']
+            let z = _json_['z']
+            let w = _json_['w']
             if (x == null || y == null || z == null || w == null) {
-                throw new Error();
+                throw new Error()
             }
-            return new Vector4(x, y, z, w);
+            return new Vector4(x, y, z, w)
         }
     }
 
@@ -466,11 +466,60 @@ export enum EProfession {
 }
 
 
+export namespace test {
+
+export enum DemoEnum {
+    A = 1,
+    B = 2,
+    C = 4,
+    D = 5,
+}
+}
+
+
+export namespace test {
+
+export enum ETestUeType {
+    WHITE = 0,
+    BLACK = 1,
+}
+}
+
+
+export namespace test {
+
+export enum ETestEmptyEnum {
+}
+}
+
+
+export namespace test {
+
+export enum ETestEmptyEnum2 {
+    SMALL_THAN_256 = 255,
+    X_256 = 256,
+    X_257 = 257,
+}
+}
+
+
 export namespace role {
 
 export class Consts {
     static MAX_NAME_LENGTH = 20;
     static MAX_USER_ROLE_NUM = 10;
+}
+}
+
+
+
+export namespace test {
+
+export class DemoConst {
+    static x1 = 0;
+    static x2 = 3242;
+    static x3 = 444.3;
+    static x4 = 55.3;
 }
 }
 
@@ -494,11 +543,11 @@ export  class Blackboard  {
         { this.keys = []; for(let _ele of _json_.keys) { let _e : ai.BlackboardKey; _e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
     }
 
-    name: string
-    desc: string
-    parentName: string
+    readonly name: string
+    readonly desc: string
+    readonly parentName: string
     parentName_Ref : ai.Blackboard
-    keys: ai.BlackboardKey[]
+    readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
         this.parentName_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.parentName)
@@ -529,11 +578,11 @@ export  class BlackboardKey  {
         this.typeClassName = _json_.type_class_name
     }
 
-    name: string
-    desc: string
-    isStatic: boolean
-    type: ai.EKeyType
-    typeClassName: string
+    readonly name: string
+    readonly desc: string
+    readonly isStatic: boolean
+    readonly type: ai.EKeyType
+    readonly typeClassName: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -558,15 +607,16 @@ export  class BehaviorTree  {
         this.desc = _json_.desc
         if (_json_.blackboard_id == null) { throw new Error() }
         this.blackboardId = _json_.blackboard_id
-        if(_json_.root != null) { this.root = ai.ComposeNode.constructorFrom(_json_.root) } else { this.root = null }
+        if (_json_.root == null) { throw new Error() }
+        this.root = ai.ComposeNode.constructorFrom(_json_.root)
     }
 
-    id: number
-    name: string
-    desc: string
-    blackboardId: string
+    readonly id: number
+    readonly name: string
+    readonly desc: string
+    readonly blackboardId: string
     blackboardId_Ref : ai.Blackboard
-    root?: ai.ComposeNode
+    readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
         this.blackboardId_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.blackboardId)
@@ -585,7 +635,6 @@ export namespace ai {
 export  abstract  class Node  {
     static constructorFrom(_json_: any): Node {
         switch (_json_.__type__) {
-            case null: return null
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_)
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_)
             case 'ChooseTarget': return new ai.ChooseTarget(_json_)
@@ -620,8 +669,8 @@ export  abstract  class Node  {
         this.nodeName = _json_.node_name
     }
 
-    id: number
-    nodeName: string
+    readonly id: number
+    readonly nodeName: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -638,7 +687,6 @@ export namespace ai {
 export  abstract  class Service  extends ai.Node {
     static constructorFrom(_json_: any): Service {
         switch (_json_.__type__) {
-            case null: return null
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_)
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_)
             case 'ChooseTarget': return new ai.ChooseTarget(_json_)
@@ -675,7 +723,7 @@ export  class UeSetDefaultFocus  extends ai.Service {
         this.keyboardKey = _json_.keyboard_key
     }
 
-    keyboardKey: string
+    readonly keyboardKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -718,7 +766,7 @@ export  class ChooseTarget  extends ai.Service {
         this.resultTargetKey = _json_.result_target_key
     }
 
-    resultTargetKey: string
+    readonly resultTargetKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -741,7 +789,7 @@ export  class KeepFaceTarget  extends ai.Service {
         this.targetActorKey = _json_.target_actor_key
     }
 
-    targetActorKey: string
+    readonly targetActorKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -764,7 +812,7 @@ export  class GetOwnerPlayer  extends ai.Service {
         this.playerActorKey = _json_.player_actor_key
     }
 
-    playerActorKey: string
+    readonly playerActorKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -803,15 +851,15 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
         this.moodUpperThresholdKey = _json_.mood_upper_threshold_key
     }
 
-    satietyKey: string
-    energyKey: string
-    moodKey: string
-    satietyLowerThresholdKey: string
-    satietyUpperThresholdKey: string
-    energyLowerThresholdKey: string
-    energyUpperThresholdKey: string
-    moodLowerThresholdKey: string
-    moodUpperThresholdKey: string
+    readonly satietyKey: string
+    readonly energyKey: string
+    readonly moodKey: string
+    readonly satietyLowerThresholdKey: string
+    readonly satietyUpperThresholdKey: string
+    readonly energyLowerThresholdKey: string
+    readonly energyUpperThresholdKey: string
+    readonly moodLowerThresholdKey: string
+    readonly moodUpperThresholdKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -829,7 +877,6 @@ export namespace ai {
 export  abstract  class Decorator  extends ai.Node {
     static constructorFrom(_json_: any): Decorator {
         switch (_json_.__type__) {
-            case null: return null
             case 'UeLoop': return new ai.UeLoop(_json_)
             case 'UeCooldown': return new ai.UeCooldown(_json_)
             case 'UeTimeLimit': return new ai.UeTimeLimit(_json_)
@@ -847,7 +894,7 @@ export  abstract  class Decorator  extends ai.Node {
         this.flowAbortMode = _json_.flow_abort_mode
     }
 
-    flowAbortMode: ai.EFlowAbortMode
+    readonly flowAbortMode: ai.EFlowAbortMode
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -874,9 +921,9 @@ export  class UeLoop  extends ai.Decorator {
         this.infiniteLoopTimeoutTime = _json_.infinite_loop_timeout_time
     }
 
-    numLoops: number
-    infiniteLoop: boolean
-    infiniteLoopTimeoutTime: number
+    readonly numLoops: number
+    readonly infiniteLoop: boolean
+    readonly infiniteLoopTimeoutTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -899,7 +946,7 @@ export  class UeCooldown  extends ai.Decorator {
         this.cooldownTime = _json_.cooldown_time
     }
 
-    cooldownTime: number
+    readonly cooldownTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -922,7 +969,7 @@ export  class UeTimeLimit  extends ai.Decorator {
         this.limitTime = _json_.limit_time
     }
 
-    limitTime: number
+    readonly limitTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -945,12 +992,13 @@ export  class UeBlackboard  extends ai.Decorator {
         this.notifyObserver = _json_.notify_observer
         if (_json_.blackboard_key == null) { throw new Error() }
         this.blackboardKey = _json_.blackboard_key
-        if(_json_.key_query != null) { this.keyQuery = ai.KeyQueryOperator.constructorFrom(_json_.key_query) } else { this.keyQuery = null }
+        if (_json_.key_query == null) { throw new Error() }
+        this.keyQuery = ai.KeyQueryOperator.constructorFrom(_json_.key_query)
     }
 
-    notifyObserver: ai.ENotifyObserverMode
-    blackboardKey: string
-    keyQuery?: ai.KeyQueryOperator
+    readonly notifyObserver: ai.ENotifyObserverMode
+    readonly blackboardKey: string
+    readonly keyQuery: ai.KeyQueryOperator
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -969,7 +1017,6 @@ export namespace ai {
 export  abstract  class KeyQueryOperator  {
     static constructorFrom(_json_: any): KeyQueryOperator {
         switch (_json_.__type__) {
-            case null: return null
             case 'IsSet': return new ai.IsSet(_json_)
             case 'IsNotSet': return new ai.IsNotSet(_json_)
             case 'BinaryOperator': return new ai.BinaryOperator(_json_)
@@ -1039,11 +1086,12 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
         super(_json_)
         if (_json_.oper == null) { throw new Error() }
         this.oper = _json_.oper
-        if(_json_.data != null) { this.data = ai.KeyData.constructorFrom(_json_.data) } else { this.data = null }
+        if (_json_.data == null) { throw new Error() }
+        this.data = ai.KeyData.constructorFrom(_json_.data)
     }
 
-    oper: ai.EOperator
-    data?: ai.KeyData
+    readonly oper: ai.EOperator
+    readonly data: ai.KeyData
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1062,7 +1110,6 @@ export namespace ai {
 export  abstract  class KeyData  {
     static constructorFrom(_json_: any): KeyData {
         switch (_json_.__type__) {
-            case null: return null
             case 'FloatKeyData': return new ai.FloatKeyData(_json_)
             case 'IntKeyData': return new ai.IntKeyData(_json_)
             case 'StringKeyData': return new ai.StringKeyData(_json_)
@@ -1095,7 +1142,7 @@ export  class FloatKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
-    value: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1118,7 +1165,7 @@ export  class IntKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
-    value: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1141,7 +1188,7 @@ export  class StringKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
-    value: string
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1164,7 +1211,7 @@ export  class BlackboardKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
-    value: string
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1211,9 +1258,9 @@ export  class IsAtLocation  extends ai.Decorator {
         this.inverseCondition = _json_.inverse_condition
     }
 
-    acceptableRadius: number
-    keyboardKey: string
-    inverseCondition: boolean
+    readonly acceptableRadius: number
+    readonly keyboardKey: string
+    readonly inverseCondition: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1242,10 +1289,10 @@ export  class DistanceLessThan  extends ai.Decorator {
         this.reverseResult = _json_.reverse_result
     }
 
-    actor1Key: string
-    actor2Key: string
-    distance: number
-    reverseResult: boolean
+    readonly actor1Key: string
+    readonly actor2Key: string
+    readonly distance: number
+    readonly reverseResult: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1263,7 +1310,6 @@ export namespace ai {
 export  abstract  class FlowNode  extends ai.Node {
     static constructorFrom(_json_: any): FlowNode {
         switch (_json_.__type__) {
-            case null: return null
             case 'Sequence': return new ai.Sequence(_json_)
             case 'Selector': return new ai.Selector(_json_)
             case 'SimpleParallel': return new ai.SimpleParallel(_json_)
@@ -1286,8 +1332,8 @@ export  abstract  class FlowNode  extends ai.Node {
         { this.services = []; for(let _ele of _json_.services) { let _e : ai.Service; _e = ai.Service.constructorFrom(_ele); this.services.push(_e);}}
     }
 
-    decorators: ai.Decorator[]
-    services: ai.Service[]
+    readonly decorators: ai.Decorator[]
+    readonly services: ai.Service[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1307,7 +1353,6 @@ export namespace ai {
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static constructorFrom(_json_: any): ComposeNode {
         switch (_json_.__type__) {
-            case null: return null
             case 'Sequence': return new ai.Sequence(_json_)
             case 'Selector': return new ai.Selector(_json_)
             case 'SimpleParallel': return new ai.SimpleParallel(_json_)
@@ -1341,7 +1386,7 @@ export  class Sequence  extends ai.ComposeNode {
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
-    children: ai.FlowNode[]
+    readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1365,7 +1410,7 @@ export  class Selector  extends ai.ComposeNode {
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
-    children: ai.FlowNode[]
+    readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1387,13 +1432,15 @@ export  class SimpleParallel  extends ai.ComposeNode {
         super(_json_)
         if (_json_.finish_mode == null) { throw new Error() }
         this.finishMode = _json_.finish_mode
-        if(_json_.main_task != null) { this.mainTask = ai.Task.constructorFrom(_json_.main_task) } else { this.mainTask = null }
-        if(_json_.background_node != null) { this.backgroundNode = ai.FlowNode.constructorFrom(_json_.background_node) } else { this.backgroundNode = null }
+        if (_json_.main_task == null) { throw new Error() }
+        this.mainTask = ai.Task.constructorFrom(_json_.main_task)
+        if (_json_.background_node == null) { throw new Error() }
+        this.backgroundNode = ai.FlowNode.constructorFrom(_json_.background_node)
     }
 
-    finishMode: ai.EFinishMode
-    mainTask?: ai.Task
-    backgroundNode?: ai.FlowNode
+    readonly finishMode: ai.EFinishMode
+    readonly mainTask: ai.Task
+    readonly backgroundNode: ai.FlowNode
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1413,7 +1460,6 @@ export namespace ai {
 export  abstract  class Task  extends ai.FlowNode {
     static constructorFrom(_json_: any): Task {
         switch (_json_.__type__) {
-            case null: return null
             case 'UeWait': return new ai.UeWait(_json_)
             case 'UeWaitBlackboardTime': return new ai.UeWaitBlackboardTime(_json_)
             case 'MoveToTarget': return new ai.MoveToTarget(_json_)
@@ -1431,7 +1477,7 @@ export  abstract  class Task  extends ai.FlowNode {
         this.ignoreRestartSelf = _json_.ignore_restart_self
     }
 
-    ignoreRestartSelf: boolean
+    readonly ignoreRestartSelf: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1456,8 +1502,8 @@ export  class UeWait  extends ai.Task {
         this.randomDeviation = _json_.random_deviation
     }
 
-    waitTime: number
-    randomDeviation: number
+    readonly waitTime: number
+    readonly randomDeviation: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1480,7 +1526,7 @@ export  class UeWaitBlackboardTime  extends ai.Task {
         this.blackboardKey = _json_.blackboard_key
     }
 
-    blackboardKey: string
+    readonly blackboardKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1505,8 +1551,8 @@ export  class MoveToTarget  extends ai.Task {
         this.acceptableRadius = _json_.acceptable_radius
     }
 
-    targetActorKey: string
-    acceptableRadius: number
+    readonly targetActorKey: string
+    readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1531,8 +1577,8 @@ export  class ChooseSkill  extends ai.Task {
         this.resultSkillIdKey = _json_.result_skill_id_key
     }
 
-    targetActorKey: string
-    resultSkillIdKey: string
+    readonly targetActorKey: string
+    readonly resultSkillIdKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1557,8 +1603,8 @@ export  class MoveToRandomLocation  extends ai.Task {
         this.radius = _json_.radius
     }
 
-    originPositionKey: string
-    radius: number
+    readonly originPositionKey: string
+    readonly radius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1583,8 +1629,8 @@ export  class MoveToLocation  extends ai.Task {
         this.acceptableRadius = _json_.acceptable_radius
     }
 
-    location: Vector3
-    acceptableRadius: number
+    readonly location: Vector3
+    readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1607,7 +1653,7 @@ export  class DebugPrint  extends ai.Task {
         this.text = _json_.text
     }
 
-    text: string
+    readonly text: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1625,7 +1671,6 @@ export namespace blueprint {
 export  abstract  class Clazz  {
     static constructorFrom(_json_: any): Clazz {
         switch (_json_.__type__) {
-            case null: return null
             case 'Interface': return new blueprint.Interface(_json_)
             case 'NormalClazz': return new blueprint.NormalClazz(_json_)
             case 'EnumClazz': return new blueprint.EnumClazz(_json_)
@@ -1644,10 +1689,10 @@ export  abstract  class Clazz  {
         { this.methods = []; for(let _ele of _json_.methods) { let _e : blueprint.Method; _e = blueprint.Method.constructorFrom(_ele); this.methods.push(_e);}}
     }
 
-    name: string
-    desc: string
-    parents: blueprint.Clazz[]
-    methods: blueprint.Method[]
+    readonly name: string
+    readonly desc: string
+    readonly parents: blueprint.Clazz[]
+    readonly methods: blueprint.Method[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.parents) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1666,7 +1711,6 @@ export namespace blueprint {
 export  abstract  class Method  {
     static constructorFrom(_json_: any): Method {
         switch (_json_.__type__) {
-            case null: return null
             case 'AbstraceMethod': return new blueprint.AbstraceMethod(_json_)
             case 'ExternalMethod': return new blueprint.ExternalMethod(_json_)
             case 'BlueprintMethod': return new blueprint.BlueprintMethod(_json_)
@@ -1687,11 +1731,11 @@ export  abstract  class Method  {
         { this.parameters = []; for(let _ele of _json_.parameters) { let _e : blueprint.ParamInfo; _e = new blueprint.ParamInfo(_ele); this.parameters.push(_e);}}
     }
 
-    name: string
-    desc: string
-    isStatic: boolean
-    returnType: string
-    parameters: blueprint.ParamInfo[]
+    readonly name: string
+    readonly desc: string
+    readonly isStatic: boolean
+    readonly returnType: string
+    readonly parameters: blueprint.ParamInfo[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.parameters) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1717,9 +1761,9 @@ export  class ParamInfo  {
         this.isRef = _json_.is_ref
     }
 
-    name: string
-    type: string
-    isRef: boolean
+    readonly name: string
+    readonly type: string
+    readonly isRef: boolean
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1823,8 +1867,8 @@ export  class NormalClazz  extends blueprint.Clazz {
         { this.fields = []; for(let _ele of _json_.fields) { let _e : blueprint.Field; _e = new blueprint.Field(_ele); this.fields.push(_e);}}
     }
 
-    isAbstract: boolean
-    fields: blueprint.Field[]
+    readonly isAbstract: boolean
+    readonly fields: blueprint.Field[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1851,9 +1895,9 @@ export  class Field  {
         this.desc = _json_.desc
     }
 
-    name: string
-    type: string
-    desc: string
+    readonly name: string
+    readonly type: string
+    readonly desc: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1875,7 +1919,7 @@ export  class EnumClazz  extends blueprint.Clazz {
         { this.enums = []; for(let _ele of _json_.enums) { let _e : blueprint.EnumField; _e = new blueprint.EnumField(_ele); this.enums.push(_e);}}
     }
 
-    enums: blueprint.EnumField[]
+    readonly enums: blueprint.EnumField[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1900,8 +1944,8 @@ export  class EnumField  {
         this.value = _json_.value
     }
 
-    name: string
-    value: number
+    readonly name: string
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1924,13 +1968,14 @@ export  class DropInfo  {
         this.desc = _json_.desc
         if (_json_.client_show_items == null) { throw new Error() }
         { this.clientShowItems = []; for(let _ele of _json_.client_show_items) { let _e : bonus.ShowItemInfo; _e = new bonus.ShowItemInfo(_ele); this.clientShowItems.push(_e);}}
-        if(_json_.bonus != null) { this.bonus = bonus.Bonus.constructorFrom(_json_.bonus) } else { this.bonus = null }
+        if (_json_.bonus == null) { throw new Error() }
+        this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
     }
 
-    id: number
-    desc: string
-    clientShowItems: bonus.ShowItemInfo[]
-    bonus?: bonus.Bonus
+    readonly id: number
+    readonly desc: string
+    readonly clientShowItems: bonus.ShowItemInfo[]
+    readonly bonus: bonus.Bonus
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.clientShowItems) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1955,9 +2000,9 @@ export  class ShowItemInfo  {
         this.itemNum = _json_.item_num
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    itemNum: bigint
+    readonly itemNum: bigint
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -1975,7 +2020,6 @@ export namespace bonus {
 export  abstract  class Bonus  {
     static constructorFrom(_json_: any): Bonus {
         switch (_json_.__type__) {
-            case null: return null
             case 'OneItem': return new bonus.OneItem(_json_)
             case 'OneItems': return new bonus.OneItems(_json_)
             case 'Item': return new bonus.Item(_json_)
@@ -2015,7 +2059,7 @@ export  class OneItem  extends bonus.Bonus {
         this.itemId = _json_.item_id
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
 
     resolve(_tables: Map<string, any>) {
@@ -2040,7 +2084,7 @@ export  class OneItems  extends bonus.Bonus {
         this.items = _json_.items
     }
 
-    items: Int32Array
+    readonly items: Int32Array
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2065,9 +2109,9 @@ export  class Item  extends bonus.Bonus {
         this.amount = _json_.amount
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    amount: number
+    readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2091,7 +2135,7 @@ export  class Items  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.Item; _e = new bonus.Item(_ele); this.itemList.push(_e);}}
     }
 
-    itemList: bonus.Item[]
+    readonly itemList: bonus.Item[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2117,8 +2161,8 @@ export  class CoefficientItem  extends bonus.Bonus {
         this.bonusList = new bonus.Items(_json_.bonus_list)
     }
 
-    bonusId: number
-    bonusList: bonus.Items
+    readonly bonusId: number
+    readonly bonusList: bonus.Items
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2142,7 +2186,7 @@ export  class WeightItems  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.WeightItemInfo; _e = new bonus.WeightItemInfo(_ele); this.itemList.push(_e);}}
     }
 
-    itemList: bonus.WeightItemInfo[]
+    readonly itemList: bonus.WeightItemInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2169,10 +2213,10 @@ export  class WeightItemInfo  {
         this.weight = _json_.weight
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    weight: number
+    readonly num: number
+    readonly weight: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -2195,7 +2239,7 @@ export  class ProbabilityItems  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.ProbabilityItemInfo; _e = new bonus.ProbabilityItemInfo(_ele); this.itemList.push(_e);}}
     }
 
-    itemList: bonus.ProbabilityItemInfo[]
+    readonly itemList: bonus.ProbabilityItemInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2222,10 +2266,10 @@ export  class ProbabilityItemInfo  {
         this.probability = _json_.probability
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    probability: number
+    readonly num: number
+    readonly probability: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -2248,7 +2292,7 @@ export  class MultiBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.Bonus; _e = bonus.Bonus.constructorFrom(_ele); this.bonuses.push(_e);}}
     }
 
-    bonuses: bonus.Bonus[]
+    readonly bonuses: bonus.Bonus[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2272,7 +2316,7 @@ export  class ProbabilityBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.ProbabilityBonusInfo; _e = new bonus.ProbabilityBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
-    bonuses: bonus.ProbabilityBonusInfo[]
+    readonly bonuses: bonus.ProbabilityBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2291,13 +2335,14 @@ export namespace bonus {
 export  class ProbabilityBonusInfo  {
 
     constructor(_json_: any) {
-        if(_json_.bonus != null) { this.bonus = bonus.Bonus.constructorFrom(_json_.bonus) } else { this.bonus = null }
+        if (_json_.bonus == null) { throw new Error() }
+        this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
         if (_json_.probability == null) { throw new Error() }
         this.probability = _json_.probability
     }
 
-    bonus?: bonus.Bonus
-    probability: number
+    readonly bonus: bonus.Bonus
+    readonly probability: number
 
     resolve(_tables: Map<string, any>) {
         if (this.bonus != null) { this.bonus.resolve(_tables);}
@@ -2320,7 +2365,7 @@ export  class WeightBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.WeightBonusInfo; _e = new bonus.WeightBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
-    bonuses: bonus.WeightBonusInfo[]
+    readonly bonuses: bonus.WeightBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2339,13 +2384,14 @@ export namespace bonus {
 export  class WeightBonusInfo  {
 
     constructor(_json_: any) {
-        if(_json_.bonus != null) { this.bonus = bonus.Bonus.constructorFrom(_json_.bonus) } else { this.bonus = null }
+        if (_json_.bonus == null) { throw new Error() }
+        this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
         if (_json_.weight == null) { throw new Error() }
         this.weight = _json_.weight
     }
 
-    bonus?: bonus.Bonus
-    weight: number
+    readonly bonus: bonus.Bonus
+    readonly weight: number
 
     resolve(_tables: Map<string, any>) {
         if (this.bonus != null) { this.bonus.resolve(_tables);}
@@ -2368,7 +2414,7 @@ export  class DropBonus  extends bonus.Bonus {
         this.id = _json_.id
     }
 
-    id: number
+    readonly id: number
     id_Ref : bonus.DropInfo
 
     resolve(_tables: Map<string, any>) {
@@ -2431,28 +2477,28 @@ export  class GlobalConfig  {
         this.perVialityRecoveryTime = _json_.per_viality_recovery_time
     }
 
-    bagCapacity: number
-    bagCapacitySpecial: number
-    bagTempExpendableCapacity: number
-    bagTempToolCapacity: number
-    bagInitCapacity: number
-    quickBagCapacity: number
-    clothBagCapacity: number
-    clothBagInitCapacity: number
-    clothBagCapacitySpecial: number
-    bagInitItemsDropId?: number
+    readonly bagCapacity: number
+    readonly bagCapacitySpecial: number
+    readonly bagTempExpendableCapacity: number
+    readonly bagTempToolCapacity: number
+    readonly bagInitCapacity: number
+    readonly quickBagCapacity: number
+    readonly clothBagCapacity: number
+    readonly clothBagInitCapacity: number
+    readonly clothBagCapacitySpecial: number
+    readonly bagInitItemsDropId?: number
     bagInitItemsDropId_Ref : bonus.DropInfo
-    mailBoxCapacity: number
-    damageParamC: number
-    damageParamE: number
-    damageParamF: number
-    damageParamD: number
-    roleSpeed: number
-    monsterSpeed: number
-    initEnergy: number
-    initViality: number
-    maxViality: number
-    perVialityRecoveryTime: number
+    readonly mailBoxCapacity: number
+    readonly damageParamC: number
+    readonly damageParamE: number
+    readonly damageParamF: number
+    readonly damageParamD: number
+    readonly roleSpeed: number
+    readonly monsterSpeed: number
+    readonly initEnergy: number
+    readonly initViality: number
+    readonly maxViality: number
+    readonly perVialityRecoveryTime: number
 
     resolve(_tables: Map<string, any>) {
         this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? (_tables.get('bonus.TbDrop') as  bonus.TbDrop).get(this.bagInitItemsDropId) : null
@@ -2472,11 +2518,12 @@ export  class Dummy  {
     constructor(_json_: any) {
         if (_json_.id == null) { throw new Error() }
         this.id = _json_.id
-        if(_json_.limit != null) { this.limit = limit.LimitBase.constructorFrom(_json_.limit) } else { this.limit = null }
+        if (_json_.limit == null) { throw new Error() }
+        this.limit = limit.LimitBase.constructorFrom(_json_.limit)
     }
 
-    id: number
-    limit?: limit.LimitBase
+    readonly id: number
+    readonly limit: limit.LimitBase
 
     resolve(_tables: Map<string, any>) {
         if (this.limit != null) { this.limit.resolve(_tables);}
@@ -2494,7 +2541,6 @@ export namespace limit {
 export  abstract  class LimitBase  {
     static constructorFrom(_json_: any): LimitBase {
         switch (_json_.__type__) {
-            case null: return null
             case 'DailyLimit': return new limit.DailyLimit(_json_)
             case 'MultiDayLimit': return new limit.MultiDayLimit(_json_)
             case 'WeeklyLimit': return new limit.WeeklyLimit(_json_)
@@ -2524,7 +2570,6 @@ export namespace limit {
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static constructorFrom(_json_: any): DailyLimitBase {
         switch (_json_.__type__) {
-            case null: return null
             case 'DailyLimit': return new limit.DailyLimit(_json_)
             default: throw new Error()
         }
@@ -2556,7 +2601,7 @@ export  class DailyLimit  extends limit.DailyLimitBase {
         this.num = _json_.num
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2581,8 +2626,8 @@ export  class MultiDayLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
-    day: number
-    num: number
+    readonly day: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2605,7 +2650,7 @@ export  class WeeklyLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2628,7 +2673,7 @@ export  class MonthlyLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2651,7 +2696,7 @@ export  class CoolDown  extends limit.LimitBase {
         this.duration = _json_.duration
     }
 
-    duration: number
+    readonly duration: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2676,8 +2721,8 @@ export  class GroupCoolDown  extends limit.LimitBase {
         this.duration = _json_.duration
     }
 
-    groupId: number
-    duration: number
+    readonly groupId: number
+    readonly duration: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2699,12 +2744,13 @@ export  class ErrorInfo  {
         this.code = _json_.code
         if (_json_.desc == null) { throw new Error() }
         this.desc = _json_.desc
-        if(_json_.style != null) { this.style = error.ErrorStyle.constructorFrom(_json_.style) } else { this.style = null }
+        if (_json_.style == null) { throw new Error() }
+        this.style = error.ErrorStyle.constructorFrom(_json_.style)
     }
 
-    code: string
-    desc: string
-    style?: error.ErrorStyle
+    readonly code: string
+    readonly desc: string
+    readonly style: error.ErrorStyle
 
     resolve(_tables: Map<string, any>) {
         if (this.style != null) { this.style.resolve(_tables);}
@@ -2722,7 +2768,6 @@ export namespace error {
 export  abstract  class ErrorStyle  {
     static constructorFrom(_json_: any): ErrorStyle {
         switch (_json_.__type__) {
-            case null: return null
             case 'ErrorStyleTip': return new error.ErrorStyleTip(_json_)
             case 'ErrorStyleMsgbox': return new error.ErrorStyleMsgbox(_json_)
             case 'ErrorStyleDlgOk': return new error.ErrorStyleDlgOk(_json_)
@@ -2777,8 +2822,8 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
         this.operation = _json_.operation
     }
 
-    btnName: string
-    operation: error.EOperation
+    readonly btnName: string
+    readonly operation: error.EOperation
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2801,7 +2846,7 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
         this.btnName = _json_.btn_name
     }
 
-    btnName: string
+    readonly btnName: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2826,8 +2871,8 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
         this.btn2Name = _json_.btn2_name
     }
 
-    btn1Name: string
-    btn2Name: string
+    readonly btn1Name: string
+    readonly btn2Name: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2851,8 +2896,8 @@ export  class CodeInfo  {
         this.key = _json_.key
     }
 
-    code: error.EErrorCode
-    key: string
+    readonly code: error.EErrorCode
+    readonly key: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2911,27 +2956,27 @@ export  class Item  {
         if(_json_.level_up_id != null) { this.levelUpId = _json_.level_up_id } else { this.levelUpId = null }
     }
 
-    id: number
-    name: string
-    majorType: item.EMajorType
-    minorType: item.EMinorType
-    maxPileNum: number
-    quality: item.EItemQuality
-    icon: string
-    iconBackgroud: string
-    iconMask: string
-    desc: string
-    showOrder: number
-    quantifier: string
-    showInBag: boolean
-    minShowLevel: number
-    batchUsable: boolean
-    progressTimeWhenUse: number
-    showHintWhenUse: boolean
-    droppable: boolean
-    price?: number
-    useType: item.EUseType
-    levelUpId?: number
+    readonly id: number
+    readonly name: string
+    readonly majorType: item.EMajorType
+    readonly minorType: item.EMinorType
+    readonly maxPileNum: number
+    readonly quality: item.EItemQuality
+    readonly icon: string
+    readonly iconBackgroud: string
+    readonly iconMask: string
+    readonly desc: string
+    readonly showOrder: number
+    readonly quantifier: string
+    readonly showInBag: boolean
+    readonly minShowLevel: number
+    readonly batchUsable: boolean
+    readonly progressTimeWhenUse: number
+    readonly showHintWhenUse: boolean
+    readonly droppable: boolean
+    readonly price?: number
+    readonly useType: item.EUseType
+    readonly levelUpId?: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2958,10 +3003,10 @@ export  class ItemFunction  {
         this.closeBagUi = _json_.close_bag_ui
     }
 
-    minorType: item.EMinorType
-    funcType: item.EItemFunctionType
-    method: string
-    closeBagUi: boolean
+    readonly minorType: item.EMinorType
+    readonly funcType: item.EItemFunctionType
+    readonly method: string
+    readonly closeBagUi: boolean
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2978,7 +3023,6 @@ export namespace item {
 export  abstract  class ItemExtra  {
     static constructorFrom(_json_: any): ItemExtra {
         switch (_json_.__type__) {
-            case null: return null
             case 'TreasureBox': return new item.TreasureBox(_json_)
             case 'InteractionItem': return new item.InteractionItem(_json_)
             case 'Clothes': return new item.Clothes(_json_)
@@ -2993,7 +3037,7 @@ export  abstract  class ItemExtra  {
         this.id = _json_.id
     }
 
-    id: number
+    readonly id: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3022,11 +3066,11 @@ export  class TreasureBox  extends item.ItemExtra {
         { this.chooseList = []; for(let _ele of _json_.choose_list) { let _e : item.ChooseOneBonus; _e = new item.ChooseOneBonus(_ele); this.chooseList.push(_e);}}
     }
 
-    keyItemId?: number
-    openLevel: condition.MinLevel
-    useOnObtain: boolean
-    dropIds: number[]
-    chooseList: item.ChooseOneBonus[]
+    readonly keyItemId?: number
+    readonly openLevel: condition.MinLevel
+    readonly useOnObtain: boolean
+    readonly dropIds: number[]
+    readonly chooseList: item.ChooseOneBonus[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3046,7 +3090,6 @@ export namespace condition {
 export  abstract  class Condition  {
     static constructorFrom(_json_: any): Condition {
         switch (_json_.__type__) {
-            case null: return null
             case 'TimeRange': return new condition.TimeRange(_json_)
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_)
             case 'GenderLimit': return new condition.GenderLimit(_json_)
@@ -3083,7 +3126,7 @@ export  class TimeRange  extends condition.Condition {
         this.dateTimeRange = new common.DateTimeRange(_json_.date_time_range)
     }
 
-    dateTimeRange: common.DateTimeRange
+    readonly dateTimeRange: common.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3106,8 +3149,8 @@ export  class DateTimeRange  {
         if(_json_.end_time != null) { this.endTime = _json_.end_time } else { this.endTime = null }
     }
 
-    startTime?: number
-    endTime?: number
+    readonly startTime?: number
+    readonly endTime?: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3124,7 +3167,6 @@ export namespace condition {
 export  abstract  class RoleCondition  extends condition.Condition {
     static constructorFrom(_json_: any): RoleCondition {
         switch (_json_.__type__) {
-            case null: return null
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_)
             case 'GenderLimit': return new condition.GenderLimit(_json_)
             case 'MinLevel': return new condition.MinLevel(_json_)
@@ -3162,7 +3204,7 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
         { this.conditions = []; for(let _ele of _json_.conditions) { let _e :condition.RoleCondition; _e = condition.RoleCondition.constructorFrom(_ele); this.conditions.push(_e);}}
     }
 
-    conditions: condition.RoleCondition[]
+    readonly conditions: condition.RoleCondition[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3181,7 +3223,6 @@ export namespace condition {
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
     static constructorFrom(_json_: any): BoolRoleCondition {
         switch (_json_.__type__) {
-            case null: return null
             case 'GenderLimit': return new condition.GenderLimit(_json_)
             case 'MinLevel': return new condition.MinLevel(_json_)
             case 'MaxLevel': return new condition.MaxLevel(_json_)
@@ -3217,7 +3258,7 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
         this.gender = _json_.gender
     }
 
-    gender: role.EGenderType
+    readonly gender: role.EGenderType
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3240,7 +3281,7 @@ export  class MinLevel  extends condition.BoolRoleCondition {
         this.level = _json_.level
     }
 
-    level: number
+    readonly level: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3263,7 +3304,7 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
         this.level = _json_.level
     }
 
-    level: number
+    readonly level: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3288,8 +3329,8 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
         this.max = _json_.max
     }
 
-    min: number
-    max: number
+    readonly min: number
+    readonly max: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3314,8 +3355,8 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
         this.value = _json_.value
     }
 
-    prop: item.EClothesPropertyType
-    value: number
+    readonly prop: item.EClothesPropertyType
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3342,10 +3383,10 @@ export  class ContainsItem  extends condition.RoleCondition {
         this.reverse = _json_.reverse
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    reverse: boolean
+    readonly num: number
+    readonly reverse: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3370,9 +3411,9 @@ export  class ChooseOneBonus  {
         this.isUnique = _json_.is_unique
     }
 
-    dropId: number
+    readonly dropId: number
     dropId_Ref : bonus.DropInfo
-    isUnique: boolean
+    readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
         this.dropId_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.dropId)
@@ -3398,9 +3439,9 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _json_.holding_static_mesh_mat
     }
 
-    attackNum?: number
-    holdingStaticMesh: string
-    holdingStaticMeshMat: string
+    readonly attackNum?: number
+    readonly holdingStaticMesh: string
+    readonly holdingStaticMeshMat: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3429,10 +3470,10 @@ export  class Clothes  extends item.ItemExtra {
         this.energyResume = _json_.energy_resume
     }
 
-    attack: number
-    hp: bigint
-    energyLimit: number
-    energyResume: number
+    readonly attack: number
+    readonly hp: bigint
+    readonly energyLimit: number
+    readonly energyResume: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3455,7 +3496,7 @@ export  class DesignDrawing  extends item.ItemExtra {
         this.learnComponentId = _json_.learn_component_id
     }
 
-    learnComponentId: number[]
+    readonly learnComponentId: number[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3474,10 +3515,11 @@ export  class Dymmy  extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
-        if(_json_.cost != null) { this.cost = cost.Cost.constructorFrom(_json_.cost) } else { this.cost = null }
+        if (_json_.cost == null) { throw new Error() }
+        this.cost = cost.Cost.constructorFrom(_json_.cost)
     }
 
-    cost?: cost.Cost
+    readonly cost: cost.Cost
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3496,7 +3538,6 @@ export namespace cost {
 export  abstract  class Cost  {
     static constructorFrom(_json_: any): Cost {
         switch (_json_.__type__) {
-            case null: return null
             case 'CostCurrency': return new cost.CostCurrency(_json_)
             case 'CostCurrencies': return new cost.CostCurrencies(_json_)
             case 'CostOneItem': return new cost.CostOneItem(_json_)
@@ -3532,8 +3573,8 @@ export  class CostCurrency  extends cost.Cost {
         this.num = _json_.num
     }
 
-    type: item.ECurrencyType
-    num: number
+    readonly type: item.ECurrencyType
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3556,7 +3597,7 @@ export  class CostCurrencies  extends cost.Cost {
         { this.currencies = []; for(let _ele of _json_.currencies) { let _e : cost.CostCurrency; _e = new cost.CostCurrency(_ele); this.currencies.push(_e);}}
     }
 
-    currencies: cost.CostCurrency[]
+    readonly currencies: cost.CostCurrency[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3580,7 +3621,7 @@ export  class CostOneItem  extends cost.Cost {
         this.itemId = _json_.item_id
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
 
     resolve(_tables: Map<string, any>) {
@@ -3607,9 +3648,9 @@ export  class CostItem  extends cost.Cost {
         this.amount = _json_.amount
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    amount: number
+    readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3633,7 +3674,7 @@ export  class CostItems  extends cost.Cost {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :cost.CostItem; _e = new cost.CostItem(_ele); this.itemList.push(_e);}}
     }
 
-    itemList: cost.CostItem[]
+    readonly itemList: cost.CostItem[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3658,8 +3699,8 @@ export  class L10NDemo  {
         this.text = _json_.text
     }
 
-    id: number
-    text: string
+    readonly id: number
+    readonly text: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3682,8 +3723,8 @@ export  class PatchDemo  {
         this.value = _json_.value
     }
 
-    id: number
-    value: number
+    readonly id: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3712,11 +3753,11 @@ export  class SystemMail  {
         this.award = _json_.award
     }
 
-    id: number
-    title: string
-    sender: string
-    content: string
-    award: number[]
+    readonly id: number
+    readonly title: string
+    readonly sender: string
+    readonly content: string
+    readonly award: number[]
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3759,18 +3800,18 @@ export  class GlobalMail  {
         this.mailTime = new condition.TimeRange(_json_.mail_time)
     }
 
-    id: number
-    title: string
-    sender: string
-    content: string
-    award: number[]
-    allServer: boolean
-    serverList: number[]
-    platform: string
-    channel: string
-    minMaxLevel: condition.MinMaxLevel
-    registerTime: condition.TimeRange
-    mailTime: condition.TimeRange
+    readonly id: number
+    readonly title: string
+    readonly sender: string
+    readonly content: string
+    readonly award: number[]
+    readonly allServer: boolean
+    readonly serverList: number[]
+    readonly platform: string
+    readonly channel: string
+    readonly minMaxLevel: condition.MinMaxLevel
+    readonly registerTime: condition.TimeRange
+    readonly mailTime: condition.TimeRange
 
     resolve(_tables: Map<string, any>) {
         if (this.minMaxLevel != null) { this.minMaxLevel.resolve(_tables);}
@@ -3798,9 +3839,9 @@ export  class LevelExpAttr  {
         this.clothesAttrs = _json_.clothes_attrs
     }
 
-    level: number
-    needExp: bigint
-    clothesAttrs: number[]
+    readonly level: number
+    readonly needExp: bigint
+    readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3823,8 +3864,8 @@ export  class LevelBonus  {
         { this.distinctBonusInfos = []; for(let _ele of _json_.distinct_bonus_infos) { let _e : role.DistinctBonusInfos; _e = new role.DistinctBonusInfos(_ele); this.distinctBonusInfos.push(_e);}}
     }
 
-    id: number
-    distinctBonusInfos: role.DistinctBonusInfos[]
+    readonly id: number
+    readonly distinctBonusInfos: role.DistinctBonusInfos[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.distinctBonusInfos) { if (_e != null ) {_e.resolve(_tables);} }
@@ -3848,8 +3889,8 @@ export  class DistinctBonusInfos  {
         { this.bonusInfo = []; for(let _ele of _json_.bonus_info) { let _e : role.BonusInfo; _e = new role.BonusInfo(_ele); this.bonusInfo.push(_e);}}
     }
 
-    effectiveLevel: number
-    bonusInfo: role.BonusInfo[]
+    readonly effectiveLevel: number
+    readonly bonusInfo: role.BonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.bonusInfo) { if (_e != null ) {_e.resolve(_tables);} }
@@ -3873,8 +3914,8 @@ export  class BonusInfo  {
         this.coefficient = _json_.coefficient
     }
 
-    type: item.ECurrencyType
-    coefficient: number
+    readonly type: item.ECurrencyType
+    readonly coefficient: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3897,10 +3938,555 @@ export  class TestTag  {
         this.value = _json_.value
     }
 
-    id: number
-    value: string
+    readonly id: number
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoType2  {
+
+    constructor(_json_: any) {
+        if (_json_.x4 == null) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 == null) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 == null) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x5 == null) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 == null) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.x7 == null) { throw new Error() }
+        this.x7 = _json_.x7
+        if (_json_.x8_0 == null) { throw new Error() }
+        this.x80 = _json_.x8_0
+        if (_json_.x8 == null) { throw new Error() }
+        this.x8 = _json_.x8
+        if (_json_.x9 == null) { throw new Error() }
+        this.x9 = _json_.x9
+        if (_json_.x10 == null) { throw new Error() }
+        this.x10 = _json_.x10
+        if (_json_.x12 == null) { throw new Error() }
+        this.x12 = new test.DemoType1(_json_.x12)
+        if (_json_.x13 == null) { throw new Error() }
+        this.x13 = _json_.x13
+        if (_json_.x14 == null) { throw new Error() }
+        this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
+        if (_json_.s1 == null) { throw new Error() }
+        this.s1 = _json_.s1
+        if (_json_.v2 == null) { throw new Error() }
+        this.v2 = Vector2.from(_json_.v2)
+        if (_json_.v3 == null) { throw new Error() }
+        this.v3 = Vector3.from(_json_.v3)
+        if (_json_.v4 == null) { throw new Error() }
+        this.v4 = Vector4.from(_json_.v4)
+        if (_json_.t1 == null) { throw new Error() }
+        this.t1 = _json_.t1
+        if (_json_.k1 == null) { throw new Error() }
+        this.k1 = _json_.k1
+        if (_json_.k2 == null) { throw new Error() }
+        this.k2 = _json_.k2
+        if (_json_.k3 == null) { throw new Error() }
+        this.k3 = _json_.k3
+        if (_json_.k4 == null) { throw new Error() }
+        this.k4 = _json_.k4
+        if (_json_.k5 == null) { throw new Error() }
+        this.k5 = _json_.k5
+        if (_json_.k6 == null) { throw new Error() }
+        this.k6 = _json_.k6
+        if (_json_.k7 == null) { throw new Error() }
+        this.k7 = _json_.k7
+        if (_json_.k8 == null) { throw new Error() }
+        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
+        if (_json_.k9 == null) { throw new Error() }
+        { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
+        if (_json_.k15 == null) { throw new Error() }
+        { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    x3_Ref : test.DemoType2
+    readonly x5: bigint
+    readonly x6: number
+    readonly x7: number
+    readonly x80: number
+    readonly x8: number
+    readonly x9: bigint
+    readonly x10: string
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly s1: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+    readonly k1: Int32Array
+    readonly k2: number[]
+    readonly k3: number[]
+    readonly k4: number[]
+    readonly k5: Set<number>
+    readonly k6: Set<number>
+    readonly k7: Set<number>
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(_tables: Map<string, any>) {
+        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)
+        if (this.x12 != null) { this.x12.resolve(_tables);}
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.k15) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoType1  {
+
+    constructor(_json_: any) {
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = _json_.x1
+    }
+
+    readonly x1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  abstract  class DemoDynamic  {
+    static constructorFrom(_json_: any): DemoDynamic {
+        switch (_json_.__type__) {
+            case 'DemoD2': return new test.DemoD2(_json_)
+            case 'DemoE1': return new test.DemoE1(_json_)
+            case 'DemoD5': return new test.DemoD5(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = _json_.x1
+    }
+
+    readonly x1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoD2  extends test.DemoDynamic {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x2 == null) { throw new Error() }
+        this.x2 = _json_.x2
+    }
+
+    readonly x2: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  abstract  class DemoD3  extends test.DemoDynamic {
+    static constructorFrom(_json_: any): DemoD3 {
+        switch (_json_.__type__) {
+            case 'DemoE1': return new test.DemoE1(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x3 == null) { throw new Error() }
+        this.x3 = _json_.x3
+    }
+
+    readonly x3: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoE1  extends test.DemoD3 {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x4 == null) { throw new Error() }
+        this.x4 = _json_.x4
+    }
+
+    readonly x4: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoD5  extends test.DemoDynamic {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.time == null) { throw new Error() }
+        this.time = new test.DateTimeRange(_json_.time)
+    }
+
+    readonly time: test.DateTimeRange
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+        if (this.time != null) { this.time.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DateTimeRange  {
+
+    constructor(_json_: any) {
+        if (_json_.start_time == null) { throw new Error() }
+        this.startTime = _json_.start_time
+        if (_json_.end_time == null) { throw new Error() }
+        this.endTime = _json_.end_time
+    }
+
+    readonly startTime: number
+    readonly endTime: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoE2  {
+
+    constructor(_json_: any) {
+        if(_json_.y1 != null) { this.y1 = _json_.y1 } else { this.y1 = null }
+        if (_json_.y2 == null) { throw new Error() }
+        this.y2 = _json_.y2
+    }
+
+    readonly y1?: number
+    readonly y2: boolean
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoSingletonType  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name == null) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.date == null) { throw new Error() }
+        this.date = test.DemoDynamic.constructorFrom(_json_.date)
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly date: test.DemoDynamic
+
+    resolve(_tables: Map<string, any>) {
+        if (this.date != null) { this.date.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowRecord  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name == null) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.one_rows == null) { throw new Error() }
+        { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
+        if (_json_.multi_rows1 == null) { throw new Error() }
+        { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
+        if (_json_.multi_rows2 == null) { throw new Error() }
+        { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
+        if (_json_.multi_rows3 == null) { throw new Error() }
+        { this.multiRows3 = new Set<test.MultiRowType2>(); for(var _ele of _json_.multi_rows3) { let _e:test.MultiRowType2; _e = new test.MultiRowType2(_ele); this.multiRows3.add(_e);}}
+        if (_json_.multi_rows4 == null) { throw new Error() }
+        this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly oneRows: test.MultiRowType1[]
+    readonly multiRows1: test.MultiRowType1[]
+    readonly multiRows2: test.MultiRowType1[]
+    readonly multiRows3: Set<test.MultiRowType2>
+    readonly multiRows4: Map<number, test.MultiRowType2>
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
+        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType1  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x == null) { throw new Error() }
+        this.x = _json_.x
+    }
+
+    readonly id: number
+    readonly x: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType2  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x == null) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y == null) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowTitle  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name == null) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = new test.H1(_json_.x1)
+        if (_json_.x2 == null) { throw new Error() }
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
+        if (_json_.x3 == null) { throw new Error() }
+        { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly x1: test.H1
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H1  {
+
+    constructor(_json_: any) {
+        if (_json_.y2 == null) { throw new Error() }
+        this.y2 = new test.H2(_json_.y2)
+        if (_json_.y3 == null) { throw new Error() }
+        this.y3 = _json_.y3
+    }
+
+    readonly y2: test.H2
+    readonly y3: number
+
+    resolve(_tables: Map<string, any>) {
+        if (this.y2 != null) { this.y2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H2  {
+
+    constructor(_json_: any) {
+        if (_json_.z2 == null) { throw new Error() }
+        this.z2 = _json_.z2
+        if (_json_.z3 == null) { throw new Error() }
+        this.z3 = _json_.z3
+    }
+
+    readonly z2: number
+    readonly z3: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestNull  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if(_json_.x1 != null) { this.x1 = _json_.x1 } else { this.x1 = null }
+        if(_json_.x2 != null) { this.x2 = _json_.x2 } else { this.x2 = null }
+        if(_json_.x3 != null) { this.x3 = new test.DemoType1(_json_.x3) } else { this.x3 = null }
+        if(_json_.x4 != null) { this.x4 = test.DemoDynamic.constructorFrom(_json_.x4) } else { this.x4 = null }
+    }
+
+    readonly id: number
+    readonly x1?: number
+    readonly x2?: test.DemoEnum
+    readonly x3?: test.DemoType1
+    readonly x4?: test.DemoDynamic
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x3 != null) { this.x3.resolve(_tables);}
+        if (this.x4 != null) { this.x4.resolve(_tables);}
     }
 }
 
@@ -3981,7 +4567,7 @@ export class TbClazz{
         this._dataList = []
         for(var _json2_ of _json_) {
             let _v: blueprint.Clazz
-            if(_json2_ != null) { _v = blueprint.Clazz.constructorFrom(_json2_) } else { _v = null }
+            _v = blueprint.Clazz.constructorFrom(_json2_)
             this._dataList.push(_v)
             this._dataMap.set(_v.name, _v)
         }
@@ -4248,7 +4834,7 @@ export class TbItemExtra{
         this._dataList = []
         for(var _json2_ of _json_) {
             let _v: item.ItemExtra
-            if(_json2_ != null) { _v = item.ItemExtra.constructorFrom(_json2_) } else { _v = null }
+            _v = item.ItemExtra.constructorFrom(_json2_)
             this._dataList.push(_v)
             this._dataMap.set(_v.id, _v)
         }
@@ -4494,6 +5080,255 @@ export class TbTestTag{
 }
 
 
+   
+export namespace test {
+export class TbFullTypes{
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x3, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
+    getDataList(): test.DemoType2[] { return this._dataList; }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbSingleton{
+
+     private _data: test.DemoSingletonType
+    constructor(_json_: any) {
+        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.DemoSingletonType(_json_[0])
+    }
+
+    getData(): test.DemoSingletonType { return this._data; }
+
+     get  id(): number { return this._data.id; }
+     get  name(): string { return this._data.name; }
+     get  date(): test.DemoDynamic { return this._data.date; }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromJson{
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
+    getDataList(): test.DemoType2[] { return this._dataList; }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromXml{
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
+    getDataList(): test.DemoType2[] { return this._dataList; }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromLua{
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
+    getDataList(): test.DemoType2[] { return this._dataList; }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbMultiRowRecord{
+    private _dataMap: Map<number, test.MultiRowRecord>
+    private _dataList: test.MultiRowRecord[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.MultiRowRecord>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.MultiRowRecord
+            _v = new test.MultiRowRecord(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.MultiRowRecord> { return this._dataMap; }
+    getDataList(): test.MultiRowRecord[] { return this._dataList; }
+
+    get(key: number): test.MultiRowRecord  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbMultiRowTitle{
+    private _dataMap: Map<number, test.MultiRowTitle>
+    private _dataList: test.MultiRowTitle[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.MultiRowTitle>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.MultiRowTitle
+            _v = new test.MultiRowTitle(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.MultiRowTitle> { return this._dataMap; }
+    getDataList(): test.MultiRowTitle[] { return this._dataList; }
+
+    get(key: number): test.MultiRowTitle  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbTestNull{
+    private _dataMap: Map<number, test.TestNull>
+    private _dataList: test.TestNull[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestNull>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestNull
+            _v = new test.TestNull(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestNull> { return this._dataMap; }
+    getDataList(): test.TestNull[] { return this._dataList; }
+
+    get(key: number): test.TestNull  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 type JsonLoader = (file: string) => any
@@ -4535,6 +5370,22 @@ export class Tables {
     get TbRoleLevelBonusCoefficient(): role.TbRoleLevelBonusCoefficient  { return this._TbRoleLevelBonusCoefficient;}
     private _TbTestTag: tag.TbTestTag
     get TbTestTag(): tag.TbTestTag  { return this._TbTestTag;}
+    private _TbFullTypes: test.TbFullTypes
+    get TbFullTypes(): test.TbFullTypes  { return this._TbFullTypes;}
+    private _TbSingleton: test.TbSingleton
+    get TbSingleton(): test.TbSingleton  { return this._TbSingleton;}
+    private _TbDataFromJson: test.TbDataFromJson
+    get TbDataFromJson(): test.TbDataFromJson  { return this._TbDataFromJson;}
+    private _TbDataFromXml: test.TbDataFromXml
+    get TbDataFromXml(): test.TbDataFromXml  { return this._TbDataFromXml;}
+    private _TbDataFromLua: test.TbDataFromLua
+    get TbDataFromLua(): test.TbDataFromLua  { return this._TbDataFromLua;}
+    private _TbMultiRowRecord: test.TbMultiRowRecord
+    get TbMultiRowRecord(): test.TbMultiRowRecord  { return this._TbMultiRowRecord;}
+    private _TbMultiRowTitle: test.TbMultiRowTitle
+    get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle;}
+    private _TbTestNull: test.TbTestNull
+    get TbTestNull(): test.TbTestNull  { return this._TbTestNull;}
 
     constructor(loader: JsonLoader) {
         let tables = new Map<string, any>()
@@ -4574,6 +5425,22 @@ export class Tables {
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
         this._TbTestTag = new tag.TbTestTag(loader('tag.TbTestTag.json'))
         tables.set('tag.TbTestTag', this._TbTestTag)
+        this._TbFullTypes = new test.TbFullTypes(loader('test.TbFullTypes.json'))
+        tables.set('test.TbFullTypes', this._TbFullTypes)
+        this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton.json'))
+        tables.set('test.TbSingleton', this._TbSingleton)
+        this._TbDataFromJson = new test.TbDataFromJson(loader('test.TbDataFromJson.json'))
+        tables.set('test.TbDataFromJson', this._TbDataFromJson)
+        this._TbDataFromXml = new test.TbDataFromXml(loader('test.TbDataFromXml.json'))
+        tables.set('test.TbDataFromXml', this._TbDataFromXml)
+        this._TbDataFromLua = new test.TbDataFromLua(loader('test.TbDataFromLua.json'))
+        tables.set('test.TbDataFromLua', this._TbDataFromLua)
+        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord.json'))
+        tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord)
+        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle.json'))
+        tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
+        this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.json'))
+        tables.set('test.TbTestNull', this._TbTestNull)
 
         this._TbBlackboard.resolve(tables)
         this._TbBehaviorTree.resolve(tables)
@@ -4593,6 +5460,14 @@ export class Tables {
         this._TbRoleLevelExpAttr.resolve(tables)
         this._TbRoleLevelBonusCoefficient.resolve(tables)
         this._TbTestTag.resolve(tables)
+        this._TbFullTypes.resolve(tables)
+        this._TbSingleton.resolve(tables)
+        this._TbDataFromJson.resolve(tables)
+        this._TbDataFromXml.resolve(tables)
+        this._TbDataFromLua.resolve(tables)
+        this._TbMultiRowRecord.resolve(tables)
+        this._TbMultiRowTitle.resolve(tables)
+        this._TbTestNull.resolve(tables)
     }
 }
 

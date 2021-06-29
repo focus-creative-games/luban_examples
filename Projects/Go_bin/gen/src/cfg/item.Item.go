@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Item_Item struct {
-    
     Id int32
     Name string
     MajorType int32
@@ -37,15 +36,12 @@ type Item_Item struct {
     LevelUpId int32
 }
 
-
 func (Item_Item) GetTypeId() int {
     return 2107285806
 }
 
-
 func NewItem_Item(_buf *serialization.ByteBuf) (_v *Item_Item, err error) {
     _v = &Item_Item{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.MajorType, err = _buf.ReadInt(); err != nil  { return } 
@@ -69,5 +65,4 @@ func NewItem_Item(_buf *serialization.ByteBuf) (_v *Item_Item, err error) {
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.LevelUpId, err = _buf.ReadInt(); err != nil  { return } } }
     return
 }
-
 

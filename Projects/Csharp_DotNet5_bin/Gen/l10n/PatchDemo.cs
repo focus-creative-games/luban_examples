@@ -31,22 +31,17 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
 
     public static PatchDemo DeserializePatchDemo(ByteBuf _buf)
     {
-    
         return new l10n.PatchDemo(_buf);
-    
     }
 
     public readonly int Id;
     public readonly int Value;
 
-
     public const int ID = -1707294656;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

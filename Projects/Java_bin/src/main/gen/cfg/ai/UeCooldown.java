@@ -23,25 +23,21 @@ public final class UeCooldown extends  cfg.ai.Decorator
 
     public UeCooldown(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float cooldown_time )
     {
-            super(id, node_name, flow_abort_mode);
+        super(id, node_name, flow_abort_mode);
         this.cooldownTime = cooldown_time;
     }
 
     public static UeCooldown deserializeUeCooldown(ByteBuf _buf)
     {
-    
         return new UeCooldown(_buf);
-    
     }
 
-     public final float cooldownTime;
-
+    public final float cooldownTime;
 
     public static final int ID = -951439423;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class UeCooldown extends  cfg.ai.Decorator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -23,25 +23,21 @@ public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle
 
     public ErrorStyleDlgOk(String btn_name )
     {
-            super();
+        super();
         this.btnName = btn_name;
     }
 
     public static ErrorStyleDlgOk deserializeErrorStyleDlgOk(ByteBuf _buf)
     {
-    
         return new ErrorStyleDlgOk(_buf);
-    
     }
 
-     public final String btnName;
-
+    public final String btnName;
 
     public static final int ID = -2010134516;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

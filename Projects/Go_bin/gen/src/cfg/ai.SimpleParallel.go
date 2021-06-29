@@ -19,23 +19,18 @@ type Ai_SimpleParallel struct {
     BackgroundNode interface{}
 }
 
-
 func (Ai_SimpleParallel) GetTypeId() int {
     return -1952582529
 }
 
-
 func NewAi_SimpleParallel(_buf *serialization.ByteBuf) (_v *Ai_SimpleParallel, err error) {
     _v = &Ai_SimpleParallel{}
-
     var _p *Ai_ComposeNode
      if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
-
     if _v.FinishMode, err = _buf.ReadInt(); err != nil  { return } 
     if _v.MainTask, err = NewChildAi_Task(_buf); err != nil  { return } 
     if _v.BackgroundNode, err = NewChildAi_FlowNode(_buf); err != nil  { return } 
     return
 }
-
 

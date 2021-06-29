@@ -17,21 +17,16 @@ type Ai_UeTimeLimit struct {
     LimitTime float32
 }
 
-
 func (Ai_UeTimeLimit) GetTypeId() int {
     return 338469720
 }
 
-
 func NewAi_UeTimeLimit(_buf *serialization.ByteBuf) (_v *Ai_UeTimeLimit, err error) {
     _v = &Ai_UeTimeLimit{}
-
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-
     if _v.LimitTime, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

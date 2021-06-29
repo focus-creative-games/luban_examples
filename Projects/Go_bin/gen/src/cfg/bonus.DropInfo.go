@@ -13,22 +13,18 @@ import "bright/serialization"
 
 
 type Bonus_DropInfo struct {
-    
     Id int32
     Desc string
     ClientShowItems []*Bonus_ShowItemInfo
     Bonus interface{}
 }
 
-
 func (Bonus_DropInfo) GetTypeId() int {
     return -2014781108
 }
 
-
 func NewBonus_DropInfo(_buf *serialization.ByteBuf) (_v *Bonus_DropInfo, err error) {
     _v = &Bonus_DropInfo{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     if _v.ClientShowItems, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Bonus_ShowItemInfo, err2 error) {
@@ -45,5 +41,4 @@ func NewBonus_DropInfo(_buf *serialization.ByteBuf) (_v *Bonus_DropInfo, err err
     if _v.Bonus, err = NewChildBonus_Bonus(_buf); err != nil  { return } 
     return
 }
-
 

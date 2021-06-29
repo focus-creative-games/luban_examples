@@ -23,25 +23,21 @@ public final class MultiRoleCondition extends  cfg.condition.RoleCondition
 
     public MultiRoleCondition(cfg.condition.RoleCondition[] conditions )
     {
-            super();
+        super();
         this.conditions = conditions;
     }
 
     public static MultiRoleCondition deserializeMultiRoleCondition(ByteBuf _buf)
     {
-    
         return new MultiRoleCondition(_buf);
-    
     }
 
-     public final cfg.condition.RoleCondition[] conditions;
-
+    public final cfg.condition.RoleCondition[] conditions;
 
     public static final int ID = 934079583;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class MultiRoleCondition extends  cfg.condition.RoleCondition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.condition.RoleCondition _e : conditions) { if (_e != null) _e.resolve(_tables); }
     }
 

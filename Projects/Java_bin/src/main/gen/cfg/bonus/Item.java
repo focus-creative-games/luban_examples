@@ -24,28 +24,24 @@ public final class Item extends  cfg.bonus.Bonus
 
     public Item(int item_id, int amount )
     {
-            super();
+        super();
         this.itemId = item_id;
         this.amount = amount;
     }
 
     public static Item deserializeItem(ByteBuf _buf)
     {
-    
         return new Item(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-     public final int amount;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
+    public final int amount;
 
     public static final int ID = 1689011106;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -61,7 +57,7 @@ public final class Item extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

@@ -17,19 +17,15 @@ type Cost_CostItems struct {
     ItemList []*Cost_CostItem
 }
 
-
 func (Cost_CostItems) GetTypeId() int {
     return -77945102
 }
 
-
 func NewCost_CostItems(_buf *serialization.ByteBuf) (_v *Cost_CostItems, err error) {
     _v = &Cost_CostItems{}
-
     var _p *Cost_Cost
      if _p, err = NewCost_Cost(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
-
     if _v.ItemList, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Cost_CostItem, err2 error) {
                 _v2 = make([]*Cost_CostItem, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewCost_CostItems(_buf *serialization.ByteBuf) (_v *Cost_CostItems, err err
                 }(_buf); err != nil  { return } 
     return
 }
-
 

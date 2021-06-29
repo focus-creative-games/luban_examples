@@ -20,7 +20,7 @@ public sealed partial class Dymmy :  item.ItemExtra
 {
     public Dymmy(JsonElement _buf)  : base(_buf) 
     {
-        { var _j = _buf.GetProperty("cost"); if (_j.ValueKind != JsonValueKind.Null) { Cost =  cost.Cost.DeserializeCost(_j); } else { Cost = null; } }
+        Cost =  cost.Cost.DeserializeCost(_buf.GetProperty("cost"));
     }
 
     public Dymmy(int id, cost.Cost cost )  : base(id) 
@@ -30,21 +30,17 @@ public sealed partial class Dymmy :  item.ItemExtra
 
     public static Dymmy DeserializeDymmy(JsonElement _buf)
     {
-    
         return new item.Dymmy(_buf);
-    
     }
 
     public readonly cost.Cost Cost;
 
-
     public const int ID = 896889705;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         Cost?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

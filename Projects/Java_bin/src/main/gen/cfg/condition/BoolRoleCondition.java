@@ -22,15 +22,13 @@ public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition
 
     public BoolRoleCondition()
     {
-            super();
+        super();
     }
 
     public static BoolRoleCondition deserializeBoolRoleCondition(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
             case cfg.condition.MinLevel.ID: return new cfg.condition.MinLevel(_buf);
             case cfg.condition.MaxLevel.ID: return new cfg.condition.MaxLevel(_buf);
@@ -38,9 +36,7 @@ public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition
             case cfg.condition.ClothesPropertyScoreGreaterThan.ID: return new cfg.condition.ClothesPropertyScoreGreaterThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -58,7 +54,7 @@ public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

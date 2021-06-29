@@ -22,23 +22,19 @@ public final class IsSet extends  cfg.ai.KeyQueryOperator
 
     public IsSet()
     {
-            super();
+        super();
     }
 
     public static IsSet deserializeIsSet(ByteBuf _buf)
     {
-    
         return new IsSet(_buf);
-    
     }
-
 
 
     public static final int ID = 1635350898;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -54,7 +50,7 @@ public final class IsSet extends  cfg.ai.KeyQueryOperator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

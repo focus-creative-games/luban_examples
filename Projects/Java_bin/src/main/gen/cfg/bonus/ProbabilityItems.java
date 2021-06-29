@@ -23,25 +23,21 @@ public final class ProbabilityItems extends  cfg.bonus.Bonus
 
     public ProbabilityItems(cfg.bonus.ProbabilityItemInfo[] item_list )
     {
-            super();
+        super();
         this.itemList = item_list;
     }
 
     public static ProbabilityItems deserializeProbabilityItems(ByteBuf _buf)
     {
-    
         return new ProbabilityItems(_buf);
-    
     }
 
-     public final cfg.bonus.ProbabilityItemInfo[] itemList;
-
+    public final cfg.bonus.ProbabilityItemInfo[] itemList;
 
     public static final int ID = 366387866;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class ProbabilityItems extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.bonus.ProbabilityItemInfo _e : itemList) { if (_e != null) _e.resolve(_tables); }
     }
 

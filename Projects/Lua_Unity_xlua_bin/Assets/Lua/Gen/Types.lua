@@ -40,6 +40,12 @@ local consts =
      ---@field public MAX_NAME_LENGTH int
      ---@field public MAX_USER_ROLE_NUM int
     ['role.Consts'] = {   MAX_NAME_LENGTH=20,  MAX_USER_ROLE_NUM=10,  };
+    ---@class test.DemoConst
+     ---@field public x1 int
+     ---@field public x2 long
+     ---@field public x3 float
+     ---@field public x4 double
+    ['test.DemoConst'] = {   x1=0,  x2=3242,  x3=444.3,  x4=55.3,  };
 }
 
 local enums =
@@ -319,6 +325,23 @@ local enums =
     ---@class role.EProfession
      ---@field public TEST_PROFESSION int
     ['role.EProfession'] = {   TEST_PROFESSION=1,  };
+    ---@class test.DemoEnum
+     ---@field public A int
+     ---@field public B int
+     ---@field public C int
+     ---@field public D int
+    ['test.DemoEnum'] = {   A=1,  B=2,  C=4,  D=5,  };
+    ---@class test.ETestUeType
+     ---@field public WHITE int
+     ---@field public BLACK int
+    ['test.ETestUeType'] = {   WHITE=0,  BLACK=1,  };
+    ---@class test.ETestEmptyEnum
+    ['test.ETestEmptyEnum'] = {   };
+    ---@class test.ETestEmptyEnum2
+     ---@field public SMALL_THAN_256 int
+     ---@field public X_256 int
+     ---@field public X_257 int
+    ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
 }
 
 
@@ -440,7 +463,7 @@ local function InitTypes(methods)
         local id2name = {  [-719747885] = 'ai.FloatKeyData',  [-342751904] = 'ai.IntKeyData',  [-307888654] = 'ai.StringKeyData',  [1517269500] = 'ai.BlackboardKeyData',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -516,7 +539,7 @@ local function InitTypes(methods)
         local id2name = {  [1635350898] = 'ai.IsSet',  [790736255] = 'ai.IsNotSet',  [-979891605] = 'ai.BinaryOperator',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -576,7 +599,7 @@ local function InitTypes(methods)
         local id2name = {  [1812449155] = 'ai.UeSetDefaultFocus',  [990693812] = 'ai.ExecuteTimeStatistic',  [1601247918] = 'ai.ChooseTarget',  [1195270745] = 'ai.KeepFaceTarget',  [-999247644] = 'ai.GetOwnerPlayer',  [-61887372] = 'ai.UpdateDailyBehaviorProps',  [-513308166] = 'ai.UeLoop',  [-951439423] = 'ai.UeCooldown',  [338469720] = 'ai.UeTimeLimit',  [-315297507] = 'ai.UeBlackboard',  [195054574] = 'ai.UeForceSuccess',  [1255972344] = 'ai.IsAtLocation',  [-1207170283] = 'ai.DistanceLessThan',  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -588,7 +611,7 @@ local function InitTypes(methods)
         local id2name = {  [1812449155] = 'ai.UeSetDefaultFocus',  [990693812] = 'ai.ExecuteTimeStatistic',  [1601247918] = 'ai.ChooseTarget',  [1195270745] = 'ai.KeepFaceTarget',  [-999247644] = 'ai.GetOwnerPlayer',  [-61887372] = 'ai.UpdateDailyBehaviorProps',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -723,7 +746,7 @@ local function InitTypes(methods)
         local id2name = {  [-513308166] = 'ai.UeLoop',  [-951439423] = 'ai.UeCooldown',  [338469720] = 'ai.UeTimeLimit',  [-315297507] = 'ai.UeBlackboard',  [195054574] = 'ai.UeForceSuccess',  [1255972344] = 'ai.IsAtLocation',  [-1207170283] = 'ai.DistanceLessThan',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -886,7 +909,7 @@ local function InitTypes(methods)
         local id2name = {  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -898,7 +921,7 @@ local function InitTypes(methods)
         local id2name = {  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -975,7 +998,7 @@ local function InitTypes(methods)
         local id2name = {  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -1168,7 +1191,7 @@ local function InitTypes(methods)
         local id2name = {  [1691159091] = 'blueprint.DBool',  [1578580870] = 'blueprint.DInt',  [1691456965] = 'blueprint.DLong',  [1763679450] = 'blueprint.DDouble',  [-2097315558] = 'blueprint.DString',  [2066269256] = 'blueprint.DObject',  [885492784] = 'blueprint.DArray',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -1359,7 +1382,7 @@ local function InitTypes(methods)
         local id2name = {  [-392137809] = 'blueprint.AbstraceMethod',  [1739079015] = 'blueprint.ExternalMethod',  [-696408103] = 'blueprint.BlueprintMethod',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -1450,7 +1473,7 @@ local function InitTypes(methods)
         local id2name = {  [2114170750] = 'blueprint.Interface',  [-2073576778] = 'blueprint.NormalClazz',  [1827364892] = 'blueprint.EnumClazz',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -1598,7 +1621,7 @@ local function InitTypes(methods)
         local id2name = {  [-1649658966] = 'bonus.OneItem',  [400179721] = 'bonus.OneItems',  [1689011106] = 'bonus.Item',  [819736849] = 'bonus.Items',  [-229470727] = 'bonus.CoefficientItem',  [-356202311] = 'bonus.WeightItems',  [366387866] = 'bonus.ProbabilityItems',  [1421907893] = 'bonus.MultiBonus',  [359783161] = 'bonus.ProbabilityBonus',  [-362807016] = 'bonus.WeightBonus',  [1959868225] = 'bonus.DropBonus',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -1996,7 +2019,7 @@ local function InitTypes(methods)
         local id2name = {  [1069033789] = 'condition.TimeRange',  [934079583] = 'condition.MultiRoleCondition',  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  [1961145317] = 'condition.ContainsItem',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2024,7 +2047,7 @@ local function InitTypes(methods)
         local id2name = {  [934079583] = 'condition.MultiRoleCondition',  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  [1961145317] = 'condition.ContainsItem',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2052,7 +2075,7 @@ local function InitTypes(methods)
         local id2name = {  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2168,7 +2191,7 @@ local function InitTypes(methods)
         local id2name = {  [911838111] = 'cost.CostCurrency',  [103084157] = 'cost.CostCurrencies',  [-1033587381] = 'cost.CostOneItem',  [-1249440351] = 'cost.CostItem',  [-77945102] = 'cost.CostItems',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2284,7 +2307,7 @@ local function InitTypes(methods)
         local id2name = {  [1915239884] = 'error.ErrorStyleTip',  [-1920482343] = 'error.ErrorStyleMsgbox',  [-2010134516] = 'error.ErrorStyleDlgOk',  [971221414] = 'error.ErrorStyleDlgOkCancel',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2495,7 +2518,7 @@ local function InitTypes(methods)
         local id2name = {  [1494222369] = 'item.TreasureBox',  [640937802] = 'item.InteractionItem',  [1659907149] = 'item.Clothes',  [-1679179579] = 'item.DesignDrawing',  [896889705] = 'item.Dymmy',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2646,7 +2669,7 @@ local function InitTypes(methods)
         local id2name = {  [303235413] = 'limit.DailyLimit',  [-1753629499] = 'limit.MultiDayLimit',  [-252187161] = 'limit.WeeklyLimit',  [2063279905] = 'limit.MonthlyLimit',  [-1366194050] = 'limit.CoolDown',  [394328599] = 'limit.GroupCoolDown',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2658,7 +2681,7 @@ local function InitTypes(methods)
         local id2name = {  [303235413] = 'limit.DailyLimit',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
-            if id ~= 0 then return beans[id2name[id]]._deserialize(bs) end
+            return beans[id2name[id]]._deserialize(bs)
         end
         beans[class._name] = class
     end
@@ -2916,6 +2939,452 @@ local function InitTypes(methods)
         end
         beans[class._name] = class
     end
+    do
+    ---@class test.DemoType1 
+     ---@field public x1 int
+        local class = SimpleClass()
+        class._id = -367048296
+        class._name = 'test.DemoType1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoDynamic 
+     ---@field public x1 int
+        local class = SimpleClass()
+        class._id = -1863156384
+        class._name = 'test.DemoDynamic'
+        local id2name = {  [-2138341747] = 'test.DemoD2',  [-2138341717] = 'test.DemoE1',  [-2138341744] = 'test.DemoD5',  }
+        class._deserialize = function(bs)
+            local id = readInt(bs)
+            return beans[id2name[id]]._deserialize(bs)
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoD2 :test.DemoDynamic 
+     ---@field public x2 int
+        local class = SimpleClass()
+        class._id = -2138341747
+        class._name = 'test.DemoD2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            x2 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoD3 :test.DemoDynamic 
+     ---@field public x3 int
+        local class = SimpleClass()
+        class._id = -2138341746
+        class._name = 'test.DemoD3'
+        local id2name = {  [-2138341717] = 'test.DemoE1',  }
+        class._deserialize = function(bs)
+            local id = readInt(bs)
+            return beans[id2name[id]]._deserialize(bs)
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoE1 :test.DemoD3 
+     ---@field public x4 int
+        local class = SimpleClass()
+        class._id = -2138341717
+        class._name = 'test.DemoE1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            x3 = readInt(bs),
+            x4 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoD5 :test.DemoDynamic 
+     ---@field public time test.DateTimeRange
+        local class = SimpleClass()
+        class._id = -2138341744
+        class._name = 'test.DemoD5'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            time = beans['test.DateTimeRange']._deserialize(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoE2 
+     ---@field public y1 int
+     ---@field public y2 bool
+        local class = SimpleClass()
+        class._id = -2138341716
+        class._name = 'test.DemoE2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            y1 = readBool(bs) and readInt(bs) or nil,
+            y2 = readBool(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoType2 
+     ---@field public x4 int
+     ---@field public x1 bool
+     ---@field public x2 byte
+     ---@field public x3 short
+     ---@field public x5 long
+     ---@field public x6 float
+     ---@field public x7 double
+     ---@field public x8_0 short
+     ---@field public x8 int
+     ---@field public x9 long
+     ---@field public x10 string
+     ---@field public x12 test.DemoType1
+     ---@field public x13 test.DemoEnum
+     ---@field public x14 test.DemoDynamic
+     ---@field public s1 string
+     ---@field public v2 vector2
+     ---@field public v3 vector3
+     ---@field public v4 vector4
+     ---@field public t1 int
+     ---@field public k1 int[]
+     ---@field public k2 int[]
+     ---@field public k3 int[]
+     ---@field public k4 int[]
+     ---@field public k5 int[]
+     ---@field public k6 int[]
+     ---@field public k7 int[]
+     ---@field public k8 table<int,int>
+     ---@field public k9 test.DemoE2[]
+     ---@field public k15 test.DemoDynamic[]
+        local class = SimpleClass()
+        class._id = -367048295
+        class._name = 'test.DemoType2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x4 = readInt(bs),
+            x1 = readBool(bs),
+            x2 = readByte(bs),
+            x3 = readShort(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            x7 = readDouble(bs),
+            x8_0 = readFshort(bs),
+            x8 = readFint(bs),
+            x9 = readFlong(bs),
+            x10 = readString(bs),
+            x12 = beans['test.DemoType1']._deserialize(bs),
+            x13 = readInt(bs),
+            x14 = beans['test.DemoDynamic']._deserialize(bs),
+            s1 = readString(bs),
+            v2 = readVector2(bs),
+            v3 = readVector3(bs),
+            v4 = readVector4(bs),
+            t1 = readInt(bs),
+            k1 = readArray(bs, readInt),
+            k2 = readList(bs, readInt),
+            k3 = readList(bs, readInt),
+            k4 = readList(bs, readInt),
+            k5 = readSet(bs, readInt),
+            k6 = readSet(bs, readInt),
+            k7 = readSet(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            k15 = readArray(bs, beans['test.DemoDynamic']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DateTimeRange 
+     ---@field public start_time int
+     ---@field public end_time int
+        local class = SimpleClass()
+        class._id = 495315430
+        class._name = 'test.DateTimeRange'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            start_time = readInt(bs),
+            end_time = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DemoSingletonType 
+     ---@field public id int
+     ---@field public name string
+     ---@field public date test.DemoDynamic
+        local class = SimpleClass()
+        class._id = 539196998
+        class._name = 'test.DemoSingletonType'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            date = beans['test.DemoDynamic']._deserialize(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiRowType1 
+     ---@field public id int
+     ---@field public x int
+        local class = SimpleClass()
+        class._id = 540474970
+        class._name = 'test.MultiRowType1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiRowType2 
+     ---@field public id int
+     ---@field public x int
+     ---@field public y float
+        local class = SimpleClass()
+        class._id = 540474971
+        class._name = 'test.MultiRowType2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x = readInt(bs),
+            y = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiRowRecord 
+     ---@field public id int
+     ---@field public name string
+     ---@field public one_rows test.MultiRowType1[]
+     ---@field public multi_rows1 test.MultiRowType1[]
+     ---@field public multi_rows2 test.MultiRowType1[]
+     ---@field public multi_rows3 test.MultiRowType2[]
+     ---@field public multi_rows4 table<int,test.MultiRowType2>
+        local class = SimpleClass()
+        class._id = -501249394
+        class._name = 'test.MultiRowRecord'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            one_rows = readList(bs, beans['test.MultiRowType1']._deserialize),
+            multi_rows1 = readList(bs, beans['test.MultiRowType1']._deserialize),
+            multi_rows2 = readArray(bs, beans['test.MultiRowType1']._deserialize),
+            multi_rows3 = readSet(bs, beans['test.MultiRowType2']._deserialize),
+            multi_rows4 = readMap(bs, readInt, beans['test.MultiRowType2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestUeType 
+     ---@field public x1 bool
+     ---@field public x2 byte
+     ---@field public x3 short
+     ---@field public x4 int
+     ---@field public x5 long
+     ---@field public x6 float
+     ---@field public x10 string
+     ---@field public x12 test.DemoType1
+     ---@field public x13 test.ETestUeType
+     ---@field public v2 vector2
+     ---@field public v3 vector3
+     ---@field public v4 vector4
+     ---@field public t1 int
+     ---@field public k1 int[]
+     ---@field public k2 int[]
+     ---@field public k3 int[]
+     ---@field public k4 int[]
+     ---@field public k5 int[]
+     ---@field public k6 int[]
+     ---@field public k7 int[]
+     ---@field public k8 table<int,int>
+     ---@field public k9 test.DemoE2[]
+        local class = SimpleClass()
+        class._id = 381013016
+        class._name = 'test.TestUeType'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readBool(bs),
+            x2 = readByte(bs),
+            x3 = readShort(bs),
+            x4 = readInt(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            x10 = readString(bs),
+            x12 = beans['test.DemoType1']._deserialize(bs),
+            x13 = readInt(bs),
+            v2 = readVector2(bs),
+            v3 = readVector3(bs),
+            v4 = readVector4(bs),
+            t1 = readInt(bs),
+            k1 = readArray(bs, readInt),
+            k2 = readList(bs, readInt),
+            k3 = readList(bs, readInt),
+            k4 = readList(bs, readInt),
+            k5 = readSet(bs, readInt),
+            k6 = readSet(bs, readInt),
+            k7 = readSet(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.H1 
+     ---@field public y2 test.H2
+     ---@field public y3 int
+        local class = SimpleClass()
+        class._id = -1422503995
+        class._name = 'test.H1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            y2 = beans['test.H2']._deserialize(bs),
+            y3 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.H2 
+     ---@field public z2 int
+     ---@field public z3 int
+        local class = SimpleClass()
+        class._id = -1422503994
+        class._name = 'test.H2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            z2 = readInt(bs),
+            z3 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiRowTitle 
+     ---@field public id int
+     ---@field public name string
+     ---@field public x1 test.H1
+     ---@field public x2 test.H2[]
+     ---@field public x3 test.H2[]
+        local class = SimpleClass()
+        class._id = 540002427
+        class._name = 'test.MultiRowTitle'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            x1 = beans['test.H1']._deserialize(bs),
+            x2 = readList(bs, beans['test.H2']._deserialize),
+            x3 = readArray(bs, beans['test.H2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestNull 
+     ---@field public id int
+     ---@field public x1 int
+     ---@field public x2 test.DemoEnum
+     ---@field public x3 test.DemoType1
+     ---@field public x4 test.DemoDynamic
+        local class = SimpleClass()
+        class._id = 339868469
+        class._name = 'test.TestNull'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readBool(bs) and readInt(bs) or nil,
+            x2 = readBool(bs) and readInt(bs) or nil,
+            x3 = readBool(bs) and beans['test.DemoType1']._deserialize(bs) or nil,
+            x4 = readBool(bs) and beans['test.DemoDynamic']._deserialize(bs) or nil,
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.login.RoleInfo 
+     ---@field public role_id long
+        local class = SimpleClass()
+        class._id = -989153243
+        class._name = 'test.login.RoleInfo'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            role_id = readLong(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
 
     local tables =
     {
@@ -2937,6 +3406,14 @@ local function InitTypes(methods)
     { name='TbRoleLevelExpAttr', file='role.TbRoleLevelExpAttr.bin', mode='map', index='level', value_type='role.LevelExpAttr' },
     { name='TbRoleLevelBonusCoefficient', file='role.TbRoleLevelBonusCoefficient.bin', mode='map', index='id', value_type='role.LevelBonus' },
     { name='TbTestTag', file='tag.TbTestTag.bin', mode='map', index='id', value_type='tag.TestTag' },
+    { name='TbFullTypes', file='test.TbFullTypes.bin', mode='map', index='x3', value_type='test.DemoType2' },
+    { name='TbSingleton', file='test.TbSingleton.bin', mode='one', value_type='test.DemoSingletonType'},
+    { name='TbDataFromJson', file='test.TbDataFromJson.bin', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbDataFromXml', file='test.TbDataFromXml.bin', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbDataFromLua', file='test.TbDataFromLua.bin', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbMultiRowRecord', file='test.TbMultiRowRecord.bin', mode='map', index='id', value_type='test.MultiRowRecord' },
+    { name='TbMultiRowTitle', file='test.TbMultiRowTitle.bin', mode='map', index='id', value_type='test.MultiRowTitle' },
+    { name='TbTestNull', file='test.TbTestNull.bin', mode='map', index='id', value_type='test.TestNull' },
     }
     return { consts = consts, enums = enums, beans = beans, tables = tables }
     end

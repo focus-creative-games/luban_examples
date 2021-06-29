@@ -29,20 +29,16 @@ public final class WeightBonusInfo extends  bright.serialization.AbstractBean
 
     public static WeightBonusInfo deserializeWeightBonusInfo(ByteBuf _buf)
     {
-    
         return new WeightBonusInfo(_buf);
-    
     }
 
-     public final cfg.bonus.Bonus bonus;
-     public final int weight;
-
+    public final cfg.bonus.Bonus bonus;
+    public final int weight;
 
     public static final int ID = -907244058;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class WeightBonusInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             if (bonus != null) {bonus.resolve(_tables);}
     }
 

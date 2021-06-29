@@ -30,21 +30,17 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public static MultiRoleCondition DeserializeMultiRoleCondition(JsonElement _buf)
     {
-    
         return new condition.MultiRoleCondition(_buf);
-    
     }
 
     public readonly condition.RoleCondition[] Conditions;
 
-
     public const int ID = 934079583;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Conditions) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

@@ -31,22 +31,17 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
 
     public static BonusInfo DeserializeBonusInfo(ByteBuf _buf)
     {
-    
         return new role.BonusInfo(_buf);
-    
     }
 
     public readonly item.ECurrencyType Type;
     public readonly float Coefficient;
 
-
     public const int ID = -1354421803;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

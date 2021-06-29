@@ -30,21 +30,17 @@ public sealed partial class WeightItems :  bonus.Bonus
 
     public static WeightItems DeserializeWeightItems(JsonElement _buf)
     {
-    
         return new bonus.WeightItems(_buf);
-    
     }
 
     public readonly bonus.WeightItemInfo[] ItemList;
 
-
     public const int ID = -356202311;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

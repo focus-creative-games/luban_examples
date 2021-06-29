@@ -32,22 +32,17 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
 
     public static CodeInfo DeserializeCodeInfo(JsonElement _buf)
     {
-    
         return new error.CodeInfo(_buf);
-    
     }
 
     public readonly error.EErrorCode Code;
     public readonly string Key;
 
-
     public const int ID = -1942481535;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -17,19 +17,15 @@ type Bonus_WeightBonus struct {
     Bonuses []*Bonus_WeightBonusInfo
 }
 
-
 func (Bonus_WeightBonus) GetTypeId() int {
     return -362807016
 }
 
-
 func NewBonus_WeightBonus(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonus, err error) {
     _v = &Bonus_WeightBonus{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.Bonuses, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Bonus_WeightBonusInfo, err2 error) {
                 _v2 = make([]*Bonus_WeightBonusInfo, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewBonus_WeightBonus(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonus, e
                 }(_buf); err != nil  { return } 
     return
 }
-
 

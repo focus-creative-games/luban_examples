@@ -28,8 +28,6 @@ public abstract partial class Service :  ai.Node
 
     public static Service DeserializeService(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
@@ -40,15 +38,13 @@ public abstract partial class Service :  ai.Node
             case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

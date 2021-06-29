@@ -47,4 +47,3 @@ func (table *Tag_TbTestTag) Get(key int32) *Tag_TestTag {
 }
 
 
-

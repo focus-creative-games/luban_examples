@@ -31,22 +31,17 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
 
     public static DateTimeRange DeserializeDateTimeRange(ByteBuf _buf)
     {
-    
         return new common.DateTimeRange(_buf);
-    
     }
 
     public readonly int? StartTime;
     public readonly int? EndTime;
 
-
     public const int ID = 1642200959;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -24,27 +24,23 @@ public final class CostCurrency extends  cfg.cost.Cost
 
     public CostCurrency(cfg.item.ECurrencyType type, int num )
     {
-            super();
+        super();
         this.type = type;
         this.num = num;
     }
 
     public static CostCurrency deserializeCostCurrency(ByteBuf _buf)
     {
-    
         return new CostCurrency(_buf);
-    
     }
 
-     public final cfg.item.ECurrencyType type;
-     public final int num;
-
+    public final cfg.item.ECurrencyType type;
+    public final int num;
 
     public static final int ID = 911838111;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class CostCurrency extends  cfg.cost.Cost
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

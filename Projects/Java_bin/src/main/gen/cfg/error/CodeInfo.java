@@ -29,20 +29,16 @@ public final class CodeInfo extends  bright.serialization.AbstractBean
 
     public static CodeInfo deserializeCodeInfo(ByteBuf _buf)
     {
-    
         return new CodeInfo(_buf);
-    
     }
 
-     public final cfg.error.EErrorCode code;
-     public final String key;
-
+    public final cfg.error.EErrorCode code;
+    public final String key;
 
     public static final int ID = -1942481535;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class CodeInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

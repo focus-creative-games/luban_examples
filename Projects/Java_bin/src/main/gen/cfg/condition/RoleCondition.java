@@ -22,15 +22,13 @@ public abstract class RoleCondition extends  cfg.condition.Condition
 
     public RoleCondition()
     {
-            super();
+        super();
     }
 
     public static RoleCondition deserializeRoleCondition(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.condition.MultiRoleCondition.ID: return new cfg.condition.MultiRoleCondition(_buf);
             case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
             case cfg.condition.MinLevel.ID: return new cfg.condition.MinLevel(_buf);
@@ -40,9 +38,7 @@ public abstract class RoleCondition extends  cfg.condition.Condition
             case cfg.condition.ContainsItem.ID: return new cfg.condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -60,7 +56,7 @@ public abstract class RoleCondition extends  cfg.condition.Condition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

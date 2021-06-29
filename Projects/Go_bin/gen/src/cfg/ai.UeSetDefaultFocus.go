@@ -17,21 +17,16 @@ type Ai_UeSetDefaultFocus struct {
     KeyboardKey string
 }
 
-
 func (Ai_UeSetDefaultFocus) GetTypeId() int {
     return 1812449155
 }
 
-
 func NewAi_UeSetDefaultFocus(_buf *serialization.ByteBuf) (_v *Ai_UeSetDefaultFocus, err error) {
     _v = &Ai_UeSetDefaultFocus{}
-
     var _p *Ai_Service
      if _p, err = NewAi_Service(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
-
     if _v.KeyboardKey, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

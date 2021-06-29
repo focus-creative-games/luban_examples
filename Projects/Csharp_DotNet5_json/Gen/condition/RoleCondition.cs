@@ -28,8 +28,6 @@ public abstract partial class RoleCondition :  condition.Condition
 
     public static RoleCondition DeserializeRoleCondition(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "MultiRoleCondition": return new condition.MultiRoleCondition(_buf);
@@ -41,15 +39,13 @@ public abstract partial class RoleCondition :  condition.Condition
             case "ContainsItem": return new condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

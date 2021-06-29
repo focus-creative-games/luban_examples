@@ -23,25 +23,21 @@ public final class UeTimeLimit extends  cfg.ai.Decorator
 
     public UeTimeLimit(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float limit_time )
     {
-            super(id, node_name, flow_abort_mode);
+        super(id, node_name, flow_abort_mode);
         this.limitTime = limit_time;
     }
 
     public static UeTimeLimit deserializeUeTimeLimit(ByteBuf _buf)
     {
-    
         return new UeTimeLimit(_buf);
-    
     }
 
-     public final float limitTime;
-
+    public final float limitTime;
 
     public static final int ID = 338469720;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class UeTimeLimit extends  cfg.ai.Decorator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

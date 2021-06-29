@@ -24,27 +24,23 @@ public final class ChooseSkill extends  cfg.ai.Task
 
     public ChooseSkill(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, String target_actor_key, String result_skill_id_key )
     {
-            super(id, node_name, decorators, services, ignore_restart_self);
+        super(id, node_name, decorators, services, ignore_restart_self);
         this.targetActorKey = target_actor_key;
         this.resultSkillIdKey = result_skill_id_key;
     }
 
     public static ChooseSkill deserializeChooseSkill(ByteBuf _buf)
     {
-    
         return new ChooseSkill(_buf);
-    
     }
 
-     public final String targetActorKey;
-     public final String resultSkillIdKey;
-
+    public final String targetActorKey;
+    public final String resultSkillIdKey;
 
     public static final int ID = -918812268;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class ChooseSkill extends  cfg.ai.Task
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

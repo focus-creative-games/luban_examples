@@ -20,7 +20,7 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 {
     public WeightBonusInfo(JsonElement _buf) 
     {
-        { var _j = _buf.GetProperty("bonus"); if (_j.ValueKind != JsonValueKind.Null) { Bonus =  bonus.Bonus.DeserializeBonus(_j); } else { Bonus = null; } }
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
         Weight = _buf.GetProperty("weight").GetInt32();
     }
 
@@ -32,22 +32,17 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 
     public static WeightBonusInfo DeserializeWeightBonusInfo(JsonElement _buf)
     {
-    
         return new bonus.WeightBonusInfo(_buf);
-    
     }
 
     public readonly bonus.Bonus Bonus;
     public readonly int Weight;
 
-
     public const int ID = -907244058;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

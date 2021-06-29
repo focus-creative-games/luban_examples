@@ -47,4 +47,3 @@ func (table *Mail_TbGlobalMail) Get(key int32) *Mail_GlobalMail {
 }
 
 
-

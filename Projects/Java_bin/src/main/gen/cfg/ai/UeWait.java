@@ -24,27 +24,23 @@ public final class UeWait extends  cfg.ai.Task
 
     public UeWait(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, float wait_time, float random_deviation )
     {
-            super(id, node_name, decorators, services, ignore_restart_self);
+        super(id, node_name, decorators, services, ignore_restart_self);
         this.waitTime = wait_time;
         this.randomDeviation = random_deviation;
     }
 
     public static UeWait deserializeUeWait(ByteBuf _buf)
     {
-    
         return new UeWait(_buf);
-    
     }
 
-     public final float waitTime;
-     public final float randomDeviation;
-
+    public final float waitTime;
+    public final float randomDeviation;
 
     public static final int ID = -512994101;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class UeWait extends  cfg.ai.Task
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

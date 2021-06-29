@@ -25,18 +25,14 @@ public abstract class KeyQueryOperator extends  bright.serialization.AbstractBea
 
     public static KeyQueryOperator deserializeKeyQueryOperator(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.IsSet.ID: return new cfg.ai.IsSet(_buf);
             case cfg.ai.IsNotSet.ID: return new cfg.ai.IsNotSet(_buf);
             case cfg.ai.BinaryOperator.ID: return new cfg.ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -54,7 +50,6 @@ public abstract class KeyQueryOperator extends  bright.serialization.AbstractBea
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

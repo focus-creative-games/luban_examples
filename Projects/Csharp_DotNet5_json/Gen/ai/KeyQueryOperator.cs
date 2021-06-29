@@ -28,8 +28,6 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
 
     public static KeyQueryOperator DeserializeKeyQueryOperator(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "IsSet": return new ai.IsSet(_buf);
@@ -37,15 +35,12 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
             case "BinaryOperator": return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -23,25 +23,21 @@ public final class UeSetDefaultFocus extends  cfg.ai.Service
 
     public UeSetDefaultFocus(int id, String node_name, String keyboard_key )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.keyboardKey = keyboard_key;
     }
 
     public static UeSetDefaultFocus deserializeUeSetDefaultFocus(ByteBuf _buf)
     {
-    
         return new UeSetDefaultFocus(_buf);
-    
     }
 
-     public final String keyboardKey;
-
+    public final String keyboardKey;
 
     public static final int ID = 1812449155;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class UeSetDefaultFocus extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

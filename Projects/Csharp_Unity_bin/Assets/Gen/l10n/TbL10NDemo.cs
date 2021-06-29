@@ -49,7 +49,6 @@ public sealed partial class TbL10NDemo
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

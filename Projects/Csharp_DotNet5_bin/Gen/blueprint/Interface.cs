@@ -27,20 +27,16 @@ public sealed partial class Interface :  blueprint.Clazz
 
     public static Interface DeserializeInterface(ByteBuf _buf)
     {
-    
         return new blueprint.Interface(_buf);
-    
     }
-
 
 
     public const int ID = 2114170750;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

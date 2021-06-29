@@ -23,25 +23,21 @@ public final class TimeRange extends  cfg.condition.Condition
 
     public TimeRange(cfg.common.DateTimeRange date_time_range )
     {
-            super();
+        super();
         this.dateTimeRange = date_time_range;
     }
 
     public static TimeRange deserializeTimeRange(ByteBuf _buf)
     {
-    
         return new TimeRange(_buf);
-    
     }
 
-     public final cfg.common.DateTimeRange dateTimeRange;
-
+    public final cfg.common.DateTimeRange dateTimeRange;
 
     public static final int ID = 1069033789;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class TimeRange extends  cfg.condition.Condition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (dateTimeRange != null) {dateTimeRange.resolve(_tables);}
     }
 

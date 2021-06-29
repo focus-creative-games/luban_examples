@@ -17,24 +17,19 @@ type Condition_RoleCondition struct {
 }
 
 
-
 func NewCondition_RoleCondition(_buf *serialization.ByteBuf) (_v *Condition_RoleCondition, err error) {
     _v = &Condition_RoleCondition{}
-
     var _p *Condition_Condition
      if _p, err = NewCondition_Condition(_buf) ; err != nil { return }
     _v.Condition_Condition = *_p
-
     return
 }
-
 func NewChildCondition_RoleCondition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 934079583: return NewCondition_MultiRoleCondition(_buf);
             case 103675143: return NewCondition_GenderLimit(_buf);
             case -1075273755: return NewCondition_MinLevel(_buf);
@@ -45,5 +40,4 @@ func NewChildCondition_RoleCondition(_buf *serialization.ByteBuf) (_v interface{
     }
     return
 }
-
 

@@ -25,7 +25,7 @@ public final class UeBlackboard extends  cfg.ai.Decorator
 
     public UeBlackboard(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, cfg.ai.ENotifyObserverMode notify_observer, String blackboard_key, cfg.ai.KeyQueryOperator key_query )
     {
-            super(id, node_name, flow_abort_mode);
+        super(id, node_name, flow_abort_mode);
         this.notifyObserver = notify_observer;
         this.blackboardKey = blackboard_key;
         this.keyQuery = key_query;
@@ -33,21 +33,17 @@ public final class UeBlackboard extends  cfg.ai.Decorator
 
     public static UeBlackboard deserializeUeBlackboard(ByteBuf _buf)
     {
-    
         return new UeBlackboard(_buf);
-    
     }
 
-     public final cfg.ai.ENotifyObserverMode notifyObserver;
-     public final String blackboardKey;
-     public final cfg.ai.KeyQueryOperator keyQuery;
-
+    public final cfg.ai.ENotifyObserverMode notifyObserver;
+    public final String blackboardKey;
+    public final cfg.ai.KeyQueryOperator keyQuery;
 
     public static final int ID = -315297507;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -63,7 +59,7 @@ public final class UeBlackboard extends  cfg.ai.Decorator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (keyQuery != null) {keyQuery.resolve(_tables);}
     }
 

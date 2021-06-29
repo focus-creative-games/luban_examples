@@ -16,20 +16,15 @@ type Ai_ExecuteTimeStatistic struct {
     Ai_Service
 }
 
-
 func (Ai_ExecuteTimeStatistic) GetTypeId() int {
     return 990693812
 }
 
-
 func NewAi_ExecuteTimeStatistic(_buf *serialization.ByteBuf) (_v *Ai_ExecuteTimeStatistic, err error) {
     _v = &Ai_ExecuteTimeStatistic{}
-
     var _p *Ai_Service
      if _p, err = NewAi_Service(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
-
     return
 }
-
 

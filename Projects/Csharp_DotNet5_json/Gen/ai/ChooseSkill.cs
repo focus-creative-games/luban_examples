@@ -32,22 +32,18 @@ public sealed partial class ChooseSkill :  ai.Task
 
     public static ChooseSkill DeserializeChooseSkill(JsonElement _buf)
     {
-    
         return new ai.ChooseSkill(_buf);
-    
     }
 
     public readonly string TargetActorKey;
     public readonly string ResultSkillIdKey;
 
-
     public const int ID = -918812268;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

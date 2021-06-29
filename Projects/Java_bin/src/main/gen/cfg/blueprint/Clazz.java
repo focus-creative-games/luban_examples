@@ -33,23 +33,19 @@ public abstract class Clazz extends  bright.serialization.AbstractBean
 
     public static Clazz deserializeClazz(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.blueprint.Interface.ID: return new cfg.blueprint.Interface(_buf);
             case cfg.blueprint.NormalClazz.ID: return new cfg.blueprint.NormalClazz(_buf);
             case cfg.blueprint.EnumClazz.ID: return new cfg.blueprint.EnumClazz(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final String name;
-     public final String desc;
-     public final java.util.ArrayList<cfg.blueprint.Clazz> parents;
-     public final java.util.ArrayList<cfg.blueprint.Method> methods;
-
+    public final String name;
+    public final String desc;
+    public final java.util.ArrayList<cfg.blueprint.Clazz> parents;
+    public final java.util.ArrayList<cfg.blueprint.Method> methods;
 
 
     @Override
@@ -66,7 +62,6 @@ public abstract class Clazz extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             for(cfg.blueprint.Clazz _e : parents) { if (_e != null) _e.resolve(_tables); }
             for(cfg.blueprint.Method _e : methods) { if (_e != null) _e.resolve(_tables); }
     }

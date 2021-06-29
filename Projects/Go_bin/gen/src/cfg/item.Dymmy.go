@@ -17,21 +17,16 @@ type Item_Dymmy struct {
     Cost interface{}
 }
 
-
 func (Item_Dymmy) GetTypeId() int {
     return 896889705
 }
 
-
 func NewItem_Dymmy(_buf *serialization.ByteBuf) (_v *Item_Dymmy, err error) {
     _v = &Item_Dymmy{}
-
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-
     if _v.Cost, err = NewChildCost_Cost(_buf); err != nil  { return } 
     return
 }
-
 

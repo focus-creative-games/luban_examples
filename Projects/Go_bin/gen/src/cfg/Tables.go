@@ -32,6 +32,14 @@ type Tables struct {
     TbRoleLevelExpAttr *Role_TbRoleLevelExpAttr
     TbRoleLevelBonusCoefficient *Role_TbRoleLevelBonusCoefficient
     TbTestTag *Tag_TbTestTag
+    TbFullTypes *Test_TbFullTypes
+    TbSingleton *Test_TbSingleton
+    TbDataFromJson *Test_TbDataFromJson
+    TbDataFromXml *Test_TbDataFromXml
+    TbDataFromLua *Test_TbDataFromLua
+    TbMultiRowRecord *Test_TbMultiRowRecord
+    TbMultiRowTitle *Test_TbMultiRowTitle
+    TbTestNull *Test_TbTestNull
 }
 
 func NewTables(loader ByteBufLoader) (*Tables, error) {
@@ -145,6 +153,54 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestTag, err = NewTag_TbTestTag(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbFullTypes.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbFullTypes, err = NewTest_TbFullTypes(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbSingleton.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbSingleton, err = NewTest_TbSingleton(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDataFromJson.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDataFromJson, err = NewTest_TbDataFromJson(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDataFromXml.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDataFromXml, err = NewTest_TbDataFromXml(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDataFromLua.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDataFromLua, err = NewTest_TbDataFromLua(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbMultiRowRecord.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbMultiRowRecord, err = NewTest_TbMultiRowRecord(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbMultiRowTitle.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbMultiRowTitle, err = NewTest_TbMultiRowTitle(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestNull.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestNull, err = NewTest_TbTestNull(buf) ; err != nil {
         return nil, err
     }
     return tables, nil

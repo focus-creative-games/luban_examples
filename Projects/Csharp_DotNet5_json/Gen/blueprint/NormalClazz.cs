@@ -32,22 +32,18 @@ public sealed partial class NormalClazz :  blueprint.Clazz
 
     public static NormalClazz DeserializeNormalClazz(JsonElement _buf)
     {
-    
         return new blueprint.NormalClazz(_buf);
-    
     }
 
     public readonly bool IsAbstract;
     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
-
     public const int ID = -2073576778;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Fields) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

@@ -38,8 +38,6 @@ public abstract partial class Method :  Bright.Config.BeanBase
 
     public static Method DeserializeMethod(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "AbstraceMethod": return new blueprint.AbstraceMethod(_buf);
@@ -47,7 +45,6 @@ public abstract partial class Method :  Bright.Config.BeanBase
             case "BlueprintMethod": return new blueprint.BlueprintMethod(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly string Name;
@@ -57,10 +54,8 @@ public abstract partial class Method :  Bright.Config.BeanBase
     public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
 
 
-
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

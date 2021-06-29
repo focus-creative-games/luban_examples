@@ -23,25 +23,21 @@ public final class BlackboardKeyData extends  cfg.ai.KeyData
 
     public BlackboardKeyData(String value )
     {
-            super();
+        super();
         this.value = value;
     }
 
     public static BlackboardKeyData deserializeBlackboardKeyData(ByteBuf _buf)
     {
-    
         return new BlackboardKeyData(_buf);
-    
     }
 
-     public final String value;
-
+    public final String value;
 
     public static final int ID = 1517269500;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class BlackboardKeyData extends  cfg.ai.KeyData
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

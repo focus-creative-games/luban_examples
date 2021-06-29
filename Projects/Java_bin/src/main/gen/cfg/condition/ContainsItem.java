@@ -25,7 +25,7 @@ public final class ContainsItem extends  cfg.condition.RoleCondition
 
     public ContainsItem(int item_id, int num, boolean reverse )
     {
-            super();
+        super();
         this.itemId = item_id;
         this.num = num;
         this.reverse = reverse;
@@ -33,22 +33,18 @@ public final class ContainsItem extends  cfg.condition.RoleCondition
 
     public static ContainsItem deserializeContainsItem(ByteBuf _buf)
     {
-    
         return new ContainsItem(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-     public final int num;
-     public final boolean reverse;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
+    public final int num;
+    public final boolean reverse;
 
     public static final int ID = 1961145317;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -64,7 +60,7 @@ public final class ContainsItem extends  cfg.condition.RoleCondition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

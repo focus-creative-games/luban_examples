@@ -21,7 +21,7 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
     public Dummy(JsonElement _buf) 
     {
         Id = _buf.GetProperty("id").GetInt32();
-        { var _j = _buf.GetProperty("limit"); if (_j.ValueKind != JsonValueKind.Null) { Limit =  limit.LimitBase.DeserializeLimitBase(_j); } else { Limit = null; } }
+        Limit =  limit.LimitBase.DeserializeLimitBase(_buf.GetProperty("limit"));
     }
 
     public Dummy(int id, limit.LimitBase limit ) 
@@ -32,22 +32,17 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
 
     public static Dummy DeserializeDummy(JsonElement _buf)
     {
-    
         return new common.Dummy(_buf);
-    
     }
 
     public readonly int Id;
     public readonly limit.LimitBase Limit;
 
-
     public const int ID = -985084219;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         Limit?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

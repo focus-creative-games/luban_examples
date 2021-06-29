@@ -34,23 +34,18 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
 
     public static LevelExpAttr DeserializeLevelExpAttr(JsonElement _buf)
     {
-    
         return new role.LevelExpAttr(_buf);
-    
     }
 
     public readonly int Level;
     public readonly long NeedExp;
     public readonly System.Collections.Generic.List<int> ClothesAttrs;
 
-
     public const int ID = -1569837022;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

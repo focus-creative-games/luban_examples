@@ -31,22 +31,18 @@ public sealed partial class UeWait :  ai.Task
 
     public static UeWait DeserializeUeWait(ByteBuf _buf)
     {
-    
         return new ai.UeWait(_buf);
-    
     }
 
     public readonly float WaitTime;
     public readonly float RandomDeviation;
 
-
     public const int ID = -512994101;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

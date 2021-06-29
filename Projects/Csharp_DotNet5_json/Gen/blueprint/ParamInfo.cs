@@ -34,23 +34,18 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
 
     public static ParamInfo DeserializeParamInfo(JsonElement _buf)
     {
-    
         return new blueprint.ParamInfo(_buf);
-    
     }
 
     public readonly string Name;
     public readonly string Type;
     public readonly bool IsRef;
 
-
     public const int ID = -729799392;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

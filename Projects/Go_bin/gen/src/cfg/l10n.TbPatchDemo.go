@@ -47,4 +47,3 @@ func (table *L10n_TbPatchDemo) Get(key int32) *L10n_PatchDemo {
 }
 
 
-

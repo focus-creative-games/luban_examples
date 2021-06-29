@@ -24,27 +24,23 @@ public final class MoveToLocation extends  cfg.ai.Task
 
     public MoveToLocation(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, bright.math.Vector3 location, float acceptable_radius )
     {
-            super(id, node_name, decorators, services, ignore_restart_self);
+        super(id, node_name, decorators, services, ignore_restart_self);
         this.location = location;
         this.acceptableRadius = acceptable_radius;
     }
 
     public static MoveToLocation deserializeMoveToLocation(ByteBuf _buf)
     {
-    
         return new MoveToLocation(_buf);
-    
     }
 
-     public final bright.math.Vector3 location;
-     public final float acceptableRadius;
-
+    public final bright.math.Vector3 location;
+    public final float acceptableRadius;
 
     public static final int ID = -969953113;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class MoveToLocation extends  cfg.ai.Task
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

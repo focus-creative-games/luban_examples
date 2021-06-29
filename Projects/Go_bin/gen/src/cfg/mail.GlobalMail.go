@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Mail_GlobalMail struct {
-    
     Id int32
     Title string
     Sender string
@@ -28,15 +27,12 @@ type Mail_GlobalMail struct {
     MailTime *Condition_TimeRange
 }
 
-
 func (Mail_GlobalMail) GetTypeId() int {
     return -287571791
 }
 
-
 func NewMail_GlobalMail(_buf *serialization.ByteBuf) (_v *Mail_GlobalMail, err error) {
     _v = &Mail_GlobalMail{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Title, err = _buf.ReadString(); err != nil  { return } 
     if _v.Sender, err = _buf.ReadString(); err != nil  { return } 
@@ -71,5 +67,4 @@ func NewMail_GlobalMail(_buf *serialization.ByteBuf) (_v *Mail_GlobalMail, err e
     if _v.MailTime, err = NewCondition_TimeRange (_buf); err != nil  { return } 
     return
 }
-
 

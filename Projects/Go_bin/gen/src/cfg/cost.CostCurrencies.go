@@ -17,19 +17,15 @@ type Cost_CostCurrencies struct {
     Currencies []*Cost_CostCurrency
 }
 
-
 func (Cost_CostCurrencies) GetTypeId() int {
     return 103084157
 }
 
-
 func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencies, err error) {
     _v = &Cost_CostCurrencies{}
-
     var _p *Cost_Cost
      if _p, err = NewCost_Cost(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
-
     if _v.Currencies, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Cost_CostCurrency, err2 error) {
                 _v2 = make([]*Cost_CostCurrency, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencie
                 }(_buf); err != nil  { return } 
     return
 }
-
 

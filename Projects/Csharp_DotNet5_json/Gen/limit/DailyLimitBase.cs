@@ -28,22 +28,18 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
 
     public static DailyLimitBase DeserializeDailyLimitBase(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "DailyLimit": return new limit.DailyLimit(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

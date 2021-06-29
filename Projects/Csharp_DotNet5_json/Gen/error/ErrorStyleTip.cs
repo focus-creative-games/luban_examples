@@ -28,20 +28,16 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
 
     public static ErrorStyleTip DeserializeErrorStyleTip(JsonElement _buf)
     {
-    
         return new error.ErrorStyleTip(_buf);
-    
     }
-
 
 
     public const int ID = 1915239884;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

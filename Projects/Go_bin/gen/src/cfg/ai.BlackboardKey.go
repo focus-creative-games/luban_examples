@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Ai_BlackboardKey struct {
-    
     Name string
     Desc string
     IsStatic bool
@@ -21,15 +20,12 @@ type Ai_BlackboardKey struct {
     TypeClassName string
 }
 
-
 func (Ai_BlackboardKey) GetTypeId() int {
     return -511559886
 }
 
-
 func NewAi_BlackboardKey(_buf *serialization.ByteBuf) (_v *Ai_BlackboardKey, err error) {
     _v = &Ai_BlackboardKey{}
-
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     if _v.IsStatic, err = _buf.ReadBool(); err != nil  { return } 
@@ -37,5 +33,4 @@ func NewAi_BlackboardKey(_buf *serialization.ByteBuf) (_v *Ai_BlackboardKey, err
     if _v.TypeClassName, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

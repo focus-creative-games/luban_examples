@@ -47,4 +47,3 @@ func (table *L10n_TbL10NDemo) Get(key int32) *L10n_L10NDemo {
 }
 
 
-

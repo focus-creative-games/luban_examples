@@ -32,22 +32,17 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
 
     public static LevelBonus DeserializeLevelBonus(JsonElement _buf)
     {
-    
         return new role.LevelBonus(_buf);
-    
     }
 
     public readonly int Id;
     public readonly System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos;
 
-
     public const int ID = -572269677;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

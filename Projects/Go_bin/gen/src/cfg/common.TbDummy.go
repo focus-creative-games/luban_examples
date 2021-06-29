@@ -47,4 +47,3 @@ func (table *Common_TbDummy) Get(key int32) *Common_Dummy {
 }
 
 
-

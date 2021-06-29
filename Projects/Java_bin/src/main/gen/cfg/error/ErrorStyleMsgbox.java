@@ -24,27 +24,23 @@ public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle
 
     public ErrorStyleMsgbox(String btn_name, cfg.error.EOperation operation )
     {
-            super();
+        super();
         this.btnName = btn_name;
         this.operation = operation;
     }
 
     public static ErrorStyleMsgbox deserializeErrorStyleMsgbox(ByteBuf _buf)
     {
-    
         return new ErrorStyleMsgbox(_buf);
-    
     }
 
-     public final String btnName;
-     public final cfg.error.EOperation operation;
-
+    public final String btnName;
+    public final cfg.error.EOperation operation;
 
     public static final int ID = -1920482343;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

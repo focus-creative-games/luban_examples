@@ -67,40 +67,36 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
 
     public static GlobalConfig deserializeGlobalConfig(ByteBuf _buf)
     {
-    
         return new GlobalConfig(_buf);
-    
     }
 
-     public final int bagCapacity;
-     public final int bagCapacitySpecial;
-     public final int bagTempExpendableCapacity;
-     public final int bagTempToolCapacity;
-     public final int bagInitCapacity;
-     public final int quickBagCapacity;
-     public final int clothBagCapacity;
-     public final int clothBagInitCapacity;
-     public final int clothBagCapacitySpecial;
-     public final Integer bagInitItemsDropId;
-        public cfg.bonus.DropInfo bagInitItemsDropId_Ref;
-     public final int mailBoxCapacity;
-     public final float damageParamC;
-     public final float damageParamE;
-     public final float damageParamF;
-     public final float damageParamD;
-     public final float roleSpeed;
-     public final float monsterSpeed;
-     public final int initEnergy;
-     public final int initViality;
-     public final int maxViality;
-     public final int perVialityRecoveryTime;
-
+    public final int bagCapacity;
+    public final int bagCapacitySpecial;
+    public final int bagTempExpendableCapacity;
+    public final int bagTempToolCapacity;
+    public final int bagInitCapacity;
+    public final int quickBagCapacity;
+    public final int clothBagCapacity;
+    public final int clothBagInitCapacity;
+    public final int clothBagCapacitySpecial;
+    public final Integer bagInitItemsDropId;
+    public cfg.bonus.DropInfo bagInitItemsDropId_Ref;
+    public final int mailBoxCapacity;
+    public final float damageParamC;
+    public final float damageParamE;
+    public final float damageParamF;
+    public final float damageParamD;
+    public final float roleSpeed;
+    public final float monsterSpeed;
+    public final int initEnergy;
+    public final int initViality;
+    public final int maxViality;
+    public final int perVialityRecoveryTime;
 
     public static final int ID = -848234488;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -116,7 +112,6 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(bagInitItemsDropId) : null;
     }
 

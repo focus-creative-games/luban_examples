@@ -47,4 +47,3 @@ func (table *Bonus_TbDrop) Get(key int32) *Bonus_DropInfo {
 }
 
 
-

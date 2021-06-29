@@ -13,23 +13,18 @@ import "bright/serialization"
 
 
 type Role_BonusInfo struct {
-    
     Type int32
     Coefficient float32
 }
-
 
 func (Role_BonusInfo) GetTypeId() int {
     return -1354421803
 }
 
-
 func NewRole_BonusInfo(_buf *serialization.ByteBuf) (_v *Role_BonusInfo, err error) {
     _v = &Role_BonusInfo{}
-
     if _v.Type, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Coefficient, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

@@ -28,8 +28,6 @@ public abstract partial class KeyData :  Bright.Config.BeanBase
 
     public static KeyData DeserializeKeyData(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "FloatKeyData": return new ai.FloatKeyData(_buf);
@@ -38,15 +36,12 @@ public abstract partial class KeyData :  Bright.Config.BeanBase
             case "BlackboardKeyData": return new ai.BlackboardKeyData(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

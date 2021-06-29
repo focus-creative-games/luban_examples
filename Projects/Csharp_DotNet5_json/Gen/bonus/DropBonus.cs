@@ -30,22 +30,18 @@ public sealed partial class DropBonus :  bonus.Bonus
 
     public static DropBonus DeserializeDropBonus(JsonElement _buf)
     {
-    
         return new bonus.DropBonus(_buf);
-    
     }
 
     public readonly int Id;
     public bonus.DropInfo Id_Ref;
 
-
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
         OnResolveFinish(_tables);
     }

@@ -13,28 +13,23 @@ import "bright/serialization"
 
 
 type Ai_Node struct {
-    
     Id int32
     NodeName string
 }
 
 
-
 func NewAi_Node(_buf *serialization.ByteBuf) (_v *Ai_Node, err error) {
     _v = &Ai_Node{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.NodeName, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 func NewChildAi_Node(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1812449155: return NewAi_UeSetDefaultFocus(_buf);
             case 990693812: return NewAi_ExecuteTimeStatistic(_buf);
             case 1601247918: return NewAi_ChooseTarget(_buf);
@@ -61,5 +56,4 @@ func NewChildAi_Node(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     }
     return
 }
-
 

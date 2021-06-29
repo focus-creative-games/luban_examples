@@ -26,7 +26,7 @@ public final class Clothes extends  cfg.item.ItemExtra
 
     public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume )
     {
-            super(id);
+        super(id);
         this.attack = attack;
         this.hp = hp;
         this.energyLimit = energy_limit;
@@ -35,22 +35,18 @@ public final class Clothes extends  cfg.item.ItemExtra
 
     public static Clothes deserializeClothes(ByteBuf _buf)
     {
-    
         return new Clothes(_buf);
-    
     }
 
-     public final int attack;
-     public final long hp;
-     public final int energyLimit;
-     public final int energyResume;
-
+    public final int attack;
+    public final long hp;
+    public final int energyLimit;
+    public final int energyResume;
 
     public static final int ID = 1659907149;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -66,7 +62,7 @@ public final class Clothes extends  cfg.item.ItemExtra
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

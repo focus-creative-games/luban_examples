@@ -31,22 +31,18 @@ public sealed partial class CostCurrency :  cost.Cost
 
     public static CostCurrency DeserializeCostCurrency(ByteBuf _buf)
     {
-    
         return new cost.CostCurrency(_buf);
-    
     }
 
     public readonly item.ECurrencyType Type;
     public readonly int Num;
 
-
     public const int ID = 911838111;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

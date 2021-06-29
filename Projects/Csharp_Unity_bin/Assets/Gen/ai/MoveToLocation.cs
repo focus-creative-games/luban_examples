@@ -31,22 +31,18 @@ public sealed partial class MoveToLocation :  ai.Task
 
     public static MoveToLocation DeserializeMoveToLocation(ByteBuf _buf)
     {
-    
         return new ai.MoveToLocation(_buf);
-    
     }
 
     public readonly System.Numerics.Vector3 Location;
     public readonly float AcceptableRadius;
 
-
     public const int ID = -969953113;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

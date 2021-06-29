@@ -70,9 +70,7 @@ public sealed partial class Item :  Bright.Config.BeanBase
 
     public static Item DeserializeItem(JsonElement _buf)
     {
-    
         return new item.Item(_buf);
-    
     }
 
     public readonly int Id;
@@ -97,14 +95,11 @@ public sealed partial class Item :  Bright.Config.BeanBase
     public readonly item.EUseType UseType;
     public readonly int? LevelUpId;
 
-
     public const int ID = 2107285806;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

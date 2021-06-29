@@ -27,25 +27,20 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
 
     public static ErrorStyle DeserializeErrorStyle(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case error.ErrorStyleTip.ID: return new error.ErrorStyleTip(_buf);
             case error.ErrorStyleMsgbox.ID: return new error.ErrorStyleMsgbox(_buf);
             case error.ErrorStyleDlgOk.ID: return new error.ErrorStyleDlgOk(_buf);
             case error.ErrorStyleDlgOkCancel.ID: return new error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

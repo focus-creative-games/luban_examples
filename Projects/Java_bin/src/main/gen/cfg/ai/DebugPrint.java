@@ -23,25 +23,21 @@ public final class DebugPrint extends  cfg.ai.Task
 
     public DebugPrint(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, String text )
     {
-            super(id, node_name, decorators, services, ignore_restart_self);
+        super(id, node_name, decorators, services, ignore_restart_self);
         this.text = text;
     }
 
     public static DebugPrint deserializeDebugPrint(ByteBuf _buf)
     {
-    
         return new DebugPrint(_buf);
-    
     }
 
-     public final String text;
-
+    public final String text;
 
     public static final int ID = 1357409728;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class DebugPrint extends  cfg.ai.Task
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

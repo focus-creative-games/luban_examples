@@ -24,27 +24,23 @@ public final class GroupCoolDown extends  cfg.limit.LimitBase
 
     public GroupCoolDown(int group_id, int duration )
     {
-            super();
+        super();
         this.groupId = group_id;
         this.duration = duration;
     }
 
     public static GroupCoolDown deserializeGroupCoolDown(ByteBuf _buf)
     {
-    
         return new GroupCoolDown(_buf);
-    
     }
 
-     public final int groupId;
-     public final int duration;
-
+    public final int groupId;
+    public final int duration;
 
     public static final int ID = 394328599;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class GroupCoolDown extends  cfg.limit.LimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

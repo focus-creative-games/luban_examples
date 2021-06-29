@@ -30,21 +30,17 @@ public sealed partial class Sequence :  ai.ComposeNode
 
     public static Sequence DeserializeSequence(JsonElement _buf)
     {
-    
         return new ai.Sequence(_buf);
-    
     }
 
     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
-
     public const int ID = -1789006105;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

@@ -23,16 +23,14 @@ public abstract class Task extends  cfg.ai.FlowNode
 
     public Task(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self )
     {
-            super(id, node_name, decorators, services);
+        super(id, node_name, decorators, services);
         this.ignoreRestartSelf = ignore_restart_self;
     }
 
     public static Task deserializeTask(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.UeWait.ID: return new cfg.ai.UeWait(_buf);
             case cfg.ai.UeWaitBlackboardTime.ID: return new cfg.ai.UeWaitBlackboardTime(_buf);
             case cfg.ai.MoveToTarget.ID: return new cfg.ai.MoveToTarget(_buf);
@@ -42,11 +40,9 @@ public abstract class Task extends  cfg.ai.FlowNode
             case cfg.ai.DebugPrint.ID: return new cfg.ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final boolean ignoreRestartSelf;
-
+    public final boolean ignoreRestartSelf;
 
 
     @Override
@@ -63,7 +59,7 @@ public abstract class Task extends  cfg.ai.FlowNode
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

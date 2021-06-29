@@ -28,20 +28,16 @@ public sealed partial class UeForceSuccess :  ai.Decorator
 
     public static UeForceSuccess DeserializeUeForceSuccess(JsonElement _buf)
     {
-    
         return new ai.UeForceSuccess(_buf);
-    
     }
-
 
 
     public const int ID = 195054574;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

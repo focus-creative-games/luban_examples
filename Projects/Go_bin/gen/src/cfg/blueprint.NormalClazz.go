@@ -18,19 +18,15 @@ type Blueprint_NormalClazz struct {
     Fields []*Blueprint_Field
 }
 
-
 func (Blueprint_NormalClazz) GetTypeId() int {
     return -2073576778
 }
 
-
 func NewBlueprint_NormalClazz(_buf *serialization.ByteBuf) (_v *Blueprint_NormalClazz, err error) {
     _v = &Blueprint_NormalClazz{}
-
     var _p *Blueprint_Clazz
      if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
-
     if _v.IsAbstract, err = _buf.ReadBool(); err != nil  { return } 
     if _v.Fields, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Blueprint_Field, err2 error) {
                 _v2 = make([]*Blueprint_Field, 0)
@@ -45,5 +41,4 @@ func NewBlueprint_NormalClazz(_buf *serialization.ByteBuf) (_v *Blueprint_Normal
                 }(_buf); err != nil  { return } 
     return
 }
-
 

@@ -31,22 +31,18 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
 
     public static BinaryOperator DeserializeBinaryOperator(ByteBuf _buf)
     {
-    
         return new ai.BinaryOperator(_buf);
-    
     }
 
     public readonly ai.EOperator Oper;
     public readonly ai.KeyData Data;
 
-
     public const int ID = -979891605;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         Data?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

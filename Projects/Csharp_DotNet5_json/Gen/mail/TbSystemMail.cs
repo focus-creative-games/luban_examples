@@ -50,7 +50,6 @@ public sealed partial class TbSystemMail
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

@@ -17,19 +17,15 @@ type Item_DesignDrawing struct {
     LearnComponentId []int32
 }
 
-
 func (Item_DesignDrawing) GetTypeId() int {
     return -1679179579
 }
 
-
 func NewItem_DesignDrawing(_buf *serialization.ByteBuf) (_v *Item_DesignDrawing, err error) {
     _v = &Item_DesignDrawing{}
-
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-
     if _v.LearnComponentId, err = func (_buf2 *serialization.ByteBuf) (_v2 []int32, err2 error) {
                 _v2 = make([]int32, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewItem_DesignDrawing(_buf *serialization.ByteBuf) (_v *Item_DesignDrawing,
                 }(_buf); err != nil  { return } 
     return
 }
-
 

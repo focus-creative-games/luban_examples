@@ -29,21 +29,17 @@ public final class ShowItemInfo extends  bright.serialization.AbstractBean
 
     public static ShowItemInfo deserializeShowItemInfo(ByteBuf _buf)
     {
-    
         return new ShowItemInfo(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-     public final long itemNum;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
+    public final long itemNum;
 
     public static final int ID = -1496363507;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -59,7 +55,6 @@ public final class ShowItemInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

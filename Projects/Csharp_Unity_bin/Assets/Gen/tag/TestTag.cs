@@ -31,22 +31,17 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
 
     public static TestTag DeserializeTestTag(ByteBuf _buf)
     {
-    
         return new tag.TestTag(_buf);
-    
     }
 
     public readonly int Id;
     public readonly string Value;
 
-
     public const int ID = 1742933812;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

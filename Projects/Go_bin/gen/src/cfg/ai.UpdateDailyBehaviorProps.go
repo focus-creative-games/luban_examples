@@ -25,19 +25,15 @@ type Ai_UpdateDailyBehaviorProps struct {
     MoodUpperThresholdKey string
 }
 
-
 func (Ai_UpdateDailyBehaviorProps) GetTypeId() int {
     return -61887372
 }
 
-
 func NewAi_UpdateDailyBehaviorProps(_buf *serialization.ByteBuf) (_v *Ai_UpdateDailyBehaviorProps, err error) {
     _v = &Ai_UpdateDailyBehaviorProps{}
-
     var _p *Ai_Service
      if _p, err = NewAi_Service(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
-
     if _v.SatietyKey, err = _buf.ReadString(); err != nil  { return } 
     if _v.EnergyKey, err = _buf.ReadString(); err != nil  { return } 
     if _v.MoodKey, err = _buf.ReadString(); err != nil  { return } 
@@ -49,5 +45,4 @@ func NewAi_UpdateDailyBehaviorProps(_buf *serialization.ByteBuf) (_v *Ai_UpdateD
     if _v.MoodUpperThresholdKey, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

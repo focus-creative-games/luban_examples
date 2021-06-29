@@ -33,22 +33,18 @@ public final class DropInfo extends  bright.serialization.AbstractBean
 
     public static DropInfo deserializeDropInfo(ByteBuf _buf)
     {
-    
         return new DropInfo(_buf);
-    
     }
 
-     public final int id;
-     public final String desc;
-     public final java.util.ArrayList<cfg.bonus.ShowItemInfo> clientShowItems;
-     public final cfg.bonus.Bonus bonus;
-
+    public final int id;
+    public final String desc;
+    public final java.util.ArrayList<cfg.bonus.ShowItemInfo> clientShowItems;
+    public final cfg.bonus.Bonus bonus;
 
     public static final int ID = -2014781108;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -64,7 +60,6 @@ public final class DropInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             for(cfg.bonus.ShowItemInfo _e : clientShowItems) { if (_e != null) _e.resolve(_tables); }
             if (bonus != null) {bonus.resolve(_tables);}
     }

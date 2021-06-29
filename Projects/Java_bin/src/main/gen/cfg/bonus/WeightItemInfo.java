@@ -31,22 +31,18 @@ public final class WeightItemInfo extends  bright.serialization.AbstractBean
 
     public static WeightItemInfo deserializeWeightItemInfo(ByteBuf _buf)
     {
-    
         return new WeightItemInfo(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-     public final int num;
-     public final int weight;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
+    public final int num;
+    public final int weight;
 
     public static final int ID = 1239999176;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -62,7 +58,6 @@ public final class WeightItemInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

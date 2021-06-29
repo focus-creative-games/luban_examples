@@ -25,7 +25,7 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
 
     public SimpleParallel(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, cfg.ai.EFinishMode finish_mode, cfg.ai.Task main_task, cfg.ai.FlowNode background_node )
     {
-            super(id, node_name, decorators, services);
+        super(id, node_name, decorators, services);
         this.finishMode = finish_mode;
         this.mainTask = main_task;
         this.backgroundNode = background_node;
@@ -33,21 +33,17 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
 
     public static SimpleParallel deserializeSimpleParallel(ByteBuf _buf)
     {
-    
         return new SimpleParallel(_buf);
-    
     }
 
-     public final cfg.ai.EFinishMode finishMode;
-     public final cfg.ai.Task mainTask;
-     public final cfg.ai.FlowNode backgroundNode;
-
+    public final cfg.ai.EFinishMode finishMode;
+    public final cfg.ai.Task mainTask;
+    public final cfg.ai.FlowNode backgroundNode;
 
     public static final int ID = -1952582529;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -63,7 +59,7 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (mainTask != null) {mainTask.resolve(_tables);}
             if (backgroundNode != null) {backgroundNode.resolve(_tables);}
     }

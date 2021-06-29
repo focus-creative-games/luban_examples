@@ -24,27 +24,23 @@ public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRo
 
     public ClothesPropertyScoreGreaterThan(cfg.item.EClothesPropertyType prop, int value )
     {
-            super();
+        super();
         this.prop = prop;
         this.value = value;
     }
 
     public static ClothesPropertyScoreGreaterThan deserializeClothesPropertyScoreGreaterThan(ByteBuf _buf)
     {
-    
         return new ClothesPropertyScoreGreaterThan(_buf);
-    
     }
 
-     public final cfg.item.EClothesPropertyType prop;
-     public final int value;
-
+    public final cfg.item.EClothesPropertyType prop;
+    public final int value;
 
     public static final int ID = 696630835;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRo
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

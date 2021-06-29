@@ -23,25 +23,21 @@ public final class CostCurrencies extends  cfg.cost.Cost
 
     public CostCurrencies(java.util.ArrayList<cfg.cost.CostCurrency> currencies )
     {
-            super();
+        super();
         this.currencies = currencies;
     }
 
     public static CostCurrencies deserializeCostCurrencies(ByteBuf _buf)
     {
-    
         return new CostCurrencies(_buf);
-    
     }
 
-     public final java.util.ArrayList<cfg.cost.CostCurrency> currencies;
-
+    public final java.util.ArrayList<cfg.cost.CostCurrency> currencies;
 
     public static final int ID = 103084157;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class CostCurrencies extends  cfg.cost.Cost
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.cost.CostCurrency _e : currencies) { if (_e != null) _e.resolve(_tables); }
     }
 

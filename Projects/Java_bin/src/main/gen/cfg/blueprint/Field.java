@@ -31,21 +31,17 @@ public final class Field extends  bright.serialization.AbstractBean
 
     public static Field deserializeField(ByteBuf _buf)
     {
-    
         return new Field(_buf);
-    
     }
 
-     public final String name;
-     public final String type;
-     public final String desc;
-
+    public final String name;
+    public final String type;
+    public final String desc;
 
     public static final int ID = 1694158271;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -61,7 +57,6 @@ public final class Field extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

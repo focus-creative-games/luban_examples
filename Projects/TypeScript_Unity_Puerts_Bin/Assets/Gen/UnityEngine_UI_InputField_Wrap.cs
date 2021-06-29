@@ -4,13 +4,13 @@ namespace PuertsStaticWrap
 {
     public static class UnityEngine_UI_InputField_Wrap
     {
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8ConstructorCallback))]
         private static IntPtr Constructor(IntPtr isolate, IntPtr info, int paramLen, long data)
         {
             try
             {
-                
+
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to UnityEngine.UI.InputField constructor");
             }
             catch (Exception e)
@@ -19,688 +19,688 @@ namespace PuertsStaticWrap
             }
             return IntPtr.Zero;
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetTextWithoutNotify(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.GetString(false);
                         obj.SetTextWithoutNotify(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_MoveTextEnd(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.GetBoolean(false);
                         obj.MoveTextEnd(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_MoveTextStart(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.GetBoolean(false);
                         obj.MoveTextStart(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnBeginDrag(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.PointerEventData>(false);
                         obj.OnBeginDrag(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnDrag(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.PointerEventData>(false);
                         obj.OnDrag(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnEndDrag(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.PointerEventData>(false);
                         obj.OnEndDrag(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnPointerDown(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.PointerEventData>(false);
                         obj.OnPointerDown(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ProcessEvent(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.Event>(false);
                         obj.ProcessEvent(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnUpdateSelected(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.BaseEventData>(false);
                         obj.OnUpdateSelected(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ForceLabelUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.ForceLabelUpdate();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Rebuild(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = (UnityEngine.UI.CanvasUpdate)argHelper0.GetInt32(false);
                         obj.Rebuild(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_LayoutComplete(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.LayoutComplete();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GraphicUpdateComplete(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.GraphicUpdateComplete();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ActivateInputField(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.ActivateInputField();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnSelect(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.BaseEventData>(false);
                         obj.OnSelect(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnPointerClick(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.PointerEventData>(false);
                         obj.OnPointerClick(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_DeactivateInputField(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.DeactivateInputField();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnDeselect(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.BaseEventData>(false);
                         obj.OnDeselect(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_OnSubmit(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
+
                     var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    
+
+
+
                     {
-                        
+
                         var Arg0 = argHelper0.Get<UnityEngine.EventSystems.BaseEventData>(false);
                         obj.OnSubmit(Arg0);
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_CalculateLayoutInputHorizontal(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.CalculateLayoutInputHorizontal();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_CalculateLayoutInputVertical(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
-                
-                
+
+
                 {
-                    
-                    
-                    
-                    
+
+
+
+
                     {
-                        
+
                         obj.CalculateLayoutInputVertical();
-                        
-                        
-                        
-                        
+
+
+
+
                     }
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_shouldHideMobileInput(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -715,7 +715,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_shouldHideMobileInput(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -724,15 +724,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.shouldHideMobileInput = argHelper.GetBoolean(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_shouldActivateOnSelect(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -747,7 +747,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_shouldActivateOnSelect(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -756,15 +756,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.shouldActivateOnSelect = argHelper.GetBoolean(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_text(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -779,7 +779,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_text(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -788,15 +788,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.text = argHelper.GetString(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_isFocused(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -811,9 +811,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_caretBlinkRate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -828,7 +828,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_caretBlinkRate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -837,15 +837,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.caretBlinkRate = argHelper.GetFloat(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_caretWidth(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -860,7 +860,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_caretWidth(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -869,15 +869,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.caretWidth = argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_textComponent(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -892,7 +892,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_textComponent(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -901,15 +901,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.textComponent = argHelper.Get<UnityEngine.UI.Text>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_placeholder(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -924,7 +924,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_placeholder(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -933,15 +933,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.placeholder = argHelper.Get<UnityEngine.UI.Graphic>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_caretColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -956,7 +956,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_caretColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -965,15 +965,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.caretColor = argHelper.Get<UnityEngine.Color>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_customCaretColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -988,7 +988,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_customCaretColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -997,15 +997,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.customCaretColor = argHelper.GetBoolean(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_selectionColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1020,7 +1020,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_selectionColor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1029,15 +1029,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.selectionColor = argHelper.Get<UnityEngine.Color>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_onEndEdit(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1052,7 +1052,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_onEndEdit(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1060,16 +1060,15 @@ namespace PuertsStaticWrap
             {
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                obj.onEndEdit = argHelper.Get<UnityEngine.UI.InputField.SubmitEvent>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_onValueChanged(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1084,7 +1083,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_onValueChanged(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1093,15 +1092,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.onValueChanged = argHelper.Get<UnityEngine.UI.InputField.OnChangeEvent>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_onValidateInput(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1116,7 +1115,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_onValidateInput(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1125,15 +1124,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.onValidateInput = argHelper.Get<UnityEngine.UI.InputField.OnValidateInput>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_characterLimit(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1148,7 +1147,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_characterLimit(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1157,15 +1156,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.characterLimit = argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_contentType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1180,7 +1179,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_contentType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1189,15 +1188,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.contentType = (UnityEngine.UI.InputField.ContentType)argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_lineType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1212,7 +1211,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_lineType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1221,15 +1220,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.lineType = (UnityEngine.UI.InputField.LineType)argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_inputType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1244,7 +1243,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_inputType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1253,15 +1252,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.inputType = (UnityEngine.UI.InputField.InputType)argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_touchScreenKeyboard(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1276,9 +1275,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_keyboardType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1293,7 +1292,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_keyboardType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1302,15 +1301,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.keyboardType = (UnityEngine.TouchScreenKeyboardType)argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_characterValidation(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1325,7 +1324,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_characterValidation(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1334,15 +1333,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.characterValidation = (UnityEngine.UI.InputField.CharacterValidation)argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_readOnly(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1357,7 +1356,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_readOnly(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1366,15 +1365,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.readOnly = argHelper.GetBoolean(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_multiLine(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1389,9 +1388,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_asteriskChar(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1406,7 +1405,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_asteriskChar(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1415,15 +1414,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.asteriskChar = argHelper.Get<System.Char>(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_wasCanceled(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1438,9 +1437,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_caretPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1455,7 +1454,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_caretPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1464,15 +1463,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.caretPosition = argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_selectionAnchorPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1487,7 +1486,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_selectionAnchorPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1496,15 +1495,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.selectionAnchorPosition = argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_selectionFocusPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1519,7 +1518,7 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void S_selectionFocusPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1528,15 +1527,15 @@ namespace PuertsStaticWrap
                 var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.UI.InputField;
                 var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                 obj.selectionFocusPosition = argHelper.GetInt32(false);
-                
+
             }
             catch (Exception e)
             {
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_minWidth(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1551,9 +1550,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_preferredWidth(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1568,9 +1567,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_flexibleWidth(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1585,9 +1584,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_minHeight(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1602,9 +1601,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_preferredHeight(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1619,9 +1618,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_flexibleHeight(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1636,9 +1635,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
+
+
+
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_layoutPriority(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1653,11 +1652,11 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
-        
-        
-        
-        
-        
+
+
+
+
+
         public static Puerts.TypeRegisterInfo GetRegisterInfo()
         {
             return new Puerts.TypeRegisterInfo()
@@ -1687,7 +1686,7 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "OnSubmit", IsStatic = false},  M_OnSubmit },
                     { new Puerts.MethodKey {Name = "CalculateLayoutInputHorizontal", IsStatic = false},  M_CalculateLayoutInputHorizontal },
                     { new Puerts.MethodKey {Name = "CalculateLayoutInputVertical", IsStatic = false},  M_CalculateLayoutInputVertical },
-                    
+
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
@@ -1726,10 +1725,10 @@ namespace PuertsStaticWrap
                     {"preferredHeight", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_preferredHeight, Setter = null} },
                     {"flexibleHeight", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_flexibleHeight, Setter = null} },
                     {"layoutPriority", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_layoutPriority, Setter = null} },
-                    
+
                 }
             };
         }
-        
+
     }
 }

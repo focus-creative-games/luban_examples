@@ -25,10 +25,8 @@ public abstract class Bonus extends  bright.serialization.AbstractBean
 
     public static Bonus deserializeBonus(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.bonus.OneItem.ID: return new cfg.bonus.OneItem(_buf);
             case cfg.bonus.OneItems.ID: return new cfg.bonus.OneItems(_buf);
             case cfg.bonus.Item.ID: return new cfg.bonus.Item(_buf);
@@ -42,9 +40,7 @@ public abstract class Bonus extends  bright.serialization.AbstractBean
             case cfg.bonus.DropBonus.ID: return new cfg.bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -62,7 +58,6 @@ public abstract class Bonus extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

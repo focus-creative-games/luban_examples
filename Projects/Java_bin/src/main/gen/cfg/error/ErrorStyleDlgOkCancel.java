@@ -24,27 +24,23 @@ public final class ErrorStyleDlgOkCancel extends  cfg.error.ErrorStyle
 
     public ErrorStyleDlgOkCancel(String btn1_name, String btn2_name )
     {
-            super();
+        super();
         this.btn1Name = btn1_name;
         this.btn2Name = btn2_name;
     }
 
     public static ErrorStyleDlgOkCancel deserializeErrorStyleDlgOkCancel(ByteBuf _buf)
     {
-    
         return new ErrorStyleDlgOkCancel(_buf);
-    
     }
 
-     public final String btn1Name;
-     public final String btn2Name;
-
+    public final String btn1Name;
+    public final String btn2Name;
 
     public static final int ID = 971221414;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class ErrorStyleDlgOkCancel extends  cfg.error.ErrorStyle
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

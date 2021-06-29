@@ -31,22 +31,18 @@ public sealed partial class MoveToRandomLocation :  ai.Task
 
     public static MoveToRandomLocation DeserializeMoveToRandomLocation(ByteBuf _buf)
     {
-    
         return new ai.MoveToRandomLocation(_buf);
-    
     }
 
     public readonly string OriginPositionKey;
     public readonly float Radius;
 
-
     public const int ID = -2140042998;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

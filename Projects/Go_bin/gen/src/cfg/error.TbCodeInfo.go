@@ -47,4 +47,3 @@ func (table *Error_TbCodeInfo) Get(key int32) *Error_CodeInfo {
 }
 
 
-

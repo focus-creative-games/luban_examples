@@ -13,57 +13,57 @@ export namespace cfg {
 
 
 export class Vector2 {
-        x: number;
-        y: number;
+        x: number
+        y: number
         constructor(x: number, y: number) {
-            this.x = x;
-            this.y = y;
+            this.x = x
+            this.y = y
         }
 
         static from(_buf_: Bright.Serialization.ByteBuf): Vector2 {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            return new Vector2(x, y);
+            let x = _buf_.ReadFloat()
+            let y = _buf_.ReadFloat()
+            return new Vector2(x, y)
         }
     }
 
 
     export class Vector3 {
-        x: number;
-        y: number;
-        z: number;
+        x: number
+        y: number
+        z: number
         constructor(x: number, y: number, z: number) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.x = x
+            this.y = y
+            this.z = z
         }
 
         static from(_buf_: Bright.Serialization.ByteBuf): Vector3 {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            let z = _buf_.ReadFloat();
-            return new Vector3(x, y, z);
+            let x = _buf_.ReadFloat()
+            let y = _buf_.ReadFloat()
+            let z = _buf_.ReadFloat()
+            return new Vector3(x, y, z)
         }
     }
 
     export class Vector4 {
-        x: number;
-        y: number;
-        z: number;
-        w: number;
+        x: number
+        y: number
+        z: number
+        w: number
         constructor(x: number, y: number, z: number, w: number) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
+            this.x = x
+            this.y = y
+            this.z = z
+            this.w = w
         }
 
         static from(_buf_: Bright.Serialization.ByteBuf): Vector4 {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            let z = _buf_.ReadFloat();
-            let w = _buf_.ReadFloat();
-            return new Vector4(x, y, z, w);
+            let x = _buf_.ReadFloat()
+            let y = _buf_.ReadFloat()
+            let z = _buf_.ReadFloat()
+            let w = _buf_.ReadFloat()
+            return new Vector4(x, y, z, w)
         }
     }
 
@@ -459,11 +459,60 @@ export enum EProfession {
 }
 
 
+export namespace test {
+
+export enum DemoEnum {
+    A = 1,
+    B = 2,
+    C = 4,
+    D = 5,
+}
+}
+
+
+export namespace test {
+
+export enum ETestUeType {
+    WHITE = 0,
+    BLACK = 1,
+}
+}
+
+
+export namespace test {
+
+export enum ETestEmptyEnum {
+}
+}
+
+
+export namespace test {
+
+export enum ETestEmptyEnum2 {
+    SMALL_THAN_256 = 255,
+    X_256 = 256,
+    X_257 = 257,
+}
+}
+
+
 export namespace role {
 
 export class Consts {
     static MAX_NAME_LENGTH = 20;
     static MAX_USER_ROLE_NUM = 10;
+}
+}
+
+
+
+export namespace test {
+
+export class DemoConst {
+    static x1 = 0;
+    static x2 = 3242;
+    static x3 = 444.3;
+    static x4 = 55.3;
 }
 }
 
@@ -483,11 +532,11 @@ export  class Blackboard  {
         { this.keys = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.BlackboardKey;_e = new ai.BlackboardKey(_buf_); this.keys.push(_e) } }
     }
 
-    name: string
-    desc: string
-    parentName: string
+    readonly name: string
+    readonly desc: string
+    readonly parentName: string
     parentName_Ref : ai.Blackboard
-    keys: ai.BlackboardKey[]
+    readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
         this.parentName_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.parentName)
@@ -513,11 +562,11 @@ export  class BlackboardKey  {
         this.typeClassName = _buf_.ReadString();
     }
 
-    name: string
-    desc: string
-    isStatic: boolean
-    type: ai.EKeyType
-    typeClassName: string
+    readonly name: string
+    readonly desc: string
+    readonly isStatic: boolean
+    readonly type: ai.EKeyType
+    readonly typeClassName: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -541,12 +590,12 @@ export  class BehaviorTree  {
         this.root = ai.ComposeNode.constructorFrom(_buf_)
     }
 
-    id: number
-    name: string
-    desc: string
-    blackboardId: string
+    readonly id: number
+    readonly name: string
+    readonly desc: string
+    readonly blackboardId: string
     blackboardId_Ref : ai.Blackboard
-    root?: ai.ComposeNode
+    readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
         this.blackboardId_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.blackboardId)
@@ -564,9 +613,7 @@ export namespace ai {
 
 export  abstract  class Node  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Node {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
             case 1601247918: return new ai.ChooseTarget(_buf_)
@@ -599,8 +646,8 @@ export  abstract  class Node  {
         this.nodeName = _buf_.ReadString();
     }
 
-    id: number
-    nodeName: string
+    readonly id: number
+    readonly nodeName: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -616,9 +663,7 @@ export namespace ai {
 
 export  abstract  class Service  extends ai.Node {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Service {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
             case 1601247918: return new ai.ChooseTarget(_buf_)
@@ -654,7 +699,7 @@ export  class UeSetDefaultFocus  extends ai.Service {
         this.keyboardKey = _buf_.ReadString();
     }
 
-    keyboardKey: string
+    readonly keyboardKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -696,7 +741,7 @@ export  class ChooseTarget  extends ai.Service {
         this.resultTargetKey = _buf_.ReadString();
     }
 
-    resultTargetKey: string
+    readonly resultTargetKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -718,7 +763,7 @@ export  class KeepFaceTarget  extends ai.Service {
         this.targetActorKey = _buf_.ReadString();
     }
 
-    targetActorKey: string
+    readonly targetActorKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -740,7 +785,7 @@ export  class GetOwnerPlayer  extends ai.Service {
         this.playerActorKey = _buf_.ReadString();
     }
 
-    playerActorKey: string
+    readonly playerActorKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -770,15 +815,15 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
         this.moodUpperThresholdKey = _buf_.ReadString();
     }
 
-    satietyKey: string
-    energyKey: string
-    moodKey: string
-    satietyLowerThresholdKey: string
-    satietyUpperThresholdKey: string
-    energyLowerThresholdKey: string
-    energyUpperThresholdKey: string
-    moodLowerThresholdKey: string
-    moodUpperThresholdKey: string
+    readonly satietyKey: string
+    readonly energyKey: string
+    readonly moodKey: string
+    readonly satietyLowerThresholdKey: string
+    readonly satietyUpperThresholdKey: string
+    readonly energyLowerThresholdKey: string
+    readonly energyUpperThresholdKey: string
+    readonly moodLowerThresholdKey: string
+    readonly moodUpperThresholdKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -795,9 +840,7 @@ export namespace ai {
 
 export  abstract  class Decorator  extends ai.Node {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Decorator {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -513308166: return new ai.UeLoop(_buf_)
             case -951439423: return new ai.UeCooldown(_buf_)
             case 338469720: return new ai.UeTimeLimit(_buf_)
@@ -814,7 +857,7 @@ export  abstract  class Decorator  extends ai.Node {
         this.flowAbortMode = _buf_.ReadInt();
     }
 
-    flowAbortMode: ai.EFlowAbortMode
+    readonly flowAbortMode: ai.EFlowAbortMode
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -838,9 +881,9 @@ export  class UeLoop  extends ai.Decorator {
         this.infiniteLoopTimeoutTime = _buf_.ReadFloat();
     }
 
-    numLoops: number
-    infiniteLoop: boolean
-    infiniteLoopTimeoutTime: number
+    readonly numLoops: number
+    readonly infiniteLoop: boolean
+    readonly infiniteLoopTimeoutTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -862,7 +905,7 @@ export  class UeCooldown  extends ai.Decorator {
         this.cooldownTime = _buf_.ReadFloat();
     }
 
-    cooldownTime: number
+    readonly cooldownTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -884,7 +927,7 @@ export  class UeTimeLimit  extends ai.Decorator {
         this.limitTime = _buf_.ReadFloat();
     }
 
-    limitTime: number
+    readonly limitTime: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -908,9 +951,9 @@ export  class UeBlackboard  extends ai.Decorator {
         this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_)
     }
 
-    notifyObserver: ai.ENotifyObserverMode
-    blackboardKey: string
-    keyQuery?: ai.KeyQueryOperator
+    readonly notifyObserver: ai.ENotifyObserverMode
+    readonly blackboardKey: string
+    readonly keyQuery: ai.KeyQueryOperator
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -928,9 +971,7 @@ export namespace ai {
 
 export  abstract  class KeyQueryOperator  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): KeyQueryOperator {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1635350898: return new ai.IsSet(_buf_)
             case 790736255: return new ai.IsNotSet(_buf_)
             case -979891605: return new ai.BinaryOperator(_buf_)
@@ -1002,8 +1043,8 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
         this.data = ai.KeyData.constructorFrom(_buf_)
     }
 
-    oper: ai.EOperator
-    data?: ai.KeyData
+    readonly oper: ai.EOperator
+    readonly data: ai.KeyData
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1021,9 +1062,7 @@ export namespace ai {
 
 export  abstract  class KeyData  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): KeyData {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -719747885: return new ai.FloatKeyData(_buf_)
             case -342751904: return new ai.IntKeyData(_buf_)
             case -307888654: return new ai.StringKeyData(_buf_)
@@ -1055,7 +1094,7 @@ export  class FloatKeyData  extends ai.KeyData {
         this.value = _buf_.ReadFloat();
     }
 
-    value: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1077,7 +1116,7 @@ export  class IntKeyData  extends ai.KeyData {
         this.value = _buf_.ReadInt();
     }
 
-    value: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1099,7 +1138,7 @@ export  class StringKeyData  extends ai.KeyData {
         this.value = _buf_.ReadString();
     }
 
-    value: string
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1121,7 +1160,7 @@ export  class BlackboardKeyData  extends ai.KeyData {
         this.value = _buf_.ReadString();
     }
 
-    value: string
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1165,9 +1204,9 @@ export  class IsAtLocation  extends ai.Decorator {
         this.inverseCondition = _buf_.ReadBool();
     }
 
-    acceptableRadius: number
-    keyboardKey: string
-    inverseCondition: boolean
+    readonly acceptableRadius: number
+    readonly keyboardKey: string
+    readonly inverseCondition: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1192,10 +1231,10 @@ export  class DistanceLessThan  extends ai.Decorator {
         this.reverseResult = _buf_.ReadBool();
     }
 
-    actor1Key: string
-    actor2Key: string
-    distance: number
-    reverseResult: boolean
+    readonly actor1Key: string
+    readonly actor2Key: string
+    readonly distance: number
+    readonly reverseResult: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1212,9 +1251,7 @@ export namespace ai {
 
 export  abstract  class FlowNode  extends ai.Node {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): FlowNode {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
             case -1952582529: return new ai.SimpleParallel(_buf_)
@@ -1235,8 +1272,8 @@ export  abstract  class FlowNode  extends ai.Node {
         { this.services = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Service;_e = ai.Service.constructorFrom(_buf_); this.services.push(_e) } }
     }
 
-    decorators: ai.Decorator[]
-    services: ai.Service[]
+    readonly decorators: ai.Decorator[]
+    readonly services: ai.Service[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1255,9 +1292,7 @@ export namespace ai {
 
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ComposeNode {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
             case -1952582529: return new ai.SimpleParallel(_buf_)
@@ -1290,7 +1325,7 @@ export  class Sequence  extends ai.ComposeNode {
         { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
 
-    children: ai.FlowNode[]
+    readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1313,7 +1348,7 @@ export  class Selector  extends ai.ComposeNode {
         { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
 
-    children: ai.FlowNode[]
+    readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1338,9 +1373,9 @@ export  class SimpleParallel  extends ai.ComposeNode {
         this.backgroundNode = ai.FlowNode.constructorFrom(_buf_)
     }
 
-    finishMode: ai.EFinishMode
-    mainTask?: ai.Task
-    backgroundNode?: ai.FlowNode
+    readonly finishMode: ai.EFinishMode
+    readonly mainTask: ai.Task
+    readonly backgroundNode: ai.FlowNode
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1359,9 +1394,7 @@ export namespace ai {
 
 export  abstract  class Task  extends ai.FlowNode {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Task {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -512994101: return new ai.UeWait(_buf_)
             case 1215378271: return new ai.UeWaitBlackboardTime(_buf_)
             case 514987779: return new ai.MoveToTarget(_buf_)
@@ -1378,7 +1411,7 @@ export  abstract  class Task  extends ai.FlowNode {
         this.ignoreRestartSelf = _buf_.ReadBool();
     }
 
-    ignoreRestartSelf: boolean
+    readonly ignoreRestartSelf: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1401,8 +1434,8 @@ export  class UeWait  extends ai.Task {
         this.randomDeviation = _buf_.ReadFloat();
     }
 
-    waitTime: number
-    randomDeviation: number
+    readonly waitTime: number
+    readonly randomDeviation: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1424,7 +1457,7 @@ export  class UeWaitBlackboardTime  extends ai.Task {
         this.blackboardKey = _buf_.ReadString();
     }
 
-    blackboardKey: string
+    readonly blackboardKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1447,8 +1480,8 @@ export  class MoveToTarget  extends ai.Task {
         this.acceptableRadius = _buf_.ReadFloat();
     }
 
-    targetActorKey: string
-    acceptableRadius: number
+    readonly targetActorKey: string
+    readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1471,8 +1504,8 @@ export  class ChooseSkill  extends ai.Task {
         this.resultSkillIdKey = _buf_.ReadString();
     }
 
-    targetActorKey: string
-    resultSkillIdKey: string
+    readonly targetActorKey: string
+    readonly resultSkillIdKey: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1495,8 +1528,8 @@ export  class MoveToRandomLocation  extends ai.Task {
         this.radius = _buf_.ReadFloat();
     }
 
-    originPositionKey: string
-    radius: number
+    readonly originPositionKey: string
+    readonly radius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1519,8 +1552,8 @@ export  class MoveToLocation  extends ai.Task {
         this.acceptableRadius = _buf_.ReadFloat();
     }
 
-    location: Vector3
-    acceptableRadius: number
+    readonly location: Vector3
+    readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1542,7 +1575,7 @@ export  class DebugPrint  extends ai.Task {
         this.text = _buf_.ReadString();
     }
 
-    text: string
+    readonly text: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1559,9 +1592,7 @@ export namespace blueprint {
 
 export  abstract  class Clazz  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Clazz {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 2114170750: return new blueprint.Interface(_buf_)
             case -2073576778: return new blueprint.NormalClazz(_buf_)
             case 1827364892: return new blueprint.EnumClazz(_buf_)
@@ -1576,10 +1607,10 @@ export  abstract  class Clazz  {
         { this.methods = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Method;_e = blueprint.Method.constructorFrom(_buf_); this.methods.push(_e) } }
     }
 
-    name: string
-    desc: string
-    parents: blueprint.Clazz[]
-    methods: blueprint.Method[]
+    readonly name: string
+    readonly desc: string
+    readonly parents: blueprint.Clazz[]
+    readonly methods: blueprint.Method[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.parents) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1597,9 +1628,7 @@ export namespace blueprint {
 
 export  abstract  class Method  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Method {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -392137809: return new blueprint.AbstraceMethod(_buf_)
             case 1739079015: return new blueprint.ExternalMethod(_buf_)
             case -696408103: return new blueprint.BlueprintMethod(_buf_)
@@ -1615,11 +1644,11 @@ export  abstract  class Method  {
         { this.parameters = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.ParamInfo;_e = new blueprint.ParamInfo(_buf_); this.parameters.push(_e) } }
     }
 
-    name: string
-    desc: string
-    isStatic: boolean
-    returnType: string
-    parameters: blueprint.ParamInfo[]
+    readonly name: string
+    readonly desc: string
+    readonly isStatic: boolean
+    readonly returnType: string
+    readonly parameters: blueprint.ParamInfo[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.parameters) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1642,9 +1671,9 @@ export  class ParamInfo  {
         this.isRef = _buf_.ReadBool();
     }
 
-    name: string
-    type: string
-    isRef: boolean
+    readonly name: string
+    readonly type: string
+    readonly isRef: boolean
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1746,8 +1775,8 @@ export  class NormalClazz  extends blueprint.Clazz {
         { this.fields = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Field;_e = new blueprint.Field(_buf_); this.fields.push(_e) } }
     }
 
-    isAbstract: boolean
-    fields: blueprint.Field[]
+    readonly isAbstract: boolean
+    readonly fields: blueprint.Field[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1771,9 +1800,9 @@ export  class Field  {
         this.desc = _buf_.ReadString();
     }
 
-    name: string
-    type: string
-    desc: string
+    readonly name: string
+    readonly type: string
+    readonly desc: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1794,7 +1823,7 @@ export  class EnumClazz  extends blueprint.Clazz {
         { this.enums = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.EnumField;_e = new blueprint.EnumField(_buf_); this.enums.push(_e) } }
     }
 
-    enums: blueprint.EnumField[]
+    readonly enums: blueprint.EnumField[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1817,8 +1846,8 @@ export  class EnumField  {
         this.value = _buf_.ReadInt();
     }
 
-    name: string
-    value: number
+    readonly name: string
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -1841,10 +1870,10 @@ export  class DropInfo  {
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
     }
 
-    id: number
-    desc: string
-    clientShowItems: bonus.ShowItemInfo[]
-    bonus?: bonus.Bonus
+    readonly id: number
+    readonly desc: string
+    readonly clientShowItems: bonus.ShowItemInfo[]
+    readonly bonus: bonus.Bonus
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.clientShowItems) { if (_e != null ) {_e.resolve(_tables);} }
@@ -1867,9 +1896,9 @@ export  class ShowItemInfo  {
         this.itemNum = _buf_.ReadLong();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    itemNum: bigint
+    readonly itemNum: bigint
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -1886,9 +1915,7 @@ export namespace bonus {
 
 export  abstract  class Bonus  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Bonus {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case -1649658966: return new bonus.OneItem(_buf_)
             case 400179721: return new bonus.OneItems(_buf_)
             case 1689011106: return new bonus.Item(_buf_)
@@ -1927,7 +1954,7 @@ export  class OneItem  extends bonus.Bonus {
         this.itemId = _buf_.ReadInt();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
 
     resolve(_tables: Map<string, any>) {
@@ -1951,7 +1978,7 @@ export  class OneItems  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.items[i] = _e } }
     }
 
-    items: Int32Array
+    readonly items: Int32Array
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1974,9 +2001,9 @@ export  class Item  extends bonus.Bonus {
         this.amount = _buf_.ReadInt();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    amount: number
+    readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -1999,7 +2026,7 @@ export  class Items  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Item;_e = new bonus.Item(_buf_); this.itemList.push(_e) } }
     }
 
-    itemList: bonus.Item[]
+    readonly itemList: bonus.Item[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2023,8 +2050,8 @@ export  class CoefficientItem  extends bonus.Bonus {
         this.bonusList = new bonus.Items(_buf_)
     }
 
-    bonusId: number
-    bonusList: bonus.Items
+    readonly bonusId: number
+    readonly bonusList: bonus.Items
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2047,7 +2074,7 @@ export  class WeightItems  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightItemInfo;_e = new bonus.WeightItemInfo(_buf_); this.itemList.push(_e) } }
     }
 
-    itemList: bonus.WeightItemInfo[]
+    readonly itemList: bonus.WeightItemInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2071,10 +2098,10 @@ export  class WeightItemInfo  {
         this.weight = _buf_.ReadInt();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    weight: number
+    readonly num: number
+    readonly weight: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -2096,7 +2123,7 @@ export  class ProbabilityItems  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityItemInfo;_e = new bonus.ProbabilityItemInfo(_buf_); this.itemList.push(_e) } }
     }
 
-    itemList: bonus.ProbabilityItemInfo[]
+    readonly itemList: bonus.ProbabilityItemInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2120,10 +2147,10 @@ export  class ProbabilityItemInfo  {
         this.probability = _buf_.ReadFloat();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    probability: number
+    readonly num: number
+    readonly probability: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -2145,7 +2172,7 @@ export  class MultiBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Bonus;_e = bonus.Bonus.constructorFrom(_buf_); this.bonuses.push(_e) } }
     }
 
-    bonuses: bonus.Bonus[]
+    readonly bonuses: bonus.Bonus[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2168,7 +2195,7 @@ export  class ProbabilityBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityBonusInfo;_e = new bonus.ProbabilityBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
 
-    bonuses: bonus.ProbabilityBonusInfo[]
+    readonly bonuses: bonus.ProbabilityBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2191,8 +2218,8 @@ export  class ProbabilityBonusInfo  {
         this.probability = _buf_.ReadFloat();
     }
 
-    bonus?: bonus.Bonus
-    probability: number
+    readonly bonus: bonus.Bonus
+    readonly probability: number
 
     resolve(_tables: Map<string, any>) {
         if (this.bonus != null) { this.bonus.resolve(_tables);}
@@ -2214,7 +2241,7 @@ export  class WeightBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightBonusInfo;_e = new bonus.WeightBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
 
-    bonuses: bonus.WeightBonusInfo[]
+    readonly bonuses: bonus.WeightBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2237,8 +2264,8 @@ export  class WeightBonusInfo  {
         this.weight = _buf_.ReadInt();
     }
 
-    bonus?: bonus.Bonus
-    weight: number
+    readonly bonus: bonus.Bonus
+    readonly weight: number
 
     resolve(_tables: Map<string, any>) {
         if (this.bonus != null) { this.bonus.resolve(_tables);}
@@ -2260,7 +2287,7 @@ export  class DropBonus  extends bonus.Bonus {
         this.id = _buf_.ReadInt();
     }
 
-    id: number
+    readonly id: number
     id_Ref : bonus.DropInfo
 
     resolve(_tables: Map<string, any>) {
@@ -2303,28 +2330,28 @@ export  class GlobalConfig  {
         this.perVialityRecoveryTime = _buf_.ReadInt();
     }
 
-    bagCapacity: number
-    bagCapacitySpecial: number
-    bagTempExpendableCapacity: number
-    bagTempToolCapacity: number
-    bagInitCapacity: number
-    quickBagCapacity: number
-    clothBagCapacity: number
-    clothBagInitCapacity: number
-    clothBagCapacitySpecial: number
-    bagInitItemsDropId?: number
+    readonly bagCapacity: number
+    readonly bagCapacitySpecial: number
+    readonly bagTempExpendableCapacity: number
+    readonly bagTempToolCapacity: number
+    readonly bagInitCapacity: number
+    readonly quickBagCapacity: number
+    readonly clothBagCapacity: number
+    readonly clothBagInitCapacity: number
+    readonly clothBagCapacitySpecial: number
+    readonly bagInitItemsDropId?: number
     bagInitItemsDropId_Ref : bonus.DropInfo
-    mailBoxCapacity: number
-    damageParamC: number
-    damageParamE: number
-    damageParamF: number
-    damageParamD: number
-    roleSpeed: number
-    monsterSpeed: number
-    initEnergy: number
-    initViality: number
-    maxViality: number
-    perVialityRecoveryTime: number
+    readonly mailBoxCapacity: number
+    readonly damageParamC: number
+    readonly damageParamE: number
+    readonly damageParamF: number
+    readonly damageParamD: number
+    readonly roleSpeed: number
+    readonly monsterSpeed: number
+    readonly initEnergy: number
+    readonly initViality: number
+    readonly maxViality: number
+    readonly perVialityRecoveryTime: number
 
     resolve(_tables: Map<string, any>) {
         this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? (_tables.get('bonus.TbDrop') as  bonus.TbDrop).get(this.bagInitItemsDropId) : null
@@ -2346,8 +2373,8 @@ export  class Dummy  {
         this.limit = limit.LimitBase.constructorFrom(_buf_)
     }
 
-    id: number
-    limit?: limit.LimitBase
+    readonly id: number
+    readonly limit: limit.LimitBase
 
     resolve(_tables: Map<string, any>) {
         if (this.limit != null) { this.limit.resolve(_tables);}
@@ -2364,9 +2391,7 @@ export namespace limit {
 
 export  abstract  class LimitBase  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): LimitBase {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 303235413: return new limit.DailyLimit(_buf_)
             case -1753629499: return new limit.MultiDayLimit(_buf_)
             case -252187161: return new limit.WeeklyLimit(_buf_)
@@ -2395,9 +2420,7 @@ export namespace limit {
 
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DailyLimitBase {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 303235413: return new limit.DailyLimit(_buf_)
             default: throw new Error()
         }
@@ -2428,7 +2451,7 @@ export  class DailyLimit  extends limit.DailyLimitBase {
         this.num = _buf_.ReadInt();
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2451,8 +2474,8 @@ export  class MultiDayLimit  extends limit.LimitBase {
         this.num = _buf_.ReadInt();
     }
 
-    day: number
-    num: number
+    readonly day: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2474,7 +2497,7 @@ export  class WeeklyLimit  extends limit.LimitBase {
         this.num = _buf_.ReadInt();
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2496,7 +2519,7 @@ export  class MonthlyLimit  extends limit.LimitBase {
         this.num = _buf_.ReadInt();
     }
 
-    num: number
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2518,7 +2541,7 @@ export  class CoolDown  extends limit.LimitBase {
         this.duration = _buf_.ReadInt();
     }
 
-    duration: number
+    readonly duration: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2541,8 +2564,8 @@ export  class GroupCoolDown  extends limit.LimitBase {
         this.duration = _buf_.ReadInt();
     }
 
-    groupId: number
-    duration: number
+    readonly groupId: number
+    readonly duration: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2565,9 +2588,9 @@ export  class ErrorInfo  {
         this.style = error.ErrorStyle.constructorFrom(_buf_)
     }
 
-    code: string
-    desc: string
-    style?: error.ErrorStyle
+    readonly code: string
+    readonly desc: string
+    readonly style: error.ErrorStyle
 
     resolve(_tables: Map<string, any>) {
         if (this.style != null) { this.style.resolve(_tables);}
@@ -2584,9 +2607,7 @@ export namespace error {
 
 export  abstract  class ErrorStyle  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ErrorStyle {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1915239884: return new error.ErrorStyleTip(_buf_)
             case -1920482343: return new error.ErrorStyleMsgbox(_buf_)
             case -2010134516: return new error.ErrorStyleDlgOk(_buf_)
@@ -2639,8 +2660,8 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
         this.operation = _buf_.ReadInt();
     }
 
-    btnName: string
-    operation: error.EOperation
+    readonly btnName: string
+    readonly operation: error.EOperation
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2662,7 +2683,7 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
         this.btnName = _buf_.ReadString();
     }
 
-    btnName: string
+    readonly btnName: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2685,8 +2706,8 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
         this.btn2Name = _buf_.ReadString();
     }
 
-    btn1Name: string
-    btn2Name: string
+    readonly btn1Name: string
+    readonly btn2Name: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2708,8 +2729,8 @@ export  class CodeInfo  {
         this.key = _buf_.ReadString();
     }
 
-    code: error.EErrorCode
-    key: string
+    readonly code: error.EErrorCode
+    readonly key: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2748,26 +2769,26 @@ export  class Item  {
         if(_buf_.ReadBool()) { this.levelUpId = _buf_.ReadInt(); } else { this.levelUpId = null }
     }
 
-    id: number
-    name: string
-    majorType: item.EMajorType
-    minorType: item.EMinorType
-    quality: item.EItemQuality
-    icon: string
-    iconBackgroud: string
-    iconMask: string
-    desc: string
-    showOrder: number
-    quantifier: string
-    showInBag: boolean
-    minShowLevel: number
-    batchUsable: boolean
-    progressTimeWhenUse: number
-    showHintWhenUse: boolean
-    droppable: boolean
-    price?: number
-    useType: item.EUseType
-    levelUpId?: number
+    readonly id: number
+    readonly name: string
+    readonly majorType: item.EMajorType
+    readonly minorType: item.EMinorType
+    readonly quality: item.EItemQuality
+    readonly icon: string
+    readonly iconBackgroud: string
+    readonly iconMask: string
+    readonly desc: string
+    readonly showOrder: number
+    readonly quantifier: string
+    readonly showInBag: boolean
+    readonly minShowLevel: number
+    readonly batchUsable: boolean
+    readonly progressTimeWhenUse: number
+    readonly showHintWhenUse: boolean
+    readonly droppable: boolean
+    readonly price?: number
+    readonly useType: item.EUseType
+    readonly levelUpId?: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2790,10 +2811,10 @@ export  class ItemFunction  {
         this.closeBagUi = _buf_.ReadBool();
     }
 
-    minorType: item.EMinorType
-    funcType: item.EItemFunctionType
-    method: string
-    closeBagUi: boolean
+    readonly minorType: item.EMinorType
+    readonly funcType: item.EItemFunctionType
+    readonly method: string
+    readonly closeBagUi: boolean
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2809,9 +2830,7 @@ export namespace item {
 
 export  abstract  class ItemExtra  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ItemExtra {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1494222369: return new item.TreasureBox(_buf_)
             case 640937802: return new item.InteractionItem(_buf_)
             case 1659907149: return new item.Clothes(_buf_)
@@ -2825,7 +2844,7 @@ export  abstract  class ItemExtra  {
         this.id = _buf_.ReadInt();
     }
 
-    id: number
+    readonly id: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2850,11 +2869,11 @@ export  class TreasureBox  extends item.ItemExtra {
         { this.chooseList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :item.ChooseOneBonus;_e = new item.ChooseOneBonus(_buf_); this.chooseList.push(_e) } }
     }
 
-    keyItemId?: number
-    openLevel: condition.MinLevel
-    useOnObtain: boolean
-    dropIds: number[]
-    chooseList: item.ChooseOneBonus[]
+    readonly keyItemId?: number
+    readonly openLevel: condition.MinLevel
+    readonly useOnObtain: boolean
+    readonly dropIds: number[]
+    readonly chooseList: item.ChooseOneBonus[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2873,9 +2892,7 @@ export namespace condition {
 
 export  abstract  class Condition  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Condition {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 1069033789: return new condition.TimeRange(_buf_)
             case 934079583: return new condition.MultiRoleCondition(_buf_)
             case 103675143: return new condition.GenderLimit(_buf_)
@@ -2911,7 +2928,7 @@ export  class TimeRange  extends condition.Condition {
         this.dateTimeRange = new common.DateTimeRange(_buf_)
     }
 
-    dateTimeRange: common.DateTimeRange
+    readonly dateTimeRange: common.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2934,8 +2951,8 @@ export  class DateTimeRange  {
         if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt(); } else { this.endTime = null }
     }
 
-    startTime?: number
-    endTime?: number
+    readonly startTime?: number
+    readonly endTime?: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -2951,9 +2968,7 @@ export namespace condition {
 
 export  abstract  class RoleCondition  extends condition.Condition {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): RoleCondition {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 934079583: return new condition.MultiRoleCondition(_buf_)
             case 103675143: return new condition.GenderLimit(_buf_)
             case -1075273755: return new condition.MinLevel(_buf_)
@@ -2990,7 +3005,7 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.conditions = []; for(let i = 0 ; i < n ; i++) { let _e :condition.RoleCondition;_e = condition.RoleCondition.constructorFrom(_buf_); this.conditions.push(_e) } }
     }
 
-    conditions: condition.RoleCondition[]
+    readonly conditions: condition.RoleCondition[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3008,9 +3023,7 @@ export namespace condition {
 
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): BoolRoleCondition {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 103675143: return new condition.GenderLimit(_buf_)
             case -1075273755: return new condition.MinLevel(_buf_)
             case 700922899: return new condition.MaxLevel(_buf_)
@@ -3045,7 +3058,7 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
         this.gender = _buf_.ReadInt();
     }
 
-    gender: role.EGenderType
+    readonly gender: role.EGenderType
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3067,7 +3080,7 @@ export  class MinLevel  extends condition.BoolRoleCondition {
         this.level = _buf_.ReadInt();
     }
 
-    level: number
+    readonly level: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3089,7 +3102,7 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
         this.level = _buf_.ReadInt();
     }
 
-    level: number
+    readonly level: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3112,8 +3125,8 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
         this.max = _buf_.ReadInt();
     }
 
-    min: number
-    max: number
+    readonly min: number
+    readonly max: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3136,8 +3149,8 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
         this.value = _buf_.ReadInt();
     }
 
-    prop: item.EClothesPropertyType
-    value: number
+    readonly prop: item.EClothesPropertyType
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3161,10 +3174,10 @@ export  class ContainsItem  extends condition.RoleCondition {
         this.reverse = _buf_.ReadBool();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    num: number
-    reverse: boolean
+    readonly num: number
+    readonly reverse: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3187,9 +3200,9 @@ export  class ChooseOneBonus  {
         this.isUnique = _buf_.ReadBool();
     }
 
-    dropId: number
+    readonly dropId: number
     dropId_Ref : bonus.DropInfo
-    isUnique: boolean
+    readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
         this.dropId_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.dropId)
@@ -3213,9 +3226,9 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _buf_.ReadString();
     }
 
-    attackNum?: number
-    holdingStaticMesh: string
-    holdingStaticMeshMat: string
+    readonly attackNum?: number
+    readonly holdingStaticMesh: string
+    readonly holdingStaticMeshMat: string
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3240,10 +3253,10 @@ export  class Clothes  extends item.ItemExtra {
         this.energyResume = _buf_.ReadInt();
     }
 
-    attack: number
-    hp: bigint
-    energyLimit: number
-    energyResume: number
+    readonly attack: number
+    readonly hp: bigint
+    readonly energyLimit: number
+    readonly energyResume: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3265,7 +3278,7 @@ export  class DesignDrawing  extends item.ItemExtra {
         { this.learnComponentId = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.learnComponentId.push(_e) } }
     }
 
-    learnComponentId: number[]
+    readonly learnComponentId: number[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3287,7 +3300,7 @@ export  class Dymmy  extends item.ItemExtra {
         this.cost = cost.Cost.constructorFrom(_buf_)
     }
 
-    cost?: cost.Cost
+    readonly cost: cost.Cost
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3305,9 +3318,7 @@ export namespace cost {
 
 export  abstract  class Cost  {
     static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Cost {
-        switch (_buf_.ReadInt())
-        {
-            case 0: return null
+        switch (_buf_.ReadInt()) {
             case 911838111: return new cost.CostCurrency(_buf_)
             case 103084157: return new cost.CostCurrencies(_buf_)
             case -1033587381: return new cost.CostOneItem(_buf_)
@@ -3341,8 +3352,8 @@ export  class CostCurrency  extends cost.Cost {
         this.num = _buf_.ReadInt();
     }
 
-    type: item.ECurrencyType
-    num: number
+    readonly type: item.ECurrencyType
+    readonly num: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3364,7 +3375,7 @@ export  class CostCurrencies  extends cost.Cost {
         { this.currencies = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :cost.CostCurrency;_e = new cost.CostCurrency(_buf_); this.currencies.push(_e) } }
     }
 
-    currencies: cost.CostCurrency[]
+    readonly currencies: cost.CostCurrency[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3387,7 +3398,7 @@ export  class CostOneItem  extends cost.Cost {
         this.itemId = _buf_.ReadInt();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
 
     resolve(_tables: Map<string, any>) {
@@ -3412,9 +3423,9 @@ export  class CostItem  extends cost.Cost {
         this.amount = _buf_.ReadInt();
     }
 
-    itemId: number
+    readonly itemId: number
     itemId_Ref : item.Item
-    amount: number
+    readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3437,7 +3448,7 @@ export  class CostItems  extends cost.Cost {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :cost.CostItem;_e = new cost.CostItem(_buf_); this.itemList.push(_e) } }
     }
 
-    itemList: cost.CostItem[]
+    readonly itemList: cost.CostItem[]
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3460,8 +3471,8 @@ export  class L10NDemo  {
         this.text = _buf_.ReadString();
     }
 
-    id: number
-    text: string
+    readonly id: number
+    readonly text: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3482,8 +3493,8 @@ export  class PatchDemo  {
         this.value = _buf_.ReadInt();
     }
 
-    id: number
-    value: number
+    readonly id: number
+    readonly value: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3507,11 +3518,11 @@ export  class SystemMail  {
         { this.award = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.award.push(_e) } }
     }
 
-    id: number
-    title: string
-    sender: string
-    content: string
-    award: number[]
+    readonly id: number
+    readonly title: string
+    readonly sender: string
+    readonly content: string
+    readonly award: number[]
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3542,18 +3553,18 @@ export  class GlobalMail  {
         this.mailTime = new condition.TimeRange(_buf_)
     }
 
-    id: number
-    title: string
-    sender: string
-    content: string
-    award: number[]
-    allServer: boolean
-    serverList: number[]
-    platform: string
-    channel: string
-    minMaxLevel: condition.MinMaxLevel
-    registerTime: condition.TimeRange
-    mailTime: condition.TimeRange
+    readonly id: number
+    readonly title: string
+    readonly sender: string
+    readonly content: string
+    readonly award: number[]
+    readonly allServer: boolean
+    readonly serverList: number[]
+    readonly platform: string
+    readonly channel: string
+    readonly minMaxLevel: condition.MinMaxLevel
+    readonly registerTime: condition.TimeRange
+    readonly mailTime: condition.TimeRange
 
     resolve(_tables: Map<string, any>) {
         if (this.minMaxLevel != null) { this.minMaxLevel.resolve(_tables);}
@@ -3578,9 +3589,9 @@ export  class LevelExpAttr  {
         { this.clothesAttrs = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.clothesAttrs.push(_e) } }
     }
 
-    level: number
-    needExp: bigint
-    clothesAttrs: number[]
+    readonly level: number
+    readonly needExp: bigint
+    readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3601,8 +3612,8 @@ export  class LevelBonus  {
         { this.distinctBonusInfos = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.DistinctBonusInfos;_e = new role.DistinctBonusInfos(_buf_); this.distinctBonusInfos.push(_e) } }
     }
 
-    id: number
-    distinctBonusInfos: role.DistinctBonusInfos[]
+    readonly id: number
+    readonly distinctBonusInfos: role.DistinctBonusInfos[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.distinctBonusInfos) { if (_e != null ) {_e.resolve(_tables);} }
@@ -3624,8 +3635,8 @@ export  class DistinctBonusInfos  {
         { this.bonusInfo = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.BonusInfo;_e = new role.BonusInfo(_buf_); this.bonusInfo.push(_e) } }
     }
 
-    effectiveLevel: number
-    bonusInfo: role.BonusInfo[]
+    readonly effectiveLevel: number
+    readonly bonusInfo: role.BonusInfo[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.bonusInfo) { if (_e != null ) {_e.resolve(_tables);} }
@@ -3647,8 +3658,8 @@ export  class BonusInfo  {
         this.coefficient = _buf_.ReadFloat();
     }
 
-    type: item.ECurrencyType
-    coefficient: number
+    readonly type: item.ECurrencyType
+    readonly coefficient: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3669,8 +3680,8 @@ export  class TestTag  {
         this.value = _buf_.ReadString();
     }
 
-    id: number
-    value: string
+    readonly id: number
+    readonly value: string
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3679,9 +3690,491 @@ export  class TestTag  {
 }
 
 
+
+
+
+export namespace test {
+
+export  class DemoType2  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.x4 = _buf_.ReadInt();
+        this.x1 = _buf_.ReadBool();
+        this.x2 = _buf_.ReadByte();
+        this.x3 = _buf_.ReadShort();
+        this.x5 = _buf_.ReadLong();
+        this.x6 = _buf_.ReadFloat();
+        this.x7 = _buf_.ReadDouble();
+        this.x80 = _buf_.ReadFshort();
+        this.x8 = _buf_.ReadFint();
+        this.x9 = _buf_.ReadFlong();
+        this.x10 = _buf_.ReadString();
+        this.x12 = new test.DemoType1(_buf_)
+        this.x13 = _buf_.ReadInt();
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.s1 = _buf_.ReadString();
+        this.v2 = Vector2.from(_buf_)
+        this.v3 = Vector3.from(_buf_)
+        this.v4 = Vector4.from(_buf_)
+        this.t1 = _buf_.ReadInt();
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k1[i] = _e } }
+        { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k2.push(_e) } }
+        { this.k3 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k3.push(_e) } }
+        { this.k4 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k4.push(_e) } }
+        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k5.add(_e);}}
+        { this.k6 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k6.add(_e);}}
+        { this.k7 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k7.add(_e);}}
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number;  _k = _buf_.ReadInt();;  let _v:number;  _v = _buf_.ReadInt();     this.k8.set(_k, _v);  } }
+        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2;_e = new test.DemoE2(_buf_); this.k9.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    x3_Ref : test.DemoType2
+    readonly x5: bigint
+    readonly x6: number
+    readonly x7: number
+    readonly x80: number
+    readonly x8: number
+    readonly x9: bigint
+    readonly x10: string
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly s1: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+    readonly k1: Int32Array
+    readonly k2: number[]
+    readonly k3: number[]
+    readonly k4: number[]
+    readonly k5: Set<number>
+    readonly k6: Set<number>
+    readonly k7: Set<number>
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(_tables: Map<string, any>) {
+        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)
+        if (this.x12 != null) { this.x12.resolve(_tables);}
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.k15) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoType1  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.x1 = _buf_.ReadInt();
+    }
+
+    readonly x1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  abstract  class DemoDynamic  {
+    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DemoDynamic {
+        switch (_buf_.ReadInt()) {
+            case -2138341747: return new test.DemoD2(_buf_)
+            case -2138341717: return new test.DemoE1(_buf_)
+            case -2138341744: return new test.DemoD5(_buf_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.x1 = _buf_.ReadInt();
+    }
+
+    readonly x1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoD2  extends test.DemoDynamic {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        super(_buf_)
+        this.x2 = _buf_.ReadInt();
+    }
+
+    readonly x2: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  abstract  class DemoD3  extends test.DemoDynamic {
+    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DemoD3 {
+        switch (_buf_.ReadInt()) {
+            case -2138341717: return new test.DemoE1(_buf_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        super(_buf_)
+        this.x3 = _buf_.ReadInt();
+    }
+
+    readonly x3: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoE1  extends test.DemoD3 {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        super(_buf_)
+        this.x4 = _buf_.ReadInt();
+    }
+
+    readonly x4: number
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoD5  extends test.DemoDynamic {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        super(_buf_)
+        this.time = new test.DateTimeRange(_buf_)
+    }
+
+    readonly time: test.DateTimeRange
+
+    resolve(_tables: Map<string, any>) {
+        super.resolve(_tables)
+        if (this.time != null) { this.time.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DateTimeRange  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.startTime = _buf_.ReadInt();
+        this.endTime = _buf_.ReadInt();
+    }
+
+    readonly startTime: number
+    readonly endTime: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoE2  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        if(_buf_.ReadBool()) { this.y1 = _buf_.ReadInt(); } else { this.y1 = null }
+        this.y2 = _buf_.ReadBool();
+    }
+
+    readonly y1?: number
+    readonly y2: boolean
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoSingletonType  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        this.date = test.DemoDynamic.constructorFrom(_buf_)
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly date: test.DemoDynamic
+
+    resolve(_tables: Map<string, any>) {
+        if (this.date != null) { this.date.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowRecord  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
+        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
+        { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_) this.multiRows3.add(_e);}}
+        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number;  _k = _buf_.ReadInt();;  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_buf_)     this.multiRows4.set(_k, _v);  } }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly oneRows: test.MultiRowType1[]
+    readonly multiRows1: test.MultiRowType1[]
+    readonly multiRows2: test.MultiRowType1[]
+    readonly multiRows3: Set<test.MultiRowType2>
+    readonly multiRows4: Map<number, test.MultiRowType2>
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
+        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType1  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.x = _buf_.ReadInt();
+    }
+
+    readonly id: number
+    readonly x: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType2  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.x = _buf_.ReadInt();
+        this.y = _buf_.ReadFloat();
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowTitle  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        this.x1 = new test.H1(_buf_)
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x2.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly x1: test.H1
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H1  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.y2 = new test.H2(_buf_)
+        this.y3 = _buf_.ReadInt();
+    }
+
+    readonly y2: test.H2
+    readonly y3: number
+
+    resolve(_tables: Map<string, any>) {
+        if (this.y2 != null) { this.y2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H2  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.z2 = _buf_.ReadInt();
+        this.z3 = _buf_.ReadInt();
+    }
+
+    readonly z2: number
+    readonly z3: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestNull  {
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this.id = _buf_.ReadInt();
+        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt(); } else { this.x1 = null }
+        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt(); } else { this.x2 = null }
+        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null }
+        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null }
+    }
+
+    readonly id: number
+    readonly x1?: number
+    readonly x2?: test.DemoEnum
+    readonly x3?: test.DemoType1
+    readonly x4?: test.DemoDynamic
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x3 != null) { this.x3.resolve(_tables);}
+        if (this.x4 != null) { this.x4.resolve(_tables);}
+    }
+}
+
+}
+
+
    
 export namespace ai {
-export class TbBlackboard{
+export class TbBlackboard {
     private _dataMap: Map<string, ai.Blackboard>
     private _dataList: ai.Blackboard[]
     
@@ -3715,7 +4208,7 @@ export class TbBlackboard{
 
    
 export namespace ai {
-export class TbBehaviorTree{
+export class TbBehaviorTree {
     private _dataMap: Map<number, ai.BehaviorTree>
     private _dataList: ai.BehaviorTree[]
     
@@ -3749,7 +4242,7 @@ export class TbBehaviorTree{
 
    
 export namespace blueprint {
-export class TbClazz{
+export class TbClazz {
     private _dataMap: Map<string, blueprint.Clazz>
     private _dataList: blueprint.Clazz[]
     
@@ -3783,7 +4276,7 @@ export class TbClazz{
 
    
 export namespace bonus {
-export class TbDrop{
+export class TbDrop {
     private _dataMap: Map<number, bonus.DropInfo>
     private _dataList: bonus.DropInfo[]
     
@@ -3817,7 +4310,7 @@ export class TbDrop{
 
    
 export namespace common {
-export class TbGlobalConfig{
+export class TbGlobalConfig {
 
      private _data: common.GlobalConfig
 
@@ -3861,7 +4354,7 @@ export class TbGlobalConfig{
 
    
 export namespace common {
-export class TbDummy{
+export class TbDummy {
     private _dataMap: Map<number, common.Dummy>
     private _dataList: common.Dummy[]
     
@@ -3895,7 +4388,7 @@ export class TbDummy{
 
    
 export namespace error {
-export class TbErrorInfo{
+export class TbErrorInfo {
     private _dataMap: Map<string, error.ErrorInfo>
     private _dataList: error.ErrorInfo[]
     
@@ -3929,7 +4422,7 @@ export class TbErrorInfo{
 
    
 export namespace error {
-export class TbCodeInfo{
+export class TbCodeInfo {
     private _dataMap: Map<error.EErrorCode, error.CodeInfo>
     private _dataList: error.CodeInfo[]
     
@@ -3963,7 +4456,7 @@ export class TbCodeInfo{
 
    
 export namespace item {
-export class TbItem{
+export class TbItem {
     private _dataMap: Map<number, item.Item>
     private _dataList: item.Item[]
     
@@ -3997,7 +4490,7 @@ export class TbItem{
 
    
 export namespace item {
-export class TbItemFunc{
+export class TbItemFunc {
     private _dataMap: Map<item.EMinorType, item.ItemFunction>
     private _dataList: item.ItemFunction[]
     
@@ -4031,7 +4524,7 @@ export class TbItemFunc{
 
    
 export namespace item {
-export class TbItemExtra{
+export class TbItemExtra {
     private _dataMap: Map<number, item.ItemExtra>
     private _dataList: item.ItemExtra[]
     
@@ -4065,7 +4558,7 @@ export class TbItemExtra{
 
    
 export namespace l10n {
-export class TbL10NDemo{
+export class TbL10NDemo {
     private _dataMap: Map<number, l10n.L10NDemo>
     private _dataList: l10n.L10NDemo[]
     
@@ -4099,7 +4592,7 @@ export class TbL10NDemo{
 
    
 export namespace l10n {
-export class TbPatchDemo{
+export class TbPatchDemo {
     private _dataMap: Map<number, l10n.PatchDemo>
     private _dataList: l10n.PatchDemo[]
     
@@ -4133,7 +4626,7 @@ export class TbPatchDemo{
 
    
 export namespace mail {
-export class TbSystemMail{
+export class TbSystemMail {
     private _dataMap: Map<number, mail.SystemMail>
     private _dataList: mail.SystemMail[]
     
@@ -4167,7 +4660,7 @@ export class TbSystemMail{
 
    
 export namespace mail {
-export class TbGlobalMail{
+export class TbGlobalMail {
     private _dataMap: Map<number, mail.GlobalMail>
     private _dataList: mail.GlobalMail[]
     
@@ -4201,7 +4694,7 @@ export class TbGlobalMail{
 
    
 export namespace role {
-export class TbRoleLevelExpAttr{
+export class TbRoleLevelExpAttr {
     private _dataMap: Map<number, role.LevelExpAttr>
     private _dataList: role.LevelExpAttr[]
     
@@ -4235,7 +4728,7 @@ export class TbRoleLevelExpAttr{
 
    
 export namespace role {
-export class TbRoleLevelBonusCoefficient{
+export class TbRoleLevelBonusCoefficient {
     private _dataMap: Map<number, role.LevelBonus>
     private _dataList: role.LevelBonus[]
     
@@ -4269,7 +4762,7 @@ export class TbRoleLevelBonusCoefficient{
 
    
 export namespace tag {
-export class TbTestTag{
+export class TbTestTag {
     private _dataMap: Map<number, tag.TestTag>
     private _dataList: tag.TestTag[]
     
@@ -4289,6 +4782,270 @@ export class TbTestTag{
     getDataList(): tag.TestTag[] { return this._dataList }
 
     get(key: number): tag.TestTag  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbFullTypes {
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x3, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
+    getDataList(): test.DemoType2[] { return this._dataList }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbSingleton {
+
+     private _data: test.DemoSingletonType
+
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.DemoSingletonType(_buf_)
+    }
+
+    getData(): test.DemoSingletonType { return this._data }
+
+     get id(): number { return this._data.id }
+     get name(): string { return this._data.name }
+     get date(): test.DemoDynamic { return this._data.date }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromJson {
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
+    getDataList(): test.DemoType2[] { return this._dataList }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromXml {
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
+    getDataList(): test.DemoType2[] { return this._dataList }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDataFromLua {
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
+    getDataList(): test.DemoType2[] { return this._dataList }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbMultiRowRecord {
+    private _dataMap: Map<number, test.MultiRowRecord>
+    private _dataList: test.MultiRowRecord[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.MultiRowRecord>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.MultiRowRecord
+            _v = new test.MultiRowRecord(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.MultiRowRecord> { return this._dataMap }
+    getDataList(): test.MultiRowRecord[] { return this._dataList }
+
+    get(key: number): test.MultiRowRecord  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbMultiRowTitle {
+    private _dataMap: Map<number, test.MultiRowTitle>
+    private _dataList: test.MultiRowTitle[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.MultiRowTitle>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.MultiRowTitle
+            _v = new test.MultiRowTitle(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.MultiRowTitle> { return this._dataMap }
+    getDataList(): test.MultiRowTitle[] { return this._dataList }
+
+    get(key: number): test.MultiRowTitle  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbTestNull {
+    private _dataMap: Map<number, test.TestNull>
+    private _dataList: test.TestNull[]
+    
+    constructor(_buf_: Bright.Serialization.ByteBuf) {
+        this._dataMap = new Map<number, test.TestNull>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestNull
+            _v = new test.TestNull(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestNull> { return this._dataMap }
+    getDataList(): test.TestNull[] { return this._dataList }
+
+    get(key: number): test.TestNull  { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4342,6 +5099,22 @@ export class Tables {
     get TbRoleLevelBonusCoefficient(): role.TbRoleLevelBonusCoefficient  { return this._TbRoleLevelBonusCoefficient}
     private _TbTestTag: tag.TbTestTag
     get TbTestTag(): tag.TbTestTag  { return this._TbTestTag}
+    private _TbFullTypes: test.TbFullTypes
+    get TbFullTypes(): test.TbFullTypes  { return this._TbFullTypes}
+    private _TbSingleton: test.TbSingleton
+    get TbSingleton(): test.TbSingleton  { return this._TbSingleton}
+    private _TbDataFromJson: test.TbDataFromJson
+    get TbDataFromJson(): test.TbDataFromJson  { return this._TbDataFromJson}
+    private _TbDataFromXml: test.TbDataFromXml
+    get TbDataFromXml(): test.TbDataFromXml  { return this._TbDataFromXml}
+    private _TbDataFromLua: test.TbDataFromLua
+    get TbDataFromLua(): test.TbDataFromLua  { return this._TbDataFromLua}
+    private _TbMultiRowRecord: test.TbMultiRowRecord
+    get TbMultiRowRecord(): test.TbMultiRowRecord  { return this._TbMultiRowRecord}
+    private _TbMultiRowTitle: test.TbMultiRowTitle
+    get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle}
+    private _TbTestNull: test.TbTestNull
+    get TbTestNull(): test.TbTestNull  { return this._TbTestNull}
 
     constructor(loader: ByteBufLoader) {
         let tables = new Map<string, any>()
@@ -4381,6 +5154,22 @@ export class Tables {
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
         this._TbTestTag = new tag.TbTestTag(loader('tag.TbTestTag.bin')) 
         tables.set('tag.TbTestTag', this._TbTestTag)
+        this._TbFullTypes = new test.TbFullTypes(loader('test.TbFullTypes.bin')) 
+        tables.set('test.TbFullTypes', this._TbFullTypes)
+        this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton.bin')) 
+        tables.set('test.TbSingleton', this._TbSingleton)
+        this._TbDataFromJson = new test.TbDataFromJson(loader('test.TbDataFromJson.bin')) 
+        tables.set('test.TbDataFromJson', this._TbDataFromJson)
+        this._TbDataFromXml = new test.TbDataFromXml(loader('test.TbDataFromXml.bin')) 
+        tables.set('test.TbDataFromXml', this._TbDataFromXml)
+        this._TbDataFromLua = new test.TbDataFromLua(loader('test.TbDataFromLua.bin')) 
+        tables.set('test.TbDataFromLua', this._TbDataFromLua)
+        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord.bin')) 
+        tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord)
+        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle.bin')) 
+        tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
+        this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.bin')) 
+        tables.set('test.TbTestNull', this._TbTestNull)
 
         this._TbBlackboard.resolve(tables) 
         this._TbBehaviorTree.resolve(tables) 
@@ -4400,6 +5189,14 @@ export class Tables {
         this._TbRoleLevelExpAttr.resolve(tables) 
         this._TbRoleLevelBonusCoefficient.resolve(tables) 
         this._TbTestTag.resolve(tables) 
+        this._TbFullTypes.resolve(tables) 
+        this._TbSingleton.resolve(tables) 
+        this._TbDataFromJson.resolve(tables) 
+        this._TbDataFromXml.resolve(tables) 
+        this._TbDataFromLua.resolve(tables) 
+        this._TbMultiRowRecord.resolve(tables) 
+        this._TbMultiRowTitle.resolve(tables) 
+        this._TbTestNull.resolve(tables) 
     }
 }
 

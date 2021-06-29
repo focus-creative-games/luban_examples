@@ -29,21 +29,17 @@ public sealed partial class DebugPrint :  ai.Task
 
     public static DebugPrint DeserializeDebugPrint(ByteBuf _buf)
     {
-    
         return new ai.DebugPrint(_buf);
-    
     }
 
     public readonly string Text;
 
-
     public const int ID = 1357409728;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

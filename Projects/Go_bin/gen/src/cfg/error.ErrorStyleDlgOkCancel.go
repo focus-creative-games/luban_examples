@@ -18,22 +18,17 @@ type Error_ErrorStyleDlgOkCancel struct {
     Btn2Name string
 }
 
-
 func (Error_ErrorStyleDlgOkCancel) GetTypeId() int {
     return 971221414
 }
 
-
 func NewError_ErrorStyleDlgOkCancel(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleDlgOkCancel, err error) {
     _v = &Error_ErrorStyleDlgOkCancel{}
-
     var _p *Error_ErrorStyle
      if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
-
     if _v.Btn1Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Btn2Name, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

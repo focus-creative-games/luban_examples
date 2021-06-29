@@ -31,22 +31,18 @@ public final class ProbabilityItemInfo extends  bright.serialization.AbstractBea
 
     public static ProbabilityItemInfo deserializeProbabilityItemInfo(ByteBuf _buf)
     {
-    
         return new ProbabilityItemInfo(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-     public final int num;
-     public final float probability;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
+    public final int num;
+    public final float probability;
 
     public static final int ID = 1547874631;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -62,7 +58,6 @@ public final class ProbabilityItemInfo extends  bright.serialization.AbstractBea
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

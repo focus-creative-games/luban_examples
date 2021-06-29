@@ -23,25 +23,21 @@ public final class WeeklyLimit extends  cfg.limit.LimitBase
 
     public WeeklyLimit(int num )
     {
-            super();
+        super();
         this.num = num;
     }
 
     public static WeeklyLimit deserializeWeeklyLimit(ByteBuf _buf)
     {
-    
         return new WeeklyLimit(_buf);
-    
     }
 
-     public final int num;
-
+    public final int num;
 
     public static final int ID = -252187161;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class WeeklyLimit extends  cfg.limit.LimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

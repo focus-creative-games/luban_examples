@@ -25,10 +25,8 @@ public abstract class Cost extends  bright.serialization.AbstractBean
 
     public static Cost deserializeCost(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.cost.CostCurrency.ID: return new cfg.cost.CostCurrency(_buf);
             case cfg.cost.CostCurrencies.ID: return new cfg.cost.CostCurrencies(_buf);
             case cfg.cost.CostOneItem.ID: return new cfg.cost.CostOneItem(_buf);
@@ -36,9 +34,7 @@ public abstract class Cost extends  bright.serialization.AbstractBean
             case cfg.cost.CostItems.ID: return new cfg.cost.CostItems(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -56,7 +52,6 @@ public abstract class Cost extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

@@ -49,7 +49,6 @@ public sealed partial class TbErrorInfo
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Blueprint_Clazz struct {
-    
     Name string
     Desc string
     Parents []interface{}
@@ -21,10 +20,8 @@ type Blueprint_Clazz struct {
 }
 
 
-
 func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err error) {
     _v = &Blueprint_Clazz{}
-
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     if _v.Parents, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
@@ -51,19 +48,16 @@ func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err e
                 }(_buf); err != nil  { return } 
     return
 }
-
 func NewChildBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 2114170750: return NewBlueprint_Interface(_buf);
             case -2073576778: return NewBlueprint_NormalClazz(_buf);
             case 1827364892: return NewBlueprint_EnumClazz(_buf);
     }
     return
 }
-
 

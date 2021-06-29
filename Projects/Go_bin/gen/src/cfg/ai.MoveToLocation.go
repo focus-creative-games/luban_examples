@@ -18,22 +18,17 @@ type Ai_MoveToLocation struct {
     AcceptableRadius float32
 }
 
-
 func (Ai_MoveToLocation) GetTypeId() int {
     return -969953113
 }
 
-
 func NewAi_MoveToLocation(_buf *serialization.ByteBuf) (_v *Ai_MoveToLocation, err error) {
     _v = &Ai_MoveToLocation{}
-
     var _p *Ai_Task
      if _p, err = NewAi_Task(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
-
     if _v.Location, err = _buf.ReadVector3(); err != nil  { return } 
     if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

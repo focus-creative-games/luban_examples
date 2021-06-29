@@ -49,7 +49,6 @@ public sealed partial class TbCodeInfo
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

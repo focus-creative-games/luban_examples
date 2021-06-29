@@ -28,20 +28,16 @@ public sealed partial class IsSet :  ai.KeyQueryOperator
 
     public static IsSet DeserializeIsSet(JsonElement _buf)
     {
-    
         return new ai.IsSet(_buf);
-    
     }
-
 
 
     public const int ID = 1635350898;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -17,21 +17,16 @@ type Bonus_DropBonus struct {
     Id int32
 }
 
-
 func (Bonus_DropBonus) GetTypeId() int {
     return 1959868225
 }
 
-
 func NewBonus_DropBonus(_buf *serialization.ByteBuf) (_v *Bonus_DropBonus, err error) {
     _v = &Bonus_DropBonus{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

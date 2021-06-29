@@ -27,10 +27,8 @@ public abstract partial class Cost :  Bright.Config.BeanBase
 
     public static Cost DeserializeCost(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case cost.CostCurrency.ID: return new cost.CostCurrency(_buf);
             case cost.CostCurrencies.ID: return new cost.CostCurrencies(_buf);
             case cost.CostOneItem.ID: return new cost.CostOneItem(_buf);
@@ -38,15 +36,12 @@ public abstract partial class Cost :  Bright.Config.BeanBase
             case cost.CostItems.ID: return new cost.CostItems(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

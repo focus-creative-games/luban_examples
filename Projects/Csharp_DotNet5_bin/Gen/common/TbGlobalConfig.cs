@@ -55,7 +55,6 @@ public sealed partial class TbGlobalConfig
         OnResolveFinish(_tables);
     }
 
-    
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }

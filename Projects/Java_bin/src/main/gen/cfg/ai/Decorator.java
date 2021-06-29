@@ -23,16 +23,14 @@ public abstract class Decorator extends  cfg.ai.Node
 
     public Decorator(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.flowAbortMode = flow_abort_mode;
     }
 
     public static Decorator deserializeDecorator(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.UeLoop.ID: return new cfg.ai.UeLoop(_buf);
             case cfg.ai.UeCooldown.ID: return new cfg.ai.UeCooldown(_buf);
             case cfg.ai.UeTimeLimit.ID: return new cfg.ai.UeTimeLimit(_buf);
@@ -42,11 +40,9 @@ public abstract class Decorator extends  cfg.ai.Node
             case cfg.ai.DistanceLessThan.ID: return new cfg.ai.DistanceLessThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final cfg.ai.EFlowAbortMode flowAbortMode;
-
+    public final cfg.ai.EFlowAbortMode flowAbortMode;
 
 
     @Override
@@ -63,7 +59,7 @@ public abstract class Decorator extends  cfg.ai.Node
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

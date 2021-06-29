@@ -30,8 +30,6 @@ public abstract partial class Task :  ai.FlowNode
 
     public static Task DeserializeTask(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "UeWait": return new ai.UeWait(_buf);
@@ -43,16 +41,14 @@ public abstract partial class Task :  ai.FlowNode
             case "DebugPrint": return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly bool IgnoreRestartSelf;
 
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -22,23 +22,19 @@ public final class Interface extends  cfg.blueprint.Clazz
 
     public Interface(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods )
     {
-            super(name, desc, parents, methods);
+        super(name, desc, parents, methods);
     }
 
     public static Interface deserializeInterface(ByteBuf _buf)
     {
-    
         return new Interface(_buf);
-    
     }
-
 
 
     public static final int ID = 2114170750;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -54,7 +50,7 @@ public final class Interface extends  cfg.blueprint.Clazz
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

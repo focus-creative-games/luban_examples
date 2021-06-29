@@ -31,22 +31,17 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 
     public static WeightBonusInfo DeserializeWeightBonusInfo(ByteBuf _buf)
     {
-    
         return new bonus.WeightBonusInfo(_buf);
-    
     }
 
     public readonly bonus.Bonus Bonus;
     public readonly int Weight;
 
-
     public const int ID = -907244058;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

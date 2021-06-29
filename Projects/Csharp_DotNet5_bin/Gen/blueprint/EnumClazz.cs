@@ -29,21 +29,17 @@ public sealed partial class EnumClazz :  blueprint.Clazz
 
     public static EnumClazz DeserializeEnumClazz(ByteBuf _buf)
     {
-    
         return new blueprint.EnumClazz(_buf);
-    
     }
 
     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
-
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Enums) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

@@ -30,21 +30,17 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
 
     public static BlackboardKeyData DeserializeBlackboardKeyData(JsonElement _buf)
     {
-    
         return new ai.BlackboardKeyData(_buf);
-    
     }
 
     public readonly string Value;
 
-
     public const int ID = 1517269500;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

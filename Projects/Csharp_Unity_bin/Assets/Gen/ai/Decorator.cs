@@ -29,10 +29,8 @@ public abstract partial class Decorator :  ai.Node
 
     public static Decorator DeserializeDecorator(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.UeLoop.ID: return new ai.UeLoop(_buf);
             case ai.UeCooldown.ID: return new ai.UeCooldown(_buf);
             case ai.UeTimeLimit.ID: return new ai.UeTimeLimit(_buf);
@@ -42,16 +40,14 @@ public abstract partial class Decorator :  ai.Node
             case ai.DistanceLessThan.ID: return new ai.DistanceLessThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly ai.EFlowAbortMode FlowAbortMode;
 
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

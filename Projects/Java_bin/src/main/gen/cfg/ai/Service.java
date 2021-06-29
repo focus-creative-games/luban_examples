@@ -22,15 +22,13 @@ public abstract class Service extends  cfg.ai.Node
 
     public Service(int id, String node_name )
     {
-            super(id, node_name);
+        super(id, node_name);
     }
 
     public static Service deserializeService(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.UeSetDefaultFocus.ID: return new cfg.ai.UeSetDefaultFocus(_buf);
             case cfg.ai.ExecuteTimeStatistic.ID: return new cfg.ai.ExecuteTimeStatistic(_buf);
             case cfg.ai.ChooseTarget.ID: return new cfg.ai.ChooseTarget(_buf);
@@ -39,9 +37,7 @@ public abstract class Service extends  cfg.ai.Node
             case cfg.ai.UpdateDailyBehaviorProps.ID: return new cfg.ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -59,7 +55,7 @@ public abstract class Service extends  cfg.ai.Node
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

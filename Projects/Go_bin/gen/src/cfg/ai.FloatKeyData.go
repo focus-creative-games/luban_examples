@@ -17,21 +17,16 @@ type Ai_FloatKeyData struct {
     Value float32
 }
 
-
 func (Ai_FloatKeyData) GetTypeId() int {
     return -719747885
 }
 
-
 func NewAi_FloatKeyData(_buf *serialization.ByteBuf) (_v *Ai_FloatKeyData, err error) {
     _v = &Ai_FloatKeyData{}
-
     var _p *Ai_KeyData
      if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
-
     if _v.Value, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

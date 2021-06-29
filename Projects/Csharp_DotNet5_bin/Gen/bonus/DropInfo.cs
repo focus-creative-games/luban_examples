@@ -35,9 +35,7 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
 
     public static DropInfo DeserializeDropInfo(ByteBuf _buf)
     {
-    
         return new bonus.DropInfo(_buf);
-    
     }
 
     public readonly int Id;
@@ -45,14 +43,11 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
     public readonly bonus.Bonus Bonus;
 
-
     public const int ID = -2014781108;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);

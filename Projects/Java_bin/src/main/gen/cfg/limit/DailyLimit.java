@@ -23,25 +23,21 @@ public final class DailyLimit extends  cfg.limit.DailyLimitBase
 
     public DailyLimit(int num )
     {
-            super();
+        super();
         this.num = num;
     }
 
     public static DailyLimit deserializeDailyLimit(ByteBuf _buf)
     {
-    
         return new DailyLimit(_buf);
-    
     }
 
-     public final int num;
-
+    public final int num;
 
     public static final int ID = 303235413;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class DailyLimit extends  cfg.limit.DailyLimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Common_GlobalConfig struct {
-    
     BagCapacity int32
     BagCapacitySpecial int32
     BagTempExpendableCapacity int32
@@ -37,15 +36,12 @@ type Common_GlobalConfig struct {
     PerVialityRecoveryTime int32
 }
 
-
 func (Common_GlobalConfig) GetTypeId() int {
     return -848234488
 }
 
-
 func NewCommon_GlobalConfig(_buf *serialization.ByteBuf) (_v *Common_GlobalConfig, err error) {
     _v = &Common_GlobalConfig{}
-
     if _v.BagCapacity, err = _buf.ReadInt(); err != nil  { return } 
     if _v.BagCapacitySpecial, err = _buf.ReadInt(); err != nil  { return } 
     if _v.BagTempExpendableCapacity, err = _buf.ReadInt(); err != nil  { return } 
@@ -69,5 +65,4 @@ func NewCommon_GlobalConfig(_buf *serialization.ByteBuf) (_v *Common_GlobalConfi
     if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

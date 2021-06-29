@@ -17,19 +17,15 @@ type Bonus_MultiBonus struct {
     Bonuses []interface{}
 }
 
-
 func (Bonus_MultiBonus) GetTypeId() int {
     return 1421907893
 }
 
-
 func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err error) {
     _v = &Bonus_MultiBonus{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.Bonuses, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
                 _v2 = make([]interface{}, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err
                 }(_buf); err != nil  { return } 
     return
 }
-
 

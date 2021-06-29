@@ -30,8 +30,6 @@ public abstract partial class Decorator :  ai.Node
 
     public static Decorator DeserializeDecorator(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "UeLoop": return new ai.UeLoop(_buf);
@@ -43,16 +41,14 @@ public abstract partial class Decorator :  ai.Node
             case "DistanceLessThan": return new ai.DistanceLessThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly ai.EFlowAbortMode FlowAbortMode;
 
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

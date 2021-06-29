@@ -25,10 +25,8 @@ public abstract class Condition extends  bright.serialization.AbstractBean
 
     public static Condition deserializeCondition(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.condition.TimeRange.ID: return new cfg.condition.TimeRange(_buf);
             case cfg.condition.MultiRoleCondition.ID: return new cfg.condition.MultiRoleCondition(_buf);
             case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
@@ -39,9 +37,7 @@ public abstract class Condition extends  bright.serialization.AbstractBean
             case cfg.condition.ContainsItem.ID: return new cfg.condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -59,7 +55,6 @@ public abstract class Condition extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

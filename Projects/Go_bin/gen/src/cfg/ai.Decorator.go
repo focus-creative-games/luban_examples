@@ -18,25 +18,20 @@ type Ai_Decorator struct {
 }
 
 
-
 func NewAi_Decorator(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err error) {
     _v = &Ai_Decorator{}
-
     var _p *Ai_Node
      if _p, err = NewAi_Node(_buf) ; err != nil { return }
     _v.Ai_Node = *_p
-
     if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case -513308166: return NewAi_UeLoop(_buf);
             case -951439423: return NewAi_UeCooldown(_buf);
             case 338469720: return NewAi_UeTimeLimit(_buf);
@@ -47,5 +42,4 @@ func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err erro
     }
     return
 }
-
 

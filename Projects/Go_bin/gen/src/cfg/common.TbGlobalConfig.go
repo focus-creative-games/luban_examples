@@ -11,7 +11,6 @@ package cfg
 import "bright/serialization"
 
 
-
 import "errors"
 
 type Common_TbGlobalConfig struct {
@@ -35,5 +34,4 @@ func NewCommon_TbGlobalConfig(_buf *serialization.ByteBuf) (*Common_TbGlobalConf
 func (table *Common_TbGlobalConfig) Get() *Common_GlobalConfig {
     return table._data
 }
-
 

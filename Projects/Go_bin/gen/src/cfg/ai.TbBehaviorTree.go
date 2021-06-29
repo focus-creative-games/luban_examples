@@ -47,4 +47,3 @@ func (table *Ai_TbBehaviorTree) Get(key int32) *Ai_BehaviorTree {
 }
 
 
-

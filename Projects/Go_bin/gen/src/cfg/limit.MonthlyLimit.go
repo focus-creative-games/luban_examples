@@ -17,21 +17,16 @@ type Limit_MonthlyLimit struct {
     Num int32
 }
 
-
 func (Limit_MonthlyLimit) GetTypeId() int {
     return 2063279905
 }
 
-
 func NewLimit_MonthlyLimit(_buf *serialization.ByteBuf) (_v *Limit_MonthlyLimit, err error) {
     _v = &Limit_MonthlyLimit{}
-
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

@@ -32,8 +32,6 @@ public abstract partial class FlowNode :  ai.Node
 
     public static FlowNode DeserializeFlowNode(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "Sequence": return new ai.Sequence(_buf);
@@ -48,17 +46,15 @@ public abstract partial class FlowNode :  ai.Node
             case "DebugPrint": return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
     public readonly System.Collections.Generic.List<ai.Service> Services;
 
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);

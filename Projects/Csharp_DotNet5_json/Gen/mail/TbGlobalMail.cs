@@ -50,7 +50,6 @@ public sealed partial class TbGlobalMail
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

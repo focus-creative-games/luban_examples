@@ -30,21 +30,17 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(JsonElement _buf)
     {
-    
         return new ai.UeWaitBlackboardTime(_buf);
-    
     }
 
     public readonly string BlackboardKey;
 
-
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

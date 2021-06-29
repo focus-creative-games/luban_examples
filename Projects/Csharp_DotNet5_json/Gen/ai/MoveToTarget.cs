@@ -32,22 +32,18 @@ public sealed partial class MoveToTarget :  ai.Task
 
     public static MoveToTarget DeserializeMoveToTarget(JsonElement _buf)
     {
-    
         return new ai.MoveToTarget(_buf);
-    
     }
 
     public readonly string TargetActorKey;
     public readonly float AcceptableRadius;
 
-
     public const int ID = 514987779;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

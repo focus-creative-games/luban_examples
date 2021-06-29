@@ -13,20 +13,16 @@ import "bright/serialization"
 
 
 type Role_DistinctBonusInfos struct {
-    
     EffectiveLevel int32
     BonusInfo []*Role_BonusInfo
 }
-
 
 func (Role_DistinctBonusInfos) GetTypeId() int {
     return -854361766
 }
 
-
 func NewRole_DistinctBonusInfos(_buf *serialization.ByteBuf) (_v *Role_DistinctBonusInfos, err error) {
     _v = &Role_DistinctBonusInfos{}
-
     if _v.EffectiveLevel, err = _buf.ReadInt(); err != nil  { return } 
     if _v.BonusInfo, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Role_BonusInfo, err2 error) {
                 _v2 = make([]*Role_BonusInfo, 0)
@@ -41,5 +37,4 @@ func NewRole_DistinctBonusInfos(_buf *serialization.ByteBuf) (_v *Role_DistinctB
                 }(_buf); err != nil  { return } 
     return
 }
-
 

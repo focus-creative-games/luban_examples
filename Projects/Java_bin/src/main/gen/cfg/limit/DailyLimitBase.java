@@ -22,21 +22,17 @@ public abstract class DailyLimitBase extends  cfg.limit.LimitBase
 
     public DailyLimitBase()
     {
-            super();
+        super();
     }
 
     public static DailyLimitBase deserializeDailyLimitBase(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.limit.DailyLimit.ID: return new cfg.limit.DailyLimit(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -54,7 +50,7 @@ public abstract class DailyLimitBase extends  cfg.limit.LimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

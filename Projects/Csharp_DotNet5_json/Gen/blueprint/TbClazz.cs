@@ -52,7 +52,6 @@ public sealed partial class TbClazz
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

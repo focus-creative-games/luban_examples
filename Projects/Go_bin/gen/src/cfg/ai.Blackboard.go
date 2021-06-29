@@ -13,22 +13,18 @@ import "bright/serialization"
 
 
 type Ai_Blackboard struct {
-    
     Name string
     Desc string
     ParentName string
     Keys []*Ai_BlackboardKey
 }
 
-
 func (Ai_Blackboard) GetTypeId() int {
     return 1576193005
 }
 
-
 func NewAi_Blackboard(_buf *serialization.ByteBuf) (_v *Ai_Blackboard, err error) {
     _v = &Ai_Blackboard{}
-
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     if _v.ParentName, err = _buf.ReadString(); err != nil  { return } 
@@ -45,5 +41,4 @@ func NewAi_Blackboard(_buf *serialization.ByteBuf) (_v *Ai_Blackboard, err error
                 }(_buf); err != nil  { return } 
     return
 }
-
 

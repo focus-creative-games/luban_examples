@@ -29,10 +29,8 @@ public abstract class Node extends  bright.serialization.AbstractBean
 
     public static Node deserializeNode(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.UeSetDefaultFocus.ID: return new cfg.ai.UeSetDefaultFocus(_buf);
             case cfg.ai.ExecuteTimeStatistic.ID: return new cfg.ai.ExecuteTimeStatistic(_buf);
             case cfg.ai.ChooseTarget.ID: return new cfg.ai.ChooseTarget(_buf);
@@ -58,12 +56,10 @@ public abstract class Node extends  bright.serialization.AbstractBean
             case cfg.ai.DebugPrint.ID: return new cfg.ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final int id;
-     public final String nodeName;
-
+    public final int id;
+    public final String nodeName;
 
 
     @Override
@@ -80,7 +76,6 @@ public abstract class Node extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

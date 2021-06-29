@@ -25,19 +25,15 @@ public abstract class ErrorStyle extends  bright.serialization.AbstractBean
 
     public static ErrorStyle deserializeErrorStyle(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.error.ErrorStyleTip.ID: return new cfg.error.ErrorStyleTip(_buf);
             case cfg.error.ErrorStyleMsgbox.ID: return new cfg.error.ErrorStyleMsgbox(_buf);
             case cfg.error.ErrorStyleDlgOk.ID: return new cfg.error.ErrorStyleDlgOk(_buf);
             case cfg.error.ErrorStyleDlgOkCancel.ID: return new cfg.error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -55,7 +51,6 @@ public abstract class ErrorStyle extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

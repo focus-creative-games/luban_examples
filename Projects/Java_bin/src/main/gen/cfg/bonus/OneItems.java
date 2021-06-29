@@ -23,25 +23,21 @@ public final class OneItems extends  cfg.bonus.Bonus
 
     public OneItems(int[] items )
     {
-            super();
+        super();
         this.items = items;
     }
 
     public static OneItems deserializeOneItems(ByteBuf _buf)
     {
-    
         return new OneItems(_buf);
-    
     }
 
-     public final int[] items;
-
+    public final int[] items;
 
     public static final int ID = 400179721;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class OneItems extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

@@ -29,21 +29,17 @@ public sealed partial class FloatKeyData :  ai.KeyData
 
     public static FloatKeyData DeserializeFloatKeyData(ByteBuf _buf)
     {
-    
         return new ai.FloatKeyData(_buf);
-    
     }
 
     public readonly float Value;
 
-
     public const int ID = -719747885;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -30,21 +30,17 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
 
     public static MaxLevel DeserializeMaxLevel(JsonElement _buf)
     {
-    
         return new condition.MaxLevel(_buf);
-    
     }
 
     public readonly int Level;
 
-
     public const int ID = 700922899;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

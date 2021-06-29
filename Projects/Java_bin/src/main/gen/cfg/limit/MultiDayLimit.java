@@ -24,27 +24,23 @@ public final class MultiDayLimit extends  cfg.limit.LimitBase
 
     public MultiDayLimit(int day, int num )
     {
-            super();
+        super();
         this.day = day;
         this.num = num;
     }
 
     public static MultiDayLimit deserializeMultiDayLimit(ByteBuf _buf)
     {
-    
         return new MultiDayLimit(_buf);
-    
     }
 
-     public final int day;
-     public final int num;
-
+    public final int day;
+    public final int num;
 
     public static final int ID = -1753629499;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class MultiDayLimit extends  cfg.limit.LimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

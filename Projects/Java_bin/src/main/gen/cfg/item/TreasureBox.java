@@ -27,7 +27,7 @@ public final class TreasureBox extends  cfg.item.ItemExtra
 
     public TreasureBox(int id, Integer key_item_id, cfg.condition.MinLevel open_level, boolean use_on_obtain, java.util.ArrayList<Integer> drop_ids, java.util.ArrayList<cfg.item.ChooseOneBonus> choose_list )
     {
-            super(id);
+        super(id);
         this.keyItemId = key_item_id;
         this.openLevel = open_level;
         this.useOnObtain = use_on_obtain;
@@ -37,23 +37,19 @@ public final class TreasureBox extends  cfg.item.ItemExtra
 
     public static TreasureBox deserializeTreasureBox(ByteBuf _buf)
     {
-    
         return new TreasureBox(_buf);
-    
     }
 
-     public final Integer keyItemId;
-     public final cfg.condition.MinLevel openLevel;
-     public final boolean useOnObtain;
-     public final java.util.ArrayList<Integer> dropIds;
-     public final java.util.ArrayList<cfg.item.ChooseOneBonus> chooseList;
-
+    public final Integer keyItemId;
+    public final cfg.condition.MinLevel openLevel;
+    public final boolean useOnObtain;
+    public final java.util.ArrayList<Integer> dropIds;
+    public final java.util.ArrayList<cfg.item.ChooseOneBonus> chooseList;
 
     public static final int ID = 1494222369;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -69,7 +65,7 @@ public final class TreasureBox extends  cfg.item.ItemExtra
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (openLevel != null) {openLevel.resolve(_tables);}
             for(cfg.item.ChooseOneBonus _e : chooseList) { if (_e != null) _e.resolve(_tables); }
     }

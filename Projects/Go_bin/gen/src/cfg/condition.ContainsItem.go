@@ -19,23 +19,18 @@ type Condition_ContainsItem struct {
     Reverse bool
 }
 
-
 func (Condition_ContainsItem) GetTypeId() int {
     return 1961145317
 }
 
-
 func NewCondition_ContainsItem(_buf *serialization.ByteBuf) (_v *Condition_ContainsItem, err error) {
     _v = &Condition_ContainsItem{}
-
     var _p *Condition_RoleCondition
      if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
-
     if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Reverse, err = _buf.ReadBool(); err != nil  { return } 
     return
 }
-
 

@@ -23,25 +23,21 @@ public final class Sequence extends  cfg.ai.ComposeNode
 
     public Sequence(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, java.util.ArrayList<cfg.ai.FlowNode> children )
     {
-            super(id, node_name, decorators, services);
+        super(id, node_name, decorators, services);
         this.children = children;
     }
 
     public static Sequence deserializeSequence(ByteBuf _buf)
     {
-    
         return new Sequence(_buf);
-    
     }
 
-     public final java.util.ArrayList<cfg.ai.FlowNode> children;
-
+    public final java.util.ArrayList<cfg.ai.FlowNode> children;
 
     public static final int ID = -1789006105;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class Sequence extends  cfg.ai.ComposeNode
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.ai.FlowNode _e : children) { if (_e != null) _e.resolve(_tables); }
     }
 

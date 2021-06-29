@@ -38,9 +38,7 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
 
     public static SystemMail DeserializeSystemMail(JsonElement _buf)
     {
-    
         return new mail.SystemMail(_buf);
-    
     }
 
     public readonly int Id;
@@ -49,14 +47,11 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
     public readonly string Content;
     public readonly System.Collections.Generic.List<int> Award;
 
-
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

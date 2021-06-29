@@ -18,22 +18,17 @@ type Limit_MultiDayLimit struct {
     Num int32
 }
 
-
 func (Limit_MultiDayLimit) GetTypeId() int {
     return -1753629499
 }
 
-
 func NewLimit_MultiDayLimit(_buf *serialization.ByteBuf) (_v *Limit_MultiDayLimit, err error) {
     _v = &Limit_MultiDayLimit{}
-
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-
     if _v.Day, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

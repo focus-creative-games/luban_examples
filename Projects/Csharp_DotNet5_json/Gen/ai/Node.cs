@@ -32,8 +32,6 @@ public abstract partial class Node :  Bright.Config.BeanBase
 
     public static Node DeserializeNode(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
@@ -61,17 +59,14 @@ public abstract partial class Node :  Bright.Config.BeanBase
             case "DebugPrint": return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly int Id;
     public readonly string NodeName;
 
 
-
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -28,8 +28,6 @@ public abstract partial class Cost :  Bright.Config.BeanBase
 
     public static Cost DeserializeCost(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "CostCurrency": return new cost.CostCurrency(_buf);
@@ -39,15 +37,12 @@ public abstract partial class Cost :  Bright.Config.BeanBase
             case "CostItems": return new cost.CostItems(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -22,23 +22,19 @@ public final class UeForceSuccess extends  cfg.ai.Decorator
 
     public UeForceSuccess(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode )
     {
-            super(id, node_name, flow_abort_mode);
+        super(id, node_name, flow_abort_mode);
     }
 
     public static UeForceSuccess deserializeUeForceSuccess(ByteBuf _buf)
     {
-    
         return new UeForceSuccess(_buf);
-    
     }
-
 
 
     public static final int ID = 195054574;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -54,7 +50,7 @@ public final class UeForceSuccess extends  cfg.ai.Decorator
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

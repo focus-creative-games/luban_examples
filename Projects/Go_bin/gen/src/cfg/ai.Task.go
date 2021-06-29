@@ -18,25 +18,20 @@ type Ai_Task struct {
 }
 
 
-
 func NewAi_Task(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
     _v = &Ai_Task{}
-
     var _p *Ai_FlowNode
      if _p, err = NewAi_FlowNode(_buf) ; err != nil { return }
     _v.Ai_FlowNode = *_p
-
     if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil  { return } 
     return
 }
-
 func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case -512994101: return NewAi_UeWait(_buf);
             case 1215378271: return NewAi_UeWaitBlackboardTime(_buf);
             case 514987779: return NewAi_MoveToTarget(_buf);
@@ -47,5 +42,4 @@ func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     }
     return
 }
-
 

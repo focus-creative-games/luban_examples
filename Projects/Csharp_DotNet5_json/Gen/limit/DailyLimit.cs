@@ -30,21 +30,17 @@ public sealed partial class DailyLimit :  limit.DailyLimitBase
 
     public static DailyLimit DeserializeDailyLimit(JsonElement _buf)
     {
-    
         return new limit.DailyLimit(_buf);
-    
     }
 
     public readonly int Num;
 
-
     public const int ID = 303235413;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

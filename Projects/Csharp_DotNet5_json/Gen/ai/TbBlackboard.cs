@@ -50,7 +50,6 @@ public sealed partial class TbBlackboard
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

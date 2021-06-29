@@ -18,22 +18,17 @@ type Condition_MinMaxLevel struct {
     Max int32
 }
 
-
 func (Condition_MinMaxLevel) GetTypeId() int {
     return 907499647
 }
 
-
 func NewCondition_MinMaxLevel(_buf *serialization.ByteBuf) (_v *Condition_MinMaxLevel, err error) {
     _v = &Condition_MinMaxLevel{}
-
     var _p *Condition_BoolRoleCondition
      if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
-
     if _v.Min, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Max, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

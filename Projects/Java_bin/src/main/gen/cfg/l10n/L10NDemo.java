@@ -29,20 +29,16 @@ public final class L10NDemo extends  bright.serialization.AbstractBean
 
     public static L10NDemo deserializeL10NDemo(ByteBuf _buf)
     {
-    
         return new L10NDemo(_buf);
-    
     }
 
-     public final int id;
-     public final String text;
-
+    public final int id;
+    public final String text;
 
     public static final int ID = -331195887;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class L10NDemo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

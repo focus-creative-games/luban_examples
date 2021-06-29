@@ -29,21 +29,17 @@ public final class ChooseOneBonus extends  bright.serialization.AbstractBean
 
     public static ChooseOneBonus deserializeChooseOneBonus(ByteBuf _buf)
     {
-    
         return new ChooseOneBonus(_buf);
-    
     }
 
-     public final int dropId;
-        public cfg.bonus.DropInfo dropId_Ref;
-     public final boolean isUnique;
-
+    public final int dropId;
+    public cfg.bonus.DropInfo dropId_Ref;
+    public final boolean isUnique;
 
     public static final int ID = 228058347;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -59,7 +55,6 @@ public final class ChooseOneBonus extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.dropId_Ref = ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(dropId);
     }
 

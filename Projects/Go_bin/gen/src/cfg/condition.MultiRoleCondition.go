@@ -17,19 +17,15 @@ type Condition_MultiRoleCondition struct {
     Conditions []interface{}
 }
 
-
 func (Condition_MultiRoleCondition) GetTypeId() int {
     return 934079583
 }
 
-
 func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition_MultiRoleCondition, err error) {
     _v = &Condition_MultiRoleCondition{}
-
     var _p *Condition_RoleCondition
      if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
-
     if _v.Conditions, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
                 _v2 = make([]interface{}, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition
                 }(_buf); err != nil  { return } 
     return
 }
-
 

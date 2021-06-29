@@ -28,8 +28,6 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
 
     public static Bonus DeserializeBonus(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "OneItem": return new bonus.OneItem(_buf);
@@ -45,15 +43,12 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
             case "DropBonus": return new bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

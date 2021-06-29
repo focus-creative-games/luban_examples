@@ -17,21 +17,16 @@ type Limit_WeeklyLimit struct {
     Num int32
 }
 
-
 func (Limit_WeeklyLimit) GetTypeId() int {
     return -252187161
 }
 
-
 func NewLimit_WeeklyLimit(_buf *serialization.ByteBuf) (_v *Limit_WeeklyLimit, err error) {
     _v = &Limit_WeeklyLimit{}
-
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

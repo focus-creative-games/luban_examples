@@ -23,25 +23,21 @@ public final class UeWaitBlackboardTime extends  cfg.ai.Task
 
     public UeWaitBlackboardTime(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, String blackboard_key )
     {
-            super(id, node_name, decorators, services, ignore_restart_self);
+        super(id, node_name, decorators, services, ignore_restart_self);
         this.blackboardKey = blackboard_key;
     }
 
     public static UeWaitBlackboardTime deserializeUeWaitBlackboardTime(ByteBuf _buf)
     {
-    
         return new UeWaitBlackboardTime(_buf);
-    
     }
 
-     public final String blackboardKey;
-
+    public final String blackboardKey;
 
     public static final int ID = 1215378271;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class UeWaitBlackboardTime extends  cfg.ai.Task
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

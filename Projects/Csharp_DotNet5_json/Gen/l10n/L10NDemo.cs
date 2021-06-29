@@ -32,22 +32,17 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
 
     public static L10NDemo DeserializeL10NDemo(JsonElement _buf)
     {
-    
         return new l10n.L10NDemo(_buf);
-    
     }
 
     public readonly int Id;
     public readonly string Text;
 
-
     public const int ID = -331195887;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

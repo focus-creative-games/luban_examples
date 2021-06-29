@@ -14,7 +14,7 @@ import bright.serialization.*;
 
 public final class TbGlobalConfig
 {
-     private final cfg.common.GlobalConfig _data;
+    private final cfg.common.GlobalConfig _data;
 
     public final cfg.common.GlobalConfig data() { return _data; }
 
@@ -53,5 +53,4 @@ public final class TbGlobalConfig
         _data.resolve(_tables);
     }
 
-    
 }

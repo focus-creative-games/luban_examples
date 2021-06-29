@@ -28,8 +28,6 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
 
     public static ErrorStyle DeserializeErrorStyle(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "ErrorStyleTip": return new error.ErrorStyleTip(_buf);
@@ -38,15 +36,12 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
             case "ErrorStyleDlgOkCancel": return new error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

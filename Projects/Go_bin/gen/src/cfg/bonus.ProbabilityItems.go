@@ -17,19 +17,15 @@ type Bonus_ProbabilityItems struct {
     ItemList []*Bonus_ProbabilityItemInfo
 }
 
-
 func (Bonus_ProbabilityItems) GetTypeId() int {
     return 366387866
 }
 
-
 func NewBonus_ProbabilityItems(_buf *serialization.ByteBuf) (_v *Bonus_ProbabilityItems, err error) {
     _v = &Bonus_ProbabilityItems{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.ItemList, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Bonus_ProbabilityItemInfo, err2 error) {
                 _v2 = make([]*Bonus_ProbabilityItemInfo, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewBonus_ProbabilityItems(_buf *serialization.ByteBuf) (_v *Bonus_Probabili
                 }(_buf); err != nil  { return } 
     return
 }
-
 

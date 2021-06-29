@@ -23,25 +23,21 @@ public final class CoolDown extends  cfg.limit.LimitBase
 
     public CoolDown(int duration )
     {
-            super();
+        super();
         this.duration = duration;
     }
 
     public static CoolDown deserializeCoolDown(ByteBuf _buf)
     {
-    
         return new CoolDown(_buf);
-    
     }
 
-     public final int duration;
-
+    public final int duration;
 
     public static final int ID = -1366194050;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class CoolDown extends  cfg.limit.LimitBase
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

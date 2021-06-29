@@ -13,23 +13,18 @@ import "bright/serialization"
 
 
 type Bonus_ShowItemInfo struct {
-    
     ItemId int32
     ItemNum int64
 }
-
 
 func (Bonus_ShowItemInfo) GetTypeId() int {
     return -1496363507
 }
 
-
 func NewBonus_ShowItemInfo(_buf *serialization.ByteBuf) (_v *Bonus_ShowItemInfo, err error) {
     _v = &Bonus_ShowItemInfo{}
-
     if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
     if _v.ItemNum, err = _buf.ReadLong(); err != nil  { return } 
     return
 }
-
 

@@ -17,21 +17,16 @@ type Ai_UeWaitBlackboardTime struct {
     BlackboardKey string
 }
 
-
 func (Ai_UeWaitBlackboardTime) GetTypeId() int {
     return 1215378271
 }
 
-
 func NewAi_UeWaitBlackboardTime(_buf *serialization.ByteBuf) (_v *Ai_UeWaitBlackboardTime, err error) {
     _v = &Ai_UeWaitBlackboardTime{}
-
     var _p *Ai_Task
      if _p, err = NewAi_Task(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
-
     if _v.BlackboardKey, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

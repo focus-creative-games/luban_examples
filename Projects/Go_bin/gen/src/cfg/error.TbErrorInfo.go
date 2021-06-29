@@ -47,4 +47,3 @@ func (table *Error_TbErrorInfo) Get(key string) *Error_ErrorInfo {
 }
 
 
-

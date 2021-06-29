@@ -24,7 +24,7 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Name = _buf.GetProperty("name").GetString();
         Desc = _buf.GetProperty("desc").GetString();
         BlackboardId = _buf.GetProperty("blackboard_id").GetString();
-        { var _j = _buf.GetProperty("root"); if (_j.ValueKind != JsonValueKind.Null) { Root =  ai.ComposeNode.DeserializeComposeNode(_j); } else { Root = null; } }
+        Root =  ai.ComposeNode.DeserializeComposeNode(_buf.GetProperty("root"));
     }
 
     public BehaviorTree(int id, string name, string desc, string blackboard_id, ai.ComposeNode root ) 
@@ -38,9 +38,7 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
 
     public static BehaviorTree DeserializeBehaviorTree(JsonElement _buf)
     {
-    
         return new ai.BehaviorTree(_buf);
-    
     }
 
     public readonly int Id;
@@ -50,14 +48,11 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
     public ai.Blackboard BlackboardId_Ref;
     public readonly ai.ComposeNode Root;
 
-
     public const int ID = 159552822;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
         Root?.Resolve(_tables);
         OnResolveFinish(_tables);

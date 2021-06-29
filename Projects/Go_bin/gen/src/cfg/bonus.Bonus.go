@@ -13,24 +13,19 @@ import "bright/serialization"
 
 
 type Bonus_Bonus struct {
-    
 }
-
 
 
 func NewBonus_Bonus(_buf *serialization.ByteBuf) (_v *Bonus_Bonus, err error) {
     _v = &Bonus_Bonus{}
-
     return
 }
-
 func NewChildBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case -1649658966: return NewBonus_OneItem(_buf);
             case 400179721: return NewBonus_OneItems(_buf);
             case 1689011106: return NewBonus_Item(_buf);
@@ -45,5 +40,4 @@ func NewChildBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error
     }
     return
 }
-
 

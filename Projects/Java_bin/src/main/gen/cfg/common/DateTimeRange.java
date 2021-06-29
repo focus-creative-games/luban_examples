@@ -29,20 +29,16 @@ public final class DateTimeRange extends  bright.serialization.AbstractBean
 
     public static DateTimeRange deserializeDateTimeRange(ByteBuf _buf)
     {
-    
         return new DateTimeRange(_buf);
-    
     }
 
-     public final Integer startTime;
-     public final Integer endTime;
-
+    public final Integer startTime;
+    public final Integer endTime;
 
     public static final int ID = 1642200959;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class DateTimeRange extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

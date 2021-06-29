@@ -13,25 +13,20 @@ import "bright/serialization"
 
 
 type Bonus_ProbabilityItemInfo struct {
-    
     ItemId int32
     Num int32
     Probability float32
 }
 
-
 func (Bonus_ProbabilityItemInfo) GetTypeId() int {
     return 1547874631
 }
 
-
 func NewBonus_ProbabilityItemInfo(_buf *serialization.ByteBuf) (_v *Bonus_ProbabilityItemInfo, err error) {
     _v = &Bonus_ProbabilityItemInfo{}
-
     if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Probability, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

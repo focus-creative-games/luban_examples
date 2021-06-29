@@ -30,21 +30,17 @@ public sealed partial class UeCooldown :  ai.Decorator
 
     public static UeCooldown DeserializeUeCooldown(JsonElement _buf)
     {
-    
         return new ai.UeCooldown(_buf);
-    
     }
 
     public readonly float CooldownTime;
 
-
     public const int ID = -951439423;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

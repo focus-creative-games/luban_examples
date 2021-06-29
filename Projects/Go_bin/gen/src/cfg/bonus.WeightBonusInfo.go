@@ -13,23 +13,18 @@ import "bright/serialization"
 
 
 type Bonus_WeightBonusInfo struct {
-    
     Bonus interface{}
     Weight int32
 }
-
 
 func (Bonus_WeightBonusInfo) GetTypeId() int {
     return -907244058
 }
 
-
 func NewBonus_WeightBonusInfo(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonusInfo, err error) {
     _v = &Bonus_WeightBonusInfo{}
-
     if _v.Bonus, err = NewChildBonus_Bonus(_buf); err != nil  { return } 
     if _v.Weight, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

@@ -13,26 +13,21 @@ import "bright/serialization"
 
 
 type Item_ItemExtra struct {
-    
     Id int32
 }
 
 
-
 func NewItem_ItemExtra(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, err error) {
     _v = &Item_ItemExtra{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1494222369: return NewItem_TreasureBox(_buf);
             case 640937802: return NewItem_InteractionItem(_buf);
             case 1659907149: return NewItem_Clothes(_buf);
@@ -41,5 +36,4 @@ func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err er
     }
     return
 }
-
 

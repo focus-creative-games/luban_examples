@@ -37,9 +37,7 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
 
     public static BlackboardKey DeserializeBlackboardKey(ByteBuf _buf)
     {
-    
         return new ai.BlackboardKey(_buf);
-    
     }
 
     public readonly string Name;
@@ -48,14 +46,11 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
     public readonly ai.EKeyType Type;
     public readonly string TypeClassName;
 
-
     public const int ID = -511559886;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

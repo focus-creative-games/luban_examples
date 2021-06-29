@@ -30,21 +30,17 @@ public sealed partial class GetOwnerPlayer :  ai.Service
 
     public static GetOwnerPlayer DeserializeGetOwnerPlayer(JsonElement _buf)
     {
-    
         return new ai.GetOwnerPlayer(_buf);
-    
     }
 
     public readonly string PlayerActorKey;
 
-
     public const int ID = -999247644;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

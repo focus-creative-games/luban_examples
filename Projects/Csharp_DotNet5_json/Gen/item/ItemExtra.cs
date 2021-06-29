@@ -30,8 +30,6 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public static ItemExtra DeserializeItemExtra(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "TreasureBox": return new item.TreasureBox(_buf);
@@ -41,16 +39,13 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
             case "Dymmy": return new item.Dymmy(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly int Id;
 
 
-
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

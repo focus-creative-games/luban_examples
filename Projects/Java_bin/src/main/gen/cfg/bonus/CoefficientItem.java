@@ -24,27 +24,23 @@ public final class CoefficientItem extends  cfg.bonus.Bonus
 
     public CoefficientItem(int bonus_id, cfg.bonus.Items bonus_list )
     {
-            super();
+        super();
         this.bonusId = bonus_id;
         this.bonusList = bonus_list;
     }
 
     public static CoefficientItem deserializeCoefficientItem(ByteBuf _buf)
     {
-    
         return new CoefficientItem(_buf);
-    
     }
 
-     public final int bonusId;
-     public final cfg.bonus.Items bonusList;
-
+    public final int bonusId;
+    public final cfg.bonus.Items bonusList;
 
     public static final int ID = -229470727;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class CoefficientItem extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (bonusList != null) {bonusList.resolve(_tables);}
     }
 

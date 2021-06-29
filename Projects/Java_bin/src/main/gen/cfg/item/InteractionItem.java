@@ -25,7 +25,7 @@ public final class InteractionItem extends  cfg.item.ItemExtra
 
     public InteractionItem(int id, Integer attack_num, String holding_static_mesh, String holding_static_mesh_mat )
     {
-            super(id);
+        super(id);
         this.attackNum = attack_num;
         this.holdingStaticMesh = holding_static_mesh;
         this.holdingStaticMeshMat = holding_static_mesh_mat;
@@ -33,21 +33,17 @@ public final class InteractionItem extends  cfg.item.ItemExtra
 
     public static InteractionItem deserializeInteractionItem(ByteBuf _buf)
     {
-    
         return new InteractionItem(_buf);
-    
     }
 
-     public final Integer attackNum;
-     public final String holdingStaticMesh;
-     public final String holdingStaticMeshMat;
-
+    public final Integer attackNum;
+    public final String holdingStaticMesh;
+    public final String holdingStaticMeshMat;
 
     public static final int ID = 640937802;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -63,7 +59,7 @@ public final class InteractionItem extends  cfg.item.ItemExtra
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

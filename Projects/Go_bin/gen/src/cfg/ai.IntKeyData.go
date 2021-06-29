@@ -17,21 +17,16 @@ type Ai_IntKeyData struct {
     Value int32
 }
 
-
 func (Ai_IntKeyData) GetTypeId() int {
     return -342751904
 }
 
-
 func NewAi_IntKeyData(_buf *serialization.ByteBuf) (_v *Ai_IntKeyData, err error) {
     _v = &Ai_IntKeyData{}
-
     var _p *Ai_KeyData
      if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
-
     if _v.Value, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

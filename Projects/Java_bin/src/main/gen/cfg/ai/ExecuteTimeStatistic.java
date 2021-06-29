@@ -22,23 +22,19 @@ public final class ExecuteTimeStatistic extends  cfg.ai.Service
 
     public ExecuteTimeStatistic(int id, String node_name )
     {
-            super(id, node_name);
+        super(id, node_name);
     }
 
     public static ExecuteTimeStatistic deserializeExecuteTimeStatistic(ByteBuf _buf)
     {
-    
         return new ExecuteTimeStatistic(_buf);
-    
     }
-
 
 
     public static final int ID = 990693812;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -54,7 +50,7 @@ public final class ExecuteTimeStatistic extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

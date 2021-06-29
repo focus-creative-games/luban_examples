@@ -31,10 +31,8 @@ public abstract partial class FlowNode :  ai.Node
 
     public static FlowNode DeserializeFlowNode(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.Sequence.ID: return new ai.Sequence(_buf);
             case ai.Selector.ID: return new ai.Selector(_buf);
             case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
@@ -47,17 +45,15 @@ public abstract partial class FlowNode :  ai.Node
             case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
     public readonly System.Collections.Generic.List<ai.Service> Services;
 
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);

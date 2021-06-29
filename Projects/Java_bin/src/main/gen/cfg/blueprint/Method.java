@@ -35,24 +35,20 @@ public abstract class Method extends  bright.serialization.AbstractBean
 
     public static Method deserializeMethod(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.blueprint.AbstraceMethod.ID: return new cfg.blueprint.AbstraceMethod(_buf);
             case cfg.blueprint.ExternalMethod.ID: return new cfg.blueprint.ExternalMethod(_buf);
             case cfg.blueprint.BlueprintMethod.ID: return new cfg.blueprint.BlueprintMethod(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final String name;
-     public final String desc;
-     public final boolean isStatic;
-     public final String returnType;
-     public final java.util.ArrayList<cfg.blueprint.ParamInfo> parameters;
-
+    public final String name;
+    public final String desc;
+    public final boolean isStatic;
+    public final String returnType;
+    public final java.util.ArrayList<cfg.blueprint.ParamInfo> parameters;
 
 
     @Override
@@ -69,7 +65,6 @@ public abstract class Method extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             for(cfg.blueprint.ParamInfo _e : parameters) { if (_e != null) _e.resolve(_tables); }
     }
 

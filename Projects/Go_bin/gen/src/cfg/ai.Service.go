@@ -17,24 +17,19 @@ type Ai_Service struct {
 }
 
 
-
 func NewAi_Service(_buf *serialization.ByteBuf) (_v *Ai_Service, err error) {
     _v = &Ai_Service{}
-
     var _p *Ai_Node
      if _p, err = NewAi_Node(_buf) ; err != nil { return }
     _v.Ai_Node = *_p
-
     return
 }
-
 func NewChildAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1812449155: return NewAi_UeSetDefaultFocus(_buf);
             case 990693812: return NewAi_ExecuteTimeStatistic(_buf);
             case 1601247918: return NewAi_ChooseTarget(_buf);
@@ -44,5 +39,4 @@ func NewChildAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error)
     }
     return
 }
-
 

@@ -23,25 +23,21 @@ public final class EnumClazz extends  cfg.blueprint.Clazz
 
     public EnumClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, java.util.ArrayList<cfg.blueprint.EnumField> enums )
     {
-            super(name, desc, parents, methods);
+        super(name, desc, parents, methods);
         this.enums = enums;
     }
 
     public static EnumClazz deserializeEnumClazz(ByteBuf _buf)
     {
-    
         return new EnumClazz(_buf);
-    
     }
 
-     public final java.util.ArrayList<cfg.blueprint.EnumField> enums;
-
+    public final java.util.ArrayList<cfg.blueprint.EnumField> enums;
 
     public static final int ID = 1827364892;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class EnumClazz extends  cfg.blueprint.Clazz
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.blueprint.EnumField _e : enums) { if (_e != null) _e.resolve(_tables); }
     }
 

@@ -13,29 +13,23 @@ import "bright/serialization"
 
 
 type Ai_KeyQueryOperator struct {
-    
 }
-
 
 
 func NewAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v *Ai_KeyQueryOperator, err error) {
     _v = &Ai_KeyQueryOperator{}
-
     return
 }
-
 func NewChildAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 1635350898: return NewAi_IsSet(_buf);
             case 790736255: return NewAi_IsNotSet(_buf);
             case -979891605: return NewAi_BinaryOperator(_buf);
     }
     return
 }
-
 

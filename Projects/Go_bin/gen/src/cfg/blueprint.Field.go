@@ -13,25 +13,20 @@ import "bright/serialization"
 
 
 type Blueprint_Field struct {
-    
     Name string
     Type string
     Desc string
 }
 
-
 func (Blueprint_Field) GetTypeId() int {
     return 1694158271
 }
 
-
 func NewBlueprint_Field(_buf *serialization.ByteBuf) (_v *Blueprint_Field, err error) {
     _v = &Blueprint_Field{}
-
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Type, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

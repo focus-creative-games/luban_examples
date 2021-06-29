@@ -30,22 +30,18 @@ public sealed partial class OneItem :  bonus.Bonus
 
     public static OneItem DeserializeOneItem(JsonElement _buf)
     {
-    
         return new bonus.OneItem(_buf);
-    
     }
 
     public readonly int ItemId;
     public item.Item ItemId_Ref;
 
-
     public const int ID = -1649658966;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }

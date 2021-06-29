@@ -49,7 +49,6 @@ public sealed partial class TbBehaviorTree
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

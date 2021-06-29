@@ -24,27 +24,23 @@ public final class MinMaxLevel extends  cfg.condition.BoolRoleCondition
 
     public MinMaxLevel(int min, int max )
     {
-            super();
+        super();
         this.min = min;
         this.max = max;
     }
 
     public static MinMaxLevel deserializeMinMaxLevel(ByteBuf _buf)
     {
-    
         return new MinMaxLevel(_buf);
-    
     }
 
-     public final int min;
-     public final int max;
-
+    public final int min;
+    public final int max;
 
     public static final int ID = 907499647;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class MinMaxLevel extends  cfg.condition.BoolRoleCondition
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

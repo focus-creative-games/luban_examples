@@ -16,20 +16,15 @@ type Blueprint_BlueprintMethod struct {
     Blueprint_Method
 }
 
-
 func (Blueprint_BlueprintMethod) GetTypeId() int {
     return -696408103
 }
 
-
 func NewBlueprint_BlueprintMethod(_buf *serialization.ByteBuf) (_v *Blueprint_BlueprintMethod, err error) {
     _v = &Blueprint_BlueprintMethod{}
-
     var _p *Blueprint_Method
      if _p, err = NewBlueprint_Method(_buf) ; err != nil { return }
     _v.Blueprint_Method = *_p
-
     return
 }
-
 

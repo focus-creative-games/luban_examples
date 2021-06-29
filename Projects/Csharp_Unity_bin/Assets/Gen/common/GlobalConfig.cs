@@ -69,9 +69,7 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
 
     public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
     {
-    
         return new common.GlobalConfig(_buf);
-    
     }
 
     public readonly int BagCapacity;
@@ -97,14 +95,11 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     public readonly int MaxViality;
     public readonly int PerVialityRecoveryTime;
 
-
     public const int ID = -848234488;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
         OnResolveFinish(_tables);
     }

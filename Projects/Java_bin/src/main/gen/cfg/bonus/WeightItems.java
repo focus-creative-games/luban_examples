@@ -23,25 +23,21 @@ public final class WeightItems extends  cfg.bonus.Bonus
 
     public WeightItems(cfg.bonus.WeightItemInfo[] item_list )
     {
-            super();
+        super();
         this.itemList = item_list;
     }
 
     public static WeightItems deserializeWeightItems(ByteBuf _buf)
     {
-    
         return new WeightItems(_buf);
-    
     }
 
-     public final cfg.bonus.WeightItemInfo[] itemList;
-
+    public final cfg.bonus.WeightItemInfo[] itemList;
 
     public static final int ID = -356202311;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class WeightItems extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.bonus.WeightItemInfo _e : itemList) { if (_e != null) _e.resolve(_tables); }
     }
 

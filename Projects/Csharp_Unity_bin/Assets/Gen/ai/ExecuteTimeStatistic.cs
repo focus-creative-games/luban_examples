@@ -27,20 +27,16 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
 
     public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(ByteBuf _buf)
     {
-    
         return new ai.ExecuteTimeStatistic(_buf);
-    
     }
-
 
 
     public const int ID = 990693812;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

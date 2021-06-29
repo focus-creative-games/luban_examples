@@ -33,23 +33,19 @@ public final class Blackboard extends  bright.serialization.AbstractBean
 
     public static Blackboard deserializeBlackboard(ByteBuf _buf)
     {
-    
         return new Blackboard(_buf);
-    
     }
 
-     public final String name;
-     public final String desc;
-     public final String parentName;
-        public cfg.ai.Blackboard parentName_Ref;
-     public final java.util.ArrayList<cfg.ai.BlackboardKey> keys;
-
+    public final String name;
+    public final String desc;
+    public final String parentName;
+    public cfg.ai.Blackboard parentName_Ref;
+    public final java.util.ArrayList<cfg.ai.BlackboardKey> keys;
 
     public static final int ID = 1576193005;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -65,7 +61,6 @@ public final class Blackboard extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             this.parentName_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(parentName);
             for(cfg.ai.BlackboardKey _e : keys) { if (_e != null) _e.resolve(_tables); }
     }

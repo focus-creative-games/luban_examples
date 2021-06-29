@@ -37,9 +37,7 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
 
     public static BehaviorTree DeserializeBehaviorTree(ByteBuf _buf)
     {
-    
         return new ai.BehaviorTree(_buf);
-    
     }
 
     public readonly int Id;
@@ -49,14 +47,11 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
     public ai.Blackboard BlackboardId_Ref;
     public readonly ai.ComposeNode Root;
 
-
     public const int ID = 159552822;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
         Root?.Resolve(_tables);
         OnResolveFinish(_tables);

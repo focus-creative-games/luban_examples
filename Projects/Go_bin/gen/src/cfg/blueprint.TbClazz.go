@@ -27,7 +27,6 @@ func NewBlueprint_TbClazz(_buf *serialization.ByteBuf) (*Blueprint_TbClazz, erro
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
-
                 if __v, __is := _v.(*Blueprint_Interface) ; __is {
                     dataMap[__v.Name] = _v
                     continue
@@ -57,6 +56,5 @@ func (table *Blueprint_TbClazz) GetDataList() []interface{} {
 func (table *Blueprint_TbClazz) Get(key string) interface{} {
     return table._dataMap[key]
 }
-
 
 

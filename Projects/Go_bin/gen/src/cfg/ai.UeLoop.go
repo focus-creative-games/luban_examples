@@ -19,23 +19,18 @@ type Ai_UeLoop struct {
     InfiniteLoopTimeoutTime float32
 }
 
-
 func (Ai_UeLoop) GetTypeId() int {
     return -513308166
 }
 
-
 func NewAi_UeLoop(_buf *serialization.ByteBuf) (_v *Ai_UeLoop, err error) {
     _v = &Ai_UeLoop{}
-
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-
     if _v.NumLoops, err = _buf.ReadInt(); err != nil  { return } 
     if _v.InfiniteLoop, err = _buf.ReadBool(); err != nil  { return } 
     if _v.InfiniteLoopTimeoutTime, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

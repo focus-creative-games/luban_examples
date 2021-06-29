@@ -31,21 +31,17 @@ public final class LevelExpAttr extends  bright.serialization.AbstractBean
 
     public static LevelExpAttr deserializeLevelExpAttr(ByteBuf _buf)
     {
-    
         return new LevelExpAttr(_buf);
-    
     }
 
-     public final int level;
-     public final long needExp;
-     public final java.util.ArrayList<Integer> clothesAttrs;
-
+    public final int level;
+    public final long needExp;
+    public final java.util.ArrayList<Integer> clothesAttrs;
 
     public static final int ID = -1569837022;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -61,7 +57,6 @@ public final class LevelExpAttr extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

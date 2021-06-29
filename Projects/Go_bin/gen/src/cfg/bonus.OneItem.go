@@ -17,21 +17,16 @@ type Bonus_OneItem struct {
     ItemId int32
 }
 
-
 func (Bonus_OneItem) GetTypeId() int {
     return -1649658966
 }
 
-
 func NewBonus_OneItem(_buf *serialization.ByteBuf) (_v *Bonus_OneItem, err error) {
     _v = &Bonus_OneItem{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

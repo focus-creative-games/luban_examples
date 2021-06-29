@@ -22,23 +22,19 @@ public abstract class ComposeNode extends  cfg.ai.FlowNode
 
     public ComposeNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services )
     {
-            super(id, node_name, decorators, services);
+        super(id, node_name, decorators, services);
     }
 
     public static ComposeNode deserializeComposeNode(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.Sequence.ID: return new cfg.ai.Sequence(_buf);
             case cfg.ai.Selector.ID: return new cfg.ai.Selector(_buf);
             case cfg.ai.SimpleParallel.ID: return new cfg.ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
@@ -56,7 +52,7 @@ public abstract class ComposeNode extends  cfg.ai.FlowNode
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

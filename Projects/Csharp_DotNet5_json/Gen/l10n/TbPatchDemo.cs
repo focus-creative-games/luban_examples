@@ -50,7 +50,6 @@ public sealed partial class TbPatchDemo
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

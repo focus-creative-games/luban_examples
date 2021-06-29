@@ -31,22 +31,17 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(ByteBuf _buf)
     {
-    
         return new bonus.ProbabilityBonusInfo(_buf);
-    
     }
 
     public readonly bonus.Bonus Bonus;
     public readonly float Probability;
 
-
     public const int ID = 46960455;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }

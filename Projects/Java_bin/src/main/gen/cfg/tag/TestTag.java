@@ -29,20 +29,16 @@ public final class TestTag extends  bright.serialization.AbstractBean
 
     public static TestTag deserializeTestTag(ByteBuf _buf)
     {
-    
         return new TestTag(_buf);
-    
     }
 
-     public final int id;
-     public final String value;
-
+    public final int id;
+    public final String value;
 
     public static final int ID = 1742933812;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class TestTag extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

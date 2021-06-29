@@ -50,7 +50,6 @@ public sealed partial class TbRoleLevelBonusCoefficient
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

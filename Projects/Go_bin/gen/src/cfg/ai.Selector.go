@@ -17,19 +17,15 @@ type Ai_Selector struct {
     Children []interface{}
 }
 
-
 func (Ai_Selector) GetTypeId() int {
     return -1946981627
 }
 
-
 func NewAi_Selector(_buf *serialization.ByteBuf) (_v *Ai_Selector, err error) {
     _v = &Ai_Selector{}
-
     var _p *Ai_ComposeNode
      if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
-
     if _v.Children, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
                 _v2 = make([]interface{}, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewAi_Selector(_buf *serialization.ByteBuf) (_v *Ai_Selector, err error) {
                 }(_buf); err != nil  { return } 
     return
 }
-
 

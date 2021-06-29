@@ -23,25 +23,21 @@ public final class KeepFaceTarget extends  cfg.ai.Service
 
     public KeepFaceTarget(int id, String node_name, String target_actor_key )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.targetActorKey = target_actor_key;
     }
 
     public static KeepFaceTarget deserializeKeepFaceTarget(ByteBuf _buf)
     {
-    
         return new KeepFaceTarget(_buf);
-    
     }
 
-     public final String targetActorKey;
-
+    public final String targetActorKey;
 
     public static final int ID = 1195270745;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class KeepFaceTarget extends  cfg.ai.Service
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

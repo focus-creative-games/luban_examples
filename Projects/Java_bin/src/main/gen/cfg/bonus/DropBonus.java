@@ -23,26 +23,22 @@ public final class DropBonus extends  cfg.bonus.Bonus
 
     public DropBonus(int id )
     {
-            super();
+        super();
         this.id = id;
     }
 
     public static DropBonus deserializeDropBonus(ByteBuf _buf)
     {
-    
         return new DropBonus(_buf);
-    
     }
 
-     public final int id;
-        public cfg.bonus.DropInfo id_Ref;
-
+    public final int id;
+    public cfg.bonus.DropInfo id_Ref;
 
     public static final int ID = 1959868225;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,7 @@ public final class DropBonus extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             this.id_Ref = ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(id);
     }
 

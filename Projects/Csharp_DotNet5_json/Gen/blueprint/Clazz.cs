@@ -36,8 +36,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
 
     public static Clazz DeserializeClazz(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "Interface": return new blueprint.Interface(_buf);
@@ -45,7 +43,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
             case "EnumClazz": return new blueprint.EnumClazz(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
     public readonly string Name;
@@ -54,10 +51,8 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     public readonly System.Collections.Generic.List<blueprint.Method> Methods;
 
 
-
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         foreach(var _e in Parents) { _e?.Resolve(_tables); }
         foreach(var _e in Methods) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);

@@ -13,21 +13,17 @@ import "bright/serialization"
 
 
 type Role_LevelExpAttr struct {
-    
     Level int32
     NeedExp int64
     ClothesAttrs []int32
 }
 
-
 func (Role_LevelExpAttr) GetTypeId() int {
     return -1569837022
 }
 
-
 func NewRole_LevelExpAttr(_buf *serialization.ByteBuf) (_v *Role_LevelExpAttr, err error) {
     _v = &Role_LevelExpAttr{}
-
     if _v.Level, err = _buf.ReadInt(); err != nil  { return } 
     if _v.NeedExp, err = _buf.ReadLong(); err != nil  { return } 
     if _v.ClothesAttrs, err = func (_buf2 *serialization.ByteBuf) (_v2 []int32, err2 error) {
@@ -43,5 +39,4 @@ func NewRole_LevelExpAttr(_buf *serialization.ByteBuf) (_v *Role_LevelExpAttr, e
                 }(_buf); err != nil  { return } 
     return
 }
-
 

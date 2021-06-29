@@ -29,20 +29,16 @@ public final class EnumField extends  bright.serialization.AbstractBean
 
     public static EnumField deserializeEnumField(ByteBuf _buf)
     {
-    
         return new EnumField(_buf);
-    
     }
 
-     public final String name;
-     public final int value;
-
+    public final String name;
+    public final int value;
 
     public static final int ID = 1830049470;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class EnumField extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

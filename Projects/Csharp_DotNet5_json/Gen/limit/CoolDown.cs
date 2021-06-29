@@ -30,21 +30,17 @@ public sealed partial class CoolDown :  limit.LimitBase
 
     public static CoolDown DeserializeCoolDown(JsonElement _buf)
     {
-    
         return new limit.CoolDown(_buf);
-    
     }
 
     public readonly int Duration;
 
-
     public const int ID = -1366194050;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

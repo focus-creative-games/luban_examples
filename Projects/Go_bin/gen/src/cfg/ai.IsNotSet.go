@@ -16,20 +16,15 @@ type Ai_IsNotSet struct {
     Ai_KeyQueryOperator
 }
 
-
 func (Ai_IsNotSet) GetTypeId() int {
     return 790736255
 }
 
-
 func NewAi_IsNotSet(_buf *serialization.ByteBuf) (_v *Ai_IsNotSet, err error) {
     _v = &Ai_IsNotSet{}
-
     var _p *Ai_KeyQueryOperator
      if _p, err = NewAi_KeyQueryOperator(_buf) ; err != nil { return }
     _v.Ai_KeyQueryOperator = *_p
-
     return
 }
-
 

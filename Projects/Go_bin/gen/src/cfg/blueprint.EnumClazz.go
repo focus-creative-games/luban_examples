@@ -17,19 +17,15 @@ type Blueprint_EnumClazz struct {
     Enums []*Blueprint_EnumField
 }
 
-
 func (Blueprint_EnumClazz) GetTypeId() int {
     return 1827364892
 }
 
-
 func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClazz, err error) {
     _v = &Blueprint_EnumClazz{}
-
     var _p *Blueprint_Clazz
      if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
-
     if _v.Enums, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Blueprint_EnumField, err2 error) {
                 _v2 = make([]*Blueprint_EnumField, 0)
                 var n int
@@ -43,5 +39,4 @@ func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClaz
                 }(_buf); err != nil  { return } 
     return
 }
-
 

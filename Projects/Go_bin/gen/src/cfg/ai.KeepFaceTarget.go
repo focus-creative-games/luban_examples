@@ -17,21 +17,16 @@ type Ai_KeepFaceTarget struct {
     TargetActorKey string
 }
 
-
 func (Ai_KeepFaceTarget) GetTypeId() int {
     return 1195270745
 }
 
-
 func NewAi_KeepFaceTarget(_buf *serialization.ByteBuf) (_v *Ai_KeepFaceTarget, err error) {
     _v = &Ai_KeepFaceTarget{}
-
     var _p *Ai_Service
      if _p, err = NewAi_Service(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
-
     if _v.TargetActorKey, err = _buf.ReadString(); err != nil  { return } 
     return
 }
-
 

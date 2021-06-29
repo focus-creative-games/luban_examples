@@ -17,21 +17,16 @@ type Ai_UeCooldown struct {
     CooldownTime float32
 }
 
-
 func (Ai_UeCooldown) GetTypeId() int {
     return -951439423
 }
 
-
 func NewAi_UeCooldown(_buf *serialization.ByteBuf) (_v *Ai_UeCooldown, err error) {
     _v = &Ai_UeCooldown{}
-
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-
     if _v.CooldownTime, err = _buf.ReadFloat(); err != nil  { return } 
     return
 }
-
 

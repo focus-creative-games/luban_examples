@@ -28,8 +28,6 @@ public abstract partial class ComposeNode :  ai.FlowNode
 
     public static ComposeNode DeserializeComposeNode(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "Sequence": return new ai.Sequence(_buf);
@@ -37,15 +35,13 @@ public abstract partial class ComposeNode :  ai.FlowNode
             case "SimpleParallel": return new ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

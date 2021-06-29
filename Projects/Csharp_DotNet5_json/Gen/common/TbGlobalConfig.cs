@@ -27,7 +27,6 @@ public sealed partial class TbGlobalConfig
         _data = common.GlobalConfig.DeserializeGlobalConfig(_buf[0]);
     }
 
-
      public int BagCapacity => _data.BagCapacity;
      public int BagCapacitySpecial => _data.BagCapacitySpecial;
      public int BagTempExpendableCapacity => _data.BagTempExpendableCapacity;
@@ -57,7 +56,6 @@ public sealed partial class TbGlobalConfig
         OnResolveFinish(_tables);
     }
 
-    
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }

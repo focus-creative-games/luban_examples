@@ -23,25 +23,21 @@ public final class MultiBonus extends  cfg.bonus.Bonus
 
     public MultiBonus(cfg.bonus.Bonus[] bonuses )
     {
-            super();
+        super();
         this.bonuses = bonuses;
     }
 
     public static MultiBonus deserializeMultiBonus(ByteBuf _buf)
     {
-    
         return new MultiBonus(_buf);
-    
     }
 
-     public final cfg.bonus.Bonus[] bonuses;
-
+    public final cfg.bonus.Bonus[] bonuses;
 
     public static final int ID = 1421907893;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class MultiBonus extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.bonus.Bonus _e : bonuses) { if (_e != null) _e.resolve(_tables); }
     }
 

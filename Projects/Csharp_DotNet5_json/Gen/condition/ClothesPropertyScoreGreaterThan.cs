@@ -32,22 +32,18 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
 
     public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(JsonElement _buf)
     {
-    
         return new condition.ClothesPropertyScoreGreaterThan(_buf);
-    
     }
 
     public readonly item.EClothesPropertyType Prop;
     public readonly int Value;
 
-
     public const int ID = 696630835;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -13,24 +13,19 @@ import "bright/serialization"
 
 
 type Limit_LimitBase struct {
-    
 }
-
 
 
 func NewLimit_LimitBase(_buf *serialization.ByteBuf) (_v *Limit_LimitBase, err error) {
     _v = &Limit_LimitBase{}
-
     return
 }
-
 func NewChildLimit_LimitBase(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case 303235413: return NewLimit_DailyLimit(_buf);
             case -1753629499: return NewLimit_MultiDayLimit(_buf);
             case -252187161: return NewLimit_WeeklyLimit(_buf);
@@ -40,5 +35,4 @@ func NewChildLimit_LimitBase(_buf *serialization.ByteBuf) (_v interface{}, err e
     }
     return
 }
-
 

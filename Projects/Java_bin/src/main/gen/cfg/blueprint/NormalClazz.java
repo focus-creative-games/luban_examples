@@ -24,27 +24,23 @@ public final class NormalClazz extends  cfg.blueprint.Clazz
 
     public NormalClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, boolean is_abstract, java.util.ArrayList<cfg.blueprint.Field> fields )
     {
-            super(name, desc, parents, methods);
+        super(name, desc, parents, methods);
         this.isAbstract = is_abstract;
         this.fields = fields;
     }
 
     public static NormalClazz deserializeNormalClazz(ByteBuf _buf)
     {
-    
         return new NormalClazz(_buf);
-    
     }
 
-     public final boolean isAbstract;
-     public final java.util.ArrayList<cfg.blueprint.Field> fields;
-
+    public final boolean isAbstract;
+    public final java.util.ArrayList<cfg.blueprint.Field> fields;
 
     public static final int ID = -2073576778;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -60,7 +56,7 @@ public final class NormalClazz extends  cfg.blueprint.Clazz
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.blueprint.Field _e : fields) { if (_e != null) _e.resolve(_tables); }
     }
 

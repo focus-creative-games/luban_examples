@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Mail_SystemMail struct {
-    
     Id int32
     Title string
     Sender string
@@ -21,15 +20,12 @@ type Mail_SystemMail struct {
     Award []int32
 }
 
-
 func (Mail_SystemMail) GetTypeId() int {
     return 1214073149
 }
 
-
 func NewMail_SystemMail(_buf *serialization.ByteBuf) (_v *Mail_SystemMail, err error) {
     _v = &Mail_SystemMail{}
-
     if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Title, err = _buf.ReadString(); err != nil  { return } 
     if _v.Sender, err = _buf.ReadString(); err != nil  { return } 
@@ -47,5 +43,4 @@ func NewMail_SystemMail(_buf *serialization.ByteBuf) (_v *Mail_SystemMail, err e
                 }(_buf); err != nil  { return } 
     return
 }
-
 

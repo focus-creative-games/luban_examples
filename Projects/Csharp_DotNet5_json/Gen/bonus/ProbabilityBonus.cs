@@ -30,21 +30,17 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
 
     public static ProbabilityBonus DeserializeProbabilityBonus(JsonElement _buf)
     {
-    
         return new bonus.ProbabilityBonus(_buf);
-    
     }
 
     public readonly bonus.ProbabilityBonusInfo[] Bonuses;
 
-
     public const int ID = 359783161;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }

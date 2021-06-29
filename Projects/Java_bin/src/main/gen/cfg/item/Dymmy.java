@@ -23,25 +23,21 @@ public final class Dymmy extends  cfg.item.ItemExtra
 
     public Dymmy(int id, cfg.cost.Cost cost )
     {
-            super(id);
+        super(id);
         this.cost = cost;
     }
 
     public static Dymmy deserializeDymmy(ByteBuf _buf)
     {
-    
         return new Dymmy(_buf);
-    
     }
 
-     public final cfg.cost.Cost cost;
-
+    public final cfg.cost.Cost cost;
 
     public static final int ID = 896889705;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class Dymmy extends  cfg.item.ItemExtra
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             if (cost != null) {cost.resolve(_tables);}
     }
 

@@ -32,22 +32,18 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
 
     public static ErrorStyleDlgOkCancel DeserializeErrorStyleDlgOkCancel(JsonElement _buf)
     {
-    
         return new error.ErrorStyleDlgOkCancel(_buf);
-    
     }
 
     public readonly string Btn1Name;
     public readonly string Btn2Name;
 
-
     public const int ID = 971221414;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

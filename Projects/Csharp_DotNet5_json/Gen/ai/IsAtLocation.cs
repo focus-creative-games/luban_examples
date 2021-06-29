@@ -34,23 +34,19 @@ public sealed partial class IsAtLocation :  ai.Decorator
 
     public static IsAtLocation DeserializeIsAtLocation(JsonElement _buf)
     {
-    
         return new ai.IsAtLocation(_buf);
-    
     }
 
     public readonly float AcceptableRadius;
     public readonly string KeyboardKey;
     public readonly bool InverseCondition;
 
-
     public const int ID = 1255972344;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

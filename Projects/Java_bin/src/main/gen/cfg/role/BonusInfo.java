@@ -29,20 +29,16 @@ public final class BonusInfo extends  bright.serialization.AbstractBean
 
     public static BonusInfo deserializeBonusInfo(ByteBuf _buf)
     {
-    
         return new BonusInfo(_buf);
-    
     }
 
-     public final cfg.item.ECurrencyType type;
-     public final float coefficient;
-
+    public final cfg.item.ECurrencyType type;
+    public final float coefficient;
 
     public static final int ID = -1354421803;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class BonusInfo extends  bright.serialization.AbstractBean
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
     }
 
     @Override

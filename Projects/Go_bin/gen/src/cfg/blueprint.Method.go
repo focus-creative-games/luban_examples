@@ -13,7 +13,6 @@ import "bright/serialization"
 
 
 type Blueprint_Method struct {
-    
     Name string
     Desc string
     IsStatic bool
@@ -22,10 +21,8 @@ type Blueprint_Method struct {
 }
 
 
-
 func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err error) {
     _v = &Blueprint_Method{}
-
     if _v.Name, err = _buf.ReadString(); err != nil  { return } 
     if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
     if _v.IsStatic, err = _buf.ReadBool(); err != nil  { return } 
@@ -43,19 +40,16 @@ func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err
                 }(_buf); err != nil  { return } 
     return
 }
-
 func NewChildBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case -392137809: return NewBlueprint_AbstraceMethod(_buf);
             case 1739079015: return NewBlueprint_ExternalMethod(_buf);
             case -696408103: return NewBlueprint_BlueprintMethod(_buf);
     }
     return
 }
-
 

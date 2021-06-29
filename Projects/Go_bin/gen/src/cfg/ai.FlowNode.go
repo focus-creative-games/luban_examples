@@ -19,14 +19,11 @@ type Ai_FlowNode struct {
 }
 
 
-
 func NewAi_FlowNode(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err error) {
     _v = &Ai_FlowNode{}
-
     var _p *Ai_Node
      if _p, err = NewAi_Node(_buf) ; err != nil { return }
     _v.Ai_Node = *_p
-
     if _v.Decorators, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
                 _v2 = make([]interface{}, 0)
                 var n int
@@ -51,14 +48,12 @@ func NewAi_FlowNode(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err error) {
                 }(_buf); err != nil  { return } 
     return
 }
-
 func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
     }
     switch id {
-            case 0 : return nil, nil
             case -1789006105: return NewAi_Sequence(_buf);
             case -1946981627: return NewAi_Selector(_buf);
             case -1952582529: return NewAi_SimpleParallel(_buf);
@@ -72,5 +67,4 @@ func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error
     }
     return
 }
-
 

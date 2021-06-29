@@ -17,21 +17,16 @@ type Condition_GenderLimit struct {
     Gender int32
 }
 
-
 func (Condition_GenderLimit) GetTypeId() int {
     return 103675143
 }
 
-
 func NewCondition_GenderLimit(_buf *serialization.ByteBuf) (_v *Condition_GenderLimit, err error) {
     _v = &Condition_GenderLimit{}
-
     var _p *Condition_BoolRoleCondition
      if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
-
     if _v.Gender, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

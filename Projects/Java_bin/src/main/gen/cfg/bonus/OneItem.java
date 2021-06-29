@@ -23,26 +23,22 @@ public final class OneItem extends  cfg.bonus.Bonus
 
     public OneItem(int item_id )
     {
-            super();
+        super();
         this.itemId = item_id;
     }
 
     public static OneItem deserializeOneItem(ByteBuf _buf)
     {
-    
         return new OneItem(_buf);
-    
     }
 
-     public final int itemId;
-        public cfg.item.Item itemId_Ref;
-
+    public final int itemId;
+    public cfg.item.Item itemId_Ref;
 
     public static final int ID = -1649658966;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,7 @@ public final class OneItem extends  cfg.bonus.Bonus
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 

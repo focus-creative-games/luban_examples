@@ -28,8 +28,6 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
 
     public static LimitBase DeserializeLimitBase(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "DailyLimit": return new limit.DailyLimit(_buf);
@@ -40,15 +38,12 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
             case "GroupCoolDown": return new limit.GroupCoolDown(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

@@ -18,22 +18,17 @@ type Bonus_Item struct {
     Amount int32
 }
 
-
 func (Bonus_Item) GetTypeId() int {
     return 1689011106
 }
 
-
 func NewBonus_Item(_buf *serialization.ByteBuf) (_v *Bonus_Item, err error) {
     _v = &Bonus_Item{}
-
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-
     if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
     if _v.Amount, err = _buf.ReadInt(); err != nil  { return } 
     return
 }
-
 

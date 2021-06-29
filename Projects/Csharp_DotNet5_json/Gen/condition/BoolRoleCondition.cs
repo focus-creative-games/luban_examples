@@ -28,8 +28,6 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
 
     public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _buf)
     {
-    
-        if (_buf.ValueKind == JsonValueKind.Null) { return null; }
         switch (_buf.GetProperty("__type__").GetString())
         {
             case "GenderLimit": return new condition.GenderLimit(_buf);
@@ -39,15 +37,13 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
             case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

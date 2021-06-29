@@ -30,21 +30,17 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
 
     public static WeeklyLimit DeserializeWeeklyLimit(JsonElement _buf)
     {
-    
         return new limit.WeeklyLimit(_buf);
-    
     }
 
     public readonly int Num;
 
-
     public const int ID = -252187161;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

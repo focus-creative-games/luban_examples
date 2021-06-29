@@ -29,20 +29,16 @@ public final class ProbabilityBonusInfo extends  bright.serialization.AbstractBe
 
     public static ProbabilityBonusInfo deserializeProbabilityBonusInfo(ByteBuf _buf)
     {
-    
         return new ProbabilityBonusInfo(_buf);
-    
     }
 
-     public final cfg.bonus.Bonus bonus;
-     public final float probability;
-
+    public final cfg.bonus.Bonus bonus;
+    public final float probability;
 
     public static final int ID = 46960455;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -58,7 +54,6 @@ public final class ProbabilityBonusInfo extends  bright.serialization.AbstractBe
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-
             if (bonus != null) {bonus.resolve(_tables);}
     }
 

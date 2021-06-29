@@ -24,17 +24,15 @@ public abstract class FlowNode extends  cfg.ai.Node
 
     public FlowNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services )
     {
-            super(id, node_name);
+        super(id, node_name);
         this.decorators = decorators;
         this.services = services;
     }
 
     public static FlowNode deserializeFlowNode(ByteBuf _buf)
     {
-    
         switch (_buf.readInt())
         {
-            case 0 : return null;
             case cfg.ai.Sequence.ID: return new cfg.ai.Sequence(_buf);
             case cfg.ai.Selector.ID: return new cfg.ai.Selector(_buf);
             case cfg.ai.SimpleParallel.ID: return new cfg.ai.SimpleParallel(_buf);
@@ -47,12 +45,10 @@ public abstract class FlowNode extends  cfg.ai.Node
             case cfg.ai.DebugPrint.ID: return new cfg.ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public final java.util.ArrayList<cfg.ai.Decorator> decorators;
-     public final java.util.ArrayList<cfg.ai.Service> services;
-
+    public final java.util.ArrayList<cfg.ai.Decorator> decorators;
+    public final java.util.ArrayList<cfg.ai.Service> services;
 
 
     @Override
@@ -69,7 +65,7 @@ public abstract class FlowNode extends  cfg.ai.Node
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
             for(cfg.ai.Decorator _e : decorators) { if (_e != null) _e.resolve(_tables); }
             for(cfg.ai.Service _e : services) { if (_e != null) _e.resolve(_tables); }
     }

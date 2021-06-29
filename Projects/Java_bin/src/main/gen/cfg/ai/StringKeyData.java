@@ -23,25 +23,21 @@ public final class StringKeyData extends  cfg.ai.KeyData
 
     public StringKeyData(String value )
     {
-            super();
+        super();
         this.value = value;
     }
 
     public static StringKeyData deserializeStringKeyData(ByteBuf _buf)
     {
-    
         return new StringKeyData(_buf);
-    
     }
 
-     public final String value;
-
+    public final String value;
 
     public static final int ID = -307888654;
 
     @Override
     public int getTypeId() { return ID; }
-
 
     @Override
     public void serialize(ByteBuf os)
@@ -57,7 +53,7 @@ public final class StringKeyData extends  cfg.ai.KeyData
 
     public void resolve(java.util.HashMap<String, Object> _tables)
     {
-super.resolve(_tables);
+        super.resolve(_tables);
     }
 
     @Override

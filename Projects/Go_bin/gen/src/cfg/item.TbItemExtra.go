@@ -27,7 +27,6 @@ func NewItem_TbItemExtra(_buf *serialization.ByteBuf) (*Item_TbItemExtra, error)
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
-
                 if __v, __is := _v.(*Item_TreasureBox) ; __is {
                     dataMap[__v.Id] = _v
                     continue
@@ -65,6 +64,5 @@ func (table *Item_TbItemExtra) GetDataList() []interface{} {
 func (table *Item_TbItemExtra) Get(key int32) interface{} {
     return table._dataMap[key]
 }
-
 
 

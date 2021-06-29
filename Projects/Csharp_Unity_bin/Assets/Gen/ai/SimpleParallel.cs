@@ -33,23 +33,19 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
     {
-    
         return new ai.SimpleParallel(_buf);
-    
     }
 
     public readonly ai.EFinishMode FinishMode;
     public readonly ai.Task MainTask;
     public readonly ai.FlowNode BackgroundNode;
 
-
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
         OnResolveFinish(_tables);
