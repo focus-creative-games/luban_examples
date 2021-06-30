@@ -7,6 +7,24 @@ using System.Text;
 namespace Bright.Serialization
 {
 
+    public enum EDeserializeError
+    {
+        OK,
+        NOT_ENOUGH,
+        EXCEED_SIZE,
+        // UNMARSHAL_ERR,
+    }
+
+    public class SerializationException : Exception
+    {
+        public SerializationException() { }
+        public SerializationException(string msg) : base(msg) { }
+
+        public SerializationException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+
     public readonly struct SegmentSaveState
     {
         public SegmentSaveState(int readerIndex, int writerIndex)
@@ -597,6 +615,16 @@ namespace Bright.Serialization
             return (long)ReadUlong();
         }
 
+        public void WriteNumberAsLong(double x)
+        {
+            WriteLong((long)x);
+        }
+
+        public double ReadLongAsNumber()
+        {
+            return ReadLong();
+        }
+
         private void WriteUlong(ulong x)
         {
             // 0 111 1111
@@ -1034,7 +1062,7 @@ namespace Bright.Serialization
             }
             else
             {
-                return "";
+                return string.Empty;
             }
         }
 
@@ -1523,5 +1551,18 @@ namespace Bright.Serialization
         {
             _releaser?.Invoke(this);
         }
+
+#if SUPPORT_PUERTS_ARRAYBUF
+        // -- add for puerts
+        public Puerts.ArrayBuffer ReadArrayBuffer()
+        {
+            return new Puerts.ArrayBuffer(ReadBytes());
+        }
+
+        public void WriteArrayBuffer(Puerts.ArrayBuffer bytes)
+        {
+            WriteBytes(bytes.Bytes);
+        }
+#endif
     }
 }

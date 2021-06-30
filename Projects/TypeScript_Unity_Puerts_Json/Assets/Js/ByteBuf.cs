@@ -615,6 +615,16 @@ namespace Bright.Serialization
             return (long)ReadUlong();
         }
 
+        public void WriteNumberAsLong(double x)
+        {
+            WriteLong((long)x);
+        }
+
+        public double ReadLongAsNumber()
+        {
+            return ReadLong();
+        }
+
         private void WriteUlong(ulong x)
         {
             // 0 111 1111
@@ -1052,7 +1062,7 @@ namespace Bright.Serialization
             }
             else
             {
-                return "";
+                return string.Empty;
             }
         }
 

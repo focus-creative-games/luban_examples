@@ -1,22 +1,29 @@
-#define CPU_SUPPORT_MEMORY_NOT_ALIGN  //CPU 是否支持读取非对齐内存
-
 using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Dynamic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-
-/// <summary>
-/// TODO  
-/// 1. 整理代码
-/// 2. 优化序列化 (像这样 data[endPos + 1] = (byte)(x >> 8) 挨个字节赋值总感觉很低效，能优化吗)
-/// </summary>
-
-
 namespace Bright.Serialization
 {
+
+    public enum EDeserializeError
+    {
+        OK,
+        NOT_ENOUGH,
+        EXCEED_SIZE,
+        // UNMARSHAL_ERR,
+    }
+
+    public class SerializationException : Exception
+    {
+        public SerializationException() { }
+        public SerializationException(string msg) : base(msg) { }
+
+        public SerializationException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
 
     public readonly struct SegmentSaveState
     {
@@ -31,7 +38,6 @@ namespace Bright.Serialization
         public int WriterIndex { get; }
     }
 
-    [XLua.LuaCallCSharp]
     public sealed class ByteBuf : ICloneable, IEquatable<ByteBuf>
     {
         public ByteBuf()
@@ -609,6 +615,16 @@ namespace Bright.Serialization
             return (long)ReadUlong();
         }
 
+        public void WriteNumberAsLong(double x)
+        {
+            WriteLong((long)x);
+        }
+
+        public double ReadLongAsNumber()
+        {
+            return ReadLong();
+        }
+
         private void WriteUlong(ulong x)
         {
             // 0 111 1111
@@ -1046,7 +1062,7 @@ namespace Bright.Serialization
             }
             else
             {
-                return "";
+                return string.Empty;
             }
         }
 
@@ -1535,5 +1551,18 @@ namespace Bright.Serialization
         {
             _releaser?.Invoke(this);
         }
+
+#if SUPPORT_PUERTS_ARRAYBUF
+        // -- add for puerts
+        public Puerts.ArrayBuffer ReadArrayBuffer()
+        {
+            return new Puerts.ArrayBuffer(ReadBytes());
+        }
+
+        public void WriteArrayBuffer(Puerts.ArrayBuffer bytes)
+        {
+            WriteBytes(bytes.Bytes);
+        }
+#endif
     }
 }
