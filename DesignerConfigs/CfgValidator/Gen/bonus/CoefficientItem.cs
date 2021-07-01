@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.bonus
    
 public sealed partial class CoefficientItem :  bonus.Bonus 
 {
-    public CoefficientItem(ByteBuf _buf)  : base(_buf) 
+    public CoefficientItem(JsonElement _buf)  : base(_buf) 
     {
-        BonusId = _buf.ReadInt();
-        BonusList = bonus.Items.DeserializeItems(_buf);
+        BonusId = _buf.GetProperty("bonus_id").GetInt32();
+        BonusList =  bonus.Items.DeserializeItems(_buf.GetProperty("bonus_list"));
     }
 
     public CoefficientItem(int bonus_id, bonus.Items bonus_list )  : base() 
@@ -29,25 +30,21 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         this.BonusList = bonus_list;
     }
 
-    public static CoefficientItem DeserializeCoefficientItem(ByteBuf _buf)
+    public static CoefficientItem DeserializeCoefficientItem(JsonElement _buf)
     {
-    
         return new bonus.CoefficientItem(_buf);
-    
     }
 
-     public readonly int BonusId;
-     public readonly bonus.Items BonusList;
-
+    public readonly int BonusId;
+    public readonly bonus.Items BonusList;
 
     public const int ID = -229470727;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            BonusList?.Resolve(_tables);
+        base.Resolve(_tables);
+        BonusList?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -61,6 +58,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

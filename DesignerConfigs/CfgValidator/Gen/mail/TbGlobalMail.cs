@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.mail
 {
-   
 public sealed partial class TbGlobalMail
 {
     private readonly Dictionary<int, mail.GlobalMail> _dataMap;
     private readonly List<mail.GlobalMail> _dataList;
     
-    public TbGlobalMail(ByteBuf _buf)
+    public TbGlobalMail(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, mail.GlobalMail>();
         _dataList = new List<mail.GlobalMail>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            mail.GlobalMail _v;
-            _v = mail.GlobalMail.DeserializeGlobalMail(_buf);
+            var _v = mail.GlobalMail.DeserializeGlobalMail(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbGlobalMail
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

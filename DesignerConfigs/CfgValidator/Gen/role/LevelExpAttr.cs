@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.role
    
 public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
 {
-    public LevelExpAttr(ByteBuf _buf) 
+    public LevelExpAttr(JsonElement _buf) 
     {
-        Level = _buf.ReadInt();
-        NeedExp = _buf.ReadLong();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ClothesAttrs = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); ClothesAttrs.Add(_e);}}
+        Level = _buf.GetProperty("level").GetInt32();
+        NeedExp = _buf.GetProperty("need_exp").GetInt64();
+        { var _json = _buf.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ClothesAttrs.Add(__v); }   }
     }
 
     public LevelExpAttr(int level, long need_exp, System.Collections.Generic.List<int> clothes_attrs ) 
@@ -31,25 +32,20 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         this.ClothesAttrs = clothes_attrs;
     }
 
-    public static LevelExpAttr DeserializeLevelExpAttr(ByteBuf _buf)
+    public static LevelExpAttr DeserializeLevelExpAttr(JsonElement _buf)
     {
-    
         return new role.LevelExpAttr(_buf);
-    
     }
 
-     public readonly int Level;
-     public readonly long NeedExp;
-     public readonly System.Collections.Generic.List<int> ClothesAttrs;
-
+    public readonly int Level;
+    public readonly long NeedExp;
+    public readonly System.Collections.Generic.List<int> ClothesAttrs;
 
     public const int ID = -1569837022;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -60,10 +56,9 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         return "{ "
         + "Level:" + Level + ","
         + "NeedExp:" + NeedExp + ","
-        + "ClothesAttrs:" + ClothesAttrs + ","
+        + "ClothesAttrs:" + Bright.Common.StringUtil.CollectionToString(ClothesAttrs) + ","
         + "}";
     }
     }
-
 }
 

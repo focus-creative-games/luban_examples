@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class FloatKeyData :  ai.KeyData 
 {
-    public FloatKeyData(ByteBuf _buf)  : base(_buf) 
+    public FloatKeyData(JsonElement _buf)  : base(_buf) 
     {
-        Value = _buf.ReadFloat();
+        Value = _buf.GetProperty("value").GetSingle();
     }
 
     public FloatKeyData(float value )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class FloatKeyData :  ai.KeyData
         this.Value = value;
     }
 
-    public static FloatKeyData DeserializeFloatKeyData(ByteBuf _buf)
+    public static FloatKeyData DeserializeFloatKeyData(JsonElement _buf)
     {
-    
         return new ai.FloatKeyData(_buf);
-    
     }
 
-     public readonly float Value;
-
+    public readonly float Value;
 
     public const int ID = -719747885;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

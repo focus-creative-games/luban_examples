@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.limit
    
 public sealed partial class GroupCoolDown :  limit.LimitBase 
 {
-    public GroupCoolDown(ByteBuf _buf)  : base(_buf) 
+    public GroupCoolDown(JsonElement _buf)  : base(_buf) 
     {
-        GroupId = _buf.ReadInt();
-        Duration = _buf.ReadInt();
+        GroupId = _buf.GetProperty("group_id").GetInt32();
+        Duration = _buf.GetProperty("duration").GetInt32();
     }
 
     public GroupCoolDown(int group_id, int duration )  : base() 
@@ -29,24 +30,20 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
         this.Duration = duration;
     }
 
-    public static GroupCoolDown DeserializeGroupCoolDown(ByteBuf _buf)
+    public static GroupCoolDown DeserializeGroupCoolDown(JsonElement _buf)
     {
-    
         return new limit.GroupCoolDown(_buf);
-    
     }
 
-     public readonly int GroupId;
-     public readonly int Duration;
-
+    public readonly int GroupId;
+    public readonly int Duration;
 
     public const int ID = 394328599;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +57,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

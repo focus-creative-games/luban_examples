@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.common
    
 public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
-    public DateTimeRange(ByteBuf _buf) 
+    public DateTimeRange(JsonElement _buf) 
     {
-        if(_buf.ReadBool()){ StartTime = _buf.ReadInt(); } else { StartTime = null; }
-        if(_buf.ReadBool()){ EndTime = _buf.ReadInt(); } else { EndTime = null; }
+        { var _j = _buf.GetProperty("start_time"); if (_j.ValueKind != JsonValueKind.Null) { StartTime = _j.GetInt32(); } else { StartTime = null; } }
+        { var _j = _buf.GetProperty("end_time"); if (_j.ValueKind != JsonValueKind.Null) { EndTime = _j.GetInt32(); } else { EndTime = null; } }
     }
 
     public DateTimeRange(int? start_time, int? end_time ) 
@@ -29,24 +30,19 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         this.EndTime = end_time;
     }
 
-    public static DateTimeRange DeserializeDateTimeRange(ByteBuf _buf)
+    public static DateTimeRange DeserializeDateTimeRange(JsonElement _buf)
     {
-    
         return new common.DateTimeRange(_buf);
-    
     }
 
-     public readonly int? StartTime;
-     public readonly int? EndTime;
-
+    public readonly int? StartTime;
+    public readonly int? EndTime;
 
     public const int ID = 1642200959;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +56,5 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

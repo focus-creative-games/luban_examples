@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.role
    
 public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
-    public BonusInfo(ByteBuf _buf) 
+    public BonusInfo(JsonElement _buf) 
     {
-        Type = (item.ECurrencyType)_buf.ReadInt();
-        Coefficient = _buf.ReadFloat();
+        Type = (item.ECurrencyType)_buf.GetProperty("type").GetInt32();
+        Coefficient = _buf.GetProperty("coefficient").GetSingle();
     }
 
     public BonusInfo(item.ECurrencyType type, float coefficient ) 
@@ -29,24 +30,19 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         this.Coefficient = coefficient;
     }
 
-    public static BonusInfo DeserializeBonusInfo(ByteBuf _buf)
+    public static BonusInfo DeserializeBonusInfo(JsonElement _buf)
     {
-    
         return new role.BonusInfo(_buf);
-    
     }
 
-     public readonly item.ECurrencyType Type;
-     public readonly float Coefficient;
-
+    public readonly item.ECurrencyType Type;
+    public readonly float Coefficient;
 
     public const int ID = -1354421803;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +56,5 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

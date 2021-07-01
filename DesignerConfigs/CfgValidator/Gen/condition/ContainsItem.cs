@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.condition
    
 public sealed partial class ContainsItem :  condition.RoleCondition 
 {
-    public ContainsItem(ByteBuf _buf)  : base(_buf) 
+    public ContainsItem(JsonElement _buf)  : base(_buf) 
     {
-        ItemId = _buf.ReadInt();
-        Num = _buf.ReadInt();
-        Reverse = _buf.ReadBool();
+        ItemId = _buf.GetProperty("item_id").GetInt32();
+        Num = _buf.GetProperty("num").GetInt32();
+        Reverse = _buf.GetProperty("reverse").GetBoolean();
     }
 
     public ContainsItem(int item_id, int num, bool reverse )  : base() 
@@ -31,27 +32,23 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         this.Reverse = reverse;
     }
 
-    public static ContainsItem DeserializeContainsItem(ByteBuf _buf)
+    public static ContainsItem DeserializeContainsItem(JsonElement _buf)
     {
-    
         return new condition.ContainsItem(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Num;
-     public readonly bool Reverse;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Num;
+    public readonly bool Reverse;
 
     public const int ID = 1961145317;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        base.Resolve(_tables);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 
@@ -66,6 +63,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

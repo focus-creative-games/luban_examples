@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class DebugPrint :  ai.Task 
 {
-    public DebugPrint(ByteBuf _buf)  : base(_buf) 
+    public DebugPrint(JsonElement _buf)  : base(_buf) 
     {
-        Text = _buf.ReadString();
+        Text = _buf.GetProperty("text").GetString();
     }
 
     public DebugPrint(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string text )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -27,23 +28,19 @@ public sealed partial class DebugPrint :  ai.Task
         this.Text = text;
     }
 
-    public static DebugPrint DeserializeDebugPrint(ByteBuf _buf)
+    public static DebugPrint DeserializeDebugPrint(JsonElement _buf)
     {
-    
         return new ai.DebugPrint(_buf);
-    
     }
 
-     public readonly string Text;
-
+    public readonly string Text;
 
     public const int ID = 1357409728;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -54,13 +51,12 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "Text:" + Text + ","
         + "}";
     }
     }
-
 }
 

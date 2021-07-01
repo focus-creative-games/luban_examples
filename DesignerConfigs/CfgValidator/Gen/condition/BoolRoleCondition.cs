@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.condition
    
 public abstract partial class BoolRoleCondition :  condition.RoleCondition 
 {
-    public BoolRoleCondition(ByteBuf _buf)  : base(_buf) 
+    public BoolRoleCondition(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,28 +26,24 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
     {
     }
 
-    public static BoolRoleCondition DeserializeBoolRoleCondition(ByteBuf _buf)
+    public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case condition.GenderLimit.ID: return new condition.GenderLimit(_buf);
-            case condition.MinLevel.ID: return new condition.MinLevel(_buf);
-            case condition.MaxLevel.ID: return new condition.MaxLevel(_buf);
-            case condition.MinMaxLevel.ID: return new condition.MinMaxLevel(_buf);
-            case condition.ClothesPropertyScoreGreaterThan.ID: return new condition.ClothesPropertyScoreGreaterThan(_buf);
+            case "GenderLimit": return new condition.GenderLimit(_buf);
+            case "MinLevel": return new condition.MinLevel(_buf);
+            case "MaxLevel": return new condition.MaxLevel(_buf);
+            case "MinMaxLevel": return new condition.MinMaxLevel(_buf);
+            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

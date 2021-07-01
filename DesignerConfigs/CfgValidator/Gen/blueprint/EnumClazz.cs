@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.blueprint
    
 public sealed partial class EnumClazz :  blueprint.Clazz 
 {
-    public EnumClazz(ByteBuf _buf)  : base(_buf) 
+    public EnumClazz(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Enums = new System.Collections.Generic.List<blueprint.EnumField>(n);for(var i = 0 ; i < n ; i++) { blueprint.EnumField _e;  _e = blueprint.EnumField.DeserializeEnumField(_buf); Enums.Add(_e);}}
+        { var _json = _buf.GetProperty("enums"); Enums = new System.Collections.Generic.List<blueprint.EnumField>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.EnumField __v;  __v =  blueprint.EnumField.DeserializeEnumField(__e);  Enums.Add(__v); }   }
     }
 
     public EnumClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, System.Collections.Generic.List<blueprint.EnumField> enums )  : base(name,desc,parents,methods) 
@@ -27,24 +28,20 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         this.Enums = enums;
     }
 
-    public static EnumClazz DeserializeEnumClazz(ByteBuf _buf)
+    public static EnumClazz DeserializeEnumClazz(JsonElement _buf)
     {
-    
         return new blueprint.EnumClazz(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
-
+    public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Enums) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Enums) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -55,12 +52,11 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
-        + "Enums:" + Enums + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
+        + "Enums:" + Bright.Common.StringUtil.CollectionToString(Enums) + ","
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public sealed partial class MoveToLocation :  ai.Task 
 {
-    public MoveToLocation(ByteBuf _buf)  : base(_buf) 
+    public MoveToLocation(JsonElement _buf)  : base(_buf) 
     {
-        Location = _buf.ReadVector3();
-        AcceptableRadius = _buf.ReadFloat();
+        { var _json = _buf.GetProperty("location"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  Location = new System.Numerics.Vector3(__x, __y,__z); }
+        AcceptableRadius = _buf.GetProperty("acceptable_radius").GetSingle();
     }
 
     public MoveToLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, System.Numerics.Vector3 location, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -29,24 +30,20 @@ public sealed partial class MoveToLocation :  ai.Task
         this.AcceptableRadius = acceptable_radius;
     }
 
-    public static MoveToLocation DeserializeMoveToLocation(ByteBuf _buf)
+    public static MoveToLocation DeserializeMoveToLocation(JsonElement _buf)
     {
-    
         return new ai.MoveToLocation(_buf);
-    
     }
 
-     public readonly System.Numerics.Vector3 Location;
-     public readonly float AcceptableRadius;
-
+    public readonly System.Numerics.Vector3 Location;
+    public readonly float AcceptableRadius;
 
     public const int ID = -969953113;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,14 +54,13 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "Location:" + Location + ","
         + "AcceptableRadius:" + AcceptableRadius + ","
         + "}";
     }
     }
-
 }
 

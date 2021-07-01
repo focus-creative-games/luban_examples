@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public abstract partial class Node :  Bright.Config.BeanBase 
 {
-    public Node(ByteBuf _buf) 
+    public Node(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        NodeName = _buf.ReadString();
+        Id = _buf.GetProperty("id").GetInt32();
+        NodeName = _buf.GetProperty("node_name").GetString();
     }
 
     public Node(int id, string node_name ) 
@@ -29,48 +30,43 @@ public abstract partial class Node :  Bright.Config.BeanBase
         this.NodeName = node_name;
     }
 
-    public static Node DeserializeNode(ByteBuf _buf)
+    public static Node DeserializeNode(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
-            case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
-            case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
-            case ai.KeepFaceTarget.ID: return new ai.KeepFaceTarget(_buf);
-            case ai.GetOwnerPlayer.ID: return new ai.GetOwnerPlayer(_buf);
-            case ai.UpdateDailyBehaviorProps.ID: return new ai.UpdateDailyBehaviorProps(_buf);
-            case ai.UeLoop.ID: return new ai.UeLoop(_buf);
-            case ai.UeCooldown.ID: return new ai.UeCooldown(_buf);
-            case ai.UeTimeLimit.ID: return new ai.UeTimeLimit(_buf);
-            case ai.UeBlackboard.ID: return new ai.UeBlackboard(_buf);
-            case ai.UeForceSuccess.ID: return new ai.UeForceSuccess(_buf);
-            case ai.IsAtLocation.ID: return new ai.IsAtLocation(_buf);
-            case ai.DistanceLessThan.ID: return new ai.DistanceLessThan(_buf);
-            case ai.Sequence.ID: return new ai.Sequence(_buf);
-            case ai.Selector.ID: return new ai.Selector(_buf);
-            case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
-            case ai.UeWait.ID: return new ai.UeWait(_buf);
-            case ai.UeWaitBlackboardTime.ID: return new ai.UeWaitBlackboardTime(_buf);
-            case ai.MoveToTarget.ID: return new ai.MoveToTarget(_buf);
-            case ai.ChooseSkill.ID: return new ai.ChooseSkill(_buf);
-            case ai.MoveToRandomLocation.ID: return new ai.MoveToRandomLocation(_buf);
-            case ai.MoveToLocation.ID: return new ai.MoveToLocation(_buf);
-            case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
+            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
+            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);
+            case "ChooseTarget": return new ai.ChooseTarget(_buf);
+            case "KeepFaceTarget": return new ai.KeepFaceTarget(_buf);
+            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_buf);
+            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_buf);
+            case "UeLoop": return new ai.UeLoop(_buf);
+            case "UeCooldown": return new ai.UeCooldown(_buf);
+            case "UeTimeLimit": return new ai.UeTimeLimit(_buf);
+            case "UeBlackboard": return new ai.UeBlackboard(_buf);
+            case "UeForceSuccess": return new ai.UeForceSuccess(_buf);
+            case "IsAtLocation": return new ai.IsAtLocation(_buf);
+            case "DistanceLessThan": return new ai.DistanceLessThan(_buf);
+            case "Sequence": return new ai.Sequence(_buf);
+            case "Selector": return new ai.Selector(_buf);
+            case "SimpleParallel": return new ai.SimpleParallel(_buf);
+            case "UeWait": return new ai.UeWait(_buf);
+            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_buf);
+            case "MoveToTarget": return new ai.MoveToTarget(_buf);
+            case "ChooseSkill": return new ai.ChooseSkill(_buf);
+            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_buf);
+            case "MoveToLocation": return new ai.MoveToLocation(_buf);
+            case "DebugPrint": return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly int Id;
-     public readonly string NodeName;
-
+    public readonly int Id;
+    public readonly string NodeName;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -84,6 +80,5 @@ public abstract partial class Node :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

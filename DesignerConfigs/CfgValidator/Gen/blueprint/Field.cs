@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.blueprint
    
 public sealed partial class Field :  Bright.Config.BeanBase 
 {
-    public Field(ByteBuf _buf) 
+    public Field(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Type = _buf.ReadString();
-        Desc = _buf.ReadString();
+        Name = _buf.GetProperty("name").GetString();
+        Type = _buf.GetProperty("type").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
     }
 
     public Field(string name, string type, string desc ) 
@@ -31,25 +32,20 @@ public sealed partial class Field :  Bright.Config.BeanBase
         this.Desc = desc;
     }
 
-    public static Field DeserializeField(ByteBuf _buf)
+    public static Field DeserializeField(JsonElement _buf)
     {
-    
         return new blueprint.Field(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly string Type;
-     public readonly string Desc;
-
+    public readonly string Name;
+    public readonly string Type;
+    public readonly string Desc;
 
     public const int ID = 1694158271;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -64,6 +60,5 @@ public sealed partial class Field :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

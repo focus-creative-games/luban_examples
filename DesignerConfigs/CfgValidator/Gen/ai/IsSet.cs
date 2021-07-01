@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public sealed partial class IsSet :  ai.KeyQueryOperator 
 {
-    public IsSet(ByteBuf _buf)  : base(_buf) 
+    public IsSet(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,22 +26,18 @@ public sealed partial class IsSet :  ai.KeyQueryOperator
     {
     }
 
-    public static IsSet DeserializeIsSet(ByteBuf _buf)
+    public static IsSet DeserializeIsSet(JsonElement _buf)
     {
-    
         return new ai.IsSet(_buf);
-    
     }
-
 
 
     public const int ID = 1635350898;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -52,6 +49,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.bonus
    
 public sealed partial class WeightBonus :  bonus.Bonus 
 {
-    public WeightBonus(ByteBuf _buf)  : base(_buf) 
+    public WeightBonus(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Bonuses = new bonus.WeightBonusInfo[n];for(var i = 0 ; i < n ; i++) { bonus.WeightBonusInfo _e;_e = bonus.WeightBonusInfo.DeserializeWeightBonusInfo(_buf); Bonuses[i] = _e;}}
+        { var _json = _buf.GetProperty("bonuses"); int _n = _json.GetArrayLength(); Bonuses = new bonus.WeightBonusInfo[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { bonus.WeightBonusInfo __v;  __v =  bonus.WeightBonusInfo.DeserializeWeightBonusInfo(__e);  Bonuses[_index++] = __v; }   }
     }
 
     public WeightBonus(bonus.WeightBonusInfo[] bonuses )  : base() 
@@ -27,24 +28,20 @@ public sealed partial class WeightBonus :  bonus.Bonus
         this.Bonuses = bonuses;
     }
 
-    public static WeightBonus DeserializeWeightBonus(ByteBuf _buf)
+    public static WeightBonus DeserializeWeightBonus(JsonElement _buf)
     {
-    
         return new bonus.WeightBonus(_buf);
-    
     }
 
-     public readonly bonus.WeightBonusInfo[] Bonuses;
-
+    public readonly bonus.WeightBonusInfo[] Bonuses;
 
     public const int ID = -362807016;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -53,10 +50,9 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Bonuses:" + Bonuses + ","
+        + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
     }
-
 }
 

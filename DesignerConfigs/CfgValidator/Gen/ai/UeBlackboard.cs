@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.ai
    
 public sealed partial class UeBlackboard :  ai.Decorator 
 {
-    public UeBlackboard(ByteBuf _buf)  : base(_buf) 
+    public UeBlackboard(JsonElement _buf)  : base(_buf) 
     {
-        NotifyObserver = (ai.ENotifyObserverMode)_buf.ReadInt();
-        BlackboardKey = _buf.ReadString();
-        KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf);
+        NotifyObserver = (ai.ENotifyObserverMode)_buf.GetProperty("notify_observer").GetInt32();
+        BlackboardKey = _buf.GetProperty("blackboard_key").GetString();
+        KeyQuery =  ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf.GetProperty("key_query"));
     }
 
     public UeBlackboard(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, ai.ENotifyObserverMode notify_observer, string blackboard_key, ai.KeyQueryOperator key_query )  : base(id,node_name,flow_abort_mode) 
@@ -31,26 +32,22 @@ public sealed partial class UeBlackboard :  ai.Decorator
         this.KeyQuery = key_query;
     }
 
-    public static UeBlackboard DeserializeUeBlackboard(ByteBuf _buf)
+    public static UeBlackboard DeserializeUeBlackboard(JsonElement _buf)
     {
-    
         return new ai.UeBlackboard(_buf);
-    
     }
 
-     public readonly ai.ENotifyObserverMode NotifyObserver;
-     public readonly string BlackboardKey;
-     public readonly ai.KeyQueryOperator KeyQuery;
-
+    public readonly ai.ENotifyObserverMode NotifyObserver;
+    public readonly string BlackboardKey;
+    public readonly ai.KeyQueryOperator KeyQuery;
 
     public const int ID = -315297507;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            KeyQuery?.Resolve(_tables);
+        base.Resolve(_tables);
+        KeyQuery?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -68,6 +65,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

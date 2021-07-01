@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public sealed partial class IsNotSet :  ai.KeyQueryOperator 
 {
-    public IsNotSet(ByteBuf _buf)  : base(_buf) 
+    public IsNotSet(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,22 +26,18 @@ public sealed partial class IsNotSet :  ai.KeyQueryOperator
     {
     }
 
-    public static IsNotSet DeserializeIsNotSet(ByteBuf _buf)
+    public static IsNotSet DeserializeIsNotSet(JsonElement _buf)
     {
-    
         return new ai.IsNotSet(_buf);
-    
     }
-
 
 
     public const int ID = 790736255;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -52,6 +49,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

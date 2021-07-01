@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class UeCooldown :  ai.Decorator 
 {
-    public UeCooldown(ByteBuf _buf)  : base(_buf) 
+    public UeCooldown(JsonElement _buf)  : base(_buf) 
     {
-        CooldownTime = _buf.ReadFloat();
+        CooldownTime = _buf.GetProperty("cooldown_time").GetSingle();
     }
 
     public UeCooldown(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float cooldown_time )  : base(id,node_name,flow_abort_mode) 
@@ -27,23 +28,19 @@ public sealed partial class UeCooldown :  ai.Decorator
         this.CooldownTime = cooldown_time;
     }
 
-    public static UeCooldown DeserializeUeCooldown(ByteBuf _buf)
+    public static UeCooldown DeserializeUeCooldown(JsonElement _buf)
     {
-    
         return new ai.UeCooldown(_buf);
-    
     }
 
-     public readonly float CooldownTime;
-
+    public readonly float CooldownTime;
 
     public const int ID = -951439423;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -59,6 +56,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

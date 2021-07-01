@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public sealed partial class ChooseSkill :  ai.Task 
 {
-    public ChooseSkill(ByteBuf _buf)  : base(_buf) 
+    public ChooseSkill(JsonElement _buf)  : base(_buf) 
     {
-        TargetActorKey = _buf.ReadString();
-        ResultSkillIdKey = _buf.ReadString();
+        TargetActorKey = _buf.GetProperty("target_actor_key").GetString();
+        ResultSkillIdKey = _buf.GetProperty("result_skill_id_key").GetString();
     }
 
     public ChooseSkill(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, string result_skill_id_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -29,24 +30,20 @@ public sealed partial class ChooseSkill :  ai.Task
         this.ResultSkillIdKey = result_skill_id_key;
     }
 
-    public static ChooseSkill DeserializeChooseSkill(ByteBuf _buf)
+    public static ChooseSkill DeserializeChooseSkill(JsonElement _buf)
     {
-    
         return new ai.ChooseSkill(_buf);
-    
     }
 
-     public readonly string TargetActorKey;
-     public readonly string ResultSkillIdKey;
-
+    public readonly string TargetActorKey;
+    public readonly string ResultSkillIdKey;
 
     public const int ID = -918812268;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,14 +54,13 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "TargetActorKey:" + TargetActorKey + ","
         + "ResultSkillIdKey:" + ResultSkillIdKey + ","
         + "}";
     }
     }
-
 }
 

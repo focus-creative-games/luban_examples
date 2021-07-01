@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,12 +18,12 @@ namespace cfg.blueprint
    
 public abstract partial class Clazz :  Bright.Config.BeanBase 
 {
-    public Clazz(ByteBuf _buf) 
+    public Clazz(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Parents = new System.Collections.Generic.List<blueprint.Clazz>(n);for(var i = 0 ; i < n ; i++) { blueprint.Clazz _e;  _e = blueprint.Clazz.DeserializeClazz(_buf); Parents.Add(_e);}}
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Methods = new System.Collections.Generic.List<blueprint.Method>(n);for(var i = 0 ; i < n ; i++) { blueprint.Method _e;  _e = blueprint.Method.DeserializeMethod(_buf); Methods.Add(_e);}}
+        Name = _buf.GetProperty("name").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
+        { var _json = _buf.GetProperty("parents"); Parents = new System.Collections.Generic.List<blueprint.Clazz>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Clazz __v;  __v =  blueprint.Clazz.DeserializeClazz(__e);  Parents.Add(__v); }   }
+        { var _json = _buf.GetProperty("methods"); Methods = new System.Collections.Generic.List<blueprint.Method>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Method __v;  __v =  blueprint.Method.DeserializeMethod(__e);  Methods.Add(__v); }   }
     }
 
     public Clazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods ) 
@@ -33,32 +34,27 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         this.Methods = methods;
     }
 
-    public static Clazz DeserializeClazz(ByteBuf _buf)
+    public static Clazz DeserializeClazz(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case blueprint.Interface.ID: return new blueprint.Interface(_buf);
-            case blueprint.NormalClazz.ID: return new blueprint.NormalClazz(_buf);
-            case blueprint.EnumClazz.ID: return new blueprint.EnumClazz(_buf);
+            case "Interface": return new blueprint.Interface(_buf);
+            case "NormalClazz": return new blueprint.NormalClazz(_buf);
+            case "EnumClazz": return new blueprint.EnumClazz(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
-     public readonly System.Collections.Generic.List<blueprint.Method> Methods;
-
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
+    public readonly System.Collections.Generic.List<blueprint.Method> Methods;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in Parents) { _e?.Resolve(_tables); }
-            foreach(var _e in Methods) { _e?.Resolve(_tables); }
+        foreach(var _e in Parents) { _e?.Resolve(_tables); }
+        foreach(var _e in Methods) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -69,11 +65,10 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
     }
-
 }
 

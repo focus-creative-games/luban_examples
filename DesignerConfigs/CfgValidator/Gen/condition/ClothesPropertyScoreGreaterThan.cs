@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.condition
    
 public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
-    public ClothesPropertyScoreGreaterThan(ByteBuf _buf)  : base(_buf) 
+    public ClothesPropertyScoreGreaterThan(JsonElement _buf)  : base(_buf) 
     {
-        Prop = (item.EClothesPropertyType)_buf.ReadInt();
-        Value = _buf.ReadInt();
+        Prop = (item.EClothesPropertyType)_buf.GetProperty("prop").GetInt32();
+        Value = _buf.GetProperty("value").GetInt32();
     }
 
     public ClothesPropertyScoreGreaterThan(item.EClothesPropertyType prop, int value )  : base() 
@@ -29,24 +30,20 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         this.Value = value;
     }
 
-    public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(ByteBuf _buf)
+    public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(JsonElement _buf)
     {
-    
         return new condition.ClothesPropertyScoreGreaterThan(_buf);
-    
     }
 
-     public readonly item.EClothesPropertyType Prop;
-     public readonly int Value;
-
+    public readonly item.EClothesPropertyType Prop;
+    public readonly int Value;
 
     public const int ID = 696630835;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +57,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

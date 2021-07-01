@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.error
    
 public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
-    public ErrorInfo(ByteBuf _buf) 
+    public ErrorInfo(JsonElement _buf) 
     {
-        Code = _buf.ReadString();
-        Desc = _buf.ReadString();
-        Style = error.ErrorStyle.DeserializeErrorStyle(_buf);
+        Code = _buf.GetProperty("code").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
+        Style =  error.ErrorStyle.DeserializeErrorStyle(_buf.GetProperty("style"));
     }
 
     public ErrorInfo(string code, string desc, error.ErrorStyle style ) 
@@ -31,26 +32,21 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         this.Style = style;
     }
 
-    public static ErrorInfo DeserializeErrorInfo(ByteBuf _buf)
+    public static ErrorInfo DeserializeErrorInfo(JsonElement _buf)
     {
-    
         return new error.ErrorInfo(_buf);
-    
     }
 
-     public readonly string Code;
-     public readonly string Desc;
-     public readonly error.ErrorStyle Style;
-
+    public readonly string Code;
+    public readonly string Desc;
+    public readonly error.ErrorStyle Style;
 
     public const int ID = 1389347408;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Style?.Resolve(_tables);
+        Style?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -65,6 +61,5 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

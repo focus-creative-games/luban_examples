@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.ai
 {
-   
 public sealed partial class TbBlackboard
 {
     private readonly Dictionary<string, ai.Blackboard> _dataMap;
     private readonly List<ai.Blackboard> _dataList;
     
-    public TbBlackboard(ByteBuf _buf)
+    public TbBlackboard(JsonElement _buf)
     {
         _dataMap = new Dictionary<string, ai.Blackboard>();
         _dataList = new List<ai.Blackboard>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            ai.Blackboard _v;
-            _v = ai.Blackboard.DeserializeBlackboard(_buf);
+            var _v = ai.Blackboard.DeserializeBlackboard(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbBlackboard
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

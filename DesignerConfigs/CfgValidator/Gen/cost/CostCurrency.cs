@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.cost
    
 public sealed partial class CostCurrency :  cost.Cost 
 {
-    public CostCurrency(ByteBuf _buf)  : base(_buf) 
+    public CostCurrency(JsonElement _buf)  : base(_buf) 
     {
-        Type = (item.ECurrencyType)_buf.ReadInt();
-        Num = _buf.ReadInt();
+        Type = (item.ECurrencyType)_buf.GetProperty("type").GetInt32();
+        Num = _buf.GetProperty("num").GetInt32();
     }
 
     public CostCurrency(item.ECurrencyType type, int num )  : base() 
@@ -29,24 +30,20 @@ public sealed partial class CostCurrency :  cost.Cost
         this.Num = num;
     }
 
-    public static CostCurrency DeserializeCostCurrency(ByteBuf _buf)
+    public static CostCurrency DeserializeCostCurrency(JsonElement _buf)
     {
-    
         return new cost.CostCurrency(_buf);
-    
     }
 
-     public readonly item.ECurrencyType Type;
-     public readonly int Num;
-
+    public readonly item.ECurrencyType Type;
+    public readonly int Num;
 
     public const int ID = 911838111;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +57,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

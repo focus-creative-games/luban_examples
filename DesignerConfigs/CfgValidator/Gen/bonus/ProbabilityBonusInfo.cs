@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.bonus
    
 public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase 
 {
-    public ProbabilityBonusInfo(ByteBuf _buf) 
+    public ProbabilityBonusInfo(JsonElement _buf) 
     {
-        Bonus = bonus.Bonus.DeserializeBonus(_buf);
-        Probability = _buf.ReadFloat();
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
+        Probability = _buf.GetProperty("probability").GetSingle();
     }
 
     public ProbabilityBonusInfo(bonus.Bonus bonus, float probability ) 
@@ -29,25 +30,20 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         this.Probability = probability;
     }
 
-    public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(ByteBuf _buf)
+    public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(JsonElement _buf)
     {
-    
         return new bonus.ProbabilityBonusInfo(_buf);
-    
     }
 
-     public readonly bonus.Bonus Bonus;
-     public readonly float Probability;
-
+    public readonly bonus.Bonus Bonus;
+    public readonly float Probability;
 
     public const int ID = 46960455;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Bonus?.Resolve(_tables);
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -61,6 +57,5 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

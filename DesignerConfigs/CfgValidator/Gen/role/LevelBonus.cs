@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.role
    
 public sealed partial class LevelBonus :  Bright.Config.BeanBase 
 {
-    public LevelBonus(ByteBuf _buf) 
+    public LevelBonus(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);DistinctBonusInfos = new System.Collections.Generic.List<role.DistinctBonusInfos>(n);for(var i = 0 ; i < n ; i++) { role.DistinctBonusInfos _e;  _e = role.DistinctBonusInfos.DeserializeDistinctBonusInfos(_buf); DistinctBonusInfos.Add(_e);}}
+        Id = _buf.GetProperty("id").GetInt32();
+        { var _json = _buf.GetProperty("distinct_bonus_infos"); DistinctBonusInfos = new System.Collections.Generic.List<role.DistinctBonusInfos>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { role.DistinctBonusInfos __v;  __v =  role.DistinctBonusInfos.DeserializeDistinctBonusInfos(__e);  DistinctBonusInfos.Add(__v); }   }
     }
 
     public LevelBonus(int id, System.Collections.Generic.List<role.DistinctBonusInfos> distinct_bonus_infos ) 
@@ -29,25 +30,20 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
         this.DistinctBonusInfos = distinct_bonus_infos;
     }
 
-    public static LevelBonus DeserializeLevelBonus(ByteBuf _buf)
+    public static LevelBonus DeserializeLevelBonus(JsonElement _buf)
     {
-    
         return new role.LevelBonus(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos;
-
+    public readonly int Id;
+    public readonly System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos;
 
     public const int ID = -572269677;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
+        foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -57,10 +53,9 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     {
         return "{ "
         + "Id:" + Id + ","
-        + "DistinctBonusInfos:" + DistinctBonusInfos + ","
+        + "DistinctBonusInfos:" + Bright.Common.StringUtil.CollectionToString(DistinctBonusInfos) + ","
         + "}";
     }
     }
-
 }
 

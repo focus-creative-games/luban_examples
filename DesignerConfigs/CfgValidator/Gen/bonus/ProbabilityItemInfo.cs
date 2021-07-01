@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.bonus
    
 public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase 
 {
-    public ProbabilityItemInfo(ByteBuf _buf) 
+    public ProbabilityItemInfo(JsonElement _buf) 
     {
-        ItemId = _buf.ReadInt();
-        Num = _buf.ReadInt();
-        Probability = _buf.ReadFloat();
+        ItemId = _buf.GetProperty("item_id").GetInt32();
+        Num = _buf.GetProperty("num").GetInt32();
+        Probability = _buf.GetProperty("probability").GetSingle();
     }
 
     public ProbabilityItemInfo(int item_id, int num, float probability ) 
@@ -31,27 +32,22 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
         this.Probability = probability;
     }
 
-    public static ProbabilityItemInfo DeserializeProbabilityItemInfo(ByteBuf _buf)
+    public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JsonElement _buf)
     {
-    
         return new bonus.ProbabilityItemInfo(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Num;
-     public readonly float Probability;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Num;
+    public readonly float Probability;
 
     public const int ID = 1547874631;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 
@@ -66,6 +62,5 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

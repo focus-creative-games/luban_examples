@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.cost
    
 public sealed partial class CostOneItem :  cost.Cost 
 {
-    public CostOneItem(ByteBuf _buf)  : base(_buf) 
+    public CostOneItem(JsonElement _buf)  : base(_buf) 
     {
-        ItemId = _buf.ReadInt();
+        ItemId = _buf.GetProperty("item_id").GetInt32();
     }
 
     public CostOneItem(int item_id )  : base() 
@@ -27,25 +28,21 @@ public sealed partial class CostOneItem :  cost.Cost
         this.ItemId = item_id;
     }
 
-    public static CostOneItem DeserializeCostOneItem(ByteBuf _buf)
+    public static CostOneItem DeserializeCostOneItem(JsonElement _buf)
     {
-    
         return new cost.CostOneItem(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
 
     public const int ID = -1033587381;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        base.Resolve(_tables);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

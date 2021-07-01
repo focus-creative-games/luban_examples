@@ -6,6 +6,7 @@ using System.Text;
 using Bright.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CfgCheck;
+using System.Text.Json;
 
 namespace CfgCheck
 {
@@ -22,8 +23,13 @@ namespace CfgCheck
 
         public static void LoadConfig()
         {
+            Configs = new cfg.Tables(LoadJson);
+        }
+
+        private static JsonElement LoadJson(string file)
+        {
             var configDir = "../../../config_data";
-            Configs = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes(configDir + "/" + file)));
+            return JsonDocument.Parse(File.ReadAllBytes(Path.Combine(configDir, file))).RootElement;
         }
 
         [AssemblyCleanup]

@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.mail
 {
-   
 public sealed partial class TbSystemMail
 {
     private readonly Dictionary<int, mail.SystemMail> _dataMap;
     private readonly List<mail.SystemMail> _dataList;
     
-    public TbSystemMail(ByteBuf _buf)
+    public TbSystemMail(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, mail.SystemMail>();
         _dataList = new List<mail.SystemMail>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            mail.SystemMail _v;
-            _v = mail.SystemMail.DeserializeSystemMail(_buf);
+            var _v = mail.SystemMail.DeserializeSystemMail(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbSystemMail
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

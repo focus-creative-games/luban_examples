@@ -9,22 +9,23 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.common
 {
-   
 public sealed partial class TbGlobalConfig
 {
 
      private readonly common.GlobalConfig _data;
 
-    public TbGlobalConfig(ByteBuf _buf)
+    public TbGlobalConfig(JsonElement _buf)
     {
-        int n = _buf.ReadSize();
+        int n = _buf.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = common.GlobalConfig.DeserializeGlobalConfig(_buf);
+        _data = common.GlobalConfig.DeserializeGlobalConfig(_buf[0]);
     }
-
 
      public int BagCapacity => _data.BagCapacity;
      public int BagCapacitySpecial => _data.BagCapacitySpecial;
@@ -55,7 +56,6 @@ public sealed partial class TbGlobalConfig
         OnResolveFinish(_tables);
     }
 
-    
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }

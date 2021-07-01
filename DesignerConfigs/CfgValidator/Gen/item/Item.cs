@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,29 +18,29 @@ namespace cfg.item
    
 public sealed partial class Item :  Bright.Config.BeanBase 
 {
-    public Item(ByteBuf _buf) 
+    public Item(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
-        MajorType = (item.EMajorType)_buf.ReadInt();
-        MinorType = (item.EMinorType)_buf.ReadInt();
-        MaxPileNum = _buf.ReadInt();
-        Quality = (item.EItemQuality)_buf.ReadInt();
-        Icon = _buf.ReadString();
-        IconBackgroud = _buf.ReadString();
-        IconMask = _buf.ReadString();
-        Desc = _buf.ReadString();
-        ShowOrder = _buf.ReadInt();
-        Quantifier = _buf.ReadString();
-        ShowInBag = _buf.ReadBool();
-        MinShowLevel = _buf.ReadInt();
-        BatchUsable = _buf.ReadBool();
-        ProgressTimeWhenUse = _buf.ReadFloat();
-        ShowHintWhenUse = _buf.ReadBool();
-        Droppable = _buf.ReadBool();
-        if(_buf.ReadBool()){ Price = _buf.ReadInt(); } else { Price = null; }
-        UseType = (item.EUseType)_buf.ReadInt();
-        if(_buf.ReadBool()){ LevelUpId = _buf.ReadInt(); } else { LevelUpId = null; }
+        Id = _buf.GetProperty("id").GetInt32();
+        Name = _buf.GetProperty("name").GetString();
+        MajorType = (item.EMajorType)_buf.GetProperty("major_type").GetInt32();
+        MinorType = (item.EMinorType)_buf.GetProperty("minor_type").GetInt32();
+        MaxPileNum = _buf.GetProperty("max_pile_num").GetInt32();
+        Quality = (item.EItemQuality)_buf.GetProperty("quality").GetInt32();
+        Icon = _buf.GetProperty("icon").GetString();
+        IconBackgroud = _buf.GetProperty("icon_backgroud").GetString();
+        IconMask = _buf.GetProperty("icon_mask").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
+        ShowOrder = _buf.GetProperty("show_order").GetInt32();
+        Quantifier = _buf.GetProperty("quantifier").GetString();
+        ShowInBag = _buf.GetProperty("show_in_bag").GetBoolean();
+        MinShowLevel = _buf.GetProperty("min_show_level").GetInt32();
+        BatchUsable = _buf.GetProperty("batch_usable").GetBoolean();
+        ProgressTimeWhenUse = _buf.GetProperty("progress_time_when_use").GetSingle();
+        ShowHintWhenUse = _buf.GetProperty("show_hint_when_use").GetBoolean();
+        Droppable = _buf.GetProperty("droppable").GetBoolean();
+        { var _j = _buf.GetProperty("price"); if (_j.ValueKind != JsonValueKind.Null) { Price = _j.GetInt32(); } else { Price = null; } }
+        UseType = (item.EUseType)_buf.GetProperty("use_type").GetInt32();
+        { var _j = _buf.GetProperty("level_up_id"); if (_j.ValueKind != JsonValueKind.Null) { LevelUpId = _j.GetInt32(); } else { LevelUpId = null; } }
     }
 
     public Item(int id, string name, item.EMajorType major_type, item.EMinorType minor_type, int max_pile_num, item.EItemQuality quality, string icon, string icon_backgroud, string icon_mask, string desc, int show_order, string quantifier, bool show_in_bag, int min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int? price, item.EUseType use_type, int? level_up_id ) 
@@ -67,43 +68,38 @@ public sealed partial class Item :  Bright.Config.BeanBase
         this.LevelUpId = level_up_id;
     }
 
-    public static Item DeserializeItem(ByteBuf _buf)
+    public static Item DeserializeItem(JsonElement _buf)
     {
-    
         return new item.Item(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly string Name;
-     public readonly item.EMajorType MajorType;
-     public readonly item.EMinorType MinorType;
-     public readonly int MaxPileNum;
-     public readonly item.EItemQuality Quality;
-     public readonly string Icon;
-     public readonly string IconBackgroud;
-     public readonly string IconMask;
-     public readonly string Desc;
-     public readonly int ShowOrder;
-     public readonly string Quantifier;
-     public readonly bool ShowInBag;
-     public readonly int MinShowLevel;
-     public readonly bool BatchUsable;
-     public readonly float ProgressTimeWhenUse;
-     public readonly bool ShowHintWhenUse;
-     public readonly bool Droppable;
-     public readonly int? Price;
-     public readonly item.EUseType UseType;
-     public readonly int? LevelUpId;
-
+    public readonly int Id;
+    public readonly string Name;
+    public readonly item.EMajorType MajorType;
+    public readonly item.EMinorType MinorType;
+    public readonly int MaxPileNum;
+    public readonly item.EItemQuality Quality;
+    public readonly string Icon;
+    public readonly string IconBackgroud;
+    public readonly string IconMask;
+    public readonly string Desc;
+    public readonly int ShowOrder;
+    public readonly string Quantifier;
+    public readonly bool ShowInBag;
+    public readonly int MinShowLevel;
+    public readonly bool BatchUsable;
+    public readonly float ProgressTimeWhenUse;
+    public readonly bool ShowHintWhenUse;
+    public readonly bool Droppable;
+    public readonly int? Price;
+    public readonly item.EUseType UseType;
+    public readonly int? LevelUpId;
 
     public const int ID = 2107285806;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -136,6 +132,5 @@ public sealed partial class Item :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

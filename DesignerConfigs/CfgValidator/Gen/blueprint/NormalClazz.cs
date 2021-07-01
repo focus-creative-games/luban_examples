@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.blueprint
    
 public sealed partial class NormalClazz :  blueprint.Clazz 
 {
-    public NormalClazz(ByteBuf _buf)  : base(_buf) 
+    public NormalClazz(JsonElement _buf)  : base(_buf) 
     {
-        IsAbstract = _buf.ReadBool();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Fields = new System.Collections.Generic.List<blueprint.Field>(n);for(var i = 0 ; i < n ; i++) { blueprint.Field _e;  _e = blueprint.Field.DeserializeField(_buf); Fields.Add(_e);}}
+        IsAbstract = _buf.GetProperty("is_abstract").GetBoolean();
+        { var _json = _buf.GetProperty("fields"); Fields = new System.Collections.Generic.List<blueprint.Field>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Field __v;  __v =  blueprint.Field.DeserializeField(__e);  Fields.Add(__v); }   }
     }
 
     public NormalClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, bool is_abstract, System.Collections.Generic.List<blueprint.Field> fields )  : base(name,desc,parents,methods) 
@@ -29,25 +30,21 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         this.Fields = fields;
     }
 
-    public static NormalClazz DeserializeNormalClazz(ByteBuf _buf)
+    public static NormalClazz DeserializeNormalClazz(JsonElement _buf)
     {
-    
         return new blueprint.NormalClazz(_buf);
-    
     }
 
-     public readonly bool IsAbstract;
-     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
-
+    public readonly bool IsAbstract;
+    public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
     public const int ID = -2073576778;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Fields) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Fields) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -58,13 +55,12 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "IsAbstract:" + IsAbstract + ","
-        + "Fields:" + Fields + ","
+        + "Fields:" + Bright.Common.StringUtil.CollectionToString(Fields) + ","
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
-    public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 
+    public UeSetDefaultFocus(JsonElement _buf)  : base(_buf) 
     {
-        KeyboardKey = _buf.ReadString();
+        KeyboardKey = _buf.GetProperty("keyboard_key").GetString();
     }
 
     public UeSetDefaultFocus(int id, string node_name, string keyboard_key )  : base(id,node_name) 
@@ -27,23 +28,19 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
         this.KeyboardKey = keyboard_key;
     }
 
-    public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(ByteBuf _buf)
+    public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(JsonElement _buf)
     {
-    
         return new ai.UeSetDefaultFocus(_buf);
-    
     }
 
-     public readonly string KeyboardKey;
-
+    public readonly string KeyboardKey;
 
     public const int ID = 1812449155;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

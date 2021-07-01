@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.bonus
    
 public sealed partial class DropBonus :  bonus.Bonus 
 {
-    public DropBonus(ByteBuf _buf)  : base(_buf) 
+    public DropBonus(JsonElement _buf)  : base(_buf) 
     {
-        Id = _buf.ReadInt();
+        Id = _buf.GetProperty("id").GetInt32();
     }
 
     public DropBonus(int id )  : base() 
@@ -27,25 +28,21 @@ public sealed partial class DropBonus :  bonus.Bonus
         this.Id = id;
     }
 
-    public static DropBonus DeserializeDropBonus(ByteBuf _buf)
+    public static DropBonus DeserializeDropBonus(JsonElement _buf)
     {
-    
         return new bonus.DropBonus(_buf);
-    
     }
 
-     public readonly int Id;
-        public bonus.DropInfo Id_Ref;
-
+    public readonly int Id;
+    public bonus.DropInfo Id_Ref;
 
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
+        base.Resolve(_tables);
+        this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

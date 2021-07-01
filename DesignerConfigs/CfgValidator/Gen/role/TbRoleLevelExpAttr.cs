@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.role
 {
-   
 public sealed partial class TbRoleLevelExpAttr
 {
     private readonly Dictionary<int, role.LevelExpAttr> _dataMap;
     private readonly List<role.LevelExpAttr> _dataList;
     
-    public TbRoleLevelExpAttr(ByteBuf _buf)
+    public TbRoleLevelExpAttr(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, role.LevelExpAttr>();
         _dataList = new List<role.LevelExpAttr>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            role.LevelExpAttr _v;
-            _v = role.LevelExpAttr.DeserializeLevelExpAttr(_buf);
+            var _v = role.LevelExpAttr.DeserializeLevelExpAttr(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Level, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbRoleLevelExpAttr
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.bonus
    
 public sealed partial class WeightItemInfo :  Bright.Config.BeanBase 
 {
-    public WeightItemInfo(ByteBuf _buf) 
+    public WeightItemInfo(JsonElement _buf) 
     {
-        ItemId = _buf.ReadInt();
-        Num = _buf.ReadInt();
-        Weight = _buf.ReadInt();
+        ItemId = _buf.GetProperty("item_id").GetInt32();
+        Num = _buf.GetProperty("num").GetInt32();
+        Weight = _buf.GetProperty("weight").GetInt32();
     }
 
     public WeightItemInfo(int item_id, int num, int weight ) 
@@ -31,27 +32,22 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
         this.Weight = weight;
     }
 
-    public static WeightItemInfo DeserializeWeightItemInfo(ByteBuf _buf)
+    public static WeightItemInfo DeserializeWeightItemInfo(JsonElement _buf)
     {
-    
         return new bonus.WeightItemInfo(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Num;
-     public readonly int Weight;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Num;
+    public readonly int Weight;
 
     public const int ID = 1239999176;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 
@@ -66,6 +62,5 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

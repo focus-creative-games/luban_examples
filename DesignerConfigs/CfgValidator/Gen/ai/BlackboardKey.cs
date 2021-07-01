@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,13 +18,13 @@ namespace cfg.ai
    
 public sealed partial class BlackboardKey :  Bright.Config.BeanBase 
 {
-    public BlackboardKey(ByteBuf _buf) 
+    public BlackboardKey(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
-        IsStatic = _buf.ReadBool();
-        Type = (ai.EKeyType)_buf.ReadInt();
-        TypeClassName = _buf.ReadString();
+        Name = _buf.GetProperty("name").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
+        IsStatic = _buf.GetProperty("is_static").GetBoolean();
+        Type = (ai.EKeyType)_buf.GetProperty("type").GetInt32();
+        TypeClassName = _buf.GetProperty("type_class_name").GetString();
     }
 
     public BlackboardKey(string name, string desc, bool is_static, ai.EKeyType type, string type_class_name ) 
@@ -35,27 +36,22 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
         this.TypeClassName = type_class_name;
     }
 
-    public static BlackboardKey DeserializeBlackboardKey(ByteBuf _buf)
+    public static BlackboardKey DeserializeBlackboardKey(JsonElement _buf)
     {
-    
         return new ai.BlackboardKey(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly bool IsStatic;
-     public readonly ai.EKeyType Type;
-     public readonly string TypeClassName;
-
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly bool IsStatic;
+    public readonly ai.EKeyType Type;
+    public readonly string TypeClassName;
 
     public const int ID = -511559886;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -72,6 +68,5 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

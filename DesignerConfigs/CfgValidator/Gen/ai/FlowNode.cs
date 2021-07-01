@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public abstract partial class FlowNode :  ai.Node 
 {
-    public FlowNode(ByteBuf _buf)  : base(_buf) 
+    public FlowNode(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Decorators = new System.Collections.Generic.List<ai.Decorator>(n);for(var i = 0 ; i < n ; i++) { ai.Decorator _e;  _e = ai.Decorator.DeserializeDecorator(_buf); Decorators.Add(_e);}}
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Services = new System.Collections.Generic.List<ai.Service>(n);for(var i = 0 ; i < n ; i++) { ai.Service _e;  _e = ai.Service.DeserializeService(_buf); Services.Add(_e);}}
+        { var _json = _buf.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.Decorator __v;  __v =  ai.Decorator.DeserializeDecorator(__e);  Decorators.Add(__v); }   }
+        { var _json = _buf.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.Service __v;  __v =  ai.Service.DeserializeService(__e);  Services.Add(__v); }   }
     }
 
     public FlowNode(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services )  : base(id,node_name) 
@@ -29,37 +30,33 @@ public abstract partial class FlowNode :  ai.Node
         this.Services = services;
     }
 
-    public static FlowNode DeserializeFlowNode(ByteBuf _buf)
+    public static FlowNode DeserializeFlowNode(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.Sequence.ID: return new ai.Sequence(_buf);
-            case ai.Selector.ID: return new ai.Selector(_buf);
-            case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
-            case ai.UeWait.ID: return new ai.UeWait(_buf);
-            case ai.UeWaitBlackboardTime.ID: return new ai.UeWaitBlackboardTime(_buf);
-            case ai.MoveToTarget.ID: return new ai.MoveToTarget(_buf);
-            case ai.ChooseSkill.ID: return new ai.ChooseSkill(_buf);
-            case ai.MoveToRandomLocation.ID: return new ai.MoveToRandomLocation(_buf);
-            case ai.MoveToLocation.ID: return new ai.MoveToLocation(_buf);
-            case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
+            case "Sequence": return new ai.Sequence(_buf);
+            case "Selector": return new ai.Selector(_buf);
+            case "SimpleParallel": return new ai.SimpleParallel(_buf);
+            case "UeWait": return new ai.UeWait(_buf);
+            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_buf);
+            case "MoveToTarget": return new ai.MoveToTarget(_buf);
+            case "ChooseSkill": return new ai.ChooseSkill(_buf);
+            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_buf);
+            case "MoveToLocation": return new ai.MoveToLocation(_buf);
+            case "DebugPrint": return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-     public readonly System.Collections.Generic.List<ai.Service> Services;
-
+    public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
+    public readonly System.Collections.Generic.List<ai.Service> Services;
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Decorators) { _e?.Resolve(_tables); }
-            foreach(var _e in Services) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Decorators) { _e?.Resolve(_tables); }
+        foreach(var _e in Services) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -70,11 +67,10 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
     }
-
 }
 

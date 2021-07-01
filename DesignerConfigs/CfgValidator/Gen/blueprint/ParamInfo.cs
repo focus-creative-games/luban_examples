@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.blueprint
    
 public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
-    public ParamInfo(ByteBuf _buf) 
+    public ParamInfo(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Type = _buf.ReadString();
-        IsRef = _buf.ReadBool();
+        Name = _buf.GetProperty("name").GetString();
+        Type = _buf.GetProperty("type").GetString();
+        IsRef = _buf.GetProperty("is_ref").GetBoolean();
     }
 
     public ParamInfo(string name, string type, bool is_ref ) 
@@ -31,25 +32,20 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         this.IsRef = is_ref;
     }
 
-    public static ParamInfo DeserializeParamInfo(ByteBuf _buf)
+    public static ParamInfo DeserializeParamInfo(JsonElement _buf)
     {
-    
         return new blueprint.ParamInfo(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly string Type;
-     public readonly bool IsRef;
-
+    public readonly string Name;
+    public readonly string Type;
+    public readonly bool IsRef;
 
     public const int ID = -729799392;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -64,6 +60,5 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

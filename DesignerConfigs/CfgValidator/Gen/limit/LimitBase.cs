@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.limit
    
 public abstract partial class LimitBase :  Bright.Config.BeanBase 
 {
-    public LimitBase(ByteBuf _buf) 
+    public LimitBase(JsonElement _buf) 
     {
     }
 
@@ -25,29 +26,24 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
     {
     }
 
-    public static LimitBase DeserializeLimitBase(ByteBuf _buf)
+    public static LimitBase DeserializeLimitBase(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case limit.DailyLimit.ID: return new limit.DailyLimit(_buf);
-            case limit.MultiDayLimit.ID: return new limit.MultiDayLimit(_buf);
-            case limit.WeeklyLimit.ID: return new limit.WeeklyLimit(_buf);
-            case limit.MonthlyLimit.ID: return new limit.MonthlyLimit(_buf);
-            case limit.CoolDown.ID: return new limit.CoolDown(_buf);
-            case limit.GroupCoolDown.ID: return new limit.GroupCoolDown(_buf);
+            case "DailyLimit": return new limit.DailyLimit(_buf);
+            case "MultiDayLimit": return new limit.MultiDayLimit(_buf);
+            case "WeeklyLimit": return new limit.WeeklyLimit(_buf);
+            case "MonthlyLimit": return new limit.MonthlyLimit(_buf);
+            case "CoolDown": return new limit.CoolDown(_buf);
+            case "GroupCoolDown": return new limit.GroupCoolDown(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -59,6 +55,5 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

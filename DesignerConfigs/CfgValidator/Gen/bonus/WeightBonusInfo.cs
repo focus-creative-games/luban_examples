@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.bonus
    
 public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase 
 {
-    public WeightBonusInfo(ByteBuf _buf) 
+    public WeightBonusInfo(JsonElement _buf) 
     {
-        Bonus = bonus.Bonus.DeserializeBonus(_buf);
-        Weight = _buf.ReadInt();
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
+        Weight = _buf.GetProperty("weight").GetInt32();
     }
 
     public WeightBonusInfo(bonus.Bonus bonus, int weight ) 
@@ -29,25 +30,20 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
         this.Weight = weight;
     }
 
-    public static WeightBonusInfo DeserializeWeightBonusInfo(ByteBuf _buf)
+    public static WeightBonusInfo DeserializeWeightBonusInfo(JsonElement _buf)
     {
-    
         return new bonus.WeightBonusInfo(_buf);
-    
     }
 
-     public readonly bonus.Bonus Bonus;
-     public readonly int Weight;
-
+    public readonly bonus.Bonus Bonus;
+    public readonly int Weight;
 
     public const int ID = -907244058;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Bonus?.Resolve(_tables);
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -61,6 +57,5 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

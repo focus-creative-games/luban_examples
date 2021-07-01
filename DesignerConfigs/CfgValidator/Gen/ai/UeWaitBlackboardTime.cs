@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class UeWaitBlackboardTime :  ai.Task 
 {
-    public UeWaitBlackboardTime(ByteBuf _buf)  : base(_buf) 
+    public UeWaitBlackboardTime(JsonElement _buf)  : base(_buf) 
     {
-        BlackboardKey = _buf.ReadString();
+        BlackboardKey = _buf.GetProperty("blackboard_key").GetString();
     }
 
     public UeWaitBlackboardTime(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string blackboard_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -27,23 +28,19 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         this.BlackboardKey = blackboard_key;
     }
 
-    public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(ByteBuf _buf)
+    public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(JsonElement _buf)
     {
-    
         return new ai.UeWaitBlackboardTime(_buf);
-    
     }
 
-     public readonly string BlackboardKey;
-
+    public readonly string BlackboardKey;
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -54,13 +51,12 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "BlackboardKey:" + BlackboardKey + ","
         + "}";
     }
     }
-
 }
 

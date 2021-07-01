@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.ai
 {
-   
 public sealed partial class TbBehaviorTree
 {
     private readonly Dictionary<int, ai.BehaviorTree> _dataMap;
     private readonly List<ai.BehaviorTree> _dataList;
     
-    public TbBehaviorTree(ByteBuf _buf)
+    public TbBehaviorTree(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, ai.BehaviorTree>();
         _dataList = new List<ai.BehaviorTree>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            ai.BehaviorTree _v;
-            _v = ai.BehaviorTree.DeserializeBehaviorTree(_buf);
+            var _v = ai.BehaviorTree.DeserializeBehaviorTree(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbBehaviorTree
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

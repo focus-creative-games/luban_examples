@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public abstract partial class Service :  ai.Node 
 {
-    public Service(ByteBuf _buf)  : base(_buf) 
+    public Service(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,29 +26,25 @@ public abstract partial class Service :  ai.Node
     {
     }
 
-    public static Service DeserializeService(ByteBuf _buf)
+    public static Service DeserializeService(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
-            case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
-            case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
-            case ai.KeepFaceTarget.ID: return new ai.KeepFaceTarget(_buf);
-            case ai.GetOwnerPlayer.ID: return new ai.GetOwnerPlayer(_buf);
-            case ai.UpdateDailyBehaviorProps.ID: return new ai.UpdateDailyBehaviorProps(_buf);
+            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
+            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);
+            case "ChooseTarget": return new ai.ChooseTarget(_buf);
+            case "KeepFaceTarget": return new ai.KeepFaceTarget(_buf);
+            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_buf);
+            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -61,6 +58,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

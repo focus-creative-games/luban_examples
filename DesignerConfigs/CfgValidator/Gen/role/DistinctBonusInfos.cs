@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.role
    
 public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
-    public DistinctBonusInfos(ByteBuf _buf) 
+    public DistinctBonusInfos(JsonElement _buf) 
     {
-        EffectiveLevel = _buf.ReadInt();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { role.BonusInfo _e;  _e = role.BonusInfo.DeserializeBonusInfo(_buf); BonusInfo.Add(_e);}}
+        EffectiveLevel = _buf.GetProperty("effective_level").GetInt32();
+        { var _json = _buf.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { role.BonusInfo __v;  __v =  role.BonusInfo.DeserializeBonusInfo(__e);  BonusInfo.Add(__v); }   }
     }
 
     public DistinctBonusInfos(int effective_level, System.Collections.Generic.List<role.BonusInfo> bonus_info ) 
@@ -29,25 +30,20 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         this.BonusInfo = bonus_info;
     }
 
-    public static DistinctBonusInfos DeserializeDistinctBonusInfos(ByteBuf _buf)
+    public static DistinctBonusInfos DeserializeDistinctBonusInfos(JsonElement _buf)
     {
-    
         return new role.DistinctBonusInfos(_buf);
-    
     }
 
-     public readonly int EffectiveLevel;
-     public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
-
+    public readonly int EffectiveLevel;
+    public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
 
     public const int ID = -854361766;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
+        foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -57,10 +53,9 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     {
         return "{ "
         + "EffectiveLevel:" + EffectiveLevel + ","
-        + "BonusInfo:" + BonusInfo + ","
+        + "BonusInfo:" + Bright.Common.StringUtil.CollectionToString(BonusInfo) + ","
         + "}";
     }
     }
-
 }
 

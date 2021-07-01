@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,12 +18,12 @@ namespace cfg.item
    
 public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
-    public ItemFunction(ByteBuf _buf) 
+    public ItemFunction(JsonElement _buf) 
     {
-        MinorType = (item.EMinorType)_buf.ReadInt();
-        FuncType = (item.EItemFunctionType)_buf.ReadInt();
-        Method = _buf.ReadString();
-        CloseBagUi = _buf.ReadBool();
+        MinorType = (item.EMinorType)_buf.GetProperty("minor_type").GetInt32();
+        FuncType = (item.EItemFunctionType)_buf.GetProperty("func_type").GetInt32();
+        Method = _buf.GetProperty("method").GetString();
+        CloseBagUi = _buf.GetProperty("close_bag_ui").GetBoolean();
     }
 
     public ItemFunction(item.EMinorType minor_type, item.EItemFunctionType func_type, string method, bool close_bag_ui ) 
@@ -33,26 +34,21 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         this.CloseBagUi = close_bag_ui;
     }
 
-    public static ItemFunction DeserializeItemFunction(ByteBuf _buf)
+    public static ItemFunction DeserializeItemFunction(JsonElement _buf)
     {
-    
         return new item.ItemFunction(_buf);
-    
     }
 
-     public readonly item.EMinorType MinorType;
-     public readonly item.EItemFunctionType FuncType;
-     public readonly string Method;
-     public readonly bool CloseBagUi;
-
+    public readonly item.EMinorType MinorType;
+    public readonly item.EItemFunctionType FuncType;
+    public readonly string Method;
+    public readonly bool CloseBagUi;
 
     public const int ID = 1205824294;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -68,6 +64,5 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

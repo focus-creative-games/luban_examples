@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.item
    
 public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
-    public ItemExtra(ByteBuf _buf) 
+    public ItemExtra(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
+        Id = _buf.GetProperty("id").GetInt32();
     }
 
     public ItemExtra(int id ) 
@@ -27,29 +28,24 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         this.Id = id;
     }
 
-    public static ItemExtra DeserializeItemExtra(ByteBuf _buf)
+    public static ItemExtra DeserializeItemExtra(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case item.TreasureBox.ID: return new item.TreasureBox(_buf);
-            case item.InteractionItem.ID: return new item.InteractionItem(_buf);
-            case item.Clothes.ID: return new item.Clothes(_buf);
-            case item.DesignDrawing.ID: return new item.DesignDrawing(_buf);
-            case item.Dymmy.ID: return new item.Dymmy(_buf);
+            case "TreasureBox": return new item.TreasureBox(_buf);
+            case "InteractionItem": return new item.InteractionItem(_buf);
+            case "Clothes": return new item.Clothes(_buf);
+            case "DesignDrawing": return new item.DesignDrawing(_buf);
+            case "Dymmy": return new item.Dymmy(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly int Id;
-
+    public readonly int Id;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -62,6 +58,5 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

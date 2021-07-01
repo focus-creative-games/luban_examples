@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class KeepFaceTarget :  ai.Service 
 {
-    public KeepFaceTarget(ByteBuf _buf)  : base(_buf) 
+    public KeepFaceTarget(JsonElement _buf)  : base(_buf) 
     {
-        TargetActorKey = _buf.ReadString();
+        TargetActorKey = _buf.GetProperty("target_actor_key").GetString();
     }
 
     public KeepFaceTarget(int id, string node_name, string target_actor_key )  : base(id,node_name) 
@@ -27,23 +28,19 @@ public sealed partial class KeepFaceTarget :  ai.Service
         this.TargetActorKey = target_actor_key;
     }
 
-    public static KeepFaceTarget DeserializeKeepFaceTarget(ByteBuf _buf)
+    public static KeepFaceTarget DeserializeKeepFaceTarget(JsonElement _buf)
     {
-    
         return new ai.KeepFaceTarget(_buf);
-    
     }
 
-     public readonly string TargetActorKey;
-
+    public readonly string TargetActorKey;
 
     public const int ID = 1195270745;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

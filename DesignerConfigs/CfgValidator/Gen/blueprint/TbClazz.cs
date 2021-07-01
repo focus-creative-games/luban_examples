@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.blueprint
 {
-   
 public sealed partial class TbClazz
 {
     private readonly Dictionary<string, blueprint.Clazz> _dataMap;
     private readonly List<blueprint.Clazz> _dataList;
     
-    public TbClazz(ByteBuf _buf)
+    public TbClazz(JsonElement _buf)
     {
         _dataMap = new Dictionary<string, blueprint.Clazz>();
         _dataList = new List<blueprint.Clazz>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            blueprint.Clazz _v;
-            _v = blueprint.Clazz.DeserializeClazz(_buf);
+            var _v = blueprint.Clazz.DeserializeClazz(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
@@ -49,7 +50,6 @@ public sealed partial class TbClazz
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

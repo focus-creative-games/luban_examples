@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class Sequence :  ai.ComposeNode 
 {
-    public Sequence(ByteBuf _buf)  : base(_buf) 
+    public Sequence(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Children = new System.Collections.Generic.List<ai.FlowNode>(n);for(var i = 0 ; i < n ; i++) { ai.FlowNode _e;  _e = ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e);}}
+        { var _json = _buf.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.FlowNode __v;  __v =  ai.FlowNode.DeserializeFlowNode(__e);  Children.Add(__v); }   }
     }
 
     public Sequence(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, System.Collections.Generic.List<ai.FlowNode> children )  : base(id,node_name,decorators,services) 
@@ -27,24 +28,20 @@ public sealed partial class Sequence :  ai.ComposeNode
         this.Children = children;
     }
 
-    public static Sequence DeserializeSequence(ByteBuf _buf)
+    public static Sequence DeserializeSequence(JsonElement _buf)
     {
-    
         return new ai.Sequence(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
-
+    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
     public const int ID = -1789006105;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Children) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Children) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -55,12 +52,11 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
-        + "Children:" + Children + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
+        + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
     }
-
 }
 

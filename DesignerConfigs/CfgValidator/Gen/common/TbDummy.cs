@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.common
 {
-   
 public sealed partial class TbDummy
 {
     private readonly Dictionary<int, common.Dummy> _dataMap;
     private readonly List<common.Dummy> _dataList;
     
-    public TbDummy(ByteBuf _buf)
+    public TbDummy(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, common.Dummy>();
         _dataList = new List<common.Dummy>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            common.Dummy _v;
-            _v = common.Dummy.DeserializeDummy(_buf);
+            var _v = common.Dummy.DeserializeDummy(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbDummy
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

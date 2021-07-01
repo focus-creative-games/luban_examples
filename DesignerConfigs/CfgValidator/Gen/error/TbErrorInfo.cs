@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.error
 {
-   
 public sealed partial class TbErrorInfo
 {
     private readonly Dictionary<string, error.ErrorInfo> _dataMap;
     private readonly List<error.ErrorInfo> _dataList;
     
-    public TbErrorInfo(ByteBuf _buf)
+    public TbErrorInfo(JsonElement _buf)
     {
         _dataMap = new Dictionary<string, error.ErrorInfo>();
         _dataList = new List<error.ErrorInfo>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            error.ErrorInfo _v;
-            _v = error.ErrorInfo.DeserializeErrorInfo(_buf);
+            var _v = error.ErrorInfo.DeserializeErrorInfo(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Code, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbErrorInfo
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

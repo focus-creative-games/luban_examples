@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class ChooseTarget :  ai.Service 
 {
-    public ChooseTarget(ByteBuf _buf)  : base(_buf) 
+    public ChooseTarget(JsonElement _buf)  : base(_buf) 
     {
-        ResultTargetKey = _buf.ReadString();
+        ResultTargetKey = _buf.GetProperty("result_target_key").GetString();
     }
 
     public ChooseTarget(int id, string node_name, string result_target_key )  : base(id,node_name) 
@@ -27,23 +28,19 @@ public sealed partial class ChooseTarget :  ai.Service
         this.ResultTargetKey = result_target_key;
     }
 
-    public static ChooseTarget DeserializeChooseTarget(ByteBuf _buf)
+    public static ChooseTarget DeserializeChooseTarget(JsonElement _buf)
     {
-    
         return new ai.ChooseTarget(_buf);
-    
     }
 
-     public readonly string ResultTargetKey;
-
+    public readonly string ResultTargetKey;
 
     public const int ID = 1601247918;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +55,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

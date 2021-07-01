@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.item
    
 public sealed partial class DesignDrawing :  item.ItemExtra 
 {
-    public DesignDrawing(ByteBuf _buf)  : base(_buf) 
+    public DesignDrawing(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);LearnComponentId = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); LearnComponentId.Add(_e);}}
+        { var _json = _buf.GetProperty("learn_component_id"); LearnComponentId = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  LearnComponentId.Add(__v); }   }
     }
 
     public DesignDrawing(int id, System.Collections.Generic.List<int> learn_component_id )  : base(id) 
@@ -27,23 +28,19 @@ public sealed partial class DesignDrawing :  item.ItemExtra
         this.LearnComponentId = learn_component_id;
     }
 
-    public static DesignDrawing DeserializeDesignDrawing(ByteBuf _buf)
+    public static DesignDrawing DeserializeDesignDrawing(JsonElement _buf)
     {
-    
         return new item.DesignDrawing(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<int> LearnComponentId;
-
+    public readonly System.Collections.Generic.List<int> LearnComponentId;
 
     public const int ID = -1679179579;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -53,10 +50,9 @@ base.Resolve(_tables);
     {
         return "{ "
         + "Id:" + Id + ","
-        + "LearnComponentId:" + LearnComponentId + ","
+        + "LearnComponentId:" + Bright.Common.StringUtil.CollectionToString(LearnComponentId) + ","
         + "}";
     }
     }
-
 }
 

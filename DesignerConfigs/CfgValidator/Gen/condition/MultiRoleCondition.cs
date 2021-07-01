@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.condition
    
 public sealed partial class MultiRoleCondition :  condition.RoleCondition 
 {
-    public MultiRoleCondition(ByteBuf _buf)  : base(_buf) 
+    public MultiRoleCondition(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Conditions = new condition.RoleCondition[n];for(var i = 0 ; i < n ; i++) { condition.RoleCondition _e;_e = condition.RoleCondition.DeserializeRoleCondition(_buf); Conditions[i] = _e;}}
+        { var _json = _buf.GetProperty("conditions"); int _n = _json.GetArrayLength(); Conditions = new condition.RoleCondition[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { condition.RoleCondition __v;  __v =  condition.RoleCondition.DeserializeRoleCondition(__e);  Conditions[_index++] = __v; }   }
     }
 
     public MultiRoleCondition(condition.RoleCondition[] conditions )  : base() 
@@ -27,24 +28,20 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         this.Conditions = conditions;
     }
 
-    public static MultiRoleCondition DeserializeMultiRoleCondition(ByteBuf _buf)
+    public static MultiRoleCondition DeserializeMultiRoleCondition(JsonElement _buf)
     {
-    
         return new condition.MultiRoleCondition(_buf);
-    
     }
 
-     public readonly condition.RoleCondition[] Conditions;
-
+    public readonly condition.RoleCondition[] Conditions;
 
     public const int ID = 934079583;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Conditions) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Conditions) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -53,10 +50,9 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Conditions:" + Conditions + ","
+        + "Conditions:" + Bright.Common.StringUtil.CollectionToString(Conditions) + ","
         + "}";
     }
     }
-
 }
 

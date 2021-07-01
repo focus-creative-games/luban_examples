@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,12 +18,12 @@ namespace cfg.ai
    
 public sealed partial class Blackboard :  Bright.Config.BeanBase 
 {
-    public Blackboard(ByteBuf _buf) 
+    public Blackboard(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
-        ParentName = _buf.ReadString();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Keys = new System.Collections.Generic.List<ai.BlackboardKey>(n);for(var i = 0 ; i < n ; i++) { ai.BlackboardKey _e;  _e = ai.BlackboardKey.DeserializeBlackboardKey(_buf); Keys.Add(_e);}}
+        Name = _buf.GetProperty("name").GetString();
+        Desc = _buf.GetProperty("desc").GetString();
+        ParentName = _buf.GetProperty("parent_name").GetString();
+        { var _json = _buf.GetProperty("keys"); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.BlackboardKey __v;  __v =  ai.BlackboardKey.DeserializeBlackboardKey(__e);  Keys.Add(__v); }   }
     }
 
     public Blackboard(string name, string desc, string parent_name, System.Collections.Generic.List<ai.BlackboardKey> keys ) 
@@ -33,29 +34,24 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         this.Keys = keys;
     }
 
-    public static Blackboard DeserializeBlackboard(ByteBuf _buf)
+    public static Blackboard DeserializeBlackboard(JsonElement _buf)
     {
-    
         return new ai.Blackboard(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly string ParentName;
-        public ai.Blackboard ParentName_Ref;
-     public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
-
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly string ParentName;
+    public ai.Blackboard ParentName_Ref;
+    public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
 
     public const int ID = 1576193005;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
-            foreach(var _e in Keys) { _e?.Resolve(_tables); }
+        this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
+        foreach(var _e in Keys) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -67,10 +63,9 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "ParentName:" + ParentName + ","
-        + "Keys:" + Keys + ","
+        + "Keys:" + Bright.Common.StringUtil.CollectionToString(Keys) + ","
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.bonus
    
 public sealed partial class OneItems :  bonus.Bonus 
 {
-    public OneItems(ByteBuf _buf)  : base(_buf) 
+    public OneItems(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); Items[i] = _e;}}
+        { var _json = _buf.GetProperty("items"); int _n = _json.GetArrayLength(); Items = new int[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Items[_index++] = __v; }   }
     }
 
     public OneItems(int[] items )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class OneItems :  bonus.Bonus
         this.Items = items;
     }
 
-    public static OneItems DeserializeOneItems(ByteBuf _buf)
+    public static OneItems DeserializeOneItems(JsonElement _buf)
     {
-    
         return new bonus.OneItems(_buf);
-    
     }
 
-     public readonly int[] Items;
-
+    public readonly int[] Items;
 
     public const int ID = 400179721;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -52,10 +49,9 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Items:" + Items + ","
+        + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
     }
-
 }
 

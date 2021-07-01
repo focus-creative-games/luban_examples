@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.bonus
    
 public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
-    public Bonus(ByteBuf _buf) 
+    public Bonus(JsonElement _buf) 
     {
     }
 
@@ -25,34 +26,29 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
     {
     }
 
-    public static Bonus DeserializeBonus(ByteBuf _buf)
+    public static Bonus DeserializeBonus(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case bonus.OneItem.ID: return new bonus.OneItem(_buf);
-            case bonus.OneItems.ID: return new bonus.OneItems(_buf);
-            case bonus.Item.ID: return new bonus.Item(_buf);
-            case bonus.Items.ID: return new bonus.Items(_buf);
-            case bonus.CoefficientItem.ID: return new bonus.CoefficientItem(_buf);
-            case bonus.WeightItems.ID: return new bonus.WeightItems(_buf);
-            case bonus.ProbabilityItems.ID: return new bonus.ProbabilityItems(_buf);
-            case bonus.MultiBonus.ID: return new bonus.MultiBonus(_buf);
-            case bonus.ProbabilityBonus.ID: return new bonus.ProbabilityBonus(_buf);
-            case bonus.WeightBonus.ID: return new bonus.WeightBonus(_buf);
-            case bonus.DropBonus.ID: return new bonus.DropBonus(_buf);
+            case "OneItem": return new bonus.OneItem(_buf);
+            case "OneItems": return new bonus.OneItems(_buf);
+            case "Item": return new bonus.Item(_buf);
+            case "Items": return new bonus.Items(_buf);
+            case "CoefficientItem": return new bonus.CoefficientItem(_buf);
+            case "WeightItems": return new bonus.WeightItems(_buf);
+            case "ProbabilityItems": return new bonus.ProbabilityItems(_buf);
+            case "MultiBonus": return new bonus.MultiBonus(_buf);
+            case "ProbabilityBonus": return new bonus.ProbabilityBonus(_buf);
+            case "WeightBonus": return new bonus.WeightBonus(_buf);
+            case "DropBonus": return new bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -64,6 +60,5 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

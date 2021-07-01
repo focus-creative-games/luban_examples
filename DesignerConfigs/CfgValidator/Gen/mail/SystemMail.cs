@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,13 +18,13 @@ namespace cfg.mail
    
 public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
-    public SystemMail(ByteBuf _buf) 
+    public SystemMail(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        Title = _buf.ReadString();
-        Sender = _buf.ReadString();
-        Content = _buf.ReadString();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Award = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); Award.Add(_e);}}
+        Id = _buf.GetProperty("id").GetInt32();
+        Title = _buf.GetProperty("title").GetString();
+        Sender = _buf.GetProperty("sender").GetString();
+        Content = _buf.GetProperty("content").GetString();
+        { var _json = _buf.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
     }
 
     public SystemMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award ) 
@@ -35,27 +36,22 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         this.Award = award;
     }
 
-    public static SystemMail DeserializeSystemMail(ByteBuf _buf)
+    public static SystemMail DeserializeSystemMail(JsonElement _buf)
     {
-    
         return new mail.SystemMail(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly string Title;
-     public readonly string Sender;
-     public readonly string Content;
-     public readonly System.Collections.Generic.List<int> Award;
-
+    public readonly int Id;
+    public readonly string Title;
+    public readonly string Sender;
+    public readonly string Content;
+    public readonly System.Collections.Generic.List<int> Award;
 
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -68,10 +64,9 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         + "Title:" + Title + ","
         + "Sender:" + Sender + ","
         + "Content:" + Content + ","
-        + "Award:" + Award + ","
+        + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
     }
-
 }
 

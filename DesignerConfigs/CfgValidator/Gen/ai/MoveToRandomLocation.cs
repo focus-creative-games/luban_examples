@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public sealed partial class MoveToRandomLocation :  ai.Task 
 {
-    public MoveToRandomLocation(ByteBuf _buf)  : base(_buf) 
+    public MoveToRandomLocation(JsonElement _buf)  : base(_buf) 
     {
-        OriginPositionKey = _buf.ReadString();
-        Radius = _buf.ReadFloat();
+        OriginPositionKey = _buf.GetProperty("origin_position_key").GetString();
+        Radius = _buf.GetProperty("radius").GetSingle();
     }
 
     public MoveToRandomLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string origin_position_key, float radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -29,24 +30,20 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         this.Radius = radius;
     }
 
-    public static MoveToRandomLocation DeserializeMoveToRandomLocation(ByteBuf _buf)
+    public static MoveToRandomLocation DeserializeMoveToRandomLocation(JsonElement _buf)
     {
-    
         return new ai.MoveToRandomLocation(_buf);
-    
     }
 
-     public readonly string OriginPositionKey;
-     public readonly float Radius;
-
+    public readonly string OriginPositionKey;
+    public readonly float Radius;
 
     public const int ID = -2140042998;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,14 +54,13 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "OriginPositionKey:" + OriginPositionKey + ","
         + "Radius:" + Radius + ","
         + "}";
     }
     }
-
 }
 

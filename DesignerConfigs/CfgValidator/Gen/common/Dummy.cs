@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.common
    
 public sealed partial class Dummy :  Bright.Config.BeanBase 
 {
-    public Dummy(ByteBuf _buf) 
+    public Dummy(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        Limit = limit.LimitBase.DeserializeLimitBase(_buf);
+        Id = _buf.GetProperty("id").GetInt32();
+        Limit =  limit.LimitBase.DeserializeLimitBase(_buf.GetProperty("limit"));
     }
 
     public Dummy(int id, limit.LimitBase limit ) 
@@ -29,25 +30,20 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         this.Limit = limit;
     }
 
-    public static Dummy DeserializeDummy(ByteBuf _buf)
+    public static Dummy DeserializeDummy(JsonElement _buf)
     {
-    
         return new common.Dummy(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly limit.LimitBase Limit;
-
+    public readonly int Id;
+    public readonly limit.LimitBase Limit;
 
     public const int ID = -985084219;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Limit?.Resolve(_tables);
+        Limit?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -61,6 +57,5 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

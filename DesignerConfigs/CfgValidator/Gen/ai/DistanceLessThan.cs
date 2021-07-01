@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,12 +18,12 @@ namespace cfg.ai
    
 public sealed partial class DistanceLessThan :  ai.Decorator 
 {
-    public DistanceLessThan(ByteBuf _buf)  : base(_buf) 
+    public DistanceLessThan(JsonElement _buf)  : base(_buf) 
     {
-        Actor1Key = _buf.ReadString();
-        Actor2Key = _buf.ReadString();
-        Distance = _buf.ReadFloat();
-        ReverseResult = _buf.ReadBool();
+        Actor1Key = _buf.GetProperty("actor1_key").GetString();
+        Actor2Key = _buf.GetProperty("actor2_key").GetString();
+        Distance = _buf.GetProperty("distance").GetSingle();
+        ReverseResult = _buf.GetProperty("reverse_result").GetBoolean();
     }
 
     public DistanceLessThan(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, string actor1_key, string actor2_key, float distance, bool reverse_result )  : base(id,node_name,flow_abort_mode) 
@@ -33,26 +34,22 @@ public sealed partial class DistanceLessThan :  ai.Decorator
         this.ReverseResult = reverse_result;
     }
 
-    public static DistanceLessThan DeserializeDistanceLessThan(ByteBuf _buf)
+    public static DistanceLessThan DeserializeDistanceLessThan(JsonElement _buf)
     {
-    
         return new ai.DistanceLessThan(_buf);
-    
     }
 
-     public readonly string Actor1Key;
-     public readonly string Actor2Key;
-     public readonly float Distance;
-     public readonly bool ReverseResult;
-
+    public readonly string Actor1Key;
+    public readonly string Actor2Key;
+    public readonly float Distance;
+    public readonly bool ReverseResult;
 
     public const int ID = -1207170283;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -71,6 +68,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

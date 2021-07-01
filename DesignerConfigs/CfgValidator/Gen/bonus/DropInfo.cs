@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,12 +18,12 @@ namespace cfg.bonus
    
 public sealed partial class DropInfo :  Bright.Config.BeanBase 
 {
-    public DropInfo(ByteBuf _buf) 
+    public DropInfo(JsonElement _buf) 
     {
-        Id = _buf.ReadInt();
-        Desc = _buf.ReadString();
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(n);for(var i = 0 ; i < n ; i++) { bonus.ShowItemInfo _e;  _e = bonus.ShowItemInfo.DeserializeShowItemInfo(_buf); ClientShowItems.Add(_e);}}
-        Bonus = bonus.Bonus.DeserializeBonus(_buf);
+        Id = _buf.GetProperty("id").GetInt32();
+        Desc = _buf.GetProperty("desc").GetString();
+        { var _json = _buf.GetProperty("client_show_items"); ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { bonus.ShowItemInfo __v;  __v =  bonus.ShowItemInfo.DeserializeShowItemInfo(__e);  ClientShowItems.Add(__v); }   }
+        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
     }
 
     public DropInfo(int id, string desc, System.Collections.Generic.List<bonus.ShowItemInfo> client_show_items, bonus.Bonus bonus ) 
@@ -33,28 +34,23 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         this.Bonus = bonus;
     }
 
-    public static DropInfo DeserializeDropInfo(ByteBuf _buf)
+    public static DropInfo DeserializeDropInfo(JsonElement _buf)
     {
-    
         return new bonus.DropInfo(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly string Desc;
-     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
-     public readonly bonus.Bonus Bonus;
-
+    public readonly int Id;
+    public readonly string Desc;
+    public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
+    public readonly bonus.Bonus Bonus;
 
     public const int ID = -2014781108;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
-            Bonus?.Resolve(_tables);
+        foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
+        Bonus?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -65,11 +61,10 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return "{ "
         + "Id:" + Id + ","
         + "Desc:" + Desc + ","
-        + "ClientShowItems:" + ClientShowItems + ","
+        + "ClientShowItems:" + Bright.Common.StringUtil.CollectionToString(ClientShowItems) + ","
         + "Bonus:" + Bonus + ","
         + "}";
     }
     }
-
 }
 

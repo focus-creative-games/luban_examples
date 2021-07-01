@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.blueprint
    
 public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
-    public EnumField(ByteBuf _buf) 
+    public EnumField(JsonElement _buf) 
     {
-        Name = _buf.ReadString();
-        Value = _buf.ReadInt();
+        Name = _buf.GetProperty("name").GetString();
+        Value = _buf.GetProperty("value").GetInt32();
     }
 
     public EnumField(string name, int value ) 
@@ -29,24 +30,19 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         this.Value = value;
     }
 
-    public static EnumField DeserializeEnumField(ByteBuf _buf)
+    public static EnumField DeserializeEnumField(JsonElement _buf)
     {
-    
         return new blueprint.EnumField(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly int Value;
-
+    public readonly string Name;
+    public readonly int Value;
 
     public const int ID = 1830049470;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +56,5 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

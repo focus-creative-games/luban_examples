@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public abstract partial class Decorator :  ai.Node 
 {
-    public Decorator(ByteBuf _buf)  : base(_buf) 
+    public Decorator(JsonElement _buf)  : base(_buf) 
     {
-        FlowAbortMode = (ai.EFlowAbortMode)_buf.ReadInt();
+        FlowAbortMode = (ai.EFlowAbortMode)_buf.GetProperty("flow_abort_mode").GetInt32();
     }
 
     public Decorator(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name) 
@@ -27,31 +28,27 @@ public abstract partial class Decorator :  ai.Node
         this.FlowAbortMode = flow_abort_mode;
     }
 
-    public static Decorator DeserializeDecorator(ByteBuf _buf)
+    public static Decorator DeserializeDecorator(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.UeLoop.ID: return new ai.UeLoop(_buf);
-            case ai.UeCooldown.ID: return new ai.UeCooldown(_buf);
-            case ai.UeTimeLimit.ID: return new ai.UeTimeLimit(_buf);
-            case ai.UeBlackboard.ID: return new ai.UeBlackboard(_buf);
-            case ai.UeForceSuccess.ID: return new ai.UeForceSuccess(_buf);
-            case ai.IsAtLocation.ID: return new ai.IsAtLocation(_buf);
-            case ai.DistanceLessThan.ID: return new ai.DistanceLessThan(_buf);
+            case "UeLoop": return new ai.UeLoop(_buf);
+            case "UeCooldown": return new ai.UeCooldown(_buf);
+            case "UeTimeLimit": return new ai.UeTimeLimit(_buf);
+            case "UeBlackboard": return new ai.UeBlackboard(_buf);
+            case "UeForceSuccess": return new ai.UeForceSuccess(_buf);
+            case "IsAtLocation": return new ai.IsAtLocation(_buf);
+            case "DistanceLessThan": return new ai.DistanceLessThan(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly ai.EFlowAbortMode FlowAbortMode;
-
+    public readonly ai.EFlowAbortMode FlowAbortMode;
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -66,6 +63,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

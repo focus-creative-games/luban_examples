@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.error
    
 public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
 {
-    public ErrorStyle(ByteBuf _buf) 
+    public ErrorStyle(JsonElement _buf) 
     {
     }
 
@@ -25,27 +26,22 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
     {
     }
 
-    public static ErrorStyle DeserializeErrorStyle(ByteBuf _buf)
+    public static ErrorStyle DeserializeErrorStyle(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case error.ErrorStyleTip.ID: return new error.ErrorStyleTip(_buf);
-            case error.ErrorStyleMsgbox.ID: return new error.ErrorStyleMsgbox(_buf);
-            case error.ErrorStyleDlgOk.ID: return new error.ErrorStyleDlgOk(_buf);
-            case error.ErrorStyleDlgOkCancel.ID: return new error.ErrorStyleDlgOkCancel(_buf);
+            case "ErrorStyleTip": return new error.ErrorStyleTip(_buf);
+            case "ErrorStyleMsgbox": return new error.ErrorStyleMsgbox(_buf);
+            case "ErrorStyleDlgOk": return new error.ErrorStyleDlgOk(_buf);
+            case "ErrorStyleDlgOkCancel": return new error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -57,6 +53,5 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

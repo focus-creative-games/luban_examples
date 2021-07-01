@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public abstract partial class KeyData :  Bright.Config.BeanBase 
 {
-    public KeyData(ByteBuf _buf) 
+    public KeyData(JsonElement _buf) 
     {
     }
 
@@ -25,27 +26,22 @@ public abstract partial class KeyData :  Bright.Config.BeanBase
     {
     }
 
-    public static KeyData DeserializeKeyData(ByteBuf _buf)
+    public static KeyData DeserializeKeyData(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.FloatKeyData.ID: return new ai.FloatKeyData(_buf);
-            case ai.IntKeyData.ID: return new ai.IntKeyData(_buf);
-            case ai.StringKeyData.ID: return new ai.StringKeyData(_buf);
-            case ai.BlackboardKeyData.ID: return new ai.BlackboardKeyData(_buf);
+            case "FloatKeyData": return new ai.FloatKeyData(_buf);
+            case "IntKeyData": return new ai.IntKeyData(_buf);
+            case "StringKeyData": return new ai.StringKeyData(_buf);
+            case "BlackboardKeyData": return new ai.BlackboardKeyData(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -57,6 +53,5 @@ public abstract partial class KeyData :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

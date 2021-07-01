@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 
 using Bright.Serialization;
-
+using System.Text.Json;
 
 namespace cfg
 {
    
-public sealed class Tables
+public sealed partial class Tables
 {
     public ai.TbBlackboard TbBlackboard {get; }
     public ai.TbBehaviorTree TbBehaviorTree {get; }
@@ -26,59 +26,104 @@ public sealed class Tables
     public item.TbItem TbItem {get; }
     public item.TbItemFunc TbItemFunc {get; }
     public item.TbItemExtra TbItemExtra {get; }
+    public l10n.TbL10NDemo TbL10NDemo {get; }
+    public l10n.TbPatchDemo TbPatchDemo {get; }
     public mail.TbSystemMail TbSystemMail {get; }
     public mail.TbGlobalMail TbGlobalMail {get; }
     public role.TbRoleLevelExpAttr TbRoleLevelExpAttr {get; }
     public role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient {get; }
+    public tag.TbTestTag TbTestTag {get; }
+    public test.TbFullTypes TbFullTypes {get; }
+    public test.TbSingleton TbSingleton {get; }
+    public test.TbDataFromJson TbDataFromJson {get; }
+    public test.TbDataFromXml TbDataFromXml {get; }
+    public test.TbDataFromLua TbDataFromLua {get; }
+    public test.TbMultiRowRecord TbMultiRowRecord {get; }
+    public test.TbMultiRowTitle TbMultiRowTitle {get; }
+    public test.TbTestNull TbTestNull {get; }
 
-    public Tables(System.Func<string, ByteBuf> loader)
+    public Tables(System.Func<string, JsonElement> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        TbBlackboard = new ai.TbBlackboard(loader("ai.TbBlackboard.bin")); 
+        TbBlackboard = new ai.TbBlackboard(loader("ai.TbBlackboard.json")); 
         tables.Add("ai.TbBlackboard", TbBlackboard);
-        TbBehaviorTree = new ai.TbBehaviorTree(loader("ai.TbBehaviorTree.bin")); 
+        TbBehaviorTree = new ai.TbBehaviorTree(loader("ai.TbBehaviorTree.json")); 
         tables.Add("ai.TbBehaviorTree", TbBehaviorTree);
-        TbClazz = new blueprint.TbClazz(loader("blueprint.TbClazz.bin")); 
+        TbClazz = new blueprint.TbClazz(loader("blueprint.TbClazz.json")); 
         tables.Add("blueprint.TbClazz", TbClazz);
-        TbDrop = new bonus.TbDrop(loader("bonus.TbDrop.bin")); 
+        TbDrop = new bonus.TbDrop(loader("bonus.TbDrop.json")); 
         tables.Add("bonus.TbDrop", TbDrop);
-        TbGlobalConfig = new common.TbGlobalConfig(loader("common.TbGlobalConfig.bin")); 
+        TbGlobalConfig = new common.TbGlobalConfig(loader("common.TbGlobalConfig.json")); 
         tables.Add("common.TbGlobalConfig", TbGlobalConfig);
-        TbDummy = new common.TbDummy(loader("common.TbDummy.bin")); 
+        TbDummy = new common.TbDummy(loader("common.TbDummy.json")); 
         tables.Add("common.TbDummy", TbDummy);
-        TbErrorInfo = new error.TbErrorInfo(loader("error.TbErrorInfo.bin")); 
+        TbErrorInfo = new error.TbErrorInfo(loader("error.TbErrorInfo.json")); 
         tables.Add("error.TbErrorInfo", TbErrorInfo);
-        TbCodeInfo = new error.TbCodeInfo(loader("error.TbCodeInfo.bin")); 
+        TbCodeInfo = new error.TbCodeInfo(loader("error.TbCodeInfo.json")); 
         tables.Add("error.TbCodeInfo", TbCodeInfo);
-        TbItem = new item.TbItem(loader("item.TbItem.bin")); 
+        TbItem = new item.TbItem(loader("item.TbItem.json")); 
         tables.Add("item.TbItem", TbItem);
-        TbItemFunc = new item.TbItemFunc(loader("item.TbItemFunc.bin")); 
+        TbItemFunc = new item.TbItemFunc(loader("item.TbItemFunc.json")); 
         tables.Add("item.TbItemFunc", TbItemFunc);
-        TbItemExtra = new item.TbItemExtra(loader("item.TbItemExtra.bin")); 
+        TbItemExtra = new item.TbItemExtra(loader("item.TbItemExtra.json")); 
         tables.Add("item.TbItemExtra", TbItemExtra);
-        TbSystemMail = new mail.TbSystemMail(loader("mail.TbSystemMail.bin")); 
+        TbL10NDemo = new l10n.TbL10NDemo(loader("l10n.TbL10NDemo.json")); 
+        tables.Add("l10n.TbL10NDemo", TbL10NDemo);
+        TbPatchDemo = new l10n.TbPatchDemo(loader("l10n.TbPatchDemo.json")); 
+        tables.Add("l10n.TbPatchDemo", TbPatchDemo);
+        TbSystemMail = new mail.TbSystemMail(loader("mail.TbSystemMail.json")); 
         tables.Add("mail.TbSystemMail", TbSystemMail);
-        TbGlobalMail = new mail.TbGlobalMail(loader("mail.TbGlobalMail.bin")); 
+        TbGlobalMail = new mail.TbGlobalMail(loader("mail.TbGlobalMail.json")); 
         tables.Add("mail.TbGlobalMail", TbGlobalMail);
-        TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader("role.TbRoleLevelExpAttr.bin")); 
+        TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader("role.TbRoleLevelExpAttr.json")); 
         tables.Add("role.TbRoleLevelExpAttr", TbRoleLevelExpAttr);
-        TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader("role.TbRoleLevelBonusCoefficient.bin")); 
+        TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader("role.TbRoleLevelBonusCoefficient.json")); 
         tables.Add("role.TbRoleLevelBonusCoefficient", TbRoleLevelBonusCoefficient);
-        TbBlackboard.Resolve(tables);
-        TbBehaviorTree.Resolve(tables);
-        TbClazz.Resolve(tables);
-        TbDrop.Resolve(tables);
-        TbGlobalConfig.Resolve(tables);
-        TbDummy.Resolve(tables);
-        TbErrorInfo.Resolve(tables);
-        TbCodeInfo.Resolve(tables);
-        TbItem.Resolve(tables);
-        TbItemFunc.Resolve(tables);
-        TbItemExtra.Resolve(tables);
-        TbSystemMail.Resolve(tables);
-        TbGlobalMail.Resolve(tables);
-        TbRoleLevelExpAttr.Resolve(tables);
-        TbRoleLevelBonusCoefficient.Resolve(tables);
+        TbTestTag = new tag.TbTestTag(loader("tag.TbTestTag.json")); 
+        tables.Add("tag.TbTestTag", TbTestTag);
+        TbFullTypes = new test.TbFullTypes(loader("test.TbFullTypes.json")); 
+        tables.Add("test.TbFullTypes", TbFullTypes);
+        TbSingleton = new test.TbSingleton(loader("test.TbSingleton.json")); 
+        tables.Add("test.TbSingleton", TbSingleton);
+        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson.json")); 
+        tables.Add("test.TbDataFromJson", TbDataFromJson);
+        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml.json")); 
+        tables.Add("test.TbDataFromXml", TbDataFromXml);
+        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua.json")); 
+        tables.Add("test.TbDataFromLua", TbDataFromLua);
+        TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord.json")); 
+        tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
+        TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle.json")); 
+        tables.Add("test.TbMultiRowTitle", TbMultiRowTitle);
+        TbTestNull = new test.TbTestNull(loader("test.TbTestNull.json")); 
+        tables.Add("test.TbTestNull", TbTestNull);
+
+        TbBlackboard.Resolve(tables); 
+        TbBehaviorTree.Resolve(tables); 
+        TbClazz.Resolve(tables); 
+        TbDrop.Resolve(tables); 
+        TbGlobalConfig.Resolve(tables); 
+        TbDummy.Resolve(tables); 
+        TbErrorInfo.Resolve(tables); 
+        TbCodeInfo.Resolve(tables); 
+        TbItem.Resolve(tables); 
+        TbItemFunc.Resolve(tables); 
+        TbItemExtra.Resolve(tables); 
+        TbL10NDemo.Resolve(tables); 
+        TbPatchDemo.Resolve(tables); 
+        TbSystemMail.Resolve(tables); 
+        TbGlobalMail.Resolve(tables); 
+        TbRoleLevelExpAttr.Resolve(tables); 
+        TbRoleLevelBonusCoefficient.Resolve(tables); 
+        TbTestTag.Resolve(tables); 
+        TbFullTypes.Resolve(tables); 
+        TbSingleton.Resolve(tables); 
+        TbDataFromJson.Resolve(tables); 
+        TbDataFromXml.Resolve(tables); 
+        TbDataFromLua.Resolve(tables); 
+        TbMultiRowRecord.Resolve(tables); 
+        TbMultiRowTitle.Resolve(tables); 
+        TbTestNull.Resolve(tables); 
     }
 }
 

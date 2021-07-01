@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.item
    
 public sealed partial class InteractionItem :  item.ItemExtra 
 {
-    public InteractionItem(ByteBuf _buf)  : base(_buf) 
+    public InteractionItem(JsonElement _buf)  : base(_buf) 
     {
-        if(_buf.ReadBool()){ AttackNum = _buf.ReadInt(); } else { AttackNum = null; }
-        HoldingStaticMesh = _buf.ReadString();
-        HoldingStaticMeshMat = _buf.ReadString();
+        { var _j = _buf.GetProperty("attack_num"); if (_j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
+        HoldingStaticMesh = _buf.GetProperty("holding_static_mesh").GetString();
+        HoldingStaticMeshMat = _buf.GetProperty("holding_static_mesh_mat").GetString();
     }
 
     public InteractionItem(int id, int? attack_num, string holding_static_mesh, string holding_static_mesh_mat )  : base(id) 
@@ -31,25 +32,21 @@ public sealed partial class InteractionItem :  item.ItemExtra
         this.HoldingStaticMeshMat = holding_static_mesh_mat;
     }
 
-    public static InteractionItem DeserializeInteractionItem(ByteBuf _buf)
+    public static InteractionItem DeserializeInteractionItem(JsonElement _buf)
     {
-    
         return new item.InteractionItem(_buf);
-    
     }
 
-     public readonly int? AttackNum;
-     public readonly string HoldingStaticMesh;
-     public readonly string HoldingStaticMeshMat;
-
+    public readonly int? AttackNum;
+    public readonly string HoldingStaticMesh;
+    public readonly string HoldingStaticMeshMat;
 
     public const int ID = 640937802;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -65,6 +62,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

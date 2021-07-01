@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.ai
    
 public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
-    public SimpleParallel(ByteBuf _buf)  : base(_buf) 
+    public SimpleParallel(JsonElement _buf)  : base(_buf) 
     {
-        FinishMode = (ai.EFinishMode)_buf.ReadInt();
-        MainTask = ai.Task.DeserializeTask(_buf);
-        BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf);
+        FinishMode = (ai.EFinishMode)_buf.GetProperty("finish_mode").GetInt32();
+        MainTask =  ai.Task.DeserializeTask(_buf.GetProperty("main_task"));
+        BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_buf.GetProperty("background_node"));
     }
 
     public SimpleParallel(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, ai.EFinishMode finish_mode, ai.Task main_task, ai.FlowNode background_node )  : base(id,node_name,decorators,services) 
@@ -31,27 +32,23 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         this.BackgroundNode = background_node;
     }
 
-    public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
+    public static SimpleParallel DeserializeSimpleParallel(JsonElement _buf)
     {
-    
         return new ai.SimpleParallel(_buf);
-    
     }
 
-     public readonly ai.EFinishMode FinishMode;
-     public readonly ai.Task MainTask;
-     public readonly ai.FlowNode BackgroundNode;
-
+    public readonly ai.EFinishMode FinishMode;
+    public readonly ai.Task MainTask;
+    public readonly ai.FlowNode BackgroundNode;
 
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            MainTask?.Resolve(_tables);
-            BackgroundNode?.Resolve(_tables);
+        base.Resolve(_tables);
+        MainTask?.Resolve(_tables);
+        BackgroundNode?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -62,14 +59,13 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "FinishMode:" + FinishMode + ","
         + "MainTask:" + MainTask + ","
         + "BackgroundNode:" + BackgroundNode + ","
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.condition
    
 public sealed partial class MinMaxLevel :  condition.BoolRoleCondition 
 {
-    public MinMaxLevel(ByteBuf _buf)  : base(_buf) 
+    public MinMaxLevel(JsonElement _buf)  : base(_buf) 
     {
-        Min = _buf.ReadInt();
-        Max = _buf.ReadInt();
+        Min = _buf.GetProperty("min").GetInt32();
+        Max = _buf.GetProperty("max").GetInt32();
     }
 
     public MinMaxLevel(int min, int max )  : base() 
@@ -29,24 +30,20 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         this.Max = max;
     }
 
-    public static MinMaxLevel DeserializeMinMaxLevel(ByteBuf _buf)
+    public static MinMaxLevel DeserializeMinMaxLevel(JsonElement _buf)
     {
-    
         return new condition.MinMaxLevel(_buf);
-    
     }
 
-     public readonly int Min;
-     public readonly int Max;
-
+    public readonly int Min;
+    public readonly int Max;
 
     public const int ID = 907499647;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +57,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

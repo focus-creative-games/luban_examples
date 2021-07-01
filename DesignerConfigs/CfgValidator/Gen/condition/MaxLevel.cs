@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.condition
    
 public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
-    public MaxLevel(ByteBuf _buf)  : base(_buf) 
+    public MaxLevel(JsonElement _buf)  : base(_buf) 
     {
-        Level = _buf.ReadInt();
+        Level = _buf.GetProperty("level").GetInt32();
     }
 
     public MaxLevel(int level )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
         this.Level = level;
     }
 
-    public static MaxLevel DeserializeMaxLevel(ByteBuf _buf)
+    public static MaxLevel DeserializeMaxLevel(JsonElement _buf)
     {
-    
         return new condition.MaxLevel(_buf);
-    
     }
 
-     public readonly int Level;
-
+    public readonly int Level;
 
     public const int ID = 700922899;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

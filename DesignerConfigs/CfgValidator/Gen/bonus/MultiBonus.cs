@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.bonus
    
 public sealed partial class MultiBonus :  bonus.Bonus 
 {
-    public MultiBonus(ByteBuf _buf)  : base(_buf) 
+    public MultiBonus(JsonElement _buf)  : base(_buf) 
     {
-        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Bonuses = new bonus.Bonus[n];for(var i = 0 ; i < n ; i++) { bonus.Bonus _e;_e = bonus.Bonus.DeserializeBonus(_buf); Bonuses[i] = _e;}}
+        { var _json = _buf.GetProperty("bonuses"); int _n = _json.GetArrayLength(); Bonuses = new bonus.Bonus[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { bonus.Bonus __v;  __v =  bonus.Bonus.DeserializeBonus(__e);  Bonuses[_index++] = __v; }   }
     }
 
     public MultiBonus(bonus.Bonus[] bonuses )  : base() 
@@ -27,24 +28,20 @@ public sealed partial class MultiBonus :  bonus.Bonus
         this.Bonuses = bonuses;
     }
 
-    public static MultiBonus DeserializeMultiBonus(ByteBuf _buf)
+    public static MultiBonus DeserializeMultiBonus(JsonElement _buf)
     {
-    
         return new bonus.MultiBonus(_buf);
-    
     }
 
-     public readonly bonus.Bonus[] Bonuses;
-
+    public readonly bonus.Bonus[] Bonuses;
 
     public const int ID = 1421907893;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -53,10 +50,9 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Bonuses:" + Bonuses + ","
+        + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
     }
-
 }
 

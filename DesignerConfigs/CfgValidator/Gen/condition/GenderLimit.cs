@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.condition
    
 public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
-    public GenderLimit(ByteBuf _buf)  : base(_buf) 
+    public GenderLimit(JsonElement _buf)  : base(_buf) 
     {
-        Gender = (role.EGenderType)_buf.ReadInt();
+        Gender = (role.EGenderType)_buf.GetProperty("gender").GetInt32();
     }
 
     public GenderLimit(role.EGenderType gender )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         this.Gender = gender;
     }
 
-    public static GenderLimit DeserializeGenderLimit(ByteBuf _buf)
+    public static GenderLimit DeserializeGenderLimit(JsonElement _buf)
     {
-    
         return new condition.GenderLimit(_buf);
-    
     }
 
-     public readonly role.EGenderType Gender;
-
+    public readonly role.EGenderType Gender;
 
     public const int ID = 103675143;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

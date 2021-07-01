@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
-    public KeyQueryOperator(ByteBuf _buf) 
+    public KeyQueryOperator(JsonElement _buf) 
     {
     }
 
@@ -25,26 +26,21 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
     {
     }
 
-    public static KeyQueryOperator DeserializeKeyQueryOperator(ByteBuf _buf)
+    public static KeyQueryOperator DeserializeKeyQueryOperator(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.IsSet.ID: return new ai.IsSet(_buf);
-            case ai.IsNotSet.ID: return new ai.IsNotSet(_buf);
-            case ai.BinaryOperator.ID: return new ai.BinaryOperator(_buf);
+            case "IsSet": return new ai.IsSet(_buf);
+            case "IsNotSet": return new ai.IsNotSet(_buf);
+            case "BinaryOperator": return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +52,5 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 

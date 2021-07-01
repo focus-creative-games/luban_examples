@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,11 +18,11 @@ namespace cfg.ai
    
 public sealed partial class UeLoop :  ai.Decorator 
 {
-    public UeLoop(ByteBuf _buf)  : base(_buf) 
+    public UeLoop(JsonElement _buf)  : base(_buf) 
     {
-        NumLoops = _buf.ReadInt();
-        InfiniteLoop = _buf.ReadBool();
-        InfiniteLoopTimeoutTime = _buf.ReadFloat();
+        NumLoops = _buf.GetProperty("num_loops").GetInt32();
+        InfiniteLoop = _buf.GetProperty("infinite_loop").GetBoolean();
+        InfiniteLoopTimeoutTime = _buf.GetProperty("infinite_loop_timeout_time").GetSingle();
     }
 
     public UeLoop(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, int num_loops, bool infinite_loop, float infinite_loop_timeout_time )  : base(id,node_name,flow_abort_mode) 
@@ -31,25 +32,21 @@ public sealed partial class UeLoop :  ai.Decorator
         this.InfiniteLoopTimeoutTime = infinite_loop_timeout_time;
     }
 
-    public static UeLoop DeserializeUeLoop(ByteBuf _buf)
+    public static UeLoop DeserializeUeLoop(JsonElement _buf)
     {
-    
         return new ai.UeLoop(_buf);
-    
     }
 
-     public readonly int NumLoops;
-     public readonly bool InfiniteLoop;
-     public readonly float InfiniteLoopTimeoutTime;
-
+    public readonly int NumLoops;
+    public readonly bool InfiniteLoop;
+    public readonly float InfiniteLoopTimeoutTime;
 
     public const int ID = -513308166;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -67,6 +64,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

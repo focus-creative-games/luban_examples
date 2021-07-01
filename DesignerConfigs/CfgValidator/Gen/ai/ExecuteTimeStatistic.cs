@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public sealed partial class ExecuteTimeStatistic :  ai.Service 
 {
-    public ExecuteTimeStatistic(ByteBuf _buf)  : base(_buf) 
+    public ExecuteTimeStatistic(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,22 +26,18 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     {
     }
 
-    public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(ByteBuf _buf)
+    public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(JsonElement _buf)
     {
-    
         return new ai.ExecuteTimeStatistic(_buf);
-    
     }
-
 
 
     public const int ID = 990693812;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -54,6 +51,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

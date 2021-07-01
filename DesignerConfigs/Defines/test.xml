@@ -192,8 +192,10 @@
 		<var name="x2" type="DemoEnum?"/>
 		<var name="x3" type="DemoType1?"/>
 		<var name="x4" type="DemoDynamic?"/>
+		<var name="s1" type="string?"/>
+		<var name="s2" type="text?"/>
 	</bean>
-	<table name="TbTestNull" value="TestNull" input="test/test_null.xlsx"/>
+	<table name="TbTestNull" value="TestNull" input="test/test_null_datas"/>
 	
 	<!--table name="TbDynamic" value="DemoDynamic" input="多态数据源"/-->
  

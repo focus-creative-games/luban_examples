@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.error
    
 public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
-    public ErrorStyleMsgbox(ByteBuf _buf)  : base(_buf) 
+    public ErrorStyleMsgbox(JsonElement _buf)  : base(_buf) 
     {
-        BtnName = _buf.ReadString();
-        Operation = (error.EOperation)_buf.ReadInt();
+        BtnName = _buf.GetProperty("btn_name").GetString();
+        Operation = (error.EOperation)_buf.GetProperty("operation").GetInt32();
     }
 
     public ErrorStyleMsgbox(string btn_name, error.EOperation operation )  : base() 
@@ -29,24 +30,20 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
         this.Operation = operation;
     }
 
-    public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(ByteBuf _buf)
+    public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(JsonElement _buf)
     {
-    
         return new error.ErrorStyleMsgbox(_buf);
-    
     }
 
-     public readonly string BtnName;
-     public readonly error.EOperation Operation;
-
+    public readonly string BtnName;
+    public readonly error.EOperation Operation;
 
     public const int ID = -1920482343;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -60,6 +57,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

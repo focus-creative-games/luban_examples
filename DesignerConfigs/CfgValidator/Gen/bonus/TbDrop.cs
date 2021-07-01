@@ -9,24 +9,25 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
+
+
 
 namespace cfg.bonus
 {
-   
 public sealed partial class TbDrop
 {
     private readonly Dictionary<int, bonus.DropInfo> _dataMap;
     private readonly List<bonus.DropInfo> _dataList;
     
-    public TbDrop(ByteBuf _buf)
+    public TbDrop(JsonElement _buf)
     {
         _dataMap = new Dictionary<int, bonus.DropInfo>();
         _dataList = new List<bonus.DropInfo>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _row in _buf.EnumerateArray())
         {
-            bonus.DropInfo _v;
-            _v = bonus.DropInfo.DeserializeDropInfo(_buf);
+            var _v = bonus.DropInfo.DeserializeDropInfo(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
@@ -47,7 +48,6 @@ public sealed partial class TbDrop
         }
         OnResolveFinish(_tables);
     }
-
 
 
     partial void OnResolveFinish(Dictionary<string, object> _tables);

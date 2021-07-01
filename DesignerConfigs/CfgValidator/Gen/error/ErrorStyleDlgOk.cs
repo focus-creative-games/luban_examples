@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.error
    
 public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
-    public ErrorStyleDlgOk(ByteBuf _buf)  : base(_buf) 
+    public ErrorStyleDlgOk(JsonElement _buf)  : base(_buf) 
     {
-        BtnName = _buf.ReadString();
+        BtnName = _buf.GetProperty("btn_name").GetString();
     }
 
     public ErrorStyleDlgOk(string btn_name )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         this.BtnName = btn_name;
     }
 
-    public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(ByteBuf _buf)
+    public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(JsonElement _buf)
     {
-    
         return new error.ErrorStyleDlgOk(_buf);
-    
     }
 
-     public readonly string BtnName;
-
+    public readonly string BtnName;
 
     public const int ID = -2010134516;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

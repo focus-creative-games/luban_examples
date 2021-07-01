@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.bonus
    
 public sealed partial class Item :  bonus.Bonus 
 {
-    public Item(ByteBuf _buf)  : base(_buf) 
+    public Item(JsonElement _buf)  : base(_buf) 
     {
-        ItemId = _buf.ReadInt();
-        Amount = _buf.ReadInt();
+        ItemId = _buf.GetProperty("item_id").GetInt32();
+        Amount = _buf.GetProperty("amount").GetInt32();
     }
 
     public Item(int item_id, int amount )  : base() 
@@ -29,26 +30,22 @@ public sealed partial class Item :  bonus.Bonus
         this.Amount = amount;
     }
 
-    public static Item DeserializeItem(ByteBuf _buf)
+    public static Item DeserializeItem(JsonElement _buf)
     {
-    
         return new bonus.Item(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Amount;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Amount;
 
     public const int ID = 1689011106;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        base.Resolve(_tables);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 
@@ -62,6 +59,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

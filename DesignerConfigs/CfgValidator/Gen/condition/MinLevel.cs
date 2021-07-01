@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.condition
    
 public sealed partial class MinLevel :  condition.BoolRoleCondition 
 {
-    public MinLevel(ByteBuf _buf)  : base(_buf) 
+    public MinLevel(JsonElement _buf)  : base(_buf) 
     {
-        Level = _buf.ReadInt();
+        Level = _buf.GetProperty("level").GetInt32();
     }
 
     public MinLevel(int level )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
         this.Level = level;
     }
 
-    public static MinLevel DeserializeMinLevel(ByteBuf _buf)
+    public static MinLevel DeserializeMinLevel(JsonElement _buf)
     {
-    
         return new condition.MinLevel(_buf);
-    
     }
 
-     public readonly int Level;
-
+    public readonly int Level;
 
     public const int ID = -1075273755;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

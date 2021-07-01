@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.error
    
 public sealed partial class ErrorStyleTip :  error.ErrorStyle 
 {
-    public ErrorStyleTip(ByteBuf _buf)  : base(_buf) 
+    public ErrorStyleTip(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,22 +26,18 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
     {
     }
 
-    public static ErrorStyleTip DeserializeErrorStyleTip(ByteBuf _buf)
+    public static ErrorStyleTip DeserializeErrorStyleTip(JsonElement _buf)
     {
-    
         return new error.ErrorStyleTip(_buf);
-    
     }
-
 
 
     public const int ID = 1915239884;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -52,6 +49,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

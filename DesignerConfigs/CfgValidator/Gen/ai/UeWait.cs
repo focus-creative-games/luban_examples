@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,10 +18,10 @@ namespace cfg.ai
    
 public sealed partial class UeWait :  ai.Task 
 {
-    public UeWait(ByteBuf _buf)  : base(_buf) 
+    public UeWait(JsonElement _buf)  : base(_buf) 
     {
-        WaitTime = _buf.ReadFloat();
-        RandomDeviation = _buf.ReadFloat();
+        WaitTime = _buf.GetProperty("wait_time").GetSingle();
+        RandomDeviation = _buf.GetProperty("random_deviation").GetSingle();
     }
 
     public UeWait(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, float wait_time, float random_deviation )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -29,24 +30,20 @@ public sealed partial class UeWait :  ai.Task
         this.RandomDeviation = random_deviation;
     }
 
-    public static UeWait DeserializeUeWait(ByteBuf _buf)
+    public static UeWait DeserializeUeWait(JsonElement _buf)
     {
-    
         return new ai.UeWait(_buf);
-    
     }
 
-     public readonly float WaitTime;
-     public readonly float RandomDeviation;
-
+    public readonly float WaitTime;
+    public readonly float RandomDeviation;
 
     public const int ID = -512994101;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,14 +54,13 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "WaitTime:" + WaitTime + ","
         + "RandomDeviation:" + RandomDeviation + ","
         + "}";
     }
     }
-
 }
 

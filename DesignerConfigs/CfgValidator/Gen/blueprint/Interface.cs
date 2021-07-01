@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.blueprint
    
 public sealed partial class Interface :  blueprint.Clazz 
 {
-    public Interface(ByteBuf _buf)  : base(_buf) 
+    public Interface(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,22 +26,18 @@ public sealed partial class Interface :  blueprint.Clazz
     {
     }
 
-    public static Interface DeserializeInterface(ByteBuf _buf)
+    public static Interface DeserializeInterface(JsonElement _buf)
     {
-    
         return new blueprint.Interface(_buf);
-    
     }
-
 
 
     public const int ID = 2114170750;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -51,11 +48,10 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
     }
-
 }
 

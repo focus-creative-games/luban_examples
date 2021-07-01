@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.limit
    
 public sealed partial class WeeklyLimit :  limit.LimitBase 
 {
-    public WeeklyLimit(ByteBuf _buf)  : base(_buf) 
+    public WeeklyLimit(JsonElement _buf)  : base(_buf) 
     {
-        Num = _buf.ReadInt();
+        Num = _buf.GetProperty("num").GetInt32();
     }
 
     public WeeklyLimit(int num )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         this.Num = num;
     }
 
-    public static WeeklyLimit DeserializeWeeklyLimit(ByteBuf _buf)
+    public static WeeklyLimit DeserializeWeeklyLimit(JsonElement _buf)
     {
-    
         return new limit.WeeklyLimit(_buf);
-    
     }
 
-     public readonly int Num;
-
+    public readonly int Num;
 
     public const int ID = -252187161;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

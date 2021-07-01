@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.condition
    
 public sealed partial class TimeRange :  condition.Condition 
 {
-    public TimeRange(ByteBuf _buf)  : base(_buf) 
+    public TimeRange(JsonElement _buf)  : base(_buf) 
     {
-        DateTimeRange = common.DateTimeRange.DeserializeDateTimeRange(_buf);
+        DateTimeRange =  common.DateTimeRange.DeserializeDateTimeRange(_buf.GetProperty("date_time_range"));
     }
 
     public TimeRange(common.DateTimeRange date_time_range )  : base() 
@@ -27,24 +28,20 @@ public sealed partial class TimeRange :  condition.Condition
         this.DateTimeRange = date_time_range;
     }
 
-    public static TimeRange DeserializeTimeRange(ByteBuf _buf)
+    public static TimeRange DeserializeTimeRange(JsonElement _buf)
     {
-    
         return new condition.TimeRange(_buf);
-    
     }
 
-     public readonly common.DateTimeRange DateTimeRange;
-
+    public readonly common.DateTimeRange DateTimeRange;
 
     public const int ID = 1069033789;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            DateTimeRange?.Resolve(_tables);
+        base.Resolve(_tables);
+        DateTimeRange?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,6 +54,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

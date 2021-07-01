@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.ai
    
 public sealed partial class UeTimeLimit :  ai.Decorator 
 {
-    public UeTimeLimit(ByteBuf _buf)  : base(_buf) 
+    public UeTimeLimit(JsonElement _buf)  : base(_buf) 
     {
-        LimitTime = _buf.ReadFloat();
+        LimitTime = _buf.GetProperty("limit_time").GetSingle();
     }
 
     public UeTimeLimit(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float limit_time )  : base(id,node_name,flow_abort_mode) 
@@ -27,23 +28,19 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         this.LimitTime = limit_time;
     }
 
-    public static UeTimeLimit DeserializeUeTimeLimit(ByteBuf _buf)
+    public static UeTimeLimit DeserializeUeTimeLimit(JsonElement _buf)
     {
-    
         return new ai.UeTimeLimit(_buf);
-    
     }
 
-     public readonly float LimitTime;
-
+    public readonly float LimitTime;
 
     public const int ID = 338469720;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -59,6 +56,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,17 +18,17 @@ namespace cfg.ai
    
 public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
 {
-    public UpdateDailyBehaviorProps(ByteBuf _buf)  : base(_buf) 
+    public UpdateDailyBehaviorProps(JsonElement _buf)  : base(_buf) 
     {
-        SatietyKey = _buf.ReadString();
-        EnergyKey = _buf.ReadString();
-        MoodKey = _buf.ReadString();
-        SatietyLowerThresholdKey = _buf.ReadString();
-        SatietyUpperThresholdKey = _buf.ReadString();
-        EnergyLowerThresholdKey = _buf.ReadString();
-        EnergyUpperThresholdKey = _buf.ReadString();
-        MoodLowerThresholdKey = _buf.ReadString();
-        MoodUpperThresholdKey = _buf.ReadString();
+        SatietyKey = _buf.GetProperty("satiety_key").GetString();
+        EnergyKey = _buf.GetProperty("energy_key").GetString();
+        MoodKey = _buf.GetProperty("mood_key").GetString();
+        SatietyLowerThresholdKey = _buf.GetProperty("satiety_lower_threshold_key").GetString();
+        SatietyUpperThresholdKey = _buf.GetProperty("satiety_upper_threshold_key").GetString();
+        EnergyLowerThresholdKey = _buf.GetProperty("energy_lower_threshold_key").GetString();
+        EnergyUpperThresholdKey = _buf.GetProperty("energy_upper_threshold_key").GetString();
+        MoodLowerThresholdKey = _buf.GetProperty("mood_lower_threshold_key").GetString();
+        MoodUpperThresholdKey = _buf.GetProperty("mood_upper_threshold_key").GetString();
     }
 
     public UpdateDailyBehaviorProps(int id, string node_name, string satiety_key, string energy_key, string mood_key, string satiety_lower_threshold_key, string satiety_upper_threshold_key, string energy_lower_threshold_key, string energy_upper_threshold_key, string mood_lower_threshold_key, string mood_upper_threshold_key )  : base(id,node_name) 
@@ -43,31 +44,27 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
         this.MoodUpperThresholdKey = mood_upper_threshold_key;
     }
 
-    public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(ByteBuf _buf)
+    public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(JsonElement _buf)
     {
-    
         return new ai.UpdateDailyBehaviorProps(_buf);
-    
     }
 
-     public readonly string SatietyKey;
-     public readonly string EnergyKey;
-     public readonly string MoodKey;
-     public readonly string SatietyLowerThresholdKey;
-     public readonly string SatietyUpperThresholdKey;
-     public readonly string EnergyLowerThresholdKey;
-     public readonly string EnergyUpperThresholdKey;
-     public readonly string MoodLowerThresholdKey;
-     public readonly string MoodUpperThresholdKey;
-
+    public readonly string SatietyKey;
+    public readonly string EnergyKey;
+    public readonly string MoodKey;
+    public readonly string SatietyLowerThresholdKey;
+    public readonly string SatietyUpperThresholdKey;
+    public readonly string EnergyLowerThresholdKey;
+    public readonly string EnergyUpperThresholdKey;
+    public readonly string MoodLowerThresholdKey;
+    public readonly string MoodUpperThresholdKey;
 
     public const int ID = -61887372;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -90,6 +87,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

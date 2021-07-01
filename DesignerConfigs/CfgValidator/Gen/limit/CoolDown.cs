@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,9 +18,9 @@ namespace cfg.limit
    
 public sealed partial class CoolDown :  limit.LimitBase 
 {
-    public CoolDown(ByteBuf _buf)  : base(_buf) 
+    public CoolDown(JsonElement _buf)  : base(_buf) 
     {
-        Duration = _buf.ReadInt();
+        Duration = _buf.GetProperty("duration").GetInt32();
     }
 
     public CoolDown(int duration )  : base() 
@@ -27,23 +28,19 @@ public sealed partial class CoolDown :  limit.LimitBase
         this.Duration = duration;
     }
 
-    public static CoolDown DeserializeCoolDown(ByteBuf _buf)
+    public static CoolDown DeserializeCoolDown(JsonElement _buf)
     {
-    
         return new limit.CoolDown(_buf);
-    
     }
 
-     public readonly int Duration;
-
+    public readonly int Duration;
 
     public const int ID = -1366194050;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -56,6 +53,5 @@ base.Resolve(_tables);
         + "}";
     }
     }
-
 }
 

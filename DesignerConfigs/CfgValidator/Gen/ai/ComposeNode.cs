@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.ai
    
 public abstract partial class ComposeNode :  ai.FlowNode 
 {
-    public ComposeNode(ByteBuf _buf)  : base(_buf) 
+    public ComposeNode(JsonElement _buf)  : base(_buf) 
     {
     }
 
@@ -25,26 +26,22 @@ public abstract partial class ComposeNode :  ai.FlowNode
     {
     }
 
-    public static ComposeNode DeserializeComposeNode(ByteBuf _buf)
+    public static ComposeNode DeserializeComposeNode(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case ai.Sequence.ID: return new ai.Sequence(_buf);
-            case ai.Selector.ID: return new ai.Selector(_buf);
-            case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
+            case "Sequence": return new ai.Sequence(_buf);
+            case "Selector": return new ai.Selector(_buf);
+            case "SimpleParallel": return new ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -55,11 +52,10 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
     }
-
 }
 

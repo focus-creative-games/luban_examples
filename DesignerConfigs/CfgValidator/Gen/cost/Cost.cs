@@ -9,6 +9,7 @@
 
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 
@@ -17,7 +18,7 @@ namespace cfg.cost
    
 public abstract partial class Cost :  Bright.Config.BeanBase 
 {
-    public Cost(ByteBuf _buf) 
+    public Cost(JsonElement _buf) 
     {
     }
 
@@ -25,28 +26,23 @@ public abstract partial class Cost :  Bright.Config.BeanBase
     {
     }
 
-    public static Cost DeserializeCost(ByteBuf _buf)
+    public static Cost DeserializeCost(JsonElement _buf)
     {
-    
-        switch (_buf.ReadInt())
+        switch (_buf.GetProperty("__type__").GetString())
         {
-            case 0 : return null;
-            case cost.CostCurrency.ID: return new cost.CostCurrency(_buf);
-            case cost.CostCurrencies.ID: return new cost.CostCurrencies(_buf);
-            case cost.CostOneItem.ID: return new cost.CostOneItem(_buf);
-            case cost.CostItem.ID: return new cost.CostItem(_buf);
-            case cost.CostItems.ID: return new cost.CostItems(_buf);
+            case "CostCurrency": return new cost.CostCurrency(_buf);
+            case "CostCurrencies": return new cost.CostCurrencies(_buf);
+            case "CostOneItem": return new cost.CostOneItem(_buf);
+            case "CostItem": return new cost.CostItem(_buf);
+            case "CostItems": return new cost.CostItems(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -58,6 +54,5 @@ public abstract partial class Cost :  Bright.Config.BeanBase
         + "}";
     }
     }
-
 }
 
