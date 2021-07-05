@@ -1,5 +1,5 @@
 
-import * as Types from "./Gen/Types";
+import {cfg} from "./Gen/Types";
 
 var fs = require('fs');
 
@@ -12,6 +12,6 @@ function loader(file: string): any {
 }
 
 //let tables = new cfg.Tables(loader);
-let tables = new Types.cfg.Tables(loader);
+let tables = new cfg.Tables(loader);
 console.log(tables);
 
