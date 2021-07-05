@@ -1,0 +1,1 @@
+docker run -v $PWD/.cache.meta:/bin/.cache.meta --rm focuscreativegames/luban-client
