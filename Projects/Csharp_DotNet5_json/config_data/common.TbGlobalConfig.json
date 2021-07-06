@@ -9,7 +9,7 @@
     "cloth_bag_capacity": 1000,
     "cloth_bag_init_capacity": 500,
     "cloth_bag_capacity_special": 50,
-    "bag_init_items_drop_id": 1001,
+    "bag_init_items_drop_id": 1,
     "mail_box_capacity": 100,
     "damage_param_c": 1,
     "damage_param_e": 0.75,

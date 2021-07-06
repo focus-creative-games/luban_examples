@@ -41,6 +41,12 @@ public sealed partial class Tables
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
     public test.TbTestNull TbTestNull {get; }
+    public test.TbDemoPrimitive TbDemoPrimitive {get; }
+    public test.TbTestString TbTestString {get; }
+    public test.TbDemoGroup TbDemoGroup {get; }
+    public test.TbDemoGroup_C TbDemoGroup_C {get; }
+    public test.TbDemoGroup_S TbDemoGroup_S {get; }
+    public test.TbDemoGroup_E TbDemoGroup_E {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
@@ -97,6 +103,18 @@ public sealed partial class Tables
         tables.Add("test.TbMultiRowTitle", TbMultiRowTitle);
         TbTestNull = new test.TbTestNull(loader("test.TbTestNull.json")); 
         tables.Add("test.TbTestNull", TbTestNull);
+        TbDemoPrimitive = new test.TbDemoPrimitive(loader("test.TbDemoPrimitive.json")); 
+        tables.Add("test.TbDemoPrimitive", TbDemoPrimitive);
+        TbTestString = new test.TbTestString(loader("test.TbTestString.json")); 
+        tables.Add("test.TbTestString", TbTestString);
+        TbDemoGroup = new test.TbDemoGroup(loader("test.TbDemoGroup.json")); 
+        tables.Add("test.TbDemoGroup", TbDemoGroup);
+        TbDemoGroup_C = new test.TbDemoGroup_C(loader("test.TbDemoGroup_C.json")); 
+        tables.Add("test.TbDemoGroup_C", TbDemoGroup_C);
+        TbDemoGroup_S = new test.TbDemoGroup_S(loader("test.TbDemoGroup_S.json")); 
+        tables.Add("test.TbDemoGroup_S", TbDemoGroup_S);
+        TbDemoGroup_E = new test.TbDemoGroup_E(loader("test.TbDemoGroup_E.json")); 
+        tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -124,6 +142,12 @@ public sealed partial class Tables
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
+        TbDemoPrimitive.Resolve(tables); 
+        TbTestString.Resolve(tables); 
+        TbDemoGroup.Resolve(tables); 
+        TbDemoGroup_C.Resolve(tables); 
+        TbDemoGroup_S.Resolve(tables); 
+        TbDemoGroup_E.Resolve(tables); 
     }
 }
 
