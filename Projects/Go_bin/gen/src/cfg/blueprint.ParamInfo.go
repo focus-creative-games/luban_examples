@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -24,9 +26,9 @@ func (Blueprint_ParamInfo) GetTypeId() int {
 
 func NewBlueprint_ParamInfo(_buf *serialization.ByteBuf) (_v *Blueprint_ParamInfo, err error) {
     _v = &Blueprint_ParamInfo{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Type, err = _buf.ReadString(); err != nil  { return } 
-    if _v.IsRef, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Type, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IsRef, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 

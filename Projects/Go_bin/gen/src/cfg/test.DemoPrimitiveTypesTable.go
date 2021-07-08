@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 import "bright/math"
 
@@ -34,19 +36,19 @@ func (Test_DemoPrimitiveTypesTable) GetTypeId() int {
 
 func NewTest_DemoPrimitiveTypesTable(_buf *serialization.ByteBuf) (_v *Test_DemoPrimitiveTypesTable, err error) {
     _v = &Test_DemoPrimitiveTypesTable{}
-    if _v.X1, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.X2, err = _buf.ReadByte(); err != nil  { return } 
-    if _v.X3, err = _buf.ReadShort(); err != nil  { return } 
-    if _v.X4, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.X5, err = _buf.ReadLong(); err != nil  { return } 
-    if _v.X6, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.X7, err = _buf.ReadDouble(); err != nil  { return } 
-    if _v.S1, err = _buf.ReadString(); err != nil  { return } 
-    if _v.S2, err = _buf.ReadString(); err != nil  { return } 
-    if _v.V2, err = _buf.ReadVector2(); err != nil  { return } 
-    if _v.V3, err = _buf.ReadVector3(); err != nil  { return } 
-    if _v.V4, err = _buf.ReadVector4(); err != nil  { return } 
-    if _v.T1, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.X1, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.X2, err = _buf.ReadByte(); err != nil { return } }
+    { if _v.X3, err = _buf.ReadShort(); err != nil { return } }
+    { if _v.X4, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.X5, err = _buf.ReadLong(); err != nil { return } }
+    { if _v.X6, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.X7, err = _buf.ReadDouble(); err != nil { return } }
+    { if _v.S1, err = _buf.ReadString(); err != nil { return } }
+    { if _v.S2, err = _buf.ReadString(); err != nil { return } }
+    { if _v.V2, err = _buf.ReadVector2(); err != nil { return } }
+    { if _v.V3, err = _buf.ReadVector3(); err != nil { return } }
+    { if _v.V4, err = _buf.ReadVector4(); err != nil { return } }
+    { if _v.T1, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

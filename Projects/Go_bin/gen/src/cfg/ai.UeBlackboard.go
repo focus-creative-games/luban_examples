@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -28,9 +30,9 @@ func NewAi_UeBlackboard(_buf *serialization.ByteBuf) (_v *Ai_UeBlackboard, err e
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-    if _v.NotifyObserver, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BlackboardKey, err = _buf.ReadString(); err != nil  { return } 
-    if _v.KeyQuery, err = NewChildAi_KeyQueryOperator(_buf); err != nil  { return } 
+    { if _v.NotifyObserver, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BlackboardKey, err = _buf.ReadString(); err != nil { return } }
+    { if _v.KeyQuery, err = NewChildAi_KeyQueryOperator(_buf); err != nil { return } }
     return
 }
 

@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -24,19 +26,19 @@ func (Role_LevelExpAttr) GetTypeId() int {
 
 func NewRole_LevelExpAttr(_buf *serialization.ByteBuf) (_v *Role_LevelExpAttr, err error) {
     _v = &Role_LevelExpAttr{}
-    if _v.Level, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.NeedExp, err = _buf.ReadLong(); err != nil  { return } 
-    if _v.ClothesAttrs, err = func (_buf2 *serialization.ByteBuf) (_v2 []int32, err2 error) {
-                _v2 = make([]int32, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 int32
-                    if v3, err2 = _buf2.ReadInt(); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.NeedExp, err = _buf.ReadLong(); err != nil { return } }
+     {
+                _v.ClothesAttrs = make([]int32, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ int32
+                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
+                    _v.ClothesAttrs = append(_v.ClothesAttrs, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

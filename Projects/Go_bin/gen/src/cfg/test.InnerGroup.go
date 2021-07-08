@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -25,10 +27,10 @@ func (Test_InnerGroup) GetTypeId() int {
 
 func NewTest_InnerGroup(_buf *serialization.ByteBuf) (_v *Test_InnerGroup, err error) {
     _v = &Test_InnerGroup{}
-    if _v.Y1, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Y2, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Y3, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Y4, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Y1, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Y2, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Y3, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Y4, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

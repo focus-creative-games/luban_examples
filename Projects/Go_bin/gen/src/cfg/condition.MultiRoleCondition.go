@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,17 +28,17 @@ func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition
     var _p *Condition_RoleCondition
      if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
-    if _v.Conditions, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildCondition_RoleCondition(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.Conditions = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildCondition_RoleCondition(_buf); err != nil { return } }
+                    _v.Conditions = append(_v.Conditions, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

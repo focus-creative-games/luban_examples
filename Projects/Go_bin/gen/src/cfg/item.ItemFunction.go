@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -25,10 +27,10 @@ func (Item_ItemFunction) GetTypeId() int {
 
 func NewItem_ItemFunction(_buf *serialization.ByteBuf) (_v *Item_ItemFunction, err error) {
     _v = &Item_ItemFunction{}
-    if _v.MinorType, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.FuncType, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Method, err = _buf.ReadString(); err != nil  { return } 
-    if _v.CloseBagUi, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.MinorType, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.FuncType, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Method, err = _buf.ReadString(); err != nil { return } }
+    { if _v.CloseBagUi, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 

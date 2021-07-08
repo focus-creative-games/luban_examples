@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,8 +25,8 @@ func (Tag_TestTag) GetTypeId() int {
 
 func NewTag_TestTag(_buf *serialization.ByteBuf) (_v *Tag_TestTag, err error) {
     _v = &Tag_TestTag{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Value, err = _buf.ReadString(); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Value, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

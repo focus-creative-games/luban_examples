@@ -8,13 +8,15 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
 type Item_TreasureBox struct {
     Item_ItemExtra
-    KeyItemId int32
+    KeyItemId *int32
     OpenLevel *Condition_MinLevel
     UseOnObtain bool
     DropIds []int32
@@ -30,31 +32,31 @@ func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.KeyItemId, err = _buf.ReadInt(); err != nil  { return } } }
-    if _v.OpenLevel, err = NewCondition_MinLevel (_buf); err != nil  { return } 
-    if _v.UseOnObtain, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.DropIds, err = func (_buf2 *serialization.ByteBuf) (_v2 []int32, err2 error) {
-                _v2 = make([]int32, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 int32
-                    if v3, err2 = _buf2.ReadInt(); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.KeyItemId = &__x__ }}
+    { if _v.OpenLevel, err = NewCondition_MinLevel (_buf); err != nil { return } }
+    { if _v.UseOnObtain, err = _buf.ReadBool(); err != nil { return } }
+     {
+                _v.DropIds = make([]int32, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ int32
+                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
+                    _v.DropIds = append(_v.DropIds, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.ChooseList, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Item_ChooseOneBonus, err2 error) {
-                _v2 = make([]*Item_ChooseOneBonus, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Item_ChooseOneBonus
-                    if v3, err2 = NewItem_ChooseOneBonus (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.ChooseList = make([]*Item_ChooseOneBonus, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Item_ChooseOneBonus
+                    { if _e_, err = NewItem_ChooseOneBonus (_buf); err != nil { return } }
+                    _v.ChooseList = append(_v.ChooseList, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

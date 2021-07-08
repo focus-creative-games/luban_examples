@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,17 +28,17 @@ func NewAi_Sequence(_buf *serialization.ByteBuf) (_v *Ai_Sequence, err error) {
     var _p *Ai_ComposeNode
      if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
-    if _v.Children, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildAi_FlowNode(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.Children = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildAi_FlowNode(_buf); err != nil { return } }
+                    _v.Children = append(_v.Children, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

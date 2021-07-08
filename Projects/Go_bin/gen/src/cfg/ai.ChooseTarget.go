@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewAi_ChooseTarget(_buf *serialization.ByteBuf) (_v *Ai_ChooseTarget, err e
     var _p *Ai_Service
      if _p, err = NewAi_Service(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
-    if _v.ResultTargetKey, err = _buf.ReadString(); err != nil  { return } 
+    { if _v.ResultTargetKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

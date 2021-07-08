@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,11 +28,11 @@ func (Ai_BehaviorTree) GetTypeId() int {
 
 func NewAi_BehaviorTree(_buf *serialization.ByteBuf) (_v *Ai_BehaviorTree, err error) {
     _v = &Ai_BehaviorTree{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.BlackboardId, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Root, err = NewChildAi_ComposeNode(_buf); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.BlackboardId, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Root, err = NewChildAi_ComposeNode(_buf); err != nil { return } }
     return
 }
 

@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewCondition_MaxLevel(_buf *serialization.ByteBuf) (_v *Condition_MaxLevel,
     var _p *Condition_BoolRoleCondition
      if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
-    if _v.Level, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

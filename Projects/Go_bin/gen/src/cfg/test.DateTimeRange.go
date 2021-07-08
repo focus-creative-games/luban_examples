@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,8 +25,8 @@ func (Test_DateTimeRange) GetTypeId() int {
 
 func NewTest_DateTimeRange(_buf *serialization.ByteBuf) (_v *Test_DateTimeRange, err error) {
     _v = &Test_DateTimeRange{}
-    if _v.StartTime, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.EndTime, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.StartTime, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.EndTime, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

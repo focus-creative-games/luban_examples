@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -30,12 +33,13 @@ func NewChildAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error)
         return
     }
     switch id {
-            case 1812449155: return NewAi_UeSetDefaultFocus(_buf);
-            case 990693812: return NewAi_ExecuteTimeStatistic(_buf);
-            case 1601247918: return NewAi_ChooseTarget(_buf);
-            case 1195270745: return NewAi_KeepFaceTarget(_buf);
-            case -999247644: return NewAi_GetOwnerPlayer(_buf);
-            case -61887372: return NewAi_UpdateDailyBehaviorProps(_buf);
+        case 1812449155: return NewAi_UeSetDefaultFocus(_buf)
+        case 990693812: return NewAi_ExecuteTimeStatistic(_buf)
+        case 1601247918: return NewAi_ChooseTarget(_buf)
+        case 1195270745: return NewAi_KeepFaceTarget(_buf)
+        case -999247644: return NewAi_GetOwnerPlayer(_buf)
+        case -61887372: return NewAi_UpdateDailyBehaviorProps(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -23,7 +26,7 @@ func NewAi_Task(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
     var _p *Ai_FlowNode
      if _p, err = NewAi_FlowNode(_buf) ; err != nil { return }
     _v.Ai_FlowNode = *_p
-    if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -32,13 +35,14 @@ func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
         return
     }
     switch id {
-            case -512994101: return NewAi_UeWait(_buf);
-            case 1215378271: return NewAi_UeWaitBlackboardTime(_buf);
-            case 514987779: return NewAi_MoveToTarget(_buf);
-            case -918812268: return NewAi_ChooseSkill(_buf);
-            case -2140042998: return NewAi_MoveToRandomLocation(_buf);
-            case -969953113: return NewAi_MoveToLocation(_buf);
-            case 1357409728: return NewAi_DebugPrint(_buf);
+        case -512994101: return NewAi_UeWait(_buf)
+        case 1215378271: return NewAi_UeWaitBlackboardTime(_buf)
+        case 514987779: return NewAi_MoveToTarget(_buf)
+        case -918812268: return NewAi_ChooseSkill(_buf)
+        case -2140042998: return NewAi_MoveToRandomLocation(_buf)
+        case -969953113: return NewAi_MoveToLocation(_buf)
+        case 1357409728: return NewAi_DebugPrint(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

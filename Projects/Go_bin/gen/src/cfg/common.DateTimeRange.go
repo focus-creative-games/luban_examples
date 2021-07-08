@@ -8,13 +8,15 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
 type Common_DateTimeRange struct {
-    StartTime int32
-    EndTime int32
+    StartTime *int32
+    EndTime *int32
 }
 
 func (Common_DateTimeRange) GetTypeId() int {
@@ -23,8 +25,8 @@ func (Common_DateTimeRange) GetTypeId() int {
 
 func NewCommon_DateTimeRange(_buf *serialization.ByteBuf) (_v *Common_DateTimeRange, err error) {
     _v = &Common_DateTimeRange{}
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.StartTime, err = _buf.ReadInt(); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.EndTime, err = _buf.ReadInt(); err != nil  { return } } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.StartTime = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.EndTime = &__x__ }}
     return
 }
 

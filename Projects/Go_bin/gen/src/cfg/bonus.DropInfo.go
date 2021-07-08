@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -25,20 +27,20 @@ func (Bonus_DropInfo) GetTypeId() int {
 
 func NewBonus_DropInfo(_buf *serialization.ByteBuf) (_v *Bonus_DropInfo, err error) {
     _v = &Bonus_DropInfo{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.ClientShowItems, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Bonus_ShowItemInfo, err2 error) {
-                _v2 = make([]*Bonus_ShowItemInfo, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Bonus_ShowItemInfo
-                    if v3, err2 = NewBonus_ShowItemInfo (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.ClientShowItems = make([]*Bonus_ShowItemInfo, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Bonus_ShowItemInfo
+                    { if _e_, err = NewBonus_ShowItemInfo (_buf); err != nil { return } }
+                    _v.ClientShowItems = append(_v.ClientShowItems, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.Bonus, err = NewChildBonus_Bonus(_buf); err != nil  { return } 
+            }
+
+    { if _v.Bonus, err = NewChildBonus_Bonus(_buf); err != nil { return } }
     return
 }
 

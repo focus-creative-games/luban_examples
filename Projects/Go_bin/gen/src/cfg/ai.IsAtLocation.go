@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -28,9 +30,9 @@ func NewAi_IsAtLocation(_buf *serialization.ByteBuf) (_v *Ai_IsAtLocation, err e
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-    if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.KeyboardKey, err = _buf.ReadString(); err != nil  { return } 
-    if _v.InverseCondition, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.KeyboardKey, err = _buf.ReadString(); err != nil { return } }
+    { if _v.InverseCondition, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 

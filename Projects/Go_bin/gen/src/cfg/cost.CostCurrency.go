@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -27,8 +29,8 @@ func NewCost_CostCurrency(_buf *serialization.ByteBuf) (_v *Cost_CostCurrency, e
     var _p *Cost_Cost
      if _p, err = NewCost_Cost(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
-    if _v.Type, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Type, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

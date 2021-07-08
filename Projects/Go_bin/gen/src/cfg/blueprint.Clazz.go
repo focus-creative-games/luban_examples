@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -22,30 +25,30 @@ type Blueprint_Clazz struct {
 
 func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err error) {
     _v = &Blueprint_Clazz{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Parents, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildBlueprint_Clazz(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.Parents = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildBlueprint_Clazz(_buf); err != nil { return } }
+                    _v.Parents = append(_v.Parents, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.Methods, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildBlueprint_Method(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.Methods = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildBlueprint_Method(_buf); err != nil { return } }
+                    _v.Methods = append(_v.Methods, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 func NewChildBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -54,9 +57,10 @@ func NewChildBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err e
         return
     }
     switch id {
-            case 2114170750: return NewBlueprint_Interface(_buf);
-            case -2073576778: return NewBlueprint_NormalClazz(_buf);
-            case 1827364892: return NewBlueprint_EnumClazz(_buf);
+        case 2114170750: return NewBlueprint_Interface(_buf)
+        case -2073576778: return NewBlueprint_NormalClazz(_buf)
+        case 1827364892: return NewBlueprint_EnumClazz(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

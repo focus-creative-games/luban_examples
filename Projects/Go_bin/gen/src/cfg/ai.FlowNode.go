@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -24,28 +27,28 @@ func NewAi_FlowNode(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err error) {
     var _p *Ai_Node
      if _p, err = NewAi_Node(_buf) ; err != nil { return }
     _v.Ai_Node = *_p
-    if _v.Decorators, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildAi_Decorator(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.Decorators = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildAi_Decorator(_buf); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.Services, err = func (_buf2 *serialization.ByteBuf) (_v2 []interface{}, err2 error) {
-                _v2 = make([]interface{}, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 interface{}
-                    if v3, err2 = NewChildAi_Service(_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.Services = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewChildAi_Service(_buf); err != nil { return } }
+                    _v.Services = append(_v.Services, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -54,16 +57,17 @@ func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error
         return
     }
     switch id {
-            case -1789006105: return NewAi_Sequence(_buf);
-            case -1946981627: return NewAi_Selector(_buf);
-            case -1952582529: return NewAi_SimpleParallel(_buf);
-            case -512994101: return NewAi_UeWait(_buf);
-            case 1215378271: return NewAi_UeWaitBlackboardTime(_buf);
-            case 514987779: return NewAi_MoveToTarget(_buf);
-            case -918812268: return NewAi_ChooseSkill(_buf);
-            case -2140042998: return NewAi_MoveToRandomLocation(_buf);
-            case -969953113: return NewAi_MoveToLocation(_buf);
-            case 1357409728: return NewAi_DebugPrint(_buf);
+        case -1789006105: return NewAi_Sequence(_buf)
+        case -1946981627: return NewAi_Selector(_buf)
+        case -1952582529: return NewAi_SimpleParallel(_buf)
+        case -512994101: return NewAi_UeWait(_buf)
+        case 1215378271: return NewAi_UeWaitBlackboardTime(_buf)
+        case 514987779: return NewAi_MoveToTarget(_buf)
+        case -918812268: return NewAi_ChooseSkill(_buf)
+        case -2140042998: return NewAi_MoveToRandomLocation(_buf)
+        case -969953113: return NewAi_MoveToLocation(_buf)
+        case 1357409728: return NewAi_DebugPrint(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

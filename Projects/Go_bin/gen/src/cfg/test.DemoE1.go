@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewTest_DemoE1(_buf *serialization.ByteBuf) (_v *Test_DemoE1, err error) {
     var _p *Test_DemoD3
      if _p, err = NewTest_DemoD3(_buf) ; err != nil { return }
     _v.Test_DemoD3 = *_p
-    if _v.X4, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.X4, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

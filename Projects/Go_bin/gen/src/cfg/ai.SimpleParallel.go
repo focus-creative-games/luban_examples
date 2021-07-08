@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -28,9 +30,9 @@ func NewAi_SimpleParallel(_buf *serialization.ByteBuf) (_v *Ai_SimpleParallel, e
     var _p *Ai_ComposeNode
      if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
-    if _v.FinishMode, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.MainTask, err = NewChildAi_Task(_buf); err != nil  { return } 
-    if _v.BackgroundNode, err = NewChildAi_FlowNode(_buf); err != nil  { return } 
+    { if _v.FinishMode, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.MainTask, err = NewChildAi_Task(_buf); err != nil { return } }
+    { if _v.BackgroundNode, err = NewChildAi_FlowNode(_buf); err != nil { return } }
     return
 }
 

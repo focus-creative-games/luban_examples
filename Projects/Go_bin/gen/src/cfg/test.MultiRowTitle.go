@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,31 +28,31 @@ func (Test_MultiRowTitle) GetTypeId() int {
 
 func NewTest_MultiRowTitle(_buf *serialization.ByteBuf) (_v *Test_MultiRowTitle, err error) {
     _v = &Test_MultiRowTitle{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.X1, err = NewTest_H1 (_buf); err != nil  { return } 
-    if _v.X2, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_H2, err2 error) {
-                _v2 = make([]*Test_H2, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_H2
-                    if v3, err2 = NewTest_H2 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.X1, err = NewTest_H1 (_buf); err != nil { return } }
+     {
+                _v.X2 = make([]*Test_H2, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_H2
+                    { if _e_, err = NewTest_H2 (_buf); err != nil { return } }
+                    _v.X2 = append(_v.X2, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.X3, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_H2, err2 error) {
-                _v2 = make([]*Test_H2, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_H2
-                    if v3, err2 = NewTest_H2 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.X3 = make([]*Test_H2, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_H2
+                    { if _e_, err = NewTest_H2 (_buf); err != nil { return } }
+                    _v.X3 = append(_v.X3, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

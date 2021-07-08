@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,17 +28,17 @@ func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClaz
     var _p *Blueprint_Clazz
      if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
-    if _v.Enums, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Blueprint_EnumField, err2 error) {
-                _v2 = make([]*Blueprint_EnumField, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Blueprint_EnumField
-                    if v3, err2 = NewBlueprint_EnumField (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.Enums = make([]*Blueprint_EnumField, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Blueprint_EnumField
+                    { if _e_, err = NewBlueprint_EnumField (_buf); err != nil { return } }
+                    _v.Enums = append(_v.Enums, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

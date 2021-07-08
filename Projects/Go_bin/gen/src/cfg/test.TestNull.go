@@ -8,18 +8,20 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
 type Test_TestNull struct {
     Id int32
-    X1 int32
-    X2 int32
+    X1 *int32
+    X2 *int32
     X3 *Test_DemoType1
     X4 interface{}
-    S1 string
-    S2 string
+    S1 *string
+    S2 *string
 }
 
 func (Test_TestNull) GetTypeId() int {
@@ -28,13 +30,13 @@ func (Test_TestNull) GetTypeId() int {
 
 func NewTest_TestNull(_buf *serialization.ByteBuf) (_v *Test_TestNull, err error) {
     _v = &Test_TestNull{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X1, err = _buf.ReadInt(); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X2, err = _buf.ReadInt(); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X3, err = NewTest_DemoType1 (_buf); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X4, err = NewChildTest_DemoDynamic(_buf); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.S1, err = _buf.ReadString(); err != nil  { return } } }
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.S2, err = _buf.ReadString(); err != nil  { return } } }
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.X1 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.X2 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *Test_DemoType1;  { if __x__, err = NewTest_DemoType1 (_buf); err != nil { return } }; _v.X3 = __x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ interface{};  { if __x__, err = NewChildTest_DemoDynamic(_buf); err != nil { return } }; _v.X4 = __x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S1 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S2 = &__x__ }}
     return
 }
 

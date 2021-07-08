@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -24,9 +26,9 @@ func (Test_MultiRowType2) GetTypeId() int {
 
 func NewTest_MultiRowType2(_buf *serialization.ByteBuf) (_v *Test_MultiRowType2, err error) {
     _v = &Test_MultiRowType2{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.X, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Y, err = _buf.ReadFloat(); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.X, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Y, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
 

@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -29,10 +31,10 @@ func NewItem_Clothes(_buf *serialization.ByteBuf) (_v *Item_Clothes, err error) 
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-    if _v.Attack, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Hp, err = _buf.ReadLong(); err != nil  { return } 
-    if _v.EnergyLimit, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.EnergyResume, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Attack, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Hp, err = _buf.ReadLong(); err != nil { return } }
+    { if _v.EnergyLimit, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.EnergyResume, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

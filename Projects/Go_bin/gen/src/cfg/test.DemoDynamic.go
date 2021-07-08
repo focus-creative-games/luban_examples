@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -19,7 +22,7 @@ type Test_DemoDynamic struct {
 
 func NewTest_DemoDynamic(_buf *serialization.ByteBuf) (_v *Test_DemoDynamic, err error) {
     _v = &Test_DemoDynamic{}
-    if _v.X1, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.X1, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 func NewChildTest_DemoDynamic(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -28,9 +31,10 @@ func NewChildTest_DemoDynamic(_buf *serialization.ByteBuf) (_v interface{}, err 
         return
     }
     switch id {
-            case -2138341747: return NewTest_DemoD2(_buf);
-            case -2138341717: return NewTest_DemoE1(_buf);
-            case -2138341744: return NewTest_DemoD5(_buf);
+        case -2138341747: return NewTest_DemoD2(_buf)
+        case -2138341717: return NewTest_DemoE1(_buf)
+        case -2138341744: return NewTest_DemoD5(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

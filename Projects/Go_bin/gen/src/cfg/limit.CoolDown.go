@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewLimit_CoolDown(_buf *serialization.ByteBuf) (_v *Limit_CoolDown, err err
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-    if _v.Duration, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Duration, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

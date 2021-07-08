@@ -8,12 +8,14 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
 type Test_DemoE2 struct {
-    Y1 int32
+    Y1 *int32
     Y2 bool
 }
 
@@ -23,8 +25,8 @@ func (Test_DemoE2) GetTypeId() int {
 
 func NewTest_DemoE2(_buf *serialization.ByteBuf) (_v *Test_DemoE2, err error) {
     _v = &Test_DemoE2{}
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.Y1, err = _buf.ReadInt(); err != nil  { return } } }
-    if _v.Y2, err = _buf.ReadBool(); err != nil  { return } 
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.Y1 = &__x__ }}
+    { if _v.Y2, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 

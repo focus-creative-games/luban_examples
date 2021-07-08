@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -26,17 +29,18 @@ func NewChildBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error
         return
     }
     switch id {
-            case -1649658966: return NewBonus_OneItem(_buf);
-            case 400179721: return NewBonus_OneItems(_buf);
-            case 1689011106: return NewBonus_Item(_buf);
-            case 819736849: return NewBonus_Items(_buf);
-            case -229470727: return NewBonus_CoefficientItem(_buf);
-            case -356202311: return NewBonus_WeightItems(_buf);
-            case 366387866: return NewBonus_ProbabilityItems(_buf);
-            case 1421907893: return NewBonus_MultiBonus(_buf);
-            case 359783161: return NewBonus_ProbabilityBonus(_buf);
-            case -362807016: return NewBonus_WeightBonus(_buf);
-            case 1959868225: return NewBonus_DropBonus(_buf);
+        case -1649658966: return NewBonus_OneItem(_buf)
+        case 400179721: return NewBonus_OneItems(_buf)
+        case 1689011106: return NewBonus_Item(_buf)
+        case 819736849: return NewBonus_Items(_buf)
+        case -229470727: return NewBonus_CoefficientItem(_buf)
+        case -356202311: return NewBonus_WeightItems(_buf)
+        case 366387866: return NewBonus_ProbabilityItems(_buf)
+        case 1421907893: return NewBonus_MultiBonus(_buf)
+        case 359783161: return NewBonus_ProbabilityBonus(_buf)
+        case -362807016: return NewBonus_WeightBonus(_buf)
+        case 1959868225: return NewBonus_DropBonus(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

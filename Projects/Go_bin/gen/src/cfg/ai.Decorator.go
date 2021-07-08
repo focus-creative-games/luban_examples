@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -23,7 +26,7 @@ func NewAi_Decorator(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err error) 
     var _p *Ai_Node
      if _p, err = NewAi_Node(_buf) ; err != nil { return }
     _v.Ai_Node = *_p
-    if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -32,13 +35,14 @@ func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err erro
         return
     }
     switch id {
-            case -513308166: return NewAi_UeLoop(_buf);
-            case -951439423: return NewAi_UeCooldown(_buf);
-            case 338469720: return NewAi_UeTimeLimit(_buf);
-            case -315297507: return NewAi_UeBlackboard(_buf);
-            case 195054574: return NewAi_UeForceSuccess(_buf);
-            case 1255972344: return NewAi_IsAtLocation(_buf);
-            case -1207170283: return NewAi_DistanceLessThan(_buf);
+        case -513308166: return NewAi_UeLoop(_buf)
+        case -951439423: return NewAi_UeCooldown(_buf)
+        case 338469720: return NewAi_UeTimeLimit(_buf)
+        case -315297507: return NewAi_UeBlackboard(_buf)
+        case 195054574: return NewAi_UeForceSuccess(_buf)
+        case 1255972344: return NewAi_IsAtLocation(_buf)
+        case -1207170283: return NewAi_DistanceLessThan(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

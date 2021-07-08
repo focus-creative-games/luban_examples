@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -25,20 +27,20 @@ func (Ai_Blackboard) GetTypeId() int {
 
 func NewAi_Blackboard(_buf *serialization.ByteBuf) (_v *Ai_Blackboard, err error) {
     _v = &Ai_Blackboard{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.ParentName, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Keys, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Ai_BlackboardKey, err2 error) {
-                _v2 = make([]*Ai_BlackboardKey, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Ai_BlackboardKey
-                    if v3, err2 = NewAi_BlackboardKey (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.ParentName, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.Keys = make([]*Ai_BlackboardKey, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Ai_BlackboardKey
+                    { if _e_, err = NewAi_BlackboardKey (_buf); err != nil { return } }
+                    _v.Keys = append(_v.Keys, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

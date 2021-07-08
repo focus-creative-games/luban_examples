@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,17 +28,17 @@ func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencie
     var _p *Cost_Cost
      if _p, err = NewCost_Cost(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
-    if _v.Currencies, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Cost_CostCurrency, err2 error) {
-                _v2 = make([]*Cost_CostCurrency, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Cost_CostCurrency
-                    if v3, err2 = NewCost_CostCurrency (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.Currencies = make([]*Cost_CostCurrency, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Cost_CostCurrency
+                    { if _e_, err = NewCost_CostCurrency (_buf); err != nil { return } }
+                    _v.Currencies = append(_v.Currencies, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

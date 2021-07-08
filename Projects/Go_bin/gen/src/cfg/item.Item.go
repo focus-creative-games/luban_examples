@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -31,9 +33,9 @@ type Item_Item struct {
     ProgressTimeWhenUse float32
     ShowHintWhenUse bool
     Droppable bool
-    Price int32
+    Price *int32
     UseType int32
-    LevelUpId int32
+    LevelUpId *int32
 }
 
 func (Item_Item) GetTypeId() int {
@@ -42,27 +44,27 @@ func (Item_Item) GetTypeId() int {
 
 func NewItem_Item(_buf *serialization.ByteBuf) (_v *Item_Item, err error) {
     _v = &Item_Item{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.MajorType, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.MinorType, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.MaxPileNum, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Quality, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Icon, err = _buf.ReadString(); err != nil  { return } 
-    if _v.IconBackgroud, err = _buf.ReadString(); err != nil  { return } 
-    if _v.IconMask, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.ShowOrder, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Quantifier, err = _buf.ReadString(); err != nil  { return } 
-    if _v.ShowInBag, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.MinShowLevel, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BatchUsable, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.ProgressTimeWhenUse, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.ShowHintWhenUse, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.Droppable, err = _buf.ReadBool(); err != nil  { return } 
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.Price, err = _buf.ReadInt(); err != nil  { return } } }
-    if _v.UseType, err = _buf.ReadInt(); err != nil  { return } 
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.LevelUpId, err = _buf.ReadInt(); err != nil  { return } } }
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.MajorType, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.MinorType, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.MaxPileNum, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Quality, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Icon, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IconBackgroud, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IconMask, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.ShowOrder, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Quantifier, err = _buf.ReadString(); err != nil { return } }
+    { if _v.ShowInBag, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.MinShowLevel, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BatchUsable, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.ProgressTimeWhenUse, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.ShowHintWhenUse, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.Droppable, err = _buf.ReadBool(); err != nil { return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.Price = &__x__ }}
+    { if _v.UseType, err = _buf.ReadInt(); err != nil { return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.LevelUpId = &__x__ }}
     return
 }
 

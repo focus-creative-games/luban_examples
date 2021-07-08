@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,18 +25,18 @@ func (Role_LevelBonus) GetTypeId() int {
 
 func NewRole_LevelBonus(_buf *serialization.ByteBuf) (_v *Role_LevelBonus, err error) {
     _v = &Role_LevelBonus{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.DistinctBonusInfos, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Role_DistinctBonusInfos, err2 error) {
-                _v2 = make([]*Role_DistinctBonusInfos, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Role_DistinctBonusInfos
-                    if v3, err2 = NewRole_DistinctBonusInfos (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+     {
+                _v.DistinctBonusInfos = make([]*Role_DistinctBonusInfos, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Role_DistinctBonusInfos
+                    { if _e_, err = NewRole_DistinctBonusInfos (_buf); err != nil { return } }
+                    _v.DistinctBonusInfos = append(_v.DistinctBonusInfos, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

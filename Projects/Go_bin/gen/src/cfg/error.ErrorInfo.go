@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -24,9 +26,9 @@ func (Error_ErrorInfo) GetTypeId() int {
 
 func NewError_ErrorInfo(_buf *serialization.ByteBuf) (_v *Error_ErrorInfo, err error) {
     _v = &Error_ErrorInfo{}
-    if _v.Code, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Style, err = NewChildError_ErrorStyle(_buf); err != nil  { return } 
+    { if _v.Code, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Style, err = NewChildError_ErrorStyle(_buf); err != nil { return } }
     return
 }
 

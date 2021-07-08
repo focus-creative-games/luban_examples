@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -24,9 +26,9 @@ func (Blueprint_Field) GetTypeId() int {
 
 func NewBlueprint_Field(_buf *serialization.ByteBuf) (_v *Blueprint_Field, err error) {
     _v = &Blueprint_Field{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Type, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Type, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

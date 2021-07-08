@@ -8,13 +8,15 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
 type Item_InteractionItem struct {
     Item_ItemExtra
-    AttackNum int32
+    AttackNum *int32
     HoldingStaticMesh string
     HoldingStaticMeshMat string
 }
@@ -28,9 +30,9 @@ func NewItem_InteractionItem(_buf *serialization.ByteBuf) (_v *Item_InteractionI
     var _p *Item_ItemExtra
      if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.AttackNum, err = _buf.ReadInt(); err != nil  { return } } }
-    if _v.HoldingStaticMesh, err = _buf.ReadString(); err != nil  { return } 
-    if _v.HoldingStaticMeshMat, err = _buf.ReadString(); err != nil  { return } 
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.AttackNum = &__x__ }}
+    { if _v.HoldingStaticMesh, err = _buf.ReadString(); err != nil { return } }
+    { if _v.HoldingStaticMeshMat, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -26,9 +29,10 @@ func NewChildAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, e
         return
     }
     switch id {
-            case 1635350898: return NewAi_IsSet(_buf);
-            case 790736255: return NewAi_IsNotSet(_buf);
-            case -979891605: return NewAi_BinaryOperator(_buf);
+        case 1635350898: return NewAi_IsSet(_buf)
+        case 790736255: return NewAi_IsNotSet(_buf)
+        case -979891605: return NewAi_BinaryOperator(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

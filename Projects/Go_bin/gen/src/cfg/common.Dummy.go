@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,8 +25,8 @@ func (Common_Dummy) GetTypeId() int {
 
 func NewCommon_Dummy(_buf *serialization.ByteBuf) (_v *Common_Dummy, err error) {
     _v = &Common_Dummy{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Limit, err = NewChildLimit_LimitBase(_buf); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Limit, err = NewChildLimit_LimitBase(_buf); err != nil { return } }
     return
 }
 

@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -26,10 +29,11 @@ func NewChildError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err 
         return
     }
     switch id {
-            case 1915239884: return NewError_ErrorStyleTip(_buf);
-            case -1920482343: return NewError_ErrorStyleMsgbox(_buf);
-            case -2010134516: return NewError_ErrorStyleDlgOk(_buf);
-            case 971221414: return NewError_ErrorStyleDlgOkCancel(_buf);
+        case 1915239884: return NewError_ErrorStyleTip(_buf)
+        case -1920482343: return NewError_ErrorStyleMsgbox(_buf)
+        case -2010134516: return NewError_ErrorStyleDlgOk(_buf)
+        case 971221414: return NewError_ErrorStyleDlgOkCancel(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

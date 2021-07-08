@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,17 +28,17 @@ func NewBonus_WeightItems(_buf *serialization.ByteBuf) (_v *Bonus_WeightItems, e
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-    if _v.ItemList, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Bonus_WeightItemInfo, err2 error) {
-                _v2 = make([]*Bonus_WeightItemInfo, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Bonus_WeightItemInfo
-                    if v3, err2 = NewBonus_WeightItemInfo (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+     {
+                _v.ItemList = make([]*Bonus_WeightItemInfo, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Bonus_WeightItemInfo
+                    { if _e_, err = NewBonus_WeightItemInfo (_buf); err != nil { return } }
+                    _v.ItemList = append(_v.ItemList, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 

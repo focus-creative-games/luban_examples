@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,11 +28,11 @@ func (Ai_BlackboardKey) GetTypeId() int {
 
 func NewAi_BlackboardKey(_buf *serialization.ByteBuf) (_v *Ai_BlackboardKey, err error) {
     _v = &Ai_BlackboardKey{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.IsStatic, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.Type, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.TypeClassName, err = _buf.ReadString(); err != nil  { return } 
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.Type, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.TypeClassName, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

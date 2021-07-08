@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewTest_DemoD5(_buf *serialization.ByteBuf) (_v *Test_DemoD5, err error) {
     var _p *Test_DemoDynamic
      if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
     _v.Test_DemoDynamic = *_p
-    if _v.Time, err = NewTest_DateTimeRange (_buf); err != nil  { return } 
+    { if _v.Time, err = NewTest_DateTimeRange (_buf); err != nil { return } }
     return
 }
 

@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewError_ErrorStyleDlgOk(_buf *serialization.ByteBuf) (_v *Error_ErrorStyle
     var _p *Error_ErrorStyle
      if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
-    if _v.BtnName, err = _buf.ReadString(); err != nil  { return } 
+    { if _v.BtnName, err = _buf.ReadString(); err != nil { return } }
     return
 }
 

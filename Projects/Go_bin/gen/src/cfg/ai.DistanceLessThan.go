@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -29,10 +31,10 @@ func NewAi_DistanceLessThan(_buf *serialization.ByteBuf) (_v *Ai_DistanceLessTha
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-    if _v.Actor1Key, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Actor2Key, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Distance, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.ReverseResult, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.Actor1Key, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Actor2Key, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Distance, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.ReverseResult, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 

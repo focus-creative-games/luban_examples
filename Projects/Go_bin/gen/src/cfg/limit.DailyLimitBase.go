@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -30,7 +33,8 @@ func NewChildLimit_DailyLimitBase(_buf *serialization.ByteBuf) (_v interface{}, 
         return
     }
     switch id {
-            case 303235413: return NewLimit_DailyLimit(_buf);
+        case 303235413: return NewLimit_DailyLimit(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

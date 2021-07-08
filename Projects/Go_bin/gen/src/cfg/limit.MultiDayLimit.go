@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -27,8 +29,8 @@ func NewLimit_MultiDayLimit(_buf *serialization.ByteBuf) (_v *Limit_MultiDayLimi
     var _p *Limit_LimitBase
      if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
-    if _v.Day, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Day, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

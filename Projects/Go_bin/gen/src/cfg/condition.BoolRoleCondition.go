@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -30,11 +33,12 @@ func NewChildCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v interf
         return
     }
     switch id {
-            case 103675143: return NewCondition_GenderLimit(_buf);
-            case -1075273755: return NewCondition_MinLevel(_buf);
-            case 700922899: return NewCondition_MaxLevel(_buf);
-            case 907499647: return NewCondition_MinMaxLevel(_buf);
-            case 696630835: return NewCondition_ClothesPropertyScoreGreaterThan(_buf);
+        case 103675143: return NewCondition_GenderLimit(_buf)
+        case -1075273755: return NewCondition_MinLevel(_buf)
+        case 700922899: return NewCondition_MaxLevel(_buf)
+        case 907499647: return NewCondition_MinMaxLevel(_buf)
+        case 696630835: return NewCondition_ClothesPropertyScoreGreaterThan(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

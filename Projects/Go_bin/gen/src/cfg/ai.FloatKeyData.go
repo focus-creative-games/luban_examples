@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewAi_FloatKeyData(_buf *serialization.ByteBuf) (_v *Ai_FloatKeyData, err e
     var _p *Ai_KeyData
      if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
-    if _v.Value, err = _buf.ReadFloat(); err != nil  { return } 
+    { if _v.Value, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
 

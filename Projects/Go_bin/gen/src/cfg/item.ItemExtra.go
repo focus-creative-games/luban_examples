@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -19,7 +22,7 @@ type Item_ItemExtra struct {
 
 func NewItem_ItemExtra(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, err error) {
     _v = &Item_ItemExtra{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -28,11 +31,12 @@ func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err er
         return
     }
     switch id {
-            case 1494222369: return NewItem_TreasureBox(_buf);
-            case 640937802: return NewItem_InteractionItem(_buf);
-            case 1659907149: return NewItem_Clothes(_buf);
-            case -1679179579: return NewItem_DesignDrawing(_buf);
-            case 896889705: return NewItem_Dymmy(_buf);
+        case 1494222369: return NewItem_TreasureBox(_buf)
+        case 640937802: return NewItem_InteractionItem(_buf)
+        case 1659907149: return NewItem_Clothes(_buf)
+        case -1679179579: return NewItem_DesignDrawing(_buf)
+        case 896889705: return NewItem_Dymmy(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

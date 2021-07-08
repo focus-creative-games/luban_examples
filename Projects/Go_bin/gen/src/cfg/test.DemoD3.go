@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -23,7 +26,7 @@ func NewTest_DemoD3(_buf *serialization.ByteBuf) (_v *Test_DemoD3, err error) {
     var _p *Test_DemoDynamic
      if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
     _v.Test_DemoDynamic = *_p
-    if _v.X3, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.X3, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 func NewChildTest_DemoD3(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -32,7 +35,8 @@ func NewChildTest_DemoD3(_buf *serialization.ByteBuf) (_v interface{}, err error
         return
     }
     switch id {
-            case -2138341717: return NewTest_DemoE1(_buf);
+        case -2138341717: return NewTest_DemoE1(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

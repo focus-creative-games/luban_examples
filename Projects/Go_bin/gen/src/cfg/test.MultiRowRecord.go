@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -28,65 +30,64 @@ func (Test_MultiRowRecord) GetTypeId() int {
 
 func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecord, err error) {
     _v = &Test_MultiRowRecord{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.OneRows, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_MultiRowType1, err2 error) {
-                _v2 = make([]*Test_MultiRowType1, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_MultiRowType1
-                    if v3, err2 = NewTest_MultiRowType1 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.OneRows = make([]*Test_MultiRowType1, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_MultiRowType1
+                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    _v.OneRows = append(_v.OneRows, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.MultiRows1, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_MultiRowType1, err2 error) {
-                _v2 = make([]*Test_MultiRowType1, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_MultiRowType1
-                    if v3, err2 = NewTest_MultiRowType1 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.MultiRows1 = make([]*Test_MultiRowType1, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_MultiRowType1
+                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    _v.MultiRows1 = append(_v.MultiRows1, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.MultiRows2, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_MultiRowType1, err2 error) {
-                _v2 = make([]*Test_MultiRowType1, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_MultiRowType1
-                    if v3, err2 = NewTest_MultiRowType1 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.MultiRows2 = make([]*Test_MultiRowType1, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_MultiRowType1
+                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    _v.MultiRows2 = append(_v.MultiRows2, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.MultiRows3, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Test_MultiRowType2, err2 error) {
-                _v2 = make([]*Test_MultiRowType2, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Test_MultiRowType2
-                    if v3, err2 = NewTest_MultiRowType2 (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+            }
+
+     {
+                _v.MultiRows3 = make([]*Test_MultiRowType2, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_MultiRowType2
+                    { if _e_, err = NewTest_MultiRowType2 (_buf); err != nil { return } }
+                    _v.MultiRows3 = append(_v.MultiRows3, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
-    if _v.MultiRows4, err = func (_buf2 *serialization.ByteBuf) (_v2 map[int32]*Test_MultiRowType2, err2 error) {
-                _v2 = make(map[int32]*Test_MultiRowType2)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var _key int32
-                    if _key, err2 = _buf2.ReadInt(); err2 != nil {return}
-                    var _value *Test_MultiRowType2
-                    if _value, err2 = NewTest_MultiRowType2 (_buf2); err2 != nil {return}
-                    _v2[_key] = _value
+            }
+
+    {
+                _v.MultiRows4 = make(map[int32]*Test_MultiRowType2)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _key_ int32
+                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
+                    var _value_ *Test_MultiRowType2
+                    { if _value_, err = NewTest_MultiRowType2 (_buf); err != nil { return } }
+                    _v.MultiRows4[_key_] = _value_
                 }
-                return
-                }(_buf); err != nil  { return } 
+                }
     return
 }
 

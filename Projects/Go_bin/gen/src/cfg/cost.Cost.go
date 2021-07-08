@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -26,11 +29,12 @@ func NewChildCost_Cost(_buf *serialization.ByteBuf) (_v interface{}, err error) 
         return
     }
     switch id {
-            case 911838111: return NewCost_CostCurrency(_buf);
-            case 103084157: return NewCost_CostCurrencies(_buf);
-            case -1033587381: return NewCost_CostOneItem(_buf);
-            case -1249440351: return NewCost_CostItem(_buf);
-            case -77945102: return NewCost_CostItems(_buf);
+        case 911838111: return NewCost_CostCurrency(_buf)
+        case 103084157: return NewCost_CostCurrencies(_buf)
+        case -1033587381: return NewCost_CostOneItem(_buf)
+        case -1249440351: return NewCost_CostItem(_buf)
+        case -77945102: return NewCost_CostItems(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

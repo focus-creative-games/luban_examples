@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -30,9 +33,10 @@ func NewChildAi_ComposeNode(_buf *serialization.ByteBuf) (_v interface{}, err er
         return
     }
     switch id {
-            case -1789006105: return NewAi_Sequence(_buf);
-            case -1946981627: return NewAi_Selector(_buf);
-            case -1952582529: return NewAi_SimpleParallel(_buf);
+        case -1789006105: return NewAi_Sequence(_buf)
+        case -1946981627: return NewAi_Selector(_buf)
+        case -1952582529: return NewAi_SimpleParallel(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

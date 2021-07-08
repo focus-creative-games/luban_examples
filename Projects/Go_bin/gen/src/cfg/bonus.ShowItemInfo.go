@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,8 +25,8 @@ func (Bonus_ShowItemInfo) GetTypeId() int {
 
 func NewBonus_ShowItemInfo(_buf *serialization.ByteBuf) (_v *Bonus_ShowItemInfo, err error) {
     _v = &Bonus_ShowItemInfo{}
-    if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.ItemNum, err = _buf.ReadLong(); err != nil  { return } 
+    { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.ItemNum, err = _buf.ReadLong(); err != nil { return } }
     return
 }
 

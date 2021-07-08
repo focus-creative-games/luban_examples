@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -27,8 +29,8 @@ func NewAi_MoveToRandomLocation(_buf *serialization.ByteBuf) (_v *Ai_MoveToRando
     var _p *Ai_Task
      if _p, err = NewAi_Task(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
-    if _v.OriginPositionKey, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Radius, err = _buf.ReadFloat(); err != nil  { return } 
+    { if _v.OriginPositionKey, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Radius, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
 

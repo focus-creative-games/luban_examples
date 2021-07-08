@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+    "errors"
+)
 
 
 
@@ -23,21 +26,21 @@ type Blueprint_Method struct {
 
 func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err error) {
     _v = &Blueprint_Method{}
-    if _v.Name, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Desc, err = _buf.ReadString(); err != nil  { return } 
-    if _v.IsStatic, err = _buf.ReadBool(); err != nil  { return } 
-    if _v.ReturnType, err = _buf.ReadString(); err != nil  { return } 
-    if _v.Parameters, err = func (_buf2 *serialization.ByteBuf) (_v2 []*Blueprint_ParamInfo, err2 error) {
-                _v2 = make([]*Blueprint_ParamInfo, 0)
-                var n int
-                if n, err2 = _buf2.ReadSize(); err2 != nil {return}
-                for i := 0 ; i < n ; i++ {
-                    var v3 *Blueprint_ParamInfo
-                    if v3, err2 = NewBlueprint_ParamInfo (_buf2); err2 != nil {return}
-                    _v2 = append(_v2, v3)
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.ReturnType, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.Parameters = make([]*Blueprint_ParamInfo, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Blueprint_ParamInfo
+                    { if _e_, err = NewBlueprint_ParamInfo (_buf); err != nil { return } }
+                    _v.Parameters = append(_v.Parameters, _e_)
                 }
-                return
-                }(_buf); err != nil  { return } 
+            }
+
     return
 }
 func NewChildBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err error) {
@@ -46,9 +49,10 @@ func NewChildBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err 
         return
     }
     switch id {
-            case -392137809: return NewBlueprint_AbstraceMethod(_buf);
-            case 1739079015: return NewBlueprint_ExternalMethod(_buf);
-            case -696408103: return NewBlueprint_BlueprintMethod(_buf);
+        case -392137809: return NewBlueprint_AbstraceMethod(_buf)
+        case 1739079015: return NewBlueprint_ExternalMethod(_buf)
+        case -696408103: return NewBlueprint_BlueprintMethod(_buf)
+        default: return nil, errors.New("unknown type id")
     }
     return
 }

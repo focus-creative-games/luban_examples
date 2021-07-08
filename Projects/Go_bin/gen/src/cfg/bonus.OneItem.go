@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewBonus_OneItem(_buf *serialization.ByteBuf) (_v *Bonus_OneItem, err error
     var _p *Bonus_Bonus
      if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
-    if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

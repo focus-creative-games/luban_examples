@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -26,7 +28,7 @@ func NewAi_UeCooldown(_buf *serialization.ByteBuf) (_v *Ai_UeCooldown, err error
     var _p *Ai_Decorator
      if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
-    if _v.CooldownTime, err = _buf.ReadFloat(); err != nil  { return } 
+    { if _v.CooldownTime, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
 

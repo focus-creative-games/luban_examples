@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -23,8 +25,8 @@ func (L10n_PatchDemo) GetTypeId() int {
 
 func NewL10n_PatchDemo(_buf *serialization.ByteBuf) (_v *L10n_PatchDemo, err error) {
     _v = &L10n_PatchDemo{}
-    if _v.Id, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Value, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

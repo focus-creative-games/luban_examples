@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -22,7 +24,7 @@ type Common_GlobalConfig struct {
     ClothBagCapacity int32
     ClothBagInitCapacity int32
     ClothBagCapacitySpecial int32
-    BagInitItemsDropId int32
+    BagInitItemsDropId *int32
     MailBoxCapacity int32
     DamageParamC float32
     DamageParamE float32
@@ -42,27 +44,27 @@ func (Common_GlobalConfig) GetTypeId() int {
 
 func NewCommon_GlobalConfig(_buf *serialization.ByteBuf) (_v *Common_GlobalConfig, err error) {
     _v = &Common_GlobalConfig{}
-    if _v.BagCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BagCapacitySpecial, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BagTempExpendableCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BagTempToolCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.BagInitCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.QuickBagCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.ClothBagCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.ClothBagInitCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.ClothBagCapacitySpecial, err = _buf.ReadInt(); err != nil  { return } 
-    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.BagInitItemsDropId, err = _buf.ReadInt(); err != nil  { return } } }
-    if _v.MailBoxCapacity, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.DamageParamC, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.DamageParamE, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.DamageParamF, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.DamageParamD, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.RoleSpeed, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.MonsterSpeed, err = _buf.ReadFloat(); err != nil  { return } 
-    if _v.InitEnergy, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.InitViality, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.MaxViality, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil  { return } 
+    { if _v.BagCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BagCapacitySpecial, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BagTempExpendableCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BagTempToolCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.BagInitCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.QuickBagCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.ClothBagCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.ClothBagInitCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.ClothBagCapacitySpecial, err = _buf.ReadInt(); err != nil { return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.BagInitItemsDropId = &__x__ }}
+    { if _v.MailBoxCapacity, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.DamageParamC, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.DamageParamE, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.DamageParamF, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.DamageParamD, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.RoleSpeed, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.MonsterSpeed, err = _buf.ReadFloat(); err != nil { return } }
+    { if _v.InitEnergy, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.InitViality, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.MaxViality, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil { return } }
     return
 }
 

@@ -8,7 +8,9 @@
 //------------------------------------------------------------------------------
 package cfg
 
-import "bright/serialization"
+import (
+    "bright/serialization"
+)
 
 
 
@@ -28,9 +30,9 @@ func NewCondition_ContainsItem(_buf *serialization.ByteBuf) (_v *Condition_Conta
     var _p *Condition_RoleCondition
      if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
-    if _v.ItemId, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Num, err = _buf.ReadInt(); err != nil  { return } 
-    if _v.Reverse, err = _buf.ReadBool(); err != nil  { return } 
+    { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
+    { if _v.Reverse, err = _buf.ReadBool(); err != nil { return } }
     return
 }
 
