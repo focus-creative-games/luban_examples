@@ -18,6 +18,8 @@ type Test_TestNull struct {
     X2 int32
     X3 *Test_DemoType1
     X4 interface{}
+    S1 string
+    S2 string
 }
 
 func (Test_TestNull) GetTypeId() int {
@@ -31,6 +33,8 @@ func NewTest_TestNull(_buf *serialization.ByteBuf) (_v *Test_TestNull, err error
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X2, err = _buf.ReadInt(); err != nil  { return } } }
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X3, err = NewTest_DemoType1 (_buf); err != nil  { return } } }
     { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.X4, err = NewChildTest_DemoDynamic(_buf); err != nil  { return } } }
+    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.S1, err = _buf.ReadString(); err != nil  { return } } }
+    { var _exists bool; if _exists, err = _buf.ReadBool(); err != nil { return }; if _exists { if _v.S2, err = _buf.ReadString(); err != nil  { return } } }
     return
 }
 

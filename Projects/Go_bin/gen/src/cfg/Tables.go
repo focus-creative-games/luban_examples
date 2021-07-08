@@ -40,6 +40,13 @@ type Tables struct {
     TbMultiRowRecord *Test_TbMultiRowRecord
     TbMultiRowTitle *Test_TbMultiRowTitle
     TbTestNull *Test_TbTestNull
+    TbDemoPrimitive *Test_TbDemoPrimitive
+    TbTestString *Test_TbTestString
+    TbDemoGroup *Test_TbDemoGroup
+    TbDemoGroup_C *Test_TbDemoGroup_C
+    TbDemoGroup_S *Test_TbDemoGroup_S
+    TbDemoGroup_E *Test_TbDemoGroup_E
+    TbTestGlobal *Test_TbTestGlobal
 }
 
 func NewTables(loader ByteBufLoader) (*Tables, error) {
@@ -201,6 +208,48 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestNull, err = NewTest_TbTestNull(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoPrimitive.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoPrimitive, err = NewTest_TbDemoPrimitive(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestString.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestString, err = NewTest_TbTestString(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoGroup.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoGroup, err = NewTest_TbDemoGroup(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoGroup_C.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoGroup_C, err = NewTest_TbDemoGroup_C(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoGroup_S.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoGroup_S, err = NewTest_TbDemoGroup_S(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoGroup_E.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoGroup_E, err = NewTest_TbDemoGroup_E(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestGlobal.bin") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestGlobal, err = NewTest_TbTestGlobal(buf) ; err != nil {
         return nil, err
     }
     return tables, nil
