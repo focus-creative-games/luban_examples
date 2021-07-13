@@ -285,6 +285,54 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_SetGlobalInt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                
+                if (paramLen == 2)
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    var argHelper1 = new Puerts.ArgumentHelper((int)data, isolate, info, 1);
+                    
+                    
+                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.String, null, false, false)
+                        && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetString(false);
+                        var Arg1 = argHelper1.GetInt32(false);
+                        UnityEngine.Shader.SetGlobalInt(Arg0,Arg1);
+                        
+                        
+                        
+                        return;
+                    }
+                    if (argHelper0.IsMatch(Puerts.JsValueType.Number, null, false, false)
+                        && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetInt32(false);
+                        var Arg1 = argHelper1.GetInt32(false);
+                        UnityEngine.Shader.SetGlobalInt(Arg0,Arg1);
+                        
+                        
+                        
+                        return;
+                    }
+                }
+                
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to SetGlobalInt");
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_SetGlobalFloat(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -333,7 +381,7 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void F_SetGlobalInt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        private static void F_SetGlobalInteger(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
@@ -352,7 +400,7 @@ namespace PuertsStaticWrap
                         
                         var Arg0 = argHelper0.GetString(false);
                         var Arg1 = argHelper1.GetInt32(false);
-                        UnityEngine.Shader.SetGlobalInt(Arg0,Arg1);
+                        UnityEngine.Shader.SetGlobalInteger(Arg0,Arg1);
                         
                         
                         
@@ -364,7 +412,7 @@ namespace PuertsStaticWrap
                         
                         var Arg0 = argHelper0.GetInt32(false);
                         var Arg1 = argHelper1.GetInt32(false);
-                        UnityEngine.Shader.SetGlobalInt(Arg0,Arg1);
+                        UnityEngine.Shader.SetGlobalInteger(Arg0,Arg1);
                         
                         
                         
@@ -372,7 +420,7 @@ namespace PuertsStaticWrap
                     }
                 }
                 
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to SetGlobalInt");
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to SetGlobalInteger");
             }
             catch (Exception e)
             {
@@ -989,6 +1037,49 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_GetGlobalInt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                
+                if (paramLen == 1)
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.String, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetString(false);
+                        var result = UnityEngine.Shader.GetGlobalInt(Arg0);
+                        
+                        Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+                        
+                        return;
+                    }
+                    if (argHelper0.IsMatch(Puerts.JsValueType.Number, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetInt32(false);
+                        var result = UnityEngine.Shader.GetGlobalInt(Arg0);
+                        
+                        Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+                        
+                        return;
+                    }
+                }
+                
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to GetGlobalInt");
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_GetGlobalFloat(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1032,7 +1123,7 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void F_GetGlobalInt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        private static void F_GetGlobalInteger(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
@@ -1048,7 +1139,7 @@ namespace PuertsStaticWrap
                     {
                         
                         var Arg0 = argHelper0.GetString(false);
-                        var result = UnityEngine.Shader.GetGlobalInt(Arg0);
+                        var result = UnityEngine.Shader.GetGlobalInteger(Arg0);
                         
                         Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
                         
@@ -1058,7 +1149,7 @@ namespace PuertsStaticWrap
                     {
                         
                         var Arg0 = argHelper0.GetInt32(false);
-                        var result = UnityEngine.Shader.GetGlobalInt(Arg0);
+                        var result = UnityEngine.Shader.GetGlobalInteger(Arg0);
                         
                         Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
                         
@@ -1066,7 +1157,7 @@ namespace PuertsStaticWrap
                     }
                 }
                 
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to GetGlobalInt");
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to GetGlobalInteger");
             }
             catch (Exception e)
             {
@@ -2107,8 +2198,9 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "PropertyToID", IsStatic = true},  F_PropertyToID },
                     { new Puerts.MethodKey {Name = "GetDependency", IsStatic = false},  M_GetDependency },
                     { new Puerts.MethodKey {Name = "FindPassTagValue", IsStatic = false},  M_FindPassTagValue },
-                    { new Puerts.MethodKey {Name = "SetGlobalFloat", IsStatic = true},  F_SetGlobalFloat },
                     { new Puerts.MethodKey {Name = "SetGlobalInt", IsStatic = true},  F_SetGlobalInt },
+                    { new Puerts.MethodKey {Name = "SetGlobalFloat", IsStatic = true},  F_SetGlobalFloat },
+                    { new Puerts.MethodKey {Name = "SetGlobalInteger", IsStatic = true},  F_SetGlobalInteger },
                     { new Puerts.MethodKey {Name = "SetGlobalVector", IsStatic = true},  F_SetGlobalVector },
                     { new Puerts.MethodKey {Name = "SetGlobalColor", IsStatic = true},  F_SetGlobalColor },
                     { new Puerts.MethodKey {Name = "SetGlobalMatrix", IsStatic = true},  F_SetGlobalMatrix },
@@ -2118,8 +2210,9 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "SetGlobalFloatArray", IsStatic = true},  F_SetGlobalFloatArray },
                     { new Puerts.MethodKey {Name = "SetGlobalVectorArray", IsStatic = true},  F_SetGlobalVectorArray },
                     { new Puerts.MethodKey {Name = "SetGlobalMatrixArray", IsStatic = true},  F_SetGlobalMatrixArray },
-                    { new Puerts.MethodKey {Name = "GetGlobalFloat", IsStatic = true},  F_GetGlobalFloat },
                     { new Puerts.MethodKey {Name = "GetGlobalInt", IsStatic = true},  F_GetGlobalInt },
+                    { new Puerts.MethodKey {Name = "GetGlobalFloat", IsStatic = true},  F_GetGlobalFloat },
+                    { new Puerts.MethodKey {Name = "GetGlobalInteger", IsStatic = true},  F_GetGlobalInteger },
                     { new Puerts.MethodKey {Name = "GetGlobalVector", IsStatic = true},  F_GetGlobalVector },
                     { new Puerts.MethodKey {Name = "GetGlobalColor", IsStatic = true},  F_GetGlobalColor },
                     { new Puerts.MethodKey {Name = "GetGlobalMatrix", IsStatic = true},  F_GetGlobalMatrix },

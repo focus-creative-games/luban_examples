@@ -6,61 +6,34 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cfg = void 0;
+const Vector2_1 = __importDefault(require("../bright/math/Vector2"));
+const Vector3_1 = __importDefault(require("../bright/math/Vector3"));
+const Vector4_1 = __importDefault(require("../bright/math/Vector4"));
 var cfg;
 (function (cfg) {
-    class Vector2 {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
+    let role;
+    (function (role) {
+        class Consts {
         }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            if (x == null || y == null) {
-                throw new Error();
-            }
-            return new Vector2(x, y);
+        Consts.MAX_NAME_LENGTH = 20;
+        Consts.MAX_USER_ROLE_NUM = 10;
+        role.Consts = Consts;
+    })(role = cfg.role || (cfg.role = {}));
+    let test;
+    (function (test) {
+        class DemoConst {
         }
-    }
-    cfg.Vector2 = Vector2;
-    class Vector3 {
-        constructor(x, y, z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
-            if (x == null || y == null || z == null) {
-                throw new Error();
-            }
-            return new Vector3(x, y, z);
-        }
-    }
-    cfg.Vector3 = Vector3;
-    class Vector4 {
-        constructor(x, y, z, w) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
-            let w = _json_['w'];
-            if (x == null || y == null || z == null || w == null) {
-                throw new Error();
-            }
-            return new Vector4(x, y, z, w);
-        }
-    }
-    cfg.Vector4 = Vector4;
+        DemoConst.x1 = 0;
+        DemoConst.x2 = 3242;
+        DemoConst.x3 = 444.3;
+        DemoConst.x4 = 55.3;
+        test.DemoConst = DemoConst;
+    })(test = cfg.test || (cfg.test = {}));
     let ai;
     (function (ai) {
         let EExecutor;
@@ -398,7 +371,6 @@ var cfg;
             EMailType[EMailType["SYSTEM"] = 1] = "SYSTEM";
         })(EMailType = mail.EMailType || (mail.EMailType = {}));
     })(mail = cfg.mail || (cfg.mail = {}));
-    let role;
     (function (role) {
         let EGenderType;
         (function (EGenderType) {
@@ -412,7 +384,6 @@ var cfg;
             EProfession[EProfession["TEST_PROFESSION"] = 1] = "TEST_PROFESSION";
         })(EProfession = role.EProfession || (role.EProfession = {}));
     })(role = cfg.role || (cfg.role = {}));
-    let test;
     (function (test) {
         let DemoEnum;
         (function (DemoEnum) {
@@ -442,22 +413,29 @@ var cfg;
             ETestEmptyEnum2[ETestEmptyEnum2["X_257"] = 257] = "X_257";
         })(ETestEmptyEnum2 = test.ETestEmptyEnum2 || (test.ETestEmptyEnum2 = {}));
     })(test = cfg.test || (cfg.test = {}));
-    (function (role) {
-        class Consts {
+    (function (ai) {
+        class TbBlackboard {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new ai.Blackboard(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
         }
-        Consts.MAX_NAME_LENGTH = 20;
-        Consts.MAX_USER_ROLE_NUM = 10;
-        role.Consts = Consts;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (test) {
-        class DemoConst {
-        }
-        DemoConst.x1 = 0;
-        DemoConst.x2 = 3242;
-        DemoConst.x3 = 444.3;
-        DemoConst.x4 = 55.3;
-        test.DemoConst = DemoConst;
-    })(test = cfg.test || (cfg.test = {}));
+        ai.TbBlackboard = TbBlackboard;
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Blackboard {
             constructor(_json_) {
@@ -524,6 +502,29 @@ var cfg;
             }
         }
         ai.BlackboardKey = BlackboardKey;
+    })(ai = cfg.ai || (cfg.ai = {}));
+    (function (ai) {
+        class TbBehaviorTree {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new ai.BehaviorTree(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        ai.TbBehaviorTree = TbBehaviorTree;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BehaviorTree {
@@ -1334,7 +1335,7 @@ var cfg;
                 if (_json_.location == null) {
                     throw new Error();
                 }
-                this.location = Vector3.from(_json_.location);
+                this.location = Vector3_1.default.deserializeFromJson(_json_.location);
                 if (_json_.acceptable_radius == null) {
                     throw new Error();
                 }
@@ -1362,6 +1363,29 @@ var cfg;
         ai.DebugPrint = DebugPrint;
     })(ai = cfg.ai || (cfg.ai = {}));
     let blueprint;
+    (function (blueprint) {
+        class TbClazz {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = blueprint.Clazz.constructorFrom(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        blueprint.TbClazz = TbClazz;
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Clazz {
             constructor(_json_) {
@@ -1630,6 +1654,29 @@ var cfg;
         blueprint.EnumField = EnumField;
     })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     let bonus;
+    (function (bonus) {
+        class TbDrop {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new bonus.DropInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        bonus.TbDrop = TbDrop;
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class DropInfo {
             constructor(_json_) {
@@ -2049,6 +2096,41 @@ var cfg;
         bonus.DropBonus = DropBonus;
     })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (common) {
+        class TbGlobalConfig {
+            constructor(_json_) {
+                if (_json_.length != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new common.GlobalConfig(_json_[0]);
+            }
+            getData() { return this._data; }
+            get bagCapacity() { return this._data.bagCapacity; }
+            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
+            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
+            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
+            get bagInitCapacity() { return this._data.bagInitCapacity; }
+            get quickBagCapacity() { return this._data.quickBagCapacity; }
+            get clothBagCapacity() { return this._data.clothBagCapacity; }
+            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
+            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
+            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
+            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
+            get damageParamC() { return this._data.damageParamC; }
+            get damageParamE() { return this._data.damageParamE; }
+            get damageParamF() { return this._data.damageParamF; }
+            get damageParamD() { return this._data.damageParamD; }
+            get roleSpeed() { return this._data.roleSpeed; }
+            get monsterSpeed() { return this._data.monsterSpeed; }
+            get initEnergy() { return this._data.initEnergy; }
+            get initViality() { return this._data.initViality; }
+            get maxViality() { return this._data.maxViality; }
+            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        common.TbGlobalConfig = TbGlobalConfig;
+    })(common = cfg.common || (cfg.common = {}));
+    (function (common) {
         class GlobalConfig {
             constructor(_json_) {
                 if (_json_.bag_capacity == null) {
@@ -2143,6 +2225,29 @@ var cfg;
             }
         }
         common.GlobalConfig = GlobalConfig;
+    })(common = cfg.common || (cfg.common = {}));
+    (function (common) {
+        class TbDummy {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new common.Dummy(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        common.TbDummy = TbDummy;
     })(common = cfg.common || (cfg.common = {}));
     (function (common) {
         class Dummy {
@@ -2300,6 +2405,29 @@ var cfg;
         limit.GroupCoolDown = GroupCoolDown;
     })(limit = cfg.limit || (cfg.limit = {}));
     (function (error) {
+        class TbErrorInfo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new error.ErrorInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbErrorInfo = TbErrorInfo;
+    })(error = cfg.error || (cfg.error = {}));
+    (function (error) {
         class ErrorInfo {
             constructor(_json_) {
                 if (_json_.code == null) {
@@ -2406,6 +2534,29 @@ var cfg;
         error.ErrorStyleDlgOkCancel = ErrorStyleDlgOkCancel;
     })(error = cfg.error || (cfg.error = {}));
     (function (error) {
+        class TbCodeInfo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new error.CodeInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbCodeInfo = TbCodeInfo;
+    })(error = cfg.error || (cfg.error = {}));
+    (function (error) {
         class CodeInfo {
             constructor(_json_) {
                 if (_json_.code == null) {
@@ -2422,6 +2573,29 @@ var cfg;
         }
         error.CodeInfo = CodeInfo;
     })(error = cfg.error || (cfg.error = {}));
+    (function (item) {
+        class TbItem {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new item.Item(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItem = TbItem;
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class Item {
             constructor(_json_) {
@@ -2520,6 +2694,29 @@ var cfg;
         item.Item = Item;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
+        class TbItemFunc {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new item.ItemFunction(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.minorType, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemFunc = TbItemFunc;
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
         class ItemFunction {
             constructor(_json_) {
                 if (_json_.minor_type == null) {
@@ -2543,6 +2740,29 @@ var cfg;
             }
         }
         item.ItemFunction = ItemFunction;
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
+        class TbItemExtra {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = item.ItemExtra.constructorFrom(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemExtra = TbItemExtra;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class ItemExtra {
@@ -3089,6 +3309,29 @@ var cfg;
     })(cost = cfg.cost || (cfg.cost = {}));
     let l10n;
     (function (l10n) {
+        class TbL10NDemo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new l10n.L10NDemo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbL10NDemo = TbL10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
         class L10NDemo {
             constructor(_json_) {
                 if (_json_.id == null) {
@@ -3104,6 +3347,29 @@ var cfg;
             }
         }
         l10n.L10NDemo = L10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
+        class TbPatchDemo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new l10n.PatchDemo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbPatchDemo = TbPatchDemo;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
     (function (l10n) {
         class PatchDemo {
@@ -3122,6 +3388,29 @@ var cfg;
         }
         l10n.PatchDemo = PatchDemo;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (mail) {
+        class TbSystemMail {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new mail.SystemMail(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbSystemMail = TbSystemMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class SystemMail {
             constructor(_json_) {
@@ -3150,6 +3439,29 @@ var cfg;
             }
         }
         mail.SystemMail = SystemMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
+    (function (mail) {
+        class TbGlobalMail {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new mail.GlobalMail(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbGlobalMail = TbGlobalMail;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class GlobalMail {
@@ -3218,6 +3530,29 @@ var cfg;
         mail.GlobalMail = GlobalMail;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (role) {
+        class TbRoleLevelExpAttr {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new role.LevelExpAttr(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.level, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
+    })(role = cfg.role || (cfg.role = {}));
+    (function (role) {
         class LevelExpAttr {
             constructor(_json_) {
                 if (_json_.level == null) {
@@ -3237,6 +3572,29 @@ var cfg;
             }
         }
         role.LevelExpAttr = LevelExpAttr;
+    })(role = cfg.role || (cfg.role = {}));
+    (function (role) {
+        class TbRoleLevelBonusCoefficient {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new role.LevelBonus(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
     })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class LevelBonus {
@@ -3315,6 +3673,29 @@ var cfg;
     })(role = cfg.role || (cfg.role = {}));
     let tag;
     (function (tag) {
+        class TbTestTag {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new tag.TestTag(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        tag.TbTestTag = TbTestTag;
+    })(tag = cfg.tag || (cfg.tag = {}));
+    (function (tag) {
         class TestTag {
             constructor(_json_) {
                 if (_json_.id == null) {
@@ -3331,6 +3712,29 @@ var cfg;
         }
         tag.TestTag = TestTag;
     })(tag = cfg.tag || (cfg.tag = {}));
+    (function (test) {
+        class TbFullTypes {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x3, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbFullTypes = TbFullTypes;
+    })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class DemoType2 {
             constructor(_json_) {
@@ -3397,15 +3801,15 @@ var cfg;
                 if (_json_.v2 == null) {
                     throw new Error();
                 }
-                this.v2 = Vector2.from(_json_.v2);
+                this.v2 = Vector2_1.default.deserializeFromJson(_json_.v2);
                 if (_json_.v3 == null) {
                     throw new Error();
                 }
-                this.v3 = Vector3.from(_json_.v3);
+                this.v3 = Vector3_1.default.deserializeFromJson(_json_.v3);
                 if (_json_.v4 == null) {
                     throw new Error();
                 }
-                this.v4 = Vector4.from(_json_.v4);
+                this.v4 = Vector4_1.default.deserializeFromJson(_json_.v4);
                 if (_json_.t1 == null) {
                     throw new Error();
                 }
@@ -3634,6 +4038,23 @@ var cfg;
         test.DemoE2 = DemoE2;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class TbSingleton {
+            constructor(_json_) {
+                if (_json_.length != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new test.DemoSingletonType(_json_[0]);
+            }
+            getData() { return this._data; }
+            get id() { return this._data.id; }
+            get name() { return this._data.name; }
+            get date() { return this._data.date; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        test.TbSingleton = TbSingleton;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class DemoSingletonType {
             constructor(_json_) {
                 if (_json_.id == null) {
@@ -3656,6 +4077,98 @@ var cfg;
             }
         }
         test.DemoSingletonType = DemoSingletonType;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromJson {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromJson = TbDataFromJson;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromXml {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromXml = TbDataFromXml;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromLua {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromLua = TbDataFromLua;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbMultiRowRecord {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.MultiRowRecord(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbMultiRowRecord = TbMultiRowRecord;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class MultiRowRecord {
@@ -3788,6 +4301,29 @@ var cfg;
         test.MultiRowType2 = MultiRowType2;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class TbMultiRowTitle {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.MultiRowTitle(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbMultiRowTitle = TbMultiRowTitle;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class MultiRowTitle {
             constructor(_json_) {
                 if (_json_.id == null) {
@@ -3881,6 +4417,29 @@ var cfg;
         test.H2 = H2;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class TbTestNull {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.TestNull(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestNull = TbTestNull;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class TestNull {
             constructor(_json_) {
                 if (_json_.id == null) {
@@ -3911,6 +4470,18 @@ var cfg;
                 else {
                     this.x4 = null;
                 }
+                if (_json_.s1 != null) {
+                    this.s1 = _json_.s1;
+                }
+                else {
+                    this.s1 = null;
+                }
+                if (_json_.s2 != null) {
+                    this.s2 = _json_.s2;
+                }
+                else {
+                    this.s2 = null;
+                }
             }
             resolve(_tables) {
                 if (this.x3 != null) {
@@ -3923,16 +4494,16 @@ var cfg;
         }
         test.TestNull = TestNull;
     })(test = cfg.test || (cfg.test = {}));
-    (function (ai) {
-        class TbBlackboard {
+    (function (test) {
+        class TbDemoPrimitive {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new ai.Blackboard(_json2_);
+                    _v = new test.DemoPrimitiveTypesTable(_json2_);
                     this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
+                    this._dataMap.set(_v.x4, _v);
                 }
             }
             getDataMap() { return this._dataMap; }
@@ -3944,16 +4515,77 @@ var cfg;
                 }
             }
         }
-        ai.TbBlackboard = TbBlackboard;
-    })(ai = cfg.ai || (cfg.ai = {}));
-    (function (ai) {
-        class TbBehaviorTree {
+        test.TbDemoPrimitive = TbDemoPrimitive;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoPrimitiveTypesTable {
+            constructor(_json_) {
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                this.x3 = _json_.x3;
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+                if (_json_.x5 == null) {
+                    throw new Error();
+                }
+                this.x5 = _json_.x5;
+                if (_json_.x6 == null) {
+                    throw new Error();
+                }
+                this.x6 = _json_.x6;
+                if (_json_.x7 == null) {
+                    throw new Error();
+                }
+                this.x7 = _json_.x7;
+                if (_json_.s1 == null) {
+                    throw new Error();
+                }
+                this.s1 = _json_.s1;
+                if (_json_.s2 == null) {
+                    throw new Error();
+                }
+                this.s2 = _json_.s2;
+                if (_json_.v2 == null) {
+                    throw new Error();
+                }
+                this.v2 = Vector2_1.default.deserializeFromJson(_json_.v2);
+                if (_json_.v3 == null) {
+                    throw new Error();
+                }
+                this.v3 = Vector3_1.default.deserializeFromJson(_json_.v3);
+                if (_json_.v4 == null) {
+                    throw new Error();
+                }
+                this.v4 = Vector4_1.default.deserializeFromJson(_json_.v4);
+                if (_json_.t1 == null) {
+                    throw new Error();
+                }
+                this.t1 = _json_.t1;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoPrimitiveTypesTable = DemoPrimitiveTypesTable;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestString {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new ai.BehaviorTree(_json2_);
+                    _v = new test.TestString(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -3967,39 +4599,68 @@ var cfg;
                 }
             }
         }
-        ai.TbBehaviorTree = TbBehaviorTree;
-    })(ai = cfg.ai || (cfg.ai = {}));
-    (function (blueprint) {
-        class TbClazz {
+        test.TbTestString = TbTestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestString {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = blueprint.Clazz.constructorFrom(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
+                if (_json_.id == null) {
+                    throw new Error();
                 }
+                this.id = _json_.id;
+                if (_json_.s1 == null) {
+                    throw new Error();
+                }
+                this.s1 = _json_.s1;
+                if (_json_.cs1 == null) {
+                    throw new Error();
+                }
+                this.cs1 = new test.CompactString(_json_.cs1);
+                if (_json_.cs2 == null) {
+                    throw new Error();
+                }
+                this.cs2 = new test.CompactString(_json_.cs2);
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
+                if (this.cs1 != null) {
+                    this.cs1.resolve(_tables);
+                }
+                if (this.cs2 != null) {
+                    this.cs2.resolve(_tables);
                 }
             }
         }
-        blueprint.TbClazz = TbClazz;
-    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
-    (function (bonus) {
-        class TbDrop {
+        test.TestString = TestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class CompactString {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.s2 == null) {
+                    throw new Error();
+                }
+                this.s2 = _json_.s2;
+                if (_json_.s3 == null) {
+                    throw new Error();
+                }
+                this.s3 = _json_.s3;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.CompactString = CompactString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new bonus.DropInfo(_json2_);
+                    _v = new test.DemoGroup(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -4013,519 +4674,170 @@ var cfg;
                 }
             }
         }
-        bonus.TbDrop = TbDrop;
-    })(bonus = cfg.bonus || (cfg.bonus = {}));
-    (function (common) {
-        class TbGlobalConfig {
+        test.TbDemoGroup = TbDemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoGroup {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                this.x3 = _json_.x3;
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+                if (_json_.x5 == null) {
+                    throw new Error();
+                }
+                this.x5 = new test.InnerGroup(_json_.x5);
+            }
+            resolve(_tables) {
+                if (this.x5 != null) {
+                    this.x5.resolve(_tables);
+                }
+            }
+        }
+        test.DemoGroup = DemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class InnerGroup {
+            constructor(_json_) {
+                if (_json_.y1 == null) {
+                    throw new Error();
+                }
+                this.y1 = _json_.y1;
+                if (_json_.y2 == null) {
+                    throw new Error();
+                }
+                this.y2 = _json_.y2;
+                if (_json_.y3 == null) {
+                    throw new Error();
+                }
+                this.y3 = _json_.y3;
+                if (_json_.y4 == null) {
+                    throw new Error();
+                }
+                this.y4 = _json_.y4;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.InnerGroup = InnerGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_C {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoGroup(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_C = TbDemoGroup_C;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_S {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoGroup(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_S = TbDemoGroup_S;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_E {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoGroup(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_E = TbDemoGroup_E;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestGlobal {
             constructor(_json_) {
                 if (_json_.length != 1)
                     throw new Error('table mode=one, but size != 1');
-                this._data = new common.GlobalConfig(_json_[0]);
+                this._data = new test.TestGlobal(_json_[0]);
             }
             getData() { return this._data; }
-            get bagCapacity() { return this._data.bagCapacity; }
-            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
-            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
-            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
-            get bagInitCapacity() { return this._data.bagInitCapacity; }
-            get quickBagCapacity() { return this._data.quickBagCapacity; }
-            get clothBagCapacity() { return this._data.clothBagCapacity; }
-            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
-            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
-            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
-            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
-            get damageParamC() { return this._data.damageParamC; }
-            get damageParamE() { return this._data.damageParamE; }
-            get damageParamF() { return this._data.damageParamF; }
-            get damageParamD() { return this._data.damageParamD; }
-            get roleSpeed() { return this._data.roleSpeed; }
-            get monsterSpeed() { return this._data.monsterSpeed; }
-            get initEnergy() { return this._data.initEnergy; }
-            get initViality() { return this._data.initViality; }
-            get maxViality() { return this._data.maxViality; }
-            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
+            get unlockEquip() { return this._data.unlockEquip; }
+            get unlockHero() { return this._data.unlockHero; }
             resolve(_tables) {
                 this._data.resolve(_tables);
             }
         }
-        common.TbGlobalConfig = TbGlobalConfig;
-    })(common = cfg.common || (cfg.common = {}));
-    (function (common) {
-        class TbDummy {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new common.Dummy(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        common.TbDummy = TbDummy;
-    })(common = cfg.common || (cfg.common = {}));
-    (function (error) {
-        class TbErrorInfo {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new error.ErrorInfo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        error.TbErrorInfo = TbErrorInfo;
-    })(error = cfg.error || (cfg.error = {}));
-    (function (error) {
-        class TbCodeInfo {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new error.CodeInfo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        error.TbCodeInfo = TbCodeInfo;
-    })(error = cfg.error || (cfg.error = {}));
-    (function (item) {
-        class TbItem {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new item.Item(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItem = TbItem;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (item) {
-        class TbItemFunc {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new item.ItemFunction(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.minorType, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemFunc = TbItemFunc;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (item) {
-        class TbItemExtra {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = item.ItemExtra.constructorFrom(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemExtra = TbItemExtra;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (l10n) {
-        class TbL10NDemo {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new l10n.L10NDemo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        l10n.TbL10NDemo = TbL10NDemo;
-    })(l10n = cfg.l10n || (cfg.l10n = {}));
-    (function (l10n) {
-        class TbPatchDemo {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new l10n.PatchDemo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        l10n.TbPatchDemo = TbPatchDemo;
-    })(l10n = cfg.l10n || (cfg.l10n = {}));
-    (function (mail) {
-        class TbSystemMail {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new mail.SystemMail(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        mail.TbSystemMail = TbSystemMail;
-    })(mail = cfg.mail || (cfg.mail = {}));
-    (function (mail) {
-        class TbGlobalMail {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new mail.GlobalMail(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        mail.TbGlobalMail = TbGlobalMail;
-    })(mail = cfg.mail || (cfg.mail = {}));
-    (function (role) {
-        class TbRoleLevelExpAttr {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new role.LevelExpAttr(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.level, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (role) {
-        class TbRoleLevelBonusCoefficient {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new role.LevelBonus(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (tag) {
-        class TbTestTag {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new tag.TestTag(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        tag.TbTestTag = TbTestTag;
-    })(tag = cfg.tag || (cfg.tag = {}));
-    (function (test) {
-        class TbFullTypes {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.DemoType2(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x3, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbFullTypes = TbFullTypes;
+        test.TbTestGlobal = TbTestGlobal;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
-        class TbSingleton {
+        class TestGlobal {
             constructor(_json_) {
-                if (_json_.length != 1)
-                    throw new Error('table mode=one, but size != 1');
-                this._data = new test.DemoSingletonType(_json_[0]);
+                if (_json_.unlock_equip == null) {
+                    throw new Error();
+                }
+                this.unlockEquip = _json_.unlock_equip;
+                if (_json_.unlock_hero == null) {
+                    throw new Error();
+                }
+                this.unlockHero = _json_.unlock_hero;
             }
-            getData() { return this._data; }
-            get id() { return this._data.id; }
-            get name() { return this._data.name; }
-            get date() { return this._data.date; }
             resolve(_tables) {
-                this._data.resolve(_tables);
             }
         }
-        test.TbSingleton = TbSingleton;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbDataFromJson {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.DemoType2(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x4, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbDataFromJson = TbDataFromJson;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbDataFromXml {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.DemoType2(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x4, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbDataFromXml = TbDataFromXml;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbDataFromLua {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.DemoType2(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x4, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbDataFromLua = TbDataFromLua;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbMultiRowRecord {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.MultiRowRecord(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbMultiRowRecord = TbMultiRowRecord;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbMultiRowTitle {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.MultiRowTitle(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbMultiRowTitle = TbMultiRowTitle;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbTestNull {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new test.TestNull(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbTestNull = TbTestNull;
+        test.TestGlobal = TestGlobal;
     })(test = cfg.test || (cfg.test = {}));
     class Tables {
         constructor(loader) {
@@ -4582,6 +4894,20 @@ var cfg;
             tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle);
             this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.json'));
             tables.set('test.TbTestNull', this._TbTestNull);
+            this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive.json'));
+            tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive);
+            this._TbTestString = new test.TbTestString(loader('test.TbTestString.json'));
+            tables.set('test.TbTestString', this._TbTestString);
+            this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup.json'));
+            tables.set('test.TbDemoGroup', this._TbDemoGroup);
+            this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C.json'));
+            tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C);
+            this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S.json'));
+            tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S);
+            this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E.json'));
+            tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E);
+            this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal.json'));
+            tables.set('test.TbTestGlobal', this._TbTestGlobal);
             this._TbBlackboard.resolve(tables);
             this._TbBehaviorTree.resolve(tables);
             this._TbClazz.resolve(tables);
@@ -4608,6 +4934,13 @@ var cfg;
             this._TbMultiRowRecord.resolve(tables);
             this._TbMultiRowTitle.resolve(tables);
             this._TbTestNull.resolve(tables);
+            this._TbDemoPrimitive.resolve(tables);
+            this._TbTestString.resolve(tables);
+            this._TbDemoGroup.resolve(tables);
+            this._TbDemoGroup_C.resolve(tables);
+            this._TbDemoGroup_S.resolve(tables);
+            this._TbDemoGroup_E.resolve(tables);
+            this._TbTestGlobal.resolve(tables);
         }
         get TbBlackboard() { return this._TbBlackboard; }
         get TbBehaviorTree() { return this._TbBehaviorTree; }
@@ -4635,6 +4968,13 @@ var cfg;
         get TbMultiRowRecord() { return this._TbMultiRowRecord; }
         get TbMultiRowTitle() { return this._TbMultiRowTitle; }
         get TbTestNull() { return this._TbTestNull; }
+        get TbDemoPrimitive() { return this._TbDemoPrimitive; }
+        get TbTestString() { return this._TbTestString; }
+        get TbDemoGroup() { return this._TbDemoGroup; }
+        get TbDemoGroup_C() { return this._TbDemoGroup_C; }
+        get TbDemoGroup_S() { return this._TbDemoGroup_S; }
+        get TbDemoGroup_E() { return this._TbDemoGroup_E; }
+        get TbTestGlobal() { return this._TbTestGlobal; }
     }
     cfg.Tables = Tables;
 })(cfg = exports.cfg || (exports.cfg = {}));

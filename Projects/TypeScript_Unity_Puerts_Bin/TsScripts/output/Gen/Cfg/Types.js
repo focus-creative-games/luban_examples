@@ -7,51 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cfg = void 0;
+exports.cfg = exports.BeanBase = exports.Vector4 = exports.Vector3 = exports.Vector2 = void 0;
+class Vector2 {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+    static deserializeFrom(buf) {
+        var v = new Vector2();
+        v.deserialize(buf);
+        return v;
+    }
+    serialize(_buf_) {
+        _buf_.WriteFloat(this.x);
+        _buf_.WriteFloat(this.y);
+    }
+    deserialize(buf) {
+        this.x = buf.ReadFloat();
+        this.y = buf.ReadFloat();
+    }
+}
+exports.Vector2 = Vector2;
+class Vector3 {
+    constructor(x = 0, y = 0, z = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    static deserializeFrom(buf) {
+        var v = new Vector3();
+        v.deserialize(buf);
+        return v;
+    }
+    serialize(_buf_) {
+        _buf_.WriteFloat(this.x);
+        _buf_.WriteFloat(this.y);
+        _buf_.WriteFloat(this.z);
+    }
+    deserialize(buf) {
+        this.x = buf.ReadFloat();
+        this.y = buf.ReadFloat();
+        this.z = buf.ReadFloat();
+    }
+}
+exports.Vector3 = Vector3;
+class Vector4 {
+    constructor(x = 0, y = 0, z = 0, w = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+    }
+    static deserializeFrom(buf) {
+        var v = new Vector4();
+        v.deserialize(buf);
+        return v;
+    }
+    serialize(_buf_) {
+        _buf_.WriteFloat(this.x);
+        _buf_.WriteFloat(this.y);
+        _buf_.WriteFloat(this.z);
+        _buf_.WriteFloat(this.w);
+    }
+    deserialize(buf) {
+        this.x = buf.ReadFloat();
+        this.y = buf.ReadFloat();
+        this.z = buf.ReadFloat();
+        this.z = buf.ReadFloat();
+    }
+}
+exports.Vector4 = Vector4;
+class BeanBase {
+}
+exports.BeanBase = BeanBase;
 var cfg;
 (function (cfg) {
-    class Vector2 {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
+    let role;
+    (function (role) {
+        class Consts {
         }
-        static from(_buf_) {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            return new Vector2(x, y);
+        Consts.MAX_NAME_LENGTH = 20;
+        Consts.MAX_USER_ROLE_NUM = 10;
+        role.Consts = Consts;
+    })(role = cfg.role || (cfg.role = {}));
+    let test;
+    (function (test) {
+        class DemoConst {
         }
-    }
-    cfg.Vector2 = Vector2;
-    class Vector3 {
-        constructor(x, y, z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-        static from(_buf_) {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            let z = _buf_.ReadFloat();
-            return new Vector3(x, y, z);
-        }
-    }
-    cfg.Vector3 = Vector3;
-    class Vector4 {
-        constructor(x, y, z, w) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
-        static from(_buf_) {
-            let x = _buf_.ReadFloat();
-            let y = _buf_.ReadFloat();
-            let z = _buf_.ReadFloat();
-            let w = _buf_.ReadFloat();
-            return new Vector4(x, y, z, w);
-        }
-    }
-    cfg.Vector4 = Vector4;
+        DemoConst.x1 = 0;
+        DemoConst.x2 = 3242;
+        DemoConst.x3 = 444.3;
+        DemoConst.x4 = 55.3;
+        test.DemoConst = DemoConst;
+    })(test = cfg.test || (cfg.test = {}));
     let ai;
     (function (ai) {
         let EExecutor;
@@ -389,7 +437,6 @@ var cfg;
             EMailType[EMailType["SYSTEM"] = 1] = "SYSTEM";
         })(EMailType = mail.EMailType || (mail.EMailType = {}));
     })(mail = cfg.mail || (cfg.mail = {}));
-    let role;
     (function (role) {
         let EGenderType;
         (function (EGenderType) {
@@ -403,7 +450,6 @@ var cfg;
             EProfession[EProfession["TEST_PROFESSION"] = 1] = "TEST_PROFESSION";
         })(EProfession = role.EProfession || (role.EProfession = {}));
     })(role = cfg.role || (cfg.role = {}));
-    let test;
     (function (test) {
         let DemoEnum;
         (function (DemoEnum) {
@@ -433,22 +479,29 @@ var cfg;
             ETestEmptyEnum2[ETestEmptyEnum2["X_257"] = 257] = "X_257";
         })(ETestEmptyEnum2 = test.ETestEmptyEnum2 || (test.ETestEmptyEnum2 = {}));
     })(test = cfg.test || (cfg.test = {}));
-    (function (role) {
-        class Consts {
+    (function (ai) {
+        class TbBlackboard {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new ai.Blackboard(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
         }
-        Consts.MAX_NAME_LENGTH = 20;
-        Consts.MAX_USER_ROLE_NUM = 10;
-        role.Consts = Consts;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (test) {
-        class DemoConst {
-        }
-        DemoConst.x1 = 0;
-        DemoConst.x2 = 3242;
-        DemoConst.x3 = 444.3;
-        DemoConst.x4 = 55.3;
-        test.DemoConst = DemoConst;
-    })(test = cfg.test || (cfg.test = {}));
+        ai.TbBlackboard = TbBlackboard;
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Blackboard {
             constructor(_buf_) {
@@ -488,6 +541,29 @@ var cfg;
             }
         }
         ai.BlackboardKey = BlackboardKey;
+    })(ai = cfg.ai || (cfg.ai = {}));
+    (function (ai) {
+        class TbBehaviorTree {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new ai.BehaviorTree(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        ai.TbBehaviorTree = TbBehaviorTree;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BehaviorTree {
@@ -1118,7 +1194,7 @@ var cfg;
         class MoveToLocation extends ai.Task {
             constructor(_buf_) {
                 super(_buf_);
-                this.location = Vector3.from(_buf_);
+                this.location = Vector3.deserializeFrom(_buf_);
                 this.acceptableRadius = _buf_.ReadFloat();
             }
             resolve(_tables) {
@@ -1140,6 +1216,29 @@ var cfg;
         ai.DebugPrint = DebugPrint;
     })(ai = cfg.ai || (cfg.ai = {}));
     let blueprint;
+    (function (blueprint) {
+        class TbClazz {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = blueprint.Clazz.constructorFrom(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        blueprint.TbClazz = TbClazz;
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Clazz {
             constructor(_buf_) {
@@ -1349,6 +1448,29 @@ var cfg;
     })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     let bonus;
     (function (bonus) {
+        class TbDrop {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new bonus.DropInfo(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        bonus.TbDrop = TbDrop;
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
+    (function (bonus) {
         class DropInfo {
             constructor(_buf_) {
                 this.id = _buf_.ReadInt();
@@ -1380,7 +1502,7 @@ var cfg;
         class ShowItemInfo {
             constructor(_buf_) {
                 this.itemId = _buf_.ReadInt();
-                this.itemNum = _buf_.ReadLong();
+                this.itemNum = _buf_.ReadLongAsNumber();
             }
             resolve(_tables) {
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -1695,6 +1817,41 @@ var cfg;
         bonus.DropBonus = DropBonus;
     })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (common) {
+        class TbGlobalConfig {
+            constructor(_buf_) {
+                if (_buf_.ReadInt() != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new common.GlobalConfig(_buf_);
+            }
+            getData() { return this._data; }
+            get bagCapacity() { return this._data.bagCapacity; }
+            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
+            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
+            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
+            get bagInitCapacity() { return this._data.bagInitCapacity; }
+            get quickBagCapacity() { return this._data.quickBagCapacity; }
+            get clothBagCapacity() { return this._data.clothBagCapacity; }
+            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
+            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
+            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
+            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
+            get damageParamC() { return this._data.damageParamC; }
+            get damageParamE() { return this._data.damageParamE; }
+            get damageParamF() { return this._data.damageParamF; }
+            get damageParamD() { return this._data.damageParamD; }
+            get roleSpeed() { return this._data.roleSpeed; }
+            get monsterSpeed() { return this._data.monsterSpeed; }
+            get initEnergy() { return this._data.initEnergy; }
+            get initViality() { return this._data.initViality; }
+            get maxViality() { return this._data.maxViality; }
+            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        common.TbGlobalConfig = TbGlobalConfig;
+    })(common = cfg.common || (cfg.common = {}));
+    (function (common) {
         class GlobalConfig {
             constructor(_buf_) {
                 this.bagCapacity = _buf_.ReadInt();
@@ -1729,6 +1886,29 @@ var cfg;
             }
         }
         common.GlobalConfig = GlobalConfig;
+    })(common = cfg.common || (cfg.common = {}));
+    (function (common) {
+        class TbDummy {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new common.Dummy(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        common.TbDummy = TbDummy;
     })(common = cfg.common || (cfg.common = {}));
     (function (common) {
         class Dummy {
@@ -1856,6 +2036,29 @@ var cfg;
         limit.GroupCoolDown = GroupCoolDown;
     })(limit = cfg.limit || (cfg.limit = {}));
     (function (error) {
+        class TbErrorInfo {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new error.ErrorInfo(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbErrorInfo = TbErrorInfo;
+    })(error = cfg.error || (cfg.error = {}));
+    (function (error) {
         class ErrorInfo {
             constructor(_buf_) {
                 this.code = _buf_.ReadString();
@@ -1938,6 +2141,29 @@ var cfg;
         error.ErrorStyleDlgOkCancel = ErrorStyleDlgOkCancel;
     })(error = cfg.error || (cfg.error = {}));
     (function (error) {
+        class TbCodeInfo {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new error.CodeInfo(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbCodeInfo = TbCodeInfo;
+    })(error = cfg.error || (cfg.error = {}));
+    (function (error) {
         class CodeInfo {
             constructor(_buf_) {
                 this.code = _buf_.ReadInt();
@@ -1949,12 +2175,36 @@ var cfg;
         error.CodeInfo = CodeInfo;
     })(error = cfg.error || (cfg.error = {}));
     (function (item) {
+        class TbItem {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new item.Item(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItem = TbItem;
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
         class Item {
             constructor(_buf_) {
                 this.id = _buf_.ReadInt();
                 this.name = _buf_.ReadString();
                 this.majorType = _buf_.ReadInt();
                 this.minorType = _buf_.ReadInt();
+                this.maxPileNum = _buf_.ReadInt();
                 this.quality = _buf_.ReadInt();
                 this.icon = _buf_.ReadString();
                 this.iconBackgroud = _buf_.ReadString();
@@ -1988,6 +2238,29 @@ var cfg;
         item.Item = Item;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
+        class TbItemFunc {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new item.ItemFunction(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.minorType, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemFunc = TbItemFunc;
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
         class ItemFunction {
             constructor(_buf_) {
                 this.minorType = _buf_.ReadInt();
@@ -1999,6 +2272,29 @@ var cfg;
             }
         }
         item.ItemFunction = ItemFunction;
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
+        class TbItemExtra {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = item.ItemExtra.constructorFrom(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemExtra = TbItemExtra;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class ItemExtra {
@@ -2305,7 +2601,7 @@ var cfg;
             constructor(_buf_) {
                 super(_buf_);
                 this.attack = _buf_.ReadInt();
-                this.hp = _buf_.ReadLong();
+                this.hp = _buf_.ReadLongAsNumber();
                 this.energyLimit = _buf_.ReadInt();
                 this.energyResume = _buf_.ReadInt();
             }
@@ -2461,6 +2757,29 @@ var cfg;
     })(cost = cfg.cost || (cfg.cost = {}));
     let l10n;
     (function (l10n) {
+        class TbL10NDemo {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new l10n.L10NDemo(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbL10NDemo = TbL10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
         class L10NDemo {
             constructor(_buf_) {
                 this.id = _buf_.ReadInt();
@@ -2470,6 +2789,29 @@ var cfg;
             }
         }
         l10n.L10NDemo = L10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
+        class TbPatchDemo {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new l10n.PatchDemo(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbPatchDemo = TbPatchDemo;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
     (function (l10n) {
         class PatchDemo {
@@ -2482,6 +2824,29 @@ var cfg;
         }
         l10n.PatchDemo = PatchDemo;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (mail) {
+        class TbSystemMail {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new mail.SystemMail(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbSystemMail = TbSystemMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class SystemMail {
             constructor(_buf_) {
@@ -2503,6 +2868,29 @@ var cfg;
             }
         }
         mail.SystemMail = SystemMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
+    (function (mail) {
+        class TbGlobalMail {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new mail.GlobalMail(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbGlobalMail = TbGlobalMail;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class GlobalMail {
@@ -2551,10 +2939,33 @@ var cfg;
         mail.GlobalMail = GlobalMail;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (role) {
+        class TbRoleLevelExpAttr {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new role.LevelExpAttr(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.level, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
+    })(role = cfg.role || (cfg.role = {}));
+    (function (role) {
         class LevelExpAttr {
             constructor(_buf_) {
                 this.level = _buf_.ReadInt();
-                this.needExp = _buf_.ReadLong();
+                this.needExp = _buf_.ReadLongAsNumber();
                 {
                     this.clothesAttrs = [];
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
@@ -2569,6 +2980,29 @@ var cfg;
             }
         }
         role.LevelExpAttr = LevelExpAttr;
+    })(role = cfg.role || (cfg.role = {}));
+    (function (role) {
+        class TbRoleLevelBonusCoefficient {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new role.LevelBonus(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
     })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class LevelBonus {
@@ -2629,6 +3063,29 @@ var cfg;
     })(role = cfg.role || (cfg.role = {}));
     let tag;
     (function (tag) {
+        class TbTestTag {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new tag.TestTag(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        tag.TbTestTag = TbTestTag;
+    })(tag = cfg.tag || (cfg.tag = {}));
+    (function (tag) {
         class TestTag {
             constructor(_buf_) {
                 this.id = _buf_.ReadInt();
@@ -2640,13 +3097,36 @@ var cfg;
         tag.TestTag = TestTag;
     })(tag = cfg.tag || (cfg.tag = {}));
     (function (test) {
+        class TbFullTypes {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoType2(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x3, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbFullTypes = TbFullTypes;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class DemoType2 {
             constructor(_buf_) {
                 this.x4 = _buf_.ReadInt();
                 this.x1 = _buf_.ReadBool();
                 this.x2 = _buf_.ReadByte();
                 this.x3 = _buf_.ReadShort();
-                this.x5 = _buf_.ReadLong();
+                this.x5 = _buf_.ReadLongAsNumber();
                 this.x6 = _buf_.ReadFloat();
                 this.x7 = _buf_.ReadDouble();
                 this.x80 = _buf_.ReadFshort();
@@ -2657,9 +3137,9 @@ var cfg;
                 this.x13 = _buf_.ReadInt();
                 this.x14 = test.DemoDynamic.constructorFrom(_buf_);
                 this.s1 = _buf_.ReadString();
-                this.v2 = Vector2.from(_buf_);
-                this.v3 = Vector3.from(_buf_);
-                this.v4 = Vector4.from(_buf_);
+                this.v2 = Vector2.deserializeFrom(_buf_);
+                this.v3 = Vector3.deserializeFrom(_buf_);
+                this.v4 = Vector4.deserializeFrom(_buf_);
                 this.t1 = _buf_.ReadInt();
                 {
                     let n = Math.min(_buf_.ReadSize(), _buf_.Size);
@@ -2703,6 +3183,7 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
+                        ;
                         this.k5.add(_e);
                     }
                 }
@@ -2711,6 +3192,7 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
+                        ;
                         this.k6.add(_e);
                     }
                 }
@@ -2719,6 +3201,7 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
+                        ;
                         this.k7.add(_e);
                     }
                 }
@@ -2727,8 +3210,10 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _k;
                         _k = _buf_.ReadInt();
+                        ;
                         let _v;
                         _v = _buf_.ReadInt();
+                        ;
                         this.k8.set(_k, _v);
                     }
                 }
@@ -2885,674 +3370,6 @@ var cfg;
         test.DemoE2 = DemoE2;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
-        class DemoSingletonType {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.name = _buf_.ReadString();
-                this.date = test.DemoDynamic.constructorFrom(_buf_);
-            }
-            resolve(_tables) {
-                if (this.date != null) {
-                    this.date.resolve(_tables);
-                }
-            }
-        }
-        test.DemoSingletonType = DemoSingletonType;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class MultiRowRecord {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.name = _buf_.ReadString();
-                {
-                    this.oneRows = [];
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = new test.MultiRowType1(_buf_);
-                        this.oneRows.push(_e);
-                    }
-                }
-                {
-                    this.multiRows1 = [];
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = new test.MultiRowType1(_buf_);
-                        this.multiRows1.push(_e);
-                    }
-                }
-                {
-                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
-                    this.multiRows2 = [];
-                    for (let i = 0; i < n; i++) {
-                        let _e;
-                        _e = new test.MultiRowType1(_buf_);
-                        this.multiRows2.push(_e);
-                    }
-                }
-                {
-                    this.multiRows3 = new Set();
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = new test.MultiRowType2(_buf_);
-                        this.multiRows3.add(_e);
-                    }
-                }
-                {
-                    this.multiRows4 = new Map();
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _k;
-                        _k = _buf_.ReadInt();
-                        let _v;
-                        _v = new test.MultiRowType2(_buf_);
-                        this.multiRows4.set(_k, _v);
-                    }
-                }
-            }
-            resolve(_tables) {
-                for (let _e of this.oneRows) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-                for (let _e of this.multiRows1) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-                for (let _e of this.multiRows2) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-                for (let _e of this.multiRows4.values()) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-            }
-        }
-        test.MultiRowRecord = MultiRowRecord;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class MultiRowType1 {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.x = _buf_.ReadInt();
-            }
-            resolve(_tables) {
-            }
-        }
-        test.MultiRowType1 = MultiRowType1;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class MultiRowType2 {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.x = _buf_.ReadInt();
-                this.y = _buf_.ReadFloat();
-            }
-            resolve(_tables) {
-            }
-        }
-        test.MultiRowType2 = MultiRowType2;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class MultiRowTitle {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.name = _buf_.ReadString();
-                this.x1 = new test.H1(_buf_);
-                {
-                    this.x2 = [];
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = new test.H2(_buf_);
-                        this.x2.push(_e);
-                    }
-                }
-                {
-                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
-                    this.x3 = [];
-                    for (let i = 0; i < n; i++) {
-                        let _e;
-                        _e = new test.H2(_buf_);
-                        this.x3.push(_e);
-                    }
-                }
-            }
-            resolve(_tables) {
-                if (this.x1 != null) {
-                    this.x1.resolve(_tables);
-                }
-                for (let _e of this.x2) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-                for (let _e of this.x3) {
-                    if (_e != null) {
-                        _e.resolve(_tables);
-                    }
-                }
-            }
-        }
-        test.MultiRowTitle = MultiRowTitle;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class H1 {
-            constructor(_buf_) {
-                this.y2 = new test.H2(_buf_);
-                this.y3 = _buf_.ReadInt();
-            }
-            resolve(_tables) {
-                if (this.y2 != null) {
-                    this.y2.resolve(_tables);
-                }
-            }
-        }
-        test.H1 = H1;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class H2 {
-            constructor(_buf_) {
-                this.z2 = _buf_.ReadInt();
-                this.z3 = _buf_.ReadInt();
-            }
-            resolve(_tables) {
-            }
-        }
-        test.H2 = H2;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TestNull {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                if (_buf_.ReadBool()) {
-                    this.x1 = _buf_.ReadInt();
-                }
-                else {
-                    this.x1 = null;
-                }
-                if (_buf_.ReadBool()) {
-                    this.x2 = _buf_.ReadInt();
-                }
-                else {
-                    this.x2 = null;
-                }
-                if (_buf_.ReadBool()) {
-                    this.x3 = new test.DemoType1(_buf_);
-                }
-                else {
-                    this.x3 = null;
-                }
-                if (_buf_.ReadBool()) {
-                    this.x4 = test.DemoDynamic.constructorFrom(_buf_);
-                }
-                else {
-                    this.x4 = null;
-                }
-            }
-            resolve(_tables) {
-                if (this.x3 != null) {
-                    this.x3.resolve(_tables);
-                }
-                if (this.x4 != null) {
-                    this.x4.resolve(_tables);
-                }
-            }
-        }
-        test.TestNull = TestNull;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (ai) {
-        class TbBlackboard {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new ai.Blackboard(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        ai.TbBlackboard = TbBlackboard;
-    })(ai = cfg.ai || (cfg.ai = {}));
-    (function (ai) {
-        class TbBehaviorTree {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new ai.BehaviorTree(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        ai.TbBehaviorTree = TbBehaviorTree;
-    })(ai = cfg.ai || (cfg.ai = {}));
-    (function (blueprint) {
-        class TbClazz {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = blueprint.Clazz.constructorFrom(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        blueprint.TbClazz = TbClazz;
-    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
-    (function (bonus) {
-        class TbDrop {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new bonus.DropInfo(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        bonus.TbDrop = TbDrop;
-    })(bonus = cfg.bonus || (cfg.bonus = {}));
-    (function (common) {
-        class TbGlobalConfig {
-            constructor(_buf_) {
-                if (_buf_.ReadInt() != 1)
-                    throw new Error('table mode=one, but size != 1');
-                this._data = new common.GlobalConfig(_buf_);
-            }
-            getData() { return this._data; }
-            get bagCapacity() { return this._data.bagCapacity; }
-            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
-            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
-            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
-            get bagInitCapacity() { return this._data.bagInitCapacity; }
-            get quickBagCapacity() { return this._data.quickBagCapacity; }
-            get clothBagCapacity() { return this._data.clothBagCapacity; }
-            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
-            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
-            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
-            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
-            get damageParamC() { return this._data.damageParamC; }
-            get damageParamE() { return this._data.damageParamE; }
-            get damageParamF() { return this._data.damageParamF; }
-            get damageParamD() { return this._data.damageParamD; }
-            get roleSpeed() { return this._data.roleSpeed; }
-            get monsterSpeed() { return this._data.monsterSpeed; }
-            get initEnergy() { return this._data.initEnergy; }
-            get initViality() { return this._data.initViality; }
-            get maxViality() { return this._data.maxViality; }
-            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
-            resolve(_tables) {
-                this._data.resolve(_tables);
-            }
-        }
-        common.TbGlobalConfig = TbGlobalConfig;
-    })(common = cfg.common || (cfg.common = {}));
-    (function (common) {
-        class TbDummy {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new common.Dummy(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        common.TbDummy = TbDummy;
-    })(common = cfg.common || (cfg.common = {}));
-    (function (error) {
-        class TbErrorInfo {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new error.ErrorInfo(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        error.TbErrorInfo = TbErrorInfo;
-    })(error = cfg.error || (cfg.error = {}));
-    (function (error) {
-        class TbCodeInfo {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new error.CodeInfo(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        error.TbCodeInfo = TbCodeInfo;
-    })(error = cfg.error || (cfg.error = {}));
-    (function (item) {
-        class TbItem {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new item.Item(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItem = TbItem;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (item) {
-        class TbItemFunc {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new item.ItemFunction(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.minorType, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemFunc = TbItemFunc;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (item) {
-        class TbItemExtra {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = item.ItemExtra.constructorFrom(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemExtra = TbItemExtra;
-    })(item = cfg.item || (cfg.item = {}));
-    (function (l10n) {
-        class TbL10NDemo {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new l10n.L10NDemo(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        l10n.TbL10NDemo = TbL10NDemo;
-    })(l10n = cfg.l10n || (cfg.l10n = {}));
-    (function (l10n) {
-        class TbPatchDemo {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new l10n.PatchDemo(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        l10n.TbPatchDemo = TbPatchDemo;
-    })(l10n = cfg.l10n || (cfg.l10n = {}));
-    (function (mail) {
-        class TbSystemMail {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new mail.SystemMail(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        mail.TbSystemMail = TbSystemMail;
-    })(mail = cfg.mail || (cfg.mail = {}));
-    (function (mail) {
-        class TbGlobalMail {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new mail.GlobalMail(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        mail.TbGlobalMail = TbGlobalMail;
-    })(mail = cfg.mail || (cfg.mail = {}));
-    (function (role) {
-        class TbRoleLevelExpAttr {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new role.LevelExpAttr(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.level, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (role) {
-        class TbRoleLevelBonusCoefficient {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new role.LevelBonus(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
-    })(role = cfg.role || (cfg.role = {}));
-    (function (tag) {
-        class TbTestTag {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new tag.TestTag(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        tag.TbTestTag = TbTestTag;
-    })(tag = cfg.tag || (cfg.tag = {}));
-    (function (test) {
-        class TbFullTypes {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new test.DemoType2(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x3, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbFullTypes = TbFullTypes;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
         class TbSingleton {
             constructor(_buf_) {
                 if (_buf_.ReadInt() != 1)
@@ -3568,6 +3385,21 @@ var cfg;
             }
         }
         test.TbSingleton = TbSingleton;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoSingletonType {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.name = _buf_.ReadString();
+                this.date = test.DemoDynamic.constructorFrom(_buf_);
+            }
+            resolve(_tables) {
+                if (this.date != null) {
+                    this.date.resolve(_tables);
+                }
+            }
+        }
+        test.DemoSingletonType = DemoSingletonType;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDataFromJson {
@@ -3662,6 +3494,104 @@ var cfg;
         test.TbMultiRowRecord = TbMultiRowRecord;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class MultiRowRecord {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.name = _buf_.ReadString();
+                {
+                    this.oneRows = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType1(_buf_);
+                        this.oneRows.push(_e);
+                    }
+                }
+                {
+                    this.multiRows1 = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType1(_buf_);
+                        this.multiRows1.push(_e);
+                    }
+                }
+                {
+                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
+                    this.multiRows2 = [];
+                    for (let i = 0; i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType1(_buf_);
+                        this.multiRows2.push(_e);
+                    }
+                }
+                {
+                    this.multiRows3 = new Set();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType2(_buf_);
+                        this.multiRows3.add(_e);
+                    }
+                }
+                {
+                    this.multiRows4 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadInt();
+                        ;
+                        let _v;
+                        _v = new test.MultiRowType2(_buf_);
+                        this.multiRows4.set(_k, _v);
+                    }
+                }
+            }
+            resolve(_tables) {
+                for (let _e of this.oneRows) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows1) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows2) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows4.values()) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.MultiRowRecord = MultiRowRecord;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowType1 {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.x = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.MultiRowType1 = MultiRowType1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowType2 {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.x = _buf_.ReadInt();
+                this.y = _buf_.ReadFloat();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.MultiRowType2 = MultiRowType2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class TbMultiRowTitle {
             constructor(_buf_) {
                 this._dataMap = new Map();
@@ -3685,6 +3615,73 @@ var cfg;
         test.TbMultiRowTitle = TbMultiRowTitle;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class MultiRowTitle {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.name = _buf_.ReadString();
+                this.x1 = new test.H1(_buf_);
+                {
+                    this.x2 = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.H2(_buf_);
+                        this.x2.push(_e);
+                    }
+                }
+                {
+                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
+                    this.x3 = [];
+                    for (let i = 0; i < n; i++) {
+                        let _e;
+                        _e = new test.H2(_buf_);
+                        this.x3.push(_e);
+                    }
+                }
+            }
+            resolve(_tables) {
+                if (this.x1 != null) {
+                    this.x1.resolve(_tables);
+                }
+                for (let _e of this.x2) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.x3) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.MultiRowTitle = MultiRowTitle;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class H1 {
+            constructor(_buf_) {
+                this.y2 = new test.H2(_buf_);
+                this.y3 = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+                if (this.y2 != null) {
+                    this.y2.resolve(_tables);
+                }
+            }
+        }
+        test.H1 = H1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class H2 {
+            constructor(_buf_) {
+                this.z2 = _buf_.ReadInt();
+                this.z3 = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.H2 = H2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class TbTestNull {
             constructor(_buf_) {
                 this._dataMap = new Map();
@@ -3706,6 +3703,307 @@ var cfg;
             }
         }
         test.TbTestNull = TbTestNull;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestNull {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                if (_buf_.ReadBool()) {
+                    this.x1 = _buf_.ReadInt();
+                }
+                else {
+                    this.x1 = null;
+                }
+                if (_buf_.ReadBool()) {
+                    this.x2 = _buf_.ReadInt();
+                }
+                else {
+                    this.x2 = null;
+                }
+                if (_buf_.ReadBool()) {
+                    this.x3 = new test.DemoType1(_buf_);
+                }
+                else {
+                    this.x3 = null;
+                }
+                if (_buf_.ReadBool()) {
+                    this.x4 = test.DemoDynamic.constructorFrom(_buf_);
+                }
+                else {
+                    this.x4 = null;
+                }
+                if (_buf_.ReadBool()) {
+                    this.s1 = _buf_.ReadString();
+                }
+                else {
+                    this.s1 = null;
+                }
+                if (_buf_.ReadBool()) {
+                    this.s2 = _buf_.ReadString();
+                }
+                else {
+                    this.s2 = null;
+                }
+            }
+            resolve(_tables) {
+                if (this.x3 != null) {
+                    this.x3.resolve(_tables);
+                }
+                if (this.x4 != null) {
+                    this.x4.resolve(_tables);
+                }
+            }
+        }
+        test.TestNull = TestNull;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoPrimitive {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoPrimitiveTypesTable(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoPrimitive = TbDemoPrimitive;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoPrimitiveTypesTable {
+            constructor(_buf_) {
+                this.x1 = _buf_.ReadBool();
+                this.x2 = _buf_.ReadByte();
+                this.x3 = _buf_.ReadShort();
+                this.x4 = _buf_.ReadInt();
+                this.x5 = _buf_.ReadLongAsNumber();
+                this.x6 = _buf_.ReadFloat();
+                this.x7 = _buf_.ReadDouble();
+                this.s1 = _buf_.ReadString();
+                this.s2 = _buf_.ReadString();
+                this.v2 = Vector2.deserializeFrom(_buf_);
+                this.v3 = Vector3.deserializeFrom(_buf_);
+                this.v4 = Vector4.deserializeFrom(_buf_);
+                this.t1 = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoPrimitiveTypesTable = DemoPrimitiveTypesTable;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestString {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.TestString(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestString = TbTestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestString {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.s1 = _buf_.ReadString();
+                this.cs1 = new test.CompactString(_buf_);
+                this.cs2 = new test.CompactString(_buf_);
+            }
+            resolve(_tables) {
+                if (this.cs1 != null) {
+                    this.cs1.resolve(_tables);
+                }
+                if (this.cs2 != null) {
+                    this.cs2.resolve(_tables);
+                }
+            }
+        }
+        test.TestString = TestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class CompactString {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.s2 = _buf_.ReadString();
+                this.s3 = _buf_.ReadString();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.CompactString = CompactString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoGroup(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup = TbDemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoGroup {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.x1 = _buf_.ReadInt();
+                this.x2 = _buf_.ReadInt();
+                this.x3 = _buf_.ReadInt();
+                this.x4 = _buf_.ReadInt();
+                this.x5 = new test.InnerGroup(_buf_);
+            }
+            resolve(_tables) {
+                if (this.x5 != null) {
+                    this.x5.resolve(_tables);
+                }
+            }
+        }
+        test.DemoGroup = DemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class InnerGroup {
+            constructor(_buf_) {
+                this.y1 = _buf_.ReadInt();
+                this.y2 = _buf_.ReadInt();
+                this.y3 = _buf_.ReadInt();
+                this.y4 = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.InnerGroup = InnerGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_C {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoGroup(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_C = TbDemoGroup_C;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_S {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoGroup(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_S = TbDemoGroup_S;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_E {
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoGroup(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_E = TbDemoGroup_E;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestGlobal {
+            constructor(_buf_) {
+                if (_buf_.ReadInt() != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new test.TestGlobal(_buf_);
+            }
+            getData() { return this._data; }
+            get unlockEquip() { return this._data.unlockEquip; }
+            get unlockHero() { return this._data.unlockHero; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        test.TbTestGlobal = TbTestGlobal;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestGlobal {
+            constructor(_buf_) {
+                this.unlockEquip = _buf_.ReadInt();
+                this.unlockHero = _buf_.ReadInt();
+            }
+            resolve(_tables) {
+            }
+        }
+        test.TestGlobal = TestGlobal;
     })(test = cfg.test || (cfg.test = {}));
     class Tables {
         constructor(loader) {
@@ -3762,6 +4060,20 @@ var cfg;
             tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle);
             this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.bin'));
             tables.set('test.TbTestNull', this._TbTestNull);
+            this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive.bin'));
+            tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive);
+            this._TbTestString = new test.TbTestString(loader('test.TbTestString.bin'));
+            tables.set('test.TbTestString', this._TbTestString);
+            this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup.bin'));
+            tables.set('test.TbDemoGroup', this._TbDemoGroup);
+            this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C.bin'));
+            tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C);
+            this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S.bin'));
+            tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S);
+            this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E.bin'));
+            tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E);
+            this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal.bin'));
+            tables.set('test.TbTestGlobal', this._TbTestGlobal);
             this._TbBlackboard.resolve(tables);
             this._TbBehaviorTree.resolve(tables);
             this._TbClazz.resolve(tables);
@@ -3788,6 +4100,13 @@ var cfg;
             this._TbMultiRowRecord.resolve(tables);
             this._TbMultiRowTitle.resolve(tables);
             this._TbTestNull.resolve(tables);
+            this._TbDemoPrimitive.resolve(tables);
+            this._TbTestString.resolve(tables);
+            this._TbDemoGroup.resolve(tables);
+            this._TbDemoGroup_C.resolve(tables);
+            this._TbDemoGroup_S.resolve(tables);
+            this._TbDemoGroup_E.resolve(tables);
+            this._TbTestGlobal.resolve(tables);
         }
         get TbBlackboard() { return this._TbBlackboard; }
         get TbBehaviorTree() { return this._TbBehaviorTree; }
@@ -3815,6 +4134,13 @@ var cfg;
         get TbMultiRowRecord() { return this._TbMultiRowRecord; }
         get TbMultiRowTitle() { return this._TbMultiRowTitle; }
         get TbTestNull() { return this._TbTestNull; }
+        get TbDemoPrimitive() { return this._TbDemoPrimitive; }
+        get TbTestString() { return this._TbTestString; }
+        get TbDemoGroup() { return this._TbDemoGroup; }
+        get TbDemoGroup_C() { return this._TbDemoGroup_C; }
+        get TbDemoGroup_S() { return this._TbDemoGroup_S; }
+        get TbDemoGroup_E() { return this._TbDemoGroup_E; }
+        get TbTestGlobal() { return this._TbTestGlobal; }
     }
     cfg.Tables = Tables;
 })(cfg = exports.cfg || (exports.cfg = {}));

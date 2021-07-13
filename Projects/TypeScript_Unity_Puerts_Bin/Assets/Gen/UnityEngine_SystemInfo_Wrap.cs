@@ -102,6 +102,39 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_SupportsRandomWriteOnRenderTextureFormat(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = (UnityEngine.RenderTextureFormat)argHelper0.GetInt32(false);
+                        var result = UnityEngine.SystemInfo.SupportsRandomWriteOnRenderTextureFormat(Arg0);
+                        
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_SupportsTextureFormat(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -988,40 +1021,6 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_supportsConservativeRaster(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                
-                var result = UnityEngine.SystemInfo.supportsConservativeRaster;
-                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_supportsMultiview(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                
-                var result = UnityEngine.SystemInfo.supportsMultiview;
-                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_supportsGeometryShaders(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1685,6 +1684,40 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_supportsConservativeRaster(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                var result = UnityEngine.SystemInfo.supportsConservativeRaster;
+                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_supportsMultiview(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                var result = UnityEngine.SystemInfo.supportsMultiview;
+                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_supportsStoreAndResolveAction(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1730,6 +1763,7 @@ namespace PuertsStaticWrap
                 {
                     { new Puerts.MethodKey {Name = "SupportsRenderTextureFormat", IsStatic = true},  F_SupportsRenderTextureFormat },
                     { new Puerts.MethodKey {Name = "SupportsBlendingOnRenderTextureFormat", IsStatic = true},  F_SupportsBlendingOnRenderTextureFormat },
+                    { new Puerts.MethodKey {Name = "SupportsRandomWriteOnRenderTextureFormat", IsStatic = true},  F_SupportsRandomWriteOnRenderTextureFormat },
                     { new Puerts.MethodKey {Name = "SupportsTextureFormat", IsStatic = true},  F_SupportsTextureFormat },
                     { new Puerts.MethodKey {Name = "SupportsVertexAttributeFormat", IsStatic = true},  F_SupportsVertexAttributeFormat },
                     { new Puerts.MethodKey {Name = "IsFormatSupported", IsStatic = true},  F_IsFormatSupported },
@@ -1780,8 +1814,6 @@ namespace PuertsStaticWrap
                     {"supportsCubemapArrayTextures", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsCubemapArrayTextures, Setter = null} },
                     {"copyTextureSupport", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_copyTextureSupport, Setter = null} },
                     {"supportsComputeShaders", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsComputeShaders, Setter = null} },
-                    {"supportsConservativeRaster", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsConservativeRaster, Setter = null} },
-                    {"supportsMultiview", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsMultiview, Setter = null} },
                     {"supportsGeometryShaders", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsGeometryShaders, Setter = null} },
                     {"supportsTessellationShaders", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsTessellationShaders, Setter = null} },
                     {"supportsRenderTargetArrayIndexFromVertexShader", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsRenderTargetArrayIndexFromVertexShader, Setter = null} },
@@ -1821,6 +1853,8 @@ namespace PuertsStaticWrap
                     {"supportsMipStreaming", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsMipStreaming, Setter = null} },
                     {"usesLoadStoreActions", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_usesLoadStoreActions, Setter = null} },
                     {"hdrDisplaySupportFlags", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_hdrDisplaySupportFlags, Setter = null} },
+                    {"supportsConservativeRaster", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsConservativeRaster, Setter = null} },
+                    {"supportsMultiview", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsMultiview, Setter = null} },
                     {"supportsStoreAndResolveAction", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_supportsStoreAndResolveAction, Setter = null} },
                     {"unsupportedIdentifier", new Puerts.PropertyRegisterInfo(){ IsStatic = true, Getter = G_unsupportedIdentifier, Setter = null} },
                     

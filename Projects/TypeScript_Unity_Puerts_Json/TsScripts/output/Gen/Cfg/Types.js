@@ -7,60 +7,78 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cfg = void 0;
+exports.cfg = exports.Vector4 = exports.Vector3 = exports.Vector2 = void 0;
+class Vector2 {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+    static deserializeFromJson(json) {
+        let x = json['x'];
+        let y = json['y'];
+        if (x == null || y == null) {
+            throw new Error();
+        }
+        return new Vector2(x, y);
+    }
+}
+exports.Vector2 = Vector2;
+class Vector3 {
+    constructor(x = 0, y = 0, z = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    static deserializeFromJson(json) {
+        let x = json['x'];
+        let y = json['y'];
+        let z = json['z'];
+        if (x == null || y == null || z == null) {
+            throw new Error();
+        }
+        return new Vector3(x, y, z);
+    }
+}
+exports.Vector3 = Vector3;
+class Vector4 {
+    constructor(x = 0, y = 0, z = 0, w = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+    }
+    static deserializeFromJson(json) {
+        let x = json['x'];
+        let y = json['y'];
+        let z = json['z'];
+        let w = json['w'];
+        if (x == null || y == null || z == null || w == null) {
+            throw new Error();
+        }
+        return new Vector4(x, y, z, w);
+    }
+}
+exports.Vector4 = Vector4;
 var cfg;
 (function (cfg) {
-    class Vector2 {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
+    let role;
+    (function (role) {
+        class Consts {
         }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            if (x == null || y == null) {
-                throw new Error();
-            }
-            return new Vector2(x, y);
+        Consts.MAX_NAME_LENGTH = 20;
+        Consts.MAX_USER_ROLE_NUM = 10;
+        role.Consts = Consts;
+    })(role = cfg.role || (cfg.role = {}));
+    let test;
+    (function (test) {
+        class DemoConst {
         }
-    }
-    cfg.Vector2 = Vector2;
-    class Vector3 {
-        constructor(x, y, z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
-            if (x == null || y == null || z == null) {
-                throw new Error();
-            }
-            return new Vector3(x, y, z);
-        }
-    }
-    cfg.Vector3 = Vector3;
-    class Vector4 {
-        constructor(x, y, z, w) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
-        static from(_json_) {
-            let x = _json_['x'];
-            let y = _json_['y'];
-            let z = _json_['z'];
-            let w = _json_['w'];
-            if (x == null || y == null || z == null || w == null) {
-                throw new Error();
-            }
-            return new Vector4(x, y, z, w);
-        }
-    }
-    cfg.Vector4 = Vector4;
+        DemoConst.x1 = 0;
+        DemoConst.x2 = 3242;
+        DemoConst.x3 = 444.3;
+        DemoConst.x4 = 55.3;
+        test.DemoConst = DemoConst;
+    })(test = cfg.test || (cfg.test = {}));
     let ai;
     (function (ai) {
         let EExecutor;
@@ -68,7 +86,7 @@ var cfg;
             EExecutor[EExecutor["CLIENT"] = 0] = "CLIENT";
             EExecutor[EExecutor["SERVER"] = 1] = "SERVER";
         })(EExecutor = ai.EExecutor || (ai.EExecutor = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         let EKeyType;
         (function (EKeyType) {
@@ -83,7 +101,7 @@ var cfg;
             EKeyType[EKeyType["ENUM"] = 9] = "ENUM";
             EKeyType[EKeyType["OBJECT"] = 10] = "OBJECT";
         })(EKeyType = ai.EKeyType || (ai.EKeyType = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         let EFlowAbortMode;
         (function (EFlowAbortMode) {
@@ -92,21 +110,21 @@ var cfg;
             EFlowAbortMode[EFlowAbortMode["SELF"] = 2] = "SELF";
             EFlowAbortMode[EFlowAbortMode["BOTH"] = 3] = "BOTH";
         })(EFlowAbortMode = ai.EFlowAbortMode || (ai.EFlowAbortMode = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         let EFinishMode;
         (function (EFinishMode) {
             EFinishMode[EFinishMode["IMMEDIATE"] = 0] = "IMMEDIATE";
             EFinishMode[EFinishMode["DELAYED"] = 1] = "DELAYED";
         })(EFinishMode = ai.EFinishMode || (ai.EFinishMode = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         let ENotifyObserverMode;
         (function (ENotifyObserverMode) {
             ENotifyObserverMode[ENotifyObserverMode["ON_VALUE_CHANGE"] = 0] = "ON_VALUE_CHANGE";
             ENotifyObserverMode[ENotifyObserverMode["ON_RESULT_CHANGE"] = 1] = "ON_RESULT_CHANGE";
         })(ENotifyObserverMode = ai.ENotifyObserverMode || (ai.ENotifyObserverMode = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         let EOperator;
         (function (EOperator) {
@@ -119,7 +137,7 @@ var cfg;
             EOperator[EOperator["CONTAINS"] = 6] = "CONTAINS";
             EOperator[EOperator["NOT_CONTAINS"] = 7] = "NOT_CONTAINS";
         })(EOperator = ai.EOperator || (ai.EOperator = {}));
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     let common;
     (function (common) {
         let EBoolOperator;
@@ -127,7 +145,7 @@ var cfg;
             EBoolOperator[EBoolOperator["AND"] = 0] = "AND";
             EBoolOperator[EBoolOperator["OR"] = 1] = "OR";
         })(EBoolOperator = common.EBoolOperator || (common.EBoolOperator = {}));
-    })(common || (common = {}));
+    })(common = cfg.common || (cfg.common = {}));
     let error;
     (function (error) {
         let EOperation;
@@ -135,7 +153,7 @@ var cfg;
             EOperation[EOperation["LOGOUT"] = 0] = "LOGOUT";
             EOperation[EOperation["RESTART"] = 1] = "RESTART";
         })(EOperation = error.EOperation || (error.EOperation = {}));
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         let EErrorCode;
         (function (EErrorCode) {
@@ -225,7 +243,7 @@ var cfg;
             EErrorCode[EErrorCode["SELFIE_LACK_STARTS"] = 1202] = "SELFIE_LACK_STARTS";
             EErrorCode[EErrorCode["SELFIE_HAD_REWARD"] = 1203] = "SELFIE_HAD_REWARD";
         })(EErrorCode = error.EErrorCode || (error.EErrorCode = {}));
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     let item;
     (function (item) {
         let EItemQuality;
@@ -236,7 +254,7 @@ var cfg;
             EItemQuality[EItemQuality["PURPLE"] = 3] = "PURPLE";
             EItemQuality[EItemQuality["GOLDEN"] = 4] = "GOLDEN";
         })(EItemQuality = item.EItemQuality || (item.EItemQuality = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let ECurrencyType;
         (function (ECurrencyType) {
@@ -246,7 +264,7 @@ var cfg;
             ECurrencyType[ECurrencyType["EXP"] = 4] = "EXP";
             ECurrencyType[ECurrencyType["POWER_POINT"] = 5] = "POWER_POINT";
         })(ECurrencyType = item.ECurrencyType || (item.ECurrencyType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EMajorType;
         (function (EMajorType) {
@@ -262,7 +280,7 @@ var cfg;
             EMajorType[EMajorType["EXPANSION"] = 10] = "EXPANSION";
             EMajorType[EMajorType["MATERIAL"] = 11] = "MATERIAL";
         })(EMajorType = item.EMajorType || (item.EMajorType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EMinorType;
         (function (EMinorType) {
@@ -316,7 +334,7 @@ var cfg;
             EMinorType[EMinorType["CONSTRUCTION_MATERIAL"] = 1101] = "CONSTRUCTION_MATERIAL";
             EMinorType[EMinorType["DESIGN_DRAWING"] = 1102] = "DESIGN_DRAWING";
         })(EMinorType = item.EMinorType || (item.EMinorType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothersStarQualityType;
         (function (EClothersStarQualityType) {
@@ -331,21 +349,21 @@ var cfg;
             EClothersStarQualityType[EClothersStarQualityType["NINE"] = 9] = "NINE";
             EClothersStarQualityType[EClothersStarQualityType["TEN"] = 10] = "TEN";
         })(EClothersStarQualityType = item.EClothersStarQualityType || (item.EClothersStarQualityType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothersTag;
         (function (EClothersTag) {
             EClothersTag[EClothersTag["FANG_SHAI"] = 1] = "FANG_SHAI";
             EClothersTag[EClothersTag["WU_ZHE"] = 2] = "WU_ZHE";
         })(EClothersTag = item.EClothersTag || (item.EClothersTag = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EUseType;
         (function (EUseType) {
             EUseType[EUseType["MANUAL"] = 0] = "MANUAL";
             EUseType[EUseType["AUTO"] = 1] = "AUTO";
         })(EUseType = item.EUseType || (item.EUseType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothesHidePartType;
         (function (EClothesHidePartType) {
@@ -358,7 +376,7 @@ var cfg;
             EClothesHidePartType[EClothesHidePartType["LEG_MIDDLE"] = 6] = "LEG_MIDDLE";
             EClothesHidePartType[EClothesHidePartType["LEG_LOWER"] = 7] = "LEG_LOWER";
         })(EClothesHidePartType = item.EClothesHidePartType || (item.EClothesHidePartType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothesPropertyType;
         (function (EClothesPropertyType) {
@@ -373,14 +391,14 @@ var cfg;
             EClothesPropertyType[EClothesPropertyType["QING_LIANG"] = 9] = "QING_LIANG";
             EClothesPropertyType[EClothesPropertyType["BAO_NUAN"] = 10] = "BAO_NUAN";
         })(EClothesPropertyType = item.EClothesPropertyType || (item.EClothesPropertyType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EItemFunctionType;
         (function (EItemFunctionType) {
             EItemFunctionType[EItemFunctionType["REPLACE_HANDHELD"] = 0] = "REPLACE_HANDHELD";
             EItemFunctionType[EItemFunctionType["USE_DESIGN_DRAWING"] = 1] = "USE_DESIGN_DRAWING";
         })(EItemFunctionType = item.EItemFunctionType || (item.EItemFunctionType = {}));
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     let limit;
     (function (limit) {
         let ENamespace;
@@ -389,7 +407,7 @@ var cfg;
             ENamespace[ENamespace["TREASURE_DAILY_USE"] = 2] = "TREASURE_DAILY_USE";
             ENamespace[ENamespace["STORE_GOODS_LIMIT_BUY"] = 3] = "STORE_GOODS_LIMIT_BUY";
         })(ENamespace = limit.ENamespace || (limit.ENamespace = {}));
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     let mail;
     (function (mail) {
         let EMailType;
@@ -397,28 +415,72 @@ var cfg;
             EMailType[EMailType["GLOBAL"] = 0] = "GLOBAL";
             EMailType[EMailType["SYSTEM"] = 1] = "SYSTEM";
         })(EMailType = mail.EMailType || (mail.EMailType = {}));
-    })(mail || (mail = {}));
-    let role;
+    })(mail = cfg.mail || (cfg.mail = {}));
     (function (role) {
         let EGenderType;
         (function (EGenderType) {
             EGenderType[EGenderType["MALE"] = 1] = "MALE";
             EGenderType[EGenderType["FEMALE"] = 2] = "FEMALE";
         })(EGenderType = role.EGenderType || (role.EGenderType = {}));
-    })(role || (role = {}));
+    })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         let EProfession;
         (function (EProfession) {
             EProfession[EProfession["TEST_PROFESSION"] = 1] = "TEST_PROFESSION";
         })(EProfession = role.EProfession || (role.EProfession = {}));
-    })(role || (role = {}));
-    (function (role) {
-        class Consts {
+    })(role = cfg.role || (cfg.role = {}));
+    (function (test) {
+        let DemoEnum;
+        (function (DemoEnum) {
+            DemoEnum[DemoEnum["A"] = 1] = "A";
+            DemoEnum[DemoEnum["B"] = 2] = "B";
+            DemoEnum[DemoEnum["C"] = 4] = "C";
+            DemoEnum[DemoEnum["D"] = 5] = "D";
+        })(DemoEnum = test.DemoEnum || (test.DemoEnum = {}));
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        let ETestUeType;
+        (function (ETestUeType) {
+            ETestUeType[ETestUeType["WHITE"] = 0] = "WHITE";
+            ETestUeType[ETestUeType["BLACK"] = 1] = "BLACK";
+        })(ETestUeType = test.ETestUeType || (test.ETestUeType = {}));
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        let ETestEmptyEnum;
+        (function (ETestEmptyEnum) {
+        })(ETestEmptyEnum = test.ETestEmptyEnum || (test.ETestEmptyEnum = {}));
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        let ETestEmptyEnum2;
+        (function (ETestEmptyEnum2) {
+            ETestEmptyEnum2[ETestEmptyEnum2["SMALL_THAN_256"] = 255] = "SMALL_THAN_256";
+            ETestEmptyEnum2[ETestEmptyEnum2["X_256"] = 256] = "X_256";
+            ETestEmptyEnum2[ETestEmptyEnum2["X_257"] = 257] = "X_257";
+        })(ETestEmptyEnum2 = test.ETestEmptyEnum2 || (test.ETestEmptyEnum2 = {}));
+    })(test = cfg.test || (cfg.test = {}));
+    (function (ai) {
+        class TbBlackboard {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new ai.Blackboard(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
         }
-        Consts.MAX_NAME_LENGTH = 20;
-        Consts.MAX_USER_ROLE_NUM = 10;
-        role.Consts = Consts;
-    })(role || (role = {}));
+        ai.TbBlackboard = TbBlackboard;
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Blackboard {
             constructor(_json_) {
@@ -456,7 +518,7 @@ var cfg;
             }
         }
         ai.Blackboard = Blackboard;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BlackboardKey {
             constructor(_json_) {
@@ -485,7 +547,30 @@ var cfg;
             }
         }
         ai.BlackboardKey = BlackboardKey;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
+    (function (ai) {
+        class TbBehaviorTree {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new ai.BehaviorTree(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        ai.TbBehaviorTree = TbBehaviorTree;
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BehaviorTree {
             constructor(_json_) {
@@ -505,7 +590,10 @@ var cfg;
                     throw new Error();
                 }
                 this.blackboardId = _json_.blackboard_id;
-                this.root = ai.ComposeNode.deserialize(_json_.root);
+                if (_json_.root == null) {
+                    throw new Error();
+                }
+                this.root = ai.ComposeNode.constructorFrom(_json_.root);
             }
             resolve(_tables) {
                 this.blackboardId_Ref = _tables.get('ai.TbBlackboard').get(this.blackboardId);
@@ -515,7 +603,7 @@ var cfg;
             }
         }
         ai.BehaviorTree = BehaviorTree;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Node {
             constructor(_json_) {
@@ -528,9 +616,8 @@ var cfg;
                 }
                 this.nodeName = _json_.node_name;
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_);
                     case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_);
                     case 'ChooseTarget': return new ai.ChooseTarget(_json_);
@@ -561,12 +648,11 @@ var cfg;
             }
         }
         ai.Node = Node;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Service extends ai.Node {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_);
                     case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_);
                     case 'ChooseTarget': return new ai.ChooseTarget(_json_);
@@ -584,7 +670,7 @@ var cfg;
             }
         }
         ai.Service = Service;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeSetDefaultFocus extends ai.Service {
             constructor(_json_) {
@@ -599,7 +685,7 @@ var cfg;
             }
         }
         ai.UeSetDefaultFocus = UeSetDefaultFocus;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class ExecuteTimeStatistic extends ai.Service {
             constructor(_json_) {
@@ -610,7 +696,7 @@ var cfg;
             }
         }
         ai.ExecuteTimeStatistic = ExecuteTimeStatistic;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class ChooseTarget extends ai.Service {
             constructor(_json_) {
@@ -625,7 +711,7 @@ var cfg;
             }
         }
         ai.ChooseTarget = ChooseTarget;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class KeepFaceTarget extends ai.Service {
             constructor(_json_) {
@@ -640,7 +726,7 @@ var cfg;
             }
         }
         ai.KeepFaceTarget = KeepFaceTarget;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class GetOwnerPlayer extends ai.Service {
             constructor(_json_) {
@@ -655,7 +741,7 @@ var cfg;
             }
         }
         ai.GetOwnerPlayer = GetOwnerPlayer;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UpdateDailyBehaviorProps extends ai.Service {
             constructor(_json_) {
@@ -702,7 +788,7 @@ var cfg;
             }
         }
         ai.UpdateDailyBehaviorProps = UpdateDailyBehaviorProps;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Decorator extends ai.Node {
             constructor(_json_) {
@@ -712,9 +798,8 @@ var cfg;
                 }
                 this.flowAbortMode = _json_.flow_abort_mode;
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'UeLoop': return new ai.UeLoop(_json_);
                     case 'UeCooldown': return new ai.UeCooldown(_json_);
                     case 'UeTimeLimit': return new ai.UeTimeLimit(_json_);
@@ -730,7 +815,7 @@ var cfg;
             }
         }
         ai.Decorator = Decorator;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeLoop extends ai.Decorator {
             constructor(_json_) {
@@ -753,7 +838,7 @@ var cfg;
             }
         }
         ai.UeLoop = UeLoop;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeCooldown extends ai.Decorator {
             constructor(_json_) {
@@ -768,7 +853,7 @@ var cfg;
             }
         }
         ai.UeCooldown = UeCooldown;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeTimeLimit extends ai.Decorator {
             constructor(_json_) {
@@ -783,7 +868,7 @@ var cfg;
             }
         }
         ai.UeTimeLimit = UeTimeLimit;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeBlackboard extends ai.Decorator {
             constructor(_json_) {
@@ -796,7 +881,10 @@ var cfg;
                     throw new Error();
                 }
                 this.blackboardKey = _json_.blackboard_key;
-                this.keyQuery = ai.KeyQueryOperator.deserialize(_json_.key_query);
+                if (_json_.key_query == null) {
+                    throw new Error();
+                }
+                this.keyQuery = ai.KeyQueryOperator.constructorFrom(_json_.key_query);
             }
             resolve(_tables) {
                 super.resolve(_tables);
@@ -806,12 +894,11 @@ var cfg;
             }
         }
         ai.UeBlackboard = UeBlackboard;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class KeyQueryOperator {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'IsSet': return new ai.IsSet(_json_);
                     case 'IsNotSet': return new ai.IsNotSet(_json_);
                     case 'BinaryOperator': return new ai.BinaryOperator(_json_);
@@ -824,7 +911,7 @@ var cfg;
             }
         }
         ai.KeyQueryOperator = KeyQueryOperator;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class IsSet extends ai.KeyQueryOperator {
             constructor(_json_) {
@@ -835,7 +922,7 @@ var cfg;
             }
         }
         ai.IsSet = IsSet;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class IsNotSet extends ai.KeyQueryOperator {
             constructor(_json_) {
@@ -846,7 +933,7 @@ var cfg;
             }
         }
         ai.IsNotSet = IsNotSet;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BinaryOperator extends ai.KeyQueryOperator {
             constructor(_json_) {
@@ -855,7 +942,10 @@ var cfg;
                     throw new Error();
                 }
                 this.oper = _json_.oper;
-                this.data = ai.KeyData.deserialize(_json_.data);
+                if (_json_.data == null) {
+                    throw new Error();
+                }
+                this.data = ai.KeyData.constructorFrom(_json_.data);
             }
             resolve(_tables) {
                 super.resolve(_tables);
@@ -865,12 +955,11 @@ var cfg;
             }
         }
         ai.BinaryOperator = BinaryOperator;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class KeyData {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'FloatKeyData': return new ai.FloatKeyData(_json_);
                     case 'IntKeyData': return new ai.IntKeyData(_json_);
                     case 'StringKeyData': return new ai.StringKeyData(_json_);
@@ -884,7 +973,7 @@ var cfg;
             }
         }
         ai.KeyData = KeyData;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class FloatKeyData extends ai.KeyData {
             constructor(_json_) {
@@ -899,7 +988,7 @@ var cfg;
             }
         }
         ai.FloatKeyData = FloatKeyData;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class IntKeyData extends ai.KeyData {
             constructor(_json_) {
@@ -914,7 +1003,7 @@ var cfg;
             }
         }
         ai.IntKeyData = IntKeyData;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class StringKeyData extends ai.KeyData {
             constructor(_json_) {
@@ -929,7 +1018,7 @@ var cfg;
             }
         }
         ai.StringKeyData = StringKeyData;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class BlackboardKeyData extends ai.KeyData {
             constructor(_json_) {
@@ -944,7 +1033,7 @@ var cfg;
             }
         }
         ai.BlackboardKeyData = BlackboardKeyData;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeForceSuccess extends ai.Decorator {
             constructor(_json_) {
@@ -955,7 +1044,7 @@ var cfg;
             }
         }
         ai.UeForceSuccess = UeForceSuccess;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class IsAtLocation extends ai.Decorator {
             constructor(_json_) {
@@ -978,7 +1067,7 @@ var cfg;
             }
         }
         ai.IsAtLocation = IsAtLocation;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class DistanceLessThan extends ai.Decorator {
             constructor(_json_) {
@@ -1005,7 +1094,7 @@ var cfg;
             }
         }
         ai.DistanceLessThan = DistanceLessThan;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class FlowNode extends ai.Node {
             constructor(_json_) {
@@ -1017,7 +1106,7 @@ var cfg;
                     this.decorators = [];
                     for (let _ele of _json_.decorators) {
                         let _e;
-                        _e = ai.Decorator.deserialize(_ele);
+                        _e = ai.Decorator.constructorFrom(_ele);
                         this.decorators.push(_e);
                     }
                 }
@@ -1028,14 +1117,13 @@ var cfg;
                     this.services = [];
                     for (let _ele of _json_.services) {
                         let _e;
-                        _e = ai.Service.deserialize(_ele);
+                        _e = ai.Service.constructorFrom(_ele);
                         this.services.push(_e);
                     }
                 }
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'Sequence': return new ai.Sequence(_json_);
                     case 'Selector': return new ai.Selector(_json_);
                     case 'SimpleParallel': return new ai.SimpleParallel(_json_);
@@ -1064,12 +1152,11 @@ var cfg;
             }
         }
         ai.FlowNode = FlowNode;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class ComposeNode extends ai.FlowNode {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'Sequence': return new ai.Sequence(_json_);
                     case 'Selector': return new ai.Selector(_json_);
                     case 'SimpleParallel': return new ai.SimpleParallel(_json_);
@@ -1084,7 +1171,7 @@ var cfg;
             }
         }
         ai.ComposeNode = ComposeNode;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Sequence extends ai.ComposeNode {
             constructor(_json_) {
@@ -1096,7 +1183,7 @@ var cfg;
                     this.children = [];
                     for (let _ele of _json_.children) {
                         let _e;
-                        _e = ai.FlowNode.deserialize(_ele);
+                        _e = ai.FlowNode.constructorFrom(_ele);
                         this.children.push(_e);
                     }
                 }
@@ -1111,7 +1198,7 @@ var cfg;
             }
         }
         ai.Sequence = Sequence;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Selector extends ai.ComposeNode {
             constructor(_json_) {
@@ -1123,7 +1210,7 @@ var cfg;
                     this.children = [];
                     for (let _ele of _json_.children) {
                         let _e;
-                        _e = ai.FlowNode.deserialize(_ele);
+                        _e = ai.FlowNode.constructorFrom(_ele);
                         this.children.push(_e);
                     }
                 }
@@ -1138,7 +1225,7 @@ var cfg;
             }
         }
         ai.Selector = Selector;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class SimpleParallel extends ai.ComposeNode {
             constructor(_json_) {
@@ -1147,8 +1234,14 @@ var cfg;
                     throw new Error();
                 }
                 this.finishMode = _json_.finish_mode;
-                this.mainTask = ai.Task.deserialize(_json_.main_task);
-                this.backgroundNode = ai.FlowNode.deserialize(_json_.background_node);
+                if (_json_.main_task == null) {
+                    throw new Error();
+                }
+                this.mainTask = ai.Task.constructorFrom(_json_.main_task);
+                if (_json_.background_node == null) {
+                    throw new Error();
+                }
+                this.backgroundNode = ai.FlowNode.constructorFrom(_json_.background_node);
             }
             resolve(_tables) {
                 super.resolve(_tables);
@@ -1161,7 +1254,7 @@ var cfg;
             }
         }
         ai.SimpleParallel = SimpleParallel;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Task extends ai.FlowNode {
             constructor(_json_) {
@@ -1171,9 +1264,8 @@ var cfg;
                 }
                 this.ignoreRestartSelf = _json_.ignore_restart_self;
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'UeWait': return new ai.UeWait(_json_);
                     case 'UeWaitBlackboardTime': return new ai.UeWaitBlackboardTime(_json_);
                     case 'MoveToTarget': return new ai.MoveToTarget(_json_);
@@ -1189,7 +1281,7 @@ var cfg;
             }
         }
         ai.Task = Task;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeWait extends ai.Task {
             constructor(_json_) {
@@ -1208,7 +1300,7 @@ var cfg;
             }
         }
         ai.UeWait = UeWait;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class UeWaitBlackboardTime extends ai.Task {
             constructor(_json_) {
@@ -1223,7 +1315,7 @@ var cfg;
             }
         }
         ai.UeWaitBlackboardTime = UeWaitBlackboardTime;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class MoveToTarget extends ai.Task {
             constructor(_json_) {
@@ -1242,7 +1334,7 @@ var cfg;
             }
         }
         ai.MoveToTarget = MoveToTarget;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class ChooseSkill extends ai.Task {
             constructor(_json_) {
@@ -1261,7 +1353,7 @@ var cfg;
             }
         }
         ai.ChooseSkill = ChooseSkill;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class MoveToRandomLocation extends ai.Task {
             constructor(_json_) {
@@ -1280,7 +1372,7 @@ var cfg;
             }
         }
         ai.MoveToRandomLocation = MoveToRandomLocation;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class MoveToLocation extends ai.Task {
             constructor(_json_) {
@@ -1288,7 +1380,7 @@ var cfg;
                 if (_json_.location == null) {
                     throw new Error();
                 }
-                this.location = Vector3.from(_json_.location);
+                this.location = Vector3.deserializeFromJson(_json_.location);
                 if (_json_.acceptable_radius == null) {
                     throw new Error();
                 }
@@ -1299,7 +1391,7 @@ var cfg;
             }
         }
         ai.MoveToLocation = MoveToLocation;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class DebugPrint extends ai.Task {
             constructor(_json_) {
@@ -1314,8 +1406,31 @@ var cfg;
             }
         }
         ai.DebugPrint = DebugPrint;
-    })(ai || (ai = {}));
+    })(ai = cfg.ai || (cfg.ai = {}));
     let blueprint;
+    (function (blueprint) {
+        class TbClazz {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = blueprint.Clazz.constructorFrom(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.name, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        blueprint.TbClazz = TbClazz;
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Clazz {
             constructor(_json_) {
@@ -1334,7 +1449,7 @@ var cfg;
                     this.parents = [];
                     for (let _ele of _json_.parents) {
                         let _e;
-                        _e = blueprint.Clazz.deserialize(_ele);
+                        _e = blueprint.Clazz.constructorFrom(_ele);
                         this.parents.push(_e);
                     }
                 }
@@ -1345,14 +1460,13 @@ var cfg;
                     this.methods = [];
                     for (let _ele of _json_.methods) {
                         let _e;
-                        _e = blueprint.Method.deserialize(_ele);
+                        _e = blueprint.Method.constructorFrom(_ele);
                         this.methods.push(_e);
                     }
                 }
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'Interface': return new blueprint.Interface(_json_);
                     case 'NormalClazz': return new blueprint.NormalClazz(_json_);
                     case 'EnumClazz': return new blueprint.EnumClazz(_json_);
@@ -1373,7 +1487,7 @@ var cfg;
             }
         }
         blueprint.Clazz = Clazz;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Method {
             constructor(_json_) {
@@ -1405,9 +1519,8 @@ var cfg;
                     }
                 }
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'AbstraceMethod': return new blueprint.AbstraceMethod(_json_);
                     case 'ExternalMethod': return new blueprint.ExternalMethod(_json_);
                     case 'BlueprintMethod': return new blueprint.BlueprintMethod(_json_);
@@ -1423,7 +1536,7 @@ var cfg;
             }
         }
         blueprint.Method = Method;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class ParamInfo {
             constructor(_json_) {
@@ -1444,7 +1557,7 @@ var cfg;
             }
         }
         blueprint.ParamInfo = ParamInfo;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class AbstraceMethod extends blueprint.Method {
             constructor(_json_) {
@@ -1455,7 +1568,7 @@ var cfg;
             }
         }
         blueprint.AbstraceMethod = AbstraceMethod;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class ExternalMethod extends blueprint.Method {
             constructor(_json_) {
@@ -1466,7 +1579,7 @@ var cfg;
             }
         }
         blueprint.ExternalMethod = ExternalMethod;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class BlueprintMethod extends blueprint.Method {
             constructor(_json_) {
@@ -1477,7 +1590,7 @@ var cfg;
             }
         }
         blueprint.BlueprintMethod = BlueprintMethod;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Interface extends blueprint.Clazz {
             constructor(_json_) {
@@ -1488,7 +1601,7 @@ var cfg;
             }
         }
         blueprint.Interface = Interface;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class NormalClazz extends blueprint.Clazz {
             constructor(_json_) {
@@ -1519,7 +1632,7 @@ var cfg;
             }
         }
         blueprint.NormalClazz = NormalClazz;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Field {
             constructor(_json_) {
@@ -1540,7 +1653,7 @@ var cfg;
             }
         }
         blueprint.Field = Field;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class EnumClazz extends blueprint.Clazz {
             constructor(_json_) {
@@ -1567,7 +1680,7 @@ var cfg;
             }
         }
         blueprint.EnumClazz = EnumClazz;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class EnumField {
             constructor(_json_) {
@@ -1584,8 +1697,31 @@ var cfg;
             }
         }
         blueprint.EnumField = EnumField;
-    })(blueprint || (blueprint = {}));
+    })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     let bonus;
+    (function (bonus) {
+        class TbDrop {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new bonus.DropInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        bonus.TbDrop = TbDrop;
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class DropInfo {
             constructor(_json_) {
@@ -1608,7 +1744,10 @@ var cfg;
                         this.clientShowItems.push(_e);
                     }
                 }
-                this.bonus = bonus.Bonus.deserialize(_json_.bonus);
+                if (_json_.bonus == null) {
+                    throw new Error();
+                }
+                this.bonus = bonus.Bonus.constructorFrom(_json_.bonus);
             }
             resolve(_tables) {
                 for (let _e of this.clientShowItems) {
@@ -1622,7 +1761,7 @@ var cfg;
             }
         }
         bonus.DropInfo = DropInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class ShowItemInfo {
             constructor(_json_) {
@@ -1640,12 +1779,11 @@ var cfg;
             }
         }
         bonus.ShowItemInfo = ShowItemInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class Bonus {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'OneItem': return new bonus.OneItem(_json_);
                     case 'OneItems': return new bonus.OneItems(_json_);
                     case 'Item': return new bonus.Item(_json_);
@@ -1666,7 +1804,7 @@ var cfg;
             }
         }
         bonus.Bonus = Bonus;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class OneItem extends bonus.Bonus {
             constructor(_json_) {
@@ -1682,7 +1820,7 @@ var cfg;
             }
         }
         bonus.OneItem = OneItem;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class OneItems extends bonus.Bonus {
             constructor(_json_) {
@@ -1697,7 +1835,7 @@ var cfg;
             }
         }
         bonus.OneItems = OneItems;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class Item extends bonus.Bonus {
             constructor(_json_) {
@@ -1717,7 +1855,7 @@ var cfg;
             }
         }
         bonus.Item = Item;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class Items extends bonus.Bonus {
             constructor(_json_) {
@@ -1744,7 +1882,7 @@ var cfg;
             }
         }
         bonus.Items = Items;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class CoefficientItem extends bonus.Bonus {
             constructor(_json_) {
@@ -1766,7 +1904,7 @@ var cfg;
             }
         }
         bonus.CoefficientItem = CoefficientItem;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class WeightItems extends bonus.Bonus {
             constructor(_json_) {
@@ -1793,7 +1931,7 @@ var cfg;
             }
         }
         bonus.WeightItems = WeightItems;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class WeightItemInfo {
             constructor(_json_) {
@@ -1815,7 +1953,7 @@ var cfg;
             }
         }
         bonus.WeightItemInfo = WeightItemInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class ProbabilityItems extends bonus.Bonus {
             constructor(_json_) {
@@ -1842,7 +1980,7 @@ var cfg;
             }
         }
         bonus.ProbabilityItems = ProbabilityItems;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class ProbabilityItemInfo {
             constructor(_json_) {
@@ -1864,7 +2002,7 @@ var cfg;
             }
         }
         bonus.ProbabilityItemInfo = ProbabilityItemInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class MultiBonus extends bonus.Bonus {
             constructor(_json_) {
@@ -1876,7 +2014,7 @@ var cfg;
                     this.bonuses = [];
                     for (let _ele of _json_.bonuses) {
                         let _e;
-                        _e = bonus.Bonus.deserialize(_ele);
+                        _e = bonus.Bonus.constructorFrom(_ele);
                         this.bonuses.push(_e);
                     }
                 }
@@ -1891,7 +2029,7 @@ var cfg;
             }
         }
         bonus.MultiBonus = MultiBonus;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class ProbabilityBonus extends bonus.Bonus {
             constructor(_json_) {
@@ -1918,11 +2056,14 @@ var cfg;
             }
         }
         bonus.ProbabilityBonus = ProbabilityBonus;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class ProbabilityBonusInfo {
             constructor(_json_) {
-                this.bonus = bonus.Bonus.deserialize(_json_.bonus);
+                if (_json_.bonus == null) {
+                    throw new Error();
+                }
+                this.bonus = bonus.Bonus.constructorFrom(_json_.bonus);
                 if (_json_.probability == null) {
                     throw new Error();
                 }
@@ -1935,7 +2076,7 @@ var cfg;
             }
         }
         bonus.ProbabilityBonusInfo = ProbabilityBonusInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class WeightBonus extends bonus.Bonus {
             constructor(_json_) {
@@ -1962,11 +2103,14 @@ var cfg;
             }
         }
         bonus.WeightBonus = WeightBonus;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class WeightBonusInfo {
             constructor(_json_) {
-                this.bonus = bonus.Bonus.deserialize(_json_.bonus);
+                if (_json_.bonus == null) {
+                    throw new Error();
+                }
+                this.bonus = bonus.Bonus.constructorFrom(_json_.bonus);
                 if (_json_.weight == null) {
                     throw new Error();
                 }
@@ -1979,7 +2123,7 @@ var cfg;
             }
         }
         bonus.WeightBonusInfo = WeightBonusInfo;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (bonus) {
         class DropBonus extends bonus.Bonus {
             constructor(_json_) {
@@ -1995,7 +2139,42 @@ var cfg;
             }
         }
         bonus.DropBonus = DropBonus;
-    })(bonus || (bonus = {}));
+    })(bonus = cfg.bonus || (cfg.bonus = {}));
+    (function (common) {
+        class TbGlobalConfig {
+            constructor(_json_) {
+                if (_json_.length != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new common.GlobalConfig(_json_[0]);
+            }
+            getData() { return this._data; }
+            get bagCapacity() { return this._data.bagCapacity; }
+            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
+            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
+            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
+            get bagInitCapacity() { return this._data.bagInitCapacity; }
+            get quickBagCapacity() { return this._data.quickBagCapacity; }
+            get clothBagCapacity() { return this._data.clothBagCapacity; }
+            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
+            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
+            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
+            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
+            get damageParamC() { return this._data.damageParamC; }
+            get damageParamE() { return this._data.damageParamE; }
+            get damageParamF() { return this._data.damageParamF; }
+            get damageParamD() { return this._data.damageParamD; }
+            get roleSpeed() { return this._data.roleSpeed; }
+            get monsterSpeed() { return this._data.monsterSpeed; }
+            get initEnergy() { return this._data.initEnergy; }
+            get initViality() { return this._data.initViality; }
+            get maxViality() { return this._data.maxViality; }
+            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        common.TbGlobalConfig = TbGlobalConfig;
+    })(common = cfg.common || (cfg.common = {}));
     (function (common) {
         class GlobalConfig {
             constructor(_json_) {
@@ -2091,7 +2270,30 @@ var cfg;
             }
         }
         common.GlobalConfig = GlobalConfig;
-    })(common || (common = {}));
+    })(common = cfg.common || (cfg.common = {}));
+    (function (common) {
+        class TbDummy {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new common.Dummy(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        common.TbDummy = TbDummy;
+    })(common = cfg.common || (cfg.common = {}));
     (function (common) {
         class Dummy {
             constructor(_json_) {
@@ -2099,7 +2301,10 @@ var cfg;
                     throw new Error();
                 }
                 this.id = _json_.id;
-                this.limit = limit.LimitBase.deserialize(_json_.limit);
+                if (_json_.limit == null) {
+                    throw new Error();
+                }
+                this.limit = limit.LimitBase.constructorFrom(_json_.limit);
             }
             resolve(_tables) {
                 if (this.limit != null) {
@@ -2108,12 +2313,11 @@ var cfg;
             }
         }
         common.Dummy = Dummy;
-    })(common || (common = {}));
+    })(common = cfg.common || (cfg.common = {}));
     (function (limit) {
         class LimitBase {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'DailyLimit': return new limit.DailyLimit(_json_);
                     case 'MultiDayLimit': return new limit.MultiDayLimit(_json_);
                     case 'WeeklyLimit': return new limit.WeeklyLimit(_json_);
@@ -2129,12 +2333,11 @@ var cfg;
             }
         }
         limit.LimitBase = LimitBase;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class DailyLimitBase extends limit.LimitBase {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'DailyLimit': return new limit.DailyLimit(_json_);
                     default: throw new Error();
                 }
@@ -2147,7 +2350,7 @@ var cfg;
             }
         }
         limit.DailyLimitBase = DailyLimitBase;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class DailyLimit extends limit.DailyLimitBase {
             constructor(_json_) {
@@ -2162,7 +2365,7 @@ var cfg;
             }
         }
         limit.DailyLimit = DailyLimit;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class MultiDayLimit extends limit.LimitBase {
             constructor(_json_) {
@@ -2181,7 +2384,7 @@ var cfg;
             }
         }
         limit.MultiDayLimit = MultiDayLimit;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class WeeklyLimit extends limit.LimitBase {
             constructor(_json_) {
@@ -2196,7 +2399,7 @@ var cfg;
             }
         }
         limit.WeeklyLimit = WeeklyLimit;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class MonthlyLimit extends limit.LimitBase {
             constructor(_json_) {
@@ -2211,7 +2414,7 @@ var cfg;
             }
         }
         limit.MonthlyLimit = MonthlyLimit;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class CoolDown extends limit.LimitBase {
             constructor(_json_) {
@@ -2226,7 +2429,7 @@ var cfg;
             }
         }
         limit.CoolDown = CoolDown;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
     (function (limit) {
         class GroupCoolDown extends limit.LimitBase {
             constructor(_json_) {
@@ -2245,7 +2448,30 @@ var cfg;
             }
         }
         limit.GroupCoolDown = GroupCoolDown;
-    })(limit || (limit = {}));
+    })(limit = cfg.limit || (cfg.limit = {}));
+    (function (error) {
+        class TbErrorInfo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new error.ErrorInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbErrorInfo = TbErrorInfo;
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorInfo {
             constructor(_json_) {
@@ -2257,7 +2483,10 @@ var cfg;
                     throw new Error();
                 }
                 this.desc = _json_.desc;
-                this.style = error.ErrorStyle.deserialize(_json_.style);
+                if (_json_.style == null) {
+                    throw new Error();
+                }
+                this.style = error.ErrorStyle.constructorFrom(_json_.style);
             }
             resolve(_tables) {
                 if (this.style != null) {
@@ -2266,12 +2495,11 @@ var cfg;
             }
         }
         error.ErrorInfo = ErrorInfo;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorStyle {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'ErrorStyleTip': return new error.ErrorStyleTip(_json_);
                     case 'ErrorStyleMsgbox': return new error.ErrorStyleMsgbox(_json_);
                     case 'ErrorStyleDlgOk': return new error.ErrorStyleDlgOk(_json_);
@@ -2285,7 +2513,7 @@ var cfg;
             }
         }
         error.ErrorStyle = ErrorStyle;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorStyleTip extends error.ErrorStyle {
             constructor(_json_) {
@@ -2296,7 +2524,7 @@ var cfg;
             }
         }
         error.ErrorStyleTip = ErrorStyleTip;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorStyleMsgbox extends error.ErrorStyle {
             constructor(_json_) {
@@ -2315,7 +2543,7 @@ var cfg;
             }
         }
         error.ErrorStyleMsgbox = ErrorStyleMsgbox;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorStyleDlgOk extends error.ErrorStyle {
             constructor(_json_) {
@@ -2330,7 +2558,7 @@ var cfg;
             }
         }
         error.ErrorStyleDlgOk = ErrorStyleDlgOk;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class ErrorStyleDlgOkCancel extends error.ErrorStyle {
             constructor(_json_) {
@@ -2349,7 +2577,30 @@ var cfg;
             }
         }
         error.ErrorStyleDlgOkCancel = ErrorStyleDlgOkCancel;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
+    (function (error) {
+        class TbCodeInfo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new error.CodeInfo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.code, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        error.TbCodeInfo = TbCodeInfo;
+    })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class CodeInfo {
             constructor(_json_) {
@@ -2366,7 +2617,30 @@ var cfg;
             }
         }
         error.CodeInfo = CodeInfo;
-    })(error || (error = {}));
+    })(error = cfg.error || (cfg.error = {}));
+    (function (item) {
+        class TbItem {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new item.Item(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItem = TbItem;
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class Item {
             constructor(_json_) {
@@ -2386,10 +2660,6 @@ var cfg;
                     throw new Error();
                 }
                 this.minorType = _json_.minor_type;
-                if (_json_.max_pile_num == null) {
-                    throw new Error();
-                }
-                this.maxPileNum = _json_.max_pile_num;
                 if (_json_.quality == null) {
                     throw new Error();
                 }
@@ -2463,7 +2733,30 @@ var cfg;
             }
         }
         item.Item = Item;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
+        class TbItemFunc {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new item.ItemFunction(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.minorType, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemFunc = TbItemFunc;
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class ItemFunction {
             constructor(_json_) {
@@ -2488,7 +2781,30 @@ var cfg;
             }
         }
         item.ItemFunction = ItemFunction;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
+    (function (item) {
+        class TbItemExtra {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = item.ItemExtra.constructorFrom(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        item.TbItemExtra = TbItemExtra;
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class ItemExtra {
             constructor(_json_) {
@@ -2497,9 +2813,8 @@ var cfg;
                 }
                 this.id = _json_.id;
             }
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'TreasureBox': return new item.TreasureBox(_json_);
                     case 'InteractionItem': return new item.InteractionItem(_json_);
                     case 'Clothes': return new item.Clothes(_json_);
@@ -2512,7 +2827,7 @@ var cfg;
             }
         }
         item.ItemExtra = ItemExtra;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class TreasureBox extends item.ItemExtra {
             constructor(_json_) {
@@ -2560,13 +2875,12 @@ var cfg;
             }
         }
         item.TreasureBox = TreasureBox;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     let condition;
     (function (condition) {
         class Condition {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'TimeRange': return new condition.TimeRange(_json_);
                     case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_);
                     case 'GenderLimit': return new condition.GenderLimit(_json_);
@@ -2584,7 +2898,7 @@ var cfg;
             }
         }
         condition.Condition = Condition;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class TimeRange extends condition.Condition {
             constructor(_json_) {
@@ -2602,7 +2916,7 @@ var cfg;
             }
         }
         condition.TimeRange = TimeRange;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (common) {
         class DateTimeRange {
             constructor(_json_) {
@@ -2623,12 +2937,11 @@ var cfg;
             }
         }
         common.DateTimeRange = DateTimeRange;
-    })(common || (common = {}));
+    })(common = cfg.common || (cfg.common = {}));
     (function (condition) {
         class RoleCondition extends condition.Condition {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_);
                     case 'GenderLimit': return new condition.GenderLimit(_json_);
                     case 'MinLevel': return new condition.MinLevel(_json_);
@@ -2647,7 +2960,7 @@ var cfg;
             }
         }
         condition.RoleCondition = RoleCondition;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class MultiRoleCondition extends condition.RoleCondition {
             constructor(_json_) {
@@ -2659,7 +2972,7 @@ var cfg;
                     this.conditions = [];
                     for (let _ele of _json_.conditions) {
                         let _e;
-                        _e = condition.RoleCondition.deserialize(_ele);
+                        _e = condition.RoleCondition.constructorFrom(_ele);
                         this.conditions.push(_e);
                     }
                 }
@@ -2674,12 +2987,11 @@ var cfg;
             }
         }
         condition.MultiRoleCondition = MultiRoleCondition;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class BoolRoleCondition extends condition.RoleCondition {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'GenderLimit': return new condition.GenderLimit(_json_);
                     case 'MinLevel': return new condition.MinLevel(_json_);
                     case 'MaxLevel': return new condition.MaxLevel(_json_);
@@ -2696,7 +3008,7 @@ var cfg;
             }
         }
         condition.BoolRoleCondition = BoolRoleCondition;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class GenderLimit extends condition.BoolRoleCondition {
             constructor(_json_) {
@@ -2711,7 +3023,7 @@ var cfg;
             }
         }
         condition.GenderLimit = GenderLimit;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class MinLevel extends condition.BoolRoleCondition {
             constructor(_json_) {
@@ -2726,7 +3038,7 @@ var cfg;
             }
         }
         condition.MinLevel = MinLevel;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class MaxLevel extends condition.BoolRoleCondition {
             constructor(_json_) {
@@ -2741,7 +3053,7 @@ var cfg;
             }
         }
         condition.MaxLevel = MaxLevel;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class MinMaxLevel extends condition.BoolRoleCondition {
             constructor(_json_) {
@@ -2760,7 +3072,7 @@ var cfg;
             }
         }
         condition.MinMaxLevel = MinMaxLevel;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class ClothesPropertyScoreGreaterThan extends condition.BoolRoleCondition {
             constructor(_json_) {
@@ -2779,7 +3091,7 @@ var cfg;
             }
         }
         condition.ClothesPropertyScoreGreaterThan = ClothesPropertyScoreGreaterThan;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (condition) {
         class ContainsItem extends condition.RoleCondition {
             constructor(_json_) {
@@ -2803,7 +3115,7 @@ var cfg;
             }
         }
         condition.ContainsItem = ContainsItem;
-    })(condition || (condition = {}));
+    })(condition = cfg.condition || (cfg.condition = {}));
     (function (item) {
         class ChooseOneBonus {
             constructor(_json_) {
@@ -2821,7 +3133,7 @@ var cfg;
             }
         }
         item.ChooseOneBonus = ChooseOneBonus;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class InteractionItem extends item.ItemExtra {
             constructor(_json_) {
@@ -2846,7 +3158,7 @@ var cfg;
             }
         }
         item.InteractionItem = InteractionItem;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class Clothes extends item.ItemExtra {
             constructor(_json_) {
@@ -2873,7 +3185,7 @@ var cfg;
             }
         }
         item.Clothes = Clothes;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class DesignDrawing extends item.ItemExtra {
             constructor(_json_) {
@@ -2888,12 +3200,15 @@ var cfg;
             }
         }
         item.DesignDrawing = DesignDrawing;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class Dymmy extends item.ItemExtra {
             constructor(_json_) {
                 super(_json_);
-                this.cost = cost.Cost.deserialize(_json_.cost);
+                if (_json_.cost == null) {
+                    throw new Error();
+                }
+                this.cost = cost.Cost.constructorFrom(_json_.cost);
             }
             resolve(_tables) {
                 super.resolve(_tables);
@@ -2903,13 +3218,12 @@ var cfg;
             }
         }
         item.Dymmy = Dymmy;
-    })(item || (item = {}));
+    })(item = cfg.item || (cfg.item = {}));
     let cost;
     (function (cost) {
         class Cost {
-            static deserialize(_json_) {
+            static constructorFrom(_json_) {
                 switch (_json_.__type__) {
-                    case null: return null;
                     case 'CostCurrency': return new cost.CostCurrency(_json_);
                     case 'CostCurrencies': return new cost.CostCurrencies(_json_);
                     case 'CostOneItem': return new cost.CostOneItem(_json_);
@@ -2924,7 +3238,7 @@ var cfg;
             }
         }
         cost.Cost = Cost;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
     (function (cost) {
         class CostCurrency extends cost.Cost {
             constructor(_json_) {
@@ -2943,7 +3257,7 @@ var cfg;
             }
         }
         cost.CostCurrency = CostCurrency;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
     (function (cost) {
         class CostCurrencies extends cost.Cost {
             constructor(_json_) {
@@ -2970,7 +3284,7 @@ var cfg;
             }
         }
         cost.CostCurrencies = CostCurrencies;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
     (function (cost) {
         class CostOneItem extends cost.Cost {
             constructor(_json_) {
@@ -2986,7 +3300,7 @@ var cfg;
             }
         }
         cost.CostOneItem = CostOneItem;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
     (function (cost) {
         class CostItem extends cost.Cost {
             constructor(_json_) {
@@ -3006,7 +3320,7 @@ var cfg;
             }
         }
         cost.CostItem = CostItem;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
     (function (cost) {
         class CostItems extends cost.Cost {
             constructor(_json_) {
@@ -3033,7 +3347,111 @@ var cfg;
             }
         }
         cost.CostItems = CostItems;
-    })(cost || (cost = {}));
+    })(cost = cfg.cost || (cfg.cost = {}));
+    let l10n;
+    (function (l10n) {
+        class TbL10NDemo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new l10n.L10NDemo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbL10NDemo = TbL10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
+        class L10NDemo {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.text == null) {
+                    throw new Error();
+                }
+                this.text = _json_.text;
+            }
+            resolve(_tables) {
+            }
+        }
+        l10n.L10NDemo = L10NDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
+        class TbPatchDemo {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new l10n.PatchDemo(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        l10n.TbPatchDemo = TbPatchDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (l10n) {
+        class PatchDemo {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.value == null) {
+                    throw new Error();
+                }
+                this.value = _json_.value;
+            }
+            resolve(_tables) {
+            }
+        }
+        l10n.PatchDemo = PatchDemo;
+    })(l10n = cfg.l10n || (cfg.l10n = {}));
+    (function (mail) {
+        class TbSystemMail {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new mail.SystemMail(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbSystemMail = TbSystemMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class SystemMail {
             constructor(_json_) {
@@ -3062,7 +3480,30 @@ var cfg;
             }
         }
         mail.SystemMail = SystemMail;
-    })(mail || (mail = {}));
+    })(mail = cfg.mail || (cfg.mail = {}));
+    (function (mail) {
+        class TbGlobalMail {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new mail.GlobalMail(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        mail.TbGlobalMail = TbGlobalMail;
+    })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class GlobalMail {
             constructor(_json_) {
@@ -3128,7 +3569,30 @@ var cfg;
             }
         }
         mail.GlobalMail = GlobalMail;
-    })(mail || (mail = {}));
+    })(mail = cfg.mail || (cfg.mail = {}));
+    (function (role) {
+        class TbRoleLevelExpAttr {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new role.LevelExpAttr(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.level, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
+    })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class LevelExpAttr {
             constructor(_json_) {
@@ -3149,7 +3613,30 @@ var cfg;
             }
         }
         role.LevelExpAttr = LevelExpAttr;
-    })(role || (role = {}));
+    })(role = cfg.role || (cfg.role = {}));
+    (function (role) {
+        class TbRoleLevelBonusCoefficient {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new role.LevelBonus(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
+    })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class LevelBonus {
             constructor(_json_) {
@@ -3178,7 +3665,7 @@ var cfg;
             }
         }
         role.LevelBonus = LevelBonus;
-    })(role || (role = {}));
+    })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class DistinctBonusInfos {
             constructor(_json_) {
@@ -3207,7 +3694,7 @@ var cfg;
             }
         }
         role.DistinctBonusInfos = DistinctBonusInfos;
-    })(role || (role = {}));
+    })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class BonusInfo {
             constructor(_json_) {
@@ -3224,38 +3711,16 @@ var cfg;
             }
         }
         role.BonusInfo = BonusInfo;
-    })(role || (role = {}));
-    (function (ai) {
-        class TbBlackboard {
+    })(role = cfg.role || (cfg.role = {}));
+    let tag;
+    (function (tag) {
+        class TbTestTag {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new ai.Blackboard(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        ai.TbBlackboard = TbBlackboard;
-    })(ai || (ai = {}));
-    (function (ai) {
-        class TbBehaviorTree {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new ai.BehaviorTree(_json2_);
+                    _v = new tag.TestTag(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -3269,18 +3734,35 @@ var cfg;
                 }
             }
         }
-        ai.TbBehaviorTree = TbBehaviorTree;
-    })(ai || (ai = {}));
-    (function (blueprint) {
-        class TbClazz {
+        tag.TbTestTag = TbTestTag;
+    })(tag = cfg.tag || (cfg.tag = {}));
+    (function (tag) {
+        class TestTag {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.value == null) {
+                    throw new Error();
+                }
+                this.value = _json_.value;
+            }
+            resolve(_tables) {
+            }
+        }
+        tag.TestTag = TestTag;
+    })(tag = cfg.tag || (cfg.tag = {}));
+    (function (test) {
+        class TbFullTypes {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = blueprint.Clazz.deserialize(_json2_);
+                    _v = new test.DemoType2(_json2_);
                     this._dataList.push(_v);
-                    this._dataMap.set(_v.name, _v);
+                    this._dataMap.set(_v.x3, _v);
                 }
             }
             getDataMap() { return this._dataMap; }
@@ -3292,74 +3774,428 @@ var cfg;
                 }
             }
         }
-        blueprint.TbClazz = TbClazz;
-    })(blueprint || (blueprint = {}));
-    (function (bonus) {
-        class TbDrop {
+        test.TbFullTypes = TbFullTypes;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoType2 {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                this.x3 = _json_.x3;
+                if (_json_.x5 == null) {
+                    throw new Error();
+                }
+                this.x5 = _json_.x5;
+                if (_json_.x6 == null) {
+                    throw new Error();
+                }
+                this.x6 = _json_.x6;
+                if (_json_.x7 == null) {
+                    throw new Error();
+                }
+                this.x7 = _json_.x7;
+                if (_json_.x8_0 == null) {
+                    throw new Error();
+                }
+                this.x80 = _json_.x8_0;
+                if (_json_.x8 == null) {
+                    throw new Error();
+                }
+                this.x8 = _json_.x8;
+                if (_json_.x9 == null) {
+                    throw new Error();
+                }
+                this.x9 = _json_.x9;
+                if (_json_.x10 == null) {
+                    throw new Error();
+                }
+                this.x10 = _json_.x10;
+                if (_json_.x12 == null) {
+                    throw new Error();
+                }
+                this.x12 = new test.DemoType1(_json_.x12);
+                if (_json_.x13 == null) {
+                    throw new Error();
+                }
+                this.x13 = _json_.x13;
+                if (_json_.x14 == null) {
+                    throw new Error();
+                }
+                this.x14 = test.DemoDynamic.constructorFrom(_json_.x14);
+                if (_json_.s1 == null) {
+                    throw new Error();
+                }
+                this.s1 = _json_.s1;
+                if (_json_.v2 == null) {
+                    throw new Error();
+                }
+                this.v2 = Vector2.deserializeFromJson(_json_.v2);
+                if (_json_.v3 == null) {
+                    throw new Error();
+                }
+                this.v3 = Vector3.deserializeFromJson(_json_.v3);
+                if (_json_.v4 == null) {
+                    throw new Error();
+                }
+                this.v4 = Vector4.deserializeFromJson(_json_.v4);
+                if (_json_.t1 == null) {
+                    throw new Error();
+                }
+                this.t1 = _json_.t1;
+                if (_json_.k1 == null) {
+                    throw new Error();
+                }
+                this.k1 = _json_.k1;
+                if (_json_.k2 == null) {
+                    throw new Error();
+                }
+                this.k2 = _json_.k2;
+                if (_json_.k3 == null) {
+                    throw new Error();
+                }
+                this.k3 = _json_.k3;
+                if (_json_.k4 == null) {
+                    throw new Error();
+                }
+                this.k4 = _json_.k4;
+                if (_json_.k5 == null) {
+                    throw new Error();
+                }
+                this.k5 = _json_.k5;
+                if (_json_.k6 == null) {
+                    throw new Error();
+                }
+                this.k6 = _json_.k6;
+                if (_json_.k7 == null) {
+                    throw new Error();
+                }
+                this.k7 = _json_.k7;
+                if (_json_.k8 == null) {
+                    throw new Error();
+                }
+                this.k8 = new Map();
+                for (var _entry_ of _json_.k8) {
+                    let _k;
+                    _k = _entry_[0];
                     let _v;
-                    _v = new bonus.DropInfo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
+                    _v = _entry_[1];
+                    this.k8.set(_k, _v);
+                }
+                if (_json_.k9 == null) {
+                    throw new Error();
+                }
+                {
+                    this.k9 = [];
+                    for (let _ele of _json_.k9) {
+                        let _e;
+                        _e = new test.DemoE2(_ele);
+                        this.k9.push(_e);
+                    }
+                }
+                if (_json_.k15 == null) {
+                    throw new Error();
+                }
+                {
+                    this.k15 = [];
+                    for (let _ele of _json_.k15) {
+                        let _e;
+                        _e = test.DemoDynamic.constructorFrom(_ele);
+                        this.k15.push(_e);
+                    }
                 }
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
+                this.x3_Ref = _tables.get('test.TbFullTypes').get(this.x3);
+                if (this.x12 != null) {
+                    this.x12.resolve(_tables);
+                }
+                if (this.x14 != null) {
+                    this.x14.resolve(_tables);
+                }
+                for (let _e of this.k9) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.k15) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
                 }
             }
         }
-        bonus.TbDrop = TbDrop;
-    })(bonus || (bonus = {}));
-    (function (common) {
-        class TbGlobalConfig {
+        test.DemoType2 = DemoType2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoType1 {
+            constructor(_json_) {
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoType1 = DemoType1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoDynamic {
+            constructor(_json_) {
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+            }
+            static constructorFrom(_json_) {
+                switch (_json_.__type__) {
+                    case 'DemoD2': return new test.DemoD2(_json_);
+                    case 'DemoE1': return new test.DemoE1(_json_);
+                    case 'DemoD5': return new test.DemoD5(_json_);
+                    default: throw new Error();
+                }
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoDynamic = DemoDynamic;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoD2 extends test.DemoDynamic {
+            constructor(_json_) {
+                super(_json_);
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+            }
+            resolve(_tables) {
+                super.resolve(_tables);
+            }
+        }
+        test.DemoD2 = DemoD2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoD3 extends test.DemoDynamic {
+            constructor(_json_) {
+                super(_json_);
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                this.x3 = _json_.x3;
+            }
+            static constructorFrom(_json_) {
+                switch (_json_.__type__) {
+                    case 'DemoE1': return new test.DemoE1(_json_);
+                    default: throw new Error();
+                }
+            }
+            resolve(_tables) {
+                super.resolve(_tables);
+            }
+        }
+        test.DemoD3 = DemoD3;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoE1 extends test.DemoD3 {
+            constructor(_json_) {
+                super(_json_);
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+            }
+            resolve(_tables) {
+                super.resolve(_tables);
+            }
+        }
+        test.DemoE1 = DemoE1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoD5 extends test.DemoDynamic {
+            constructor(_json_) {
+                super(_json_);
+                if (_json_.time == null) {
+                    throw new Error();
+                }
+                this.time = new test.DateTimeRange(_json_.time);
+            }
+            resolve(_tables) {
+                super.resolve(_tables);
+                if (this.time != null) {
+                    this.time.resolve(_tables);
+                }
+            }
+        }
+        test.DemoD5 = DemoD5;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DateTimeRange {
+            constructor(_json_) {
+                if (_json_.start_time == null) {
+                    throw new Error();
+                }
+                this.startTime = _json_.start_time;
+                if (_json_.end_time == null) {
+                    throw new Error();
+                }
+                this.endTime = _json_.end_time;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DateTimeRange = DateTimeRange;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoE2 {
+            constructor(_json_) {
+                if (_json_.y1 != null) {
+                    this.y1 = _json_.y1;
+                }
+                else {
+                    this.y1 = null;
+                }
+                if (_json_.y2 == null) {
+                    throw new Error();
+                }
+                this.y2 = _json_.y2;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoE2 = DemoE2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbSingleton {
             constructor(_json_) {
                 if (_json_.length != 1)
                     throw new Error('table mode=one, but size != 1');
-                this._data = new common.GlobalConfig(_json_[0]);
+                this._data = new test.DemoSingletonType(_json_[0]);
             }
             getData() { return this._data; }
-            get bagCapacity() { return this._data.bagCapacity; }
-            get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
-            get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
-            get bagTempToolCapacity() { return this._data.bagTempToolCapacity; }
-            get bagInitCapacity() { return this._data.bagInitCapacity; }
-            get quickBagCapacity() { return this._data.quickBagCapacity; }
-            get clothBagCapacity() { return this._data.clothBagCapacity; }
-            get clothBagInitCapacity() { return this._data.clothBagInitCapacity; }
-            get clothBagCapacitySpecial() { return this._data.clothBagCapacitySpecial; }
-            get bagInitItemsDropId() { return this._data.bagInitItemsDropId; }
-            get mailBoxCapacity() { return this._data.mailBoxCapacity; }
-            get damageParamC() { return this._data.damageParamC; }
-            get damageParamE() { return this._data.damageParamE; }
-            get damageParamF() { return this._data.damageParamF; }
-            get damageParamD() { return this._data.damageParamD; }
-            get roleSpeed() { return this._data.roleSpeed; }
-            get monsterSpeed() { return this._data.monsterSpeed; }
-            get initEnergy() { return this._data.initEnergy; }
-            get initViality() { return this._data.initViality; }
-            get maxViality() { return this._data.maxViality; }
-            get perVialityRecoveryTime() { return this._data.perVialityRecoveryTime; }
+            get id() { return this._data.id; }
+            get name() { return this._data.name; }
+            get date() { return this._data.date; }
             resolve(_tables) {
                 this._data.resolve(_tables);
             }
         }
-        common.TbGlobalConfig = TbGlobalConfig;
-    })(common || (common = {}));
-    (function (common) {
-        class TbDummy {
+        test.TbSingleton = TbSingleton;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoSingletonType {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.name == null) {
+                    throw new Error();
+                }
+                this.name = _json_.name;
+                if (_json_.date == null) {
+                    throw new Error();
+                }
+                this.date = test.DemoDynamic.constructorFrom(_json_.date);
+            }
+            resolve(_tables) {
+                if (this.date != null) {
+                    this.date.resolve(_tables);
+                }
+            }
+        }
+        test.DemoSingletonType = DemoSingletonType;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromJson {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new common.Dummy(_json2_);
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromJson = TbDataFromJson;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromXml {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromXml = TbDataFromXml;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDataFromLua {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoType2(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDataFromLua = TbDataFromLua;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbMultiRowRecord {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.MultiRowRecord(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -3373,154 +4209,146 @@ var cfg;
                 }
             }
         }
-        common.TbDummy = TbDummy;
-    })(common || (common = {}));
-    (function (error) {
-        class TbErrorInfo {
+        test.TbMultiRowRecord = TbMultiRowRecord;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowRecord {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.name == null) {
+                    throw new Error();
+                }
+                this.name = _json_.name;
+                if (_json_.one_rows == null) {
+                    throw new Error();
+                }
+                {
+                    this.oneRows = [];
+                    for (let _ele of _json_.one_rows) {
+                        let _e;
+                        _e = new test.MultiRowType1(_ele);
+                        this.oneRows.push(_e);
+                    }
+                }
+                if (_json_.multi_rows1 == null) {
+                    throw new Error();
+                }
+                {
+                    this.multiRows1 = [];
+                    for (let _ele of _json_.multi_rows1) {
+                        let _e;
+                        _e = new test.MultiRowType1(_ele);
+                        this.multiRows1.push(_e);
+                    }
+                }
+                if (_json_.multi_rows2 == null) {
+                    throw new Error();
+                }
+                {
+                    this.multiRows2 = [];
+                    for (let _ele of _json_.multi_rows2) {
+                        let _e;
+                        _e = new test.MultiRowType1(_ele);
+                        this.multiRows2.push(_e);
+                    }
+                }
+                if (_json_.multi_rows3 == null) {
+                    throw new Error();
+                }
+                {
+                    this.multiRows3 = new Set();
+                    for (var _ele of _json_.multi_rows3) {
+                        let _e;
+                        _e = new test.MultiRowType2(_ele);
+                        this.multiRows3.add(_e);
+                    }
+                }
+                if (_json_.multi_rows4 == null) {
+                    throw new Error();
+                }
+                this.multiRows4 = new Map();
+                for (var _entry_ of _json_.multi_rows4) {
+                    let _k;
+                    _k = _entry_[0];
                     let _v;
-                    _v = new error.ErrorInfo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
+                    _v = new test.MultiRowType2(_entry_[1]);
+                    this.multiRows4.set(_k, _v);
                 }
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
+                for (let _e of this.oneRows) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows1) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows2) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.multiRows4.values()) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
                 }
             }
         }
-        error.TbErrorInfo = TbErrorInfo;
-    })(error || (error = {}));
-    (function (error) {
-        class TbCodeInfo {
+        test.MultiRowRecord = MultiRowRecord;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowType1 {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new error.CodeInfo(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.code, _v);
+                if (_json_.id == null) {
+                    throw new Error();
                 }
+                this.id = _json_.id;
+                if (_json_.x == null) {
+                    throw new Error();
+                }
+                this.x = _json_.x;
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
             }
         }
-        error.TbCodeInfo = TbCodeInfo;
-    })(error || (error = {}));
-    (function (item) {
-        class TbItem {
+        test.MultiRowType1 = MultiRowType1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowType2 {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new item.Item(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
+                if (_json_.id == null) {
+                    throw new Error();
                 }
+                this.id = _json_.id;
+                if (_json_.x == null) {
+                    throw new Error();
+                }
+                this.x = _json_.x;
+                if (_json_.y == null) {
+                    throw new Error();
+                }
+                this.y = _json_.y;
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
             }
         }
-        item.TbItem = TbItem;
-    })(item || (item = {}));
-    (function (item) {
-        class TbItemFunc {
+        test.MultiRowType2 = MultiRowType2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbMultiRowTitle {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new item.ItemFunction(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.minorType, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemFunc = TbItemFunc;
-    })(item || (item = {}));
-    (function (item) {
-        class TbItemExtra {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = item.ItemExtra.deserialize(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        item.TbItemExtra = TbItemExtra;
-    })(item || (item = {}));
-    (function (mail) {
-        class TbSystemMail {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new mail.SystemMail(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.id, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        mail.TbSystemMail = TbSystemMail;
-    })(mail || (mail = {}));
-    (function (mail) {
-        class TbGlobalMail {
-            constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new mail.GlobalMail(_json2_);
+                    _v = new test.MultiRowTitle(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -3534,39 +4362,109 @@ var cfg;
                 }
             }
         }
-        mail.TbGlobalMail = TbGlobalMail;
-    })(mail || (mail = {}));
-    (function (role) {
-        class TbRoleLevelExpAttr {
+        test.TbMultiRowTitle = TbMultiRowTitle;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class MultiRowTitle {
             constructor(_json_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (var _json2_ of _json_) {
-                    let _v;
-                    _v = new role.LevelExpAttr(_json2_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.level, _v);
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.name == null) {
+                    throw new Error();
+                }
+                this.name = _json_.name;
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = new test.H1(_json_.x1);
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                {
+                    this.x2 = [];
+                    for (let _ele of _json_.x2) {
+                        let _e;
+                        _e = new test.H2(_ele);
+                        this.x2.push(_e);
+                    }
+                }
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                {
+                    this.x3 = [];
+                    for (let _ele of _json_.x3) {
+                        let _e;
+                        _e = new test.H2(_ele);
+                        this.x3.push(_e);
+                    }
                 }
             }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
             resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
+                if (this.x1 != null) {
+                    this.x1.resolve(_tables);
+                }
+                for (let _e of this.x2) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+                for (let _e of this.x3) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
                 }
             }
         }
-        role.TbRoleLevelExpAttr = TbRoleLevelExpAttr;
-    })(role || (role = {}));
-    (function (role) {
-        class TbRoleLevelBonusCoefficient {
+        test.MultiRowTitle = MultiRowTitle;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class H1 {
+            constructor(_json_) {
+                if (_json_.y2 == null) {
+                    throw new Error();
+                }
+                this.y2 = new test.H2(_json_.y2);
+                if (_json_.y3 == null) {
+                    throw new Error();
+                }
+                this.y3 = _json_.y3;
+            }
+            resolve(_tables) {
+                if (this.y2 != null) {
+                    this.y2.resolve(_tables);
+                }
+            }
+        }
+        test.H1 = H1;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class H2 {
+            constructor(_json_) {
+                if (_json_.z2 == null) {
+                    throw new Error();
+                }
+                this.z2 = _json_.z2;
+                if (_json_.z3 == null) {
+                    throw new Error();
+                }
+                this.z3 = _json_.z3;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.H2 = H2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestNull {
             constructor(_json_) {
                 this._dataMap = new Map();
                 this._dataList = [];
                 for (var _json2_ of _json_) {
                     let _v;
-                    _v = new role.LevelBonus(_json2_);
+                    _v = new test.TestNull(_json2_);
                     this._dataList.push(_v);
                     this._dataMap.set(_v.id, _v);
                 }
@@ -3580,8 +4478,354 @@ var cfg;
                 }
             }
         }
-        role.TbRoleLevelBonusCoefficient = TbRoleLevelBonusCoefficient;
-    })(role || (role = {}));
+        test.TbTestNull = TbTestNull;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestNull {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.x1 != null) {
+                    this.x1 = _json_.x1;
+                }
+                else {
+                    this.x1 = null;
+                }
+                if (_json_.x2 != null) {
+                    this.x2 = _json_.x2;
+                }
+                else {
+                    this.x2 = null;
+                }
+                if (_json_.x3 != null) {
+                    this.x3 = new test.DemoType1(_json_.x3);
+                }
+                else {
+                    this.x3 = null;
+                }
+                if (_json_.x4 != null) {
+                    this.x4 = test.DemoDynamic.constructorFrom(_json_.x4);
+                }
+                else {
+                    this.x4 = null;
+                }
+                if (_json_.s1 != null) {
+                    this.s1 = _json_.s1;
+                }
+                else {
+                    this.s1 = null;
+                }
+                if (_json_.s2 != null) {
+                    this.s2 = _json_.s2;
+                }
+                else {
+                    this.s2 = null;
+                }
+            }
+            resolve(_tables) {
+                if (this.x3 != null) {
+                    this.x3.resolve(_tables);
+                }
+                if (this.x4 != null) {
+                    this.x4.resolve(_tables);
+                }
+            }
+        }
+        test.TestNull = TestNull;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoPrimitive {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoPrimitiveTypesTable(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x4, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoPrimitive = TbDemoPrimitive;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoPrimitiveTypesTable {
+            constructor(_json_) {
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+                if (_json_.x3 == null) {
+                    throw new Error();
+                }
+                this.x3 = _json_.x3;
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+                if (_json_.x5 == null) {
+                    throw new Error();
+                }
+                this.x5 = _json_.x5;
+                if (_json_.x6 == null) {
+                    throw new Error();
+                }
+                this.x6 = _json_.x6;
+                if (_json_.x7 == null) {
+                    throw new Error();
+                }
+                this.x7 = _json_.x7;
+                if (_json_.s1 == null) {
+                    throw new Error();
+                }
+                this.s1 = _json_.s1;
+                if (_json_.s2 == null) {
+                    throw new Error();
+                }
+                this.s2 = _json_.s2;
+                if (_json_.v2 == null) {
+                    throw new Error();
+                }
+                this.v2 = Vector2.deserializeFromJson(_json_.v2);
+                if (_json_.v3 == null) {
+                    throw new Error();
+                }
+                this.v3 = Vector3.deserializeFromJson(_json_.v3);
+                if (_json_.v4 == null) {
+                    throw new Error();
+                }
+                this.v4 = Vector4.deserializeFromJson(_json_.v4);
+                if (_json_.t1 == null) {
+                    throw new Error();
+                }
+                this.t1 = _json_.t1;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.DemoPrimitiveTypesTable = DemoPrimitiveTypesTable;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestString {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.TestString(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestString = TbTestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestString {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.s1 == null) {
+                    throw new Error();
+                }
+                this.s1 = _json_.s1;
+                if (_json_.cs1 == null) {
+                    throw new Error();
+                }
+                this.cs1 = new test.CompactString(_json_.cs1);
+                if (_json_.cs2 == null) {
+                    throw new Error();
+                }
+                this.cs2 = new test.CompactString(_json_.cs2);
+            }
+            resolve(_tables) {
+                if (this.cs1 != null) {
+                    this.cs1.resolve(_tables);
+                }
+                if (this.cs2 != null) {
+                    this.cs2.resolve(_tables);
+                }
+            }
+        }
+        test.TestString = TestString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class CompactString {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.s2 == null) {
+                    throw new Error();
+                }
+                this.s2 = _json_.s2;
+                if (_json_.s3 == null) {
+                    throw new Error();
+                }
+                this.s3 = _json_.s3;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.CompactString = CompactString;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoGroup(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup = TbDemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DemoGroup {
+            constructor(_json_) {
+                if (_json_.id == null) {
+                    throw new Error();
+                }
+                this.id = _json_.id;
+                if (_json_.x1 == null) {
+                    throw new Error();
+                }
+                this.x1 = _json_.x1;
+                if (_json_.x2 == null) {
+                    throw new Error();
+                }
+                this.x2 = _json_.x2;
+                if (_json_.x4 == null) {
+                    throw new Error();
+                }
+                this.x4 = _json_.x4;
+                if (_json_.x5 == null) {
+                    throw new Error();
+                }
+                this.x5 = new test.InnerGroup(_json_.x5);
+            }
+            resolve(_tables) {
+                if (this.x5 != null) {
+                    this.x5.resolve(_tables);
+                }
+            }
+        }
+        test.DemoGroup = DemoGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class InnerGroup {
+            constructor(_json_) {
+                if (_json_.y1 == null) {
+                    throw new Error();
+                }
+                this.y1 = _json_.y1;
+                if (_json_.y2 == null) {
+                    throw new Error();
+                }
+                this.y2 = _json_.y2;
+                if (_json_.y4 == null) {
+                    throw new Error();
+                }
+                this.y4 = _json_.y4;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.InnerGroup = InnerGroup;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroup_C {
+            constructor(_json_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (var _json2_ of _json_) {
+                    let _v;
+                    _v = new test.DemoGroup(_json2_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroup_C = TbDemoGroup_C;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestGlobal {
+            constructor(_json_) {
+                if (_json_.length != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new test.TestGlobal(_json_[0]);
+            }
+            getData() { return this._data; }
+            get unlockEquip() { return this._data.unlockEquip; }
+            get unlockHero() { return this._data.unlockHero; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        test.TbTestGlobal = TbTestGlobal;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestGlobal {
+            constructor(_json_) {
+                if (_json_.unlock_equip == null) {
+                    throw new Error();
+                }
+                this.unlockEquip = _json_.unlock_equip;
+                if (_json_.unlock_hero == null) {
+                    throw new Error();
+                }
+                this.unlockHero = _json_.unlock_hero;
+            }
+            resolve(_tables) {
+            }
+        }
+        test.TestGlobal = TestGlobal;
+    })(test = cfg.test || (cfg.test = {}));
     class Tables {
         constructor(loader) {
             let tables = new Map();
@@ -3607,6 +4851,10 @@ var cfg;
             tables.set('item.TbItemFunc', this._TbItemFunc);
             this._TbItemExtra = new item.TbItemExtra(loader('item.TbItemExtra.json'));
             tables.set('item.TbItemExtra', this._TbItemExtra);
+            this._TbL10NDemo = new l10n.TbL10NDemo(loader('l10n.TbL10NDemo.json'));
+            tables.set('l10n.TbL10NDemo', this._TbL10NDemo);
+            this._TbPatchDemo = new l10n.TbPatchDemo(loader('l10n.TbPatchDemo.json'));
+            tables.set('l10n.TbPatchDemo', this._TbPatchDemo);
             this._TbSystemMail = new mail.TbSystemMail(loader('mail.TbSystemMail.json'));
             tables.set('mail.TbSystemMail', this._TbSystemMail);
             this._TbGlobalMail = new mail.TbGlobalMail(loader('mail.TbGlobalMail.json'));
@@ -3615,6 +4863,34 @@ var cfg;
             tables.set('role.TbRoleLevelExpAttr', this._TbRoleLevelExpAttr);
             this._TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient.json'));
             tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient);
+            this._TbTestTag = new tag.TbTestTag(loader('tag.TbTestTag.json'));
+            tables.set('tag.TbTestTag', this._TbTestTag);
+            this._TbFullTypes = new test.TbFullTypes(loader('test.TbFullTypes.json'));
+            tables.set('test.TbFullTypes', this._TbFullTypes);
+            this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton.json'));
+            tables.set('test.TbSingleton', this._TbSingleton);
+            this._TbDataFromJson = new test.TbDataFromJson(loader('test.TbDataFromJson.json'));
+            tables.set('test.TbDataFromJson', this._TbDataFromJson);
+            this._TbDataFromXml = new test.TbDataFromXml(loader('test.TbDataFromXml.json'));
+            tables.set('test.TbDataFromXml', this._TbDataFromXml);
+            this._TbDataFromLua = new test.TbDataFromLua(loader('test.TbDataFromLua.json'));
+            tables.set('test.TbDataFromLua', this._TbDataFromLua);
+            this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord.json'));
+            tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord);
+            this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle.json'));
+            tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle);
+            this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.json'));
+            tables.set('test.TbTestNull', this._TbTestNull);
+            this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive.json'));
+            tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive);
+            this._TbTestString = new test.TbTestString(loader('test.TbTestString.json'));
+            tables.set('test.TbTestString', this._TbTestString);
+            this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup.json'));
+            tables.set('test.TbDemoGroup', this._TbDemoGroup);
+            this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C.json'));
+            tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C);
+            this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal.json'));
+            tables.set('test.TbTestGlobal', this._TbTestGlobal);
             this._TbBlackboard.resolve(tables);
             this._TbBehaviorTree.resolve(tables);
             this._TbClazz.resolve(tables);
@@ -3626,10 +4902,26 @@ var cfg;
             this._TbItem.resolve(tables);
             this._TbItemFunc.resolve(tables);
             this._TbItemExtra.resolve(tables);
+            this._TbL10NDemo.resolve(tables);
+            this._TbPatchDemo.resolve(tables);
             this._TbSystemMail.resolve(tables);
             this._TbGlobalMail.resolve(tables);
             this._TbRoleLevelExpAttr.resolve(tables);
             this._TbRoleLevelBonusCoefficient.resolve(tables);
+            this._TbTestTag.resolve(tables);
+            this._TbFullTypes.resolve(tables);
+            this._TbSingleton.resolve(tables);
+            this._TbDataFromJson.resolve(tables);
+            this._TbDataFromXml.resolve(tables);
+            this._TbDataFromLua.resolve(tables);
+            this._TbMultiRowRecord.resolve(tables);
+            this._TbMultiRowTitle.resolve(tables);
+            this._TbTestNull.resolve(tables);
+            this._TbDemoPrimitive.resolve(tables);
+            this._TbTestString.resolve(tables);
+            this._TbDemoGroup.resolve(tables);
+            this._TbDemoGroup_C.resolve(tables);
+            this._TbTestGlobal.resolve(tables);
         }
         get TbBlackboard() { return this._TbBlackboard; }
         get TbBehaviorTree() { return this._TbBehaviorTree; }
@@ -3642,10 +4934,26 @@ var cfg;
         get TbItem() { return this._TbItem; }
         get TbItemFunc() { return this._TbItemFunc; }
         get TbItemExtra() { return this._TbItemExtra; }
+        get TbL10NDemo() { return this._TbL10NDemo; }
+        get TbPatchDemo() { return this._TbPatchDemo; }
         get TbSystemMail() { return this._TbSystemMail; }
         get TbGlobalMail() { return this._TbGlobalMail; }
         get TbRoleLevelExpAttr() { return this._TbRoleLevelExpAttr; }
         get TbRoleLevelBonusCoefficient() { return this._TbRoleLevelBonusCoefficient; }
+        get TbTestTag() { return this._TbTestTag; }
+        get TbFullTypes() { return this._TbFullTypes; }
+        get TbSingleton() { return this._TbSingleton; }
+        get TbDataFromJson() { return this._TbDataFromJson; }
+        get TbDataFromXml() { return this._TbDataFromXml; }
+        get TbDataFromLua() { return this._TbDataFromLua; }
+        get TbMultiRowRecord() { return this._TbMultiRowRecord; }
+        get TbMultiRowTitle() { return this._TbMultiRowTitle; }
+        get TbTestNull() { return this._TbTestNull; }
+        get TbDemoPrimitive() { return this._TbDemoPrimitive; }
+        get TbTestString() { return this._TbTestString; }
+        get TbDemoGroup() { return this._TbDemoGroup; }
+        get TbDemoGroup_C() { return this._TbDemoGroup_C; }
+        get TbTestGlobal() { return this._TbTestGlobal; }
     }
     cfg.Tables = Tables;
 })(cfg = exports.cfg || (exports.cfg = {}));

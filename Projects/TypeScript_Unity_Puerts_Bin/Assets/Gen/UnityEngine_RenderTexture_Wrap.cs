@@ -272,37 +272,6 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_MarkRestoreExpected(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.RenderTexture;
-                
-                
-                {
-                    
-                    
-                    
-                    
-                    {
-                        
-                        obj.MarkRestoreExpected();
-                        
-                        
-                        
-                        
-                    }
-                }
-                
-                
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ResolveAntiAliasedSurface(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1686,7 +1655,6 @@ namespace PuertsStaticWrap
                 {
                     { new Puerts.MethodKey {Name = "GetNativeDepthBufferPtr", IsStatic = false},  M_GetNativeDepthBufferPtr },
                     { new Puerts.MethodKey {Name = "DiscardContents", IsStatic = false},  M_DiscardContents },
-                    { new Puerts.MethodKey {Name = "MarkRestoreExpected", IsStatic = false},  M_MarkRestoreExpected },
                     { new Puerts.MethodKey {Name = "ResolveAntiAliasedSurface", IsStatic = false},  M_ResolveAntiAliasedSurface },
                     { new Puerts.MethodKey {Name = "SetGlobalShaderProperty", IsStatic = false},  M_SetGlobalShaderProperty },
                     { new Puerts.MethodKey {Name = "Create", IsStatic = false},  M_Create },

@@ -479,6 +479,23 @@ namespace PuertsStaticWrap
         }
         
         
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_drivenByObject(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.RectTransform;
+                var result = obj.drivenByObject;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
         
         
         
@@ -540,6 +557,7 @@ namespace PuertsStaticWrap
                     {"anchoredPosition3D", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_anchoredPosition3D, Setter = S_anchoredPosition3D} },
                     {"offsetMin", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_offsetMin, Setter = S_offsetMin} },
                     {"offsetMax", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_offsetMax, Setter = S_offsetMax} },
+                    {"drivenByObject", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_drivenByObject, Setter = null} },
                     
                 }
             };

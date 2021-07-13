@@ -10,6 +10,8 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_data_dir ConfigData ^
  --gen_types code_typescript_json,data_json ^
  -s client ^
---export_test_data
+--export_test_data ^
+--use_puerts_bytebuf ^
+--embed_bright_types 
 
 pause

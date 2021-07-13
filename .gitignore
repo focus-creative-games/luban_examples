@@ -294,3 +294,4 @@ gradle/
 /Projects/TypeScript_Unity_Puerts_Bin/*.csproj
 /Tools/build_luban_client.bat
 /Tools/build_luban_server.bat
+/Projects/TypeScript_NodeJs_Bin/dist

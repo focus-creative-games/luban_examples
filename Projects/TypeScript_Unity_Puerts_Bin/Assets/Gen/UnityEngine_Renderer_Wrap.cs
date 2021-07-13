@@ -438,6 +438,38 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_staticShadowCaster(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.Renderer;
+                var result = obj.staticShadowCaster;
+                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_staticShadowCaster(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.Renderer;
+                var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                obj.staticShadowCaster = argHelper.GetBoolean(false);
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_motionVectorGenerationMode(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1154,6 +1186,7 @@ namespace PuertsStaticWrap
                     {"shadowCastingMode", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_shadowCastingMode, Setter = S_shadowCastingMode} },
                     {"receiveShadows", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_receiveShadows, Setter = S_receiveShadows} },
                     {"forceRenderingOff", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_forceRenderingOff, Setter = S_forceRenderingOff} },
+                    {"staticShadowCaster", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_staticShadowCaster, Setter = S_staticShadowCaster} },
                     {"motionVectorGenerationMode", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_motionVectorGenerationMode, Setter = S_motionVectorGenerationMode} },
                     {"lightProbeUsage", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_lightProbeUsage, Setter = S_lightProbeUsage} },
                     {"reflectionProbeUsage", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_reflectionProbeUsage, Setter = S_reflectionProbeUsage} },

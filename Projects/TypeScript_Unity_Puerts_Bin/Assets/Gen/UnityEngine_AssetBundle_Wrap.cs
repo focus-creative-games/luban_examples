@@ -885,6 +885,39 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_UnloadAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.AssetBundle;
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = argHelper0.GetBoolean(false);
+                        var result = obj.UnloadAsync(Arg0);
+                        
+                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetAllAssetNames(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1087,6 +1120,7 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "LoadAllAssets", IsStatic = false},  M_LoadAllAssets },
                     { new Puerts.MethodKey {Name = "LoadAllAssetsAsync", IsStatic = false},  M_LoadAllAssetsAsync },
                     { new Puerts.MethodKey {Name = "Unload", IsStatic = false},  M_Unload },
+                    { new Puerts.MethodKey {Name = "UnloadAsync", IsStatic = false},  M_UnloadAsync },
                     { new Puerts.MethodKey {Name = "GetAllAssetNames", IsStatic = false},  M_GetAllAssetNames },
                     { new Puerts.MethodKey {Name = "GetAllScenePaths", IsStatic = false},  M_GetAllScenePaths },
                     { new Puerts.MethodKey {Name = "RecompressAssetBundleAsync", IsStatic = true},  F_RecompressAssetBundleAsync },

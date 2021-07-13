@@ -4,7 +4,7 @@
     "target": "esnext",
     "module": "commonjs",
     "jsx": "react",
-    "sourceMap": true,
+    "sourceMap": false,
     "noImplicitAny": true,
     "typeRoots": [
       "../Assets/Puerts/Typing",

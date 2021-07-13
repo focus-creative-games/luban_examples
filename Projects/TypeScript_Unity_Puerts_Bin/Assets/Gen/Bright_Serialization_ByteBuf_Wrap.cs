@@ -1117,6 +1117,70 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_WriteNumberAsLong(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as Bright.Serialization.ByteBuf;
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = argHelper0.GetDouble(false);
+                        obj.WriteNumberAsLong(Arg0);
+                        
+                        
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_ReadLongAsNumber(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as Bright.Serialization.ByteBuf;
+                
+                
+                {
+                    
+                    
+                    
+                    
+                    {
+                        
+                        var result = obj.ReadLongAsNumber();
+                        
+                        Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ReadUlong(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -2967,6 +3031,8 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "WriteFint_Safe", IsStatic = false},  M_WriteFint_Safe },
                     { new Puerts.MethodKey {Name = "WriteLong", IsStatic = false},  M_WriteLong },
                     { new Puerts.MethodKey {Name = "ReadLong", IsStatic = false},  M_ReadLong },
+                    { new Puerts.MethodKey {Name = "WriteNumberAsLong", IsStatic = false},  M_WriteNumberAsLong },
+                    { new Puerts.MethodKey {Name = "ReadLongAsNumber", IsStatic = false},  M_ReadLongAsNumber },
                     { new Puerts.MethodKey {Name = "ReadUlong", IsStatic = false},  M_ReadUlong },
                     { new Puerts.MethodKey {Name = "WriteFlong", IsStatic = false},  M_WriteFlong },
                     { new Puerts.MethodKey {Name = "ReadFlong", IsStatic = false},  M_ReadFlong },

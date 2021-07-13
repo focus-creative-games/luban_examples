@@ -7,72 +7,94 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-export namespace cfg {
-
 
 export class Vector2 {
-        x: number
-        y: number
-        constructor(x: number, y: number) {
-            this.x = x
-            this.y = y
+    static deserializeFromJson(json: any): Vector2 {
+        let x = json['x']
+        let y = json['y']
+        if (x == null || y == null) {
+            throw new Error()
         }
-
-        static from(_json_: any): Vector2 {
-            let x = _json_['x']
-            let y = _json_['y']
-            if (x == null || y == null) {
-                throw new Error()
-            }
-            return new Vector2(x, y)
-        }
+        return new Vector2(x, y)
     }
 
+    x: number
+    y: number
+    constructor(x: number = 0, y: number = 0) {
+        this.x = x
+        this.y = y
+    }
+}
 
-    export class Vector3 {
-        x: number
-        y: number
-        z: number
-        constructor(x: number, y: number, z: number) {
-            this.x = x
-            this.y = y
-            this.z = z
+export class Vector3 {
+    static deserializeFromJson(json: any): Vector3 {
+        let x = json['x']
+        let y = json['y']
+        let z = json['z']
+        if (x == null || y == null || z == null) {
+            throw new Error()
         }
-
-        static from(_json_: any): Vector3 {
-            let x = _json_['x']
-            let y = _json_['y']
-            let z = _json_['z']
-            if (x == null || y == null || z == null) {
-                throw new Error()
-            }
-            return new Vector3(x, y, z)
-        }
+        return new Vector3(x, y, z)
     }
 
-    export class Vector4 {
-        x: number
-        y: number
-        z: number
-        w: number
-        constructor(x: number, y: number, z: number, w: number) {
-            this.x = x
-            this.y = y
-            this.z = z
-            this.w = w
-        }
+    x: number
+    y: number
+    z: number
 
-        static from(_json_: any): Vector4 {
-            let x = _json_['x']
-            let y = _json_['y']
-            let z = _json_['z']
-            let w = _json_['w']
-            if (x == null || y == null || z == null || w == null) {
-                throw new Error()
-            }
-            return new Vector4(x, y, z, w)
-        }
+    constructor(x: number = 0, y: number = 0, z: number = 0) {
+        this.x = x
+        this.y = y
+        this.z = z
     }
+}
+
+export class Vector4 {
+    static deserializeFromJson(json: any): Vector4 {
+        let x = json['x']
+        let y = json['y']
+        let z = json['z']
+        let w = json['w']
+        if (x == null || y == null || z == null || w == null) {
+            throw new Error()
+        }
+        return new Vector4(x, y, z, w)
+    }
+    
+    x: number
+    y: number
+    z: number
+    w: number
+
+    constructor(x: number = 0, y: number = 0, z: number = 0, w: number = 0) {
+        this.x = x
+        this.y = y
+        this.z = z
+        this.w = w
+    }
+}
+
+
+export namespace cfg {
+
+export namespace role {
+
+export class Consts {
+    static MAX_NAME_LENGTH = 20;
+    static MAX_USER_ROLE_NUM = 10;
+}
+}
+
+
+
+export namespace test {
+
+export class DemoConst {
+    static x1 = 0;
+    static x2 = 3242;
+    static x3 = 444.3;
+    static x4 = 55.3;
+}
+}
 
 
 
@@ -503,26 +525,36 @@ export enum ETestEmptyEnum2 {
 }
 
 
-export namespace role {
+   
+export namespace ai {
+export class TbBlackboard{
+    private _dataMap: Map<string, ai.Blackboard>
+    private _dataList: ai.Blackboard[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<string, ai.Blackboard>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: ai.Blackboard
+            _v = new ai.Blackboard(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.name, _v)
+        }
+    }
 
-export class Consts {
-    static MAX_NAME_LENGTH = 20;
-    static MAX_USER_ROLE_NUM = 10;
+    getDataMap(): Map<string, ai.Blackboard> { return this._dataMap; }
+    getDataList(): ai.Blackboard[] { return this._dataList; }
+
+    get(key: string): ai.Blackboard  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
 }
 }
-
-
-
-export namespace test {
-
-export class DemoConst {
-    static x1 = 0;
-    static x2 = 3242;
-    static x3 = 444.3;
-    static x4 = 55.3;
-}
-}
-
 
 
 
@@ -588,6 +620,38 @@ export  class BlackboardKey  {
     }
 }
 
+}
+
+
+   
+export namespace ai {
+export class TbBehaviorTree{
+    private _dataMap: Map<number, ai.BehaviorTree>
+    private _dataList: ai.BehaviorTree[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, ai.BehaviorTree>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: ai.BehaviorTree
+            _v = new ai.BehaviorTree(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, ai.BehaviorTree> { return this._dataMap; }
+    getDataList(): ai.BehaviorTree[] { return this._dataList; }
+
+    get(key: number): ai.BehaviorTree  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -1624,7 +1688,7 @@ export  class MoveToLocation  extends ai.Task {
     constructor(_json_: any) {
         super(_json_)
         if (_json_.location == null) { throw new Error() }
-        this.location = Vector3.from(_json_.location)
+        this.location = Vector3.deserializeFromJson(_json_.location)
         if (_json_.acceptable_radius == null) { throw new Error() }
         this.acceptableRadius = _json_.acceptable_radius
     }
@@ -1660,6 +1724,38 @@ export  class DebugPrint  extends ai.Task {
     }
 }
 
+}
+
+
+   
+export namespace blueprint {
+export class TbClazz{
+    private _dataMap: Map<string, blueprint.Clazz>
+    private _dataList: blueprint.Clazz[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<string, blueprint.Clazz>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: blueprint.Clazz
+            _v = blueprint.Clazz.constructorFrom(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.name, _v)
+        }
+    }
+
+    getDataMap(): Map<string, blueprint.Clazz> { return this._dataMap; }
+    getDataList(): blueprint.Clazz[] { return this._dataList; }
+
+    get(key: string): blueprint.Clazz  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -1954,6 +2050,38 @@ export  class EnumField  {
 }
 
 
+   
+export namespace bonus {
+export class TbDrop{
+    private _dataMap: Map<number, bonus.DropInfo>
+    private _dataList: bonus.DropInfo[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, bonus.DropInfo>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: bonus.DropInfo
+            _v = new bonus.DropInfo(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, bonus.DropInfo> { return this._dataMap; }
+    getDataList(): bonus.DropInfo[] { return this._dataList; }
+
+    get(key: number): bonus.DropInfo  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2002,7 +2130,7 @@ export  class ShowItemInfo  {
 
     readonly itemId: number
     itemId_Ref : item.Item
-    readonly itemNum: bigint
+    readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -2426,6 +2554,49 @@ export  class DropBonus  extends bonus.Bonus {
 }
 
 
+   
+export namespace common {
+export class TbGlobalConfig{
+
+     private _data: common.GlobalConfig
+    constructor(_json_: any) {
+        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new common.GlobalConfig(_json_[0])
+    }
+
+    getData(): common.GlobalConfig { return this._data; }
+
+     get  bagCapacity(): number { return this._data.bagCapacity; }
+     get  bagCapacitySpecial(): number { return this._data.bagCapacitySpecial; }
+     get  bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity; }
+     get  bagTempToolCapacity(): number { return this._data.bagTempToolCapacity; }
+     get  bagInitCapacity(): number { return this._data.bagInitCapacity; }
+     get  quickBagCapacity(): number { return this._data.quickBagCapacity; }
+     get  clothBagCapacity(): number { return this._data.clothBagCapacity; }
+     get  clothBagInitCapacity(): number { return this._data.clothBagInitCapacity; }
+     get  clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial; }
+     get  bagInitItemsDropId(): number { return this._data.bagInitItemsDropId; }
+     get  mailBoxCapacity(): number { return this._data.mailBoxCapacity; }
+     get  damageParamC(): number { return this._data.damageParamC; }
+     get  damageParamE(): number { return this._data.damageParamE; }
+     get  damageParamF(): number { return this._data.damageParamF; }
+     get  damageParamD(): number { return this._data.damageParamD; }
+     get  roleSpeed(): number { return this._data.roleSpeed; }
+     get  monsterSpeed(): number { return this._data.monsterSpeed; }
+     get  initEnergy(): number { return this._data.initEnergy; }
+     get  initViality(): number { return this._data.initViality; }
+     get  maxViality(): number { return this._data.maxViality; }
+     get  perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime; }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
 
 
 
@@ -2505,6 +2676,38 @@ export  class GlobalConfig  {
     }
 }
 
+}
+
+
+   
+export namespace common {
+export class TbDummy{
+    private _dataMap: Map<number, common.Dummy>
+    private _dataList: common.Dummy[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, common.Dummy>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: common.Dummy
+            _v = new common.Dummy(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, common.Dummy> { return this._dataMap; }
+    getDataList(): common.Dummy[] { return this._dataList; }
+
+    get(key: number): common.Dummy  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -2732,6 +2935,38 @@ export  class GroupCoolDown  extends limit.LimitBase {
 }
 
 
+   
+export namespace error {
+export class TbErrorInfo{
+    private _dataMap: Map<string, error.ErrorInfo>
+    private _dataList: error.ErrorInfo[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<string, error.ErrorInfo>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: error.ErrorInfo
+            _v = new error.ErrorInfo(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.code, _v)
+        }
+    }
+
+    getDataMap(): Map<string, error.ErrorInfo> { return this._dataMap; }
+    getDataList(): error.ErrorInfo[] { return this._dataList; }
+
+    get(key: string): error.ErrorInfo  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2882,6 +3117,38 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 }
 
 
+   
+export namespace error {
+export class TbCodeInfo{
+    private _dataMap: Map<error.EErrorCode, error.CodeInfo>
+    private _dataList: error.CodeInfo[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<error.EErrorCode, error.CodeInfo>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: error.CodeInfo
+            _v = new error.CodeInfo(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.code, _v)
+        }
+    }
+
+    getDataMap(): Map<error.EErrorCode, error.CodeInfo> { return this._dataMap; }
+    getDataList(): error.CodeInfo[] { return this._dataList; }
+
+    get(key: error.EErrorCode): error.CodeInfo  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2903,6 +3170,38 @@ export  class CodeInfo  {
     }
 }
 
+}
+
+
+   
+export namespace item {
+export class TbItem{
+    private _dataMap: Map<number, item.Item>
+    private _dataList: item.Item[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, item.Item>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: item.Item
+            _v = new item.Item(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, item.Item> { return this._dataMap; }
+    getDataList(): item.Item[] { return this._dataList; }
+
+    get(key: number): item.Item  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -2982,6 +3281,38 @@ export  class Item  {
 }
 
 
+   
+export namespace item {
+export class TbItemFunc{
+    private _dataMap: Map<item.EMinorType, item.ItemFunction>
+    private _dataList: item.ItemFunction[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<item.EMinorType, item.ItemFunction>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: item.ItemFunction
+            _v = new item.ItemFunction(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.minorType, _v)
+        }
+    }
+
+    getDataMap(): Map<item.EMinorType, item.ItemFunction> { return this._dataMap; }
+    getDataList(): item.ItemFunction[] { return this._dataList; }
+
+    get(key: item.EMinorType): item.ItemFunction  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3009,6 +3340,38 @@ export  class ItemFunction  {
     }
 }
 
+}
+
+
+   
+export namespace item {
+export class TbItemExtra{
+    private _dataMap: Map<number, item.ItemExtra>
+    private _dataList: item.ItemExtra[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, item.ItemExtra>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: item.ItemExtra
+            _v = item.ItemExtra.constructorFrom(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, item.ItemExtra> { return this._dataMap; }
+    getDataList(): item.ItemExtra[] { return this._dataList; }
+
+    get(key: number): item.ItemExtra  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3468,7 +3831,7 @@ export  class Clothes  extends item.ItemExtra {
     }
 
     readonly attack: number
-    readonly hp: bigint
+    readonly hp: number
     readonly energyLimit: number
     readonly energyResume: number
 
@@ -3682,6 +4045,38 @@ export  class CostItems  extends cost.Cost {
 }
 
 
+   
+export namespace l10n {
+export class TbL10NDemo{
+    private _dataMap: Map<number, l10n.L10NDemo>
+    private _dataList: l10n.L10NDemo[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, l10n.L10NDemo>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: l10n.L10NDemo
+            _v = new l10n.L10NDemo(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, l10n.L10NDemo> { return this._dataMap; }
+    getDataList(): l10n.L10NDemo[] { return this._dataList; }
+
+    get(key: number): l10n.L10NDemo  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3706,6 +4101,38 @@ export  class L10NDemo  {
 }
 
 
+   
+export namespace l10n {
+export class TbPatchDemo{
+    private _dataMap: Map<number, l10n.PatchDemo>
+    private _dataList: l10n.PatchDemo[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, l10n.PatchDemo>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: l10n.PatchDemo
+            _v = new l10n.PatchDemo(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, l10n.PatchDemo> { return this._dataMap; }
+    getDataList(): l10n.PatchDemo[] { return this._dataList; }
+
+    get(key: number): l10n.PatchDemo  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3727,6 +4154,38 @@ export  class PatchDemo  {
     }
 }
 
+}
+
+
+   
+export namespace mail {
+export class TbSystemMail{
+    private _dataMap: Map<number, mail.SystemMail>
+    private _dataList: mail.SystemMail[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, mail.SystemMail>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: mail.SystemMail
+            _v = new mail.SystemMail(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, mail.SystemMail> { return this._dataMap; }
+    getDataList(): mail.SystemMail[] { return this._dataList; }
+
+    get(key: number): mail.SystemMail  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3760,6 +4219,38 @@ export  class SystemMail  {
     }
 }
 
+}
+
+
+   
+export namespace mail {
+export class TbGlobalMail{
+    private _dataMap: Map<number, mail.GlobalMail>
+    private _dataList: mail.GlobalMail[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, mail.GlobalMail>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: mail.GlobalMail
+            _v = new mail.GlobalMail(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, mail.GlobalMail> { return this._dataMap; }
+    getDataList(): mail.GlobalMail[] { return this._dataList; }
+
+    get(key: number): mail.GlobalMail  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3820,6 +4311,38 @@ export  class GlobalMail  {
 }
 
 
+   
+export namespace role {
+export class TbRoleLevelExpAttr{
+    private _dataMap: Map<number, role.LevelExpAttr>
+    private _dataList: role.LevelExpAttr[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, role.LevelExpAttr>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: role.LevelExpAttr
+            _v = new role.LevelExpAttr(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.level, _v)
+        }
+    }
+
+    getDataMap(): Map<number, role.LevelExpAttr> { return this._dataMap; }
+    getDataList(): role.LevelExpAttr[] { return this._dataList; }
+
+    get(key: number): role.LevelExpAttr  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3837,13 +4360,45 @@ export  class LevelExpAttr  {
     }
 
     readonly level: number
-    readonly needExp: bigint
+    readonly needExp: number
     readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
     }
 }
 
+}
+
+
+   
+export namespace role {
+export class TbRoleLevelBonusCoefficient{
+    private _dataMap: Map<number, role.LevelBonus>
+    private _dataList: role.LevelBonus[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, role.LevelBonus>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: role.LevelBonus
+            _v = new role.LevelBonus(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, role.LevelBonus> { return this._dataMap; }
+    getDataList(): role.LevelBonus[] { return this._dataList; }
+
+    get(key: number): role.LevelBonus  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3921,6 +4476,38 @@ export  class BonusInfo  {
 }
 
 
+   
+export namespace tag {
+export class TbTestTag{
+    private _dataMap: Map<number, tag.TestTag>
+    private _dataList: tag.TestTag[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, tag.TestTag>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: tag.TestTag
+            _v = new tag.TestTag(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, tag.TestTag> { return this._dataMap; }
+    getDataList(): tag.TestTag[] { return this._dataList; }
+
+    get(key: number): tag.TestTag  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3942,6 +4529,38 @@ export  class TestTag  {
     }
 }
 
+}
+
+
+   
+export namespace test {
+export class TbFullTypes{
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x3, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
+    getDataList(): test.DemoType2[] { return this._dataList; }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3984,11 +4603,11 @@ export  class DemoType2  {
         if (_json_.s1 == null) { throw new Error() }
         this.s1 = _json_.s1
         if (_json_.v2 == null) { throw new Error() }
-        this.v2 = Vector2.from(_json_.v2)
+        this.v2 = Vector2.deserializeFromJson(_json_.v2)
         if (_json_.v3 == null) { throw new Error() }
-        this.v3 = Vector3.from(_json_.v3)
+        this.v3 = Vector3.deserializeFromJson(_json_.v3)
         if (_json_.v4 == null) { throw new Error() }
-        this.v4 = Vector4.from(_json_.v4)
+        this.v4 = Vector4.deserializeFromJson(_json_.v4)
         if (_json_.t1 == null) { throw new Error() }
         this.t1 = _json_.t1
         if (_json_.k1 == null) { throw new Error() }
@@ -4018,7 +4637,7 @@ export  class DemoType2  {
     readonly x2: number
     readonly x3: number
     x3_Ref : test.DemoType2
-    readonly x5: bigint
+    readonly x5: number
     readonly x6: number
     readonly x7: number
     readonly x80: number
@@ -4252,6 +4871,31 @@ export  class DemoE2  {
 }
 
 
+   
+export namespace test {
+export class TbSingleton{
+
+     private _data: test.DemoSingletonType
+    constructor(_json_: any) {
+        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.DemoSingletonType(_json_[0])
+    }
+
+    getData(): test.DemoSingletonType { return this._data; }
+
+     get  id(): number { return this._data.id; }
+     get  name(): string { return this._data.name; }
+     get  date(): test.DemoDynamic { return this._data.date; }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
 
 
 
@@ -4277,860 +4921,6 @@ export  class DemoSingletonType  {
     }
 }
 
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowRecord  {
-
-    constructor(_json_: any) {
-        if (_json_.id == null) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.name == null) { throw new Error() }
-        this.name = _json_.name
-        if (_json_.one_rows == null) { throw new Error() }
-        { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
-        if (_json_.multi_rows1 == null) { throw new Error() }
-        { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
-        if (_json_.multi_rows2 == null) { throw new Error() }
-        { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
-        if (_json_.multi_rows3 == null) { throw new Error() }
-        { this.multiRows3 = new Set<test.MultiRowType2>(); for(var _ele of _json_.multi_rows3) { let _e:test.MultiRowType2; _e = new test.MultiRowType2(_ele); this.multiRows3.add(_e);}}
-        if (_json_.multi_rows4 == null) { throw new Error() }
-        this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly oneRows: test.MultiRowType1[]
-    readonly multiRows1: test.MultiRowType1[]
-    readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows3: Set<test.MultiRowType2>
-    readonly multiRows4: Map<number, test.MultiRowType2>
-
-    resolve(_tables: Map<string, any>) {
-        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
-        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowType1  {
-
-    constructor(_json_: any) {
-        if (_json_.id == null) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.x == null) { throw new Error() }
-        this.x = _json_.x
-    }
-
-    readonly id: number
-    readonly x: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowType2  {
-
-    constructor(_json_: any) {
-        if (_json_.id == null) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.x == null) { throw new Error() }
-        this.x = _json_.x
-        if (_json_.y == null) { throw new Error() }
-        this.y = _json_.y
-    }
-
-    readonly id: number
-    readonly x: number
-    readonly y: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowTitle  {
-
-    constructor(_json_: any) {
-        if (_json_.id == null) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.name == null) { throw new Error() }
-        this.name = _json_.name
-        if (_json_.x1 == null) { throw new Error() }
-        this.x1 = new test.H1(_json_.x1)
-        if (_json_.x2 == null) { throw new Error() }
-        { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
-        if (_json_.x3 == null) { throw new Error() }
-        { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly x1: test.H1
-    readonly x2: test.H2[]
-    readonly x3: test.H2[]
-
-    resolve(_tables: Map<string, any>) {
-        if (this.x1 != null) { this.x1.resolve(_tables);}
-        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class H1  {
-
-    constructor(_json_: any) {
-        if (_json_.y2 == null) { throw new Error() }
-        this.y2 = new test.H2(_json_.y2)
-        if (_json_.y3 == null) { throw new Error() }
-        this.y3 = _json_.y3
-    }
-
-    readonly y2: test.H2
-    readonly y3: number
-
-    resolve(_tables: Map<string, any>) {
-        if (this.y2 != null) { this.y2.resolve(_tables);}
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class H2  {
-
-    constructor(_json_: any) {
-        if (_json_.z2 == null) { throw new Error() }
-        this.z2 = _json_.z2
-        if (_json_.z3 == null) { throw new Error() }
-        this.z3 = _json_.z3
-    }
-
-    readonly z2: number
-    readonly z3: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class TestNull  {
-
-    constructor(_json_: any) {
-        if (_json_.id == null) { throw new Error() }
-        this.id = _json_.id
-        if(_json_.x1 != null) { this.x1 = _json_.x1 } else { this.x1 = null }
-        if(_json_.x2 != null) { this.x2 = _json_.x2 } else { this.x2 = null }
-        if(_json_.x3 != null) { this.x3 = new test.DemoType1(_json_.x3) } else { this.x3 = null }
-        if(_json_.x4 != null) { this.x4 = test.DemoDynamic.constructorFrom(_json_.x4) } else { this.x4 = null }
-    }
-
-    readonly id: number
-    readonly x1?: number
-    readonly x2?: test.DemoEnum
-    readonly x3?: test.DemoType1
-    readonly x4?: test.DemoDynamic
-
-    resolve(_tables: Map<string, any>) {
-        if (this.x3 != null) { this.x3.resolve(_tables);}
-        if (this.x4 != null) { this.x4.resolve(_tables);}
-    }
-}
-
-}
-
-
-   
-export namespace ai {
-export class TbBlackboard{
-    private _dataMap: Map<string, ai.Blackboard>
-    private _dataList: ai.Blackboard[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<string, ai.Blackboard>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: ai.Blackboard
-            _v = new ai.Blackboard(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.name, _v)
-        }
-    }
-
-    getDataMap(): Map<string, ai.Blackboard> { return this._dataMap; }
-    getDataList(): ai.Blackboard[] { return this._dataList; }
-
-    get(key: string): ai.Blackboard  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace ai {
-export class TbBehaviorTree{
-    private _dataMap: Map<number, ai.BehaviorTree>
-    private _dataList: ai.BehaviorTree[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, ai.BehaviorTree>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: ai.BehaviorTree
-            _v = new ai.BehaviorTree(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, ai.BehaviorTree> { return this._dataMap; }
-    getDataList(): ai.BehaviorTree[] { return this._dataList; }
-
-    get(key: number): ai.BehaviorTree  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace blueprint {
-export class TbClazz{
-    private _dataMap: Map<string, blueprint.Clazz>
-    private _dataList: blueprint.Clazz[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<string, blueprint.Clazz>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: blueprint.Clazz
-            _v = blueprint.Clazz.constructorFrom(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.name, _v)
-        }
-    }
-
-    getDataMap(): Map<string, blueprint.Clazz> { return this._dataMap; }
-    getDataList(): blueprint.Clazz[] { return this._dataList; }
-
-    get(key: string): blueprint.Clazz  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace bonus {
-export class TbDrop{
-    private _dataMap: Map<number, bonus.DropInfo>
-    private _dataList: bonus.DropInfo[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, bonus.DropInfo>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: bonus.DropInfo
-            _v = new bonus.DropInfo(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, bonus.DropInfo> { return this._dataMap; }
-    getDataList(): bonus.DropInfo[] { return this._dataList; }
-
-    get(key: number): bonus.DropInfo  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace common {
-export class TbGlobalConfig{
-
-     private _data: common.GlobalConfig
-    constructor(_json_: any) {
-        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
-        this._data = new common.GlobalConfig(_json_[0])
-    }
-
-    getData(): common.GlobalConfig { return this._data; }
-
-     get  bagCapacity(): number { return this._data.bagCapacity; }
-     get  bagCapacitySpecial(): number { return this._data.bagCapacitySpecial; }
-     get  bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity; }
-     get  bagTempToolCapacity(): number { return this._data.bagTempToolCapacity; }
-     get  bagInitCapacity(): number { return this._data.bagInitCapacity; }
-     get  quickBagCapacity(): number { return this._data.quickBagCapacity; }
-     get  clothBagCapacity(): number { return this._data.clothBagCapacity; }
-     get  clothBagInitCapacity(): number { return this._data.clothBagInitCapacity; }
-     get  clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial; }
-     get  bagInitItemsDropId(): number { return this._data.bagInitItemsDropId; }
-     get  mailBoxCapacity(): number { return this._data.mailBoxCapacity; }
-     get  damageParamC(): number { return this._data.damageParamC; }
-     get  damageParamE(): number { return this._data.damageParamE; }
-     get  damageParamF(): number { return this._data.damageParamF; }
-     get  damageParamD(): number { return this._data.damageParamD; }
-     get  roleSpeed(): number { return this._data.roleSpeed; }
-     get  monsterSpeed(): number { return this._data.monsterSpeed; }
-     get  initEnergy(): number { return this._data.initEnergy; }
-     get  initViality(): number { return this._data.initViality; }
-     get  maxViality(): number { return this._data.maxViality; }
-     get  perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime; }
-
-    resolve(_tables: Map<string, any>) {
-        this._data.resolve(_tables)
-    }
-
-    
-}
-}
-
-
-   
-export namespace common {
-export class TbDummy{
-    private _dataMap: Map<number, common.Dummy>
-    private _dataList: common.Dummy[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, common.Dummy>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: common.Dummy
-            _v = new common.Dummy(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, common.Dummy> { return this._dataMap; }
-    getDataList(): common.Dummy[] { return this._dataList; }
-
-    get(key: number): common.Dummy  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace error {
-export class TbErrorInfo{
-    private _dataMap: Map<string, error.ErrorInfo>
-    private _dataList: error.ErrorInfo[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<string, error.ErrorInfo>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: error.ErrorInfo
-            _v = new error.ErrorInfo(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.code, _v)
-        }
-    }
-
-    getDataMap(): Map<string, error.ErrorInfo> { return this._dataMap; }
-    getDataList(): error.ErrorInfo[] { return this._dataList; }
-
-    get(key: string): error.ErrorInfo  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace error {
-export class TbCodeInfo{
-    private _dataMap: Map<error.EErrorCode, error.CodeInfo>
-    private _dataList: error.CodeInfo[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<error.EErrorCode, error.CodeInfo>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: error.CodeInfo
-            _v = new error.CodeInfo(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.code, _v)
-        }
-    }
-
-    getDataMap(): Map<error.EErrorCode, error.CodeInfo> { return this._dataMap; }
-    getDataList(): error.CodeInfo[] { return this._dataList; }
-
-    get(key: error.EErrorCode): error.CodeInfo  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItem{
-    private _dataMap: Map<number, item.Item>
-    private _dataList: item.Item[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, item.Item>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: item.Item
-            _v = new item.Item(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, item.Item> { return this._dataMap; }
-    getDataList(): item.Item[] { return this._dataList; }
-
-    get(key: number): item.Item  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItemFunc{
-    private _dataMap: Map<item.EMinorType, item.ItemFunction>
-    private _dataList: item.ItemFunction[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<item.EMinorType, item.ItemFunction>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: item.ItemFunction
-            _v = new item.ItemFunction(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.minorType, _v)
-        }
-    }
-
-    getDataMap(): Map<item.EMinorType, item.ItemFunction> { return this._dataMap; }
-    getDataList(): item.ItemFunction[] { return this._dataList; }
-
-    get(key: item.EMinorType): item.ItemFunction  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItemExtra{
-    private _dataMap: Map<number, item.ItemExtra>
-    private _dataList: item.ItemExtra[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, item.ItemExtra>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: item.ItemExtra
-            _v = item.ItemExtra.constructorFrom(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, item.ItemExtra> { return this._dataMap; }
-    getDataList(): item.ItemExtra[] { return this._dataList; }
-
-    get(key: number): item.ItemExtra  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace l10n {
-export class TbL10NDemo{
-    private _dataMap: Map<number, l10n.L10NDemo>
-    private _dataList: l10n.L10NDemo[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, l10n.L10NDemo>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: l10n.L10NDemo
-            _v = new l10n.L10NDemo(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, l10n.L10NDemo> { return this._dataMap; }
-    getDataList(): l10n.L10NDemo[] { return this._dataList; }
-
-    get(key: number): l10n.L10NDemo  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace l10n {
-export class TbPatchDemo{
-    private _dataMap: Map<number, l10n.PatchDemo>
-    private _dataList: l10n.PatchDemo[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, l10n.PatchDemo>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: l10n.PatchDemo
-            _v = new l10n.PatchDemo(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, l10n.PatchDemo> { return this._dataMap; }
-    getDataList(): l10n.PatchDemo[] { return this._dataList; }
-
-    get(key: number): l10n.PatchDemo  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace mail {
-export class TbSystemMail{
-    private _dataMap: Map<number, mail.SystemMail>
-    private _dataList: mail.SystemMail[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, mail.SystemMail>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: mail.SystemMail
-            _v = new mail.SystemMail(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, mail.SystemMail> { return this._dataMap; }
-    getDataList(): mail.SystemMail[] { return this._dataList; }
-
-    get(key: number): mail.SystemMail  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace mail {
-export class TbGlobalMail{
-    private _dataMap: Map<number, mail.GlobalMail>
-    private _dataList: mail.GlobalMail[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, mail.GlobalMail>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: mail.GlobalMail
-            _v = new mail.GlobalMail(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, mail.GlobalMail> { return this._dataMap; }
-    getDataList(): mail.GlobalMail[] { return this._dataList; }
-
-    get(key: number): mail.GlobalMail  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace role {
-export class TbRoleLevelExpAttr{
-    private _dataMap: Map<number, role.LevelExpAttr>
-    private _dataList: role.LevelExpAttr[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, role.LevelExpAttr>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: role.LevelExpAttr
-            _v = new role.LevelExpAttr(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.level, _v)
-        }
-    }
-
-    getDataMap(): Map<number, role.LevelExpAttr> { return this._dataMap; }
-    getDataList(): role.LevelExpAttr[] { return this._dataList; }
-
-    get(key: number): role.LevelExpAttr  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace role {
-export class TbRoleLevelBonusCoefficient{
-    private _dataMap: Map<number, role.LevelBonus>
-    private _dataList: role.LevelBonus[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, role.LevelBonus>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: role.LevelBonus
-            _v = new role.LevelBonus(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, role.LevelBonus> { return this._dataMap; }
-    getDataList(): role.LevelBonus[] { return this._dataList; }
-
-    get(key: number): role.LevelBonus  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace tag {
-export class TbTestTag{
-    private _dataMap: Map<number, tag.TestTag>
-    private _dataList: tag.TestTag[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, tag.TestTag>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: tag.TestTag
-            _v = new tag.TestTag(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, tag.TestTag> { return this._dataMap; }
-    getDataList(): tag.TestTag[] { return this._dataList; }
-
-    get(key: number): tag.TestTag  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace test {
-export class TbFullTypes{
-    private _dataMap: Map<number, test.DemoType2>
-    private _dataList: test.DemoType2[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, test.DemoType2>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: test.DemoType2
-            _v = new test.DemoType2(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.x3, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoType2> { return this._dataMap; }
-    getDataList(): test.DemoType2[] { return this._dataList; }
-
-    get(key: number): test.DemoType2  { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace test {
-export class TbSingleton{
-
-     private _data: test.DemoSingletonType
-    constructor(_json_: any) {
-        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
-        this._data = new test.DemoSingletonType(_json_[0])
-    }
-
-    getData(): test.DemoSingletonType { return this._data; }
-
-     get  id(): number { return this._data.id; }
-     get  name(): string { return this._data.name; }
-     get  date(): test.DemoDynamic { return this._data.date; }
-
-    resolve(_tables: Map<string, any>) {
-        this._data.resolve(_tables)
-    }
-
-    
-}
 }
 
 
@@ -5262,6 +5052,100 @@ export class TbMultiRowRecord{
 }
 
 
+
+
+
+export namespace test {
+
+export  class MultiRowRecord  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name == null) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.one_rows == null) { throw new Error() }
+        { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
+        if (_json_.multi_rows1 == null) { throw new Error() }
+        { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
+        if (_json_.multi_rows2 == null) { throw new Error() }
+        { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
+        if (_json_.multi_rows3 == null) { throw new Error() }
+        { this.multiRows3 = new Set<test.MultiRowType2>(); for(var _ele of _json_.multi_rows3) { let _e:test.MultiRowType2; _e = new test.MultiRowType2(_ele); this.multiRows3.add(_e);}}
+        if (_json_.multi_rows4 == null) { throw new Error() }
+        this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly oneRows: test.MultiRowType1[]
+    readonly multiRows1: test.MultiRowType1[]
+    readonly multiRows2: test.MultiRowType1[]
+    readonly multiRows3: Set<test.MultiRowType2>
+    readonly multiRows4: Map<number, test.MultiRowType2>
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
+        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType1  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x == null) { throw new Error() }
+        this.x = _json_.x
+    }
+
+    readonly id: number
+    readonly x: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType2  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x == null) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y == null) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
    
 export namespace test {
 export class TbMultiRowTitle{
@@ -5294,6 +5178,91 @@ export class TbMultiRowTitle{
 }
 
 
+
+
+
+export namespace test {
+
+export  class MultiRowTitle  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name == null) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = new test.H1(_json_.x1)
+        if (_json_.x2 == null) { throw new Error() }
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
+        if (_json_.x3 == null) { throw new Error() }
+        { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly x1: test.H1
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H1  {
+
+    constructor(_json_: any) {
+        if (_json_.y2 == null) { throw new Error() }
+        this.y2 = new test.H2(_json_.y2)
+        if (_json_.y3 == null) { throw new Error() }
+        this.y3 = _json_.y3
+    }
+
+    readonly y2: test.H2
+    readonly y3: number
+
+    resolve(_tables: Map<string, any>) {
+        if (this.y2 != null) { this.y2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H2  {
+
+    constructor(_json_: any) {
+        if (_json_.z2 == null) { throw new Error() }
+        this.z2 = _json_.z2
+        if (_json_.z3 == null) { throw new Error() }
+        this.z3 = _json_.z3
+    }
+
+    readonly z2: number
+    readonly z3: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
    
 export namespace test {
 export class TbTestNull{
@@ -5323,6 +5292,394 @@ export class TbTestNull{
 
 
 }
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestNull  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if(_json_.x1 != null) { this.x1 = _json_.x1 } else { this.x1 = null }
+        if(_json_.x2 != null) { this.x2 = _json_.x2 } else { this.x2 = null }
+        if(_json_.x3 != null) { this.x3 = new test.DemoType1(_json_.x3) } else { this.x3 = null }
+        if(_json_.x4 != null) { this.x4 = test.DemoDynamic.constructorFrom(_json_.x4) } else { this.x4 = null }
+        if(_json_.s1 != null) { this.s1 = _json_.s1 } else { this.s1 = null }
+        if(_json_.s2 != null) { this.s2 = _json_.s2 } else { this.s2 = null }
+    }
+
+    readonly id: number
+    readonly x1?: number
+    readonly x2?: test.DemoEnum
+    readonly x3?: test.DemoType1
+    readonly x4?: test.DemoDynamic
+    readonly s1?: string
+    readonly s2?: string
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x3 != null) { this.x3.resolve(_tables);}
+        if (this.x4 != null) { this.x4.resolve(_tables);}
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoPrimitive{
+    private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
+    private _dataList: test.DemoPrimitiveTypesTable[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoPrimitiveTypesTable>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoPrimitiveTypesTable
+            _v = new test.DemoPrimitiveTypesTable(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoPrimitiveTypesTable> { return this._dataMap; }
+    getDataList(): test.DemoPrimitiveTypesTable[] { return this._dataList; }
+
+    get(key: number): test.DemoPrimitiveTypesTable  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoPrimitiveTypesTable  {
+
+    constructor(_json_: any) {
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 == null) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 == null) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 == null) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x5 == null) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 == null) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.x7 == null) { throw new Error() }
+        this.x7 = _json_.x7
+        if (_json_.s1 == null) { throw new Error() }
+        this.s1 = _json_.s1
+        if (_json_.s2 == null) { throw new Error() }
+        this.s2 = _json_.s2
+        if (_json_.v2 == null) { throw new Error() }
+        this.v2 = Vector2.deserializeFromJson(_json_.v2)
+        if (_json_.v3 == null) { throw new Error() }
+        this.v3 = Vector3.deserializeFromJson(_json_.v3)
+        if (_json_.v4 == null) { throw new Error() }
+        this.v4 = Vector4.deserializeFromJson(_json_.v4)
+        if (_json_.t1 == null) { throw new Error() }
+        this.t1 = _json_.t1
+    }
+
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x7: number
+    readonly s1: string
+    readonly s2: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbTestString{
+    private _dataMap: Map<number, test.TestString>
+    private _dataList: test.TestString[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestString>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestString
+            _v = new test.TestString(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestString> { return this._dataMap; }
+    getDataList(): test.TestString[] { return this._dataList; }
+
+    get(key: number): test.TestString  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestString  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.s1 == null) { throw new Error() }
+        this.s1 = _json_.s1
+        if (_json_.cs1 == null) { throw new Error() }
+        this.cs1 = new test.CompactString(_json_.cs1)
+        if (_json_.cs2 == null) { throw new Error() }
+        this.cs2 = new test.CompactString(_json_.cs2)
+    }
+
+    readonly id: number
+    readonly s1: string
+    readonly cs1: test.CompactString
+    readonly cs2: test.CompactString
+
+    resolve(_tables: Map<string, any>) {
+        if (this.cs1 != null) { this.cs1.resolve(_tables);}
+        if (this.cs2 != null) { this.cs2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class CompactString  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.s2 == null) { throw new Error() }
+        this.s2 = _json_.s2
+        if (_json_.s3 == null) { throw new Error() }
+        this.s3 = _json_.s3
+    }
+
+    readonly id: number
+    readonly s2: string
+    readonly s3: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup{
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
+    getDataList(): test.DemoGroup[] { return this._dataList; }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoGroup  {
+
+    constructor(_json_: any) {
+        if (_json_.id == null) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x1 == null) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 == null) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x4 == null) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x5 == null) { throw new Error() }
+        this.x5 = new test.InnerGroup(_json_.x5)
+    }
+
+    readonly id: number
+    readonly x1: number
+    readonly x2: number
+    readonly x4: number
+    readonly x5: test.InnerGroup
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x5 != null) { this.x5.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class InnerGroup  {
+
+    constructor(_json_: any) {
+        if (_json_.y1 == null) { throw new Error() }
+        this.y1 = _json_.y1
+        if (_json_.y2 == null) { throw new Error() }
+        this.y2 = _json_.y2
+        if (_json_.y4 == null) { throw new Error() }
+        this.y4 = _json_.y4
+    }
+
+    readonly y1: number
+    readonly y2: number
+    readonly y4: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup_C{
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
+    getDataList(): test.DemoGroup[] { return this._dataList; }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbTestGlobal{
+
+     private _data: test.TestGlobal
+    constructor(_json_: any) {
+        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.TestGlobal(_json_[0])
+    }
+
+    getData(): test.TestGlobal { return this._data; }
+
+     get  unlockEquip(): number { return this._data.unlockEquip; }
+     get  unlockHero(): number { return this._data.unlockHero; }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestGlobal  {
+
+    constructor(_json_: any) {
+        if (_json_.unlock_equip == null) { throw new Error() }
+        this.unlockEquip = _json_.unlock_equip
+        if (_json_.unlock_hero == null) { throw new Error() }
+        this.unlockHero = _json_.unlock_hero
+    }
+
+    readonly unlockEquip: number
+    readonly unlockHero: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
 }
 
 
@@ -5383,6 +5740,16 @@ export class Tables {
     get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle;}
     private _TbTestNull: test.TbTestNull
     get TbTestNull(): test.TbTestNull  { return this._TbTestNull;}
+    private _TbDemoPrimitive: test.TbDemoPrimitive
+    get TbDemoPrimitive(): test.TbDemoPrimitive  { return this._TbDemoPrimitive;}
+    private _TbTestString: test.TbTestString
+    get TbTestString(): test.TbTestString  { return this._TbTestString;}
+    private _TbDemoGroup: test.TbDemoGroup
+    get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup;}
+    private _TbDemoGroup_C: test.TbDemoGroup_C
+    get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C;}
+    private _TbTestGlobal: test.TbTestGlobal
+    get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal;}
 
     constructor(loader: JsonLoader) {
         let tables = new Map<string, any>()
@@ -5438,6 +5805,16 @@ export class Tables {
         tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
         this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.json'))
         tables.set('test.TbTestNull', this._TbTestNull)
+        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive.json'))
+        tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive)
+        this._TbTestString = new test.TbTestString(loader('test.TbTestString.json'))
+        tables.set('test.TbTestString', this._TbTestString)
+        this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup.json'))
+        tables.set('test.TbDemoGroup', this._TbDemoGroup)
+        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C.json'))
+        tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C)
+        this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal.json'))
+        tables.set('test.TbTestGlobal', this._TbTestGlobal)
 
         this._TbBlackboard.resolve(tables)
         this._TbBehaviorTree.resolve(tables)
@@ -5465,6 +5842,11 @@ export class Tables {
         this._TbMultiRowRecord.resolve(tables)
         this._TbMultiRowTitle.resolve(tables)
         this._TbTestNull.resolve(tables)
+        this._TbDemoPrimitive.resolve(tables)
+        this._TbTestString.resolve(tables)
+        this._TbDemoGroup.resolve(tables)
+        this._TbDemoGroup_C.resolve(tables)
+        this._TbTestGlobal.resolve(tables)
     }
 }
 

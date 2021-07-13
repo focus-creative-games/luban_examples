@@ -8,64 +8,133 @@
 //------------------------------------------------------------------------------
 
 import {Bright} from 'csharp'
+import ByteBuf = Bright.Serialization.ByteBuf
+
+
+export class Vector2 implements ISerializable  {
+
+    static deserializeFrom(buf: ByteBuf): Vector2 {
+        var v = new Vector2()
+        v.deserialize(buf)
+        return v
+    }
+
+    x: number
+    y: number
+    constructor(x: number = 0, y: number = 0) {
+        this.x = x
+        this.y = y
+    }
+
+    serialize(_buf_: ByteBuf) {
+        _buf_.WriteFloat(this.x)
+        _buf_.WriteFloat(this.y)
+    }
+
+    deserialize(buf: ByteBuf) {
+        this.x = buf.ReadFloat()
+        this.y = buf.ReadFloat()
+    }
+}
+
+export class Vector3 implements ISerializable{
+    static deserializeFrom(buf: ByteBuf): Vector3 {
+        var v = new Vector3()
+        v.deserialize(buf)
+        return v
+    }
+
+    x: number
+    y: number
+    z: number
+
+    constructor(x: number = 0, y: number = 0, z: number = 0) {
+        this.x = x
+        this.y = y
+        this.z = z
+    }
+
+    serialize(_buf_: ByteBuf) {
+        _buf_.WriteFloat(this.x)
+        _buf_.WriteFloat(this.y)
+        _buf_.WriteFloat(this.z)
+    }
+
+    deserialize(buf: ByteBuf) {
+        this.x = buf.ReadFloat()
+        this.y = buf.ReadFloat()
+        this.z = buf.ReadFloat()
+    }
+}
+
+export class Vector4 implements ISerializable {
+    static deserializeFrom(buf: ByteBuf): Vector4 {
+        var v = new Vector4()
+        v.deserialize(buf)
+        return v
+    }
+    
+    x: number
+    y: number
+    z: number
+    w: number
+
+    constructor(x: number = 0, y: number = 0, z: number = 0, w: number = 0) {
+        this.x = x
+        this.y = y
+        this.z = z
+        this.w = w
+    }
+
+    serialize(_buf_: ByteBuf) {
+        _buf_.WriteFloat(this.x)
+        _buf_.WriteFloat(this.y)
+        _buf_.WriteFloat(this.z)
+        _buf_.WriteFloat(this.w)
+    }
+
+    deserialize(buf: ByteBuf) {
+        this.x = buf.ReadFloat()
+        this.y = buf.ReadFloat()
+        this.z = buf.ReadFloat()
+        this.z = buf.ReadFloat()
+    }
+}
+
+
+
+export interface ISerializable {
+    serialize(buf: ByteBuf): void
+    deserialize(buf: ByteBuf): void
+}
+
+export abstract class BeanBase implements ISerializable {
+    abstract getTypeId(): number
+    abstract serialize(buf: Bright.Serialization.ByteBuf): void
+    abstract deserialize(buf: Bright.Serialization.ByteBuf): void
+}
 
 export namespace cfg {
 
+export namespace role {
 
-export class Vector2 {
-        x: number
-        y: number
-        constructor(x: number, y: number) {
-            this.x = x
-            this.y = y
-        }
-
-        static from(_buf_: Bright.Serialization.ByteBuf): Vector2 {
-            let x = _buf_.ReadFloat()
-            let y = _buf_.ReadFloat()
-            return new Vector2(x, y)
-        }
-    }
+export class Consts {
+    static MAX_NAME_LENGTH = 20;
+    static MAX_USER_ROLE_NUM = 10;
+}
+}
 
 
-    export class Vector3 {
-        x: number
-        y: number
-        z: number
-        constructor(x: number, y: number, z: number) {
-            this.x = x
-            this.y = y
-            this.z = z
-        }
 
-        static from(_buf_: Bright.Serialization.ByteBuf): Vector3 {
-            let x = _buf_.ReadFloat()
-            let y = _buf_.ReadFloat()
-            let z = _buf_.ReadFloat()
-            return new Vector3(x, y, z)
-        }
-    }
+export namespace test {
 
-    export class Vector4 {
-        x: number
-        y: number
-        z: number
-        w: number
-        constructor(x: number, y: number, z: number, w: number) {
-            this.x = x
-            this.y = y
-            this.z = z
-            this.w = w
-        }
-
-        static from(_buf_: Bright.Serialization.ByteBuf): Vector4 {
-            let x = _buf_.ReadFloat()
-            let y = _buf_.ReadFloat()
-            let z = _buf_.ReadFloat()
-            let w = _buf_.ReadFloat()
-            return new Vector4(x, y, z, w)
-        }
-    }
+export class DemoConst {
+    static x1 = 0;
+    static x2 = 3242;
+    static x3 = 444.3;
+    static x4 = 55.3;
+}
+}
 
 
 
@@ -496,26 +565,38 @@ export enum ETestEmptyEnum2 {
 }
 
 
-export namespace role {
+   
+export namespace ai {
+export class TbBlackboard {
+    private _dataMap: Map<string, ai.Blackboard>
+    private _dataList: ai.Blackboard[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<string, ai.Blackboard>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: ai.Blackboard
+            _v = new ai.Blackboard(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.name, _v)
+        }
+    }
 
-export class Consts {
-    static MAX_NAME_LENGTH = 20;
-    static MAX_USER_ROLE_NUM = 10;
+    getDataMap(): Map<string, ai.Blackboard> { return this._dataMap }
+    getDataList(): ai.Blackboard[] { return this._dataList }
+
+    get(key: string): ai.Blackboard  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
 }
 }
-
-
-
-export namespace test {
-
-export class DemoConst {
-    static x1 = 0;
-    static x2 = 3242;
-    static x3 = 444.3;
-    static x4 = 55.3;
-}
-}
-
 
 
 
@@ -525,7 +606,7 @@ export namespace ai {
 
 export  class Blackboard  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.desc = _buf_.ReadString();
         this.parentName = _buf_.ReadString();
@@ -554,7 +635,7 @@ export namespace ai {
 
 export  class BlackboardKey  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.desc = _buf_.ReadString();
         this.isStatic = _buf_.ReadBool();
@@ -575,6 +656,40 @@ export  class BlackboardKey  {
 }
 
 
+   
+export namespace ai {
+export class TbBehaviorTree {
+    private _dataMap: Map<number, ai.BehaviorTree>
+    private _dataList: ai.BehaviorTree[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, ai.BehaviorTree>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: ai.BehaviorTree
+            _v = new ai.BehaviorTree(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, ai.BehaviorTree> { return this._dataMap }
+    getDataList(): ai.BehaviorTree[] { return this._dataList }
+
+    get(key: number): ai.BehaviorTree  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -582,7 +697,7 @@ export namespace ai {
 
 export  class BehaviorTree  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.name = _buf_.ReadString();
         this.desc = _buf_.ReadString();
@@ -612,7 +727,7 @@ export  class BehaviorTree  {
 export namespace ai {
 
 export  abstract  class Node  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Node {
+    static constructorFrom(_buf_: ByteBuf): Node {
         switch (_buf_.ReadInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
@@ -641,7 +756,7 @@ export  abstract  class Node  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.nodeName = _buf_.ReadString();
     }
@@ -662,7 +777,7 @@ export  abstract  class Node  {
 export namespace ai {
 
 export  abstract  class Service  extends ai.Node {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Service {
+    static constructorFrom(_buf_: ByteBuf): Service {
         switch (_buf_.ReadInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
@@ -674,7 +789,7 @@ export  abstract  class Service  extends ai.Node {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -694,7 +809,7 @@ export namespace ai {
 
 export  class UeSetDefaultFocus  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.keyboardKey = _buf_.ReadString();
     }
@@ -716,7 +831,7 @@ export namespace ai {
 
 export  class ExecuteTimeStatistic  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -736,7 +851,7 @@ export namespace ai {
 
 export  class ChooseTarget  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.resultTargetKey = _buf_.ReadString();
     }
@@ -758,7 +873,7 @@ export namespace ai {
 
 export  class KeepFaceTarget  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.targetActorKey = _buf_.ReadString();
     }
@@ -780,7 +895,7 @@ export namespace ai {
 
 export  class GetOwnerPlayer  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.playerActorKey = _buf_.ReadString();
     }
@@ -802,7 +917,7 @@ export namespace ai {
 
 export  class UpdateDailyBehaviorProps  extends ai.Service {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.satietyKey = _buf_.ReadString();
         this.energyKey = _buf_.ReadString();
@@ -839,7 +954,7 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
 export namespace ai {
 
 export  abstract  class Decorator  extends ai.Node {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Decorator {
+    static constructorFrom(_buf_: ByteBuf): Decorator {
         switch (_buf_.ReadInt()) {
             case -513308166: return new ai.UeLoop(_buf_)
             case -951439423: return new ai.UeCooldown(_buf_)
@@ -852,7 +967,7 @@ export  abstract  class Decorator  extends ai.Node {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.flowAbortMode = _buf_.ReadInt();
     }
@@ -874,7 +989,7 @@ export namespace ai {
 
 export  class UeLoop  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.numLoops = _buf_.ReadInt();
         this.infiniteLoop = _buf_.ReadBool();
@@ -900,7 +1015,7 @@ export namespace ai {
 
 export  class UeCooldown  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.cooldownTime = _buf_.ReadFloat();
     }
@@ -922,7 +1037,7 @@ export namespace ai {
 
 export  class UeTimeLimit  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.limitTime = _buf_.ReadFloat();
     }
@@ -944,7 +1059,7 @@ export namespace ai {
 
 export  class UeBlackboard  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.notifyObserver = _buf_.ReadInt();
         this.blackboardKey = _buf_.ReadString();
@@ -970,7 +1085,7 @@ export  class UeBlackboard  extends ai.Decorator {
 export namespace ai {
 
 export  abstract  class KeyQueryOperator  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): KeyQueryOperator {
+    static constructorFrom(_buf_: ByteBuf): KeyQueryOperator {
         switch (_buf_.ReadInt()) {
             case 1635350898: return new ai.IsSet(_buf_)
             case 790736255: return new ai.IsNotSet(_buf_)
@@ -979,7 +1094,7 @@ export  abstract  class KeyQueryOperator  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -997,7 +1112,7 @@ export namespace ai {
 
 export  class IsSet  extends ai.KeyQueryOperator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1017,7 +1132,7 @@ export namespace ai {
 
 export  class IsNotSet  extends ai.KeyQueryOperator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1037,7 +1152,7 @@ export namespace ai {
 
 export  class BinaryOperator  extends ai.KeyQueryOperator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.oper = _buf_.ReadInt();
         this.data = ai.KeyData.constructorFrom(_buf_)
@@ -1061,7 +1176,7 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
 export namespace ai {
 
 export  abstract  class KeyData  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): KeyData {
+    static constructorFrom(_buf_: ByteBuf): KeyData {
         switch (_buf_.ReadInt()) {
             case -719747885: return new ai.FloatKeyData(_buf_)
             case -342751904: return new ai.IntKeyData(_buf_)
@@ -1071,7 +1186,7 @@ export  abstract  class KeyData  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -1089,7 +1204,7 @@ export namespace ai {
 
 export  class FloatKeyData  extends ai.KeyData {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.value = _buf_.ReadFloat();
     }
@@ -1111,7 +1226,7 @@ export namespace ai {
 
 export  class IntKeyData  extends ai.KeyData {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.value = _buf_.ReadInt();
     }
@@ -1133,7 +1248,7 @@ export namespace ai {
 
 export  class StringKeyData  extends ai.KeyData {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.value = _buf_.ReadString();
     }
@@ -1155,7 +1270,7 @@ export namespace ai {
 
 export  class BlackboardKeyData  extends ai.KeyData {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.value = _buf_.ReadString();
     }
@@ -1177,7 +1292,7 @@ export namespace ai {
 
 export  class UeForceSuccess  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1197,7 +1312,7 @@ export namespace ai {
 
 export  class IsAtLocation  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.acceptableRadius = _buf_.ReadFloat();
         this.keyboardKey = _buf_.ReadString();
@@ -1223,7 +1338,7 @@ export namespace ai {
 
 export  class DistanceLessThan  extends ai.Decorator {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.actor1Key = _buf_.ReadString();
         this.actor2Key = _buf_.ReadString();
@@ -1250,7 +1365,7 @@ export  class DistanceLessThan  extends ai.Decorator {
 export namespace ai {
 
 export  abstract  class FlowNode  extends ai.Node {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): FlowNode {
+    static constructorFrom(_buf_: ByteBuf): FlowNode {
         switch (_buf_.ReadInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
@@ -1266,7 +1381,7 @@ export  abstract  class FlowNode  extends ai.Node {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.decorators = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Decorator;_e = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e) } }
         { this.services = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Service;_e = ai.Service.constructorFrom(_buf_); this.services.push(_e) } }
@@ -1291,7 +1406,7 @@ export  abstract  class FlowNode  extends ai.Node {
 export namespace ai {
 
 export  abstract  class ComposeNode  extends ai.FlowNode {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ComposeNode {
+    static constructorFrom(_buf_: ByteBuf): ComposeNode {
         switch (_buf_.ReadInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
@@ -1300,7 +1415,7 @@ export  abstract  class ComposeNode  extends ai.FlowNode {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1320,7 +1435,7 @@ export namespace ai {
 
 export  class Sequence  extends ai.ComposeNode {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
@@ -1343,7 +1458,7 @@ export namespace ai {
 
 export  class Selector  extends ai.ComposeNode {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
@@ -1366,7 +1481,7 @@ export namespace ai {
 
 export  class SimpleParallel  extends ai.ComposeNode {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.finishMode = _buf_.ReadInt();
         this.mainTask = ai.Task.constructorFrom(_buf_)
@@ -1393,7 +1508,7 @@ export  class SimpleParallel  extends ai.ComposeNode {
 export namespace ai {
 
 export  abstract  class Task  extends ai.FlowNode {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Task {
+    static constructorFrom(_buf_: ByteBuf): Task {
         switch (_buf_.ReadInt()) {
             case -512994101: return new ai.UeWait(_buf_)
             case 1215378271: return new ai.UeWaitBlackboardTime(_buf_)
@@ -1406,7 +1521,7 @@ export  abstract  class Task  extends ai.FlowNode {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.ignoreRestartSelf = _buf_.ReadBool();
     }
@@ -1428,7 +1543,7 @@ export namespace ai {
 
 export  class UeWait  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.waitTime = _buf_.ReadFloat();
         this.randomDeviation = _buf_.ReadFloat();
@@ -1452,7 +1567,7 @@ export namespace ai {
 
 export  class UeWaitBlackboardTime  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.blackboardKey = _buf_.ReadString();
     }
@@ -1474,7 +1589,7 @@ export namespace ai {
 
 export  class MoveToTarget  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.targetActorKey = _buf_.ReadString();
         this.acceptableRadius = _buf_.ReadFloat();
@@ -1498,7 +1613,7 @@ export namespace ai {
 
 export  class ChooseSkill  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.targetActorKey = _buf_.ReadString();
         this.resultSkillIdKey = _buf_.ReadString();
@@ -1522,7 +1637,7 @@ export namespace ai {
 
 export  class MoveToRandomLocation  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.originPositionKey = _buf_.ReadString();
         this.radius = _buf_.ReadFloat();
@@ -1546,9 +1661,9 @@ export namespace ai {
 
 export  class MoveToLocation  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.location = Vector3.from(_buf_)
+        this.location = Vector3.deserializeFrom(_buf_)
         this.acceptableRadius = _buf_.ReadFloat();
     }
 
@@ -1570,7 +1685,7 @@ export namespace ai {
 
 export  class DebugPrint  extends ai.Task {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.text = _buf_.ReadString();
     }
@@ -1585,13 +1700,47 @@ export  class DebugPrint  extends ai.Task {
 }
 
 
+   
+export namespace blueprint {
+export class TbClazz {
+    private _dataMap: Map<string, blueprint.Clazz>
+    private _dataList: blueprint.Clazz[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<string, blueprint.Clazz>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: blueprint.Clazz
+            _v = blueprint.Clazz.constructorFrom(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.name, _v)
+        }
+    }
+
+    getDataMap(): Map<string, blueprint.Clazz> { return this._dataMap }
+    getDataList(): blueprint.Clazz[] { return this._dataList }
+
+    get(key: string): blueprint.Clazz  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
 export namespace blueprint {
 
 export  abstract  class Clazz  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Clazz {
+    static constructorFrom(_buf_: ByteBuf): Clazz {
         switch (_buf_.ReadInt()) {
             case 2114170750: return new blueprint.Interface(_buf_)
             case -2073576778: return new blueprint.NormalClazz(_buf_)
@@ -1600,7 +1749,7 @@ export  abstract  class Clazz  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.desc = _buf_.ReadString();
         { this.parents = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Clazz;_e = blueprint.Clazz.constructorFrom(_buf_); this.parents.push(_e) } }
@@ -1627,7 +1776,7 @@ export  abstract  class Clazz  {
 export namespace blueprint {
 
 export  abstract  class Method  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Method {
+    static constructorFrom(_buf_: ByteBuf): Method {
         switch (_buf_.ReadInt()) {
             case -392137809: return new blueprint.AbstraceMethod(_buf_)
             case 1739079015: return new blueprint.ExternalMethod(_buf_)
@@ -1636,7 +1785,7 @@ export  abstract  class Method  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.desc = _buf_.ReadString();
         this.isStatic = _buf_.ReadBool();
@@ -1665,7 +1814,7 @@ export namespace blueprint {
 
 export  class ParamInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.type = _buf_.ReadString();
         this.isRef = _buf_.ReadBool();
@@ -1689,7 +1838,7 @@ export namespace blueprint {
 
 export  class AbstraceMethod  extends blueprint.Method {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1709,7 +1858,7 @@ export namespace blueprint {
 
 export  class ExternalMethod  extends blueprint.Method {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1729,7 +1878,7 @@ export namespace blueprint {
 
 export  class BlueprintMethod  extends blueprint.Method {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1749,7 +1898,7 @@ export namespace blueprint {
 
 export  class Interface  extends blueprint.Clazz {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -1769,7 +1918,7 @@ export namespace blueprint {
 
 export  class NormalClazz  extends blueprint.Clazz {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.isAbstract = _buf_.ReadBool();
         { this.fields = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Field;_e = new blueprint.Field(_buf_); this.fields.push(_e) } }
@@ -1794,7 +1943,7 @@ export namespace blueprint {
 
 export  class Field  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.type = _buf_.ReadString();
         this.desc = _buf_.ReadString();
@@ -1818,7 +1967,7 @@ export namespace blueprint {
 
 export  class EnumClazz  extends blueprint.Clazz {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.enums = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.EnumField;_e = new blueprint.EnumField(_buf_); this.enums.push(_e) } }
     }
@@ -1841,7 +1990,7 @@ export namespace blueprint {
 
 export  class EnumField  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.name = _buf_.ReadString();
         this.value = _buf_.ReadInt();
     }
@@ -1856,6 +2005,40 @@ export  class EnumField  {
 }
 
 
+   
+export namespace bonus {
+export class TbDrop {
+    private _dataMap: Map<number, bonus.DropInfo>
+    private _dataList: bonus.DropInfo[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, bonus.DropInfo>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: bonus.DropInfo
+            _v = new bonus.DropInfo(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, bonus.DropInfo> { return this._dataMap }
+    getDataList(): bonus.DropInfo[] { return this._dataList }
+
+    get(key: number): bonus.DropInfo  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -1863,7 +2046,7 @@ export namespace bonus {
 
 export  class DropInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.desc = _buf_.ReadString();
         { this.clientShowItems = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :bonus.ShowItemInfo;_e = new bonus.ShowItemInfo(_buf_); this.clientShowItems.push(_e) } }
@@ -1891,14 +2074,14 @@ export namespace bonus {
 
 export  class ShowItemInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.itemId = _buf_.ReadInt();
-        this.itemNum = _buf_.ReadLong();
+        this.itemNum = _buf_.ReadLongAsNumber();
     }
 
     readonly itemId: number
     itemId_Ref : item.Item
-    readonly itemNum: bigint
+    readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
         this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
@@ -1914,7 +2097,7 @@ export  class ShowItemInfo  {
 export namespace bonus {
 
 export  abstract  class Bonus  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Bonus {
+    static constructorFrom(_buf_: ByteBuf): Bonus {
         switch (_buf_.ReadInt()) {
             case -1649658966: return new bonus.OneItem(_buf_)
             case 400179721: return new bonus.OneItems(_buf_)
@@ -1931,7 +2114,7 @@ export  abstract  class Bonus  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -1949,7 +2132,7 @@ export namespace bonus {
 
 export  class OneItem  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.itemId = _buf_.ReadInt();
     }
@@ -1973,7 +2156,7 @@ export namespace bonus {
 
 export  class OneItems  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.items[i] = _e } }
     }
@@ -1995,7 +2178,7 @@ export namespace bonus {
 
 export  class Item  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.itemId = _buf_.ReadInt();
         this.amount = _buf_.ReadInt();
@@ -2021,7 +2204,7 @@ export namespace bonus {
 
 export  class Items  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Item;_e = new bonus.Item(_buf_); this.itemList.push(_e) } }
     }
@@ -2044,7 +2227,7 @@ export namespace bonus {
 
 export  class CoefficientItem  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.bonusId = _buf_.ReadInt();
         this.bonusList = new bonus.Items(_buf_)
@@ -2069,7 +2252,7 @@ export namespace bonus {
 
 export  class WeightItems  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightItemInfo;_e = new bonus.WeightItemInfo(_buf_); this.itemList.push(_e) } }
     }
@@ -2092,7 +2275,7 @@ export namespace bonus {
 
 export  class WeightItemInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.itemId = _buf_.ReadInt();
         this.num = _buf_.ReadInt();
         this.weight = _buf_.ReadInt();
@@ -2118,7 +2301,7 @@ export namespace bonus {
 
 export  class ProbabilityItems  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityItemInfo;_e = new bonus.ProbabilityItemInfo(_buf_); this.itemList.push(_e) } }
     }
@@ -2141,7 +2324,7 @@ export namespace bonus {
 
 export  class ProbabilityItemInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.itemId = _buf_.ReadInt();
         this.num = _buf_.ReadInt();
         this.probability = _buf_.ReadFloat();
@@ -2167,7 +2350,7 @@ export namespace bonus {
 
 export  class MultiBonus  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Bonus;_e = bonus.Bonus.constructorFrom(_buf_); this.bonuses.push(_e) } }
     }
@@ -2190,7 +2373,7 @@ export namespace bonus {
 
 export  class ProbabilityBonus  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityBonusInfo;_e = new bonus.ProbabilityBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
@@ -2213,7 +2396,7 @@ export namespace bonus {
 
 export  class ProbabilityBonusInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
         this.probability = _buf_.ReadFloat();
     }
@@ -2236,7 +2419,7 @@ export namespace bonus {
 
 export  class WeightBonus  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightBonusInfo;_e = new bonus.WeightBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
@@ -2259,7 +2442,7 @@ export namespace bonus {
 
 export  class WeightBonusInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
         this.weight = _buf_.ReadInt();
     }
@@ -2282,7 +2465,7 @@ export namespace bonus {
 
 export  class DropBonus  extends bonus.Bonus {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.id = _buf_.ReadInt();
     }
@@ -2299,6 +2482,50 @@ export  class DropBonus  extends bonus.Bonus {
 }
 
 
+   
+export namespace common {
+export class TbGlobalConfig {
+
+     private _data: common.GlobalConfig
+
+    constructor(_buf_: ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new common.GlobalConfig(_buf_)
+    }
+
+    getData(): common.GlobalConfig { return this._data }
+
+     get bagCapacity(): number { return this._data.bagCapacity }
+     get bagCapacitySpecial(): number { return this._data.bagCapacitySpecial }
+     get bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity }
+     get bagTempToolCapacity(): number { return this._data.bagTempToolCapacity }
+     get bagInitCapacity(): number { return this._data.bagInitCapacity }
+     get quickBagCapacity(): number { return this._data.quickBagCapacity }
+     get clothBagCapacity(): number { return this._data.clothBagCapacity }
+     get clothBagInitCapacity(): number { return this._data.clothBagInitCapacity }
+     get clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial }
+     get bagInitItemsDropId(): number { return this._data.bagInitItemsDropId }
+     get mailBoxCapacity(): number { return this._data.mailBoxCapacity }
+     get damageParamC(): number { return this._data.damageParamC }
+     get damageParamE(): number { return this._data.damageParamE }
+     get damageParamF(): number { return this._data.damageParamF }
+     get damageParamD(): number { return this._data.damageParamD }
+     get roleSpeed(): number { return this._data.roleSpeed }
+     get monsterSpeed(): number { return this._data.monsterSpeed }
+     get initEnergy(): number { return this._data.initEnergy }
+     get initViality(): number { return this._data.initViality }
+     get maxViality(): number { return this._data.maxViality }
+     get perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
 
 
 
@@ -2306,7 +2533,7 @@ export namespace common {
 
 export  class GlobalConfig  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.bagCapacity = _buf_.ReadInt();
         this.bagCapacitySpecial = _buf_.ReadInt();
         this.bagTempExpendableCapacity = _buf_.ReadInt();
@@ -2361,6 +2588,40 @@ export  class GlobalConfig  {
 }
 
 
+   
+export namespace common {
+export class TbDummy {
+    private _dataMap: Map<number, common.Dummy>
+    private _dataList: common.Dummy[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, common.Dummy>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: common.Dummy
+            _v = new common.Dummy(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, common.Dummy> { return this._dataMap }
+    getDataList(): common.Dummy[] { return this._dataList }
+
+    get(key: number): common.Dummy  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2368,7 +2629,7 @@ export namespace common {
 
 export  class Dummy  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.limit = limit.LimitBase.constructorFrom(_buf_)
     }
@@ -2390,7 +2651,7 @@ export  class Dummy  {
 export namespace limit {
 
 export  abstract  class LimitBase  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): LimitBase {
+    static constructorFrom(_buf_: ByteBuf): LimitBase {
         switch (_buf_.ReadInt()) {
             case 303235413: return new limit.DailyLimit(_buf_)
             case -1753629499: return new limit.MultiDayLimit(_buf_)
@@ -2402,7 +2663,7 @@ export  abstract  class LimitBase  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -2419,14 +2680,14 @@ export  abstract  class LimitBase  {
 export namespace limit {
 
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DailyLimitBase {
+    static constructorFrom(_buf_: ByteBuf): DailyLimitBase {
         switch (_buf_.ReadInt()) {
             case 303235413: return new limit.DailyLimit(_buf_)
             default: throw new Error()
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -2446,7 +2707,7 @@ export namespace limit {
 
 export  class DailyLimit  extends limit.DailyLimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.num = _buf_.ReadInt();
     }
@@ -2468,7 +2729,7 @@ export namespace limit {
 
 export  class MultiDayLimit  extends limit.LimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.day = _buf_.ReadInt();
         this.num = _buf_.ReadInt();
@@ -2492,7 +2753,7 @@ export namespace limit {
 
 export  class WeeklyLimit  extends limit.LimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.num = _buf_.ReadInt();
     }
@@ -2514,7 +2775,7 @@ export namespace limit {
 
 export  class MonthlyLimit  extends limit.LimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.num = _buf_.ReadInt();
     }
@@ -2536,7 +2797,7 @@ export namespace limit {
 
 export  class CoolDown  extends limit.LimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.duration = _buf_.ReadInt();
     }
@@ -2558,7 +2819,7 @@ export namespace limit {
 
 export  class GroupCoolDown  extends limit.LimitBase {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.groupId = _buf_.ReadInt();
         this.duration = _buf_.ReadInt();
@@ -2575,6 +2836,40 @@ export  class GroupCoolDown  extends limit.LimitBase {
 }
 
 
+   
+export namespace error {
+export class TbErrorInfo {
+    private _dataMap: Map<string, error.ErrorInfo>
+    private _dataList: error.ErrorInfo[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<string, error.ErrorInfo>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: error.ErrorInfo
+            _v = new error.ErrorInfo(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.code, _v)
+        }
+    }
+
+    getDataMap(): Map<string, error.ErrorInfo> { return this._dataMap }
+    getDataList(): error.ErrorInfo[] { return this._dataList }
+
+    get(key: string): error.ErrorInfo  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2582,7 +2877,7 @@ export namespace error {
 
 export  class ErrorInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.code = _buf_.ReadString();
         this.desc = _buf_.ReadString();
         this.style = error.ErrorStyle.constructorFrom(_buf_)
@@ -2606,7 +2901,7 @@ export  class ErrorInfo  {
 export namespace error {
 
 export  abstract  class ErrorStyle  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ErrorStyle {
+    static constructorFrom(_buf_: ByteBuf): ErrorStyle {
         switch (_buf_.ReadInt()) {
             case 1915239884: return new error.ErrorStyleTip(_buf_)
             case -1920482343: return new error.ErrorStyleMsgbox(_buf_)
@@ -2616,7 +2911,7 @@ export  abstract  class ErrorStyle  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -2634,7 +2929,7 @@ export namespace error {
 
 export  class ErrorStyleTip  extends error.ErrorStyle {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -2654,7 +2949,7 @@ export namespace error {
 
 export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.btnName = _buf_.ReadString();
         this.operation = _buf_.ReadInt();
@@ -2678,7 +2973,7 @@ export namespace error {
 
 export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.btnName = _buf_.ReadString();
     }
@@ -2700,7 +2995,7 @@ export namespace error {
 
 export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.btn1Name = _buf_.ReadString();
         this.btn2Name = _buf_.ReadString();
@@ -2717,6 +3012,40 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 }
 
 
+   
+export namespace error {
+export class TbCodeInfo {
+    private _dataMap: Map<error.EErrorCode, error.CodeInfo>
+    private _dataList: error.CodeInfo[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<error.EErrorCode, error.CodeInfo>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: error.CodeInfo
+            _v = new error.CodeInfo(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.code, _v)
+        }
+    }
+
+    getDataMap(): Map<error.EErrorCode, error.CodeInfo> { return this._dataMap }
+    getDataList(): error.CodeInfo[] { return this._dataList }
+
+    get(key: error.EErrorCode): error.CodeInfo  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2724,7 +3053,7 @@ export namespace error {
 
 export  class CodeInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.code = _buf_.ReadInt();
         this.key = _buf_.ReadString();
     }
@@ -2739,6 +3068,40 @@ export  class CodeInfo  {
 }
 
 
+   
+export namespace item {
+export class TbItem {
+    private _dataMap: Map<number, item.Item>
+    private _dataList: item.Item[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, item.Item>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: item.Item
+            _v = new item.Item(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, item.Item> { return this._dataMap }
+    getDataList(): item.Item[] { return this._dataList }
+
+    get(key: number): item.Item  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2746,11 +3109,12 @@ export namespace item {
 
 export  class Item  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.name = _buf_.ReadString();
         this.majorType = _buf_.ReadInt();
         this.minorType = _buf_.ReadInt();
+        this.maxPileNum = _buf_.ReadInt();
         this.quality = _buf_.ReadInt();
         this.icon = _buf_.ReadString();
         this.iconBackgroud = _buf_.ReadString();
@@ -2773,6 +3137,7 @@ export  class Item  {
     readonly name: string
     readonly majorType: item.EMajorType
     readonly minorType: item.EMinorType
+    readonly maxPileNum: number
     readonly quality: item.EItemQuality
     readonly icon: string
     readonly iconBackgroud: string
@@ -2797,6 +3162,40 @@ export  class Item  {
 }
 
 
+   
+export namespace item {
+export class TbItemFunc {
+    private _dataMap: Map<item.EMinorType, item.ItemFunction>
+    private _dataList: item.ItemFunction[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<item.EMinorType, item.ItemFunction>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: item.ItemFunction
+            _v = new item.ItemFunction(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.minorType, _v)
+        }
+    }
+
+    getDataMap(): Map<item.EMinorType, item.ItemFunction> { return this._dataMap }
+    getDataList(): item.ItemFunction[] { return this._dataList }
+
+    get(key: item.EMinorType): item.ItemFunction  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -2804,7 +3203,7 @@ export namespace item {
 
 export  class ItemFunction  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.minorType = _buf_.ReadInt();
         this.funcType = _buf_.ReadInt();
         this.method = _buf_.ReadString();
@@ -2823,13 +3222,47 @@ export  class ItemFunction  {
 }
 
 
+   
+export namespace item {
+export class TbItemExtra {
+    private _dataMap: Map<number, item.ItemExtra>
+    private _dataList: item.ItemExtra[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, item.ItemExtra>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: item.ItemExtra
+            _v = item.ItemExtra.constructorFrom(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, item.ItemExtra> { return this._dataMap }
+    getDataList(): item.ItemExtra[] { return this._dataList }
+
+    get(key: number): item.ItemExtra  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
 export namespace item {
 
 export  abstract  class ItemExtra  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): ItemExtra {
+    static constructorFrom(_buf_: ByteBuf): ItemExtra {
         switch (_buf_.ReadInt()) {
             case 1494222369: return new item.TreasureBox(_buf_)
             case 640937802: return new item.InteractionItem(_buf_)
@@ -2840,7 +3273,7 @@ export  abstract  class ItemExtra  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
     }
 
@@ -2860,7 +3293,7 @@ export namespace item {
 
 export  class TreasureBox  extends item.ItemExtra {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         if(_buf_.ReadBool()) { this.keyItemId = _buf_.ReadInt(); } else { this.keyItemId = null }
         this.openLevel = new condition.MinLevel(_buf_)
@@ -2891,7 +3324,7 @@ export  class TreasureBox  extends item.ItemExtra {
 export namespace condition {
 
 export  abstract  class Condition  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Condition {
+    static constructorFrom(_buf_: ByteBuf): Condition {
         switch (_buf_.ReadInt()) {
             case 1069033789: return new condition.TimeRange(_buf_)
             case 934079583: return new condition.MultiRoleCondition(_buf_)
@@ -2905,7 +3338,7 @@ export  abstract  class Condition  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -2923,7 +3356,7 @@ export namespace condition {
 
 export  class TimeRange  extends condition.Condition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.dateTimeRange = new common.DateTimeRange(_buf_)
     }
@@ -2946,7 +3379,7 @@ export namespace common {
 
 export  class DateTimeRange  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         if(_buf_.ReadBool()) { this.startTime = _buf_.ReadInt(); } else { this.startTime = null }
         if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt(); } else { this.endTime = null }
     }
@@ -2967,7 +3400,7 @@ export  class DateTimeRange  {
 export namespace condition {
 
 export  abstract  class RoleCondition  extends condition.Condition {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): RoleCondition {
+    static constructorFrom(_buf_: ByteBuf): RoleCondition {
         switch (_buf_.ReadInt()) {
             case 934079583: return new condition.MultiRoleCondition(_buf_)
             case 103675143: return new condition.GenderLimit(_buf_)
@@ -2980,7 +3413,7 @@ export  abstract  class RoleCondition  extends condition.Condition {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -3000,7 +3433,7 @@ export namespace condition {
 
 export  class MultiRoleCondition  extends condition.RoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.conditions = []; for(let i = 0 ; i < n ; i++) { let _e :condition.RoleCondition;_e = condition.RoleCondition.constructorFrom(_buf_); this.conditions.push(_e) } }
     }
@@ -3022,7 +3455,7 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
 export namespace condition {
 
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): BoolRoleCondition {
+    static constructorFrom(_buf_: ByteBuf): BoolRoleCondition {
         switch (_buf_.ReadInt()) {
             case 103675143: return new condition.GenderLimit(_buf_)
             case -1075273755: return new condition.MinLevel(_buf_)
@@ -3033,7 +3466,7 @@ export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
     }
 
@@ -3053,7 +3486,7 @@ export namespace condition {
 
 export  class GenderLimit  extends condition.BoolRoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.gender = _buf_.ReadInt();
     }
@@ -3075,7 +3508,7 @@ export namespace condition {
 
 export  class MinLevel  extends condition.BoolRoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.level = _buf_.ReadInt();
     }
@@ -3097,7 +3530,7 @@ export namespace condition {
 
 export  class MaxLevel  extends condition.BoolRoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.level = _buf_.ReadInt();
     }
@@ -3119,7 +3552,7 @@ export namespace condition {
 
 export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.min = _buf_.ReadInt();
         this.max = _buf_.ReadInt();
@@ -3143,7 +3576,7 @@ export namespace condition {
 
 export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.prop = _buf_.ReadInt();
         this.value = _buf_.ReadInt();
@@ -3167,7 +3600,7 @@ export namespace condition {
 
 export  class ContainsItem  extends condition.RoleCondition {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.itemId = _buf_.ReadInt();
         this.num = _buf_.ReadInt();
@@ -3195,7 +3628,7 @@ export namespace item {
 
 export  class ChooseOneBonus  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.dropId = _buf_.ReadInt();
         this.isUnique = _buf_.ReadBool();
     }
@@ -3219,7 +3652,7 @@ export namespace item {
 
 export  class InteractionItem  extends item.ItemExtra {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         if(_buf_.ReadBool()) { this.attackNum = _buf_.ReadInt(); } else { this.attackNum = null }
         this.holdingStaticMesh = _buf_.ReadString();
@@ -3245,16 +3678,16 @@ export namespace item {
 
 export  class Clothes  extends item.ItemExtra {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.attack = _buf_.ReadInt();
-        this.hp = _buf_.ReadLong();
+        this.hp = _buf_.ReadLongAsNumber();
         this.energyLimit = _buf_.ReadInt();
         this.energyResume = _buf_.ReadInt();
     }
 
     readonly attack: number
-    readonly hp: bigint
+    readonly hp: number
     readonly energyLimit: number
     readonly energyResume: number
 
@@ -3273,7 +3706,7 @@ export namespace item {
 
 export  class DesignDrawing  extends item.ItemExtra {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.learnComponentId = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.learnComponentId.push(_e) } }
     }
@@ -3295,7 +3728,7 @@ export namespace item {
 
 export  class Dymmy  extends item.ItemExtra {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.cost = cost.Cost.constructorFrom(_buf_)
     }
@@ -3317,7 +3750,7 @@ export  class Dymmy  extends item.ItemExtra {
 export namespace cost {
 
 export  abstract  class Cost  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): Cost {
+    static constructorFrom(_buf_: ByteBuf): Cost {
         switch (_buf_.ReadInt()) {
             case 911838111: return new cost.CostCurrency(_buf_)
             case 103084157: return new cost.CostCurrencies(_buf_)
@@ -3328,7 +3761,7 @@ export  abstract  class Cost  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
     }
 
 
@@ -3346,7 +3779,7 @@ export namespace cost {
 
 export  class CostCurrency  extends cost.Cost {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.type = _buf_.ReadInt();
         this.num = _buf_.ReadInt();
@@ -3370,7 +3803,7 @@ export namespace cost {
 
 export  class CostCurrencies  extends cost.Cost {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { this.currencies = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :cost.CostCurrency;_e = new cost.CostCurrency(_buf_); this.currencies.push(_e) } }
     }
@@ -3393,7 +3826,7 @@ export namespace cost {
 
 export  class CostOneItem  extends cost.Cost {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.itemId = _buf_.ReadInt();
     }
@@ -3417,7 +3850,7 @@ export namespace cost {
 
 export  class CostItem  extends cost.Cost {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.itemId = _buf_.ReadInt();
         this.amount = _buf_.ReadInt();
@@ -3443,7 +3876,7 @@ export namespace cost {
 
 export  class CostItems  extends cost.Cost {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :cost.CostItem;_e = new cost.CostItem(_buf_); this.itemList.push(_e) } }
     }
@@ -3459,6 +3892,40 @@ export  class CostItems  extends cost.Cost {
 }
 
 
+   
+export namespace l10n {
+export class TbL10NDemo {
+    private _dataMap: Map<number, l10n.L10NDemo>
+    private _dataList: l10n.L10NDemo[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, l10n.L10NDemo>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: l10n.L10NDemo
+            _v = new l10n.L10NDemo(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, l10n.L10NDemo> { return this._dataMap }
+    getDataList(): l10n.L10NDemo[] { return this._dataList }
+
+    get(key: number): l10n.L10NDemo  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3466,7 +3933,7 @@ export namespace l10n {
 
 export  class L10NDemo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.text = _buf_.ReadString();
     }
@@ -3481,6 +3948,40 @@ export  class L10NDemo  {
 }
 
 
+   
+export namespace l10n {
+export class TbPatchDemo {
+    private _dataMap: Map<number, l10n.PatchDemo>
+    private _dataList: l10n.PatchDemo[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, l10n.PatchDemo>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: l10n.PatchDemo
+            _v = new l10n.PatchDemo(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, l10n.PatchDemo> { return this._dataMap }
+    getDataList(): l10n.PatchDemo[] { return this._dataList }
+
+    get(key: number): l10n.PatchDemo  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3488,7 +3989,7 @@ export namespace l10n {
 
 export  class PatchDemo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.value = _buf_.ReadInt();
     }
@@ -3503,6 +4004,40 @@ export  class PatchDemo  {
 }
 
 
+   
+export namespace mail {
+export class TbSystemMail {
+    private _dataMap: Map<number, mail.SystemMail>
+    private _dataList: mail.SystemMail[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, mail.SystemMail>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: mail.SystemMail
+            _v = new mail.SystemMail(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, mail.SystemMail> { return this._dataMap }
+    getDataList(): mail.SystemMail[] { return this._dataList }
+
+    get(key: number): mail.SystemMail  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3510,7 +4045,7 @@ export namespace mail {
 
 export  class SystemMail  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.title = _buf_.ReadString();
         this.sender = _buf_.ReadString();
@@ -3531,6 +4066,40 @@ export  class SystemMail  {
 }
 
 
+   
+export namespace mail {
+export class TbGlobalMail {
+    private _dataMap: Map<number, mail.GlobalMail>
+    private _dataList: mail.GlobalMail[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, mail.GlobalMail>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: mail.GlobalMail
+            _v = new mail.GlobalMail(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, mail.GlobalMail> { return this._dataMap }
+    getDataList(): mail.GlobalMail[] { return this._dataList }
+
+    get(key: number): mail.GlobalMail  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3538,7 +4107,7 @@ export namespace mail {
 
 export  class GlobalMail  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.title = _buf_.ReadString();
         this.sender = _buf_.ReadString();
@@ -3576,6 +4145,40 @@ export  class GlobalMail  {
 }
 
 
+   
+export namespace role {
+export class TbRoleLevelExpAttr {
+    private _dataMap: Map<number, role.LevelExpAttr>
+    private _dataList: role.LevelExpAttr[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, role.LevelExpAttr>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: role.LevelExpAttr
+            _v = new role.LevelExpAttr(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.level, _v)
+        }
+    }
+
+    getDataMap(): Map<number, role.LevelExpAttr> { return this._dataMap }
+    getDataList(): role.LevelExpAttr[] { return this._dataList }
+
+    get(key: number): role.LevelExpAttr  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3583,20 +4186,54 @@ export namespace role {
 
 export  class LevelExpAttr  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.level = _buf_.ReadInt();
-        this.needExp = _buf_.ReadLong();
+        this.needExp = _buf_.ReadLongAsNumber();
         { this.clothesAttrs = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.clothesAttrs.push(_e) } }
     }
 
     readonly level: number
-    readonly needExp: bigint
+    readonly needExp: number
     readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
     }
 }
 
+}
+
+
+   
+export namespace role {
+export class TbRoleLevelBonusCoefficient {
+    private _dataMap: Map<number, role.LevelBonus>
+    private _dataList: role.LevelBonus[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, role.LevelBonus>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: role.LevelBonus
+            _v = new role.LevelBonus(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, role.LevelBonus> { return this._dataMap }
+    getDataList(): role.LevelBonus[] { return this._dataList }
+
+    get(key: number): role.LevelBonus  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
 }
 
 
@@ -3607,7 +4244,7 @@ export namespace role {
 
 export  class LevelBonus  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         { this.distinctBonusInfos = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.DistinctBonusInfos;_e = new role.DistinctBonusInfos(_buf_); this.distinctBonusInfos.push(_e) } }
     }
@@ -3630,7 +4267,7 @@ export namespace role {
 
 export  class DistinctBonusInfos  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.effectiveLevel = _buf_.ReadInt();
         { this.bonusInfo = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.BonusInfo;_e = new role.BonusInfo(_buf_); this.bonusInfo.push(_e) } }
     }
@@ -3653,7 +4290,7 @@ export namespace role {
 
 export  class BonusInfo  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.type = _buf_.ReadInt();
         this.coefficient = _buf_.ReadFloat();
     }
@@ -3668,6 +4305,40 @@ export  class BonusInfo  {
 }
 
 
+   
+export namespace tag {
+export class TbTestTag {
+    private _dataMap: Map<number, tag.TestTag>
+    private _dataList: tag.TestTag[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, tag.TestTag>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: tag.TestTag
+            _v = new tag.TestTag(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, tag.TestTag> { return this._dataMap }
+    getDataList(): tag.TestTag[] { return this._dataList }
+
+    get(key: number): tag.TestTag  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3675,7 +4346,7 @@ export namespace tag {
 
 export  class TestTag  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt();
         this.value = _buf_.ReadString();
     }
@@ -3690,6 +4361,40 @@ export  class TestTag  {
 }
 
 
+   
+export namespace test {
+export class TbFullTypes {
+    private _dataMap: Map<number, test.DemoType2>
+    private _dataList: test.DemoType2[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoType2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoType2
+            _v = new test.DemoType2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x3, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
+    getDataList(): test.DemoType2[] { return this._dataList }
+
+    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
 
 
 
@@ -3697,12 +4402,12 @@ export namespace test {
 
 export  class DemoType2  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.x4 = _buf_.ReadInt();
         this.x1 = _buf_.ReadBool();
         this.x2 = _buf_.ReadByte();
         this.x3 = _buf_.ReadShort();
-        this.x5 = _buf_.ReadLong();
+        this.x5 = _buf_.ReadLongAsNumber();
         this.x6 = _buf_.ReadFloat();
         this.x7 = _buf_.ReadDouble();
         this.x80 = _buf_.ReadFshort();
@@ -3713,18 +4418,18 @@ export  class DemoType2  {
         this.x13 = _buf_.ReadInt();
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
         this.s1 = _buf_.ReadString();
-        this.v2 = Vector2.from(_buf_)
-        this.v3 = Vector3.from(_buf_)
-        this.v4 = Vector4.from(_buf_)
+        this.v2 = Vector2.deserializeFrom(_buf_)
+        this.v3 = Vector3.deserializeFrom(_buf_)
+        this.v4 = Vector4.deserializeFrom(_buf_)
         this.t1 = _buf_.ReadInt();
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k1[i] = _e } }
         { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k2.push(_e) } }
         { this.k3 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k3.push(_e) } }
         { this.k4 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k4.push(_e) } }
-        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k5.add(_e);}}
-        { this.k6 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k6.add(_e);}}
-        { this.k7 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k7.add(_e);}}
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number;  _k = _buf_.ReadInt();;  let _v:number;  _v = _buf_.ReadInt();     this.k8.set(_k, _v);  } }
+        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k5.add(_e);}}
+        { this.k6 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k6.add(_e);}}
+        { this.k7 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k7.add(_e);}}
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt();; let _v:number; _v = _buf_.ReadInt();; this.k8.set(_k, _v);  } }
         { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2;_e = new test.DemoE2(_buf_); this.k9.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
     }
@@ -3734,7 +4439,7 @@ export  class DemoType2  {
     readonly x2: number
     readonly x3: number
     x3_Ref : test.DemoType2
-    readonly x5: bigint
+    readonly x5: number
     readonly x6: number
     readonly x7: number
     readonly x80: number
@@ -3779,7 +4484,7 @@ export namespace test {
 
 export  class DemoType1  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.x1 = _buf_.ReadInt();
     }
 
@@ -3798,7 +4503,7 @@ export  class DemoType1  {
 export namespace test {
 
 export  abstract  class DemoDynamic  {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DemoDynamic {
+    static constructorFrom(_buf_: ByteBuf): DemoDynamic {
         switch (_buf_.ReadInt()) {
             case -2138341747: return new test.DemoD2(_buf_)
             case -2138341717: return new test.DemoE1(_buf_)
@@ -3807,7 +4512,7 @@ export  abstract  class DemoDynamic  {
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.x1 = _buf_.ReadInt();
     }
 
@@ -3827,7 +4532,7 @@ export namespace test {
 
 export  class DemoD2  extends test.DemoDynamic {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.x2 = _buf_.ReadInt();
     }
@@ -3848,14 +4553,14 @@ export  class DemoD2  extends test.DemoDynamic {
 export namespace test {
 
 export  abstract  class DemoD3  extends test.DemoDynamic {
-    static constructorFrom(_buf_: Bright.Serialization.ByteBuf): DemoD3 {
+    static constructorFrom(_buf_: ByteBuf): DemoD3 {
         switch (_buf_.ReadInt()) {
             case -2138341717: return new test.DemoE1(_buf_)
             default: throw new Error()
         }
     }
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.x3 = _buf_.ReadInt();
     }
@@ -3877,7 +4582,7 @@ export namespace test {
 
 export  class DemoE1  extends test.DemoD3 {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.x4 = _buf_.ReadInt();
     }
@@ -3899,7 +4604,7 @@ export namespace test {
 
 export  class DemoD5  extends test.DemoDynamic {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.time = new test.DateTimeRange(_buf_)
     }
@@ -3922,7 +4627,7 @@ export namespace test {
 
 export  class DateTimeRange  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this.startTime = _buf_.ReadInt();
         this.endTime = _buf_.ReadInt();
     }
@@ -3944,7 +4649,7 @@ export namespace test {
 
 export  class DemoE2  {
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         if(_buf_.ReadBool()) { this.y1 = _buf_.ReadInt(); } else { this.y1 = null }
         this.y2 = _buf_.ReadBool();
     }
@@ -3959,882 +4664,13 @@ export  class DemoE2  {
 }
 
 
-
-
-
-export namespace test {
-
-export  class DemoSingletonType  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        this.date = test.DemoDynamic.constructorFrom(_buf_)
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly date: test.DemoDynamic
-
-    resolve(_tables: Map<string, any>) {
-        if (this.date != null) { this.date.resolve(_tables);}
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowRecord  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
-        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
-        { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_) this.multiRows3.add(_e);}}
-        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number;  _k = _buf_.ReadInt();;  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_buf_)     this.multiRows4.set(_k, _v);  } }
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly oneRows: test.MultiRowType1[]
-    readonly multiRows1: test.MultiRowType1[]
-    readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows3: Set<test.MultiRowType2>
-    readonly multiRows4: Map<number, test.MultiRowType2>
-
-    resolve(_tables: Map<string, any>) {
-        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
-        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowType1  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.x = _buf_.ReadInt();
-    }
-
-    readonly id: number
-    readonly x: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowType2  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.x = _buf_.ReadInt();
-        this.y = _buf_.ReadFloat();
-    }
-
-    readonly id: number
-    readonly x: number
-    readonly y: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class MultiRowTitle  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        this.x1 = new test.H1(_buf_)
-        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x2.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly x1: test.H1
-    readonly x2: test.H2[]
-    readonly x3: test.H2[]
-
-    resolve(_tables: Map<string, any>) {
-        if (this.x1 != null) { this.x1.resolve(_tables);}
-        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
-        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class H1  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.y2 = new test.H2(_buf_)
-        this.y3 = _buf_.ReadInt();
-    }
-
-    readonly y2: test.H2
-    readonly y3: number
-
-    resolve(_tables: Map<string, any>) {
-        if (this.y2 != null) { this.y2.resolve(_tables);}
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class H2  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.z2 = _buf_.ReadInt();
-        this.z3 = _buf_.ReadInt();
-    }
-
-    readonly z2: number
-    readonly z3: number
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-
-export namespace test {
-
-export  class TestNull  {
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this.id = _buf_.ReadInt();
-        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt(); } else { this.x1 = null }
-        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt(); } else { this.x2 = null }
-        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null }
-        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null }
-    }
-
-    readonly id: number
-    readonly x1?: number
-    readonly x2?: test.DemoEnum
-    readonly x3?: test.DemoType1
-    readonly x4?: test.DemoDynamic
-
-    resolve(_tables: Map<string, any>) {
-        if (this.x3 != null) { this.x3.resolve(_tables);}
-        if (this.x4 != null) { this.x4.resolve(_tables);}
-    }
-}
-
-}
-
-
-   
-export namespace ai {
-export class TbBlackboard {
-    private _dataMap: Map<string, ai.Blackboard>
-    private _dataList: ai.Blackboard[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<string, ai.Blackboard>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: ai.Blackboard
-            _v = new ai.Blackboard(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.name, _v)
-        }
-    }
-
-    getDataMap(): Map<string, ai.Blackboard> { return this._dataMap }
-    getDataList(): ai.Blackboard[] { return this._dataList }
-
-    get(key: string): ai.Blackboard  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace ai {
-export class TbBehaviorTree {
-    private _dataMap: Map<number, ai.BehaviorTree>
-    private _dataList: ai.BehaviorTree[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, ai.BehaviorTree>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: ai.BehaviorTree
-            _v = new ai.BehaviorTree(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, ai.BehaviorTree> { return this._dataMap }
-    getDataList(): ai.BehaviorTree[] { return this._dataList }
-
-    get(key: number): ai.BehaviorTree  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace blueprint {
-export class TbClazz {
-    private _dataMap: Map<string, blueprint.Clazz>
-    private _dataList: blueprint.Clazz[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<string, blueprint.Clazz>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: blueprint.Clazz
-            _v = blueprint.Clazz.constructorFrom(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.name, _v)
-        }
-    }
-
-    getDataMap(): Map<string, blueprint.Clazz> { return this._dataMap }
-    getDataList(): blueprint.Clazz[] { return this._dataList }
-
-    get(key: string): blueprint.Clazz  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace bonus {
-export class TbDrop {
-    private _dataMap: Map<number, bonus.DropInfo>
-    private _dataList: bonus.DropInfo[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, bonus.DropInfo>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: bonus.DropInfo
-            _v = new bonus.DropInfo(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, bonus.DropInfo> { return this._dataMap }
-    getDataList(): bonus.DropInfo[] { return this._dataList }
-
-    get(key: number): bonus.DropInfo  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace common {
-export class TbGlobalConfig {
-
-     private _data: common.GlobalConfig
-
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
-        this._data = new common.GlobalConfig(_buf_)
-    }
-
-    getData(): common.GlobalConfig { return this._data }
-
-     get bagCapacity(): number { return this._data.bagCapacity }
-     get bagCapacitySpecial(): number { return this._data.bagCapacitySpecial }
-     get bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity }
-     get bagTempToolCapacity(): number { return this._data.bagTempToolCapacity }
-     get bagInitCapacity(): number { return this._data.bagInitCapacity }
-     get quickBagCapacity(): number { return this._data.quickBagCapacity }
-     get clothBagCapacity(): number { return this._data.clothBagCapacity }
-     get clothBagInitCapacity(): number { return this._data.clothBagInitCapacity }
-     get clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial }
-     get bagInitItemsDropId(): number { return this._data.bagInitItemsDropId }
-     get mailBoxCapacity(): number { return this._data.mailBoxCapacity }
-     get damageParamC(): number { return this._data.damageParamC }
-     get damageParamE(): number { return this._data.damageParamE }
-     get damageParamF(): number { return this._data.damageParamF }
-     get damageParamD(): number { return this._data.damageParamD }
-     get roleSpeed(): number { return this._data.roleSpeed }
-     get monsterSpeed(): number { return this._data.monsterSpeed }
-     get initEnergy(): number { return this._data.initEnergy }
-     get initViality(): number { return this._data.initViality }
-     get maxViality(): number { return this._data.maxViality }
-     get perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime }
-
-    resolve(_tables: Map<string, any>) {
-        this._data.resolve(_tables)
-    }
-
-    
-}
-}
-
-
-   
-export namespace common {
-export class TbDummy {
-    private _dataMap: Map<number, common.Dummy>
-    private _dataList: common.Dummy[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, common.Dummy>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: common.Dummy
-            _v = new common.Dummy(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, common.Dummy> { return this._dataMap }
-    getDataList(): common.Dummy[] { return this._dataList }
-
-    get(key: number): common.Dummy  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace error {
-export class TbErrorInfo {
-    private _dataMap: Map<string, error.ErrorInfo>
-    private _dataList: error.ErrorInfo[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<string, error.ErrorInfo>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: error.ErrorInfo
-            _v = new error.ErrorInfo(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.code, _v)
-        }
-    }
-
-    getDataMap(): Map<string, error.ErrorInfo> { return this._dataMap }
-    getDataList(): error.ErrorInfo[] { return this._dataList }
-
-    get(key: string): error.ErrorInfo  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace error {
-export class TbCodeInfo {
-    private _dataMap: Map<error.EErrorCode, error.CodeInfo>
-    private _dataList: error.CodeInfo[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<error.EErrorCode, error.CodeInfo>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: error.CodeInfo
-            _v = new error.CodeInfo(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.code, _v)
-        }
-    }
-
-    getDataMap(): Map<error.EErrorCode, error.CodeInfo> { return this._dataMap }
-    getDataList(): error.CodeInfo[] { return this._dataList }
-
-    get(key: error.EErrorCode): error.CodeInfo  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItem {
-    private _dataMap: Map<number, item.Item>
-    private _dataList: item.Item[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, item.Item>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: item.Item
-            _v = new item.Item(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, item.Item> { return this._dataMap }
-    getDataList(): item.Item[] { return this._dataList }
-
-    get(key: number): item.Item  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItemFunc {
-    private _dataMap: Map<item.EMinorType, item.ItemFunction>
-    private _dataList: item.ItemFunction[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<item.EMinorType, item.ItemFunction>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: item.ItemFunction
-            _v = new item.ItemFunction(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.minorType, _v)
-        }
-    }
-
-    getDataMap(): Map<item.EMinorType, item.ItemFunction> { return this._dataMap }
-    getDataList(): item.ItemFunction[] { return this._dataList }
-
-    get(key: item.EMinorType): item.ItemFunction  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace item {
-export class TbItemExtra {
-    private _dataMap: Map<number, item.ItemExtra>
-    private _dataList: item.ItemExtra[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, item.ItemExtra>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: item.ItemExtra
-            _v = item.ItemExtra.constructorFrom(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, item.ItemExtra> { return this._dataMap }
-    getDataList(): item.ItemExtra[] { return this._dataList }
-
-    get(key: number): item.ItemExtra  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace l10n {
-export class TbL10NDemo {
-    private _dataMap: Map<number, l10n.L10NDemo>
-    private _dataList: l10n.L10NDemo[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, l10n.L10NDemo>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: l10n.L10NDemo
-            _v = new l10n.L10NDemo(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, l10n.L10NDemo> { return this._dataMap }
-    getDataList(): l10n.L10NDemo[] { return this._dataList }
-
-    get(key: number): l10n.L10NDemo  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace l10n {
-export class TbPatchDemo {
-    private _dataMap: Map<number, l10n.PatchDemo>
-    private _dataList: l10n.PatchDemo[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, l10n.PatchDemo>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: l10n.PatchDemo
-            _v = new l10n.PatchDemo(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, l10n.PatchDemo> { return this._dataMap }
-    getDataList(): l10n.PatchDemo[] { return this._dataList }
-
-    get(key: number): l10n.PatchDemo  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace mail {
-export class TbSystemMail {
-    private _dataMap: Map<number, mail.SystemMail>
-    private _dataList: mail.SystemMail[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, mail.SystemMail>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: mail.SystemMail
-            _v = new mail.SystemMail(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, mail.SystemMail> { return this._dataMap }
-    getDataList(): mail.SystemMail[] { return this._dataList }
-
-    get(key: number): mail.SystemMail  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace mail {
-export class TbGlobalMail {
-    private _dataMap: Map<number, mail.GlobalMail>
-    private _dataList: mail.GlobalMail[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, mail.GlobalMail>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: mail.GlobalMail
-            _v = new mail.GlobalMail(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, mail.GlobalMail> { return this._dataMap }
-    getDataList(): mail.GlobalMail[] { return this._dataList }
-
-    get(key: number): mail.GlobalMail  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace role {
-export class TbRoleLevelExpAttr {
-    private _dataMap: Map<number, role.LevelExpAttr>
-    private _dataList: role.LevelExpAttr[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, role.LevelExpAttr>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: role.LevelExpAttr
-            _v = new role.LevelExpAttr(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.level, _v)
-        }
-    }
-
-    getDataMap(): Map<number, role.LevelExpAttr> { return this._dataMap }
-    getDataList(): role.LevelExpAttr[] { return this._dataList }
-
-    get(key: number): role.LevelExpAttr  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace role {
-export class TbRoleLevelBonusCoefficient {
-    private _dataMap: Map<number, role.LevelBonus>
-    private _dataList: role.LevelBonus[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, role.LevelBonus>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: role.LevelBonus
-            _v = new role.LevelBonus(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, role.LevelBonus> { return this._dataMap }
-    getDataList(): role.LevelBonus[] { return this._dataList }
-
-    get(key: number): role.LevelBonus  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace tag {
-export class TbTestTag {
-    private _dataMap: Map<number, tag.TestTag>
-    private _dataList: tag.TestTag[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, tag.TestTag>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: tag.TestTag
-            _v = new tag.TestTag(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, tag.TestTag> { return this._dataMap }
-    getDataList(): tag.TestTag[] { return this._dataList }
-
-    get(key: number): tag.TestTag  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace test {
-export class TbFullTypes {
-    private _dataMap: Map<number, test.DemoType2>
-    private _dataList: test.DemoType2[]
-    
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
-        this._dataMap = new Map<number, test.DemoType2>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: test.DemoType2
-            _v = new test.DemoType2(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.x3, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
-    getDataList(): test.DemoType2[] { return this._dataList }
-
-    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
    
 export namespace test {
 export class TbSingleton {
 
      private _data: test.DemoSingletonType
 
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
         this._data = new test.DemoSingletonType(_buf_)
     }
@@ -4854,13 +4690,38 @@ export class TbSingleton {
 }
 
 
+
+
+
+export namespace test {
+
+export  class DemoSingletonType  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        this.date = test.DemoDynamic.constructorFrom(_buf_)
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly date: test.DemoDynamic
+
+    resolve(_tables: Map<string, any>) {
+        if (this.date != null) { this.date.resolve(_tables);}
+    }
+}
+
+}
+
+
    
 export namespace test {
 export class TbDataFromJson {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoType2>()
         this._dataList = []
         
@@ -4894,7 +4755,7 @@ export class TbDataFromXml {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoType2>()
         this._dataList = []
         
@@ -4928,7 +4789,7 @@ export class TbDataFromLua {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoType2>()
         this._dataList = []
         
@@ -4962,7 +4823,7 @@ export class TbMultiRowRecord {
     private _dataMap: Map<number, test.MultiRowRecord>
     private _dataList: test.MultiRowRecord[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.MultiRowRecord>()
         this._dataList = []
         
@@ -4990,13 +4851,95 @@ export class TbMultiRowRecord {
 }
 
 
+
+
+
+export namespace test {
+
+export  class MultiRowRecord  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
+        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
+        { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_); this.multiRows3.add(_e);}}
+        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt();; let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly oneRows: test.MultiRowType1[]
+    readonly multiRows1: test.MultiRowType1[]
+    readonly multiRows2: test.MultiRowType1[]
+    readonly multiRows3: Set<test.MultiRowType2>
+    readonly multiRows4: Map<number, test.MultiRowType2>
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
+        for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType1  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.x = _buf_.ReadInt();
+    }
+
+    readonly id: number
+    readonly x: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class MultiRowType2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.x = _buf_.ReadInt();
+        this.y = _buf_.ReadFloat();
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
    
 export namespace test {
 export class TbMultiRowTitle {
     private _dataMap: Map<number, test.MultiRowTitle>
     private _dataList: test.MultiRowTitle[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.MultiRowTitle>()
         this._dataList = []
         
@@ -5024,13 +4967,89 @@ export class TbMultiRowTitle {
 }
 
 
+
+
+
+export namespace test {
+
+export  class MultiRowTitle  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.name = _buf_.ReadString();
+        this.x1 = new test.H1(_buf_)
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x2.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly x1: test.H1
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H1  {
+
+    constructor(_buf_: ByteBuf) {
+        this.y2 = new test.H2(_buf_)
+        this.y3 = _buf_.ReadInt();
+    }
+
+    readonly y2: test.H2
+    readonly y3: number
+
+    resolve(_tables: Map<string, any>) {
+        if (this.y2 != null) { this.y2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class H2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.z2 = _buf_.ReadInt();
+        this.z3 = _buf_.ReadInt();
+    }
+
+    readonly z2: number
+    readonly z3: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
    
 export namespace test {
 export class TbTestNull {
     private _dataMap: Map<number, test.TestNull>
     private _dataList: test.TestNull[]
     
-    constructor(_buf_: Bright.Serialization.ByteBuf) {
+    constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestNull>()
         this._dataList = []
         
@@ -5060,7 +5079,445 @@ export class TbTestNull {
 
 
 
-type ByteBufLoader = (file: string) => Bright.Serialization.ByteBuf
+
+export namespace test {
+
+export  class TestNull  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt(); } else { this.x1 = null }
+        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt(); } else { this.x2 = null }
+        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null }
+        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null }
+        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString(); } else { this.s1 = null }
+        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString(); } else { this.s2 = null }
+    }
+
+    readonly id: number
+    readonly x1?: number
+    readonly x2?: test.DemoEnum
+    readonly x3?: test.DemoType1
+    readonly x4?: test.DemoDynamic
+    readonly s1?: string
+    readonly s2?: string
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x3 != null) { this.x3.resolve(_tables);}
+        if (this.x4 != null) { this.x4.resolve(_tables);}
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoPrimitive {
+    private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
+    private _dataList: test.DemoPrimitiveTypesTable[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoPrimitiveTypesTable>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoPrimitiveTypesTable
+            _v = new test.DemoPrimitiveTypesTable(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoPrimitiveTypesTable> { return this._dataMap }
+    getDataList(): test.DemoPrimitiveTypesTable[] { return this._dataList }
+
+    get(key: number): test.DemoPrimitiveTypesTable  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoPrimitiveTypesTable  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x1 = _buf_.ReadBool();
+        this.x2 = _buf_.ReadByte();
+        this.x3 = _buf_.ReadShort();
+        this.x4 = _buf_.ReadInt();
+        this.x5 = _buf_.ReadLongAsNumber();
+        this.x6 = _buf_.ReadFloat();
+        this.x7 = _buf_.ReadDouble();
+        this.s1 = _buf_.ReadString();
+        this.s2 = _buf_.ReadString();
+        this.v2 = Vector2.deserializeFrom(_buf_)
+        this.v3 = Vector3.deserializeFrom(_buf_)
+        this.v4 = Vector4.deserializeFrom(_buf_)
+        this.t1 = _buf_.ReadInt();
+    }
+
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x7: number
+    readonly s1: string
+    readonly s2: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbTestString {
+    private _dataMap: Map<number, test.TestString>
+    private _dataList: test.TestString[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestString>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestString
+            _v = new test.TestString(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestString> { return this._dataMap }
+    getDataList(): test.TestString[] { return this._dataList }
+
+    get(key: number): test.TestString  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestString  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.s1 = _buf_.ReadString();
+        this.cs1 = new test.CompactString(_buf_)
+        this.cs2 = new test.CompactString(_buf_)
+    }
+
+    readonly id: number
+    readonly s1: string
+    readonly cs1: test.CompactString
+    readonly cs2: test.CompactString
+
+    resolve(_tables: Map<string, any>) {
+        if (this.cs1 != null) { this.cs1.resolve(_tables);}
+        if (this.cs2 != null) { this.cs2.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class CompactString  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.s2 = _buf_.ReadString();
+        this.s3 = _buf_.ReadString();
+    }
+
+    readonly id: number
+    readonly s2: string
+    readonly s3: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup {
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
+    getDataList(): test.DemoGroup[] { return this._dataList }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class DemoGroup  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt();
+        this.x1 = _buf_.ReadInt();
+        this.x2 = _buf_.ReadInt();
+        this.x3 = _buf_.ReadInt();
+        this.x4 = _buf_.ReadInt();
+        this.x5 = new test.InnerGroup(_buf_)
+    }
+
+    readonly id: number
+    readonly x1: number
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: test.InnerGroup
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x5 != null) { this.x5.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+
+export namespace test {
+
+export  class InnerGroup  {
+
+    constructor(_buf_: ByteBuf) {
+        this.y1 = _buf_.ReadInt();
+        this.y2 = _buf_.ReadInt();
+        this.y3 = _buf_.ReadInt();
+        this.y4 = _buf_.ReadInt();
+    }
+
+    readonly y1: number
+    readonly y2: number
+    readonly y3: number
+    readonly y4: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup_C {
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
+    getDataList(): test.DemoGroup[] { return this._dataList }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup_S {
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
+    getDataList(): test.DemoGroup[] { return this._dataList }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDemoGroup_E {
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
+    getDataList(): test.DemoGroup[] { return this._dataList }
+
+    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbTestGlobal {
+
+     private _data: test.TestGlobal
+
+    constructor(_buf_: ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.TestGlobal(_buf_)
+    }
+
+    getData(): test.TestGlobal { return this._data }
+
+     get unlockEquip(): number { return this._data.unlockEquip }
+     get unlockHero(): number { return this._data.unlockHero }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+
+
+export namespace test {
+
+export  class TestGlobal  {
+
+    constructor(_buf_: ByteBuf) {
+        this.unlockEquip = _buf_.ReadInt();
+        this.unlockHero = _buf_.ReadInt();
+    }
+
+    readonly unlockEquip: number
+    readonly unlockHero: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+
+
+type ByteBufLoader = (file: string) => ByteBuf
 
 export class Tables {
     private _TbBlackboard: ai.TbBlackboard
@@ -5115,6 +5572,20 @@ export class Tables {
     get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle}
     private _TbTestNull: test.TbTestNull
     get TbTestNull(): test.TbTestNull  { return this._TbTestNull}
+    private _TbDemoPrimitive: test.TbDemoPrimitive
+    get TbDemoPrimitive(): test.TbDemoPrimitive  { return this._TbDemoPrimitive}
+    private _TbTestString: test.TbTestString
+    get TbTestString(): test.TbTestString  { return this._TbTestString}
+    private _TbDemoGroup: test.TbDemoGroup
+    get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup}
+    private _TbDemoGroup_C: test.TbDemoGroup_C
+    get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C}
+    private _TbDemoGroup_S: test.TbDemoGroup_S
+    get TbDemoGroup_S(): test.TbDemoGroup_S  { return this._TbDemoGroup_S}
+    private _TbDemoGroup_E: test.TbDemoGroup_E
+    get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E}
+    private _TbTestGlobal: test.TbTestGlobal
+    get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal}
 
     constructor(loader: ByteBufLoader) {
         let tables = new Map<string, any>()
@@ -5170,6 +5641,20 @@ export class Tables {
         tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
         this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull.bin')) 
         tables.set('test.TbTestNull', this._TbTestNull)
+        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive.bin')) 
+        tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive)
+        this._TbTestString = new test.TbTestString(loader('test.TbTestString.bin')) 
+        tables.set('test.TbTestString', this._TbTestString)
+        this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup.bin')) 
+        tables.set('test.TbDemoGroup', this._TbDemoGroup)
+        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C.bin')) 
+        tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C)
+        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S.bin')) 
+        tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S)
+        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E.bin')) 
+        tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
+        this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal.bin')) 
+        tables.set('test.TbTestGlobal', this._TbTestGlobal)
 
         this._TbBlackboard.resolve(tables) 
         this._TbBehaviorTree.resolve(tables) 
@@ -5197,6 +5682,13 @@ export class Tables {
         this._TbMultiRowRecord.resolve(tables) 
         this._TbMultiRowTitle.resolve(tables) 
         this._TbTestNull.resolve(tables) 
+        this._TbDemoPrimitive.resolve(tables) 
+        this._TbTestString.resolve(tables) 
+        this._TbDemoGroup.resolve(tables) 
+        this._TbDemoGroup_C.resolve(tables) 
+        this._TbDemoGroup_S.resolve(tables) 
+        this._TbDemoGroup_E.resolve(tables) 
+        this._TbTestGlobal.resolve(tables) 
     }
 }
 

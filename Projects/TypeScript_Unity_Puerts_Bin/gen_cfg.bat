@@ -9,7 +9,9 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir TsScripts/src/Gen/Cfg ^
  --output_data_dir ConfigData ^
  --gen_types code_typescript_bin,data_bin ^
- -s client ^
---export_test_data
+ -s all ^
+--export_test_data ^
+--use_puerts_bytebuf ^
+--embed_bright_types
 
 pause

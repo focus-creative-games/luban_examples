@@ -387,15 +387,17 @@ declare module 'csharp' {
              * @returns The location of the vector on the plane. 
              */
             public static ProjectOnPlane($vector: UnityEngine.Vector3, $planeNormal: UnityEngine.Vector3):UnityEngine.Vector3;
-            /** Returns the angle in degrees between from and to.
+            /** Calculates the angle between vectors from and.
              * @param from The vector from which the angular difference is measured.
              * @param to The vector to which the angular difference is measured.
              * @returns The angle in degrees between the two vectors. 
              */
             public static Angle($from: UnityEngine.Vector3, $to: UnityEngine.Vector3):number;
-            /** Returns the signed angle in degrees between from and to. * @param from The vector from which the angular difference is measured.
+            /** Calculates the signed angle between vectors from and to in relation to axis.
+             * @param from The vector from which the angular difference is measured.
              * @param to The vector to which the angular difference is measured.
              * @param axis A vector around which the other vectors are rotated.
+             * @returns Returns the signed angle between from and to in degrees. 
              */
             public static SignedAngle($from: UnityEngine.Vector3, $to: UnityEngine.Vector3, $axis: UnityEngine.Vector3):number;
             /** Returns the distance between a and b. */
@@ -582,7 +584,7 @@ declare module 'csharp' {
              * @param position Position for the new object.
              * @param rotation Orientation of the new object.
              * @param parent Parent that will be assigned to the new object.
-             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent..
+             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
              * @returns The instantiated clone. 
              */
             public static Instantiate($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion):UnityEngine.Object;
@@ -591,7 +593,7 @@ declare module 'csharp' {
              * @param position Position for the new object.
              * @param rotation Orientation of the new object.
              * @param parent Parent that will be assigned to the new object.
-             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent..
+             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
              * @returns The instantiated clone. 
              */
             public static Instantiate($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion, $parent: UnityEngine.Transform):UnityEngine.Object;
@@ -600,7 +602,7 @@ declare module 'csharp' {
              * @param position Position for the new object.
              * @param rotation Orientation of the new object.
              * @param parent Parent that will be assigned to the new object.
-             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent..
+             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
              * @returns The instantiated clone. 
              */
             public static Instantiate($original: UnityEngine.Object):UnityEngine.Object;
@@ -609,7 +611,7 @@ declare module 'csharp' {
              * @param position Position for the new object.
              * @param rotation Orientation of the new object.
              * @param parent Parent that will be assigned to the new object.
-             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent..
+             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
              * @returns The instantiated clone. 
              */
             public static Instantiate($original: UnityEngine.Object, $parent: UnityEngine.Transform):UnityEngine.Object;
@@ -618,7 +620,7 @@ declare module 'csharp' {
              * @param position Position for the new object.
              * @param rotation Orientation of the new object.
              * @param parent Parent that will be assigned to the new object.
-             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent..
+             * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
              * @returns The instantiated clone. 
              */
             public static Instantiate($original: UnityEngine.Object, $parent: UnityEngine.Transform, $instantiateInWorldSpace: boolean):UnityEngine.Object;
@@ -683,38 +685,38 @@ declare module 'csharp' {
         enum LogType { Error = 0, Assert = 1, Warning = 2, Log = 3, Exception = 4 }
         /** Option flags for specifying special treatment of a log message. */
         enum LogOption { None = 0, NoStacktrace = 1 }
-        /** The interface to get time information from Unity. */
+        /** Provides an interface to get time information from Unity. */
         class Time extends System.Object {
-            /** The time at the beginning of this frame (Read Only). This is the time in seconds since the start of the game. */
+            /** The time at the beginning of this frame (Read Only). */
             public static get time(): number;
-            /** The time at the beginning of this frame (Read Only). This is the time in seconds since the start of the game. */
+            /** The double precision time at the beginning of this frame (Read Only). This is the time in seconds since the start of the game. */
             public static get timeAsDouble(): number;
-            /** The time this frame has started (Read Only). This is the time in seconds since the last level has been loaded. */
+            /** The time since this frame started (Read Only). This is the time in seconds since the last non-additive scene has finished loading. */
             public static get timeSinceLevelLoad(): number;
-            /** The time this frame has started (Read Only). This is the time in seconds since the last level has been loaded. */
+            /** The double precision time since this frame started (Read Only). This is the time in seconds since the last non-additive scene has finished loading. */
             public static get timeSinceLevelLoadAsDouble(): number;
-            /** The completion time in seconds since the last frame (Read Only). */
+            /** The interval in seconds from the last frame to the current one (Read Only). */
             public static get deltaTime(): number;
-            /** The time the latest MonoBehaviour.FixedUpdate has started (Read Only). This is the time in seconds since the start of the game. */
+            /** The time since the last MonoBehaviour.FixedUpdate started (Read Only). This is the time in seconds since the start of the game. */
             public static get fixedTime(): number;
-            /** The time the latest MonoBehaviour.FixedUpdate has started (Read Only). This is the time in seconds since the start of the game. */
+            /** The double precision time since the last MonoBehaviour.FixedUpdate started (Read Only). This is the time in seconds since the start of the game. */
             public static get fixedTimeAsDouble(): number;
-            /** The timeScale-independant time for this frame (Read Only). This is the time in seconds since the start of the game. */
+            /** The timeScale-independent time for this frame (Read Only). This is the time in seconds since the start of the game. */
             public static get unscaledTime(): number;
-            /** The timeScale-independant time for this frame (Read Only). This is the time in seconds since the start of the game. */
+            /** The double precision timeScale-independent time for this frame (Read Only). This is the time in seconds since the start of the game. */
             public static get unscaledTimeAsDouble(): number;
-            /** The TimeScale-independant time the latest MonoBehaviour.FixedUpdate has started (Read Only). This is the time in seconds since the start of the game. */
+            /** The timeScale-independent time at the beginning of the last MonoBehaviour.FixedUpdate phase (Read Only). This is the time in seconds since the start of the game. */
             public static get fixedUnscaledTime(): number;
-            /** The TimeScale-independant time the latest MonoBehaviour.FixedUpdate has started (Read Only). This is the time in seconds since the start of the game. */
+            /** The double precision timeScale-independent time at the beginning of the last MonoBehaviour.FixedUpdate (Read Only). This is the time in seconds since the start of the game. */
             public static get fixedUnscaledTimeAsDouble(): number;
             /** The timeScale-independent interval in seconds from the last frame to the current one (Read Only). */
             public static get unscaledDeltaTime(): number;
-            /** The timeScale-independent interval in seconds from the last fixed frame to the current one (Read Only). */
+            /** The timeScale-independent interval in seconds from the last MonoBehaviour.FixedUpdate phase to the current one (Read Only). */
             public static get fixedUnscaledDeltaTime(): number;
             /** The interval in seconds at which physics and other fixed frame rate updates (like MonoBehaviour's MonoBehaviour.FixedUpdate) are performed. */
             public static get fixedDeltaTime(): number;
             public static set fixedDeltaTime(value: number);
-            /** The maximum time a frame can take. Physics and other fixed frame rate updates (like MonoBehaviour's MonoBehaviour.FixedUpdate) will be performed only for this duration of time per frame. */
+            /** The maximum value of Time.deltaTime in any given frame. This is a time in seconds that limits the increase of Time.time between two frames. */
             public static get maximumDeltaTime(): number;
             public static set maximumDeltaTime(value: number);
             /** A smoothed out Time.deltaTime (Read Only). */
@@ -722,18 +724,18 @@ declare module 'csharp' {
             /** The maximum time a frame can spend on particle updates. If the frame takes longer than this, then updates are split into multiple smaller updates. */
             public static get maximumParticleDeltaTime(): number;
             public static set maximumParticleDeltaTime(value: number);
-            /** The scale at which time passes. This can be used for slow motion effects. */
+            /** The scale at which time passes. */
             public static get timeScale(): number;
             public static set timeScale(value: number);
-            /** The total number of frames that have passed (Read Only). */
+            /** The total number of frames since the start of the game (Read Only). */
             public static get frameCount(): number;
             
             public static get renderedFrameCount(): number;
             /** The real time in seconds since the game started (Read Only). */
             public static get realtimeSinceStartup(): number;
-            /** The real time in seconds since the game started (Read Only). Double precision version of Time.realtimeSinceStartup. This offers more precision than a float or single value, particularly over extended periods of real-world time. In almost all cases, choose the Time.realtimeSinceStartupAsDouble equivalent over Time.realtimeSinceStartup. */
+            /** The real time in seconds since the game started (Read Only). Double precision version of Time.realtimeSinceStartup.  */
             public static get realtimeSinceStartupAsDouble(): number;
-            /** Slows game playback time to allow screenshots to be saved between frames. */
+            /** Slows your application’s playback time to allow Unity to save screenshots in between frames. */
             public static get captureDeltaTime(): number;
             public static set captureDeltaTime(value: number);
             /** The reciprocal of Time.captureDeltaTime. */
@@ -900,7 +902,7 @@ declare module 'csharp' {
             public SetSiblingIndex($index: number):void;
             
             public GetSiblingIndex():number;
-            /** Finds a child by n and returns it.
+            /** Finds a child by name n and returns it.
              * @param n Name of child to be found.
              * @returns The returned child transform or null if no child is found. 
              */
@@ -945,8 +947,8 @@ declare module 'csharp' {
              * @returns A component of the matching type, if found. 
              */
             public GetComponentInChildren($t: System.Type):UnityEngine.Component;
-            /** Returns all components of Type type in the GameObject or any of its children. * @param t The type of Component to retrieve.
-             * @param includeInactive Should Components on inactive GameObjects be included in the found set? includeInactive decides which children of the GameObject will be searched.  The GameObject that you call GetComponentsInChildren on is always searched regardless.
+            /** Returns all components of Type type in the GameObject or any of its children. Works recursively. * @param t The type of Component to retrieve.
+             * @param includeInactive Should Components on inactive GameObjects be included in the found set. includeInactive decides which children of the GameObject will be searched.  The GameObject that you call GetComponentsInChildren on is always searched regardless. Default is false.
              */
             public GetComponentsInChildren($t: System.Type, $includeInactive: boolean):System.Array$1<UnityEngine.Component>;
             
@@ -1323,7 +1325,7 @@ declare module 'csharp' {
         class GameObject extends UnityEngine.Object {
             /** The Transform attached to this GameObject. */
             public get transform(): UnityEngine.Transform;
-            /** The layer the game object is in. */
+            /** The layer the GameObject is in. */
             public get layer(): number;
             public set layer(value: number);
             /** The local active state of this GameObject. (Read Only) */
@@ -1354,7 +1356,7 @@ declare module 'csharp' {
             /** Returns the component of Type type if the game object has one attached, null if it doesn't. * @param type The type of Component to retrieve.
              */
             public GetComponent($type: System.Type):UnityEngine.Component;
-            /** Returns the component with name type if the game object has one attached, null if it doesn't. * @param type The type of Component to retrieve.
+            /** Returns the component with name type if the GameObject has one attached, null if it doesn't. * @param type The type of Component to retrieve.
              */
             public GetComponent($type: string):UnityEngine.Component;
             /** Returns the component of Type type in the GameObject or any of its children using depth first search.
@@ -2130,12 +2132,16 @@ declare module 'csharp' {
             public static Perpendicular($inDirection: UnityEngine.Vector2):UnityEngine.Vector2;
             /** Dot Product of two vectors. */
             public static Dot($lhs: UnityEngine.Vector2, $rhs: UnityEngine.Vector2):number;
-            /** Returns the unsigned angle in degrees between from and to. * @param from The vector from which the angular difference is measured.
+            /** Gets the unsigned angle in degrees between from and to.
+             * @param from The vector from which the angular difference is measured.
              * @param to The vector to which the angular difference is measured.
+             * @returns The unsigned angle in degrees between the two vectors. 
              */
             public static Angle($from: UnityEngine.Vector2, $to: UnityEngine.Vector2):number;
-            /** Returns the signed angle in degrees between from and to. * @param from The vector from which the angular difference is measured.
+            /** Gets the signed angle in degrees between from and to.
+             * @param from The vector from which the angular difference is measured.
              * @param to The vector to which the angular difference is measured.
+             * @returns The signed angle in degrees between the two vectors. 
              */
             public static SignedAngle($from: UnityEngine.Vector2, $to: UnityEngine.Vector2):number;
             /** Returns the distance between a and b. */
@@ -2220,7 +2226,7 @@ declare module 'csharp' {
             /** The distance of the far clipping plane from the Camera, in world units. */
             public get farClipPlane(): number;
             public set farClipPlane(value: number);
-            /** The field of view of the camera in degrees. */
+            /** The vertical field of view of the Camera, in degrees. */
             public get fieldOfView(): number;
             public set fieldOfView(value: number);
             /** The rendering path that should be used, if possible. */
@@ -2607,14 +2613,126 @@ declare module 'csharp' {
             public constructor($shader: UnityEngine.Shader);
             
             public constructor($source: UnityEngine.Material);
-            /** Checks if material's shader has a property of a given name. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** Checks if the ShaderLab file assigned to the Material has a property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
              * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
              */
             public HasProperty($nameID: number):boolean;
-            /** Checks if material's shader has a property of a given name. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** Checks if the ShaderLab file assigned to the Material has a property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
              * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
              */
             public HasProperty($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Float property with the given name. This also works with the Float Array property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasFloat($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Float property with the given name. This also works with the Float Array property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasFloat($nameID: number):boolean;
+            /** This method is deprecated. Use HasFloat or HasInteger instead.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasInt($name: string):boolean;
+            /** This method is deprecated. Use HasFloat or HasInteger instead.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasInt($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has an Integer property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasInteger($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has an Integer property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasInteger($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Texture property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasTexture($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Texture property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasTexture($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Matrix property with the given name. This also works with the Matrix Array property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasMatrix($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Matrix property with the given name. This also works with the Matrix Array property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasMatrix($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Vector property with the given name. This also works with the Vector Array property.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasVector($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Vector property with the given name. This also works with the Vector Array property.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasVector($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Color property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasColor($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a Color property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasColor($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a ComputeBuffer property with the given name.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasBuffer($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a ComputeBuffer property with the given name.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasBuffer($nameID: number):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a ConstantBuffer property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasConstantBuffer($name: string):boolean;
+            /** Checks if the ShaderLab file assigned to the Material has a ConstantBuffer property with the given name.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if the ShaderLab file assigned to the Material has this property. 
+             */
+            public HasConstantBuffer($nameID: number):boolean;
             /** Sets a shader keyword that is enabled by this material. */
             public EnableKeyword($keyword: string):void;
             /** Unset a shader keyword. */
@@ -2661,6 +2779,16 @@ declare module 'csharp' {
             public GetTexturePropertyNames($outNames: System.Collections.Generic.List$1<string>):void;
             
             public GetTexturePropertyNameIDs($outNames: System.Collections.Generic.List$1<number>):void;
+            /** This method is deprecated. Use SetFloat or SetInteger instead. * @param nameID Property name ID, use Shader.PropertyToID to get it.
+             * @param value Integer value to set.
+             * @param name Property name, e.g. "_SrcBlend".
+             */
+            public SetInt($name: string, $value: number):void;
+            /** This method is deprecated. Use SetFloat or SetInteger instead. * @param nameID Property name ID, use Shader.PropertyToID to get it.
+             * @param value Integer value to set.
+             * @param name Property name, e.g. "_SrcBlend".
+             */
+            public SetInt($nameID: number, $value: number):void;
             /** Sets a named float value. * @param nameID Property name ID, use Shader.PropertyToID to get it.
              * @param value Float value to set.
              * @param name Property name, e.g. "_Glossiness".
@@ -2675,12 +2803,12 @@ declare module 'csharp' {
              * @param value Integer value to set.
              * @param name Property name, e.g. "_SrcBlend".
              */
-            public SetInt($name: string, $value: number):void;
+            public SetInteger($name: string, $value: number):void;
             /** Sets a named integer value. * @param nameID Property name ID, use Shader.PropertyToID to get it.
              * @param value Integer value to set.
              * @param name Property name, e.g. "_SrcBlend".
              */
-            public SetInt($nameID: number, $value: number):void;
+            public SetInteger($nameID: number, $value: number):void;
             /** Sets a named color value. * @param nameID Property name ID, use Shader.PropertyToID to get it.
              * @param name Property name, e.g. "_Color".
              * @param value Color value to set.
@@ -2839,6 +2967,14 @@ declare module 'csharp' {
              * @param nameID Property name ID, use Shader.PropertyToID to get it.
              */
             public SetMatrixArray($nameID: number, $values: System.Array$1<UnityEngine.Matrix4x4>):void;
+            /** This method is deprecated. Use GetFloat or GetInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public GetInt($name: string):number;
+            /** This method is deprecated. Use GetFloat or GetInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public GetInt($nameID: number):number;
             /** Get a named float value. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -2850,11 +2986,11 @@ declare module 'csharp' {
             /** Get a named integer value. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public GetInt($name: string):number;
+            public GetInteger($name: string):number;
             /** Get a named integer value. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public GetInt($nameID: number):number;
+            public GetInteger($nameID: number):number;
             /** Get a named color value. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -5236,6 +5372,10 @@ declare module 'csharp' {
             /** Unloads an AssetBundle freeing its data. * @param unloadAllLoadedObjects Determines whether the current instances of objects loaded from the AssetBundle will also be unloaded.
              */
             public Unload($unloadAllLoadedObjects: boolean):void;
+            /** Unloads assets in the bundle.
+             * @returns Asynchronous unload request for an AssetBundle. 
+             */
+            public UnloadAsync($unloadAllLoadedObjects: boolean):UnityEngine.AsyncOperation;
             
             public GetAllAssetNames():System.Array$1<string>;
             
@@ -6056,30 +6196,30 @@ declare module 'csharp' {
             public GetPixels32($colors: System.Array$1<UnityEngine.Color32>):System.Array$1<UnityEngine.Color32>;
             
         }
-        /** Base class for texture handling. */
+        /** Base class for Texture handling. */
         class Texture extends UnityEngine.Object {
-            /** Can be used with texture constructors that take a mip count to indicate that all mips should be generated.  The value of this field is -1. */
+            /** Can be used with Texture constructors that take a mip count to indicate that all mips should be generated.  The value of this field is -1. */
             public static GenerateAllMips: number;
             
             public static get masterTextureLimit(): number;
             public static set masterTextureLimit(value: number);
-            /** How many mipmap levels are in this texture (Read Only). */
+            /** How many mipmap levels are in this Texture (Read Only). */
             public get mipmapCount(): number;
             
             public static get anisotropicFiltering(): UnityEngine.AnisotropicFiltering;
             public static set anisotropicFiltering(value: UnityEngine.AnisotropicFiltering);
-            /** Returns the GraphicsFormat format or color format of a texture object. */
+            /** Returns the GraphicsFormat format or color format of a Texture object. */
             public get graphicsFormat(): UnityEngine.Experimental.Rendering.GraphicsFormat;
-            /** Width of the texture in pixels. (Read Only) */
+            /** Width of the Texture in pixels. (Read Only) */
             public get width(): number;
             public set width(value: number);
-            /** Height of the texture in pixels. (Read Only) */
+            /** Height of the Texture in pixels. (Read Only) */
             public get height(): number;
             public set height(value: number);
-            /** Dimensionality (type) of the texture (Read Only). */
+            /** Dimensionality (type) of the Texture (Read Only). */
             public get dimension(): UnityEngine.Rendering.TextureDimension;
             public set dimension(value: UnityEngine.Rendering.TextureDimension);
-            /** Returns true if the Read/Write Enabled checkbox was checked when the texture was imported; otherwise returns false. For a dynamic Texture created from script, always returns true. For additional information, see TextureImporter.isReadable. */
+            /** Returns true if the Read/Write Enabled checkbox was checked when the Texture was imported; otherwise returns false. For a dynamic Texture created from script, always returns true. For additional information, see TextureImporter.isReadable. */
             public get isReadable(): boolean;
             /** Texture coordinate wrapping mode. */
             public get wrapMode(): UnityEngine.TextureWrapMode;
@@ -6093,48 +6233,54 @@ declare module 'csharp' {
             /** Texture W coordinate wrapping mode for Texture3D. */
             public get wrapModeW(): UnityEngine.TextureWrapMode;
             public set wrapModeW(value: UnityEngine.TextureWrapMode);
-            /** Filtering mode of the texture. */
+            /** Filtering mode of the Texture. */
             public get filterMode(): UnityEngine.FilterMode;
             public set filterMode(value: UnityEngine.FilterMode);
-            /** Anisotropic filtering level of the texture. */
+            /** Defines the anisotropic filtering level of the Texture. */
             public get anisoLevel(): number;
             public set anisoLevel(value: number);
-            /** Mip map bias of the texture. */
+            /** The mipmap bias of the Texture. */
             public get mipMapBias(): number;
             public set mipMapBias(value: number);
             
             public get texelSize(): UnityEngine.Vector2;
-            /** This counter is incremented when the texture is updated. */
+            /** This counter is incremented when the Texture is updated. */
             public get updateCount(): number;
-            /** The total amount of memory that would be used by all textures at mipmap level 0. */
+            /** The total amount of Texture memory that Unity would use if it loads all Textures at mipmap level 0.
+            This is a theoretical value that does not take into account any input from the streaming system or any other input, for example when you set the`Texture2D.requestedMipmapLevel` manually.
+            To see a Texture memory value that takes inputs into account, use `desiredTextureMemory`.
+            `totalTextureMemory` only includes instances of Texture2D and CubeMap Textures. It does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally. */
             public static get totalTextureMemory(): bigint;
-            /** This amount of texture memory would be used before the texture streaming budget is applied. */
+            /** The total size of the Textures, in bytes, that Unity loads if there were no other constraints. Before Unity loads any Textures, it applies the which reduces the loaded Texture resolution if the Texture sizes exceed its value. The `desiredTextureMemory` value takes into account the mipmap levels that Unity has requested or that you have set manually.
+            For example, if Unity does not load a Texture at full resolution because it is far away or its requested mipmap level is greater than 0,  Unity reduces the `desiredTextureMemory` value to match the total memory needed.
+            The `desiredTextureMemory` value can be greater than the `targetTextureMemory` value.
+                             */
             public static get desiredTextureMemory(): bigint;
-            /** The amount of memory used by textures after the mipmap streaming and budget are applied and loading is complete. */
+            /** The total amount of Texture memory that Unity allocates to the Textures in the scene after it applies the and finishes loading Textures. `targetTextureMemory`also takes mipmap streaming settings into account. This value only includes instances of Texture2D and CubeMap Textures. It does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally. */
             public static get targetTextureMemory(): bigint;
-            /** The amount of memory currently being used by the non-streaming and mipmap streaming textures combined. */
+            /** The amount of memory that all Textures in the scene use. */
             public static get currentTextureMemory(): bigint;
-            /** Total amount of memory being used by non-streaming textures. */
+            /** The amount of memory Unity allocates for non-streaming Textures in the scene. This only includes instances of Texture2D and CubeMap Textures. This does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally. */
             public static get nonStreamingTextureMemory(): bigint;
-            /** How many times has a texture been uploaded due to texture mipmap streaming. */
+            /** How many times has a Texture been uploaded due to Texture mipmap streaming. */
             public static get streamingMipmapUploadCount(): bigint;
-            /** Number of renderers registered with the texture streaming system. */
+            /** Number of renderers registered with the Texture streaming system. */
             public static get streamingRendererCount(): bigint;
-            /** Number of streaming textures. */
+            /** Number of streaming Textures. */
             public static get streamingTextureCount(): bigint;
-            /** Number of non-streaming textures. */
+            /** The number of non-streaming Textures in the scene. This includes instances of Texture2D and CubeMap Textures. This does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally. */
             public static get nonStreamingTextureCount(): bigint;
-            /** Number of streaming textures with outstanding mipmaps to be loaded. */
+            /** Number of streaming Textures with outstanding mipmaps to be loaded. */
             public static get streamingTexturePendingLoadCount(): bigint;
-            /** Number of streaming textures with mipmaps currently loading. */
+            /** Number of streaming Textures with mipmaps currently loading. */
             public static get streamingTextureLoadingCount(): bigint;
-            /** Force streaming textures to load all mipmap levels. */
+            /** Force streaming Textures to load all mipmap levels. */
             public static get streamingTextureForceLoadAll(): boolean;
             public static set streamingTextureForceLoadAll(value: boolean);
-            /** Force the streaming texture system to discard all unused mipmaps immediately, rather than caching them until the texture memory budget is exceeded. */
+            /** This property forces the streaming Texture system to discard all unused mipmaps instead of caching them until the Texture is exceeded. This is useful when you profile or write tests to keep a predictable set of Textures in memory. */
             public static get streamingTextureDiscardUnusedMips(): boolean;
             public static set streamingTextureDiscardUnusedMips(value: boolean);
-            /** Allow Unity internals to perform texture creation on any thread (rather than the dedicated render thread). */
+            /** Allow Unity internals to perform Texture creation on any thread (rather than the dedicated render thread). */
             public static get allowThreadedTextureCreation(): boolean;
             public static set allowThreadedTextureCreation(value: boolean);
             /** Sets Anisotropic limits. */
@@ -6472,7 +6618,7 @@ declare module 'csharp' {
             public static get companyName(): string;
             /** A unique cloud project identifier. It is unique for every project (Read Only). */
             public static get cloudProjectId(): string;
-            /** Instructs the game to try to render at a specified frame rate. */
+            /** Specifies the frame rate at which Unity tries to render your game. */
             public static get targetFrameRate(): number;
             public static set targetFrameRate(value: number);
             /** Returns the path to the console log file, or an empty string if the current platform does not support log files. */
@@ -6688,6 +6834,14 @@ declare module 'csharp' {
              * @param tagName The name of the pass tag.
              */
             public FindPassTagValue($passIndex: number, $tagName: UnityEngine.Rendering.ShaderTagId):UnityEngine.Rendering.ShaderTagId;
+            /** This method is deprecated. Use SetGlobalFloat or SetGlobalInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public static SetGlobalInt($name: string, $value: number):void;
+            /** This method is deprecated. Use SetGlobalFloat or SetGlobalInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public static SetGlobalInt($nameID: number, $value: number):void;
             /** Sets a global float property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -6696,14 +6850,14 @@ declare module 'csharp' {
              * @param name The name of the property.
              */
             public static SetGlobalFloat($nameID: number, $value: number):void;
-            /** Sets a global int property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** Sets a global integer property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public static SetGlobalInt($name: string, $value: number):void;
-            /** Sets a global int property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            public static SetGlobalInteger($name: string, $value: number):void;
+            /** Sets a global integer property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public static SetGlobalInt($nameID: number, $value: number):void;
+            public static SetGlobalInteger($nameID: number, $value: number):void;
             /** Sets a global vector property for all shaders. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -6836,6 +6990,14 @@ declare module 'csharp' {
              * @param name The name of the property.
              */
             public static SetGlobalMatrixArray($nameID: number, $values: System.Array$1<UnityEngine.Matrix4x4>):void;
+            /** This method is deprecated. Use GetGlobalFloat or GetGlobalInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public static GetGlobalInt($name: string):number;
+            /** This method is deprecated. Use GetGlobalFloat or GetGlobalInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public static GetGlobalInt($nameID: number):number;
             /** Gets a global float property for all shaders previously set using SetGlobalFloat. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -6844,14 +7006,14 @@ declare module 'csharp' {
              * @param name The name of the property.
              */
             public static GetGlobalFloat($nameID: number):number;
-            /** Gets a global int property for all shaders previously set using SetGlobalInt. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** Gets a global integer property for all shaders previously set using SetGlobalInteger. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public static GetGlobalInt($name: string):number;
-            /** Gets a global int property for all shaders previously set using SetGlobalInt. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            public static GetGlobalInteger($name: string):number;
+            /** Gets a global integer property for all shaders previously set using SetGlobalInteger. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
-            public static GetGlobalInt($nameID: number):number;
+            public static GetGlobalInteger($nameID: number):number;
             /** Gets a global vector property for all shaders previously set using SetGlobalVector. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -7060,8 +7222,6 @@ declare module 'csharp' {
              * @param discardDepth Should the depth buffer be discarded?
              */
             public DiscardContents($discardColor: boolean, $discardDepth: boolean):void;
-            
-            public MarkRestoreExpected():void;
             
             public DiscardContents():void;
             
@@ -7599,7 +7759,6 @@ declare module 'csharp' {
             public ClampToBounds($bounds: UnityEngine.BoundsInt):void;
             /** Is point contained in the bounding box?
              * @param position Point to check.
-             * @param inclusive Whether the max limits are included in the check.
              * @returns Is point contained in the bounding box? 
              */
             public Contains($position: UnityEngine.Vector3Int):boolean;
@@ -8115,6 +8274,9 @@ declare module 'csharp' {
             /** Allows turning off rendering for a specific component. */
             public get forceRenderingOff(): boolean;
             public set forceRenderingOff(value: boolean);
+            /** Is this renderer a static shadow caster? */
+            public get staticShadowCaster(): boolean;
+            public set staticShadowCaster(value: boolean);
             /** Specifies the mode for motion vector rendering. */
             public get motionVectorGenerationMode(): UnityEngine.MotionVectorGenerationMode;
             public set motionVectorGenerationMode(value: UnityEngine.MotionVectorGenerationMode);
@@ -8493,7 +8655,7 @@ declare module 'csharp' {
             public static DrawGUITexture($screenRect: UnityEngine.Rect, $texture: UnityEngine.Texture, $leftBorder: number, $rightBorder: number, $topBorder: number, $bottomBorder: number):void;
             
         }
-        /** A class that allows creating or modifying meshes from scripts. */
+        /** A class that allows you to create or modify meshes. */
         class Mesh extends UnityEngine.Object {
             /** Format of the mesh index buffer data. */
             public get indexFormat(): UnityEngine.Rendering.IndexFormat;
@@ -9217,45 +9379,45 @@ declare module 'csharp' {
             public static remove_initializeTriggered($value: System.Action$1<UnityEngine.CustomRenderTexture>):void;
             
         }
-        /** Custom Render Textures are an extension to Render Textures that allow you to render directly to the Texture using a Shader. */
+        /** Custom Render Textures are an extension to Render Textures, enabling you to render directly to the Texture using a Shader. */
         class CustomRenderTexture extends UnityEngine.RenderTexture {
-            /** The Material that Unity uses to initialize the content of a Custom Render Texture. */
+            /** Material with which the content of the Custom Render Texture is updated. */
             public get material(): UnityEngine.Material;
             public set material(value: UnityEngine.Material);
-            /** The Material that Unity uses to initialize a Custom Render Texture. Initialization texture and color are ignored if you have set this parameter. */
+            /** Material with which the Custom Render Texture is initialized. Initialization texture and color are ignored if this parameter is set. */
             public get initializationMaterial(): UnityEngine.Material;
             public set initializationMaterial(value: UnityEngine.Material);
-            /** The Texture that Unity uses to initialize a Custom Render Texture, multiplied by the initialization color. Unity ignores this parameter if an initializationMaterial is set. */
+            /** Texture with which the Custom Render Texture is initialized (multiplied by the initialization color). This parameter will be ignored if an initializationMaterial is set. */
             public get initializationTexture(): UnityEngine.Texture;
             public set initializationTexture(value: UnityEngine.Texture);
-            /** Determine if Unity initializes the Custom Render Texture with a Texture and a Color or a Material. */
+            /** Specify if the texture should be initialized with a Texture and a Color or a Material. */
             public get initializationSource(): UnityEngine.CustomRenderTextureInitializationSource;
             public set initializationSource(value: UnityEngine.CustomRenderTextureInitializationSource);
-            /** The color that Unity uses to initialize a Custom Render Texture. Unity ignores this parameter if an initializationMaterial is set. */
+            /** Color with which the Custom Render Texture is initialized. This parameter will be ignored if an initializationMaterial is set. */
             public get initializationColor(): UnityEngine.Color;
             public set initializationColor(value: UnityEngine.Color);
-            /** Determine how Unity updates the Custom Render Texture. */
+            /** Specify how the texture should be updated. */
             public get updateMode(): UnityEngine.CustomRenderTextureUpdateMode;
             public set updateMode(value: UnityEngine.CustomRenderTextureUpdateMode);
-            /** Determine how Unity initializes a texture. */
+            /** Specify how the texture should be initialized. */
             public get initializationMode(): UnityEngine.CustomRenderTextureUpdateMode;
             public set initializationMode(value: UnityEngine.CustomRenderTextureUpdateMode);
-            /** The space in which Unity expresses update zones. You can set this to Normalized or Pixel space. */
+            /** Space in which the update zones are expressed (Normalized or Pixel space). */
             public get updateZoneSpace(): UnityEngine.CustomRenderTextureUpdateZoneSpace;
             public set updateZoneSpace(value: UnityEngine.CustomRenderTextureUpdateZoneSpace);
-            /** The Shader Pass Unity uses to update the Custom Render Texture. */
+            /** Shader Pass used to update the Custom Render Texture. */
             public get shaderPass(): number;
             public set shaderPass(value: number);
-            /** The bit field that you can use to enable or disable update on each of the cubemap faces. The bit order from least to most significant bit is as follows: +X, -X, +Y, -Y, +Z, -Z. */
+            /** Bitfield that allows to enable or disable update on each of the cubemap faces. Order from least significant bit is +X, -X, +Y, -Y, +Z, -Z. */
             public get cubemapFaceMask(): number;
             public set cubemapFaceMask(value: number);
-            /** When this parameter is set to true, Unity double-buffers the Custom Render Texture so that you can access it during its own update. */
+            /** If true, the Custom Render Texture is double buffered so that you can access it during its own update. otherwise the Custom Render Texture will be not be double buffered. */
             public get doubleBuffered(): boolean;
             public set doubleBuffered(value: boolean);
-            /** When this parameter is set to true, Unity wraps Update zones around the border of the Custom Render Texture. Otherwise, Unity clamps Update zones at the border of the Custom Render Texture. */
+            /** If true, Update zones will wrap around the border of the Custom Render Texture. Otherwise, Update zones will be clamped at the border of the Custom Render Texture. */
             public get wrapUpdateZones(): boolean;
             public set wrapUpdateZones(value: boolean);
-            /** The period in seconds that Unity updates real-time Custom Render Textures. A value of 0.0 means Unity updates real-time Custom Render Textures every frame. */
+            /** Period in seconds at which real-time textures are updated (0.0 will update every frame). */
             public get updatePeriod(): number;
             public set updatePeriod(value: number);
             
@@ -9268,7 +9430,7 @@ declare module 'csharp' {
             public constructor($width: number, $height: number, $defaultFormat: UnityEngine.Experimental.Rendering.DefaultFormat);
             
             public constructor($width: number, $height: number, $format: UnityEngine.Experimental.Rendering.GraphicsFormat);
-            /** Triggers an update of the Custom Render Texture. * @param count Number of upate pass to perform. The default value of this count parameter is 1.
+            /** Triggers the update of the Custom Render Texture. * @param count Number of upate pass to perform.
              */
             public Update($count: number):void;
             
@@ -9432,8 +9594,8 @@ declare module 'csharp' {
         class Graphics extends System.Object {
             /** Returns the currently active color gamut. */
             public static get activeColorGamut(): UnityEngine.ColorGamut;
-            /** Graphics Tier classification for current device.
-            Changing this value affects any subsequently loaded shaders. Initially this value is auto-detected from the hardware in use. */
+            /** The GraphicsTier classification for the current device.
+            Changing this value affects any subsequently loaded shaders. Initially Unity auto-detects this value from the hardware in use. Graphics Tiers are only available in the Built-in Render Pipeline. */
             public static get activeTier(): UnityEngine.Rendering.GraphicsTier;
             public static set activeTier(value: UnityEngine.Rendering.GraphicsTier);
             /** True when rendering over native UI is enabled in Player Settings (readonly). */
@@ -10291,6 +10453,16 @@ declare module 'csharp' {
             public constructor();
             
             public Clear():void;
+            /** This method is deprecated. Use SetFloat or SetInteger instead. * @param name The name of the property.
+             * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param value The int value to set.
+             */
+            public SetInt($name: string, $value: number):void;
+            /** This method is deprecated. Use SetFloat or SetInteger instead. * @param name The name of the property.
+             * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param value The int value to set.
+             */
+            public SetInt($nameID: number, $value: number):void;
             /** Set a float property. * @param name The name of the property.
              * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param value The float value to set.
@@ -10301,16 +10473,16 @@ declare module 'csharp' {
              * @param value The float value to set.
              */
             public SetFloat($nameID: number, $value: number):void;
-            /** Adds a property to the block. If an int property with the given name already exists, the old value is replaced. * @param name The name of the property.
+            /** Adds a property to the block. If an integer property with the given name already exists, the old value is replaced. * @param name The name of the property.
              * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
-             * @param value The int value to set.
+             * @param value The integer value to set.
              */
-            public SetInt($name: string, $value: number):void;
-            /** Adds a property to the block. If an int property with the given name already exists, the old value is replaced. * @param name The name of the property.
+            public SetInteger($name: string, $value: number):void;
+            /** Adds a property to the block. If an integer property with the given name already exists, the old value is replaced. * @param name The name of the property.
              * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
-             * @param value The int value to set.
+             * @param value The integer value to set.
              */
-            public SetInt($nameID: number, $value: number):void;
+            public SetInteger($nameID: number, $value: number):void;
             /** Set a vector property. * @param name The name of the property.
              * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param value The Vector4 value to set.
@@ -10455,6 +10627,126 @@ declare module 'csharp' {
              * @param nameID The array to set.
              */
             public SetMatrixArray($nameID: number, $values: System.Array$1<UnityEngine.Matrix4x4>):void;
+            /** Checks if MaterialPropertyBlock has the property with the given name or name ID. To set the property, use one of the Set methods for MaterialPropertyBlock.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasProperty($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the property with the given name or name ID. To set the property, use one of the Set methods for MaterialPropertyBlock.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasProperty($nameID: number):boolean;
+            /** This method is deprecated. Use HasFloat or HasInteger instead.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasInt($name: string):boolean;
+            /** This method is deprecated. Use HasFloat or HasInteger instead.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasInt($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Float property with the given name or name ID. To set the property, use SetFloat.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasFloat($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Float property with the given name or name ID. To set the property, use SetFloat.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasFloat($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Integer property with the given name or name ID. To set the property, use SetInteger.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasInteger($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Integer property with the given name or name ID. To set the property, use SetInteger.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasInteger($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Texture property with the given name or name ID. To set the property, use SetTexture.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasTexture($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Texture property with the given name or name ID. To set the property, use SetTexture.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasTexture($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Matrix property with the given name or name ID. This also works with the Matrix Array property. To set the property, use SetMatrix.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasMatrix($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Matrix property with the given name or name ID. This also works with the Matrix Array property. To set the property, use SetMatrix.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasMatrix($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Vector property with the given name or name ID. This also works with the Vector Array property. To set the property, use SetVector.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasVector($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Vector property with the given name or name ID. This also works with the Vector Array property. To set the property, use SetVector.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasVector($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the Color property with the given name or name ID. To set the property, use SetColor.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasColor($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the Color property with the given name or name ID. To set the property, use SetColor.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasColor($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the ComputeBuffer property with the given name or name ID. To set the property, use SetBuffer.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasBuffer($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the ComputeBuffer property with the given name or name ID. To set the property, use SetBuffer.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @param name The name of the property.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasBuffer($nameID: number):boolean;
+            /** Checks if MaterialPropertyBlock has the ConstantBuffer property with the given name or name ID. To set the property, use SetConstantBuffer.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasConstantBuffer($name: string):boolean;
+            /** Checks if MaterialPropertyBlock has the ConstantBuffer property with the given name or name ID. To set the property, use SetConstantBuffer.
+             * @param name The name of the property.
+             * @param nameID The name ID of the property. Use Shader.PropertyToID to get this ID.
+             * @returns Returns true if MaterialPropertyBlock has this property. 
+             */
+            public HasConstantBuffer($nameID: number):boolean;
             /** Get a float from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -10463,14 +10755,22 @@ declare module 'csharp' {
              * @param name The name of the property.
              */
             public GetFloat($nameID: number):number;
-            /** Get an int from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** This method is deprecated. Use GetFloat or GetInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
             public GetInt($name: string):number;
-            /** Get an int from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+            /** This method is deprecated. Use GetFloat or GetInteger instead. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
             public GetInt($nameID: number):number;
+            /** Get an integer from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public GetInteger($name: string):number;
+            /** Get an integer from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
+             * @param name The name of the property.
+             */
+            public GetInteger($nameID: number):number;
             /** Get a vector from the property block. * @param nameID The name ID of the property retrieved by Shader.PropertyToID.
              * @param name The name of the property.
              */
@@ -10831,7 +11131,7 @@ declare module 'csharp' {
             public constructor($width: number, $height: number, $textureFormat: UnityEngine.TextureFormat, $mipChain: boolean);
             
             public constructor($width: number, $height: number);
-            /** Compress texture into DXT format. */
+            /** Compress texture into DXT/BCn or ETC formats. */
             public Compress($highQuality: boolean):void;
             
             public ClearRequestedMipmapLevel():void;
@@ -11128,7 +11428,7 @@ declare module 'csharp' {
             /** Use a two-pass shader for the vegetation in the terrain engine. */
             public static get softVegetation(): boolean;
             public static set softVegetation(value: boolean);
-            /** The VSync Count. */
+            /** The number of vertical syncs that should pass between each frame. */
             public static get vSyncCount(): number;
             public static set vSyncCount(value: number);
             /** Set The AA Filtering option. */
@@ -11200,6 +11500,11 @@ declare module 'csharp' {
             public static IncreaseLevel():void;
             
             public static DecreaseLevel():void;
+            /** Sets the QualitySettings.lodBias|lodBias and QualitySettings.maximumLODLevel|maximumLODLevel at the same time. * @param lodBias Global multiplier for the LOD's switching distance.
+             * @param maximumLODLevel A maximum LOD level. All LOD groups.
+             * @param setDirty If true, marks all views as dirty.
+             */
+            public static SetLODSettings($lodBias: number, $maximumLODLevel: number, $setDirty?: boolean):void;
             /** Get the Render Pipeline Asset assigned at the specified quality level.
              * @param index Index of the quality level to check.
              * @returns Null if the quality level was not found or there is no assigned SRP Asset for this level, otherwise the SRP Asset assigned for this quality level. 
@@ -11936,6 +12241,8 @@ declare module 'csharp' {
         enum ComputeBufferType { Default = 0, Raw = 1, Append = 2, Counter = 4, Constant = 8, Structured = 16, DrawIndirect = 256, IndirectArguments = 256, GPUMemory = 512 }
         /** This property only takes effect if you enable a global illumination setting such as for the GameObject associated with the target Mesh Renderer. Otherwise this property defaults to the Light Probes setting. */
         enum ReceiveGI { Lightmaps = 1, LightProbes = 2 }
+        /** The filters that Unity can use when it renders GameObjects in the shadow pass. */
+        enum ShadowObjectsFilter { AllObjects = 0, DynamicOnly = 1, StaticOnly = 2 }
         /** The maximum number of bones affecting a single vertex. */
         enum SkinQuality { Auto = 0, Bone1 = 1, Bone2 = 2, Bone4 = 4 }
         /** Filtering mode for textures. Corresponds to the settings in a. */
@@ -12820,15 +13127,15 @@ declare module 'csharp' {
             public static RoundToInt($f: number):number;
             /** Returns the sign of f. */
             public static Sign($f: number):number;
-            /** Clamps the given value between the given minimum float and maximum float values.  Returns the given value if it is within the min and max range.
-             * @param value The floating point value to restrict inside the range defined by the min and max values.
+            /** Clamps the given value between the given minimum float and maximum float values.  Returns the given value if it is within the minimum and maximum range.
+             * @param value The floating point value to restrict inside the range defined by the minimum and maximum values.
              * @param min The minimum floating point value to compare against.
              * @param max The maximum floating point value to compare against.
-             * @returns The float result between the min and max values. 
+             * @returns The float result between the minimum and maximum values. 
              */
             public static Clamp($value: number, $min: number, $max: number):number;
             /** Clamps the given value between a range defined by the given minimum integer and maximum integer values. Returns the given value if it is within min and max.
-             * @param value The integer point value to restrict inside the min-to-max range
+             * @param value The integer point value to restrict inside the min-to-max range.
              * @param min The minimum integer point value to compare against.
              * @param max The maximum  integer point value to compare against.
              * @returns The int result between min and max values. 
@@ -13740,6 +14047,11 @@ declare module 'csharp' {
             public DisableKeyword($keyword: string):void;
             /** Specifies whether the Shader keyword is enabled in this Compute Shader. */
             public IsKeywordEnabled($keyword: string):boolean;
+            /** Allows you to check whether the current end user device supports the features required to run the specified compute shader kernel.
+             * @param kernelIndex Which kernel to query.
+             * @returns True if the specified compute kernel is able to run on the current end user device, false otherwise. 
+             */
+            public IsSupported($kernelIndex: number):boolean;
             /** Set a float parameter. * @param name Variable name in shader code.
              * @param nameID Property name ID, use Shader.PropertyToID to get it.
              * @param val Value to set.
@@ -14031,10 +14343,6 @@ declare module 'csharp' {
             public static get copyTextureSupport(): UnityEngine.Rendering.CopyTextureSupport;
             /** Are compute shaders supported? (Read Only) */
             public static get supportsComputeShaders(): boolean;
-            /** Is conservative rasterization supported? (Read Only) */
-            public static get supportsConservativeRaster(): boolean;
-            /** Boolean that indicates whether Multiview is supported (true if supported, false if not supported). (Read Only) */
-            public static get supportsMultiview(): boolean;
             /** Are geometry shaders supported? (Read Only) */
             public static get supportsGeometryShaders(): boolean;
             /** Are tessellation shaders supported? (Read Only) */
@@ -14113,6 +14421,10 @@ declare module 'csharp' {
             public static get usesLoadStoreActions(): boolean;
             /** Returns a bitwise combination of HDRDisplaySupportFlags describing the support for HDR displays on the system. */
             public static get hdrDisplaySupportFlags(): UnityEngine.HDRDisplaySupportFlags;
+            /** Is conservative rasterization supported? (Read Only) */
+            public static get supportsConservativeRaster(): boolean;
+            /** Boolean that indicates whether Multiview is supported (true if supported, false if not supported). (Read Only) */
+            public static get supportsMultiview(): boolean;
             /** This property is true if the graphics API of the target build platform takes RenderBufferStoreAction.StoreAndResolve into account, false if otherwise. */
             public static get supportsStoreAndResolveAction(): boolean;
             
@@ -14127,6 +14439,11 @@ declare module 'csharp' {
              * @returns True if blending is supported on the given format. 
              */
             public static SupportsBlendingOnRenderTextureFormat($format: UnityEngine.RenderTextureFormat):boolean;
+            /** Tests if a RenderTextureFormat can be used with RenderTexture.enableRandomWrite.
+             * @param format The format to look up.
+             * @returns True if the format can be used for random access writes. 
+             */
+            public static SupportsRandomWriteOnRenderTextureFormat($format: UnityEngine.RenderTextureFormat):boolean;
             /** Is texture format supported on this device?
              * @param format The TextureFormat format to look up.
              * @returns True if the format is supported. 
@@ -14243,6 +14560,8 @@ declare module 'csharp' {
             /** The offset of the upper right corner of the rectangle relative to the upper right anchor. */
             public get offsetMax(): UnityEngine.Vector2;
             public set offsetMax(value: UnityEngine.Vector2);
+            /** The object that is driving the values of this RectTransform. Value is null if not driven. */
+            public get drivenByObject(): UnityEngine.Object;
             
             public constructor();
             
@@ -14571,7 +14890,7 @@ declare module 'csharp' {
         enum EventModifiers { None = 0, Shift = 1, Control = 2, Alt = 4, Command = 8, Numeric = 16, CapsLock = 32, FunctionKey = 64 }
         /** The GUI class is the interface for Unity's GUI with manual positioning. */
         class GUI extends System.Object {
-            /** Global tinting color for the GUI. */
+            /** Applies a global tint to the GUI. The tint affects backgrounds and text colors. */
             public static get color(): UnityEngine.Color;
             public static set color(value: UnityEngine.Color);
             /** Global tinting color for all background elements rendered by the GUI. */
@@ -17432,7 +17751,7 @@ declare module 'csharp' {
         /** The particle curve mode. */
         enum ParticleSystemCurveMode { Constant = 0, Curve = 1, TwoCurves = 2, TwoConstants = 3 }
         /** Control how a Particle System calculates its velocity. */
-        enum ParticleSystemEmitterVelocityMode { Transform = 0, Rigidbody = 1 }
+        enum ParticleSystemEmitterVelocityMode { Transform = 0, Rigidbody = 1, Custom = 2 }
         /** The action to perform when the Particle System stops. */
         enum ParticleSystemStopAction { None = 0, Disable = 1, Destroy = 2, Callback = 3 }
         /** Control how particles are removed from the Particle System. */
@@ -17599,8 +17918,6 @@ declare module 'csharp' {
         enum RigidbodyConstraints { None = 0, FreezePositionX = 2, FreezePositionY = 4, FreezePositionZ = 8, FreezeRotationX = 16, FreezeRotationY = 32, FreezeRotationZ = 64, FreezePosition = 14, FreezeRotation = 112, FreezeAll = 126 }
         /** Use ForceMode to specify how to apply a force using Rigidbody.AddForce. */
         enum ForceMode { Force = 0, Acceleration = 5, Impulse = 1, VelocityChange = 2 }
-        /** The ConfigurableJoint attempts to attain position / velocity targets based on this flag. */
-        enum JointDriveMode { None = 0, Position = 1, Velocity = 2, PositionAndVelocity = 3 }
         /** Determines how to snap physics joints back to its constrained position when it drifts off too much. */
         enum JointProjectionMode { None = 0, PositionAndRotation = 1, PositionOnly = 2 }
         /** Cooking options that are available with MeshCollider. */
@@ -17660,6 +17977,8 @@ declare module 'csharp' {
             public set maximumForce(value: number);
             
         }
+        /** The ConfigurableJoint attempts to attain position / velocity targets based on this flag. */
+        enum JointDriveMode { None = 0, Position = 1, Velocity = 2, PositionAndVelocity = 3 }
         /** Rigidbody interpolation mode. */
         enum RigidbodyInterpolation { None = 0, Interpolate = 1, Extrapolate = 2 }
         /** The JointMotor is used to motorize a joint. */
@@ -18053,59 +18372,61 @@ declare module 'csharp' {
         enum ConfigurableJointMotion { Locked = 0, Limited = 1, Free = 2 }
         /** Control ConfigurableJoint's rotation with either X & YZ or Slerp Drive. */
         enum RotationDriveMode { XYAndZ = 0, Slerp = 1 }
-        /** Physics material describes how to handle colliding objects (friction, bounciness). */
-        class PhysicMaterial extends UnityEngine.Object {
-            /** How bouncy is the surface? A value of 0 will not bounce. A value of 1 will bounce without any loss of energy. */
-            public get bounciness(): number;
-            public set bounciness(value: number);
-            /** The friction used when already moving.  This value is usually between 0 and 1. */
-            public get dynamicFriction(): number;
-            public set dynamicFriction(value: number);
-            /** The friction coefficient used when an object is lying on a surface. */
-            public get staticFriction(): number;
-            public set staticFriction(value: number);
-            /** Determines how the friction is combined. */
-            public get frictionCombine(): UnityEngine.PhysicMaterialCombine;
-            public set frictionCombine(value: UnityEngine.PhysicMaterialCombine);
-            /** Determines how the bounciness is combined. */
-            public get bounceCombine(): UnityEngine.PhysicMaterialCombine;
-            public set bounceCombine(value: UnityEngine.PhysicMaterialCombine);
+        /** The type of the joint that restricts movement of the two connected articulation bodies. */
+        enum ArticulationJointType { FixedJoint = 0, PrismaticJoint = 1, RevoluteJoint = 2, SphericalJoint = 3 }
+        /** The lock type applied to a particular degree of freedom of an articulation body. */
+        enum ArticulationDofLock { LockedMotion = 0, LimitedMotion = 1, FreeMotion = 2 }
+        /** Drive applies forces and torques to the connected bodies. */
+        class ArticulationDrive extends System.ValueType {
+            /** The lower limit of motion for a particular degree of freedom. */
+            public lowerLimit: number;
+            /** The upperlimit of motion for a particular degree of freedom. */
+            public upperLimit: number;
+            /** The stiffness of the spring connected to this drive. */
+            public stiffness: number;
+            /** The damping of the spring attached to this drive. */
+            public damping: number;
+            /** The maximum force this drive can apply to a body. */
+            public forceLimit: number;
+            /** The target value the drive will try to reach. */
+            public target: number;
+            /** The velocity of the body this drive will try to reach. */
+            public targetVelocity: number;
+            
+        }
+        /** Coordinates in reduced space. */
+        class ArticulationReducedSpace extends System.ValueType {
+            /** The number of degrees of freedom of a body. */
+            public dofCount: number;
+            
+            public constructor($a: number);
+            
+            public constructor($a: number, $b: number);
+            
+            public constructor($a: number, $b: number, $c: number);
+            
+            public get_Item($i: number):number;
+            
+            public set_Item($i: number, $value: number):void;
             
             public constructor();
             
-            public constructor($name: string);
-            
         }
-        /** Structure used to get information back from a raycast. */
-        class RaycastHit extends System.ValueType {
-            /** The Collider that was hit. */
-            public get collider(): UnityEngine.Collider;
-            /** The impact point in world space where the ray hit the collider. */
-            public get point(): UnityEngine.Vector3;
-            public set point(value: UnityEngine.Vector3);
-            /** The normal of the surface the ray hit. */
-            public get normal(): UnityEngine.Vector3;
-            public set normal(value: UnityEngine.Vector3);
-            /** The barycentric coordinate of the triangle we hit. */
-            public get barycentricCoordinate(): UnityEngine.Vector3;
-            public set barycentricCoordinate(value: UnityEngine.Vector3);
-            /** The distance from the ray's origin to the impact point. */
-            public get distance(): number;
-            public set distance(value: number);
-            /** The index of the triangle that was hit. */
-            public get triangleIndex(): number;
-            /** The uv texture coordinate at the collision location. */
-            public get textureCoord(): UnityEngine.Vector2;
-            /** The secondary uv texture coordinate at the impact point. */
-            public get textureCoord2(): UnityEngine.Vector2;
-            /** The Transform of the rigidbody or collider that was hit. */
-            public get transform(): UnityEngine.Transform;
-            /** The Rigidbody of the collider that was hit. If the collider is not attached to a rigidbody then it is null. */
-            public get rigidbody(): UnityEngine.Rigidbody;
-            /** The ArticulationBody of the collider that was hit. If the collider is not attached to an articulation body then it is null. */
-            public get articulationBody(): UnityEngine.ArticulationBody;
-            /** The uv lightmap coordinate at the impact point. */
-            public get lightmapCoord(): UnityEngine.Vector2;
+        /** The floating point dense Jacobian matrix of the articulation body hierarchy. */
+        class ArticulationJacobian extends System.ValueType {
+            /** Number of rows of the matrix is equal to the number of articulation bodies in hierarchy times 6: 3 rows of linearpositional DOF and 3 rows of angularrotational DOF for each body. */
+            public get rows(): number;
+            public set rows(value: number);
+            /** Number of columns of the matrix is equal to the total number of all joint degrees of freedom(DOF), plus 6 if ArticulationBody.immovable is false. */
+            public get columns(): number;
+            public set columns(value: number);
+            /** List of floats representing Jacobian matrix. */
+            public get elements(): System.Collections.Generic.List$1<number>;
+            public set elements(value: System.Collections.Generic.List$1<number>);
+            
+            public constructor($rows: number, $cols: number);
+            
+            public constructor();
             
         }
         /** A body that forms part of a Physics articulation. */
@@ -18127,6 +18448,9 @@ declare module 'csharp' {
             public set parentAnchorRotation(value: UnityEngine.Quaternion);
             /** Indicates whether this body is the root body of the articulation (Read Only). */
             public get isRoot(): boolean;
+            /** Whether the parent anchor should be computed automatically or not. */
+            public get computeParentAnchor(): boolean;
+            public set computeParentAnchor(value: boolean);
             /** The type of lock along X axis of movement. */
             public get linearLockX(): UnityEngine.ArticulationDofLock;
             public set linearLockX(value: UnityEngine.ArticulationDofLock);
@@ -18301,6 +18625,63 @@ declare module 'csharp' {
             public SetDriveTargetVelocities($targetVelocities: System.Collections.Generic.List$1<number>):void;
             
             public GetDofStartIndices($dofStartIndices: System.Collections.Generic.List$1<number>):number;
+            
+            public SnapAnchorToClosestContact():void;
+            
+        }
+        /** Physics material describes how to handle colliding objects (friction, bounciness). */
+        class PhysicMaterial extends UnityEngine.Object {
+            /** How bouncy is the surface? A value of 0 will not bounce. A value of 1 will bounce without any loss of energy. */
+            public get bounciness(): number;
+            public set bounciness(value: number);
+            /** The friction used when already moving.  This value is usually between 0 and 1. */
+            public get dynamicFriction(): number;
+            public set dynamicFriction(value: number);
+            /** The friction coefficient used when an object is lying on a surface. */
+            public get staticFriction(): number;
+            public set staticFriction(value: number);
+            /** Determines how the friction is combined. */
+            public get frictionCombine(): UnityEngine.PhysicMaterialCombine;
+            public set frictionCombine(value: UnityEngine.PhysicMaterialCombine);
+            /** Determines how the bounciness is combined. */
+            public get bounceCombine(): UnityEngine.PhysicMaterialCombine;
+            public set bounceCombine(value: UnityEngine.PhysicMaterialCombine);
+            
+            public constructor();
+            
+            public constructor($name: string);
+            
+        }
+        /** Structure used to get information back from a raycast. */
+        class RaycastHit extends System.ValueType {
+            /** The Collider that was hit. */
+            public get collider(): UnityEngine.Collider;
+            /** The impact point in world space where the ray hit the collider. */
+            public get point(): UnityEngine.Vector3;
+            public set point(value: UnityEngine.Vector3);
+            /** The normal of the surface the ray hit. */
+            public get normal(): UnityEngine.Vector3;
+            public set normal(value: UnityEngine.Vector3);
+            /** The barycentric coordinate of the triangle we hit. */
+            public get barycentricCoordinate(): UnityEngine.Vector3;
+            public set barycentricCoordinate(value: UnityEngine.Vector3);
+            /** The distance from the ray's origin to the impact point. */
+            public get distance(): number;
+            public set distance(value: number);
+            /** The index of the triangle that was hit. */
+            public get triangleIndex(): number;
+            /** The uv texture coordinate at the collision location. */
+            public get textureCoord(): UnityEngine.Vector2;
+            /** The secondary uv texture coordinate at the impact point. */
+            public get textureCoord2(): UnityEngine.Vector2;
+            /** The Transform of the rigidbody or collider that was hit. */
+            public get transform(): UnityEngine.Transform;
+            /** The Rigidbody of the collider that was hit. If the collider is not attached to a rigidbody then it is null. */
+            public get rigidbody(): UnityEngine.Rigidbody;
+            /** The ArticulationBody of the collider that was hit. If the collider is not attached to an articulation body then it is null. */
+            public get articulationBody(): UnityEngine.ArticulationBody;
+            /** The uv lightmap coordinate at the impact point. */
+            public get lightmapCoord(): UnityEngine.Vector2;
             
         }
         /** A mesh collider allows you to do between meshes and primitives. */
@@ -18758,63 +19139,6 @@ declare module 'csharp' {
              * @returns The 3D physics Scene used by the Scene. 
              */
             public static GetPhysicsScene($scene: UnityEngine.SceneManagement.Scene):UnityEngine.PhysicsScene;
-            
-        }
-        /** The type of the joint that restricts movement of the two connected articulation bodies. */
-        enum ArticulationJointType { FixedJoint = 0, PrismaticJoint = 1, RevoluteJoint = 2, SphericalJoint = 3 }
-        /** The lock type applied to a particular degree of freedom of an articulation body. */
-        enum ArticulationDofLock { LockedMotion = 0, LimitedMotion = 1, FreeMotion = 2 }
-        /** Drive applies forces and torques to the connected bodies. */
-        class ArticulationDrive extends System.ValueType {
-            /** The lower limit of motion for a particular degree of freedom. */
-            public lowerLimit: number;
-            /** The upperlimit of motion for a particular degree of freedom. */
-            public upperLimit: number;
-            /** The stiffness of the spring connected to this drive. */
-            public stiffness: number;
-            /** The damping of the spring attached to this drive. */
-            public damping: number;
-            /** The maximum force this drive can apply to a body. */
-            public forceLimit: number;
-            /** The target value the drive will try to reach. */
-            public target: number;
-            /** The velocity of the body this drive will try to reach. */
-            public targetVelocity: number;
-            
-        }
-        /** Coordinates in reduced space. */
-        class ArticulationReducedSpace extends System.ValueType {
-            /** The number of degrees of freedom of a body. */
-            public dofCount: number;
-            
-            public constructor($a: number);
-            
-            public constructor($a: number, $b: number);
-            
-            public constructor($a: number, $b: number, $c: number);
-            
-            public get_Item($i: number):number;
-            
-            public set_Item($i: number, $value: number):void;
-            
-            public constructor();
-            
-        }
-        /** The floating point dense Jacobian matrix of the articulation body hierarchy. */
-        class ArticulationJacobian extends System.ValueType {
-            /** Number of rows of the matrix is equal to the number of articulation bodies in hierarchy times 6: 3 rows of linearpositional DOF and 3 rows of angularrotational DOF for each body. */
-            public get rows(): number;
-            public set rows(value: number);
-            /** Number of columns of the matrix is equal to the total number of all joint degrees of freedom(DOF), plus 6 if ArticulationBody.immovable is false. */
-            public get columns(): number;
-            public set columns(value: number);
-            /** List of floats representing Jacobian matrix. */
-            public get elements(): System.Collections.Generic.List$1<number>;
-            public set elements(value: System.Collections.Generic.List$1<number>);
-            
-            public constructor($rows: number, $cols: number);
-            
-            public constructor();
             
         }
         /** Global physics properties and helper methods. */
@@ -24696,6 +25020,9 @@ declare module 'csharp' {
         
         class MainModule extends System.ValueType {
             
+            public get emitterVelocity(): UnityEngine.Vector3;
+            public set emitterVelocity(value: UnityEngine.Vector3);
+            
             public get duration(): number;
             public set duration(value: number);
             
@@ -26399,8 +26726,11 @@ declare module 'csharp' {
             public get selectionColor(): UnityEngine.Color;
             public set selectionColor(value: UnityEngine.Color);
             
-            public get onEndEdit(): UnityEngine.UI.InputField.SubmitEvent;
-            public set onEndEdit(value: UnityEngine.UI.InputField.SubmitEvent);
+            public get onEndEdit(): UnityEngine.UI.InputField.EndEditEvent;
+            public set onEndEdit(value: UnityEngine.UI.InputField.EndEditEvent);
+            
+            public get onSubmit(): UnityEngine.UI.InputField.SubmitEvent;
+            public set onSubmit(value: UnityEngine.UI.InputField.SubmitEvent);
             
             public get onValueChanged(): UnityEngine.UI.InputField.OnChangeEvent;
             public set onValueChanged(value: UnityEngine.UI.InputField.OnChangeEvent);
@@ -27208,6 +27538,44 @@ declare module 'csharp' {
             
         }
         
+        class Scrollbar extends UnityEngine.UI.Selectable {
+            
+            public get handleRect(): UnityEngine.RectTransform;
+            public set handleRect(value: UnityEngine.RectTransform);
+            
+            public get direction(): UnityEngine.UI.Scrollbar.Direction;
+            public set direction(value: UnityEngine.UI.Scrollbar.Direction);
+            
+            public get value(): number;
+            public set value(value: number);
+            
+            public get size(): number;
+            public set size(value: number);
+            
+            public get numberOfSteps(): number;
+            public set numberOfSteps(value: number);
+            
+            public get onValueChanged(): UnityEngine.UI.Scrollbar.ScrollEvent;
+            public set onValueChanged(value: UnityEngine.UI.Scrollbar.ScrollEvent);
+            
+            public SetValueWithoutNotify($input: number):void;
+            
+            public Rebuild($executing: UnityEngine.UI.CanvasUpdate):void;
+            
+            public LayoutComplete():void;
+            
+            public GraphicUpdateComplete():void;
+            
+            public OnBeginDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public OnDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public OnInitializePotentialDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public SetDirection($direction: UnityEngine.UI.Scrollbar.Direction, $includeRectLayouts: boolean):void;
+            
+        }
+        
         class ScrollRect extends UnityEngine.EventSystems.UIBehaviour {
             
             public get content(): UnityEngine.RectTransform;
@@ -27309,44 +27677,6 @@ declare module 'csharp' {
             public SetLayoutHorizontal():void;
             
             public SetLayoutVertical():void;
-            
-        }
-        
-        class Scrollbar extends UnityEngine.UI.Selectable {
-            
-            public get handleRect(): UnityEngine.RectTransform;
-            public set handleRect(value: UnityEngine.RectTransform);
-            
-            public get direction(): UnityEngine.UI.Scrollbar.Direction;
-            public set direction(value: UnityEngine.UI.Scrollbar.Direction);
-            
-            public get value(): number;
-            public set value(value: number);
-            
-            public get size(): number;
-            public set size(value: number);
-            
-            public get numberOfSteps(): number;
-            public set numberOfSteps(value: number);
-            
-            public get onValueChanged(): UnityEngine.UI.Scrollbar.ScrollEvent;
-            public set onValueChanged(value: UnityEngine.UI.Scrollbar.ScrollEvent);
-            
-            public SetValueWithoutNotify($input: number):void;
-            
-            public Rebuild($executing: UnityEngine.UI.CanvasUpdate):void;
-            
-            public LayoutComplete():void;
-            
-            public GraphicUpdateComplete():void;
-            
-            public OnBeginDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
-            
-            public OnDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
-            
-            public OnInitializePotentialDrag($eventData: UnityEngine.EventSystems.PointerEventData):void;
-            
-            public SetDirection($direction: UnityEngine.UI.Scrollbar.Direction, $includeRectLayouts: boolean):void;
             
         }
         
@@ -27537,6 +27867,12 @@ declare module 'csharp' {
     }
     namespace UnityEngine.UI.InputField {
         
+        class EndEditEvent extends UnityEngine.Events.UnityEvent$1<string> {
+            
+            public constructor();
+            
+        }
+        
         class SubmitEvent extends UnityEngine.Events.UnityEvent$1<string> {
             
             public constructor();
@@ -27722,7 +28058,7 @@ declare module 'csharp' {
         /** When a probe's ReflectionProbe.refreshMode is set to ReflectionProbeRefreshMode.EveryFrame, this enum specify whether or not Unity should update the probe's cubemap over several frames or update the whole cubemap in one frame.
         Updating a probe's cubemap is a costly operation. Unity needs to render the entire Scene for each face of the cubemap, as well as perform special blurring in order to get glossy reflections. The impact on frame rate can be significant. Time-slicing helps maintaning a more constant frame rate during these updates by performing the rendering over several frames. */
         enum ReflectionProbeTimeSlicingMode { AllFacesAtOnce = 0, IndividualFaces = 1, NoTimeSlicing = 2 }
-        /** Graphics Tier.
+        /**  The Graphics Tier Unity uses. You can only set a GraphicsTier in the Built-in Render Pipeline.
         See Also: Graphics.activeTier. */
         enum GraphicsTier { Tier1 = 0, Tier2 = 1, Tier3 = 2 }
         /** Specifies the OpenGL ES version. */
@@ -27788,7 +28124,7 @@ declare module 'csharp' {
         /** Types of data that you can encapsulate within a render texture. */
         enum RenderTextureSubElement { Color = 0, Depth = 1, Stencil = 2, Default = 3 }
         /** Type of a given shader property. */
-        enum ShaderPropertyType { Color = 0, Vector = 1, Float = 2, Range = 3, Texture = 4 }
+        enum ShaderPropertyType { Color = 0, Vector = 1, Float = 2, Range = 3, Texture = 4, Int = 5 }
         /** Flags that control how a shader property behaves. */
         enum ShaderPropertyFlags { None = 0, HideInInspector = 1, PerRendererData = 2, NoScaleOffset = 4, Normal = 8, HDR = 16, Gamma = 32, NonModifiableTextureData = 64, MainTexture = 128, MainColor = 256 }
         /** Texture "dimension" (type). */
@@ -27893,7 +28229,7 @@ declare module 'csharp' {
     }
     namespace UnityEngine.Experimental.Rendering {
         /** Use this format to create either Textures or RenderTextures from scripts. */
-        enum GraphicsFormat { None = 0, R8_SRGB = 1, R8G8_SRGB = 2, R8G8B8_SRGB = 3, R8G8B8A8_SRGB = 4, R8_UNorm = 5, R8G8_UNorm = 6, R8G8B8_UNorm = 7, R8G8B8A8_UNorm = 8, R8_SNorm = 9, R8G8_SNorm = 10, R8G8B8_SNorm = 11, R8G8B8A8_SNorm = 12, R8_UInt = 13, R8G8_UInt = 14, R8G8B8_UInt = 15, R8G8B8A8_UInt = 16, R8_SInt = 17, R8G8_SInt = 18, R8G8B8_SInt = 19, R8G8B8A8_SInt = 20, R16_UNorm = 21, R16G16_UNorm = 22, R16G16B16_UNorm = 23, R16G16B16A16_UNorm = 24, R16_SNorm = 25, R16G16_SNorm = 26, R16G16B16_SNorm = 27, R16G16B16A16_SNorm = 28, R16_UInt = 29, R16G16_UInt = 30, R16G16B16_UInt = 31, R16G16B16A16_UInt = 32, R16_SInt = 33, R16G16_SInt = 34, R16G16B16_SInt = 35, R16G16B16A16_SInt = 36, R32_UInt = 37, R32G32_UInt = 38, R32G32B32_UInt = 39, R32G32B32A32_UInt = 40, R32_SInt = 41, R32G32_SInt = 42, R32G32B32_SInt = 43, R32G32B32A32_SInt = 44, R16_SFloat = 45, R16G16_SFloat = 46, R16G16B16_SFloat = 47, R16G16B16A16_SFloat = 48, R32_SFloat = 49, R32G32_SFloat = 50, R32G32B32_SFloat = 51, R32G32B32A32_SFloat = 52, B8G8R8_SRGB = 56, B8G8R8A8_SRGB = 57, B8G8R8_UNorm = 58, B8G8R8A8_UNorm = 59, B8G8R8_SNorm = 60, B8G8R8A8_SNorm = 61, B8G8R8_UInt = 62, B8G8R8A8_UInt = 63, B8G8R8_SInt = 64, B8G8R8A8_SInt = 65, R4G4B4A4_UNormPack16 = 66, B4G4R4A4_UNormPack16 = 67, R5G6B5_UNormPack16 = 68, B5G6R5_UNormPack16 = 69, R5G5B5A1_UNormPack16 = 70, B5G5R5A1_UNormPack16 = 71, A1R5G5B5_UNormPack16 = 72, E5B9G9R9_UFloatPack32 = 73, B10G11R11_UFloatPack32 = 74, A2B10G10R10_UNormPack32 = 75, A2B10G10R10_UIntPack32 = 76, A2B10G10R10_SIntPack32 = 77, A2R10G10B10_UNormPack32 = 78, A2R10G10B10_UIntPack32 = 79, A2R10G10B10_SIntPack32 = 80, A2R10G10B10_XRSRGBPack32 = 81, A2R10G10B10_XRUNormPack32 = 82, R10G10B10_XRSRGBPack32 = 83, R10G10B10_XRUNormPack32 = 84, A10R10G10B10_XRSRGBPack32 = 85, A10R10G10B10_XRUNormPack32 = 86, RGB_DXT1_SRGB = 96, RGBA_DXT1_SRGB = 96, RGB_DXT1_UNorm = 97, RGBA_DXT1_UNorm = 97, RGBA_DXT3_SRGB = 98, RGBA_DXT3_UNorm = 99, RGBA_DXT5_SRGB = 100, RGBA_DXT5_UNorm = 101, R_BC4_UNorm = 102, R_BC4_SNorm = 103, RG_BC5_UNorm = 104, RG_BC5_SNorm = 105, RGB_BC6H_UFloat = 106, RGB_BC6H_SFloat = 107, RGBA_BC7_SRGB = 108, RGBA_BC7_UNorm = 109, RGB_PVRTC_2Bpp_SRGB = 110, RGB_PVRTC_2Bpp_UNorm = 111, RGB_PVRTC_4Bpp_SRGB = 112, RGB_PVRTC_4Bpp_UNorm = 113, RGBA_PVRTC_2Bpp_SRGB = 114, RGBA_PVRTC_2Bpp_UNorm = 115, RGBA_PVRTC_4Bpp_SRGB = 116, RGBA_PVRTC_4Bpp_UNorm = 117, RGB_ETC_UNorm = 118, RGB_ETC2_SRGB = 119, RGB_ETC2_UNorm = 120, RGB_A1_ETC2_SRGB = 121, RGB_A1_ETC2_UNorm = 122, RGBA_ETC2_SRGB = 123, RGBA_ETC2_UNorm = 124, R_EAC_UNorm = 125, R_EAC_SNorm = 126, RG_EAC_UNorm = 127, RG_EAC_SNorm = 128, RGBA_ASTC4X4_SRGB = 129, RGBA_ASTC4X4_UNorm = 130, RGBA_ASTC5X5_SRGB = 131, RGBA_ASTC5X5_UNorm = 132, RGBA_ASTC6X6_SRGB = 133, RGBA_ASTC6X6_UNorm = 134, RGBA_ASTC8X8_SRGB = 135, RGBA_ASTC8X8_UNorm = 136, RGBA_ASTC10X10_SRGB = 137, RGBA_ASTC10X10_UNorm = 138, RGBA_ASTC12X12_SRGB = 139, RGBA_ASTC12X12_UNorm = 140, RGBA_ASTC4X4_UFloat = 145, RGBA_ASTC5X5_UFloat = 146, RGBA_ASTC6X6_UFloat = 147, RGBA_ASTC8X8_UFloat = 148, RGBA_ASTC10X10_UFloat = 149, RGBA_ASTC12X12_UFloat = 150 }
+        enum GraphicsFormat { None = 0, R8_SRGB = 1, R8G8_SRGB = 2, R8G8B8_SRGB = 3, R8G8B8A8_SRGB = 4, R8_UNorm = 5, R8G8_UNorm = 6, R8G8B8_UNorm = 7, R8G8B8A8_UNorm = 8, R8_SNorm = 9, R8G8_SNorm = 10, R8G8B8_SNorm = 11, R8G8B8A8_SNorm = 12, R8_UInt = 13, R8G8_UInt = 14, R8G8B8_UInt = 15, R8G8B8A8_UInt = 16, R8_SInt = 17, R8G8_SInt = 18, R8G8B8_SInt = 19, R8G8B8A8_SInt = 20, R16_UNorm = 21, R16G16_UNorm = 22, R16G16B16_UNorm = 23, R16G16B16A16_UNorm = 24, R16_SNorm = 25, R16G16_SNorm = 26, R16G16B16_SNorm = 27, R16G16B16A16_SNorm = 28, R16_UInt = 29, R16G16_UInt = 30, R16G16B16_UInt = 31, R16G16B16A16_UInt = 32, R16_SInt = 33, R16G16_SInt = 34, R16G16B16_SInt = 35, R16G16B16A16_SInt = 36, R32_UInt = 37, R32G32_UInt = 38, R32G32B32_UInt = 39, R32G32B32A32_UInt = 40, R32_SInt = 41, R32G32_SInt = 42, R32G32B32_SInt = 43, R32G32B32A32_SInt = 44, R16_SFloat = 45, R16G16_SFloat = 46, R16G16B16_SFloat = 47, R16G16B16A16_SFloat = 48, R32_SFloat = 49, R32G32_SFloat = 50, R32G32B32_SFloat = 51, R32G32B32A32_SFloat = 52, B8G8R8_SRGB = 56, B8G8R8A8_SRGB = 57, B8G8R8_UNorm = 58, B8G8R8A8_UNorm = 59, B8G8R8_SNorm = 60, B8G8R8A8_SNorm = 61, B8G8R8_UInt = 62, B8G8R8A8_UInt = 63, B8G8R8_SInt = 64, B8G8R8A8_SInt = 65, R4G4B4A4_UNormPack16 = 66, B4G4R4A4_UNormPack16 = 67, R5G6B5_UNormPack16 = 68, B5G6R5_UNormPack16 = 69, R5G5B5A1_UNormPack16 = 70, B5G5R5A1_UNormPack16 = 71, A1R5G5B5_UNormPack16 = 72, E5B9G9R9_UFloatPack32 = 73, B10G11R11_UFloatPack32 = 74, A2B10G10R10_UNormPack32 = 75, A2B10G10R10_UIntPack32 = 76, A2B10G10R10_SIntPack32 = 77, A2R10G10B10_UNormPack32 = 78, A2R10G10B10_UIntPack32 = 79, A2R10G10B10_SIntPack32 = 80, A2R10G10B10_XRSRGBPack32 = 81, A2R10G10B10_XRUNormPack32 = 82, R10G10B10_XRSRGBPack32 = 83, R10G10B10_XRUNormPack32 = 84, A10R10G10B10_XRSRGBPack32 = 85, A10R10G10B10_XRUNormPack32 = 86, RGB_DXT1_SRGB = 96, RGBA_DXT1_SRGB = 96, RGB_DXT1_UNorm = 97, RGBA_DXT1_UNorm = 97, RGBA_DXT3_SRGB = 98, RGBA_DXT3_UNorm = 99, RGBA_DXT5_SRGB = 100, RGBA_DXT5_UNorm = 101, R_BC4_UNorm = 102, R_BC4_SNorm = 103, RG_BC5_UNorm = 104, RG_BC5_SNorm = 105, RGB_BC6H_UFloat = 106, RGB_BC6H_SFloat = 107, RGBA_BC7_SRGB = 108, RGBA_BC7_UNorm = 109, RGB_PVRTC_2Bpp_SRGB = 110, RGB_PVRTC_2Bpp_UNorm = 111, RGB_PVRTC_4Bpp_SRGB = 112, RGB_PVRTC_4Bpp_UNorm = 113, RGBA_PVRTC_2Bpp_SRGB = 114, RGBA_PVRTC_2Bpp_UNorm = 115, RGBA_PVRTC_4Bpp_SRGB = 116, RGBA_PVRTC_4Bpp_UNorm = 117, RGB_ETC_UNorm = 118, RGB_ETC2_SRGB = 119, RGB_ETC2_UNorm = 120, RGB_A1_ETC2_SRGB = 121, RGB_A1_ETC2_UNorm = 122, RGBA_ETC2_SRGB = 123, RGBA_ETC2_UNorm = 124, R_EAC_UNorm = 125, R_EAC_SNorm = 126, RG_EAC_UNorm = 127, RG_EAC_SNorm = 128, RGBA_ASTC4X4_SRGB = 129, RGBA_ASTC4X4_UNorm = 130, RGBA_ASTC5X5_SRGB = 131, RGBA_ASTC5X5_UNorm = 132, RGBA_ASTC6X6_SRGB = 133, RGBA_ASTC6X6_UNorm = 134, RGBA_ASTC8X8_SRGB = 135, RGBA_ASTC8X8_UNorm = 136, RGBA_ASTC10X10_SRGB = 137, RGBA_ASTC10X10_UNorm = 138, RGBA_ASTC12X12_SRGB = 139, RGBA_ASTC12X12_UNorm = 140, YUV2 = 141, DepthAuto = 142, ShadowAuto = 143, VideoAuto = 144, RGBA_ASTC4X4_UFloat = 145, RGBA_ASTC5X5_UFloat = 146, RGBA_ASTC6X6_UFloat = 147, RGBA_ASTC8X8_UFloat = 148, RGBA_ASTC10X10_UFloat = 149, RGBA_ASTC12X12_UFloat = 150 }
         /** Indicates how a Renderer is updated. */
         enum RayTracingMode { Off = 0, Static = 1, DynamicTransform = 2, DynamicGeometry = 3 }
         /** 
@@ -28278,6 +28614,17 @@ declare module 'csharp' {
         enum Mode { None = 0, Horizontal = 1, Vertical = 2, Automatic = 3, Explicit = 4 }
         
     }
+    namespace UnityEngine.UI.Scrollbar {
+        
+        enum Direction { LeftToRight = 0, RightToLeft = 1, BottomToTop = 2, TopToBottom = 3 }
+        
+        class ScrollEvent extends UnityEngine.Events.UnityEvent$1<number> {
+            
+            public constructor();
+            
+        }
+        
+    }
     namespace UnityEngine.UI.ScrollRect {
         
         enum MovementType { Unrestricted = 0, Elastic = 1, Clamped = 2 }
@@ -28285,17 +28632,6 @@ declare module 'csharp' {
         enum ScrollbarVisibility { Permanent = 0, AutoHide = 1, AutoHideAndExpandViewport = 2 }
         
         class ScrollRectEvent extends UnityEngine.Events.UnityEvent$1<UnityEngine.Vector2> {
-            
-            public constructor();
-            
-        }
-        
-    }
-    namespace UnityEngine.UI.Scrollbar {
-        
-        enum Direction { LeftToRight = 0, RightToLeft = 1, BottomToTop = 2, TopToBottom = 3 }
-        
-        class ScrollEvent extends UnityEngine.Events.UnityEvent$1<number> {
             
             public constructor();
             
@@ -28349,6 +28685,12 @@ declare module 'csharp' {
             public static LoadFromFile($baseDir: string, $file: string):Bright.Serialization.ByteBuf;
             
             public static ReadAllText($baseDir: string, $file: string):string;
+            
+        }
+        
+        class Main extends UnityEngine.MonoBehaviour {
+            
+            public constructor();
             
         }
         
@@ -28453,6 +28795,10 @@ declare module 'csharp' {
             public WriteLong($x: bigint):void;
             
             public ReadLong():bigint;
+            
+            public WriteNumberAsLong($x: number):void;
+            
+            public ReadLongAsNumber():number;
             
             public ReadUlong():bigint;
             

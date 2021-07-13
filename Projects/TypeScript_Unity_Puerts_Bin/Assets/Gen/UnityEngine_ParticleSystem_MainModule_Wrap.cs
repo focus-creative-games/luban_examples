@@ -23,6 +23,38 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_emitterVelocity(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = (UnityEngine.ParticleSystem.MainModule)Puerts.Utils.GetSelf((int)data, self);
+                var result = obj.emitterVelocity;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_emitterVelocity(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = (UnityEngine.ParticleSystem.MainModule)Puerts.Utils.GetSelf((int)data, self);
+                var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                obj.emitterVelocity = argHelper.Get<UnityEngine.Vector3>(false);
+                Puerts.Utils.SetSelf((int)data, self, obj);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_duration(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1412,6 +1444,7 @@ namespace PuertsStaticWrap
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
+                    {"emitterVelocity", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_emitterVelocity, Setter = S_emitterVelocity} },
                     {"duration", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_duration, Setter = S_duration} },
                     {"loop", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_loop, Setter = S_loop} },
                     {"prewarm", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_prewarm, Setter = S_prewarm} },

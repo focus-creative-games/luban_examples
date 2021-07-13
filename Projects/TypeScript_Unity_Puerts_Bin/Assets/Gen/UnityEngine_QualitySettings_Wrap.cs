@@ -173,6 +173,66 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_SetLODSettings(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+                
+                if (paramLen == 3)
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    var argHelper1 = new Puerts.ArgumentHelper((int)data, isolate, info, 1);
+                    var argHelper2 = new Puerts.ArgumentHelper((int)data, isolate, info, 2);
+                    
+                    
+                    if (argHelper0.IsMatch(Puerts.JsValueType.Number, null, false, false)
+                        && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false)
+                        && argHelper2.IsMatch(Puerts.JsValueType.Boolean, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetFloat(false);
+                        var Arg1 = argHelper1.GetInt32(false);
+                        var Arg2 = argHelper2.GetBoolean(false);
+                        UnityEngine.QualitySettings.SetLODSettings(Arg0,Arg1,Arg2);
+                        
+                        
+                        
+                        return;
+                    }
+                }
+                
+                if (paramLen == 2)
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    var argHelper1 = new Puerts.ArgumentHelper((int)data, isolate, info, 1);
+                    
+                    
+                    if (argHelper0.IsMatch(Puerts.JsValueType.Number, null, false, false)
+                        && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false))
+                    {
+                        
+                        var Arg0 = argHelper0.GetFloat(false);
+                        var Arg1 = argHelper1.GetInt32(false);
+                        UnityEngine.QualitySettings.SetLODSettings(Arg0,Arg1);
+                        
+                        
+                        
+                        return;
+                    }
+                }
+                
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to SetLODSettings");
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_GetRenderPipelineAssetAt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1358,6 +1418,7 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "IncreaseLevel", IsStatic = true},  F_IncreaseLevel },
                     { new Puerts.MethodKey {Name = "DecreaseLevel", IsStatic = true},  F_DecreaseLevel },
                     { new Puerts.MethodKey {Name = "SetQualityLevel", IsStatic = true},  F_SetQualityLevel },
+                    { new Puerts.MethodKey {Name = "SetLODSettings", IsStatic = true},  F_SetLODSettings },
                     { new Puerts.MethodKey {Name = "GetRenderPipelineAssetAt", IsStatic = true},  F_GetRenderPipelineAssetAt },
                     { new Puerts.MethodKey {Name = "GetQualityLevel", IsStatic = true},  F_GetQualityLevel },
                     

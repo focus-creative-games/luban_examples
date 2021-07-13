@@ -10,6 +10,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_data_dir config_data ^
  --gen_types code_typescript_json,data_json ^
  -s all ^
---export_test_data
+--export_test_data ^
+--typescript_bright_require_path ../bright
 
 pause

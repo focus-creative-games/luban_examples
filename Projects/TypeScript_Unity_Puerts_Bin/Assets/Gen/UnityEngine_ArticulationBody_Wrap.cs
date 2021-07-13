@@ -954,6 +954,37 @@ namespace PuertsStaticWrap
             }
         }
         
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_SnapAnchorToClosestContact(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.ArticulationBody;
+                
+                
+                {
+                    
+                    
+                    
+                    
+                    {
+                        
+                        obj.SnapAnchorToClosestContact();
+                        
+                        
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1131,6 +1162,38 @@ namespace PuertsStaticWrap
             }
         }
         
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_computeParentAnchor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.ArticulationBody;
+                var result = obj.computeParentAnchor;
+                Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_computeParentAnchor(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.ArticulationBody;
+                var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                obj.computeParentAnchor = argHelper.GetBoolean(false);
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -2246,6 +2309,7 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "GetDriveTargetVelocities", IsStatic = false},  M_GetDriveTargetVelocities },
                     { new Puerts.MethodKey {Name = "SetDriveTargetVelocities", IsStatic = false},  M_SetDriveTargetVelocities },
                     { new Puerts.MethodKey {Name = "GetDofStartIndices", IsStatic = false},  M_GetDofStartIndices },
+                    { new Puerts.MethodKey {Name = "SnapAnchorToClosestContact", IsStatic = false},  M_SnapAnchorToClosestContact },
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
@@ -2256,6 +2320,7 @@ namespace PuertsStaticWrap
                     {"anchorRotation", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_anchorRotation, Setter = S_anchorRotation} },
                     {"parentAnchorRotation", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_parentAnchorRotation, Setter = S_parentAnchorRotation} },
                     {"isRoot", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_isRoot, Setter = null} },
+                    {"computeParentAnchor", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_computeParentAnchor, Setter = S_computeParentAnchor} },
                     {"linearLockX", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_linearLockX, Setter = S_linearLockX} },
                     {"linearLockY", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_linearLockY, Setter = S_linearLockY} },
                     {"linearLockZ", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_linearLockZ, Setter = S_linearLockZ} },

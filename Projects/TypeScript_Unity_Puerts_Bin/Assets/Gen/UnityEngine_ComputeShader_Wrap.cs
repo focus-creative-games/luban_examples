@@ -833,6 +833,39 @@ namespace PuertsStaticWrap
         }
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_IsSupported(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.ComputeShader;
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = argHelper0.GetInt32(false);
+                        var result = obj.IsSupported(Arg0);
+                        
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+                        
+                        
+                    }
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetFloats(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -1212,6 +1245,7 @@ namespace PuertsStaticWrap
                     { new Puerts.MethodKey {Name = "EnableKeyword", IsStatic = false},  M_EnableKeyword },
                     { new Puerts.MethodKey {Name = "DisableKeyword", IsStatic = false},  M_DisableKeyword },
                     { new Puerts.MethodKey {Name = "IsKeywordEnabled", IsStatic = false},  M_IsKeywordEnabled },
+                    { new Puerts.MethodKey {Name = "IsSupported", IsStatic = false},  M_IsSupported },
                     { new Puerts.MethodKey {Name = "SetFloats", IsStatic = false},  M_SetFloats },
                     { new Puerts.MethodKey {Name = "SetInts", IsStatic = false},  M_SetInts },
                     { new Puerts.MethodKey {Name = "SetBool", IsStatic = false},  M_SetBool },
