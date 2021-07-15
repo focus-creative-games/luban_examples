@@ -22,7 +22,7 @@ func (Ai_UeWaitBlackboardTime) GetTypeId() int {
 func NewAi_UeWaitBlackboardTime(_buf map[string]interface{}) (_v *Ai_UeWaitBlackboardTime, err error) {
     _v = &Ai_UeWaitBlackboardTime{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; if _v.BlackboardKey, _ok_ = _buf["blackboard_key"].(string); !_ok_ { err = errors.New("blackboard_key error"); return } }
     return

@@ -31,24 +31,20 @@ public sealed partial class CostItem :  cost.Cost
 
     public static CostItem DeserializeCostItem(ByteBuf _buf)
     {
-    
         return new cost.CostItem(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Amount;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Amount;
 
     public const int ID = -1249440351;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        base.Resolve(_tables);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 

@@ -21,7 +21,7 @@ func (Test_H1) GetTypeId() int {
 
 func NewTest_H1(_buf map[string]interface{}) (_v *Test_H1, err error) {
     _v = &Test_H1{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["y2"].(map[string]interface{}); !_ok_ { err = errors.New("y2 error"); return }; if _v.Y2, err = NewTest_H2 (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["y2"].(map[string]interface{}); !_ok_ { err = errors.New("y2 error"); return }; if _v.Y2, err = NewTest_H2(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y3"].(float64); !_ok_ { err = errors.New("y3 error"); return }; _v.Y3 = int32(_tempNum_) }
     return
 }

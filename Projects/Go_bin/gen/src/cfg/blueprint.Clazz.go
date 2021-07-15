@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Blueprint_Clazz struct {
     Name string
@@ -23,35 +22,7 @@ type Blueprint_Clazz struct {
 }
 
 
-func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err error) {
-    _v = &Blueprint_Clazz{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
-     {
-                _v.Parents = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewChildBlueprint_Clazz(_buf); err != nil { return } }
-                    _v.Parents = append(_v.Parents, _e_)
-                }
-            }
-
-     {
-                _v.Methods = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewChildBlueprint_Method(_buf); err != nil { return } }
-                    _v.Methods = append(_v.Methods, _e_)
-                }
-            }
-
-    return
-}
-func NewChildBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -64,4 +35,34 @@ func NewChildBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err e
     }
     return
 }
+
+func NewBlueprint_Clazz_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err error) {
+    _v = &Blueprint_Clazz{}
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.Parents = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewBlueprint_Clazz(_buf); err != nil { return } }
+                    _v.Parents = append(_v.Parents, _e_)
+                }
+            }
+
+     {
+                _v.Methods = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewBlueprint_Method(_buf); err != nil { return } }
+                    _v.Methods = append(_v.Methods, _e_)
+                }
+            }
+
+    return
+}
+
 

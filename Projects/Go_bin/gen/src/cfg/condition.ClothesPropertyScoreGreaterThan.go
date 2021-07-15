@@ -27,7 +27,7 @@ func (Condition_ClothesPropertyScoreGreaterThan) GetTypeId() int {
 func NewCondition_ClothesPropertyScoreGreaterThan(_buf *serialization.ByteBuf) (_v *Condition_ClothesPropertyScoreGreaterThan, err error) {
     _v = &Condition_ClothesPropertyScoreGreaterThan{}
     var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
     { if _v.Prop, err = _buf.ReadInt(); err != nil { return } }
     { if _v.Value, err = _buf.ReadInt(); err != nil { return } }

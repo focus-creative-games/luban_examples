@@ -27,24 +27,20 @@ public abstract partial class ComposeNode :  ai.FlowNode
 
     public static ComposeNode DeserializeComposeNode(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.Sequence.ID: return new ai.Sequence(_buf);
             case ai.Selector.ID: return new ai.Selector(_buf);
             case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -55,8 +51,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
     }

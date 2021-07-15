@@ -17,7 +17,7 @@ func NewBlueprint_TbClazz(_buf []map[string]interface{}) (*Blueprint_TbClazz, er
 	_dataList := make([]interface{}, 0, len(_buf))
 	dataMap := make(map[string]interface{})
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewChildBlueprint_Clazz(_ele_); err2 != nil {
+		if _v, err2 := NewBlueprint_Clazz(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)

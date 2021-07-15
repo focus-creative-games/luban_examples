@@ -14,11 +14,7 @@ type Ai_KeyQueryOperator struct {
 }
 
 
-func NewAi_KeyQueryOperator(_buf map[string]interface{}) (_v *Ai_KeyQueryOperator, err error) {
-    _v = &Ai_KeyQueryOperator{}
-    return
-}
-func NewChildAi_KeyQueryOperator(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_KeyQueryOperator(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -30,6 +26,11 @@ func NewChildAi_KeyQueryOperator(_buf map[string]interface{}) (_v interface{}, e
         case "BinaryOperator": return NewAi_BinaryOperator(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_KeyQueryOperator_Body(_buf map[string]interface{}) (_v *Ai_KeyQueryOperator, err error) {
+    _v = &Ai_KeyQueryOperator{}
     return
 }
 

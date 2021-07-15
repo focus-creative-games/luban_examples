@@ -10,24 +10,16 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Limit_DailyLimitBase struct {
     Limit_LimitBase
 }
 
 
-func NewLimit_DailyLimitBase(_buf *serialization.ByteBuf) (_v *Limit_DailyLimitBase, err error) {
-    _v = &Limit_DailyLimitBase{}
-    var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
-    _v.Limit_LimitBase = *_p
-    return
-}
-func NewChildLimit_DailyLimitBase(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewLimit_DailyLimitBase(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -38,4 +30,13 @@ func NewChildLimit_DailyLimitBase(_buf *serialization.ByteBuf) (_v interface{}, 
     }
     return
 }
+
+func NewLimit_DailyLimitBase_Body(_buf *serialization.ByteBuf) (_v *Limit_DailyLimitBase, err error) {
+    _v = &Limit_DailyLimitBase{}
+    var _p *Limit_LimitBase
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
+    _v.Limit_LimitBase = *_p
+    return
+}
+
 

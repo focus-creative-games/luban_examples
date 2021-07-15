@@ -27,7 +27,7 @@ func (Limit_MultiDayLimit) GetTypeId() int {
 func NewLimit_MultiDayLimit(_buf *serialization.ByteBuf) (_v *Limit_MultiDayLimit, err error) {
     _v = &Limit_MultiDayLimit{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { if _v.Day, err = _buf.ReadInt(); err != nil { return } }
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }

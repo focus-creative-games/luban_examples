@@ -17,42 +17,7 @@ type Ai_FlowNode struct {
 }
 
 
-func NewAi_FlowNode(_buf map[string]interface{}) (_v *Ai_FlowNode, err error) {
-    _v = &Ai_FlowNode{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
-
-                _v.Decorators = make([]interface{}, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildAi_Decorator(_x_); err != nil { return } }
-                    _v.Decorators = append(_v.Decorators, _list_v_)
-                }
-            }
-
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
-
-                _v.Services = make([]interface{}, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildAi_Service(_x_); err != nil { return } }
-                    _v.Services = append(_v.Services, _list_v_)
-                }
-            }
-
-    return
-}
-func NewChildAi_FlowNode(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_FlowNode(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -71,6 +36,42 @@ func NewChildAi_FlowNode(_buf map[string]interface{}) (_v interface{}, err error
         case "DebugPrint": return NewAi_DebugPrint(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_FlowNode_Body(_buf map[string]interface{}) (_v *Ai_FlowNode, err error) {
+    _v = &Ai_FlowNode{}
+    var _p *Ai_Node
+     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
+    _v.Ai_Node = *_p
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_Decorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_Service(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
     return
 }
 

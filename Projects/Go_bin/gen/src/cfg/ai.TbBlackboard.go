@@ -23,7 +23,7 @@ func NewAi_TbBlackboard(_buf *serialization.ByteBuf) (*Ai_TbBlackboard, error) {
 		dataMap := make(map[string]*Ai_Blackboard)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewAi_Blackboard (_buf); err2 != nil {
+			if _v, err2 := NewAi_Blackboard(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)

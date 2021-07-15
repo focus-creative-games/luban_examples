@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Blueprint_Method struct {
     Name string
@@ -24,26 +23,7 @@ type Blueprint_Method struct {
 }
 
 
-func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err error) {
-    _v = &Blueprint_Method{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
-    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { return } }
-    { if _v.ReturnType, err = _buf.ReadString(); err != nil { return } }
-     {
-                _v.Parameters = make([]*Blueprint_ParamInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Blueprint_ParamInfo
-                    { if _e_, err = NewBlueprint_ParamInfo (_buf); err != nil { return } }
-                    _v.Parameters = append(_v.Parameters, _e_)
-                }
-            }
-
-    return
-}
-func NewChildBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -56,4 +36,25 @@ func NewChildBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err 
     }
     return
 }
+
+func NewBlueprint_Method_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err error) {
+    _v = &Blueprint_Method{}
+    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { return } }
+    { if _v.ReturnType, err = _buf.ReadString(); err != nil { return } }
+     {
+                _v.Parameters = make([]*Blueprint_ParamInfo, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Blueprint_ParamInfo
+                    { if _e_, err = NewBlueprint_ParamInfo(_buf); err != nil { return } }
+                    _v.Parameters = append(_v.Parameters, _e_)
+                }
+            }
+
+    return
+}
+
 

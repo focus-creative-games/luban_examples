@@ -29,21 +29,17 @@ public sealed partial class OneItems :  bonus.Bonus
 
     public static OneItems DeserializeOneItems(ByteBuf _buf)
     {
-    
         return new bonus.OneItems(_buf);
-    
     }
 
-     public readonly int[] Items;
-
+    public readonly int[] Items;
 
     public const int ID = 400179721;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -52,7 +48,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Items:" + Items + ","
+        + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
     }

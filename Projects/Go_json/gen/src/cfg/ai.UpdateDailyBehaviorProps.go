@@ -30,7 +30,7 @@ func (Ai_UpdateDailyBehaviorProps) GetTypeId() int {
 func NewAi_UpdateDailyBehaviorProps(_buf map[string]interface{}) (_v *Ai_UpdateDailyBehaviorProps, err error) {
     _v = &Ai_UpdateDailyBehaviorProps{}
     var _p *Ai_Service
-     if _p, err = NewAi_Service(_buf) ; err != nil { return }
+     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
     { var _ok_ bool; if _v.SatietyKey, _ok_ = _buf["satiety_key"].(string); !_ok_ { err = errors.New("satiety_key error"); return } }
     { var _ok_ bool; if _v.EnergyKey, _ok_ = _buf["energy_key"].(string); !_ok_ { err = errors.New("energy_key error"); return } }

@@ -22,15 +22,19 @@ public final class TestNull extends  bright.serialization.AbstractBean
         if(_buf.readBool()){ x2 = cfg.test.DemoEnum.valueOf(_buf.readInt()); } else { x2 = null; }
         if(_buf.readBool()){ x3 = cfg.test.DemoType1.deserializeDemoType1(_buf); } else { x3 = null; }
         if(_buf.readBool()){ x4 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); } else { x4 = null; }
+        if(_buf.readBool()){ s1 = _buf.readString(); } else { s1 = null; }
+        if(_buf.readBool()){ s2 = _buf.readString(); } else { s2 = null; }
     }
 
-    public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4 )
+    public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 )
     {
         this.id = id;
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
         this.x4 = x4;
+        this.s1 = s1;
+        this.s2 = s2;
     }
 
     public static TestNull deserializeTestNull(ByteBuf _buf)
@@ -43,6 +47,8 @@ public final class TestNull extends  bright.serialization.AbstractBean
     public final cfg.test.DemoEnum x2;
     public final cfg.test.DemoType1 x3;
     public final cfg.test.DemoDynamic x4;
+    public final String s1;
+    public final String s2;
 
     public static final int ID = 339868469;
 
@@ -76,6 +82,8 @@ public final class TestNull extends  bright.serialization.AbstractBean
         + "x2:" + x2 + ","
         + "x3:" + x3 + ","
         + "x4:" + x4 + ","
+        + "s1:" + s1 + ","
+        + "s2:" + s2 + ","
         + "}";
     }
 }

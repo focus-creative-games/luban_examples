@@ -34,7 +34,7 @@ func NewTest_DemoGroup(_buf *serialization.ByteBuf) (_v *Test_DemoGroup, err err
     { if _v.X2, err = _buf.ReadInt(); err != nil { return } }
     { if _v.X3, err = _buf.ReadInt(); err != nil { return } }
     { if _v.X4, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X5, err = NewTest_InnerGroup (_buf); err != nil { return } }
+    { if _v.X5, err = NewTest_InnerGroup(_buf); err != nil { return } }
     return
 }
 

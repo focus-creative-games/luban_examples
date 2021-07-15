@@ -19,7 +19,7 @@ func NewTest_TbTestGlobal(_buf []map[string]interface{}) (*Test_TbTestGlobal, er
 	if len(_buf) != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewTest_TestGlobal (_buf[0]); err2 != nil {
+		if _v, err2 := NewTest_TestGlobal(_buf[0]); err2 != nil {
 			return nil, err2
 		} else {
 		    return &Test_TbTestGlobal{_data:_v}, nil

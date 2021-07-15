@@ -14,11 +14,7 @@ type Error_ErrorStyle struct {
 }
 
 
-func NewError_ErrorStyle(_buf map[string]interface{}) (_v *Error_ErrorStyle, err error) {
-    _v = &Error_ErrorStyle{}
-    return
-}
-func NewChildError_ErrorStyle(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewError_ErrorStyle(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -31,6 +27,11 @@ func NewChildError_ErrorStyle(_buf map[string]interface{}) (_v interface{}, err 
         case "ErrorStyleDlgOkCancel": return NewError_ErrorStyleDlgOkCancel(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewError_ErrorStyle_Body(_buf map[string]interface{}) (_v *Error_ErrorStyle, err error) {
+    _v = &Error_ErrorStyle{}
     return
 }
 

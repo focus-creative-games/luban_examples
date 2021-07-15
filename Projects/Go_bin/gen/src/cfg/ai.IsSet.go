@@ -25,7 +25,7 @@ func (Ai_IsSet) GetTypeId() int {
 func NewAi_IsSet(_buf *serialization.ByteBuf) (_v *Ai_IsSet, err error) {
     _v = &Ai_IsSet{}
     var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
     _v.Ai_KeyQueryOperator = *_p
     return
 }

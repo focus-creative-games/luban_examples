@@ -15,14 +15,7 @@ type Limit_DailyLimitBase struct {
 }
 
 
-func NewLimit_DailyLimitBase(_buf map[string]interface{}) (_v *Limit_DailyLimitBase, err error) {
-    _v = &Limit_DailyLimitBase{}
-    var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
-    _v.Limit_LimitBase = *_p
-    return
-}
-func NewChildLimit_DailyLimitBase(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewLimit_DailyLimitBase(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -32,6 +25,14 @@ func NewChildLimit_DailyLimitBase(_buf map[string]interface{}) (_v interface{}, 
         case "DailyLimit": return NewLimit_DailyLimit(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewLimit_DailyLimitBase_Body(_buf map[string]interface{}) (_v *Limit_DailyLimitBase, err error) {
+    _v = &Limit_DailyLimitBase{}
+    var _p *Limit_LimitBase
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
+    _v.Limit_LimitBase = *_p
     return
 }
 

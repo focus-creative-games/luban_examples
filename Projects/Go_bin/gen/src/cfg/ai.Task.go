@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_Task struct {
     Ai_FlowNode
@@ -21,15 +20,7 @@ type Ai_Task struct {
 }
 
 
-func NewAi_Task(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
-    _v = &Ai_Task{}
-    var _p *Ai_FlowNode
-     if _p, err = NewAi_FlowNode(_buf) ; err != nil { return }
-    _v.Ai_FlowNode = *_p
-    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { return } }
-    return
-}
-func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -46,4 +37,14 @@ func NewChildAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     }
     return
 }
+
+func NewAi_Task_Body(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
+    _v = &Ai_Task{}
+    var _p *Ai_FlowNode
+     if _p, err = NewAi_FlowNode_Body(_buf) ; err != nil { return }
+    _v.Ai_FlowNode = *_p
+    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { return } }
+    return
+}
+
 

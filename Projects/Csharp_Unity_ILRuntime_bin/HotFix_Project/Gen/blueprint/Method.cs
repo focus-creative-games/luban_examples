@@ -37,30 +37,25 @@ public abstract partial class Method :  Bright.Config.BeanBase
 
     public static Method DeserializeMethod(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case blueprint.AbstraceMethod.ID: return new blueprint.AbstraceMethod(_buf);
             case blueprint.ExternalMethod.ID: return new blueprint.ExternalMethod(_buf);
             case blueprint.BlueprintMethod.ID: return new blueprint.BlueprintMethod(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly bool IsStatic;
-     public readonly string ReturnType;
-     public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
-
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly bool IsStatic;
+    public readonly string ReturnType;
+    public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        foreach(var _e in Parameters) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -73,7 +68,7 @@ public abstract partial class Method :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "IsStatic:" + IsStatic + ","
         + "ReturnType:" + ReturnType + ","
-        + "Parameters:" + Parameters + ","
+        + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
     }

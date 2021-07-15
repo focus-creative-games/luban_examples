@@ -23,7 +23,7 @@ func NewCommon_TbGlobalConfig(_buf *serialization.ByteBuf) (*Common_TbGlobalConf
     } else if size != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewCommon_GlobalConfig (_buf); err2 != nil {
+		if _v, err2 := NewCommon_GlobalConfig(_buf); err2 != nil {
 			return nil, err2
 		} else {
 		    return &Common_TbGlobalConfig{_data:_v}, nil

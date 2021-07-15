@@ -16,7 +16,7 @@ namespace Csharp_Server_DotNetCore
 
         private static JsonElement LoadJson(string file)
         {
-            return JsonDocument.Parse(System.IO.File.ReadAllBytes("../../../config_data/" + file)).RootElement;
+            return JsonDocument.Parse(System.IO.File.ReadAllBytes("../../../config_data/" + file + ".json")).RootElement;
         }
     }
 }

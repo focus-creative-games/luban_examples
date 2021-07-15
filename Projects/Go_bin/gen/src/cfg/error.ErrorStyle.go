@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Error_ErrorStyle struct {
 }
 
 
-func NewError_ErrorStyle(_buf *serialization.ByteBuf) (_v *Error_ErrorStyle, err error) {
-    _v = &Error_ErrorStyle{}
-    return
-}
-func NewChildError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -37,4 +32,10 @@ func NewChildError_ErrorStyle(_buf *serialization.ByteBuf) (_v interface{}, err 
     }
     return
 }
+
+func NewError_ErrorStyle_Body(_buf *serialization.ByteBuf) (_v *Error_ErrorStyle, err error) {
+    _v = &Error_ErrorStyle{}
+    return
+}
+
 

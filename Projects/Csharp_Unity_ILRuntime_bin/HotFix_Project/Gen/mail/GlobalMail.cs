@@ -51,35 +51,30 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public static GlobalMail DeserializeGlobalMail(ByteBuf _buf)
     {
-    
         return new mail.GlobalMail(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly string Title;
-     public readonly string Sender;
-     public readonly string Content;
-     public readonly System.Collections.Generic.List<int> Award;
-     public readonly bool AllServer;
-     public readonly System.Collections.Generic.List<int> ServerList;
-     public readonly string Platform;
-     public readonly string Channel;
-     public readonly condition.MinMaxLevel MinMaxLevel;
-     public readonly condition.TimeRange RegisterTime;
-     public readonly condition.TimeRange MailTime;
-
+    public readonly int Id;
+    public readonly string Title;
+    public readonly string Sender;
+    public readonly string Content;
+    public readonly System.Collections.Generic.List<int> Award;
+    public readonly bool AllServer;
+    public readonly System.Collections.Generic.List<int> ServerList;
+    public readonly string Platform;
+    public readonly string Channel;
+    public readonly condition.MinMaxLevel MinMaxLevel;
+    public readonly condition.TimeRange RegisterTime;
+    public readonly condition.TimeRange MailTime;
 
     public const int ID = -287571791;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            MinMaxLevel?.Resolve(_tables);
-            RegisterTime?.Resolve(_tables);
-            MailTime?.Resolve(_tables);
+        MinMaxLevel?.Resolve(_tables);
+        RegisterTime?.Resolve(_tables);
+        MailTime?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -92,9 +87,9 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         + "Title:" + Title + ","
         + "Sender:" + Sender + ","
         + "Content:" + Content + ","
-        + "Award:" + Award + ","
+        + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "AllServer:" + AllServer + ","
-        + "ServerList:" + ServerList + ","
+        + "ServerList:" + Bright.Common.StringUtil.CollectionToString(ServerList) + ","
         + "Platform:" + Platform + ","
         + "Channel:" + Channel + ","
         + "MinMaxLevel:" + MinMaxLevel + ","

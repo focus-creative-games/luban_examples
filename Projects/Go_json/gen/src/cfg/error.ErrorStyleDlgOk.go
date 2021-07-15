@@ -22,7 +22,7 @@ func (Error_ErrorStyleDlgOk) GetTypeId() int {
 func NewError_ErrorStyleDlgOk(_buf map[string]interface{}) (_v *Error_ErrorStyleDlgOk, err error) {
     _v = &Error_ErrorStyleDlgOk{}
     var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
+     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
     { var _ok_ bool; if _v.BtnName, _ok_ = _buf["btn_name"].(string); !_ok_ { err = errors.New("btn_name error"); return } }
     return

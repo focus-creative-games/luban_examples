@@ -27,7 +27,7 @@ func (Ai_MoveToRandomLocation) GetTypeId() int {
 func NewAi_MoveToRandomLocation(_buf *serialization.ByteBuf) (_v *Ai_MoveToRandomLocation, err error) {
     _v = &Ai_MoveToRandomLocation{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { if _v.OriginPositionKey, err = _buf.ReadString(); err != nil { return } }
     { if _v.Radius, err = _buf.ReadFloat(); err != nil { return } }

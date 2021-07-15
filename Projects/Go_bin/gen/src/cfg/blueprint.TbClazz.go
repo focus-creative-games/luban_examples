@@ -23,7 +23,7 @@ func NewBlueprint_TbClazz(_buf *serialization.ByteBuf) (*Blueprint_TbClazz, erro
 		dataMap := make(map[string]interface{})
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewChildBlueprint_Clazz(_buf); err2 != nil {
+			if _v, err2 := NewBlueprint_Clazz(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)

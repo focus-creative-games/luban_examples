@@ -35,12 +35,12 @@ func NewBonus_DropInfo(_buf *serialization.ByteBuf) (_v *Bonus_DropInfo, err err
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Bonus_ShowItemInfo
-                    { if _e_, err = NewBonus_ShowItemInfo (_buf); err != nil { return } }
+                    { if _e_, err = NewBonus_ShowItemInfo(_buf); err != nil { return } }
                     _v.ClientShowItems = append(_v.ClientShowItems, _e_)
                 }
             }
 
-    { if _v.Bonus, err = NewChildBonus_Bonus(_buf); err != nil { return } }
+    { if _v.Bonus, err = NewBonus_Bonus(_buf); err != nil { return } }
     return
 }
 

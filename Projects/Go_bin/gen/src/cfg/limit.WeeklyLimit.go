@@ -26,7 +26,7 @@ func (Limit_WeeklyLimit) GetTypeId() int {
 func NewLimit_WeeklyLimit(_buf *serialization.ByteBuf) (_v *Limit_WeeklyLimit, err error) {
     _v = &Limit_WeeklyLimit{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return

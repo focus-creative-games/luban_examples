@@ -21,7 +21,7 @@ func (Blueprint_Interface) GetTypeId() int {
 func NewBlueprint_Interface(_buf map[string]interface{}) (_v *Blueprint_Interface, err error) {
     _v = &Blueprint_Interface{}
     var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
+     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
     return
 }

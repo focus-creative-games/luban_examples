@@ -31,22 +31,18 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
 
     public static GroupCoolDown DeserializeGroupCoolDown(ByteBuf _buf)
     {
-    
         return new limit.GroupCoolDown(_buf);
-    
     }
 
-     public readonly int GroupId;
-     public readonly int Duration;
-
+    public readonly int GroupId;
+    public readonly int Duration;
 
     public const int ID = 394328599;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

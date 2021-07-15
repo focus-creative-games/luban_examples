@@ -29,22 +29,18 @@ public sealed partial class WeightBonus :  bonus.Bonus
 
     public static WeightBonus DeserializeWeightBonus(ByteBuf _buf)
     {
-    
         return new bonus.WeightBonus(_buf);
-    
     }
 
-     public readonly bonus.WeightBonusInfo[] Bonuses;
-
+    public readonly bonus.WeightBonusInfo[] Bonuses;
 
     public const int ID = -362807016;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -53,7 +49,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Bonuses:" + Bonuses + ","
+        + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
     }

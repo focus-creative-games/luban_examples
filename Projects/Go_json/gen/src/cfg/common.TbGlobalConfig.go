@@ -19,7 +19,7 @@ func NewCommon_TbGlobalConfig(_buf []map[string]interface{}) (*Common_TbGlobalCo
 	if len(_buf) != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewCommon_GlobalConfig (_buf[0]); err2 != nil {
+		if _v, err2 := NewCommon_GlobalConfig(_buf[0]); err2 != nil {
 			return nil, err2
 		} else {
 		    return &Common_TbGlobalConfig{_data:_v}, nil

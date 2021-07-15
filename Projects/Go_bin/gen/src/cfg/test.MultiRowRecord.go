@@ -38,7 +38,7 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_MultiRowType1
-                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_MultiRowType1(_buf); err != nil { return } }
                     _v.OneRows = append(_v.OneRows, _e_)
                 }
             }
@@ -49,7 +49,7 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_MultiRowType1
-                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_MultiRowType1(_buf); err != nil { return } }
                     _v.MultiRows1 = append(_v.MultiRows1, _e_)
                 }
             }
@@ -60,7 +60,7 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_MultiRowType1
-                    { if _e_, err = NewTest_MultiRowType1 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_MultiRowType1(_buf); err != nil { return } }
                     _v.MultiRows2 = append(_v.MultiRows2, _e_)
                 }
             }
@@ -71,7 +71,7 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_MultiRowType2
-                    { if _e_, err = NewTest_MultiRowType2 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_MultiRowType2(_buf); err != nil { return } }
                     _v.MultiRows3 = append(_v.MultiRows3, _e_)
                 }
             }
@@ -84,7 +84,7 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                     var _key_ int32
                     { if _key_, err = _buf.ReadInt(); err != nil { return } }
                     var _value_ *Test_MultiRowType2
-                    { if _value_, err = NewTest_MultiRowType2 (_buf); err != nil { return } }
+                    { if _value_, err = NewTest_MultiRowType2(_buf); err != nil { return } }
                     _v.MultiRows4[_key_] = _value_
                 }
                 }

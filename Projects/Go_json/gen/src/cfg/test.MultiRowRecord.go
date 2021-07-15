@@ -37,7 +37,7 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Test_MultiRowType1
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1(_x_); err != nil { return } }
                     _v.OneRows = append(_v.OneRows, _list_v_)
                 }
             }
@@ -51,7 +51,7 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Test_MultiRowType1
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1(_x_); err != nil { return } }
                     _v.MultiRows1 = append(_v.MultiRows1, _list_v_)
                 }
             }
@@ -65,7 +65,7 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Test_MultiRowType1
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType1(_x_); err != nil { return } }
                     _v.MultiRows2 = append(_v.MultiRows2, _list_v_)
                 }
             }
@@ -79,7 +79,7 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Test_MultiRowType2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType2 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType2(_x_); err != nil { return } }
                     _v.MultiRows3 = append(_v.MultiRows3, _list_v_)
                 }
             }
@@ -97,7 +97,7 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                     var _key_ int32
                     { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
                     var _value_ *Test_MultiRowType2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _kv_[1].(map[string]interface{}); !_ok_ { err = errors.New("_value_ error"); return }; if _value_, err = NewTest_MultiRowType2 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _kv_[1].(map[string]interface{}); !_ok_ { err = errors.New("_value_ error"); return }; if _value_, err = NewTest_MultiRowType2(_x_); err != nil { return } }
                     _v.MultiRows4[_key_] = _value_
                 }
                 }

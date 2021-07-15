@@ -8,7 +8,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir Gen ^
  --output_data_dir config_data ^
- --gen_types data_lua ^
+ --gen_types code_lua_lua,data_lua ^
  -s all ^
 --export_test_data
 

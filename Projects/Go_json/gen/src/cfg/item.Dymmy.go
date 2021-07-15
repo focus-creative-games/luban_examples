@@ -22,9 +22,9 @@ func (Item_Dymmy) GetTypeId() int {
 func NewItem_Dymmy(_buf map[string]interface{}) (_v *Item_Dymmy, err error) {
     _v = &Item_Dymmy{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cost"].(map[string]interface{}); !_ok_ { err = errors.New("cost error"); return }; if _v.Cost, err = NewChildCost_Cost(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cost"].(map[string]interface{}); !_ok_ { err = errors.New("cost error"); return }; if _v.Cost, err = NewCost_Cost(_x_); err != nil { return } }
     return
 }
 

@@ -29,21 +29,17 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
 
     public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(ByteBuf _buf)
     {
-    
         return new error.ErrorStyleDlgOk(_buf);
-    
     }
 
-     public readonly string BtnName;
-
+    public readonly string BtnName;
 
     public const int ID = -2010134516;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

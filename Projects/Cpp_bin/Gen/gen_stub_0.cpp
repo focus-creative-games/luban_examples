@@ -27,7 +27,6 @@ namespace cfg
 
     bool ai::Blackboard::deserializeBlackboard(ByteBuf& _buf, ai::Blackboard*& _out)
     {
-    
         _out = new ai::Blackboard();
         if (_out->deserialize(_buf))
         {
@@ -39,7 +38,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::BlackboardKey::deserialize(ByteBuf& _buf)
     {
@@ -55,7 +53,6 @@ namespace cfg
 
     bool ai::BlackboardKey::deserializeBlackboardKey(ByteBuf& _buf, ai::BlackboardKey*& _out)
     {
-    
         _out = new ai::BlackboardKey();
         if (_out->deserialize(_buf))
         {
@@ -67,7 +64,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::BehaviorTree::deserialize(ByteBuf& _buf)
     {
@@ -83,7 +79,6 @@ namespace cfg
 
     bool ai::BehaviorTree::deserializeBehaviorTree(ByteBuf& _buf, ai::BehaviorTree*& _out)
     {
-    
         _out = new ai::BehaviorTree();
         if (_out->deserialize(_buf))
         {
@@ -95,7 +90,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::Node::deserialize(ByteBuf& _buf)
     {
@@ -108,12 +102,10 @@ namespace cfg
 
     bool ai::Node::deserializeNode(ByteBuf& _buf, ai::Node*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::UeSetDefaultFocus::ID: { _out = new ai::UeSetDefaultFocus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::ExecuteTimeStatistic::ID: { _out = new ai::ExecuteTimeStatistic(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::ChooseTarget::ID: { _out = new ai::ChooseTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -139,7 +131,6 @@ namespace cfg
             case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::Service::deserialize(ByteBuf& _buf)
     {
@@ -154,12 +145,10 @@ namespace cfg
 
     bool ai::Service::deserializeService(ByteBuf& _buf, ai::Service*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::UeSetDefaultFocus::ID: { _out = new ai::UeSetDefaultFocus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::ExecuteTimeStatistic::ID: { _out = new ai::ExecuteTimeStatistic(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::ChooseTarget::ID: { _out = new ai::ChooseTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -168,7 +157,6 @@ namespace cfg
             case ai::UpdateDailyBehaviorProps::ID: { _out = new ai::UpdateDailyBehaviorProps(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::UeSetDefaultFocus::deserialize(ByteBuf& _buf)
     {
@@ -184,7 +172,6 @@ namespace cfg
 
     bool ai::UeSetDefaultFocus::deserializeUeSetDefaultFocus(ByteBuf& _buf, ai::UeSetDefaultFocus*& _out)
     {
-    
         _out = new ai::UeSetDefaultFocus();
         if (_out->deserialize(_buf))
         {
@@ -196,7 +183,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::ExecuteTimeStatistic::deserialize(ByteBuf& _buf)
     {
@@ -211,7 +197,6 @@ namespace cfg
 
     bool ai::ExecuteTimeStatistic::deserializeExecuteTimeStatistic(ByteBuf& _buf, ai::ExecuteTimeStatistic*& _out)
     {
-    
         _out = new ai::ExecuteTimeStatistic();
         if (_out->deserialize(_buf))
         {
@@ -223,7 +208,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::ChooseTarget::deserialize(ByteBuf& _buf)
     {
@@ -239,7 +223,6 @@ namespace cfg
 
     bool ai::ChooseTarget::deserializeChooseTarget(ByteBuf& _buf, ai::ChooseTarget*& _out)
     {
-    
         _out = new ai::ChooseTarget();
         if (_out->deserialize(_buf))
         {
@@ -251,7 +234,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::KeepFaceTarget::deserialize(ByteBuf& _buf)
     {
@@ -267,7 +249,6 @@ namespace cfg
 
     bool ai::KeepFaceTarget::deserializeKeepFaceTarget(ByteBuf& _buf, ai::KeepFaceTarget*& _out)
     {
-    
         _out = new ai::KeepFaceTarget();
         if (_out->deserialize(_buf))
         {
@@ -279,7 +260,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::GetOwnerPlayer::deserialize(ByteBuf& _buf)
     {
@@ -295,7 +275,6 @@ namespace cfg
 
     bool ai::GetOwnerPlayer::deserializeGetOwnerPlayer(ByteBuf& _buf, ai::GetOwnerPlayer*& _out)
     {
-    
         _out = new ai::GetOwnerPlayer();
         if (_out->deserialize(_buf))
         {
@@ -307,7 +286,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UpdateDailyBehaviorProps::deserialize(ByteBuf& _buf)
     {
@@ -331,7 +309,6 @@ namespace cfg
 
     bool ai::UpdateDailyBehaviorProps::deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, ai::UpdateDailyBehaviorProps*& _out)
     {
-    
         _out = new ai::UpdateDailyBehaviorProps();
         if (_out->deserialize(_buf))
         {
@@ -343,7 +320,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::Decorator::deserialize(ByteBuf& _buf)
     {
@@ -359,12 +335,10 @@ namespace cfg
 
     bool ai::Decorator::deserializeDecorator(ByteBuf& _buf, ai::Decorator*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::UeLoop::ID: { _out = new ai::UeLoop(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::UeCooldown::ID: { _out = new ai::UeCooldown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::UeTimeLimit::ID: { _out = new ai::UeTimeLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -374,7 +348,6 @@ namespace cfg
             case ai::DistanceLessThan::ID: { _out = new ai::DistanceLessThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::UeLoop::deserialize(ByteBuf& _buf)
     {
@@ -392,7 +365,6 @@ namespace cfg
 
     bool ai::UeLoop::deserializeUeLoop(ByteBuf& _buf, ai::UeLoop*& _out)
     {
-    
         _out = new ai::UeLoop();
         if (_out->deserialize(_buf))
         {
@@ -404,7 +376,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UeCooldown::deserialize(ByteBuf& _buf)
     {
@@ -420,7 +391,6 @@ namespace cfg
 
     bool ai::UeCooldown::deserializeUeCooldown(ByteBuf& _buf, ai::UeCooldown*& _out)
     {
-    
         _out = new ai::UeCooldown();
         if (_out->deserialize(_buf))
         {
@@ -432,7 +402,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UeTimeLimit::deserialize(ByteBuf& _buf)
     {
@@ -448,7 +417,6 @@ namespace cfg
 
     bool ai::UeTimeLimit::deserializeUeTimeLimit(ByteBuf& _buf, ai::UeTimeLimit*& _out)
     {
-    
         _out = new ai::UeTimeLimit();
         if (_out->deserialize(_buf))
         {
@@ -460,7 +428,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UeBlackboard::deserialize(ByteBuf& _buf)
     {
@@ -478,7 +445,6 @@ namespace cfg
 
     bool ai::UeBlackboard::deserializeUeBlackboard(ByteBuf& _buf, ai::UeBlackboard*& _out)
     {
-    
         _out = new ai::UeBlackboard();
         if (_out->deserialize(_buf))
         {
@@ -490,7 +456,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::KeyQueryOperator::deserialize(ByteBuf& _buf)
     {
@@ -501,18 +466,15 @@ namespace cfg
 
     bool ai::KeyQueryOperator::deserializeKeyQueryOperator(ByteBuf& _buf, ai::KeyQueryOperator*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::IsSet::ID: { _out = new ai::IsSet(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::IsNotSet::ID: { _out = new ai::IsNotSet(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::BinaryOperator::ID: { _out = new ai::BinaryOperator(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::IsSet::deserialize(ByteBuf& _buf)
     {
@@ -527,7 +489,6 @@ namespace cfg
 
     bool ai::IsSet::deserializeIsSet(ByteBuf& _buf, ai::IsSet*& _out)
     {
-    
         _out = new ai::IsSet();
         if (_out->deserialize(_buf))
         {
@@ -539,7 +500,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::IsNotSet::deserialize(ByteBuf& _buf)
     {
@@ -554,7 +514,6 @@ namespace cfg
 
     bool ai::IsNotSet::deserializeIsNotSet(ByteBuf& _buf, ai::IsNotSet*& _out)
     {
-    
         _out = new ai::IsNotSet();
         if (_out->deserialize(_buf))
         {
@@ -566,7 +525,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::BinaryOperator::deserialize(ByteBuf& _buf)
     {
@@ -583,7 +541,6 @@ namespace cfg
 
     bool ai::BinaryOperator::deserializeBinaryOperator(ByteBuf& _buf, ai::BinaryOperator*& _out)
     {
-    
         _out = new ai::BinaryOperator();
         if (_out->deserialize(_buf))
         {
@@ -595,7 +552,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::KeyData::deserialize(ByteBuf& _buf)
     {
@@ -606,19 +562,16 @@ namespace cfg
 
     bool ai::KeyData::deserializeKeyData(ByteBuf& _buf, ai::KeyData*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::FloatKeyData::ID: { _out = new ai::FloatKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::IntKeyData::ID: { _out = new ai::IntKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::StringKeyData::ID: { _out = new ai::StringKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::BlackboardKeyData::ID: { _out = new ai::BlackboardKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::FloatKeyData::deserialize(ByteBuf& _buf)
     {
@@ -634,7 +587,6 @@ namespace cfg
 
     bool ai::FloatKeyData::deserializeFloatKeyData(ByteBuf& _buf, ai::FloatKeyData*& _out)
     {
-    
         _out = new ai::FloatKeyData();
         if (_out->deserialize(_buf))
         {
@@ -646,7 +598,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::IntKeyData::deserialize(ByteBuf& _buf)
     {
@@ -662,7 +613,6 @@ namespace cfg
 
     bool ai::IntKeyData::deserializeIntKeyData(ByteBuf& _buf, ai::IntKeyData*& _out)
     {
-    
         _out = new ai::IntKeyData();
         if (_out->deserialize(_buf))
         {
@@ -674,7 +624,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::StringKeyData::deserialize(ByteBuf& _buf)
     {
@@ -690,7 +639,6 @@ namespace cfg
 
     bool ai::StringKeyData::deserializeStringKeyData(ByteBuf& _buf, ai::StringKeyData*& _out)
     {
-    
         _out = new ai::StringKeyData();
         if (_out->deserialize(_buf))
         {
@@ -702,7 +650,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::BlackboardKeyData::deserialize(ByteBuf& _buf)
     {
@@ -718,7 +665,6 @@ namespace cfg
 
     bool ai::BlackboardKeyData::deserializeBlackboardKeyData(ByteBuf& _buf, ai::BlackboardKeyData*& _out)
     {
-    
         _out = new ai::BlackboardKeyData();
         if (_out->deserialize(_buf))
         {
@@ -730,7 +676,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UeForceSuccess::deserialize(ByteBuf& _buf)
     {
@@ -745,7 +690,6 @@ namespace cfg
 
     bool ai::UeForceSuccess::deserializeUeForceSuccess(ByteBuf& _buf, ai::UeForceSuccess*& _out)
     {
-    
         _out = new ai::UeForceSuccess();
         if (_out->deserialize(_buf))
         {
@@ -757,7 +701,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::IsAtLocation::deserialize(ByteBuf& _buf)
     {
@@ -775,7 +718,6 @@ namespace cfg
 
     bool ai::IsAtLocation::deserializeIsAtLocation(ByteBuf& _buf, ai::IsAtLocation*& _out)
     {
-    
         _out = new ai::IsAtLocation();
         if (_out->deserialize(_buf))
         {
@@ -787,7 +729,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::DistanceLessThan::deserialize(ByteBuf& _buf)
     {
@@ -806,7 +747,6 @@ namespace cfg
 
     bool ai::DistanceLessThan::deserializeDistanceLessThan(ByteBuf& _buf, ai::DistanceLessThan*& _out)
     {
-    
         _out = new ai::DistanceLessThan();
         if (_out->deserialize(_buf))
         {
@@ -818,7 +758,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::FlowNode::deserialize(ByteBuf& _buf)
     {
@@ -835,12 +774,10 @@ namespace cfg
 
     bool ai::FlowNode::deserializeFlowNode(ByteBuf& _buf, ai::FlowNode*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::Sequence::ID: { _out = new ai::Sequence(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::Selector::ID: { _out = new ai::Selector(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::SimpleParallel::ID: { _out = new ai::SimpleParallel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -853,7 +790,6 @@ namespace cfg
             case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::ComposeNode::deserialize(ByteBuf& _buf)
     {
@@ -868,18 +804,15 @@ namespace cfg
 
     bool ai::ComposeNode::deserializeComposeNode(ByteBuf& _buf, ai::ComposeNode*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::Sequence::ID: { _out = new ai::Sequence(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::Selector::ID: { _out = new ai::Selector(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::SimpleParallel::ID: { _out = new ai::SimpleParallel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::Sequence::deserialize(ByteBuf& _buf)
     {
@@ -895,7 +828,6 @@ namespace cfg
 
     bool ai::Sequence::deserializeSequence(ByteBuf& _buf, ai::Sequence*& _out)
     {
-    
         _out = new ai::Sequence();
         if (_out->deserialize(_buf))
         {
@@ -907,7 +839,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::Selector::deserialize(ByteBuf& _buf)
     {
@@ -923,7 +854,6 @@ namespace cfg
 
     bool ai::Selector::deserializeSelector(ByteBuf& _buf, ai::Selector*& _out)
     {
-    
         _out = new ai::Selector();
         if (_out->deserialize(_buf))
         {
@@ -935,7 +865,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::SimpleParallel::deserialize(ByteBuf& _buf)
     {
@@ -953,7 +882,6 @@ namespace cfg
 
     bool ai::SimpleParallel::deserializeSimpleParallel(ByteBuf& _buf, ai::SimpleParallel*& _out)
     {
-    
         _out = new ai::SimpleParallel();
         if (_out->deserialize(_buf))
         {
@@ -965,7 +893,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::Task::deserialize(ByteBuf& _buf)
     {
@@ -981,12 +908,10 @@ namespace cfg
 
     bool ai::Task::deserializeTask(ByteBuf& _buf, ai::Task*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case ai::UeWait::ID: { _out = new ai::UeWait(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::UeWaitBlackboardTime::ID: { _out = new ai::UeWaitBlackboardTime(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case ai::MoveToTarget::ID: { _out = new ai::MoveToTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -996,7 +921,6 @@ namespace cfg
             case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool ai::UeWait::deserialize(ByteBuf& _buf)
     {
@@ -1013,7 +937,6 @@ namespace cfg
 
     bool ai::UeWait::deserializeUeWait(ByteBuf& _buf, ai::UeWait*& _out)
     {
-    
         _out = new ai::UeWait();
         if (_out->deserialize(_buf))
         {
@@ -1025,7 +948,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::UeWaitBlackboardTime::deserialize(ByteBuf& _buf)
     {
@@ -1041,7 +963,6 @@ namespace cfg
 
     bool ai::UeWaitBlackboardTime::deserializeUeWaitBlackboardTime(ByteBuf& _buf, ai::UeWaitBlackboardTime*& _out)
     {
-    
         _out = new ai::UeWaitBlackboardTime();
         if (_out->deserialize(_buf))
         {
@@ -1053,7 +974,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::MoveToTarget::deserialize(ByteBuf& _buf)
     {
@@ -1070,7 +990,6 @@ namespace cfg
 
     bool ai::MoveToTarget::deserializeMoveToTarget(ByteBuf& _buf, ai::MoveToTarget*& _out)
     {
-    
         _out = new ai::MoveToTarget();
         if (_out->deserialize(_buf))
         {
@@ -1082,7 +1001,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::ChooseSkill::deserialize(ByteBuf& _buf)
     {
@@ -1099,7 +1017,6 @@ namespace cfg
 
     bool ai::ChooseSkill::deserializeChooseSkill(ByteBuf& _buf, ai::ChooseSkill*& _out)
     {
-    
         _out = new ai::ChooseSkill();
         if (_out->deserialize(_buf))
         {
@@ -1111,7 +1028,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::MoveToRandomLocation::deserialize(ByteBuf& _buf)
     {
@@ -1128,7 +1044,6 @@ namespace cfg
 
     bool ai::MoveToRandomLocation::deserializeMoveToRandomLocation(ByteBuf& _buf, ai::MoveToRandomLocation*& _out)
     {
-    
         _out = new ai::MoveToRandomLocation();
         if (_out->deserialize(_buf))
         {
@@ -1140,7 +1055,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::MoveToLocation::deserialize(ByteBuf& _buf)
     {
@@ -1157,7 +1071,6 @@ namespace cfg
 
     bool ai::MoveToLocation::deserializeMoveToLocation(ByteBuf& _buf, ai::MoveToLocation*& _out)
     {
-    
         _out = new ai::MoveToLocation();
         if (_out->deserialize(_buf))
         {
@@ -1169,7 +1082,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool ai::DebugPrint::deserialize(ByteBuf& _buf)
     {
@@ -1185,7 +1097,6 @@ namespace cfg
 
     bool ai::DebugPrint::deserializeDebugPrint(ByteBuf& _buf, ai::DebugPrint*& _out)
     {
-    
         _out = new ai::DebugPrint();
         if (_out->deserialize(_buf))
         {
@@ -1197,7 +1108,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::Clazz::deserialize(ByteBuf& _buf)
     {
@@ -1212,18 +1122,15 @@ namespace cfg
 
     bool blueprint::Clazz::deserializeClazz(ByteBuf& _buf, blueprint::Clazz*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case blueprint::Interface::ID: { _out = new blueprint::Interface(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case blueprint::NormalClazz::ID: { _out = new blueprint::NormalClazz(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case blueprint::EnumClazz::ID: { _out = new blueprint::EnumClazz(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool blueprint::Method::deserialize(ByteBuf& _buf)
     {
@@ -1239,18 +1146,15 @@ namespace cfg
 
     bool blueprint::Method::deserializeMethod(ByteBuf& _buf, blueprint::Method*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case blueprint::AbstraceMethod::ID: { _out = new blueprint::AbstraceMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case blueprint::ExternalMethod::ID: { _out = new blueprint::ExternalMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case blueprint::BlueprintMethod::ID: { _out = new blueprint::BlueprintMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool blueprint::ParamInfo::deserialize(ByteBuf& _buf)
     {
@@ -1264,7 +1168,6 @@ namespace cfg
 
     bool blueprint::ParamInfo::deserializeParamInfo(ByteBuf& _buf, blueprint::ParamInfo*& _out)
     {
-    
         _out = new blueprint::ParamInfo();
         if (_out->deserialize(_buf))
         {
@@ -1276,7 +1179,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::AbstraceMethod::deserialize(ByteBuf& _buf)
     {
@@ -1291,7 +1193,6 @@ namespace cfg
 
     bool blueprint::AbstraceMethod::deserializeAbstraceMethod(ByteBuf& _buf, blueprint::AbstraceMethod*& _out)
     {
-    
         _out = new blueprint::AbstraceMethod();
         if (_out->deserialize(_buf))
         {
@@ -1303,7 +1204,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::ExternalMethod::deserialize(ByteBuf& _buf)
     {
@@ -1318,7 +1218,6 @@ namespace cfg
 
     bool blueprint::ExternalMethod::deserializeExternalMethod(ByteBuf& _buf, blueprint::ExternalMethod*& _out)
     {
-    
         _out = new blueprint::ExternalMethod();
         if (_out->deserialize(_buf))
         {
@@ -1330,7 +1229,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::BlueprintMethod::deserialize(ByteBuf& _buf)
     {
@@ -1345,7 +1243,6 @@ namespace cfg
 
     bool blueprint::BlueprintMethod::deserializeBlueprintMethod(ByteBuf& _buf, blueprint::BlueprintMethod*& _out)
     {
-    
         _out = new blueprint::BlueprintMethod();
         if (_out->deserialize(_buf))
         {
@@ -1357,7 +1254,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::Interface::deserialize(ByteBuf& _buf)
     {
@@ -1372,7 +1268,6 @@ namespace cfg
 
     bool blueprint::Interface::deserializeInterface(ByteBuf& _buf, blueprint::Interface*& _out)
     {
-    
         _out = new blueprint::Interface();
         if (_out->deserialize(_buf))
         {
@@ -1384,7 +1279,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::NormalClazz::deserialize(ByteBuf& _buf)
     {
@@ -1401,7 +1295,6 @@ namespace cfg
 
     bool blueprint::NormalClazz::deserializeNormalClazz(ByteBuf& _buf, blueprint::NormalClazz*& _out)
     {
-    
         _out = new blueprint::NormalClazz();
         if (_out->deserialize(_buf))
         {
@@ -1413,7 +1306,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::Field::deserialize(ByteBuf& _buf)
     {
@@ -1427,7 +1319,6 @@ namespace cfg
 
     bool blueprint::Field::deserializeField(ByteBuf& _buf, blueprint::Field*& _out)
     {
-    
         _out = new blueprint::Field();
         if (_out->deserialize(_buf))
         {
@@ -1439,7 +1330,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::EnumClazz::deserialize(ByteBuf& _buf)
     {
@@ -1455,7 +1345,6 @@ namespace cfg
 
     bool blueprint::EnumClazz::deserializeEnumClazz(ByteBuf& _buf, blueprint::EnumClazz*& _out)
     {
-    
         _out = new blueprint::EnumClazz();
         if (_out->deserialize(_buf))
         {
@@ -1467,7 +1356,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool blueprint::EnumField::deserialize(ByteBuf& _buf)
     {
@@ -1480,7 +1368,6 @@ namespace cfg
 
     bool blueprint::EnumField::deserializeEnumField(ByteBuf& _buf, blueprint::EnumField*& _out)
     {
-    
         _out = new blueprint::EnumField();
         if (_out->deserialize(_buf))
         {
@@ -1492,7 +1379,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::DropInfo::deserialize(ByteBuf& _buf)
     {
@@ -1507,7 +1393,6 @@ namespace cfg
 
     bool bonus::DropInfo::deserializeDropInfo(ByteBuf& _buf, bonus::DropInfo*& _out)
     {
-    
         _out = new bonus::DropInfo();
         if (_out->deserialize(_buf))
         {
@@ -1519,7 +1404,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::ShowItemInfo::deserialize(ByteBuf& _buf)
     {
@@ -1532,7 +1416,6 @@ namespace cfg
 
     bool bonus::ShowItemInfo::deserializeShowItemInfo(ByteBuf& _buf, bonus::ShowItemInfo*& _out)
     {
-    
         _out = new bonus::ShowItemInfo();
         if (_out->deserialize(_buf))
         {
@@ -1544,7 +1427,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::Bonus::deserialize(ByteBuf& _buf)
     {
@@ -1555,12 +1437,10 @@ namespace cfg
 
     bool bonus::Bonus::deserializeBonus(ByteBuf& _buf, bonus::Bonus*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case bonus::OneItem::ID: { _out = new bonus::OneItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case bonus::OneItems::ID: { _out = new bonus::OneItems(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case bonus::Item::ID: { _out = new bonus::Item(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -1574,7 +1454,6 @@ namespace cfg
             case bonus::DropBonus::ID: { _out = new bonus::DropBonus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool bonus::OneItem::deserialize(ByteBuf& _buf)
     {
@@ -1590,7 +1469,6 @@ namespace cfg
 
     bool bonus::OneItem::deserializeOneItem(ByteBuf& _buf, bonus::OneItem*& _out)
     {
-    
         _out = new bonus::OneItem();
         if (_out->deserialize(_buf))
         {
@@ -1602,7 +1480,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::OneItems::deserialize(ByteBuf& _buf)
     {
@@ -1618,7 +1495,6 @@ namespace cfg
 
     bool bonus::OneItems::deserializeOneItems(ByteBuf& _buf, bonus::OneItems*& _out)
     {
-    
         _out = new bonus::OneItems();
         if (_out->deserialize(_buf))
         {
@@ -1630,7 +1506,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::Item::deserialize(ByteBuf& _buf)
     {
@@ -1647,7 +1522,6 @@ namespace cfg
 
     bool bonus::Item::deserializeItem(ByteBuf& _buf, bonus::Item*& _out)
     {
-    
         _out = new bonus::Item();
         if (_out->deserialize(_buf))
         {
@@ -1659,7 +1533,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::Items::deserialize(ByteBuf& _buf)
     {
@@ -1675,7 +1548,6 @@ namespace cfg
 
     bool bonus::Items::deserializeItems(ByteBuf& _buf, bonus::Items*& _out)
     {
-    
         _out = new bonus::Items();
         if (_out->deserialize(_buf))
         {
@@ -1687,7 +1559,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::CoefficientItem::deserialize(ByteBuf& _buf)
     {
@@ -1704,7 +1575,6 @@ namespace cfg
 
     bool bonus::CoefficientItem::deserializeCoefficientItem(ByteBuf& _buf, bonus::CoefficientItem*& _out)
     {
-    
         _out = new bonus::CoefficientItem();
         if (_out->deserialize(_buf))
         {
@@ -1716,7 +1586,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::WeightItems::deserialize(ByteBuf& _buf)
     {
@@ -1732,7 +1601,6 @@ namespace cfg
 
     bool bonus::WeightItems::deserializeWeightItems(ByteBuf& _buf, bonus::WeightItems*& _out)
     {
-    
         _out = new bonus::WeightItems();
         if (_out->deserialize(_buf))
         {
@@ -1744,7 +1612,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::WeightItemInfo::deserialize(ByteBuf& _buf)
     {
@@ -1758,7 +1625,6 @@ namespace cfg
 
     bool bonus::WeightItemInfo::deserializeWeightItemInfo(ByteBuf& _buf, bonus::WeightItemInfo*& _out)
     {
-    
         _out = new bonus::WeightItemInfo();
         if (_out->deserialize(_buf))
         {
@@ -1770,7 +1636,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::ProbabilityItems::deserialize(ByteBuf& _buf)
     {
@@ -1786,7 +1651,6 @@ namespace cfg
 
     bool bonus::ProbabilityItems::deserializeProbabilityItems(ByteBuf& _buf, bonus::ProbabilityItems*& _out)
     {
-    
         _out = new bonus::ProbabilityItems();
         if (_out->deserialize(_buf))
         {
@@ -1798,7 +1662,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::ProbabilityItemInfo::deserialize(ByteBuf& _buf)
     {
@@ -1812,7 +1675,6 @@ namespace cfg
 
     bool bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(ByteBuf& _buf, bonus::ProbabilityItemInfo*& _out)
     {
-    
         _out = new bonus::ProbabilityItemInfo();
         if (_out->deserialize(_buf))
         {
@@ -1824,7 +1686,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::MultiBonus::deserialize(ByteBuf& _buf)
     {
@@ -1840,7 +1701,6 @@ namespace cfg
 
     bool bonus::MultiBonus::deserializeMultiBonus(ByteBuf& _buf, bonus::MultiBonus*& _out)
     {
-    
         _out = new bonus::MultiBonus();
         if (_out->deserialize(_buf))
         {
@@ -1852,7 +1712,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::ProbabilityBonus::deserialize(ByteBuf& _buf)
     {
@@ -1868,7 +1727,6 @@ namespace cfg
 
     bool bonus::ProbabilityBonus::deserializeProbabilityBonus(ByteBuf& _buf, bonus::ProbabilityBonus*& _out)
     {
-    
         _out = new bonus::ProbabilityBonus();
         if (_out->deserialize(_buf))
         {
@@ -1880,7 +1738,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::ProbabilityBonusInfo::deserialize(ByteBuf& _buf)
     {
@@ -1893,7 +1750,6 @@ namespace cfg
 
     bool bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(ByteBuf& _buf, bonus::ProbabilityBonusInfo*& _out)
     {
-    
         _out = new bonus::ProbabilityBonusInfo();
         if (_out->deserialize(_buf))
         {
@@ -1905,7 +1761,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::WeightBonus::deserialize(ByteBuf& _buf)
     {
@@ -1921,7 +1776,6 @@ namespace cfg
 
     bool bonus::WeightBonus::deserializeWeightBonus(ByteBuf& _buf, bonus::WeightBonus*& _out)
     {
-    
         _out = new bonus::WeightBonus();
         if (_out->deserialize(_buf))
         {
@@ -1933,7 +1787,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::WeightBonusInfo::deserialize(ByteBuf& _buf)
     {
@@ -1946,7 +1799,6 @@ namespace cfg
 
     bool bonus::WeightBonusInfo::deserializeWeightBonusInfo(ByteBuf& _buf, bonus::WeightBonusInfo*& _out)
     {
-    
         _out = new bonus::WeightBonusInfo();
         if (_out->deserialize(_buf))
         {
@@ -1958,7 +1810,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool bonus::DropBonus::deserialize(ByteBuf& _buf)
     {
@@ -1974,7 +1825,6 @@ namespace cfg
 
     bool bonus::DropBonus::deserializeDropBonus(ByteBuf& _buf, bonus::DropBonus*& _out)
     {
-    
         _out = new bonus::DropBonus();
         if (_out->deserialize(_buf))
         {
@@ -1986,7 +1836,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool common::GlobalConfig::deserialize(ByteBuf& _buf)
     {
@@ -2018,7 +1867,6 @@ namespace cfg
 
     bool common::GlobalConfig::deserializeGlobalConfig(ByteBuf& _buf, common::GlobalConfig*& _out)
     {
-    
         _out = new common::GlobalConfig();
         if (_out->deserialize(_buf))
         {
@@ -2030,7 +1878,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool common::Dummy::deserialize(ByteBuf& _buf)
     {
@@ -2043,7 +1890,6 @@ namespace cfg
 
     bool common::Dummy::deserializeDummy(ByteBuf& _buf, common::Dummy*& _out)
     {
-    
         _out = new common::Dummy();
         if (_out->deserialize(_buf))
         {
@@ -2055,7 +1901,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::LimitBase::deserialize(ByteBuf& _buf)
     {
@@ -2066,12 +1911,10 @@ namespace cfg
 
     bool limit::LimitBase::deserializeLimitBase(ByteBuf& _buf, limit::LimitBase*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case limit::DailyLimit::ID: { _out = new limit::DailyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case limit::MultiDayLimit::ID: { _out = new limit::MultiDayLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case limit::WeeklyLimit::ID: { _out = new limit::WeeklyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -2080,7 +1923,6 @@ namespace cfg
             case limit::GroupCoolDown::ID: { _out = new limit::GroupCoolDown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool limit::DailyLimitBase::deserialize(ByteBuf& _buf)
     {
@@ -2095,16 +1937,13 @@ namespace cfg
 
     bool limit::DailyLimitBase::deserializeDailyLimitBase(ByteBuf& _buf, limit::DailyLimitBase*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case limit::DailyLimit::ID: { _out = new limit::DailyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool limit::DailyLimit::deserialize(ByteBuf& _buf)
     {
@@ -2120,7 +1959,6 @@ namespace cfg
 
     bool limit::DailyLimit::deserializeDailyLimit(ByteBuf& _buf, limit::DailyLimit*& _out)
     {
-    
         _out = new limit::DailyLimit();
         if (_out->deserialize(_buf))
         {
@@ -2132,7 +1970,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::MultiDayLimit::deserialize(ByteBuf& _buf)
     {
@@ -2149,7 +1986,6 @@ namespace cfg
 
     bool limit::MultiDayLimit::deserializeMultiDayLimit(ByteBuf& _buf, limit::MultiDayLimit*& _out)
     {
-    
         _out = new limit::MultiDayLimit();
         if (_out->deserialize(_buf))
         {
@@ -2161,7 +1997,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::WeeklyLimit::deserialize(ByteBuf& _buf)
     {
@@ -2177,7 +2012,6 @@ namespace cfg
 
     bool limit::WeeklyLimit::deserializeWeeklyLimit(ByteBuf& _buf, limit::WeeklyLimit*& _out)
     {
-    
         _out = new limit::WeeklyLimit();
         if (_out->deserialize(_buf))
         {
@@ -2189,7 +2023,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::MonthlyLimit::deserialize(ByteBuf& _buf)
     {
@@ -2205,7 +2038,6 @@ namespace cfg
 
     bool limit::MonthlyLimit::deserializeMonthlyLimit(ByteBuf& _buf, limit::MonthlyLimit*& _out)
     {
-    
         _out = new limit::MonthlyLimit();
         if (_out->deserialize(_buf))
         {
@@ -2217,7 +2049,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::CoolDown::deserialize(ByteBuf& _buf)
     {
@@ -2233,7 +2064,6 @@ namespace cfg
 
     bool limit::CoolDown::deserializeCoolDown(ByteBuf& _buf, limit::CoolDown*& _out)
     {
-    
         _out = new limit::CoolDown();
         if (_out->deserialize(_buf))
         {
@@ -2245,7 +2075,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool limit::GroupCoolDown::deserialize(ByteBuf& _buf)
     {
@@ -2262,7 +2091,6 @@ namespace cfg
 
     bool limit::GroupCoolDown::deserializeGroupCoolDown(ByteBuf& _buf, limit::GroupCoolDown*& _out)
     {
-    
         _out = new limit::GroupCoolDown();
         if (_out->deserialize(_buf))
         {
@@ -2274,7 +2102,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::ErrorInfo::deserialize(ByteBuf& _buf)
     {
@@ -2288,7 +2115,6 @@ namespace cfg
 
     bool error::ErrorInfo::deserializeErrorInfo(ByteBuf& _buf, error::ErrorInfo*& _out)
     {
-    
         _out = new error::ErrorInfo();
         if (_out->deserialize(_buf))
         {
@@ -2300,7 +2126,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::ErrorStyle::deserialize(ByteBuf& _buf)
     {
@@ -2311,19 +2136,16 @@ namespace cfg
 
     bool error::ErrorStyle::deserializeErrorStyle(ByteBuf& _buf, error::ErrorStyle*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case error::ErrorStyleTip::ID: { _out = new error::ErrorStyleTip(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case error::ErrorStyleMsgbox::ID: { _out = new error::ErrorStyleMsgbox(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case error::ErrorStyleDlgOk::ID: { _out = new error::ErrorStyleDlgOk(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case error::ErrorStyleDlgOkCancel::ID: { _out = new error::ErrorStyleDlgOkCancel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool error::ErrorStyleTip::deserialize(ByteBuf& _buf)
     {
@@ -2338,7 +2160,6 @@ namespace cfg
 
     bool error::ErrorStyleTip::deserializeErrorStyleTip(ByteBuf& _buf, error::ErrorStyleTip*& _out)
     {
-    
         _out = new error::ErrorStyleTip();
         if (_out->deserialize(_buf))
         {
@@ -2350,7 +2171,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::ErrorStyleMsgbox::deserialize(ByteBuf& _buf)
     {
@@ -2367,7 +2187,6 @@ namespace cfg
 
     bool error::ErrorStyleMsgbox::deserializeErrorStyleMsgbox(ByteBuf& _buf, error::ErrorStyleMsgbox*& _out)
     {
-    
         _out = new error::ErrorStyleMsgbox();
         if (_out->deserialize(_buf))
         {
@@ -2379,7 +2198,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::ErrorStyleDlgOk::deserialize(ByteBuf& _buf)
     {
@@ -2395,7 +2213,6 @@ namespace cfg
 
     bool error::ErrorStyleDlgOk::deserializeErrorStyleDlgOk(ByteBuf& _buf, error::ErrorStyleDlgOk*& _out)
     {
-    
         _out = new error::ErrorStyleDlgOk();
         if (_out->deserialize(_buf))
         {
@@ -2407,7 +2224,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::ErrorStyleDlgOkCancel::deserialize(ByteBuf& _buf)
     {
@@ -2424,7 +2240,6 @@ namespace cfg
 
     bool error::ErrorStyleDlgOkCancel::deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, error::ErrorStyleDlgOkCancel*& _out)
     {
-    
         _out = new error::ErrorStyleDlgOkCancel();
         if (_out->deserialize(_buf))
         {
@@ -2436,7 +2251,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool error::CodeInfo::deserialize(ByteBuf& _buf)
     {
@@ -2449,7 +2263,6 @@ namespace cfg
 
     bool error::CodeInfo::deserializeCodeInfo(ByteBuf& _buf, error::CodeInfo*& _out)
     {
-    
         _out = new error::CodeInfo();
         if (_out->deserialize(_buf))
         {
@@ -2461,7 +2274,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::Item::deserialize(ByteBuf& _buf)
     {
@@ -2493,7 +2305,6 @@ namespace cfg
 
     bool item::Item::deserializeItem(ByteBuf& _buf, item::Item*& _out)
     {
-    
         _out = new item::Item();
         if (_out->deserialize(_buf))
         {
@@ -2505,7 +2316,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::ItemFunction::deserialize(ByteBuf& _buf)
     {
@@ -2520,7 +2330,6 @@ namespace cfg
 
     bool item::ItemFunction::deserializeItemFunction(ByteBuf& _buf, item::ItemFunction*& _out)
     {
-    
         _out = new item::ItemFunction();
         if (_out->deserialize(_buf))
         {
@@ -2532,7 +2341,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::ItemExtra::deserialize(ByteBuf& _buf)
     {
@@ -2544,12 +2352,10 @@ namespace cfg
 
     bool item::ItemExtra::deserializeItemExtra(ByteBuf& _buf, item::ItemExtra*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case item::TreasureBox::ID: { _out = new item::TreasureBox(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case item::InteractionItem::ID: { _out = new item::InteractionItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case item::Clothes::ID: { _out = new item::Clothes(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -2557,7 +2363,6 @@ namespace cfg
             case item::Dymmy::ID: { _out = new item::Dymmy(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool item::TreasureBox::deserialize(ByteBuf& _buf)
     {
@@ -2577,7 +2382,6 @@ namespace cfg
 
     bool item::TreasureBox::deserializeTreasureBox(ByteBuf& _buf, item::TreasureBox*& _out)
     {
-    
         _out = new item::TreasureBox();
         if (_out->deserialize(_buf))
         {
@@ -2589,7 +2393,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::Condition::deserialize(ByteBuf& _buf)
     {
@@ -2600,12 +2403,10 @@ namespace cfg
 
     bool condition::Condition::deserializeCondition(ByteBuf& _buf, condition::Condition*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case condition::TimeRange::ID: { _out = new condition::TimeRange(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::MultiRoleCondition::ID: { _out = new condition::MultiRoleCondition(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -2616,7 +2417,6 @@ namespace cfg
             case condition::ContainsItem::ID: { _out = new condition::ContainsItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool condition::TimeRange::deserialize(ByteBuf& _buf)
     {
@@ -2632,7 +2432,6 @@ namespace cfg
 
     bool condition::TimeRange::deserializeTimeRange(ByteBuf& _buf, condition::TimeRange*& _out)
     {
-    
         _out = new condition::TimeRange();
         if (_out->deserialize(_buf))
         {
@@ -2644,7 +2443,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
@@ -2657,7 +2455,6 @@ namespace cfg
 
     bool common::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, common::DateTimeRange*& _out)
     {
-    
         _out = new common::DateTimeRange();
         if (_out->deserialize(_buf))
         {
@@ -2669,7 +2466,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::RoleCondition::deserialize(ByteBuf& _buf)
     {
@@ -2684,12 +2480,10 @@ namespace cfg
 
     bool condition::RoleCondition::deserializeRoleCondition(ByteBuf& _buf, condition::RoleCondition*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case condition::MultiRoleCondition::ID: { _out = new condition::MultiRoleCondition(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::MinLevel::ID: { _out = new condition::MinLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -2699,7 +2493,6 @@ namespace cfg
             case condition::ContainsItem::ID: { _out = new condition::ContainsItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool condition::MultiRoleCondition::deserialize(ByteBuf& _buf)
     {
@@ -2715,7 +2508,6 @@ namespace cfg
 
     bool condition::MultiRoleCondition::deserializeMultiRoleCondition(ByteBuf& _buf, condition::MultiRoleCondition*& _out)
     {
-    
         _out = new condition::MultiRoleCondition();
         if (_out->deserialize(_buf))
         {
@@ -2727,7 +2519,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::BoolRoleCondition::deserialize(ByteBuf& _buf)
     {
@@ -2742,12 +2533,10 @@ namespace cfg
 
     bool condition::BoolRoleCondition::deserializeBoolRoleCondition(ByteBuf& _buf, condition::BoolRoleCondition*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::MinLevel::ID: { _out = new condition::MinLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case condition::MaxLevel::ID: { _out = new condition::MaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -2755,7 +2544,6 @@ namespace cfg
             case condition::ClothesPropertyScoreGreaterThan::ID: { _out = new condition::ClothesPropertyScoreGreaterThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool condition::GenderLimit::deserialize(ByteBuf& _buf)
     {
@@ -2771,7 +2559,6 @@ namespace cfg
 
     bool condition::GenderLimit::deserializeGenderLimit(ByteBuf& _buf, condition::GenderLimit*& _out)
     {
-    
         _out = new condition::GenderLimit();
         if (_out->deserialize(_buf))
         {
@@ -2783,7 +2570,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::MinLevel::deserialize(ByteBuf& _buf)
     {
@@ -2799,7 +2585,6 @@ namespace cfg
 
     bool condition::MinLevel::deserializeMinLevel(ByteBuf& _buf, condition::MinLevel*& _out)
     {
-    
         _out = new condition::MinLevel();
         if (_out->deserialize(_buf))
         {
@@ -2811,7 +2596,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::MaxLevel::deserialize(ByteBuf& _buf)
     {
@@ -2827,7 +2611,6 @@ namespace cfg
 
     bool condition::MaxLevel::deserializeMaxLevel(ByteBuf& _buf, condition::MaxLevel*& _out)
     {
-    
         _out = new condition::MaxLevel();
         if (_out->deserialize(_buf))
         {
@@ -2839,6 +2622,5 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
 }

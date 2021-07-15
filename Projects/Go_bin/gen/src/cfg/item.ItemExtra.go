@@ -10,22 +10,16 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Item_ItemExtra struct {
     Id int32
 }
 
 
-func NewItem_ItemExtra(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, err error) {
-    _v = &Item_ItemExtra{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    return
-}
-func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -40,4 +34,11 @@ func NewChildItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err er
     }
     return
 }
+
+func NewItem_ItemExtra_Body(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, err error) {
+    _v = &Item_ItemExtra{}
+    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+    return
+}
+
 

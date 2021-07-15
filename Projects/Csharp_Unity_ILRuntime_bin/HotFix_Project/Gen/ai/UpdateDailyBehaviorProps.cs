@@ -45,29 +45,25 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
 
     public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(ByteBuf _buf)
     {
-    
         return new ai.UpdateDailyBehaviorProps(_buf);
-    
     }
 
-     public readonly string SatietyKey;
-     public readonly string EnergyKey;
-     public readonly string MoodKey;
-     public readonly string SatietyLowerThresholdKey;
-     public readonly string SatietyUpperThresholdKey;
-     public readonly string EnergyLowerThresholdKey;
-     public readonly string EnergyUpperThresholdKey;
-     public readonly string MoodLowerThresholdKey;
-     public readonly string MoodUpperThresholdKey;
-
+    public readonly string SatietyKey;
+    public readonly string EnergyKey;
+    public readonly string MoodKey;
+    public readonly string SatietyLowerThresholdKey;
+    public readonly string SatietyUpperThresholdKey;
+    public readonly string EnergyLowerThresholdKey;
+    public readonly string EnergyUpperThresholdKey;
+    public readonly string MoodLowerThresholdKey;
+    public readonly string MoodUpperThresholdKey;
 
     public const int ID = -61887372;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

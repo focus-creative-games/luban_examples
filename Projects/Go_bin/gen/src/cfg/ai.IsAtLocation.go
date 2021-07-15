@@ -28,7 +28,7 @@ func (Ai_IsAtLocation) GetTypeId() int {
 func NewAi_IsAtLocation(_buf *serialization.ByteBuf) (_v *Ai_IsAtLocation, err error) {
     _v = &Ai_IsAtLocation{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     { if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil { return } }
     { if _v.KeyboardKey, err = _buf.ReadString(); err != nil { return } }

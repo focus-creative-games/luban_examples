@@ -27,7 +27,7 @@ func (Error_ErrorStyleMsgbox) GetTypeId() int {
 func NewError_ErrorStyleMsgbox(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleMsgbox, err error) {
     _v = &Error_ErrorStyleMsgbox{}
     var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
+     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
     { if _v.BtnName, err = _buf.ReadString(); err != nil { return } }
     { if _v.Operation, err = _buf.ReadInt(); err != nil { return } }

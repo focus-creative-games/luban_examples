@@ -15,14 +15,7 @@ type Condition_RoleCondition struct {
 }
 
 
-func NewCondition_RoleCondition(_buf map[string]interface{}) (_v *Condition_RoleCondition, err error) {
-    _v = &Condition_RoleCondition{}
-    var _p *Condition_Condition
-     if _p, err = NewCondition_Condition(_buf) ; err != nil { return }
-    _v.Condition_Condition = *_p
-    return
-}
-func NewChildCondition_RoleCondition(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewCondition_RoleCondition(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -38,6 +31,14 @@ func NewChildCondition_RoleCondition(_buf map[string]interface{}) (_v interface{
         case "ContainsItem": return NewCondition_ContainsItem(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewCondition_RoleCondition_Body(_buf map[string]interface{}) (_v *Condition_RoleCondition, err error) {
+    _v = &Condition_RoleCondition{}
+    var _p *Condition_Condition
+     if _p, err = NewCondition_Condition_Body(_buf) ; err != nil { return }
+    _v.Condition_Condition = *_p
     return
 }
 

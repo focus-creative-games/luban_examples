@@ -27,10 +27,8 @@ public abstract partial class Service :  ai.Node
 
     public static Service DeserializeService(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
             case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
             case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
@@ -39,15 +37,13 @@ public abstract partial class Service :  ai.Node
             case ai.UpdateDailyBehaviorProps.ID: return new ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

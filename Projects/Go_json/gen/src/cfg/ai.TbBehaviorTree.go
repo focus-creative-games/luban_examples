@@ -17,7 +17,7 @@ func NewAi_TbBehaviorTree(_buf []map[string]interface{}) (*Ai_TbBehaviorTree, er
 	_dataList := make([]*Ai_BehaviorTree, 0, len(_buf))
 	dataMap := make(map[int32]*Ai_BehaviorTree)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewAi_BehaviorTree (_ele_); err2 != nil {
+		if _v, err2 := NewAi_BehaviorTree(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)

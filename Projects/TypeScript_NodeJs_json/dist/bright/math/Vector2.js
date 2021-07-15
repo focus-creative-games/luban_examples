@@ -28,4 +28,3 @@ class Vector2 {
     }
 }
 exports.default = Vector2;
-//# sourceMappingURL=Vector2.js.map

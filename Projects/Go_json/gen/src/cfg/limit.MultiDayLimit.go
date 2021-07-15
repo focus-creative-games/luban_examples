@@ -23,7 +23,7 @@ func (Limit_MultiDayLimit) GetTypeId() int {
 func NewLimit_MultiDayLimit(_buf map[string]interface{}) (_v *Limit_MultiDayLimit, err error) {
     _v = &Limit_MultiDayLimit{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["day"].(float64); !_ok_ { err = errors.New("day error"); return }; _v.Day = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }

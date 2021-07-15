@@ -22,7 +22,7 @@ func (Bonus_MultiBonus) GetTypeId() int {
 func NewBonus_MultiBonus(_buf map[string]interface{}) (_v *Bonus_MultiBonus, err error) {
     _v = &Bonus_MultiBonus{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
      {
                 var _arr_ []interface{}
@@ -33,7 +33,7 @@ func NewBonus_MultiBonus(_buf map[string]interface{}) (_v *Bonus_MultiBonus, err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildBonus_Bonus(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_Bonus(_x_); err != nil { return } }
                     _v.Bonuses = append(_v.Bonuses, _list_v_)
                 }
             }

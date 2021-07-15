@@ -36,4 +36,3 @@ class Vector4 {
     }
 }
 exports.default = Vector4;
-//# sourceMappingURL=Vector4.js.map

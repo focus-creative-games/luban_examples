@@ -4,7 +4,7 @@ import {cfg} from "./Gen/Types";
 import {readFileSync} from 'fs'
 
 function loader(file: string): any {
-    let data: any = readFileSync('config_data/' + file);
+    let data: any = readFileSync('config_data/' + file + '.bin');
     return new ByteBuf(data)
 }
 

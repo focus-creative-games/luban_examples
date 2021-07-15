@@ -22,7 +22,7 @@ func (Ai_ChooseTarget) GetTypeId() int {
 func NewAi_ChooseTarget(_buf map[string]interface{}) (_v *Ai_ChooseTarget, err error) {
     _v = &Ai_ChooseTarget{}
     var _p *Ai_Service
-     if _p, err = NewAi_Service(_buf) ; err != nil { return }
+     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
     { var _ok_ bool; if _v.ResultTargetKey, _ok_ = _buf["result_target_key"].(string); !_ok_ { err = errors.New("result_target_key error"); return } }
     return

@@ -29,22 +29,18 @@ public sealed partial class Dymmy :  item.ItemExtra
 
     public static Dymmy DeserializeDymmy(ByteBuf _buf)
     {
-    
         return new item.Dymmy(_buf);
-    
     }
 
-     public readonly cost.Cost Cost;
-
+    public readonly cost.Cost Cost;
 
     public const int ID = 896889705;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            Cost?.Resolve(_tables);
+        base.Resolve(_tables);
+        Cost?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

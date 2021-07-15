@@ -64,9 +64,9 @@ func NewMail_GlobalMail(_buf *serialization.ByteBuf) (_v *Mail_GlobalMail, err e
 
     { if _v.Platform, err = _buf.ReadString(); err != nil { return } }
     { if _v.Channel, err = _buf.ReadString(); err != nil { return } }
-    { if _v.MinMaxLevel, err = NewCondition_MinMaxLevel (_buf); err != nil { return } }
-    { if _v.RegisterTime, err = NewCondition_TimeRange (_buf); err != nil { return } }
-    { if _v.MailTime, err = NewCondition_TimeRange (_buf); err != nil { return } }
+    { if _v.MinMaxLevel, err = NewCondition_MinMaxLevel(_buf); err != nil { return } }
+    { if _v.RegisterTime, err = NewCondition_TimeRange(_buf); err != nil { return } }
+    { if _v.MailTime, err = NewCondition_TimeRange(_buf); err != nil { return } }
     return
 }
 

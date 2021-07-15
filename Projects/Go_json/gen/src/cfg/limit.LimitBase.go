@@ -14,11 +14,7 @@ type Limit_LimitBase struct {
 }
 
 
-func NewLimit_LimitBase(_buf map[string]interface{}) (_v *Limit_LimitBase, err error) {
-    _v = &Limit_LimitBase{}
-    return
-}
-func NewChildLimit_LimitBase(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewLimit_LimitBase(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -33,6 +29,11 @@ func NewChildLimit_LimitBase(_buf map[string]interface{}) (_v interface{}, err e
         case "GroupCoolDown": return NewLimit_GroupCoolDown(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewLimit_LimitBase_Body(_buf map[string]interface{}) (_v *Limit_LimitBase, err error) {
+    _v = &Limit_LimitBase{}
     return
 }
 

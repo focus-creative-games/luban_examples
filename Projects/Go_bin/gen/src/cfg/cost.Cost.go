@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Cost_Cost struct {
 }
 
 
-func NewCost_Cost(_buf *serialization.ByteBuf) (_v *Cost_Cost, err error) {
-    _v = &Cost_Cost{}
-    return
-}
-func NewChildCost_Cost(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewCost_Cost(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -38,4 +33,10 @@ func NewChildCost_Cost(_buf *serialization.ByteBuf) (_v interface{}, err error) 
     }
     return
 }
+
+func NewCost_Cost_Body(_buf *serialization.ByteBuf) (_v *Cost_Cost, err error) {
+    _v = &Cost_Cost{}
+    return
+}
+
 

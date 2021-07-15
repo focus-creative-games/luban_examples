@@ -37,25 +37,20 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
 
     public static SystemMail DeserializeSystemMail(ByteBuf _buf)
     {
-    
         return new mail.SystemMail(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly string Title;
-     public readonly string Sender;
-     public readonly string Content;
-     public readonly System.Collections.Generic.List<int> Award;
-
+    public readonly int Id;
+    public readonly string Title;
+    public readonly string Sender;
+    public readonly string Content;
+    public readonly System.Collections.Generic.List<int> Award;
 
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 
@@ -68,7 +63,7 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         + "Title:" + Title + ","
         + "Sender:" + Sender + ","
         + "Content:" + Content + ","
-        + "Award:" + Award + ","
+        + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
     }

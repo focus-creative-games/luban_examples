@@ -24,7 +24,7 @@ func (Condition_ContainsItem) GetTypeId() int {
 func NewCondition_ContainsItem(_buf map[string]interface{}) (_v *Condition_ContainsItem, err error) {
     _v = &Condition_ContainsItem{}
     var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["item_id"].(float64); !_ok_ { err = errors.New("item_id error"); return }; _v.ItemId = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }

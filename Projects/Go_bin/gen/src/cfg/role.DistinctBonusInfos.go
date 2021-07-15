@@ -32,7 +32,7 @@ func NewRole_DistinctBonusInfos(_buf *serialization.ByteBuf) (_v *Role_DistinctB
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Role_BonusInfo
-                    { if _e_, err = NewRole_BonusInfo (_buf); err != nil { return } }
+                    { if _e_, err = NewRole_BonusInfo(_buf); err != nil { return } }
                     _v.BonusInfo = append(_v.BonusInfo, _e_)
                 }
             }

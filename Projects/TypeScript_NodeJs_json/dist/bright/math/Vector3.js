@@ -32,4 +32,3 @@ class Vector3 {
     }
 }
 exports.default = Vector3;
-//# sourceMappingURL=Vector3.js.map

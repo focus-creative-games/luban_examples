@@ -26,9 +26,9 @@ func (Item_Dymmy) GetTypeId() int {
 func NewItem_Dymmy(_buf *serialization.ByteBuf) (_v *Item_Dymmy, err error) {
     _v = &Item_Dymmy{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
-    { if _v.Cost, err = NewChildCost_Cost(_buf); err != nil { return } }
+    { if _v.Cost, err = NewCost_Cost(_buf); err != nil { return } }
     return
 }
 

@@ -22,7 +22,7 @@ func (Test_DemoE1) GetTypeId() int {
 func NewTest_DemoE1(_buf map[string]interface{}) (_v *Test_DemoE1, err error) {
     _v = &Test_DemoE1{}
     var _p *Test_DemoD3
-     if _p, err = NewTest_DemoD3(_buf) ; err != nil { return }
+     if _p, err = NewTest_DemoD3_Body(_buf) ; err != nil { return }
     _v.Test_DemoD3 = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int32(_tempNum_) }
     return

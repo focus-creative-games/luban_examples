@@ -37,27 +37,23 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public static TreasureBox DeserializeTreasureBox(ByteBuf _buf)
     {
-    
         return new item.TreasureBox(_buf);
-    
     }
 
-     public readonly int? KeyItemId;
-     public readonly condition.MinLevel OpenLevel;
-     public readonly bool UseOnObtain;
-     public readonly System.Collections.Generic.List<int> DropIds;
-     public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
-
+    public readonly int? KeyItemId;
+    public readonly condition.MinLevel OpenLevel;
+    public readonly bool UseOnObtain;
+    public readonly System.Collections.Generic.List<int> DropIds;
+    public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
 
     public const int ID = 1494222369;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            OpenLevel?.Resolve(_tables);
-            foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        OpenLevel?.Resolve(_tables);
+        foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -70,8 +66,8 @@ base.Resolve(_tables);
         + "KeyItemId:" + KeyItemId + ","
         + "OpenLevel:" + OpenLevel + ","
         + "UseOnObtain:" + UseOnObtain + ","
-        + "DropIds:" + DropIds + ","
-        + "ChooseList:" + ChooseList + ","
+        + "DropIds:" + Bright.Common.StringUtil.CollectionToString(DropIds) + ","
+        + "ChooseList:" + Bright.Common.StringUtil.CollectionToString(ChooseList) + ","
         + "}";
     }
     }

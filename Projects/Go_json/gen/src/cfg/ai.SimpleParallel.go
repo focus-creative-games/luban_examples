@@ -24,11 +24,11 @@ func (Ai_SimpleParallel) GetTypeId() int {
 func NewAi_SimpleParallel(_buf map[string]interface{}) (_v *Ai_SimpleParallel, err error) {
     _v = &Ai_SimpleParallel{}
     var _p *Ai_ComposeNode
-     if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
+     if _p, err = NewAi_ComposeNode_Body(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["finish_mode"].(float64); !_ok_ { err = errors.New("finish_mode error"); return }; _v.FinishMode = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["main_task"].(map[string]interface{}); !_ok_ { err = errors.New("main_task error"); return }; if _v.MainTask, err = NewChildAi_Task(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["background_node"].(map[string]interface{}); !_ok_ { err = errors.New("background_node error"); return }; if _v.BackgroundNode, err = NewChildAi_FlowNode(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["main_task"].(map[string]interface{}); !_ok_ { err = errors.New("main_task error"); return }; if _v.MainTask, err = NewAi_Task(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["background_node"].(map[string]interface{}); !_ok_ { err = errors.New("background_node error"); return }; if _v.BackgroundNode, err = NewAi_FlowNode(_x_); err != nil { return } }
     return
 }
 

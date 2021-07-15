@@ -6,7 +6,8 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 %GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir Assets/Lua/Gen ^
+ --output_code_dir Assets/Lua/Gen ^
+ --output_data_dir Assets/Lua/Data ^
  --gen_types data_lua ^
  -s all ^
 --export_test_data

@@ -21,7 +21,7 @@ func (Blueprint_BlueprintMethod) GetTypeId() int {
 func NewBlueprint_BlueprintMethod(_buf map[string]interface{}) (_v *Blueprint_BlueprintMethod, err error) {
     _v = &Blueprint_BlueprintMethod{}
     var _p *Blueprint_Method
-     if _p, err = NewBlueprint_Method(_buf) ; err != nil { return }
+     if _p, err = NewBlueprint_Method_Body(_buf) ; err != nil { return }
     _v.Blueprint_Method = *_p
     return
 }

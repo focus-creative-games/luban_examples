@@ -17,7 +17,7 @@ func NewError_TbErrorInfo(_buf []map[string]interface{}) (*Error_TbErrorInfo, er
 	_dataList := make([]*Error_ErrorInfo, 0, len(_buf))
 	dataMap := make(map[string]*Error_ErrorInfo)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewError_ErrorInfo (_ele_); err2 != nil {
+		if _v, err2 := NewError_ErrorInfo(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)

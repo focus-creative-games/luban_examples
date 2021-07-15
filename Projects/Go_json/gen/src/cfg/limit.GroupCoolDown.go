@@ -23,7 +23,7 @@ func (Limit_GroupCoolDown) GetTypeId() int {
 func NewLimit_GroupCoolDown(_buf map[string]interface{}) (_v *Limit_GroupCoolDown, err error) {
     _v = &Limit_GroupCoolDown{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["group_id"].(float64); !_ok_ { err = errors.New("group_id error"); return }; _v.GroupId = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["duration"].(float64); !_ok_ { err = errors.New("duration error"); return }; _v.Duration = int32(_tempNum_) }

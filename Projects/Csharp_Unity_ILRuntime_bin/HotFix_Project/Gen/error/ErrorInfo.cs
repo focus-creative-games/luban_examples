@@ -33,24 +33,19 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
 
     public static ErrorInfo DeserializeErrorInfo(ByteBuf _buf)
     {
-    
         return new error.ErrorInfo(_buf);
-    
     }
 
-     public readonly string Code;
-     public readonly string Desc;
-     public readonly error.ErrorStyle Style;
-
+    public readonly string Code;
+    public readonly string Desc;
+    public readonly error.ErrorStyle Style;
 
     public const int ID = 1389347408;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Style?.Resolve(_tables);
+        Style?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

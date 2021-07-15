@@ -36,7 +36,7 @@ func NewAi_Blackboard(_buf *serialization.ByteBuf) (_v *Ai_Blackboard, err error
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Ai_BlackboardKey
-                    { if _e_, err = NewAi_BlackboardKey (_buf); err != nil { return } }
+                    { if _e_, err = NewAi_BlackboardKey(_buf); err != nil { return } }
                     _v.Keys = append(_v.Keys, _e_)
                 }
             }

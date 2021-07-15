@@ -27,10 +27,10 @@ func (Ai_BinaryOperator) GetTypeId() int {
 func NewAi_BinaryOperator(_buf *serialization.ByteBuf) (_v *Ai_BinaryOperator, err error) {
     _v = &Ai_BinaryOperator{}
     var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
     _v.Ai_KeyQueryOperator = *_p
     { if _v.Oper, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Data, err = NewChildAi_KeyData(_buf); err != nil { return } }
+    { if _v.Data, err = NewAi_KeyData(_buf); err != nil { return } }
     return
 }
 

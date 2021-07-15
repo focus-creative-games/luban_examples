@@ -101,7 +101,7 @@ function Load(typeDefs, configFileloader)
     for _, t in pairs(tableDefs) do
         --print("load table:", ttostring(t))
         buf:Clear()
-        buf:WriteBytesWithoutSize(read_file_all_bytes(configPath .. "/" .. t.file))
+        buf:WriteBytesWithoutSize(read_file_all_bytes(configPath .. "/" .. t.file .. ".bin"))
 
         local valueType = beanDefs[t.value_type]
         local mode = t.mode

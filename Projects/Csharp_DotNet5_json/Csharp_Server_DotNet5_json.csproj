@@ -15,6 +15,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".cache.meta" />
+    <None Remove="gen_code_json.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Core\" />
     <Folder Include="Gen\" />
   </ItemGroup>

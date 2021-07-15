@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_KeyData struct {
 }
 
 
-func NewAi_KeyData(_buf *serialization.ByteBuf) (_v *Ai_KeyData, err error) {
-    _v = &Ai_KeyData{}
-    return
-}
-func NewChildAi_KeyData(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_KeyData(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -37,4 +32,10 @@ func NewChildAi_KeyData(_buf *serialization.ByteBuf) (_v interface{}, err error)
     }
     return
 }
+
+func NewAi_KeyData_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyData, err error) {
+    _v = &Ai_KeyData{}
+    return
+}
+
 

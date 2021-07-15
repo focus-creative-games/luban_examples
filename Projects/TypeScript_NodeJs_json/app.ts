@@ -7,7 +7,7 @@ var fs = require('fs');
 console.log('Hello world');
 
 function loader(file: string): any {
-    let data = fs.readFileSync('config_data/' + file, 'utf8');
+    let data = fs.readFileSync('config_data/' + file + '.json', 'utf8');
     return JSON.parse(data);
 }
 

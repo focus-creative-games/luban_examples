@@ -51,7 +51,6 @@ public sealed partial class TbItemExtra
     }
 
 
-
     partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 

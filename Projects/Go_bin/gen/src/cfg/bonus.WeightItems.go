@@ -26,7 +26,7 @@ func (Bonus_WeightItems) GetTypeId() int {
 func NewBonus_WeightItems(_buf *serialization.ByteBuf) (_v *Bonus_WeightItems, err error) {
     _v = &Bonus_WeightItems{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
      {
                 _v.ItemList = make([]*Bonus_WeightItemInfo, 0)
@@ -34,7 +34,7 @@ func NewBonus_WeightItems(_buf *serialization.ByteBuf) (_v *Bonus_WeightItems, e
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Bonus_WeightItemInfo
-                    { if _e_, err = NewBonus_WeightItemInfo (_buf); err != nil { return } }
+                    { if _e_, err = NewBonus_WeightItemInfo(_buf); err != nil { return } }
                     _v.ItemList = append(_v.ItemList, _e_)
                 }
             }

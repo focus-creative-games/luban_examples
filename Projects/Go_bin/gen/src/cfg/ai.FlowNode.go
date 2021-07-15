@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_FlowNode struct {
     Ai_Node
@@ -22,36 +21,7 @@ type Ai_FlowNode struct {
 }
 
 
-func NewAi_FlowNode(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err error) {
-    _v = &Ai_FlowNode{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-     {
-                _v.Decorators = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewChildAi_Decorator(_buf); err != nil { return } }
-                    _v.Decorators = append(_v.Decorators, _e_)
-                }
-            }
-
-     {
-                _v.Services = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewChildAi_Service(_buf); err != nil { return } }
-                    _v.Services = append(_v.Services, _e_)
-                }
-            }
-
-    return
-}
-func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -71,4 +41,35 @@ func NewChildAi_FlowNode(_buf *serialization.ByteBuf) (_v interface{}, err error
     }
     return
 }
+
+func NewAi_FlowNode_Body(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err error) {
+    _v = &Ai_FlowNode{}
+    var _p *Ai_Node
+     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
+    _v.Ai_Node = *_p
+     {
+                _v.Decorators = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewAi_Decorator(_buf); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _e_)
+                }
+            }
+
+     {
+                _v.Services = make([]interface{}, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ interface{}
+                    { if _e_, err = NewAi_Service(_buf); err != nil { return } }
+                    _v.Services = append(_v.Services, _e_)
+                }
+            }
+
+    return
+}
+
 

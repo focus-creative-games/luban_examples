@@ -17,7 +17,7 @@ func NewMail_TbSystemMail(_buf []map[string]interface{}) (*Mail_TbSystemMail, er
 	_dataList := make([]*Mail_SystemMail, 0, len(_buf))
 	dataMap := make(map[int32]*Mail_SystemMail)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewMail_SystemMail (_ele_); err2 != nil {
+		if _v, err2 := NewMail_SystemMail(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)

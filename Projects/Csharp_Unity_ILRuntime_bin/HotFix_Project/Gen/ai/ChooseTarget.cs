@@ -29,21 +29,17 @@ public sealed partial class ChooseTarget :  ai.Service
 
     public static ChooseTarget DeserializeChooseTarget(ByteBuf _buf)
     {
-    
         return new ai.ChooseTarget(_buf);
-    
     }
 
-     public readonly string ResultTargetKey;
-
+    public readonly string ResultTargetKey;
 
     public const int ID = 1601247918;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

@@ -35,24 +35,20 @@ public sealed partial class Clothes :  item.ItemExtra
 
     public static Clothes DeserializeClothes(ByteBuf _buf)
     {
-    
         return new item.Clothes(_buf);
-    
     }
 
-     public readonly int Attack;
-     public readonly long Hp;
-     public readonly int EnergyLimit;
-     public readonly int EnergyResume;
-
+    public readonly int Attack;
+    public readonly long Hp;
+    public readonly int EnergyLimit;
+    public readonly int EnergyResume;
 
     public const int ID = 1659907149;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

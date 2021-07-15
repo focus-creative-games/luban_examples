@@ -25,7 +25,7 @@ func (Item_Clothes) GetTypeId() int {
 func NewItem_Clothes(_buf map[string]interface{}) (_v *Item_Clothes, err error) {
     _v = &Item_Clothes{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["attack"].(float64); !_ok_ { err = errors.New("attack error"); return }; _v.Attack = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["hp"].(float64); !_ok_ { err = errors.New("hp error"); return }; _v.Hp = int64(_tempNum_) }

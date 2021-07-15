@@ -22,7 +22,7 @@ func (Cost_CostItems) GetTypeId() int {
 func NewCost_CostItems(_buf map[string]interface{}) (_v *Cost_CostItems, err error) {
     _v = &Cost_CostItems{}
     var _p *Cost_Cost
-     if _p, err = NewCost_Cost(_buf) ; err != nil { return }
+     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
      {
                 var _arr_ []interface{}
@@ -33,7 +33,7 @@ func NewCost_CostItems(_buf map[string]interface{}) (_v *Cost_CostItems, err err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Cost_CostItem
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewCost_CostItem (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewCost_CostItem(_x_); err != nil { return } }
                     _v.ItemList = append(_v.ItemList, _list_v_)
                 }
             }

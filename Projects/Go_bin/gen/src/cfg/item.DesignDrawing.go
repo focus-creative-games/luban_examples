@@ -26,7 +26,7 @@ func (Item_DesignDrawing) GetTypeId() int {
 func NewItem_DesignDrawing(_buf *serialization.ByteBuf) (_v *Item_DesignDrawing, err error) {
     _v = &Item_DesignDrawing{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
      {
                 _v.LearnComponentId = make([]int32, 0)

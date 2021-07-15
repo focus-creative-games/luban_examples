@@ -23,10 +23,10 @@ func (Ai_BinaryOperator) GetTypeId() int {
 func NewAi_BinaryOperator(_buf map[string]interface{}) (_v *Ai_BinaryOperator, err error) {
     _v = &Ai_BinaryOperator{}
     var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
     _v.Ai_KeyQueryOperator = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["oper"].(float64); !_ok_ { err = errors.New("oper error"); return }; _v.Oper = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = NewChildAi_KeyData(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = NewAi_KeyData(_x_); err != nil { return } }
     return
 }
 

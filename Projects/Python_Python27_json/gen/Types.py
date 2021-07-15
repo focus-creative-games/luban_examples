@@ -7,6 +7,7 @@
   </auto-generated>
 '''
 
+
 class Vector2:
     def __init__(self, x, y):
         self.x = x
@@ -57,6 +58,22 @@ class Vector4:
         if (x == None or y == None or z == None or w == None):
             raise Exception()
         return Vector4(x, y, z, w)
+
+
+
+
+class role_Consts:
+    MAX_NAME_LENGTH = 20
+    MAX_USER_ROLE_NUM = 10
+
+
+
+
+class test_DemoConst:
+    x1 = 0
+    x2 = 3242
+    x3 = 444.3
+    x4 = 55.3
 
 
 
@@ -381,18 +398,22 @@ class test_ETestEmptyEnum2:
 
 
 
-class role_Consts:
-    MAX_NAME_LENGTH = 20
-    MAX_USER_ROLE_NUM = 10
 
+class ai_TbBlackboard:
 
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = ai_Blackboard(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.name] = _v
 
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
 
-class test_DemoConst:
-    x1 = 0
-    x2 = 3242
-    x3 = 444.3
-    x4 = 55.3
+    def get(self, key) : return self._dataMap.get(key)
 
 
 
@@ -429,6 +450,26 @@ class ai_BlackboardKey :
         self.type = _json_["type"]
         if _json_['type_class_name'] == None: raise Exception()
         self.type_class_name = _json_["type_class_name"]
+
+
+
+
+class ai_TbBehaviorTree:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = ai_BehaviorTree(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1099,6 +1140,26 @@ class ai_DebugPrint (ai_Task):
 
 
 
+class blueprint_TbClazz:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = blueprint_Clazz.fromJson(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.name] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class blueprint_Clazz :
     _childrenTypes = None
@@ -1276,6 +1337,26 @@ class blueprint_EnumField :
         self.name = _json_["name"]
         if _json_['value'] == None: raise Exception()
         self.value = _json_["value"]
+
+
+
+
+class bonus_TbDrop:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = bonus_DropInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1527,6 +1608,39 @@ class bonus_DropBonus (bonus_Bonus):
 
 
 
+class common_TbGlobalConfig:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = common_GlobalConfig(_json_[0])
+
+    def getData(self) : return self._data
+
+    def bag_capacity(self) : return self._data.bag_capacity
+    def bag_capacity_special(self) : return self._data.bag_capacity_special
+    def bag_temp_expendable_capacity(self) : return self._data.bag_temp_expendable_capacity
+    def bag_temp_tool_capacity(self) : return self._data.bag_temp_tool_capacity
+    def bag_init_capacity(self) : return self._data.bag_init_capacity
+    def quick_bag_capacity(self) : return self._data.quick_bag_capacity
+    def cloth_bag_capacity(self) : return self._data.cloth_bag_capacity
+    def cloth_bag_init_capacity(self) : return self._data.cloth_bag_init_capacity
+    def cloth_bag_capacity_special(self) : return self._data.cloth_bag_capacity_special
+    def bag_init_items_drop_id(self) : return self._data.bag_init_items_drop_id
+    def mail_box_capacity(self) : return self._data.mail_box_capacity
+    def damage_param_c(self) : return self._data.damage_param_c
+    def damage_param_e(self) : return self._data.damage_param_e
+    def damage_param_f(self) : return self._data.damage_param_f
+    def damage_param_d(self) : return self._data.damage_param_d
+    def role_speed(self) : return self._data.role_speed
+    def monster_speed(self) : return self._data.monster_speed
+    def init_energy(self) : return self._data.init_energy
+    def init_viality(self) : return self._data.init_viality
+    def max_viality(self) : return self._data.max_viality
+    def per_viality_recovery_time(self) : return self._data.per_viality_recovery_time
+
+
+
+
 
 class common_GlobalConfig :
 
@@ -1572,6 +1686,26 @@ class common_GlobalConfig :
         self.max_viality = _json_["max_viality"]
         if _json_['per_viality_recovery_time'] == None: raise Exception()
         self.per_viality_recovery_time = _json_["per_viality_recovery_time"]
+
+
+
+
+class common_TbDummy:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = common_Dummy(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1714,6 +1848,26 @@ class limit_GroupCoolDown (limit_LimitBase):
 
 
 
+class error_TbErrorInfo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = error_ErrorInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.code] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class error_ErrorInfo :
 
@@ -1804,6 +1958,26 @@ class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
 
 
 
+class error_TbCodeInfo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = error_CodeInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.code] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class error_CodeInfo :
 
@@ -1812,6 +1986,26 @@ class error_CodeInfo :
         self.code = _json_["code"]
         if _json_['key'] == None: raise Exception()
         self.key = _json_["key"]
+
+
+
+
+class item_TbItem:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_Item(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1864,6 +2058,26 @@ class item_Item :
 
 
 
+class item_TbItemFunc:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_ItemFunction(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.minor_type] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class item_ItemFunction :
 
@@ -1876,6 +2090,26 @@ class item_ItemFunction :
         self.method = _json_["method"]
         if _json_['close_bag_ui'] == None: raise Exception()
         self.close_bag_ui = _json_["close_bag_ui"]
+
+
+
+
+class item_TbItemExtra:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_ItemExtra.fromJson(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2284,6 +2518,26 @@ class cost_CostItems (cost_Cost):
 
 
 
+class l10n_TbL10NDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_L10NDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class l10n_L10NDemo :
 
@@ -2296,6 +2550,26 @@ class l10n_L10NDemo :
 
 
 
+class l10n_TbPatchDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_PatchDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class l10n_PatchDemo :
 
@@ -2304,6 +2578,26 @@ class l10n_PatchDemo :
         self.id = _json_["id"]
         if _json_['value'] == None: raise Exception()
         self.value = _json_["value"]
+
+
+
+
+class mail_TbSystemMail:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = mail_SystemMail(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2322,6 +2616,26 @@ class mail_SystemMail :
         self.content = _json_["content"]
         if _json_['award'] == None: raise Exception()
         self.award = _json_["award"]
+
+
+
+
+class mail_TbGlobalMail:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = mail_GlobalMail(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2358,6 +2672,26 @@ class mail_GlobalMail :
 
 
 
+class role_TbRoleLevelExpAttr:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = role_LevelExpAttr(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.level] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class role_LevelExpAttr :
 
@@ -2368,6 +2702,26 @@ class role_LevelExpAttr :
         self.need_exp = _json_["need_exp"]
         if _json_['clothes_attrs'] == None: raise Exception()
         self.clothes_attrs = _json_["clothes_attrs"]
+
+
+
+
+class role_TbRoleLevelBonusCoefficient:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = role_LevelBonus(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2410,6 +2764,26 @@ class role_BonusInfo :
 
 
 
+class tag_TbTestTag:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = tag_TestTag(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
 
 class tag_TestTag :
 
@@ -2418,6 +2792,26 @@ class tag_TestTag :
         self.id = _json_["id"]
         if _json_['value'] == None: raise Exception()
         self.value = _json_["value"]
+
+
+
+
+class test_TbFullTypes:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoType2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x3] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2610,524 +3004,6 @@ class test_DemoE2 :
 
 
 
-
-class test_DemoSingletonType :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['date'] == None: raise Exception()
-        self.date = test_DemoDynamic.fromJson(_json_["date"])
-
-
-
-
-
-class test_MultiRowRecord :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['one_rows'] == None: raise Exception()
-        self.one_rows = []
-        for _ele in _json_["one_rows"]: _e = test_MultiRowType1(_ele); self.one_rows.append(_e)
-        if _json_['multi_rows1'] == None: raise Exception()
-        self.multi_rows1 = []
-        for _ele in _json_["multi_rows1"]: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
-        if _json_['multi_rows2'] == None: raise Exception()
-        self.multi_rows2 = []
-        for _ele in _json_["multi_rows2"]: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
-        if _json_['multi_rows3'] == None: raise Exception()
-        self.multi_rows3 = set()
-        for _ele in _json_["multi_rows3"]: _e = test_MultiRowType2(_ele); self.multi_rows3.add(_e)
-        if _json_['multi_rows4'] == None: raise Exception()
-        self.multi_rows4 = {}
-        for _ek, _ev in _json_["multi_rows4"]: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
-
-
-
-
-
-class test_MultiRowType1 :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['x'] == None: raise Exception()
-        self.x = _json_["x"]
-
-
-
-
-
-class test_MultiRowType2 :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['x'] == None: raise Exception()
-        self.x = _json_["x"]
-        if _json_['y'] == None: raise Exception()
-        self.y = _json_["y"]
-
-
-
-
-
-class test_MultiRowTitle :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['x1'] == None: raise Exception()
-        self.x1 = test_H1(_json_["x1"])
-        if _json_['x2'] == None: raise Exception()
-        self.x2 = []
-        for _ele in _json_["x2"]: _e = test_H2(_ele); self.x2.append(_e)
-        if _json_['x3'] == None: raise Exception()
-        self.x3 = []
-        for _ele in _json_["x3"]: _e = test_H2(_ele); self.x3.append(_e)
-
-
-
-
-
-class test_H1 :
-
-    def __init__(self, _json_):
-        if _json_['y2'] == None: raise Exception()
-        self.y2 = test_H2(_json_["y2"])
-        if _json_['y3'] == None: raise Exception()
-        self.y3 = _json_["y3"]
-
-
-
-
-
-class test_H2 :
-
-    def __init__(self, _json_):
-        if _json_['z2'] == None: raise Exception()
-        self.z2 = _json_["z2"]
-        if _json_['z3'] == None: raise Exception()
-        self.z3 = _json_["z3"]
-
-
-
-
-
-class test_TestNull :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_["x1"] != None: self.x1 = _json_["x1"]
-        if _json_["x2"] != None: self.x2 = _json_["x2"]
-        if _json_["x3"] != None: self.x3 = test_DemoType1(_json_["x3"])
-        if _json_["x4"] != None: self.x4 = test_DemoDynamic.fromJson(_json_["x4"])
-
-
-
-
-class ai_TbBlackboard:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = ai_Blackboard(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.name] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class ai_TbBehaviorTree:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = ai_BehaviorTree(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class blueprint_TbClazz:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = blueprint_Clazz.fromJson(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.name] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class bonus_TbDrop:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = bonus_DropInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class common_TbGlobalConfig:
-
-    def __init__(self, _json_):
-        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
-        self._data = common_GlobalConfig(_json_[0])
-
-    def getData(self) : return self._data
-
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity_special(self) : return self._data.bag_capacity_special
-    def bag_temp_expendable_capacity(self) : return self._data.bag_temp_expendable_capacity
-    def bag_temp_tool_capacity(self) : return self._data.bag_temp_tool_capacity
-    def bag_init_capacity(self) : return self._data.bag_init_capacity
-    def quick_bag_capacity(self) : return self._data.quick_bag_capacity
-    def cloth_bag_capacity(self) : return self._data.cloth_bag_capacity
-    def cloth_bag_init_capacity(self) : return self._data.cloth_bag_init_capacity
-    def cloth_bag_capacity_special(self) : return self._data.cloth_bag_capacity_special
-    def bag_init_items_drop_id(self) : return self._data.bag_init_items_drop_id
-    def mail_box_capacity(self) : return self._data.mail_box_capacity
-    def damage_param_c(self) : return self._data.damage_param_c
-    def damage_param_e(self) : return self._data.damage_param_e
-    def damage_param_f(self) : return self._data.damage_param_f
-    def damage_param_d(self) : return self._data.damage_param_d
-    def role_speed(self) : return self._data.role_speed
-    def monster_speed(self) : return self._data.monster_speed
-    def init_energy(self) : return self._data.init_energy
-    def init_viality(self) : return self._data.init_viality
-    def max_viality(self) : return self._data.max_viality
-    def per_viality_recovery_time(self) : return self._data.per_viality_recovery_time
-
-
-
-
-class common_TbDummy:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = common_Dummy(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class error_TbErrorInfo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = error_ErrorInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.code] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class error_TbCodeInfo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = error_CodeInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.code] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItem:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_Item(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItemFunc:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_ItemFunction(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.minor_type] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItemExtra:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_ItemExtra.fromJson(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class l10n_TbL10NDemo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = l10n_L10NDemo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class l10n_TbPatchDemo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = l10n_PatchDemo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class mail_TbSystemMail:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = mail_SystemMail(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class mail_TbGlobalMail:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = mail_GlobalMail(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class role_TbRoleLevelExpAttr:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = role_LevelExpAttr(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.level] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class role_TbRoleLevelBonusCoefficient:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = role_LevelBonus(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class tag_TbTestTag:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = tag_TestTag(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class test_TbFullTypes:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = test_DemoType2(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.x3] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
 class test_TbSingleton:
 
     def __init__(self, _json_):
@@ -3139,6 +3015,20 @@ class test_TbSingleton:
     def id(self) : return self._data.id
     def name(self) : return self._data.name
     def date(self) : return self._data.date
+
+
+
+
+
+class test_DemoSingletonType :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['name'] == None: raise Exception()
+        self.name = _json_["name"]
+        if _json_['date'] == None: raise Exception()
+        self.date = test_DemoDynamic.fromJson(_json_["date"])
 
 
 
@@ -3223,6 +3113,59 @@ class test_TbMultiRowRecord:
 
 
 
+
+class test_MultiRowRecord :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['name'] == None: raise Exception()
+        self.name = _json_["name"]
+        if _json_['one_rows'] == None: raise Exception()
+        self.one_rows = []
+        for _ele in _json_["one_rows"]: _e = test_MultiRowType1(_ele); self.one_rows.append(_e)
+        if _json_['multi_rows1'] == None: raise Exception()
+        self.multi_rows1 = []
+        for _ele in _json_["multi_rows1"]: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
+        if _json_['multi_rows2'] == None: raise Exception()
+        self.multi_rows2 = []
+        for _ele in _json_["multi_rows2"]: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
+        if _json_['multi_rows3'] == None: raise Exception()
+        self.multi_rows3 = set()
+        for _ele in _json_["multi_rows3"]: _e = test_MultiRowType2(_ele); self.multi_rows3.add(_e)
+        if _json_['multi_rows4'] == None: raise Exception()
+        self.multi_rows4 = {}
+        for _ek, _ev in _json_["multi_rows4"]: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
+
+
+
+
+
+class test_MultiRowType1 :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['x'] == None: raise Exception()
+        self.x = _json_["x"]
+
+
+
+
+
+class test_MultiRowType2 :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['x'] == None: raise Exception()
+        self.x = _json_["x"]
+        if _json_['y'] == None: raise Exception()
+        self.y = _json_["y"]
+
+
+
+
 class test_TbMultiRowTitle:
 
     def __init__(self, _json_ ):
@@ -3243,6 +3186,50 @@ class test_TbMultiRowTitle:
 
 
 
+
+class test_MultiRowTitle :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['name'] == None: raise Exception()
+        self.name = _json_["name"]
+        if _json_['x1'] == None: raise Exception()
+        self.x1 = test_H1(_json_["x1"])
+        if _json_['x2'] == None: raise Exception()
+        self.x2 = []
+        for _ele in _json_["x2"]: _e = test_H2(_ele); self.x2.append(_e)
+        if _json_['x3'] == None: raise Exception()
+        self.x3 = []
+        for _ele in _json_["x3"]: _e = test_H2(_ele); self.x3.append(_e)
+
+
+
+
+
+class test_H1 :
+
+    def __init__(self, _json_):
+        if _json_['y2'] == None: raise Exception()
+        self.y2 = test_H2(_json_["y2"])
+        if _json_['y3'] == None: raise Exception()
+        self.y3 = _json_["y3"]
+
+
+
+
+
+class test_H2 :
+
+    def __init__(self, _json_):
+        if _json_['z2'] == None: raise Exception()
+        self.z2 = _json_["z2"]
+        if _json_['z3'] == None: raise Exception()
+        self.z3 = _json_["z3"]
+
+
+
+
 class test_TbTestNull:
 
     def __init__(self, _json_ ):
@@ -3259,6 +3246,268 @@ class test_TbTestNull:
 
     def get(self, key) : return self._dataMap.get(key)
 
+
+
+
+
+
+class test_TestNull :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_["x1"] != None: self.x1 = _json_["x1"]
+        if _json_["x2"] != None: self.x2 = _json_["x2"]
+        if _json_["x3"] != None: self.x3 = test_DemoType1(_json_["x3"])
+        if _json_["x4"] != None: self.x4 = test_DemoDynamic.fromJson(_json_["x4"])
+        if _json_["s1"] != None: self.s1 = _json_["s1"]
+        if _json_["s2"] != None: self.s2 = _json_["s2"]
+
+
+
+
+class test_TbDemoPrimitive:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoPrimitiveTypesTable(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x4] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DemoPrimitiveTypesTable :
+
+    def __init__(self, _json_):
+        if _json_['x1'] == None: raise Exception()
+        self.x1 = _json_["x1"]
+        if _json_['x2'] == None: raise Exception()
+        self.x2 = _json_["x2"]
+        if _json_['x3'] == None: raise Exception()
+        self.x3 = _json_["x3"]
+        if _json_['x4'] == None: raise Exception()
+        self.x4 = _json_["x4"]
+        if _json_['x5'] == None: raise Exception()
+        self.x5 = _json_["x5"]
+        if _json_['x6'] == None: raise Exception()
+        self.x6 = _json_["x6"]
+        if _json_['x7'] == None: raise Exception()
+        self.x7 = _json_["x7"]
+        if _json_['s1'] == None: raise Exception()
+        self.s1 = _json_["s1"]
+        if _json_['s2'] == None: raise Exception()
+        self.s2 = _json_["s2"]
+        if _json_['v2'] == None: raise Exception()
+        self.v2 = Vector2.fromJson(_json_["v2"])
+        if _json_['v3'] == None: raise Exception()
+        self.v3 = Vector3.fromJson(_json_["v3"])
+        if _json_['v4'] == None: raise Exception()
+        self.v4 = Vector4.fromJson(_json_["v4"])
+        if _json_['t1'] == None: raise Exception()
+        self.t1 = _json_["t1"]
+
+
+
+
+class test_TbTestString:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestString(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_TestString :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['s1'] == None: raise Exception()
+        self.s1 = _json_["s1"]
+        if _json_['cs1'] == None: raise Exception()
+        self.cs1 = test_CompactString(_json_["cs1"])
+        if _json_['cs2'] == None: raise Exception()
+        self.cs2 = test_CompactString(_json_["cs2"])
+
+
+
+
+
+class test_CompactString :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['s2'] == None: raise Exception()
+        self.s2 = _json_["s2"]
+        if _json_['s3'] == None: raise Exception()
+        self.s3 = _json_["s3"]
+
+
+
+
+class test_TbDemoGroup:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DemoGroup :
+
+    def __init__(self, _json_):
+        if _json_['id'] == None: raise Exception()
+        self.id = _json_["id"]
+        if _json_['x1'] == None: raise Exception()
+        self.x1 = _json_["x1"]
+        if _json_['x2'] == None: raise Exception()
+        self.x2 = _json_["x2"]
+        if _json_['x3'] == None: raise Exception()
+        self.x3 = _json_["x3"]
+        if _json_['x4'] == None: raise Exception()
+        self.x4 = _json_["x4"]
+        if _json_['x5'] == None: raise Exception()
+        self.x5 = test_InnerGroup(_json_["x5"])
+
+
+
+
+
+class test_InnerGroup :
+
+    def __init__(self, _json_):
+        if _json_['y1'] == None: raise Exception()
+        self.y1 = _json_["y1"]
+        if _json_['y2'] == None: raise Exception()
+        self.y2 = _json_["y2"]
+        if _json_['y3'] == None: raise Exception()
+        self.y3 = _json_["y3"]
+        if _json_['y4'] == None: raise Exception()
+        self.y4 = _json_["y4"]
+
+
+
+
+class test_TbDemoGroup_C:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbDemoGroup_S:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbDemoGroup_E:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbTestGlobal:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = test_TestGlobal(_json_[0])
+
+    def getData(self) : return self._data
+
+    def unlock_equip(self) : return self._data.unlock_equip
+    def unlock_hero(self) : return self._data.unlock_hero
+
+
+
+
+
+class test_TestGlobal :
+
+    def __init__(self, _json_):
+        if _json_['unlock_equip'] == None: raise Exception()
+        self.unlock_equip = _json_["unlock_equip"]
+        if _json_['unlock_hero'] == None: raise Exception()
+        self.unlock_hero = _json_["unlock_hero"]
 
 
 
@@ -3290,32 +3539,46 @@ class Tables:
     #def TbMultiRowRecord : return self._TbMultiRowRecord
     #def TbMultiRowTitle : return self._TbMultiRowTitle
     #def TbTestNull : return self._TbTestNull
+    #def TbDemoPrimitive : return self._TbDemoPrimitive
+    #def TbTestString : return self._TbTestString
+    #def TbDemoGroup : return self._TbDemoGroup
+    #def TbDemoGroup_C : return self._TbDemoGroup_C
+    #def TbDemoGroup_S : return self._TbDemoGroup_S
+    #def TbDemoGroup_E : return self._TbDemoGroup_E
+    #def TbTestGlobal : return self._TbTestGlobal
 
     def __init__(self, loader):
-        self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard.json')); 
-        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai.TbBehaviorTree.json')); 
-        self.TbClazz = blueprint_TbClazz(loader('blueprint.TbClazz.json')); 
-        self.TbDrop = bonus_TbDrop(loader('bonus.TbDrop.json')); 
-        self.TbGlobalConfig = common_TbGlobalConfig(loader('common.TbGlobalConfig.json')); 
-        self.TbDummy = common_TbDummy(loader('common.TbDummy.json')); 
-        self.TbErrorInfo = error_TbErrorInfo(loader('error.TbErrorInfo.json')); 
-        self.TbCodeInfo = error_TbCodeInfo(loader('error.TbCodeInfo.json')); 
-        self.TbItem = item_TbItem(loader('item.TbItem.json')); 
-        self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc.json')); 
-        self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra.json')); 
-        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo.json')); 
-        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo.json')); 
-        self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail.json')); 
-        self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail.json')); 
-        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr.json')); 
-        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient.json')); 
-        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag.json')); 
-        self.TbFullTypes = test_TbFullTypes(loader('test.TbFullTypes.json')); 
-        self.TbSingleton = test_TbSingleton(loader('test.TbSingleton.json')); 
-        self.TbDataFromJson = test_TbDataFromJson(loader('test.TbDataFromJson.json')); 
-        self.TbDataFromXml = test_TbDataFromXml(loader('test.TbDataFromXml.json')); 
-        self.TbDataFromLua = test_TbDataFromLua(loader('test.TbDataFromLua.json')); 
-        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test.TbMultiRowRecord.json')); 
-        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test.TbMultiRowTitle.json')); 
-        self.TbTestNull = test_TbTestNull(loader('test.TbTestNull.json')); 
+        self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard')); 
+        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai.TbBehaviorTree')); 
+        self.TbClazz = blueprint_TbClazz(loader('blueprint.TbClazz')); 
+        self.TbDrop = bonus_TbDrop(loader('bonus.TbDrop')); 
+        self.TbGlobalConfig = common_TbGlobalConfig(loader('common.TbGlobalConfig')); 
+        self.TbDummy = common_TbDummy(loader('common.TbDummy')); 
+        self.TbErrorInfo = error_TbErrorInfo(loader('error.TbErrorInfo')); 
+        self.TbCodeInfo = error_TbCodeInfo(loader('error.TbCodeInfo')); 
+        self.TbItem = item_TbItem(loader('item.TbItem')); 
+        self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc')); 
+        self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra')); 
+        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo')); 
+        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo')); 
+        self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail')); 
+        self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail')); 
+        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr')); 
+        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient')); 
+        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag')); 
+        self.TbFullTypes = test_TbFullTypes(loader('test.TbFullTypes')); 
+        self.TbSingleton = test_TbSingleton(loader('test.TbSingleton')); 
+        self.TbDataFromJson = test_TbDataFromJson(loader('test.TbDataFromJson')); 
+        self.TbDataFromXml = test_TbDataFromXml(loader('test.TbDataFromXml')); 
+        self.TbDataFromLua = test_TbDataFromLua(loader('test.TbDataFromLua')); 
+        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test.TbMultiRowRecord')); 
+        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test.TbMultiRowTitle')); 
+        self.TbTestNull = test_TbTestNull(loader('test.TbTestNull')); 
+        self.TbDemoPrimitive = test_TbDemoPrimitive(loader('test.TbDemoPrimitive')); 
+        self.TbTestString = test_TbTestString(loader('test.TbTestString')); 
+        self.TbDemoGroup = test_TbDemoGroup(loader('test.TbDemoGroup')); 
+        self.TbDemoGroup_C = test_TbDemoGroup_C(loader('test.TbDemoGroup_C')); 
+        self.TbDemoGroup_S = test_TbDemoGroup_S(loader('test.TbDemoGroup_S')); 
+        self.TbDemoGroup_E = test_TbDemoGroup_E(loader('test.TbDemoGroup_E')); 
+        self.TbTestGlobal = test_TbTestGlobal(loader('test.TbTestGlobal')); 
 

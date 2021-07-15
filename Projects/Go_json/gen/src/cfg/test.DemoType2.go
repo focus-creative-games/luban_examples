@@ -60,9 +60,9 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x8"].(float64); !_ok_ { err = errors.New("x8 error"); return }; _v.X8 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x9"].(float64); !_ok_ { err = errors.New("x9 error"); return }; _v.X9 = int64(_tempNum_) }
     { var _ok_ bool; if _v.X10, _ok_ = _buf["x10"].(string); !_ok_ { err = errors.New("x10 error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x12"].(map[string]interface{}); !_ok_ { err = errors.New("x12 error"); return }; if _v.X12, err = NewTest_DemoType1 (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x12"].(map[string]interface{}); !_ok_ { err = errors.New("x12 error"); return }; if _v.X12, err = NewTest_DemoType1(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x13"].(float64); !_ok_ { err = errors.New("x13 error"); return }; _v.X13 = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = NewChildTest_DemoDynamic(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = NewTest_DemoDynamic(_x_); err != nil { return } }
     { var _ok_ bool; if _v.S1, _ok_ = _buf["s1"].(string); !_ok_ { err = errors.New("s1 error"); return } }
     { var _ok_ bool; var _v_ map[string]interface{}; if _v_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }
             var _x_, _y_ float32;
@@ -213,7 +213,7 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Test_DemoE2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoE2 (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoE2(_x_); err != nil { return } }
                     _v.K9 = append(_v.K9, _list_v_)
                 }
             }
@@ -227,7 +227,7 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildTest_DemoDynamic(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoDynamic(_x_); err != nil { return } }
                     _v.K15 = append(_v.K15, _list_v_)
                 }
             }

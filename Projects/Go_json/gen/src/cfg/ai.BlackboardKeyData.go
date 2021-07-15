@@ -22,7 +22,7 @@ func (Ai_BlackboardKeyData) GetTypeId() int {
 func NewAi_BlackboardKeyData(_buf map[string]interface{}) (_v *Ai_BlackboardKeyData, err error) {
     _v = &Ai_BlackboardKeyData{}
     var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
     { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
     return

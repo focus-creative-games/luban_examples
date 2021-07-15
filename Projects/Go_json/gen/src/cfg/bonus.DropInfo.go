@@ -34,12 +34,12 @@ func NewBonus_DropInfo(_buf map[string]interface{}) (_v *Bonus_DropInfo, err err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Bonus_ShowItemInfo
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_ShowItemInfo (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_ShowItemInfo(_x_); err != nil { return } }
                     _v.ClientShowItems = append(_v.ClientShowItems, _list_v_)
                 }
             }
 
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewChildBonus_Bonus(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewBonus_Bonus(_x_); err != nil { return } }
     return
 }
 

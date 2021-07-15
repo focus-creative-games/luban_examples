@@ -23,7 +23,7 @@ func NewTest_TbTestString(_buf *serialization.ByteBuf) (*Test_TbTestString, erro
 		dataMap := make(map[int32]*Test_TestString)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_TestString (_buf); err2 != nil {
+			if _v, err2 := NewTest_TestString(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)

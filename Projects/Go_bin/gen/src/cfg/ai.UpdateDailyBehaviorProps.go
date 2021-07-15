@@ -34,7 +34,7 @@ func (Ai_UpdateDailyBehaviorProps) GetTypeId() int {
 func NewAi_UpdateDailyBehaviorProps(_buf *serialization.ByteBuf) (_v *Ai_UpdateDailyBehaviorProps, err error) {
     _v = &Ai_UpdateDailyBehaviorProps{}
     var _p *Ai_Service
-     if _p, err = NewAi_Service(_buf) ; err != nil { return }
+     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
     { if _v.SatietyKey, err = _buf.ReadString(); err != nil { return } }
     { if _v.EnergyKey, err = _buf.ReadString(); err != nil { return } }

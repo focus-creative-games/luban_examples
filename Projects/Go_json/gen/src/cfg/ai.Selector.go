@@ -22,7 +22,7 @@ func (Ai_Selector) GetTypeId() int {
 func NewAi_Selector(_buf map[string]interface{}) (_v *Ai_Selector, err error) {
     _v = &Ai_Selector{}
     var _p *Ai_ComposeNode
-     if _p, err = NewAi_ComposeNode(_buf) ; err != nil { return }
+     if _p, err = NewAi_ComposeNode_Body(_buf) ; err != nil { return }
     _v.Ai_ComposeNode = *_p
      {
                 var _arr_ []interface{}
@@ -33,7 +33,7 @@ func NewAi_Selector(_buf map[string]interface{}) (_v *Ai_Selector, err error) {
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildAi_FlowNode(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_FlowNode(_x_); err != nil { return } }
                     _v.Children = append(_v.Children, _list_v_)
                 }
             }

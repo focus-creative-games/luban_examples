@@ -26,7 +26,7 @@ func (Condition_MultiRoleCondition) GetTypeId() int {
 func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition_MultiRoleCondition, err error) {
     _v = &Condition_MultiRoleCondition{}
     var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
      {
                 _v.Conditions = make([]interface{}, 0)
@@ -34,7 +34,7 @@ func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ interface{}
-                    { if _e_, err = NewChildCondition_RoleCondition(_buf); err != nil { return } }
+                    { if _e_, err = NewCondition_RoleCondition(_buf); err != nil { return } }
                     _v.Conditions = append(_v.Conditions, _e_)
                 }
             }

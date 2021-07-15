@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Condition_Condition struct {
 }
 
 
-func NewCondition_Condition(_buf *serialization.ByteBuf) (_v *Condition_Condition, err error) {
-    _v = &Condition_Condition{}
-    return
-}
-func NewChildCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -41,4 +36,10 @@ func NewChildCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, e
     }
     return
 }
+
+func NewCondition_Condition_Body(_buf *serialization.ByteBuf) (_v *Condition_Condition, err error) {
+    _v = &Condition_Condition{}
+    return
+}
+
 

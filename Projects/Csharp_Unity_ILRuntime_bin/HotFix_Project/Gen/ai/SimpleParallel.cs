@@ -33,25 +33,21 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
     {
-    
         return new ai.SimpleParallel(_buf);
-    
     }
 
-     public readonly ai.EFinishMode FinishMode;
-     public readonly ai.Task MainTask;
-     public readonly ai.FlowNode BackgroundNode;
-
+    public readonly ai.EFinishMode FinishMode;
+    public readonly ai.Task MainTask;
+    public readonly ai.FlowNode BackgroundNode;
 
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            MainTask?.Resolve(_tables);
-            BackgroundNode?.Resolve(_tables);
+        base.Resolve(_tables);
+        MainTask?.Resolve(_tables);
+        BackgroundNode?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -62,8 +58,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "FinishMode:" + FinishMode + ","
         + "MainTask:" + MainTask + ","
         + "BackgroundNode:" + BackgroundNode + ","

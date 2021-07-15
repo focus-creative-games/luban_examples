@@ -15,7 +15,7 @@ public class Main : MonoBehaviour
 
     private static ByteBuf LoadByteBuf(string file)
     {
-        return new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../config_data/" + file));
+        return new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../config_data/" + file + ".bin"));
     }
 
     // Update is called once per frame

@@ -29,7 +29,6 @@ namespace cfg
 
     bool condition::MinMaxLevel::deserializeMinMaxLevel(ByteBuf& _buf, condition::MinMaxLevel*& _out)
     {
-    
         _out = new condition::MinMaxLevel();
         if (_out->deserialize(_buf))
         {
@@ -41,7 +40,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::ClothesPropertyScoreGreaterThan::deserialize(ByteBuf& _buf)
     {
@@ -58,7 +56,6 @@ namespace cfg
 
     bool condition::ClothesPropertyScoreGreaterThan::deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, condition::ClothesPropertyScoreGreaterThan*& _out)
     {
-    
         _out = new condition::ClothesPropertyScoreGreaterThan();
         if (_out->deserialize(_buf))
         {
@@ -70,7 +67,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool condition::ContainsItem::deserialize(ByteBuf& _buf)
     {
@@ -88,7 +84,6 @@ namespace cfg
 
     bool condition::ContainsItem::deserializeContainsItem(ByteBuf& _buf, condition::ContainsItem*& _out)
     {
-    
         _out = new condition::ContainsItem();
         if (_out->deserialize(_buf))
         {
@@ -100,7 +95,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::ChooseOneBonus::deserialize(ByteBuf& _buf)
     {
@@ -113,7 +107,6 @@ namespace cfg
 
     bool item::ChooseOneBonus::deserializeChooseOneBonus(ByteBuf& _buf, item::ChooseOneBonus*& _out)
     {
-    
         _out = new item::ChooseOneBonus();
         if (_out->deserialize(_buf))
         {
@@ -125,7 +118,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::InteractionItem::deserialize(ByteBuf& _buf)
     {
@@ -143,7 +135,6 @@ namespace cfg
 
     bool item::InteractionItem::deserializeInteractionItem(ByteBuf& _buf, item::InteractionItem*& _out)
     {
-    
         _out = new item::InteractionItem();
         if (_out->deserialize(_buf))
         {
@@ -155,7 +146,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::Clothes::deserialize(ByteBuf& _buf)
     {
@@ -174,7 +164,6 @@ namespace cfg
 
     bool item::Clothes::deserializeClothes(ByteBuf& _buf, item::Clothes*& _out)
     {
-    
         _out = new item::Clothes();
         if (_out->deserialize(_buf))
         {
@@ -186,7 +175,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::DesignDrawing::deserialize(ByteBuf& _buf)
     {
@@ -202,7 +190,6 @@ namespace cfg
 
     bool item::DesignDrawing::deserializeDesignDrawing(ByteBuf& _buf, item::DesignDrawing*& _out)
     {
-    
         _out = new item::DesignDrawing();
         if (_out->deserialize(_buf))
         {
@@ -214,7 +201,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool item::Dymmy::deserialize(ByteBuf& _buf)
     {
@@ -230,7 +216,6 @@ namespace cfg
 
     bool item::Dymmy::deserializeDymmy(ByteBuf& _buf, item::Dymmy*& _out)
     {
-    
         _out = new item::Dymmy();
         if (_out->deserialize(_buf))
         {
@@ -242,7 +227,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool cost::Cost::deserialize(ByteBuf& _buf)
     {
@@ -253,12 +237,10 @@ namespace cfg
 
     bool cost::Cost::deserializeCost(ByteBuf& _buf, cost::Cost*& _out)
     {
-    
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case 0 : { _out = nullptr; return true; }
             case cost::CostCurrency::ID: { _out = new cost::CostCurrency(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case cost::CostCurrencies::ID: { _out = new cost::CostCurrencies(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             case cost::CostOneItem::ID: { _out = new cost::CostOneItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
@@ -266,7 +248,6 @@ namespace cfg
             case cost::CostItems::ID: { _out = new cost::CostItems(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
             default: { _out = nullptr; return false;}
         }
-    
     }
     bool cost::CostCurrency::deserialize(ByteBuf& _buf)
     {
@@ -283,7 +264,6 @@ namespace cfg
 
     bool cost::CostCurrency::deserializeCostCurrency(ByteBuf& _buf, cost::CostCurrency*& _out)
     {
-    
         _out = new cost::CostCurrency();
         if (_out->deserialize(_buf))
         {
@@ -295,7 +275,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool cost::CostCurrencies::deserialize(ByteBuf& _buf)
     {
@@ -311,7 +290,6 @@ namespace cfg
 
     bool cost::CostCurrencies::deserializeCostCurrencies(ByteBuf& _buf, cost::CostCurrencies*& _out)
     {
-    
         _out = new cost::CostCurrencies();
         if (_out->deserialize(_buf))
         {
@@ -323,7 +301,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool cost::CostOneItem::deserialize(ByteBuf& _buf)
     {
@@ -339,7 +316,6 @@ namespace cfg
 
     bool cost::CostOneItem::deserializeCostOneItem(ByteBuf& _buf, cost::CostOneItem*& _out)
     {
-    
         _out = new cost::CostOneItem();
         if (_out->deserialize(_buf))
         {
@@ -351,7 +327,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool cost::CostItem::deserialize(ByteBuf& _buf)
     {
@@ -368,7 +343,6 @@ namespace cfg
 
     bool cost::CostItem::deserializeCostItem(ByteBuf& _buf, cost::CostItem*& _out)
     {
-    
         _out = new cost::CostItem();
         if (_out->deserialize(_buf))
         {
@@ -380,7 +354,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool cost::CostItems::deserialize(ByteBuf& _buf)
     {
@@ -396,7 +369,6 @@ namespace cfg
 
     bool cost::CostItems::deserializeCostItems(ByteBuf& _buf, cost::CostItems*& _out)
     {
-    
         _out = new cost::CostItems();
         if (_out->deserialize(_buf))
         {
@@ -408,7 +380,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool l10n::L10NDemo::deserialize(ByteBuf& _buf)
     {
@@ -421,7 +392,6 @@ namespace cfg
 
     bool l10n::L10NDemo::deserializeL10NDemo(ByteBuf& _buf, l10n::L10NDemo*& _out)
     {
-    
         _out = new l10n::L10NDemo();
         if (_out->deserialize(_buf))
         {
@@ -433,7 +403,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool l10n::PatchDemo::deserialize(ByteBuf& _buf)
     {
@@ -446,7 +415,6 @@ namespace cfg
 
     bool l10n::PatchDemo::deserializePatchDemo(ByteBuf& _buf, l10n::PatchDemo*& _out)
     {
-    
         _out = new l10n::PatchDemo();
         if (_out->deserialize(_buf))
         {
@@ -458,7 +426,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool mail::SystemMail::deserialize(ByteBuf& _buf)
     {
@@ -474,7 +441,6 @@ namespace cfg
 
     bool mail::SystemMail::deserializeSystemMail(ByteBuf& _buf, mail::SystemMail*& _out)
     {
-    
         _out = new mail::SystemMail();
         if (_out->deserialize(_buf))
         {
@@ -486,7 +452,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool mail::GlobalMail::deserialize(ByteBuf& _buf)
     {
@@ -509,7 +474,6 @@ namespace cfg
 
     bool mail::GlobalMail::deserializeGlobalMail(ByteBuf& _buf, mail::GlobalMail*& _out)
     {
-    
         _out = new mail::GlobalMail();
         if (_out->deserialize(_buf))
         {
@@ -521,7 +485,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool role::LevelExpAttr::deserialize(ByteBuf& _buf)
     {
@@ -535,7 +498,6 @@ namespace cfg
 
     bool role::LevelExpAttr::deserializeLevelExpAttr(ByteBuf& _buf, role::LevelExpAttr*& _out)
     {
-    
         _out = new role::LevelExpAttr();
         if (_out->deserialize(_buf))
         {
@@ -547,7 +509,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool role::LevelBonus::deserialize(ByteBuf& _buf)
     {
@@ -560,7 +521,6 @@ namespace cfg
 
     bool role::LevelBonus::deserializeLevelBonus(ByteBuf& _buf, role::LevelBonus*& _out)
     {
-    
         _out = new role::LevelBonus();
         if (_out->deserialize(_buf))
         {
@@ -572,7 +532,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool role::DistinctBonusInfos::deserialize(ByteBuf& _buf)
     {
@@ -585,7 +544,6 @@ namespace cfg
 
     bool role::DistinctBonusInfos::deserializeDistinctBonusInfos(ByteBuf& _buf, role::DistinctBonusInfos*& _out)
     {
-    
         _out = new role::DistinctBonusInfos();
         if (_out->deserialize(_buf))
         {
@@ -597,7 +555,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool role::BonusInfo::deserialize(ByteBuf& _buf)
     {
@@ -610,7 +567,6 @@ namespace cfg
 
     bool role::BonusInfo::deserializeBonusInfo(ByteBuf& _buf, role::BonusInfo*& _out)
     {
-    
         _out = new role::BonusInfo();
         if (_out->deserialize(_buf))
         {
@@ -622,7 +578,6 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
     }
     bool tag::TestTag::deserialize(ByteBuf& _buf)
     {
@@ -635,7 +590,6 @@ namespace cfg
 
     bool tag::TestTag::deserializeTestTag(ByteBuf& _buf, tag::TestTag*& _out)
     {
-    
         _out = new tag::TestTag();
         if (_out->deserialize(_buf))
         {
@@ -647,6 +601,600 @@ namespace cfg
             _out = nullptr;
             return false;
         }
-    
+    }
+    bool test::DemoType2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x4)) return false;
+        if (!_buf.readBool(x1)) return false;
+        if(!_buf.readByte(x2)) return false;
+        if(!_buf.readShort(x3)) return false;
+        if(!_buf.readLong(x5)) return false;
+        if(!_buf.readFloat(x6)) return false;
+        if(!_buf.readDouble(x7)) return false;
+        if(!_buf.readFshort(x80)) return false;
+        if(!_buf.readFint(x8)) return false;
+        if(!_buf.readFlong(x9)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, x10)) return false;
+        if(!test::DemoType1::deserializeDemoType1(_buf, x12)) return false;
+        {int _temp_; if(!_buf.readInt(_temp_)) return false; x13 = test::DemoEnum(_temp_); }
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
+        if(!_buf.readString(s1)) return false;
+        if(!_buf.readVector2(v2)) return false;
+        if(!_buf.readVector3(v3)) return false;
+        if(!_buf.readVector4(v4)) return false;
+        if(!_buf.readInt(t1)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());k1.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k2.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k2.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k3.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k3.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k4.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k4.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k5.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k5.insert(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k6.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k6.insert(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k7.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; k7.insert(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _k;  if(!_buf.readInt(_k)) return false; int32_t _v;  if(!_buf.readInt(_v)) return false;     k8[_k] = _v;}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k9.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoE2* _e;  if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());k15.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoDynamic* _e;if(!test::DemoDynamic::deserializeDemoDynamic(_buf, _e)) return false; k15.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::DemoType2::deserializeDemoType2(ByteBuf& _buf, test::DemoType2*& _out)
+    {
+        _out = new test::DemoType2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoType1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x1)) return false;
+
+        return true;
+    }
+
+    bool test::DemoType1::deserializeDemoType1(ByteBuf& _buf, test::DemoType1*& _out)
+    {
+        _out = new test::DemoType1();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoDynamic::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x1)) return false;
+
+        return true;
+    }
+
+    bool test::DemoDynamic::deserializeDemoDynamic(ByteBuf& _buf, test::DemoDynamic*& _out)
+    {
+        int id;
+        if (!_buf.readInt(id)) return false;
+        switch (id)
+        {
+            case test::DemoD2::ID: { _out = new test::DemoD2(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case test::DemoE1::ID: { _out = new test::DemoE1(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case test::DemoD5::ID: { _out = new test::DemoD5(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            default: { _out = nullptr; return false;}
+        }
+    }
+    bool test::DemoD2::deserialize(ByteBuf& _buf)
+    {
+        if (!test::DemoDynamic::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(x2)) return false;
+
+        return true;
+    }
+
+    bool test::DemoD2::deserializeDemoD2(ByteBuf& _buf, test::DemoD2*& _out)
+    {
+        _out = new test::DemoD2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoD3::deserialize(ByteBuf& _buf)
+    {
+        if (!test::DemoDynamic::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(x3)) return false;
+
+        return true;
+    }
+
+    bool test::DemoD3::deserializeDemoD3(ByteBuf& _buf, test::DemoD3*& _out)
+    {
+        int id;
+        if (!_buf.readInt(id)) return false;
+        switch (id)
+        {
+            case test::DemoE1::ID: { _out = new test::DemoE1(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            default: { _out = nullptr; return false;}
+        }
+    }
+    bool test::DemoE1::deserialize(ByteBuf& _buf)
+    {
+        if (!test::DemoD3::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(x4)) return false;
+
+        return true;
+    }
+
+    bool test::DemoE1::deserializeDemoE1(ByteBuf& _buf, test::DemoE1*& _out)
+    {
+        _out = new test::DemoE1();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoD5::deserialize(ByteBuf& _buf)
+    {
+        if (!test::DemoDynamic::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!test::DateTimeRange::deserializeDateTimeRange(_buf, time)) return false;
+
+        return true;
+    }
+
+    bool test::DemoD5::deserializeDemoD5(ByteBuf& _buf, test::DemoD5*& _out)
+    {
+        _out = new test::DemoD5();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DateTimeRange::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(startTime)) return false;
+        if(!_buf.readInt(endTime)) return false;
+
+        return true;
+    }
+
+    bool test::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, test::DateTimeRange*& _out)
+    {
+        _out = new test::DateTimeRange();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoE2::deserialize(ByteBuf& _buf)
+    {
+
+        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(y1)) return false; } else { y1 = {}; } }
+        if (!_buf.readBool(y2)) return false;
+
+        return true;
+    }
+
+    bool test::DemoE2::deserializeDemoE2(ByteBuf& _buf, test::DemoE2*& _out)
+    {
+        _out = new test::DemoE2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoSingletonType::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, date)) return false;
+
+        return true;
+    }
+
+    bool test::DemoSingletonType::deserializeDemoSingletonType(ByteBuf& _buf, test::DemoSingletonType*& _out)
+    {
+        _out = new test::DemoSingletonType();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::MultiRowRecord::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); oneRows.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; oneRows.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows1.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows1.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());multiRows2.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows2.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { test::MultiRowType2* _e;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _e)) return false; multiRows3.insert(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _k;  if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false;     multiRows4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::MultiRowRecord::deserializeMultiRowRecord(ByteBuf& _buf, test::MultiRowRecord*& _out)
+    {
+        _out = new test::MultiRowRecord();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::MultiRowType1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(x)) return false;
+
+        return true;
+    }
+
+    bool test::MultiRowType1::deserializeMultiRowType1(ByteBuf& _buf, test::MultiRowType1*& _out)
+    {
+        _out = new test::MultiRowType1();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::MultiRowType2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(x)) return false;
+        if(!_buf.readFloat(y)) return false;
+
+        return true;
+    }
+
+    bool test::MultiRowType2::deserializeMultiRowType2(ByteBuf& _buf, test::MultiRowType2*& _out)
+    {
+        _out = new test::MultiRowType2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::MultiRowTitle::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
+        if(!test::H1::deserializeH1(_buf, x1)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); x2.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e;  if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());x3.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::MultiRowTitle::deserializeMultiRowTitle(ByteBuf& _buf, test::MultiRowTitle*& _out)
+    {
+        _out = new test::MultiRowTitle();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::H1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!test::H2::deserializeH2(_buf, y2)) return false;
+        if(!_buf.readInt(y3)) return false;
+
+        return true;
+    }
+
+    bool test::H1::deserializeH1(ByteBuf& _buf, test::H1*& _out)
+    {
+        _out = new test::H1();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::H2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(z2)) return false;
+        if(!_buf.readInt(z3)) return false;
+
+        return true;
+    }
+
+    bool test::H2::deserializeH2(ByteBuf& _buf, test::H2*& _out)
+    {
+        _out = new test::H2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::TestNull::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(x1)) return false; } else { x1 = {}; } }
+        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { {int _temp_; if(!_buf.readInt(_temp_)) return false; x2 = test::DemoEnum(_temp_); } } else { x2 = {}; } }
+        if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false;
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false;
+        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!BYTEBUF_READ_STRING(_buf, s1)) return false; } else { s1 = {}; } }
+        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readString(s2)) return false; } else { s2 = {}; } }
+
+        return true;
+    }
+
+    bool test::TestNull::deserializeTestNull(ByteBuf& _buf, test::TestNull*& _out)
+    {
+        _out = new test::TestNull();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoPrimitiveTypesTable::deserialize(ByteBuf& _buf)
+    {
+
+        if (!_buf.readBool(x1)) return false;
+        if(!_buf.readByte(x2)) return false;
+        if(!_buf.readShort(x3)) return false;
+        if(!_buf.readInt(x4)) return false;
+        if(!_buf.readLong(x5)) return false;
+        if(!_buf.readFloat(x6)) return false;
+        if(!_buf.readDouble(x7)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, s1)) return false;
+        if(!_buf.readString(s2)) return false;
+        if(!_buf.readVector2(v2)) return false;
+        if(!_buf.readVector3(v3)) return false;
+        if(!_buf.readVector4(v4)) return false;
+        if(!_buf.readInt(t1)) return false;
+
+        return true;
+    }
+
+    bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, test::DemoPrimitiveTypesTable*& _out)
+    {
+        _out = new test::DemoPrimitiveTypesTable();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::TestString::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, s1)) return false;
+        if(!test::CompactString::deserializeCompactString(_buf, cs1)) return false;
+        if(!test::CompactString::deserializeCompactString(_buf, cs2)) return false;
+
+        return true;
+    }
+
+    bool test::TestString::deserializeTestString(ByteBuf& _buf, test::TestString*& _out)
+    {
+        _out = new test::TestString();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::CompactString::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, s2)) return false;
+        if(!BYTEBUF_READ_STRING(_buf, s3)) return false;
+
+        return true;
+    }
+
+    bool test::CompactString::deserializeCompactString(ByteBuf& _buf, test::CompactString*& _out)
+    {
+        _out = new test::CompactString();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::DemoGroup::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(x1)) return false;
+        if(!_buf.readInt(x2)) return false;
+        if(!_buf.readInt(x3)) return false;
+        if(!_buf.readInt(x4)) return false;
+        if(!test::InnerGroup::deserializeInnerGroup(_buf, x5)) return false;
+
+        return true;
+    }
+
+    bool test::DemoGroup::deserializeDemoGroup(ByteBuf& _buf, test::DemoGroup*& _out)
+    {
+        _out = new test::DemoGroup();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::InnerGroup::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(y1)) return false;
+        if(!_buf.readInt(y2)) return false;
+        if(!_buf.readInt(y3)) return false;
+        if(!_buf.readInt(y4)) return false;
+
+        return true;
+    }
+
+    bool test::InnerGroup::deserializeInnerGroup(ByteBuf& _buf, test::InnerGroup*& _out)
+    {
+        _out = new test::InnerGroup();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+    bool test::TestGlobal::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(unlockEquip)) return false;
+        if(!_buf.readInt(unlockHero)) return false;
+
+        return true;
+    }
+
+    bool test::TestGlobal::deserializeTestGlobal(ByteBuf& _buf, test::TestGlobal*& _out)
+    {
+        _out = new test::TestGlobal();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
     }
 }

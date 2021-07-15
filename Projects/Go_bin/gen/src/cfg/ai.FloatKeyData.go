@@ -26,7 +26,7 @@ func (Ai_FloatKeyData) GetTypeId() int {
 func NewAi_FloatKeyData(_buf *serialization.ByteBuf) (_v *Ai_FloatKeyData, err error) {
     _v = &Ai_FloatKeyData{}
     var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
     { if _v.Value, err = _buf.ReadFloat(); err != nil { return } }
     return

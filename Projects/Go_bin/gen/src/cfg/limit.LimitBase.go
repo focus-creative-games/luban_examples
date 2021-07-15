@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Limit_LimitBase struct {
 }
 
 
-func NewLimit_LimitBase(_buf *serialization.ByteBuf) (_v *Limit_LimitBase, err error) {
-    _v = &Limit_LimitBase{}
-    return
-}
-func NewChildLimit_LimitBase(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewLimit_LimitBase(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -39,4 +34,10 @@ func NewChildLimit_LimitBase(_buf *serialization.ByteBuf) (_v interface{}, err e
     }
     return
 }
+
+func NewLimit_LimitBase_Body(_buf *serialization.ByteBuf) (_v *Limit_LimitBase, err error) {
+    _v = &Limit_LimitBase{}
+    return
+}
+
 

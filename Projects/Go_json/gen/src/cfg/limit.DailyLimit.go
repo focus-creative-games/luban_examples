@@ -22,7 +22,7 @@ func (Limit_DailyLimit) GetTypeId() int {
 func NewLimit_DailyLimit(_buf map[string]interface{}) (_v *Limit_DailyLimit, err error) {
     _v = &Limit_DailyLimit{}
     var _p *Limit_DailyLimitBase
-     if _p, err = NewLimit_DailyLimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_DailyLimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_DailyLimitBase = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }
     return

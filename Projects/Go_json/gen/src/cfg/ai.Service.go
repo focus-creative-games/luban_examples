@@ -15,14 +15,7 @@ type Ai_Service struct {
 }
 
 
-func NewAi_Service(_buf map[string]interface{}) (_v *Ai_Service, err error) {
-    _v = &Ai_Service{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-    return
-}
-func NewChildAi_Service(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_Service(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -37,6 +30,14 @@ func NewChildAi_Service(_buf map[string]interface{}) (_v interface{}, err error)
         case "UpdateDailyBehaviorProps": return NewAi_UpdateDailyBehaviorProps(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_Service_Body(_buf map[string]interface{}) (_v *Ai_Service, err error) {
+    _v = &Ai_Service{}
+    var _p *Ai_Node
+     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
+    _v.Ai_Node = *_p
     return
 }
 

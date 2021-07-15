@@ -27,10 +27,10 @@ func (Bonus_CoefficientItem) GetTypeId() int {
 func NewBonus_CoefficientItem(_buf *serialization.ByteBuf) (_v *Bonus_CoefficientItem, err error) {
     _v = &Bonus_CoefficientItem{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
     { if _v.BonusId, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.BonusList, err = NewBonus_Items (_buf); err != nil { return } }
+    { if _v.BonusList, err = NewBonus_Items(_buf); err != nil { return } }
     return
 }
 

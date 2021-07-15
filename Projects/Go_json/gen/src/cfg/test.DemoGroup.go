@@ -30,7 +30,7 @@ func NewTest_DemoGroup(_buf map[string]interface{}) (_v *Test_DemoGroup, err err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x5"].(map[string]interface{}); !_ok_ { err = errors.New("x5 error"); return }; if _v.X5, err = NewTest_InnerGroup (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x5"].(map[string]interface{}); !_ok_ { err = errors.New("x5 error"); return }; if _v.X5, err = NewTest_InnerGroup(_x_); err != nil { return } }
     return
 }
 

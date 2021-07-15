@@ -23,7 +23,7 @@ func (Ai_MoveToTarget) GetTypeId() int {
 func NewAi_MoveToTarget(_buf map[string]interface{}) (_v *Ai_MoveToTarget, err error) {
     _v = &Ai_MoveToTarget{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; if _v.TargetActorKey, _ok_ = _buf["target_actor_key"].(string); !_ok_ { err = errors.New("target_actor_key error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["acceptable_radius"].(float64); !_ok_ { err = errors.New("acceptable_radius error"); return }; _v.AcceptableRadius = float32(_tempNum_) }

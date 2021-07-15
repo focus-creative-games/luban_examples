@@ -29,22 +29,18 @@ public sealed partial class Selector :  ai.ComposeNode
 
     public static Selector DeserializeSelector(ByteBuf _buf)
     {
-    
         return new ai.Selector(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
-
+    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
     public const int ID = -1946981627;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Children) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Children) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -55,9 +51,9 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
-        + "Children:" + Children + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
+        + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
     }

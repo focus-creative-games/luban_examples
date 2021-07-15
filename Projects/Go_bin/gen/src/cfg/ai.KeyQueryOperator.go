@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_KeyQueryOperator struct {
 }
 
 
-func NewAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v *Ai_KeyQueryOperator, err error) {
-    _v = &Ai_KeyQueryOperator{}
-    return
-}
-func NewChildAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -36,4 +31,10 @@ func NewChildAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, e
     }
     return
 }
+
+func NewAi_KeyQueryOperator_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyQueryOperator, err error) {
+    _v = &Ai_KeyQueryOperator{}
+    return
+}
+
 

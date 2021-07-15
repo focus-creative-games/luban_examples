@@ -31,22 +31,18 @@ public sealed partial class ChooseSkill :  ai.Task
 
     public static ChooseSkill DeserializeChooseSkill(ByteBuf _buf)
     {
-    
         return new ai.ChooseSkill(_buf);
-    
     }
 
-     public readonly string TargetActorKey;
-     public readonly string ResultSkillIdKey;
-
+    public readonly string TargetActorKey;
+    public readonly string ResultSkillIdKey;
 
     public const int ID = -918812268;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -57,8 +53,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "TargetActorKey:" + TargetActorKey + ","
         + "ResultSkillIdKey:" + ResultSkillIdKey + ","

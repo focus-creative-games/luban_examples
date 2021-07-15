@@ -69,43 +69,38 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
 
     public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
     {
-    
         return new common.GlobalConfig(_buf);
-    
     }
 
-     public readonly int BagCapacity;
-     public readonly int BagCapacitySpecial;
-     public readonly int BagTempExpendableCapacity;
-     public readonly int BagTempToolCapacity;
-     public readonly int BagInitCapacity;
-     public readonly int QuickBagCapacity;
-     public readonly int ClothBagCapacity;
-     public readonly int ClothBagInitCapacity;
-     public readonly int ClothBagCapacitySpecial;
-     public readonly int? BagInitItemsDropId;
-        public bonus.DropInfo BagInitItemsDropId_Ref;
-     public readonly int MailBoxCapacity;
-     public readonly float DamageParamC;
-     public readonly float DamageParamE;
-     public readonly float DamageParamF;
-     public readonly float DamageParamD;
-     public readonly float RoleSpeed;
-     public readonly float MonsterSpeed;
-     public readonly int InitEnergy;
-     public readonly int InitViality;
-     public readonly int MaxViality;
-     public readonly int PerVialityRecoveryTime;
-
+    public readonly int BagCapacity;
+    public readonly int BagCapacitySpecial;
+    public readonly int BagTempExpendableCapacity;
+    public readonly int BagTempToolCapacity;
+    public readonly int BagInitCapacity;
+    public readonly int QuickBagCapacity;
+    public readonly int ClothBagCapacity;
+    public readonly int ClothBagInitCapacity;
+    public readonly int ClothBagCapacitySpecial;
+    public readonly int? BagInitItemsDropId;
+    public bonus.DropInfo BagInitItemsDropId_Ref;
+    public readonly int MailBoxCapacity;
+    public readonly float DamageParamC;
+    public readonly float DamageParamE;
+    public readonly float DamageParamF;
+    public readonly float DamageParamD;
+    public readonly float RoleSpeed;
+    public readonly float MonsterSpeed;
+    public readonly int InitEnergy;
+    public readonly int InitViality;
+    public readonly int MaxViality;
+    public readonly int PerVialityRecoveryTime;
 
     public const int ID = -848234488;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
+        this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
         OnResolveFinish(_tables);
     }
 

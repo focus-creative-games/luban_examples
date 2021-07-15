@@ -23,7 +23,7 @@ func NewTest_TbFullTypes(_buf *serialization.ByteBuf) (*Test_TbFullTypes, error)
 		dataMap := make(map[int16]*Test_DemoType2)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_DemoType2 (_buf); err2 != nil {
+			if _v, err2 := NewTest_DemoType2(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)

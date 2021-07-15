@@ -26,7 +26,7 @@ func (Blueprint_EnumClazz) GetTypeId() int {
 func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClazz, err error) {
     _v = &Blueprint_EnumClazz{}
     var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
+     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
      {
                 _v.Enums = make([]*Blueprint_EnumField, 0)
@@ -34,7 +34,7 @@ func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClaz
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Blueprint_EnumField
-                    { if _e_, err = NewBlueprint_EnumField (_buf); err != nil { return } }
+                    { if _e_, err = NewBlueprint_EnumField(_buf); err != nil { return } }
                     _v.Enums = append(_v.Enums, _e_)
                 }
             }

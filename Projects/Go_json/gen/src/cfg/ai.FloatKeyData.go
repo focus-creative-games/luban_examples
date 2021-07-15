@@ -22,7 +22,7 @@ func (Ai_FloatKeyData) GetTypeId() int {
 func NewAi_FloatKeyData(_buf map[string]interface{}) (_v *Ai_FloatKeyData, err error) {
     _v = &Ai_FloatKeyData{}
     var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData(_buf) ; err != nil { return }
+     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
     _v.Ai_KeyData = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["value"].(float64); !_ok_ { err = errors.New("value error"); return }; _v.Value = float32(_tempNum_) }
     return

@@ -31,23 +31,18 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
 
     public static DistinctBonusInfos DeserializeDistinctBonusInfos(ByteBuf _buf)
     {
-    
         return new role.DistinctBonusInfos(_buf);
-    
     }
 
-     public readonly int EffectiveLevel;
-     public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
-
+    public readonly int EffectiveLevel;
+    public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
 
     public const int ID = -854361766;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
+        foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -57,7 +52,7 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     {
         return "{ "
         + "EffectiveLevel:" + EffectiveLevel + ","
-        + "BonusInfo:" + BonusInfo + ","
+        + "BonusInfo:" + Bright.Common.StringUtil.CollectionToString(BonusInfo) + ","
         + "}";
     }
     }

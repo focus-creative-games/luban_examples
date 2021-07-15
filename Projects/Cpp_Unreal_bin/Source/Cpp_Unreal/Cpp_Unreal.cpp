@@ -15,7 +15,7 @@ void MainModule::StartupModule()
 
     auto dir = FPaths::ProjectContentDir() + TEXT("/config_data");
 
-    if (tables.load([&](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile("config_data/" + str); }))
+    if (tables.load([&](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile("config_data/" + str + ".bin"); }))
     {
         UE_LOG(LogTemp, Log, TEXT("LOAD SUCC"));
     }

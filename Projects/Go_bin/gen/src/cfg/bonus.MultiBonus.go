@@ -26,7 +26,7 @@ func (Bonus_MultiBonus) GetTypeId() int {
 func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err error) {
     _v = &Bonus_MultiBonus{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
      {
                 _v.Bonuses = make([]interface{}, 0)
@@ -34,7 +34,7 @@ func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ interface{}
-                    { if _e_, err = NewChildBonus_Bonus(_buf); err != nil { return } }
+                    { if _e_, err = NewBonus_Bonus(_buf); err != nil { return } }
                     _v.Bonuses = append(_v.Bonuses, _e_)
                 }
             }

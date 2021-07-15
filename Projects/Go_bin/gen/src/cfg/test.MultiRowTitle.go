@@ -30,14 +30,14 @@ func NewTest_MultiRowTitle(_buf *serialization.ByteBuf) (_v *Test_MultiRowTitle,
     _v = &Test_MultiRowTitle{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
     { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.X1, err = NewTest_H1 (_buf); err != nil { return } }
+    { if _v.X1, err = NewTest_H1(_buf); err != nil { return } }
      {
                 _v.X2 = make([]*Test_H2, 0)
                 var _n_ int
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_H2
-                    { if _e_, err = NewTest_H2 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_H2(_buf); err != nil { return } }
                     _v.X2 = append(_v.X2, _e_)
                 }
             }
@@ -48,7 +48,7 @@ func NewTest_MultiRowTitle(_buf *serialization.ByteBuf) (_v *Test_MultiRowTitle,
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_H2
-                    { if _e_, err = NewTest_H2 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_H2(_buf); err != nil { return } }
                     _v.X3 = append(_v.X3, _e_)
                 }
             }

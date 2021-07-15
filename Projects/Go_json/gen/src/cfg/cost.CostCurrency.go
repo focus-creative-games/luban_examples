@@ -23,7 +23,7 @@ func (Cost_CostCurrency) GetTypeId() int {
 func NewCost_CostCurrency(_buf map[string]interface{}) (_v *Cost_CostCurrency, err error) {
     _v = &Cost_CostCurrency{}
     var _p *Cost_Cost
-     if _p, err = NewCost_Cost(_buf) ; err != nil { return }
+     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["type"].(float64); !_ok_ { err = errors.New("type error"); return }; _v.Type = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }

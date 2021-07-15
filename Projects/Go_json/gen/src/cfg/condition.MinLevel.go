@@ -22,7 +22,7 @@ func (Condition_MinLevel) GetTypeId() int {
 func NewCondition_MinLevel(_buf map[string]interface{}) (_v *Condition_MinLevel, err error) {
     _v = &Condition_MinLevel{}
     var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_BoolRoleCondition = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["level"].(float64); !_ok_ { err = errors.New("level error"); return }; _v.Level = int32(_tempNum_) }
     return

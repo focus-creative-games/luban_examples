@@ -24,11 +24,11 @@ func (Ai_UeBlackboard) GetTypeId() int {
 func NewAi_UeBlackboard(_buf map[string]interface{}) (_v *Ai_UeBlackboard, err error) {
     _v = &Ai_UeBlackboard{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["notify_observer"].(float64); !_ok_ { err = errors.New("notify_observer error"); return }; _v.NotifyObserver = int32(_tempNum_) }
     { var _ok_ bool; if _v.BlackboardKey, _ok_ = _buf["blackboard_key"].(string); !_ok_ { err = errors.New("blackboard_key error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["key_query"].(map[string]interface{}); !_ok_ { err = errors.New("key_query error"); return }; if _v.KeyQuery, err = NewChildAi_KeyQueryOperator(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["key_query"].(map[string]interface{}); !_ok_ { err = errors.New("key_query error"); return }; if _v.KeyQuery, err = NewAi_KeyQueryOperator(_x_); err != nil { return } }
     return
 }
 

@@ -22,7 +22,7 @@ func (Common_Dummy) GetTypeId() int {
 func NewCommon_Dummy(_buf map[string]interface{}) (_v *Common_Dummy, err error) {
     _v = &Common_Dummy{}
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["limit"].(map[string]interface{}); !_ok_ { err = errors.New("limit error"); return }; if _v.Limit, err = NewChildLimit_LimitBase(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["limit"].(map[string]interface{}); !_ok_ { err = errors.New("limit error"); return }; if _v.Limit, err = NewLimit_LimitBase(_x_); err != nil { return } }
     return
 }
 

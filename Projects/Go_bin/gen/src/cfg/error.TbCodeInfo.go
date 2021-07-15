@@ -23,7 +23,7 @@ func NewError_TbCodeInfo(_buf *serialization.ByteBuf) (*Error_TbCodeInfo, error)
 		dataMap := make(map[int32]*Error_CodeInfo)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewError_CodeInfo (_buf); err2 != nil {
+			if _v, err2 := NewError_CodeInfo(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)

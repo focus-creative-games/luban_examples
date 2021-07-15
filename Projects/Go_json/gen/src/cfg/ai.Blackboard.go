@@ -35,7 +35,7 @@ func NewAi_Blackboard(_buf map[string]interface{}) (_v *Ai_Blackboard, err error
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Ai_BlackboardKey
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_BlackboardKey (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_BlackboardKey(_x_); err != nil { return } }
                     _v.Keys = append(_v.Keys, _list_v_)
                 }
             }

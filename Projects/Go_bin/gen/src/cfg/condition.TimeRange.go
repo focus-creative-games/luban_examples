@@ -26,9 +26,9 @@ func (Condition_TimeRange) GetTypeId() int {
 func NewCondition_TimeRange(_buf *serialization.ByteBuf) (_v *Condition_TimeRange, err error) {
     _v = &Condition_TimeRange{}
     var _p *Condition_Condition
-     if _p, err = NewCondition_Condition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_Condition_Body(_buf) ; err != nil { return }
     _v.Condition_Condition = *_p
-    { if _v.DateTimeRange, err = NewCommon_DateTimeRange (_buf); err != nil { return } }
+    { if _v.DateTimeRange, err = NewCommon_DateTimeRange(_buf); err != nil { return } }
     return
 }
 

@@ -31,10 +31,8 @@ public abstract partial class Node :  Bright.Config.BeanBase
 
     public static Node DeserializeNode(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
             case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
             case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
@@ -60,17 +58,14 @@ public abstract partial class Node :  Bright.Config.BeanBase
             case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly int Id;
-     public readonly string NodeName;
-
+    public readonly int Id;
+    public readonly string NodeName;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

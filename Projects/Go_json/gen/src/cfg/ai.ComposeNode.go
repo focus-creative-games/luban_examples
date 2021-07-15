@@ -15,14 +15,7 @@ type Ai_ComposeNode struct {
 }
 
 
-func NewAi_ComposeNode(_buf map[string]interface{}) (_v *Ai_ComposeNode, err error) {
-    _v = &Ai_ComposeNode{}
-    var _p *Ai_FlowNode
-     if _p, err = NewAi_FlowNode(_buf) ; err != nil { return }
-    _v.Ai_FlowNode = *_p
-    return
-}
-func NewChildAi_ComposeNode(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_ComposeNode(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -34,6 +27,14 @@ func NewChildAi_ComposeNode(_buf map[string]interface{}) (_v interface{}, err er
         case "SimpleParallel": return NewAi_SimpleParallel(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_ComposeNode_Body(_buf map[string]interface{}) (_v *Ai_ComposeNode, err error) {
+    _v = &Ai_ComposeNode{}
+    var _p *Ai_FlowNode
+     if _p, err = NewAi_FlowNode_Body(_buf) ; err != nil { return }
+    _v.Ai_FlowNode = *_p
     return
 }
 

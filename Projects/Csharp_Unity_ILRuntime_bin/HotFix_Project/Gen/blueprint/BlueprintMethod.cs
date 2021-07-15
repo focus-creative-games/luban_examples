@@ -27,20 +27,16 @@ public sealed partial class BlueprintMethod :  blueprint.Method
 
     public static BlueprintMethod DeserializeBlueprintMethod(ByteBuf _buf)
     {
-    
         return new blueprint.BlueprintMethod(_buf);
-    
     }
-
 
 
     public const int ID = -696408103;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -53,7 +49,7 @@ base.Resolve(_tables);
         + "Desc:" + Desc + ","
         + "IsStatic:" + IsStatic + ","
         + "ReturnType:" + ReturnType + ","
-        + "Parameters:" + Parameters + ","
+        + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
     }

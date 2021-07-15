@@ -9,7 +9,7 @@ namespace Csharp_Server_DotNetCore
     {
         static void Main(string[] args)
         {
-            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes("../../../config_data/" + file)));
+            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes("../../../config_data/" + file + ".bin")));
 
             Console.WriteLine("== load succ ==");
         }

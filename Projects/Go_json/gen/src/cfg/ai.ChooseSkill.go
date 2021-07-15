@@ -23,7 +23,7 @@ func (Ai_ChooseSkill) GetTypeId() int {
 func NewAi_ChooseSkill(_buf map[string]interface{}) (_v *Ai_ChooseSkill, err error) {
     _v = &Ai_ChooseSkill{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; if _v.TargetActorKey, _ok_ = _buf["target_actor_key"].(string); !_ok_ { err = errors.New("target_actor_key error"); return } }
     { var _ok_ bool; if _v.ResultSkillIdKey, _ok_ = _buf["result_skill_id_key"].(string); !_ok_ { err = errors.New("result_skill_id_key error"); return } }

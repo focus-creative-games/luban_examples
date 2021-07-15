@@ -31,23 +31,19 @@ public sealed partial class NormalClazz :  blueprint.Clazz
 
     public static NormalClazz DeserializeNormalClazz(ByteBuf _buf)
     {
-    
         return new blueprint.NormalClazz(_buf);
-    
     }
 
-     public readonly bool IsAbstract;
-     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
-
+    public readonly bool IsAbstract;
+    public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
     public const int ID = -2073576778;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Fields) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Fields) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -58,10 +54,10 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "IsAbstract:" + IsAbstract + ","
-        + "Fields:" + Fields + ","
+        + "Fields:" + Bright.Common.StringUtil.CollectionToString(Fields) + ","
         + "}";
     }
     }

@@ -29,21 +29,17 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(ByteBuf _buf)
     {
-    
         return new ai.UeWaitBlackboardTime(_buf);
-    
     }
 
-     public readonly string BlackboardKey;
-
+    public readonly string BlackboardKey;
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -54,8 +50,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "BlackboardKey:" + BlackboardKey + ","
         + "}";

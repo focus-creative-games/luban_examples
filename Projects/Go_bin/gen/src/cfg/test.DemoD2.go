@@ -26,7 +26,7 @@ func (Test_DemoD2) GetTypeId() int {
 func NewTest_DemoD2(_buf *serialization.ByteBuf) (_v *Test_DemoD2, err error) {
     _v = &Test_DemoD2{}
     var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
+     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
     _v.Test_DemoDynamic = *_p
     { if _v.X2, err = _buf.ReadInt(); err != nil { return } }
     return

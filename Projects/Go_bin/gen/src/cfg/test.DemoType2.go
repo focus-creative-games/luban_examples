@@ -63,9 +63,9 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
     { if _v.X8, err = _buf.ReadFint(); err != nil { return } }
     { if _v.X9, err = _buf.ReadFlong(); err != nil { return } }
     { if _v.X10, err = _buf.ReadString(); err != nil { return } }
-    { if _v.X12, err = NewTest_DemoType1 (_buf); err != nil { return } }
+    { if _v.X12, err = NewTest_DemoType1(_buf); err != nil { return } }
     { if _v.X13, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X14, err = NewChildTest_DemoDynamic(_buf); err != nil { return } }
+    { if _v.X14, err = NewTest_DemoDynamic(_buf); err != nil { return } }
     { if _v.S1, err = _buf.ReadString(); err != nil { return } }
     { if _v.V2, err = _buf.ReadVector2(); err != nil { return } }
     { if _v.V3, err = _buf.ReadVector3(); err != nil { return } }
@@ -166,7 +166,7 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Test_DemoE2
-                    { if _e_, err = NewTest_DemoE2 (_buf); err != nil { return } }
+                    { if _e_, err = NewTest_DemoE2(_buf); err != nil { return } }
                     _v.K9 = append(_v.K9, _e_)
                 }
             }
@@ -177,7 +177,7 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ interface{}
-                    { if _e_, err = NewChildTest_DemoDynamic(_buf); err != nil { return } }
+                    { if _e_, err = NewTest_DemoDynamic(_buf); err != nil { return } }
                     _v.K15 = append(_v.K15, _e_)
                 }
             }

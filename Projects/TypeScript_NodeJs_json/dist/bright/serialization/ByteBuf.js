@@ -901,4 +901,3 @@ class ByteBuf {
 exports.default = ByteBuf;
 ByteBuf.emptyBuff = Buffer.allocUnsafe(0);
 ByteBuf.emptyBytes = new Uint8Array();
-//# sourceMappingURL=ByteBuf.js.map

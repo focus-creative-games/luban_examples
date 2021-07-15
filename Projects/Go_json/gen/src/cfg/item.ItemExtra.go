@@ -15,12 +15,7 @@ type Item_ItemExtra struct {
 }
 
 
-func NewItem_ItemExtra(_buf map[string]interface{}) (_v *Item_ItemExtra, err error) {
-    _v = &Item_ItemExtra{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    return
-}
-func NewChildItem_ItemExtra(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewItem_ItemExtra(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -34,6 +29,12 @@ func NewChildItem_ItemExtra(_buf map[string]interface{}) (_v interface{}, err er
         case "Dymmy": return NewItem_Dymmy(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewItem_ItemExtra_Body(_buf map[string]interface{}) (_v *Item_ItemExtra, err error) {
+    _v = &Item_ItemExtra{}
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     return
 }
 

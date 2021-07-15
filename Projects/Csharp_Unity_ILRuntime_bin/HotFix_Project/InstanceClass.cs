@@ -32,7 +32,7 @@ namespace HotFix_Project
         {
             UnityEngine.Debug.Log("!!! InstanceClass.StaticFunTest()");
 
-            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../config_data/" + file)));
+            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../config_data/" + file + ".bin")));
             UnityEngine.Debug.Log("== load succ ==");
         }
 

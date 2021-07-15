@@ -25,7 +25,7 @@ func (Ai_DistanceLessThan) GetTypeId() int {
 func NewAi_DistanceLessThan(_buf map[string]interface{}) (_v *Ai_DistanceLessThan, err error) {
     _v = &Ai_DistanceLessThan{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     { var _ok_ bool; if _v.Actor1Key, _ok_ = _buf["actor1_key"].(string); !_ok_ { err = errors.New("actor1_key error"); return } }
     { var _ok_ bool; if _v.Actor2Key, _ok_ = _buf["actor2_key"].(string); !_ok_ { err = errors.New("actor2_key error"); return } }

@@ -433,12 +433,66 @@ enum class EProfession
 }
 
 
+namespace test {
+
+enum class DemoEnum
+{
+    A = 1,
+    B = 2,
+    C = 4,
+    D = 5,
+};
+}
+
+
+namespace test {
+
+enum class ETestUeType
+{
+    WHITE = 0,
+    BLACK = 1,
+};
+}
+
+
+namespace test {
+
+enum class ETestEmptyEnum
+{
+};
+}
+
+
+namespace test {
+
+enum class ETestEmptyEnum2
+{
+    SMALL_THAN_256 = 255,
+    X_256 = 256,
+    X_257 = 257,
+};
+}
+
+
 namespace role {
 
 struct Consts
 {
     static constexpr int32_t MAX_NAME_LENGTH = 20;
     static constexpr int32_t MAX_USER_ROLE_NUM = 10;
+};
+}
+
+
+
+namespace test {
+
+struct DemoConst
+{
+    static constexpr int32_t x1 = 0;
+    static constexpr int64_t x2 = 3242L;
+    static constexpr float x3 = 444.3f;
+    static constexpr double x4 = 55.3;
 };
 }
 
@@ -566,6 +620,29 @@ namespace role { class LevelBonus; }
 namespace role { class DistinctBonusInfos; } 
 namespace role { class BonusInfo; } 
 namespace tag { class TestTag; } 
+namespace test { class DemoType2; } 
+namespace test { class DemoType1; } 
+namespace test { class DemoDynamic; } 
+namespace test { class DemoD2; } 
+namespace test { class DemoD3; } 
+namespace test { class DemoE1; } 
+namespace test { class DemoD5; } 
+namespace test { class DateTimeRange; } 
+namespace test { class DemoE2; } 
+namespace test { class DemoSingletonType; } 
+namespace test { class MultiRowRecord; } 
+namespace test { class MultiRowType1; } 
+namespace test { class MultiRowType2; } 
+namespace test { class MultiRowTitle; } 
+namespace test { class H1; } 
+namespace test { class H2; } 
+namespace test { class TestNull; } 
+namespace test { class DemoPrimitiveTypesTable; } 
+namespace test { class TestString; } 
+namespace test { class CompactString; } 
+namespace test { class DemoGroup; } 
+namespace test { class InnerGroup; } 
+namespace test { class TestGlobal; } 
 
 namespace ai {
 
@@ -584,7 +661,8 @@ class Blackboard : public  bright::CfgBean
 
     }
 
-    Blackboard(bright::String name, bright::String desc, bright::String parent_name, std::vector<ai::BlackboardKey*> keys ){
+    Blackboard(bright::String name, bright::String desc, bright::String parent_name, std::vector<ai::BlackboardKey*> keys ) 
+    {
 
         this->name = name;
         this->desc = desc;
@@ -600,11 +678,9 @@ class Blackboard : public  bright::CfgBean
     bright::String parentName;
     std::vector<ai::BlackboardKey*> keys;
 
-
     static constexpr int ID = 1576193005;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -629,7 +705,8 @@ class BlackboardKey : public  bright::CfgBean
 
     }
 
-    BlackboardKey(bright::String name, bright::String desc, bool is_static, ai::EKeyType type, bright::String type_class_name ){
+    BlackboardKey(bright::String name, bright::String desc, bool is_static, ai::EKeyType type, bright::String type_class_name ) 
+    {
 
         this->name = name;
         this->desc = desc;
@@ -647,11 +724,9 @@ class BlackboardKey : public  bright::CfgBean
     ai::EKeyType type;
     bright::String typeClassName;
 
-
     static constexpr int ID = -511559886;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -676,7 +751,8 @@ class BehaviorTree : public  bright::CfgBean
 
     }
 
-    BehaviorTree(int32_t id, bright::String name, bright::String desc, bright::String blackboard_id, ai::ComposeNode* root ){
+    BehaviorTree(int32_t id, bright::String name, bright::String desc, bright::String blackboard_id, ai::ComposeNode* root ) 
+    {
 
         this->id = id;
         this->name = name;
@@ -694,11 +770,9 @@ class BehaviorTree : public  bright::CfgBean
     bright::String blackboardId;
     ai::ComposeNode* root;
 
-
     static constexpr int ID = 159552822;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -723,7 +797,8 @@ class Node : public  bright::CfgBean
 
     }
 
-    Node(int32_t id, bright::String node_name ){
+    Node(int32_t id, bright::String node_name ) 
+    {
 
         this->id = id;
         this->nodeName = node_name;
@@ -734,7 +809,6 @@ class Node : public  bright::CfgBean
 
     int32_t id;
     bright::String nodeName;
-
 
 
 };
@@ -760,13 +834,14 @@ class Service : public  ai::Node
 
     }
 
-    Service(int32_t id, bright::String node_name ): ai::Node(id, node_name){
+    Service(int32_t id, bright::String node_name ) 
+            : ai::Node(id, node_name)
+    {
 
     }
     virtual ~Service() {}
 
     bool deserialize(ByteBuf& _buf);
-
 
 
 
@@ -793,7 +868,9 @@ class UeSetDefaultFocus : public  ai::Service
 
     }
 
-    UeSetDefaultFocus(int32_t id, bright::String node_name, bright::String keyboard_key ): ai::Service(id, node_name){
+    UeSetDefaultFocus(int32_t id, bright::String node_name, bright::String keyboard_key ) 
+            : ai::Service(id, node_name)
+    {
 
         this->keyboardKey = keyboard_key;
     }
@@ -803,11 +880,9 @@ class UeSetDefaultFocus : public  ai::Service
 
     bright::String keyboardKey;
 
-
     static constexpr int ID = 1812449155;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -832,7 +907,9 @@ class ExecuteTimeStatistic : public  ai::Service
 
     }
 
-    ExecuteTimeStatistic(int32_t id, bright::String node_name ): ai::Service(id, node_name){
+    ExecuteTimeStatistic(int32_t id, bright::String node_name ) 
+            : ai::Service(id, node_name)
+    {
 
     }
     virtual ~ExecuteTimeStatistic() {}
@@ -840,11 +917,9 @@ class ExecuteTimeStatistic : public  ai::Service
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 990693812;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -869,7 +944,9 @@ class ChooseTarget : public  ai::Service
 
     }
 
-    ChooseTarget(int32_t id, bright::String node_name, bright::String result_target_key ): ai::Service(id, node_name){
+    ChooseTarget(int32_t id, bright::String node_name, bright::String result_target_key ) 
+            : ai::Service(id, node_name)
+    {
 
         this->resultTargetKey = result_target_key;
     }
@@ -879,11 +956,9 @@ class ChooseTarget : public  ai::Service
 
     bright::String resultTargetKey;
 
-
     static constexpr int ID = 1601247918;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -908,7 +983,9 @@ class KeepFaceTarget : public  ai::Service
 
     }
 
-    KeepFaceTarget(int32_t id, bright::String node_name, bright::String target_actor_key ): ai::Service(id, node_name){
+    KeepFaceTarget(int32_t id, bright::String node_name, bright::String target_actor_key ) 
+            : ai::Service(id, node_name)
+    {
 
         this->targetActorKey = target_actor_key;
     }
@@ -918,11 +995,9 @@ class KeepFaceTarget : public  ai::Service
 
     bright::String targetActorKey;
 
-
     static constexpr int ID = 1195270745;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -947,7 +1022,9 @@ class GetOwnerPlayer : public  ai::Service
 
     }
 
-    GetOwnerPlayer(int32_t id, bright::String node_name, bright::String player_actor_key ): ai::Service(id, node_name){
+    GetOwnerPlayer(int32_t id, bright::String node_name, bright::String player_actor_key ) 
+            : ai::Service(id, node_name)
+    {
 
         this->playerActorKey = player_actor_key;
     }
@@ -957,11 +1034,9 @@ class GetOwnerPlayer : public  ai::Service
 
     bright::String playerActorKey;
 
-
     static constexpr int ID = -999247644;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -986,7 +1061,9 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     }
 
-    UpdateDailyBehaviorProps(int32_t id, bright::String node_name, bright::String satiety_key, bright::String energy_key, bright::String mood_key, bright::String satiety_lower_threshold_key, bright::String satiety_upper_threshold_key, bright::String energy_lower_threshold_key, bright::String energy_upper_threshold_key, bright::String mood_lower_threshold_key, bright::String mood_upper_threshold_key ): ai::Service(id, node_name){
+    UpdateDailyBehaviorProps(int32_t id, bright::String node_name, bright::String satiety_key, bright::String energy_key, bright::String mood_key, bright::String satiety_lower_threshold_key, bright::String satiety_upper_threshold_key, bright::String energy_lower_threshold_key, bright::String energy_upper_threshold_key, bright::String mood_lower_threshold_key, bright::String mood_upper_threshold_key ) 
+            : ai::Service(id, node_name)
+    {
 
         this->satietyKey = satiety_key;
         this->energyKey = energy_key;
@@ -1012,11 +1089,9 @@ class UpdateDailyBehaviorProps : public  ai::Service
     bright::String moodLowerThresholdKey;
     bright::String moodUpperThresholdKey;
 
-
     static constexpr int ID = -61887372;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1041,7 +1116,9 @@ class Decorator : public  ai::Node
 
     }
 
-    Decorator(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ): ai::Node(id, node_name){
+    Decorator(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+            : ai::Node(id, node_name)
+    {
 
         this->flowAbortMode = flow_abort_mode;
     }
@@ -1050,7 +1127,6 @@ class Decorator : public  ai::Node
     bool deserialize(ByteBuf& _buf);
 
     ai::EFlowAbortMode flowAbortMode;
-
 
 
 };
@@ -1076,7 +1152,9 @@ class UeLoop : public  ai::Decorator
 
     }
 
-    UeLoop(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ): ai::Decorator(id, node_name, flow_abort_mode){
+    UeLoop(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->numLoops = num_loops;
         this->infiniteLoop = infinite_loop;
@@ -1090,11 +1168,9 @@ class UeLoop : public  ai::Decorator
     bool infiniteLoop;
     float infiniteLoopTimeoutTime;
 
-
     static constexpr int ID = -513308166;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1119,7 +1195,9 @@ class UeCooldown : public  ai::Decorator
 
     }
 
-    UeCooldown(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ): ai::Decorator(id, node_name, flow_abort_mode){
+    UeCooldown(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->cooldownTime = cooldown_time;
     }
@@ -1129,11 +1207,9 @@ class UeCooldown : public  ai::Decorator
 
     float cooldownTime;
 
-
     static constexpr int ID = -951439423;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1158,7 +1234,9 @@ class UeTimeLimit : public  ai::Decorator
 
     }
 
-    UeTimeLimit(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ): ai::Decorator(id, node_name, flow_abort_mode){
+    UeTimeLimit(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->limitTime = limit_time;
     }
@@ -1168,11 +1246,9 @@ class UeTimeLimit : public  ai::Decorator
 
     float limitTime;
 
-
     static constexpr int ID = 338469720;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1197,7 +1273,9 @@ class UeBlackboard : public  ai::Decorator
 
     }
 
-    UeBlackboard(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, bright::String blackboard_key, ai::KeyQueryOperator* key_query ): ai::Decorator(id, node_name, flow_abort_mode){
+    UeBlackboard(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, bright::String blackboard_key, ai::KeyQueryOperator* key_query ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->notifyObserver = notify_observer;
         this->blackboardKey = blackboard_key;
@@ -1211,11 +1289,9 @@ class UeBlackboard : public  ai::Decorator
     bright::String blackboardKey;
     ai::KeyQueryOperator* keyQuery;
 
-
     static constexpr int ID = -315297507;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1243,7 +1319,6 @@ class KeyQueryOperator : public  bright::CfgBean
     virtual ~KeyQueryOperator() {}
 
     bool deserialize(ByteBuf& _buf);
-
 
 
 
@@ -1275,11 +1350,9 @@ class IsSet : public  ai::KeyQueryOperator
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 1635350898;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1309,11 +1382,9 @@ class IsNotSet : public  ai::KeyQueryOperator
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 790736255;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1338,7 +1409,9 @@ class BinaryOperator : public  ai::KeyQueryOperator
 
     }
 
-    BinaryOperator(ai::EOperator oper, ai::KeyData* data ): ai::KeyQueryOperator(){
+    BinaryOperator(ai::EOperator oper, ai::KeyData* data ) 
+            : ai::KeyQueryOperator()
+    {
 
         this->oper = oper;
         this->data = data;
@@ -1350,11 +1423,9 @@ class BinaryOperator : public  ai::KeyQueryOperator
     ai::EOperator oper;
     ai::KeyData* data;
 
-
     static constexpr int ID = -979891605;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1385,7 +1456,6 @@ class KeyData : public  bright::CfgBean
 
 
 
-
 };
 
 }
@@ -1409,7 +1479,9 @@ class FloatKeyData : public  ai::KeyData
 
     }
 
-    FloatKeyData(float value ): ai::KeyData(){
+    FloatKeyData(float value ) 
+            : ai::KeyData()
+    {
 
         this->value = value;
     }
@@ -1419,11 +1491,9 @@ class FloatKeyData : public  ai::KeyData
 
     float value;
 
-
     static constexpr int ID = -719747885;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1448,7 +1518,9 @@ class IntKeyData : public  ai::KeyData
 
     }
 
-    IntKeyData(int32_t value ): ai::KeyData(){
+    IntKeyData(int32_t value ) 
+            : ai::KeyData()
+    {
 
         this->value = value;
     }
@@ -1458,11 +1530,9 @@ class IntKeyData : public  ai::KeyData
 
     int32_t value;
 
-
     static constexpr int ID = -342751904;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1487,7 +1557,9 @@ class StringKeyData : public  ai::KeyData
 
     }
 
-    StringKeyData(bright::String value ): ai::KeyData(){
+    StringKeyData(bright::String value ) 
+            : ai::KeyData()
+    {
 
         this->value = value;
     }
@@ -1497,11 +1569,9 @@ class StringKeyData : public  ai::KeyData
 
     bright::String value;
 
-
     static constexpr int ID = -307888654;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1526,7 +1596,9 @@ class BlackboardKeyData : public  ai::KeyData
 
     }
 
-    BlackboardKeyData(bright::String value ): ai::KeyData(){
+    BlackboardKeyData(bright::String value ) 
+            : ai::KeyData()
+    {
 
         this->value = value;
     }
@@ -1536,11 +1608,9 @@ class BlackboardKeyData : public  ai::KeyData
 
     bright::String value;
 
-
     static constexpr int ID = 1517269500;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1565,7 +1635,9 @@ class UeForceSuccess : public  ai::Decorator
 
     }
 
-    UeForceSuccess(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ): ai::Decorator(id, node_name, flow_abort_mode){
+    UeForceSuccess(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
     }
     virtual ~UeForceSuccess() {}
@@ -1573,11 +1645,9 @@ class UeForceSuccess : public  ai::Decorator
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 195054574;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1602,7 +1672,9 @@ class IsAtLocation : public  ai::Decorator
 
     }
 
-    IsAtLocation(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, bright::String keyboard_key, bool inverse_condition ): ai::Decorator(id, node_name, flow_abort_mode){
+    IsAtLocation(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, bright::String keyboard_key, bool inverse_condition ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->acceptableRadius = acceptable_radius;
         this->keyboardKey = keyboard_key;
@@ -1616,11 +1688,9 @@ class IsAtLocation : public  ai::Decorator
     bright::String keyboardKey;
     bool inverseCondition;
 
-
     static constexpr int ID = 1255972344;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1645,7 +1715,9 @@ class DistanceLessThan : public  ai::Decorator
 
     }
 
-    DistanceLessThan(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, bright::String actor1_key, bright::String actor2_key, float distance, bool reverse_result ): ai::Decorator(id, node_name, flow_abort_mode){
+    DistanceLessThan(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, bright::String actor1_key, bright::String actor2_key, float distance, bool reverse_result ) 
+            : ai::Decorator(id, node_name, flow_abort_mode)
+    {
 
         this->actor1Key = actor1_key;
         this->actor2Key = actor2_key;
@@ -1661,11 +1733,9 @@ class DistanceLessThan : public  ai::Decorator
     float distance;
     bool reverseResult;
 
-
     static constexpr int ID = -1207170283;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1690,7 +1760,9 @@ class FlowNode : public  ai::Node
 
     }
 
-    FlowNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ): ai::Node(id, node_name){
+    FlowNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+            : ai::Node(id, node_name)
+    {
 
         this->decorators = decorators;
         this->services = services;
@@ -1701,7 +1773,6 @@ class FlowNode : public  ai::Node
 
     std::vector<ai::Decorator*> decorators;
     std::vector<ai::Service*> services;
-
 
 
 };
@@ -1727,13 +1798,14 @@ class ComposeNode : public  ai::FlowNode
 
     }
 
-    ComposeNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ): ai::FlowNode(id, node_name, decorators, services){
+    ComposeNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+            : ai::FlowNode(id, node_name, decorators, services)
+    {
 
     }
     virtual ~ComposeNode() {}
 
     bool deserialize(ByteBuf& _buf);
-
 
 
 
@@ -1760,7 +1832,9 @@ class Sequence : public  ai::ComposeNode
 
     }
 
-    Sequence(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ): ai::ComposeNode(id, node_name, decorators, services){
+    Sequence(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+            : ai::ComposeNode(id, node_name, decorators, services)
+    {
 
         this->children = children;
     }
@@ -1770,11 +1844,9 @@ class Sequence : public  ai::ComposeNode
 
     std::vector<ai::FlowNode*> children;
 
-
     static constexpr int ID = -1789006105;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1799,7 +1871,9 @@ class Selector : public  ai::ComposeNode
 
     }
 
-    Selector(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ): ai::ComposeNode(id, node_name, decorators, services){
+    Selector(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+            : ai::ComposeNode(id, node_name, decorators, services)
+    {
 
         this->children = children;
     }
@@ -1809,11 +1883,9 @@ class Selector : public  ai::ComposeNode
 
     std::vector<ai::FlowNode*> children;
 
-
     static constexpr int ID = -1946981627;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1838,7 +1910,9 @@ class SimpleParallel : public  ai::ComposeNode
 
     }
 
-    SimpleParallel(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, ai::EFinishMode finish_mode, ai::Task* main_task, ai::FlowNode* background_node ): ai::ComposeNode(id, node_name, decorators, services){
+    SimpleParallel(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, ai::EFinishMode finish_mode, ai::Task* main_task, ai::FlowNode* background_node ) 
+            : ai::ComposeNode(id, node_name, decorators, services)
+    {
 
         this->finishMode = finish_mode;
         this->mainTask = main_task;
@@ -1852,11 +1926,9 @@ class SimpleParallel : public  ai::ComposeNode
     ai::Task* mainTask;
     ai::FlowNode* backgroundNode;
 
-
     static constexpr int ID = -1952582529;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1881,7 +1953,9 @@ class Task : public  ai::FlowNode
 
     }
 
-    Task(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self ): ai::FlowNode(id, node_name, decorators, services){
+    Task(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self ) 
+            : ai::FlowNode(id, node_name, decorators, services)
+    {
 
         this->ignoreRestartSelf = ignore_restart_self;
     }
@@ -1890,7 +1964,6 @@ class Task : public  ai::FlowNode
     bool deserialize(ByteBuf& _buf);
 
     bool ignoreRestartSelf;
-
 
 
 };
@@ -1916,7 +1989,9 @@ class UeWait : public  ai::Task
 
     }
 
-    UeWait(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, float wait_time, float random_deviation ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    UeWait(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->waitTime = wait_time;
         this->randomDeviation = random_deviation;
@@ -1928,11 +2003,9 @@ class UeWait : public  ai::Task
     float waitTime;
     float randomDeviation;
 
-
     static constexpr int ID = -512994101;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1957,7 +2030,9 @@ class UeWaitBlackboardTime : public  ai::Task
 
     }
 
-    UeWaitBlackboardTime(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String blackboard_key ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    UeWaitBlackboardTime(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String blackboard_key ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->blackboardKey = blackboard_key;
     }
@@ -1967,11 +2042,9 @@ class UeWaitBlackboardTime : public  ai::Task
 
     bright::String blackboardKey;
 
-
     static constexpr int ID = 1215378271;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -1996,7 +2069,9 @@ class MoveToTarget : public  ai::Task
 
     }
 
-    MoveToTarget(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, float acceptable_radius ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    MoveToTarget(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, float acceptable_radius ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->targetActorKey = target_actor_key;
         this->acceptableRadius = acceptable_radius;
@@ -2008,11 +2083,9 @@ class MoveToTarget : public  ai::Task
     bright::String targetActorKey;
     float acceptableRadius;
 
-
     static constexpr int ID = 514987779;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2037,7 +2110,9 @@ class ChooseSkill : public  ai::Task
 
     }
 
-    ChooseSkill(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, bright::String result_skill_id_key ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    ChooseSkill(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, bright::String result_skill_id_key ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->targetActorKey = target_actor_key;
         this->resultSkillIdKey = result_skill_id_key;
@@ -2049,11 +2124,9 @@ class ChooseSkill : public  ai::Task
     bright::String targetActorKey;
     bright::String resultSkillIdKey;
 
-
     static constexpr int ID = -918812268;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2078,7 +2151,9 @@ class MoveToRandomLocation : public  ai::Task
 
     }
 
-    MoveToRandomLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String origin_position_key, float radius ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    MoveToRandomLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String origin_position_key, float radius ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->originPositionKey = origin_position_key;
         this->radius = radius;
@@ -2090,11 +2165,9 @@ class MoveToRandomLocation : public  ai::Task
     bright::String originPositionKey;
     float radius;
 
-
     static constexpr int ID = -2140042998;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2119,7 +2192,9 @@ class MoveToLocation : public  ai::Task
 
     }
 
-    MoveToLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    MoveToLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->location = location;
         this->acceptableRadius = acceptable_radius;
@@ -2131,11 +2206,9 @@ class MoveToLocation : public  ai::Task
     bright::math::Vector3 location;
     float acceptableRadius;
 
-
     static constexpr int ID = -969953113;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2160,7 +2233,9 @@ class DebugPrint : public  ai::Task
 
     }
 
-    DebugPrint(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String text ): ai::Task(id, node_name, decorators, services, ignore_restart_self){
+    DebugPrint(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String text ) 
+            : ai::Task(id, node_name, decorators, services, ignore_restart_self)
+    {
 
         this->text = text;
     }
@@ -2170,11 +2245,9 @@ class DebugPrint : public  ai::Task
 
     bright::String text;
 
-
     static constexpr int ID = 1357409728;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2199,7 +2272,8 @@ class Clazz : public  bright::CfgBean
 
     }
 
-    Clazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ){
+    Clazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+    {
 
         this->name = name;
         this->desc = desc;
@@ -2214,7 +2288,6 @@ class Clazz : public  bright::CfgBean
     bright::String desc;
     std::vector<blueprint::Clazz*> parents;
     std::vector<blueprint::Method*> methods;
-
 
 
 };
@@ -2240,7 +2313,8 @@ class Method : public  bright::CfgBean
 
     }
 
-    Method(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ){
+    Method(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    {
 
         this->name = name;
         this->desc = desc;
@@ -2257,7 +2331,6 @@ class Method : public  bright::CfgBean
     bool isStatic;
     bright::String returnType;
     std::vector<blueprint::ParamInfo*> parameters;
-
 
 
 };
@@ -2283,7 +2356,8 @@ class ParamInfo : public  bright::CfgBean
 
     }
 
-    ParamInfo(bright::String name, bright::String type, bool is_ref ){
+    ParamInfo(bright::String name, bright::String type, bool is_ref ) 
+    {
 
         this->name = name;
         this->type = type;
@@ -2297,11 +2371,9 @@ class ParamInfo : public  bright::CfgBean
     bright::String type;
     bool isRef;
 
-
     static constexpr int ID = -729799392;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2326,7 +2398,9 @@ class AbstraceMethod : public  blueprint::Method
 
     }
 
-    AbstraceMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ): blueprint::Method(name, desc, is_static, return_type, parameters){
+    AbstraceMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+            : blueprint::Method(name, desc, is_static, return_type, parameters)
+    {
 
     }
     virtual ~AbstraceMethod() {}
@@ -2334,11 +2408,9 @@ class AbstraceMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = -392137809;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2363,7 +2435,9 @@ class ExternalMethod : public  blueprint::Method
 
     }
 
-    ExternalMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ): blueprint::Method(name, desc, is_static, return_type, parameters){
+    ExternalMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+            : blueprint::Method(name, desc, is_static, return_type, parameters)
+    {
 
     }
     virtual ~ExternalMethod() {}
@@ -2371,11 +2445,9 @@ class ExternalMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 1739079015;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2400,7 +2472,9 @@ class BlueprintMethod : public  blueprint::Method
 
     }
 
-    BlueprintMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ): blueprint::Method(name, desc, is_static, return_type, parameters){
+    BlueprintMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+            : blueprint::Method(name, desc, is_static, return_type, parameters)
+    {
 
     }
     virtual ~BlueprintMethod() {}
@@ -2408,11 +2482,9 @@ class BlueprintMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = -696408103;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2437,7 +2509,9 @@ class Interface : public  blueprint::Clazz
 
     }
 
-    Interface(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ): blueprint::Clazz(name, desc, parents, methods){
+    Interface(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+            : blueprint::Clazz(name, desc, parents, methods)
+    {
 
     }
     virtual ~Interface() {}
@@ -2445,11 +2519,9 @@ class Interface : public  blueprint::Clazz
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 2114170750;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2474,7 +2546,9 @@ class NormalClazz : public  blueprint::Clazz
 
     }
 
-    NormalClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, bool is_abstract, std::vector<blueprint::Field*> fields ): blueprint::Clazz(name, desc, parents, methods){
+    NormalClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, bool is_abstract, std::vector<blueprint::Field*> fields ) 
+            : blueprint::Clazz(name, desc, parents, methods)
+    {
 
         this->isAbstract = is_abstract;
         this->fields = fields;
@@ -2486,11 +2560,9 @@ class NormalClazz : public  blueprint::Clazz
     bool isAbstract;
     std::vector<blueprint::Field*> fields;
 
-
     static constexpr int ID = -2073576778;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2515,7 +2587,8 @@ class Field : public  bright::CfgBean
 
     }
 
-    Field(bright::String name, bright::String type, bright::String desc ){
+    Field(bright::String name, bright::String type, bright::String desc ) 
+    {
 
         this->name = name;
         this->type = type;
@@ -2529,11 +2602,9 @@ class Field : public  bright::CfgBean
     bright::String type;
     bright::String desc;
 
-
     static constexpr int ID = 1694158271;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2558,7 +2629,9 @@ class EnumClazz : public  blueprint::Clazz
 
     }
 
-    EnumClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, std::vector<blueprint::EnumField*> enums ): blueprint::Clazz(name, desc, parents, methods){
+    EnumClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, std::vector<blueprint::EnumField*> enums ) 
+            : blueprint::Clazz(name, desc, parents, methods)
+    {
 
         this->enums = enums;
     }
@@ -2568,11 +2641,9 @@ class EnumClazz : public  blueprint::Clazz
 
     std::vector<blueprint::EnumField*> enums;
 
-
     static constexpr int ID = 1827364892;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2597,7 +2668,8 @@ class EnumField : public  bright::CfgBean
 
     }
 
-    EnumField(bright::String name, int32_t value ){
+    EnumField(bright::String name, int32_t value ) 
+    {
 
         this->name = name;
         this->value = value;
@@ -2609,11 +2681,9 @@ class EnumField : public  bright::CfgBean
     bright::String name;
     int32_t value;
 
-
     static constexpr int ID = 1830049470;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2638,7 +2708,8 @@ class DropInfo : public  bright::CfgBean
 
     }
 
-    DropInfo(int32_t id, bright::String desc, std::vector<bonus::ShowItemInfo*> client_show_items, bonus::Bonus* bonus ){
+    DropInfo(int32_t id, bright::String desc, std::vector<bonus::ShowItemInfo*> client_show_items, bonus::Bonus* bonus ) 
+    {
 
         this->id = id;
         this->desc = desc;
@@ -2654,11 +2725,9 @@ class DropInfo : public  bright::CfgBean
     std::vector<bonus::ShowItemInfo*> clientShowItems;
     bonus::Bonus* bonus;
 
-
     static constexpr int ID = -2014781108;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2683,7 +2752,8 @@ class ShowItemInfo : public  bright::CfgBean
 
     }
 
-    ShowItemInfo(int32_t item_id, int64_t item_num ){
+    ShowItemInfo(int32_t item_id, int64_t item_num ) 
+    {
 
         this->itemId = item_id;
         this->itemNum = item_num;
@@ -2695,11 +2765,9 @@ class ShowItemInfo : public  bright::CfgBean
     int32_t itemId;
     int64_t itemNum;
 
-
     static constexpr int ID = -1496363507;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2730,7 +2798,6 @@ class Bonus : public  bright::CfgBean
 
 
 
-
 };
 
 }
@@ -2754,7 +2821,9 @@ class OneItem : public  bonus::Bonus
 
     }
 
-    OneItem(int32_t item_id ): bonus::Bonus(){
+    OneItem(int32_t item_id ) 
+            : bonus::Bonus()
+    {
 
         this->itemId = item_id;
     }
@@ -2764,11 +2833,9 @@ class OneItem : public  bonus::Bonus
 
     int32_t itemId;
 
-
     static constexpr int ID = -1649658966;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2793,7 +2860,9 @@ class OneItems : public  bonus::Bonus
 
     }
 
-    OneItems(std::vector<int32_t> items ): bonus::Bonus(){
+    OneItems(std::vector<int32_t> items ) 
+            : bonus::Bonus()
+    {
 
         this->items = items;
     }
@@ -2803,11 +2872,9 @@ class OneItems : public  bonus::Bonus
 
     std::vector<int32_t> items;
 
-
     static constexpr int ID = 400179721;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2832,7 +2899,9 @@ class Item : public  bonus::Bonus
 
     }
 
-    Item(int32_t item_id, int32_t amount ): bonus::Bonus(){
+    Item(int32_t item_id, int32_t amount ) 
+            : bonus::Bonus()
+    {
 
         this->itemId = item_id;
         this->amount = amount;
@@ -2844,11 +2913,9 @@ class Item : public  bonus::Bonus
     int32_t itemId;
     int32_t amount;
 
-
     static constexpr int ID = 1689011106;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2873,7 +2940,9 @@ class Items : public  bonus::Bonus
 
     }
 
-    Items(std::vector<bonus::Item*> item_list ): bonus::Bonus(){
+    Items(std::vector<bonus::Item*> item_list ) 
+            : bonus::Bonus()
+    {
 
         this->itemList = item_list;
     }
@@ -2883,11 +2952,9 @@ class Items : public  bonus::Bonus
 
     std::vector<bonus::Item*> itemList;
 
-
     static constexpr int ID = 819736849;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2912,7 +2979,9 @@ class CoefficientItem : public  bonus::Bonus
 
     }
 
-    CoefficientItem(int32_t bonus_id, bonus::Items* bonus_list ): bonus::Bonus(){
+    CoefficientItem(int32_t bonus_id, bonus::Items* bonus_list ) 
+            : bonus::Bonus()
+    {
 
         this->bonusId = bonus_id;
         this->bonusList = bonus_list;
@@ -2924,11 +2993,9 @@ class CoefficientItem : public  bonus::Bonus
     int32_t bonusId;
     bonus::Items* bonusList;
 
-
     static constexpr int ID = -229470727;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2953,7 +3020,9 @@ class WeightItems : public  bonus::Bonus
 
     }
 
-    WeightItems(std::vector<bonus::WeightItemInfo*> item_list ): bonus::Bonus(){
+    WeightItems(std::vector<bonus::WeightItemInfo*> item_list ) 
+            : bonus::Bonus()
+    {
 
         this->itemList = item_list;
     }
@@ -2963,11 +3032,9 @@ class WeightItems : public  bonus::Bonus
 
     std::vector<bonus::WeightItemInfo*> itemList;
 
-
     static constexpr int ID = -356202311;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -2992,7 +3059,8 @@ class WeightItemInfo : public  bright::CfgBean
 
     }
 
-    WeightItemInfo(int32_t item_id, int32_t num, int32_t weight ){
+    WeightItemInfo(int32_t item_id, int32_t num, int32_t weight ) 
+    {
 
         this->itemId = item_id;
         this->num = num;
@@ -3006,11 +3074,9 @@ class WeightItemInfo : public  bright::CfgBean
     int32_t num;
     int32_t weight;
 
-
     static constexpr int ID = 1239999176;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3035,7 +3101,9 @@ class ProbabilityItems : public  bonus::Bonus
 
     }
 
-    ProbabilityItems(std::vector<bonus::ProbabilityItemInfo*> item_list ): bonus::Bonus(){
+    ProbabilityItems(std::vector<bonus::ProbabilityItemInfo*> item_list ) 
+            : bonus::Bonus()
+    {
 
         this->itemList = item_list;
     }
@@ -3045,11 +3113,9 @@ class ProbabilityItems : public  bonus::Bonus
 
     std::vector<bonus::ProbabilityItemInfo*> itemList;
 
-
     static constexpr int ID = 366387866;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3074,7 +3140,8 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     }
 
-    ProbabilityItemInfo(int32_t item_id, int32_t num, float probability ){
+    ProbabilityItemInfo(int32_t item_id, int32_t num, float probability ) 
+    {
 
         this->itemId = item_id;
         this->num = num;
@@ -3088,11 +3155,9 @@ class ProbabilityItemInfo : public  bright::CfgBean
     int32_t num;
     float probability;
 
-
     static constexpr int ID = 1547874631;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3117,7 +3182,9 @@ class MultiBonus : public  bonus::Bonus
 
     }
 
-    MultiBonus(std::vector<bonus::Bonus*> bonuses ): bonus::Bonus(){
+    MultiBonus(std::vector<bonus::Bonus*> bonuses ) 
+            : bonus::Bonus()
+    {
 
         this->bonuses = bonuses;
     }
@@ -3127,11 +3194,9 @@ class MultiBonus : public  bonus::Bonus
 
     std::vector<bonus::Bonus*> bonuses;
 
-
     static constexpr int ID = 1421907893;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3156,7 +3221,9 @@ class ProbabilityBonus : public  bonus::Bonus
 
     }
 
-    ProbabilityBonus(std::vector<bonus::ProbabilityBonusInfo*> bonuses ): bonus::Bonus(){
+    ProbabilityBonus(std::vector<bonus::ProbabilityBonusInfo*> bonuses ) 
+            : bonus::Bonus()
+    {
 
         this->bonuses = bonuses;
     }
@@ -3166,11 +3233,9 @@ class ProbabilityBonus : public  bonus::Bonus
 
     std::vector<bonus::ProbabilityBonusInfo*> bonuses;
 
-
     static constexpr int ID = 359783161;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3195,7 +3260,8 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     }
 
-    ProbabilityBonusInfo(bonus::Bonus* bonus, float probability ){
+    ProbabilityBonusInfo(bonus::Bonus* bonus, float probability ) 
+    {
 
         this->bonus = bonus;
         this->probability = probability;
@@ -3207,11 +3273,9 @@ class ProbabilityBonusInfo : public  bright::CfgBean
     bonus::Bonus* bonus;
     float probability;
 
-
     static constexpr int ID = 46960455;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3236,7 +3300,9 @@ class WeightBonus : public  bonus::Bonus
 
     }
 
-    WeightBonus(std::vector<bonus::WeightBonusInfo*> bonuses ): bonus::Bonus(){
+    WeightBonus(std::vector<bonus::WeightBonusInfo*> bonuses ) 
+            : bonus::Bonus()
+    {
 
         this->bonuses = bonuses;
     }
@@ -3246,11 +3312,9 @@ class WeightBonus : public  bonus::Bonus
 
     std::vector<bonus::WeightBonusInfo*> bonuses;
 
-
     static constexpr int ID = -362807016;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3275,7 +3339,8 @@ class WeightBonusInfo : public  bright::CfgBean
 
     }
 
-    WeightBonusInfo(bonus::Bonus* bonus, int32_t weight ){
+    WeightBonusInfo(bonus::Bonus* bonus, int32_t weight ) 
+    {
 
         this->bonus = bonus;
         this->weight = weight;
@@ -3287,11 +3352,9 @@ class WeightBonusInfo : public  bright::CfgBean
     bonus::Bonus* bonus;
     int32_t weight;
 
-
     static constexpr int ID = -907244058;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3316,7 +3379,9 @@ class DropBonus : public  bonus::Bonus
 
     }
 
-    DropBonus(int32_t id ): bonus::Bonus(){
+    DropBonus(int32_t id ) 
+            : bonus::Bonus()
+    {
 
         this->id = id;
     }
@@ -3326,11 +3391,9 @@ class DropBonus : public  bonus::Bonus
 
     int32_t id;
 
-
     static constexpr int ID = 1959868225;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3355,7 +3418,8 @@ class GlobalConfig : public  bright::CfgBean
 
     }
 
-    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, int32_t bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ){
+    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, int32_t bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
+    {
 
         this->bagCapacity = bag_capacity;
         this->bagCapacitySpecial = bag_capacity_special;
@@ -3405,11 +3469,9 @@ class GlobalConfig : public  bright::CfgBean
     int32_t maxViality;
     int32_t perVialityRecoveryTime;
 
-
     static constexpr int ID = -848234488;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3434,7 +3496,8 @@ class Dummy : public  bright::CfgBean
 
     }
 
-    Dummy(int32_t id, limit::LimitBase* limit ){
+    Dummy(int32_t id, limit::LimitBase* limit ) 
+    {
 
         this->id = id;
         this->limit = limit;
@@ -3446,11 +3509,9 @@ class Dummy : public  bright::CfgBean
     int32_t id;
     limit::LimitBase* limit;
 
-
     static constexpr int ID = -985084219;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3478,7 +3539,6 @@ class LimitBase : public  bright::CfgBean
     virtual ~LimitBase() {}
 
     bool deserialize(ByteBuf& _buf);
-
 
 
 
@@ -3511,7 +3571,6 @@ class DailyLimitBase : public  limit::LimitBase
 
 
 
-
 };
 
 }
@@ -3535,7 +3594,9 @@ class DailyLimit : public  limit::DailyLimitBase
 
     }
 
-    DailyLimit(int32_t num ): limit::DailyLimitBase(){
+    DailyLimit(int32_t num ) 
+            : limit::DailyLimitBase()
+    {
 
         this->num = num;
     }
@@ -3545,11 +3606,9 @@ class DailyLimit : public  limit::DailyLimitBase
 
     int32_t num;
 
-
     static constexpr int ID = 303235413;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3574,7 +3633,9 @@ class MultiDayLimit : public  limit::LimitBase
 
     }
 
-    MultiDayLimit(int32_t day, int32_t num ): limit::LimitBase(){
+    MultiDayLimit(int32_t day, int32_t num ) 
+            : limit::LimitBase()
+    {
 
         this->day = day;
         this->num = num;
@@ -3586,11 +3647,9 @@ class MultiDayLimit : public  limit::LimitBase
     int32_t day;
     int32_t num;
 
-
     static constexpr int ID = -1753629499;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3615,7 +3674,9 @@ class WeeklyLimit : public  limit::LimitBase
 
     }
 
-    WeeklyLimit(int32_t num ): limit::LimitBase(){
+    WeeklyLimit(int32_t num ) 
+            : limit::LimitBase()
+    {
 
         this->num = num;
     }
@@ -3625,11 +3686,9 @@ class WeeklyLimit : public  limit::LimitBase
 
     int32_t num;
 
-
     static constexpr int ID = -252187161;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3654,7 +3713,9 @@ class MonthlyLimit : public  limit::LimitBase
 
     }
 
-    MonthlyLimit(int32_t num ): limit::LimitBase(){
+    MonthlyLimit(int32_t num ) 
+            : limit::LimitBase()
+    {
 
         this->num = num;
     }
@@ -3664,11 +3725,9 @@ class MonthlyLimit : public  limit::LimitBase
 
     int32_t num;
 
-
     static constexpr int ID = 2063279905;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3693,7 +3752,9 @@ class CoolDown : public  limit::LimitBase
 
     }
 
-    CoolDown(int32_t duration ): limit::LimitBase(){
+    CoolDown(int32_t duration ) 
+            : limit::LimitBase()
+    {
 
         this->duration = duration;
     }
@@ -3703,11 +3764,9 @@ class CoolDown : public  limit::LimitBase
 
     int32_t duration;
 
-
     static constexpr int ID = -1366194050;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3732,7 +3791,9 @@ class GroupCoolDown : public  limit::LimitBase
 
     }
 
-    GroupCoolDown(int32_t group_id, int32_t duration ): limit::LimitBase(){
+    GroupCoolDown(int32_t group_id, int32_t duration ) 
+            : limit::LimitBase()
+    {
 
         this->groupId = group_id;
         this->duration = duration;
@@ -3744,11 +3805,9 @@ class GroupCoolDown : public  limit::LimitBase
     int32_t groupId;
     int32_t duration;
 
-
     static constexpr int ID = 394328599;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3773,7 +3832,8 @@ class ErrorInfo : public  bright::CfgBean
 
     }
 
-    ErrorInfo(bright::String code, bright::String desc, error::ErrorStyle* style ){
+    ErrorInfo(bright::String code, bright::String desc, error::ErrorStyle* style ) 
+    {
 
         this->code = code;
         this->desc = desc;
@@ -3787,11 +3847,9 @@ class ErrorInfo : public  bright::CfgBean
     bright::String desc;
     error::ErrorStyle* style;
 
-
     static constexpr int ID = 1389347408;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3819,7 +3877,6 @@ class ErrorStyle : public  bright::CfgBean
     virtual ~ErrorStyle() {}
 
     bool deserialize(ByteBuf& _buf);
-
 
 
 
@@ -3851,11 +3908,9 @@ class ErrorStyleTip : public  error::ErrorStyle
     bool deserialize(ByteBuf& _buf);
 
 
-
     static constexpr int ID = 1915239884;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3880,7 +3935,9 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     }
 
-    ErrorStyleMsgbox(bright::String btn_name, error::EOperation operation ): error::ErrorStyle(){
+    ErrorStyleMsgbox(bright::String btn_name, error::EOperation operation ) 
+            : error::ErrorStyle()
+    {
 
         this->btnName = btn_name;
         this->operation = operation;
@@ -3892,11 +3949,9 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
     bright::String btnName;
     error::EOperation operation;
 
-
     static constexpr int ID = -1920482343;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3921,7 +3976,9 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOk(bright::String btn_name ): error::ErrorStyle(){
+    ErrorStyleDlgOk(bright::String btn_name ) 
+            : error::ErrorStyle()
+    {
 
         this->btnName = btn_name;
     }
@@ -3931,11 +3988,9 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     bright::String btnName;
 
-
     static constexpr int ID = -2010134516;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -3960,7 +4015,9 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOkCancel(bright::String btn1_name, bright::String btn2_name ): error::ErrorStyle(){
+    ErrorStyleDlgOkCancel(bright::String btn1_name, bright::String btn2_name ) 
+            : error::ErrorStyle()
+    {
 
         this->btn1Name = btn1_name;
         this->btn2Name = btn2_name;
@@ -3972,11 +4029,9 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
     bright::String btn1Name;
     bright::String btn2Name;
 
-
     static constexpr int ID = 971221414;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4001,7 +4056,8 @@ class CodeInfo : public  bright::CfgBean
 
     }
 
-    CodeInfo(error::EErrorCode code, bright::String key ){
+    CodeInfo(error::EErrorCode code, bright::String key ) 
+    {
 
         this->code = code;
         this->key = key;
@@ -4013,11 +4069,9 @@ class CodeInfo : public  bright::CfgBean
     error::EErrorCode code;
     bright::String key;
 
-
     static constexpr int ID = -1942481535;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4042,7 +4096,8 @@ class Item : public  bright::CfgBean
 
     }
 
-    Item(int32_t id, bright::String name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, bright::String icon, bright::String icon_backgroud, bright::String icon_mask, bright::String desc, int32_t show_order, bright::String quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t price, item::EUseType use_type, int32_t level_up_id ){
+    Item(int32_t id, bright::String name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, bright::String icon, bright::String icon_backgroud, bright::String icon_mask, bright::String desc, int32_t show_order, bright::String quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t price, item::EUseType use_type, int32_t level_up_id ) 
+    {
 
         this->id = id;
         this->name = name;
@@ -4092,11 +4147,9 @@ class Item : public  bright::CfgBean
     item::EUseType useType;
     int32_t levelUpId;
 
-
     static constexpr int ID = 2107285806;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4121,7 +4174,8 @@ class ItemFunction : public  bright::CfgBean
 
     }
 
-    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, bright::String method, bool close_bag_ui ){
+    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, bright::String method, bool close_bag_ui ) 
+    {
 
         this->minorType = minor_type;
         this->funcType = func_type;
@@ -4137,11 +4191,9 @@ class ItemFunction : public  bright::CfgBean
     bright::String method;
     bool closeBagUi;
 
-
     static constexpr int ID = 1205824294;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4166,7 +4218,8 @@ class ItemExtra : public  bright::CfgBean
 
     }
 
-    ItemExtra(int32_t id ){
+    ItemExtra(int32_t id ) 
+    {
 
         this->id = id;
     }
@@ -4175,7 +4228,6 @@ class ItemExtra : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     int32_t id;
-
 
 
 };
@@ -4201,7 +4253,9 @@ class TreasureBox : public  item::ItemExtra
 
     }
 
-    TreasureBox(int32_t id, int32_t key_item_id, condition::MinLevel* open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<item::ChooseOneBonus*> choose_list ): item::ItemExtra(id){
+    TreasureBox(int32_t id, int32_t key_item_id, condition::MinLevel* open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<item::ChooseOneBonus*> choose_list ) 
+            : item::ItemExtra(id)
+    {
 
         this->keyItemId = key_item_id;
         this->openLevel = open_level;
@@ -4219,11 +4273,9 @@ class TreasureBox : public  item::ItemExtra
     std::vector<int32_t> dropIds;
     std::vector<item::ChooseOneBonus*> chooseList;
 
-
     static constexpr int ID = 1494222369;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4254,7 +4306,6 @@ class Condition : public  bright::CfgBean
 
 
 
-
 };
 
 }
@@ -4278,7 +4329,9 @@ class TimeRange : public  condition::Condition
 
     }
 
-    TimeRange(common::DateTimeRange* date_time_range ): condition::Condition(){
+    TimeRange(common::DateTimeRange* date_time_range ) 
+            : condition::Condition()
+    {
 
         this->dateTimeRange = date_time_range;
     }
@@ -4288,11 +4341,9 @@ class TimeRange : public  condition::Condition
 
     common::DateTimeRange* dateTimeRange;
 
-
     static constexpr int ID = 1069033789;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4317,7 +4368,8 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(int32_t start_time, int32_t end_time ){
+    DateTimeRange(int32_t start_time, int32_t end_time ) 
+    {
 
         this->startTime = start_time;
         this->endTime = end_time;
@@ -4329,11 +4381,9 @@ class DateTimeRange : public  bright::CfgBean
     int32_t startTime;
     int32_t endTime;
 
-
     static constexpr int ID = 1642200959;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4364,7 +4414,6 @@ class RoleCondition : public  condition::Condition
 
 
 
-
 };
 
 }
@@ -4388,7 +4437,9 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     }
 
-    MultiRoleCondition(std::vector<condition::RoleCondition*> conditions ): condition::RoleCondition(){
+    MultiRoleCondition(std::vector<condition::RoleCondition*> conditions ) 
+            : condition::RoleCondition()
+    {
 
         this->conditions = conditions;
     }
@@ -4398,11 +4449,9 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     std::vector<condition::RoleCondition*> conditions;
 
-
     static constexpr int ID = 934079583;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4433,7 +4482,6 @@ class BoolRoleCondition : public  condition::RoleCondition
 
 
 
-
 };
 
 }
@@ -4457,7 +4505,9 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     }
 
-    GenderLimit(role::EGenderType gender ): condition::BoolRoleCondition(){
+    GenderLimit(role::EGenderType gender ) 
+            : condition::BoolRoleCondition()
+    {
 
         this->gender = gender;
     }
@@ -4467,11 +4517,9 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     role::EGenderType gender;
 
-
     static constexpr int ID = 103675143;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4496,7 +4544,9 @@ class MinLevel : public  condition::BoolRoleCondition
 
     }
 
-    MinLevel(int32_t level ): condition::BoolRoleCondition(){
+    MinLevel(int32_t level ) 
+            : condition::BoolRoleCondition()
+    {
 
         this->level = level;
     }
@@ -4506,11 +4556,9 @@ class MinLevel : public  condition::BoolRoleCondition
 
     int32_t level;
 
-
     static constexpr int ID = -1075273755;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4535,7 +4583,9 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     }
 
-    MaxLevel(int32_t level ): condition::BoolRoleCondition(){
+    MaxLevel(int32_t level ) 
+            : condition::BoolRoleCondition()
+    {
 
         this->level = level;
     }
@@ -4545,11 +4595,9 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     int32_t level;
 
-
     static constexpr int ID = 700922899;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4574,7 +4622,9 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     }
 
-    MinMaxLevel(int32_t min, int32_t max ): condition::BoolRoleCondition(){
+    MinMaxLevel(int32_t min, int32_t max ) 
+            : condition::BoolRoleCondition()
+    {
 
         this->min = min;
         this->max = max;
@@ -4586,11 +4636,9 @@ class MinMaxLevel : public  condition::BoolRoleCondition
     int32_t min;
     int32_t max;
 
-
     static constexpr int ID = 907499647;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4615,7 +4663,9 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     }
 
-    ClothesPropertyScoreGreaterThan(item::EClothesPropertyType prop, int32_t value ): condition::BoolRoleCondition(){
+    ClothesPropertyScoreGreaterThan(item::EClothesPropertyType prop, int32_t value ) 
+            : condition::BoolRoleCondition()
+    {
 
         this->prop = prop;
         this->value = value;
@@ -4627,11 +4677,9 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
     item::EClothesPropertyType prop;
     int32_t value;
 
-
     static constexpr int ID = 696630835;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4656,7 +4704,9 @@ class ContainsItem : public  condition::RoleCondition
 
     }
 
-    ContainsItem(int32_t item_id, int32_t num, bool reverse ): condition::RoleCondition(){
+    ContainsItem(int32_t item_id, int32_t num, bool reverse ) 
+            : condition::RoleCondition()
+    {
 
         this->itemId = item_id;
         this->num = num;
@@ -4670,11 +4720,9 @@ class ContainsItem : public  condition::RoleCondition
     int32_t num;
     bool reverse;
 
-
     static constexpr int ID = 1961145317;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4699,7 +4747,8 @@ class ChooseOneBonus : public  bright::CfgBean
 
     }
 
-    ChooseOneBonus(int32_t drop_id, bool is_unique ){
+    ChooseOneBonus(int32_t drop_id, bool is_unique ) 
+    {
 
         this->dropId = drop_id;
         this->isUnique = is_unique;
@@ -4711,11 +4760,9 @@ class ChooseOneBonus : public  bright::CfgBean
     int32_t dropId;
     bool isUnique;
 
-
     static constexpr int ID = 228058347;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4740,7 +4787,9 @@ class InteractionItem : public  item::ItemExtra
 
     }
 
-    InteractionItem(int32_t id, int32_t attack_num, bright::String holding_static_mesh, bright::String holding_static_mesh_mat ): item::ItemExtra(id){
+    InteractionItem(int32_t id, int32_t attack_num, bright::String holding_static_mesh, bright::String holding_static_mesh_mat ) 
+            : item::ItemExtra(id)
+    {
 
         this->attackNum = attack_num;
         this->holdingStaticMesh = holding_static_mesh;
@@ -4754,11 +4803,9 @@ class InteractionItem : public  item::ItemExtra
     bright::String holdingStaticMesh;
     bright::String holdingStaticMeshMat;
 
-
     static constexpr int ID = 640937802;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4783,7 +4830,9 @@ class Clothes : public  item::ItemExtra
 
     }
 
-    Clothes(int32_t id, int32_t attack, int64_t hp, int32_t energy_limit, int32_t energy_resume ): item::ItemExtra(id){
+    Clothes(int32_t id, int32_t attack, int64_t hp, int32_t energy_limit, int32_t energy_resume ) 
+            : item::ItemExtra(id)
+    {
 
         this->attack = attack;
         this->hp = hp;
@@ -4799,11 +4848,9 @@ class Clothes : public  item::ItemExtra
     int32_t energyLimit;
     int32_t energyResume;
 
-
     static constexpr int ID = 1659907149;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4828,7 +4875,9 @@ class DesignDrawing : public  item::ItemExtra
 
     }
 
-    DesignDrawing(int32_t id, std::vector<int32_t> learn_component_id ): item::ItemExtra(id){
+    DesignDrawing(int32_t id, std::vector<int32_t> learn_component_id ) 
+            : item::ItemExtra(id)
+    {
 
         this->learnComponentId = learn_component_id;
     }
@@ -4838,11 +4887,9 @@ class DesignDrawing : public  item::ItemExtra
 
     std::vector<int32_t> learnComponentId;
 
-
     static constexpr int ID = -1679179579;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4867,7 +4914,9 @@ class Dymmy : public  item::ItemExtra
 
     }
 
-    Dymmy(int32_t id, cost::Cost* cost ): item::ItemExtra(id){
+    Dymmy(int32_t id, cost::Cost* cost ) 
+            : item::ItemExtra(id)
+    {
 
         this->cost = cost;
     }
@@ -4877,11 +4926,9 @@ class Dymmy : public  item::ItemExtra
 
     cost::Cost* cost;
 
-
     static constexpr int ID = 896889705;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4912,7 +4959,6 @@ class Cost : public  bright::CfgBean
 
 
 
-
 };
 
 }
@@ -4936,7 +4982,9 @@ class CostCurrency : public  cost::Cost
 
     }
 
-    CostCurrency(item::ECurrencyType type, int32_t num ): cost::Cost(){
+    CostCurrency(item::ECurrencyType type, int32_t num ) 
+            : cost::Cost()
+    {
 
         this->type = type;
         this->num = num;
@@ -4948,11 +4996,9 @@ class CostCurrency : public  cost::Cost
     item::ECurrencyType type;
     int32_t num;
 
-
     static constexpr int ID = 911838111;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -4977,7 +5023,9 @@ class CostCurrencies : public  cost::Cost
 
     }
 
-    CostCurrencies(std::vector<cost::CostCurrency*> currencies ): cost::Cost(){
+    CostCurrencies(std::vector<cost::CostCurrency*> currencies ) 
+            : cost::Cost()
+    {
 
         this->currencies = currencies;
     }
@@ -4987,11 +5035,9 @@ class CostCurrencies : public  cost::Cost
 
     std::vector<cost::CostCurrency*> currencies;
 
-
     static constexpr int ID = 103084157;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5016,7 +5062,9 @@ class CostOneItem : public  cost::Cost
 
     }
 
-    CostOneItem(int32_t item_id ): cost::Cost(){
+    CostOneItem(int32_t item_id ) 
+            : cost::Cost()
+    {
 
         this->itemId = item_id;
     }
@@ -5026,11 +5074,9 @@ class CostOneItem : public  cost::Cost
 
     int32_t itemId;
 
-
     static constexpr int ID = -1033587381;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5055,7 +5101,9 @@ class CostItem : public  cost::Cost
 
     }
 
-    CostItem(int32_t item_id, int32_t amount ): cost::Cost(){
+    CostItem(int32_t item_id, int32_t amount ) 
+            : cost::Cost()
+    {
 
         this->itemId = item_id;
         this->amount = amount;
@@ -5067,11 +5115,9 @@ class CostItem : public  cost::Cost
     int32_t itemId;
     int32_t amount;
 
-
     static constexpr int ID = -1249440351;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5096,7 +5142,9 @@ class CostItems : public  cost::Cost
 
     }
 
-    CostItems(std::vector<cost::CostItem*> item_list ): cost::Cost(){
+    CostItems(std::vector<cost::CostItem*> item_list ) 
+            : cost::Cost()
+    {
 
         this->itemList = item_list;
     }
@@ -5106,11 +5154,9 @@ class CostItems : public  cost::Cost
 
     std::vector<cost::CostItem*> itemList;
 
-
     static constexpr int ID = -77945102;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5135,7 +5181,8 @@ class L10NDemo : public  bright::CfgBean
 
     }
 
-    L10NDemo(int32_t id, bright::String text ){
+    L10NDemo(int32_t id, bright::String text ) 
+    {
 
         this->id = id;
         this->text = text;
@@ -5147,11 +5194,9 @@ class L10NDemo : public  bright::CfgBean
     int32_t id;
     bright::String text;
 
-
     static constexpr int ID = -331195887;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5176,7 +5221,8 @@ class PatchDemo : public  bright::CfgBean
 
     }
 
-    PatchDemo(int32_t id, int32_t value ){
+    PatchDemo(int32_t id, int32_t value ) 
+    {
 
         this->id = id;
         this->value = value;
@@ -5188,11 +5234,9 @@ class PatchDemo : public  bright::CfgBean
     int32_t id;
     int32_t value;
 
-
     static constexpr int ID = -1707294656;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5217,7 +5261,8 @@ class SystemMail : public  bright::CfgBean
 
     }
 
-    SystemMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award ){
+    SystemMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award ) 
+    {
 
         this->id = id;
         this->title = title;
@@ -5235,11 +5280,9 @@ class SystemMail : public  bright::CfgBean
     bright::String content;
     std::vector<int32_t> award;
 
-
     static constexpr int ID = 1214073149;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5264,7 +5307,8 @@ class GlobalMail : public  bright::CfgBean
 
     }
 
-    GlobalMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, bright::String platform, bright::String channel, condition::MinMaxLevel* min_max_level, condition::TimeRange* register_time, condition::TimeRange* mail_time ){
+    GlobalMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, bright::String platform, bright::String channel, condition::MinMaxLevel* min_max_level, condition::TimeRange* register_time, condition::TimeRange* mail_time ) 
+    {
 
         this->id = id;
         this->title = title;
@@ -5296,11 +5340,9 @@ class GlobalMail : public  bright::CfgBean
     condition::TimeRange* registerTime;
     condition::TimeRange* mailTime;
 
-
     static constexpr int ID = -287571791;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5325,7 +5367,8 @@ class LevelExpAttr : public  bright::CfgBean
 
     }
 
-    LevelExpAttr(int32_t level, int64_t need_exp, std::vector<int32_t> clothes_attrs ){
+    LevelExpAttr(int32_t level, int64_t need_exp, std::vector<int32_t> clothes_attrs ) 
+    {
 
         this->level = level;
         this->needExp = need_exp;
@@ -5339,11 +5382,9 @@ class LevelExpAttr : public  bright::CfgBean
     int64_t needExp;
     std::vector<int32_t> clothesAttrs;
 
-
     static constexpr int ID = -1569837022;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5368,7 +5409,8 @@ class LevelBonus : public  bright::CfgBean
 
     }
 
-    LevelBonus(int32_t id, std::vector<role::DistinctBonusInfos*> distinct_bonus_infos ){
+    LevelBonus(int32_t id, std::vector<role::DistinctBonusInfos*> distinct_bonus_infos ) 
+    {
 
         this->id = id;
         this->distinctBonusInfos = distinct_bonus_infos;
@@ -5380,11 +5422,9 @@ class LevelBonus : public  bright::CfgBean
     int32_t id;
     std::vector<role::DistinctBonusInfos*> distinctBonusInfos;
 
-
     static constexpr int ID = -572269677;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5409,7 +5449,8 @@ class DistinctBonusInfos : public  bright::CfgBean
 
     }
 
-    DistinctBonusInfos(int32_t effective_level, std::vector<role::BonusInfo*> bonus_info ){
+    DistinctBonusInfos(int32_t effective_level, std::vector<role::BonusInfo*> bonus_info ) 
+    {
 
         this->effectiveLevel = effective_level;
         this->bonusInfo = bonus_info;
@@ -5421,11 +5462,9 @@ class DistinctBonusInfos : public  bright::CfgBean
     int32_t effectiveLevel;
     std::vector<role::BonusInfo*> bonusInfo;
 
-
     static constexpr int ID = -854361766;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5450,7 +5489,8 @@ class BonusInfo : public  bright::CfgBean
 
     }
 
-    BonusInfo(item::ECurrencyType type, float coefficient ){
+    BonusInfo(item::ECurrencyType type, float coefficient ) 
+    {
 
         this->type = type;
         this->coefficient = coefficient;
@@ -5462,11 +5502,9 @@ class BonusInfo : public  bright::CfgBean
     item::ECurrencyType type;
     float coefficient;
 
-
     static constexpr int ID = -1354421803;
 
     int getTypeId() const { return ID; }
-
 
 };
 
@@ -5491,7 +5529,8 @@ class TestTag : public  bright::CfgBean
 
     }
 
-    TestTag(int32_t id, bright::String value ){
+    TestTag(int32_t id, bright::String value ) 
+    {
 
         this->id = id;
         this->value = value;
@@ -5503,11 +5542,1039 @@ class TestTag : public  bright::CfgBean
     int32_t id;
     bright::String value;
 
-
     static constexpr int ID = 1742933812;
 
     int getTypeId() const { return ID; }
 
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoType2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoType2(ByteBuf& _buf, DemoType2*& _out);
+
+    DemoType2()
+    { 
+
+    }
+
+    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, bright::String x10, test::DemoType1* x12, test::DemoEnum x13, test::DemoDynamic* x14, bright::String s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9, std::vector<test::DemoDynamic*> k15 ) 
+    {
+
+        this->x4 = x4;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x5 = x5;
+        this->x6 = x6;
+        this->x7 = x7;
+        this->x80 = x8_0;
+        this->x8 = x8;
+        this->x9 = x9;
+        this->x10 = x10;
+        this->x12 = x12;
+        this->x13 = x13;
+        this->x14 = x14;
+        this->s1 = s1;
+        this->v2 = v2;
+        this->v3 = v3;
+        this->v4 = v4;
+        this->t1 = t1;
+        this->k1 = k1;
+        this->k2 = k2;
+        this->k3 = k3;
+        this->k4 = k4;
+        this->k5 = k5;
+        this->k6 = k6;
+        this->k7 = k7;
+        this->k8 = k8;
+        this->k9 = k9;
+        this->k15 = k15;
+    }
+    virtual ~DemoType2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x4;
+    bool x1;
+    uint8_t x2;
+    int16_t x3;
+    int64_t x5;
+    float x6;
+    double x7;
+    int16_t x80;
+    int32_t x8;
+    int64_t x9;
+    bright::String x10;
+    test::DemoType1* x12;
+    test::DemoEnum x13;
+    test::DemoDynamic* x14;
+    bright::String s1;
+    bright::math::Vector2 v2;
+    bright::math::Vector3 v3;
+    bright::math::Vector4 v4;
+    int32_t t1;
+    std::vector<int32_t> k1;
+    std::vector<int32_t> k2;
+    std::vector<int32_t> k3;
+    std::vector<int32_t> k4;
+    std::unordered_set<int32_t> k5;
+    std::unordered_set<int32_t> k6;
+    std::unordered_set<int32_t> k7;
+    std::unordered_map<int32_t, int32_t> k8;
+    std::vector<test::DemoE2*> k9;
+    std::vector<test::DemoDynamic*> k15;
+
+    static constexpr int ID = -367048295;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoType1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoType1(ByteBuf& _buf, DemoType1*& _out);
+
+    DemoType1()
+    { 
+
+    }
+
+    DemoType1(int32_t x1 ) 
+    {
+
+        this->x1 = x1;
+    }
+    virtual ~DemoType1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x1;
+
+    static constexpr int ID = -367048296;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoDynamic : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoDynamic(ByteBuf& _buf, DemoDynamic*& _out);
+
+    DemoDynamic()
+    { 
+
+    }
+
+    DemoDynamic(int32_t x1 ) 
+    {
+
+        this->x1 = x1;
+    }
+    virtual ~DemoDynamic() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x1;
+
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoD2 : public  test::DemoDynamic 
+{
+    public:
+
+    static bool deserializeDemoD2(ByteBuf& _buf, DemoD2*& _out);
+
+    DemoD2()
+    { 
+
+    }
+
+    DemoD2(int32_t x1, int32_t x2 ) 
+            : test::DemoDynamic(x1)
+    {
+
+        this->x2 = x2;
+    }
+    virtual ~DemoD2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x2;
+
+    static constexpr int ID = -2138341747;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoD3 : public  test::DemoDynamic 
+{
+    public:
+
+    static bool deserializeDemoD3(ByteBuf& _buf, DemoD3*& _out);
+
+    DemoD3()
+    { 
+
+    }
+
+    DemoD3(int32_t x1, int32_t x3 ) 
+            : test::DemoDynamic(x1)
+    {
+
+        this->x3 = x3;
+    }
+    virtual ~DemoD3() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x3;
+
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoE1 : public  test::DemoD3 
+{
+    public:
+
+    static bool deserializeDemoE1(ByteBuf& _buf, DemoE1*& _out);
+
+    DemoE1()
+    { 
+
+    }
+
+    DemoE1(int32_t x1, int32_t x3, int32_t x4 ) 
+            : test::DemoD3(x1, x3)
+    {
+
+        this->x4 = x4;
+    }
+    virtual ~DemoE1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t x4;
+
+    static constexpr int ID = -2138341717;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoD5 : public  test::DemoDynamic 
+{
+    public:
+
+    static bool deserializeDemoD5(ByteBuf& _buf, DemoD5*& _out);
+
+    DemoD5()
+    { 
+
+    }
+
+    DemoD5(int32_t x1, test::DateTimeRange* time ) 
+            : test::DemoDynamic(x1)
+    {
+
+        this->time = time;
+    }
+    virtual ~DemoD5() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    test::DateTimeRange* time;
+
+    static constexpr int ID = -2138341744;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DateTimeRange : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDateTimeRange(ByteBuf& _buf, DateTimeRange*& _out);
+
+    DateTimeRange()
+    { 
+
+    }
+
+    DateTimeRange(int32_t start_time, int32_t end_time ) 
+    {
+
+        this->startTime = start_time;
+        this->endTime = end_time;
+    }
+    virtual ~DateTimeRange() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t startTime;
+    int32_t endTime;
+
+    static constexpr int ID = 495315430;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoE2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoE2(ByteBuf& _buf, DemoE2*& _out);
+
+    DemoE2()
+    { 
+
+    }
+
+    DemoE2(int32_t y1, bool y2 ) 
+    {
+
+        this->y1 = y1;
+        this->y2 = y2;
+    }
+    virtual ~DemoE2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t y1;
+    bool y2;
+
+    static constexpr int ID = -2138341716;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoSingletonType : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoSingletonType(ByteBuf& _buf, DemoSingletonType*& _out);
+
+    DemoSingletonType()
+    { 
+
+    }
+
+    DemoSingletonType(int32_t id, bright::String name, test::DemoDynamic* date ) 
+    {
+
+        this->id = id;
+        this->name = name;
+        this->date = date;
+    }
+    virtual ~DemoSingletonType() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String name;
+    test::DemoDynamic* date;
+
+    static constexpr int ID = 539196998;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class MultiRowRecord : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiRowRecord(ByteBuf& _buf, MultiRowRecord*& _out);
+
+    MultiRowRecord()
+    { 
+
+    }
+
+    MultiRowRecord(int32_t id, bright::String name, std::vector<test::MultiRowType1*> one_rows, std::vector<test::MultiRowType1*> multi_rows1, std::vector<test::MultiRowType1*> multi_rows2, std::unordered_set<test::MultiRowType2*> multi_rows3, std::unordered_map<int32_t, test::MultiRowType2*> multi_rows4 ) 
+    {
+
+        this->id = id;
+        this->name = name;
+        this->oneRows = one_rows;
+        this->multiRows1 = multi_rows1;
+        this->multiRows2 = multi_rows2;
+        this->multiRows3 = multi_rows3;
+        this->multiRows4 = multi_rows4;
+    }
+    virtual ~MultiRowRecord() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String name;
+    std::vector<test::MultiRowType1*> oneRows;
+    std::vector<test::MultiRowType1*> multiRows1;
+    std::vector<test::MultiRowType1*> multiRows2;
+    std::unordered_set<test::MultiRowType2*> multiRows3;
+    std::unordered_map<int32_t, test::MultiRowType2*> multiRows4;
+
+    static constexpr int ID = -501249394;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class MultiRowType1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiRowType1(ByteBuf& _buf, MultiRowType1*& _out);
+
+    MultiRowType1()
+    { 
+
+    }
+
+    MultiRowType1(int32_t id, int32_t x ) 
+    {
+
+        this->id = id;
+        this->x = x;
+    }
+    virtual ~MultiRowType1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    int32_t x;
+
+    static constexpr int ID = 540474970;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class MultiRowType2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiRowType2(ByteBuf& _buf, MultiRowType2*& _out);
+
+    MultiRowType2()
+    { 
+
+    }
+
+    MultiRowType2(int32_t id, int32_t x, float y ) 
+    {
+
+        this->id = id;
+        this->x = x;
+        this->y = y;
+    }
+    virtual ~MultiRowType2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    int32_t x;
+    float y;
+
+    static constexpr int ID = 540474971;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class MultiRowTitle : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiRowTitle(ByteBuf& _buf, MultiRowTitle*& _out);
+
+    MultiRowTitle()
+    { 
+
+    }
+
+    MultiRowTitle(int32_t id, bright::String name, test::H1* x1, std::vector<test::H2*> x2, std::vector<test::H2*> x3 ) 
+    {
+
+        this->id = id;
+        this->name = name;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+    }
+    virtual ~MultiRowTitle() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String name;
+    test::H1* x1;
+    std::vector<test::H2*> x2;
+    std::vector<test::H2*> x3;
+
+    static constexpr int ID = 540002427;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class H1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeH1(ByteBuf& _buf, H1*& _out);
+
+    H1()
+    { 
+
+    }
+
+    H1(test::H2* y2, int32_t y3 ) 
+    {
+
+        this->y2 = y2;
+        this->y3 = y3;
+    }
+    virtual ~H1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    test::H2* y2;
+    int32_t y3;
+
+    static constexpr int ID = -1422503995;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class H2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeH2(ByteBuf& _buf, H2*& _out);
+
+    H2()
+    { 
+
+    }
+
+    H2(int32_t z2, int32_t z3 ) 
+    {
+
+        this->z2 = z2;
+        this->z3 = z3;
+    }
+    virtual ~H2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t z2;
+    int32_t z3;
+
+    static constexpr int ID = -1422503994;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class TestNull : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestNull(ByteBuf& _buf, TestNull*& _out);
+
+    TestNull()
+    { 
+
+    }
+
+    TestNull(int32_t id, int32_t x1, test::DemoEnum x2, test::DemoType1* x3, test::DemoDynamic* x4, bright::String s1, bright::String s2 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+        this->s1 = s1;
+        this->s2 = s2;
+    }
+    virtual ~TestNull() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    int32_t x1;
+    test::DemoEnum x2;
+    test::DemoType1* x3;
+    test::DemoDynamic* x4;
+    bright::String s1;
+    bright::String s2;
+
+    static constexpr int ID = 339868469;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoPrimitiveTypesTable : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, DemoPrimitiveTypesTable*& _out);
+
+    DemoPrimitiveTypesTable()
+    { 
+
+    }
+
+    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, bright::String s1, bright::String s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
+    {
+
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+        this->x5 = x5;
+        this->x6 = x6;
+        this->x7 = x7;
+        this->s1 = s1;
+        this->s2 = s2;
+        this->v2 = v2;
+        this->v3 = v3;
+        this->v4 = v4;
+        this->t1 = t1;
+    }
+    virtual ~DemoPrimitiveTypesTable() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    bool x1;
+    uint8_t x2;
+    int16_t x3;
+    int32_t x4;
+    int64_t x5;
+    float x6;
+    double x7;
+    bright::String s1;
+    bright::String s2;
+    bright::math::Vector2 v2;
+    bright::math::Vector3 v3;
+    bright::math::Vector4 v4;
+    int32_t t1;
+
+    static constexpr int ID = -370934083;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class TestString : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestString(ByteBuf& _buf, TestString*& _out);
+
+    TestString()
+    { 
+
+    }
+
+    TestString(int32_t id, bright::String s1, test::CompactString* cs1, test::CompactString* cs2 ) 
+    {
+
+        this->id = id;
+        this->s1 = s1;
+        this->cs1 = cs1;
+        this->cs2 = cs2;
+    }
+    virtual ~TestString() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String s1;
+    test::CompactString* cs1;
+    test::CompactString* cs2;
+
+    static constexpr int ID = 338485823;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class CompactString : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeCompactString(ByteBuf& _buf, CompactString*& _out);
+
+    CompactString()
+    { 
+
+    }
+
+    CompactString(int32_t id, bright::String s2, bright::String s3 ) 
+    {
+
+        this->id = id;
+        this->s2 = s2;
+        this->s3 = s3;
+    }
+    virtual ~CompactString() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    bright::String s2;
+    bright::String s3;
+
+    static constexpr int ID = 1968089240;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class DemoGroup : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDemoGroup(ByteBuf& _buf, DemoGroup*& _out);
+
+    DemoGroup()
+    { 
+
+    }
+
+    DemoGroup(int32_t id, int32_t x1, int32_t x2, int32_t x3, int32_t x4, test::InnerGroup* x5 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+        this->x5 = x5;
+    }
+    virtual ~DemoGroup() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t id;
+    int32_t x1;
+    int32_t x2;
+    int32_t x3;
+    int32_t x4;
+    test::InnerGroup* x5;
+
+    static constexpr int ID = -379263008;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class InnerGroup : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeInnerGroup(ByteBuf& _buf, InnerGroup*& _out);
+
+    InnerGroup()
+    { 
+
+    }
+
+    InnerGroup(int32_t y1, int32_t y2, int32_t y3, int32_t y4 ) 
+    {
+
+        this->y1 = y1;
+        this->y2 = y2;
+        this->y3 = y3;
+        this->y4 = y4;
+    }
+    virtual ~InnerGroup() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t y1;
+    int32_t y2;
+    int32_t y3;
+    int32_t y4;
+
+    static constexpr int ID = -587873083;
+
+    int getTypeId() const { return ID; }
+
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class TestGlobal : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestGlobal(ByteBuf& _buf, TestGlobal*& _out);
+
+    TestGlobal()
+    { 
+
+    }
+
+    TestGlobal(int32_t unlock_equip, int32_t unlock_hero ) 
+    {
+
+        this->unlockEquip = unlock_equip;
+        this->unlockHero = unlock_hero;
+    }
+    virtual ~TestGlobal() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    int32_t unlockEquip;
+    int32_t unlockHero;
+
+    static constexpr int ID = -12548655;
+
+    int getTypeId() const { return ID; }
 
 };
 
@@ -5548,7 +6615,6 @@ class TbBlackboard
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -5585,7 +6651,6 @@ class TbBehaviorTree
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -5624,7 +6689,6 @@ class TbClazz
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -5661,7 +6725,6 @@ class TbDrop
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -5710,7 +6773,6 @@ class TbGlobalConfig
      int32_t& getMaxViality() const { return _data->maxViality; }
      int32_t& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
 
-    
 };
 }
 
@@ -5747,7 +6809,6 @@ class TbDummy
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -5786,7 +6847,6 @@ class TbErrorInfo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -5823,7 +6883,6 @@ class TbCodeInfo
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -5862,7 +6921,6 @@ class TbItem
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -5899,7 +6957,6 @@ class TbItemFunc
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -5938,7 +6995,6 @@ class TbItemExtra
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -5975,7 +7031,6 @@ class TbL10NDemo
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -6014,7 +7069,6 @@ class TbPatchDemo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -6051,7 +7105,6 @@ class TbSystemMail
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -6090,7 +7143,6 @@ class TbGlobalMail
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -6127,7 +7179,6 @@ class TbRoleLevelExpAttr
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
-
 
 };
 }
@@ -6166,7 +7217,6 @@ class TbRoleLevelBonusCoefficient
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-
 };
 }
 
@@ -6204,6 +7254,543 @@ class TbTestTag
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
+};
+}
+
+
+namespace test {
+
+
+class TbFullTypes
+{
+    private:
+    std::unordered_map<int16_t, test::DemoType2*> _dataMap;
+    std::vector<test::DemoType2*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoType2* _v;
+            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x3] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int16_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+
+    const test::DemoType2* get(int16_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbSingleton
+{
+     private:
+    test::DemoSingletonType* _data;
+
+    public:
+    const test::DemoSingletonType* data() const { return _data; }
+
+    bool load(ByteBuf& _buf)
+    {
+        int n;
+        if (!_buf.readSize(n)) return false;
+        if (n != 1) return false;
+        if(!test::DemoSingletonType::deserializeDemoSingletonType(_buf, _data)) return false;
+        return true;
+    }
+
+
+     int32_t& getId() const { return _data->id; }
+     bright::String& getName() const { return _data->name; }
+     test::DemoDynamic*& getDate() const { return _data->date; }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDataFromJson
+{
+    private:
+    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
+    std::vector<test::DemoType2*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoType2* _v;
+            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x4] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+
+    const test::DemoType2* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDataFromXml
+{
+    private:
+    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
+    std::vector<test::DemoType2*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoType2* _v;
+            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x4] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+
+    const test::DemoType2* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDataFromLua
+{
+    private:
+    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
+    std::vector<test::DemoType2*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoType2* _v;
+            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x4] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+
+    const test::DemoType2* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbMultiRowRecord
+{
+    private:
+    std::unordered_map<int32_t, test::MultiRowRecord*> _dataMap;
+    std::vector<test::MultiRowRecord*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::MultiRowRecord* _v;
+            if(!test::MultiRowRecord::deserializeMultiRowRecord(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::MultiRowRecord*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::MultiRowRecord*>& getDataList() const { return _dataList; }
+
+    const test::MultiRowRecord* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbMultiRowTitle
+{
+    private:
+    std::unordered_map<int32_t, test::MultiRowTitle*> _dataMap;
+    std::vector<test::MultiRowTitle*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::MultiRowTitle* _v;
+            if(!test::MultiRowTitle::deserializeMultiRowTitle(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::MultiRowTitle*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::MultiRowTitle*>& getDataList() const { return _dataList; }
+
+    const test::MultiRowTitle* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbTestNull
+{
+    private:
+    std::unordered_map<int32_t, test::TestNull*> _dataMap;
+    std::vector<test::TestNull*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestNull* _v;
+            if(!test::TestNull::deserializeTestNull(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::TestNull*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::TestNull*>& getDataList() const { return _dataList; }
+
+    const test::TestNull* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDemoPrimitive
+{
+    private:
+    std::unordered_map<int32_t, test::DemoPrimitiveTypesTable*> _dataMap;
+    std::vector<test::DemoPrimitiveTypesTable*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoPrimitiveTypesTable* _v;
+            if(!test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x4] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoPrimitiveTypesTable*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoPrimitiveTypesTable*>& getDataList() const { return _dataList; }
+
+    const test::DemoPrimitiveTypesTable* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbTestString
+{
+    private:
+    std::unordered_map<int32_t, test::TestString*> _dataMap;
+    std::vector<test::TestString*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestString* _v;
+            if(!test::TestString::deserializeTestString(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::TestString*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::TestString*>& getDataList() const { return _dataList; }
+
+    const test::TestString* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDemoGroup
+{
+    private:
+    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
+    std::vector<test::DemoGroup*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoGroup* _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+
+    const test::DemoGroup* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDemoGroup_C
+{
+    private:
+    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
+    std::vector<test::DemoGroup*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoGroup* _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+
+    const test::DemoGroup* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDemoGroup_S
+{
+    private:
+    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
+    std::vector<test::DemoGroup*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoGroup* _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+
+    const test::DemoGroup* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbDemoGroup_E
+{
+    private:
+    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
+    std::vector<test::DemoGroup*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoGroup* _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+
+    const test::DemoGroup* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+}
+
+
+namespace test {
+
+
+class TbTestGlobal
+{
+     private:
+    test::TestGlobal* _data;
+
+    public:
+    const test::TestGlobal* data() const { return _data; }
+
+    bool load(ByteBuf& _buf)
+    {
+        int n;
+        if (!_buf.readSize(n)) return false;
+        if (n != 1) return false;
+        if(!test::TestGlobal::deserializeTestGlobal(_buf, _data)) return false;
+        return true;
+    }
+
+
+     int32_t& getUnlockEquip() const { return _data->unlockEquip; }
+     int32_t& getUnlockHero() const { return _data->unlockHero; }
 
 };
 }
@@ -6230,46 +7817,91 @@ class Tables
      role::TbRoleLevelExpAttr TbRoleLevelExpAttr;
      role::TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
      tag::TbTestTag TbTestTag;
+     test::TbFullTypes TbFullTypes;
+     test::TbSingleton TbSingleton;
+     test::TbDataFromJson TbDataFromJson;
+     test::TbDataFromXml TbDataFromXml;
+     test::TbDataFromLua TbDataFromLua;
+     test::TbMultiRowRecord TbMultiRowRecord;
+     test::TbMultiRowTitle TbMultiRowTitle;
+     test::TbTestNull TbTestNull;
+     test::TbDemoPrimitive TbDemoPrimitive;
+     test::TbTestString TbTestString;
+     test::TbDemoGroup TbDemoGroup;
+     test::TbDemoGroup_C TbDemoGroup_C;
+     test::TbDemoGroup_S TbDemoGroup_S;
+     test::TbDemoGroup_E TbDemoGroup_E;
+     test::TbTestGlobal TbTestGlobal;
 
     bool load(std::function<bool(ByteBuf&, const std::string&)> loader)
     {
         ByteBuf buf;
-        if (!loader(buf, "ai.TbBlackboard.bin")) return false;
+        if (!loader(buf, "ai.TbBlackboard")) return false;
         if (!TbBlackboard.load(buf)) return false;
-        if (!loader(buf, "ai.TbBehaviorTree.bin")) return false;
+        if (!loader(buf, "ai.TbBehaviorTree")) return false;
         if (!TbBehaviorTree.load(buf)) return false;
-        if (!loader(buf, "blueprint.TbClazz.bin")) return false;
+        if (!loader(buf, "blueprint.TbClazz")) return false;
         if (!TbClazz.load(buf)) return false;
-        if (!loader(buf, "bonus.TbDrop.bin")) return false;
+        if (!loader(buf, "bonus.TbDrop")) return false;
         if (!TbDrop.load(buf)) return false;
-        if (!loader(buf, "common.TbGlobalConfig.bin")) return false;
+        if (!loader(buf, "common.TbGlobalConfig")) return false;
         if (!TbGlobalConfig.load(buf)) return false;
-        if (!loader(buf, "common.TbDummy.bin")) return false;
+        if (!loader(buf, "common.TbDummy")) return false;
         if (!TbDummy.load(buf)) return false;
-        if (!loader(buf, "error.TbErrorInfo.bin")) return false;
+        if (!loader(buf, "error.TbErrorInfo")) return false;
         if (!TbErrorInfo.load(buf)) return false;
-        if (!loader(buf, "error.TbCodeInfo.bin")) return false;
+        if (!loader(buf, "error.TbCodeInfo")) return false;
         if (!TbCodeInfo.load(buf)) return false;
-        if (!loader(buf, "item.TbItem.bin")) return false;
+        if (!loader(buf, "item.TbItem")) return false;
         if (!TbItem.load(buf)) return false;
-        if (!loader(buf, "item.TbItemFunc.bin")) return false;
+        if (!loader(buf, "item.TbItemFunc")) return false;
         if (!TbItemFunc.load(buf)) return false;
-        if (!loader(buf, "item.TbItemExtra.bin")) return false;
+        if (!loader(buf, "item.TbItemExtra")) return false;
         if (!TbItemExtra.load(buf)) return false;
-        if (!loader(buf, "l10n.TbL10NDemo.bin")) return false;
+        if (!loader(buf, "l10n.TbL10NDemo")) return false;
         if (!TbL10NDemo.load(buf)) return false;
-        if (!loader(buf, "l10n.TbPatchDemo.bin")) return false;
+        if (!loader(buf, "l10n.TbPatchDemo")) return false;
         if (!TbPatchDemo.load(buf)) return false;
-        if (!loader(buf, "mail.TbSystemMail.bin")) return false;
+        if (!loader(buf, "mail.TbSystemMail")) return false;
         if (!TbSystemMail.load(buf)) return false;
-        if (!loader(buf, "mail.TbGlobalMail.bin")) return false;
+        if (!loader(buf, "mail.TbGlobalMail")) return false;
         if (!TbGlobalMail.load(buf)) return false;
-        if (!loader(buf, "role.TbRoleLevelExpAttr.bin")) return false;
+        if (!loader(buf, "role.TbRoleLevelExpAttr")) return false;
         if (!TbRoleLevelExpAttr.load(buf)) return false;
-        if (!loader(buf, "role.TbRoleLevelBonusCoefficient.bin")) return false;
+        if (!loader(buf, "role.TbRoleLevelBonusCoefficient")) return false;
         if (!TbRoleLevelBonusCoefficient.load(buf)) return false;
-        if (!loader(buf, "tag.TbTestTag.bin")) return false;
+        if (!loader(buf, "tag.TbTestTag")) return false;
         if (!TbTestTag.load(buf)) return false;
+        if (!loader(buf, "test.TbFullTypes")) return false;
+        if (!TbFullTypes.load(buf)) return false;
+        if (!loader(buf, "test.TbSingleton")) return false;
+        if (!TbSingleton.load(buf)) return false;
+        if (!loader(buf, "test.TbDataFromJson")) return false;
+        if (!TbDataFromJson.load(buf)) return false;
+        if (!loader(buf, "test.TbDataFromXml")) return false;
+        if (!TbDataFromXml.load(buf)) return false;
+        if (!loader(buf, "test.TbDataFromLua")) return false;
+        if (!TbDataFromLua.load(buf)) return false;
+        if (!loader(buf, "test.TbMultiRowRecord")) return false;
+        if (!TbMultiRowRecord.load(buf)) return false;
+        if (!loader(buf, "test.TbMultiRowTitle")) return false;
+        if (!TbMultiRowTitle.load(buf)) return false;
+        if (!loader(buf, "test.TbTestNull")) return false;
+        if (!TbTestNull.load(buf)) return false;
+        if (!loader(buf, "test.TbDemoPrimitive")) return false;
+        if (!TbDemoPrimitive.load(buf)) return false;
+        if (!loader(buf, "test.TbTestString")) return false;
+        if (!TbTestString.load(buf)) return false;
+        if (!loader(buf, "test.TbDemoGroup")) return false;
+        if (!TbDemoGroup.load(buf)) return false;
+        if (!loader(buf, "test.TbDemoGroup_C")) return false;
+        if (!TbDemoGroup_C.load(buf)) return false;
+        if (!loader(buf, "test.TbDemoGroup_S")) return false;
+        if (!TbDemoGroup_S.load(buf)) return false;
+        if (!loader(buf, "test.TbDemoGroup_E")) return false;
+        if (!TbDemoGroup_E.load(buf)) return false;
+        if (!loader(buf, "test.TbTestGlobal")) return false;
+        if (!TbTestGlobal.load(buf)) return false;
         return true;
     }
 };

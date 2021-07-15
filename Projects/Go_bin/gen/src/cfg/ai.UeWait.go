@@ -27,7 +27,7 @@ func (Ai_UeWait) GetTypeId() int {
 func NewAi_UeWait(_buf *serialization.ByteBuf) (_v *Ai_UeWait, err error) {
     _v = &Ai_UeWait{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { if _v.WaitTime, err = _buf.ReadFloat(); err != nil { return } }
     { if _v.RandomDeviation, err = _buf.ReadFloat(); err != nil { return } }

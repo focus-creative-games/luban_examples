@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_Decorator struct {
     Ai_Node
@@ -21,15 +20,7 @@ type Ai_Decorator struct {
 }
 
 
-func NewAi_Decorator(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err error) {
-    _v = &Ai_Decorator{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { return } }
-    return
-}
-func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -46,4 +37,14 @@ func NewChildAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err erro
     }
     return
 }
+
+func NewAi_Decorator_Body(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err error) {
+    _v = &Ai_Decorator{}
+    var _p *Ai_Node
+     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
+    _v.Ai_Node = *_p
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { return } }
+    return
+}
+
 

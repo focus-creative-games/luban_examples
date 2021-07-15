@@ -29,22 +29,18 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public static CostCurrencies DeserializeCostCurrencies(ByteBuf _buf)
     {
-    
         return new cost.CostCurrencies(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
-
+    public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
 
     public const int ID = 103084157;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Currencies) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Currencies) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -53,7 +49,7 @@ base.Resolve(_tables);
     public override string ToString()
     {
         return "{ "
-        + "Currencies:" + Currencies + ","
+        + "Currencies:" + Bright.Common.StringUtil.CollectionToString(Currencies) + ","
         + "}";
     }
     }

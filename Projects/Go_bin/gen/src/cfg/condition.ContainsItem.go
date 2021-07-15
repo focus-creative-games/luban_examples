@@ -28,7 +28,7 @@ func (Condition_ContainsItem) GetTypeId() int {
 func NewCondition_ContainsItem(_buf *serialization.ByteBuf) (_v *Condition_ContainsItem, err error) {
     _v = &Condition_ContainsItem{}
     var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
     { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }

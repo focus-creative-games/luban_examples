@@ -15,14 +15,7 @@ type Condition_BoolRoleCondition struct {
 }
 
 
-func NewCondition_BoolRoleCondition(_buf map[string]interface{}) (_v *Condition_BoolRoleCondition, err error) {
-    _v = &Condition_BoolRoleCondition{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
-    return
-}
-func NewChildCondition_BoolRoleCondition(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewCondition_BoolRoleCondition(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -36,6 +29,14 @@ func NewChildCondition_BoolRoleCondition(_buf map[string]interface{}) (_v interf
         case "ClothesPropertyScoreGreaterThan": return NewCondition_ClothesPropertyScoreGreaterThan(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewCondition_BoolRoleCondition_Body(_buf map[string]interface{}) (_v *Condition_BoolRoleCondition, err error) {
+    _v = &Condition_BoolRoleCondition{}
+    var _p *Condition_RoleCondition
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
+    _v.Condition_RoleCondition = *_p
     return
 }
 

@@ -30,10 +30,10 @@ func (Item_TreasureBox) GetTypeId() int {
 func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err error) {
     _v = &Item_TreasureBox{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.KeyItemId = &__x__ }}
-    { if _v.OpenLevel, err = NewCondition_MinLevel (_buf); err != nil { return } }
+    { if _v.OpenLevel, err = NewCondition_MinLevel(_buf); err != nil { return } }
     { if _v.UseOnObtain, err = _buf.ReadBool(); err != nil { return } }
      {
                 _v.DropIds = make([]int32, 0)
@@ -52,7 +52,7 @@ func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Item_ChooseOneBonus
-                    { if _e_, err = NewItem_ChooseOneBonus (_buf); err != nil { return } }
+                    { if _e_, err = NewItem_ChooseOneBonus(_buf); err != nil { return } }
                     _v.ChooseList = append(_v.ChooseList, _e_)
                 }
             }

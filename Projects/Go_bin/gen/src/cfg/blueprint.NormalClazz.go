@@ -27,7 +27,7 @@ func (Blueprint_NormalClazz) GetTypeId() int {
 func NewBlueprint_NormalClazz(_buf *serialization.ByteBuf) (_v *Blueprint_NormalClazz, err error) {
     _v = &Blueprint_NormalClazz{}
     var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz(_buf) ; err != nil { return }
+     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
     _v.Blueprint_Clazz = *_p
     { if _v.IsAbstract, err = _buf.ReadBool(); err != nil { return } }
      {
@@ -36,7 +36,7 @@ func NewBlueprint_NormalClazz(_buf *serialization.ByteBuf) (_v *Blueprint_Normal
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Blueprint_Field
-                    { if _e_, err = NewBlueprint_Field (_buf); err != nil { return } }
+                    { if _e_, err = NewBlueprint_Field(_buf); err != nil { return } }
                     _v.Fields = append(_v.Fields, _e_)
                 }
             }

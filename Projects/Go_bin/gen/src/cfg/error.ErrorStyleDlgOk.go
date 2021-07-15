@@ -26,7 +26,7 @@ func (Error_ErrorStyleDlgOk) GetTypeId() int {
 func NewError_ErrorStyleDlgOk(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleDlgOk, err error) {
     _v = &Error_ErrorStyleDlgOk{}
     var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
+     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
     { if _v.BtnName, err = _buf.ReadString(); err != nil { return } }
     return

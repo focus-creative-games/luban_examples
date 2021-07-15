@@ -31,24 +31,20 @@ public sealed partial class Item :  bonus.Bonus
 
     public static Item DeserializeItem(ByteBuf _buf)
     {
-    
         return new bonus.Item(_buf);
-    
     }
 
-     public readonly int ItemId;
-        public item.Item ItemId_Ref;
-     public readonly int Amount;
-
+    public readonly int ItemId;
+    public item.Item ItemId_Ref;
+    public readonly int Amount;
 
     public const int ID = 1689011106;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        base.Resolve(_tables);
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
         OnResolveFinish(_tables);
     }
 

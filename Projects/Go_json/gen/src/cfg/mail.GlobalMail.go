@@ -66,9 +66,9 @@ func NewMail_GlobalMail(_buf map[string]interface{}) (_v *Mail_GlobalMail, err e
 
     { var _ok_ bool; if _v.Platform, _ok_ = _buf["platform"].(string); !_ok_ { err = errors.New("platform error"); return } }
     { var _ok_ bool; if _v.Channel, _ok_ = _buf["channel"].(string); !_ok_ { err = errors.New("channel error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["min_max_level"].(map[string]interface{}); !_ok_ { err = errors.New("min_max_level error"); return }; if _v.MinMaxLevel, err = NewCondition_MinMaxLevel (_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["register_time"].(map[string]interface{}); !_ok_ { err = errors.New("register_time error"); return }; if _v.RegisterTime, err = NewCondition_TimeRange (_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["mail_time"].(map[string]interface{}); !_ok_ { err = errors.New("mail_time error"); return }; if _v.MailTime, err = NewCondition_TimeRange (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["min_max_level"].(map[string]interface{}); !_ok_ { err = errors.New("min_max_level error"); return }; if _v.MinMaxLevel, err = NewCondition_MinMaxLevel(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["register_time"].(map[string]interface{}); !_ok_ { err = errors.New("register_time error"); return }; if _v.RegisterTime, err = NewCondition_TimeRange(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["mail_time"].(map[string]interface{}); !_ok_ { err = errors.New("mail_time error"); return }; if _v.MailTime, err = NewCondition_TimeRange(_x_); err != nil { return } }
     return
 }
 

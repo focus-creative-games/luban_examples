@@ -29,21 +29,17 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 
     public static DesignDrawing DeserializeDesignDrawing(ByteBuf _buf)
     {
-    
         return new item.DesignDrawing(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<int> LearnComponentId;
-
+    public readonly System.Collections.Generic.List<int> LearnComponentId;
 
     public const int ID = -1679179579;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -53,7 +49,7 @@ base.Resolve(_tables);
     {
         return "{ "
         + "Id:" + Id + ","
-        + "LearnComponentId:" + LearnComponentId + ","
+        + "LearnComponentId:" + Bright.Common.StringUtil.CollectionToString(LearnComponentId) + ","
         + "}";
     }
     }

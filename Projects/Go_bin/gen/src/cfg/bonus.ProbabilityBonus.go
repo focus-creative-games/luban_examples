@@ -26,7 +26,7 @@ func (Bonus_ProbabilityBonus) GetTypeId() int {
 func NewBonus_ProbabilityBonus(_buf *serialization.ByteBuf) (_v *Bonus_ProbabilityBonus, err error) {
     _v = &Bonus_ProbabilityBonus{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
      {
                 _v.Bonuses = make([]*Bonus_ProbabilityBonusInfo, 0)
@@ -34,7 +34,7 @@ func NewBonus_ProbabilityBonus(_buf *serialization.ByteBuf) (_v *Bonus_Probabili
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Bonus_ProbabilityBonusInfo
-                    { if _e_, err = NewBonus_ProbabilityBonusInfo (_buf); err != nil { return } }
+                    { if _e_, err = NewBonus_ProbabilityBonusInfo(_buf); err != nil { return } }
                     _v.Bonuses = append(_v.Bonuses, _e_)
                 }
             }

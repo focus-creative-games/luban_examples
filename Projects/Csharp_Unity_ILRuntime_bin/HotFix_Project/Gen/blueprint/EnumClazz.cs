@@ -29,22 +29,18 @@ public sealed partial class EnumClazz :  blueprint.Clazz
 
     public static EnumClazz DeserializeEnumClazz(ByteBuf _buf)
     {
-    
         return new blueprint.EnumClazz(_buf);
-    
     }
 
-     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
-
+    public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
-            foreach(var _e in Enums) { _e?.Resolve(_tables); }
+        base.Resolve(_tables);
+        foreach(var _e in Enums) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -55,9 +51,9 @@ base.Resolve(_tables);
         return "{ "
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
-        + "Parents:" + Parents + ","
-        + "Methods:" + Methods + ","
-        + "Enums:" + Enums + ","
+        + "Parents:" + Bright.Common.StringUtil.CollectionToString(Parents) + ","
+        + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
+        + "Enums:" + Bright.Common.StringUtil.CollectionToString(Enums) + ","
         + "}";
     }
     }

@@ -22,7 +22,7 @@ func (Ai_UeTimeLimit) GetTypeId() int {
 func NewAi_UeTimeLimit(_buf map[string]interface{}) (_v *Ai_UeTimeLimit, err error) {
     _v = &Ai_UeTimeLimit{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["limit_time"].(float64); !_ok_ { err = errors.New("limit_time error"); return }; _v.LimitTime = float32(_tempNum_) }
     return

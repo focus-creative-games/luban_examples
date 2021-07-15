@@ -10,10 +10,9 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Test_DemoD3 struct {
     Test_DemoDynamic
@@ -21,15 +20,7 @@ type Test_DemoD3 struct {
 }
 
 
-func NewTest_DemoD3(_buf *serialization.ByteBuf) (_v *Test_DemoD3, err error) {
-    _v = &Test_DemoD3{}
-    var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
-    _v.Test_DemoDynamic = *_p
-    { if _v.X3, err = _buf.ReadInt(); err != nil { return } }
-    return
-}
-func NewChildTest_DemoD3(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewTest_DemoD3(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -40,4 +31,14 @@ func NewChildTest_DemoD3(_buf *serialization.ByteBuf) (_v interface{}, err error
     }
     return
 }
+
+func NewTest_DemoD3_Body(_buf *serialization.ByteBuf) (_v *Test_DemoD3, err error) {
+    _v = &Test_DemoD3{}
+    var _p *Test_DemoDynamic
+     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
+    _v.Test_DemoDynamic = *_p
+    { if _v.X3, err = _buf.ReadInt(); err != nil { return } }
+    return
+}
+
 

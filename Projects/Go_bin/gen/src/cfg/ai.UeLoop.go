@@ -28,7 +28,7 @@ func (Ai_UeLoop) GetTypeId() int {
 func NewAi_UeLoop(_buf *serialization.ByteBuf) (_v *Ai_UeLoop, err error) {
     _v = &Ai_UeLoop{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     { if _v.NumLoops, err = _buf.ReadInt(); err != nil { return } }
     { if _v.InfiniteLoop, err = _buf.ReadBool(); err != nil { return } }

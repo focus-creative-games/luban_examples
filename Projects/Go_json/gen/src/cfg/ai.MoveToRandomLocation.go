@@ -23,7 +23,7 @@ func (Ai_MoveToRandomLocation) GetTypeId() int {
 func NewAi_MoveToRandomLocation(_buf map[string]interface{}) (_v *Ai_MoveToRandomLocation, err error) {
     _v = &Ai_MoveToRandomLocation{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; if _v.OriginPositionKey, _ok_ = _buf["origin_position_key"].(string); !_ok_ { err = errors.New("origin_position_key error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["radius"].(float64); !_ok_ { err = errors.New("radius error"); return }; _v.Radius = float32(_tempNum_) }

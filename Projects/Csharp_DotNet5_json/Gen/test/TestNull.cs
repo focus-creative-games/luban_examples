@@ -29,7 +29,7 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         { var _j = _buf.GetProperty("s2"); if (_j.ValueKind != JsonValueKind.Null) { S2 = _j.GetString(); } else { S2 = null; } }
     }
 
-    public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string? s2 ) 
+    public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -51,7 +51,7 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
     public readonly test.DemoType1 X3;
     public readonly test.DemoDynamic X4;
     public readonly string S1;
-    public readonly string? S2;
+    public readonly string S2;
 
     public const int ID = 339868469;
     public override int GetTypeId() => ID;

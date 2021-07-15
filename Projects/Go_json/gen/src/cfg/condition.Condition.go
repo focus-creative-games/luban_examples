@@ -14,11 +14,7 @@ type Condition_Condition struct {
 }
 
 
-func NewCondition_Condition(_buf map[string]interface{}) (_v *Condition_Condition, err error) {
-    _v = &Condition_Condition{}
-    return
-}
-func NewChildCondition_Condition(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewCondition_Condition(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -35,6 +31,11 @@ func NewChildCondition_Condition(_buf map[string]interface{}) (_v interface{}, e
         case "ContainsItem": return NewCondition_ContainsItem(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewCondition_Condition_Body(_buf map[string]interface{}) (_v *Condition_Condition, err error) {
+    _v = &Condition_Condition{}
     return
 }
 

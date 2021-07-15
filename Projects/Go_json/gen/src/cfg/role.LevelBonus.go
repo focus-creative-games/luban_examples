@@ -31,7 +31,7 @@ func NewRole_LevelBonus(_buf map[string]interface{}) (_v *Role_LevelBonus, err e
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Role_DistinctBonusInfos
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewRole_DistinctBonusInfos (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewRole_DistinctBonusInfos(_x_); err != nil { return } }
                     _v.DistinctBonusInfos = append(_v.DistinctBonusInfos, _list_v_)
                 }
             }

@@ -24,7 +24,7 @@ func (Ai_MoveToLocation) GetTypeId() int {
 func NewAi_MoveToLocation(_buf map[string]interface{}) (_v *Ai_MoveToLocation, err error) {
     _v = &Ai_MoveToLocation{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; var _v_ map[string]interface{}; if _v_, _ok_ = _buf["location"].(map[string]interface{}); !_ok_ { err = errors.New("location error"); return }
             var _x_, _y_, _z_ float32;

@@ -29,21 +29,17 @@ public sealed partial class KeepFaceTarget :  ai.Service
 
     public static KeepFaceTarget DeserializeKeepFaceTarget(ByteBuf _buf)
     {
-    
         return new ai.KeepFaceTarget(_buf);
-    
     }
 
-     public readonly string TargetActorKey;
-
+    public readonly string TargetActorKey;
 
     public const int ID = 1195270745;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

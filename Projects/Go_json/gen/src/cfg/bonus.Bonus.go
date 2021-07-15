@@ -14,11 +14,7 @@ type Bonus_Bonus struct {
 }
 
 
-func NewBonus_Bonus(_buf map[string]interface{}) (_v *Bonus_Bonus, err error) {
-    _v = &Bonus_Bonus{}
-    return
-}
-func NewChildBonus_Bonus(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewBonus_Bonus(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -38,6 +34,11 @@ func NewChildBonus_Bonus(_buf map[string]interface{}) (_v interface{}, err error
         case "DropBonus": return NewBonus_DropBonus(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewBonus_Bonus_Body(_buf map[string]interface{}) (_v *Bonus_Bonus, err error) {
+    _v = &Bonus_Bonus{}
     return
 }
 

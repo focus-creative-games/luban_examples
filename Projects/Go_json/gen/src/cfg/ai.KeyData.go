@@ -14,11 +14,7 @@ type Ai_KeyData struct {
 }
 
 
-func NewAi_KeyData(_buf map[string]interface{}) (_v *Ai_KeyData, err error) {
-    _v = &Ai_KeyData{}
-    return
-}
-func NewChildAi_KeyData(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_KeyData(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -31,6 +27,11 @@ func NewChildAi_KeyData(_buf map[string]interface{}) (_v interface{}, err error)
         case "BlackboardKeyData": return NewAi_BlackboardKeyData(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_KeyData_Body(_buf map[string]interface{}) (_v *Ai_KeyData, err error) {
+    _v = &Ai_KeyData{}
     return
 }
 

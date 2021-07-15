@@ -16,15 +16,7 @@ type Test_DemoD3 struct {
 }
 
 
-func NewTest_DemoD3(_buf map[string]interface{}) (_v *Test_DemoD3, err error) {
-    _v = &Test_DemoD3{}
-    var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
-    _v.Test_DemoDynamic = *_p
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
-    return
-}
-func NewChildTest_DemoD3(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewTest_DemoD3(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -34,6 +26,15 @@ func NewChildTest_DemoD3(_buf map[string]interface{}) (_v interface{}, err error
         case "DemoE1": return NewTest_DemoE1(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewTest_DemoD3_Body(_buf map[string]interface{}) (_v *Test_DemoD3, err error) {
+    _v = &Test_DemoD3{}
+    var _p *Test_DemoDynamic
+     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
+    _v.Test_DemoDynamic = *_p
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
     return
 }
 

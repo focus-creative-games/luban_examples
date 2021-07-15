@@ -27,10 +27,8 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
 
     public static LimitBase DeserializeLimitBase(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case limit.DailyLimit.ID: return new limit.DailyLimit(_buf);
             case limit.MultiDayLimit.ID: return new limit.MultiDayLimit(_buf);
             case limit.WeeklyLimit.ID: return new limit.WeeklyLimit(_buf);
@@ -39,15 +37,12 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
             case limit.GroupCoolDown.ID: return new limit.GroupCoolDown(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

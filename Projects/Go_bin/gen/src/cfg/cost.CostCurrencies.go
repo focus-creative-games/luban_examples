@@ -26,7 +26,7 @@ func (Cost_CostCurrencies) GetTypeId() int {
 func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencies, err error) {
     _v = &Cost_CostCurrencies{}
     var _p *Cost_Cost
-     if _p, err = NewCost_Cost(_buf) ; err != nil { return }
+     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
     _v.Cost_Cost = *_p
      {
                 _v.Currencies = make([]*Cost_CostCurrency, 0)
@@ -34,7 +34,7 @@ func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencie
                 if _n_, err = _buf.ReadSize(); err != nil {return}
                 for i := 0 ; i < _n_ ; i++ {
                     var _e_ *Cost_CostCurrency
-                    { if _e_, err = NewCost_CostCurrency (_buf); err != nil { return } }
+                    { if _e_, err = NewCost_CostCurrency(_buf); err != nil { return } }
                     _v.Currencies = append(_v.Currencies, _e_)
                 }
             }

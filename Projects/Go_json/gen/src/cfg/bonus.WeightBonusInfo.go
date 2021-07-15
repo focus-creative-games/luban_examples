@@ -21,7 +21,7 @@ func (Bonus_WeightBonusInfo) GetTypeId() int {
 
 func NewBonus_WeightBonusInfo(_buf map[string]interface{}) (_v *Bonus_WeightBonusInfo, err error) {
     _v = &Bonus_WeightBonusInfo{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewChildBonus_Bonus(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewBonus_Bonus(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["weight"].(float64); !_ok_ { err = errors.New("weight error"); return }; _v.Weight = int32(_tempNum_) }
     return
 }

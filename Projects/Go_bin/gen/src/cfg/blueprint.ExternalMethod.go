@@ -25,7 +25,7 @@ func (Blueprint_ExternalMethod) GetTypeId() int {
 func NewBlueprint_ExternalMethod(_buf *serialization.ByteBuf) (_v *Blueprint_ExternalMethod, err error) {
     _v = &Blueprint_ExternalMethod{}
     var _p *Blueprint_Method
-     if _p, err = NewBlueprint_Method(_buf) ; err != nil { return }
+     if _p, err = NewBlueprint_Method_Body(_buf) ; err != nil { return }
     _v.Blueprint_Method = *_p
     return
 }

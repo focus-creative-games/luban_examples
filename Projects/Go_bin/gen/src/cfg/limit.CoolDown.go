@@ -26,7 +26,7 @@ func (Limit_CoolDown) GetTypeId() int {
 func NewLimit_CoolDown(_buf *serialization.ByteBuf) (_v *Limit_CoolDown, err error) {
     _v = &Limit_CoolDown{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { if _v.Duration, err = _buf.ReadInt(); err != nil { return } }
     return

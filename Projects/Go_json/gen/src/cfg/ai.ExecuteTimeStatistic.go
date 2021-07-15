@@ -21,7 +21,7 @@ func (Ai_ExecuteTimeStatistic) GetTypeId() int {
 func NewAi_ExecuteTimeStatistic(_buf map[string]interface{}) (_v *Ai_ExecuteTimeStatistic, err error) {
     _v = &Ai_ExecuteTimeStatistic{}
     var _p *Ai_Service
-     if _p, err = NewAi_Service(_buf) ; err != nil { return }
+     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
     return
 }

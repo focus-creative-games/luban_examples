@@ -22,7 +22,7 @@ func (Limit_CoolDown) GetTypeId() int {
 func NewLimit_CoolDown(_buf map[string]interface{}) (_v *Limit_CoolDown, err error) {
     _v = &Limit_CoolDown{}
     var _p *Limit_LimitBase
-     if _p, err = NewLimit_LimitBase(_buf) ; err != nil { return }
+     if _p, err = NewLimit_LimitBase_Body(_buf) ; err != nil { return }
     _v.Limit_LimitBase = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["duration"].(float64); !_ok_ { err = errors.New("duration error"); return }; _v.Duration = int32(_tempNum_) }
     return

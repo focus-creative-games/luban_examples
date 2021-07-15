@@ -29,10 +29,8 @@ public abstract partial class Task :  ai.FlowNode
 
     public static Task DeserializeTask(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case ai.UeWait.ID: return new ai.UeWait(_buf);
             case ai.UeWaitBlackboardTime.ID: return new ai.UeWaitBlackboardTime(_buf);
             case ai.MoveToTarget.ID: return new ai.MoveToTarget(_buf);
@@ -42,16 +40,14 @@ public abstract partial class Task :  ai.FlowNode
             case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly bool IgnoreRestartSelf;
-
+    public readonly bool IgnoreRestartSelf;
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 
@@ -62,8 +58,8 @@ base.Resolve(_tables);
         return "{ "
         + "Id:" + Id + ","
         + "NodeName:" + NodeName + ","
-        + "Decorators:" + Decorators + ","
-        + "Services:" + Services + ","
+        + "Decorators:" + Bright.Common.StringUtil.CollectionToString(Decorators) + ","
+        + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "}";
     }

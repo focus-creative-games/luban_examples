@@ -35,24 +35,19 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
 
     public static ItemFunction DeserializeItemFunction(ByteBuf _buf)
     {
-    
         return new item.ItemFunction(_buf);
-    
     }
 
-     public readonly item.EMinorType MinorType;
-     public readonly item.EItemFunctionType FuncType;
-     public readonly string Method;
-     public readonly bool CloseBagUi;
-
+    public readonly item.EMinorType MinorType;
+    public readonly item.EItemFunctionType FuncType;
+    public readonly string Method;
+    public readonly bool CloseBagUi;
 
     public const int ID = 1205824294;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

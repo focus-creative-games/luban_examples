@@ -33,23 +33,19 @@ public sealed partial class UeLoop :  ai.Decorator
 
     public static UeLoop DeserializeUeLoop(ByteBuf _buf)
     {
-    
         return new ai.UeLoop(_buf);
-    
     }
 
-     public readonly int NumLoops;
-     public readonly bool InfiniteLoop;
-     public readonly float InfiniteLoopTimeoutTime;
-
+    public readonly int NumLoops;
+    public readonly bool InfiniteLoop;
+    public readonly float InfiniteLoopTimeoutTime;
 
     public const int ID = -513308166;
     public override int GetTypeId() => ID;
 
-
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

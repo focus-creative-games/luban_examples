@@ -22,7 +22,7 @@ func (Bonus_Items) GetTypeId() int {
 func NewBonus_Items(_buf map[string]interface{}) (_v *Bonus_Items, err error) {
     _v = &Bonus_Items{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
      {
                 var _arr_ []interface{}
@@ -33,7 +33,7 @@ func NewBonus_Items(_buf map[string]interface{}) (_v *Bonus_Items, err error) {
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ *Bonus_Item
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_Item (_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_Item(_x_); err != nil { return } }
                     _v.ItemList = append(_v.ItemList, _list_v_)
                 }
             }

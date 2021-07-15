@@ -29,10 +29,8 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public static ItemExtra DeserializeItemExtra(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case item.TreasureBox.ID: return new item.TreasureBox(_buf);
             case item.InteractionItem.ID: return new item.InteractionItem(_buf);
             case item.Clothes.ID: return new item.Clothes(_buf);
@@ -40,16 +38,13 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
             case item.Dymmy.ID: return new item.Dymmy(_buf);
             default: throw new SerializationException();
         }
-    
     }
 
-     public readonly int Id;
-
+    public readonly int Id;
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-
         OnResolveFinish(_tables);
     }
 

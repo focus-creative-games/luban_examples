@@ -27,10 +27,8 @@ public abstract partial class RoleCondition :  condition.Condition
 
     public static RoleCondition DeserializeRoleCondition(ByteBuf _buf)
     {
-    
         switch (_buf.ReadInt())
         {
-            case 0 : return null;
             case condition.MultiRoleCondition.ID: return new condition.MultiRoleCondition(_buf);
             case condition.GenderLimit.ID: return new condition.GenderLimit(_buf);
             case condition.MinLevel.ID: return new condition.MinLevel(_buf);
@@ -40,15 +38,13 @@ public abstract partial class RoleCondition :  condition.Condition
             case condition.ContainsItem.ID: return new condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
-    
     }
-
 
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
-base.Resolve(_tables);
+        base.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

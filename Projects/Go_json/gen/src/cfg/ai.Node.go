@@ -16,13 +16,7 @@ type Ai_Node struct {
 }
 
 
-func NewAi_Node(_buf map[string]interface{}) (_v *Ai_Node, err error) {
-    _v = &Ai_Node{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    return
-}
-func NewChildAi_Node(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewAi_Node(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -54,6 +48,13 @@ func NewChildAi_Node(_buf map[string]interface{}) (_v interface{}, err error) {
         case "DebugPrint": return NewAi_DebugPrint(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewAi_Node_Body(_buf map[string]interface{}) (_v *Ai_Node, err error) {
+    _v = &Ai_Node{}
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     return
 }
 

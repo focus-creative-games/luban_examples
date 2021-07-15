@@ -21,7 +21,7 @@ func (Ai_UeForceSuccess) GetTypeId() int {
 func NewAi_UeForceSuccess(_buf map[string]interface{}) (_v *Ai_UeForceSuccess, err error) {
     _v = &Ai_UeForceSuccess{}
     var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator(_buf) ; err != nil { return }
+     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
     _v.Ai_Decorator = *_p
     return
 }

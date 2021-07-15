@@ -10,24 +10,16 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Condition_BoolRoleCondition struct {
     Condition_RoleCondition
 }
 
 
-func NewCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v *Condition_BoolRoleCondition, err error) {
-    _v = &Condition_BoolRoleCondition{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
-    return
-}
-func NewChildCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -42,4 +34,13 @@ func NewChildCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v interf
     }
     return
 }
+
+func NewCondition_BoolRoleCondition_Body(_buf *serialization.ByteBuf) (_v *Condition_BoolRoleCondition, err error) {
+    _v = &Condition_BoolRoleCondition{}
+    var _p *Condition_RoleCondition
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
+    _v.Condition_RoleCondition = *_p
+    return
+}
+
 

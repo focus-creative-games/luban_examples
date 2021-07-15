@@ -14,11 +14,7 @@ type Cost_Cost struct {
 }
 
 
-func NewCost_Cost(_buf map[string]interface{}) (_v *Cost_Cost, err error) {
-    _v = &Cost_Cost{}
-    return
-}
-func NewChildCost_Cost(_buf map[string]interface{}) (_v interface{}, err error) {
+func NewCost_Cost(_buf map[string]interface{}) (_v interface{}, err error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
@@ -32,6 +28,11 @@ func NewChildCost_Cost(_buf map[string]interface{}) (_v interface{}, err error) 
         case "CostItems": return NewCost_CostItems(_buf);
         default: return nil, errors.New("unknown type id")
     }
+    return
+}
+
+func NewCost_Cost_Body(_buf map[string]interface{}) (_v *Cost_Cost, err error) {
+    _v = &Cost_Cost{}
     return
 }
 

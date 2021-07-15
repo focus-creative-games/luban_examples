@@ -22,9 +22,9 @@ func (Condition_TimeRange) GetTypeId() int {
 func NewCondition_TimeRange(_buf map[string]interface{}) (_v *Condition_TimeRange, err error) {
     _v = &Condition_TimeRange{}
     var _p *Condition_Condition
-     if _p, err = NewCondition_Condition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_Condition_Body(_buf) ; err != nil { return }
     _v.Condition_Condition = *_p
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date_time_range"].(map[string]interface{}); !_ok_ { err = errors.New("date_time_range error"); return }; if _v.DateTimeRange, err = NewCommon_DateTimeRange (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date_time_range"].(map[string]interface{}); !_ok_ { err = errors.New("date_time_range error"); return }; if _v.DateTimeRange, err = NewCommon_DateTimeRange(_x_); err != nil { return } }
     return
 }
 

@@ -22,7 +22,7 @@ func (Bonus_DropBonus) GetTypeId() int {
 func NewBonus_DropBonus(_buf map[string]interface{}) (_v *Bonus_DropBonus, err error) {
     _v = &Bonus_DropBonus{}
     var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus(_buf) ; err != nil { return }
+     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
     _v.Bonus_Bonus = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     return

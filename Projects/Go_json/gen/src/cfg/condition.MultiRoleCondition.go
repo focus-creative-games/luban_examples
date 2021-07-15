@@ -22,7 +22,7 @@ func (Condition_MultiRoleCondition) GetTypeId() int {
 func NewCondition_MultiRoleCondition(_buf map[string]interface{}) (_v *Condition_MultiRoleCondition, err error) {
     _v = &Condition_MultiRoleCondition{}
     var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition(_buf) ; err != nil { return }
+     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
     _v.Condition_RoleCondition = *_p
      {
                 var _arr_ []interface{}
@@ -33,7 +33,7 @@ func NewCondition_MultiRoleCondition(_buf map[string]interface{}) (_v *Condition
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildCondition_RoleCondition(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewCondition_RoleCondition(_x_); err != nil { return } }
                     _v.Conditions = append(_v.Conditions, _list_v_)
                 }
             }

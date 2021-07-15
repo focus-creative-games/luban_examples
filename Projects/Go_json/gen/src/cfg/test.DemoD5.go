@@ -22,9 +22,9 @@ func (Test_DemoD5) GetTypeId() int {
 func NewTest_DemoD5(_buf map[string]interface{}) (_v *Test_DemoD5, err error) {
     _v = &Test_DemoD5{}
     var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic(_buf) ; err != nil { return }
+     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
     _v.Test_DemoDynamic = *_p
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["time"].(map[string]interface{}); !_ok_ { err = errors.New("time error"); return }; if _v.Time, err = NewTest_DateTimeRange (_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["time"].(map[string]interface{}); !_ok_ { err = errors.New("time error"); return }; if _v.Time, err = NewTest_DateTimeRange(_x_); err != nil { return } }
     return
 }
 

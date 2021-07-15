@@ -23,7 +23,7 @@ func (Ai_UeWait) GetTypeId() int {
 func NewAi_UeWait(_buf map[string]interface{}) (_v *Ai_UeWait, err error) {
     _v = &Ai_UeWait{}
     var _p *Ai_Task
-     if _p, err = NewAi_Task(_buf) ; err != nil { return }
+     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
     _v.Ai_Task = *_p
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["wait_time"].(float64); !_ok_ { err = errors.New("wait_time error"); return }; _v.WaitTime = float32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["random_deviation"].(float64); !_ok_ { err = errors.New("random_deviation error"); return }; _v.RandomDeviation = float32(_tempNum_) }

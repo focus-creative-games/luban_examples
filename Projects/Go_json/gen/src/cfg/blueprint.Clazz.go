@@ -18,7 +18,22 @@ type Blueprint_Clazz struct {
 }
 
 
-func NewBlueprint_Clazz(_buf map[string]interface{}) (_v *Blueprint_Clazz, err error) {
+func NewBlueprint_Clazz(_buf map[string]interface{}) (_v interface{}, err error) {
+    var id string
+    var _ok_ bool
+    if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
+        return nil, errors.New("type id missing")
+    }
+    switch id {
+        case "Interface": return NewBlueprint_Interface(_buf);
+        case "NormalClazz": return NewBlueprint_NormalClazz(_buf);
+        case "EnumClazz": return NewBlueprint_EnumClazz(_buf);
+        default: return nil, errors.New("unknown type id")
+    }
+    return
+}
+
+func NewBlueprint_Clazz_Body(_buf map[string]interface{}) (_v *Blueprint_Clazz, err error) {
     _v = &Blueprint_Clazz{}
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
@@ -31,7 +46,7 @@ func NewBlueprint_Clazz(_buf map[string]interface{}) (_v *Blueprint_Clazz, err e
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildBlueprint_Clazz(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBlueprint_Clazz(_x_); err != nil { return } }
                     _v.Parents = append(_v.Parents, _list_v_)
                 }
             }
@@ -45,25 +60,11 @@ func NewBlueprint_Clazz(_buf map[string]interface{}) (_v *Blueprint_Clazz, err e
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewChildBlueprint_Method(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBlueprint_Method(_x_); err != nil { return } }
                     _v.Methods = append(_v.Methods, _list_v_)
                 }
             }
 
-    return
-}
-func NewChildBlueprint_Clazz(_buf map[string]interface{}) (_v interface{}, err error) {
-    var id string
-    var _ok_ bool
-    if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
-        return nil, errors.New("type id missing")
-    }
-    switch id {
-        case "Interface": return NewBlueprint_Interface(_buf);
-        case "NormalClazz": return NewBlueprint_NormalClazz(_buf);
-        case "EnumClazz": return NewBlueprint_EnumClazz(_buf);
-        default: return nil, errors.New("unknown type id")
-    }
     return
 }
 

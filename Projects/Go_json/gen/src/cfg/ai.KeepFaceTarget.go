@@ -22,7 +22,7 @@ func (Ai_KeepFaceTarget) GetTypeId() int {
 func NewAi_KeepFaceTarget(_buf map[string]interface{}) (_v *Ai_KeepFaceTarget, err error) {
     _v = &Ai_KeepFaceTarget{}
     var _p *Ai_Service
-     if _p, err = NewAi_Service(_buf) ; err != nil { return }
+     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
     _v.Ai_Service = *_p
     { var _ok_ bool; if _v.TargetActorKey, _ok_ = _buf["target_actor_key"].(string); !_ok_ { err = errors.New("target_actor_key error"); return } }
     return

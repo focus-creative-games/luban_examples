@@ -29,7 +29,7 @@ func (Item_Clothes) GetTypeId() int {
 func NewItem_Clothes(_buf *serialization.ByteBuf) (_v *Item_Clothes, err error) {
     _v = &Item_Clothes{}
     var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra(_buf) ; err != nil { return }
+     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
     _v.Item_ItemExtra = *_p
     { if _v.Attack, err = _buf.ReadInt(); err != nil { return } }
     { if _v.Hp, err = _buf.ReadLong(); err != nil { return } }

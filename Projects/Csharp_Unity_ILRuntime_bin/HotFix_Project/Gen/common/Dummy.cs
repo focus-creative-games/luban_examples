@@ -31,23 +31,18 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
 
     public static Dummy DeserializeDummy(ByteBuf _buf)
     {
-    
         return new common.Dummy(_buf);
-    
     }
 
-     public readonly int Id;
-     public readonly limit.LimitBase Limit;
-
+    public readonly int Id;
+    public readonly limit.LimitBase Limit;
 
     public const int ID = -985084219;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            Limit?.Resolve(_tables);
+        Limit?.Resolve(_tables);
         OnResolveFinish(_tables);
     }
 

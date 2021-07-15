@@ -35,27 +35,22 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
 
     public static Blackboard DeserializeBlackboard(ByteBuf _buf)
     {
-    
         return new ai.Blackboard(_buf);
-    
     }
 
-     public readonly string Name;
-     public readonly string Desc;
-     public readonly string ParentName;
-        public ai.Blackboard ParentName_Ref;
-     public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
-
+    public readonly string Name;
+    public readonly string Desc;
+    public readonly string ParentName;
+    public ai.Blackboard ParentName_Ref;
+    public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
 
     public const int ID = 1576193005;
     public override int GetTypeId() => ID;
 
-
     public  void Resolve(Dictionary<string, object> _tables)
     {
-
-            this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
-            foreach(var _e in Keys) { _e?.Resolve(_tables); }
+        this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
+        foreach(var _e in Keys) { _e?.Resolve(_tables); }
         OnResolveFinish(_tables);
     }
 
@@ -67,7 +62,7 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "ParentName:" + ParentName + ","
-        + "Keys:" + Keys + ","
+        + "Keys:" + Bright.Common.StringUtil.CollectionToString(Keys) + ","
         + "}";
     }
     }

@@ -10,24 +10,16 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Ai_Service struct {
     Ai_Node
 }
 
 
-func NewAi_Service(_buf *serialization.ByteBuf) (_v *Ai_Service, err error) {
-    _v = &Ai_Service{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-    return
-}
-func NewChildAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -43,4 +35,13 @@ func NewChildAi_Service(_buf *serialization.ByteBuf) (_v interface{}, err error)
     }
     return
 }
+
+func NewAi_Service_Body(_buf *serialization.ByteBuf) (_v *Ai_Service, err error) {
+    _v = &Ai_Service{}
+    var _p *Ai_Node
+     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
+    _v.Ai_Node = *_p
+    return
+}
+
 

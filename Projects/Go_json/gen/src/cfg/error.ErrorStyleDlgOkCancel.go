@@ -23,7 +23,7 @@ func (Error_ErrorStyleDlgOkCancel) GetTypeId() int {
 func NewError_ErrorStyleDlgOkCancel(_buf map[string]interface{}) (_v *Error_ErrorStyleDlgOkCancel, err error) {
     _v = &Error_ErrorStyleDlgOkCancel{}
     var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
+     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
     { var _ok_ bool; if _v.Btn1Name, _ok_ = _buf["btn1_name"].(string); !_ok_ { err = errors.New("btn1_name error"); return } }
     { var _ok_ bool; if _v.Btn2Name, _ok_ = _buf["btn2_name"].(string); !_ok_ { err = errors.New("btn2_name error"); return } }

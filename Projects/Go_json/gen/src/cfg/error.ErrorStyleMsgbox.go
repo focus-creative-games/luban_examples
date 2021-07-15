@@ -23,7 +23,7 @@ func (Error_ErrorStyleMsgbox) GetTypeId() int {
 func NewError_ErrorStyleMsgbox(_buf map[string]interface{}) (_v *Error_ErrorStyleMsgbox, err error) {
     _v = &Error_ErrorStyleMsgbox{}
     var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle(_buf) ; err != nil { return }
+     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
     _v.Error_ErrorStyle = *_p
     { var _ok_ bool; if _v.BtnName, _ok_ = _buf["btn_name"].(string); !_ok_ { err = errors.New("btn_name error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["operation"].(float64); !_ok_ { err = errors.New("operation error"); return }; _v.Operation = int32(_tempNum_) }

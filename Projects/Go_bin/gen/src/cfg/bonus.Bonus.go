@@ -10,20 +10,15 @@ package cfg
 
 import (
     "bright/serialization"
-    "errors"
 )
 
-
+import "errors"
 
 type Bonus_Bonus struct {
 }
 
 
-func NewBonus_Bonus(_buf *serialization.ByteBuf) (_v *Bonus_Bonus, err error) {
-    _v = &Bonus_Bonus{}
-    return
-}
-func NewChildBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func NewBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error) {
     var id int32
     if id, err = _buf.ReadInt() ; err != nil {
         return
@@ -44,4 +39,10 @@ func NewChildBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error
     }
     return
 }
+
+func NewBonus_Bonus_Body(_buf *serialization.ByteBuf) (_v *Bonus_Bonus, err error) {
+    _v = &Bonus_Bonus{}
+    return
+}
+
 
