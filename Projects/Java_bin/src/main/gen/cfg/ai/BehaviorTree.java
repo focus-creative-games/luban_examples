@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class BehaviorTree extends  bright.serialization.AbstractBean 
 {
     public BehaviorTree(ByteBuf _buf)
@@ -38,11 +41,26 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
         return new BehaviorTree(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final String blackboardId;
     public cfg.ai.Blackboard blackboardId_Ref;
+    /**
+     * 
+     */
     public final cfg.ai.ComposeNode root;
 
     public static final int ID = 159552822;

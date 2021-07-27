@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.item
 {
    
+/// <summary>
+/// 道具表
+/// </summary>
 public sealed partial class TbItem
 {
     private readonly Dictionary<int, item.Item> _dataMap;

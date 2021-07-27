@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class BinaryOperator extends  cfg.ai.KeyQueryOperator 
 {
     public BinaryOperator(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class BinaryOperator extends  cfg.ai.KeyQueryOperator
         return new BinaryOperator(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.ai.EOperator oper;
+    /**
+     * 
+     */
     public final cfg.ai.KeyData data;
 
     public static final int ID = -979891605;

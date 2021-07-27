@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 道具
+ */
 public final class Item extends  bright.serialization.AbstractBean 
 {
     public Item(ByteBuf _buf)
@@ -70,26 +73,89 @@ public final class Item extends  bright.serialization.AbstractBean
         return new Item(_buf);
     }
 
+    /**
+     * 道具id
+     */
     public final int id;
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final cfg.item.EMajorType majorType;
+    /**
+     * 
+     */
     public final cfg.item.EMinorType minorType;
+    /**
+     * 
+     */
     public final int maxPileNum;
+    /**
+     * 
+     */
     public final cfg.item.EItemQuality quality;
+    /**
+     * 
+     */
     public final String icon;
+    /**
+     * 
+     */
     public final String iconBackgroud;
+    /**
+     * 
+     */
     public final String iconMask;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final int showOrder;
+    /**
+     * 
+     */
     public final String quantifier;
+    /**
+     * 
+     */
     public final boolean showInBag;
+    /**
+     * 
+     */
     public final int minShowLevel;
+    /**
+     * 
+     */
     public final boolean batchUsable;
+    /**
+     * 
+     */
     public final float progressTimeWhenUse;
+    /**
+     * 
+     */
     public final boolean showHintWhenUse;
+    /**
+     * 
+     */
     public final boolean droppable;
+    /**
+     * 
+     */
     public final Integer price;
+    /**
+     * 
+     */
     public final cfg.item.EUseType useType;
+    /**
+     * 
+     */
     public final Integer levelUpId;
 
     public static final int ID = 2107285806;

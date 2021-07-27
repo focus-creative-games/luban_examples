@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class Sequence :  ai.ComposeNode 
 {
     public Sequence(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class Sequence :  ai.ComposeNode
         return new ai.Sequence(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
     public const int ID = -1789006105;

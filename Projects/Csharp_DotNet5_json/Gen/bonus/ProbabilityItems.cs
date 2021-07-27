@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ProbabilityItems :  bonus.Bonus 
 {
     public ProbabilityItems(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
         return new bonus.ProbabilityItems(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bonus.ProbabilityItemInfo[] ItemList;
 
     public const int ID = 366387866;

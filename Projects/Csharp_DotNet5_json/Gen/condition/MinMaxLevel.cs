@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MinMaxLevel :  condition.BoolRoleCondition 
 {
     public MinMaxLevel(JsonElement _buf)  : base(_buf) 
@@ -35,7 +38,13 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         return new condition.MinMaxLevel(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Min;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Max;
 
     public const int ID = 907499647;

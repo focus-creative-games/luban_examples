@@ -9,9 +9,18 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EUseType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         MANUAL = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         AUTO = 1,
     }
 }

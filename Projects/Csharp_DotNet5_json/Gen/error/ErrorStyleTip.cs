@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.error
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ErrorStyleTip :  error.ErrorStyle 
 {
     public ErrorStyleTip(JsonElement _buf)  : base(_buf) 

@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.tag
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TestTag :  Bright.Config.BeanBase 
 {
     public TestTag(ByteBuf _buf) 
@@ -34,7 +37,13 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
         return new tag.TestTag(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Value;
 
     public const int ID = 1742933812;

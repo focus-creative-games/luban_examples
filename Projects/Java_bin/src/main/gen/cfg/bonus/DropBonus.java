@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DropBonus extends  cfg.bonus.Bonus 
 {
     public DropBonus(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class DropBonus extends  cfg.bonus.Bonus
         return new DropBonus(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
     public cfg.bonus.DropInfo id_Ref;
 

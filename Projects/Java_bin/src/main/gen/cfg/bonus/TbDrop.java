@@ -12,6 +12,9 @@ package cfg.bonus;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbDrop
 {
     private final java.util.HashMap<Integer, cfg.bonus.DropInfo> _dataMap;

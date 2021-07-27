@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ShowItemInfo extends  bright.serialization.AbstractBean 
 {
     public ShowItemInfo(ByteBuf _buf)
@@ -32,8 +35,14 @@ public final class ShowItemInfo extends  bright.serialization.AbstractBean
         return new ShowItemInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final int itemId;
     public cfg.item.Item itemId_Ref;
+    /**
+     * 
+     */
     public final long itemNum;
 
     public static final int ID = -1496363507;

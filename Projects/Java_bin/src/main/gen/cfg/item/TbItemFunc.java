@@ -12,6 +12,9 @@ package cfg.item;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbItemFunc
 {
     private final java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction> _dataMap;

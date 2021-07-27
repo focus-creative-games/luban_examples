@@ -12,6 +12,9 @@ package cfg.common;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbDummy
 {
     private final java.util.HashMap<Integer, cfg.common.Dummy> _dataMap;

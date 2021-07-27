@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ProbabilityItemInfo extends  bright.serialization.AbstractBean 
 {
     public ProbabilityItemInfo(ByteBuf _buf)
@@ -34,9 +37,18 @@ public final class ProbabilityItemInfo extends  bright.serialization.AbstractBea
         return new ProbabilityItemInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final int itemId;
     public cfg.item.Item itemId_Ref;
+    /**
+     * 
+     */
     public final int num;
+    /**
+     * 
+     */
     public final float probability;
 
     public static final int ID = 1547874631;

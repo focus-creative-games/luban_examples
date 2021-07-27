@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class WeightItems :  bonus.Bonus 
 {
     public WeightItems(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class WeightItems :  bonus.Bonus
         return new bonus.WeightItems(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bonus.WeightItemInfo[] ItemList;
 
     public const int ID = -356202311;

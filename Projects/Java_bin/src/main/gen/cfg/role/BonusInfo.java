@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class BonusInfo extends  bright.serialization.AbstractBean 
 {
     public BonusInfo(ByteBuf _buf)
@@ -32,7 +35,13 @@ public final class BonusInfo extends  bright.serialization.AbstractBean
         return new BonusInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.item.ECurrencyType type;
+    /**
+     * 
+     */
     public final float coefficient;
 
     public static final int ID = -1354421803;

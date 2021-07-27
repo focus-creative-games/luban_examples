@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ParamInfo extends  bright.serialization.AbstractBean 
 {
     public ParamInfo(ByteBuf _buf)
@@ -34,8 +37,17 @@ public final class ParamInfo extends  bright.serialization.AbstractBean
         return new ParamInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String type;
+    /**
+     * 
+     */
     public final boolean isRef;
 
     public static final int ID = -729799392;

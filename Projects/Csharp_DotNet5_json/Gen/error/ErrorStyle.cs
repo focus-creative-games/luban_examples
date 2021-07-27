@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.error
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
 {
     public ErrorStyle(JsonElement _buf) 

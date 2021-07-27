@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class H2 :  Bright.Config.BeanBase 
 {
     public H2(ByteBuf _buf) 
@@ -34,7 +37,13 @@ public sealed partial class H2 :  Bright.Config.BeanBase
         return new test.H2(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Z2;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Z3;
 
     public const int ID = -1422503994;

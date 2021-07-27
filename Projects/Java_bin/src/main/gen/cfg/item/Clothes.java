@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class Clothes extends  cfg.item.ItemExtra 
 {
     public Clothes(ByteBuf _buf)
@@ -38,9 +41,21 @@ public final class Clothes extends  cfg.item.ItemExtra
         return new Clothes(_buf);
     }
 
+    /**
+     * 
+     */
     public final int attack;
+    /**
+     * 
+     */
     public final long hp;
+    /**
+     * 
+     */
     public final int energyLimit;
+    /**
+     * 
+     */
     public final int energyResume;
 
     public static final int ID = 1659907149;

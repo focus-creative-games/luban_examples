@@ -15,38 +15,137 @@ namespace cfg
    
 public sealed class Tables
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public ai.TbBlackboard TbBlackboard {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public ai.TbBehaviorTree TbBehaviorTree {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public blueprint.TbClazz TbClazz {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public bonus.TbDrop TbDrop {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public common.TbGlobalConfig TbGlobalConfig {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public common.TbDummy TbDummy {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public error.TbErrorInfo TbErrorInfo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public error.TbCodeInfo TbCodeInfo {get; }
+    /// <summary>
+    /// 道具表
+    /// </summary>
     public item.TbItem TbItem {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public item.TbItemFunc TbItemFunc {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public item.TbItemExtra TbItemExtra {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public l10n.TbL10NDemo TbL10NDemo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public l10n.TbPatchDemo TbPatchDemo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public mail.TbSystemMail TbSystemMail {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public mail.TbGlobalMail TbGlobalMail {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public role.TbRoleLevelExpAttr TbRoleLevelExpAttr {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public tag.TbTestTag TbTestTag {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbFullTypes TbFullTypes {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbSingleton TbSingleton {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromJson TbDataFromJson {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromXml TbDataFromXml {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromLua TbDataFromLua {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbTestNull TbTestNull {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDemoPrimitive TbDemoPrimitive {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbTestString TbTestString {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDemoGroup TbDemoGroup {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDemoGroup_C TbDemoGroup_C {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDemoGroup_S TbDemoGroup_S {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDemoGroup_E TbDemoGroup_E {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbTestGlobal TbTestGlobal {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)

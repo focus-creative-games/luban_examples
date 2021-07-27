@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MultiRowType2 :  Bright.Config.BeanBase 
 {
     public MultiRowType2(ByteBuf _buf) 
@@ -36,8 +39,17 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
         return new test.MultiRowType2(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int X;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float Y;
 
     public const int ID = 540474971;

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class TestNull extends  bright.serialization.AbstractBean 
 {
     public TestNull(ByteBuf _buf)
@@ -42,12 +45,33 @@ public final class TestNull extends  bright.serialization.AbstractBean
         return new TestNull(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final Integer x1;
+    /**
+     * 
+     */
     public final cfg.test.DemoEnum x2;
+    /**
+     * 
+     */
     public final cfg.test.DemoType1 x3;
+    /**
+     * 
+     */
     public final cfg.test.DemoDynamic x4;
+    /**
+     * 
+     */
     public final String s1;
+    /**
+     * 
+     */
     public final String s2;
 
     public static final int ID = 339868469;

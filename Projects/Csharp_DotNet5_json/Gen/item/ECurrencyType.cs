@@ -9,12 +9,30 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ECurrencyType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         DIAMOND = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         GOLD = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         SILVER = 3,
+        /// <summary>
+        /// 
+        /// </summary>
         EXP = 4,
+        /// <summary>
+        /// 
+        /// </summary>
         POWER_POINT = 5,
     }
 }

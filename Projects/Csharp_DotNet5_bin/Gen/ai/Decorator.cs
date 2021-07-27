@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(ByteBuf _buf)  : base(_buf) 
@@ -42,6 +45,9 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly ai.EFlowAbortMode FlowAbortMode;
 
 

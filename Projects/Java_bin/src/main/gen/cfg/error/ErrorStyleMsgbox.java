@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle 
 {
     public ErrorStyleMsgbox(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle
         return new ErrorStyleMsgbox(_buf);
     }
 
+    /**
+     * 
+     */
     public final String btnName;
+    /**
+     * 
+     */
     public final cfg.error.EOperation operation;
 
     public static final int ID = -1920482343;

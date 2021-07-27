@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class WeightBonus :  bonus.Bonus 
 {
     public WeightBonus(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class WeightBonus :  bonus.Bonus
         return new bonus.WeightBonus(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bonus.WeightBonusInfo[] Bonuses;
 
     public const int ID = -362807016;

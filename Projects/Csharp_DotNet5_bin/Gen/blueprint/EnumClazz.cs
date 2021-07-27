@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         return new blueprint.EnumClazz(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
     public const int ID = 1827364892;

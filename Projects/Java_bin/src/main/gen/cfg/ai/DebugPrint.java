@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DebugPrint extends  cfg.ai.Task 
 {
     public DebugPrint(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class DebugPrint extends  cfg.ai.Task
         return new DebugPrint(_buf);
     }
 
+    /**
+     * 
+     */
     public final String text;
 
     public static final int ID = 1357409728;

@@ -9,18 +9,54 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EMajorType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         CURRENCY = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         CLOTH = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         QUEST = 3,
+        /// <summary>
+        /// 
+        /// </summary>
         CONSUMABLES = 4,
+        /// <summary>
+        /// 
+        /// </summary>
         TREASURE_BOX = 5,
+        /// <summary>
+        /// 
+        /// </summary>
         ACHIEVEMENT_AND_TITLE = 6,
+        /// <summary>
+        /// 
+        /// </summary>
         HEAD_FRAME = 7,
+        /// <summary>
+        /// 
+        /// </summary>
         VOICE = 8,
+        /// <summary>
+        /// 
+        /// </summary>
         ACTION = 9,
+        /// <summary>
+        /// 
+        /// </summary>
         EXPANSION = 10,
+        /// <summary>
+        /// 
+        /// </summary>
         MATERIAL = 11,
     }
 }

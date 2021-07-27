@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DesignDrawing extends  cfg.item.ItemExtra 
 {
     public DesignDrawing(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class DesignDrawing extends  cfg.item.ItemExtra
         return new DesignDrawing(_buf);
     }
 
+    /**
+     * 
+     */
     public final java.util.ArrayList<Integer> learnComponentId;
 
     public static final int ID = -1679179579;

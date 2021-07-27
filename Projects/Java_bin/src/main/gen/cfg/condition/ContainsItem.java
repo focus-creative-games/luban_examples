@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ContainsItem extends  cfg.condition.RoleCondition 
 {
     public ContainsItem(ByteBuf _buf)
@@ -36,9 +39,18 @@ public final class ContainsItem extends  cfg.condition.RoleCondition
         return new ContainsItem(_buf);
     }
 
+    /**
+     * 
+     */
     public final int itemId;
     public cfg.item.Item itemId_Ref;
+    /**
+     * 
+     */
     public final int num;
+    /**
+     * 
+     */
     public final boolean reverse;
 
     public static final int ID = 1961145317;

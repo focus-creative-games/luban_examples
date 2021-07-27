@@ -9,9 +9,18 @@
 
 namespace cfg.ai
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EFinishMode
     {
+        /// <summary>
+        /// 
+        /// </summary>
         IMMEDIATE = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         DELAYED = 1,
     }
 }

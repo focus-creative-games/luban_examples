@@ -12,6 +12,9 @@ package cfg.ai;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbBlackboard
 {
     private final java.util.HashMap<String, cfg.ai.Blackboard> _dataMap;

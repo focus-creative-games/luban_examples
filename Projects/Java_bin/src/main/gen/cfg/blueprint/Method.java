@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class Method extends  bright.serialization.AbstractBean 
 {
     public Method(ByteBuf _buf)
@@ -44,10 +47,25 @@ public abstract class Method extends  bright.serialization.AbstractBean
         }
     }
 
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final boolean isStatic;
+    /**
+     * 
+     */
     public final String returnType;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.blueprint.ParamInfo> parameters;
 
 

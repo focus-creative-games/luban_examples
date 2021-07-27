@@ -12,6 +12,9 @@ package cfg.test;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbDemoGroup_C
 {
     private final java.util.HashMap<Integer, cfg.test.DemoGroup> _dataMap;

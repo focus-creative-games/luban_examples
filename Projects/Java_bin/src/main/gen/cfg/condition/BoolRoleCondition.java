@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition 
 {
     public BoolRoleCondition(ByteBuf _buf)

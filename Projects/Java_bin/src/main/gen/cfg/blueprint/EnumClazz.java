@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class EnumClazz extends  cfg.blueprint.Clazz 
 {
     public EnumClazz(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class EnumClazz extends  cfg.blueprint.Clazz
         return new EnumClazz(_buf);
     }
 
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.blueprint.EnumField> enums;
 
     public static final int ID = 1827364892;

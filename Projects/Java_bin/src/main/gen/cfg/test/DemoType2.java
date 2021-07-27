@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DemoType2 extends  bright.serialization.AbstractBean 
 {
     public DemoType2(ByteBuf _buf)
@@ -94,36 +97,123 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         return new DemoType2(_buf);
     }
 
+    /**
+     * 
+     */
     public final int x4;
+    /**
+     * 
+     */
     public final boolean x1;
+    /**
+     * 
+     */
     public final byte x2;
+    /**
+     * 
+     */
     public final short x3;
     public cfg.test.DemoType2 x3_Ref;
+    /**
+     * 
+     */
     public final long x5;
+    /**
+     * 
+     */
     public final float x6;
+    /**
+     * 
+     */
     public final double x7;
+    /**
+     * 
+     */
     public final short x80;
+    /**
+     * 
+     */
     public final int x8;
+    /**
+     * 
+     */
     public final long x9;
+    /**
+     * 
+     */
     public final String x10;
+    /**
+     * 
+     */
     public final cfg.test.DemoType1 x12;
+    /**
+     * 
+     */
     public final cfg.test.DemoEnum x13;
+    /**
+     * 
+     */
     public final cfg.test.DemoDynamic x14;
+    /**
+     * 
+     */
     public final String s1;
+    /**
+     * 
+     */
     public final bright.math.Vector2 v2;
+    /**
+     * 
+     */
     public final bright.math.Vector3 v3;
+    /**
+     * 
+     */
     public final bright.math.Vector4 v4;
+    /**
+     * 
+     */
     public final int t1;
+    /**
+     * 
+     */
     public final int[] k1;
+    /**
+     * 
+     */
     public final java.util.ArrayList<Integer> k2;
+    /**
+     * 
+     */
     public final java.util.ArrayList<Integer> k3;
+    /**
+     * 
+     */
     public final java.util.ArrayList<Integer> k4;
+    /**
+     * 
+     */
     public final java.util.HashSet<Integer> k5;
+    /**
+     * 
+     */
     public final java.util.HashSet<Integer> k6;
+    /**
+     * 
+     */
     public final java.util.HashSet<Integer> k7;
+    /**
+     * 
+     */
     public final java.util.HashMap<Integer, Integer> k8;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
     public final java.util.HashMap<Integer, cfg.test.DemoE2> k9_Index = new java.util.HashMap<>();
+    /**
+     * 
+     */
     public final cfg.test.DemoDynamic[] k15;
 
     public static final int ID = -367048295;

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class CodeInfo extends  bright.serialization.AbstractBean 
 {
     public CodeInfo(ByteBuf _buf)
@@ -32,7 +35,13 @@ public final class CodeInfo extends  bright.serialization.AbstractBean
         return new CodeInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.error.EErrorCode code;
+    /**
+     * 
+     */
     public final String key;
 
     public static final int ID = -1942481535;

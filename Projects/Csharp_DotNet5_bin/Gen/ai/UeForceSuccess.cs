@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeForceSuccess :  ai.Decorator 
 {
     public UeForceSuccess(ByteBuf _buf)  : base(_buf) 

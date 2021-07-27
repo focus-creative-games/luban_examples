@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class AbstraceMethod extends  cfg.blueprint.Method 
 {
     public AbstraceMethod(ByteBuf _buf)

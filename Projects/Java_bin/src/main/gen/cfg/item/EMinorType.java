@@ -8,57 +8,206 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-
+/**
+ * 
+ */
 public enum EMinorType
 {
+    /**
+     * 
+     */
     DIAMOND(101),
+    /**
+     * 
+     */
     GOLD(102),
+    /**
+     * 
+     */
     SILVER(103),
+    /**
+     * 
+     */
     EXP(104),
+    /**
+     * 
+     */
     POWER_POINT(105),
+    /**
+     * 
+     */
     HAIR_STYLE(210),
+    /**
+     * 
+     */
     COAT(220),
+    /**
+     * 
+     */
     UPPER_JACKET(230),
+    /**
+     * 
+     */
     TROUSERS(241),
+    /**
+     * 
+     */
     SKIRT(242),
+    /**
+     * 
+     */
     SOCKS(250),
+    /**
+     * 
+     */
     SHOES(260),
+    /**
+     * 
+     */
     HAIR_ACCESSORY(271),
+    /**
+     * 
+     */
     HAT(272),
+    /**
+     * 
+     */
     EARRING(273),
+    /**
+     * 
+     */
     NECKLACE(274),
+    /**
+     * 
+     */
     BRACELET(275),
+    /**
+     * 
+     */
     HAIR_CLASP(276),
+    /**
+     * 
+     */
     GLOVE(277),
+    /**
+     * 
+     */
     HANDHELD_OBJECT(278),
+    /**
+     * 
+     */
     SPECIAL(279),
+    /**
+     * 
+     */
     BASE_COSMETIC(281),
+    /**
+     * 
+     */
     EYEBROW_COSMETIC(282),
+    /**
+     * 
+     */
     EYELASH(283),
+    /**
+     * 
+     */
     COSMETIC_CONTACT_LENSES(284),
+    /**
+     * 
+     */
     LIP_COSMETIC(285),
+    /**
+     * 
+     */
     SKIN_COLOR(286),
+    /**
+     * 
+     */
     ONE_PIECE_DRESS(290),
+    /**
+     * 
+     */
     SWITCH_CLOTHES_SCENE(291),
+    /**
+     * 
+     */
     QUEST(301),
+    /**
+     * 
+     */
     CAST(401),
+    /**
+     * 
+     */
     SWORD(421),
+    /**
+     * 
+     */
     BOW_ARROW(422),
+    /**
+     * 
+     */
     WANDS(423),
+    /**
+     * 
+     */
     SPECIAL_TOOL(424),
+    /**
+     * 
+     */
     FOOD(403),
+    /**
+     * 
+     */
     TREASURE_BOX(501),
+    /**
+     * 
+     */
     KEY(502),
+    /**
+     * 
+     */
     MULTI_CHOOSE_TREASURE_BOX(503),
+    /**
+     * 
+     */
     ACHIEVEMENT(601),
+    /**
+     * 
+     */
     TITLE(602),
+    /**
+     * 
+     */
     AVATAR_FRAME(701),
+    /**
+     * 
+     */
     VOICE(801),
+    /**
+     * 
+     */
     IDLE_POSE(901),
+    /**
+     * 
+     */
     PHOTO_POSE(902),
+    /**
+     * 
+     */
     BAG(1001),
+    /**
+     * 
+     */
     FRIEND_CAPACITY(1002),
+    /**
+     * 
+     */
     CONSTRUCTION_MATERIAL(1101),
+    /**
+     * 
+     */
     DESIGN_DRAWING(1102),
     ;
 

@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.common
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JsonElement _buf) 
@@ -35,7 +38,13 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new common.DateTimeRange(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int? StartTime;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int? EndTime;
 
     public const int ID = 1642200959;

@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class IsNotSet :  ai.KeyQueryOperator 
 {
     public IsNotSet(ByteBuf _buf)  : base(_buf) 

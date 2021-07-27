@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDemoGroup_E
 {
     private readonly Dictionary<int, test.DemoGroup> _dataMap;

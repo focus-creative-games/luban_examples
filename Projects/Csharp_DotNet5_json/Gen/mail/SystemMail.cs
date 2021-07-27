@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.mail
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(JsonElement _buf) 
@@ -41,10 +44,25 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         return new mail.SystemMail(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Title;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Sender;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Content;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<int> Award;
 
     public const int ID = 1214073149;

@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CostItems :  cost.Cost 
 {
     public CostItems(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class CostItems :  cost.Cost
         return new cost.CostItems(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly cost.CostItem[] ItemList;
 
     public const int ID = -77945102;

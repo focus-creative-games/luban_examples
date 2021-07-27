@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class Decorator extends  cfg.ai.Node 
 {
     public Decorator(ByteBuf _buf)
@@ -42,6 +45,9 @@ public abstract class Decorator extends  cfg.ai.Node
         }
     }
 
+    /**
+     * 
+     */
     public final cfg.ai.EFlowAbortMode flowAbortMode;
 
 

@@ -33,7 +33,7 @@
 	<bean name="GlobalConfig">
 
 		<!-- 背包相关 -->
-	    <var name="bag_capacity" type="int"/>
+	    <var name="bag_capacity" type="int" comment="背包容量"/>
         <var name="bag_capacity_special" type="int"/>
         <var name="bag_temp_expendable_capacity" type="int"/>
         <var name="bag_temp_tool_capacity" type="int"/>

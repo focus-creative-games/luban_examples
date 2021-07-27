@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class H2 extends  bright.serialization.AbstractBean 
 {
     public H2(ByteBuf _buf)
@@ -32,7 +35,13 @@ public final class H2 extends  bright.serialization.AbstractBean
         return new H2(_buf);
     }
 
+    /**
+     * 
+     */
     public final int z2;
+    /**
+     * 
+     */
     public final int z3;
 
     public static final int ID = -1422503994;

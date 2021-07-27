@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class WeightItems extends  cfg.bonus.Bonus 
 {
     public WeightItems(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class WeightItems extends  cfg.bonus.Bonus
         return new WeightItems(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.bonus.WeightItemInfo[] itemList;
 
     public static final int ID = -356202311;

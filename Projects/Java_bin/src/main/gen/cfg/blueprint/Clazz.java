@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class Clazz extends  bright.serialization.AbstractBean 
 {
     public Clazz(ByteBuf _buf)
@@ -42,9 +45,21 @@ public abstract class Clazz extends  bright.serialization.AbstractBean
         }
     }
 
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.blueprint.Clazz> parents;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.blueprint.Method> methods;
 
 

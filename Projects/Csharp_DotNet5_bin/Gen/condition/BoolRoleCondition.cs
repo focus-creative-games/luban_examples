@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class BoolRoleCondition :  condition.RoleCondition 
 {
     public BoolRoleCondition(ByteBuf _buf)  : base(_buf) 

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeTimeLimit extends  cfg.ai.Decorator 
 {
     public UeTimeLimit(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class UeTimeLimit extends  cfg.ai.Decorator
         return new UeTimeLimit(_buf);
     }
 
+    /**
+     * 
+     */
     public final float limitTime;
 
     public static final int ID = 338469720;

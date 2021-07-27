@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbTestGlobal
 {
 
@@ -27,7 +31,13 @@ public sealed partial class TbTestGlobal
         _data = test.TestGlobal.DeserializeTestGlobal(_buf[0]);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
      public int UnlockEquip => _data.UnlockEquip;
+    /// <summary>
+    /// 
+    /// </summary>
      public int UnlockHero => _data.UnlockHero;
 
     public void Resolve(Dictionary<string, object> _tables)

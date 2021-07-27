@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeLoop extends  cfg.ai.Decorator 
 {
     public UeLoop(ByteBuf _buf)
@@ -36,8 +39,17 @@ public final class UeLoop extends  cfg.ai.Decorator
         return new UeLoop(_buf);
     }
 
+    /**
+     * 
+     */
     public final int numLoops;
+    /**
+     * 
+     */
     public final boolean infiniteLoop;
+    /**
+     * 
+     */
     public final float infiniteLoopTimeoutTime;
 
     public static final int ID = -513308166;

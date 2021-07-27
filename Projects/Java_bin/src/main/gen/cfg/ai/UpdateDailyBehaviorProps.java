@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UpdateDailyBehaviorProps extends  cfg.ai.Service 
 {
     public UpdateDailyBehaviorProps(ByteBuf _buf)
@@ -48,14 +51,41 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
         return new UpdateDailyBehaviorProps(_buf);
     }
 
+    /**
+     * 
+     */
     public final String satietyKey;
+    /**
+     * 
+     */
     public final String energyKey;
+    /**
+     * 
+     */
     public final String moodKey;
+    /**
+     * 
+     */
     public final String satietyLowerThresholdKey;
+    /**
+     * 
+     */
     public final String satietyUpperThresholdKey;
+    /**
+     * 
+     */
     public final String energyLowerThresholdKey;
+    /**
+     * 
+     */
     public final String energyUpperThresholdKey;
+    /**
+     * 
+     */
     public final String moodLowerThresholdKey;
+    /**
+     * 
+     */
     public final String moodUpperThresholdKey;
 
     public static final int ID = -61887372;

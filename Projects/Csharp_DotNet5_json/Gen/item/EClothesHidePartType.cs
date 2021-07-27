@@ -9,15 +9,42 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EClothesHidePartType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         CHEST = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         HEAD = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         SPINE_UPPER = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         SPINE_LOWER = 3,
+        /// <summary>
+        /// 
+        /// </summary>
         HIP = 4,
+        /// <summary>
+        /// 
+        /// </summary>
         LEG_UPPER = 5,
+        /// <summary>
+        /// 
+        /// </summary>
         LEG_MIDDLE = 6,
+        /// <summary>
+        /// 
+        /// </summary>
         LEG_LOWER = 7,
     }
 }

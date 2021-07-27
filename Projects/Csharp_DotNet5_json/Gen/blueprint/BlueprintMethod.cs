@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class BlueprintMethod :  blueprint.Method 
 {
     public BlueprintMethod(JsonElement _buf)  : base(_buf) 

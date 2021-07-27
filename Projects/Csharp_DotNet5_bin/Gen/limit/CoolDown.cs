@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CoolDown :  limit.LimitBase 
 {
     public CoolDown(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class CoolDown :  limit.LimitBase
         return new limit.CoolDown(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Duration;
 
     public const int ID = -1366194050;

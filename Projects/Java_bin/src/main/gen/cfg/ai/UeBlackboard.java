@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeBlackboard extends  cfg.ai.Decorator 
 {
     public UeBlackboard(ByteBuf _buf)
@@ -36,8 +39,17 @@ public final class UeBlackboard extends  cfg.ai.Decorator
         return new UeBlackboard(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.ai.ENotifyObserverMode notifyObserver;
+    /**
+     * 
+     */
     public final String blackboardKey;
+    /**
+     * 
+     */
     public final cfg.ai.KeyQueryOperator keyQuery;
 
     public static final int ID = -315297507;

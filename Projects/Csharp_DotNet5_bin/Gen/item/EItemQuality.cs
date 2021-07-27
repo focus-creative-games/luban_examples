@@ -9,12 +9,30 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 道具品质
+    /// </summary>
     public enum EItemQuality
     {
+        /// <summary>
+        /// 白
+        /// </summary>
         WHITE = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         GREEN = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         BLUE = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         PURPLE = 3,
+        /// <summary>
+        /// 
+        /// </summary>
         GOLDEN = 4,
     }
 }

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class CoefficientItem extends  cfg.bonus.Bonus 
 {
     public CoefficientItem(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class CoefficientItem extends  cfg.bonus.Bonus
         return new CoefficientItem(_buf);
     }
 
+    /**
+     * 
+     */
     public final int bonusId;
+    /**
+     * 
+     */
     public final cfg.bonus.Items bonusList;
 
     public static final int ID = -229470727;

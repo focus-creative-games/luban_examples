@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class Condition extends  bright.serialization.AbstractBean 
 {
     public Condition(ByteBuf _buf)

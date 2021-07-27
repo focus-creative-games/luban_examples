@@ -12,6 +12,9 @@ package cfg.test;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbMultiRowRecord
 {
     private final java.util.HashMap<Integer, cfg.test.MultiRowRecord> _dataMap;

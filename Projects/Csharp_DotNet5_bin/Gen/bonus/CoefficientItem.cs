@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CoefficientItem :  bonus.Bonus 
 {
     public CoefficientItem(ByteBuf _buf)  : base(_buf) 
@@ -34,7 +37,13 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         return new bonus.CoefficientItem(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int BonusId;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bonus.Items BonusList;
 
     public const int ID = -229470727;

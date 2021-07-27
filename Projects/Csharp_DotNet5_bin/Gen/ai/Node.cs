@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Node :  Bright.Config.BeanBase 
 {
     public Node(ByteBuf _buf) 
@@ -60,7 +63,13 @@ public abstract partial class Node :  Bright.Config.BeanBase
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string NodeName;
 
 

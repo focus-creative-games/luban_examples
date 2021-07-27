@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class KeyQueryOperator extends  bright.serialization.AbstractBean 
 {
     public KeyQueryOperator(ByteBuf _buf)

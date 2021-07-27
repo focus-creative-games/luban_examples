@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbBlackboard
 {
     private readonly Dictionary<string, ai.Blackboard> _dataMap;

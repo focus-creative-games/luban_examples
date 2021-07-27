@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
     public MaxLevel(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
         return new condition.MaxLevel(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Level;
 
     public const int ID = 700922899;

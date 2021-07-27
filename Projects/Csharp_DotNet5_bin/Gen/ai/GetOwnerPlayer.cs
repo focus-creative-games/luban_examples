@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class GetOwnerPlayer :  ai.Service
         return new ai.GetOwnerPlayer(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string PlayerActorKey;
 
     public const int ID = -999247644;

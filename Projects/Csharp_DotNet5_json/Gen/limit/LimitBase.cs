@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class LimitBase :  Bright.Config.BeanBase 
 {
     public LimitBase(JsonElement _buf) 

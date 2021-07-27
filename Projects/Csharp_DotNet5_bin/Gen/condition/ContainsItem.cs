@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(ByteBuf _buf)  : base(_buf) 
@@ -36,9 +39,18 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         return new condition.ContainsItem(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int ItemId;
     public item.Item ItemId_Ref;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Num;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bool Reverse;
 
     public const int ID = 1961145317;

@@ -8,16 +8,42 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-
+/**
+ * 
+ */
 public enum EClothesHidePartType
 {
+    /**
+     * 
+     */
     CHEST(0),
+    /**
+     * 
+     */
     HEAD(1),
+    /**
+     * 
+     */
     SPINE_UPPER(2),
+    /**
+     * 
+     */
     SPINE_LOWER(3),
+    /**
+     * 
+     */
     HIP(4),
+    /**
+     * 
+     */
     LEG_UPPER(5),
+    /**
+     * 
+     */
     LEG_MIDDLE(6),
+    /**
+     * 
+     */
     LEG_LOWER(7),
     ;
 

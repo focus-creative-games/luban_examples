@@ -9,9 +9,18 @@
 
 namespace cfg.ai
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EExecutor
     {
+        /// <summary>
+        /// 
+        /// </summary>
         CLIENT = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         SERVER = 1,
     }
 }

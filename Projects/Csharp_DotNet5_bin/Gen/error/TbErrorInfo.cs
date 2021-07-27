@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.error
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbErrorInfo
 {
     private readonly Dictionary<string, error.ErrorInfo> _dataMap;

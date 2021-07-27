@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ExternalMethod extends  cfg.blueprint.Method 
 {
     public ExternalMethod(ByteBuf _buf)

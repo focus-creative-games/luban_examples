@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ProbabilityItems :  bonus.Bonus 
 {
     public ProbabilityItems(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
         return new bonus.ProbabilityItems(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bonus.ProbabilityItemInfo[] ItemList;
 
     public const int ID = 366387866;

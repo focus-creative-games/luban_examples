@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(JsonElement _buf)  : base(_buf) 
@@ -43,6 +46,9 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly ai.EFlowAbortMode FlowAbortMode;
 
 

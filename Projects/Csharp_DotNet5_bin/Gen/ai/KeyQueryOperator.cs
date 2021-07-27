@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
     public KeyQueryOperator(ByteBuf _buf) 

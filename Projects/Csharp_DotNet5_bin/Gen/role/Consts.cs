@@ -9,10 +9,18 @@
 
 namespace cfg.role
 {
-   
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class Consts
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MAX_NAME_LENGTH = 20;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int MAX_USER_ROLE_NUM = 10;
     }
 }

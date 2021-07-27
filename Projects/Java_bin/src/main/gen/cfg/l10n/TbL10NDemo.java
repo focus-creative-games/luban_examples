@@ -12,6 +12,9 @@ package cfg.l10n;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbL10NDemo
 {
     private final java.util.HashMap<Integer, cfg.l10n.L10NDemo> _dataMap;

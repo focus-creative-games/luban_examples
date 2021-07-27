@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DemoPrimitiveTypesTable extends  bright.serialization.AbstractBean 
 {
     public DemoPrimitiveTypesTable(ByteBuf _buf)
@@ -54,18 +57,57 @@ public final class DemoPrimitiveTypesTable extends  bright.serialization.Abstrac
         return new DemoPrimitiveTypesTable(_buf);
     }
 
+    /**
+     * 
+     */
     public final boolean x1;
+    /**
+     * 
+     */
     public final byte x2;
+    /**
+     * 
+     */
     public final short x3;
+    /**
+     * 
+     */
     public final int x4;
+    /**
+     * 
+     */
     public final long x5;
+    /**
+     * 
+     */
     public final float x6;
+    /**
+     * 
+     */
     public final double x7;
+    /**
+     * 
+     */
     public final String s1;
+    /**
+     * 
+     */
     public final String s2;
+    /**
+     * 
+     */
     public final bright.math.Vector2 v2;
+    /**
+     * 
+     */
     public final bright.math.Vector3 v3;
+    /**
+     * 
+     */
     public final bright.math.Vector4 v4;
+    /**
+     * 
+     */
     public final int t1;
 
     public static final int ID = -370934083;

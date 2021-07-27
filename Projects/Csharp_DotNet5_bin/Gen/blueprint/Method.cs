@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Method :  Bright.Config.BeanBase 
 {
     public Method(ByteBuf _buf) 
@@ -46,10 +49,25 @@ public abstract partial class Method :  Bright.Config.BeanBase
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Desc;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bool IsStatic;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string ReturnType;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
 
 

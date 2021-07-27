@@ -61,344 +61,1163 @@ class Vector4:
 
 
 
+'''
 
+'''
 class role_Consts:
+    '''
+    
+    '''
     MAX_NAME_LENGTH = 20
+    '''
+    
+    '''
     MAX_USER_ROLE_NUM = 10
 
 
 
+'''
 
+'''
 class test_DemoConst:
+    '''
+    
+    '''
     x1 = 0
+    '''
+    
+    '''
     x2 = 3242
+    '''
+    
+    '''
     x3 = 444.3
+    '''
+    
+    '''
     x4 = 55.3
 
 
 
+'''
+
+'''
 class ai_EExecutor:
+    '''
+    
+    '''
     CLIENT = 0
+    '''
+    
+    '''
     SERVER = 1
 
 
+'''
+
+'''
 class ai_EKeyType:
+    '''
+    
+    '''
     BOOL = 1
+    '''
+    
+    '''
     INT = 2
+    '''
+    
+    '''
     FLOAT = 3
+    '''
+    
+    '''
     STRING = 4
+    '''
+    
+    '''
     VECTOR = 5
+    '''
+    
+    '''
     ROTATOR = 6
+    '''
+    
+    '''
     NAME = 7
+    '''
+    
+    '''
     CLASS = 8
+    '''
+    
+    '''
     ENUM = 9
+    '''
+    
+    '''
     OBJECT = 10
 
 
+'''
+
+'''
 class ai_EFlowAbortMode:
+    '''
+    
+    '''
     NONE = 0
+    '''
+    
+    '''
     LOWER_PRIORITY = 1
+    '''
+    
+    '''
     SELF = 2
+    '''
+    
+    '''
     BOTH = 3
 
 
+'''
+
+'''
 class ai_EFinishMode:
+    '''
+    
+    '''
     IMMEDIATE = 0
+    '''
+    
+    '''
     DELAYED = 1
 
 
+'''
+
+'''
 class ai_ENotifyObserverMode:
+    '''
+    
+    '''
     ON_VALUE_CHANGE = 0
+    '''
+    
+    '''
     ON_RESULT_CHANGE = 1
 
 
+'''
+
+'''
 class ai_EOperator:
+    '''
+    
+    '''
     IS_EQUAL_TO = 0
+    '''
+    
+    '''
     IS_NOT_EQUAL_TO = 1
+    '''
+    
+    '''
     IS_LESS_THAN = 2
+    '''
+    
+    '''
     IS_LESS_THAN_OR_EQUAL_TO = 3
+    '''
+    
+    '''
     IS_GREAT_THAN = 4
+    '''
+    
+    '''
     IS_GREAT_THAN_OR_EQUAL_TO = 5
+    '''
+    
+    '''
     CONTAINS = 6
+    '''
+    
+    '''
     NOT_CONTAINS = 7
 
 
+'''
+
+'''
 class common_EBoolOperator:
+    '''
+    
+    '''
     AND = 0
+    '''
+    
+    '''
     OR = 1
 
 
+'''
+
+'''
 class error_EOperation:
+    '''
+    
+    '''
     LOGOUT = 0
+    '''
+    
+    '''
     RESTART = 1
 
 
+'''
+
+'''
 class error_EErrorCode:
+    '''
+    
+    '''
     OK = 0
+    '''
+    
+    '''
     SERVER_NOT_EXISTS = 1
+    '''
+    
+    '''
     HAS_BIND_SERVER = 2
+    '''
+    
+    '''
     AUTH_FAIL = 3
+    '''
+    
+    '''
     NOT_BIND_SERVER = 4
+    '''
+    
+    '''
     SERVER_ACCESS_FAIL = 5
+    '''
+    
+    '''
     EXAMPLE_FLASH = 6
+    '''
+    
+    '''
     EXAMPLE_MSGBOX = 7
+    '''
+    
+    '''
     EXAMPLE_DLG_OK = 8
+    '''
+    
+    '''
     EXAMPLE_DLG_OK_CANCEL = 9
+    '''
+    
+    '''
     ROLE_CREATE_NAME_INVALID_CHAR = 100
+    '''
+    
+    '''
     ROLE_CREATE_NAME_EMPTY = 101
+    '''
+    
+    '''
     ROLE_CREATE_NAME_EXCEED_MAX_LENGTH = 102
+    '''
+    
+    '''
     ROLE_CREATE_ROLE_LIST_FULL = 103
+    '''
+    
+    '''
     ROLE_CREATE_INVALID_PROFESSION = 104
+    '''
+    
+    '''
     ROLE_CREATE_INVALID_GENDER = 105
+    '''
+    
+    '''
     ROLE_NOT_OWNED_BY_USER = 106
+    '''
+    
+    '''
     ROLE_LEVEL_NOT_ARRIVE = 107
+    '''
+    
+    '''
     PARAM_ILLEGAL = 200
+    '''
+    
+    '''
     TEMP_BAG_NOT_EMPTY = 201
+    '''
+    
+    '''
     ITEM_CAN_NOT_USE = 202
+    '''
+    
+    '''
     CURRENCY_NOT_ENOUGH = 203
+    '''
+    
+    '''
     BAG_IS_FULL = 204
+    '''
+    
+    '''
     ITEM_NOT_ENOUGH = 205
+    '''
+    
+    '''
     ITEM_IN_BAG = 206
+    '''
+    
+    '''
     GENDER_NOT_MATCH = 300
+    '''
+    
+    '''
     LEVEL_TOO_LOW = 301
+    '''
+    
+    '''
     LEVEL_TOO_HIGH = 302
+    '''
+    
+    '''
     EXCEED_LIMIT = 303
+    '''
+    
+    '''
     OVER_TIME = 304
+    '''
+    
+    '''
     SERVER_ERROR = 305
+    '''
+    
+    '''
     SKILL_NOT_IN_LIST = 400
+    '''
+    
+    '''
     SKILL_NOT_COOLDOWN = 401
+    '''
+    
+    '''
     SKILL_TARGET_NOT_EXIST = 402
+    '''
+    
+    '''
     SKILL_ANOTHER_CASTING = 403
+    '''
+    
+    '''
     SKILL_OUT_OF_DISTANCE = 404
+    '''
+    
+    '''
     SKILL_TARGET_CAMP_NOT_MATCH = 405
+    '''
+    
+    '''
     SKILL_INVALID_DIRECTION = 406
+    '''
+    
+    '''
     SKILL_NOT_IN_SELECT_SHAPE = 407
+    '''
+    
+    '''
     SKILL_ENERGY_NOT_ENOUGH = 408
+    '''
+    
+    '''
     DIALOG_NODE_NOT_CHOOSEN = 500
+    '''
+    
+    '''
     DIALOG_NOT_FINISH = 501
+    '''
+    
+    '''
     DIALOG_HAS_FINISH = 502
+    '''
+    
+    '''
     QUEST_STAGE_NOT_FINISHED = 503
+    '''
+    
+    '''
     QUEST_NOT_DOING = 504
+    '''
+    
+    '''
     QUEST_STAGE_NOT_DOING = 505
+    '''
+    
+    '''
     QUEST_HAS_ACCEPTED = 506
+    '''
+    
+    '''
     MAP_OBJECT_NOT_EXIST = 600
+    '''
+    
+    '''
     INTERACTION_OBJECT_NOT_SUPPORT_OPERATION = 601
+    '''
+    
+    '''
     HAS_NOT_EQUIP = 602
+    '''
+    
+    '''
     HANDHELD_EQUIP_ID_NOT_MATCH = 603
+    '''
+    
+    '''
     NOT_AVAILABLE_SUIT_ID = 604
+    '''
+    
+    '''
     NO_INTERACTION_COMPONENT = 605
+    '''
+    
+    '''
     HAS_INTERACTED = 606
+    '''
+    
+    '''
     VIALITY_NOT_ENOUGH = 607
+    '''
+    
+    '''
     PLAYER_SESSION_NOT_EXIST = 608
+    '''
+    
+    '''
     PLAYER_SESSION_WORLD_PLAYER_NOT_INIT = 609
+    '''
+    
+    '''
     MAP_NOT_EXIST = 610
+    '''
+    
+    '''
     MAIL_TYPE_ERROR = 700
+    '''
+    
+    '''
     MAIL_NOT_EXITST = 701
+    '''
+    
+    '''
     MAIL_HAVE_DELETED = 702
+    '''
+    
+    '''
     MAIL_AWARD_HAVE_RECEIVED = 703
+    '''
+    
+    '''
     MAIL_OPERATE_TYPE_ERROR = 704
+    '''
+    
+    '''
     MAIL_CONDITION_NOT_MEET = 705
+    '''
+    
+    '''
     MAIL_STATE_ERROR = 706
+    '''
+    
+    '''
     MAIL_NO_AWARD = 707
+    '''
+    
+    '''
     MAIL_BOX_IS_FULL = 708
+    '''
+    
+    '''
     PROP_SCORE_NOT_BIGGER_THAN = 800
+    '''
+    
+    '''
     NOT_WEAR_CLOTHES = 801
+    '''
+    
+    '''
     NOT_WEAR_SUIT = 802
+    '''
+    
+    '''
     SUIT_NOT_UNLOCK = 900
+    '''
+    
+    '''
     SUIT_COMPONENT_NOT_UNLOCK = 901
+    '''
+    
+    '''
     SUIT_STATE_ERROR = 902
+    '''
+    
+    '''
     SUIT_COMPONENT_STATE_ERROR = 903
+    '''
+    
+    '''
     SUIT_COMPONENT_NO_NEED_LEARN = 904
+    '''
+    
+    '''
     STORE_NOT_ENABLED = 1000
+    '''
+    
+    '''
     SHELF_NOT_ENABLED = 1001
+    '''
+    
+    '''
     GOODS_NOT_ENABLED = 1002
+    '''
+    
+    '''
     GOODS_NOT_IN_CUR_REFRESH = 1003
+    '''
+    
+    '''
     RETRY = 1100
+    '''
+    
+    '''
     NOT_COOLDOWN = 1101
+    '''
+    
+    '''
     SELFIE_UNLOCK = 1200
+    '''
+    
+    '''
     SELFIE_ALREADY_UNLOCK = 1201
+    '''
+    
+    '''
     SELFIE_LACK_STARTS = 1202
+    '''
+    
+    '''
     SELFIE_HAD_REWARD = 1203
 
 
+'''
+道具品质
+'''
 class item_EItemQuality:
+    '''
+    白
+    '''
     WHITE = 0
+    '''
+    
+    '''
     GREEN = 1
+    '''
+    
+    '''
     BLUE = 2
+    '''
+    
+    '''
     PURPLE = 3
+    '''
+    
+    '''
     GOLDEN = 4
 
 
+'''
+
+'''
 class item_ECurrencyType:
+    '''
+    
+    '''
     DIAMOND = 1
+    '''
+    
+    '''
     GOLD = 2
+    '''
+    
+    '''
     SILVER = 3
+    '''
+    
+    '''
     EXP = 4
+    '''
+    
+    '''
     POWER_POINT = 5
 
 
+'''
+
+'''
 class item_EMajorType:
+    '''
+    
+    '''
     CURRENCY = 1
+    '''
+    
+    '''
     CLOTH = 2
+    '''
+    
+    '''
     QUEST = 3
+    '''
+    
+    '''
     CONSUMABLES = 4
+    '''
+    
+    '''
     TREASURE_BOX = 5
+    '''
+    
+    '''
     ACHIEVEMENT_AND_TITLE = 6
+    '''
+    
+    '''
     HEAD_FRAME = 7
+    '''
+    
+    '''
     VOICE = 8
+    '''
+    
+    '''
     ACTION = 9
+    '''
+    
+    '''
     EXPANSION = 10
+    '''
+    
+    '''
     MATERIAL = 11
 
 
+'''
+
+'''
 class item_EMinorType:
+    '''
+    
+    '''
     DIAMOND = 101
+    '''
+    
+    '''
     GOLD = 102
+    '''
+    
+    '''
     SILVER = 103
+    '''
+    
+    '''
     EXP = 104
+    '''
+    
+    '''
     POWER_POINT = 105
+    '''
+    
+    '''
     HAIR_STYLE = 210
+    '''
+    
+    '''
     COAT = 220
+    '''
+    
+    '''
     UPPER_JACKET = 230
+    '''
+    
+    '''
     TROUSERS = 241
+    '''
+    
+    '''
     SKIRT = 242
+    '''
+    
+    '''
     SOCKS = 250
+    '''
+    
+    '''
     SHOES = 260
+    '''
+    
+    '''
     HAIR_ACCESSORY = 271
+    '''
+    
+    '''
     HAT = 272
+    '''
+    
+    '''
     EARRING = 273
+    '''
+    
+    '''
     NECKLACE = 274
+    '''
+    
+    '''
     BRACELET = 275
+    '''
+    
+    '''
     HAIR_CLASP = 276
+    '''
+    
+    '''
     GLOVE = 277
+    '''
+    
+    '''
     HANDHELD_OBJECT = 278
+    '''
+    
+    '''
     SPECIAL = 279
+    '''
+    
+    '''
     BASE_COSMETIC = 281
+    '''
+    
+    '''
     EYEBROW_COSMETIC = 282
+    '''
+    
+    '''
     EYELASH = 283
+    '''
+    
+    '''
     COSMETIC_CONTACT_LENSES = 284
+    '''
+    
+    '''
     LIP_COSMETIC = 285
+    '''
+    
+    '''
     SKIN_COLOR = 286
+    '''
+    
+    '''
     ONE_PIECE_DRESS = 290
+    '''
+    
+    '''
     SWITCH_CLOTHES_SCENE = 291
+    '''
+    
+    '''
     QUEST = 301
+    '''
+    
+    '''
     CAST = 401
+    '''
+    
+    '''
     SWORD = 421
+    '''
+    
+    '''
     BOW_ARROW = 422
+    '''
+    
+    '''
     WANDS = 423
+    '''
+    
+    '''
     SPECIAL_TOOL = 424
+    '''
+    
+    '''
     FOOD = 403
+    '''
+    
+    '''
     TREASURE_BOX = 501
+    '''
+    
+    '''
     KEY = 502
+    '''
+    
+    '''
     MULTI_CHOOSE_TREASURE_BOX = 503
+    '''
+    
+    '''
     ACHIEVEMENT = 601
+    '''
+    
+    '''
     TITLE = 602
+    '''
+    
+    '''
     AVATAR_FRAME = 701
+    '''
+    
+    '''
     VOICE = 801
+    '''
+    
+    '''
     IDLE_POSE = 901
+    '''
+    
+    '''
     PHOTO_POSE = 902
+    '''
+    
+    '''
     BAG = 1001
+    '''
+    
+    '''
     FRIEND_CAPACITY = 1002
+    '''
+    
+    '''
     CONSTRUCTION_MATERIAL = 1101
+    '''
+    
+    '''
     DESIGN_DRAWING = 1102
 
 
+'''
+
+'''
 class item_EClothersStarQualityType:
+    '''
+    
+    '''
     ONE = 1
+    '''
+    
+    '''
     TWO = 2
+    '''
+    
+    '''
     THREE = 3
+    '''
+    
+    '''
     FOUR = 4
+    '''
+    
+    '''
     FIVE = 5
+    '''
+    
+    '''
     SIX = 6
+    '''
+    
+    '''
     SEVEN = 7
+    '''
+    
+    '''
     EIGHT = 8
+    '''
+    
+    '''
     NINE = 9
+    '''
+    
+    '''
     TEN = 10
 
 
+'''
+
+'''
 class item_EClothersTag:
+    '''
+    
+    '''
     FANG_SHAI = 1
+    '''
+    
+    '''
     WU_ZHE = 2
 
 
+'''
+
+'''
 class item_EUseType:
+    '''
+    
+    '''
     MANUAL = 0
+    '''
+    
+    '''
     AUTO = 1
 
 
+'''
+
+'''
 class item_EClothesHidePartType:
+    '''
+    
+    '''
     CHEST = 0
+    '''
+    
+    '''
     HEAD = 1
+    '''
+    
+    '''
     SPINE_UPPER = 2
+    '''
+    
+    '''
     SPINE_LOWER = 3
+    '''
+    
+    '''
     HIP = 4
+    '''
+    
+    '''
     LEG_UPPER = 5
+    '''
+    
+    '''
     LEG_MIDDLE = 6
+    '''
+    
+    '''
     LEG_LOWER = 7
 
 
+'''
+
+'''
 class item_EClothesPropertyType:
+    '''
+    
+    '''
     JIAN_YUE = 1
+    '''
+    
+    '''
     HUA_LI = 2
+    '''
+    
+    '''
     KE_AI = 3
+    '''
+    
+    '''
     CHENG_SHU = 4
+    '''
+    
+    '''
     HUO_PO = 5
+    '''
+    
+    '''
     YOU_YA = 6
+    '''
+    
+    '''
     QING_CHUN = 7
+    '''
+    
+    '''
     XING_GAN = 8
+    '''
+    
+    '''
     QING_LIANG = 9
+    '''
+    
+    '''
     BAO_NUAN = 10
 
 
+'''
+
+'''
 class item_EItemFunctionType:
+    '''
+    
+    '''
     REPLACE_HANDHELD = 0
+    '''
+    
+    '''
     USE_DESIGN_DRAWING = 1
 
 
+'''
+
+'''
 class limit_ENamespace:
+    '''
+    
+    '''
     ITEM_DAILY_OBTAIN = 1
+    '''
+    
+    '''
     TREASURE_DAILY_USE = 2
+    '''
+    
+    '''
     STORE_GOODS_LIMIT_BUY = 3
 
 
+'''
+
+'''
 class mail_EMailType:
+    '''
+    
+    '''
     GLOBAL = 0
+    '''
+    
+    '''
     SYSTEM = 1
 
 
+'''
+
+'''
 class role_EGenderType:
+    '''
+    
+    '''
     MALE = 1
+    '''
+    
+    '''
     FEMALE = 2
 
 
+'''
+
+'''
 class role_EProfession:
+    '''
+    
+    '''
     TEST_PROFESSION = 1
 
 
+'''
+
+'''
 class test_DemoEnum:
+    '''
+    
+    '''
     A = 1
+    '''
+    
+    '''
     B = 2
+    '''
+    
+    '''
     C = 4
+    '''
+    
+    '''
     D = 5
 
 
+'''
+
+'''
 class test_ETestUeType:
+    '''
+    
+    '''
     WHITE = 0
+    '''
+    
+    '''
     BLACK = 1
 
 
+'''
+
+'''
 class test_ETestEmptyEnum:
     pass
 
 
+'''
+
+'''
 class test_ETestEmptyEnum2:
+    '''
+    
+    '''
     SMALL_THAN_256 = 255
+    '''
+    
+    '''
     X_256 = 256
+    '''
+    
+    '''
     X_257 = 257
 
 
 
+'''
 
+'''
 class ai_TbBlackboard:
 
     def __init__(self, _json_ ):
@@ -420,6 +1239,9 @@ class ai_TbBlackboard:
 
 
 
+'''
+
+'''
 class ai_Blackboard :
 
     def __init__(self, _json_):
@@ -437,6 +1259,9 @@ class ai_Blackboard :
 
 
 
+'''
+
+'''
 class ai_BlackboardKey :
 
     def __init__(self, _json_):
@@ -453,7 +1278,9 @@ class ai_BlackboardKey :
 
 
 
+'''
 
+'''
 class ai_TbBehaviorTree:
 
     def __init__(self, _json_ ):
@@ -475,6 +1302,9 @@ class ai_TbBehaviorTree:
 
 
 
+'''
+
+'''
 class ai_BehaviorTree :
 
     def __init__(self, _json_):
@@ -493,6 +1323,9 @@ class ai_BehaviorTree :
 
 
 
+'''
+
+'''
 class ai_Node :
     _childrenTypes = None
 
@@ -542,6 +1375,9 @@ class ai_Node :
 
 
 
+'''
+
+'''
 class ai_Service (ai_Node):
     _childrenTypes = None
 
@@ -573,6 +1409,9 @@ class ai_Service (ai_Node):
 
 
 
+'''
+
+'''
 class ai_UeSetDefaultFocus (ai_Service):
 
     def __init__(self, _json_):
@@ -584,6 +1423,9 @@ class ai_UeSetDefaultFocus (ai_Service):
 
 
 
+'''
+
+'''
 class ai_ExecuteTimeStatistic (ai_Service):
 
     def __init__(self, _json_):
@@ -595,6 +1437,9 @@ class ai_ExecuteTimeStatistic (ai_Service):
 
 
 
+'''
+
+'''
 class ai_ChooseTarget (ai_Service):
 
     def __init__(self, _json_):
@@ -606,6 +1451,9 @@ class ai_ChooseTarget (ai_Service):
 
 
 
+'''
+
+'''
 class ai_KeepFaceTarget (ai_Service):
 
     def __init__(self, _json_):
@@ -617,6 +1465,9 @@ class ai_KeepFaceTarget (ai_Service):
 
 
 
+'''
+
+'''
 class ai_GetOwnerPlayer (ai_Service):
 
     def __init__(self, _json_):
@@ -628,6 +1479,9 @@ class ai_GetOwnerPlayer (ai_Service):
 
 
 
+'''
+
+'''
 class ai_UpdateDailyBehaviorProps (ai_Service):
 
     def __init__(self, _json_):
@@ -655,6 +1509,9 @@ class ai_UpdateDailyBehaviorProps (ai_Service):
 
 
 
+'''
+
+'''
 class ai_Decorator (ai_Node):
     _childrenTypes = None
 
@@ -687,6 +1544,9 @@ class ai_Decorator (ai_Node):
 
 
 
+'''
+
+'''
 class ai_UeLoop (ai_Decorator):
 
     def __init__(self, _json_):
@@ -702,6 +1562,9 @@ class ai_UeLoop (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_UeCooldown (ai_Decorator):
 
     def __init__(self, _json_):
@@ -713,6 +1576,9 @@ class ai_UeCooldown (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_UeTimeLimit (ai_Decorator):
 
     def __init__(self, _json_):
@@ -724,6 +1590,9 @@ class ai_UeTimeLimit (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_UeBlackboard (ai_Decorator):
 
     def __init__(self, _json_):
@@ -739,6 +1608,9 @@ class ai_UeBlackboard (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_KeyQueryOperator :
     _childrenTypes = None
 
@@ -766,6 +1638,9 @@ class ai_KeyQueryOperator :
 
 
 
+'''
+
+'''
 class ai_IsSet (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
@@ -777,6 +1652,9 @@ class ai_IsSet (ai_KeyQueryOperator):
 
 
 
+'''
+
+'''
 class ai_IsNotSet (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
@@ -788,6 +1666,9 @@ class ai_IsNotSet (ai_KeyQueryOperator):
 
 
 
+'''
+
+'''
 class ai_BinaryOperator (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
@@ -801,6 +1682,9 @@ class ai_BinaryOperator (ai_KeyQueryOperator):
 
 
 
+'''
+
+'''
 class ai_KeyData :
     _childrenTypes = None
 
@@ -829,6 +1713,9 @@ class ai_KeyData :
 
 
 
+'''
+
+'''
 class ai_FloatKeyData (ai_KeyData):
 
     def __init__(self, _json_):
@@ -840,6 +1727,9 @@ class ai_FloatKeyData (ai_KeyData):
 
 
 
+'''
+
+'''
 class ai_IntKeyData (ai_KeyData):
 
     def __init__(self, _json_):
@@ -851,6 +1741,9 @@ class ai_IntKeyData (ai_KeyData):
 
 
 
+'''
+
+'''
 class ai_StringKeyData (ai_KeyData):
 
     def __init__(self, _json_):
@@ -862,6 +1755,9 @@ class ai_StringKeyData (ai_KeyData):
 
 
 
+'''
+
+'''
 class ai_BlackboardKeyData (ai_KeyData):
 
     def __init__(self, _json_):
@@ -873,6 +1769,9 @@ class ai_BlackboardKeyData (ai_KeyData):
 
 
 
+'''
+
+'''
 class ai_UeForceSuccess (ai_Decorator):
 
     def __init__(self, _json_):
@@ -884,6 +1783,9 @@ class ai_UeForceSuccess (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_IsAtLocation (ai_Decorator):
 
     def __init__(self, _json_):
@@ -899,6 +1801,9 @@ class ai_IsAtLocation (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_DistanceLessThan (ai_Decorator):
 
     def __init__(self, _json_):
@@ -916,6 +1821,9 @@ class ai_DistanceLessThan (ai_Decorator):
 
 
 
+'''
+
+'''
 class ai_FlowNode (ai_Node):
     _childrenTypes = None
 
@@ -955,6 +1863,9 @@ class ai_FlowNode (ai_Node):
 
 
 
+'''
+
+'''
 class ai_ComposeNode (ai_FlowNode):
     _childrenTypes = None
 
@@ -983,6 +1894,9 @@ class ai_ComposeNode (ai_FlowNode):
 
 
 
+'''
+
+'''
 class ai_Sequence (ai_ComposeNode):
 
     def __init__(self, _json_):
@@ -995,6 +1909,9 @@ class ai_Sequence (ai_ComposeNode):
 
 
 
+'''
+
+'''
 class ai_Selector (ai_ComposeNode):
 
     def __init__(self, _json_):
@@ -1007,6 +1924,9 @@ class ai_Selector (ai_ComposeNode):
 
 
 
+'''
+
+'''
 class ai_SimpleParallel (ai_ComposeNode):
 
     def __init__(self, _json_):
@@ -1022,6 +1942,9 @@ class ai_SimpleParallel (ai_ComposeNode):
 
 
 
+'''
+
+'''
 class ai_Task (ai_FlowNode):
     _childrenTypes = None
 
@@ -1054,6 +1977,9 @@ class ai_Task (ai_FlowNode):
 
 
 
+'''
+
+'''
 class ai_UeWait (ai_Task):
 
     def __init__(self, _json_):
@@ -1067,6 +1993,9 @@ class ai_UeWait (ai_Task):
 
 
 
+'''
+
+'''
 class ai_UeWaitBlackboardTime (ai_Task):
 
     def __init__(self, _json_):
@@ -1078,6 +2007,9 @@ class ai_UeWaitBlackboardTime (ai_Task):
 
 
 
+'''
+
+'''
 class ai_MoveToTarget (ai_Task):
 
     def __init__(self, _json_):
@@ -1091,6 +2023,9 @@ class ai_MoveToTarget (ai_Task):
 
 
 
+'''
+
+'''
 class ai_ChooseSkill (ai_Task):
 
     def __init__(self, _json_):
@@ -1104,6 +2039,9 @@ class ai_ChooseSkill (ai_Task):
 
 
 
+'''
+
+'''
 class ai_MoveToRandomLocation (ai_Task):
 
     def __init__(self, _json_):
@@ -1117,6 +2055,9 @@ class ai_MoveToRandomLocation (ai_Task):
 
 
 
+'''
+
+'''
 class ai_MoveToLocation (ai_Task):
 
     def __init__(self, _json_):
@@ -1130,6 +2071,9 @@ class ai_MoveToLocation (ai_Task):
 
 
 
+'''
+
+'''
 class ai_DebugPrint (ai_Task):
 
     def __init__(self, _json_):
@@ -1139,7 +2083,9 @@ class ai_DebugPrint (ai_Task):
 
 
 
+'''
 
+'''
 class blueprint_TbClazz:
 
     def __init__(self, _json_ ):
@@ -1161,6 +2107,9 @@ class blueprint_TbClazz:
 
 
 
+'''
+
+'''
 class blueprint_Clazz :
     _childrenTypes = None
 
@@ -1196,6 +2145,9 @@ class blueprint_Clazz :
 
 
 
+'''
+
+'''
 class blueprint_Method :
     _childrenTypes = None
 
@@ -1232,6 +2184,9 @@ class blueprint_Method :
 
 
 
+'''
+
+'''
 class blueprint_ParamInfo :
 
     def __init__(self, _json_):
@@ -1246,6 +2201,9 @@ class blueprint_ParamInfo :
 
 
 
+'''
+
+'''
 class blueprint_AbstraceMethod (blueprint_Method):
 
     def __init__(self, _json_):
@@ -1257,6 +2215,9 @@ class blueprint_AbstraceMethod (blueprint_Method):
 
 
 
+'''
+
+'''
 class blueprint_ExternalMethod (blueprint_Method):
 
     def __init__(self, _json_):
@@ -1268,6 +2229,9 @@ class blueprint_ExternalMethod (blueprint_Method):
 
 
 
+'''
+
+'''
 class blueprint_BlueprintMethod (blueprint_Method):
 
     def __init__(self, _json_):
@@ -1279,6 +2243,9 @@ class blueprint_BlueprintMethod (blueprint_Method):
 
 
 
+'''
+
+'''
 class blueprint_Interface (blueprint_Clazz):
 
     def __init__(self, _json_):
@@ -1290,6 +2257,9 @@ class blueprint_Interface (blueprint_Clazz):
 
 
 
+'''
+
+'''
 class blueprint_NormalClazz (blueprint_Clazz):
 
     def __init__(self, _json_):
@@ -1304,6 +2274,9 @@ class blueprint_NormalClazz (blueprint_Clazz):
 
 
 
+'''
+
+'''
 class blueprint_Field :
 
     def __init__(self, _json_):
@@ -1318,6 +2291,9 @@ class blueprint_Field :
 
 
 
+'''
+
+'''
 class blueprint_EnumClazz (blueprint_Clazz):
 
     def __init__(self, _json_):
@@ -1330,6 +2306,9 @@ class blueprint_EnumClazz (blueprint_Clazz):
 
 
 
+'''
+
+'''
 class blueprint_EnumField :
 
     def __init__(self, _json_):
@@ -1340,7 +2319,9 @@ class blueprint_EnumField :
 
 
 
+'''
 
+'''
 class bonus_TbDrop:
 
     def __init__(self, _json_ ):
@@ -1362,6 +2343,9 @@ class bonus_TbDrop:
 
 
 
+'''
+
+'''
 class bonus_DropInfo :
 
     def __init__(self, _json_):
@@ -1379,6 +2363,9 @@ class bonus_DropInfo :
 
 
 
+'''
+
+'''
 class bonus_ShowItemInfo :
 
     def __init__(self, _json_):
@@ -1391,6 +2378,9 @@ class bonus_ShowItemInfo :
 
 
 
+'''
+
+'''
 class bonus_Bonus :
     _childrenTypes = None
 
@@ -1426,6 +2416,9 @@ class bonus_Bonus :
 
 
 
+'''
+
+'''
 class bonus_OneItem (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1437,6 +2430,9 @@ class bonus_OneItem (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_OneItems (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1448,6 +2444,9 @@ class bonus_OneItems (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_Item (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1461,6 +2460,9 @@ class bonus_Item (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_Items (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1473,6 +2475,9 @@ class bonus_Items (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_CoefficientItem (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1486,6 +2491,9 @@ class bonus_CoefficientItem (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_WeightItems (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1498,6 +2506,9 @@ class bonus_WeightItems (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_WeightItemInfo :
 
     def __init__(self, _json_):
@@ -1512,6 +2523,9 @@ class bonus_WeightItemInfo :
 
 
 
+'''
+
+'''
 class bonus_ProbabilityItems (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1524,6 +2538,9 @@ class bonus_ProbabilityItems (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_ProbabilityItemInfo :
 
     def __init__(self, _json_):
@@ -1538,6 +2555,9 @@ class bonus_ProbabilityItemInfo :
 
 
 
+'''
+
+'''
 class bonus_MultiBonus (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1550,6 +2570,9 @@ class bonus_MultiBonus (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_ProbabilityBonus (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1562,6 +2585,9 @@ class bonus_ProbabilityBonus (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_ProbabilityBonusInfo :
 
     def __init__(self, _json_):
@@ -1574,6 +2600,9 @@ class bonus_ProbabilityBonusInfo :
 
 
 
+'''
+
+'''
 class bonus_WeightBonus (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1586,6 +2615,9 @@ class bonus_WeightBonus (bonus_Bonus):
 
 
 
+'''
+
+'''
 class bonus_WeightBonusInfo :
 
     def __init__(self, _json_):
@@ -1598,6 +2630,9 @@ class bonus_WeightBonusInfo :
 
 
 
+'''
+
+'''
 class bonus_DropBonus (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1607,7 +2642,9 @@ class bonus_DropBonus (bonus_Bonus):
 
 
 
+'''
 
+'''
 class common_TbGlobalConfig:
 
     def __init__(self, _json_):
@@ -1616,32 +2653,98 @@ class common_TbGlobalConfig:
 
     def getData(self) : return self._data
 
+    '''
+    背包容量
+    '''
     def bag_capacity(self) : return self._data.bag_capacity
+    '''
+    
+    '''
     def bag_capacity_special(self) : return self._data.bag_capacity_special
+    '''
+    
+    '''
     def bag_temp_expendable_capacity(self) : return self._data.bag_temp_expendable_capacity
+    '''
+    
+    '''
     def bag_temp_tool_capacity(self) : return self._data.bag_temp_tool_capacity
+    '''
+    
+    '''
     def bag_init_capacity(self) : return self._data.bag_init_capacity
+    '''
+    
+    '''
     def quick_bag_capacity(self) : return self._data.quick_bag_capacity
+    '''
+    
+    '''
     def cloth_bag_capacity(self) : return self._data.cloth_bag_capacity
+    '''
+    
+    '''
     def cloth_bag_init_capacity(self) : return self._data.cloth_bag_init_capacity
+    '''
+    
+    '''
     def cloth_bag_capacity_special(self) : return self._data.cloth_bag_capacity_special
+    '''
+    
+    '''
     def bag_init_items_drop_id(self) : return self._data.bag_init_items_drop_id
+    '''
+    
+    '''
     def mail_box_capacity(self) : return self._data.mail_box_capacity
+    '''
+    
+    '''
     def damage_param_c(self) : return self._data.damage_param_c
+    '''
+    
+    '''
     def damage_param_e(self) : return self._data.damage_param_e
+    '''
+    
+    '''
     def damage_param_f(self) : return self._data.damage_param_f
+    '''
+    
+    '''
     def damage_param_d(self) : return self._data.damage_param_d
+    '''
+    
+    '''
     def role_speed(self) : return self._data.role_speed
+    '''
+    
+    '''
     def monster_speed(self) : return self._data.monster_speed
+    '''
+    
+    '''
     def init_energy(self) : return self._data.init_energy
+    '''
+    
+    '''
     def init_viality(self) : return self._data.init_viality
+    '''
+    
+    '''
     def max_viality(self) : return self._data.max_viality
+    '''
+    
+    '''
     def per_viality_recovery_time(self) : return self._data.per_viality_recovery_time
 
 
 
 
 
+'''
+
+'''
 class common_GlobalConfig :
 
     def __init__(self, _json_):
@@ -1689,7 +2792,9 @@ class common_GlobalConfig :
 
 
 
+'''
 
+'''
 class common_TbDummy:
 
     def __init__(self, _json_ ):
@@ -1711,6 +2816,9 @@ class common_TbDummy:
 
 
 
+'''
+
+'''
 class common_Dummy :
 
     def __init__(self, _json_):
@@ -1723,6 +2831,9 @@ class common_Dummy :
 
 
 
+'''
+
+'''
 class limit_LimitBase :
     _childrenTypes = None
 
@@ -1753,6 +2864,9 @@ class limit_LimitBase :
 
 
 
+'''
+
+'''
 class limit_DailyLimitBase (limit_LimitBase):
     _childrenTypes = None
 
@@ -1779,6 +2893,9 @@ class limit_DailyLimitBase (limit_LimitBase):
 
 
 
+'''
+
+'''
 class limit_DailyLimit (limit_DailyLimitBase):
 
     def __init__(self, _json_):
@@ -1790,6 +2907,9 @@ class limit_DailyLimit (limit_DailyLimitBase):
 
 
 
+'''
+
+'''
 class limit_MultiDayLimit (limit_LimitBase):
 
     def __init__(self, _json_):
@@ -1803,6 +2923,9 @@ class limit_MultiDayLimit (limit_LimitBase):
 
 
 
+'''
+
+'''
 class limit_WeeklyLimit (limit_LimitBase):
 
     def __init__(self, _json_):
@@ -1814,6 +2937,9 @@ class limit_WeeklyLimit (limit_LimitBase):
 
 
 
+'''
+
+'''
 class limit_MonthlyLimit (limit_LimitBase):
 
     def __init__(self, _json_):
@@ -1825,6 +2951,9 @@ class limit_MonthlyLimit (limit_LimitBase):
 
 
 
+'''
+
+'''
 class limit_CoolDown (limit_LimitBase):
 
     def __init__(self, _json_):
@@ -1836,6 +2965,9 @@ class limit_CoolDown (limit_LimitBase):
 
 
 
+'''
+
+'''
 class limit_GroupCoolDown (limit_LimitBase):
 
     def __init__(self, _json_):
@@ -1847,7 +2979,9 @@ class limit_GroupCoolDown (limit_LimitBase):
 
 
 
+'''
 
+'''
 class error_TbErrorInfo:
 
     def __init__(self, _json_ ):
@@ -1869,6 +3003,9 @@ class error_TbErrorInfo:
 
 
 
+'''
+
+'''
 class error_ErrorInfo :
 
     def __init__(self, _json_):
@@ -1883,6 +3020,9 @@ class error_ErrorInfo :
 
 
 
+'''
+
+'''
 class error_ErrorStyle :
     _childrenTypes = None
 
@@ -1911,6 +3051,9 @@ class error_ErrorStyle :
 
 
 
+'''
+
+'''
 class error_ErrorStyleTip (error_ErrorStyle):
 
     def __init__(self, _json_):
@@ -1922,6 +3065,9 @@ class error_ErrorStyleTip (error_ErrorStyle):
 
 
 
+'''
+
+'''
 class error_ErrorStyleMsgbox (error_ErrorStyle):
 
     def __init__(self, _json_):
@@ -1935,6 +3081,9 @@ class error_ErrorStyleMsgbox (error_ErrorStyle):
 
 
 
+'''
+
+'''
 class error_ErrorStyleDlgOk (error_ErrorStyle):
 
     def __init__(self, _json_):
@@ -1946,6 +3095,9 @@ class error_ErrorStyleDlgOk (error_ErrorStyle):
 
 
 
+'''
+
+'''
 class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
 
     def __init__(self, _json_):
@@ -1957,7 +3109,9 @@ class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
 
 
 
+'''
 
+'''
 class error_TbCodeInfo:
 
     def __init__(self, _json_ ):
@@ -1979,6 +3133,9 @@ class error_TbCodeInfo:
 
 
 
+'''
+
+'''
 class error_CodeInfo :
 
     def __init__(self, _json_):
@@ -1989,7 +3146,9 @@ class error_CodeInfo :
 
 
 
-
+'''
+道具表
+'''
 class item_TbItem:
 
     def __init__(self, _json_ ):
@@ -2011,6 +3170,9 @@ class item_TbItem:
 
 
 
+'''
+道具
+'''
 class item_Item :
 
     def __init__(self, _json_):
@@ -2057,7 +3219,9 @@ class item_Item :
 
 
 
+'''
 
+'''
 class item_TbItemFunc:
 
     def __init__(self, _json_ ):
@@ -2079,6 +3243,9 @@ class item_TbItemFunc:
 
 
 
+'''
+
+'''
 class item_ItemFunction :
 
     def __init__(self, _json_):
@@ -2093,7 +3260,9 @@ class item_ItemFunction :
 
 
 
+'''
 
+'''
 class item_TbItemExtra:
 
     def __init__(self, _json_ ):
@@ -2115,6 +3284,9 @@ class item_TbItemExtra:
 
 
 
+'''
+
+'''
 class item_ItemExtra :
     _childrenTypes = None
 
@@ -2144,6 +3316,9 @@ class item_ItemExtra :
 
 
 
+'''
+
+'''
 class item_TreasureBox (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2163,6 +3338,9 @@ class item_TreasureBox (item_ItemExtra):
 
 
 
+'''
+
+'''
 class condition_Condition :
     _childrenTypes = None
 
@@ -2195,6 +3373,9 @@ class condition_Condition :
 
 
 
+'''
+
+'''
 class condition_TimeRange (condition_Condition):
 
     def __init__(self, _json_):
@@ -2206,6 +3387,9 @@ class condition_TimeRange (condition_Condition):
 
 
 
+'''
+
+'''
 class common_DateTimeRange :
 
     def __init__(self, _json_):
@@ -2216,6 +3400,9 @@ class common_DateTimeRange :
 
 
 
+'''
+
+'''
 class condition_RoleCondition (condition_Condition):
     _childrenTypes = None
 
@@ -2248,6 +3435,9 @@ class condition_RoleCondition (condition_Condition):
 
 
 
+'''
+
+'''
 class condition_MultiRoleCondition (condition_RoleCondition):
 
     def __init__(self, _json_):
@@ -2260,6 +3450,9 @@ class condition_MultiRoleCondition (condition_RoleCondition):
 
 
 
+'''
+
+'''
 class condition_BoolRoleCondition (condition_RoleCondition):
     _childrenTypes = None
 
@@ -2290,6 +3483,9 @@ class condition_BoolRoleCondition (condition_RoleCondition):
 
 
 
+'''
+
+'''
 class condition_GenderLimit (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
@@ -2301,6 +3497,9 @@ class condition_GenderLimit (condition_BoolRoleCondition):
 
 
 
+'''
+
+'''
 class condition_MinLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
@@ -2312,6 +3511,9 @@ class condition_MinLevel (condition_BoolRoleCondition):
 
 
 
+'''
+
+'''
 class condition_MaxLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
@@ -2323,6 +3525,9 @@ class condition_MaxLevel (condition_BoolRoleCondition):
 
 
 
+'''
+
+'''
 class condition_MinMaxLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
@@ -2336,6 +3541,9 @@ class condition_MinMaxLevel (condition_BoolRoleCondition):
 
 
 
+'''
+
+'''
 class condition_ClothesPropertyScoreGreaterThan (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
@@ -2349,6 +3557,9 @@ class condition_ClothesPropertyScoreGreaterThan (condition_BoolRoleCondition):
 
 
 
+'''
+
+'''
 class condition_ContainsItem (condition_RoleCondition):
 
     def __init__(self, _json_):
@@ -2364,6 +3575,9 @@ class condition_ContainsItem (condition_RoleCondition):
 
 
 
+'''
+
+'''
 class item_ChooseOneBonus :
 
     def __init__(self, _json_):
@@ -2376,6 +3590,9 @@ class item_ChooseOneBonus :
 
 
 
+'''
+
+'''
 class item_InteractionItem (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2390,6 +3607,9 @@ class item_InteractionItem (item_ItemExtra):
 
 
 
+'''
+
+'''
 class item_Clothes (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2407,6 +3627,9 @@ class item_Clothes (item_ItemExtra):
 
 
 
+'''
+
+'''
 class item_DesignDrawing (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2418,6 +3641,9 @@ class item_DesignDrawing (item_ItemExtra):
 
 
 
+'''
+
+'''
 class item_Dymmy (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2429,6 +3655,9 @@ class item_Dymmy (item_ItemExtra):
 
 
 
+'''
+
+'''
 class cost_Cost :
     _childrenTypes = None
 
@@ -2458,6 +3687,9 @@ class cost_Cost :
 
 
 
+'''
+
+'''
 class cost_CostCurrency (cost_Cost):
 
     def __init__(self, _json_):
@@ -2471,6 +3703,9 @@ class cost_CostCurrency (cost_Cost):
 
 
 
+'''
+
+'''
 class cost_CostCurrencies (cost_Cost):
 
     def __init__(self, _json_):
@@ -2483,6 +3718,9 @@ class cost_CostCurrencies (cost_Cost):
 
 
 
+'''
+
+'''
 class cost_CostOneItem (cost_Cost):
 
     def __init__(self, _json_):
@@ -2494,6 +3732,9 @@ class cost_CostOneItem (cost_Cost):
 
 
 
+'''
+
+'''
 class cost_CostItem (cost_Cost):
 
     def __init__(self, _json_):
@@ -2507,6 +3748,9 @@ class cost_CostItem (cost_Cost):
 
 
 
+'''
+
+'''
 class cost_CostItems (cost_Cost):
 
     def __init__(self, _json_):
@@ -2517,7 +3761,9 @@ class cost_CostItems (cost_Cost):
 
 
 
+'''
 
+'''
 class l10n_TbL10NDemo:
 
     def __init__(self, _json_ ):
@@ -2539,6 +3785,9 @@ class l10n_TbL10NDemo:
 
 
 
+'''
+
+'''
 class l10n_L10NDemo :
 
     def __init__(self, _json_):
@@ -2549,7 +3798,9 @@ class l10n_L10NDemo :
 
 
 
+'''
 
+'''
 class l10n_TbPatchDemo:
 
     def __init__(self, _json_ ):
@@ -2571,6 +3822,9 @@ class l10n_TbPatchDemo:
 
 
 
+'''
+
+'''
 class l10n_PatchDemo :
 
     def __init__(self, _json_):
@@ -2581,7 +3835,9 @@ class l10n_PatchDemo :
 
 
 
+'''
 
+'''
 class mail_TbSystemMail:
 
     def __init__(self, _json_ ):
@@ -2603,6 +3859,9 @@ class mail_TbSystemMail:
 
 
 
+'''
+
+'''
 class mail_SystemMail :
 
     def __init__(self, _json_):
@@ -2619,7 +3878,9 @@ class mail_SystemMail :
 
 
 
+'''
 
+'''
 class mail_TbGlobalMail:
 
     def __init__(self, _json_ ):
@@ -2641,6 +3902,9 @@ class mail_TbGlobalMail:
 
 
 
+'''
+
+'''
 class mail_GlobalMail :
 
     def __init__(self, _json_):
@@ -2671,7 +3935,9 @@ class mail_GlobalMail :
 
 
 
+'''
 
+'''
 class role_TbRoleLevelExpAttr:
 
     def __init__(self, _json_ ):
@@ -2693,6 +3959,9 @@ class role_TbRoleLevelExpAttr:
 
 
 
+'''
+
+'''
 class role_LevelExpAttr :
 
     def __init__(self, _json_):
@@ -2705,7 +3974,9 @@ class role_LevelExpAttr :
 
 
 
+'''
 
+'''
 class role_TbRoleLevelBonusCoefficient:
 
     def __init__(self, _json_ ):
@@ -2727,6 +3998,9 @@ class role_TbRoleLevelBonusCoefficient:
 
 
 
+'''
+
+'''
 class role_LevelBonus :
 
     def __init__(self, _json_):
@@ -2740,6 +4014,9 @@ class role_LevelBonus :
 
 
 
+'''
+
+'''
 class role_DistinctBonusInfos :
 
     def __init__(self, _json_):
@@ -2753,6 +4030,9 @@ class role_DistinctBonusInfos :
 
 
 
+'''
+
+'''
 class role_BonusInfo :
 
     def __init__(self, _json_):
@@ -2763,7 +4043,9 @@ class role_BonusInfo :
 
 
 
+'''
 
+'''
 class tag_TbTestTag:
 
     def __init__(self, _json_ ):
@@ -2785,6 +4067,9 @@ class tag_TbTestTag:
 
 
 
+'''
+
+'''
 class tag_TestTag :
 
     def __init__(self, _json_):
@@ -2795,7 +4080,9 @@ class tag_TestTag :
 
 
 
+'''
 
+'''
 class test_TbFullTypes:
 
     def __init__(self, _json_ ):
@@ -2817,6 +4104,9 @@ class test_TbFullTypes:
 
 
 
+'''
+
+'''
 class test_DemoType2 :
 
     def __init__(self, _json_):
@@ -2886,6 +4176,9 @@ class test_DemoType2 :
 
 
 
+'''
+
+'''
 class test_DemoType1 :
 
     def __init__(self, _json_):
@@ -2896,6 +4189,9 @@ class test_DemoType1 :
 
 
 
+'''
+
+'''
 class test_DemoDynamic :
     _childrenTypes = None
 
@@ -2923,6 +4219,9 @@ class test_DemoDynamic :
 
 
 
+'''
+
+'''
 class test_DemoD2 (test_DemoDynamic):
 
     def __init__(self, _json_):
@@ -2934,6 +4233,9 @@ class test_DemoD2 (test_DemoDynamic):
 
 
 
+'''
+
+'''
 class test_DemoD3 (test_DemoDynamic):
     _childrenTypes = None
 
@@ -2960,6 +4262,9 @@ class test_DemoD3 (test_DemoDynamic):
 
 
 
+'''
+
+'''
 class test_DemoE1 (test_DemoD3):
 
     def __init__(self, _json_):
@@ -2971,6 +4276,9 @@ class test_DemoE1 (test_DemoD3):
 
 
 
+'''
+
+'''
 class test_DemoD5 (test_DemoDynamic):
 
     def __init__(self, _json_):
@@ -2982,6 +4290,9 @@ class test_DemoD5 (test_DemoDynamic):
 
 
 
+'''
+
+'''
 class test_DateTimeRange :
 
     def __init__(self, _json_):
@@ -2994,6 +4305,9 @@ class test_DateTimeRange :
 
 
 
+'''
+
+'''
 class test_DemoE2 :
 
     def __init__(self, _json_):
@@ -3003,7 +4317,9 @@ class test_DemoE2 :
 
 
 
+'''
 
+'''
 class test_TbSingleton:
 
     def __init__(self, _json_):
@@ -3012,14 +4328,26 @@ class test_TbSingleton:
 
     def getData(self) : return self._data
 
+    '''
+    
+    '''
     def id(self) : return self._data.id
+    '''
+    
+    '''
     def name(self) : return self._data.name
+    '''
+    
+    '''
     def date(self) : return self._data.date
 
 
 
 
 
+'''
+
+'''
 class test_DemoSingletonType :
 
     def __init__(self, _json_):
@@ -3032,7 +4360,9 @@ class test_DemoSingletonType :
 
 
 
+'''
 
+'''
 class test_TbDataFromJson:
 
     def __init__(self, _json_ ):
@@ -3052,7 +4382,9 @@ class test_TbDataFromJson:
 
 
 
+'''
 
+'''
 class test_TbDataFromXml:
 
     def __init__(self, _json_ ):
@@ -3072,7 +4404,9 @@ class test_TbDataFromXml:
 
 
 
+'''
 
+'''
 class test_TbDataFromLua:
 
     def __init__(self, _json_ ):
@@ -3092,7 +4426,9 @@ class test_TbDataFromLua:
 
 
 
+'''
 
+'''
 class test_TbMultiRowRecord:
 
     def __init__(self, _json_ ):
@@ -3114,6 +4450,9 @@ class test_TbMultiRowRecord:
 
 
 
+'''
+
+'''
 class test_MultiRowRecord :
 
     def __init__(self, _json_):
@@ -3141,6 +4480,9 @@ class test_MultiRowRecord :
 
 
 
+'''
+
+'''
 class test_MultiRowType1 :
 
     def __init__(self, _json_):
@@ -3153,6 +4495,9 @@ class test_MultiRowType1 :
 
 
 
+'''
+
+'''
 class test_MultiRowType2 :
 
     def __init__(self, _json_):
@@ -3165,7 +4510,9 @@ class test_MultiRowType2 :
 
 
 
+'''
 
+'''
 class test_TbMultiRowTitle:
 
     def __init__(self, _json_ ):
@@ -3187,6 +4534,9 @@ class test_TbMultiRowTitle:
 
 
 
+'''
+
+'''
 class test_MultiRowTitle :
 
     def __init__(self, _json_):
@@ -3207,6 +4557,9 @@ class test_MultiRowTitle :
 
 
 
+'''
+
+'''
 class test_H1 :
 
     def __init__(self, _json_):
@@ -3219,6 +4572,9 @@ class test_H1 :
 
 
 
+'''
+
+'''
 class test_H2 :
 
     def __init__(self, _json_):
@@ -3229,7 +4585,9 @@ class test_H2 :
 
 
 
+'''
 
+'''
 class test_TbTestNull:
 
     def __init__(self, _json_ ):
@@ -3251,6 +4609,9 @@ class test_TbTestNull:
 
 
 
+'''
+
+'''
 class test_TestNull :
 
     def __init__(self, _json_):
@@ -3265,7 +4626,9 @@ class test_TestNull :
 
 
 
+'''
 
+'''
 class test_TbDemoPrimitive:
 
     def __init__(self, _json_ ):
@@ -3287,6 +4650,9 @@ class test_TbDemoPrimitive:
 
 
 
+'''
+
+'''
 class test_DemoPrimitiveTypesTable :
 
     def __init__(self, _json_):
@@ -3319,7 +4685,9 @@ class test_DemoPrimitiveTypesTable :
 
 
 
+'''
 
+'''
 class test_TbTestString:
 
     def __init__(self, _json_ ):
@@ -3341,6 +4709,9 @@ class test_TbTestString:
 
 
 
+'''
+
+'''
 class test_TestString :
 
     def __init__(self, _json_):
@@ -3357,6 +4728,9 @@ class test_TestString :
 
 
 
+'''
+
+'''
 class test_CompactString :
 
     def __init__(self, _json_):
@@ -3369,7 +4743,9 @@ class test_CompactString :
 
 
 
+'''
 
+'''
 class test_TbDemoGroup:
 
     def __init__(self, _json_ ):
@@ -3391,6 +4767,9 @@ class test_TbDemoGroup:
 
 
 
+'''
+
+'''
 class test_DemoGroup :
 
     def __init__(self, _json_):
@@ -3411,6 +4790,9 @@ class test_DemoGroup :
 
 
 
+'''
+
+'''
 class test_InnerGroup :
 
     def __init__(self, _json_):
@@ -3425,7 +4807,9 @@ class test_InnerGroup :
 
 
 
+'''
 
+'''
 class test_TbDemoGroup_C:
 
     def __init__(self, _json_ ):
@@ -3445,7 +4829,9 @@ class test_TbDemoGroup_C:
 
 
 
+'''
 
+'''
 class test_TbDemoGroup_S:
 
     def __init__(self, _json_ ):
@@ -3465,7 +4851,9 @@ class test_TbDemoGroup_S:
 
 
 
+'''
 
+'''
 class test_TbDemoGroup_E:
 
     def __init__(self, _json_ ):
@@ -3485,7 +4873,9 @@ class test_TbDemoGroup_E:
 
 
 
+'''
 
+'''
 class test_TbTestGlobal:
 
     def __init__(self, _json_):
@@ -3494,13 +4884,22 @@ class test_TbTestGlobal:
 
     def getData(self) : return self._data
 
+    '''
+    
+    '''
     def unlock_equip(self) : return self._data.unlock_equip
+    '''
+    
+    '''
     def unlock_hero(self) : return self._data.unlock_hero
 
 
 
 
 
+'''
+
+'''
 class test_TestGlobal :
 
     def __init__(self, _json_):

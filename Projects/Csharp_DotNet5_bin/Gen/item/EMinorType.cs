@@ -9,56 +9,206 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EMinorType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         DIAMOND = 101,
+        /// <summary>
+        /// 
+        /// </summary>
         GOLD = 102,
+        /// <summary>
+        /// 
+        /// </summary>
         SILVER = 103,
+        /// <summary>
+        /// 
+        /// </summary>
         EXP = 104,
+        /// <summary>
+        /// 
+        /// </summary>
         POWER_POINT = 105,
+        /// <summary>
+        /// 
+        /// </summary>
         HAIR_STYLE = 210,
+        /// <summary>
+        /// 
+        /// </summary>
         COAT = 220,
+        /// <summary>
+        /// 
+        /// </summary>
         UPPER_JACKET = 230,
+        /// <summary>
+        /// 
+        /// </summary>
         TROUSERS = 241,
+        /// <summary>
+        /// 
+        /// </summary>
         SKIRT = 242,
+        /// <summary>
+        /// 
+        /// </summary>
         SOCKS = 250,
+        /// <summary>
+        /// 
+        /// </summary>
         SHOES = 260,
+        /// <summary>
+        /// 
+        /// </summary>
         HAIR_ACCESSORY = 271,
+        /// <summary>
+        /// 
+        /// </summary>
         HAT = 272,
+        /// <summary>
+        /// 
+        /// </summary>
         EARRING = 273,
+        /// <summary>
+        /// 
+        /// </summary>
         NECKLACE = 274,
+        /// <summary>
+        /// 
+        /// </summary>
         BRACELET = 275,
+        /// <summary>
+        /// 
+        /// </summary>
         HAIR_CLASP = 276,
+        /// <summary>
+        /// 
+        /// </summary>
         GLOVE = 277,
+        /// <summary>
+        /// 
+        /// </summary>
         HANDHELD_OBJECT = 278,
+        /// <summary>
+        /// 
+        /// </summary>
         SPECIAL = 279,
+        /// <summary>
+        /// 
+        /// </summary>
         BASE_COSMETIC = 281,
+        /// <summary>
+        /// 
+        /// </summary>
         EYEBROW_COSMETIC = 282,
+        /// <summary>
+        /// 
+        /// </summary>
         EYELASH = 283,
+        /// <summary>
+        /// 
+        /// </summary>
         COSMETIC_CONTACT_LENSES = 284,
+        /// <summary>
+        /// 
+        /// </summary>
         LIP_COSMETIC = 285,
+        /// <summary>
+        /// 
+        /// </summary>
         SKIN_COLOR = 286,
+        /// <summary>
+        /// 
+        /// </summary>
         ONE_PIECE_DRESS = 290,
+        /// <summary>
+        /// 
+        /// </summary>
         SWITCH_CLOTHES_SCENE = 291,
+        /// <summary>
+        /// 
+        /// </summary>
         QUEST = 301,
+        /// <summary>
+        /// 
+        /// </summary>
         CAST = 401,
+        /// <summary>
+        /// 
+        /// </summary>
         SWORD = 421,
+        /// <summary>
+        /// 
+        /// </summary>
         BOW_ARROW = 422,
+        /// <summary>
+        /// 
+        /// </summary>
         WANDS = 423,
+        /// <summary>
+        /// 
+        /// </summary>
         SPECIAL_TOOL = 424,
+        /// <summary>
+        /// 
+        /// </summary>
         FOOD = 403,
+        /// <summary>
+        /// 
+        /// </summary>
         TREASURE_BOX = 501,
+        /// <summary>
+        /// 
+        /// </summary>
         KEY = 502,
+        /// <summary>
+        /// 
+        /// </summary>
         MULTI_CHOOSE_TREASURE_BOX = 503,
+        /// <summary>
+        /// 
+        /// </summary>
         ACHIEVEMENT = 601,
+        /// <summary>
+        /// 
+        /// </summary>
         TITLE = 602,
+        /// <summary>
+        /// 
+        /// </summary>
         AVATAR_FRAME = 701,
+        /// <summary>
+        /// 
+        /// </summary>
         VOICE = 801,
+        /// <summary>
+        /// 
+        /// </summary>
         IDLE_POSE = 901,
+        /// <summary>
+        /// 
+        /// </summary>
         PHOTO_POSE = 902,
+        /// <summary>
+        /// 
+        /// </summary>
         BAG = 1001,
+        /// <summary>
+        /// 
+        /// </summary>
         FRIEND_CAPACITY = 1002,
+        /// <summary>
+        /// 
+        /// </summary>
         CONSTRUCTION_MATERIAL = 1101,
+        /// <summary>
+        /// 
+        /// </summary>
         DESIGN_DRAWING = 1102,
     }
 }

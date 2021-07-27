@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class BlackboardKey extends  bright.serialization.AbstractBean 
 {
     public BlackboardKey(ByteBuf _buf)
@@ -38,10 +41,25 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
         return new BlackboardKey(_buf);
     }
 
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final boolean isStatic;
+    /**
+     * 
+     */
     public final cfg.ai.EKeyType type;
+    /**
+     * 
+     */
     public final String typeClassName;
 
     public static final int ID = -511559886;

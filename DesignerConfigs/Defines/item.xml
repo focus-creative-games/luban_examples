@@ -1,7 +1,7 @@
 <module name="item">
 
-	<enum name="EItemQuality"> 道具的品质
-		<var name="WHITE" alias="白"/>
+	<enum name="EItemQuality" comment="道具品质"> 道具的品质
+		<var name="WHITE" alias="白" comment="白"/>
 		<var name="GREEN" alias="绿"/>
 		<var name="BLUE" alias="蓝"/>
 		<var name="PURPLE" alias="紫"/>
@@ -129,8 +129,8 @@
 		<var name="BAO_NUAN" alias="保暖" />
 	</enum>
 	
-	<bean name="Item">
-		<var name="id" type="int"/>
+	<bean name="Item" comment="道具">
+		<var name="id" type="int" comment="道具id"/>
 		<var name="name" type="string"/>
 		<var name="major_type" type="EMajorType" group="c,s"/>
 		<var name="minor_type" type="EMinorType"/>
@@ -159,7 +159,7 @@
 		<!--var name="max_own_num" type="condition.Limit" sep=","/-->
 	</bean>
 	
-	<table name="TbItem" value="Item" input="通用道具表@item/道具系统表.xlsx"/>
+	<table name="TbItem" value="Item" input="通用道具表@item/道具系统表.xlsx" comment="道具表"/>
 	
 	<enum name="EItemFunctionType">
 		<var name="REPLACE_HANDHELD" alias="更换手持物"/>

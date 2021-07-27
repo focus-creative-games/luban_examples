@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class StringKeyData extends  cfg.ai.KeyData 
 {
     public StringKeyData(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class StringKeyData extends  cfg.ai.KeyData
         return new StringKeyData(_buf);
     }
 
+    /**
+     * 
+     */
     public final String value;
 
     public static final int ID = -307888654;

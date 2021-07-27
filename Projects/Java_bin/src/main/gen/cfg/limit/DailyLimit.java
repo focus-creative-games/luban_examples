@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DailyLimit extends  cfg.limit.DailyLimitBase 
 {
     public DailyLimit(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class DailyLimit extends  cfg.limit.DailyLimitBase
         return new DailyLimit(_buf);
     }
 
+    /**
+     * 
+     */
     public final int num;
 
     public static final int ID = 303235413;

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class Field extends  bright.serialization.AbstractBean 
 {
     public Field(ByteBuf _buf)
@@ -34,8 +37,17 @@ public final class Field extends  bright.serialization.AbstractBean
         return new Field(_buf);
     }
 
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final String type;
+    /**
+     * 
+     */
     public final String desc;
 
     public static final int ID = 1694158271;

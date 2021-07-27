@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class DailyLimitBase :  limit.LimitBase 
 {
     public DailyLimitBase(ByteBuf _buf)  : base(_buf) 

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ChooseOneBonus extends  bright.serialization.AbstractBean 
 {
     public ChooseOneBonus(ByteBuf _buf)
@@ -32,8 +35,14 @@ public final class ChooseOneBonus extends  bright.serialization.AbstractBean
         return new ChooseOneBonus(_buf);
     }
 
+    /**
+     * 
+     */
     public final int dropId;
     public cfg.bonus.DropInfo dropId_Ref;
+    /**
+     * 
+     */
     public final boolean isUnique;
 
     public static final int ID = 228058347;

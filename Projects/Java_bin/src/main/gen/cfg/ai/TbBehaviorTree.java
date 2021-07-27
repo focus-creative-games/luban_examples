@@ -12,6 +12,9 @@ package cfg.ai;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbBehaviorTree
 {
     private final java.util.HashMap<Integer, cfg.ai.BehaviorTree> _dataMap;

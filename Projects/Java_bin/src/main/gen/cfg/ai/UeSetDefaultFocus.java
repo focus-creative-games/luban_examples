@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeSetDefaultFocus extends  cfg.ai.Service 
 {
     public UeSetDefaultFocus(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class UeSetDefaultFocus extends  cfg.ai.Service
         return new UeSetDefaultFocus(_buf);
     }
 
+    /**
+     * 
+     */
     public final String keyboardKey;
 
     public static final int ID = 1812449155;

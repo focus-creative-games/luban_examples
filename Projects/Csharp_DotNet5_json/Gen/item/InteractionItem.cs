@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.item
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(JsonElement _buf)  : base(_buf) 
@@ -37,8 +40,17 @@ public sealed partial class InteractionItem :  item.ItemExtra
         return new item.InteractionItem(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int? AttackNum;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string HoldingStaticMesh;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string HoldingStaticMeshMat;
 
     public const int ID = 640937802;

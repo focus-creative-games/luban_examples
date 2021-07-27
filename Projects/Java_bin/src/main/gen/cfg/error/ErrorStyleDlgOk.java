@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle 
 {
     public ErrorStyleDlgOk(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle
         return new ErrorStyleDlgOk(_buf);
     }
 
+    /**
+     * 
+     */
     public final String btnName;
 
     public static final int ID = -2010134516;

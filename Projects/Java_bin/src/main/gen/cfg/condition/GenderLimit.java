@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class GenderLimit extends  cfg.condition.BoolRoleCondition 
 {
     public GenderLimit(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class GenderLimit extends  cfg.condition.BoolRoleCondition
         return new GenderLimit(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.role.EGenderType gender;
 
     public static final int ID = 103675143;

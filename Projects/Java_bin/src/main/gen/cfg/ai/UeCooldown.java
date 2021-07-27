@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeCooldown extends  cfg.ai.Decorator 
 {
     public UeCooldown(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class UeCooldown extends  cfg.ai.Decorator
         return new UeCooldown(_buf);
     }
 
+    /**
+     * 
+     */
     public final float cooldownTime;
 
     public static final int ID = -951439423;

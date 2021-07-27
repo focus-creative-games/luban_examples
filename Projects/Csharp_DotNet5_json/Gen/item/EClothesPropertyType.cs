@@ -9,17 +9,50 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EClothesPropertyType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         JIAN_YUE = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         HUA_LI = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         KE_AI = 3,
+        /// <summary>
+        /// 
+        /// </summary>
         CHENG_SHU = 4,
+        /// <summary>
+        /// 
+        /// </summary>
         HUO_PO = 5,
+        /// <summary>
+        /// 
+        /// </summary>
         YOU_YA = 6,
+        /// <summary>
+        /// 
+        /// </summary>
         QING_CHUN = 7,
+        /// <summary>
+        /// 
+        /// </summary>
         XING_GAN = 8,
+        /// <summary>
+        /// 
+        /// </summary>
         QING_LIANG = 9,
+        /// <summary>
+        /// 
+        /// </summary>
         BAO_NUAN = 10,
     }
 }

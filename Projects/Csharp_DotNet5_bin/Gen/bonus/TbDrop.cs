@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDrop
 {
     private readonly Dictionary<int, bonus.DropInfo> _dataMap;

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class CostItems extends  cfg.cost.Cost 
 {
     public CostItems(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class CostItems extends  cfg.cost.Cost
         return new CostItems(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.cost.CostItem[] itemList;
 
     public static final int ID = -77945102;

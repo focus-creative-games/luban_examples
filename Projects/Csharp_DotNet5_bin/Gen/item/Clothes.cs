@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class Clothes :  item.ItemExtra 
 {
     public Clothes(ByteBuf _buf)  : base(_buf) 
@@ -38,9 +41,21 @@ public sealed partial class Clothes :  item.ItemExtra
         return new item.Clothes(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Attack;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly long Hp;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int EnergyLimit;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int EnergyResume;
 
     public const int ID = 1659907149;

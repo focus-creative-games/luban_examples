@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class UeWait extends  cfg.ai.Task 
 {
     public UeWait(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class UeWait extends  cfg.ai.Task
         return new UeWait(_buf);
     }
 
+    /**
+     * 
+     */
     public final float waitTime;
+    /**
+     * 
+     */
     public final float randomDeviation;
 
     public static final int ID = -512994101;

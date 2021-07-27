@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.role
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbRoleLevelBonusCoefficient
 {
     private readonly Dictionary<int, role.LevelBonus> _dataMap;

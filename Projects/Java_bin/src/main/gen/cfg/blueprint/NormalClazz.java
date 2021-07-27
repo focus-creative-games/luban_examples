@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class NormalClazz extends  cfg.blueprint.Clazz 
 {
     public NormalClazz(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class NormalClazz extends  cfg.blueprint.Clazz
         return new NormalClazz(_buf);
     }
 
+    /**
+     * 
+     */
     public final boolean isAbstract;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.blueprint.Field> fields;
 
     public static final int ID = -2073576778;

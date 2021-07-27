@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CostCurrencies :  cost.Cost 
 {
     public CostCurrencies(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class CostCurrencies :  cost.Cost
         return new cost.CostCurrencies(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
 
     public const int ID = 103084157;

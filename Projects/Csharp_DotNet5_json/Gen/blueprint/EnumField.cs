@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(JsonElement _buf) 
@@ -35,7 +38,13 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         return new blueprint.EnumField(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Value;
 
     public const int ID = 1830049470;

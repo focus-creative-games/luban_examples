@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class DemoD2 :  test.DemoDynamic 
 {
     public DemoD2(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class DemoD2 :  test.DemoDynamic
         return new test.DemoD2(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int X2;
 
     public const int ID = -2138341747;

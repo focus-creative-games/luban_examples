@@ -9,9 +9,18 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EItemFunctionType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         REPLACE_HANDHELD = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         USE_DESIGN_DRAWING = 1,
     }
 }

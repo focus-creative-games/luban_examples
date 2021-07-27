@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class OneItem extends  cfg.bonus.Bonus 
 {
     public OneItem(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class OneItem extends  cfg.bonus.Bonus
         return new OneItem(_buf);
     }
 
+    /**
+     * 
+     */
     public final int itemId;
     public cfg.item.Item itemId_Ref;
 

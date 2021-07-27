@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class MoveToTarget extends  cfg.ai.Task 
 {
     public MoveToTarget(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class MoveToTarget extends  cfg.ai.Task
         return new MoveToTarget(_buf);
     }
 
+    /**
+     * 
+     */
     public final String targetActorKey;
+    /**
+     * 
+     */
     public final float acceptableRadius;
 
     public static final int ID = 514987779;

@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class DemoDynamic :  Bright.Config.BeanBase 
 {
     public DemoDynamic(JsonElement _buf) 
@@ -39,6 +42,9 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int X1;
 
 

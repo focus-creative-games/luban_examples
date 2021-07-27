@@ -12,6 +12,9 @@ package cfg.mail;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbSystemMail
 {
     private final java.util.HashMap<Integer, cfg.mail.SystemMail> _dataMap;

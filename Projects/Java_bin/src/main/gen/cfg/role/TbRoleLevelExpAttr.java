@@ -12,6 +12,9 @@ package cfg.role;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbRoleLevelExpAttr
 {
     private final java.util.HashMap<Integer, cfg.role.LevelExpAttr> _dataMap;

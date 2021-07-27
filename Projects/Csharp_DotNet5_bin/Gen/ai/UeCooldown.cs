@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class UeCooldown :  ai.Decorator
         return new ai.UeCooldown(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float CooldownTime;
 
     public const int ID = -951439423;

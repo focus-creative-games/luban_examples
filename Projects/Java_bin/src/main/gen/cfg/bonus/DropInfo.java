@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class DropInfo extends  bright.serialization.AbstractBean 
 {
     public DropInfo(ByteBuf _buf)
@@ -36,9 +39,21 @@ public final class DropInfo extends  bright.serialization.AbstractBean
         return new DropInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final String desc;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.bonus.ShowItemInfo> clientShowItems;
+    /**
+     * 
+     */
     public final cfg.bonus.Bonus bonus;
 
     public static final int ID = -2014781108;

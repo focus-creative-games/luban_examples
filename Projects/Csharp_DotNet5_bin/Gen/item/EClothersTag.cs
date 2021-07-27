@@ -9,9 +9,18 @@
 
 namespace cfg.item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EClothersTag
     {
+        /// <summary>
+        /// 
+        /// </summary>
         FANG_SHAI = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         WU_ZHE = 2,
     }
 }

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ProbabilityItems extends  cfg.bonus.Bonus 
 {
     public ProbabilityItems(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class ProbabilityItems extends  cfg.bonus.Bonus
         return new ProbabilityItems(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.bonus.ProbabilityItemInfo[] itemList;
 
     public static final int ID = 366387866;

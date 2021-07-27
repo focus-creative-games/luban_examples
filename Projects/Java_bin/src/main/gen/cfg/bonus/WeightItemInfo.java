@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class WeightItemInfo extends  bright.serialization.AbstractBean 
 {
     public WeightItemInfo(ByteBuf _buf)
@@ -34,9 +37,18 @@ public final class WeightItemInfo extends  bright.serialization.AbstractBean
         return new WeightItemInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final int itemId;
     public cfg.item.Item itemId_Ref;
+    /**
+     * 
+     */
     public final int num;
+    /**
+     * 
+     */
     public final int weight;
 
     public static final int ID = 1239999176;

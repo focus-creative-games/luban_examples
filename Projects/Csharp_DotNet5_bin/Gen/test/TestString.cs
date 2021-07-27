@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TestString :  Bright.Config.BeanBase 
 {
     public TestString(ByteBuf _buf) 
@@ -38,9 +41,21 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         return new test.TestString(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string S1;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.CompactString Cs1;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.CompactString Cs2;
 
     public const int ID = 338485823;

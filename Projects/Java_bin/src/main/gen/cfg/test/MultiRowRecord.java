@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class MultiRowRecord extends  bright.serialization.AbstractBean 
 {
     public MultiRowRecord(ByteBuf _buf)
@@ -42,12 +45,33 @@ public final class MultiRowRecord extends  bright.serialization.AbstractBean
         return new MultiRowRecord(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final String name;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.test.MultiRowType1> oneRows;
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.test.MultiRowType1> multiRows1;
+    /**
+     * 
+     */
     public final cfg.test.MultiRowType1[] multiRows2;
+    /**
+     * 
+     */
     public final java.util.HashSet<cfg.test.MultiRowType2> multiRows3;
+    /**
+     * 
+     */
     public final java.util.HashMap<Integer, cfg.test.MultiRowType2> multiRows4;
 
     public static final int ID = -501249394;

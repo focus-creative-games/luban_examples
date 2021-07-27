@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(JsonElement _buf)  : base(_buf) 
@@ -35,7 +38,13 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         return new condition.ClothesPropertyScoreGreaterThan(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly item.EClothesPropertyType Prop;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Value;
 
     public const int ID = 696630835;

@@ -12,6 +12,9 @@ package cfg.test;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbDataFromJson
 {
     private final java.util.HashMap<Integer, cfg.test.DemoType2> _dataMap;

@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JsonElement _buf)  : base(_buf) 
@@ -37,8 +40,17 @@ public sealed partial class UeBlackboard :  ai.Decorator
         return new ai.UeBlackboard(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly ai.ENotifyObserverMode NotifyObserver;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string BlackboardKey;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly ai.KeyQueryOperator KeyQuery;
 
     public const int ID = -315297507;

@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(ByteBuf _buf) 
@@ -28,7 +31,7 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         if(_buf.ReadBool()){ S2 = _buf.ReadString(); } else { S2 = null; }
     }
 
-    public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string? s2 ) 
+    public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -44,13 +47,34 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int? X1;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.DemoEnum? X2;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.DemoType1 X3;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.DemoDynamic X4;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string S1;
-    public readonly string? S2;
+    /// <summary>
+    /// 
+    /// </summary>
+    public readonly string S2;
 
     public const int ID = 339868469;
     public override int GetTypeId() => ID;

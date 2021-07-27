@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class ComposeNode extends  cfg.ai.FlowNode 
 {
     public ComposeNode(ByteBuf _buf)

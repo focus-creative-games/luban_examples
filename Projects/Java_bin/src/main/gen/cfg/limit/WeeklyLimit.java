@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class WeeklyLimit extends  cfg.limit.LimitBase 
 {
     public WeeklyLimit(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class WeeklyLimit extends  cfg.limit.LimitBase
         return new WeeklyLimit(_buf);
     }
 
+    /**
+     * 
+     */
     public final int num;
 
     public static final int ID = -252187161;

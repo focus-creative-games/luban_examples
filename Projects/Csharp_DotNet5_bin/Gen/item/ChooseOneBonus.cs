@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
 {
     public ChooseOneBonus(ByteBuf _buf) 
@@ -34,8 +37,14 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
         return new item.ChooseOneBonus(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int DropId;
     public bonus.DropInfo DropId_Ref;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bool IsUnique;
 
     public const int ID = 228058347;

@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.bonus
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDrop
 {
     private readonly Dictionary<int, bonus.DropInfo> _dataMap;

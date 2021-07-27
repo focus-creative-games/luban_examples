@@ -17,38 +17,137 @@ public final class Tables
         ByteBuf load(String file) throws java.io.IOException;
     }
 
+    /**
+     * 
+     */
     public final cfg.ai.TbBlackboard TbBlackboard;
+    /**
+     * 
+     */
     public final cfg.ai.TbBehaviorTree TbBehaviorTree;
+    /**
+     * 
+     */
     public final cfg.blueprint.TbClazz TbClazz;
+    /**
+     * 
+     */
     public final cfg.bonus.TbDrop TbDrop;
+    /**
+     * 
+     */
     public final cfg.common.TbGlobalConfig TbGlobalConfig;
+    /**
+     * 
+     */
     public final cfg.common.TbDummy TbDummy;
+    /**
+     * 
+     */
     public final cfg.error.TbErrorInfo TbErrorInfo;
+    /**
+     * 
+     */
     public final cfg.error.TbCodeInfo TbCodeInfo;
+    /**
+     * 道具表
+     */
     public final cfg.item.TbItem TbItem;
+    /**
+     * 
+     */
     public final cfg.item.TbItemFunc TbItemFunc;
+    /**
+     * 
+     */
     public final cfg.item.TbItemExtra TbItemExtra;
+    /**
+     * 
+     */
     public final cfg.l10n.TbL10NDemo TbL10NDemo;
+    /**
+     * 
+     */
     public final cfg.l10n.TbPatchDemo TbPatchDemo;
+    /**
+     * 
+     */
     public final cfg.mail.TbSystemMail TbSystemMail;
+    /**
+     * 
+     */
     public final cfg.mail.TbGlobalMail TbGlobalMail;
+    /**
+     * 
+     */
     public final cfg.role.TbRoleLevelExpAttr TbRoleLevelExpAttr;
+    /**
+     * 
+     */
     public final cfg.role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
+    /**
+     * 
+     */
     public final cfg.tag.TbTestTag TbTestTag;
+    /**
+     * 
+     */
     public final cfg.test.TbFullTypes TbFullTypes;
+    /**
+     * 
+     */
     public final cfg.test.TbSingleton TbSingleton;
+    /**
+     * 
+     */
     public final cfg.test.TbDataFromJson TbDataFromJson;
+    /**
+     * 
+     */
     public final cfg.test.TbDataFromXml TbDataFromXml;
+    /**
+     * 
+     */
     public final cfg.test.TbDataFromLua TbDataFromLua;
+    /**
+     * 
+     */
     public final cfg.test.TbMultiRowRecord TbMultiRowRecord;
+    /**
+     * 
+     */
     public final cfg.test.TbMultiRowTitle TbMultiRowTitle;
+    /**
+     * 
+     */
     public final cfg.test.TbTestNull TbTestNull;
+    /**
+     * 
+     */
     public final cfg.test.TbDemoPrimitive TbDemoPrimitive;
+    /**
+     * 
+     */
     public final cfg.test.TbTestString TbTestString;
+    /**
+     * 
+     */
     public final cfg.test.TbDemoGroup TbDemoGroup;
+    /**
+     * 
+     */
     public final cfg.test.TbDemoGroup_C TbDemoGroup_C;
+    /**
+     * 
+     */
     public final cfg.test.TbDemoGroup_S TbDemoGroup_S;
+    /**
+     * 
+     */
     public final cfg.test.TbDemoGroup_E TbDemoGroup_E;
+    /**
+     * 
+     */
     public final cfg.test.TbTestGlobal TbTestGlobal;
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {

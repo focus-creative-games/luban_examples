@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class PatchDemo extends  bright.serialization.AbstractBean 
 {
     public PatchDemo(ByteBuf _buf)
@@ -32,7 +35,13 @@ public final class PatchDemo extends  bright.serialization.AbstractBean
         return new PatchDemo(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final int value;
 
     public static final int ID = -1707294656;

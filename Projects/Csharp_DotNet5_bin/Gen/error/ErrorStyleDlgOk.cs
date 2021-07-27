@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.error
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         return new error.ErrorStyleDlgOk(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string BtnName;
 
     public const int ID = -2010134516;

@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class DailyLimitBase :  limit.LimitBase 
 {
     public DailyLimitBase(JsonElement _buf)  : base(_buf) 

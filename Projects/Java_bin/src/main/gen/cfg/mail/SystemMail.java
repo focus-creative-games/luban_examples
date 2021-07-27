@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class SystemMail extends  bright.serialization.AbstractBean 
 {
     public SystemMail(ByteBuf _buf)
@@ -38,10 +41,25 @@ public final class SystemMail extends  bright.serialization.AbstractBean
         return new SystemMail(_buf);
     }
 
+    /**
+     * 
+     */
     public final int id;
+    /**
+     * 
+     */
     public final String title;
+    /**
+     * 
+     */
     public final String sender;
+    /**
+     * 
+     */
     public final String content;
+    /**
+     * 
+     */
     public final java.util.ArrayList<Integer> award;
 
     public static final int ID = 1214073149;

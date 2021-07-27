@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class Dymmy :  item.ItemExtra 
 {
     public Dymmy(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class Dymmy :  item.ItemExtra
         return new item.Dymmy(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly cost.Cost Cost;
 
     public const int ID = 896889705;

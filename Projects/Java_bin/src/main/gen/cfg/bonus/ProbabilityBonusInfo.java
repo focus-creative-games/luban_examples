@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ProbabilityBonusInfo extends  bright.serialization.AbstractBean 
 {
     public ProbabilityBonusInfo(ByteBuf _buf)
@@ -32,7 +35,13 @@ public final class ProbabilityBonusInfo extends  bright.serialization.AbstractBe
         return new ProbabilityBonusInfo(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.bonus.Bonus bonus;
+    /**
+     * 
+     */
     public final float probability;
 
     public static final int ID = 46960455;

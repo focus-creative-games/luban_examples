@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class Selector extends  cfg.ai.ComposeNode 
 {
     public Selector(ByteBuf _buf)
@@ -32,6 +35,9 @@ public final class Selector extends  cfg.ai.ComposeNode
         return new Selector(_buf);
     }
 
+    /**
+     * 
+     */
     public final java.util.ArrayList<cfg.ai.FlowNode> children;
 
     public static final int ID = -1946981627;

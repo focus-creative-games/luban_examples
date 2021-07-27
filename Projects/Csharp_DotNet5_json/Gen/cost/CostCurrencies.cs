@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CostCurrencies :  cost.Cost 
 {
     public CostCurrencies(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class CostCurrencies :  cost.Cost
         return new cost.CostCurrencies(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
 
     public const int ID = 103084157;

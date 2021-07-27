@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class MoveToLocation extends  cfg.ai.Task 
 {
     public MoveToLocation(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class MoveToLocation extends  cfg.ai.Task
         return new MoveToLocation(_buf);
     }
 
+    /**
+     * 
+     */
     public final bright.math.Vector3 location;
+    /**
+     * 
+     */
     public final float acceptableRadius;
 
     public static final int ID = -969953113;

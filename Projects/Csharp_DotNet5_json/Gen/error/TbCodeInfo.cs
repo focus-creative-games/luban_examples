@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.error
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbCodeInfo
 {
     private readonly Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;

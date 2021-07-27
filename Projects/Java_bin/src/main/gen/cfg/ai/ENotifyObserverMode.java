@@ -8,10 +8,18 @@
 //------------------------------------------------------------------------------
 
 package cfg.ai;
-
+/**
+ * 
+ */
 public enum ENotifyObserverMode
 {
+    /**
+     * 
+     */
     ON_VALUE_CHANGE(0),
+    /**
+     * 
+     */
     ON_RESULT_CHANGE(1),
     ;
 

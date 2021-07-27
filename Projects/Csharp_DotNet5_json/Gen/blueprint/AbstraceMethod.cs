@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class AbstraceMethod :  blueprint.Method 
 {
     public AbstraceMethod(JsonElement _buf)  : base(_buf) 

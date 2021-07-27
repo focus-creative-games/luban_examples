@@ -8,19 +8,54 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-
+/**
+ * 
+ */
 public enum EMajorType
 {
+    /**
+     * 
+     */
     CURRENCY(1),
+    /**
+     * 
+     */
     CLOTH(2),
+    /**
+     * 
+     */
     QUEST(3),
+    /**
+     * 
+     */
     CONSUMABLES(4),
+    /**
+     * 
+     */
     TREASURE_BOX(5),
+    /**
+     * 
+     */
     ACHIEVEMENT_AND_TITLE(6),
+    /**
+     * 
+     */
     HEAD_FRAME(7),
+    /**
+     * 
+     */
     VOICE(8),
+    /**
+     * 
+     */
     ACTION(9),
+    /**
+     * 
+     */
     EXPANSION(10),
+    /**
+     * 
+     */
     MATERIAL(11),
     ;
 

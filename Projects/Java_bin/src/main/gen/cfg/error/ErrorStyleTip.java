@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ErrorStyleTip extends  cfg.error.ErrorStyle 
 {
     public ErrorStyleTip(ByteBuf _buf)

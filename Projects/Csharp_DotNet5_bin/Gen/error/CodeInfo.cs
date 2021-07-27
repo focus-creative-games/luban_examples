@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.error
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(ByteBuf _buf) 
@@ -34,7 +37,13 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
         return new error.CodeInfo(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly error.EErrorCode Code;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Key;
 
     public const int ID = -1942481535;

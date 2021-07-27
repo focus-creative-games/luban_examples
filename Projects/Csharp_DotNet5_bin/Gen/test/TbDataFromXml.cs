@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDataFromXml
 {
     private readonly Dictionary<int, test.DemoType2> _dataMap;

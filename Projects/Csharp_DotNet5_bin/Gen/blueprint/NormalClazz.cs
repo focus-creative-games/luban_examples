@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(ByteBuf _buf)  : base(_buf) 
@@ -34,7 +37,13 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         return new blueprint.NormalClazz(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bool IsAbstract;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
     public const int ID = -2073576778;

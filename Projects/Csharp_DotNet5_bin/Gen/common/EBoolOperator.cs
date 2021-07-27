@@ -9,9 +9,18 @@
 
 namespace cfg.common
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EBoolOperator
     {
+        /// <summary>
+        /// 
+        /// </summary>
         AND = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         OR = 1,
     }
 }

@@ -13,6 +13,9 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDemoGroup_S
 {
     private readonly Dictionary<int, test.DemoGroup> _dataMap;

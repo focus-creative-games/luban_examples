@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class InnerGroup extends  bright.serialization.AbstractBean 
 {
     public InnerGroup(ByteBuf _buf)
@@ -36,9 +39,21 @@ public final class InnerGroup extends  bright.serialization.AbstractBean
         return new InnerGroup(_buf);
     }
 
+    /**
+     * 
+     */
     public final int y1;
+    /**
+     * 
+     */
     public final int y2;
+    /**
+     * 
+     */
     public final int y3;
+    /**
+     * 
+     */
     public final int y4;
 
     public static final int ID = -587873083;

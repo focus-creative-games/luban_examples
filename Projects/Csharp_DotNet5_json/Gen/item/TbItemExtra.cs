@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.item
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbItemExtra
 {
     private readonly Dictionary<int, item.ItemExtra> _dataMap;

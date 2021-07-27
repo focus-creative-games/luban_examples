@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MultiRowTitle :  Bright.Config.BeanBase 
 {
     public MultiRowTitle(ByteBuf _buf) 
@@ -40,10 +43,25 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         return new test.MultiRowTitle(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.H1 X1;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<test.H2> X2;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly test.H2[] X3;
 
     public const int ID = 540002427;

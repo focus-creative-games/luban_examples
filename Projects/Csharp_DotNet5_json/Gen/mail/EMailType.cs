@@ -9,9 +9,18 @@
 
 namespace cfg.mail
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EMailType
     {
+        /// <summary>
+        /// 
+        /// </summary>
         GLOBAL = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         SYSTEM = 1,
     }
 }

@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public abstract class Service extends  cfg.ai.Node 
 {
     public Service(ByteBuf _buf)

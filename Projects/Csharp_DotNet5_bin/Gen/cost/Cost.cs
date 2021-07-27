@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Cost :  Bright.Config.BeanBase 
 {
     public Cost(ByteBuf _buf) 

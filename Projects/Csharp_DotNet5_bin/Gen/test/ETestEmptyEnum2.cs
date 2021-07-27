@@ -9,10 +9,22 @@
 
 namespace cfg.test
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ETestEmptyEnum2
     {
+        /// <summary>
+        /// 
+        /// </summary>
         SMALL_THAN_256 = 255,
+        /// <summary>
+        /// 
+        /// </summary>
         X_256 = 256,
+        /// <summary>
+        /// 
+        /// </summary>
         X_257 = 257,
     }
 }

@@ -12,6 +12,9 @@ package cfg.test;
 import bright.serialization.*;
 
 
+/**
+ * 
+ */
 public final class TbTestString
 {
     private final java.util.HashMap<Integer, cfg.test.TestString> _dataMap;

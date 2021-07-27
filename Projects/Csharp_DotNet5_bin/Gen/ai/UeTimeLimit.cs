@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeTimeLimit :  ai.Decorator 
 {
     public UeTimeLimit(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         return new ai.UeTimeLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float LimitTime;
 
     public const int ID = 338469720;

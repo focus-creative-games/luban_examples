@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class IsSet extends  cfg.ai.KeyQueryOperator 
 {
     public IsSet(ByteBuf _buf)

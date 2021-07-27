@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class WeeklyLimit :  limit.LimitBase 
 {
     public WeeklyLimit(ByteBuf _buf)  : base(_buf) 
@@ -32,6 +35,9 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         return new limit.WeeklyLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Num;
 
     public const int ID = -252187161;

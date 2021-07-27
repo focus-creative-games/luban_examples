@@ -13,6 +13,9 @@ import bright.serialization.*;
 
 
 
+/**
+ * 
+ */
 public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(ByteBuf _buf)
@@ -34,7 +37,13 @@ public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRo
         return new ClothesPropertyScoreGreaterThan(_buf);
     }
 
+    /**
+     * 
+     */
     public final cfg.item.EClothesPropertyType prop;
+    /**
+     * 
+     */
     public final int value;
 
     public static final int ID = 696630835;
