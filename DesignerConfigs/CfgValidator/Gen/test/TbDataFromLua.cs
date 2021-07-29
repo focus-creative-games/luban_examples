@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDataFromLua
 {
     private readonly Dictionary<int, test.DemoType2> _dataMap;

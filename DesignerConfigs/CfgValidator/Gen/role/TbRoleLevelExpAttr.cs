@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.role
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbRoleLevelExpAttr
 {
     private readonly Dictionary<int, role.LevelExpAttr> _dataMap;

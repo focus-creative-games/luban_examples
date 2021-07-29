@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class Blackboard :  Bright.Config.BeanBase 
 {
     public Blackboard(JsonElement _buf) 
@@ -39,10 +42,22 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         return new ai.Blackboard(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string Desc;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string ParentName;
     public ai.Blackboard ParentName_Ref;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
 
     public const int ID = 1576193005;

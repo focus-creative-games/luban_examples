@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MoveToRandomLocation :  ai.Task 
 {
     public MoveToRandomLocation(JsonElement _buf)  : base(_buf) 
@@ -35,7 +38,13 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         return new ai.MoveToRandomLocation(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string OriginPositionKey;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float Radius;
 
     public const int ID = -2140042998;

@@ -29,7 +29,7 @@ namespace CfgCheck
         private static JsonElement LoadJson(string file)
         {
             var configDir = "../../../config_data";
-            return JsonDocument.Parse(File.ReadAllBytes(Path.Combine(configDir, file))).RootElement;
+            return JsonDocument.Parse(File.ReadAllBytes(Path.Combine(configDir, file + ".json"))).RootElement;
         }
 
         [AssemblyCleanup]

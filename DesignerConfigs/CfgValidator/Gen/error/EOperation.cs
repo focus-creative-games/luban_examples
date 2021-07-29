@@ -9,9 +9,18 @@
 
 namespace cfg.error
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EOperation
     {
+        /// <summary>
+        /// 
+        /// </summary>
         LOGOUT = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         RESTART = 1,
     }
 }

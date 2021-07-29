@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MultiDayLimit :  limit.LimitBase 
 {
     public MultiDayLimit(JsonElement _buf)  : base(_buf) 
@@ -35,7 +38,13 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
         return new limit.MultiDayLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Day;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Num;
 
     public const int ID = -1753629499;

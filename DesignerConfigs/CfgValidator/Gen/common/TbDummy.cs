@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.common
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbDummy
 {
     private readonly Dictionary<int, common.Dummy> _dataMap;

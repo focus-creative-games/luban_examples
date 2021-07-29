@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MinLevel :  condition.BoolRoleCondition 
 {
     public MinLevel(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
         return new condition.MinLevel(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Level;
 
     public const int ID = -1075273755;

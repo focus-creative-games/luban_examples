@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         return new condition.GenderLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly role.EGenderType Gender;
 
     public const int ID = 103675143;

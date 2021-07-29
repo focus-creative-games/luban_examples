@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(JsonElement _buf) 
@@ -35,8 +38,14 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
         return new bonus.ShowItemInfo(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int ItemId;
     public item.Item ItemId_Ref;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly long ItemNum;
 
     public const int ID = -1496363507;

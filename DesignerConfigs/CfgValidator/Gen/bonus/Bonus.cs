@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.bonus
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(JsonElement _buf) 

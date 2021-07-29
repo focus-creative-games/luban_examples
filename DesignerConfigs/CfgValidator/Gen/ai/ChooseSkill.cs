@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(JsonElement _buf)  : base(_buf) 
@@ -35,7 +38,13 @@ public sealed partial class ChooseSkill :  ai.Task
         return new ai.ChooseSkill(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string TargetActorKey;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string ResultSkillIdKey;
 
     public const int ID = -918812268;

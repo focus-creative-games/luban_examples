@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class CostItem :  cost.Cost 
 {
     public CostItem(JsonElement _buf)  : base(_buf) 
@@ -35,8 +38,14 @@ public sealed partial class CostItem :  cost.Cost
         return new cost.CostItem(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int ItemId;
     public item.Item ItemId_Ref;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Amount;
 
     public const int ID = -1249440351;

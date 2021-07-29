@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class DailyLimit :  limit.DailyLimitBase 
 {
     public DailyLimit(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class DailyLimit :  limit.DailyLimitBase
         return new limit.DailyLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Num;
 
     public const int ID = 303235413;

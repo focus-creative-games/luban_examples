@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeLoop :  ai.Decorator 
 {
     public UeLoop(JsonElement _buf)  : base(_buf) 
@@ -37,8 +40,17 @@ public sealed partial class UeLoop :  ai.Decorator
         return new ai.UeLoop(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int NumLoops;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly bool InfiniteLoop;
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float InfiniteLoopTimeoutTime;
 
     public const int ID = -513308166;

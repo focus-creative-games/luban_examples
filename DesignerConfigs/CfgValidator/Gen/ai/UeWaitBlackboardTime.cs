@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         return new ai.UeWaitBlackboardTime(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly string BlackboardKey;
 
     public const int ID = 1215378271;

@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.cost
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Cost :  Bright.Config.BeanBase 
 {
     public Cost(JsonElement _buf) 

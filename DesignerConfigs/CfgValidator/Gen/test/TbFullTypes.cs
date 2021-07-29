@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.test
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbFullTypes
 {
     private readonly Dictionary<short, test.DemoType2> _dataMap;

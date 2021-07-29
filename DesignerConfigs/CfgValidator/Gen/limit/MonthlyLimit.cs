@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.limit
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class MonthlyLimit :  limit.LimitBase 
 {
     public MonthlyLimit(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
         return new limit.MonthlyLimit(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly int Num;
 
     public const int ID = 2063279905;

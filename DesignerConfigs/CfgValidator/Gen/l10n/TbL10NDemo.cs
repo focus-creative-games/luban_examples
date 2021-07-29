@@ -15,6 +15,10 @@ using System.Text.Json;
 
 namespace cfg.l10n
 {
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class TbL10NDemo
 {
     private readonly Dictionary<int, l10n.L10NDemo> _dataMap;

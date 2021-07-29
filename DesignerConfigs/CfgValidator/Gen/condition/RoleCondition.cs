@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.condition
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class RoleCondition :  condition.Condition 
 {
     public RoleCondition(JsonElement _buf)  : base(_buf) 

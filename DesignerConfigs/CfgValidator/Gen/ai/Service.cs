@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class Service :  ai.Node 
 {
     public Service(JsonElement _buf)  : base(_buf) 

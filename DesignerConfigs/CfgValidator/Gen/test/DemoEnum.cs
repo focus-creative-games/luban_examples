@@ -9,11 +9,26 @@
 
 namespace cfg.test
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum DemoEnum
     {
+        /// <summary>
+        /// 
+        /// </summary>
         A = 1,
+        /// <summary>
+        /// 
+        /// </summary>
         B = 2,
+        /// <summary>
+        /// 
+        /// </summary>
         C = 4,
+        /// <summary>
+        /// 
+        /// </summary>
         D = 5,
     }
 }

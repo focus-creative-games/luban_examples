@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public sealed partial class FloatKeyData :  ai.KeyData 
 {
     public FloatKeyData(JsonElement _buf)  : base(_buf) 
@@ -33,6 +36,9 @@ public sealed partial class FloatKeyData :  ai.KeyData
         return new ai.FloatKeyData(_buf);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public readonly float Value;
 
     public const int ID = -719747885;

@@ -15,88 +15,208 @@ namespace cfg
    
 public sealed partial class Tables
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public ai.TbBlackboard TbBlackboard {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public ai.TbBehaviorTree TbBehaviorTree {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public blueprint.TbClazz TbClazz {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public bonus.TbDrop TbDrop {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public common.TbGlobalConfig TbGlobalConfig {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public common.TbDummy TbDummy {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public error.TbErrorInfo TbErrorInfo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public error.TbCodeInfo TbCodeInfo {get; }
+    /// <summary>
+    /// 道具表
+    /// </summary>
     public item.TbItem TbItem {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public item.TbItemFunc TbItemFunc {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public item.TbItemExtra TbItemExtra {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public l10n.TbL10NDemo TbL10NDemo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public l10n.TbPatchDemo TbPatchDemo {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public mail.TbSystemMail TbSystemMail {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public mail.TbGlobalMail TbGlobalMail {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public role.TbRoleLevelExpAttr TbRoleLevelExpAttr {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public tag.TbTestTag TbTestTag {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbFullTypes TbFullTypes {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbSingleton TbSingleton {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromJson TbDataFromJson {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromXml TbDataFromXml {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDataFromLua TbDataFromLua {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbTestNull TbTestNull {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoPrimitive TbDemoPrimitive {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbTestString TbTestString {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoGroup TbDemoGroup {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoGroup_C TbDemoGroup_C {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoGroup_S TbDemoGroup_S {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoGroup_E TbDemoGroup_E {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbTestGlobal TbTestGlobal {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        TbBlackboard = new ai.TbBlackboard(loader("ai.TbBlackboard.json")); 
+        TbBlackboard = new ai.TbBlackboard(loader("ai.TbBlackboard")); 
         tables.Add("ai.TbBlackboard", TbBlackboard);
-        TbBehaviorTree = new ai.TbBehaviorTree(loader("ai.TbBehaviorTree.json")); 
+        TbBehaviorTree = new ai.TbBehaviorTree(loader("ai.TbBehaviorTree")); 
         tables.Add("ai.TbBehaviorTree", TbBehaviorTree);
-        TbClazz = new blueprint.TbClazz(loader("blueprint.TbClazz.json")); 
+        TbClazz = new blueprint.TbClazz(loader("blueprint.TbClazz")); 
         tables.Add("blueprint.TbClazz", TbClazz);
-        TbDrop = new bonus.TbDrop(loader("bonus.TbDrop.json")); 
+        TbDrop = new bonus.TbDrop(loader("bonus.TbDrop")); 
         tables.Add("bonus.TbDrop", TbDrop);
-        TbGlobalConfig = new common.TbGlobalConfig(loader("common.TbGlobalConfig.json")); 
+        TbGlobalConfig = new common.TbGlobalConfig(loader("common.TbGlobalConfig")); 
         tables.Add("common.TbGlobalConfig", TbGlobalConfig);
-        TbDummy = new common.TbDummy(loader("common.TbDummy.json")); 
+        TbDummy = new common.TbDummy(loader("common.TbDummy")); 
         tables.Add("common.TbDummy", TbDummy);
-        TbErrorInfo = new error.TbErrorInfo(loader("error.TbErrorInfo.json")); 
+        TbErrorInfo = new error.TbErrorInfo(loader("error.TbErrorInfo")); 
         tables.Add("error.TbErrorInfo", TbErrorInfo);
-        TbCodeInfo = new error.TbCodeInfo(loader("error.TbCodeInfo.json")); 
+        TbCodeInfo = new error.TbCodeInfo(loader("error.TbCodeInfo")); 
         tables.Add("error.TbCodeInfo", TbCodeInfo);
-        TbItem = new item.TbItem(loader("item.TbItem.json")); 
+        TbItem = new item.TbItem(loader("item.TbItem")); 
         tables.Add("item.TbItem", TbItem);
-        TbItemFunc = new item.TbItemFunc(loader("item.TbItemFunc.json")); 
+        TbItemFunc = new item.TbItemFunc(loader("item.TbItemFunc")); 
         tables.Add("item.TbItemFunc", TbItemFunc);
-        TbItemExtra = new item.TbItemExtra(loader("item.TbItemExtra.json")); 
+        TbItemExtra = new item.TbItemExtra(loader("item.TbItemExtra")); 
         tables.Add("item.TbItemExtra", TbItemExtra);
-        TbL10NDemo = new l10n.TbL10NDemo(loader("l10n.TbL10NDemo.json")); 
+        TbL10NDemo = new l10n.TbL10NDemo(loader("l10n.TbL10NDemo")); 
         tables.Add("l10n.TbL10NDemo", TbL10NDemo);
-        TbPatchDemo = new l10n.TbPatchDemo(loader("l10n.TbPatchDemo.json")); 
+        TbPatchDemo = new l10n.TbPatchDemo(loader("l10n.TbPatchDemo")); 
         tables.Add("l10n.TbPatchDemo", TbPatchDemo);
-        TbSystemMail = new mail.TbSystemMail(loader("mail.TbSystemMail.json")); 
+        TbSystemMail = new mail.TbSystemMail(loader("mail.TbSystemMail")); 
         tables.Add("mail.TbSystemMail", TbSystemMail);
-        TbGlobalMail = new mail.TbGlobalMail(loader("mail.TbGlobalMail.json")); 
+        TbGlobalMail = new mail.TbGlobalMail(loader("mail.TbGlobalMail")); 
         tables.Add("mail.TbGlobalMail", TbGlobalMail);
-        TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader("role.TbRoleLevelExpAttr.json")); 
+        TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader("role.TbRoleLevelExpAttr")); 
         tables.Add("role.TbRoleLevelExpAttr", TbRoleLevelExpAttr);
-        TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader("role.TbRoleLevelBonusCoefficient.json")); 
+        TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader("role.TbRoleLevelBonusCoefficient")); 
         tables.Add("role.TbRoleLevelBonusCoefficient", TbRoleLevelBonusCoefficient);
-        TbTestTag = new tag.TbTestTag(loader("tag.TbTestTag.json")); 
+        TbTestTag = new tag.TbTestTag(loader("tag.TbTestTag")); 
         tables.Add("tag.TbTestTag", TbTestTag);
-        TbFullTypes = new test.TbFullTypes(loader("test.TbFullTypes.json")); 
+        TbFullTypes = new test.TbFullTypes(loader("test.TbFullTypes")); 
         tables.Add("test.TbFullTypes", TbFullTypes);
-        TbSingleton = new test.TbSingleton(loader("test.TbSingleton.json")); 
+        TbSingleton = new test.TbSingleton(loader("test.TbSingleton")); 
         tables.Add("test.TbSingleton", TbSingleton);
-        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson.json")); 
+        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson")); 
         tables.Add("test.TbDataFromJson", TbDataFromJson);
-        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml.json")); 
+        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml")); 
         tables.Add("test.TbDataFromXml", TbDataFromXml);
-        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua.json")); 
+        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua")); 
         tables.Add("test.TbDataFromLua", TbDataFromLua);
-        TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord.json")); 
+        TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord")); 
         tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
-        TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle.json")); 
+        TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle")); 
         tables.Add("test.TbMultiRowTitle", TbMultiRowTitle);
-        TbTestNull = new test.TbTestNull(loader("test.TbTestNull.json")); 
+        TbTestNull = new test.TbTestNull(loader("test.TbTestNull")); 
         tables.Add("test.TbTestNull", TbTestNull);
+        TbDemoPrimitive = new test.TbDemoPrimitive(loader("test.TbDemoPrimitive")); 
+        tables.Add("test.TbDemoPrimitive", TbDemoPrimitive);
+        TbTestString = new test.TbTestString(loader("test.TbTestString")); 
+        tables.Add("test.TbTestString", TbTestString);
+        TbDemoGroup = new test.TbDemoGroup(loader("test.TbDemoGroup")); 
+        tables.Add("test.TbDemoGroup", TbDemoGroup);
+        TbDemoGroup_C = new test.TbDemoGroup_C(loader("test.TbDemoGroup_C")); 
+        tables.Add("test.TbDemoGroup_C", TbDemoGroup_C);
+        TbDemoGroup_S = new test.TbDemoGroup_S(loader("test.TbDemoGroup_S")); 
+        tables.Add("test.TbDemoGroup_S", TbDemoGroup_S);
+        TbDemoGroup_E = new test.TbDemoGroup_E(loader("test.TbDemoGroup_E")); 
+        tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
+        TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
+        tables.Add("test.TbTestGlobal", TbTestGlobal);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -124,6 +244,13 @@ public sealed partial class Tables
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
+        TbDemoPrimitive.Resolve(tables); 
+        TbTestString.Resolve(tables); 
+        TbDemoGroup.Resolve(tables); 
+        TbDemoGroup_C.Resolve(tables); 
+        TbDemoGroup_S.Resolve(tables); 
+        TbDemoGroup_E.Resolve(tables); 
+        TbTestGlobal.Resolve(tables); 
     }
 }
 

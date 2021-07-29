@@ -15,7 +15,10 @@ using System.Text.Json;
 
 namespace cfg.ai
 {
-   
+
+/// <summary>
+/// 
+/// </summary>
 public abstract partial class KeyData :  Bright.Config.BeanBase 
 {
     public KeyData(JsonElement _buf) 
