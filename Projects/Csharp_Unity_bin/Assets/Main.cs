@@ -9,7 +9,10 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        new cfg.Tables(LoadByteBuf);
+        var tables = new cfg.Tables(LoadByteBuf);
+        UnityEngine.Debug.LogFormat("item[1].name:{0}", tables.TbItem[1].Name);
+        Debug.LogFormat("bag init capacity:{0}", tables.TbGlobalConfig.BagInitCapacity);
+
         UnityEngine.Debug.Log("== load succ==");
     }
 

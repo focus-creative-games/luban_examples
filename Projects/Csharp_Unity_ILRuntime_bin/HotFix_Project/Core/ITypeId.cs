@@ -1,4 +1,5 @@
-﻿namespace Bright.Serialization
+
+namespace Bright.Serialization
 {
     public interface ITypeId
     {

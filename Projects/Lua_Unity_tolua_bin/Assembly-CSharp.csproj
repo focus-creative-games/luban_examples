@@ -68,9 +68,9 @@
     <Compile Include="Assets\Source\Generate\UnityEngine_SleepTimeoutWrap.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_TrackedReferenceWrap.cs" />
     <Compile Include="Assets\ToLua\BaseType\System_TypeWrap.cs" />
-    <Compile Include="Assets\Core\ISerializable.cs" />
+    <Compile Include="Assets\LubanLib\ISerializable.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_CapsuleColliderWrap.cs" />
-    <Compile Include="Assets\Core\ByteBuf.cs" />
+    <Compile Include="Assets\LubanLib\ByteBuf.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_MonoBehaviourWrap.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_PlayModeWrap.cs" />
     <Compile Include="Assets\ToLua\Reflection\LuaProperty.cs" />
@@ -98,7 +98,7 @@
     <Compile Include="Assets\ToLua\Core\LuaEvent.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_SpaceWrap.cs" />
     <Compile Include="Assets\ToLua\Core\LuaBeatEvent.cs" />
-    <Compile Include="Assets\Core\ITypeId.cs" />
+    <Compile Include="Assets\LubanLib\ITypeId.cs" />
     <Compile Include="Assets\Source\Generate\LuaInterface_InjectTypeWrap.cs" />
     <Compile Include="Assets\ToLua\Misc\LuaCoroutine.cs" />
     <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaOutWrap.cs" />
@@ -167,7 +167,7 @@
     <Compile Include="Assets\ToLua\Core\LuaStackOp.cs" />
     <Compile Include="Assets\ToLua\BaseType\System_EnumWrap.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_MeshRendererWrap.cs" />
-    <Compile Include="Assets\Core\BeanBase.cs" />
+    <Compile Include="Assets\LubanLib\BeanBase.cs" />
     <Compile Include="Assets\ToLua\BaseType\UnityEngine_ObjectWrap.cs" />
     <Compile Include="Assets\ToLua\Core\LuaException.cs" />
     <Compile Include="Assets\Source\Generate\UnityEngine_AudioSourceWrap.cs" />
