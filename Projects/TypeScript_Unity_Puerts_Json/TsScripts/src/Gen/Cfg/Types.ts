@@ -78,9 +78,17 @@ export class Vector4 {
 export namespace cfg {
 
 export namespace role {
-
+/**
+ * 
+ */
 export class Consts {
+    /**
+     * 
+     */
     static MAX_NAME_LENGTH = 20;
+    /**
+     * 
+     */
     static MAX_USER_ROLE_NUM = 10;
 }
 }
@@ -88,11 +96,25 @@ export class Consts {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export class DemoConst {
+    /**
+     * 
+     */
     static x1 = 0;
+    /**
+     * 
+     */
     static x2 = 3242;
+    /**
+     * 
+     */
     static x3 = 444.3;
+    /**
+     * 
+     */
     static x4 = 55.3;
 }
 }
@@ -100,427 +122,1195 @@ export class DemoConst {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum EExecutor {
+    /**
+     * 
+     */
     CLIENT = 0,
+    /**
+     * 
+     */
     SERVER = 1,
 }
 }
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum EKeyType {
+    /**
+     * 
+     */
     BOOL = 1,
+    /**
+     * 
+     */
     INT = 2,
+    /**
+     * 
+     */
     FLOAT = 3,
+    /**
+     * 
+     */
     STRING = 4,
+    /**
+     * 
+     */
     VECTOR = 5,
+    /**
+     * 
+     */
     ROTATOR = 6,
+    /**
+     * 
+     */
     NAME = 7,
+    /**
+     * 
+     */
     CLASS = 8,
+    /**
+     * 
+     */
     ENUM = 9,
+    /**
+     * 
+     */
     OBJECT = 10,
 }
 }
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum EFlowAbortMode {
+    /**
+     * 
+     */
     NONE = 0,
+    /**
+     * 
+     */
     LOWER_PRIORITY = 1,
+    /**
+     * 
+     */
     SELF = 2,
+    /**
+     * 
+     */
     BOTH = 3,
 }
 }
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum EFinishMode {
+    /**
+     * 
+     */
     IMMEDIATE = 0,
+    /**
+     * 
+     */
     DELAYED = 1,
 }
 }
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum ENotifyObserverMode {
+    /**
+     * 
+     */
     ON_VALUE_CHANGE = 0,
+    /**
+     * 
+     */
     ON_RESULT_CHANGE = 1,
 }
 }
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export enum EOperator {
+    /**
+     * 
+     */
     IS_EQUAL_TO = 0,
+    /**
+     * 
+     */
     IS_NOT_EQUAL_TO = 1,
+    /**
+     * 
+     */
     IS_LESS_THAN = 2,
+    /**
+     * 
+     */
     IS_LESS_THAN_OR_EQUAL_TO = 3,
+    /**
+     * 
+     */
     IS_GREAT_THAN = 4,
+    /**
+     * 
+     */
     IS_GREAT_THAN_OR_EQUAL_TO = 5,
+    /**
+     * 
+     */
     CONTAINS = 6,
+    /**
+     * 
+     */
     NOT_CONTAINS = 7,
 }
 }
 
 
 export namespace common {
-
+/**
+ * 
+ */
 export enum EBoolOperator {
+    /**
+     * 
+     */
     AND = 0,
+    /**
+     * 
+     */
     OR = 1,
 }
 }
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export enum EOperation {
+    /**
+     * 
+     */
     LOGOUT = 0,
+    /**
+     * 
+     */
     RESTART = 1,
 }
 }
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export enum EErrorCode {
+    /**
+     * 
+     */
     OK = 0,
+    /**
+     * 
+     */
     SERVER_NOT_EXISTS = 1,
+    /**
+     * 
+     */
     HAS_BIND_SERVER = 2,
+    /**
+     * 
+     */
     AUTH_FAIL = 3,
+    /**
+     * 
+     */
     NOT_BIND_SERVER = 4,
+    /**
+     * 
+     */
     SERVER_ACCESS_FAIL = 5,
+    /**
+     * 
+     */
     EXAMPLE_FLASH = 6,
+    /**
+     * 
+     */
     EXAMPLE_MSGBOX = 7,
+    /**
+     * 
+     */
     EXAMPLE_DLG_OK = 8,
+    /**
+     * 
+     */
     EXAMPLE_DLG_OK_CANCEL = 9,
+    /**
+     * 
+     */
     ROLE_CREATE_NAME_INVALID_CHAR = 100,
+    /**
+     * 
+     */
     ROLE_CREATE_NAME_EMPTY = 101,
+    /**
+     * 
+     */
     ROLE_CREATE_NAME_EXCEED_MAX_LENGTH = 102,
+    /**
+     * 
+     */
     ROLE_CREATE_ROLE_LIST_FULL = 103,
+    /**
+     * 
+     */
     ROLE_CREATE_INVALID_PROFESSION = 104,
+    /**
+     * 
+     */
     ROLE_CREATE_INVALID_GENDER = 105,
+    /**
+     * 
+     */
     ROLE_NOT_OWNED_BY_USER = 106,
+    /**
+     * 
+     */
     ROLE_LEVEL_NOT_ARRIVE = 107,
+    /**
+     * 
+     */
     PARAM_ILLEGAL = 200,
+    /**
+     * 
+     */
     TEMP_BAG_NOT_EMPTY = 201,
+    /**
+     * 
+     */
     ITEM_CAN_NOT_USE = 202,
+    /**
+     * 
+     */
     CURRENCY_NOT_ENOUGH = 203,
+    /**
+     * 
+     */
     BAG_IS_FULL = 204,
+    /**
+     * 
+     */
     ITEM_NOT_ENOUGH = 205,
+    /**
+     * 
+     */
     ITEM_IN_BAG = 206,
+    /**
+     * 
+     */
     GENDER_NOT_MATCH = 300,
+    /**
+     * 
+     */
     LEVEL_TOO_LOW = 301,
+    /**
+     * 
+     */
     LEVEL_TOO_HIGH = 302,
+    /**
+     * 
+     */
     EXCEED_LIMIT = 303,
+    /**
+     * 
+     */
     OVER_TIME = 304,
+    /**
+     * 
+     */
     SERVER_ERROR = 305,
+    /**
+     * 
+     */
     SKILL_NOT_IN_LIST = 400,
+    /**
+     * 
+     */
     SKILL_NOT_COOLDOWN = 401,
+    /**
+     * 
+     */
     SKILL_TARGET_NOT_EXIST = 402,
+    /**
+     * 
+     */
     SKILL_ANOTHER_CASTING = 403,
+    /**
+     * 
+     */
     SKILL_OUT_OF_DISTANCE = 404,
+    /**
+     * 
+     */
     SKILL_TARGET_CAMP_NOT_MATCH = 405,
+    /**
+     * 
+     */
     SKILL_INVALID_DIRECTION = 406,
+    /**
+     * 
+     */
     SKILL_NOT_IN_SELECT_SHAPE = 407,
+    /**
+     * 
+     */
     SKILL_ENERGY_NOT_ENOUGH = 408,
+    /**
+     * 
+     */
     DIALOG_NODE_NOT_CHOOSEN = 500,
+    /**
+     * 
+     */
     DIALOG_NOT_FINISH = 501,
+    /**
+     * 
+     */
     DIALOG_HAS_FINISH = 502,
+    /**
+     * 
+     */
     QUEST_STAGE_NOT_FINISHED = 503,
+    /**
+     * 
+     */
     QUEST_NOT_DOING = 504,
+    /**
+     * 
+     */
     QUEST_STAGE_NOT_DOING = 505,
+    /**
+     * 
+     */
     QUEST_HAS_ACCEPTED = 506,
+    /**
+     * 
+     */
     MAP_OBJECT_NOT_EXIST = 600,
+    /**
+     * 
+     */
     INTERACTION_OBJECT_NOT_SUPPORT_OPERATION = 601,
+    /**
+     * 
+     */
     HAS_NOT_EQUIP = 602,
+    /**
+     * 
+     */
     HANDHELD_EQUIP_ID_NOT_MATCH = 603,
+    /**
+     * 
+     */
     NOT_AVAILABLE_SUIT_ID = 604,
+    /**
+     * 
+     */
     NO_INTERACTION_COMPONENT = 605,
+    /**
+     * 
+     */
     HAS_INTERACTED = 606,
+    /**
+     * 
+     */
     VIALITY_NOT_ENOUGH = 607,
+    /**
+     * 
+     */
     PLAYER_SESSION_NOT_EXIST = 608,
+    /**
+     * 
+     */
     PLAYER_SESSION_WORLD_PLAYER_NOT_INIT = 609,
+    /**
+     * 
+     */
     MAP_NOT_EXIST = 610,
+    /**
+     * 
+     */
     MAIL_TYPE_ERROR = 700,
+    /**
+     * 
+     */
     MAIL_NOT_EXITST = 701,
+    /**
+     * 
+     */
     MAIL_HAVE_DELETED = 702,
+    /**
+     * 
+     */
     MAIL_AWARD_HAVE_RECEIVED = 703,
+    /**
+     * 
+     */
     MAIL_OPERATE_TYPE_ERROR = 704,
+    /**
+     * 
+     */
     MAIL_CONDITION_NOT_MEET = 705,
+    /**
+     * 
+     */
     MAIL_STATE_ERROR = 706,
+    /**
+     * 
+     */
     MAIL_NO_AWARD = 707,
+    /**
+     * 
+     */
     MAIL_BOX_IS_FULL = 708,
+    /**
+     * 
+     */
     PROP_SCORE_NOT_BIGGER_THAN = 800,
+    /**
+     * 
+     */
     NOT_WEAR_CLOTHES = 801,
+    /**
+     * 
+     */
     NOT_WEAR_SUIT = 802,
+    /**
+     * 
+     */
     SUIT_NOT_UNLOCK = 900,
+    /**
+     * 
+     */
     SUIT_COMPONENT_NOT_UNLOCK = 901,
+    /**
+     * 
+     */
     SUIT_STATE_ERROR = 902,
+    /**
+     * 
+     */
     SUIT_COMPONENT_STATE_ERROR = 903,
+    /**
+     * 
+     */
     SUIT_COMPONENT_NO_NEED_LEARN = 904,
+    /**
+     * 
+     */
     STORE_NOT_ENABLED = 1000,
+    /**
+     * 
+     */
     SHELF_NOT_ENABLED = 1001,
+    /**
+     * 
+     */
     GOODS_NOT_ENABLED = 1002,
+    /**
+     * 
+     */
     GOODS_NOT_IN_CUR_REFRESH = 1003,
+    /**
+     * 
+     */
     RETRY = 1100,
+    /**
+     * 
+     */
     NOT_COOLDOWN = 1101,
+    /**
+     * 
+     */
     SELFIE_UNLOCK = 1200,
+    /**
+     * 
+     */
     SELFIE_ALREADY_UNLOCK = 1201,
+    /**
+     * 
+     */
     SELFIE_LACK_STARTS = 1202,
+    /**
+     * 
+     */
     SELFIE_HAD_REWARD = 1203,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 道具品质
+ */
 export enum EItemQuality {
+    /**
+     * 白
+     */
     WHITE = 0,
+    /**
+     * 
+     */
     GREEN = 1,
+    /**
+     * 
+     */
     BLUE = 2,
+    /**
+     * 
+     */
     PURPLE = 3,
+    /**
+     * 
+     */
     GOLDEN = 4,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum ECurrencyType {
+    /**
+     * 
+     */
     DIAMOND = 1,
+    /**
+     * 
+     */
     GOLD = 2,
+    /**
+     * 
+     */
     SILVER = 3,
+    /**
+     * 
+     */
     EXP = 4,
+    /**
+     * 
+     */
     POWER_POINT = 5,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EMajorType {
+    /**
+     * 
+     */
     CURRENCY = 1,
+    /**
+     * 
+     */
     CLOTH = 2,
+    /**
+     * 
+     */
     QUEST = 3,
+    /**
+     * 
+     */
     CONSUMABLES = 4,
+    /**
+     * 
+     */
     TREASURE_BOX = 5,
+    /**
+     * 
+     */
     ACHIEVEMENT_AND_TITLE = 6,
+    /**
+     * 
+     */
     HEAD_FRAME = 7,
+    /**
+     * 
+     */
     VOICE = 8,
+    /**
+     * 
+     */
     ACTION = 9,
+    /**
+     * 
+     */
     EXPANSION = 10,
+    /**
+     * 
+     */
     MATERIAL = 11,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EMinorType {
+    /**
+     * 
+     */
     DIAMOND = 101,
+    /**
+     * 
+     */
     GOLD = 102,
+    /**
+     * 
+     */
     SILVER = 103,
+    /**
+     * 
+     */
     EXP = 104,
+    /**
+     * 
+     */
     POWER_POINT = 105,
+    /**
+     * 
+     */
     HAIR_STYLE = 210,
+    /**
+     * 
+     */
     COAT = 220,
+    /**
+     * 
+     */
     UPPER_JACKET = 230,
+    /**
+     * 
+     */
     TROUSERS = 241,
+    /**
+     * 
+     */
     SKIRT = 242,
+    /**
+     * 
+     */
     SOCKS = 250,
+    /**
+     * 
+     */
     SHOES = 260,
+    /**
+     * 
+     */
     HAIR_ACCESSORY = 271,
+    /**
+     * 
+     */
     HAT = 272,
+    /**
+     * 
+     */
     EARRING = 273,
+    /**
+     * 
+     */
     NECKLACE = 274,
+    /**
+     * 
+     */
     BRACELET = 275,
+    /**
+     * 
+     */
     HAIR_CLASP = 276,
+    /**
+     * 
+     */
     GLOVE = 277,
+    /**
+     * 
+     */
     HANDHELD_OBJECT = 278,
+    /**
+     * 
+     */
     SPECIAL = 279,
+    /**
+     * 
+     */
     BASE_COSMETIC = 281,
+    /**
+     * 
+     */
     EYEBROW_COSMETIC = 282,
+    /**
+     * 
+     */
     EYELASH = 283,
+    /**
+     * 
+     */
     COSMETIC_CONTACT_LENSES = 284,
+    /**
+     * 
+     */
     LIP_COSMETIC = 285,
+    /**
+     * 
+     */
     SKIN_COLOR = 286,
+    /**
+     * 
+     */
     ONE_PIECE_DRESS = 290,
+    /**
+     * 
+     */
     SWITCH_CLOTHES_SCENE = 291,
+    /**
+     * 
+     */
     QUEST = 301,
+    /**
+     * 
+     */
     CAST = 401,
+    /**
+     * 
+     */
     SWORD = 421,
+    /**
+     * 
+     */
     BOW_ARROW = 422,
+    /**
+     * 
+     */
     WANDS = 423,
+    /**
+     * 
+     */
     SPECIAL_TOOL = 424,
+    /**
+     * 
+     */
     FOOD = 403,
+    /**
+     * 
+     */
     TREASURE_BOX = 501,
+    /**
+     * 
+     */
     KEY = 502,
+    /**
+     * 
+     */
     MULTI_CHOOSE_TREASURE_BOX = 503,
+    /**
+     * 
+     */
     ACHIEVEMENT = 601,
+    /**
+     * 
+     */
     TITLE = 602,
+    /**
+     * 
+     */
     AVATAR_FRAME = 701,
+    /**
+     * 
+     */
     VOICE = 801,
+    /**
+     * 
+     */
     IDLE_POSE = 901,
+    /**
+     * 
+     */
     PHOTO_POSE = 902,
+    /**
+     * 
+     */
     BAG = 1001,
+    /**
+     * 
+     */
     FRIEND_CAPACITY = 1002,
+    /**
+     * 
+     */
     CONSTRUCTION_MATERIAL = 1101,
+    /**
+     * 
+     */
     DESIGN_DRAWING = 1102,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EClothersStarQualityType {
+    /**
+     * 
+     */
     ONE = 1,
+    /**
+     * 
+     */
     TWO = 2,
+    /**
+     * 
+     */
     THREE = 3,
+    /**
+     * 
+     */
     FOUR = 4,
+    /**
+     * 
+     */
     FIVE = 5,
+    /**
+     * 
+     */
     SIX = 6,
+    /**
+     * 
+     */
     SEVEN = 7,
+    /**
+     * 
+     */
     EIGHT = 8,
+    /**
+     * 
+     */
     NINE = 9,
+    /**
+     * 
+     */
     TEN = 10,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EClothersTag {
+    /**
+     * 
+     */
     FANG_SHAI = 1,
+    /**
+     * 
+     */
     WU_ZHE = 2,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EUseType {
+    /**
+     * 
+     */
     MANUAL = 0,
+    /**
+     * 
+     */
     AUTO = 1,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EClothesHidePartType {
+    /**
+     * 
+     */
     CHEST = 0,
+    /**
+     * 
+     */
     HEAD = 1,
+    /**
+     * 
+     */
     SPINE_UPPER = 2,
+    /**
+     * 
+     */
     SPINE_LOWER = 3,
+    /**
+     * 
+     */
     HIP = 4,
+    /**
+     * 
+     */
     LEG_UPPER = 5,
+    /**
+     * 
+     */
     LEG_MIDDLE = 6,
+    /**
+     * 
+     */
     LEG_LOWER = 7,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EClothesPropertyType {
+    /**
+     * 
+     */
     JIAN_YUE = 1,
+    /**
+     * 
+     */
     HUA_LI = 2,
+    /**
+     * 
+     */
     KE_AI = 3,
+    /**
+     * 
+     */
     CHENG_SHU = 4,
+    /**
+     * 
+     */
     HUO_PO = 5,
+    /**
+     * 
+     */
     YOU_YA = 6,
+    /**
+     * 
+     */
     QING_CHUN = 7,
+    /**
+     * 
+     */
     XING_GAN = 8,
+    /**
+     * 
+     */
     QING_LIANG = 9,
+    /**
+     * 
+     */
     BAO_NUAN = 10,
 }
 }
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export enum EItemFunctionType {
+    /**
+     * 
+     */
     REPLACE_HANDHELD = 0,
+    /**
+     * 
+     */
     USE_DESIGN_DRAWING = 1,
 }
 }
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export enum ENamespace {
+    /**
+     * 
+     */
     ITEM_DAILY_OBTAIN = 1,
+    /**
+     * 
+     */
     TREASURE_DAILY_USE = 2,
+    /**
+     * 
+     */
     STORE_GOODS_LIMIT_BUY = 3,
 }
 }
 
 
 export namespace mail {
-
+/**
+ * 
+ */
 export enum EMailType {
+    /**
+     * 
+     */
     GLOBAL = 0,
+    /**
+     * 
+     */
     SYSTEM = 1,
 }
 }
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export enum EGenderType {
+    /**
+     * 
+     */
     MALE = 1,
+    /**
+     * 
+     */
     FEMALE = 2,
 }
 }
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export enum EProfession {
+    /**
+     * 
+     */
     TEST_PROFESSION = 1,
 }
 }
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export enum DemoEnum {
+    /**
+     * 
+     */
     A = 1,
+    /**
+     * 
+     */
     B = 2,
+    /**
+     * 
+     */
     C = 4,
+    /**
+     * 
+     */
     D = 5,
 }
 }
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export enum ETestUeType {
+    /**
+     * 
+     */
     WHITE = 0,
+    /**
+     * 
+     */
     BLACK = 1,
 }
 }
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export enum ETestEmptyEnum {
 }
 }
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export enum ETestEmptyEnum2 {
+    /**
+     * 
+     */
     SMALL_THAN_256 = 255,
+    /**
+     * 
+     */
     X_256 = 256,
+    /**
+     * 
+     */
     X_257 = 257,
 }
 }
@@ -528,6 +1318,9 @@ export enum ETestEmptyEnum2 {
 
    
 export namespace ai {
+/**
+ * 
+ */
 export class TbBlackboard{
     private _dataMap: Map<string, ai.Blackboard>
     private _dataList: ai.Blackboard[]
@@ -562,7 +1355,9 @@ export class TbBlackboard{
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class Blackboard  {
 
     constructor(_json_: any) {
@@ -576,10 +1371,22 @@ export  class Blackboard  {
         { this.keys = []; for(let _ele of _json_.keys) { let _e : ai.BlackboardKey; _e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly parentName: string
     parentName_Ref : ai.Blackboard
+    /**
+     * 
+     */
     readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
@@ -595,7 +1402,9 @@ export  class Blackboard  {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class BlackboardKey  {
 
     constructor(_json_: any) {
@@ -611,10 +1420,25 @@ export  class BlackboardKey  {
         this.typeClassName = _json_.type_class_name
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly isStatic: boolean
+    /**
+     * 
+     */
     readonly type: ai.EKeyType
+    /**
+     * 
+     */
     readonly typeClassName: string
 
     resolve(_tables: Map<string, any>) {
@@ -626,6 +1450,9 @@ export  class BlackboardKey  {
 
    
 export namespace ai {
+/**
+ * 
+ */
 export class TbBehaviorTree{
     private _dataMap: Map<number, ai.BehaviorTree>
     private _dataList: ai.BehaviorTree[]
@@ -660,7 +1487,9 @@ export class TbBehaviorTree{
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class BehaviorTree  {
 
     constructor(_json_: any) {
@@ -676,11 +1505,26 @@ export  class BehaviorTree  {
         this.root = ai.ComposeNode.constructorFrom(_json_.root)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly blackboardId: string
     blackboardId_Ref : ai.Blackboard
+    /**
+     * 
+     */
     readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
@@ -696,7 +1540,9 @@ export  class BehaviorTree  {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class Node  {
     static constructorFrom(_json_: any): Node {
         switch (_json_.__type__) {
@@ -734,7 +1580,13 @@ export  abstract  class Node  {
         this.nodeName = _json_.node_name
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly nodeName: string
 
     resolve(_tables: Map<string, any>) {
@@ -748,7 +1600,9 @@ export  abstract  class Node  {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class Service  extends ai.Node {
     static constructorFrom(_json_: any): Service {
         switch (_json_.__type__) {
@@ -779,7 +1633,9 @@ export  abstract  class Service  extends ai.Node {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeSetDefaultFocus  extends ai.Service {
 
     constructor(_json_: any) {
@@ -788,6 +1644,9 @@ export  class UeSetDefaultFocus  extends ai.Service {
         this.keyboardKey = _json_.keyboard_key
     }
 
+    /**
+     * 
+     */
     readonly keyboardKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -802,7 +1661,9 @@ export  class UeSetDefaultFocus  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class ExecuteTimeStatistic  extends ai.Service {
 
     constructor(_json_: any) {
@@ -822,7 +1683,9 @@ export  class ExecuteTimeStatistic  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class ChooseTarget  extends ai.Service {
 
     constructor(_json_: any) {
@@ -831,6 +1694,9 @@ export  class ChooseTarget  extends ai.Service {
         this.resultTargetKey = _json_.result_target_key
     }
 
+    /**
+     * 
+     */
     readonly resultTargetKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -845,7 +1711,9 @@ export  class ChooseTarget  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class KeepFaceTarget  extends ai.Service {
 
     constructor(_json_: any) {
@@ -854,6 +1722,9 @@ export  class KeepFaceTarget  extends ai.Service {
         this.targetActorKey = _json_.target_actor_key
     }
 
+    /**
+     * 
+     */
     readonly targetActorKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -868,7 +1739,9 @@ export  class KeepFaceTarget  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class GetOwnerPlayer  extends ai.Service {
 
     constructor(_json_: any) {
@@ -877,6 +1750,9 @@ export  class GetOwnerPlayer  extends ai.Service {
         this.playerActorKey = _json_.player_actor_key
     }
 
+    /**
+     * 
+     */
     readonly playerActorKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -891,7 +1767,9 @@ export  class GetOwnerPlayer  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UpdateDailyBehaviorProps  extends ai.Service {
 
     constructor(_json_: any) {
@@ -916,14 +1794,41 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
         this.moodUpperThresholdKey = _json_.mood_upper_threshold_key
     }
 
+    /**
+     * 
+     */
     readonly satietyKey: string
+    /**
+     * 
+     */
     readonly energyKey: string
+    /**
+     * 
+     */
     readonly moodKey: string
+    /**
+     * 
+     */
     readonly satietyLowerThresholdKey: string
+    /**
+     * 
+     */
     readonly satietyUpperThresholdKey: string
+    /**
+     * 
+     */
     readonly energyLowerThresholdKey: string
+    /**
+     * 
+     */
     readonly energyUpperThresholdKey: string
+    /**
+     * 
+     */
     readonly moodLowerThresholdKey: string
+    /**
+     * 
+     */
     readonly moodUpperThresholdKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -938,7 +1843,9 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class Decorator  extends ai.Node {
     static constructorFrom(_json_: any): Decorator {
         switch (_json_.__type__) {
@@ -959,6 +1866,9 @@ export  abstract  class Decorator  extends ai.Node {
         this.flowAbortMode = _json_.flow_abort_mode
     }
 
+    /**
+     * 
+     */
     readonly flowAbortMode: ai.EFlowAbortMode
 
     resolve(_tables: Map<string, any>) {
@@ -973,7 +1883,9 @@ export  abstract  class Decorator  extends ai.Node {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeLoop  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -986,8 +1898,17 @@ export  class UeLoop  extends ai.Decorator {
         this.infiniteLoopTimeoutTime = _json_.infinite_loop_timeout_time
     }
 
+    /**
+     * 
+     */
     readonly numLoops: number
+    /**
+     * 
+     */
     readonly infiniteLoop: boolean
+    /**
+     * 
+     */
     readonly infiniteLoopTimeoutTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1002,7 +1923,9 @@ export  class UeLoop  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeCooldown  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1011,6 +1934,9 @@ export  class UeCooldown  extends ai.Decorator {
         this.cooldownTime = _json_.cooldown_time
     }
 
+    /**
+     * 
+     */
     readonly cooldownTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1025,7 +1951,9 @@ export  class UeCooldown  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeTimeLimit  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1034,6 +1962,9 @@ export  class UeTimeLimit  extends ai.Decorator {
         this.limitTime = _json_.limit_time
     }
 
+    /**
+     * 
+     */
     readonly limitTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1048,7 +1979,9 @@ export  class UeTimeLimit  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeBlackboard  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1061,8 +1994,17 @@ export  class UeBlackboard  extends ai.Decorator {
         this.keyQuery = ai.KeyQueryOperator.constructorFrom(_json_.key_query)
     }
 
+    /**
+     * 
+     */
     readonly notifyObserver: ai.ENotifyObserverMode
+    /**
+     * 
+     */
     readonly blackboardKey: string
+    /**
+     * 
+     */
     readonly keyQuery: ai.KeyQueryOperator
 
     resolve(_tables: Map<string, any>) {
@@ -1078,7 +2020,9 @@ export  class UeBlackboard  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class KeyQueryOperator  {
     static constructorFrom(_json_: any): KeyQueryOperator {
         switch (_json_.__type__) {
@@ -1104,7 +2048,9 @@ export  abstract  class KeyQueryOperator  {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class IsSet  extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
@@ -1124,7 +2070,9 @@ export  class IsSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class IsNotSet  extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
@@ -1144,7 +2092,9 @@ export  class IsNotSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class BinaryOperator  extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
@@ -1155,7 +2105,13 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
         this.data = ai.KeyData.constructorFrom(_json_.data)
     }
 
+    /**
+     * 
+     */
     readonly oper: ai.EOperator
+    /**
+     * 
+     */
     readonly data: ai.KeyData
 
     resolve(_tables: Map<string, any>) {
@@ -1171,7 +2127,9 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class KeyData  {
     static constructorFrom(_json_: any): KeyData {
         switch (_json_.__type__) {
@@ -1198,7 +2156,9 @@ export  abstract  class KeyData  {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class FloatKeyData  extends ai.KeyData {
 
     constructor(_json_: any) {
@@ -1207,6 +2167,9 @@ export  class FloatKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -1221,7 +2184,9 @@ export  class FloatKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class IntKeyData  extends ai.KeyData {
 
     constructor(_json_: any) {
@@ -1230,6 +2195,9 @@ export  class IntKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -1244,7 +2212,9 @@ export  class IntKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class StringKeyData  extends ai.KeyData {
 
     constructor(_json_: any) {
@@ -1253,6 +2223,9 @@ export  class StringKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -1267,7 +2240,9 @@ export  class StringKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class BlackboardKeyData  extends ai.KeyData {
 
     constructor(_json_: any) {
@@ -1276,6 +2251,9 @@ export  class BlackboardKeyData  extends ai.KeyData {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -1290,7 +2268,9 @@ export  class BlackboardKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeForceSuccess  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1310,7 +2290,9 @@ export  class UeForceSuccess  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class IsAtLocation  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1323,8 +2305,17 @@ export  class IsAtLocation  extends ai.Decorator {
         this.inverseCondition = _json_.inverse_condition
     }
 
+    /**
+     * 
+     */
     readonly acceptableRadius: number
+    /**
+     * 
+     */
     readonly keyboardKey: string
+    /**
+     * 
+     */
     readonly inverseCondition: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -1339,7 +2330,9 @@ export  class IsAtLocation  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class DistanceLessThan  extends ai.Decorator {
 
     constructor(_json_: any) {
@@ -1354,9 +2347,21 @@ export  class DistanceLessThan  extends ai.Decorator {
         this.reverseResult = _json_.reverse_result
     }
 
+    /**
+     * 
+     */
     readonly actor1Key: string
+    /**
+     * 
+     */
     readonly actor2Key: string
+    /**
+     * 
+     */
     readonly distance: number
+    /**
+     * 
+     */
     readonly reverseResult: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -1371,7 +2376,9 @@ export  class DistanceLessThan  extends ai.Decorator {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class FlowNode  extends ai.Node {
     static constructorFrom(_json_: any): FlowNode {
         switch (_json_.__type__) {
@@ -1397,7 +2404,13 @@ export  abstract  class FlowNode  extends ai.Node {
         { this.services = []; for(let _ele of _json_.services) { let _e : ai.Service; _e = ai.Service.constructorFrom(_ele); this.services.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly decorators: ai.Decorator[]
+    /**
+     * 
+     */
     readonly services: ai.Service[]
 
     resolve(_tables: Map<string, any>) {
@@ -1414,7 +2427,9 @@ export  abstract  class FlowNode  extends ai.Node {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static constructorFrom(_json_: any): ComposeNode {
         switch (_json_.__type__) {
@@ -1442,7 +2457,9 @@ export  abstract  class ComposeNode  extends ai.FlowNode {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class Sequence  extends ai.ComposeNode {
 
     constructor(_json_: any) {
@@ -1451,6 +2468,9 @@ export  class Sequence  extends ai.ComposeNode {
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
@@ -1466,7 +2486,9 @@ export  class Sequence  extends ai.ComposeNode {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class Selector  extends ai.ComposeNode {
 
     constructor(_json_: any) {
@@ -1475,6 +2497,9 @@ export  class Selector  extends ai.ComposeNode {
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
@@ -1490,7 +2515,9 @@ export  class Selector  extends ai.ComposeNode {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class SimpleParallel  extends ai.ComposeNode {
 
     constructor(_json_: any) {
@@ -1503,8 +2530,17 @@ export  class SimpleParallel  extends ai.ComposeNode {
         this.backgroundNode = ai.FlowNode.constructorFrom(_json_.background_node)
     }
 
+    /**
+     * 
+     */
     readonly finishMode: ai.EFinishMode
+    /**
+     * 
+     */
     readonly mainTask: ai.Task
+    /**
+     * 
+     */
     readonly backgroundNode: ai.FlowNode
 
     resolve(_tables: Map<string, any>) {
@@ -1521,7 +2557,9 @@ export  class SimpleParallel  extends ai.ComposeNode {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  abstract  class Task  extends ai.FlowNode {
     static constructorFrom(_json_: any): Task {
         switch (_json_.__type__) {
@@ -1542,6 +2580,9 @@ export  abstract  class Task  extends ai.FlowNode {
         this.ignoreRestartSelf = _json_.ignore_restart_self
     }
 
+    /**
+     * 
+     */
     readonly ignoreRestartSelf: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -1556,7 +2597,9 @@ export  abstract  class Task  extends ai.FlowNode {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeWait  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1567,7 +2610,13 @@ export  class UeWait  extends ai.Task {
         this.randomDeviation = _json_.random_deviation
     }
 
+    /**
+     * 
+     */
     readonly waitTime: number
+    /**
+     * 
+     */
     readonly randomDeviation: number
 
     resolve(_tables: Map<string, any>) {
@@ -1582,7 +2631,9 @@ export  class UeWait  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class UeWaitBlackboardTime  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1591,6 +2642,9 @@ export  class UeWaitBlackboardTime  extends ai.Task {
         this.blackboardKey = _json_.blackboard_key
     }
 
+    /**
+     * 
+     */
     readonly blackboardKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1605,7 +2659,9 @@ export  class UeWaitBlackboardTime  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class MoveToTarget  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1616,7 +2672,13 @@ export  class MoveToTarget  extends ai.Task {
         this.acceptableRadius = _json_.acceptable_radius
     }
 
+    /**
+     * 
+     */
     readonly targetActorKey: string
+    /**
+     * 
+     */
     readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
@@ -1631,7 +2693,9 @@ export  class MoveToTarget  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class ChooseSkill  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1642,7 +2706,13 @@ export  class ChooseSkill  extends ai.Task {
         this.resultSkillIdKey = _json_.result_skill_id_key
     }
 
+    /**
+     * 
+     */
     readonly targetActorKey: string
+    /**
+     * 
+     */
     readonly resultSkillIdKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1657,7 +2727,9 @@ export  class ChooseSkill  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class MoveToRandomLocation  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1668,7 +2740,13 @@ export  class MoveToRandomLocation  extends ai.Task {
         this.radius = _json_.radius
     }
 
+    /**
+     * 
+     */
     readonly originPositionKey: string
+    /**
+     * 
+     */
     readonly radius: number
 
     resolve(_tables: Map<string, any>) {
@@ -1683,7 +2761,9 @@ export  class MoveToRandomLocation  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class MoveToLocation  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1694,7 +2774,13 @@ export  class MoveToLocation  extends ai.Task {
         this.acceptableRadius = _json_.acceptable_radius
     }
 
+    /**
+     * 
+     */
     readonly location: Vector3
+    /**
+     * 
+     */
     readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
@@ -1709,7 +2795,9 @@ export  class MoveToLocation  extends ai.Task {
 
 
 export namespace ai {
-
+/**
+ * 
+ */
 export  class DebugPrint  extends ai.Task {
 
     constructor(_json_: any) {
@@ -1718,6 +2806,9 @@ export  class DebugPrint  extends ai.Task {
         this.text = _json_.text
     }
 
+    /**
+     * 
+     */
     readonly text: string
 
     resolve(_tables: Map<string, any>) {
@@ -1730,6 +2821,9 @@ export  class DebugPrint  extends ai.Task {
 
    
 export namespace blueprint {
+/**
+ * 
+ */
 export class TbClazz{
     private _dataMap: Map<string, blueprint.Clazz>
     private _dataList: blueprint.Clazz[]
@@ -1764,7 +2858,9 @@ export class TbClazz{
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  abstract  class Clazz  {
     static constructorFrom(_json_: any): Clazz {
         switch (_json_.__type__) {
@@ -1786,9 +2882,21 @@ export  abstract  class Clazz  {
         { this.methods = []; for(let _ele of _json_.methods) { let _e : blueprint.Method; _e = blueprint.Method.constructorFrom(_ele); this.methods.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly parents: blueprint.Clazz[]
+    /**
+     * 
+     */
     readonly methods: blueprint.Method[]
 
     resolve(_tables: Map<string, any>) {
@@ -1804,7 +2912,9 @@ export  abstract  class Clazz  {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  abstract  class Method  {
     static constructorFrom(_json_: any): Method {
         switch (_json_.__type__) {
@@ -1828,10 +2938,25 @@ export  abstract  class Method  {
         { this.parameters = []; for(let _ele of _json_.parameters) { let _e : blueprint.ParamInfo; _e = new blueprint.ParamInfo(_ele); this.parameters.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly isStatic: boolean
+    /**
+     * 
+     */
     readonly returnType: string
+    /**
+     * 
+     */
     readonly parameters: blueprint.ParamInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -1846,7 +2971,9 @@ export  abstract  class Method  {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class ParamInfo  {
 
     constructor(_json_: any) {
@@ -1858,8 +2985,17 @@ export  class ParamInfo  {
         this.isRef = _json_.is_ref
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly type: string
+    /**
+     * 
+     */
     readonly isRef: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -1873,7 +3009,9 @@ export  class ParamInfo  {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class AbstraceMethod  extends blueprint.Method {
 
     constructor(_json_: any) {
@@ -1893,7 +3031,9 @@ export  class AbstraceMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class ExternalMethod  extends blueprint.Method {
 
     constructor(_json_: any) {
@@ -1913,7 +3053,9 @@ export  class ExternalMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class BlueprintMethod  extends blueprint.Method {
 
     constructor(_json_: any) {
@@ -1933,7 +3075,9 @@ export  class BlueprintMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class Interface  extends blueprint.Clazz {
 
     constructor(_json_: any) {
@@ -1953,7 +3097,9 @@ export  class Interface  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class NormalClazz  extends blueprint.Clazz {
 
     constructor(_json_: any) {
@@ -1964,7 +3110,13 @@ export  class NormalClazz  extends blueprint.Clazz {
         { this.fields = []; for(let _ele of _json_.fields) { let _e : blueprint.Field; _e = new blueprint.Field(_ele); this.fields.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly isAbstract: boolean
+    /**
+     * 
+     */
     readonly fields: blueprint.Field[]
 
     resolve(_tables: Map<string, any>) {
@@ -1980,7 +3132,9 @@ export  class NormalClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class Field  {
 
     constructor(_json_: any) {
@@ -1992,8 +3146,17 @@ export  class Field  {
         this.desc = _json_.desc
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly type: string
+    /**
+     * 
+     */
     readonly desc: string
 
     resolve(_tables: Map<string, any>) {
@@ -2007,7 +3170,9 @@ export  class Field  {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class EnumClazz  extends blueprint.Clazz {
 
     constructor(_json_: any) {
@@ -2016,6 +3181,9 @@ export  class EnumClazz  extends blueprint.Clazz {
         { this.enums = []; for(let _ele of _json_.enums) { let _e : blueprint.EnumField; _e = new blueprint.EnumField(_ele); this.enums.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly enums: blueprint.EnumField[]
 
     resolve(_tables: Map<string, any>) {
@@ -2031,7 +3199,9 @@ export  class EnumClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-
+/**
+ * 
+ */
 export  class EnumField  {
 
     constructor(_json_: any) {
@@ -2041,7 +3211,13 @@ export  class EnumField  {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -2053,6 +3229,9 @@ export  class EnumField  {
 
    
 export namespace bonus {
+/**
+ * 
+ */
 export class TbDrop{
     private _dataMap: Map<number, bonus.DropInfo>
     private _dataList: bonus.DropInfo[]
@@ -2087,7 +3266,9 @@ export class TbDrop{
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class DropInfo  {
 
     constructor(_json_: any) {
@@ -2101,9 +3282,21 @@ export  class DropInfo  {
         this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly clientShowItems: bonus.ShowItemInfo[]
+    /**
+     * 
+     */
     readonly bonus: bonus.Bonus
 
     resolve(_tables: Map<string, any>) {
@@ -2119,7 +3312,9 @@ export  class DropInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class ShowItemInfo  {
 
     constructor(_json_: any) {
@@ -2129,8 +3324,14 @@ export  class ShowItemInfo  {
         this.itemNum = _json_.item_num
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
@@ -2145,7 +3346,9 @@ export  class ShowItemInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  abstract  class Bonus  {
     static constructorFrom(_json_: any): Bonus {
         switch (_json_.__type__) {
@@ -2179,7 +3382,9 @@ export  abstract  class Bonus  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class OneItem  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2188,6 +3393,9 @@ export  class OneItem  extends bonus.Bonus {
         this.itemId = _json_.item_id
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
 
@@ -2204,7 +3412,9 @@ export  class OneItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class OneItems  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2213,6 +3423,9 @@ export  class OneItems  extends bonus.Bonus {
         this.items = _json_.items
     }
 
+    /**
+     * 
+     */
     readonly items: Int32Array
 
     resolve(_tables: Map<string, any>) {
@@ -2227,7 +3440,9 @@ export  class OneItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class Item  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2238,8 +3453,14 @@ export  class Item  extends bonus.Bonus {
         this.amount = _json_.amount
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -2255,7 +3476,9 @@ export  class Item  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class Items  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2264,6 +3487,9 @@ export  class Items  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.Item; _e = new bonus.Item(_ele); this.itemList.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly itemList: bonus.Item[]
 
     resolve(_tables: Map<string, any>) {
@@ -2279,7 +3505,9 @@ export  class Items  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class CoefficientItem  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2290,7 +3518,13 @@ export  class CoefficientItem  extends bonus.Bonus {
         this.bonusList = new bonus.Items(_json_.bonus_list)
     }
 
+    /**
+     * 
+     */
     readonly bonusId: number
+    /**
+     * 
+     */
     readonly bonusList: bonus.Items
 
     resolve(_tables: Map<string, any>) {
@@ -2306,7 +3540,9 @@ export  class CoefficientItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class WeightItems  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2315,6 +3551,9 @@ export  class WeightItems  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.WeightItemInfo; _e = new bonus.WeightItemInfo(_ele); this.itemList.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly itemList: bonus.WeightItemInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -2330,7 +3569,9 @@ export  class WeightItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class WeightItemInfo  {
 
     constructor(_json_: any) {
@@ -2342,9 +3583,18 @@ export  class WeightItemInfo  {
         this.weight = _json_.weight
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly num: number
+    /**
+     * 
+     */
     readonly weight: number
 
     resolve(_tables: Map<string, any>) {
@@ -2359,7 +3609,9 @@ export  class WeightItemInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class ProbabilityItems  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2368,6 +3620,9 @@ export  class ProbabilityItems  extends bonus.Bonus {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.ProbabilityItemInfo; _e = new bonus.ProbabilityItemInfo(_ele); this.itemList.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly itemList: bonus.ProbabilityItemInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -2383,7 +3638,9 @@ export  class ProbabilityItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class ProbabilityItemInfo  {
 
     constructor(_json_: any) {
@@ -2395,9 +3652,18 @@ export  class ProbabilityItemInfo  {
         this.probability = _json_.probability
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly num: number
+    /**
+     * 
+     */
     readonly probability: number
 
     resolve(_tables: Map<string, any>) {
@@ -2412,7 +3678,9 @@ export  class ProbabilityItemInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class MultiBonus  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2421,6 +3689,9 @@ export  class MultiBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.Bonus; _e = bonus.Bonus.constructorFrom(_ele); this.bonuses.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly bonuses: bonus.Bonus[]
 
     resolve(_tables: Map<string, any>) {
@@ -2436,7 +3707,9 @@ export  class MultiBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class ProbabilityBonus  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2445,6 +3718,9 @@ export  class ProbabilityBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.ProbabilityBonusInfo; _e = new bonus.ProbabilityBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly bonuses: bonus.ProbabilityBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -2460,7 +3736,9 @@ export  class ProbabilityBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class ProbabilityBonusInfo  {
 
     constructor(_json_: any) {
@@ -2470,7 +3748,13 @@ export  class ProbabilityBonusInfo  {
         this.probability = _json_.probability
     }
 
+    /**
+     * 
+     */
     readonly bonus: bonus.Bonus
+    /**
+     * 
+     */
     readonly probability: number
 
     resolve(_tables: Map<string, any>) {
@@ -2485,7 +3769,9 @@ export  class ProbabilityBonusInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class WeightBonus  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2494,6 +3780,9 @@ export  class WeightBonus  extends bonus.Bonus {
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.WeightBonusInfo; _e = new bonus.WeightBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly bonuses: bonus.WeightBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -2509,7 +3798,9 @@ export  class WeightBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class WeightBonusInfo  {
 
     constructor(_json_: any) {
@@ -2519,7 +3810,13 @@ export  class WeightBonusInfo  {
         this.weight = _json_.weight
     }
 
+    /**
+     * 
+     */
     readonly bonus: bonus.Bonus
+    /**
+     * 
+     */
     readonly weight: number
 
     resolve(_tables: Map<string, any>) {
@@ -2534,7 +3831,9 @@ export  class WeightBonusInfo  {
 
 
 export namespace bonus {
-
+/**
+ * 
+ */
 export  class DropBonus  extends bonus.Bonus {
 
     constructor(_json_: any) {
@@ -2543,6 +3842,9 @@ export  class DropBonus  extends bonus.Bonus {
         this.id = _json_.id
     }
 
+    /**
+     * 
+     */
     readonly id: number
     id_Ref : bonus.DropInfo
 
@@ -2557,6 +3859,9 @@ export  class DropBonus  extends bonus.Bonus {
 
    
 export namespace common {
+/**
+ * 
+ */
 export class TbGlobalConfig{
 
      private _data: common.GlobalConfig
@@ -2567,26 +3872,89 @@ export class TbGlobalConfig{
 
     getData(): common.GlobalConfig { return this._data; }
 
+    /**
+     * 背包容量
+     */
      get  bagCapacity(): number { return this._data.bagCapacity; }
+    /**
+     * 
+     */
      get  bagCapacitySpecial(): number { return this._data.bagCapacitySpecial; }
+    /**
+     * 
+     */
      get  bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity; }
+    /**
+     * 
+     */
      get  bagTempToolCapacity(): number { return this._data.bagTempToolCapacity; }
+    /**
+     * 
+     */
      get  bagInitCapacity(): number { return this._data.bagInitCapacity; }
+    /**
+     * 
+     */
      get  quickBagCapacity(): number { return this._data.quickBagCapacity; }
+    /**
+     * 
+     */
      get  clothBagCapacity(): number { return this._data.clothBagCapacity; }
+    /**
+     * 
+     */
      get  clothBagInitCapacity(): number { return this._data.clothBagInitCapacity; }
+    /**
+     * 
+     */
      get  clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial; }
+    /**
+     * 
+     */
      get  bagInitItemsDropId(): number { return this._data.bagInitItemsDropId; }
+    /**
+     * 
+     */
      get  mailBoxCapacity(): number { return this._data.mailBoxCapacity; }
+    /**
+     * 
+     */
      get  damageParamC(): number { return this._data.damageParamC; }
+    /**
+     * 
+     */
      get  damageParamE(): number { return this._data.damageParamE; }
+    /**
+     * 
+     */
      get  damageParamF(): number { return this._data.damageParamF; }
+    /**
+     * 
+     */
      get  damageParamD(): number { return this._data.damageParamD; }
+    /**
+     * 
+     */
      get  roleSpeed(): number { return this._data.roleSpeed; }
+    /**
+     * 
+     */
      get  monsterSpeed(): number { return this._data.monsterSpeed; }
+    /**
+     * 
+     */
      get  initEnergy(): number { return this._data.initEnergy; }
+    /**
+     * 
+     */
      get  initViality(): number { return this._data.initViality; }
+    /**
+     * 
+     */
      get  maxViality(): number { return this._data.maxViality; }
+    /**
+     * 
+     */
      get  perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime; }
 
     resolve(_tables: Map<string, any>) {
@@ -2602,7 +3970,9 @@ export class TbGlobalConfig{
 
 
 export namespace common {
-
+/**
+ * 
+ */
 export  class GlobalConfig  {
 
     constructor(_json_: any) {
@@ -2649,27 +4019,90 @@ export  class GlobalConfig  {
         this.perVialityRecoveryTime = _json_.per_viality_recovery_time
     }
 
+    /**
+     * 背包容量
+     */
     readonly bagCapacity: number
+    /**
+     * 
+     */
     readonly bagCapacitySpecial: number
+    /**
+     * 
+     */
     readonly bagTempExpendableCapacity: number
+    /**
+     * 
+     */
     readonly bagTempToolCapacity: number
+    /**
+     * 
+     */
     readonly bagInitCapacity: number
+    /**
+     * 
+     */
     readonly quickBagCapacity: number
+    /**
+     * 
+     */
     readonly clothBagCapacity: number
+    /**
+     * 
+     */
     readonly clothBagInitCapacity: number
+    /**
+     * 
+     */
     readonly clothBagCapacitySpecial: number
+    /**
+     * 
+     */
     readonly bagInitItemsDropId?: number
     bagInitItemsDropId_Ref : bonus.DropInfo
+    /**
+     * 
+     */
     readonly mailBoxCapacity: number
+    /**
+     * 
+     */
     readonly damageParamC: number
+    /**
+     * 
+     */
     readonly damageParamE: number
+    /**
+     * 
+     */
     readonly damageParamF: number
+    /**
+     * 
+     */
     readonly damageParamD: number
+    /**
+     * 
+     */
     readonly roleSpeed: number
+    /**
+     * 
+     */
     readonly monsterSpeed: number
+    /**
+     * 
+     */
     readonly initEnergy: number
+    /**
+     * 
+     */
     readonly initViality: number
+    /**
+     * 
+     */
     readonly maxViality: number
+    /**
+     * 
+     */
     readonly perVialityRecoveryTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -2682,6 +4115,9 @@ export  class GlobalConfig  {
 
    
 export namespace common {
+/**
+ * 
+ */
 export class TbDummy{
     private _dataMap: Map<number, common.Dummy>
     private _dataList: common.Dummy[]
@@ -2716,7 +4152,9 @@ export class TbDummy{
 
 
 export namespace common {
-
+/**
+ * 
+ */
 export  class Dummy  {
 
     constructor(_json_: any) {
@@ -2726,7 +4164,13 @@ export  class Dummy  {
         this.limit = limit.LimitBase.constructorFrom(_json_.limit)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly limit: limit.LimitBase
 
     resolve(_tables: Map<string, any>) {
@@ -2741,7 +4185,9 @@ export  class Dummy  {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  abstract  class LimitBase  {
     static constructorFrom(_json_: any): LimitBase {
         switch (_json_.__type__) {
@@ -2770,7 +4216,9 @@ export  abstract  class LimitBase  {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static constructorFrom(_json_: any): DailyLimitBase {
         switch (_json_.__type__) {
@@ -2796,7 +4244,9 @@ export  abstract  class DailyLimitBase  extends limit.LimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class DailyLimit  extends limit.DailyLimitBase {
 
     constructor(_json_: any) {
@@ -2805,6 +4255,9 @@ export  class DailyLimit  extends limit.DailyLimitBase {
         this.num = _json_.num
     }
 
+    /**
+     * 
+     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -2819,7 +4272,9 @@ export  class DailyLimit  extends limit.DailyLimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class MultiDayLimit  extends limit.LimitBase {
 
     constructor(_json_: any) {
@@ -2830,7 +4285,13 @@ export  class MultiDayLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
+    /**
+     * 
+     */
     readonly day: number
+    /**
+     * 
+     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -2845,7 +4306,9 @@ export  class MultiDayLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class WeeklyLimit  extends limit.LimitBase {
 
     constructor(_json_: any) {
@@ -2854,6 +4317,9 @@ export  class WeeklyLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
+    /**
+     * 
+     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -2868,7 +4334,9 @@ export  class WeeklyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class MonthlyLimit  extends limit.LimitBase {
 
     constructor(_json_: any) {
@@ -2877,6 +4345,9 @@ export  class MonthlyLimit  extends limit.LimitBase {
         this.num = _json_.num
     }
 
+    /**
+     * 
+     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -2891,7 +4362,9 @@ export  class MonthlyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class CoolDown  extends limit.LimitBase {
 
     constructor(_json_: any) {
@@ -2900,6 +4373,9 @@ export  class CoolDown  extends limit.LimitBase {
         this.duration = _json_.duration
     }
 
+    /**
+     * 
+     */
     readonly duration: number
 
     resolve(_tables: Map<string, any>) {
@@ -2914,7 +4390,9 @@ export  class CoolDown  extends limit.LimitBase {
 
 
 export namespace limit {
-
+/**
+ * 
+ */
 export  class GroupCoolDown  extends limit.LimitBase {
 
     constructor(_json_: any) {
@@ -2925,7 +4403,13 @@ export  class GroupCoolDown  extends limit.LimitBase {
         this.duration = _json_.duration
     }
 
+    /**
+     * 
+     */
     readonly groupId: number
+    /**
+     * 
+     */
     readonly duration: number
 
     resolve(_tables: Map<string, any>) {
@@ -2938,6 +4422,9 @@ export  class GroupCoolDown  extends limit.LimitBase {
 
    
 export namespace error {
+/**
+ * 
+ */
 export class TbErrorInfo{
     private _dataMap: Map<string, error.ErrorInfo>
     private _dataList: error.ErrorInfo[]
@@ -2972,7 +4459,9 @@ export class TbErrorInfo{
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class ErrorInfo  {
 
     constructor(_json_: any) {
@@ -2984,8 +4473,17 @@ export  class ErrorInfo  {
         this.style = error.ErrorStyle.constructorFrom(_json_.style)
     }
 
+    /**
+     * 
+     */
     readonly code: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly style: error.ErrorStyle
 
     resolve(_tables: Map<string, any>) {
@@ -3000,7 +4498,9 @@ export  class ErrorInfo  {
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  abstract  class ErrorStyle  {
     static constructorFrom(_json_: any): ErrorStyle {
         switch (_json_.__type__) {
@@ -3027,7 +4527,9 @@ export  abstract  class ErrorStyle  {
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class ErrorStyleTip  extends error.ErrorStyle {
 
     constructor(_json_: any) {
@@ -3047,7 +4549,9 @@ export  class ErrorStyleTip  extends error.ErrorStyle {
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
     constructor(_json_: any) {
@@ -3058,7 +4562,13 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
         this.operation = _json_.operation
     }
 
+    /**
+     * 
+     */
     readonly btnName: string
+    /**
+     * 
+     */
     readonly operation: error.EOperation
 
     resolve(_tables: Map<string, any>) {
@@ -3073,7 +4583,9 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
     constructor(_json_: any) {
@@ -3082,6 +4594,9 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
         this.btnName = _json_.btn_name
     }
 
+    /**
+     * 
+     */
     readonly btnName: string
 
     resolve(_tables: Map<string, any>) {
@@ -3096,7 +4611,9 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
     constructor(_json_: any) {
@@ -3107,7 +4624,13 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
         this.btn2Name = _json_.btn2_name
     }
 
+    /**
+     * 
+     */
     readonly btn1Name: string
+    /**
+     * 
+     */
     readonly btn2Name: string
 
     resolve(_tables: Map<string, any>) {
@@ -3120,6 +4643,9 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
    
 export namespace error {
+/**
+ * 
+ */
 export class TbCodeInfo{
     private _dataMap: Map<error.EErrorCode, error.CodeInfo>
     private _dataList: error.CodeInfo[]
@@ -3154,7 +4680,9 @@ export class TbCodeInfo{
 
 
 export namespace error {
-
+/**
+ * 
+ */
 export  class CodeInfo  {
 
     constructor(_json_: any) {
@@ -3164,7 +4692,13 @@ export  class CodeInfo  {
         this.key = _json_.key
     }
 
+    /**
+     * 
+     */
     readonly code: error.EErrorCode
+    /**
+     * 
+     */
     readonly key: string
 
     resolve(_tables: Map<string, any>) {
@@ -3176,6 +4710,9 @@ export  class CodeInfo  {
 
    
 export namespace item {
+/**
+ * 道具表
+ */
 export class TbItem{
     private _dataMap: Map<number, item.Item>
     private _dataList: item.Item[]
@@ -3210,7 +4747,9 @@ export class TbItem{
 
 
 export namespace item {
-
+/**
+ * 道具
+ */
 export  class Item  {
 
     constructor(_json_: any) {
@@ -3254,25 +4793,85 @@ export  class Item  {
         if(_json_.level_up_id != null) { this.levelUpId = _json_.level_up_id } else { this.levelUpId = null }
     }
 
+    /**
+     * 道具id
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly majorType: item.EMajorType
+    /**
+     * 
+     */
     readonly minorType: item.EMinorType
+    /**
+     * 
+     */
     readonly quality: item.EItemQuality
+    /**
+     * 
+     */
     readonly icon: string
+    /**
+     * 
+     */
     readonly iconBackgroud: string
+    /**
+     * 
+     */
     readonly iconMask: string
+    /**
+     * 
+     */
     readonly desc: string
+    /**
+     * 
+     */
     readonly showOrder: number
+    /**
+     * 
+     */
     readonly quantifier: string
+    /**
+     * 
+     */
     readonly showInBag: boolean
+    /**
+     * 
+     */
     readonly minShowLevel: number
+    /**
+     * 
+     */
     readonly batchUsable: boolean
+    /**
+     * 
+     */
     readonly progressTimeWhenUse: number
+    /**
+     * 
+     */
     readonly showHintWhenUse: boolean
+    /**
+     * 
+     */
     readonly droppable: boolean
+    /**
+     * 
+     */
     readonly price?: number
+    /**
+     * 
+     */
     readonly useType: item.EUseType
+    /**
+     * 
+     */
     readonly levelUpId?: number
 
     resolve(_tables: Map<string, any>) {
@@ -3284,6 +4883,9 @@ export  class Item  {
 
    
 export namespace item {
+/**
+ * 
+ */
 export class TbItemFunc{
     private _dataMap: Map<item.EMinorType, item.ItemFunction>
     private _dataList: item.ItemFunction[]
@@ -3318,7 +4920,9 @@ export class TbItemFunc{
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class ItemFunction  {
 
     constructor(_json_: any) {
@@ -3332,9 +4936,21 @@ export  class ItemFunction  {
         this.closeBagUi = _json_.close_bag_ui
     }
 
+    /**
+     * 
+     */
     readonly minorType: item.EMinorType
+    /**
+     * 
+     */
     readonly funcType: item.EItemFunctionType
+    /**
+     * 
+     */
     readonly method: string
+    /**
+     * 
+     */
     readonly closeBagUi: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -3346,6 +4962,9 @@ export  class ItemFunction  {
 
    
 export namespace item {
+/**
+ * 
+ */
 export class TbItemExtra{
     private _dataMap: Map<number, item.ItemExtra>
     private _dataList: item.ItemExtra[]
@@ -3380,7 +4999,9 @@ export class TbItemExtra{
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  abstract  class ItemExtra  {
     static constructorFrom(_json_: any): ItemExtra {
         switch (_json_.__type__) {
@@ -3398,6 +5019,9 @@ export  abstract  class ItemExtra  {
         this.id = _json_.id
     }
 
+    /**
+     * 
+     */
     readonly id: number
 
     resolve(_tables: Map<string, any>) {
@@ -3411,7 +5035,9 @@ export  abstract  class ItemExtra  {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class TreasureBox  extends item.ItemExtra {
 
     constructor(_json_: any) {
@@ -3427,10 +5053,25 @@ export  class TreasureBox  extends item.ItemExtra {
         { this.chooseList = []; for(let _ele of _json_.choose_list) { let _e : item.ChooseOneBonus; _e = new item.ChooseOneBonus(_ele); this.chooseList.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly keyItemId?: number
+    /**
+     * 
+     */
     readonly openLevel: condition.MinLevel
+    /**
+     * 
+     */
     readonly useOnObtain: boolean
+    /**
+     * 
+     */
     readonly dropIds: number[]
+    /**
+     * 
+     */
     readonly chooseList: item.ChooseOneBonus[]
 
     resolve(_tables: Map<string, any>) {
@@ -3447,7 +5088,9 @@ export  class TreasureBox  extends item.ItemExtra {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  abstract  class Condition  {
     static constructorFrom(_json_: any): Condition {
         switch (_json_.__type__) {
@@ -3478,7 +5121,9 @@ export  abstract  class Condition  {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class TimeRange  extends condition.Condition {
 
     constructor(_json_: any) {
@@ -3487,6 +5132,9 @@ export  class TimeRange  extends condition.Condition {
         this.dateTimeRange = new common.DateTimeRange(_json_.date_time_range)
     }
 
+    /**
+     * 
+     */
     readonly dateTimeRange: common.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -3502,7 +5150,9 @@ export  class TimeRange  extends condition.Condition {
 
 
 export namespace common {
-
+/**
+ * 
+ */
 export  class DateTimeRange  {
 
     constructor(_json_: any) {
@@ -3510,7 +5160,13 @@ export  class DateTimeRange  {
         if(_json_.end_time != null) { this.endTime = _json_.end_time } else { this.endTime = null }
     }
 
+    /**
+     * 
+     */
     readonly startTime?: number
+    /**
+     * 
+     */
     readonly endTime?: number
 
     resolve(_tables: Map<string, any>) {
@@ -3524,7 +5180,9 @@ export  class DateTimeRange  {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  abstract  class RoleCondition  extends condition.Condition {
     static constructorFrom(_json_: any): RoleCondition {
         switch (_json_.__type__) {
@@ -3556,7 +5214,9 @@ export  abstract  class RoleCondition  extends condition.Condition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class MultiRoleCondition  extends condition.RoleCondition {
 
     constructor(_json_: any) {
@@ -3565,6 +5225,9 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
         { this.conditions = []; for(let _ele of _json_.conditions) { let _e :condition.RoleCondition; _e = condition.RoleCondition.constructorFrom(_ele); this.conditions.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly conditions: condition.RoleCondition[]
 
     resolve(_tables: Map<string, any>) {
@@ -3580,7 +5243,9 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
     static constructorFrom(_json_: any): BoolRoleCondition {
         switch (_json_.__type__) {
@@ -3610,7 +5275,9 @@ export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class GenderLimit  extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
@@ -3619,6 +5286,9 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
         this.gender = _json_.gender
     }
 
+    /**
+     * 
+     */
     readonly gender: role.EGenderType
 
     resolve(_tables: Map<string, any>) {
@@ -3633,7 +5303,9 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class MinLevel  extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
@@ -3642,6 +5314,9 @@ export  class MinLevel  extends condition.BoolRoleCondition {
         this.level = _json_.level
     }
 
+    /**
+     * 
+     */
     readonly level: number
 
     resolve(_tables: Map<string, any>) {
@@ -3656,7 +5331,9 @@ export  class MinLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class MaxLevel  extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
@@ -3665,6 +5342,9 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
         this.level = _json_.level
     }
 
+    /**
+     * 
+     */
     readonly level: number
 
     resolve(_tables: Map<string, any>) {
@@ -3679,7 +5359,9 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
@@ -3690,7 +5372,13 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
         this.max = _json_.max
     }
 
+    /**
+     * 
+     */
     readonly min: number
+    /**
+     * 
+     */
     readonly max: number
 
     resolve(_tables: Map<string, any>) {
@@ -3705,7 +5393,9 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
@@ -3716,7 +5406,13 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly prop: item.EClothesPropertyType
+    /**
+     * 
+     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -3731,7 +5427,9 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
 
 
 export namespace condition {
-
+/**
+ * 
+ */
 export  class ContainsItem  extends condition.RoleCondition {
 
     constructor(_json_: any) {
@@ -3744,9 +5442,18 @@ export  class ContainsItem  extends condition.RoleCondition {
         this.reverse = _json_.reverse
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly num: number
+    /**
+     * 
+     */
     readonly reverse: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -3762,7 +5469,9 @@ export  class ContainsItem  extends condition.RoleCondition {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class ChooseOneBonus  {
 
     constructor(_json_: any) {
@@ -3772,8 +5481,14 @@ export  class ChooseOneBonus  {
         this.isUnique = _json_.is_unique
     }
 
+    /**
+     * 
+     */
     readonly dropId: number
     dropId_Ref : bonus.DropInfo
+    /**
+     * 
+     */
     readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -3788,7 +5503,9 @@ export  class ChooseOneBonus  {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class InteractionItem  extends item.ItemExtra {
 
     constructor(_json_: any) {
@@ -3800,8 +5517,17 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _json_.holding_static_mesh_mat
     }
 
+    /**
+     * 
+     */
     readonly attackNum?: number
+    /**
+     * 
+     */
     readonly holdingStaticMesh: string
+    /**
+     * 
+     */
     readonly holdingStaticMeshMat: string
 
     resolve(_tables: Map<string, any>) {
@@ -3816,7 +5542,9 @@ export  class InteractionItem  extends item.ItemExtra {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class Clothes  extends item.ItemExtra {
 
     constructor(_json_: any) {
@@ -3831,9 +5559,21 @@ export  class Clothes  extends item.ItemExtra {
         this.energyResume = _json_.energy_resume
     }
 
+    /**
+     * 
+     */
     readonly attack: number
+    /**
+     * 
+     */
     readonly hp: number
+    /**
+     * 
+     */
     readonly energyLimit: number
+    /**
+     * 
+     */
     readonly energyResume: number
 
     resolve(_tables: Map<string, any>) {
@@ -3848,7 +5588,9 @@ export  class Clothes  extends item.ItemExtra {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class DesignDrawing  extends item.ItemExtra {
 
     constructor(_json_: any) {
@@ -3857,6 +5599,9 @@ export  class DesignDrawing  extends item.ItemExtra {
         this.learnComponentId = _json_.learn_component_id
     }
 
+    /**
+     * 
+     */
     readonly learnComponentId: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -3871,7 +5616,9 @@ export  class DesignDrawing  extends item.ItemExtra {
 
 
 export namespace item {
-
+/**
+ * 
+ */
 export  class Dymmy  extends item.ItemExtra {
 
     constructor(_json_: any) {
@@ -3880,6 +5627,9 @@ export  class Dymmy  extends item.ItemExtra {
         this.cost = cost.Cost.constructorFrom(_json_.cost)
     }
 
+    /**
+     * 
+     */
     readonly cost: cost.Cost
 
     resolve(_tables: Map<string, any>) {
@@ -3895,7 +5645,9 @@ export  class Dymmy  extends item.ItemExtra {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  abstract  class Cost  {
     static constructorFrom(_json_: any): Cost {
         switch (_json_.__type__) {
@@ -3923,7 +5675,9 @@ export  abstract  class Cost  {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  class CostCurrency  extends cost.Cost {
 
     constructor(_json_: any) {
@@ -3934,7 +5688,13 @@ export  class CostCurrency  extends cost.Cost {
         this.num = _json_.num
     }
 
+    /**
+     * 
+     */
     readonly type: item.ECurrencyType
+    /**
+     * 
+     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -3949,7 +5709,9 @@ export  class CostCurrency  extends cost.Cost {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  class CostCurrencies  extends cost.Cost {
 
     constructor(_json_: any) {
@@ -3958,6 +5720,9 @@ export  class CostCurrencies  extends cost.Cost {
         { this.currencies = []; for(let _ele of _json_.currencies) { let _e : cost.CostCurrency; _e = new cost.CostCurrency(_ele); this.currencies.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly currencies: cost.CostCurrency[]
 
     resolve(_tables: Map<string, any>) {
@@ -3973,7 +5738,9 @@ export  class CostCurrencies  extends cost.Cost {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  class CostOneItem  extends cost.Cost {
 
     constructor(_json_: any) {
@@ -3982,6 +5749,9 @@ export  class CostOneItem  extends cost.Cost {
         this.itemId = _json_.item_id
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
 
@@ -3998,7 +5768,9 @@ export  class CostOneItem  extends cost.Cost {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  class CostItem  extends cost.Cost {
 
     constructor(_json_: any) {
@@ -4009,8 +5781,14 @@ export  class CostItem  extends cost.Cost {
         this.amount = _json_.amount
     }
 
+    /**
+     * 
+     */
     readonly itemId: number
     itemId_Ref : item.Item
+    /**
+     * 
+     */
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -4026,7 +5804,9 @@ export  class CostItem  extends cost.Cost {
 
 
 export namespace cost {
-
+/**
+ * 
+ */
 export  class CostItems  extends cost.Cost {
 
     constructor(_json_: any) {
@@ -4035,6 +5815,9 @@ export  class CostItems  extends cost.Cost {
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :cost.CostItem; _e = new cost.CostItem(_ele); this.itemList.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly itemList: cost.CostItem[]
 
     resolve(_tables: Map<string, any>) {
@@ -4048,6 +5831,9 @@ export  class CostItems  extends cost.Cost {
 
    
 export namespace l10n {
+/**
+ * 
+ */
 export class TbL10NDemo{
     private _dataMap: Map<number, l10n.L10NDemo>
     private _dataList: l10n.L10NDemo[]
@@ -4082,7 +5868,9 @@ export class TbL10NDemo{
 
 
 export namespace l10n {
-
+/**
+ * 
+ */
 export  class L10NDemo  {
 
     constructor(_json_: any) {
@@ -4092,7 +5880,13 @@ export  class L10NDemo  {
         this.text = _json_.text
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly text: string
 
     resolve(_tables: Map<string, any>) {
@@ -4104,6 +5898,9 @@ export  class L10NDemo  {
 
    
 export namespace l10n {
+/**
+ * 
+ */
 export class TbPatchDemo{
     private _dataMap: Map<number, l10n.PatchDemo>
     private _dataList: l10n.PatchDemo[]
@@ -4138,7 +5935,9 @@ export class TbPatchDemo{
 
 
 export namespace l10n {
-
+/**
+ * 
+ */
 export  class PatchDemo  {
 
     constructor(_json_: any) {
@@ -4148,7 +5947,13 @@ export  class PatchDemo  {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -4160,6 +5965,9 @@ export  class PatchDemo  {
 
    
 export namespace mail {
+/**
+ * 
+ */
 export class TbSystemMail{
     private _dataMap: Map<number, mail.SystemMail>
     private _dataList: mail.SystemMail[]
@@ -4194,7 +6002,9 @@ export class TbSystemMail{
 
 
 export namespace mail {
-
+/**
+ * 
+ */
 export  class SystemMail  {
 
     constructor(_json_: any) {
@@ -4210,10 +6020,25 @@ export  class SystemMail  {
         this.award = _json_.award
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly title: string
+    /**
+     * 
+     */
     readonly sender: string
+    /**
+     * 
+     */
     readonly content: string
+    /**
+     * 
+     */
     readonly award: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -4225,6 +6050,9 @@ export  class SystemMail  {
 
    
 export namespace mail {
+/**
+ * 
+ */
 export class TbGlobalMail{
     private _dataMap: Map<number, mail.GlobalMail>
     private _dataList: mail.GlobalMail[]
@@ -4259,7 +6087,9 @@ export class TbGlobalMail{
 
 
 export namespace mail {
-
+/**
+ * 
+ */
 export  class GlobalMail  {
 
     constructor(_json_: any) {
@@ -4289,17 +6119,53 @@ export  class GlobalMail  {
         this.mailTime = new condition.TimeRange(_json_.mail_time)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly title: string
+    /**
+     * 
+     */
     readonly sender: string
+    /**
+     * 
+     */
     readonly content: string
+    /**
+     * 
+     */
     readonly award: number[]
+    /**
+     * 
+     */
     readonly allServer: boolean
+    /**
+     * 
+     */
     readonly serverList: number[]
+    /**
+     * 
+     */
     readonly platform: string
+    /**
+     * 
+     */
     readonly channel: string
+    /**
+     * 
+     */
     readonly minMaxLevel: condition.MinMaxLevel
+    /**
+     * 
+     */
     readonly registerTime: condition.TimeRange
+    /**
+     * 
+     */
     readonly mailTime: condition.TimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -4314,6 +6180,9 @@ export  class GlobalMail  {
 
    
 export namespace role {
+/**
+ * 
+ */
 export class TbRoleLevelExpAttr{
     private _dataMap: Map<number, role.LevelExpAttr>
     private _dataList: role.LevelExpAttr[]
@@ -4348,7 +6217,9 @@ export class TbRoleLevelExpAttr{
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export  class LevelExpAttr  {
 
     constructor(_json_: any) {
@@ -4360,8 +6231,17 @@ export  class LevelExpAttr  {
         this.clothesAttrs = _json_.clothes_attrs
     }
 
+    /**
+     * 
+     */
     readonly level: number
+    /**
+     * 
+     */
     readonly needExp: number
+    /**
+     * 
+     */
     readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -4373,6 +6253,9 @@ export  class LevelExpAttr  {
 
    
 export namespace role {
+/**
+ * 
+ */
 export class TbRoleLevelBonusCoefficient{
     private _dataMap: Map<number, role.LevelBonus>
     private _dataList: role.LevelBonus[]
@@ -4407,7 +6290,9 @@ export class TbRoleLevelBonusCoefficient{
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export  class LevelBonus  {
 
     constructor(_json_: any) {
@@ -4417,7 +6302,13 @@ export  class LevelBonus  {
         { this.distinctBonusInfos = []; for(let _ele of _json_.distinct_bonus_infos) { let _e : role.DistinctBonusInfos; _e = new role.DistinctBonusInfos(_ele); this.distinctBonusInfos.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly distinctBonusInfos: role.DistinctBonusInfos[]
 
     resolve(_tables: Map<string, any>) {
@@ -4432,7 +6323,9 @@ export  class LevelBonus  {
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export  class DistinctBonusInfos  {
 
     constructor(_json_: any) {
@@ -4442,7 +6335,13 @@ export  class DistinctBonusInfos  {
         { this.bonusInfo = []; for(let _ele of _json_.bonus_info) { let _e : role.BonusInfo; _e = new role.BonusInfo(_ele); this.bonusInfo.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly effectiveLevel: number
+    /**
+     * 
+     */
     readonly bonusInfo: role.BonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -4457,7 +6356,9 @@ export  class DistinctBonusInfos  {
 
 
 export namespace role {
-
+/**
+ * 
+ */
 export  class BonusInfo  {
 
     constructor(_json_: any) {
@@ -4467,7 +6368,13 @@ export  class BonusInfo  {
         this.coefficient = _json_.coefficient
     }
 
+    /**
+     * 
+     */
     readonly type: item.ECurrencyType
+    /**
+     * 
+     */
     readonly coefficient: number
 
     resolve(_tables: Map<string, any>) {
@@ -4479,6 +6386,9 @@ export  class BonusInfo  {
 
    
 export namespace tag {
+/**
+ * 
+ */
 export class TbTestTag{
     private _dataMap: Map<number, tag.TestTag>
     private _dataList: tag.TestTag[]
@@ -4513,7 +6423,9 @@ export class TbTestTag{
 
 
 export namespace tag {
-
+/**
+ * 
+ */
 export  class TestTag  {
 
     constructor(_json_: any) {
@@ -4523,7 +6435,13 @@ export  class TestTag  {
         this.value = _json_.value
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -4535,6 +6453,9 @@ export  class TestTag  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbFullTypes{
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -4569,7 +6490,9 @@ export class TbFullTypes{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoType2  {
 
     constructor(_json_: any) {
@@ -4633,35 +6556,122 @@ export  class DemoType2  {
         { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly x4: number
+    /**
+     * 
+     */
     readonly x1: boolean
+    /**
+     * 
+     */
     readonly x2: number
+    /**
+     * 
+     */
     readonly x3: number
     x3_Ref : test.DemoType2
+    /**
+     * 
+     */
     readonly x5: number
+    /**
+     * 
+     */
     readonly x6: number
+    /**
+     * 
+     */
     readonly x7: number
+    /**
+     * 
+     */
     readonly x80: number
+    /**
+     * 
+     */
     readonly x8: number
+    /**
+     * 
+     */
     readonly x9: bigint
+    /**
+     * 
+     */
     readonly x10: string
+    /**
+     * 
+     */
     readonly x12: test.DemoType1
+    /**
+     * 
+     */
     readonly x13: test.DemoEnum
+    /**
+     * 
+     */
     readonly x14: test.DemoDynamic
+    /**
+     * 
+     */
     readonly s1: string
+    /**
+     * 
+     */
     readonly v2: Vector2
+    /**
+     * 
+     */
     readonly v3: Vector3
+    /**
+     * 
+     */
     readonly v4: Vector4
+    /**
+     * 
+     */
     readonly t1: number
+    /**
+     * 
+     */
     readonly k1: Int32Array
+    /**
+     * 
+     */
     readonly k2: number[]
+    /**
+     * 
+     */
     readonly k3: number[]
+    /**
+     * 
+     */
     readonly k4: number[]
+    /**
+     * 
+     */
     readonly k5: Set<number>
+    /**
+     * 
+     */
     readonly k6: Set<number>
+    /**
+     * 
+     */
     readonly k7: Set<number>
+    /**
+     * 
+     */
     readonly k8: Map<number, number>
+    /**
+     * 
+     */
     readonly k9: test.DemoE2[]
+    /**
+     * 
+     */
     readonly k15: test.DemoDynamic[]
 
     resolve(_tables: Map<string, any>) {
@@ -4680,7 +6690,9 @@ export  class DemoType2  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoType1  {
 
     constructor(_json_: any) {
@@ -4688,6 +6700,9 @@ export  class DemoType1  {
         this.x1 = _json_.x1
     }
 
+    /**
+     * 
+     */
     readonly x1: number
 
     resolve(_tables: Map<string, any>) {
@@ -4701,7 +6716,9 @@ export  class DemoType1  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  abstract  class DemoDynamic  {
     static constructorFrom(_json_: any): DemoDynamic {
         switch (_json_.__type__) {
@@ -4717,6 +6734,9 @@ export  abstract  class DemoDynamic  {
         this.x1 = _json_.x1
     }
 
+    /**
+     * 
+     */
     readonly x1: number
 
     resolve(_tables: Map<string, any>) {
@@ -4730,7 +6750,9 @@ export  abstract  class DemoDynamic  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoD2  extends test.DemoDynamic {
 
     constructor(_json_: any) {
@@ -4739,6 +6761,9 @@ export  class DemoD2  extends test.DemoDynamic {
         this.x2 = _json_.x2
     }
 
+    /**
+     * 
+     */
     readonly x2: number
 
     resolve(_tables: Map<string, any>) {
@@ -4753,7 +6778,9 @@ export  class DemoD2  extends test.DemoDynamic {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  abstract  class DemoD3  extends test.DemoDynamic {
     static constructorFrom(_json_: any): DemoD3 {
         switch (_json_.__type__) {
@@ -4768,6 +6795,9 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
         this.x3 = _json_.x3
     }
 
+    /**
+     * 
+     */
     readonly x3: number
 
     resolve(_tables: Map<string, any>) {
@@ -4782,7 +6812,9 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoE1  extends test.DemoD3 {
 
     constructor(_json_: any) {
@@ -4791,6 +6823,9 @@ export  class DemoE1  extends test.DemoD3 {
         this.x4 = _json_.x4
     }
 
+    /**
+     * 
+     */
     readonly x4: number
 
     resolve(_tables: Map<string, any>) {
@@ -4805,7 +6840,9 @@ export  class DemoE1  extends test.DemoD3 {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoD5  extends test.DemoDynamic {
 
     constructor(_json_: any) {
@@ -4814,6 +6851,9 @@ export  class DemoD5  extends test.DemoDynamic {
         this.time = new test.DateTimeRange(_json_.time)
     }
 
+    /**
+     * 
+     */
     readonly time: test.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -4829,7 +6869,9 @@ export  class DemoD5  extends test.DemoDynamic {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DateTimeRange  {
 
     constructor(_json_: any) {
@@ -4839,7 +6881,13 @@ export  class DateTimeRange  {
         this.endTime = _json_.end_time
     }
 
+    /**
+     * 
+     */
     readonly startTime: number
+    /**
+     * 
+     */
     readonly endTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -4853,7 +6901,9 @@ export  class DateTimeRange  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoE2  {
 
     constructor(_json_: any) {
@@ -4862,7 +6912,13 @@ export  class DemoE2  {
         this.y2 = _json_.y2
     }
 
+    /**
+     * 
+     */
     readonly y1?: number
+    /**
+     * 
+     */
     readonly y2: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -4874,6 +6930,9 @@ export  class DemoE2  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbSingleton{
 
      private _data: test.DemoSingletonType
@@ -4884,8 +6943,17 @@ export class TbSingleton{
 
     getData(): test.DemoSingletonType { return this._data; }
 
+    /**
+     * 
+     */
      get  id(): number { return this._data.id; }
+    /**
+     * 
+     */
      get  name(): string { return this._data.name; }
+    /**
+     * 
+     */
      get  date(): test.DemoDynamic { return this._data.date; }
 
     resolve(_tables: Map<string, any>) {
@@ -4901,7 +6969,9 @@ export class TbSingleton{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoSingletonType  {
 
     constructor(_json_: any) {
@@ -4913,8 +6983,17 @@ export  class DemoSingletonType  {
         this.date = test.DemoDynamic.constructorFrom(_json_.date)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly date: test.DemoDynamic
 
     resolve(_tables: Map<string, any>) {
@@ -4927,6 +7006,9 @@ export  class DemoSingletonType  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDataFromJson{
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -4959,6 +7041,9 @@ export class TbDataFromJson{
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDataFromXml{
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -4991,6 +7076,9 @@ export class TbDataFromXml{
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDataFromLua{
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -5023,6 +7111,9 @@ export class TbDataFromLua{
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbMultiRowRecord{
     private _dataMap: Map<number, test.MultiRowRecord>
     private _dataList: test.MultiRowRecord[]
@@ -5057,7 +7148,9 @@ export class TbMultiRowRecord{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class MultiRowRecord  {
 
     constructor(_json_: any) {
@@ -5077,12 +7170,33 @@ export  class MultiRowRecord  {
         this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly oneRows: test.MultiRowType1[]
+    /**
+     * 
+     */
     readonly multiRows1: test.MultiRowType1[]
+    /**
+     * 
+     */
     readonly multiRows2: test.MultiRowType1[]
+    /**
+     * 
+     */
     readonly multiRows3: Set<test.MultiRowType2>
+    /**
+     * 
+     */
     readonly multiRows4: Map<number, test.MultiRowType2>
 
     resolve(_tables: Map<string, any>) {
@@ -5100,7 +7214,9 @@ export  class MultiRowRecord  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class MultiRowType1  {
 
     constructor(_json_: any) {
@@ -5110,7 +7226,13 @@ export  class MultiRowType1  {
         this.x = _json_.x
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly x: number
 
     resolve(_tables: Map<string, any>) {
@@ -5124,7 +7246,9 @@ export  class MultiRowType1  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class MultiRowType2  {
 
     constructor(_json_: any) {
@@ -5136,8 +7260,17 @@ export  class MultiRowType2  {
         this.y = _json_.y
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly x: number
+    /**
+     * 
+     */
     readonly y: number
 
     resolve(_tables: Map<string, any>) {
@@ -5149,6 +7282,9 @@ export  class MultiRowType2  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbMultiRowTitle{
     private _dataMap: Map<number, test.MultiRowTitle>
     private _dataList: test.MultiRowTitle[]
@@ -5183,7 +7319,9 @@ export class TbMultiRowTitle{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class MultiRowTitle  {
 
     constructor(_json_: any) {
@@ -5199,10 +7337,25 @@ export  class MultiRowTitle  {
         { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly name: string
+    /**
+     * 
+     */
     readonly x1: test.H1
+    /**
+     * 
+     */
     readonly x2: test.H2[]
+    /**
+     * 
+     */
     readonly x3: test.H2[]
 
     resolve(_tables: Map<string, any>) {
@@ -5219,7 +7372,9 @@ export  class MultiRowTitle  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class H1  {
 
     constructor(_json_: any) {
@@ -5229,7 +7384,13 @@ export  class H1  {
         this.y3 = _json_.y3
     }
 
+    /**
+     * 
+     */
     readonly y2: test.H2
+    /**
+     * 
+     */
     readonly y3: number
 
     resolve(_tables: Map<string, any>) {
@@ -5244,7 +7405,9 @@ export  class H1  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class H2  {
 
     constructor(_json_: any) {
@@ -5254,7 +7417,13 @@ export  class H2  {
         this.z3 = _json_.z3
     }
 
+    /**
+     * 
+     */
     readonly z2: number
+    /**
+     * 
+     */
     readonly z3: number
 
     resolve(_tables: Map<string, any>) {
@@ -5266,6 +7435,9 @@ export  class H2  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbTestNull{
     private _dataMap: Map<number, test.TestNull>
     private _dataList: test.TestNull[]
@@ -5300,7 +7472,9 @@ export class TbTestNull{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class TestNull  {
 
     constructor(_json_: any) {
@@ -5314,12 +7488,33 @@ export  class TestNull  {
         if(_json_.s2 != null) { this.s2 = _json_.s2 } else { this.s2 = null }
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly x1?: number
+    /**
+     * 
+     */
     readonly x2?: test.DemoEnum
+    /**
+     * 
+     */
     readonly x3?: test.DemoType1
+    /**
+     * 
+     */
     readonly x4?: test.DemoDynamic
+    /**
+     * 
+     */
     readonly s1?: string
+    /**
+     * 
+     */
     readonly s2?: string
 
     resolve(_tables: Map<string, any>) {
@@ -5333,6 +7528,9 @@ export  class TestNull  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDemoPrimitive{
     private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
     private _dataList: test.DemoPrimitiveTypesTable[]
@@ -5367,7 +7565,9 @@ export class TbDemoPrimitive{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoPrimitiveTypesTable  {
 
     constructor(_json_: any) {
@@ -5399,18 +7599,57 @@ export  class DemoPrimitiveTypesTable  {
         this.t1 = _json_.t1
     }
 
+    /**
+     * 
+     */
     readonly x1: boolean
+    /**
+     * 
+     */
     readonly x2: number
+    /**
+     * 
+     */
     readonly x3: number
+    /**
+     * 
+     */
     readonly x4: number
+    /**
+     * 
+     */
     readonly x5: number
+    /**
+     * 
+     */
     readonly x6: number
+    /**
+     * 
+     */
     readonly x7: number
+    /**
+     * 
+     */
     readonly s1: string
+    /**
+     * 
+     */
     readonly s2: string
+    /**
+     * 
+     */
     readonly v2: Vector2
+    /**
+     * 
+     */
     readonly v3: Vector3
+    /**
+     * 
+     */
     readonly v4: Vector4
+    /**
+     * 
+     */
     readonly t1: number
 
     resolve(_tables: Map<string, any>) {
@@ -5422,6 +7661,9 @@ export  class DemoPrimitiveTypesTable  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbTestString{
     private _dataMap: Map<number, test.TestString>
     private _dataList: test.TestString[]
@@ -5456,7 +7698,9 @@ export class TbTestString{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class TestString  {
 
     constructor(_json_: any) {
@@ -5470,9 +7714,21 @@ export  class TestString  {
         this.cs2 = new test.CompactString(_json_.cs2)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly s1: string
+    /**
+     * 
+     */
     readonly cs1: test.CompactString
+    /**
+     * 
+     */
     readonly cs2: test.CompactString
 
     resolve(_tables: Map<string, any>) {
@@ -5488,7 +7744,9 @@ export  class TestString  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class CompactString  {
 
     constructor(_json_: any) {
@@ -5500,8 +7758,17 @@ export  class CompactString  {
         this.s3 = _json_.s3
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly s2: string
+    /**
+     * 
+     */
     readonly s3: string
 
     resolve(_tables: Map<string, any>) {
@@ -5513,6 +7780,9 @@ export  class CompactString  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDemoGroup{
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -5547,7 +7817,9 @@ export class TbDemoGroup{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class DemoGroup  {
 
     constructor(_json_: any) {
@@ -5563,10 +7835,25 @@ export  class DemoGroup  {
         this.x5 = new test.InnerGroup(_json_.x5)
     }
 
+    /**
+     * 
+     */
     readonly id: number
+    /**
+     * 
+     */
     readonly x1: number
+    /**
+     * 
+     */
     readonly x2: number
+    /**
+     * 
+     */
     readonly x4: number
+    /**
+     * 
+     */
     readonly x5: test.InnerGroup
 
     resolve(_tables: Map<string, any>) {
@@ -5581,7 +7868,9 @@ export  class DemoGroup  {
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class InnerGroup  {
 
     constructor(_json_: any) {
@@ -5593,8 +7882,17 @@ export  class InnerGroup  {
         this.y4 = _json_.y4
     }
 
+    /**
+     * 
+     */
     readonly y1: number
+    /**
+     * 
+     */
     readonly y2: number
+    /**
+     * 
+     */
     readonly y4: number
 
     resolve(_tables: Map<string, any>) {
@@ -5606,6 +7904,9 @@ export  class InnerGroup  {
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbDemoGroup_C{
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -5638,6 +7939,9 @@ export class TbDemoGroup_C{
 
    
 export namespace test {
+/**
+ * 
+ */
 export class TbTestGlobal{
 
      private _data: test.TestGlobal
@@ -5648,7 +7952,13 @@ export class TbTestGlobal{
 
     getData(): test.TestGlobal { return this._data; }
 
+    /**
+     * 
+     */
      get  unlockEquip(): number { return this._data.unlockEquip; }
+    /**
+     * 
+     */
      get  unlockHero(): number { return this._data.unlockHero; }
 
     resolve(_tables: Map<string, any>) {
@@ -5664,7 +7974,9 @@ export class TbTestGlobal{
 
 
 export namespace test {
-
+/**
+ * 
+ */
 export  class TestGlobal  {
 
     constructor(_json_: any) {
@@ -5674,7 +7986,13 @@ export  class TestGlobal  {
         this.unlockHero = _json_.unlock_hero
     }
 
+    /**
+     * 
+     */
     readonly unlockEquip: number
+    /**
+     * 
+     */
     readonly unlockHero: number
 
     resolve(_tables: Map<string, any>) {
@@ -5690,66 +8008,159 @@ type JsonLoader = (file: string) => any
 
 export class Tables {
     private _TbBlackboard: ai.TbBlackboard
+    /**
+     * 
+     */
     get TbBlackboard(): ai.TbBlackboard  { return this._TbBlackboard;}
     private _TbBehaviorTree: ai.TbBehaviorTree
+    /**
+     * 
+     */
     get TbBehaviorTree(): ai.TbBehaviorTree  { return this._TbBehaviorTree;}
     private _TbClazz: blueprint.TbClazz
+    /**
+     * 
+     */
     get TbClazz(): blueprint.TbClazz  { return this._TbClazz;}
     private _TbDrop: bonus.TbDrop
+    /**
+     * 
+     */
     get TbDrop(): bonus.TbDrop  { return this._TbDrop;}
     private _TbGlobalConfig: common.TbGlobalConfig
+    /**
+     * 
+     */
     get TbGlobalConfig(): common.TbGlobalConfig  { return this._TbGlobalConfig;}
     private _TbDummy: common.TbDummy
+    /**
+     * 
+     */
     get TbDummy(): common.TbDummy  { return this._TbDummy;}
     private _TbErrorInfo: error.TbErrorInfo
+    /**
+     * 
+     */
     get TbErrorInfo(): error.TbErrorInfo  { return this._TbErrorInfo;}
     private _TbCodeInfo: error.TbCodeInfo
+    /**
+     * 
+     */
     get TbCodeInfo(): error.TbCodeInfo  { return this._TbCodeInfo;}
     private _TbItem: item.TbItem
+    /**
+     * 道具表
+     */
     get TbItem(): item.TbItem  { return this._TbItem;}
     private _TbItemFunc: item.TbItemFunc
+    /**
+     * 
+     */
     get TbItemFunc(): item.TbItemFunc  { return this._TbItemFunc;}
     private _TbItemExtra: item.TbItemExtra
+    /**
+     * 
+     */
     get TbItemExtra(): item.TbItemExtra  { return this._TbItemExtra;}
     private _TbL10NDemo: l10n.TbL10NDemo
+    /**
+     * 
+     */
     get TbL10NDemo(): l10n.TbL10NDemo  { return this._TbL10NDemo;}
     private _TbPatchDemo: l10n.TbPatchDemo
+    /**
+     * 
+     */
     get TbPatchDemo(): l10n.TbPatchDemo  { return this._TbPatchDemo;}
     private _TbSystemMail: mail.TbSystemMail
+    /**
+     * 
+     */
     get TbSystemMail(): mail.TbSystemMail  { return this._TbSystemMail;}
     private _TbGlobalMail: mail.TbGlobalMail
+    /**
+     * 
+     */
     get TbGlobalMail(): mail.TbGlobalMail  { return this._TbGlobalMail;}
     private _TbRoleLevelExpAttr: role.TbRoleLevelExpAttr
+    /**
+     * 
+     */
     get TbRoleLevelExpAttr(): role.TbRoleLevelExpAttr  { return this._TbRoleLevelExpAttr;}
     private _TbRoleLevelBonusCoefficient: role.TbRoleLevelBonusCoefficient
+    /**
+     * 
+     */
     get TbRoleLevelBonusCoefficient(): role.TbRoleLevelBonusCoefficient  { return this._TbRoleLevelBonusCoefficient;}
     private _TbTestTag: tag.TbTestTag
+    /**
+     * 
+     */
     get TbTestTag(): tag.TbTestTag  { return this._TbTestTag;}
     private _TbFullTypes: test.TbFullTypes
+    /**
+     * 
+     */
     get TbFullTypes(): test.TbFullTypes  { return this._TbFullTypes;}
     private _TbSingleton: test.TbSingleton
+    /**
+     * 
+     */
     get TbSingleton(): test.TbSingleton  { return this._TbSingleton;}
     private _TbDataFromJson: test.TbDataFromJson
+    /**
+     * 
+     */
     get TbDataFromJson(): test.TbDataFromJson  { return this._TbDataFromJson;}
     private _TbDataFromXml: test.TbDataFromXml
+    /**
+     * 
+     */
     get TbDataFromXml(): test.TbDataFromXml  { return this._TbDataFromXml;}
     private _TbDataFromLua: test.TbDataFromLua
+    /**
+     * 
+     */
     get TbDataFromLua(): test.TbDataFromLua  { return this._TbDataFromLua;}
     private _TbMultiRowRecord: test.TbMultiRowRecord
+    /**
+     * 
+     */
     get TbMultiRowRecord(): test.TbMultiRowRecord  { return this._TbMultiRowRecord;}
     private _TbMultiRowTitle: test.TbMultiRowTitle
+    /**
+     * 
+     */
     get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle;}
     private _TbTestNull: test.TbTestNull
+    /**
+     * 
+     */
     get TbTestNull(): test.TbTestNull  { return this._TbTestNull;}
     private _TbDemoPrimitive: test.TbDemoPrimitive
+    /**
+     * 
+     */
     get TbDemoPrimitive(): test.TbDemoPrimitive  { return this._TbDemoPrimitive;}
     private _TbTestString: test.TbTestString
+    /**
+     * 
+     */
     get TbTestString(): test.TbTestString  { return this._TbTestString;}
     private _TbDemoGroup: test.TbDemoGroup
+    /**
+     * 
+     */
     get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup;}
     private _TbDemoGroup_C: test.TbDemoGroup_C
+    /**
+     * 
+     */
     get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C;}
     private _TbTestGlobal: test.TbTestGlobal
+    /**
+     * 
+     */
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal;}
 
     constructor(loader: JsonLoader) {
