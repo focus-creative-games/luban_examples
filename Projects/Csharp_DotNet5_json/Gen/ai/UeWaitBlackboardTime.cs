@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeWaitBlackboardTime :  ai.Task 
 {
-    public UeWaitBlackboardTime(JsonElement _buf)  : base(_buf) 
+    public UeWaitBlackboardTime(JsonElement _json)  : base(_json) 
     {
-        BlackboardKey = _buf.GetProperty("blackboard_key").GetString();
+        BlackboardKey = _json.GetProperty("blackboard_key").GetString();
     }
 
     public UeWaitBlackboardTime(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string blackboard_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -31,9 +31,9 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         this.BlackboardKey = blackboard_key;
     }
 
-    public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(JsonElement _buf)
+    public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(JsonElement _json)
     {
-        return new ai.UeWaitBlackboardTime(_buf);
+        return new ai.UeWaitBlackboardTime(_json);
     }
 
     /// <summary>

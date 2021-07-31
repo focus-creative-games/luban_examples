@@ -21,10 +21,10 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
-    public DateTimeRange(JsonElement _buf) 
+    public DateTimeRange(JsonElement _json) 
     {
-        StartTime = _buf.GetProperty("start_time").GetInt32();
-        EndTime = _buf.GetProperty("end_time").GetInt32();
+        StartTime = _json.GetProperty("start_time").GetInt32();
+        EndTime = _json.GetProperty("end_time").GetInt32();
     }
 
     public DateTimeRange(int start_time, int end_time ) 
@@ -33,9 +33,9 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         this.EndTime = end_time;
     }
 
-    public static DateTimeRange DeserializeDateTimeRange(JsonElement _buf)
+    public static DateTimeRange DeserializeDateTimeRange(JsonElement _json)
     {
-        return new test.DateTimeRange(_buf);
+        return new test.DateTimeRange(_json);
     }
 
     /// <summary>

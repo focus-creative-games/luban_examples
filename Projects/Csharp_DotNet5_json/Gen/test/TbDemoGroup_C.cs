@@ -24,12 +24,12 @@ public sealed partial class TbDemoGroup_C
     private readonly Dictionary<int, test.DemoGroup> _dataMap;
     private readonly List<test.DemoGroup> _dataList;
     
-    public TbDemoGroup_C(JsonElement _buf)
+    public TbDemoGroup_C(JsonElement _json)
     {
         _dataMap = new Dictionary<int, test.DemoGroup>();
         _dataList = new List<test.DemoGroup>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = test.DemoGroup.DeserializeDemoGroup(_row);
             _dataList.Add(_v);

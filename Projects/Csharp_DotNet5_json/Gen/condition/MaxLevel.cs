@@ -21,9 +21,9 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
-    public MaxLevel(JsonElement _buf)  : base(_buf) 
+    public MaxLevel(JsonElement _json)  : base(_json) 
     {
-        Level = _buf.GetProperty("level").GetInt32();
+        Level = _json.GetProperty("level").GetInt32();
     }
 
     public MaxLevel(int level )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
         this.Level = level;
     }
 
-    public static MaxLevel DeserializeMaxLevel(JsonElement _buf)
+    public static MaxLevel DeserializeMaxLevel(JsonElement _json)
     {
-        return new condition.MaxLevel(_buf);
+        return new condition.MaxLevel(_json);
     }
 
     /// <summary>

@@ -21,7 +21,7 @@ namespace cfg.condition
 /// </summary>
 public abstract partial class RoleCondition :  condition.Condition 
 {
-    public RoleCondition(JsonElement _buf)  : base(_buf) 
+    public RoleCondition(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,17 +29,17 @@ public abstract partial class RoleCondition :  condition.Condition
     {
     }
 
-    public static RoleCondition DeserializeRoleCondition(JsonElement _buf)
+    public static RoleCondition DeserializeRoleCondition(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "MultiRoleCondition": return new condition.MultiRoleCondition(_buf);
-            case "GenderLimit": return new condition.GenderLimit(_buf);
-            case "MinLevel": return new condition.MinLevel(_buf);
-            case "MaxLevel": return new condition.MaxLevel(_buf);
-            case "MinMaxLevel": return new condition.MinMaxLevel(_buf);
-            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_buf);
-            case "ContainsItem": return new condition.ContainsItem(_buf);
+            case "MultiRoleCondition": return new condition.MultiRoleCondition(_json);
+            case "GenderLimit": return new condition.GenderLimit(_json);
+            case "MinLevel": return new condition.MinLevel(_json);
+            case "MaxLevel": return new condition.MaxLevel(_json);
+            case "MinMaxLevel": return new condition.MinMaxLevel(_json);
+            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_json);
+            case "ContainsItem": return new condition.ContainsItem(_json);
             default: throw new SerializationException();
         }
     }

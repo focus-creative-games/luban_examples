@@ -21,11 +21,11 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class IsAtLocation :  ai.Decorator 
 {
-    public IsAtLocation(JsonElement _buf)  : base(_buf) 
+    public IsAtLocation(JsonElement _json)  : base(_json) 
     {
-        AcceptableRadius = _buf.GetProperty("acceptable_radius").GetSingle();
-        KeyboardKey = _buf.GetProperty("keyboard_key").GetString();
-        InverseCondition = _buf.GetProperty("inverse_condition").GetBoolean();
+        AcceptableRadius = _json.GetProperty("acceptable_radius").GetSingle();
+        KeyboardKey = _json.GetProperty("keyboard_key").GetString();
+        InverseCondition = _json.GetProperty("inverse_condition").GetBoolean();
     }
 
     public IsAtLocation(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float acceptable_radius, string keyboard_key, bool inverse_condition )  : base(id,node_name,flow_abort_mode) 
@@ -35,9 +35,9 @@ public sealed partial class IsAtLocation :  ai.Decorator
         this.InverseCondition = inverse_condition;
     }
 
-    public static IsAtLocation DeserializeIsAtLocation(JsonElement _buf)
+    public static IsAtLocation DeserializeIsAtLocation(JsonElement _json)
     {
-        return new ai.IsAtLocation(_buf);
+        return new ai.IsAtLocation(_json);
     }
 
     /// <summary>

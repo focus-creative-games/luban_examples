@@ -21,7 +21,7 @@ namespace cfg.limit
 /// </summary>
 public abstract partial class LimitBase :  Bright.Config.BeanBase 
 {
-    public LimitBase(JsonElement _buf) 
+    public LimitBase(JsonElement _json) 
     {
     }
 
@@ -29,16 +29,16 @@ public abstract partial class LimitBase :  Bright.Config.BeanBase
     {
     }
 
-    public static LimitBase DeserializeLimitBase(JsonElement _buf)
+    public static LimitBase DeserializeLimitBase(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "DailyLimit": return new limit.DailyLimit(_buf);
-            case "MultiDayLimit": return new limit.MultiDayLimit(_buf);
-            case "WeeklyLimit": return new limit.WeeklyLimit(_buf);
-            case "MonthlyLimit": return new limit.MonthlyLimit(_buf);
-            case "CoolDown": return new limit.CoolDown(_buf);
-            case "GroupCoolDown": return new limit.GroupCoolDown(_buf);
+            case "DailyLimit": return new limit.DailyLimit(_json);
+            case "MultiDayLimit": return new limit.MultiDayLimit(_json);
+            case "WeeklyLimit": return new limit.WeeklyLimit(_json);
+            case "MonthlyLimit": return new limit.MonthlyLimit(_json);
+            case "CoolDown": return new limit.CoolDown(_json);
+            case "GroupCoolDown": return new limit.GroupCoolDown(_json);
             default: throw new SerializationException();
         }
     }

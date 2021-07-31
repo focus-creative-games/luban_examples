@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public abstract partial class Task :  ai.FlowNode 
 {
-    public Task(JsonElement _buf)  : base(_buf) 
+    public Task(JsonElement _json)  : base(_json) 
     {
-        IgnoreRestartSelf = _buf.GetProperty("ignore_restart_self").GetBoolean();
+        IgnoreRestartSelf = _json.GetProperty("ignore_restart_self").GetBoolean();
     }
 
     public Task(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self )  : base(id,node_name,decorators,services) 
@@ -31,17 +31,17 @@ public abstract partial class Task :  ai.FlowNode
         this.IgnoreRestartSelf = ignore_restart_self;
     }
 
-    public static Task DeserializeTask(JsonElement _buf)
+    public static Task DeserializeTask(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "UeWait": return new ai.UeWait(_buf);
-            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_buf);
-            case "MoveToTarget": return new ai.MoveToTarget(_buf);
-            case "ChooseSkill": return new ai.ChooseSkill(_buf);
-            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_buf);
-            case "MoveToLocation": return new ai.MoveToLocation(_buf);
-            case "DebugPrint": return new ai.DebugPrint(_buf);
+            case "UeWait": return new ai.UeWait(_json);
+            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_json);
+            case "MoveToTarget": return new ai.MoveToTarget(_json);
+            case "ChooseSkill": return new ai.ChooseSkill(_json);
+            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_json);
+            case "MoveToLocation": return new ai.MoveToLocation(_json);
+            case "DebugPrint": return new ai.DebugPrint(_json);
             default: throw new SerializationException();
         }
     }

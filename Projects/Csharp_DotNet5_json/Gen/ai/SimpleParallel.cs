@@ -21,11 +21,11 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
-    public SimpleParallel(JsonElement _buf)  : base(_buf) 
+    public SimpleParallel(JsonElement _json)  : base(_json) 
     {
-        FinishMode = (ai.EFinishMode)_buf.GetProperty("finish_mode").GetInt32();
-        MainTask =  ai.Task.DeserializeTask(_buf.GetProperty("main_task"));
-        BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_buf.GetProperty("background_node"));
+        FinishMode = (ai.EFinishMode)_json.GetProperty("finish_mode").GetInt32();
+        MainTask =  ai.Task.DeserializeTask(_json.GetProperty("main_task"));
+        BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_json.GetProperty("background_node"));
     }
 
     public SimpleParallel(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, ai.EFinishMode finish_mode, ai.Task main_task, ai.FlowNode background_node )  : base(id,node_name,decorators,services) 
@@ -35,9 +35,9 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         this.BackgroundNode = background_node;
     }
 
-    public static SimpleParallel DeserializeSimpleParallel(JsonElement _buf)
+    public static SimpleParallel DeserializeSimpleParallel(JsonElement _json)
     {
-        return new ai.SimpleParallel(_buf);
+        return new ai.SimpleParallel(_json);
     }
 
     /// <summary>

@@ -21,12 +21,12 @@ namespace cfg.test
 /// </summary>
 public sealed partial class TestString :  Bright.Config.BeanBase 
 {
-    public TestString(JsonElement _buf) 
+    public TestString(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        S1 = _buf.GetProperty("s1").GetString();
-        Cs1 =  test.CompactString.DeserializeCompactString(_buf.GetProperty("cs1"));
-        Cs2 =  test.CompactString.DeserializeCompactString(_buf.GetProperty("cs2"));
+        Id = _json.GetProperty("id").GetInt32();
+        S1 = _json.GetProperty("s1").GetString();
+        Cs1 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs1"));
+        Cs2 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs2"));
     }
 
     public TestString(int id, string s1, test.CompactString cs1, test.CompactString cs2 ) 
@@ -37,9 +37,9 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         this.Cs2 = cs2;
     }
 
-    public static TestString DeserializeTestString(JsonElement _buf)
+    public static TestString DeserializeTestString(JsonElement _json)
     {
-        return new test.TestString(_buf);
+        return new test.TestString(_json);
     }
 
     /// <summary>

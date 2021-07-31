@@ -21,7 +21,7 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class BlueprintMethod :  blueprint.Method 
 {
-    public BlueprintMethod(JsonElement _buf)  : base(_buf) 
+    public BlueprintMethod(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class BlueprintMethod :  blueprint.Method
     {
     }
 
-    public static BlueprintMethod DeserializeBlueprintMethod(JsonElement _buf)
+    public static BlueprintMethod DeserializeBlueprintMethod(JsonElement _json)
     {
-        return new blueprint.BlueprintMethod(_buf);
+        return new blueprint.BlueprintMethod(_json);
     }
 
 

@@ -21,20 +21,20 @@ namespace cfg.mail
 /// </summary>
 public sealed partial class GlobalMail :  Bright.Config.BeanBase 
 {
-    public GlobalMail(JsonElement _buf) 
+    public GlobalMail(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Title = _buf.GetProperty("title").GetString();
-        Sender = _buf.GetProperty("sender").GetString();
-        Content = _buf.GetProperty("content").GetString();
-        { var _json = _buf.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
-        AllServer = _buf.GetProperty("all_server").GetBoolean();
-        { var _json = _buf.GetProperty("server_list"); ServerList = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ServerList.Add(__v); }   }
-        Platform = _buf.GetProperty("platform").GetString();
-        Channel = _buf.GetProperty("channel").GetString();
-        MinMaxLevel =  condition.MinMaxLevel.DeserializeMinMaxLevel(_buf.GetProperty("min_max_level"));
-        RegisterTime =  condition.TimeRange.DeserializeTimeRange(_buf.GetProperty("register_time"));
-        MailTime =  condition.TimeRange.DeserializeTimeRange(_buf.GetProperty("mail_time"));
+        Id = _json.GetProperty("id").GetInt32();
+        Title = _json.GetProperty("title").GetString();
+        Sender = _json.GetProperty("sender").GetString();
+        Content = _json.GetProperty("content").GetString();
+        { var _json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
+        AllServer = _json.GetProperty("all_server").GetBoolean();
+        { var _json0 = _json.GetProperty("server_list"); ServerList = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ServerList.Add(__v); }   }
+        Platform = _json.GetProperty("platform").GetString();
+        Channel = _json.GetProperty("channel").GetString();
+        MinMaxLevel =  condition.MinMaxLevel.DeserializeMinMaxLevel(_json.GetProperty("min_max_level"));
+        RegisterTime =  condition.TimeRange.DeserializeTimeRange(_json.GetProperty("register_time"));
+        MailTime =  condition.TimeRange.DeserializeTimeRange(_json.GetProperty("mail_time"));
     }
 
     public GlobalMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award, bool all_server, System.Collections.Generic.List<int> server_list, string platform, string channel, condition.MinMaxLevel min_max_level, condition.TimeRange register_time, condition.TimeRange mail_time ) 
@@ -53,9 +53,9 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         this.MailTime = mail_time;
     }
 
-    public static GlobalMail DeserializeGlobalMail(JsonElement _buf)
+    public static GlobalMail DeserializeGlobalMail(JsonElement _json)
     {
-        return new mail.GlobalMail(_buf);
+        return new mail.GlobalMail(_json);
     }
 
     /// <summary>

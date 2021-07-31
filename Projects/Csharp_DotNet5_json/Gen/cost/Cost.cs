@@ -21,7 +21,7 @@ namespace cfg.cost
 /// </summary>
 public abstract partial class Cost :  Bright.Config.BeanBase 
 {
-    public Cost(JsonElement _buf) 
+    public Cost(JsonElement _json) 
     {
     }
 
@@ -29,15 +29,15 @@ public abstract partial class Cost :  Bright.Config.BeanBase
     {
     }
 
-    public static Cost DeserializeCost(JsonElement _buf)
+    public static Cost DeserializeCost(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "CostCurrency": return new cost.CostCurrency(_buf);
-            case "CostCurrencies": return new cost.CostCurrencies(_buf);
-            case "CostOneItem": return new cost.CostOneItem(_buf);
-            case "CostItem": return new cost.CostItem(_buf);
-            case "CostItems": return new cost.CostItems(_buf);
+            case "CostCurrency": return new cost.CostCurrency(_json);
+            case "CostCurrencies": return new cost.CostCurrencies(_json);
+            case "CostOneItem": return new cost.CostOneItem(_json);
+            case "CostItem": return new cost.CostItem(_json);
+            case "CostItems": return new cost.CostItems(_json);
             default: throw new SerializationException();
         }
     }

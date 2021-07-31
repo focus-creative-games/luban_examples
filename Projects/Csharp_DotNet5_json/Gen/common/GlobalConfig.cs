@@ -21,29 +21,29 @@ namespace cfg.common
 /// </summary>
 public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
 {
-    public GlobalConfig(JsonElement _buf) 
+    public GlobalConfig(JsonElement _json) 
     {
-        BagCapacity = _buf.GetProperty("bag_capacity").GetInt32();
-        BagCapacitySpecial = _buf.GetProperty("bag_capacity_special").GetInt32();
-        BagTempExpendableCapacity = _buf.GetProperty("bag_temp_expendable_capacity").GetInt32();
-        BagTempToolCapacity = _buf.GetProperty("bag_temp_tool_capacity").GetInt32();
-        BagInitCapacity = _buf.GetProperty("bag_init_capacity").GetInt32();
-        QuickBagCapacity = _buf.GetProperty("quick_bag_capacity").GetInt32();
-        ClothBagCapacity = _buf.GetProperty("cloth_bag_capacity").GetInt32();
-        ClothBagInitCapacity = _buf.GetProperty("cloth_bag_init_capacity").GetInt32();
-        ClothBagCapacitySpecial = _buf.GetProperty("cloth_bag_capacity_special").GetInt32();
-        { var _j = _buf.GetProperty("bag_init_items_drop_id"); if (_j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
-        MailBoxCapacity = _buf.GetProperty("mail_box_capacity").GetInt32();
-        DamageParamC = _buf.GetProperty("damage_param_c").GetSingle();
-        DamageParamE = _buf.GetProperty("damage_param_e").GetSingle();
-        DamageParamF = _buf.GetProperty("damage_param_f").GetSingle();
-        DamageParamD = _buf.GetProperty("damage_param_d").GetSingle();
-        RoleSpeed = _buf.GetProperty("role_speed").GetSingle();
-        MonsterSpeed = _buf.GetProperty("monster_speed").GetSingle();
-        InitEnergy = _buf.GetProperty("init_energy").GetInt32();
-        InitViality = _buf.GetProperty("init_viality").GetInt32();
-        MaxViality = _buf.GetProperty("max_viality").GetInt32();
-        PerVialityRecoveryTime = _buf.GetProperty("per_viality_recovery_time").GetInt32();
+        BagCapacity = _json.GetProperty("bag_capacity").GetInt32();
+        BagCapacitySpecial = _json.GetProperty("bag_capacity_special").GetInt32();
+        BagTempExpendableCapacity = _json.GetProperty("bag_temp_expendable_capacity").GetInt32();
+        BagTempToolCapacity = _json.GetProperty("bag_temp_tool_capacity").GetInt32();
+        BagInitCapacity = _json.GetProperty("bag_init_capacity").GetInt32();
+        QuickBagCapacity = _json.GetProperty("quick_bag_capacity").GetInt32();
+        ClothBagCapacity = _json.GetProperty("cloth_bag_capacity").GetInt32();
+        ClothBagInitCapacity = _json.GetProperty("cloth_bag_init_capacity").GetInt32();
+        ClothBagCapacitySpecial = _json.GetProperty("cloth_bag_capacity_special").GetInt32();
+        { var _j = _json.GetProperty("bag_init_items_drop_id"); if (_j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
+        MailBoxCapacity = _json.GetProperty("mail_box_capacity").GetInt32();
+        DamageParamC = _json.GetProperty("damage_param_c").GetSingle();
+        DamageParamE = _json.GetProperty("damage_param_e").GetSingle();
+        DamageParamF = _json.GetProperty("damage_param_f").GetSingle();
+        DamageParamD = _json.GetProperty("damage_param_d").GetSingle();
+        RoleSpeed = _json.GetProperty("role_speed").GetSingle();
+        MonsterSpeed = _json.GetProperty("monster_speed").GetSingle();
+        InitEnergy = _json.GetProperty("init_energy").GetInt32();
+        InitViality = _json.GetProperty("init_viality").GetInt32();
+        MaxViality = _json.GetProperty("max_viality").GetInt32();
+        PerVialityRecoveryTime = _json.GetProperty("per_viality_recovery_time").GetInt32();
     }
 
     public GlobalConfig(int bag_capacity, int bag_capacity_special, int bag_temp_expendable_capacity, int bag_temp_tool_capacity, int bag_init_capacity, int quick_bag_capacity, int cloth_bag_capacity, int cloth_bag_init_capacity, int cloth_bag_capacity_special, int? bag_init_items_drop_id, int mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int init_energy, int init_viality, int max_viality, int per_viality_recovery_time ) 
@@ -71,9 +71,9 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
         this.PerVialityRecoveryTime = per_viality_recovery_time;
     }
 
-    public static GlobalConfig DeserializeGlobalConfig(JsonElement _buf)
+    public static GlobalConfig DeserializeGlobalConfig(JsonElement _json)
     {
-        return new common.GlobalConfig(_buf);
+        return new common.GlobalConfig(_json);
     }
 
     /// <summary>

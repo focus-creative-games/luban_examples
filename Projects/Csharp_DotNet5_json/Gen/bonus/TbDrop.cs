@@ -24,12 +24,12 @@ public sealed partial class TbDrop
     private readonly Dictionary<int, bonus.DropInfo> _dataMap;
     private readonly List<bonus.DropInfo> _dataList;
     
-    public TbDrop(JsonElement _buf)
+    public TbDrop(JsonElement _json)
     {
         _dataMap = new Dictionary<int, bonus.DropInfo>();
         _dataList = new List<bonus.DropInfo>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = bonus.DropInfo.DeserializeDropInfo(_row);
             _dataList.Add(_v);

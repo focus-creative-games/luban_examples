@@ -21,10 +21,10 @@ namespace cfg.error
 /// </summary>
 public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle 
 {
-    public ErrorStyleDlgOkCancel(JsonElement _buf)  : base(_buf) 
+    public ErrorStyleDlgOkCancel(JsonElement _json)  : base(_json) 
     {
-        Btn1Name = _buf.GetProperty("btn1_name").GetString();
-        Btn2Name = _buf.GetProperty("btn2_name").GetString();
+        Btn1Name = _json.GetProperty("btn1_name").GetString();
+        Btn2Name = _json.GetProperty("btn2_name").GetString();
     }
 
     public ErrorStyleDlgOkCancel(string btn1_name, string btn2_name )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
         this.Btn2Name = btn2_name;
     }
 
-    public static ErrorStyleDlgOkCancel DeserializeErrorStyleDlgOkCancel(JsonElement _buf)
+    public static ErrorStyleDlgOkCancel DeserializeErrorStyleDlgOkCancel(JsonElement _json)
     {
-        return new error.ErrorStyleDlgOkCancel(_buf);
+        return new error.ErrorStyleDlgOkCancel(_json);
     }
 
     /// <summary>

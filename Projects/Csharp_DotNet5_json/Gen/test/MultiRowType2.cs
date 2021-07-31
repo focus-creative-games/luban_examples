@@ -21,11 +21,11 @@ namespace cfg.test
 /// </summary>
 public sealed partial class MultiRowType2 :  Bright.Config.BeanBase 
 {
-    public MultiRowType2(JsonElement _buf) 
+    public MultiRowType2(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        X = _buf.GetProperty("x").GetInt32();
-        Y = _buf.GetProperty("y").GetSingle();
+        Id = _json.GetProperty("id").GetInt32();
+        X = _json.GetProperty("x").GetInt32();
+        Y = _json.GetProperty("y").GetSingle();
     }
 
     public MultiRowType2(int id, int x, float y ) 
@@ -35,9 +35,9 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
         this.Y = y;
     }
 
-    public static MultiRowType2 DeserializeMultiRowType2(JsonElement _buf)
+    public static MultiRowType2 DeserializeMultiRowType2(JsonElement _json)
     {
-        return new test.MultiRowType2(_buf);
+        return new test.MultiRowType2(_json);
     }
 
     /// <summary>

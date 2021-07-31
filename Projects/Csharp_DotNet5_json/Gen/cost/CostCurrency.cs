@@ -21,10 +21,10 @@ namespace cfg.cost
 /// </summary>
 public sealed partial class CostCurrency :  cost.Cost 
 {
-    public CostCurrency(JsonElement _buf)  : base(_buf) 
+    public CostCurrency(JsonElement _json)  : base(_json) 
     {
-        Type = (item.ECurrencyType)_buf.GetProperty("type").GetInt32();
-        Num = _buf.GetProperty("num").GetInt32();
+        Type = (item.ECurrencyType)_json.GetProperty("type").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
     }
 
     public CostCurrency(item.ECurrencyType type, int num )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class CostCurrency :  cost.Cost
         this.Num = num;
     }
 
-    public static CostCurrency DeserializeCostCurrency(JsonElement _buf)
+    public static CostCurrency DeserializeCostCurrency(JsonElement _json)
     {
-        return new cost.CostCurrency(_buf);
+        return new cost.CostCurrency(_json);
     }
 
     /// <summary>

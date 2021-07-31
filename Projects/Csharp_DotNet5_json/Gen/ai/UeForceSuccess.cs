@@ -21,7 +21,7 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeForceSuccess :  ai.Decorator 
 {
-    public UeForceSuccess(JsonElement _buf)  : base(_buf) 
+    public UeForceSuccess(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class UeForceSuccess :  ai.Decorator
     {
     }
 
-    public static UeForceSuccess DeserializeUeForceSuccess(JsonElement _buf)
+    public static UeForceSuccess DeserializeUeForceSuccess(JsonElement _json)
     {
-        return new ai.UeForceSuccess(_buf);
+        return new ai.UeForceSuccess(_json);
     }
 
 

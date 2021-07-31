@@ -21,9 +21,9 @@ namespace cfg.cost
 /// </summary>
 public sealed partial class CostCurrencies :  cost.Cost 
 {
-    public CostCurrencies(JsonElement _buf)  : base(_buf) 
+    public CostCurrencies(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("currencies"); Currencies = new System.Collections.Generic.List<cost.CostCurrency>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { cost.CostCurrency __v;  __v =  cost.CostCurrency.DeserializeCostCurrency(__e);  Currencies.Add(__v); }   }
+        { var _json0 = _json.GetProperty("currencies"); Currencies = new System.Collections.Generic.List<cost.CostCurrency>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { cost.CostCurrency __v;  __v =  cost.CostCurrency.DeserializeCostCurrency(__e);  Currencies.Add(__v); }   }
     }
 
     public CostCurrencies(System.Collections.Generic.List<cost.CostCurrency> currencies )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class CostCurrencies :  cost.Cost
         this.Currencies = currencies;
     }
 
-    public static CostCurrencies DeserializeCostCurrencies(JsonElement _buf)
+    public static CostCurrencies DeserializeCostCurrencies(JsonElement _json)
     {
-        return new cost.CostCurrencies(_buf);
+        return new cost.CostCurrencies(_json);
     }
 
     /// <summary>

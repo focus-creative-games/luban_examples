@@ -21,10 +21,10 @@ namespace cfg.l10n
 /// </summary>
 public sealed partial class L10NDemo :  Bright.Config.BeanBase 
 {
-    public L10NDemo(JsonElement _buf) 
+    public L10NDemo(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Text = _buf.GetProperty("text").GetString();
+        Id = _json.GetProperty("id").GetInt32();
+        Text = _json.GetProperty("text").GetString();
     }
 
     public L10NDemo(int id, string text ) 
@@ -33,9 +33,9 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
         this.Text = text;
     }
 
-    public static L10NDemo DeserializeL10NDemo(JsonElement _buf)
+    public static L10NDemo DeserializeL10NDemo(JsonElement _json)
     {
-        return new l10n.L10NDemo(_buf);
+        return new l10n.L10NDemo(_json);
     }
 
     /// <summary>

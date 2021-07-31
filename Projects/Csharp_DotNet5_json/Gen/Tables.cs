@@ -147,6 +147,14 @@ public sealed partial class Tables
     /// 
     /// </summary>
     public test.TbTestGlobal TbTestGlobal {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDefineFromExcel TbDefineFromExcel {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
@@ -217,6 +225,10 @@ public sealed partial class Tables
         tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
         tables.Add("test.TbTestGlobal", TbTestGlobal);
+        TbDefineFromExcel = new test.TbDefineFromExcel(loader("test.TbDefineFromExcel")); 
+        tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
+        TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
+        tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -251,6 +263,8 @@ public sealed partial class Tables
         TbDemoGroup_S.Resolve(tables); 
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
+        TbDefineFromExcel.Resolve(tables); 
+        TbDefineFromExcelOne.Resolve(tables); 
     }
 }
 

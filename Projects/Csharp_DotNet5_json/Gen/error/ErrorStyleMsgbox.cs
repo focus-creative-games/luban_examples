@@ -21,10 +21,10 @@ namespace cfg.error
 /// </summary>
 public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
-    public ErrorStyleMsgbox(JsonElement _buf)  : base(_buf) 
+    public ErrorStyleMsgbox(JsonElement _json)  : base(_json) 
     {
-        BtnName = _buf.GetProperty("btn_name").GetString();
-        Operation = (error.EOperation)_buf.GetProperty("operation").GetInt32();
+        BtnName = _json.GetProperty("btn_name").GetString();
+        Operation = (error.EOperation)_json.GetProperty("operation").GetInt32();
     }
 
     public ErrorStyleMsgbox(string btn_name, error.EOperation operation )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
         this.Operation = operation;
     }
 
-    public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(JsonElement _buf)
+    public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(JsonElement _json)
     {
-        return new error.ErrorStyleMsgbox(_buf);
+        return new error.ErrorStyleMsgbox(_json);
     }
 
     /// <summary>

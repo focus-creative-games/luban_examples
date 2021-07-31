@@ -24,12 +24,12 @@ public sealed partial class TbCodeInfo
     private readonly Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;
     private readonly List<error.CodeInfo> _dataList;
     
-    public TbCodeInfo(JsonElement _buf)
+    public TbCodeInfo(JsonElement _json)
     {
         _dataMap = new Dictionary<error.EErrorCode, error.CodeInfo>();
         _dataList = new List<error.CodeInfo>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = error.CodeInfo.DeserializeCodeInfo(_row);
             _dataList.Add(_v);

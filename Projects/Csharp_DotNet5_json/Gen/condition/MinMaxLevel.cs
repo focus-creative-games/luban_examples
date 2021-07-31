@@ -21,10 +21,10 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class MinMaxLevel :  condition.BoolRoleCondition 
 {
-    public MinMaxLevel(JsonElement _buf)  : base(_buf) 
+    public MinMaxLevel(JsonElement _json)  : base(_json) 
     {
-        Min = _buf.GetProperty("min").GetInt32();
-        Max = _buf.GetProperty("max").GetInt32();
+        Min = _json.GetProperty("min").GetInt32();
+        Max = _json.GetProperty("max").GetInt32();
     }
 
     public MinMaxLevel(int min, int max )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         this.Max = max;
     }
 
-    public static MinMaxLevel DeserializeMinMaxLevel(JsonElement _buf)
+    public static MinMaxLevel DeserializeMinMaxLevel(JsonElement _json)
     {
-        return new condition.MinMaxLevel(_buf);
+        return new condition.MinMaxLevel(_json);
     }
 
     /// <summary>

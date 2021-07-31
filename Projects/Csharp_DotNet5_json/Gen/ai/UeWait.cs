@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeWait :  ai.Task 
 {
-    public UeWait(JsonElement _buf)  : base(_buf) 
+    public UeWait(JsonElement _json)  : base(_json) 
     {
-        WaitTime = _buf.GetProperty("wait_time").GetSingle();
-        RandomDeviation = _buf.GetProperty("random_deviation").GetSingle();
+        WaitTime = _json.GetProperty("wait_time").GetSingle();
+        RandomDeviation = _json.GetProperty("random_deviation").GetSingle();
     }
 
     public UeWait(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, float wait_time, float random_deviation )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -33,9 +33,9 @@ public sealed partial class UeWait :  ai.Task
         this.RandomDeviation = random_deviation;
     }
 
-    public static UeWait DeserializeUeWait(JsonElement _buf)
+    public static UeWait DeserializeUeWait(JsonElement _json)
     {
-        return new ai.UeWait(_buf);
+        return new ai.UeWait(_json);
     }
 
     /// <summary>

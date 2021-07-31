@@ -21,9 +21,9 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class DropBonus :  bonus.Bonus 
 {
-    public DropBonus(JsonElement _buf)  : base(_buf) 
+    public DropBonus(JsonElement _json)  : base(_json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
+        Id = _json.GetProperty("id").GetInt32();
     }
 
     public DropBonus(int id )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class DropBonus :  bonus.Bonus
         this.Id = id;
     }
 
-    public static DropBonus DeserializeDropBonus(JsonElement _buf)
+    public static DropBonus DeserializeDropBonus(JsonElement _json)
     {
-        return new bonus.DropBonus(_buf);
+        return new bonus.DropBonus(_json);
     }
 
     /// <summary>

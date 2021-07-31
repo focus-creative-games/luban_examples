@@ -21,12 +21,12 @@ namespace cfg.test
 /// </summary>
 public sealed partial class InnerGroup :  Bright.Config.BeanBase 
 {
-    public InnerGroup(JsonElement _buf) 
+    public InnerGroup(JsonElement _json) 
     {
-        Y1 = _buf.GetProperty("y1").GetInt32();
-        Y2 = _buf.GetProperty("y2").GetInt32();
-        Y3 = _buf.GetProperty("y3").GetInt32();
-        Y4 = _buf.GetProperty("y4").GetInt32();
+        Y1 = _json.GetProperty("y1").GetInt32();
+        Y2 = _json.GetProperty("y2").GetInt32();
+        Y3 = _json.GetProperty("y3").GetInt32();
+        Y4 = _json.GetProperty("y4").GetInt32();
     }
 
     public InnerGroup(int y1, int y2, int y3, int y4 ) 
@@ -37,9 +37,9 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
         this.Y4 = y4;
     }
 
-    public static InnerGroup DeserializeInnerGroup(JsonElement _buf)
+    public static InnerGroup DeserializeInnerGroup(JsonElement _json)
     {
-        return new test.InnerGroup(_buf);
+        return new test.InnerGroup(_json);
     }
 
     /// <summary>

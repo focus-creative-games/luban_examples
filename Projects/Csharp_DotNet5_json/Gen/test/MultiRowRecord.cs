@@ -21,15 +21,15 @@ namespace cfg.test
 /// </summary>
 public sealed partial class MultiRowRecord :  Bright.Config.BeanBase 
 {
-    public MultiRowRecord(JsonElement _buf) 
+    public MultiRowRecord(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Name = _buf.GetProperty("name").GetString();
-        { var _json = _buf.GetProperty("one_rows"); OneRows = new System.Collections.Generic.List<test.MultiRowType1>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  OneRows.Add(__v); }   }
-        { var _json = _buf.GetProperty("multi_rows1"); MultiRows1 = new System.Collections.Generic.List<test.MultiRowType1>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  MultiRows1.Add(__v); }   }
-        { var _json = _buf.GetProperty("multi_rows2"); int _n = _json.GetArrayLength(); MultiRows2 = new test.MultiRowType1[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  MultiRows2[_index++] = __v; }   }
-        { var _json = _buf.GetProperty("multi_rows3"); MultiRows3 = new System.Collections.Generic.HashSet<test.MultiRowType2>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { test.MultiRowType2 __v;  __v =  test.MultiRowType2.DeserializeMultiRowType2(__e);  MultiRows3.Add(__v); }   }
-        { var _json = _buf.GetProperty("multi_rows4"); MultiRows4 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); test.MultiRowType2 __v;  __v =  test.MultiRowType2.DeserializeMultiRowType2(__e[1]);  MultiRows4.Add(__k, __v); }   }
+        Id = _json.GetProperty("id").GetInt32();
+        Name = _json.GetProperty("name").GetString();
+        { var _json0 = _json.GetProperty("one_rows"); OneRows = new System.Collections.Generic.List<test.MultiRowType1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  OneRows.Add(__v); }   }
+        { var _json0 = _json.GetProperty("multi_rows1"); MultiRows1 = new System.Collections.Generic.List<test.MultiRowType1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  MultiRows1.Add(__v); }   }
+        { var _json0 = _json.GetProperty("multi_rows2"); int _n = _json0.GetArrayLength(); MultiRows2 = new test.MultiRowType1[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  MultiRows2[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("multi_rows3"); MultiRows3 = new System.Collections.Generic.HashSet<test.MultiRowType2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.MultiRowType2 __v;  __v =  test.MultiRowType2.DeserializeMultiRowType2(__e);  MultiRows3.Add(__v); }   }
+        { var _json0 = _json.GetProperty("multi_rows4"); MultiRows4 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); test.MultiRowType2 __v;  __v =  test.MultiRowType2.DeserializeMultiRowType2(__e[1]);  MultiRows4.Add(__k, __v); }   }
     }
 
     public MultiRowRecord(int id, string name, System.Collections.Generic.List<test.MultiRowType1> one_rows, System.Collections.Generic.List<test.MultiRowType1> multi_rows1, test.MultiRowType1[] multi_rows2, System.Collections.Generic.HashSet<test.MultiRowType2> multi_rows3, System.Collections.Generic.Dictionary<int, test.MultiRowType2> multi_rows4 ) 
@@ -43,9 +43,9 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
         this.MultiRows4 = multi_rows4;
     }
 
-    public static MultiRowRecord DeserializeMultiRowRecord(JsonElement _buf)
+    public static MultiRowRecord DeserializeMultiRowRecord(JsonElement _json)
     {
-        return new test.MultiRowRecord(_buf);
+        return new test.MultiRowRecord(_json);
     }
 
     /// <summary>

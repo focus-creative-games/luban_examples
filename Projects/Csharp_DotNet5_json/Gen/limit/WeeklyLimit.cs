@@ -21,9 +21,9 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class WeeklyLimit :  limit.LimitBase 
 {
-    public WeeklyLimit(JsonElement _buf)  : base(_buf) 
+    public WeeklyLimit(JsonElement _json)  : base(_json) 
     {
-        Num = _buf.GetProperty("num").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
     }
 
     public WeeklyLimit(int num )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         this.Num = num;
     }
 
-    public static WeeklyLimit DeserializeWeeklyLimit(JsonElement _buf)
+    public static WeeklyLimit DeserializeWeeklyLimit(JsonElement _json)
     {
-        return new limit.WeeklyLimit(_buf);
+        return new limit.WeeklyLimit(_json);
     }
 
     /// <summary>

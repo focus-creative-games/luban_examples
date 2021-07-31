@@ -21,9 +21,9 @@ namespace cfg.error
 /// </summary>
 public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
-    public ErrorStyleDlgOk(JsonElement _buf)  : base(_buf) 
+    public ErrorStyleDlgOk(JsonElement _json)  : base(_json) 
     {
-        BtnName = _buf.GetProperty("btn_name").GetString();
+        BtnName = _json.GetProperty("btn_name").GetString();
     }
 
     public ErrorStyleDlgOk(string btn_name )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         this.BtnName = btn_name;
     }
 
-    public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(JsonElement _buf)
+    public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(JsonElement _json)
     {
-        return new error.ErrorStyleDlgOk(_buf);
+        return new error.ErrorStyleDlgOk(_json);
     }
 
     /// <summary>

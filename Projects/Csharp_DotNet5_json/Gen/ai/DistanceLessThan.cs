@@ -21,12 +21,12 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class DistanceLessThan :  ai.Decorator 
 {
-    public DistanceLessThan(JsonElement _buf)  : base(_buf) 
+    public DistanceLessThan(JsonElement _json)  : base(_json) 
     {
-        Actor1Key = _buf.GetProperty("actor1_key").GetString();
-        Actor2Key = _buf.GetProperty("actor2_key").GetString();
-        Distance = _buf.GetProperty("distance").GetSingle();
-        ReverseResult = _buf.GetProperty("reverse_result").GetBoolean();
+        Actor1Key = _json.GetProperty("actor1_key").GetString();
+        Actor2Key = _json.GetProperty("actor2_key").GetString();
+        Distance = _json.GetProperty("distance").GetSingle();
+        ReverseResult = _json.GetProperty("reverse_result").GetBoolean();
     }
 
     public DistanceLessThan(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, string actor1_key, string actor2_key, float distance, bool reverse_result )  : base(id,node_name,flow_abort_mode) 
@@ -37,9 +37,9 @@ public sealed partial class DistanceLessThan :  ai.Decorator
         this.ReverseResult = reverse_result;
     }
 
-    public static DistanceLessThan DeserializeDistanceLessThan(JsonElement _buf)
+    public static DistanceLessThan DeserializeDistanceLessThan(JsonElement _json)
     {
-        return new ai.DistanceLessThan(_buf);
+        return new ai.DistanceLessThan(_json);
     }
 
     /// <summary>

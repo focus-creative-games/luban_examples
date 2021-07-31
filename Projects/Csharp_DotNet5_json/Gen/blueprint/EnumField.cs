@@ -21,10 +21,10 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
-    public EnumField(JsonElement _buf) 
+    public EnumField(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Value = _buf.GetProperty("value").GetInt32();
+        Name = _json.GetProperty("name").GetString();
+        Value = _json.GetProperty("value").GetInt32();
     }
 
     public EnumField(string name, int value ) 
@@ -33,9 +33,9 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         this.Value = value;
     }
 
-    public static EnumField DeserializeEnumField(JsonElement _buf)
+    public static EnumField DeserializeEnumField(JsonElement _json)
     {
-        return new blueprint.EnumField(_buf);
+        return new blueprint.EnumField(_json);
     }
 
     /// <summary>

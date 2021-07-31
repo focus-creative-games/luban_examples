@@ -21,7 +21,7 @@ namespace cfg.ai
 /// </summary>
 public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
-    public KeyQueryOperator(JsonElement _buf) 
+    public KeyQueryOperator(JsonElement _json) 
     {
     }
 
@@ -29,13 +29,13 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
     {
     }
 
-    public static KeyQueryOperator DeserializeKeyQueryOperator(JsonElement _buf)
+    public static KeyQueryOperator DeserializeKeyQueryOperator(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "IsSet": return new ai.IsSet(_buf);
-            case "IsNotSet": return new ai.IsNotSet(_buf);
-            case "BinaryOperator": return new ai.BinaryOperator(_buf);
+            case "IsSet": return new ai.IsSet(_json);
+            case "IsNotSet": return new ai.IsNotSet(_json);
+            case "BinaryOperator": return new ai.BinaryOperator(_json);
             default: throw new SerializationException();
         }
     }

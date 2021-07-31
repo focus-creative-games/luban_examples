@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public abstract partial class Node :  Bright.Config.BeanBase 
 {
-    public Node(JsonElement _buf) 
+    public Node(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        NodeName = _buf.GetProperty("node_name").GetString();
+        Id = _json.GetProperty("id").GetInt32();
+        NodeName = _json.GetProperty("node_name").GetString();
     }
 
     public Node(int id, string node_name ) 
@@ -33,33 +33,33 @@ public abstract partial class Node :  Bright.Config.BeanBase
         this.NodeName = node_name;
     }
 
-    public static Node DeserializeNode(JsonElement _buf)
+    public static Node DeserializeNode(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
-            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);
-            case "ChooseTarget": return new ai.ChooseTarget(_buf);
-            case "KeepFaceTarget": return new ai.KeepFaceTarget(_buf);
-            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_buf);
-            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_buf);
-            case "UeLoop": return new ai.UeLoop(_buf);
-            case "UeCooldown": return new ai.UeCooldown(_buf);
-            case "UeTimeLimit": return new ai.UeTimeLimit(_buf);
-            case "UeBlackboard": return new ai.UeBlackboard(_buf);
-            case "UeForceSuccess": return new ai.UeForceSuccess(_buf);
-            case "IsAtLocation": return new ai.IsAtLocation(_buf);
-            case "DistanceLessThan": return new ai.DistanceLessThan(_buf);
-            case "Sequence": return new ai.Sequence(_buf);
-            case "Selector": return new ai.Selector(_buf);
-            case "SimpleParallel": return new ai.SimpleParallel(_buf);
-            case "UeWait": return new ai.UeWait(_buf);
-            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_buf);
-            case "MoveToTarget": return new ai.MoveToTarget(_buf);
-            case "ChooseSkill": return new ai.ChooseSkill(_buf);
-            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_buf);
-            case "MoveToLocation": return new ai.MoveToLocation(_buf);
-            case "DebugPrint": return new ai.DebugPrint(_buf);
+            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_json);
+            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_json);
+            case "ChooseTarget": return new ai.ChooseTarget(_json);
+            case "KeepFaceTarget": return new ai.KeepFaceTarget(_json);
+            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_json);
+            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_json);
+            case "UeLoop": return new ai.UeLoop(_json);
+            case "UeCooldown": return new ai.UeCooldown(_json);
+            case "UeTimeLimit": return new ai.UeTimeLimit(_json);
+            case "UeBlackboard": return new ai.UeBlackboard(_json);
+            case "UeForceSuccess": return new ai.UeForceSuccess(_json);
+            case "IsAtLocation": return new ai.IsAtLocation(_json);
+            case "DistanceLessThan": return new ai.DistanceLessThan(_json);
+            case "Sequence": return new ai.Sequence(_json);
+            case "Selector": return new ai.Selector(_json);
+            case "SimpleParallel": return new ai.SimpleParallel(_json);
+            case "UeWait": return new ai.UeWait(_json);
+            case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_json);
+            case "MoveToTarget": return new ai.MoveToTarget(_json);
+            case "ChooseSkill": return new ai.ChooseSkill(_json);
+            case "MoveToRandomLocation": return new ai.MoveToRandomLocation(_json);
+            case "MoveToLocation": return new ai.MoveToLocation(_json);
+            case "DebugPrint": return new ai.DebugPrint(_json);
             default: throw new SerializationException();
         }
     }

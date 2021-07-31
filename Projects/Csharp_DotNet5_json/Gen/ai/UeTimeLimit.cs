@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeTimeLimit :  ai.Decorator 
 {
-    public UeTimeLimit(JsonElement _buf)  : base(_buf) 
+    public UeTimeLimit(JsonElement _json)  : base(_json) 
     {
-        LimitTime = _buf.GetProperty("limit_time").GetSingle();
+        LimitTime = _json.GetProperty("limit_time").GetSingle();
     }
 
     public UeTimeLimit(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float limit_time )  : base(id,node_name,flow_abort_mode) 
@@ -31,9 +31,9 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         this.LimitTime = limit_time;
     }
 
-    public static UeTimeLimit DeserializeUeTimeLimit(JsonElement _buf)
+    public static UeTimeLimit DeserializeUeTimeLimit(JsonElement _json)
     {
-        return new ai.UeTimeLimit(_buf);
+        return new ai.UeTimeLimit(_json);
     }
 
     /// <summary>

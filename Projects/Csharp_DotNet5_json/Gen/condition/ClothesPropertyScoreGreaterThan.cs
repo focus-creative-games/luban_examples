@@ -21,10 +21,10 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
-    public ClothesPropertyScoreGreaterThan(JsonElement _buf)  : base(_buf) 
+    public ClothesPropertyScoreGreaterThan(JsonElement _json)  : base(_json) 
     {
-        Prop = (item.EClothesPropertyType)_buf.GetProperty("prop").GetInt32();
-        Value = _buf.GetProperty("value").GetInt32();
+        Prop = (item.EClothesPropertyType)_json.GetProperty("prop").GetInt32();
+        Value = _json.GetProperty("value").GetInt32();
     }
 
     public ClothesPropertyScoreGreaterThan(item.EClothesPropertyType prop, int value )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         this.Value = value;
     }
 
-    public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(JsonElement _buf)
+    public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(JsonElement _json)
     {
-        return new condition.ClothesPropertyScoreGreaterThan(_buf);
+        return new condition.ClothesPropertyScoreGreaterThan(_json);
     }
 
     /// <summary>

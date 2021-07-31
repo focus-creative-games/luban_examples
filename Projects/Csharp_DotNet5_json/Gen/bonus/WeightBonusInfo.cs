@@ -21,10 +21,10 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase 
 {
-    public WeightBonusInfo(JsonElement _buf) 
+    public WeightBonusInfo(JsonElement _json) 
     {
-        Bonus =  bonus.Bonus.DeserializeBonus(_buf.GetProperty("bonus"));
-        Weight = _buf.GetProperty("weight").GetInt32();
+        Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
+        Weight = _json.GetProperty("weight").GetInt32();
     }
 
     public WeightBonusInfo(bonus.Bonus bonus, int weight ) 
@@ -33,9 +33,9 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
         this.Weight = weight;
     }
 
-    public static WeightBonusInfo DeserializeWeightBonusInfo(JsonElement _buf)
+    public static WeightBonusInfo DeserializeWeightBonusInfo(JsonElement _json)
     {
-        return new bonus.WeightBonusInfo(_buf);
+        return new bonus.WeightBonusInfo(_json);
     }
 
     /// <summary>

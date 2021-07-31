@@ -21,12 +21,12 @@ namespace cfg.item
 /// </summary>
 public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
-    public ItemFunction(JsonElement _buf) 
+    public ItemFunction(JsonElement _json) 
     {
-        MinorType = (item.EMinorType)_buf.GetProperty("minor_type").GetInt32();
-        FuncType = (item.EItemFunctionType)_buf.GetProperty("func_type").GetInt32();
-        Method = _buf.GetProperty("method").GetString();
-        CloseBagUi = _buf.GetProperty("close_bag_ui").GetBoolean();
+        MinorType = (item.EMinorType)_json.GetProperty("minor_type").GetInt32();
+        FuncType = (item.EItemFunctionType)_json.GetProperty("func_type").GetInt32();
+        Method = _json.GetProperty("method").GetString();
+        CloseBagUi = _json.GetProperty("close_bag_ui").GetBoolean();
     }
 
     public ItemFunction(item.EMinorType minor_type, item.EItemFunctionType func_type, string method, bool close_bag_ui ) 
@@ -37,9 +37,9 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         this.CloseBagUi = close_bag_ui;
     }
 
-    public static ItemFunction DeserializeItemFunction(JsonElement _buf)
+    public static ItemFunction DeserializeItemFunction(JsonElement _json)
     {
-        return new item.ItemFunction(_buf);
+        return new item.ItemFunction(_json);
     }
 
     /// <summary>

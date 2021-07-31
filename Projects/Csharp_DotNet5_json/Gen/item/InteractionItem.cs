@@ -21,11 +21,11 @@ namespace cfg.item
 /// </summary>
 public sealed partial class InteractionItem :  item.ItemExtra 
 {
-    public InteractionItem(JsonElement _buf)  : base(_buf) 
+    public InteractionItem(JsonElement _json)  : base(_json) 
     {
-        { var _j = _buf.GetProperty("attack_num"); if (_j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
-        HoldingStaticMesh = _buf.GetProperty("holding_static_mesh").GetString();
-        HoldingStaticMeshMat = _buf.GetProperty("holding_static_mesh_mat").GetString();
+        { var _j = _json.GetProperty("attack_num"); if (_j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
+        HoldingStaticMesh = _json.GetProperty("holding_static_mesh").GetString();
+        HoldingStaticMeshMat = _json.GetProperty("holding_static_mesh_mat").GetString();
     }
 
     public InteractionItem(int id, int? attack_num, string holding_static_mesh, string holding_static_mesh_mat )  : base(id) 
@@ -35,9 +35,9 @@ public sealed partial class InteractionItem :  item.ItemExtra
         this.HoldingStaticMeshMat = holding_static_mesh_mat;
     }
 
-    public static InteractionItem DeserializeInteractionItem(JsonElement _buf)
+    public static InteractionItem DeserializeInteractionItem(JsonElement _json)
     {
-        return new item.InteractionItem(_buf);
+        return new item.InteractionItem(_json);
     }
 
     /// <summary>

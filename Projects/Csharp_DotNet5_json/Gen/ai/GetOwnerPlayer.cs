@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class GetOwnerPlayer :  ai.Service 
 {
-    public GetOwnerPlayer(JsonElement _buf)  : base(_buf) 
+    public GetOwnerPlayer(JsonElement _json)  : base(_json) 
     {
-        PlayerActorKey = _buf.GetProperty("player_actor_key").GetString();
+        PlayerActorKey = _json.GetProperty("player_actor_key").GetString();
     }
 
     public GetOwnerPlayer(int id, string node_name, string player_actor_key )  : base(id,node_name) 
@@ -31,9 +31,9 @@ public sealed partial class GetOwnerPlayer :  ai.Service
         this.PlayerActorKey = player_actor_key;
     }
 
-    public static GetOwnerPlayer DeserializeGetOwnerPlayer(JsonElement _buf)
+    public static GetOwnerPlayer DeserializeGetOwnerPlayer(JsonElement _json)
     {
-        return new ai.GetOwnerPlayer(_buf);
+        return new ai.GetOwnerPlayer(_json);
     }
 
     /// <summary>

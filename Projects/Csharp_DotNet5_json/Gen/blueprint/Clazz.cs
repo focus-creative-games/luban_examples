@@ -21,12 +21,12 @@ namespace cfg.blueprint
 /// </summary>
 public abstract partial class Clazz :  Bright.Config.BeanBase 
 {
-    public Clazz(JsonElement _buf) 
+    public Clazz(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
-        { var _json = _buf.GetProperty("parents"); Parents = new System.Collections.Generic.List<blueprint.Clazz>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Clazz __v;  __v =  blueprint.Clazz.DeserializeClazz(__e);  Parents.Add(__v); }   }
-        { var _json = _buf.GetProperty("methods"); Methods = new System.Collections.Generic.List<blueprint.Method>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Method __v;  __v =  blueprint.Method.DeserializeMethod(__e);  Methods.Add(__v); }   }
+        Name = _json.GetProperty("name").GetString();
+        Desc = _json.GetProperty("desc").GetString();
+        { var _json0 = _json.GetProperty("parents"); Parents = new System.Collections.Generic.List<blueprint.Clazz>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Clazz __v;  __v =  blueprint.Clazz.DeserializeClazz(__e);  Parents.Add(__v); }   }
+        { var _json0 = _json.GetProperty("methods"); Methods = new System.Collections.Generic.List<blueprint.Method>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Method __v;  __v =  blueprint.Method.DeserializeMethod(__e);  Methods.Add(__v); }   }
     }
 
     public Clazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods ) 
@@ -37,13 +37,13 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         this.Methods = methods;
     }
 
-    public static Clazz DeserializeClazz(JsonElement _buf)
+    public static Clazz DeserializeClazz(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "Interface": return new blueprint.Interface(_buf);
-            case "NormalClazz": return new blueprint.NormalClazz(_buf);
-            case "EnumClazz": return new blueprint.EnumClazz(_buf);
+            case "Interface": return new blueprint.Interface(_json);
+            case "NormalClazz": return new blueprint.NormalClazz(_json);
+            case "EnumClazz": return new blueprint.EnumClazz(_json);
             default: throw new SerializationException();
         }
     }

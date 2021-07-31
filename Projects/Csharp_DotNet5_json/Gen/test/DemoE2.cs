@@ -21,10 +21,10 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoE2 :  Bright.Config.BeanBase 
 {
-    public DemoE2(JsonElement _buf) 
+    public DemoE2(JsonElement _json) 
     {
-        { var _j = _buf.GetProperty("y1"); if (_j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
-        Y2 = _buf.GetProperty("y2").GetBoolean();
+        { var _j = _json.GetProperty("y1"); if (_j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
+        Y2 = _json.GetProperty("y2").GetBoolean();
     }
 
     public DemoE2(int? y1, bool y2 ) 
@@ -33,9 +33,9 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
         this.Y2 = y2;
     }
 
-    public static DemoE2 DeserializeDemoE2(JsonElement _buf)
+    public static DemoE2 DeserializeDemoE2(JsonElement _json)
     {
-        return new test.DemoE2(_buf);
+        return new test.DemoE2(_json);
     }
 
     /// <summary>

@@ -21,7 +21,7 @@ namespace cfg.ai
 /// </summary>
 public abstract partial class Service :  ai.Node 
 {
-    public Service(JsonElement _buf)  : base(_buf) 
+    public Service(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,16 +29,16 @@ public abstract partial class Service :  ai.Node
     {
     }
 
-    public static Service DeserializeService(JsonElement _buf)
+    public static Service DeserializeService(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
-            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);
-            case "ChooseTarget": return new ai.ChooseTarget(_buf);
-            case "KeepFaceTarget": return new ai.KeepFaceTarget(_buf);
-            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_buf);
-            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_buf);
+            case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_json);
+            case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_json);
+            case "ChooseTarget": return new ai.ChooseTarget(_json);
+            case "KeepFaceTarget": return new ai.KeepFaceTarget(_json);
+            case "GetOwnerPlayer": return new ai.GetOwnerPlayer(_json);
+            case "UpdateDailyBehaviorProps": return new ai.UpdateDailyBehaviorProps(_json);
             default: throw new SerializationException();
         }
     }

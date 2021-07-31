@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class MoveToRandomLocation :  ai.Task 
 {
-    public MoveToRandomLocation(JsonElement _buf)  : base(_buf) 
+    public MoveToRandomLocation(JsonElement _json)  : base(_json) 
     {
-        OriginPositionKey = _buf.GetProperty("origin_position_key").GetString();
-        Radius = _buf.GetProperty("radius").GetSingle();
+        OriginPositionKey = _json.GetProperty("origin_position_key").GetString();
+        Radius = _json.GetProperty("radius").GetSingle();
     }
 
     public MoveToRandomLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string origin_position_key, float radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -33,9 +33,9 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         this.Radius = radius;
     }
 
-    public static MoveToRandomLocation DeserializeMoveToRandomLocation(JsonElement _buf)
+    public static MoveToRandomLocation DeserializeMoveToRandomLocation(JsonElement _json)
     {
-        return new ai.MoveToRandomLocation(_buf);
+        return new ai.MoveToRandomLocation(_json);
     }
 
     /// <summary>

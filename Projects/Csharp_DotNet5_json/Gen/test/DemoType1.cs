@@ -21,9 +21,9 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoType1 :  Bright.Config.BeanBase 
 {
-    public DemoType1(JsonElement _buf) 
+    public DemoType1(JsonElement _json) 
     {
-        X1 = _buf.GetProperty("x1").GetInt32();
+        X1 = _json.GetProperty("x1").GetInt32();
     }
 
     public DemoType1(int x1 ) 
@@ -31,9 +31,9 @@ public sealed partial class DemoType1 :  Bright.Config.BeanBase
         this.X1 = x1;
     }
 
-    public static DemoType1 DeserializeDemoType1(JsonElement _buf)
+    public static DemoType1 DeserializeDemoType1(JsonElement _json)
     {
-        return new test.DemoType1(_buf);
+        return new test.DemoType1(_json);
     }
 
     /// <summary>

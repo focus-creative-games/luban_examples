@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
-    public UeSetDefaultFocus(JsonElement _buf)  : base(_buf) 
+    public UeSetDefaultFocus(JsonElement _json)  : base(_json) 
     {
-        KeyboardKey = _buf.GetProperty("keyboard_key").GetString();
+        KeyboardKey = _json.GetProperty("keyboard_key").GetString();
     }
 
     public UeSetDefaultFocus(int id, string node_name, string keyboard_key )  : base(id,node_name) 
@@ -31,9 +31,9 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
         this.KeyboardKey = keyboard_key;
     }
 
-    public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(JsonElement _buf)
+    public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(JsonElement _json)
     {
-        return new ai.UeSetDefaultFocus(_buf);
+        return new ai.UeSetDefaultFocus(_json);
     }
 
     /// <summary>

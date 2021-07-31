@@ -21,9 +21,9 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class MinLevel :  condition.BoolRoleCondition 
 {
-    public MinLevel(JsonElement _buf)  : base(_buf) 
+    public MinLevel(JsonElement _json)  : base(_json) 
     {
-        Level = _buf.GetProperty("level").GetInt32();
+        Level = _json.GetProperty("level").GetInt32();
     }
 
     public MinLevel(int level )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
         this.Level = level;
     }
 
-    public static MinLevel DeserializeMinLevel(JsonElement _buf)
+    public static MinLevel DeserializeMinLevel(JsonElement _json)
     {
-        return new condition.MinLevel(_buf);
+        return new condition.MinLevel(_json);
     }
 
     /// <summary>

@@ -24,12 +24,12 @@ public sealed partial class TbTestTag
     private readonly Dictionary<int, tag.TestTag> _dataMap;
     private readonly List<tag.TestTag> _dataList;
     
-    public TbTestTag(JsonElement _buf)
+    public TbTestTag(JsonElement _json)
     {
         _dataMap = new Dictionary<int, tag.TestTag>();
         _dataList = new List<tag.TestTag>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = tag.TestTag.DeserializeTestTag(_row);
             _dataList.Add(_v);

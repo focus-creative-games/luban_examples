@@ -21,7 +21,7 @@ namespace cfg.error
 /// </summary>
 public sealed partial class ErrorStyleTip :  error.ErrorStyle 
 {
-    public ErrorStyleTip(JsonElement _buf)  : base(_buf) 
+    public ErrorStyleTip(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
     {
     }
 
-    public static ErrorStyleTip DeserializeErrorStyleTip(JsonElement _buf)
+    public static ErrorStyleTip DeserializeErrorStyleTip(JsonElement _json)
     {
-        return new error.ErrorStyleTip(_buf);
+        return new error.ErrorStyleTip(_json);
     }
 
 

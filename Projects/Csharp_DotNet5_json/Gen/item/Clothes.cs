@@ -21,12 +21,12 @@ namespace cfg.item
 /// </summary>
 public sealed partial class Clothes :  item.ItemExtra 
 {
-    public Clothes(JsonElement _buf)  : base(_buf) 
+    public Clothes(JsonElement _json)  : base(_json) 
     {
-        Attack = _buf.GetProperty("attack").GetInt32();
-        Hp = _buf.GetProperty("hp").GetInt64();
-        EnergyLimit = _buf.GetProperty("energy_limit").GetInt32();
-        EnergyResume = _buf.GetProperty("energy_resume").GetInt32();
+        Attack = _json.GetProperty("attack").GetInt32();
+        Hp = _json.GetProperty("hp").GetInt64();
+        EnergyLimit = _json.GetProperty("energy_limit").GetInt32();
+        EnergyResume = _json.GetProperty("energy_resume").GetInt32();
     }
 
     public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume )  : base(id) 
@@ -37,9 +37,9 @@ public sealed partial class Clothes :  item.ItemExtra
         this.EnergyResume = energy_resume;
     }
 
-    public static Clothes DeserializeClothes(JsonElement _buf)
+    public static Clothes DeserializeClothes(JsonElement _json)
     {
-        return new item.Clothes(_buf);
+        return new item.Clothes(_json);
     }
 
     /// <summary>

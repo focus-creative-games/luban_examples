@@ -21,10 +21,10 @@ namespace cfg.tag
 /// </summary>
 public sealed partial class TestTag :  Bright.Config.BeanBase 
 {
-    public TestTag(JsonElement _buf) 
+    public TestTag(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Value = _buf.GetProperty("value").GetString();
+        Id = _json.GetProperty("id").GetInt32();
+        Value = _json.GetProperty("value").GetString();
     }
 
     public TestTag(int id, string value ) 
@@ -33,9 +33,9 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
         this.Value = value;
     }
 
-    public static TestTag DeserializeTestTag(JsonElement _buf)
+    public static TestTag DeserializeTestTag(JsonElement _json)
     {
-        return new tag.TestTag(_buf);
+        return new tag.TestTag(_json);
     }
 
     /// <summary>

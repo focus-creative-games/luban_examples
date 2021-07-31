@@ -24,12 +24,12 @@ public sealed partial class TbClazz
     private readonly Dictionary<string, blueprint.Clazz> _dataMap;
     private readonly List<blueprint.Clazz> _dataList;
     
-    public TbClazz(JsonElement _buf)
+    public TbClazz(JsonElement _json)
     {
         _dataMap = new Dictionary<string, blueprint.Clazz>();
         _dataList = new List<blueprint.Clazz>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = blueprint.Clazz.DeserializeClazz(_row);
             _dataList.Add(_v);

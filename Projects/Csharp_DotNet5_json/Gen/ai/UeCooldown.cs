@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeCooldown :  ai.Decorator 
 {
-    public UeCooldown(JsonElement _buf)  : base(_buf) 
+    public UeCooldown(JsonElement _json)  : base(_json) 
     {
-        CooldownTime = _buf.GetProperty("cooldown_time").GetSingle();
+        CooldownTime = _json.GetProperty("cooldown_time").GetSingle();
     }
 
     public UeCooldown(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float cooldown_time )  : base(id,node_name,flow_abort_mode) 
@@ -31,9 +31,9 @@ public sealed partial class UeCooldown :  ai.Decorator
         this.CooldownTime = cooldown_time;
     }
 
-    public static UeCooldown DeserializeUeCooldown(JsonElement _buf)
+    public static UeCooldown DeserializeUeCooldown(JsonElement _json)
     {
-        return new ai.UeCooldown(_buf);
+        return new ai.UeCooldown(_json);
     }
 
     /// <summary>

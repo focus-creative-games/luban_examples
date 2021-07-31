@@ -21,10 +21,10 @@ namespace cfg.role
 /// </summary>
 public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
-    public DistinctBonusInfos(JsonElement _buf) 
+    public DistinctBonusInfos(JsonElement _json) 
     {
-        EffectiveLevel = _buf.GetProperty("effective_level").GetInt32();
-        { var _json = _buf.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { role.BonusInfo __v;  __v =  role.BonusInfo.DeserializeBonusInfo(__e);  BonusInfo.Add(__v); }   }
+        EffectiveLevel = _json.GetProperty("effective_level").GetInt32();
+        { var _json0 = _json.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { role.BonusInfo __v;  __v =  role.BonusInfo.DeserializeBonusInfo(__e);  BonusInfo.Add(__v); }   }
     }
 
     public DistinctBonusInfos(int effective_level, System.Collections.Generic.List<role.BonusInfo> bonus_info ) 
@@ -33,9 +33,9 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         this.BonusInfo = bonus_info;
     }
 
-    public static DistinctBonusInfos DeserializeDistinctBonusInfos(JsonElement _buf)
+    public static DistinctBonusInfos DeserializeDistinctBonusInfos(JsonElement _json)
     {
-        return new role.DistinctBonusInfos(_buf);
+        return new role.DistinctBonusInfos(_json);
     }
 
     /// <summary>

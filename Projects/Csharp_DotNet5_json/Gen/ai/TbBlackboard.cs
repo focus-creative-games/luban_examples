@@ -24,12 +24,12 @@ public sealed partial class TbBlackboard
     private readonly Dictionary<string, ai.Blackboard> _dataMap;
     private readonly List<ai.Blackboard> _dataList;
     
-    public TbBlackboard(JsonElement _buf)
+    public TbBlackboard(JsonElement _json)
     {
         _dataMap = new Dictionary<string, ai.Blackboard>();
         _dataList = new List<ai.Blackboard>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = ai.Blackboard.DeserializeBlackboard(_row);
             _dataList.Add(_v);

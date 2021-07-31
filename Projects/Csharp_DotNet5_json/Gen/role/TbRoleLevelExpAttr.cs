@@ -24,12 +24,12 @@ public sealed partial class TbRoleLevelExpAttr
     private readonly Dictionary<int, role.LevelExpAttr> _dataMap;
     private readonly List<role.LevelExpAttr> _dataList;
     
-    public TbRoleLevelExpAttr(JsonElement _buf)
+    public TbRoleLevelExpAttr(JsonElement _json)
     {
         _dataMap = new Dictionary<int, role.LevelExpAttr>();
         _dataList = new List<role.LevelExpAttr>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = role.LevelExpAttr.DeserializeLevelExpAttr(_row);
             _dataList.Add(_v);

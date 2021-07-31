@@ -21,13 +21,13 @@ namespace cfg.item
 /// </summary>
 public sealed partial class TreasureBox :  item.ItemExtra 
 {
-    public TreasureBox(JsonElement _buf)  : base(_buf) 
+    public TreasureBox(JsonElement _json)  : base(_json) 
     {
-        { var _j = _buf.GetProperty("key_item_id"); if (_j.ValueKind != JsonValueKind.Null) { KeyItemId = _j.GetInt32(); } else { KeyItemId = null; } }
-        OpenLevel =  condition.MinLevel.DeserializeMinLevel(_buf.GetProperty("open_level"));
-        UseOnObtain = _buf.GetProperty("use_on_obtain").GetBoolean();
-        { var _json = _buf.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  DropIds.Add(__v); }   }
-        { var _json = _buf.GetProperty("choose_list"); ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { item.ChooseOneBonus __v;  __v =  item.ChooseOneBonus.DeserializeChooseOneBonus(__e);  ChooseList.Add(__v); }   }
+        { var _j = _json.GetProperty("key_item_id"); if (_j.ValueKind != JsonValueKind.Null) { KeyItemId = _j.GetInt32(); } else { KeyItemId = null; } }
+        OpenLevel =  condition.MinLevel.DeserializeMinLevel(_json.GetProperty("open_level"));
+        UseOnObtain = _json.GetProperty("use_on_obtain").GetBoolean();
+        { var _json0 = _json.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  DropIds.Add(__v); }   }
+        { var _json0 = _json.GetProperty("choose_list"); ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { item.ChooseOneBonus __v;  __v =  item.ChooseOneBonus.DeserializeChooseOneBonus(__e);  ChooseList.Add(__v); }   }
     }
 
     public TreasureBox(int id, int? key_item_id, condition.MinLevel open_level, bool use_on_obtain, System.Collections.Generic.List<int> drop_ids, System.Collections.Generic.List<item.ChooseOneBonus> choose_list )  : base(id) 
@@ -39,9 +39,9 @@ public sealed partial class TreasureBox :  item.ItemExtra
         this.ChooseList = choose_list;
     }
 
-    public static TreasureBox DeserializeTreasureBox(JsonElement _buf)
+    public static TreasureBox DeserializeTreasureBox(JsonElement _json)
     {
-        return new item.TreasureBox(_buf);
+        return new item.TreasureBox(_json);
     }
 
     /// <summary>

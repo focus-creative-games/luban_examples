@@ -21,11 +21,11 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UeBlackboard :  ai.Decorator 
 {
-    public UeBlackboard(JsonElement _buf)  : base(_buf) 
+    public UeBlackboard(JsonElement _json)  : base(_json) 
     {
-        NotifyObserver = (ai.ENotifyObserverMode)_buf.GetProperty("notify_observer").GetInt32();
-        BlackboardKey = _buf.GetProperty("blackboard_key").GetString();
-        KeyQuery =  ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf.GetProperty("key_query"));
+        NotifyObserver = (ai.ENotifyObserverMode)_json.GetProperty("notify_observer").GetInt32();
+        BlackboardKey = _json.GetProperty("blackboard_key").GetString();
+        KeyQuery =  ai.KeyQueryOperator.DeserializeKeyQueryOperator(_json.GetProperty("key_query"));
     }
 
     public UeBlackboard(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, ai.ENotifyObserverMode notify_observer, string blackboard_key, ai.KeyQueryOperator key_query )  : base(id,node_name,flow_abort_mode) 
@@ -35,9 +35,9 @@ public sealed partial class UeBlackboard :  ai.Decorator
         this.KeyQuery = key_query;
     }
 
-    public static UeBlackboard DeserializeUeBlackboard(JsonElement _buf)
+    public static UeBlackboard DeserializeUeBlackboard(JsonElement _json)
     {
-        return new ai.UeBlackboard(_buf);
+        return new ai.UeBlackboard(_json);
     }
 
     /// <summary>

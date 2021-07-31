@@ -21,11 +21,11 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
-    public ParamInfo(JsonElement _buf) 
+    public ParamInfo(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Type = _buf.GetProperty("type").GetString();
-        IsRef = _buf.GetProperty("is_ref").GetBoolean();
+        Name = _json.GetProperty("name").GetString();
+        Type = _json.GetProperty("type").GetString();
+        IsRef = _json.GetProperty("is_ref").GetBoolean();
     }
 
     public ParamInfo(string name, string type, bool is_ref ) 
@@ -35,9 +35,9 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         this.IsRef = is_ref;
     }
 
-    public static ParamInfo DeserializeParamInfo(JsonElement _buf)
+    public static ParamInfo DeserializeParamInfo(JsonElement _json)
     {
-        return new blueprint.ParamInfo(_buf);
+        return new blueprint.ParamInfo(_json);
     }
 
     /// <summary>

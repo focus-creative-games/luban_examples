@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class BlackboardKeyData :  ai.KeyData 
 {
-    public BlackboardKeyData(JsonElement _buf)  : base(_buf) 
+    public BlackboardKeyData(JsonElement _json)  : base(_json) 
     {
-        Value = _buf.GetProperty("value").GetString();
+        Value = _json.GetProperty("value").GetString();
     }
 
     public BlackboardKeyData(string value )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
         this.Value = value;
     }
 
-    public static BlackboardKeyData DeserializeBlackboardKeyData(JsonElement _buf)
+    public static BlackboardKeyData DeserializeBlackboardKeyData(JsonElement _json)
     {
-        return new ai.BlackboardKeyData(_buf);
+        return new ai.BlackboardKeyData(_json);
     }
 
     /// <summary>

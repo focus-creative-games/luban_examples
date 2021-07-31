@@ -21,7 +21,7 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class ExecuteTimeStatistic :  ai.Service 
 {
-    public ExecuteTimeStatistic(JsonElement _buf)  : base(_buf) 
+    public ExecuteTimeStatistic(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     {
     }
 
-    public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(JsonElement _buf)
+    public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(JsonElement _json)
     {
-        return new ai.ExecuteTimeStatistic(_buf);
+        return new ai.ExecuteTimeStatistic(_json);
     }
 
 

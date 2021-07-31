@@ -21,10 +21,10 @@ namespace cfg.common
 /// </summary>
 public sealed partial class Dummy :  Bright.Config.BeanBase 
 {
-    public Dummy(JsonElement _buf) 
+    public Dummy(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Limit =  limit.LimitBase.DeserializeLimitBase(_buf.GetProperty("limit"));
+        Id = _json.GetProperty("id").GetInt32();
+        Limit =  limit.LimitBase.DeserializeLimitBase(_json.GetProperty("limit"));
     }
 
     public Dummy(int id, limit.LimitBase limit ) 
@@ -33,9 +33,9 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         this.Limit = limit;
     }
 
-    public static Dummy DeserializeDummy(JsonElement _buf)
+    public static Dummy DeserializeDummy(JsonElement _json)
     {
-        return new common.Dummy(_buf);
+        return new common.Dummy(_json);
     }
 
     /// <summary>

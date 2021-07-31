@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class KeepFaceTarget :  ai.Service 
 {
-    public KeepFaceTarget(JsonElement _buf)  : base(_buf) 
+    public KeepFaceTarget(JsonElement _json)  : base(_json) 
     {
-        TargetActorKey = _buf.GetProperty("target_actor_key").GetString();
+        TargetActorKey = _json.GetProperty("target_actor_key").GetString();
     }
 
     public KeepFaceTarget(int id, string node_name, string target_actor_key )  : base(id,node_name) 
@@ -31,9 +31,9 @@ public sealed partial class KeepFaceTarget :  ai.Service
         this.TargetActorKey = target_actor_key;
     }
 
-    public static KeepFaceTarget DeserializeKeepFaceTarget(JsonElement _buf)
+    public static KeepFaceTarget DeserializeKeepFaceTarget(JsonElement _json)
     {
-        return new ai.KeepFaceTarget(_buf);
+        return new ai.KeepFaceTarget(_json);
     }
 
     /// <summary>

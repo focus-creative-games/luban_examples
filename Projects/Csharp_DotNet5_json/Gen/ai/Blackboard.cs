@@ -21,12 +21,12 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class Blackboard :  Bright.Config.BeanBase 
 {
-    public Blackboard(JsonElement _buf) 
+    public Blackboard(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
-        ParentName = _buf.GetProperty("parent_name").GetString();
-        { var _json = _buf.GetProperty("keys"); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.BlackboardKey __v;  __v =  ai.BlackboardKey.DeserializeBlackboardKey(__e);  Keys.Add(__v); }   }
+        Name = _json.GetProperty("name").GetString();
+        Desc = _json.GetProperty("desc").GetString();
+        ParentName = _json.GetProperty("parent_name").GetString();
+        { var _json0 = _json.GetProperty("keys"); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.BlackboardKey __v;  __v =  ai.BlackboardKey.DeserializeBlackboardKey(__e);  Keys.Add(__v); }   }
     }
 
     public Blackboard(string name, string desc, string parent_name, System.Collections.Generic.List<ai.BlackboardKey> keys ) 
@@ -37,9 +37,9 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         this.Keys = keys;
     }
 
-    public static Blackboard DeserializeBlackboard(JsonElement _buf)
+    public static Blackboard DeserializeBlackboard(JsonElement _json)
     {
-        return new ai.Blackboard(_buf);
+        return new ai.Blackboard(_json);
     }
 
     /// <summary>
