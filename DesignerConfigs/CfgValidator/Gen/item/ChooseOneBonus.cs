@@ -21,10 +21,10 @@ namespace cfg.item
 /// </summary>
 public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
 {
-    public ChooseOneBonus(JsonElement _buf) 
+    public ChooseOneBonus(JsonElement _json) 
     {
-        DropId = _buf.GetProperty("drop_id").GetInt32();
-        IsUnique = _buf.GetProperty("is_unique").GetBoolean();
+        DropId = _json.GetProperty("drop_id").GetInt32();
+        IsUnique = _json.GetProperty("is_unique").GetBoolean();
     }
 
     public ChooseOneBonus(int drop_id, bool is_unique ) 
@@ -33,9 +33,9 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
         this.IsUnique = is_unique;
     }
 
-    public static ChooseOneBonus DeserializeChooseOneBonus(JsonElement _buf)
+    public static ChooseOneBonus DeserializeChooseOneBonus(JsonElement _json)
     {
-        return new item.ChooseOneBonus(_buf);
+        return new item.ChooseOneBonus(_json);
     }
 
     /// <summary>

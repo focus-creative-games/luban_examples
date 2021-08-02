@@ -21,7 +21,7 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class Interface :  blueprint.Clazz 
 {
-    public Interface(JsonElement _buf)  : base(_buf) 
+    public Interface(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class Interface :  blueprint.Clazz
     {
     }
 
-    public static Interface DeserializeInterface(JsonElement _buf)
+    public static Interface DeserializeInterface(JsonElement _json)
     {
-        return new blueprint.Interface(_buf);
+        return new blueprint.Interface(_json);
     }
 
 

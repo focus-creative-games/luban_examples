@@ -21,7 +21,7 @@ namespace cfg.condition
 /// </summary>
 public abstract partial class BoolRoleCondition :  condition.RoleCondition 
 {
-    public BoolRoleCondition(JsonElement _buf)  : base(_buf) 
+    public BoolRoleCondition(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,15 +29,15 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
     {
     }
 
-    public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _buf)
+    public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "GenderLimit": return new condition.GenderLimit(_buf);
-            case "MinLevel": return new condition.MinLevel(_buf);
-            case "MaxLevel": return new condition.MaxLevel(_buf);
-            case "MinMaxLevel": return new condition.MinMaxLevel(_buf);
-            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_buf);
+            case "GenderLimit": return new condition.GenderLimit(_json);
+            case "MinLevel": return new condition.MinLevel(_json);
+            case "MaxLevel": return new condition.MaxLevel(_json);
+            case "MinMaxLevel": return new condition.MinMaxLevel(_json);
+            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_json);
             default: throw new SerializationException();
         }
     }

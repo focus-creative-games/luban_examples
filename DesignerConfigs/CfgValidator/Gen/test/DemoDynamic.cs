@@ -21,9 +21,9 @@ namespace cfg.test
 /// </summary>
 public abstract partial class DemoDynamic :  Bright.Config.BeanBase 
 {
-    public DemoDynamic(JsonElement _buf) 
+    public DemoDynamic(JsonElement _json) 
     {
-        X1 = _buf.GetProperty("x1").GetInt32();
+        X1 = _json.GetProperty("x1").GetInt32();
     }
 
     public DemoDynamic(int x1 ) 
@@ -31,13 +31,13 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
         this.X1 = x1;
     }
 
-    public static DemoDynamic DeserializeDemoDynamic(JsonElement _buf)
+    public static DemoDynamic DeserializeDemoDynamic(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "DemoD2": return new test.DemoD2(_buf);
-            case "DemoE1": return new test.DemoE1(_buf);
-            case "DemoD5": return new test.DemoD5(_buf);
+            case "DemoD2": return new test.DemoD2(_json);
+            case "DemoE1": return new test.DemoE1(_json);
+            case "DemoD5": return new test.DemoD5(_json);
             default: throw new SerializationException();
         }
     }

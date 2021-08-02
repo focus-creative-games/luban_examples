@@ -21,13 +21,13 @@ namespace cfg.test
 /// </summary>
 public sealed partial class MultiRowTitle :  Bright.Config.BeanBase 
 {
-    public MultiRowTitle(JsonElement _buf) 
+    public MultiRowTitle(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Name = _buf.GetProperty("name").GetString();
-        X1 =  test.H1.DeserializeH1(_buf.GetProperty("x1"));
-        { var _json = _buf.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X2.Add(__v); }   }
-        { var _json = _buf.GetProperty("x3"); int _n = _json.GetArrayLength(); X3 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X3[_index++] = __v; }   }
+        Id = _json.GetProperty("id").GetInt32();
+        Name = _json.GetProperty("name").GetString();
+        X1 =  test.H1.DeserializeH1(_json.GetProperty("x1"));
+        { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X2.Add(__v); }   }
+        { var _json0 = _json.GetProperty("x3"); int _n = _json0.GetArrayLength(); X3 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X3[_index++] = __v; }   }
     }
 
     public MultiRowTitle(int id, string name, test.H1 x1, System.Collections.Generic.List<test.H2> x2, test.H2[] x3 ) 
@@ -39,9 +39,9 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         this.X3 = x3;
     }
 
-    public static MultiRowTitle DeserializeMultiRowTitle(JsonElement _buf)
+    public static MultiRowTitle DeserializeMultiRowTitle(JsonElement _json)
     {
-        return new test.MultiRowTitle(_buf);
+        return new test.MultiRowTitle(_json);
     }
 
     /// <summary>

@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class ChooseTarget :  ai.Service 
 {
-    public ChooseTarget(JsonElement _buf)  : base(_buf) 
+    public ChooseTarget(JsonElement _json)  : base(_json) 
     {
-        ResultTargetKey = _buf.GetProperty("result_target_key").GetString();
+        ResultTargetKey = _json.GetProperty("result_target_key").GetString();
     }
 
     public ChooseTarget(int id, string node_name, string result_target_key )  : base(id,node_name) 
@@ -31,9 +31,9 @@ public sealed partial class ChooseTarget :  ai.Service
         this.ResultTargetKey = result_target_key;
     }
 
-    public static ChooseTarget DeserializeChooseTarget(JsonElement _buf)
+    public static ChooseTarget DeserializeChooseTarget(JsonElement _json)
     {
-        return new ai.ChooseTarget(_buf);
+        return new ai.ChooseTarget(_json);
     }
 
     /// <summary>

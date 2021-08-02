@@ -21,10 +21,10 @@ namespace cfg.role
 /// </summary>
 public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
-    public BonusInfo(JsonElement _buf) 
+    public BonusInfo(JsonElement _json) 
     {
-        Type = (item.ECurrencyType)_buf.GetProperty("type").GetInt32();
-        Coefficient = _buf.GetProperty("coefficient").GetSingle();
+        Type = (item.ECurrencyType)_json.GetProperty("type").GetInt32();
+        Coefficient = _json.GetProperty("coefficient").GetSingle();
     }
 
     public BonusInfo(item.ECurrencyType type, float coefficient ) 
@@ -33,9 +33,9 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         this.Coefficient = coefficient;
     }
 
-    public static BonusInfo DeserializeBonusInfo(JsonElement _buf)
+    public static BonusInfo DeserializeBonusInfo(JsonElement _json)
     {
-        return new role.BonusInfo(_buf);
+        return new role.BonusInfo(_json);
     }
 
     /// <summary>

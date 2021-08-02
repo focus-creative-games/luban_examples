@@ -12,6 +12,8 @@
 	<group name="e" default="1"/> editor
 	
 	<import name="."/>
+	
+	<importexcel name="tables.xlsx"/> 相对data目录
 
 	<service name="server" manager="Tables" group="s"/>
 	<service name="client" manager="Tables" group="c"/>

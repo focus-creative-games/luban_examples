@@ -21,9 +21,9 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class CoolDown :  limit.LimitBase 
 {
-    public CoolDown(JsonElement _buf)  : base(_buf) 
+    public CoolDown(JsonElement _json)  : base(_json) 
     {
-        Duration = _buf.GetProperty("duration").GetInt32();
+        Duration = _json.GetProperty("duration").GetInt32();
     }
 
     public CoolDown(int duration )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class CoolDown :  limit.LimitBase
         this.Duration = duration;
     }
 
-    public static CoolDown DeserializeCoolDown(JsonElement _buf)
+    public static CoolDown DeserializeCoolDown(JsonElement _json)
     {
-        return new limit.CoolDown(_buf);
+        return new limit.CoolDown(_json);
     }
 
     /// <summary>

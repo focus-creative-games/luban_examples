@@ -21,21 +21,21 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
-    public DemoPrimitiveTypesTable(JsonElement _buf) 
+    public DemoPrimitiveTypesTable(JsonElement _json) 
     {
-        X1 = _buf.GetProperty("x1").GetBoolean();
-        X2 = _buf.GetProperty("x2").GetByte();
-        X3 = _buf.GetProperty("x3").GetInt16();
-        X4 = _buf.GetProperty("x4").GetInt32();
-        X5 = _buf.GetProperty("x5").GetInt64();
-        X6 = _buf.GetProperty("x6").GetSingle();
-        X7 = _buf.GetProperty("x7").GetDouble();
-        S1 = _buf.GetProperty("s1").GetString();
-        S2 = _buf.GetProperty("s2").GetString();
-        { var _json = _buf.GetProperty("v2"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
-        { var _json = _buf.GetProperty("v3"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
-        { var _json = _buf.GetProperty("v4"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  float __w; __w = _json.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
-        T1 = _buf.GetProperty("t1").GetInt32();
+        X1 = _json.GetProperty("x1").GetBoolean();
+        X2 = _json.GetProperty("x2").GetByte();
+        X3 = _json.GetProperty("x3").GetInt16();
+        X4 = _json.GetProperty("x4").GetInt32();
+        X5 = _json.GetProperty("x5").GetInt64();
+        X6 = _json.GetProperty("x6").GetSingle();
+        X7 = _json.GetProperty("x7").GetDouble();
+        S1 = _json.GetProperty("s1").GetString();
+        S2 = _json.GetProperty("s2").GetString();
+        { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
+        { var _json0 = _json.GetProperty("v3"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
+        { var _json0 = _json.GetProperty("v4"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  float __w; __w = _json0.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        T1 = _json.GetProperty("t1").GetInt32();
     }
 
     public DemoPrimitiveTypesTable(bool x1, byte x2, short x3, int x4, long x5, float x6, double x7, string s1, string s2, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1 ) 
@@ -55,9 +55,9 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         this.T1 = t1;
     }
 
-    public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(JsonElement _buf)
+    public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(JsonElement _json)
     {
-        return new test.DemoPrimitiveTypesTable(_buf);
+        return new test.DemoPrimitiveTypesTable(_json);
     }
 
     /// <summary>

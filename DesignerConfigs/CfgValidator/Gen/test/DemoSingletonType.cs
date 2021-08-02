@@ -21,11 +21,11 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
 {
-    public DemoSingletonType(JsonElement _buf) 
+    public DemoSingletonType(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Name = _buf.GetProperty("name").GetString();
-        Date =  test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("date"));
+        Id = _json.GetProperty("id").GetInt32();
+        Name = _json.GetProperty("name").GetString();
+        Date =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("date"));
     }
 
     public DemoSingletonType(int id, string name, test.DemoDynamic date ) 
@@ -35,9 +35,9 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         this.Date = date;
     }
 
-    public static DemoSingletonType DeserializeDemoSingletonType(JsonElement _buf)
+    public static DemoSingletonType DeserializeDemoSingletonType(JsonElement _json)
     {
-        return new test.DemoSingletonType(_buf);
+        return new test.DemoSingletonType(_json);
     }
 
     /// <summary>

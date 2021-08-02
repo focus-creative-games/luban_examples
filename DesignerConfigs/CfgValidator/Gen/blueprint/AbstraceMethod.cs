@@ -21,7 +21,7 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class AbstraceMethod :  blueprint.Method 
 {
-    public AbstraceMethod(JsonElement _buf)  : base(_buf) 
+    public AbstraceMethod(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class AbstraceMethod :  blueprint.Method
     {
     }
 
-    public static AbstraceMethod DeserializeAbstraceMethod(JsonElement _buf)
+    public static AbstraceMethod DeserializeAbstraceMethod(JsonElement _json)
     {
-        return new blueprint.AbstraceMethod(_buf);
+        return new blueprint.AbstraceMethod(_json);
     }
 
 

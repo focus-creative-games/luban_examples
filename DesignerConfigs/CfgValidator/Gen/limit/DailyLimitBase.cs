@@ -21,7 +21,7 @@ namespace cfg.limit
 /// </summary>
 public abstract partial class DailyLimitBase :  limit.LimitBase 
 {
-    public DailyLimitBase(JsonElement _buf)  : base(_buf) 
+    public DailyLimitBase(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,11 +29,11 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     {
     }
 
-    public static DailyLimitBase DeserializeDailyLimitBase(JsonElement _buf)
+    public static DailyLimitBase DeserializeDailyLimitBase(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "DailyLimit": return new limit.DailyLimit(_buf);
+            case "DailyLimit": return new limit.DailyLimit(_json);
             default: throw new SerializationException();
         }
     }

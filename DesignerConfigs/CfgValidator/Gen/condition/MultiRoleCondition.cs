@@ -21,9 +21,9 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class MultiRoleCondition :  condition.RoleCondition 
 {
-    public MultiRoleCondition(JsonElement _buf)  : base(_buf) 
+    public MultiRoleCondition(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("conditions"); int _n = _json.GetArrayLength(); Conditions = new condition.RoleCondition[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { condition.RoleCondition __v;  __v =  condition.RoleCondition.DeserializeRoleCondition(__e);  Conditions[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("conditions"); int _n = _json0.GetArrayLength(); Conditions = new condition.RoleCondition[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { condition.RoleCondition __v;  __v =  condition.RoleCondition.DeserializeRoleCondition(__e);  Conditions[_index++] = __v; }   }
     }
 
     public MultiRoleCondition(condition.RoleCondition[] conditions )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         this.Conditions = conditions;
     }
 
-    public static MultiRoleCondition DeserializeMultiRoleCondition(JsonElement _buf)
+    public static MultiRoleCondition DeserializeMultiRoleCondition(JsonElement _json)
     {
-        return new condition.MultiRoleCondition(_buf);
+        return new condition.MultiRoleCondition(_json);
     }
 
     /// <summary>

@@ -21,13 +21,13 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class BehaviorTree :  Bright.Config.BeanBase 
 {
-    public BehaviorTree(JsonElement _buf) 
+    public BehaviorTree(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Name = _buf.GetProperty("name").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
-        BlackboardId = _buf.GetProperty("blackboard_id").GetString();
-        Root =  ai.ComposeNode.DeserializeComposeNode(_buf.GetProperty("root"));
+        Id = _json.GetProperty("id").GetInt32();
+        Name = _json.GetProperty("name").GetString();
+        Desc = _json.GetProperty("desc").GetString();
+        BlackboardId = _json.GetProperty("blackboard_id").GetString();
+        Root =  ai.ComposeNode.DeserializeComposeNode(_json.GetProperty("root"));
     }
 
     public BehaviorTree(int id, string name, string desc, string blackboard_id, ai.ComposeNode root ) 
@@ -39,9 +39,9 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         this.Root = root;
     }
 
-    public static BehaviorTree DeserializeBehaviorTree(JsonElement _buf)
+    public static BehaviorTree DeserializeBehaviorTree(JsonElement _json)
     {
-        return new ai.BehaviorTree(_buf);
+        return new ai.BehaviorTree(_json);
     }
 
     /// <summary>

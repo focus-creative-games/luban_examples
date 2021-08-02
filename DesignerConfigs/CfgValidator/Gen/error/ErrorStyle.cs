@@ -21,7 +21,7 @@ namespace cfg.error
 /// </summary>
 public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
 {
-    public ErrorStyle(JsonElement _buf) 
+    public ErrorStyle(JsonElement _json) 
     {
     }
 
@@ -29,14 +29,14 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
     {
     }
 
-    public static ErrorStyle DeserializeErrorStyle(JsonElement _buf)
+    public static ErrorStyle DeserializeErrorStyle(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "ErrorStyleTip": return new error.ErrorStyleTip(_buf);
-            case "ErrorStyleMsgbox": return new error.ErrorStyleMsgbox(_buf);
-            case "ErrorStyleDlgOk": return new error.ErrorStyleDlgOk(_buf);
-            case "ErrorStyleDlgOkCancel": return new error.ErrorStyleDlgOkCancel(_buf);
+            case "ErrorStyleTip": return new error.ErrorStyleTip(_json);
+            case "ErrorStyleMsgbox": return new error.ErrorStyleMsgbox(_json);
+            case "ErrorStyleDlgOk": return new error.ErrorStyleDlgOk(_json);
+            case "ErrorStyleDlgOkCancel": return new error.ErrorStyleDlgOkCancel(_json);
             default: throw new SerializationException();
         }
     }

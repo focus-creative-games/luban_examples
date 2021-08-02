@@ -24,12 +24,12 @@ public sealed partial class TbMultiRowTitle
     private readonly Dictionary<int, test.MultiRowTitle> _dataMap;
     private readonly List<test.MultiRowTitle> _dataList;
     
-    public TbMultiRowTitle(JsonElement _buf)
+    public TbMultiRowTitle(JsonElement _json)
     {
         _dataMap = new Dictionary<int, test.MultiRowTitle>();
         _dataList = new List<test.MultiRowTitle>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = test.MultiRowTitle.DeserializeMultiRowTitle(_row);
             _dataList.Add(_v);

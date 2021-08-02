@@ -21,13 +21,13 @@ namespace cfg.blueprint
 /// </summary>
 public abstract partial class Method :  Bright.Config.BeanBase 
 {
-    public Method(JsonElement _buf) 
+    public Method(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
-        IsStatic = _buf.GetProperty("is_static").GetBoolean();
-        ReturnType = _buf.GetProperty("return_type").GetString();
-        { var _json = _buf.GetProperty("parameters"); Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.ParamInfo __v;  __v =  blueprint.ParamInfo.DeserializeParamInfo(__e);  Parameters.Add(__v); }   }
+        Name = _json.GetProperty("name").GetString();
+        Desc = _json.GetProperty("desc").GetString();
+        IsStatic = _json.GetProperty("is_static").GetBoolean();
+        ReturnType = _json.GetProperty("return_type").GetString();
+        { var _json0 = _json.GetProperty("parameters"); Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.ParamInfo __v;  __v =  blueprint.ParamInfo.DeserializeParamInfo(__e);  Parameters.Add(__v); }   }
     }
 
     public Method(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters ) 
@@ -39,13 +39,13 @@ public abstract partial class Method :  Bright.Config.BeanBase
         this.Parameters = parameters;
     }
 
-    public static Method DeserializeMethod(JsonElement _buf)
+    public static Method DeserializeMethod(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "AbstraceMethod": return new blueprint.AbstraceMethod(_buf);
-            case "ExternalMethod": return new blueprint.ExternalMethod(_buf);
-            case "BlueprintMethod": return new blueprint.BlueprintMethod(_buf);
+            case "AbstraceMethod": return new blueprint.AbstraceMethod(_json);
+            case "ExternalMethod": return new blueprint.ExternalMethod(_json);
+            case "BlueprintMethod": return new blueprint.BlueprintMethod(_json);
             default: throw new SerializationException();
         }
     }

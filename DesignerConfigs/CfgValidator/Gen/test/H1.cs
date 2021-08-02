@@ -21,10 +21,10 @@ namespace cfg.test
 /// </summary>
 public sealed partial class H1 :  Bright.Config.BeanBase 
 {
-    public H1(JsonElement _buf) 
+    public H1(JsonElement _json) 
     {
-        Y2 =  test.H2.DeserializeH2(_buf.GetProperty("y2"));
-        Y3 = _buf.GetProperty("y3").GetInt32();
+        Y2 =  test.H2.DeserializeH2(_json.GetProperty("y2"));
+        Y3 = _json.GetProperty("y3").GetInt32();
     }
 
     public H1(test.H2 y2, int y3 ) 
@@ -33,9 +33,9 @@ public sealed partial class H1 :  Bright.Config.BeanBase
         this.Y3 = y3;
     }
 
-    public static H1 DeserializeH1(JsonElement _buf)
+    public static H1 DeserializeH1(JsonElement _json)
     {
-        return new test.H1(_buf);
+        return new test.H1(_json);
     }
 
     /// <summary>

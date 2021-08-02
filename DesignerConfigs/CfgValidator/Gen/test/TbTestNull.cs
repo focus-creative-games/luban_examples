@@ -24,12 +24,12 @@ public sealed partial class TbTestNull
     private readonly Dictionary<int, test.TestNull> _dataMap;
     private readonly List<test.TestNull> _dataList;
     
-    public TbTestNull(JsonElement _buf)
+    public TbTestNull(JsonElement _json)
     {
         _dataMap = new Dictionary<int, test.TestNull>();
         _dataList = new List<test.TestNull>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = test.TestNull.DeserializeTestNull(_row);
             _dataList.Add(_v);

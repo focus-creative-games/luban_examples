@@ -24,12 +24,12 @@ public sealed partial class TbDummy
     private readonly Dictionary<int, common.Dummy> _dataMap;
     private readonly List<common.Dummy> _dataList;
     
-    public TbDummy(JsonElement _buf)
+    public TbDummy(JsonElement _json)
     {
         _dataMap = new Dictionary<int, common.Dummy>();
         _dataList = new List<common.Dummy>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = common.Dummy.DeserializeDummy(_row);
             _dataList.Add(_v);

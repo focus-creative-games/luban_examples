@@ -21,11 +21,11 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class ContainsItem :  condition.RoleCondition 
 {
-    public ContainsItem(JsonElement _buf)  : base(_buf) 
+    public ContainsItem(JsonElement _json)  : base(_json) 
     {
-        ItemId = _buf.GetProperty("item_id").GetInt32();
-        Num = _buf.GetProperty("num").GetInt32();
-        Reverse = _buf.GetProperty("reverse").GetBoolean();
+        ItemId = _json.GetProperty("item_id").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
+        Reverse = _json.GetProperty("reverse").GetBoolean();
     }
 
     public ContainsItem(int item_id, int num, bool reverse )  : base() 
@@ -35,9 +35,9 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         this.Reverse = reverse;
     }
 
-    public static ContainsItem DeserializeContainsItem(JsonElement _buf)
+    public static ContainsItem DeserializeContainsItem(JsonElement _json)
     {
-        return new condition.ContainsItem(_buf);
+        return new condition.ContainsItem(_json);
     }
 
     /// <summary>

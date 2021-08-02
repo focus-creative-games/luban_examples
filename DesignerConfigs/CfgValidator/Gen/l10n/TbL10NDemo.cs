@@ -24,12 +24,12 @@ public sealed partial class TbL10NDemo
     private readonly Dictionary<int, l10n.L10NDemo> _dataMap;
     private readonly List<l10n.L10NDemo> _dataList;
     
-    public TbL10NDemo(JsonElement _buf)
+    public TbL10NDemo(JsonElement _json)
     {
         _dataMap = new Dictionary<int, l10n.L10NDemo>();
         _dataList = new List<l10n.L10NDemo>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = l10n.L10NDemo.DeserializeL10NDemo(_row);
             _dataList.Add(_v);

@@ -24,12 +24,12 @@ public sealed partial class TbDataFromLua
     private readonly Dictionary<int, test.DemoType2> _dataMap;
     private readonly List<test.DemoType2> _dataList;
     
-    public TbDataFromLua(JsonElement _buf)
+    public TbDataFromLua(JsonElement _json)
     {
         _dataMap = new Dictionary<int, test.DemoType2>();
         _dataList = new List<test.DemoType2>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = test.DemoType2.DeserializeDemoType2(_row);
             _dataList.Add(_v);

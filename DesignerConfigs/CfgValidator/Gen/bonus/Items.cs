@@ -21,9 +21,9 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class Items :  bonus.Bonus 
 {
-    public Items(JsonElement _buf)  : base(_buf) 
+    public Items(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("item_list"); int _n = _json.GetArrayLength(); ItemList = new bonus.Item[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { bonus.Item __v;  __v =  bonus.Item.DeserializeItem(__e);  ItemList[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.Item[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.Item __v;  __v =  bonus.Item.DeserializeItem(__e);  ItemList[_index++] = __v; }   }
     }
 
     public Items(bonus.Item[] item_list )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class Items :  bonus.Bonus
         this.ItemList = item_list;
     }
 
-    public static Items DeserializeItems(JsonElement _buf)
+    public static Items DeserializeItems(JsonElement _json)
     {
-        return new bonus.Items(_buf);
+        return new bonus.Items(_json);
     }
 
     /// <summary>

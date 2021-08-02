@@ -21,10 +21,10 @@ namespace cfg.test
 /// </summary>
 public sealed partial class TestGlobal :  Bright.Config.BeanBase 
 {
-    public TestGlobal(JsonElement _buf) 
+    public TestGlobal(JsonElement _json) 
     {
-        UnlockEquip = _buf.GetProperty("unlock_equip").GetInt32();
-        UnlockHero = _buf.GetProperty("unlock_hero").GetInt32();
+        UnlockEquip = _json.GetProperty("unlock_equip").GetInt32();
+        UnlockHero = _json.GetProperty("unlock_hero").GetInt32();
     }
 
     public TestGlobal(int unlock_equip, int unlock_hero ) 
@@ -33,9 +33,9 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
         this.UnlockHero = unlock_hero;
     }
 
-    public static TestGlobal DeserializeTestGlobal(JsonElement _buf)
+    public static TestGlobal DeserializeTestGlobal(JsonElement _json)
     {
-        return new test.TestGlobal(_buf);
+        return new test.TestGlobal(_json);
     }
 
     /// <summary>

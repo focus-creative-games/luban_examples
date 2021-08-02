@@ -21,10 +21,10 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class CoefficientItem :  bonus.Bonus 
 {
-    public CoefficientItem(JsonElement _buf)  : base(_buf) 
+    public CoefficientItem(JsonElement _json)  : base(_json) 
     {
-        BonusId = _buf.GetProperty("bonus_id").GetInt32();
-        BonusList =  bonus.Items.DeserializeItems(_buf.GetProperty("bonus_list"));
+        BonusId = _json.GetProperty("bonus_id").GetInt32();
+        BonusList =  bonus.Items.DeserializeItems(_json.GetProperty("bonus_list"));
     }
 
     public CoefficientItem(int bonus_id, bonus.Items bonus_list )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         this.BonusList = bonus_list;
     }
 
-    public static CoefficientItem DeserializeCoefficientItem(JsonElement _buf)
+    public static CoefficientItem DeserializeCoefficientItem(JsonElement _json)
     {
-        return new bonus.CoefficientItem(_buf);
+        return new bonus.CoefficientItem(_json);
     }
 
     /// <summary>

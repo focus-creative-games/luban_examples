@@ -21,9 +21,9 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class TimeRange :  condition.Condition 
 {
-    public TimeRange(JsonElement _buf)  : base(_buf) 
+    public TimeRange(JsonElement _json)  : base(_json) 
     {
-        DateTimeRange =  common.DateTimeRange.DeserializeDateTimeRange(_buf.GetProperty("date_time_range"));
+        DateTimeRange =  common.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("date_time_range"));
     }
 
     public TimeRange(common.DateTimeRange date_time_range )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class TimeRange :  condition.Condition
         this.DateTimeRange = date_time_range;
     }
 
-    public static TimeRange DeserializeTimeRange(JsonElement _buf)
+    public static TimeRange DeserializeTimeRange(JsonElement _json)
     {
-        return new condition.TimeRange(_buf);
+        return new condition.TimeRange(_json);
     }
 
     /// <summary>

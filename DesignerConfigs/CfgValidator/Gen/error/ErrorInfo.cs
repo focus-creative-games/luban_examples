@@ -21,11 +21,11 @@ namespace cfg.error
 /// </summary>
 public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
-    public ErrorInfo(JsonElement _buf) 
+    public ErrorInfo(JsonElement _json) 
     {
-        Code = _buf.GetProperty("code").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
-        Style =  error.ErrorStyle.DeserializeErrorStyle(_buf.GetProperty("style"));
+        Code = _json.GetProperty("code").GetString();
+        Desc = _json.GetProperty("desc").GetString();
+        Style =  error.ErrorStyle.DeserializeErrorStyle(_json.GetProperty("style"));
     }
 
     public ErrorInfo(string code, string desc, error.ErrorStyle style ) 
@@ -35,9 +35,9 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         this.Style = style;
     }
 
-    public static ErrorInfo DeserializeErrorInfo(JsonElement _buf)
+    public static ErrorInfo DeserializeErrorInfo(JsonElement _json)
     {
-        return new error.ErrorInfo(_buf);
+        return new error.ErrorInfo(_json);
     }
 
     /// <summary>

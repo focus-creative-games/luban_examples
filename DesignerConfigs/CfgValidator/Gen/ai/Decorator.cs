@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public abstract partial class Decorator :  ai.Node 
 {
-    public Decorator(JsonElement _buf)  : base(_buf) 
+    public Decorator(JsonElement _json)  : base(_json) 
     {
-        FlowAbortMode = (ai.EFlowAbortMode)_buf.GetProperty("flow_abort_mode").GetInt32();
+        FlowAbortMode = (ai.EFlowAbortMode)_json.GetProperty("flow_abort_mode").GetInt32();
     }
 
     public Decorator(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name) 
@@ -31,17 +31,17 @@ public abstract partial class Decorator :  ai.Node
         this.FlowAbortMode = flow_abort_mode;
     }
 
-    public static Decorator DeserializeDecorator(JsonElement _buf)
+    public static Decorator DeserializeDecorator(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "UeLoop": return new ai.UeLoop(_buf);
-            case "UeCooldown": return new ai.UeCooldown(_buf);
-            case "UeTimeLimit": return new ai.UeTimeLimit(_buf);
-            case "UeBlackboard": return new ai.UeBlackboard(_buf);
-            case "UeForceSuccess": return new ai.UeForceSuccess(_buf);
-            case "IsAtLocation": return new ai.IsAtLocation(_buf);
-            case "DistanceLessThan": return new ai.DistanceLessThan(_buf);
+            case "UeLoop": return new ai.UeLoop(_json);
+            case "UeCooldown": return new ai.UeCooldown(_json);
+            case "UeTimeLimit": return new ai.UeTimeLimit(_json);
+            case "UeBlackboard": return new ai.UeBlackboard(_json);
+            case "UeForceSuccess": return new ai.UeForceSuccess(_json);
+            case "IsAtLocation": return new ai.IsAtLocation(_json);
+            case "DistanceLessThan": return new ai.DistanceLessThan(_json);
             default: throw new SerializationException();
         }
     }

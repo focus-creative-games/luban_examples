@@ -21,9 +21,9 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class DailyLimit :  limit.DailyLimitBase 
 {
-    public DailyLimit(JsonElement _buf)  : base(_buf) 
+    public DailyLimit(JsonElement _json)  : base(_json) 
     {
-        Num = _buf.GetProperty("num").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
     }
 
     public DailyLimit(int num )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class DailyLimit :  limit.DailyLimitBase
         this.Num = num;
     }
 
-    public static DailyLimit DeserializeDailyLimit(JsonElement _buf)
+    public static DailyLimit DeserializeDailyLimit(JsonElement _json)
     {
-        return new limit.DailyLimit(_buf);
+        return new limit.DailyLimit(_json);
     }
 
     /// <summary>

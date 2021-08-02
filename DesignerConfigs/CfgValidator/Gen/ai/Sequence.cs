@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class Sequence :  ai.ComposeNode 
 {
-    public Sequence(JsonElement _buf)  : base(_buf) 
+    public Sequence(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { ai.FlowNode __v;  __v =  ai.FlowNode.DeserializeFlowNode(__e);  Children.Add(__v); }   }
+        { var _json0 = _json.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.FlowNode __v;  __v =  ai.FlowNode.DeserializeFlowNode(__e);  Children.Add(__v); }   }
     }
 
     public Sequence(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, System.Collections.Generic.List<ai.FlowNode> children )  : base(id,node_name,decorators,services) 
@@ -31,9 +31,9 @@ public sealed partial class Sequence :  ai.ComposeNode
         this.Children = children;
     }
 
-    public static Sequence DeserializeSequence(JsonElement _buf)
+    public static Sequence DeserializeSequence(JsonElement _json)
     {
-        return new ai.Sequence(_buf);
+        return new ai.Sequence(_json);
     }
 
     /// <summary>

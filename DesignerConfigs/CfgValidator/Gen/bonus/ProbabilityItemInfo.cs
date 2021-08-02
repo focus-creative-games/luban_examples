@@ -21,11 +21,11 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase 
 {
-    public ProbabilityItemInfo(JsonElement _buf) 
+    public ProbabilityItemInfo(JsonElement _json) 
     {
-        ItemId = _buf.GetProperty("item_id").GetInt32();
-        Num = _buf.GetProperty("num").GetInt32();
-        Probability = _buf.GetProperty("probability").GetSingle();
+        ItemId = _json.GetProperty("item_id").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
+        Probability = _json.GetProperty("probability").GetSingle();
     }
 
     public ProbabilityItemInfo(int item_id, int num, float probability ) 
@@ -35,9 +35,9 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
         this.Probability = probability;
     }
 
-    public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JsonElement _buf)
+    public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JsonElement _json)
     {
-        return new bonus.ProbabilityItemInfo(_buf);
+        return new bonus.ProbabilityItemInfo(_json);
     }
 
     /// <summary>

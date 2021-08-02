@@ -24,11 +24,11 @@ public sealed partial class TbSingleton
 
      private readonly test.DemoSingletonType _data;
 
-    public TbSingleton(JsonElement _buf)
+    public TbSingleton(JsonElement _json)
     {
-        int n = _buf.GetArrayLength();
+        int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.DemoSingletonType.DeserializeDemoSingletonType(_buf[0]);
+        _data = test.DemoSingletonType.DeserializeDemoSingletonType(_json[0]);
     }
 
     /// <summary>

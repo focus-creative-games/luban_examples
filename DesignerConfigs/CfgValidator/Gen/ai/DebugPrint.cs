@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class DebugPrint :  ai.Task 
 {
-    public DebugPrint(JsonElement _buf)  : base(_buf) 
+    public DebugPrint(JsonElement _json)  : base(_json) 
     {
-        Text = _buf.GetProperty("text").GetString();
+        Text = _json.GetProperty("text").GetString();
     }
 
     public DebugPrint(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string text )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -31,9 +31,9 @@ public sealed partial class DebugPrint :  ai.Task
         this.Text = text;
     }
 
-    public static DebugPrint DeserializeDebugPrint(JsonElement _buf)
+    public static DebugPrint DeserializeDebugPrint(JsonElement _json)
     {
-        return new ai.DebugPrint(_buf);
+        return new ai.DebugPrint(_json);
     }
 
     /// <summary>

@@ -21,10 +21,10 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class MultiDayLimit :  limit.LimitBase 
 {
-    public MultiDayLimit(JsonElement _buf)  : base(_buf) 
+    public MultiDayLimit(JsonElement _json)  : base(_json) 
     {
-        Day = _buf.GetProperty("day").GetInt32();
-        Num = _buf.GetProperty("num").GetInt32();
+        Day = _json.GetProperty("day").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
     }
 
     public MultiDayLimit(int day, int num )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
         this.Num = num;
     }
 
-    public static MultiDayLimit DeserializeMultiDayLimit(JsonElement _buf)
+    public static MultiDayLimit DeserializeMultiDayLimit(JsonElement _json)
     {
-        return new limit.MultiDayLimit(_buf);
+        return new limit.MultiDayLimit(_json);
     }
 
     /// <summary>

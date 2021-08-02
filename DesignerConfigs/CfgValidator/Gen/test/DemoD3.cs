@@ -21,9 +21,9 @@ namespace cfg.test
 /// </summary>
 public abstract partial class DemoD3 :  test.DemoDynamic 
 {
-    public DemoD3(JsonElement _buf)  : base(_buf) 
+    public DemoD3(JsonElement _json)  : base(_json) 
     {
-        X3 = _buf.GetProperty("x3").GetInt32();
+        X3 = _json.GetProperty("x3").GetInt32();
     }
 
     public DemoD3(int x1, int x3 )  : base(x1) 
@@ -31,11 +31,11 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         this.X3 = x3;
     }
 
-    public static DemoD3 DeserializeDemoD3(JsonElement _buf)
+    public static DemoD3 DeserializeDemoD3(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "DemoE1": return new test.DemoE1(_buf);
+            case "DemoE1": return new test.DemoE1(_json);
             default: throw new SerializationException();
         }
     }

@@ -24,12 +24,12 @@ public sealed partial class TbRoleLevelBonusCoefficient
     private readonly Dictionary<int, role.LevelBonus> _dataMap;
     private readonly List<role.LevelBonus> _dataList;
     
-    public TbRoleLevelBonusCoefficient(JsonElement _buf)
+    public TbRoleLevelBonusCoefficient(JsonElement _json)
     {
         _dataMap = new Dictionary<int, role.LevelBonus>();
         _dataList = new List<role.LevelBonus>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = role.LevelBonus.DeserializeLevelBonus(_row);
             _dataList.Add(_v);

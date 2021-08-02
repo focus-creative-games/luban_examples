@@ -21,7 +21,7 @@ namespace cfg.condition
 /// </summary>
 public abstract partial class Condition :  Bright.Config.BeanBase 
 {
-    public Condition(JsonElement _buf) 
+    public Condition(JsonElement _json) 
     {
     }
 
@@ -29,18 +29,18 @@ public abstract partial class Condition :  Bright.Config.BeanBase
     {
     }
 
-    public static Condition DeserializeCondition(JsonElement _buf)
+    public static Condition DeserializeCondition(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "TimeRange": return new condition.TimeRange(_buf);
-            case "MultiRoleCondition": return new condition.MultiRoleCondition(_buf);
-            case "GenderLimit": return new condition.GenderLimit(_buf);
-            case "MinLevel": return new condition.MinLevel(_buf);
-            case "MaxLevel": return new condition.MaxLevel(_buf);
-            case "MinMaxLevel": return new condition.MinMaxLevel(_buf);
-            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_buf);
-            case "ContainsItem": return new condition.ContainsItem(_buf);
+            case "TimeRange": return new condition.TimeRange(_json);
+            case "MultiRoleCondition": return new condition.MultiRoleCondition(_json);
+            case "GenderLimit": return new condition.GenderLimit(_json);
+            case "MinLevel": return new condition.MinLevel(_json);
+            case "MaxLevel": return new condition.MaxLevel(_json);
+            case "MinMaxLevel": return new condition.MinMaxLevel(_json);
+            case "ClothesPropertyScoreGreaterThan": return new condition.ClothesPropertyScoreGreaterThan(_json);
+            case "ContainsItem": return new condition.ContainsItem(_json);
             default: throw new SerializationException();
         }
     }

@@ -24,12 +24,12 @@ public sealed partial class TbGlobalMail
     private readonly Dictionary<int, mail.GlobalMail> _dataMap;
     private readonly List<mail.GlobalMail> _dataList;
     
-    public TbGlobalMail(JsonElement _buf)
+    public TbGlobalMail(JsonElement _json)
     {
         _dataMap = new Dictionary<int, mail.GlobalMail>();
         _dataList = new List<mail.GlobalMail>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = mail.GlobalMail.DeserializeGlobalMail(_row);
             _dataList.Add(_v);

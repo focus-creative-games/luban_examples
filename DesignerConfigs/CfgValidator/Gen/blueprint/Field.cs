@@ -21,11 +21,11 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class Field :  Bright.Config.BeanBase 
 {
-    public Field(JsonElement _buf) 
+    public Field(JsonElement _json) 
     {
-        Name = _buf.GetProperty("name").GetString();
-        Type = _buf.GetProperty("type").GetString();
-        Desc = _buf.GetProperty("desc").GetString();
+        Name = _json.GetProperty("name").GetString();
+        Type = _json.GetProperty("type").GetString();
+        Desc = _json.GetProperty("desc").GetString();
     }
 
     public Field(string name, string type, string desc ) 
@@ -35,9 +35,9 @@ public sealed partial class Field :  Bright.Config.BeanBase
         this.Desc = desc;
     }
 
-    public static Field DeserializeField(JsonElement _buf)
+    public static Field DeserializeField(JsonElement _json)
     {
-        return new blueprint.Field(_buf);
+        return new blueprint.Field(_json);
     }
 
     /// <summary>

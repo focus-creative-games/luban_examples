@@ -24,12 +24,12 @@ public sealed partial class TbItemFunc
     private readonly Dictionary<item.EMinorType, item.ItemFunction> _dataMap;
     private readonly List<item.ItemFunction> _dataList;
     
-    public TbItemFunc(JsonElement _buf)
+    public TbItemFunc(JsonElement _json)
     {
         _dataMap = new Dictionary<item.EMinorType, item.ItemFunction>();
         _dataList = new List<item.ItemFunction>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = item.ItemFunction.DeserializeItemFunction(_row);
             _dataList.Add(_v);

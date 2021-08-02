@@ -21,14 +21,14 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoGroup :  Bright.Config.BeanBase 
 {
-    public DemoGroup(JsonElement _buf) 
+    public DemoGroup(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        X1 = _buf.GetProperty("x1").GetInt32();
-        X2 = _buf.GetProperty("x2").GetInt32();
-        X3 = _buf.GetProperty("x3").GetInt32();
-        X4 = _buf.GetProperty("x4").GetInt32();
-        X5 =  test.InnerGroup.DeserializeInnerGroup(_buf.GetProperty("x5"));
+        Id = _json.GetProperty("id").GetInt32();
+        X1 = _json.GetProperty("x1").GetInt32();
+        X2 = _json.GetProperty("x2").GetInt32();
+        X3 = _json.GetProperty("x3").GetInt32();
+        X4 = _json.GetProperty("x4").GetInt32();
+        X5 =  test.InnerGroup.DeserializeInnerGroup(_json.GetProperty("x5"));
     }
 
     public DemoGroup(int id, int x1, int x2, int x3, int x4, test.InnerGroup x5 ) 
@@ -41,9 +41,9 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         this.X5 = x5;
     }
 
-    public static DemoGroup DeserializeDemoGroup(JsonElement _buf)
+    public static DemoGroup DeserializeDemoGroup(JsonElement _json)
     {
-        return new test.DemoGroup(_buf);
+        return new test.DemoGroup(_json);
     }
 
     /// <summary>

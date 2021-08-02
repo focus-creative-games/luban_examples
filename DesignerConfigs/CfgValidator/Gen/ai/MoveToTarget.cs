@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class MoveToTarget :  ai.Task 
 {
-    public MoveToTarget(JsonElement _buf)  : base(_buf) 
+    public MoveToTarget(JsonElement _json)  : base(_json) 
     {
-        TargetActorKey = _buf.GetProperty("target_actor_key").GetString();
-        AcceptableRadius = _buf.GetProperty("acceptable_radius").GetSingle();
+        TargetActorKey = _json.GetProperty("target_actor_key").GetString();
+        AcceptableRadius = _json.GetProperty("acceptable_radius").GetSingle();
     }
 
     public MoveToTarget(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -33,9 +33,9 @@ public sealed partial class MoveToTarget :  ai.Task
         this.AcceptableRadius = acceptable_radius;
     }
 
-    public static MoveToTarget DeserializeMoveToTarget(JsonElement _buf)
+    public static MoveToTarget DeserializeMoveToTarget(JsonElement _json)
     {
-        return new ai.MoveToTarget(_buf);
+        return new ai.MoveToTarget(_json);
     }
 
     /// <summary>

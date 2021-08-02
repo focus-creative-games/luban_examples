@@ -21,11 +21,11 @@ namespace cfg.test
 /// </summary>
 public sealed partial class CompactString :  Bright.Config.BeanBase 
 {
-    public CompactString(JsonElement _buf) 
+    public CompactString(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        S2 = _buf.GetProperty("s2").GetString();
-        S3 = _buf.GetProperty("s3").GetString();
+        Id = _json.GetProperty("id").GetInt32();
+        S2 = _json.GetProperty("s2").GetString();
+        S3 = _json.GetProperty("s3").GetString();
     }
 
     public CompactString(int id, string s2, string s3 ) 
@@ -35,9 +35,9 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
         this.S3 = s3;
     }
 
-    public static CompactString DeserializeCompactString(JsonElement _buf)
+    public static CompactString DeserializeCompactString(JsonElement _json)
     {
-        return new test.CompactString(_buf);
+        return new test.CompactString(_json);
     }
 
     /// <summary>

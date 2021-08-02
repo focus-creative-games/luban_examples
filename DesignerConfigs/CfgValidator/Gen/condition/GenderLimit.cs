@@ -21,9 +21,9 @@ namespace cfg.condition
 /// </summary>
 public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
-    public GenderLimit(JsonElement _buf)  : base(_buf) 
+    public GenderLimit(JsonElement _json)  : base(_json) 
     {
-        Gender = (role.EGenderType)_buf.GetProperty("gender").GetInt32();
+        Gender = (role.EGenderType)_json.GetProperty("gender").GetInt32();
     }
 
     public GenderLimit(role.EGenderType gender )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         this.Gender = gender;
     }
 
-    public static GenderLimit DeserializeGenderLimit(JsonElement _buf)
+    public static GenderLimit DeserializeGenderLimit(JsonElement _json)
     {
-        return new condition.GenderLimit(_buf);
+        return new condition.GenderLimit(_json);
     }
 
     /// <summary>

@@ -21,10 +21,10 @@ namespace cfg.test
 /// </summary>
 public sealed partial class MultiRowType1 :  Bright.Config.BeanBase 
 {
-    public MultiRowType1(JsonElement _buf) 
+    public MultiRowType1(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        X = _buf.GetProperty("x").GetInt32();
+        Id = _json.GetProperty("id").GetInt32();
+        X = _json.GetProperty("x").GetInt32();
     }
 
     public MultiRowType1(int id, int x ) 
@@ -33,9 +33,9 @@ public sealed partial class MultiRowType1 :  Bright.Config.BeanBase
         this.X = x;
     }
 
-    public static MultiRowType1 DeserializeMultiRowType1(JsonElement _buf)
+    public static MultiRowType1 DeserializeMultiRowType1(JsonElement _json)
     {
-        return new test.MultiRowType1(_buf);
+        return new test.MultiRowType1(_json);
     }
 
     /// <summary>

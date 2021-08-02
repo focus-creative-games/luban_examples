@@ -21,9 +21,9 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class ProbabilityItems :  bonus.Bonus 
 {
-    public ProbabilityItems(JsonElement _buf)  : base(_buf) 
+    public ProbabilityItems(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("item_list"); int _n = _json.GetArrayLength(); ItemList = new bonus.ProbabilityItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { bonus.ProbabilityItemInfo __v;  __v =  bonus.ProbabilityItemInfo.DeserializeProbabilityItemInfo(__e);  ItemList[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.ProbabilityItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.ProbabilityItemInfo __v;  __v =  bonus.ProbabilityItemInfo.DeserializeProbabilityItemInfo(__e);  ItemList[_index++] = __v; }   }
     }
 
     public ProbabilityItems(bonus.ProbabilityItemInfo[] item_list )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
         this.ItemList = item_list;
     }
 
-    public static ProbabilityItems DeserializeProbabilityItems(JsonElement _buf)
+    public static ProbabilityItems DeserializeProbabilityItems(JsonElement _json)
     {
-        return new bonus.ProbabilityItems(_buf);
+        return new bonus.ProbabilityItems(_json);
     }
 
     /// <summary>

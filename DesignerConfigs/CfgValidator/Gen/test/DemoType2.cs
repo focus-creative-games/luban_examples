@@ -21,38 +21,38 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoType2 :  Bright.Config.BeanBase 
 {
-    public DemoType2(JsonElement _buf) 
+    public DemoType2(JsonElement _json) 
     {
-        X4 = _buf.GetProperty("x4").GetInt32();
-        X1 = _buf.GetProperty("x1").GetBoolean();
-        X2 = _buf.GetProperty("x2").GetByte();
-        X3 = _buf.GetProperty("x3").GetInt16();
-        X5 = _buf.GetProperty("x5").GetInt64();
-        X6 = _buf.GetProperty("x6").GetSingle();
-        X7 = _buf.GetProperty("x7").GetDouble();
-        X80 = _buf.GetProperty("x8_0").GetInt16();
-        X8 = _buf.GetProperty("x8").GetInt32();
-        X9 = _buf.GetProperty("x9").GetInt64();
-        X10 = _buf.GetProperty("x10").GetString();
-        X12 =  test.DemoType1.DeserializeDemoType1(_buf.GetProperty("x12"));
-        X13 = (test.DemoEnum)_buf.GetProperty("x13").GetInt32();
-        X14 =  test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("x14"));
-        S1 = _buf.GetProperty("s1").GetString();
-        { var _json = _buf.GetProperty("v2"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
-        { var _json = _buf.GetProperty("v3"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
-        { var _json = _buf.GetProperty("v4"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  float __w; __w = _json.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
-        T1 = _buf.GetProperty("t1").GetInt32();
-        { var _json = _buf.GetProperty("k1"); int _n = _json.GetArrayLength(); K1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K1[_index++] = __v; }   }
-        { var _json = _buf.GetProperty("k2"); K2 = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K2.Add(__v); }   }
-        { var _json = _buf.GetProperty("k3"); K3 = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K3.Add(__v); }   }
-        { var _json = _buf.GetProperty("k4"); K4 = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K4.Add(__v); }   }
-        { var _json = _buf.GetProperty("k5"); K5 = new System.Collections.Generic.HashSet<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K5.Add(__v); }   }
-        { var _json = _buf.GetProperty("k6"); K6 = new System.Collections.Generic.HashSet<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K6.Add(__v); }   }
-        { var _json = _buf.GetProperty("k7"); K7 = new System.Collections.Generic.HashSet<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K7.Add(__v); }   }
-        { var _json = _buf.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
-        { var _json = _buf.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
+        X4 = _json.GetProperty("x4").GetInt32();
+        X1 = _json.GetProperty("x1").GetBoolean();
+        X2 = _json.GetProperty("x2").GetByte();
+        X3 = _json.GetProperty("x3").GetInt16();
+        X5 = _json.GetProperty("x5").GetInt64();
+        X6 = _json.GetProperty("x6").GetSingle();
+        X7 = _json.GetProperty("x7").GetDouble();
+        X80 = _json.GetProperty("x8_0").GetInt16();
+        X8 = _json.GetProperty("x8").GetInt32();
+        X9 = _json.GetProperty("x9").GetInt64();
+        X10 = _json.GetProperty("x10").GetString();
+        X12 =  test.DemoType1.DeserializeDemoType1(_json.GetProperty("x12"));
+        X13 = (test.DemoEnum)_json.GetProperty("x13").GetInt32();
+        X14 =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
+        S1 = _json.GetProperty("s1").GetString();
+        { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
+        { var _json0 = _json.GetProperty("v3"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
+        { var _json0 = _json.GetProperty("v4"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  float __w; __w = _json0.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        T1 = _json.GetProperty("t1").GetInt32();
+        { var _json0 = _json.GetProperty("k1"); int _n = _json0.GetArrayLength(); K1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K1[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("k2"); K2 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K2.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k3"); K3 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K3.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k4"); K4 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K4.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k5"); K5 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K5.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k6"); K6 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K6.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k7"); K7 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K7.Add(__v); }   }
+        { var _json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
+        { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
         foreach(var _v in K9) { K9_Index.Add(_v.Y1, _v); }
-        { var _json = _buf.GetProperty("k15"); int _n = _json.GetArrayLength(); K15 = new test.DemoDynamic[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { test.DemoDynamic __v;  __v =  test.DemoDynamic.DeserializeDemoDynamic(__e);  K15[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("k15"); int _n = _json0.GetArrayLength(); K15 = new test.DemoDynamic[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoDynamic __v;  __v =  test.DemoDynamic.DeserializeDemoDynamic(__e);  K15[_index++] = __v; }   }
     }
 
     public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.List<int> k3, System.Collections.Generic.List<int> k4, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.HashSet<int> k6, System.Collections.Generic.HashSet<int> k7, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
@@ -89,9 +89,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         this.K15 = k15;
     }
 
-    public static DemoType2 DeserializeDemoType2(JsonElement _buf)
+    public static DemoType2 DeserializeDemoType2(JsonElement _json)
     {
-        return new test.DemoType2(_buf);
+        return new test.DemoType2(_json);
     }
 
     /// <summary>

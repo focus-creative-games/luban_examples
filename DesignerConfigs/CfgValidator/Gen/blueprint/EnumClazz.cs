@@ -21,9 +21,9 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class EnumClazz :  blueprint.Clazz 
 {
-    public EnumClazz(JsonElement _buf)  : base(_buf) 
+    public EnumClazz(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("enums"); Enums = new System.Collections.Generic.List<blueprint.EnumField>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.EnumField __v;  __v =  blueprint.EnumField.DeserializeEnumField(__e);  Enums.Add(__v); }   }
+        { var _json0 = _json.GetProperty("enums"); Enums = new System.Collections.Generic.List<blueprint.EnumField>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.EnumField __v;  __v =  blueprint.EnumField.DeserializeEnumField(__e);  Enums.Add(__v); }   }
     }
 
     public EnumClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, System.Collections.Generic.List<blueprint.EnumField> enums )  : base(name,desc,parents,methods) 
@@ -31,9 +31,9 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         this.Enums = enums;
     }
 
-    public static EnumClazz DeserializeEnumClazz(JsonElement _buf)
+    public static EnumClazz DeserializeEnumClazz(JsonElement _json)
     {
-        return new blueprint.EnumClazz(_buf);
+        return new blueprint.EnumClazz(_json);
     }
 
     /// <summary>

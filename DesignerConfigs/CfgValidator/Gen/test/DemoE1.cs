@@ -21,9 +21,9 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoE1 :  test.DemoD3 
 {
-    public DemoE1(JsonElement _buf)  : base(_buf) 
+    public DemoE1(JsonElement _json)  : base(_json) 
     {
-        X4 = _buf.GetProperty("x4").GetInt32();
+        X4 = _json.GetProperty("x4").GetInt32();
     }
 
     public DemoE1(int x1, int x3, int x4 )  : base(x1,x3) 
@@ -31,9 +31,9 @@ public sealed partial class DemoE1 :  test.DemoD3
         this.X4 = x4;
     }
 
-    public static DemoE1 DeserializeDemoE1(JsonElement _buf)
+    public static DemoE1 DeserializeDemoE1(JsonElement _json)
     {
-        return new test.DemoE1(_buf);
+        return new test.DemoE1(_json);
     }
 
     /// <summary>

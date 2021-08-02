@@ -21,9 +21,9 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class OneItem :  bonus.Bonus 
 {
-    public OneItem(JsonElement _buf)  : base(_buf) 
+    public OneItem(JsonElement _json)  : base(_json) 
     {
-        ItemId = _buf.GetProperty("item_id").GetInt32();
+        ItemId = _json.GetProperty("item_id").GetInt32();
     }
 
     public OneItem(int item_id )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class OneItem :  bonus.Bonus
         this.ItemId = item_id;
     }
 
-    public static OneItem DeserializeOneItem(JsonElement _buf)
+    public static OneItem DeserializeOneItem(JsonElement _json)
     {
-        return new bonus.OneItem(_buf);
+        return new bonus.OneItem(_json);
     }
 
     /// <summary>

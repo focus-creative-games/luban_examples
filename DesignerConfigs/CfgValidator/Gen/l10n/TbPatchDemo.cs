@@ -24,12 +24,12 @@ public sealed partial class TbPatchDemo
     private readonly Dictionary<int, l10n.PatchDemo> _dataMap;
     private readonly List<l10n.PatchDemo> _dataList;
     
-    public TbPatchDemo(JsonElement _buf)
+    public TbPatchDemo(JsonElement _json)
     {
         _dataMap = new Dictionary<int, l10n.PatchDemo>();
         _dataList = new List<l10n.PatchDemo>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = l10n.PatchDemo.DeserializePatchDemo(_row);
             _dataList.Add(_v);

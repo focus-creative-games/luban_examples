@@ -24,12 +24,12 @@ public sealed partial class TbDemoPrimitive
     private readonly Dictionary<int, test.DemoPrimitiveTypesTable> _dataMap;
     private readonly List<test.DemoPrimitiveTypesTable> _dataList;
     
-    public TbDemoPrimitive(JsonElement _buf)
+    public TbDemoPrimitive(JsonElement _json)
     {
         _dataMap = new Dictionary<int, test.DemoPrimitiveTypesTable>();
         _dataList = new List<test.DemoPrimitiveTypesTable>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = test.DemoPrimitiveTypesTable.DeserializeDemoPrimitiveTypesTable(_row);
             _dataList.Add(_v);

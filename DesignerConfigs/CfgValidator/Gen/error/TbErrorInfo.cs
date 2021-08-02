@@ -24,12 +24,12 @@ public sealed partial class TbErrorInfo
     private readonly Dictionary<string, error.ErrorInfo> _dataMap;
     private readonly List<error.ErrorInfo> _dataList;
     
-    public TbErrorInfo(JsonElement _buf)
+    public TbErrorInfo(JsonElement _json)
     {
         _dataMap = new Dictionary<string, error.ErrorInfo>();
         _dataList = new List<error.ErrorInfo>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = error.ErrorInfo.DeserializeErrorInfo(_row);
             _dataList.Add(_v);

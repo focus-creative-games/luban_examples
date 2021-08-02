@@ -24,11 +24,11 @@ public sealed partial class TbTestGlobal
 
      private readonly test.TestGlobal _data;
 
-    public TbTestGlobal(JsonElement _buf)
+    public TbTestGlobal(JsonElement _json)
     {
-        int n = _buf.GetArrayLength();
+        int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.TestGlobal.DeserializeTestGlobal(_buf[0]);
+        _data = test.TestGlobal.DeserializeTestGlobal(_json[0]);
     }
 
     /// <summary>

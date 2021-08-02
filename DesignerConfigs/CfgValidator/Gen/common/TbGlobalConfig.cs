@@ -24,11 +24,11 @@ public sealed partial class TbGlobalConfig
 
      private readonly common.GlobalConfig _data;
 
-    public TbGlobalConfig(JsonElement _buf)
+    public TbGlobalConfig(JsonElement _json)
     {
-        int n = _buf.GetArrayLength();
+        int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = common.GlobalConfig.DeserializeGlobalConfig(_buf[0]);
+        _data = common.GlobalConfig.DeserializeGlobalConfig(_json[0]);
     }
 
     /// <summary>

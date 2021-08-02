@@ -21,9 +21,9 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class StringKeyData :  ai.KeyData 
 {
-    public StringKeyData(JsonElement _buf)  : base(_buf) 
+    public StringKeyData(JsonElement _json)  : base(_json) 
     {
-        Value = _buf.GetProperty("value").GetString();
+        Value = _json.GetProperty("value").GetString();
     }
 
     public StringKeyData(string value )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class StringKeyData :  ai.KeyData
         this.Value = value;
     }
 
-    public static StringKeyData DeserializeStringKeyData(JsonElement _buf)
+    public static StringKeyData DeserializeStringKeyData(JsonElement _json)
     {
-        return new ai.StringKeyData(_buf);
+        return new ai.StringKeyData(_json);
     }
 
     /// <summary>

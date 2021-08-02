@@ -24,12 +24,12 @@ public sealed partial class TbBehaviorTree
     private readonly Dictionary<int, ai.BehaviorTree> _dataMap;
     private readonly List<ai.BehaviorTree> _dataList;
     
-    public TbBehaviorTree(JsonElement _buf)
+    public TbBehaviorTree(JsonElement _json)
     {
         _dataMap = new Dictionary<int, ai.BehaviorTree>();
         _dataList = new List<ai.BehaviorTree>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = ai.BehaviorTree.DeserializeBehaviorTree(_row);
             _dataList.Add(_v);

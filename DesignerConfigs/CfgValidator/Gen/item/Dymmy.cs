@@ -21,9 +21,9 @@ namespace cfg.item
 /// </summary>
 public sealed partial class Dymmy :  item.ItemExtra 
 {
-    public Dymmy(JsonElement _buf)  : base(_buf) 
+    public Dymmy(JsonElement _json)  : base(_json) 
     {
-        Cost =  cost.Cost.DeserializeCost(_buf.GetProperty("cost"));
+        Cost =  cost.Cost.DeserializeCost(_json.GetProperty("cost"));
     }
 
     public Dymmy(int id, cost.Cost cost )  : base(id) 
@@ -31,9 +31,9 @@ public sealed partial class Dymmy :  item.ItemExtra
         this.Cost = cost;
     }
 
-    public static Dymmy DeserializeDymmy(JsonElement _buf)
+    public static Dymmy DeserializeDymmy(JsonElement _json)
     {
-        return new item.Dymmy(_buf);
+        return new item.Dymmy(_json);
     }
 
     /// <summary>

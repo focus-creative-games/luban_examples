@@ -21,9 +21,9 @@ namespace cfg.cost
 /// </summary>
 public sealed partial class CostOneItem :  cost.Cost 
 {
-    public CostOneItem(JsonElement _buf)  : base(_buf) 
+    public CostOneItem(JsonElement _json)  : base(_json) 
     {
-        ItemId = _buf.GetProperty("item_id").GetInt32();
+        ItemId = _json.GetProperty("item_id").GetInt32();
     }
 
     public CostOneItem(int item_id )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class CostOneItem :  cost.Cost
         this.ItemId = item_id;
     }
 
-    public static CostOneItem DeserializeCostOneItem(JsonElement _buf)
+    public static CostOneItem DeserializeCostOneItem(JsonElement _json)
     {
-        return new cost.CostOneItem(_buf);
+        return new cost.CostOneItem(_json);
     }
 
     /// <summary>

@@ -21,13 +21,13 @@ namespace cfg.mail
 /// </summary>
 public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
-    public SystemMail(JsonElement _buf) 
+    public SystemMail(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
-        Title = _buf.GetProperty("title").GetString();
-        Sender = _buf.GetProperty("sender").GetString();
-        Content = _buf.GetProperty("content").GetString();
-        { var _json = _buf.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
+        Id = _json.GetProperty("id").GetInt32();
+        Title = _json.GetProperty("title").GetString();
+        Sender = _json.GetProperty("sender").GetString();
+        Content = _json.GetProperty("content").GetString();
+        { var _json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
     }
 
     public SystemMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award ) 
@@ -39,9 +39,9 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         this.Award = award;
     }
 
-    public static SystemMail DeserializeSystemMail(JsonElement _buf)
+    public static SystemMail DeserializeSystemMail(JsonElement _json)
     {
-        return new mail.SystemMail(_buf);
+        return new mail.SystemMail(_json);
     }
 
     /// <summary>

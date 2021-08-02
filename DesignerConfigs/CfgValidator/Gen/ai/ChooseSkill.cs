@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class ChooseSkill :  ai.Task 
 {
-    public ChooseSkill(JsonElement _buf)  : base(_buf) 
+    public ChooseSkill(JsonElement _json)  : base(_json) 
     {
-        TargetActorKey = _buf.GetProperty("target_actor_key").GetString();
-        ResultSkillIdKey = _buf.GetProperty("result_skill_id_key").GetString();
+        TargetActorKey = _json.GetProperty("target_actor_key").GetString();
+        ResultSkillIdKey = _json.GetProperty("result_skill_id_key").GetString();
     }
 
     public ChooseSkill(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, string result_skill_id_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -33,9 +33,9 @@ public sealed partial class ChooseSkill :  ai.Task
         this.ResultSkillIdKey = result_skill_id_key;
     }
 
-    public static ChooseSkill DeserializeChooseSkill(JsonElement _buf)
+    public static ChooseSkill DeserializeChooseSkill(JsonElement _json)
     {
-        return new ai.ChooseSkill(_buf);
+        return new ai.ChooseSkill(_json);
     }
 
     /// <summary>

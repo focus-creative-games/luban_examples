@@ -24,12 +24,12 @@ public sealed partial class TbSystemMail
     private readonly Dictionary<int, mail.SystemMail> _dataMap;
     private readonly List<mail.SystemMail> _dataList;
     
-    public TbSystemMail(JsonElement _buf)
+    public TbSystemMail(JsonElement _json)
     {
         _dataMap = new Dictionary<int, mail.SystemMail>();
         _dataList = new List<mail.SystemMail>();
         
-        foreach(JsonElement _row in _buf.EnumerateArray())
+        foreach(JsonElement _row in _json.EnumerateArray())
         {
             var _v = mail.SystemMail.DeserializeSystemMail(_row);
             _dataList.Add(_v);

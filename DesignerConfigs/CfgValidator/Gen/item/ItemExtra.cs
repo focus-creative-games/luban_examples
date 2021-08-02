@@ -21,9 +21,9 @@ namespace cfg.item
 /// </summary>
 public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
-    public ItemExtra(JsonElement _buf) 
+    public ItemExtra(JsonElement _json) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
+        Id = _json.GetProperty("id").GetInt32();
     }
 
     public ItemExtra(int id ) 
@@ -31,15 +31,15 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         this.Id = id;
     }
 
-    public static ItemExtra DeserializeItemExtra(JsonElement _buf)
+    public static ItemExtra DeserializeItemExtra(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "TreasureBox": return new item.TreasureBox(_buf);
-            case "InteractionItem": return new item.InteractionItem(_buf);
-            case "Clothes": return new item.Clothes(_buf);
-            case "DesignDrawing": return new item.DesignDrawing(_buf);
-            case "Dymmy": return new item.Dymmy(_buf);
+            case "TreasureBox": return new item.TreasureBox(_json);
+            case "InteractionItem": return new item.InteractionItem(_json);
+            case "Clothes": return new item.Clothes(_json);
+            case "DesignDrawing": return new item.DesignDrawing(_json);
+            case "Dymmy": return new item.Dymmy(_json);
             default: throw new SerializationException();
         }
     }

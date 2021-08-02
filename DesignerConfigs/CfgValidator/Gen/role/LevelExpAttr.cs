@@ -21,11 +21,11 @@ namespace cfg.role
 /// </summary>
 public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
 {
-    public LevelExpAttr(JsonElement _buf) 
+    public LevelExpAttr(JsonElement _json) 
     {
-        Level = _buf.GetProperty("level").GetInt32();
-        NeedExp = _buf.GetProperty("need_exp").GetInt64();
-        { var _json = _buf.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ClothesAttrs.Add(__v); }   }
+        Level = _json.GetProperty("level").GetInt32();
+        NeedExp = _json.GetProperty("need_exp").GetInt64();
+        { var _json0 = _json.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ClothesAttrs.Add(__v); }   }
     }
 
     public LevelExpAttr(int level, long need_exp, System.Collections.Generic.List<int> clothes_attrs ) 
@@ -35,9 +35,9 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         this.ClothesAttrs = clothes_attrs;
     }
 
-    public static LevelExpAttr DeserializeLevelExpAttr(JsonElement _buf)
+    public static LevelExpAttr DeserializeLevelExpAttr(JsonElement _json)
     {
-        return new role.LevelExpAttr(_buf);
+        return new role.LevelExpAttr(_json);
     }
 
     /// <summary>

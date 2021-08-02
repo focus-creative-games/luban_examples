@@ -21,10 +21,10 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class GroupCoolDown :  limit.LimitBase 
 {
-    public GroupCoolDown(JsonElement _buf)  : base(_buf) 
+    public GroupCoolDown(JsonElement _json)  : base(_json) 
     {
-        GroupId = _buf.GetProperty("group_id").GetInt32();
-        Duration = _buf.GetProperty("duration").GetInt32();
+        GroupId = _json.GetProperty("group_id").GetInt32();
+        Duration = _json.GetProperty("duration").GetInt32();
     }
 
     public GroupCoolDown(int group_id, int duration )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
         this.Duration = duration;
     }
 
-    public static GroupCoolDown DeserializeGroupCoolDown(JsonElement _buf)
+    public static GroupCoolDown DeserializeGroupCoolDown(JsonElement _json)
     {
-        return new limit.GroupCoolDown(_buf);
+        return new limit.GroupCoolDown(_json);
     }
 
     /// <summary>

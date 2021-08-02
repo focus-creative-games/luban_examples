@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
-    public BinaryOperator(JsonElement _buf)  : base(_buf) 
+    public BinaryOperator(JsonElement _json)  : base(_json) 
     {
-        Oper = (ai.EOperator)_buf.GetProperty("oper").GetInt32();
-        Data =  ai.KeyData.DeserializeKeyData(_buf.GetProperty("data"));
+        Oper = (ai.EOperator)_json.GetProperty("oper").GetInt32();
+        Data =  ai.KeyData.DeserializeKeyData(_json.GetProperty("data"));
     }
 
     public BinaryOperator(ai.EOperator oper, ai.KeyData data )  : base() 
@@ -33,9 +33,9 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         this.Data = data;
     }
 
-    public static BinaryOperator DeserializeBinaryOperator(JsonElement _buf)
+    public static BinaryOperator DeserializeBinaryOperator(JsonElement _json)
     {
-        return new ai.BinaryOperator(_buf);
+        return new ai.BinaryOperator(_json);
     }
 
     /// <summary>

@@ -21,7 +21,7 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class IsSet :  ai.KeyQueryOperator 
 {
-    public IsSet(JsonElement _buf)  : base(_buf) 
+    public IsSet(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class IsSet :  ai.KeyQueryOperator
     {
     }
 
-    public static IsSet DeserializeIsSet(JsonElement _buf)
+    public static IsSet DeserializeIsSet(JsonElement _json)
     {
-        return new ai.IsSet(_buf);
+        return new ai.IsSet(_json);
     }
 
 

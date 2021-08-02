@@ -21,10 +21,10 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class NormalClazz :  blueprint.Clazz 
 {
-    public NormalClazz(JsonElement _buf)  : base(_buf) 
+    public NormalClazz(JsonElement _json)  : base(_json) 
     {
-        IsAbstract = _buf.GetProperty("is_abstract").GetBoolean();
-        { var _json = _buf.GetProperty("fields"); Fields = new System.Collections.Generic.List<blueprint.Field>(_json.GetArrayLength()); foreach(JsonElement __e in _json.EnumerateArray()) { blueprint.Field __v;  __v =  blueprint.Field.DeserializeField(__e);  Fields.Add(__v); }   }
+        IsAbstract = _json.GetProperty("is_abstract").GetBoolean();
+        { var _json0 = _json.GetProperty("fields"); Fields = new System.Collections.Generic.List<blueprint.Field>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Field __v;  __v =  blueprint.Field.DeserializeField(__e);  Fields.Add(__v); }   }
     }
 
     public NormalClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, bool is_abstract, System.Collections.Generic.List<blueprint.Field> fields )  : base(name,desc,parents,methods) 
@@ -33,9 +33,9 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         this.Fields = fields;
     }
 
-    public static NormalClazz DeserializeNormalClazz(JsonElement _buf)
+    public static NormalClazz DeserializeNormalClazz(JsonElement _json)
     {
-        return new blueprint.NormalClazz(_buf);
+        return new blueprint.NormalClazz(_json);
     }
 
     /// <summary>

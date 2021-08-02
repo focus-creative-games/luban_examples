@@ -21,7 +21,7 @@ namespace cfg.blueprint
 /// </summary>
 public sealed partial class ExternalMethod :  blueprint.Method 
 {
-    public ExternalMethod(JsonElement _buf)  : base(_buf) 
+    public ExternalMethod(JsonElement _json)  : base(_json) 
     {
     }
 
@@ -29,9 +29,9 @@ public sealed partial class ExternalMethod :  blueprint.Method
     {
     }
 
-    public static ExternalMethod DeserializeExternalMethod(JsonElement _buf)
+    public static ExternalMethod DeserializeExternalMethod(JsonElement _json)
     {
-        return new blueprint.ExternalMethod(_buf);
+        return new blueprint.ExternalMethod(_json);
     }
 
 

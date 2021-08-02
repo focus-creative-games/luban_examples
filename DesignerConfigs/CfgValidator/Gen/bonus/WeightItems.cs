@@ -21,9 +21,9 @@ namespace cfg.bonus
 /// </summary>
 public sealed partial class WeightItems :  bonus.Bonus 
 {
-    public WeightItems(JsonElement _buf)  : base(_buf) 
+    public WeightItems(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("item_list"); int _n = _json.GetArrayLength(); ItemList = new bonus.WeightItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json.EnumerateArray()) { bonus.WeightItemInfo __v;  __v =  bonus.WeightItemInfo.DeserializeWeightItemInfo(__e);  ItemList[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.WeightItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.WeightItemInfo __v;  __v =  bonus.WeightItemInfo.DeserializeWeightItemInfo(__e);  ItemList[_index++] = __v; }   }
     }
 
     public WeightItems(bonus.WeightItemInfo[] item_list )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class WeightItems :  bonus.Bonus
         this.ItemList = item_list;
     }
 
-    public static WeightItems DeserializeWeightItems(JsonElement _buf)
+    public static WeightItems DeserializeWeightItems(JsonElement _json)
     {
-        return new bonus.WeightItems(_buf);
+        return new bonus.WeightItems(_json);
     }
 
     /// <summary>

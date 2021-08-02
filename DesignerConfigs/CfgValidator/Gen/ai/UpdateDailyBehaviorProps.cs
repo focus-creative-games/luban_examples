@@ -21,17 +21,17 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
 {
-    public UpdateDailyBehaviorProps(JsonElement _buf)  : base(_buf) 
+    public UpdateDailyBehaviorProps(JsonElement _json)  : base(_json) 
     {
-        SatietyKey = _buf.GetProperty("satiety_key").GetString();
-        EnergyKey = _buf.GetProperty("energy_key").GetString();
-        MoodKey = _buf.GetProperty("mood_key").GetString();
-        SatietyLowerThresholdKey = _buf.GetProperty("satiety_lower_threshold_key").GetString();
-        SatietyUpperThresholdKey = _buf.GetProperty("satiety_upper_threshold_key").GetString();
-        EnergyLowerThresholdKey = _buf.GetProperty("energy_lower_threshold_key").GetString();
-        EnergyUpperThresholdKey = _buf.GetProperty("energy_upper_threshold_key").GetString();
-        MoodLowerThresholdKey = _buf.GetProperty("mood_lower_threshold_key").GetString();
-        MoodUpperThresholdKey = _buf.GetProperty("mood_upper_threshold_key").GetString();
+        SatietyKey = _json.GetProperty("satiety_key").GetString();
+        EnergyKey = _json.GetProperty("energy_key").GetString();
+        MoodKey = _json.GetProperty("mood_key").GetString();
+        SatietyLowerThresholdKey = _json.GetProperty("satiety_lower_threshold_key").GetString();
+        SatietyUpperThresholdKey = _json.GetProperty("satiety_upper_threshold_key").GetString();
+        EnergyLowerThresholdKey = _json.GetProperty("energy_lower_threshold_key").GetString();
+        EnergyUpperThresholdKey = _json.GetProperty("energy_upper_threshold_key").GetString();
+        MoodLowerThresholdKey = _json.GetProperty("mood_lower_threshold_key").GetString();
+        MoodUpperThresholdKey = _json.GetProperty("mood_upper_threshold_key").GetString();
     }
 
     public UpdateDailyBehaviorProps(int id, string node_name, string satiety_key, string energy_key, string mood_key, string satiety_lower_threshold_key, string satiety_upper_threshold_key, string energy_lower_threshold_key, string energy_upper_threshold_key, string mood_lower_threshold_key, string mood_upper_threshold_key )  : base(id,node_name) 
@@ -47,9 +47,9 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
         this.MoodUpperThresholdKey = mood_upper_threshold_key;
     }
 
-    public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(JsonElement _buf)
+    public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(JsonElement _json)
     {
-        return new ai.UpdateDailyBehaviorProps(_buf);
+        return new ai.UpdateDailyBehaviorProps(_json);
     }
 
     /// <summary>

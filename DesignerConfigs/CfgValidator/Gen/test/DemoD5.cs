@@ -21,9 +21,9 @@ namespace cfg.test
 /// </summary>
 public sealed partial class DemoD5 :  test.DemoDynamic 
 {
-    public DemoD5(JsonElement _buf)  : base(_buf) 
+    public DemoD5(JsonElement _json)  : base(_json) 
     {
-        Time =  test.DateTimeRange.DeserializeDateTimeRange(_buf.GetProperty("time"));
+        Time =  test.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("time"));
     }
 
     public DemoD5(int x1, test.DateTimeRange time )  : base(x1) 
@@ -31,9 +31,9 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         this.Time = time;
     }
 
-    public static DemoD5 DeserializeDemoD5(JsonElement _buf)
+    public static DemoD5 DeserializeDemoD5(JsonElement _json)
     {
-        return new test.DemoD5(_buf);
+        return new test.DemoD5(_json);
     }
 
     /// <summary>

@@ -21,10 +21,10 @@ namespace cfg.error
 /// </summary>
 public sealed partial class CodeInfo :  Bright.Config.BeanBase 
 {
-    public CodeInfo(JsonElement _buf) 
+    public CodeInfo(JsonElement _json) 
     {
-        Code = (error.EErrorCode)_buf.GetProperty("code").GetInt32();
-        Key = _buf.GetProperty("key").GetString();
+        Code = (error.EErrorCode)_json.GetProperty("code").GetInt32();
+        Key = _json.GetProperty("key").GetString();
     }
 
     public CodeInfo(error.EErrorCode code, string key ) 
@@ -33,9 +33,9 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
         this.Key = key;
     }
 
-    public static CodeInfo DeserializeCodeInfo(JsonElement _buf)
+    public static CodeInfo DeserializeCodeInfo(JsonElement _json)
     {
-        return new error.CodeInfo(_buf);
+        return new error.CodeInfo(_json);
     }
 
     /// <summary>

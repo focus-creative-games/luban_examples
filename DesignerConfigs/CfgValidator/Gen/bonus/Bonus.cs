@@ -21,7 +21,7 @@ namespace cfg.bonus
 /// </summary>
 public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
-    public Bonus(JsonElement _buf) 
+    public Bonus(JsonElement _json) 
     {
     }
 
@@ -29,21 +29,21 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
     {
     }
 
-    public static Bonus DeserializeBonus(JsonElement _buf)
+    public static Bonus DeserializeBonus(JsonElement _json)
     {
-        switch (_buf.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("__type__").GetString())
         {
-            case "OneItem": return new bonus.OneItem(_buf);
-            case "OneItems": return new bonus.OneItems(_buf);
-            case "Item": return new bonus.Item(_buf);
-            case "Items": return new bonus.Items(_buf);
-            case "CoefficientItem": return new bonus.CoefficientItem(_buf);
-            case "WeightItems": return new bonus.WeightItems(_buf);
-            case "ProbabilityItems": return new bonus.ProbabilityItems(_buf);
-            case "MultiBonus": return new bonus.MultiBonus(_buf);
-            case "ProbabilityBonus": return new bonus.ProbabilityBonus(_buf);
-            case "WeightBonus": return new bonus.WeightBonus(_buf);
-            case "DropBonus": return new bonus.DropBonus(_buf);
+            case "OneItem": return new bonus.OneItem(_json);
+            case "OneItems": return new bonus.OneItems(_json);
+            case "Item": return new bonus.Item(_json);
+            case "Items": return new bonus.Items(_json);
+            case "CoefficientItem": return new bonus.CoefficientItem(_json);
+            case "WeightItems": return new bonus.WeightItems(_json);
+            case "ProbabilityItems": return new bonus.ProbabilityItems(_json);
+            case "MultiBonus": return new bonus.MultiBonus(_json);
+            case "ProbabilityBonus": return new bonus.ProbabilityBonus(_json);
+            case "WeightBonus": return new bonus.WeightBonus(_json);
+            case "DropBonus": return new bonus.DropBonus(_json);
             default: throw new SerializationException();
         }
     }

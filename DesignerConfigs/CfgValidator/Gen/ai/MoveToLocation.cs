@@ -21,10 +21,10 @@ namespace cfg.ai
 /// </summary>
 public sealed partial class MoveToLocation :  ai.Task 
 {
-    public MoveToLocation(JsonElement _buf)  : base(_buf) 
+    public MoveToLocation(JsonElement _json)  : base(_json) 
     {
-        { var _json = _buf.GetProperty("location"); float __x; __x = _json.GetProperty("x").GetSingle(); float __y; __y = _json.GetProperty("y").GetSingle(); float __z; __z = _json.GetProperty("z").GetSingle();  Location = new System.Numerics.Vector3(__x, __y,__z); }
-        AcceptableRadius = _buf.GetProperty("acceptable_radius").GetSingle();
+        { var _json0 = _json.GetProperty("location"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  Location = new System.Numerics.Vector3(__x, __y,__z); }
+        AcceptableRadius = _json.GetProperty("acceptable_radius").GetSingle();
     }
 
     public MoveToLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, System.Numerics.Vector3 location, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
@@ -33,9 +33,9 @@ public sealed partial class MoveToLocation :  ai.Task
         this.AcceptableRadius = acceptable_radius;
     }
 
-    public static MoveToLocation DeserializeMoveToLocation(JsonElement _buf)
+    public static MoveToLocation DeserializeMoveToLocation(JsonElement _json)
     {
-        return new ai.MoveToLocation(_buf);
+        return new ai.MoveToLocation(_json);
     }
 
     /// <summary>

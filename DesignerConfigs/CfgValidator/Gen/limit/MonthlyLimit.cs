@@ -21,9 +21,9 @@ namespace cfg.limit
 /// </summary>
 public sealed partial class MonthlyLimit :  limit.LimitBase 
 {
-    public MonthlyLimit(JsonElement _buf)  : base(_buf) 
+    public MonthlyLimit(JsonElement _json)  : base(_json) 
     {
-        Num = _buf.GetProperty("num").GetInt32();
+        Num = _json.GetProperty("num").GetInt32();
     }
 
     public MonthlyLimit(int num )  : base() 
@@ -31,9 +31,9 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
         this.Num = num;
     }
 
-    public static MonthlyLimit DeserializeMonthlyLimit(JsonElement _buf)
+    public static MonthlyLimit DeserializeMonthlyLimit(JsonElement _json)
     {
-        return new limit.MonthlyLimit(_buf);
+        return new limit.MonthlyLimit(_json);
     }
 
     /// <summary>
