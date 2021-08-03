@@ -63,6 +63,7 @@
     <Compile Include="Assets\LubanLib\StringUtil.cs" />
     <Compile Include="Assets\Gen\test\TestGlobal.cs" />
     <Compile Include="Assets\Gen\blueprint\EnumClazz.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcel.cs" />
     <Compile Include="Assets\Gen\item\EMajorType.cs" />
     <Compile Include="Assets\Gen\test\DemoPrimitiveTypesTable.cs" />
     <Compile Include="Assets\Gen\condition\BoolRoleCondition.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Gen\test\ETestEmptyEnum.cs" />
     <Compile Include="Assets\Gen\ai\UeCooldown.cs" />
     <Compile Include="Assets\Gen\test\TbDemoPrimitive.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcelOne.cs" />
     <Compile Include="Assets\Gen\mail\EMailType.cs" />
     <Compile Include="Assets\Gen\limit\CoolDown.cs" />
     <Compile Include="Assets\Gen\ai\GetOwnerPlayer.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Assets\Gen\cost\CostItem.cs" />
     <Compile Include="Assets\Gen\bonus\TbDrop.cs" />
     <Compile Include="Assets\Gen\bonus\ProbabilityBonusInfo.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcelOne.cs" />
     <Compile Include="Assets\Gen\blueprint\TbClazz.cs" />
     <Compile Include="Assets\Gen\ai\UpdateDailyBehaviorProps.cs" />
     <Compile Include="Assets\Gen\role\EProfession.cs" />
@@ -168,6 +171,7 @@
     <Compile Include="Assets\Gen\blueprint\BlueprintMethod.cs" />
     <Compile Include="Assets\Gen\test\MultiRowRecord.cs" />
     <Compile Include="Assets\Gen\ai\Service.cs" />
+    <Compile Include="Assets\LubanLib\ByteBufExtensions.cs" />
     <Compile Include="Assets\Gen\blueprint\ExternalMethod.cs" />
     <Compile Include="Assets\Gen\item\EClothersStarQualityType.cs" />
     <Compile Include="Assets\Gen\ai\MoveToLocation.cs" />
@@ -197,6 +201,7 @@
     <Compile Include="Assets\Gen\bonus\Bonus.cs" />
     <Compile Include="Assets\Gen\item\EClothesPropertyType.cs" />
     <Compile Include="Assets\Gen\condition\ContainsItem.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcel2.cs" />
     <Compile Include="Assets\Gen\limit\GroupCoolDown.cs" />
     <Compile Include="Assets\Gen\bonus\Items.cs" />
     <Compile Include="Assets\Gen\ai\Blackboard.cs" />
@@ -217,6 +222,7 @@
     <Compile Include="Assets\Gen\bonus\WeightBonus.cs" />
     <Compile Include="Assets\Gen\item\ChooseOneBonus.cs" />
     <Compile Include="Assets\Gen\test\DemoDynamic.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcel.cs" />
     <Compile Include="Assets\Gen\role\TbRoleLevelBonusCoefficient.cs" />
     <Compile Include="Assets\Gen\item\Dymmy.cs" />
     <Compile Include="Assets\Gen\mail\TbGlobalMail.cs" />
@@ -243,6 +249,7 @@
     <Compile Include="Assets\Gen\condition\TimeRange.cs" />
     <Compile Include="Assets\Gen\test\TbSingleton.cs" />
     <Compile Include="Assets\Gen\bonus\Item.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcel2.cs" />
     <Compile Include="Assets\Gen\limit\LimitBase.cs" />
     <Compile Include="Assets\Gen\ai\MoveToRandomLocation.cs" />
     <Compile Include="Assets\Gen\ai\KeyQueryOperator.cs" />
@@ -252,6 +259,7 @@
     <Compile Include="Assets\Gen\ai\KeepFaceTarget.cs" />
     <Compile Include="Assets\Gen\ai\EExecutor.cs" />
     <Compile Include="Assets\Gen\bonus\OneItem.cs" />
+    <Compile Include="Assets\Gen\test\TbDemoGroupDefineFromExcel.cs" />
     <Compile Include="Assets\Gen\ai\UeForceSuccess.cs" />
     <Compile Include="Assets\Gen\condition\Condition.cs" />
     <Compile Include="Assets\Gen\role\DistinctBonusInfos.cs" />
