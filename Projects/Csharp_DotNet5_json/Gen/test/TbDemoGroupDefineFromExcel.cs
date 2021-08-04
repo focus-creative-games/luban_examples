@@ -17,7 +17,7 @@ namespace cfg.test
 {
 
 /// <summary>
-/// TbDemoGroupDefineFromExcel
+/// 
 /// </summary>
 public sealed partial class TbDemoGroupDefineFromExcel
 {

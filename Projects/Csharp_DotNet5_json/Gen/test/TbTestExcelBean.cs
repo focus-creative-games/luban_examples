@@ -19,30 +19,30 @@ namespace cfg.test
 /// <summary>
 /// 
 /// </summary>
-public sealed partial class TbDemoGroupDefineFromExcel
+public sealed partial class TbTestExcelBean
 {
-    private readonly Dictionary<int, test.DemoGroup> _dataMap;
-    private readonly List<test.DemoGroup> _dataList;
+    private readonly Dictionary<int, test.TestExcelBean1> _dataMap;
+    private readonly List<test.TestExcelBean1> _dataList;
     
-    public TbDemoGroupDefineFromExcel(JsonElement _json)
+    public TbTestExcelBean(JsonElement _json)
     {
-        _dataMap = new Dictionary<int, test.DemoGroup>();
-        _dataList = new List<test.DemoGroup>();
+        _dataMap = new Dictionary<int, test.TestExcelBean1>();
+        _dataList = new List<test.TestExcelBean1>();
         
         foreach(JsonElement _row in _json.EnumerateArray())
         {
-            var _v = test.DemoGroup.DeserializeDemoGroup(_row);
+            var _v = test.TestExcelBean1.DeserializeTestExcelBean1(_row);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.X1, _v);
         }
     }
 
-    public Dictionary<int, test.DemoGroup> DataMap => _dataMap;
-    public List<test.DemoGroup> DataList => _dataList;
+    public Dictionary<int, test.TestExcelBean1> DataMap => _dataMap;
+    public List<test.TestExcelBean1> DataList => _dataList;
 
-    public test.DemoGroup GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public test.DemoGroup Get(int key) => _dataMap[key];
-    public test.DemoGroup this[int key] => _dataMap[key];
+    public test.TestExcelBean1 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestExcelBean1 Get(int key) => _dataMap[key];
+    public test.TestExcelBean1 this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {
