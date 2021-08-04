@@ -29,7 +29,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X6 = _json.GetProperty("x6").GetSingle();
         X8 = _json.GetProperty("x8").GetInt32();
         X10 = _json.GetProperty("x10").GetString();
-        X13 = (test.DemoEnum)_json.GetProperty("x13").GetInt32();
+        X13 = (test.ETestQuality)_json.GetProperty("x13").GetInt32();
         X14 =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
         { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
         T1 = _json.GetProperty("t1").GetInt32();
@@ -38,7 +38,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
     }
 
-    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.DemoEnum x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -88,7 +88,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// <summary>
     /// 
     /// </summary>
-    public readonly test.DemoEnum X13;
+    public readonly test.ETestQuality X13;
     /// <summary>
     /// 
     /// </summary>

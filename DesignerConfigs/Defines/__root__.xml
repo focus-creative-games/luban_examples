@@ -13,7 +13,8 @@
 	
 	<import name="."/>
 	
-	<importexcel name="tables.xlsx"/> 相对data目录
+	<importexcel name="tables.xlsx" type="table"/> 相对data目录
+	<importexcel name="enums.xlsx" type="enum"/>相对data目录
 
 	<service name="server" manager="Tables" group="s"/>
 	<service name="client" manager="Tables" group="c"/>
