@@ -259,6 +259,13 @@
 	</bean>
 	<table name="TbTestGlobal" value="TestGlobal" mode="one" input="test/global.xlsx"/>
 	
+	
+	<bean name="DetectEncoding">
+		<var name="id" type="int"/>
+		<var name="name" type="string"/>
+	</bean>
+	<table name="TbDetectCsvEncoding" value="DetectEncoding" input="test/detect_csv_encoding_utf8.csv,test/detect_csv_encoding_ansi.csv,test/detect_csv_encoding_big5.csv,test/detect_csv_encoding_gb2312.csv,"/>
+	
 	<!--table name="TbDynamic" value="DemoDynamic" input="多态数据源"/-->
 	
 	<table name="TbDefineFromExcel" value="DefineFromExcel" input="test/define_from_excel.xlsx" define_from_file="1"/>

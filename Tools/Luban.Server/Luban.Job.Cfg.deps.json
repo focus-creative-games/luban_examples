@@ -10,7 +10,8 @@
         "dependencies": {
           "ExcelDataReader": "3.6.0",
           "Luban.Job.Common": "1.0.0",
-          "NeoLua": "1.3.11"
+          "NeoLua": "1.3.13",
+          "Ude.NetStandard": "1.2.0"
         },
         "runtime": {
           "Luban.Job.Cfg.dll": {}
@@ -80,18 +81,18 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "NeoLua/1.3.11": {
+      "NeoLua/1.3.13": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0"
         },
         "runtime": {
-          "lib/netcoreapp2.0/Neo.Lua.dll": {
+          "lib/net5.0/Neo.Lua.dll": {
             "assemblyVersion": "5.3.0.0",
-            "fileVersion": "1.3.11.0"
+            "fileVersion": "1.3.13.0"
           }
         },
         "resources": {
-          "lib/netcoreapp2.0/de/Neo.Lua.resources.dll": {
+          "lib/net5.0/de/Neo.Lua.resources.dll": {
             "locale": "de"
           }
         }
@@ -868,6 +869,14 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "Ude.NetStandard/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Ude.NetStandard.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "Luban.Common/1.0.0": {
         "dependencies": {
           "Bright.Net": "1.1.0.41"
@@ -965,12 +974,12 @@
       "path": "microsoft.win32.primitives/4.0.1",
       "hashPath": "microsoft.win32.primitives.4.0.1.nupkg.sha512"
     },
-    "NeoLua/1.3.11": {
+    "NeoLua/1.3.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HlRhordOSWxuL0IycN7qUlqz8iOtz5bwQoUp2zlVGtWL/064Wo4c+D9721EOdaq9S5GCQR0+qhR25wCiQbkkNw==",
-      "path": "neolua/1.3.11",
-      "hashPath": "neolua.1.3.11.nupkg.sha512"
+      "sha512": "sha512-e2nn6Vxkx5GRlcufbnJ2R9wR/uDi0C+LpxClUKdwJN0d1jfZ3fCI/y4ar2rPCUTsIITCfT71OfgQI4w8r9WYyA==",
+      "path": "neolua/1.3.13",
+      "hashPath": "neolua.1.3.13.nupkg.sha512"
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",
@@ -1524,6 +1533,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Ude.NetStandard/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zRWpPAxBg3lNdm4UiKixTe+DFPoNid9CILggTCy/0WR2WKETe17kTWhiiIpLB2k5IEgnvA0QLfKlvd6Tvu0pzA==",
+      "path": "ude.netstandard/1.2.0",
+      "hashPath": "ude.netstandard.1.2.0.nupkg.sha512"
     },
     "Luban.Common/1.0.0": {
       "type": "project",
