@@ -150,6 +150,10 @@ public sealed partial class Tables
     /// <summary>
     /// 
     /// </summary>
+    public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDefineFromExcel TbDefineFromExcel {get; }
     /// <summary>
     /// 
@@ -237,6 +241,8 @@ public sealed partial class Tables
         tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
         tables.Add("test.TbTestGlobal", TbTestGlobal);
+        TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader("test.TbDetectCsvEncoding")); 
+        tables.Add("test.TbDetectCsvEncoding", TbDetectCsvEncoding);
         TbDefineFromExcel = new test.TbDefineFromExcel(loader("test.TbDefineFromExcel")); 
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
@@ -281,6 +287,7 @@ public sealed partial class Tables
         TbDemoGroup_S.Resolve(tables); 
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
+        TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 

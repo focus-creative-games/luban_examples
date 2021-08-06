@@ -111,6 +111,11 @@
 		<var name="y" type="float"/>
 	</bean>
 	
+	<bean name="MultiRowType3">
+		<var name="id" type="int"/>
+		<var name="items" type="list,MultiRowType1" multi_rows="1"/>
+	</bean>
+	
 	<bean name="MultiRowRecord">
 		<var name="id" type="int"/>
 		<var name="name" type="string"/>
@@ -119,6 +124,7 @@
 		<var name="multi_rows2" type="array,MultiRowType1" multi_rows="1"/>
 		<var name="multi_rows3" type="set,MultiRowType2" multi_rows="1"/>
 		<var name="multi_rows4" type="map,int,MultiRowType2" multi_rows="1"/>
+		<var name="multi_rows5" type="list,MultiRowType3" multi_rows="1"/>
 	</bean>
 	
 	<table name="TbMultiRowRecord" value="MultiRowRecord" input="test/multi_rows_record.xlsx"/>

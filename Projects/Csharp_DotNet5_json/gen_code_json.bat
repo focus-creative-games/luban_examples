@@ -3,7 +3,7 @@ set GEN_CLIENT=%WORKSPACE%\Tools\Luban.Client\Luban.Client.exe
 set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 
-%GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
+%GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg -l debug --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir Gen ^
