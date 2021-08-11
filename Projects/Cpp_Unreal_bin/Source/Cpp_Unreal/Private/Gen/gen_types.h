@@ -21,442 +21,1199 @@ namespace cfg
 
 
 namespace ai {
+/**
 
+*/
 enum class EExecutor
 {
+    /**
+    
+    */
     CLIENT = 0,
+    /**
+    
+    */
     SERVER = 1,
 };
 }
 
 
 namespace ai {
+/**
 
+*/
 enum class EKeyType
 {
+    /**
+    
+    */
     BOOL = 1,
+    /**
+    
+    */
     INT = 2,
+    /**
+    
+    */
     FLOAT = 3,
+    /**
+    
+    */
     STRING = 4,
+    /**
+    
+    */
     VECTOR = 5,
+    /**
+    
+    */
     ROTATOR = 6,
+    /**
+    
+    */
     NAME = 7,
+    /**
+    
+    */
     CLASS = 8,
+    /**
+    
+    */
     ENUM = 9,
+    /**
+    
+    */
     OBJECT = 10,
 };
 }
 
 
 namespace ai {
+/**
 
+*/
 enum class EFlowAbortMode
 {
+    /**
+    
+    */
     NONE = 0,
+    /**
+    
+    */
     LOWER_PRIORITY = 1,
+    /**
+    
+    */
     SELF = 2,
+    /**
+    
+    */
     BOTH = 3,
 };
 }
 
 
 namespace ai {
+/**
 
+*/
 enum class EFinishMode
 {
+    /**
+    
+    */
     IMMEDIATE = 0,
+    /**
+    
+    */
     DELAYED = 1,
 };
 }
 
 
 namespace ai {
+/**
 
+*/
 enum class ENotifyObserverMode
 {
+    /**
+    
+    */
     ON_VALUE_CHANGE = 0,
+    /**
+    
+    */
     ON_RESULT_CHANGE = 1,
 };
 }
 
 
 namespace ai {
+/**
 
+*/
 enum class EOperator
 {
+    /**
+    
+    */
     IS_EQUAL_TO = 0,
+    /**
+    
+    */
     IS_NOT_EQUAL_TO = 1,
+    /**
+    
+    */
     IS_LESS_THAN = 2,
+    /**
+    
+    */
     IS_LESS_THAN_OR_EQUAL_TO = 3,
+    /**
+    
+    */
     IS_GREAT_THAN = 4,
+    /**
+    
+    */
     IS_GREAT_THAN_OR_EQUAL_TO = 5,
+    /**
+    
+    */
     CONTAINS = 6,
+    /**
+    
+    */
     NOT_CONTAINS = 7,
 };
 }
 
 
 namespace common {
+/**
 
+*/
 enum class EBoolOperator
 {
+    /**
+    
+    */
     AND = 0,
+    /**
+    
+    */
     OR = 1,
 };
 }
 
 
 namespace error {
+/**
 
+*/
 enum class EOperation
 {
+    /**
+    
+    */
     LOGOUT = 0,
+    /**
+    
+    */
     RESTART = 1,
 };
 }
 
 
 namespace error {
+/**
 
+*/
 enum class EErrorCode
 {
+    /**
+    
+    */
     OK = 0,
+    /**
+    
+    */
     SERVER_NOT_EXISTS = 1,
+    /**
+    
+    */
     HAS_BIND_SERVER = 2,
+    /**
+    
+    */
     AUTH_FAIL = 3,
+    /**
+    
+    */
     NOT_BIND_SERVER = 4,
+    /**
+    
+    */
     SERVER_ACCESS_FAIL = 5,
+    /**
+    
+    */
     EXAMPLE_FLASH = 6,
+    /**
+    
+    */
     EXAMPLE_MSGBOX = 7,
+    /**
+    
+    */
     EXAMPLE_DLG_OK = 8,
+    /**
+    
+    */
     EXAMPLE_DLG_OK_CANCEL = 9,
+    /**
+    
+    */
     ROLE_CREATE_NAME_INVALID_CHAR = 100,
+    /**
+    
+    */
     ROLE_CREATE_NAME_EMPTY = 101,
+    /**
+    
+    */
     ROLE_CREATE_NAME_EXCEED_MAX_LENGTH = 102,
+    /**
+    
+    */
     ROLE_CREATE_ROLE_LIST_FULL = 103,
+    /**
+    
+    */
     ROLE_CREATE_INVALID_PROFESSION = 104,
+    /**
+    
+    */
     ROLE_CREATE_INVALID_GENDER = 105,
+    /**
+    
+    */
     ROLE_NOT_OWNED_BY_USER = 106,
+    /**
+    
+    */
     ROLE_LEVEL_NOT_ARRIVE = 107,
+    /**
+    
+    */
     PARAM_ILLEGAL = 200,
+    /**
+    
+    */
     TEMP_BAG_NOT_EMPTY = 201,
+    /**
+    
+    */
     ITEM_CAN_NOT_USE = 202,
+    /**
+    
+    */
     CURRENCY_NOT_ENOUGH = 203,
+    /**
+    
+    */
     BAG_IS_FULL = 204,
+    /**
+    
+    */
     ITEM_NOT_ENOUGH = 205,
+    /**
+    
+    */
     ITEM_IN_BAG = 206,
+    /**
+    
+    */
     GENDER_NOT_MATCH = 300,
+    /**
+    
+    */
     LEVEL_TOO_LOW = 301,
+    /**
+    
+    */
     LEVEL_TOO_HIGH = 302,
+    /**
+    
+    */
     EXCEED_LIMIT = 303,
+    /**
+    
+    */
     OVER_TIME = 304,
+    /**
+    
+    */
     SERVER_ERROR = 305,
+    /**
+    
+    */
     SKILL_NOT_IN_LIST = 400,
+    /**
+    
+    */
     SKILL_NOT_COOLDOWN = 401,
+    /**
+    
+    */
     SKILL_TARGET_NOT_EXIST = 402,
+    /**
+    
+    */
     SKILL_ANOTHER_CASTING = 403,
+    /**
+    
+    */
     SKILL_OUT_OF_DISTANCE = 404,
+    /**
+    
+    */
     SKILL_TARGET_CAMP_NOT_MATCH = 405,
+    /**
+    
+    */
     SKILL_INVALID_DIRECTION = 406,
+    /**
+    
+    */
     SKILL_NOT_IN_SELECT_SHAPE = 407,
+    /**
+    
+    */
     SKILL_ENERGY_NOT_ENOUGH = 408,
+    /**
+    
+    */
     DIALOG_NODE_NOT_CHOOSEN = 500,
+    /**
+    
+    */
     DIALOG_NOT_FINISH = 501,
+    /**
+    
+    */
     DIALOG_HAS_FINISH = 502,
+    /**
+    
+    */
     QUEST_STAGE_NOT_FINISHED = 503,
+    /**
+    
+    */
     QUEST_NOT_DOING = 504,
+    /**
+    
+    */
     QUEST_STAGE_NOT_DOING = 505,
+    /**
+    
+    */
     QUEST_HAS_ACCEPTED = 506,
+    /**
+    
+    */
     MAP_OBJECT_NOT_EXIST = 600,
+    /**
+    
+    */
     INTERACTION_OBJECT_NOT_SUPPORT_OPERATION = 601,
+    /**
+    
+    */
     HAS_NOT_EQUIP = 602,
+    /**
+    
+    */
     HANDHELD_EQUIP_ID_NOT_MATCH = 603,
+    /**
+    
+    */
     NOT_AVAILABLE_SUIT_ID = 604,
+    /**
+    
+    */
     NO_INTERACTION_COMPONENT = 605,
+    /**
+    
+    */
     HAS_INTERACTED = 606,
+    /**
+    
+    */
     VIALITY_NOT_ENOUGH = 607,
+    /**
+    
+    */
     PLAYER_SESSION_NOT_EXIST = 608,
+    /**
+    
+    */
     PLAYER_SESSION_WORLD_PLAYER_NOT_INIT = 609,
+    /**
+    
+    */
     MAP_NOT_EXIST = 610,
+    /**
+    
+    */
     MAIL_TYPE_ERROR = 700,
+    /**
+    
+    */
     MAIL_NOT_EXITST = 701,
+    /**
+    
+    */
     MAIL_HAVE_DELETED = 702,
+    /**
+    
+    */
     MAIL_AWARD_HAVE_RECEIVED = 703,
+    /**
+    
+    */
     MAIL_OPERATE_TYPE_ERROR = 704,
+    /**
+    
+    */
     MAIL_CONDITION_NOT_MEET = 705,
+    /**
+    
+    */
     MAIL_STATE_ERROR = 706,
+    /**
+    
+    */
     MAIL_NO_AWARD = 707,
+    /**
+    
+    */
     MAIL_BOX_IS_FULL = 708,
+    /**
+    
+    */
     PROP_SCORE_NOT_BIGGER_THAN = 800,
+    /**
+    
+    */
     NOT_WEAR_CLOTHES = 801,
+    /**
+    
+    */
     NOT_WEAR_SUIT = 802,
+    /**
+    
+    */
     SUIT_NOT_UNLOCK = 900,
+    /**
+    
+    */
     SUIT_COMPONENT_NOT_UNLOCK = 901,
+    /**
+    
+    */
     SUIT_STATE_ERROR = 902,
+    /**
+    
+    */
     SUIT_COMPONENT_STATE_ERROR = 903,
+    /**
+    
+    */
     SUIT_COMPONENT_NO_NEED_LEARN = 904,
+    /**
+    
+    */
     STORE_NOT_ENABLED = 1000,
+    /**
+    
+    */
     SHELF_NOT_ENABLED = 1001,
+    /**
+    
+    */
     GOODS_NOT_ENABLED = 1002,
+    /**
+    
+    */
     GOODS_NOT_IN_CUR_REFRESH = 1003,
+    /**
+    
+    */
     RETRY = 1100,
+    /**
+    
+    */
     NOT_COOLDOWN = 1101,
+    /**
+    
+    */
     SELFIE_UNLOCK = 1200,
+    /**
+    
+    */
     SELFIE_ALREADY_UNLOCK = 1201,
+    /**
+    
+    */
     SELFIE_LACK_STARTS = 1202,
+    /**
+    
+    */
     SELFIE_HAD_REWARD = 1203,
 };
 }
 
 
 namespace item {
-
+/**
+道具品质
+*/
 enum class EItemQuality
 {
+    /**
+    白
+    */
     WHITE = 0,
+    /**
+    
+    */
     GREEN = 1,
+    /**
+    
+    */
     BLUE = 2,
+    /**
+    
+    */
     PURPLE = 3,
+    /**
+    
+    */
     GOLDEN = 4,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class ECurrencyType
 {
+    /**
+    
+    */
     DIAMOND = 1,
+    /**
+    
+    */
     GOLD = 2,
+    /**
+    
+    */
     SILVER = 3,
+    /**
+    
+    */
     EXP = 4,
+    /**
+    
+    */
     POWER_POINT = 5,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EMajorType
 {
+    /**
+    
+    */
     CURRENCY = 1,
+    /**
+    
+    */
     CLOTH = 2,
+    /**
+    
+    */
     QUEST = 3,
+    /**
+    
+    */
     CONSUMABLES = 4,
+    /**
+    
+    */
     TREASURE_BOX = 5,
+    /**
+    
+    */
     ACHIEVEMENT_AND_TITLE = 6,
+    /**
+    
+    */
     HEAD_FRAME = 7,
+    /**
+    
+    */
     VOICE = 8,
+    /**
+    
+    */
     ACTION = 9,
+    /**
+    
+    */
     EXPANSION = 10,
+    /**
+    
+    */
     MATERIAL = 11,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EMinorType
 {
+    /**
+    
+    */
     DIAMOND = 101,
+    /**
+    
+    */
     GOLD = 102,
+    /**
+    
+    */
     SILVER = 103,
+    /**
+    
+    */
     EXP = 104,
+    /**
+    
+    */
     POWER_POINT = 105,
+    /**
+    
+    */
     HAIR_STYLE = 210,
+    /**
+    
+    */
     COAT = 220,
+    /**
+    
+    */
     UPPER_JACKET = 230,
+    /**
+    
+    */
     TROUSERS = 241,
+    /**
+    
+    */
     SKIRT = 242,
+    /**
+    
+    */
     SOCKS = 250,
+    /**
+    
+    */
     SHOES = 260,
+    /**
+    
+    */
     HAIR_ACCESSORY = 271,
+    /**
+    
+    */
     HAT = 272,
+    /**
+    
+    */
     EARRING = 273,
+    /**
+    
+    */
     NECKLACE = 274,
+    /**
+    
+    */
     BRACELET = 275,
+    /**
+    
+    */
     HAIR_CLASP = 276,
+    /**
+    
+    */
     GLOVE = 277,
+    /**
+    
+    */
     HANDHELD_OBJECT = 278,
+    /**
+    
+    */
     SPECIAL = 279,
+    /**
+    
+    */
     BASE_COSMETIC = 281,
+    /**
+    
+    */
     EYEBROW_COSMETIC = 282,
+    /**
+    
+    */
     EYELASH = 283,
+    /**
+    
+    */
     COSMETIC_CONTACT_LENSES = 284,
+    /**
+    
+    */
     LIP_COSMETIC = 285,
+    /**
+    
+    */
     SKIN_COLOR = 286,
+    /**
+    
+    */
     ONE_PIECE_DRESS = 290,
+    /**
+    
+    */
     SWITCH_CLOTHES_SCENE = 291,
+    /**
+    
+    */
     QUEST = 301,
+    /**
+    
+    */
     CAST = 401,
+    /**
+    
+    */
     SWORD = 421,
+    /**
+    
+    */
     BOW_ARROW = 422,
+    /**
+    
+    */
     WANDS = 423,
+    /**
+    
+    */
     SPECIAL_TOOL = 424,
+    /**
+    
+    */
     FOOD = 403,
+    /**
+    
+    */
     TREASURE_BOX = 501,
+    /**
+    
+    */
     KEY = 502,
+    /**
+    
+    */
     MULTI_CHOOSE_TREASURE_BOX = 503,
+    /**
+    
+    */
     ACHIEVEMENT = 601,
+    /**
+    
+    */
     TITLE = 602,
+    /**
+    
+    */
     AVATAR_FRAME = 701,
+    /**
+    
+    */
     VOICE = 801,
+    /**
+    
+    */
     IDLE_POSE = 901,
+    /**
+    
+    */
     PHOTO_POSE = 902,
+    /**
+    
+    */
     BAG = 1001,
+    /**
+    
+    */
     FRIEND_CAPACITY = 1002,
+    /**
+    
+    */
     CONSTRUCTION_MATERIAL = 1101,
+    /**
+    
+    */
     DESIGN_DRAWING = 1102,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EClothersStarQualityType
 {
+    /**
+    
+    */
     ONE = 1,
+    /**
+    
+    */
     TWO = 2,
+    /**
+    
+    */
     THREE = 3,
+    /**
+    
+    */
     FOUR = 4,
+    /**
+    
+    */
     FIVE = 5,
+    /**
+    
+    */
     SIX = 6,
+    /**
+    
+    */
     SEVEN = 7,
+    /**
+    
+    */
     EIGHT = 8,
+    /**
+    
+    */
     NINE = 9,
+    /**
+    
+    */
     TEN = 10,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EClothersTag
 {
+    /**
+    
+    */
     FANG_SHAI = 1,
+    /**
+    
+    */
     WU_ZHE = 2,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EUseType
 {
+    /**
+    
+    */
     MANUAL = 0,
+    /**
+    
+    */
     AUTO = 1,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EClothesHidePartType
 {
+    /**
+    
+    */
     CHEST = 0,
+    /**
+    
+    */
     HEAD = 1,
+    /**
+    
+    */
     SPINE_UPPER = 2,
+    /**
+    
+    */
     SPINE_LOWER = 3,
+    /**
+    
+    */
     HIP = 4,
+    /**
+    
+    */
     LEG_UPPER = 5,
+    /**
+    
+    */
     LEG_MIDDLE = 6,
+    /**
+    
+    */
     LEG_LOWER = 7,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EClothesPropertyType
 {
+    /**
+    
+    */
     JIAN_YUE = 1,
+    /**
+    
+    */
     HUA_LI = 2,
+    /**
+    
+    */
     KE_AI = 3,
+    /**
+    
+    */
     CHENG_SHU = 4,
+    /**
+    
+    */
     HUO_PO = 5,
+    /**
+    
+    */
     YOU_YA = 6,
+    /**
+    
+    */
     QING_CHUN = 7,
+    /**
+    
+    */
     XING_GAN = 8,
+    /**
+    
+    */
     QING_LIANG = 9,
+    /**
+    
+    */
     BAO_NUAN = 10,
 };
 }
 
 
 namespace item {
+/**
 
+*/
 enum class EItemFunctionType
 {
+    /**
+    
+    */
     REPLACE_HANDHELD = 0,
+    /**
+    
+    */
     USE_DESIGN_DRAWING = 1,
 };
 }
 
 
 namespace limit {
+/**
 
+*/
 enum class ENamespace
 {
+    /**
+    
+    */
     ITEM_DAILY_OBTAIN = 1,
+    /**
+    
+    */
     TREASURE_DAILY_USE = 2,
+    /**
+    
+    */
     STORE_GOODS_LIMIT_BUY = 3,
 };
 }
 
 
 namespace mail {
+/**
 
+*/
 enum class EMailType
 {
+    /**
+    
+    */
     GLOBAL = 0,
+    /**
+    
+    */
     SYSTEM = 1,
 };
 }
 
 
 namespace role {
+/**
 
+*/
 enum class EGenderType
 {
+    /**
+    
+    */
     MALE = 1,
+    /**
+    
+    */
     FEMALE = 2,
 };
 }
 
 
 namespace role {
+/**
 
+*/
 enum class EProfession
 {
+    /**
+    
+    */
     TEST_PROFESSION = 1,
 };
 }
 
 
 namespace test {
+/**
 
+*/
 enum class DemoEnum
 {
+    /**
+    
+    */
     A = 1,
+    /**
+    
+    */
     B = 2,
+    /**
+    
+    */
     C = 4,
+    /**
+    
+    */
     D = 5,
 };
 }
 
 
 namespace test {
+/**
 
+*/
 enum class ETestUeType
 {
+    /**
+    
+    */
     WHITE = 0,
+    /**
+    
+    */
     BLACK = 1,
 };
 }
 
 
 namespace test {
+/**
 
+*/
 enum class ETestEmptyEnum
 {
 };
@@ -464,21 +1221,84 @@ enum class ETestEmptyEnum
 
 
 namespace test {
+/**
 
+*/
 enum class ETestEmptyEnum2
 {
+    /**
+    
+    */
     SMALL_THAN_256 = 255,
+    /**
+    
+    */
     X_256 = 256,
+    /**
+    
+    */
     X_257 = 257,
 };
 }
 
 
-namespace role {
+namespace test {
+/**
 
+*/
+enum class ETestQuality
+{
+    /**
+    最高品质
+    */
+    A = 1,
+    /**
+    黑色的
+    */
+    B = 2,
+    /**
+    蓝色的
+    */
+    C = 3,
+    /**
+    最差品质
+    */
+    D = 4,
+};
+}
+
+
+namespace test {
+/**
+
+*/
+enum class ETestCurrency
+{
+    /**
+    重要
+    */
+    DIAMOND = 1,
+    /**
+    有用
+    */
+    GOLD = 2,
+};
+}
+
+
+namespace role {
+/**
+
+*/
 struct Consts
 {
+    /**
+    
+    */
     static constexpr int32_t MAX_NAME_LENGTH = 20;
+    /**
+    
+    */
     static constexpr int32_t MAX_USER_ROLE_NUM = 10;
 };
 }
@@ -486,12 +1306,26 @@ struct Consts
 
 
 namespace test {
+/**
 
+*/
 struct DemoConst
 {
+    /**
+    
+    */
     static constexpr int32_t x1 = 0;
+    /**
+    
+    */
     static constexpr int64_t x2 = 3242L;
+    /**
+    
+    */
     static constexpr float x3 = 444.3f;
+    /**
+    
+    */
     static constexpr double x4 = 55.3;
 };
 }
@@ -633,6 +1467,7 @@ namespace test { class DemoSingletonType; }
 namespace test { class MultiRowRecord; } 
 namespace test { class MultiRowType1; } 
 namespace test { class MultiRowType2; } 
+namespace test { class MultiRowType3; } 
 namespace test { class MultiRowTitle; } 
 namespace test { class H1; } 
 namespace test { class H2; } 
@@ -643,6 +1478,11 @@ namespace test { class CompactString; }
 namespace test { class DemoGroup; } 
 namespace test { class InnerGroup; } 
 namespace test { class TestGlobal; } 
+namespace test { class DetectEncoding; } 
+namespace test { class DefineFromExcel; } 
+namespace test { class DefineFromExcelOne; } 
+namespace test { class DefineFromExcel2; } 
+namespace test { class TestExcelBean1; } 
 
 namespace ai {
 
@@ -650,6 +1490,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Blackboard : public  bright::CfgBean 
 {
     public:
@@ -661,7 +1504,7 @@ class Blackboard : public  bright::CfgBean
 
     }
 
-    Blackboard(bright::String name, bright::String desc, bright::String parent_name, std::vector<ai::BlackboardKey*> keys ) 
+    Blackboard(std::string name, std::string desc, std::string parent_name, std::vector<ai::BlackboardKey*> keys ) 
     {
 
         this->name = name;
@@ -673,15 +1516,29 @@ class Blackboard : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String desc;
-    bright::String parentName;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
+    std::string parentName;
+    ai::Blackboard* parentName_Ref;
+    /**
+     
+     */
     std::vector<ai::BlackboardKey*> keys;
 
     static constexpr int ID = 1576193005;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -694,6 +1551,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class BlackboardKey : public  bright::CfgBean 
 {
     public:
@@ -705,7 +1565,7 @@ class BlackboardKey : public  bright::CfgBean
 
     }
 
-    BlackboardKey(bright::String name, bright::String desc, bool is_static, ai::EKeyType type, bright::String type_class_name ) 
+    BlackboardKey(std::string name, std::string desc, bool is_static, ai::EKeyType type, std::string type_class_name ) 
     {
 
         this->name = name;
@@ -718,16 +1578,32 @@ class BlackboardKey : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String desc;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     bool isStatic;
+    /**
+     
+     */
     ai::EKeyType type;
-    bright::String typeClassName;
+    /**
+     
+     */
+    std::string typeClassName;
 
     static constexpr int ID = -511559886;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -740,6 +1616,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class BehaviorTree : public  bright::CfgBean 
 {
     public:
@@ -751,7 +1630,7 @@ class BehaviorTree : public  bright::CfgBean
 
     }
 
-    BehaviorTree(int32_t id, bright::String name, bright::String desc, bright::String blackboard_id, ai::ComposeNode* root ) 
+    BehaviorTree(int32_t id, std::string name, std::string desc, std::string blackboard_id, ai::ComposeNode* root ) 
     {
 
         this->id = id;
@@ -764,16 +1643,33 @@ class BehaviorTree : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String name;
-    bright::String desc;
-    bright::String blackboardId;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
+    std::string blackboardId;
+    ai::Blackboard* blackboardId_Ref;
+    /**
+     
+     */
     ai::ComposeNode* root;
 
     static constexpr int ID = 159552822;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -786,6 +1682,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Node : public  bright::CfgBean 
 {
     public:
@@ -797,7 +1696,7 @@ class Node : public  bright::CfgBean
 
     }
 
-    Node(int32_t id, bright::String node_name ) 
+    Node(int32_t id, std::string node_name ) 
     {
 
         this->id = id;
@@ -807,10 +1706,17 @@ class Node : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String nodeName;
+    /**
+     
+     */
+    std::string nodeName;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -823,6 +1729,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Service : public  ai::Node 
 {
     public:
@@ -834,7 +1743,7 @@ class Service : public  ai::Node
 
     }
 
-    Service(int32_t id, bright::String node_name ) 
+    Service(int32_t id, std::string node_name ) 
             : ai::Node(id, node_name)
     {
 
@@ -845,6 +1754,7 @@ class Service : public  ai::Node
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -857,6 +1767,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeSetDefaultFocus : public  ai::Service 
 {
     public:
@@ -868,7 +1781,7 @@ class UeSetDefaultFocus : public  ai::Service
 
     }
 
-    UeSetDefaultFocus(int32_t id, bright::String node_name, bright::String keyboard_key ) 
+    UeSetDefaultFocus(int32_t id, std::string node_name, std::string keyboard_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -878,12 +1791,16 @@ class UeSetDefaultFocus : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String keyboardKey;
+    /**
+     
+     */
+    std::string keyboardKey;
 
     static constexpr int ID = 1812449155;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -896,6 +1813,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class ExecuteTimeStatistic : public  ai::Service 
 {
     public:
@@ -907,7 +1827,7 @@ class ExecuteTimeStatistic : public  ai::Service
 
     }
 
-    ExecuteTimeStatistic(int32_t id, bright::String node_name ) 
+    ExecuteTimeStatistic(int32_t id, std::string node_name ) 
             : ai::Service(id, node_name)
     {
 
@@ -921,6 +1841,7 @@ class ExecuteTimeStatistic : public  ai::Service
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -933,6 +1854,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class ChooseTarget : public  ai::Service 
 {
     public:
@@ -944,7 +1868,7 @@ class ChooseTarget : public  ai::Service
 
     }
 
-    ChooseTarget(int32_t id, bright::String node_name, bright::String result_target_key ) 
+    ChooseTarget(int32_t id, std::string node_name, std::string result_target_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -954,12 +1878,16 @@ class ChooseTarget : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String resultTargetKey;
+    /**
+     
+     */
+    std::string resultTargetKey;
 
     static constexpr int ID = 1601247918;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -972,6 +1900,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class KeepFaceTarget : public  ai::Service 
 {
     public:
@@ -983,7 +1914,7 @@ class KeepFaceTarget : public  ai::Service
 
     }
 
-    KeepFaceTarget(int32_t id, bright::String node_name, bright::String target_actor_key ) 
+    KeepFaceTarget(int32_t id, std::string node_name, std::string target_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -993,12 +1924,16 @@ class KeepFaceTarget : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String targetActorKey;
+    /**
+     
+     */
+    std::string targetActorKey;
 
     static constexpr int ID = 1195270745;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1011,6 +1946,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class GetOwnerPlayer : public  ai::Service 
 {
     public:
@@ -1022,7 +1960,7 @@ class GetOwnerPlayer : public  ai::Service
 
     }
 
-    GetOwnerPlayer(int32_t id, bright::String node_name, bright::String player_actor_key ) 
+    GetOwnerPlayer(int32_t id, std::string node_name, std::string player_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1032,12 +1970,16 @@ class GetOwnerPlayer : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String playerActorKey;
+    /**
+     
+     */
+    std::string playerActorKey;
 
     static constexpr int ID = -999247644;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1050,6 +1992,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UpdateDailyBehaviorProps : public  ai::Service 
 {
     public:
@@ -1061,7 +2006,7 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     }
 
-    UpdateDailyBehaviorProps(int32_t id, bright::String node_name, bright::String satiety_key, bright::String energy_key, bright::String mood_key, bright::String satiety_lower_threshold_key, bright::String satiety_upper_threshold_key, bright::String energy_lower_threshold_key, bright::String energy_upper_threshold_key, bright::String mood_lower_threshold_key, bright::String mood_upper_threshold_key ) 
+    UpdateDailyBehaviorProps(int32_t id, std::string node_name, std::string satiety_key, std::string energy_key, std::string mood_key, std::string satiety_lower_threshold_key, std::string satiety_upper_threshold_key, std::string energy_lower_threshold_key, std::string energy_upper_threshold_key, std::string mood_lower_threshold_key, std::string mood_upper_threshold_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1079,20 +2024,48 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String satietyKey;
-    bright::String energyKey;
-    bright::String moodKey;
-    bright::String satietyLowerThresholdKey;
-    bright::String satietyUpperThresholdKey;
-    bright::String energyLowerThresholdKey;
-    bright::String energyUpperThresholdKey;
-    bright::String moodLowerThresholdKey;
-    bright::String moodUpperThresholdKey;
+    /**
+     
+     */
+    std::string satietyKey;
+    /**
+     
+     */
+    std::string energyKey;
+    /**
+     
+     */
+    std::string moodKey;
+    /**
+     
+     */
+    std::string satietyLowerThresholdKey;
+    /**
+     
+     */
+    std::string satietyUpperThresholdKey;
+    /**
+     
+     */
+    std::string energyLowerThresholdKey;
+    /**
+     
+     */
+    std::string energyUpperThresholdKey;
+    /**
+     
+     */
+    std::string moodLowerThresholdKey;
+    /**
+     
+     */
+    std::string moodUpperThresholdKey;
 
     static constexpr int ID = -61887372;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1105,6 +2078,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Decorator : public  ai::Node 
 {
     public:
@@ -1116,7 +2092,7 @@ class Decorator : public  ai::Node
 
     }
 
-    Decorator(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    Decorator(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Node(id, node_name)
     {
 
@@ -1126,9 +2102,13 @@ class Decorator : public  ai::Node
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     ai::EFlowAbortMode flowAbortMode;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1141,6 +2121,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeLoop : public  ai::Decorator 
 {
     public:
@@ -1152,7 +2135,7 @@ class UeLoop : public  ai::Decorator
 
     }
 
-    UeLoop(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
+    UeLoop(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1164,14 +2147,24 @@ class UeLoop : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t numLoops;
+    /**
+     
+     */
     bool infiniteLoop;
+    /**
+     
+     */
     float infiniteLoopTimeoutTime;
 
     static constexpr int ID = -513308166;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1184,6 +2177,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeCooldown : public  ai::Decorator 
 {
     public:
@@ -1195,7 +2191,7 @@ class UeCooldown : public  ai::Decorator
 
     }
 
-    UeCooldown(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
+    UeCooldown(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1205,12 +2201,16 @@ class UeCooldown : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     float cooldownTime;
 
     static constexpr int ID = -951439423;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1223,6 +2223,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeTimeLimit : public  ai::Decorator 
 {
     public:
@@ -1234,7 +2237,7 @@ class UeTimeLimit : public  ai::Decorator
 
     }
 
-    UeTimeLimit(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
+    UeTimeLimit(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1244,12 +2247,16 @@ class UeTimeLimit : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     float limitTime;
 
     static constexpr int ID = 338469720;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1262,6 +2269,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeBlackboard : public  ai::Decorator 
 {
     public:
@@ -1273,7 +2283,7 @@ class UeBlackboard : public  ai::Decorator
 
     }
 
-    UeBlackboard(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, bright::String blackboard_key, ai::KeyQueryOperator* key_query ) 
+    UeBlackboard(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, std::string blackboard_key, ai::KeyQueryOperator* key_query ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1285,14 +2295,24 @@ class UeBlackboard : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     ai::ENotifyObserverMode notifyObserver;
-    bright::String blackboardKey;
+    /**
+     
+     */
+    std::string blackboardKey;
+    /**
+     
+     */
     ai::KeyQueryOperator* keyQuery;
 
     static constexpr int ID = -315297507;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1305,6 +2325,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class KeyQueryOperator : public  bright::CfgBean 
 {
     public:
@@ -1322,6 +2345,7 @@ class KeyQueryOperator : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1334,6 +2358,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class IsSet : public  ai::KeyQueryOperator 
 {
     public:
@@ -1354,6 +2381,7 @@ class IsSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1366,6 +2394,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class IsNotSet : public  ai::KeyQueryOperator 
 {
     public:
@@ -1386,6 +2417,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1398,6 +2430,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class BinaryOperator : public  ai::KeyQueryOperator 
 {
     public:
@@ -1420,13 +2455,20 @@ class BinaryOperator : public  ai::KeyQueryOperator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     ai::EOperator oper;
+    /**
+     
+     */
     ai::KeyData* data;
 
     static constexpr int ID = -979891605;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1439,6 +2481,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class KeyData : public  bright::CfgBean 
 {
     public:
@@ -1456,6 +2501,7 @@ class KeyData : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1468,6 +2514,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class FloatKeyData : public  ai::KeyData 
 {
     public:
@@ -1489,12 +2538,16 @@ class FloatKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     float value;
 
     static constexpr int ID = -719747885;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1507,6 +2560,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class IntKeyData : public  ai::KeyData 
 {
     public:
@@ -1528,12 +2584,16 @@ class IntKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t value;
 
     static constexpr int ID = -342751904;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1546,6 +2606,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class StringKeyData : public  ai::KeyData 
 {
     public:
@@ -1557,7 +2620,7 @@ class StringKeyData : public  ai::KeyData
 
     }
 
-    StringKeyData(bright::String value ) 
+    StringKeyData(std::string value ) 
             : ai::KeyData()
     {
 
@@ -1567,12 +2630,16 @@ class StringKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String value;
+    /**
+     
+     */
+    std::string value;
 
     static constexpr int ID = -307888654;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1585,6 +2652,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class BlackboardKeyData : public  ai::KeyData 
 {
     public:
@@ -1596,7 +2666,7 @@ class BlackboardKeyData : public  ai::KeyData
 
     }
 
-    BlackboardKeyData(bright::String value ) 
+    BlackboardKeyData(std::string value ) 
             : ai::KeyData()
     {
 
@@ -1606,12 +2676,16 @@ class BlackboardKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String value;
+    /**
+     
+     */
+    std::string value;
 
     static constexpr int ID = 1517269500;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1624,6 +2698,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeForceSuccess : public  ai::Decorator 
 {
     public:
@@ -1635,7 +2712,7 @@ class UeForceSuccess : public  ai::Decorator
 
     }
 
-    UeForceSuccess(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    UeForceSuccess(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1649,6 +2726,7 @@ class UeForceSuccess : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1661,6 +2739,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class IsAtLocation : public  ai::Decorator 
 {
     public:
@@ -1672,7 +2753,7 @@ class IsAtLocation : public  ai::Decorator
 
     }
 
-    IsAtLocation(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, bright::String keyboard_key, bool inverse_condition ) 
+    IsAtLocation(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, std::string keyboard_key, bool inverse_condition ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1684,14 +2765,24 @@ class IsAtLocation : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     float acceptableRadius;
-    bright::String keyboardKey;
+    /**
+     
+     */
+    std::string keyboardKey;
+    /**
+     
+     */
     bool inverseCondition;
 
     static constexpr int ID = 1255972344;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1704,6 +2795,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class DistanceLessThan : public  ai::Decorator 
 {
     public:
@@ -1715,7 +2809,7 @@ class DistanceLessThan : public  ai::Decorator
 
     }
 
-    DistanceLessThan(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, bright::String actor1_key, bright::String actor2_key, float distance, bool reverse_result ) 
+    DistanceLessThan(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, std::string actor1_key, std::string actor2_key, float distance, bool reverse_result ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -1728,15 +2822,28 @@ class DistanceLessThan : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String actor1Key;
-    bright::String actor2Key;
+    /**
+     
+     */
+    std::string actor1Key;
+    /**
+     
+     */
+    std::string actor2Key;
+    /**
+     
+     */
     float distance;
+    /**
+     
+     */
     bool reverseResult;
 
     static constexpr int ID = -1207170283;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1749,6 +2856,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class FlowNode : public  ai::Node 
 {
     public:
@@ -1760,7 +2870,7 @@ class FlowNode : public  ai::Node
 
     }
 
-    FlowNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+    FlowNode(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
             : ai::Node(id, node_name)
     {
 
@@ -1771,10 +2881,17 @@ class FlowNode : public  ai::Node
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<ai::Decorator*> decorators;
+    /**
+     
+     */
     std::vector<ai::Service*> services;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1787,6 +2904,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class ComposeNode : public  ai::FlowNode 
 {
     public:
@@ -1798,7 +2918,7 @@ class ComposeNode : public  ai::FlowNode
 
     }
 
-    ComposeNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+    ComposeNode(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -1809,6 +2929,7 @@ class ComposeNode : public  ai::FlowNode
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1821,6 +2942,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Sequence : public  ai::ComposeNode 
 {
     public:
@@ -1832,7 +2956,7 @@ class Sequence : public  ai::ComposeNode
 
     }
 
-    Sequence(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+    Sequence(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -1842,12 +2966,16 @@ class Sequence : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<ai::FlowNode*> children;
 
     static constexpr int ID = -1789006105;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1860,6 +2988,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Selector : public  ai::ComposeNode 
 {
     public:
@@ -1871,7 +3002,7 @@ class Selector : public  ai::ComposeNode
 
     }
 
-    Selector(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+    Selector(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -1881,12 +3012,16 @@ class Selector : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<ai::FlowNode*> children;
 
     static constexpr int ID = -1946981627;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1899,6 +3034,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class SimpleParallel : public  ai::ComposeNode 
 {
     public:
@@ -1910,7 +3048,7 @@ class SimpleParallel : public  ai::ComposeNode
 
     }
 
-    SimpleParallel(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, ai::EFinishMode finish_mode, ai::Task* main_task, ai::FlowNode* background_node ) 
+    SimpleParallel(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, ai::EFinishMode finish_mode, ai::Task* main_task, ai::FlowNode* background_node ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -1922,14 +3060,24 @@ class SimpleParallel : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     ai::EFinishMode finishMode;
+    /**
+     
+     */
     ai::Task* mainTask;
+    /**
+     
+     */
     ai::FlowNode* backgroundNode;
 
     static constexpr int ID = -1952582529;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1942,6 +3090,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class Task : public  ai::FlowNode 
 {
     public:
@@ -1953,7 +3104,7 @@ class Task : public  ai::FlowNode
 
     }
 
-    Task(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self ) 
+    Task(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -1963,9 +3114,13 @@ class Task : public  ai::FlowNode
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bool ignoreRestartSelf;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1978,6 +3133,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeWait : public  ai::Task 
 {
     public:
@@ -1989,7 +3147,7 @@ class UeWait : public  ai::Task
 
     }
 
-    UeWait(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
+    UeWait(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2000,13 +3158,20 @@ class UeWait : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     float waitTime;
+    /**
+     
+     */
     float randomDeviation;
 
     static constexpr int ID = -512994101;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2019,6 +3184,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class UeWaitBlackboardTime : public  ai::Task 
 {
     public:
@@ -2030,7 +3198,7 @@ class UeWaitBlackboardTime : public  ai::Task
 
     }
 
-    UeWaitBlackboardTime(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String blackboard_key ) 
+    UeWaitBlackboardTime(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, std::string blackboard_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2040,12 +3208,16 @@ class UeWaitBlackboardTime : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String blackboardKey;
+    /**
+     
+     */
+    std::string blackboardKey;
 
     static constexpr int ID = 1215378271;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2058,6 +3230,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class MoveToTarget : public  ai::Task 
 {
     public:
@@ -2069,7 +3244,7 @@ class MoveToTarget : public  ai::Task
 
     }
 
-    MoveToTarget(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, float acceptable_radius ) 
+    MoveToTarget(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, std::string target_actor_key, float acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2080,13 +3255,20 @@ class MoveToTarget : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String targetActorKey;
+    /**
+     
+     */
+    std::string targetActorKey;
+    /**
+     
+     */
     float acceptableRadius;
 
     static constexpr int ID = 514987779;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2099,6 +3281,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class ChooseSkill : public  ai::Task 
 {
     public:
@@ -2110,7 +3295,7 @@ class ChooseSkill : public  ai::Task
 
     }
 
-    ChooseSkill(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, bright::String result_skill_id_key ) 
+    ChooseSkill(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, std::string target_actor_key, std::string result_skill_id_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2121,13 +3306,20 @@ class ChooseSkill : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String targetActorKey;
-    bright::String resultSkillIdKey;
+    /**
+     
+     */
+    std::string targetActorKey;
+    /**
+     
+     */
+    std::string resultSkillIdKey;
 
     static constexpr int ID = -918812268;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2140,6 +3332,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class MoveToRandomLocation : public  ai::Task 
 {
     public:
@@ -2151,7 +3346,7 @@ class MoveToRandomLocation : public  ai::Task
 
     }
 
-    MoveToRandomLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String origin_position_key, float radius ) 
+    MoveToRandomLocation(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, std::string origin_position_key, float radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2162,13 +3357,20 @@ class MoveToRandomLocation : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String originPositionKey;
+    /**
+     
+     */
+    std::string originPositionKey;
+    /**
+     
+     */
     float radius;
 
     static constexpr int ID = -2140042998;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2181,6 +3383,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class MoveToLocation : public  ai::Task 
 {
     public:
@@ -2192,7 +3397,7 @@ class MoveToLocation : public  ai::Task
 
     }
 
-    MoveToLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
+    MoveToLocation(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2203,13 +3408,20 @@ class MoveToLocation : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bright::math::Vector3 location;
+    /**
+     
+     */
     float acceptableRadius;
 
     static constexpr int ID = -969953113;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2222,6 +3434,9 @@ namespace ai {
 
 
 
+/**
+
+ */
 class DebugPrint : public  ai::Task 
 {
     public:
@@ -2233,7 +3448,7 @@ class DebugPrint : public  ai::Task
 
     }
 
-    DebugPrint(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String text ) 
+    DebugPrint(int32_t id, std::string node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, std::string text ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -2243,12 +3458,16 @@ class DebugPrint : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String text;
+    /**
+     
+     */
+    std::string text;
 
     static constexpr int ID = 1357409728;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2261,6 +3480,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class Clazz : public  bright::CfgBean 
 {
     public:
@@ -2272,7 +3494,7 @@ class Clazz : public  bright::CfgBean
 
     }
 
-    Clazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+    Clazz(std::string name, std::string desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
     {
 
         this->name = name;
@@ -2284,12 +3506,25 @@ class Clazz : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String desc;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     std::vector<blueprint::Clazz*> parents;
+    /**
+     
+     */
     std::vector<blueprint::Method*> methods;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2302,6 +3537,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class Method : public  bright::CfgBean 
 {
     public:
@@ -2313,7 +3551,7 @@ class Method : public  bright::CfgBean
 
     }
 
-    Method(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    Method(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<blueprint::ParamInfo*> parameters ) 
     {
 
         this->name = name;
@@ -2326,13 +3564,29 @@ class Method : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String desc;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     bool isStatic;
-    bright::String returnType;
+    /**
+     
+     */
+    std::string returnType;
+    /**
+     
+     */
     std::vector<blueprint::ParamInfo*> parameters;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2345,6 +3599,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class ParamInfo : public  bright::CfgBean 
 {
     public:
@@ -2356,7 +3613,7 @@ class ParamInfo : public  bright::CfgBean
 
     }
 
-    ParamInfo(bright::String name, bright::String type, bool is_ref ) 
+    ParamInfo(std::string name, std::string type, bool is_ref ) 
     {
 
         this->name = name;
@@ -2367,14 +3624,24 @@ class ParamInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String type;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string type;
+    /**
+     
+     */
     bool isRef;
 
     static constexpr int ID = -729799392;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2387,6 +3654,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class AbstraceMethod : public  blueprint::Method 
 {
     public:
@@ -2398,7 +3668,7 @@ class AbstraceMethod : public  blueprint::Method
 
     }
 
-    AbstraceMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    AbstraceMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<blueprint::ParamInfo*> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -2412,6 +3682,7 @@ class AbstraceMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2424,6 +3695,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class ExternalMethod : public  blueprint::Method 
 {
     public:
@@ -2435,7 +3709,7 @@ class ExternalMethod : public  blueprint::Method
 
     }
 
-    ExternalMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    ExternalMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<blueprint::ParamInfo*> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -2449,6 +3723,7 @@ class ExternalMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2461,6 +3736,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class BlueprintMethod : public  blueprint::Method 
 {
     public:
@@ -2472,7 +3750,7 @@ class BlueprintMethod : public  blueprint::Method
 
     }
 
-    BlueprintMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    BlueprintMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<blueprint::ParamInfo*> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -2486,6 +3764,7 @@ class BlueprintMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2498,6 +3777,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class Interface : public  blueprint::Clazz 
 {
     public:
@@ -2509,7 +3791,7 @@ class Interface : public  blueprint::Clazz
 
     }
 
-    Interface(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+    Interface(std::string name, std::string desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -2523,6 +3805,7 @@ class Interface : public  blueprint::Clazz
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2535,6 +3818,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class NormalClazz : public  blueprint::Clazz 
 {
     public:
@@ -2546,7 +3832,7 @@ class NormalClazz : public  blueprint::Clazz
 
     }
 
-    NormalClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, bool is_abstract, std::vector<blueprint::Field*> fields ) 
+    NormalClazz(std::string name, std::string desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, bool is_abstract, std::vector<blueprint::Field*> fields ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -2557,13 +3843,20 @@ class NormalClazz : public  blueprint::Clazz
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bool isAbstract;
+    /**
+     
+     */
     std::vector<blueprint::Field*> fields;
 
     static constexpr int ID = -2073576778;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2576,6 +3869,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class Field : public  bright::CfgBean 
 {
     public:
@@ -2587,7 +3883,7 @@ class Field : public  bright::CfgBean
 
     }
 
-    Field(bright::String name, bright::String type, bright::String desc ) 
+    Field(std::string name, std::string type, std::string desc ) 
     {
 
         this->name = name;
@@ -2598,14 +3894,24 @@ class Field : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
-    bright::String type;
-    bright::String desc;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
+    std::string type;
+    /**
+     
+     */
+    std::string desc;
 
     static constexpr int ID = 1694158271;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2618,6 +3924,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class EnumClazz : public  blueprint::Clazz 
 {
     public:
@@ -2629,7 +3938,7 @@ class EnumClazz : public  blueprint::Clazz
 
     }
 
-    EnumClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, std::vector<blueprint::EnumField*> enums ) 
+    EnumClazz(std::string name, std::string desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, std::vector<blueprint::EnumField*> enums ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -2639,12 +3948,16 @@ class EnumClazz : public  blueprint::Clazz
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<blueprint::EnumField*> enums;
 
     static constexpr int ID = 1827364892;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2657,6 +3970,9 @@ namespace blueprint {
 
 
 
+/**
+
+ */
 class EnumField : public  bright::CfgBean 
 {
     public:
@@ -2668,7 +3984,7 @@ class EnumField : public  bright::CfgBean
 
     }
 
-    EnumField(bright::String name, int32_t value ) 
+    EnumField(std::string name, int32_t value ) 
     {
 
         this->name = name;
@@ -2678,13 +3994,20 @@ class EnumField : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String name;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
     int32_t value;
 
     static constexpr int ID = 1830049470;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2697,6 +4020,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class DropInfo : public  bright::CfgBean 
 {
     public:
@@ -2708,7 +4034,7 @@ class DropInfo : public  bright::CfgBean
 
     }
 
-    DropInfo(int32_t id, bright::String desc, std::vector<bonus::ShowItemInfo*> client_show_items, bonus::Bonus* bonus ) 
+    DropInfo(int32_t id, std::string desc, std::vector<bonus::ShowItemInfo*> client_show_items, bonus::Bonus* bonus ) 
     {
 
         this->id = id;
@@ -2720,15 +4046,28 @@ class DropInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String desc;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     std::vector<bonus::ShowItemInfo*> clientShowItems;
+    /**
+     
+     */
     bonus::Bonus* bonus;
 
     static constexpr int ID = -2014781108;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2741,6 +4080,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class ShowItemInfo : public  bright::CfgBean 
 {
     public:
@@ -2762,13 +4104,21 @@ class ShowItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int64_t itemNum;
 
     static constexpr int ID = -1496363507;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2781,6 +4131,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class Bonus : public  bright::CfgBean 
 {
     public:
@@ -2798,6 +4151,7 @@ class Bonus : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2810,6 +4164,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class OneItem : public  bonus::Bonus 
 {
     public:
@@ -2831,12 +4188,17 @@ class OneItem : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
 
     static constexpr int ID = -1649658966;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2849,6 +4211,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class OneItems : public  bonus::Bonus 
 {
     public:
@@ -2870,12 +4235,16 @@ class OneItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<int32_t> items;
 
     static constexpr int ID = 400179721;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2888,6 +4257,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class Item : public  bonus::Bonus 
 {
     public:
@@ -2910,13 +4282,21 @@ class Item : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int32_t amount;
 
     static constexpr int ID = 1689011106;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2929,6 +4309,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class Items : public  bonus::Bonus 
 {
     public:
@@ -2950,12 +4333,16 @@ class Items : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::Item*> itemList;
 
     static constexpr int ID = 819736849;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2968,6 +4355,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class CoefficientItem : public  bonus::Bonus 
 {
     public:
@@ -2990,13 +4380,20 @@ class CoefficientItem : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t bonusId;
+    /**
+     
+     */
     bonus::Items* bonusList;
 
     static constexpr int ID = -229470727;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3009,6 +4406,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class WeightItems : public  bonus::Bonus 
 {
     public:
@@ -3030,12 +4430,16 @@ class WeightItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::WeightItemInfo*> itemList;
 
     static constexpr int ID = -356202311;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3048,6 +4452,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class WeightItemInfo : public  bright::CfgBean 
 {
     public:
@@ -3070,14 +4477,25 @@ class WeightItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int32_t num;
+    /**
+     
+     */
     int32_t weight;
 
     static constexpr int ID = 1239999176;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3090,6 +4508,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class ProbabilityItems : public  bonus::Bonus 
 {
     public:
@@ -3111,12 +4532,16 @@ class ProbabilityItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::ProbabilityItemInfo*> itemList;
 
     static constexpr int ID = 366387866;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3129,6 +4554,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class ProbabilityItemInfo : public  bright::CfgBean 
 {
     public:
@@ -3151,14 +4579,25 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int32_t num;
+    /**
+     
+     */
     float probability;
 
     static constexpr int ID = 1547874631;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3171,6 +4610,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class MultiBonus : public  bonus::Bonus 
 {
     public:
@@ -3192,12 +4634,16 @@ class MultiBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::Bonus*> bonuses;
 
     static constexpr int ID = 1421907893;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3210,6 +4656,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class ProbabilityBonus : public  bonus::Bonus 
 {
     public:
@@ -3231,12 +4680,16 @@ class ProbabilityBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::ProbabilityBonusInfo*> bonuses;
 
     static constexpr int ID = 359783161;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3249,6 +4702,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class ProbabilityBonusInfo : public  bright::CfgBean 
 {
     public:
@@ -3270,13 +4726,20 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bonus::Bonus* bonus;
+    /**
+     
+     */
     float probability;
 
     static constexpr int ID = 46960455;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3289,6 +4752,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class WeightBonus : public  bonus::Bonus 
 {
     public:
@@ -3310,12 +4776,16 @@ class WeightBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<bonus::WeightBonusInfo*> bonuses;
 
     static constexpr int ID = -362807016;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3328,6 +4798,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class WeightBonusInfo : public  bright::CfgBean 
 {
     public:
@@ -3349,13 +4822,20 @@ class WeightBonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bonus::Bonus* bonus;
+    /**
+     
+     */
     int32_t weight;
 
     static constexpr int ID = -907244058;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3368,6 +4848,9 @@ namespace bonus {
 
 
 
+/**
+
+ */
 class DropBonus : public  bonus::Bonus 
 {
     public:
@@ -3389,12 +4872,17 @@ class DropBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    bonus::DropInfo* id_Ref;
 
     static constexpr int ID = 1959868225;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3407,6 +4895,9 @@ namespace common {
 
 
 
+/**
+
+ */
 class GlobalConfig : public  bright::CfgBean 
 {
     public:
@@ -3418,7 +4909,7 @@ class GlobalConfig : public  bright::CfgBean
 
     }
 
-    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, int32_t bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
+    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, int32_t* bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
     {
 
         this->bagCapacity = bag_capacity;
@@ -3447,32 +4938,97 @@ class GlobalConfig : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     背包容量
+     */
     int32_t bagCapacity;
+    /**
+     
+     */
     int32_t bagCapacitySpecial;
+    /**
+     
+     */
     int32_t bagTempExpendableCapacity;
+    /**
+     
+     */
     int32_t bagTempToolCapacity;
+    /**
+     
+     */
     int32_t bagInitCapacity;
+    /**
+     
+     */
     int32_t quickBagCapacity;
+    /**
+     
+     */
     int32_t clothBagCapacity;
+    /**
+     
+     */
     int32_t clothBagInitCapacity;
+    /**
+     
+     */
     int32_t clothBagCapacitySpecial;
-    int32_t bagInitItemsDropId;
+    /**
+     
+     */
+    int32_t* bagInitItemsDropId;
+    bonus::DropInfo* bagInitItemsDropId_Ref;
+    /**
+     
+     */
     int32_t mailBoxCapacity;
+    /**
+     
+     */
     float damageParamC;
+    /**
+     
+     */
     float damageParamE;
+    /**
+     
+     */
     float damageParamF;
+    /**
+     
+     */
     float damageParamD;
+    /**
+     
+     */
     float roleSpeed;
+    /**
+     
+     */
     float monsterSpeed;
+    /**
+     
+     */
     int32_t initEnergy;
+    /**
+     
+     */
     int32_t initViality;
+    /**
+     
+     */
     int32_t maxViality;
+    /**
+     
+     */
     int32_t perVialityRecoveryTime;
 
     static constexpr int ID = -848234488;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3485,6 +5041,9 @@ namespace common {
 
 
 
+/**
+
+ */
 class Dummy : public  bright::CfgBean 
 {
     public:
@@ -3506,13 +5065,20 @@ class Dummy : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     limit::LimitBase* limit;
 
     static constexpr int ID = -985084219;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3525,6 +5091,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class LimitBase : public  bright::CfgBean 
 {
     public:
@@ -3542,6 +5111,7 @@ class LimitBase : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3554,6 +5124,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class DailyLimitBase : public  limit::LimitBase 
 {
     public:
@@ -3571,6 +5144,7 @@ class DailyLimitBase : public  limit::LimitBase
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3583,6 +5157,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class DailyLimit : public  limit::DailyLimitBase 
 {
     public:
@@ -3604,12 +5181,16 @@ class DailyLimit : public  limit::DailyLimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t num;
 
     static constexpr int ID = 303235413;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3622,6 +5203,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class MultiDayLimit : public  limit::LimitBase 
 {
     public:
@@ -3644,13 +5228,20 @@ class MultiDayLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t day;
+    /**
+     
+     */
     int32_t num;
 
     static constexpr int ID = -1753629499;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3663,6 +5254,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class WeeklyLimit : public  limit::LimitBase 
 {
     public:
@@ -3684,12 +5278,16 @@ class WeeklyLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t num;
 
     static constexpr int ID = -252187161;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3702,6 +5300,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class MonthlyLimit : public  limit::LimitBase 
 {
     public:
@@ -3723,12 +5324,16 @@ class MonthlyLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t num;
 
     static constexpr int ID = 2063279905;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3741,6 +5346,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class CoolDown : public  limit::LimitBase 
 {
     public:
@@ -3762,12 +5370,16 @@ class CoolDown : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t duration;
 
     static constexpr int ID = -1366194050;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3780,6 +5392,9 @@ namespace limit {
 
 
 
+/**
+
+ */
 class GroupCoolDown : public  limit::LimitBase 
 {
     public:
@@ -3802,13 +5417,20 @@ class GroupCoolDown : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t groupId;
+    /**
+     
+     */
     int32_t duration;
 
     static constexpr int ID = 394328599;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3821,6 +5443,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorInfo : public  bright::CfgBean 
 {
     public:
@@ -3832,7 +5457,7 @@ class ErrorInfo : public  bright::CfgBean
 
     }
 
-    ErrorInfo(bright::String code, bright::String desc, error::ErrorStyle* style ) 
+    ErrorInfo(std::string code, std::string desc, error::ErrorStyle* style ) 
     {
 
         this->code = code;
@@ -3843,14 +5468,24 @@ class ErrorInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String code;
-    bright::String desc;
+    /**
+     
+     */
+    std::string code;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     error::ErrorStyle* style;
 
     static constexpr int ID = 1389347408;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3863,6 +5498,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorStyle : public  bright::CfgBean 
 {
     public:
@@ -3880,6 +5518,7 @@ class ErrorStyle : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3892,6 +5531,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorStyleTip : public  error::ErrorStyle 
 {
     public:
@@ -3912,6 +5554,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3924,6 +5567,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorStyleMsgbox : public  error::ErrorStyle 
 {
     public:
@@ -3935,7 +5581,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     }
 
-    ErrorStyleMsgbox(bright::String btn_name, error::EOperation operation ) 
+    ErrorStyleMsgbox(std::string btn_name, error::EOperation operation ) 
             : error::ErrorStyle()
     {
 
@@ -3946,13 +5592,20 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String btnName;
+    /**
+     
+     */
+    std::string btnName;
+    /**
+     
+     */
     error::EOperation operation;
 
     static constexpr int ID = -1920482343;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3965,6 +5618,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorStyleDlgOk : public  error::ErrorStyle 
 {
     public:
@@ -3976,7 +5632,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOk(bright::String btn_name ) 
+    ErrorStyleDlgOk(std::string btn_name ) 
             : error::ErrorStyle()
     {
 
@@ -3986,12 +5642,16 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String btnName;
+    /**
+     
+     */
+    std::string btnName;
 
     static constexpr int ID = -2010134516;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4004,6 +5664,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class ErrorStyleDlgOkCancel : public  error::ErrorStyle 
 {
     public:
@@ -4015,7 +5678,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOkCancel(bright::String btn1_name, bright::String btn2_name ) 
+    ErrorStyleDlgOkCancel(std::string btn1_name, std::string btn2_name ) 
             : error::ErrorStyle()
     {
 
@@ -4026,13 +5689,20 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    bright::String btn1Name;
-    bright::String btn2Name;
+    /**
+     
+     */
+    std::string btn1Name;
+    /**
+     
+     */
+    std::string btn2Name;
 
     static constexpr int ID = 971221414;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4045,6 +5715,9 @@ namespace error {
 
 
 
+/**
+
+ */
 class CodeInfo : public  bright::CfgBean 
 {
     public:
@@ -4056,7 +5729,7 @@ class CodeInfo : public  bright::CfgBean
 
     }
 
-    CodeInfo(error::EErrorCode code, bright::String key ) 
+    CodeInfo(error::EErrorCode code, std::string key ) 
     {
 
         this->code = code;
@@ -4066,13 +5739,20 @@ class CodeInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     error::EErrorCode code;
-    bright::String key;
+    /**
+     
+     */
+    std::string key;
 
     static constexpr int ID = -1942481535;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4085,6 +5765,9 @@ namespace item {
 
 
 
+/**
+道具
+ */
 class Item : public  bright::CfgBean 
 {
     public:
@@ -4096,7 +5779,7 @@ class Item : public  bright::CfgBean
 
     }
 
-    Item(int32_t id, bright::String name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, bright::String icon, bright::String icon_backgroud, bright::String icon_mask, bright::String desc, int32_t show_order, bright::String quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t price, item::EUseType use_type, int32_t level_up_id ) 
+    Item(int32_t id, std::string name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, std::string icon, std::string icon_backgroud, std::string icon_mask, std::string desc, int32_t show_order, std::string quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t* price, item::EUseType use_type, int32_t* level_up_id ) 
     {
 
         this->id = id;
@@ -4125,32 +5808,96 @@ class Item : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     道具id
+     */
     int32_t id;
-    bright::String name;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
     item::EMajorType majorType;
+    /**
+     
+     */
     item::EMinorType minorType;
+    /**
+     
+     */
     int32_t maxPileNum;
+    /**
+     
+     */
     item::EItemQuality quality;
-    bright::String icon;
-    bright::String iconBackgroud;
-    bright::String iconMask;
-    bright::String desc;
+    /**
+     
+     */
+    std::string icon;
+    /**
+     
+     */
+    std::string iconBackgroud;
+    /**
+     
+     */
+    std::string iconMask;
+    /**
+     
+     */
+    std::string desc;
+    /**
+     
+     */
     int32_t showOrder;
-    bright::String quantifier;
+    /**
+     
+     */
+    std::string quantifier;
+    /**
+     
+     */
     bool showInBag;
+    /**
+     
+     */
     int32_t minShowLevel;
+    /**
+     
+     */
     bool batchUsable;
+    /**
+     
+     */
     float progressTimeWhenUse;
+    /**
+     
+     */
     bool showHintWhenUse;
+    /**
+     
+     */
     bool droppable;
-    int32_t price;
+    /**
+     
+     */
+    int32_t* price;
+    /**
+     
+     */
     item::EUseType useType;
-    int32_t levelUpId;
+    /**
+     
+     */
+    int32_t* levelUpId;
 
     static constexpr int ID = 2107285806;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4163,6 +5910,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class ItemFunction : public  bright::CfgBean 
 {
     public:
@@ -4174,7 +5924,7 @@ class ItemFunction : public  bright::CfgBean
 
     }
 
-    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, bright::String method, bool close_bag_ui ) 
+    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, std::string method, bool close_bag_ui ) 
     {
 
         this->minorType = minor_type;
@@ -4186,15 +5936,28 @@ class ItemFunction : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     item::EMinorType minorType;
+    /**
+     
+     */
     item::EItemFunctionType funcType;
-    bright::String method;
+    /**
+     
+     */
+    std::string method;
+    /**
+     
+     */
     bool closeBagUi;
 
     static constexpr int ID = 1205824294;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4207,6 +5970,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class ItemExtra : public  bright::CfgBean 
 {
     public:
@@ -4227,9 +5993,13 @@ class ItemExtra : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4242,6 +6012,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class TreasureBox : public  item::ItemExtra 
 {
     public:
@@ -4253,7 +6026,7 @@ class TreasureBox : public  item::ItemExtra
 
     }
 
-    TreasureBox(int32_t id, int32_t key_item_id, condition::MinLevel* open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<item::ChooseOneBonus*> choose_list ) 
+    TreasureBox(int32_t id, int32_t* key_item_id, condition::MinLevel* open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<item::ChooseOneBonus*> choose_list ) 
             : item::ItemExtra(id)
     {
 
@@ -4267,16 +6040,32 @@ class TreasureBox : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    int32_t keyItemId;
+    /**
+     
+     */
+    int32_t* keyItemId;
+    /**
+     
+     */
     condition::MinLevel* openLevel;
+    /**
+     
+     */
     bool useOnObtain;
+    /**
+     
+     */
     std::vector<int32_t> dropIds;
+    /**
+     
+     */
     std::vector<item::ChooseOneBonus*> chooseList;
 
     static constexpr int ID = 1494222369;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4289,6 +6078,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class Condition : public  bright::CfgBean 
 {
     public:
@@ -4306,6 +6098,7 @@ class Condition : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4318,6 +6111,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class TimeRange : public  condition::Condition 
 {
     public:
@@ -4339,12 +6135,16 @@ class TimeRange : public  condition::Condition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     common::DateTimeRange* dateTimeRange;
 
     static constexpr int ID = 1069033789;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4357,6 +6157,9 @@ namespace common {
 
 
 
+/**
+
+ */
 class DateTimeRange : public  bright::CfgBean 
 {
     public:
@@ -4368,7 +6171,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(int32_t start_time, int32_t end_time ) 
+    DateTimeRange(int32_t* start_time, int32_t* end_time ) 
     {
 
         this->startTime = start_time;
@@ -4378,13 +6181,20 @@ class DateTimeRange : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    int32_t startTime;
-    int32_t endTime;
+    /**
+     
+     */
+    int32_t* startTime;
+    /**
+     
+     */
+    int32_t* endTime;
 
     static constexpr int ID = 1642200959;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4397,6 +6207,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class RoleCondition : public  condition::Condition 
 {
     public:
@@ -4414,6 +6227,7 @@ class RoleCondition : public  condition::Condition
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4426,6 +6240,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class MultiRoleCondition : public  condition::RoleCondition 
 {
     public:
@@ -4447,12 +6264,16 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<condition::RoleCondition*> conditions;
 
     static constexpr int ID = 934079583;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4465,6 +6286,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class BoolRoleCondition : public  condition::RoleCondition 
 {
     public:
@@ -4482,6 +6306,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4494,6 +6319,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class GenderLimit : public  condition::BoolRoleCondition 
 {
     public:
@@ -4515,12 +6343,16 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     role::EGenderType gender;
 
     static constexpr int ID = 103675143;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4533,6 +6365,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class MinLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -4554,12 +6389,16 @@ class MinLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t level;
 
     static constexpr int ID = -1075273755;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4572,6 +6411,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class MaxLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -4593,12 +6435,16 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t level;
 
     static constexpr int ID = 700922899;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4611,6 +6457,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class MinMaxLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -4633,13 +6482,20 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t min;
+    /**
+     
+     */
     int32_t max;
 
     static constexpr int ID = 907499647;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4652,6 +6508,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition 
 {
     public:
@@ -4674,13 +6533,20 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     item::EClothesPropertyType prop;
+    /**
+     
+     */
     int32_t value;
 
     static constexpr int ID = 696630835;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4693,6 +6559,9 @@ namespace condition {
 
 
 
+/**
+
+ */
 class ContainsItem : public  condition::RoleCondition 
 {
     public:
@@ -4716,14 +6585,25 @@ class ContainsItem : public  condition::RoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int32_t num;
+    /**
+     
+     */
     bool reverse;
 
     static constexpr int ID = 1961145317;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4736,6 +6616,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class ChooseOneBonus : public  bright::CfgBean 
 {
     public:
@@ -4757,13 +6640,21 @@ class ChooseOneBonus : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t dropId;
+    bonus::DropInfo* dropId_Ref;
+    /**
+     
+     */
     bool isUnique;
 
     static constexpr int ID = 228058347;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4776,6 +6667,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class InteractionItem : public  item::ItemExtra 
 {
     public:
@@ -4787,7 +6681,7 @@ class InteractionItem : public  item::ItemExtra
 
     }
 
-    InteractionItem(int32_t id, int32_t attack_num, bright::String holding_static_mesh, bright::String holding_static_mesh_mat ) 
+    InteractionItem(int32_t id, int32_t* attack_num, std::string holding_static_mesh, std::string holding_static_mesh_mat ) 
             : item::ItemExtra(id)
     {
 
@@ -4799,14 +6693,24 @@ class InteractionItem : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    int32_t attackNum;
-    bright::String holdingStaticMesh;
-    bright::String holdingStaticMeshMat;
+    /**
+     
+     */
+    int32_t* attackNum;
+    /**
+     
+     */
+    std::string holdingStaticMesh;
+    /**
+     
+     */
+    std::string holdingStaticMeshMat;
 
     static constexpr int ID = 640937802;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4819,6 +6723,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class Clothes : public  item::ItemExtra 
 {
     public:
@@ -4843,15 +6750,28 @@ class Clothes : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t attack;
+    /**
+     
+     */
     int64_t hp;
+    /**
+     
+     */
     int32_t energyLimit;
+    /**
+     
+     */
     int32_t energyResume;
 
     static constexpr int ID = 1659907149;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4864,6 +6784,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class DesignDrawing : public  item::ItemExtra 
 {
     public:
@@ -4885,12 +6808,16 @@ class DesignDrawing : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<int32_t> learnComponentId;
 
     static constexpr int ID = -1679179579;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4903,6 +6830,9 @@ namespace item {
 
 
 
+/**
+
+ */
 class Dymmy : public  item::ItemExtra 
 {
     public:
@@ -4924,12 +6854,16 @@ class Dymmy : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     cost::Cost* cost;
 
     static constexpr int ID = 896889705;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4942,6 +6876,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class Cost : public  bright::CfgBean 
 {
     public:
@@ -4959,6 +6896,7 @@ class Cost : public  bright::CfgBean
 
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4971,6 +6909,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class CostCurrency : public  cost::Cost 
 {
     public:
@@ -4993,13 +6934,20 @@ class CostCurrency : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     item::ECurrencyType type;
+    /**
+     
+     */
     int32_t num;
 
     static constexpr int ID = 911838111;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5012,6 +6960,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class CostCurrencies : public  cost::Cost 
 {
     public:
@@ -5033,12 +6984,16 @@ class CostCurrencies : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<cost::CostCurrency*> currencies;
 
     static constexpr int ID = 103084157;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5051,6 +7006,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class CostOneItem : public  cost::Cost 
 {
     public:
@@ -5072,12 +7030,17 @@ class CostOneItem : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
 
     static constexpr int ID = -1033587381;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5090,6 +7053,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class CostItem : public  cost::Cost 
 {
     public:
@@ -5112,13 +7078,21 @@ class CostItem : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t itemId;
+    item::Item* itemId_Ref;
+    /**
+     
+     */
     int32_t amount;
 
     static constexpr int ID = -1249440351;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5131,6 +7105,9 @@ namespace cost {
 
 
 
+/**
+
+ */
 class CostItems : public  cost::Cost 
 {
     public:
@@ -5152,12 +7129,16 @@ class CostItems : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     std::vector<cost::CostItem*> itemList;
 
     static constexpr int ID = -77945102;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5170,6 +7151,9 @@ namespace l10n {
 
 
 
+/**
+
+ */
 class L10NDemo : public  bright::CfgBean 
 {
     public:
@@ -5181,7 +7165,7 @@ class L10NDemo : public  bright::CfgBean
 
     }
 
-    L10NDemo(int32_t id, bright::String text ) 
+    L10NDemo(int32_t id, std::string text ) 
     {
 
         this->id = id;
@@ -5191,13 +7175,20 @@ class L10NDemo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String text;
+    /**
+     
+     */
+    std::string text;
 
     static constexpr int ID = -331195887;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5210,6 +7201,9 @@ namespace l10n {
 
 
 
+/**
+
+ */
 class PatchDemo : public  bright::CfgBean 
 {
     public:
@@ -5231,13 +7225,20 @@ class PatchDemo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     int32_t value;
 
     static constexpr int ID = -1707294656;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5250,6 +7251,9 @@ namespace mail {
 
 
 
+/**
+
+ */
 class SystemMail : public  bright::CfgBean 
 {
     public:
@@ -5261,7 +7265,7 @@ class SystemMail : public  bright::CfgBean
 
     }
 
-    SystemMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award ) 
+    SystemMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award ) 
     {
 
         this->id = id;
@@ -5274,16 +7278,32 @@ class SystemMail : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String title;
-    bright::String sender;
-    bright::String content;
+    /**
+     
+     */
+    std::string title;
+    /**
+     
+     */
+    std::string sender;
+    /**
+     
+     */
+    std::string content;
+    /**
+     
+     */
     std::vector<int32_t> award;
 
     static constexpr int ID = 1214073149;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5296,6 +7316,9 @@ namespace mail {
 
 
 
+/**
+
+ */
 class GlobalMail : public  bright::CfgBean 
 {
     public:
@@ -5307,7 +7330,7 @@ class GlobalMail : public  bright::CfgBean
 
     }
 
-    GlobalMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, bright::String platform, bright::String channel, condition::MinMaxLevel* min_max_level, condition::TimeRange* register_time, condition::TimeRange* mail_time ) 
+    GlobalMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, std::string platform, std::string channel, condition::MinMaxLevel* min_max_level, condition::TimeRange* register_time, condition::TimeRange* mail_time ) 
     {
 
         this->id = id;
@@ -5327,23 +7350,60 @@ class GlobalMail : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String title;
-    bright::String sender;
-    bright::String content;
+    /**
+     
+     */
+    std::string title;
+    /**
+     
+     */
+    std::string sender;
+    /**
+     
+     */
+    std::string content;
+    /**
+     
+     */
     std::vector<int32_t> award;
+    /**
+     
+     */
     bool allServer;
+    /**
+     
+     */
     std::vector<int32_t> serverList;
-    bright::String platform;
-    bright::String channel;
+    /**
+     
+     */
+    std::string platform;
+    /**
+     
+     */
+    std::string channel;
+    /**
+     
+     */
     condition::MinMaxLevel* minMaxLevel;
+    /**
+     
+     */
     condition::TimeRange* registerTime;
+    /**
+     
+     */
     condition::TimeRange* mailTime;
 
     static constexpr int ID = -287571791;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5356,6 +7416,9 @@ namespace role {
 
 
 
+/**
+
+ */
 class LevelExpAttr : public  bright::CfgBean 
 {
     public:
@@ -5378,14 +7441,24 @@ class LevelExpAttr : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t level;
+    /**
+     
+     */
     int64_t needExp;
+    /**
+     
+     */
     std::vector<int32_t> clothesAttrs;
 
     static constexpr int ID = -1569837022;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5398,6 +7471,9 @@ namespace role {
 
 
 
+/**
+
+ */
 class LevelBonus : public  bright::CfgBean 
 {
     public:
@@ -5419,13 +7495,20 @@ class LevelBonus : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     std::vector<role::DistinctBonusInfos*> distinctBonusInfos;
 
     static constexpr int ID = -572269677;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5438,6 +7521,9 @@ namespace role {
 
 
 
+/**
+
+ */
 class DistinctBonusInfos : public  bright::CfgBean 
 {
     public:
@@ -5459,13 +7545,20 @@ class DistinctBonusInfos : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t effectiveLevel;
+    /**
+     
+     */
     std::vector<role::BonusInfo*> bonusInfo;
 
     static constexpr int ID = -854361766;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5478,6 +7571,9 @@ namespace role {
 
 
 
+/**
+
+ */
 class BonusInfo : public  bright::CfgBean 
 {
     public:
@@ -5499,13 +7595,20 @@ class BonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     item::ECurrencyType type;
+    /**
+     
+     */
     float coefficient;
 
     static constexpr int ID = -1354421803;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5518,6 +7621,9 @@ namespace tag {
 
 
 
+/**
+
+ */
 class TestTag : public  bright::CfgBean 
 {
     public:
@@ -5529,7 +7635,7 @@ class TestTag : public  bright::CfgBean
 
     }
 
-    TestTag(int32_t id, bright::String value ) 
+    TestTag(int32_t id, std::string value ) 
     {
 
         this->id = id;
@@ -5539,13 +7645,20 @@ class TestTag : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String value;
+    /**
+     
+     */
+    std::string value;
 
     static constexpr int ID = 1742933812;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5558,6 +7671,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoType2 : public  bright::CfgBean 
 {
     public:
@@ -5569,7 +7685,7 @@ class DemoType2 : public  bright::CfgBean
 
     }
 
-    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, bright::String x10, test::DemoType1* x12, test::DemoEnum x13, test::DemoDynamic* x14, bright::String s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9, std::vector<test::DemoDynamic*> k15 ) 
+    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, std::string x10, test::DemoType1* x12, test::DemoEnum x13, test::DemoDynamic* x14, std::string s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9, std::vector<test::DemoDynamic*> k15 ) 
     {
 
         this->x4 = x4;
@@ -5606,40 +7722,130 @@ class DemoType2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x4;
+    /**
+     
+     */
     bool x1;
+    /**
+     
+     */
     uint8_t x2;
+    /**
+     
+     */
     int16_t x3;
+    test::DemoType2* x3_Ref;
+    /**
+     
+     */
     int64_t x5;
+    /**
+     
+     */
     float x6;
+    /**
+     
+     */
     double x7;
+    /**
+     
+     */
     int16_t x80;
+    /**
+     
+     */
     int32_t x8;
+    /**
+     
+     */
     int64_t x9;
-    bright::String x10;
+    /**
+     
+     */
+    std::string x10;
+    /**
+     
+     */
     test::DemoType1* x12;
+    /**
+     
+     */
     test::DemoEnum x13;
+    /**
+     
+     */
     test::DemoDynamic* x14;
-    bright::String s1;
+    /**
+     
+     */
+    std::string s1;
+    /**
+     
+     */
     bright::math::Vector2 v2;
+    /**
+     
+     */
     bright::math::Vector3 v3;
+    /**
+     
+     */
     bright::math::Vector4 v4;
+    /**
+     
+     */
     int32_t t1;
+    /**
+     
+     */
     std::vector<int32_t> k1;
+    /**
+     
+     */
     std::vector<int32_t> k2;
+    /**
+     
+     */
     std::vector<int32_t> k3;
+    /**
+     
+     */
     std::vector<int32_t> k4;
+    /**
+     
+     */
     std::unordered_set<int32_t> k5;
+    /**
+     
+     */
     std::unordered_set<int32_t> k6;
+    /**
+     
+     */
     std::unordered_set<int32_t> k7;
+    /**
+     
+     */
     std::unordered_map<int32_t, int32_t> k8;
+    /**
+     
+     */
     std::vector<test::DemoE2*> k9;
+    std::unordered_map<int32_t*, test::DemoE2*> k9_Index;
+    /**
+     
+     */
     std::vector<test::DemoDynamic*> k15;
 
     static constexpr int ID = -367048295;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5652,6 +7858,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoType1 : public  bright::CfgBean 
 {
     public:
@@ -5672,12 +7881,16 @@ class DemoType1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x1;
 
     static constexpr int ID = -367048296;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5690,6 +7903,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoDynamic : public  bright::CfgBean 
 {
     public:
@@ -5710,9 +7926,13 @@ class DemoDynamic : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x1;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5725,6 +7945,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoD2 : public  test::DemoDynamic 
 {
     public:
@@ -5746,12 +7969,16 @@ class DemoD2 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x2;
 
     static constexpr int ID = -2138341747;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5764,6 +7991,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoD3 : public  test::DemoDynamic 
 {
     public:
@@ -5785,9 +8015,13 @@ class DemoD3 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x3;
 
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5800,6 +8034,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoE1 : public  test::DemoD3 
 {
     public:
@@ -5821,12 +8058,16 @@ class DemoE1 : public  test::DemoD3
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t x4;
 
     static constexpr int ID = -2138341717;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5839,6 +8080,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoD5 : public  test::DemoDynamic 
 {
     public:
@@ -5860,12 +8104,16 @@ class DemoD5 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     test::DateTimeRange* time;
 
     static constexpr int ID = -2138341744;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5878,6 +8126,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DateTimeRange : public  bright::CfgBean 
 {
     public:
@@ -5899,13 +8150,20 @@ class DateTimeRange : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t startTime;
+    /**
+     
+     */
     int32_t endTime;
 
     static constexpr int ID = 495315430;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5918,6 +8176,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoE2 : public  bright::CfgBean 
 {
     public:
@@ -5929,7 +8190,7 @@ class DemoE2 : public  bright::CfgBean
 
     }
 
-    DemoE2(int32_t y1, bool y2 ) 
+    DemoE2(int32_t* y1, bool y2 ) 
     {
 
         this->y1 = y1;
@@ -5939,13 +8200,20 @@ class DemoE2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    int32_t y1;
+    /**
+     
+     */
+    int32_t* y1;
+    /**
+     
+     */
     bool y2;
 
     static constexpr int ID = -2138341716;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5958,6 +8226,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoSingletonType : public  bright::CfgBean 
 {
     public:
@@ -5969,7 +8240,7 @@ class DemoSingletonType : public  bright::CfgBean
 
     }
 
-    DemoSingletonType(int32_t id, bright::String name, test::DemoDynamic* date ) 
+    DemoSingletonType(int32_t id, std::string name, test::DemoDynamic* date ) 
     {
 
         this->id = id;
@@ -5980,14 +8251,24 @@ class DemoSingletonType : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String name;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
     test::DemoDynamic* date;
 
     static constexpr int ID = 539196998;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6000,6 +8281,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class MultiRowRecord : public  bright::CfgBean 
 {
     public:
@@ -6011,7 +8295,7 @@ class MultiRowRecord : public  bright::CfgBean
 
     }
 
-    MultiRowRecord(int32_t id, bright::String name, std::vector<test::MultiRowType1*> one_rows, std::vector<test::MultiRowType1*> multi_rows1, std::vector<test::MultiRowType1*> multi_rows2, std::unordered_set<test::MultiRowType2*> multi_rows3, std::unordered_map<int32_t, test::MultiRowType2*> multi_rows4 ) 
+    MultiRowRecord(int32_t id, std::string name, std::vector<test::MultiRowType1*> one_rows, std::vector<test::MultiRowType1*> multi_rows1, std::vector<test::MultiRowType1*> multi_rows2, std::unordered_set<test::MultiRowType2*> multi_rows3, std::unordered_map<int32_t, test::MultiRowType2*> multi_rows4, std::vector<test::MultiRowType3*> multi_rows5 ) 
     {
 
         this->id = id;
@@ -6021,23 +8305,50 @@ class MultiRowRecord : public  bright::CfgBean
         this->multiRows2 = multi_rows2;
         this->multiRows3 = multi_rows3;
         this->multiRows4 = multi_rows4;
+        this->multiRows5 = multi_rows5;
     }
     virtual ~MultiRowRecord() {}
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String name;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
     std::vector<test::MultiRowType1*> oneRows;
+    /**
+     
+     */
     std::vector<test::MultiRowType1*> multiRows1;
+    /**
+     
+     */
     std::vector<test::MultiRowType1*> multiRows2;
+    /**
+     
+     */
     std::unordered_set<test::MultiRowType2*> multiRows3;
+    /**
+     
+     */
     std::unordered_map<int32_t, test::MultiRowType2*> multiRows4;
+    /**
+     
+     */
+    std::vector<test::MultiRowType3*> multiRows5;
 
     static constexpr int ID = -501249394;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6050,6 +8361,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class MultiRowType1 : public  bright::CfgBean 
 {
     public:
@@ -6071,13 +8385,20 @@ class MultiRowType1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     int32_t x;
 
     static constexpr int ID = 540474970;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6090,6 +8411,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class MultiRowType2 : public  bright::CfgBean 
 {
     public:
@@ -6112,14 +8436,24 @@ class MultiRowType2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     int32_t x;
+    /**
+     
+     */
     float y;
 
     static constexpr int ID = 540474971;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6132,6 +8466,59 @@ namespace test {
 
 
 
+/**
+
+ */
+class MultiRowType3 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiRowType3(ByteBuf& _buf, MultiRowType3*& _out);
+
+    MultiRowType3()
+    { 
+
+    }
+
+    MultiRowType3(int32_t id, std::vector<test::MultiRowType1*> items ) 
+    {
+
+        this->id = id;
+        this->items = items;
+    }
+    virtual ~MultiRowType3() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     
+     */
+    int32_t id;
+    /**
+     
+     */
+    std::vector<test::MultiRowType1*> items;
+
+    static constexpr int ID = 540474972;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+
+ */
 class MultiRowTitle : public  bright::CfgBean 
 {
     public:
@@ -6143,7 +8530,7 @@ class MultiRowTitle : public  bright::CfgBean
 
     }
 
-    MultiRowTitle(int32_t id, bright::String name, test::H1* x1, std::vector<test::H2*> x2, std::vector<test::H2*> x3 ) 
+    MultiRowTitle(int32_t id, std::string name, test::H1* x1, std::vector<test::H2*> x2, std::vector<test::H2*> x3 ) 
     {
 
         this->id = id;
@@ -6156,16 +8543,32 @@ class MultiRowTitle : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String name;
+    /**
+     
+     */
+    std::string name;
+    /**
+     
+     */
     test::H1* x1;
+    /**
+     
+     */
     std::vector<test::H2*> x2;
+    /**
+     
+     */
     std::vector<test::H2*> x3;
 
     static constexpr int ID = 540002427;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6178,6 +8581,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class H1 : public  bright::CfgBean 
 {
     public:
@@ -6199,13 +8605,20 @@ class H1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     test::H2* y2;
+    /**
+     
+     */
     int32_t y3;
 
     static constexpr int ID = -1422503995;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6218,6 +8631,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class H2 : public  bright::CfgBean 
 {
     public:
@@ -6239,13 +8655,20 @@ class H2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t z2;
+    /**
+     
+     */
     int32_t z3;
 
     static constexpr int ID = -1422503994;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6258,6 +8681,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class TestNull : public  bright::CfgBean 
 {
     public:
@@ -6269,7 +8695,7 @@ class TestNull : public  bright::CfgBean
 
     }
 
-    TestNull(int32_t id, int32_t x1, test::DemoEnum x2, test::DemoType1* x3, test::DemoDynamic* x4, bright::String s1, bright::String s2 ) 
+    TestNull(int32_t id, int32_t* x1, test::DemoEnum* x2, test::DemoType1* x3, test::DemoDynamic* x4, std::string* s1, std::string* s2 ) 
     {
 
         this->id = id;
@@ -6284,18 +8710,40 @@ class TestNull : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    int32_t x1;
-    test::DemoEnum x2;
+    /**
+     
+     */
+    int32_t* x1;
+    /**
+     
+     */
+    test::DemoEnum* x2;
+    /**
+     
+     */
     test::DemoType1* x3;
+    /**
+     
+     */
     test::DemoDynamic* x4;
-    bright::String s1;
-    bright::String s2;
+    /**
+     
+     */
+    std::string* s1;
+    /**
+     
+     */
+    std::string* s2;
 
     static constexpr int ID = 339868469;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6308,6 +8756,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoPrimitiveTypesTable : public  bright::CfgBean 
 {
     public:
@@ -6319,7 +8770,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     }
 
-    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, bright::String s1, bright::String s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
+    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, std::string s1, std::string s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
     {
 
         this->x1 = x1;
@@ -6340,24 +8791,64 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     bool x1;
+    /**
+     
+     */
     uint8_t x2;
+    /**
+     
+     */
     int16_t x3;
+    /**
+     
+     */
     int32_t x4;
+    /**
+     
+     */
     int64_t x5;
+    /**
+     
+     */
     float x6;
+    /**
+     
+     */
     double x7;
-    bright::String s1;
-    bright::String s2;
+    /**
+     
+     */
+    std::string s1;
+    /**
+     
+     */
+    std::string s2;
+    /**
+     
+     */
     bright::math::Vector2 v2;
+    /**
+     
+     */
     bright::math::Vector3 v3;
+    /**
+     
+     */
     bright::math::Vector4 v4;
+    /**
+     
+     */
     int32_t t1;
 
     static constexpr int ID = -370934083;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6370,6 +8861,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class TestString : public  bright::CfgBean 
 {
     public:
@@ -6381,7 +8875,7 @@ class TestString : public  bright::CfgBean
 
     }
 
-    TestString(int32_t id, bright::String s1, test::CompactString* cs1, test::CompactString* cs2 ) 
+    TestString(int32_t id, std::string s1, test::CompactString* cs1, test::CompactString* cs2 ) 
     {
 
         this->id = id;
@@ -6393,15 +8887,28 @@ class TestString : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String s1;
+    /**
+     
+     */
+    std::string s1;
+    /**
+     
+     */
     test::CompactString* cs1;
+    /**
+     
+     */
     test::CompactString* cs2;
 
     static constexpr int ID = 338485823;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6414,6 +8921,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class CompactString : public  bright::CfgBean 
 {
     public:
@@ -6425,7 +8935,7 @@ class CompactString : public  bright::CfgBean
 
     }
 
-    CompactString(int32_t id, bright::String s2, bright::String s3 ) 
+    CompactString(int32_t id, std::string s2, std::string s3 ) 
     {
 
         this->id = id;
@@ -6436,14 +8946,24 @@ class CompactString : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
-    bright::String s2;
-    bright::String s3;
+    /**
+     
+     */
+    std::string s2;
+    /**
+     
+     */
+    std::string s3;
 
     static constexpr int ID = 1968089240;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6456,6 +8976,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class DemoGroup : public  bright::CfgBean 
 {
     public:
@@ -6481,17 +9004,36 @@ class DemoGroup : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t id;
+    /**
+     
+     */
     int32_t x1;
+    /**
+     
+     */
     int32_t x2;
+    /**
+     
+     */
     int32_t x3;
+    /**
+     
+     */
     int32_t x4;
+    /**
+     
+     */
     test::InnerGroup* x5;
 
     static constexpr int ID = -379263008;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6504,6 +9046,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class InnerGroup : public  bright::CfgBean 
 {
     public:
@@ -6527,15 +9072,28 @@ class InnerGroup : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t y1;
+    /**
+     
+     */
     int32_t y2;
+    /**
+     
+     */
     int32_t y3;
+    /**
+     
+     */
     int32_t y4;
 
     static constexpr int ID = -587873083;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6548,6 +9106,9 @@ namespace test {
 
 
 
+/**
+
+ */
 class TestGlobal : public  bright::CfgBean 
 {
     public:
@@ -6569,13 +9130,402 @@ class TestGlobal : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
+    /**
+     
+     */
     int32_t unlockEquip;
+    /**
+     
+     */
     int32_t unlockHero;
 
     static constexpr int ID = -12548655;
 
     int getTypeId() const { return ID; }
 
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+
+ */
+class DetectEncoding : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDetectEncoding(ByteBuf& _buf, DetectEncoding*& _out);
+
+    DetectEncoding()
+    { 
+
+    }
+
+    DetectEncoding(int32_t id, std::string name ) 
+    {
+
+        this->id = id;
+        this->name = name;
+    }
+    virtual ~DetectEncoding() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     
+     */
+    int32_t id;
+    /**
+     
+     */
+    std::string name;
+
+    static constexpr int ID = -1154609646;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+
+ */
+class DefineFromExcel : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDefineFromExcel(ByteBuf& _buf, DefineFromExcel*& _out);
+
+    DefineFromExcel()
+    { 
+
+    }
+
+    DefineFromExcel(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, test::DemoDynamic* x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x5 = x5;
+        this->x6 = x6;
+        this->x8 = x8;
+        this->x10 = x10;
+        this->x13 = x13;
+        this->x14 = x14;
+        this->v2 = v2;
+        this->t1 = t1;
+        this->k1 = k1;
+        this->k8 = k8;
+        this->k9 = k9;
+    }
+    virtual ~DefineFromExcel() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     id的描述
+     */
+    int32_t id;
+    /**
+     字段的描述
+     */
+    bool x1;
+    /**
+     
+     */
+    int64_t x5;
+    /**
+     
+     */
+    float x6;
+    /**
+     
+     */
+    int32_t x8;
+    test::DemoPrimitiveTypesTable* x8_Ref;
+    /**
+     
+     */
+    std::string x10;
+    /**
+     
+     */
+    test::ETestQuality x13;
+    /**
+     
+     */
+    test::DemoDynamic* x14;
+    /**
+     
+     */
+    bright::math::Vector2 v2;
+    /**
+     
+     */
+    int32_t t1;
+    /**
+     
+     */
+    std::vector<int32_t> k1;
+    /**
+     
+     */
+    std::unordered_map<int32_t, int32_t> k8;
+    /**
+     
+     */
+    std::vector<test::DemoE2*> k9;
+
+    static constexpr int ID = 2100429878;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+
+ */
+class DefineFromExcelOne : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDefineFromExcelOne(ByteBuf& _buf, DefineFromExcelOne*& _out);
+
+    DefineFromExcelOne()
+    { 
+
+    }
+
+    DefineFromExcelOne(int32_t unlock_equip, int32_t unlock_hero, std::string default_avatar, std::string default_item ) 
+    {
+
+        this->unlockEquip = unlock_equip;
+        this->unlockHero = unlock_hero;
+        this->defaultAvatar = default_avatar;
+        this->defaultItem = default_item;
+    }
+    virtual ~DefineFromExcelOne() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     装备解锁等级_描述
+     */
+    int32_t unlockEquip;
+    /**
+     英雄解锁等级
+     */
+    int32_t unlockHero;
+    /**
+     默认头像
+     */
+    std::string defaultAvatar;
+    /**
+     
+     */
+    std::string defaultItem;
+
+    static constexpr int ID = 528039504;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+
+ */
+class DefineFromExcel2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeDefineFromExcel2(ByteBuf& _buf, DefineFromExcel2*& _out);
+
+    DefineFromExcel2()
+    { 
+
+    }
+
+    DefineFromExcel2(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, test::DemoDynamic* x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x5 = x5;
+        this->x6 = x6;
+        this->x8 = x8;
+        this->x10 = x10;
+        this->x13 = x13;
+        this->x14 = x14;
+        this->v2 = v2;
+        this->t1 = t1;
+        this->k1 = k1;
+        this->k8 = k8;
+        this->k9 = k9;
+    }
+    virtual ~DefineFromExcel2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     id的描述
+     */
+    int32_t id;
+    /**
+     字段的描述
+     */
+    bool x1;
+    /**
+     
+     */
+    int64_t x5;
+    /**
+     
+     */
+    float x6;
+    /**
+     
+     */
+    int32_t x8;
+    test::DemoPrimitiveTypesTable* x8_Ref;
+    /**
+     
+     */
+    std::string x10;
+    /**
+     
+     */
+    test::ETestQuality x13;
+    /**
+     
+     */
+    test::DemoDynamic* x14;
+    /**
+     
+     */
+    bright::math::Vector2 v2;
+    /**
+     
+     */
+    int32_t t1;
+    /**
+     
+     */
+    std::vector<int32_t> k1;
+    /**
+     
+     */
+    std::unordered_map<int32_t, int32_t> k8;
+    /**
+     
+     */
+    std::vector<test::DemoE2*> k9;
+
+    static constexpr int ID = 688816828;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+/**
+这是个测试excel结构
+ */
+class TestExcelBean1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestExcelBean1(ByteBuf& _buf, TestExcelBean1*& _out);
+
+    TestExcelBean1()
+    { 
+
+    }
+
+    TestExcelBean1(int32_t x1, std::string x2, int32_t x3, float x4 ) 
+    {
+
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+    }
+    virtual ~TestExcelBean1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    /**
+     最高品质
+     */
+    int32_t x1;
+    /**
+     黑色的
+     */
+    std::string x2;
+    /**
+     蓝色的
+     */
+    int32_t x3;
+    /**
+     最差品质
+     */
+    float x4;
+
+    static constexpr int ID = -1738345160;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6585,10 +9535,13 @@ class TestGlobal : public  bright::CfgBean
 namespace ai {
 
 
+/**
+
+ */
 class TbBlackboard
 {
     private:
-    std::unordered_map<bright::String, ai::Blackboard*> _dataMap;
+    std::unordered_map<std::string, ai::Blackboard*> _dataMap;
     std::vector<ai::Blackboard*> _dataList;
     
     public:
@@ -6606,13 +9559,21 @@ class TbBlackboard
         return true;
     }
 
-    const std::unordered_map<bright::String, ai::Blackboard*>& getDataMap() const { return _dataMap; }
+    const std::unordered_map<std::string, ai::Blackboard*>& getDataMap() const { return _dataMap; }
     const std::vector<ai::Blackboard*>& getDataList() const { return _dataList; }
 
-    const ai::Blackboard* get(bright::String key)
+    ai::Blackboard* get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6622,6 +9583,9 @@ class TbBlackboard
 namespace ai {
 
 
+/**
+
+ */
 class TbBehaviorTree
 {
     private:
@@ -6646,10 +9610,18 @@ class TbBehaviorTree
     const std::unordered_map<int32_t, ai::BehaviorTree*>& getDataMap() const { return _dataMap; }
     const std::vector<ai::BehaviorTree*>& getDataList() const { return _dataList; }
 
-    const ai::BehaviorTree* get(int32_t key)
+    ai::BehaviorTree* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6659,10 +9631,13 @@ class TbBehaviorTree
 namespace blueprint {
 
 
+/**
+
+ */
 class TbClazz
 {
     private:
-    std::unordered_map<bright::String, blueprint::Clazz*> _dataMap;
+    std::unordered_map<std::string, blueprint::Clazz*> _dataMap;
     std::vector<blueprint::Clazz*> _dataList;
     
     public:
@@ -6680,13 +9655,21 @@ class TbClazz
         return true;
     }
 
-    const std::unordered_map<bright::String, blueprint::Clazz*>& getDataMap() const { return _dataMap; }
+    const std::unordered_map<std::string, blueprint::Clazz*>& getDataMap() const { return _dataMap; }
     const std::vector<blueprint::Clazz*>& getDataList() const { return _dataList; }
 
-    const blueprint::Clazz* get(bright::String key)
+    blueprint::Clazz* get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6696,6 +9679,9 @@ class TbClazz
 namespace bonus {
 
 
+/**
+
+ */
 class TbDrop
 {
     private:
@@ -6720,10 +9706,18 @@ class TbDrop
     const std::unordered_map<int32_t, bonus::DropInfo*>& getDataMap() const { return _dataMap; }
     const std::vector<bonus::DropInfo*>& getDataList() const { return _dataList; }
 
-    const bonus::DropInfo* get(int32_t key)
+    bonus::DropInfo* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6733,13 +9727,16 @@ class TbDrop
 namespace common {
 
 
+/**
+
+ */
 class TbGlobalConfig
 {
      private:
     common::GlobalConfig* _data;
 
     public:
-    const common::GlobalConfig* data() const { return _data; }
+    common::GlobalConfig* data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -6750,29 +9747,95 @@ class TbGlobalConfig
         return true;
     }
 
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        _data->resolve(_tables);
+    }
 
-     int32_t& getBagCapacity() const { return _data->bagCapacity; }
-     int32_t& getBagCapacitySpecial() const { return _data->bagCapacitySpecial; }
-     int32_t& getBagTempExpendableCapacity() const { return _data->bagTempExpendableCapacity; }
-     int32_t& getBagTempToolCapacity() const { return _data->bagTempToolCapacity; }
-     int32_t& getBagInitCapacity() const { return _data->bagInitCapacity; }
-     int32_t& getQuickBagCapacity() const { return _data->quickBagCapacity; }
-     int32_t& getClothBagCapacity() const { return _data->clothBagCapacity; }
-     int32_t& getClothBagInitCapacity() const { return _data->clothBagInitCapacity; }
-     int32_t& getClothBagCapacitySpecial() const { return _data->clothBagCapacitySpecial; }
-     int32_t& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
-     int32_t& getMailBoxCapacity() const { return _data->mailBoxCapacity; }
-     float& getDamageParamC() const { return _data->damageParamC; }
-     float& getDamageParamE() const { return _data->damageParamE; }
-     float& getDamageParamF() const { return _data->damageParamF; }
-     float& getDamageParamD() const { return _data->damageParamD; }
-     float& getRoleSpeed() const { return _data->roleSpeed; }
-     float& getMonsterSpeed() const { return _data->monsterSpeed; }
-     int32_t& getInitEnergy() const { return _data->initEnergy; }
-     int32_t& getInitViality() const { return _data->initViality; }
-     int32_t& getMaxViality() const { return _data->maxViality; }
-     int32_t& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
-
+    /**
+    背包容量
+     */
+    int32_t& getBagCapacity() const { return _data->bagCapacity; }
+    /**
+    
+     */
+    int32_t& getBagCapacitySpecial() const { return _data->bagCapacitySpecial; }
+    /**
+    
+     */
+    int32_t& getBagTempExpendableCapacity() const { return _data->bagTempExpendableCapacity; }
+    /**
+    
+     */
+    int32_t& getBagTempToolCapacity() const { return _data->bagTempToolCapacity; }
+    /**
+    
+     */
+    int32_t& getBagInitCapacity() const { return _data->bagInitCapacity; }
+    /**
+    
+     */
+    int32_t& getQuickBagCapacity() const { return _data->quickBagCapacity; }
+    /**
+    
+     */
+    int32_t& getClothBagCapacity() const { return _data->clothBagCapacity; }
+    /**
+    
+     */
+    int32_t& getClothBagInitCapacity() const { return _data->clothBagInitCapacity; }
+    /**
+    
+     */
+    int32_t& getClothBagCapacitySpecial() const { return _data->clothBagCapacitySpecial; }
+    /**
+    
+     */
+    int32_t*& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
+    /**
+    
+     */
+    int32_t& getMailBoxCapacity() const { return _data->mailBoxCapacity; }
+    /**
+    
+     */
+    float& getDamageParamC() const { return _data->damageParamC; }
+    /**
+    
+     */
+    float& getDamageParamE() const { return _data->damageParamE; }
+    /**
+    
+     */
+    float& getDamageParamF() const { return _data->damageParamF; }
+    /**
+    
+     */
+    float& getDamageParamD() const { return _data->damageParamD; }
+    /**
+    
+     */
+    float& getRoleSpeed() const { return _data->roleSpeed; }
+    /**
+    
+     */
+    float& getMonsterSpeed() const { return _data->monsterSpeed; }
+    /**
+    
+     */
+    int32_t& getInitEnergy() const { return _data->initEnergy; }
+    /**
+    
+     */
+    int32_t& getInitViality() const { return _data->initViality; }
+    /**
+    
+     */
+    int32_t& getMaxViality() const { return _data->maxViality; }
+    /**
+    
+     */
+    int32_t& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
 };
 }
 
@@ -6780,6 +9843,9 @@ class TbGlobalConfig
 namespace common {
 
 
+/**
+
+ */
 class TbDummy
 {
     private:
@@ -6804,10 +9870,18 @@ class TbDummy
     const std::unordered_map<int32_t, common::Dummy*>& getDataMap() const { return _dataMap; }
     const std::vector<common::Dummy*>& getDataList() const { return _dataList; }
 
-    const common::Dummy* get(int32_t key)
+    common::Dummy* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6817,10 +9891,13 @@ class TbDummy
 namespace error {
 
 
+/**
+
+ */
 class TbErrorInfo
 {
     private:
-    std::unordered_map<bright::String, error::ErrorInfo*> _dataMap;
+    std::unordered_map<std::string, error::ErrorInfo*> _dataMap;
     std::vector<error::ErrorInfo*> _dataList;
     
     public:
@@ -6838,13 +9915,21 @@ class TbErrorInfo
         return true;
     }
 
-    const std::unordered_map<bright::String, error::ErrorInfo*>& getDataMap() const { return _dataMap; }
+    const std::unordered_map<std::string, error::ErrorInfo*>& getDataMap() const { return _dataMap; }
     const std::vector<error::ErrorInfo*>& getDataList() const { return _dataList; }
 
-    const error::ErrorInfo* get(bright::String key)
+    error::ErrorInfo* get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6854,6 +9939,9 @@ class TbErrorInfo
 namespace error {
 
 
+/**
+
+ */
 class TbCodeInfo
 {
     private:
@@ -6878,10 +9966,18 @@ class TbCodeInfo
     const std::unordered_map<error::EErrorCode, error::CodeInfo*>& getDataMap() const { return _dataMap; }
     const std::vector<error::CodeInfo*>& getDataList() const { return _dataList; }
 
-    const error::CodeInfo* get(error::EErrorCode key)
+    error::CodeInfo* get(error::EErrorCode key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6891,6 +9987,9 @@ class TbCodeInfo
 namespace item {
 
 
+/**
+道具表
+ */
 class TbItem
 {
     private:
@@ -6915,10 +10014,18 @@ class TbItem
     const std::unordered_map<int32_t, item::Item*>& getDataMap() const { return _dataMap; }
     const std::vector<item::Item*>& getDataList() const { return _dataList; }
 
-    const item::Item* get(int32_t key)
+    item::Item* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6928,6 +10035,9 @@ class TbItem
 namespace item {
 
 
+/**
+
+ */
 class TbItemFunc
 {
     private:
@@ -6952,10 +10062,18 @@ class TbItemFunc
     const std::unordered_map<item::EMinorType, item::ItemFunction*>& getDataMap() const { return _dataMap; }
     const std::vector<item::ItemFunction*>& getDataList() const { return _dataList; }
 
-    const item::ItemFunction* get(item::EMinorType key)
+    item::ItemFunction* get(item::EMinorType key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -6965,6 +10083,9 @@ class TbItemFunc
 namespace item {
 
 
+/**
+
+ */
 class TbItemExtra
 {
     private:
@@ -6989,10 +10110,18 @@ class TbItemExtra
     const std::unordered_map<int32_t, item::ItemExtra*>& getDataMap() const { return _dataMap; }
     const std::vector<item::ItemExtra*>& getDataList() const { return _dataList; }
 
-    const item::ItemExtra* get(int32_t key)
+    item::ItemExtra* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7002,6 +10131,9 @@ class TbItemExtra
 namespace l10n {
 
 
+/**
+
+ */
 class TbL10NDemo
 {
     private:
@@ -7026,10 +10158,18 @@ class TbL10NDemo
     const std::unordered_map<int32_t, l10n::L10NDemo*>& getDataMap() const { return _dataMap; }
     const std::vector<l10n::L10NDemo*>& getDataList() const { return _dataList; }
 
-    const l10n::L10NDemo* get(int32_t key)
+    l10n::L10NDemo* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7039,6 +10179,9 @@ class TbL10NDemo
 namespace l10n {
 
 
+/**
+
+ */
 class TbPatchDemo
 {
     private:
@@ -7063,10 +10206,18 @@ class TbPatchDemo
     const std::unordered_map<int32_t, l10n::PatchDemo*>& getDataMap() const { return _dataMap; }
     const std::vector<l10n::PatchDemo*>& getDataList() const { return _dataList; }
 
-    const l10n::PatchDemo* get(int32_t key)
+    l10n::PatchDemo* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7076,6 +10227,9 @@ class TbPatchDemo
 namespace mail {
 
 
+/**
+
+ */
 class TbSystemMail
 {
     private:
@@ -7100,10 +10254,18 @@ class TbSystemMail
     const std::unordered_map<int32_t, mail::SystemMail*>& getDataMap() const { return _dataMap; }
     const std::vector<mail::SystemMail*>& getDataList() const { return _dataList; }
 
-    const mail::SystemMail* get(int32_t key)
+    mail::SystemMail* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7113,6 +10275,9 @@ class TbSystemMail
 namespace mail {
 
 
+/**
+
+ */
 class TbGlobalMail
 {
     private:
@@ -7137,10 +10302,18 @@ class TbGlobalMail
     const std::unordered_map<int32_t, mail::GlobalMail*>& getDataMap() const { return _dataMap; }
     const std::vector<mail::GlobalMail*>& getDataList() const { return _dataList; }
 
-    const mail::GlobalMail* get(int32_t key)
+    mail::GlobalMail* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7150,6 +10323,9 @@ class TbGlobalMail
 namespace role {
 
 
+/**
+
+ */
 class TbRoleLevelExpAttr
 {
     private:
@@ -7174,10 +10350,18 @@ class TbRoleLevelExpAttr
     const std::unordered_map<int32_t, role::LevelExpAttr*>& getDataMap() const { return _dataMap; }
     const std::vector<role::LevelExpAttr*>& getDataList() const { return _dataList; }
 
-    const role::LevelExpAttr* get(int32_t key)
+    role::LevelExpAttr* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7187,6 +10371,9 @@ class TbRoleLevelExpAttr
 namespace role {
 
 
+/**
+
+ */
 class TbRoleLevelBonusCoefficient
 {
     private:
@@ -7211,10 +10398,18 @@ class TbRoleLevelBonusCoefficient
     const std::unordered_map<int32_t, role::LevelBonus*>& getDataMap() const { return _dataMap; }
     const std::vector<role::LevelBonus*>& getDataList() const { return _dataList; }
 
-    const role::LevelBonus* get(int32_t key)
+    role::LevelBonus* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7224,6 +10419,9 @@ class TbRoleLevelBonusCoefficient
 namespace tag {
 
 
+/**
+
+ */
 class TbTestTag
 {
     private:
@@ -7248,10 +10446,18 @@ class TbTestTag
     const std::unordered_map<int32_t, tag::TestTag*>& getDataMap() const { return _dataMap; }
     const std::vector<tag::TestTag*>& getDataList() const { return _dataList; }
 
-    const tag::TestTag* get(int32_t key)
+    tag::TestTag* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7261,6 +10467,9 @@ class TbTestTag
 namespace test {
 
 
+/**
+
+ */
 class TbFullTypes
 {
     private:
@@ -7285,10 +10494,18 @@ class TbFullTypes
     const std::unordered_map<int16_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
 
-    const test::DemoType2* get(int16_t key)
+    test::DemoType2* get(int16_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7298,13 +10515,16 @@ class TbFullTypes
 namespace test {
 
 
+/**
+
+ */
 class TbSingleton
 {
      private:
     test::DemoSingletonType* _data;
 
     public:
-    const test::DemoSingletonType* data() const { return _data; }
+    test::DemoSingletonType* data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -7315,11 +10535,23 @@ class TbSingleton
         return true;
     }
 
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        _data->resolve(_tables);
+    }
 
-     int32_t& getId() const { return _data->id; }
-     bright::String& getName() const { return _data->name; }
-     test::DemoDynamic*& getDate() const { return _data->date; }
-
+    /**
+    
+     */
+    int32_t& getId() const { return _data->id; }
+    /**
+    
+     */
+    std::string& getName() const { return _data->name; }
+    /**
+    
+     */
+    test::DemoDynamic*& getDate() const { return _data->date; }
 };
 }
 
@@ -7327,6 +10559,9 @@ class TbSingleton
 namespace test {
 
 
+/**
+
+ */
 class TbDataFromJson
 {
     private:
@@ -7351,10 +10586,18 @@ class TbDataFromJson
     const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
 
-    const test::DemoType2* get(int32_t key)
+    test::DemoType2* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7364,6 +10607,9 @@ class TbDataFromJson
 namespace test {
 
 
+/**
+
+ */
 class TbDataFromXml
 {
     private:
@@ -7388,10 +10634,18 @@ class TbDataFromXml
     const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
 
-    const test::DemoType2* get(int32_t key)
+    test::DemoType2* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7401,6 +10655,9 @@ class TbDataFromXml
 namespace test {
 
 
+/**
+
+ */
 class TbDataFromLua
 {
     private:
@@ -7425,10 +10682,18 @@ class TbDataFromLua
     const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
 
-    const test::DemoType2* get(int32_t key)
+    test::DemoType2* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7438,6 +10703,9 @@ class TbDataFromLua
 namespace test {
 
 
+/**
+
+ */
 class TbMultiRowRecord
 {
     private:
@@ -7462,10 +10730,18 @@ class TbMultiRowRecord
     const std::unordered_map<int32_t, test::MultiRowRecord*>& getDataMap() const { return _dataMap; }
     const std::vector<test::MultiRowRecord*>& getDataList() const { return _dataList; }
 
-    const test::MultiRowRecord* get(int32_t key)
+    test::MultiRowRecord* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7475,6 +10751,9 @@ class TbMultiRowRecord
 namespace test {
 
 
+/**
+
+ */
 class TbMultiRowTitle
 {
     private:
@@ -7499,10 +10778,18 @@ class TbMultiRowTitle
     const std::unordered_map<int32_t, test::MultiRowTitle*>& getDataMap() const { return _dataMap; }
     const std::vector<test::MultiRowTitle*>& getDataList() const { return _dataList; }
 
-    const test::MultiRowTitle* get(int32_t key)
+    test::MultiRowTitle* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7512,6 +10799,9 @@ class TbMultiRowTitle
 namespace test {
 
 
+/**
+
+ */
 class TbTestNull
 {
     private:
@@ -7536,10 +10826,18 @@ class TbTestNull
     const std::unordered_map<int32_t, test::TestNull*>& getDataMap() const { return _dataMap; }
     const std::vector<test::TestNull*>& getDataList() const { return _dataList; }
 
-    const test::TestNull* get(int32_t key)
+    test::TestNull* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7549,6 +10847,9 @@ class TbTestNull
 namespace test {
 
 
+/**
+
+ */
 class TbDemoPrimitive
 {
     private:
@@ -7573,10 +10874,18 @@ class TbDemoPrimitive
     const std::unordered_map<int32_t, test::DemoPrimitiveTypesTable*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoPrimitiveTypesTable*>& getDataList() const { return _dataList; }
 
-    const test::DemoPrimitiveTypesTable* get(int32_t key)
+    test::DemoPrimitiveTypesTable* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7586,6 +10895,9 @@ class TbDemoPrimitive
 namespace test {
 
 
+/**
+
+ */
 class TbTestString
 {
     private:
@@ -7610,10 +10922,18 @@ class TbTestString
     const std::unordered_map<int32_t, test::TestString*>& getDataMap() const { return _dataMap; }
     const std::vector<test::TestString*>& getDataList() const { return _dataList; }
 
-    const test::TestString* get(int32_t key)
+    test::TestString* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7623,6 +10943,9 @@ class TbTestString
 namespace test {
 
 
+/**
+
+ */
 class TbDemoGroup
 {
     private:
@@ -7647,10 +10970,18 @@ class TbDemoGroup
     const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
 
-    const test::DemoGroup* get(int32_t key)
+    test::DemoGroup* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7660,6 +10991,9 @@ class TbDemoGroup
 namespace test {
 
 
+/**
+
+ */
 class TbDemoGroup_C
 {
     private:
@@ -7684,10 +11018,18 @@ class TbDemoGroup_C
     const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
 
-    const test::DemoGroup* get(int32_t key)
+    test::DemoGroup* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7697,6 +11039,9 @@ class TbDemoGroup_C
 namespace test {
 
 
+/**
+
+ */
 class TbDemoGroup_S
 {
     private:
@@ -7721,10 +11066,18 @@ class TbDemoGroup_S
     const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
 
-    const test::DemoGroup* get(int32_t key)
+    test::DemoGroup* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7734,6 +11087,9 @@ class TbDemoGroup_S
 namespace test {
 
 
+/**
+
+ */
 class TbDemoGroup_E
 {
     private:
@@ -7758,10 +11114,18 @@ class TbDemoGroup_E
     const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
     const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
 
-    const test::DemoGroup* get(int32_t key)
+    test::DemoGroup* get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
     }
 
 };
@@ -7771,13 +11135,16 @@ class TbDemoGroup_E
 namespace test {
 
 
+/**
+
+ */
 class TbTestGlobal
 {
      private:
     test::TestGlobal* _data;
 
     public:
-    const test::TestGlobal* data() const { return _data; }
+    test::TestGlobal* data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -7788,9 +11155,306 @@ class TbTestGlobal
         return true;
     }
 
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        _data->resolve(_tables);
+    }
 
-     int32_t& getUnlockEquip() const { return _data->unlockEquip; }
-     int32_t& getUnlockHero() const { return _data->unlockHero; }
+    /**
+    
+     */
+    int32_t& getUnlockEquip() const { return _data->unlockEquip; }
+    /**
+    
+     */
+    int32_t& getUnlockHero() const { return _data->unlockHero; }
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbDetectCsvEncoding
+{
+    private:
+    std::unordered_map<int32_t, test::DetectEncoding*> _dataMap;
+    std::vector<test::DetectEncoding*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DetectEncoding* _v;
+            if(!test::DetectEncoding::deserializeDetectEncoding(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DetectEncoding*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DetectEncoding*>& getDataList() const { return _dataList; }
+
+    test::DetectEncoding* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbDefineFromExcel
+{
+    private:
+    std::unordered_map<int32_t, test::DefineFromExcel*> _dataMap;
+    std::vector<test::DefineFromExcel*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DefineFromExcel* _v;
+            if(!test::DefineFromExcel::deserializeDefineFromExcel(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DefineFromExcel*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DefineFromExcel*>& getDataList() const { return _dataList; }
+
+    test::DefineFromExcel* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbDefineFromExcelOne
+{
+     private:
+    test::DefineFromExcelOne* _data;
+
+    public:
+    test::DefineFromExcelOne* data() const { return _data; }
+
+    bool load(ByteBuf& _buf)
+    {
+        int n;
+        if (!_buf.readSize(n)) return false;
+        if (n != 1) return false;
+        if(!test::DefineFromExcelOne::deserializeDefineFromExcelOne(_buf, _data)) return false;
+        return true;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        _data->resolve(_tables);
+    }
+
+    /**
+    装备解锁等级_描述
+     */
+    int32_t& getUnlockEquip() const { return _data->unlockEquip; }
+    /**
+    英雄解锁等级
+     */
+    int32_t& getUnlockHero() const { return _data->unlockHero; }
+    /**
+    默认头像
+     */
+    std::string& getDefaultAvatar() const { return _data->defaultAvatar; }
+    /**
+    
+     */
+    std::string& getDefaultItem() const { return _data->defaultItem; }
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbDemoGroupDefineFromExcel
+{
+    private:
+    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
+    std::vector<test::DemoGroup*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DemoGroup* _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+
+    test::DemoGroup* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbDefineFromExcel2
+{
+    private:
+    std::unordered_map<int32_t, test::DefineFromExcel2*> _dataMap;
+    std::vector<test::DefineFromExcel2*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::DefineFromExcel2* _v;
+            if(!test::DefineFromExcel2::deserializeDefineFromExcel2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::DefineFromExcel2*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::DefineFromExcel2*>& getDataList() const { return _dataList; }
+
+    test::DefineFromExcel2* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
+/**
+
+ */
+class TbTestExcelBean
+{
+    private:
+    std::unordered_map<int32_t, test::TestExcelBean1*> _dataMap;
+    std::vector<test::TestExcelBean1*> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestExcelBean1* _v;
+            if(!test::TestExcelBean1::deserializeTestExcelBean1(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x1] = _v;
+        }
+        return true;
+    }
+
+    const std::unordered_map<int32_t, test::TestExcelBean1*>& getDataMap() const { return _dataMap; }
+    const std::vector<test::TestExcelBean1*>& getDataList() const { return _dataList; }
+
+    test::TestExcelBean1* get(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
 
 };
 }
@@ -7799,109 +11463,325 @@ class TbTestGlobal
 class Tables
 {
     public:
+    /**
+     
+     */
      ai::TbBlackboard TbBlackboard;
+    /**
+     
+     */
      ai::TbBehaviorTree TbBehaviorTree;
+    /**
+     
+     */
      blueprint::TbClazz TbClazz;
+    /**
+     
+     */
      bonus::TbDrop TbDrop;
+    /**
+     
+     */
      common::TbGlobalConfig TbGlobalConfig;
+    /**
+     
+     */
      common::TbDummy TbDummy;
+    /**
+     
+     */
      error::TbErrorInfo TbErrorInfo;
+    /**
+     
+     */
      error::TbCodeInfo TbCodeInfo;
+    /**
+     道具表
+     */
      item::TbItem TbItem;
+    /**
+     
+     */
      item::TbItemFunc TbItemFunc;
+    /**
+     
+     */
      item::TbItemExtra TbItemExtra;
+    /**
+     
+     */
      l10n::TbL10NDemo TbL10NDemo;
+    /**
+     
+     */
      l10n::TbPatchDemo TbPatchDemo;
+    /**
+     
+     */
      mail::TbSystemMail TbSystemMail;
+    /**
+     
+     */
      mail::TbGlobalMail TbGlobalMail;
+    /**
+     
+     */
      role::TbRoleLevelExpAttr TbRoleLevelExpAttr;
+    /**
+     
+     */
      role::TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
+    /**
+     
+     */
      tag::TbTestTag TbTestTag;
+    /**
+     
+     */
      test::TbFullTypes TbFullTypes;
+    /**
+     
+     */
      test::TbSingleton TbSingleton;
+    /**
+     
+     */
      test::TbDataFromJson TbDataFromJson;
+    /**
+     
+     */
      test::TbDataFromXml TbDataFromXml;
+    /**
+     
+     */
      test::TbDataFromLua TbDataFromLua;
+    /**
+     
+     */
      test::TbMultiRowRecord TbMultiRowRecord;
+    /**
+     
+     */
      test::TbMultiRowTitle TbMultiRowTitle;
+    /**
+     
+     */
      test::TbTestNull TbTestNull;
+    /**
+     
+     */
      test::TbDemoPrimitive TbDemoPrimitive;
+    /**
+     
+     */
      test::TbTestString TbTestString;
+    /**
+     
+     */
      test::TbDemoGroup TbDemoGroup;
+    /**
+     
+     */
      test::TbDemoGroup_C TbDemoGroup_C;
+    /**
+     
+     */
      test::TbDemoGroup_S TbDemoGroup_S;
+    /**
+     
+     */
      test::TbDemoGroup_E TbDemoGroup_E;
+    /**
+     
+     */
      test::TbTestGlobal TbTestGlobal;
+    /**
+     
+     */
+     test::TbDetectCsvEncoding TbDetectCsvEncoding;
+    /**
+     
+     */
+     test::TbDefineFromExcel TbDefineFromExcel;
+    /**
+     
+     */
+     test::TbDefineFromExcelOne TbDefineFromExcelOne;
+    /**
+     
+     */
+     test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
+    /**
+     
+     */
+     test::TbDefineFromExcel2 TbDefineFromExcel2;
+    /**
+     
+     */
+     test::TbTestExcelBean TbTestExcelBean;
 
     bool load(std::function<bool(ByteBuf&, const std::string&)> loader)
     {
+        std::unordered_map<std::string, void*> __tables__;
+
         ByteBuf buf;
         if (!loader(buf, "ai.TbBlackboard")) return false;
         if (!TbBlackboard.load(buf)) return false;
+        __tables__["ai.TbBlackboard"] = &TbBlackboard;
         if (!loader(buf, "ai.TbBehaviorTree")) return false;
         if (!TbBehaviorTree.load(buf)) return false;
+        __tables__["ai.TbBehaviorTree"] = &TbBehaviorTree;
         if (!loader(buf, "blueprint.TbClazz")) return false;
         if (!TbClazz.load(buf)) return false;
+        __tables__["blueprint.TbClazz"] = &TbClazz;
         if (!loader(buf, "bonus.TbDrop")) return false;
         if (!TbDrop.load(buf)) return false;
+        __tables__["bonus.TbDrop"] = &TbDrop;
         if (!loader(buf, "common.TbGlobalConfig")) return false;
         if (!TbGlobalConfig.load(buf)) return false;
+        __tables__["common.TbGlobalConfig"] = &TbGlobalConfig;
         if (!loader(buf, "common.TbDummy")) return false;
         if (!TbDummy.load(buf)) return false;
+        __tables__["common.TbDummy"] = &TbDummy;
         if (!loader(buf, "error.TbErrorInfo")) return false;
         if (!TbErrorInfo.load(buf)) return false;
+        __tables__["error.TbErrorInfo"] = &TbErrorInfo;
         if (!loader(buf, "error.TbCodeInfo")) return false;
         if (!TbCodeInfo.load(buf)) return false;
+        __tables__["error.TbCodeInfo"] = &TbCodeInfo;
         if (!loader(buf, "item.TbItem")) return false;
         if (!TbItem.load(buf)) return false;
+        __tables__["item.TbItem"] = &TbItem;
         if (!loader(buf, "item.TbItemFunc")) return false;
         if (!TbItemFunc.load(buf)) return false;
+        __tables__["item.TbItemFunc"] = &TbItemFunc;
         if (!loader(buf, "item.TbItemExtra")) return false;
         if (!TbItemExtra.load(buf)) return false;
+        __tables__["item.TbItemExtra"] = &TbItemExtra;
         if (!loader(buf, "l10n.TbL10NDemo")) return false;
         if (!TbL10NDemo.load(buf)) return false;
+        __tables__["l10n.TbL10NDemo"] = &TbL10NDemo;
         if (!loader(buf, "l10n.TbPatchDemo")) return false;
         if (!TbPatchDemo.load(buf)) return false;
+        __tables__["l10n.TbPatchDemo"] = &TbPatchDemo;
         if (!loader(buf, "mail.TbSystemMail")) return false;
         if (!TbSystemMail.load(buf)) return false;
+        __tables__["mail.TbSystemMail"] = &TbSystemMail;
         if (!loader(buf, "mail.TbGlobalMail")) return false;
         if (!TbGlobalMail.load(buf)) return false;
+        __tables__["mail.TbGlobalMail"] = &TbGlobalMail;
         if (!loader(buf, "role.TbRoleLevelExpAttr")) return false;
         if (!TbRoleLevelExpAttr.load(buf)) return false;
+        __tables__["role.TbRoleLevelExpAttr"] = &TbRoleLevelExpAttr;
         if (!loader(buf, "role.TbRoleLevelBonusCoefficient")) return false;
         if (!TbRoleLevelBonusCoefficient.load(buf)) return false;
+        __tables__["role.TbRoleLevelBonusCoefficient"] = &TbRoleLevelBonusCoefficient;
         if (!loader(buf, "tag.TbTestTag")) return false;
         if (!TbTestTag.load(buf)) return false;
+        __tables__["tag.TbTestTag"] = &TbTestTag;
         if (!loader(buf, "test.TbFullTypes")) return false;
         if (!TbFullTypes.load(buf)) return false;
+        __tables__["test.TbFullTypes"] = &TbFullTypes;
         if (!loader(buf, "test.TbSingleton")) return false;
         if (!TbSingleton.load(buf)) return false;
+        __tables__["test.TbSingleton"] = &TbSingleton;
         if (!loader(buf, "test.TbDataFromJson")) return false;
         if (!TbDataFromJson.load(buf)) return false;
+        __tables__["test.TbDataFromJson"] = &TbDataFromJson;
         if (!loader(buf, "test.TbDataFromXml")) return false;
         if (!TbDataFromXml.load(buf)) return false;
+        __tables__["test.TbDataFromXml"] = &TbDataFromXml;
         if (!loader(buf, "test.TbDataFromLua")) return false;
         if (!TbDataFromLua.load(buf)) return false;
+        __tables__["test.TbDataFromLua"] = &TbDataFromLua;
         if (!loader(buf, "test.TbMultiRowRecord")) return false;
         if (!TbMultiRowRecord.load(buf)) return false;
+        __tables__["test.TbMultiRowRecord"] = &TbMultiRowRecord;
         if (!loader(buf, "test.TbMultiRowTitle")) return false;
         if (!TbMultiRowTitle.load(buf)) return false;
+        __tables__["test.TbMultiRowTitle"] = &TbMultiRowTitle;
         if (!loader(buf, "test.TbTestNull")) return false;
         if (!TbTestNull.load(buf)) return false;
+        __tables__["test.TbTestNull"] = &TbTestNull;
         if (!loader(buf, "test.TbDemoPrimitive")) return false;
         if (!TbDemoPrimitive.load(buf)) return false;
+        __tables__["test.TbDemoPrimitive"] = &TbDemoPrimitive;
         if (!loader(buf, "test.TbTestString")) return false;
         if (!TbTestString.load(buf)) return false;
+        __tables__["test.TbTestString"] = &TbTestString;
         if (!loader(buf, "test.TbDemoGroup")) return false;
         if (!TbDemoGroup.load(buf)) return false;
+        __tables__["test.TbDemoGroup"] = &TbDemoGroup;
         if (!loader(buf, "test.TbDemoGroup_C")) return false;
         if (!TbDemoGroup_C.load(buf)) return false;
+        __tables__["test.TbDemoGroup_C"] = &TbDemoGroup_C;
         if (!loader(buf, "test.TbDemoGroup_S")) return false;
         if (!TbDemoGroup_S.load(buf)) return false;
+        __tables__["test.TbDemoGroup_S"] = &TbDemoGroup_S;
         if (!loader(buf, "test.TbDemoGroup_E")) return false;
         if (!TbDemoGroup_E.load(buf)) return false;
+        __tables__["test.TbDemoGroup_E"] = &TbDemoGroup_E;
         if (!loader(buf, "test.TbTestGlobal")) return false;
         if (!TbTestGlobal.load(buf)) return false;
+        __tables__["test.TbTestGlobal"] = &TbTestGlobal;
+        if (!loader(buf, "test.TbDetectCsvEncoding")) return false;
+        if (!TbDetectCsvEncoding.load(buf)) return false;
+        __tables__["test.TbDetectCsvEncoding"] = &TbDetectCsvEncoding;
+        if (!loader(buf, "test.TbDefineFromExcel")) return false;
+        if (!TbDefineFromExcel.load(buf)) return false;
+        __tables__["test.TbDefineFromExcel"] = &TbDefineFromExcel;
+        if (!loader(buf, "test.TbDefineFromExcelOne")) return false;
+        if (!TbDefineFromExcelOne.load(buf)) return false;
+        __tables__["test.TbDefineFromExcelOne"] = &TbDefineFromExcelOne;
+        if (!loader(buf, "test.TbDemoGroupDefineFromExcel")) return false;
+        if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
+        __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
+        if (!loader(buf, "test.TbDefineFromExcel2")) return false;
+        if (!TbDefineFromExcel2.load(buf)) return false;
+        __tables__["test.TbDefineFromExcel2"] = &TbDefineFromExcel2;
+        if (!loader(buf, "test.TbTestExcelBean")) return false;
+        if (!TbTestExcelBean.load(buf)) return false;
+        __tables__["test.TbTestExcelBean"] = &TbTestExcelBean;
+
+        TbBlackboard.resolve(__tables__); 
+        TbBehaviorTree.resolve(__tables__); 
+        TbClazz.resolve(__tables__); 
+        TbDrop.resolve(__tables__); 
+        TbGlobalConfig.resolve(__tables__); 
+        TbDummy.resolve(__tables__); 
+        TbErrorInfo.resolve(__tables__); 
+        TbCodeInfo.resolve(__tables__); 
+        TbItem.resolve(__tables__); 
+        TbItemFunc.resolve(__tables__); 
+        TbItemExtra.resolve(__tables__); 
+        TbL10NDemo.resolve(__tables__); 
+        TbPatchDemo.resolve(__tables__); 
+        TbSystemMail.resolve(__tables__); 
+        TbGlobalMail.resolve(__tables__); 
+        TbRoleLevelExpAttr.resolve(__tables__); 
+        TbRoleLevelBonusCoefficient.resolve(__tables__); 
+        TbTestTag.resolve(__tables__); 
+        TbFullTypes.resolve(__tables__); 
+        TbSingleton.resolve(__tables__); 
+        TbDataFromJson.resolve(__tables__); 
+        TbDataFromXml.resolve(__tables__); 
+        TbDataFromLua.resolve(__tables__); 
+        TbMultiRowRecord.resolve(__tables__); 
+        TbMultiRowTitle.resolve(__tables__); 
+        TbTestNull.resolve(__tables__); 
+        TbDemoPrimitive.resolve(__tables__); 
+        TbTestString.resolve(__tables__); 
+        TbDemoGroup.resolve(__tables__); 
+        TbDemoGroup_C.resolve(__tables__); 
+        TbDemoGroup_S.resolve(__tables__); 
+        TbDemoGroup_E.resolve(__tables__); 
+        TbTestGlobal.resolve(__tables__); 
+        TbDetectCsvEncoding.resolve(__tables__); 
+        TbDefineFromExcel.resolve(__tables__); 
+        TbDefineFromExcelOne.resolve(__tables__); 
+        TbDemoGroupDefineFromExcel.resolve(__tables__); 
+        TbDefineFromExcel2.resolve(__tables__); 
+        TbTestExcelBean.resolve(__tables__); 
         return true;
     }
 };

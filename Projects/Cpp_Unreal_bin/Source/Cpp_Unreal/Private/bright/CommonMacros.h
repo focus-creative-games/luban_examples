@@ -17,15 +17,15 @@ namespace bright
 
     typedef std::vector<byte> Bytes;
 
-#ifdef USE_UE_STRING 
-    typedef FString String;
-#else
-    typedef std::string String;
-#endif
-
-#define BYTEBUF_READ_STRING(buf, str) buf.readString(str)
-
-#define BYTEBUF_WRITE_STRING(buf, str) buf.writeString(str)
+    //#ifdef USE_UE_STRING 
+    //    typedef FString String;
+    //#else
+    //    typedef std::string String;
+    //#endif
+//
+//#define BYTEBUF_READ_STRING(buf, str) buf.readString(str)
+//
+//#define BYTEBUF_WRITE_STRING(buf, str) buf.writeString(str)
 
 
 }

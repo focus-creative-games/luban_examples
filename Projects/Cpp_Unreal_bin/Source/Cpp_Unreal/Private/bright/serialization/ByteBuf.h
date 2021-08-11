@@ -744,37 +744,37 @@ namespace bright
                 return true;
             }
 
-#ifdef USE_UE_STRING
-            void writeString(const FString& x)
-            {
-                // TODO 优化这个
-                std::string s(TCHAR_TO_UTF8(*x));
-                writeString(s);
-            }
+            //#ifdef USE_UE_STRING
+            //            void writeString(const FString& x)
+            //            {
+            //                // TODO 优化这个
+            //                std::string s(TCHAR_TO_UTF8(*x));
+            //                writeString(s);
+            //            }
+            //
+            //            bool readString(FString& x)
+            //            {
+            //                // TODO 优化这个
+            //                std::string s;
+            //                if (readString(s))
+            //                {
+            //                    x = FString(UTF8_TO_TCHAR(s.c_str()));
+            //                    return true;
+            //                }
+            //                else
+            //                {
+            //                    return false;
+            //                }
+            //            }
+            //#endif
 
-            bool readString(FString& x)
-            {
-                // TODO 优化这个
-                std::string s;
-                if (readString(s))
-                {
-                    x = FString(UTF8_TO_TCHAR(s.c_str()));
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-#endif
-
-            //void writeString(const char* src, int len)
-            //{
-            //    writeSize(len);
-            //    reserveWrite(len);
-            //    std::memcpy(data_ + endPos_, src, len);
-            //    endPos_ += len;
-            //}
+                        //void writeString(const char* src, int len)
+                        //{
+                        //    writeSize(len);
+                        //    reserveWrite(len);
+                        //    std::memcpy(data_ + endPos_, src, len);
+                        //    endPos_ += len;
+                        //}
 
 
             void writeBytes(Bytes* x)

@@ -14,6 +14,7 @@ using ByteBuf = bright::serialization::ByteBuf;
 
 namespace cfg
 {
+
     bool condition::MinMaxLevel::deserialize(ByteBuf& _buf)
     {
         if (!condition::BoolRoleCondition::deserialize(_buf))
@@ -41,6 +42,12 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::MinMaxLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
     bool condition::ClothesPropertyScoreGreaterThan::deserialize(ByteBuf& _buf)
     {
         if (!condition::BoolRoleCondition::deserialize(_buf))
@@ -48,7 +55,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; prop = item::EClothesPropertyType(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; prop = item::EClothesPropertyType(__enum_temp__); }
         if(!_buf.readInt(value)) return false;
 
         return true;
@@ -68,6 +75,12 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::ClothesPropertyScoreGreaterThan::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
     bool condition::ContainsItem::deserialize(ByteBuf& _buf)
     {
         if (!condition::RoleCondition::deserialize(_buf))
@@ -96,6 +109,13 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::ContainsItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        RoleCondition::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool item::ChooseOneBonus::deserialize(ByteBuf& _buf)
     {
 
@@ -119,6 +139,12 @@ namespace cfg
             return false;
         }
     }
+
+    void item::ChooseOneBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->dropId_Ref = ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(dropId);
+    }
+
     bool item::InteractionItem::deserialize(ByteBuf& _buf)
     {
         if (!item::ItemExtra::deserialize(_buf))
@@ -126,9 +152,9 @@ namespace cfg
             return false;
         }
 
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(attackNum)) return false; } else { attackNum = {}; } }
-        if(!BYTEBUF_READ_STRING(_buf, holdingStaticMesh)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, holdingStaticMeshMat)) return false;
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; attackNum = new int32_t; *attackNum = _temp_; } else { attackNum = nullptr; } }
+        if(!_buf.readString(holdingStaticMesh)) return false;
+        if(!_buf.readString(holdingStaticMeshMat)) return false;
 
         return true;
     }
@@ -147,6 +173,12 @@ namespace cfg
             return false;
         }
     }
+
+    void item::InteractionItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
     bool item::Clothes::deserialize(ByteBuf& _buf)
     {
         if (!item::ItemExtra::deserialize(_buf))
@@ -176,6 +208,12 @@ namespace cfg
             return false;
         }
     }
+
+    void item::Clothes::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
     bool item::DesignDrawing::deserialize(ByteBuf& _buf)
     {
         if (!item::ItemExtra::deserialize(_buf))
@@ -202,6 +240,12 @@ namespace cfg
             return false;
         }
     }
+
+    void item::DesignDrawing::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
     bool item::Dymmy::deserialize(ByteBuf& _buf)
     {
         if (!item::ItemExtra::deserialize(_buf))
@@ -228,6 +272,13 @@ namespace cfg
             return false;
         }
     }
+
+    void item::Dymmy::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+        cost->resolve(_tables);
+    }
+
     bool cost::Cost::deserialize(ByteBuf& _buf)
     {
 
@@ -249,6 +300,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void cost::Cost::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool cost::CostCurrency::deserialize(ByteBuf& _buf)
     {
         if (!cost::Cost::deserialize(_buf))
@@ -256,7 +312,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; type = item::ECurrencyType(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; type = item::ECurrencyType(__enum_temp__); }
         if(!_buf.readInt(num)) return false;
 
         return true;
@@ -276,6 +332,12 @@ namespace cfg
             return false;
         }
     }
+
+    void cost::CostCurrency::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Cost::resolve(_tables);
+    }
+
     bool cost::CostCurrencies::deserialize(ByteBuf& _buf)
     {
         if (!cost::Cost::deserialize(_buf))
@@ -302,6 +364,13 @@ namespace cfg
             return false;
         }
     }
+
+    void cost::CostCurrencies::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Cost::resolve(_tables);
+        for(auto _e : currencies) { _e->resolve(_tables); }
+    }
+
     bool cost::CostOneItem::deserialize(ByteBuf& _buf)
     {
         if (!cost::Cost::deserialize(_buf))
@@ -328,6 +397,13 @@ namespace cfg
             return false;
         }
     }
+
+    void cost::CostOneItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Cost::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool cost::CostItem::deserialize(ByteBuf& _buf)
     {
         if (!cost::Cost::deserialize(_buf))
@@ -355,6 +431,13 @@ namespace cfg
             return false;
         }
     }
+
+    void cost::CostItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Cost::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool cost::CostItems::deserialize(ByteBuf& _buf)
     {
         if (!cost::Cost::deserialize(_buf))
@@ -381,6 +464,13 @@ namespace cfg
             return false;
         }
     }
+
+    void cost::CostItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Cost::resolve(_tables);
+        for(auto _e : itemList) { _e->resolve(_tables); }
+    }
+
     bool l10n::L10NDemo::deserialize(ByteBuf& _buf)
     {
 
@@ -404,6 +494,11 @@ namespace cfg
             return false;
         }
     }
+
+    void l10n::L10NDemo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool l10n::PatchDemo::deserialize(ByteBuf& _buf)
     {
 
@@ -427,13 +522,18 @@ namespace cfg
             return false;
         }
     }
+
+    void l10n::PatchDemo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool mail::SystemMail::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, title)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, sender)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, content)) return false;
+        if(!_buf.readString(title)) return false;
+        if(!_buf.readString(sender)) return false;
+        if(!_buf.readString(content)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); award.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; award.push_back(_e);}}
 
         return true;
@@ -453,18 +553,23 @@ namespace cfg
             return false;
         }
     }
+
+    void mail::SystemMail::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool mail::GlobalMail::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, title)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, sender)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, content)) return false;
+        if(!_buf.readString(title)) return false;
+        if(!_buf.readString(sender)) return false;
+        if(!_buf.readString(content)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); award.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; award.push_back(_e);}}
         if (!_buf.readBool(allServer)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); serverList.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; serverList.push_back(_e);}}
-        if(!BYTEBUF_READ_STRING(_buf, platform)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, channel)) return false;
+        if(!_buf.readString(platform)) return false;
+        if(!_buf.readString(channel)) return false;
         if(!condition::MinMaxLevel::deserializeMinMaxLevel(_buf, minMaxLevel)) return false;
         if(!condition::TimeRange::deserializeTimeRange(_buf, registerTime)) return false;
         if(!condition::TimeRange::deserializeTimeRange(_buf, mailTime)) return false;
@@ -486,6 +591,14 @@ namespace cfg
             return false;
         }
     }
+
+    void mail::GlobalMail::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        minMaxLevel->resolve(_tables);
+        registerTime->resolve(_tables);
+        mailTime->resolve(_tables);
+    }
+
     bool role::LevelExpAttr::deserialize(ByteBuf& _buf)
     {
 
@@ -510,6 +623,11 @@ namespace cfg
             return false;
         }
     }
+
+    void role::LevelExpAttr::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool role::LevelBonus::deserialize(ByteBuf& _buf)
     {
 
@@ -533,6 +651,12 @@ namespace cfg
             return false;
         }
     }
+
+    void role::LevelBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : distinctBonusInfos) { _e->resolve(_tables); }
+    }
+
     bool role::DistinctBonusInfos::deserialize(ByteBuf& _buf)
     {
 
@@ -556,10 +680,16 @@ namespace cfg
             return false;
         }
     }
+
+    void role::DistinctBonusInfos::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : bonusInfo) { _e->resolve(_tables); }
+    }
+
     bool role::BonusInfo::deserialize(ByteBuf& _buf)
     {
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; type = item::ECurrencyType(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; type = item::ECurrencyType(__enum_temp__); }
         if(!_buf.readFloat(coefficient)) return false;
 
         return true;
@@ -579,11 +709,16 @@ namespace cfg
             return false;
         }
     }
+
+    void role::BonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool tag::TestTag::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, value)) return false;
+        if(!_buf.readString(value)) return false;
 
         return true;
     }
@@ -602,6 +737,11 @@ namespace cfg
             return false;
         }
     }
+
+    void tag::TestTag::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoType2::deserialize(ByteBuf& _buf)
     {
 
@@ -615,9 +755,9 @@ namespace cfg
         if(!_buf.readFshort(x80)) return false;
         if(!_buf.readFint(x8)) return false;
         if(!_buf.readFlong(x9)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, x10)) return false;
+        if(!_buf.readString(x10)) return false;
         if(!test::DemoType1::deserializeDemoType1(_buf, x12)) return false;
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; x13 = test::DemoEnum(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::DemoEnum(__enum_temp__); }
         if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
         if(!_buf.readString(s1)) return false;
         if(!_buf.readVector2(v2)) return false;
@@ -652,6 +792,16 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoType2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->x3_Ref = ((test::TbFullTypes*)(_tables["test.TbFullTypes"]))->get(x3);
+        x12->resolve(_tables);
+        x14->resolve(_tables);
+        for(auto _e : k9) { _e->resolve(_tables); }
+        for(auto _e : k15) { _e->resolve(_tables); }
+    }
+
     bool test::DemoType1::deserialize(ByteBuf& _buf)
     {
 
@@ -674,6 +824,11 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoType1::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoDynamic::deserialize(ByteBuf& _buf)
     {
 
@@ -694,6 +849,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void test::DemoDynamic::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoD2::deserialize(ByteBuf& _buf)
     {
         if (!test::DemoDynamic::deserialize(_buf))
@@ -720,6 +880,12 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoD2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        DemoDynamic::resolve(_tables);
+    }
+
     bool test::DemoD3::deserialize(ByteBuf& _buf)
     {
         if (!test::DemoDynamic::deserialize(_buf))
@@ -742,6 +908,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void test::DemoD3::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        DemoDynamic::resolve(_tables);
+    }
+
     bool test::DemoE1::deserialize(ByteBuf& _buf)
     {
         if (!test::DemoD3::deserialize(_buf))
@@ -768,6 +940,12 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoE1::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        DemoD3::resolve(_tables);
+    }
+
     bool test::DemoD5::deserialize(ByteBuf& _buf)
     {
         if (!test::DemoDynamic::deserialize(_buf))
@@ -794,6 +972,13 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoD5::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        DemoDynamic::resolve(_tables);
+        time->resolve(_tables);
+    }
+
     bool test::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
@@ -817,10 +1002,15 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DateTimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoE2::deserialize(ByteBuf& _buf)
     {
 
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(y1)) return false; } else { y1 = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; y1 = new int32_t; *y1 = _temp_; } else { y1 = nullptr; } }
         if (!_buf.readBool(y2)) return false;
 
         return true;
@@ -840,6 +1030,11 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoE2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoSingletonType::deserialize(ByteBuf& _buf)
     {
 
@@ -864,16 +1059,23 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoSingletonType::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        date->resolve(_tables);
+    }
+
     bool test::MultiRowRecord::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
+        if(!_buf.readString(name)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); oneRows.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; oneRows.push_back(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows1.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows1.push_back(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());multiRows2.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows2.push_back(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { test::MultiRowType2* _e;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _e)) return false; multiRows3.insert(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _k;  if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false;     multiRows4[_k] = _v;}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); multiRows5.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType3* _e;  if(!test::MultiRowType3::deserializeMultiRowType3(_buf, _e)) return false; multiRows5.push_back(_e);}}
 
         return true;
     }
@@ -892,6 +1094,16 @@ namespace cfg
             return false;
         }
     }
+
+    void test::MultiRowRecord::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : oneRows) { _e->resolve(_tables); }
+        for(auto _e : multiRows1) { _e->resolve(_tables); }
+        for(auto _e : multiRows2) { _e->resolve(_tables); }
+        for(auto _e : multiRows4) { _e.second->resolve(_tables); }
+        for(auto _e : multiRows5) { _e->resolve(_tables); }
+    }
+
     bool test::MultiRowType1::deserialize(ByteBuf& _buf)
     {
 
@@ -915,6 +1127,11 @@ namespace cfg
             return false;
         }
     }
+
+    void test::MultiRowType1::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::MultiRowType2::deserialize(ByteBuf& _buf)
     {
 
@@ -939,11 +1156,45 @@ namespace cfg
             return false;
         }
     }
+
+    void test::MultiRowType2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
+    bool test::MultiRowType3::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); items.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; items.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::MultiRowType3::deserializeMultiRowType3(ByteBuf& _buf, test::MultiRowType3*& _out)
+    {
+        _out = new test::MultiRowType3();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::MultiRowType3::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : items) { _e->resolve(_tables); }
+    }
+
     bool test::MultiRowTitle::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
+        if(!_buf.readString(name)) return false;
         if(!test::H1::deserializeH1(_buf, x1)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); x2.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e;  if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());x3.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
@@ -965,6 +1216,14 @@ namespace cfg
             return false;
         }
     }
+
+    void test::MultiRowTitle::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        x1->resolve(_tables);
+        for(auto _e : x2) { _e->resolve(_tables); }
+        for(auto _e : x3) { _e->resolve(_tables); }
+    }
+
     bool test::H1::deserialize(ByteBuf& _buf)
     {
 
@@ -988,6 +1247,12 @@ namespace cfg
             return false;
         }
     }
+
+    void test::H1::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        y2->resolve(_tables);
+    }
+
     bool test::H2::deserialize(ByteBuf& _buf)
     {
 
@@ -1011,16 +1276,21 @@ namespace cfg
             return false;
         }
     }
+
+    void test::H2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::TestNull::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(x1)) return false; } else { x1 = {}; } }
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { {int _temp_; if(!_buf.readInt(_temp_)) return false; x2 = test::DemoEnum(_temp_); } } else { x2 = {}; } }
-        if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false;
-        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false;
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!BYTEBUF_READ_STRING(_buf, s1)) return false; } else { s1 = {}; } }
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readString(s2)) return false; } else { s2 = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; x1 = new int32_t; *x1 = _temp_; } else { x1 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {test::DemoEnum _temp_;  {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _temp_ = test::DemoEnum(__enum_temp__); } x2 = new test::DemoEnum; *x2 = _temp_; } else { x2 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {test::DemoType1* _temp_;  if(!test::DemoType1::deserializeDemoType1(_buf, _temp_)) return false; x3 = _temp_; } else { x3 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {test::DemoDynamic* _temp_;  if(!test::DemoDynamic::deserializeDemoDynamic(_buf, _temp_)) return false; x4 = _temp_; } else { x4 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::string _temp_;  if(!_buf.readString(_temp_)) return false; s1 = new std::string; *s1 = _temp_; } else { s1 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::string _temp_;  if(!_buf.readString(_temp_)) return false; s2 = new std::string; *s2 = _temp_; } else { s2 = nullptr; } }
 
         return true;
     }
@@ -1039,6 +1309,13 @@ namespace cfg
             return false;
         }
     }
+
+    void test::TestNull::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        if (x3 != nullptr) x3->resolve(_tables);
+        if (x4 != nullptr) x4->resolve(_tables);
+    }
+
     bool test::DemoPrimitiveTypesTable::deserialize(ByteBuf& _buf)
     {
 
@@ -1049,7 +1326,7 @@ namespace cfg
         if(!_buf.readLong(x5)) return false;
         if(!_buf.readFloat(x6)) return false;
         if(!_buf.readDouble(x7)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, s1)) return false;
+        if(!_buf.readString(s1)) return false;
         if(!_buf.readString(s2)) return false;
         if(!_buf.readVector2(v2)) return false;
         if(!_buf.readVector3(v3)) return false;
@@ -1073,11 +1350,16 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoPrimitiveTypesTable::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::TestString::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, s1)) return false;
+        if(!_buf.readString(s1)) return false;
         if(!test::CompactString::deserializeCompactString(_buf, cs1)) return false;
         if(!test::CompactString::deserializeCompactString(_buf, cs2)) return false;
 
@@ -1098,12 +1380,19 @@ namespace cfg
             return false;
         }
     }
+
+    void test::TestString::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        cs1->resolve(_tables);
+        cs2->resolve(_tables);
+    }
+
     bool test::CompactString::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, s2)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, s3)) return false;
+        if(!_buf.readString(s2)) return false;
+        if(!_buf.readString(s3)) return false;
 
         return true;
     }
@@ -1122,6 +1411,11 @@ namespace cfg
             return false;
         }
     }
+
+    void test::CompactString::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::DemoGroup::deserialize(ByteBuf& _buf)
     {
 
@@ -1149,6 +1443,12 @@ namespace cfg
             return false;
         }
     }
+
+    void test::DemoGroup::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        x5->resolve(_tables);
+    }
+
     bool test::InnerGroup::deserialize(ByteBuf& _buf)
     {
 
@@ -1174,6 +1474,11 @@ namespace cfg
             return false;
         }
     }
+
+    void test::InnerGroup::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool test::TestGlobal::deserialize(ByteBuf& _buf)
     {
 
@@ -1196,5 +1501,181 @@ namespace cfg
             _out = nullptr;
             return false;
         }
+    }
+
+    void test::TestGlobal::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
+    bool test::DetectEncoding::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readString(name)) return false;
+
+        return true;
+    }
+
+    bool test::DetectEncoding::deserializeDetectEncoding(ByteBuf& _buf, test::DetectEncoding*& _out)
+    {
+        _out = new test::DetectEncoding();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::DetectEncoding::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
+    bool test::DefineFromExcel::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if (!_buf.readBool(x1)) return false;
+        if(!_buf.readLong(x5)) return false;
+        if(!_buf.readFloat(x6)) return false;
+        if(!_buf.readInt(x8)) return false;
+        if(!_buf.readString(x10)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::ETestQuality(__enum_temp__); }
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
+        if(!_buf.readVector2(v2)) return false;
+        if(!_buf.readInt(t1)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());k1.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _k;  if(!_buf.readInt(_k)) return false; int32_t _v;  if(!_buf.readInt(_v)) return false;     k8[_k] = _v;}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k9.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoE2* _e;  if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::DefineFromExcel::deserializeDefineFromExcel(ByteBuf& _buf, test::DefineFromExcel*& _out)
+    {
+        _out = new test::DefineFromExcel();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::DefineFromExcel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
+        x14->resolve(_tables);
+        for(auto _e : k9) { _e->resolve(_tables); }
+    }
+
+    bool test::DefineFromExcelOne::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(unlockEquip)) return false;
+        if(!_buf.readInt(unlockHero)) return false;
+        if(!_buf.readString(defaultAvatar)) return false;
+        if(!_buf.readString(defaultItem)) return false;
+
+        return true;
+    }
+
+    bool test::DefineFromExcelOne::deserializeDefineFromExcelOne(ByteBuf& _buf, test::DefineFromExcelOne*& _out)
+    {
+        _out = new test::DefineFromExcelOne();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::DefineFromExcelOne::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
+    bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if (!_buf.readBool(x1)) return false;
+        if(!_buf.readLong(x5)) return false;
+        if(!_buf.readFloat(x6)) return false;
+        if(!_buf.readInt(x8)) return false;
+        if(!_buf.readString(x10)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::ETestQuality(__enum_temp__); }
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
+        if(!_buf.readVector2(v2)) return false;
+        if(!_buf.readInt(t1)) return false;
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());k1.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { int32_t _k;  if(!_buf.readInt(_k)) return false; int32_t _v;  if(!_buf.readInt(_v)) return false;     k8[_k] = _v;}}
+        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); k9.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoE2* _e;  if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::DefineFromExcel2::deserializeDefineFromExcel2(ByteBuf& _buf, test::DefineFromExcel2*& _out)
+    {
+        _out = new test::DefineFromExcel2();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::DefineFromExcel2::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
+        x14->resolve(_tables);
+        for(auto _e : k9) { _e->resolve(_tables); }
+    }
+
+    bool test::TestExcelBean1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x1)) return false;
+        if(!_buf.readString(x2)) return false;
+        if(!_buf.readInt(x3)) return false;
+        if(!_buf.readFloat(x4)) return false;
+
+        return true;
+    }
+
+    bool test::TestExcelBean1::deserializeTestExcelBean1(ByteBuf& _buf, test::TestExcelBean1*& _out)
+    {
+        _out = new test::TestExcelBean1();
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            delete _out;
+            _out = nullptr;
+            return false;
+        }
+    }
+
+    void test::TestExcelBean1::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
     }
 }

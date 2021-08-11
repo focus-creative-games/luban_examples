@@ -13,9 +13,9 @@ void MainModule::StartupModule()
 {
     cfg::Tables tables;
 
-    auto dir = FPaths::ProjectContentDir() + TEXT("/config_data");
+    auto dir = FPaths::ProjectContentDir() + TEXT("/config_data/");
 
-    if (tables.load([&](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile("config_data/" + str + ".bin"); }))
+    if (tables.load([=](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile(std::string(TCHAR_TO_UTF8(*dir)) + str + ".bin"); }))
     {
         UE_LOG(LogTemp, Log, TEXT("LOAD SUCC"));
     }

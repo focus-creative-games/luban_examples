@@ -9,6 +9,7 @@
 
 #pragma once
 #include <functional>
+#include <memory>
 
 #include "bright/serialization/ByteBuf.h"
 #include "bright/CfgBean.hpp"
@@ -1497,14 +1498,14 @@ class Blackboard : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBlackboard(ByteBuf& _buf, Blackboard*& _out);
+    static bool deserializeBlackboard(ByteBuf& _buf, std::shared_ptr<Blackboard>& _out);
 
     Blackboard()
     { 
 
     }
 
-    Blackboard(bright::String name, bright::String desc, bright::String parent_name, std::vector<ai::BlackboardKey*> keys ) 
+    Blackboard(std::string name, std::string desc, std::string parent_name, std::vector<std::shared_ptr<ai::BlackboardKey>> keys ) 
     {
 
         this->name = name;
@@ -1519,26 +1520,26 @@ class Blackboard : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
-    bright::String parentName;
-    ai::Blackboard* parentName_Ref;
+    std::string parentName;
+    std::shared_ptr<ai::Blackboard> parentName_Ref;
     /**
      
      */
-    std::vector<ai::BlackboardKey*> keys;
+    std::vector<std::shared_ptr<ai::BlackboardKey>> keys;
 
     static constexpr int ID = 1576193005;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1558,14 +1559,14 @@ class BlackboardKey : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBlackboardKey(ByteBuf& _buf, BlackboardKey*& _out);
+    static bool deserializeBlackboardKey(ByteBuf& _buf, std::shared_ptr<BlackboardKey>& _out);
 
     BlackboardKey()
     { 
 
     }
 
-    BlackboardKey(bright::String name, bright::String desc, bool is_static, ai::EKeyType type, bright::String type_class_name ) 
+    BlackboardKey(std::string name, std::string desc, bool is_static, ai::EKeyType type, std::string type_class_name ) 
     {
 
         this->name = name;
@@ -1581,11 +1582,11 @@ class BlackboardKey : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
@@ -1597,13 +1598,13 @@ class BlackboardKey : public  bright::CfgBean
     /**
      
      */
-    bright::String typeClassName;
+    std::string typeClassName;
 
     static constexpr int ID = -511559886;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1623,14 +1624,14 @@ class BehaviorTree : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBehaviorTree(ByteBuf& _buf, BehaviorTree*& _out);
+    static bool deserializeBehaviorTree(ByteBuf& _buf, std::shared_ptr<BehaviorTree>& _out);
 
     BehaviorTree()
     { 
 
     }
 
-    BehaviorTree(int32_t id, bright::String name, bright::String desc, bright::String blackboard_id, ai::ComposeNode* root ) 
+    BehaviorTree(int32_t id, std::string name, std::string desc, std::string blackboard_id, std::shared_ptr<ai::ComposeNode> root ) 
     {
 
         this->id = id;
@@ -1650,26 +1651,26 @@ class BehaviorTree : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
-    bright::String blackboardId;
-    ai::Blackboard* blackboardId_Ref;
+    std::string blackboardId;
+    std::shared_ptr<ai::Blackboard> blackboardId_Ref;
     /**
      
      */
-    ai::ComposeNode* root;
+    std::shared_ptr<ai::ComposeNode> root;
 
     static constexpr int ID = 159552822;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1689,14 +1690,14 @@ class Node : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeNode(ByteBuf& _buf, Node*& _out);
+    static bool deserializeNode(ByteBuf& _buf, std::shared_ptr<Node>& _out);
 
     Node()
     { 
 
     }
 
-    Node(int32_t id, bright::String node_name ) 
+    Node(int32_t id, std::string node_name ) 
     {
 
         this->id = id;
@@ -1713,10 +1714,10 @@ class Node : public  bright::CfgBean
     /**
      
      */
-    bright::String nodeName;
+    std::string nodeName;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1736,14 +1737,14 @@ class Service : public  ai::Node
 {
     public:
 
-    static bool deserializeService(ByteBuf& _buf, Service*& _out);
+    static bool deserializeService(ByteBuf& _buf, std::shared_ptr<Service>& _out);
 
     Service()
     { 
 
     }
 
-    Service(int32_t id, bright::String node_name ) 
+    Service(int32_t id, std::string node_name ) 
             : ai::Node(id, node_name)
     {
 
@@ -1754,7 +1755,7 @@ class Service : public  ai::Node
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1774,14 +1775,14 @@ class UeSetDefaultFocus : public  ai::Service
 {
     public:
 
-    static bool deserializeUeSetDefaultFocus(ByteBuf& _buf, UeSetDefaultFocus*& _out);
+    static bool deserializeUeSetDefaultFocus(ByteBuf& _buf, std::shared_ptr<UeSetDefaultFocus>& _out);
 
     UeSetDefaultFocus()
     { 
 
     }
 
-    UeSetDefaultFocus(int32_t id, bright::String node_name, bright::String keyboard_key ) 
+    UeSetDefaultFocus(int32_t id, std::string node_name, std::string keyboard_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1794,13 +1795,13 @@ class UeSetDefaultFocus : public  ai::Service
     /**
      
      */
-    bright::String keyboardKey;
+    std::string keyboardKey;
 
     static constexpr int ID = 1812449155;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1820,14 +1821,14 @@ class ExecuteTimeStatistic : public  ai::Service
 {
     public:
 
-    static bool deserializeExecuteTimeStatistic(ByteBuf& _buf, ExecuteTimeStatistic*& _out);
+    static bool deserializeExecuteTimeStatistic(ByteBuf& _buf, std::shared_ptr<ExecuteTimeStatistic>& _out);
 
     ExecuteTimeStatistic()
     { 
 
     }
 
-    ExecuteTimeStatistic(int32_t id, bright::String node_name ) 
+    ExecuteTimeStatistic(int32_t id, std::string node_name ) 
             : ai::Service(id, node_name)
     {
 
@@ -1841,7 +1842,7 @@ class ExecuteTimeStatistic : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1861,14 +1862,14 @@ class ChooseTarget : public  ai::Service
 {
     public:
 
-    static bool deserializeChooseTarget(ByteBuf& _buf, ChooseTarget*& _out);
+    static bool deserializeChooseTarget(ByteBuf& _buf, std::shared_ptr<ChooseTarget>& _out);
 
     ChooseTarget()
     { 
 
     }
 
-    ChooseTarget(int32_t id, bright::String node_name, bright::String result_target_key ) 
+    ChooseTarget(int32_t id, std::string node_name, std::string result_target_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1881,13 +1882,13 @@ class ChooseTarget : public  ai::Service
     /**
      
      */
-    bright::String resultTargetKey;
+    std::string resultTargetKey;
 
     static constexpr int ID = 1601247918;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1907,14 +1908,14 @@ class KeepFaceTarget : public  ai::Service
 {
     public:
 
-    static bool deserializeKeepFaceTarget(ByteBuf& _buf, KeepFaceTarget*& _out);
+    static bool deserializeKeepFaceTarget(ByteBuf& _buf, std::shared_ptr<KeepFaceTarget>& _out);
 
     KeepFaceTarget()
     { 
 
     }
 
-    KeepFaceTarget(int32_t id, bright::String node_name, bright::String target_actor_key ) 
+    KeepFaceTarget(int32_t id, std::string node_name, std::string target_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1927,13 +1928,13 @@ class KeepFaceTarget : public  ai::Service
     /**
      
      */
-    bright::String targetActorKey;
+    std::string targetActorKey;
 
     static constexpr int ID = 1195270745;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1953,14 +1954,14 @@ class GetOwnerPlayer : public  ai::Service
 {
     public:
 
-    static bool deserializeGetOwnerPlayer(ByteBuf& _buf, GetOwnerPlayer*& _out);
+    static bool deserializeGetOwnerPlayer(ByteBuf& _buf, std::shared_ptr<GetOwnerPlayer>& _out);
 
     GetOwnerPlayer()
     { 
 
     }
 
-    GetOwnerPlayer(int32_t id, bright::String node_name, bright::String player_actor_key ) 
+    GetOwnerPlayer(int32_t id, std::string node_name, std::string player_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1973,13 +1974,13 @@ class GetOwnerPlayer : public  ai::Service
     /**
      
      */
-    bright::String playerActorKey;
+    std::string playerActorKey;
 
     static constexpr int ID = -999247644;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -1999,14 +2000,14 @@ class UpdateDailyBehaviorProps : public  ai::Service
 {
     public:
 
-    static bool deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, UpdateDailyBehaviorProps*& _out);
+    static bool deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, std::shared_ptr<UpdateDailyBehaviorProps>& _out);
 
     UpdateDailyBehaviorProps()
     { 
 
     }
 
-    UpdateDailyBehaviorProps(int32_t id, bright::String node_name, bright::String satiety_key, bright::String energy_key, bright::String mood_key, bright::String satiety_lower_threshold_key, bright::String satiety_upper_threshold_key, bright::String energy_lower_threshold_key, bright::String energy_upper_threshold_key, bright::String mood_lower_threshold_key, bright::String mood_upper_threshold_key ) 
+    UpdateDailyBehaviorProps(int32_t id, std::string node_name, std::string satiety_key, std::string energy_key, std::string mood_key, std::string satiety_lower_threshold_key, std::string satiety_upper_threshold_key, std::string energy_lower_threshold_key, std::string energy_upper_threshold_key, std::string mood_lower_threshold_key, std::string mood_upper_threshold_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -2027,45 +2028,45 @@ class UpdateDailyBehaviorProps : public  ai::Service
     /**
      
      */
-    bright::String satietyKey;
+    std::string satietyKey;
     /**
      
      */
-    bright::String energyKey;
+    std::string energyKey;
     /**
      
      */
-    bright::String moodKey;
+    std::string moodKey;
     /**
      
      */
-    bright::String satietyLowerThresholdKey;
+    std::string satietyLowerThresholdKey;
     /**
      
      */
-    bright::String satietyUpperThresholdKey;
+    std::string satietyUpperThresholdKey;
     /**
      
      */
-    bright::String energyLowerThresholdKey;
+    std::string energyLowerThresholdKey;
     /**
      
      */
-    bright::String energyUpperThresholdKey;
+    std::string energyUpperThresholdKey;
     /**
      
      */
-    bright::String moodLowerThresholdKey;
+    std::string moodLowerThresholdKey;
     /**
      
      */
-    bright::String moodUpperThresholdKey;
+    std::string moodUpperThresholdKey;
 
     static constexpr int ID = -61887372;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2085,14 +2086,14 @@ class Decorator : public  ai::Node
 {
     public:
 
-    static bool deserializeDecorator(ByteBuf& _buf, Decorator*& _out);
+    static bool deserializeDecorator(ByteBuf& _buf, std::shared_ptr<Decorator>& _out);
 
     Decorator()
     { 
 
     }
 
-    Decorator(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    Decorator(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Node(id, node_name)
     {
 
@@ -2108,7 +2109,7 @@ class Decorator : public  ai::Node
     ai::EFlowAbortMode flowAbortMode;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2128,14 +2129,14 @@ class UeLoop : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeLoop(ByteBuf& _buf, UeLoop*& _out);
+    static bool deserializeUeLoop(ByteBuf& _buf, std::shared_ptr<UeLoop>& _out);
 
     UeLoop()
     { 
 
     }
 
-    UeLoop(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
+    UeLoop(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2164,7 +2165,7 @@ class UeLoop : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2184,14 +2185,14 @@ class UeCooldown : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeCooldown(ByteBuf& _buf, UeCooldown*& _out);
+    static bool deserializeUeCooldown(ByteBuf& _buf, std::shared_ptr<UeCooldown>& _out);
 
     UeCooldown()
     { 
 
     }
 
-    UeCooldown(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
+    UeCooldown(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2210,7 +2211,7 @@ class UeCooldown : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2230,14 +2231,14 @@ class UeTimeLimit : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeTimeLimit(ByteBuf& _buf, UeTimeLimit*& _out);
+    static bool deserializeUeTimeLimit(ByteBuf& _buf, std::shared_ptr<UeTimeLimit>& _out);
 
     UeTimeLimit()
     { 
 
     }
 
-    UeTimeLimit(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
+    UeTimeLimit(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2256,7 +2257,7 @@ class UeTimeLimit : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2276,14 +2277,14 @@ class UeBlackboard : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeBlackboard(ByteBuf& _buf, UeBlackboard*& _out);
+    static bool deserializeUeBlackboard(ByteBuf& _buf, std::shared_ptr<UeBlackboard>& _out);
 
     UeBlackboard()
     { 
 
     }
 
-    UeBlackboard(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, bright::String blackboard_key, ai::KeyQueryOperator* key_query ) 
+    UeBlackboard(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, std::string blackboard_key, std::shared_ptr<ai::KeyQueryOperator> key_query ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2302,17 +2303,17 @@ class UeBlackboard : public  ai::Decorator
     /**
      
      */
-    bright::String blackboardKey;
+    std::string blackboardKey;
     /**
      
      */
-    ai::KeyQueryOperator* keyQuery;
+    std::shared_ptr<ai::KeyQueryOperator> keyQuery;
 
     static constexpr int ID = -315297507;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2332,7 +2333,7 @@ class KeyQueryOperator : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeKeyQueryOperator(ByteBuf& _buf, KeyQueryOperator*& _out);
+    static bool deserializeKeyQueryOperator(ByteBuf& _buf, std::shared_ptr<KeyQueryOperator>& _out);
 
     KeyQueryOperator()
     { 
@@ -2345,7 +2346,7 @@ class KeyQueryOperator : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2365,7 +2366,7 @@ class IsSet : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeIsSet(ByteBuf& _buf, IsSet*& _out);
+    static bool deserializeIsSet(ByteBuf& _buf, std::shared_ptr<IsSet>& _out);
 
     IsSet()
     { 
@@ -2381,7 +2382,7 @@ class IsSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2401,7 +2402,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeIsNotSet(ByteBuf& _buf, IsNotSet*& _out);
+    static bool deserializeIsNotSet(ByteBuf& _buf, std::shared_ptr<IsNotSet>& _out);
 
     IsNotSet()
     { 
@@ -2417,7 +2418,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2437,14 +2438,14 @@ class BinaryOperator : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeBinaryOperator(ByteBuf& _buf, BinaryOperator*& _out);
+    static bool deserializeBinaryOperator(ByteBuf& _buf, std::shared_ptr<BinaryOperator>& _out);
 
     BinaryOperator()
     { 
 
     }
 
-    BinaryOperator(ai::EOperator oper, ai::KeyData* data ) 
+    BinaryOperator(ai::EOperator oper, std::shared_ptr<ai::KeyData> data ) 
             : ai::KeyQueryOperator()
     {
 
@@ -2462,13 +2463,13 @@ class BinaryOperator : public  ai::KeyQueryOperator
     /**
      
      */
-    ai::KeyData* data;
+    std::shared_ptr<ai::KeyData> data;
 
     static constexpr int ID = -979891605;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2488,7 +2489,7 @@ class KeyData : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeKeyData(ByteBuf& _buf, KeyData*& _out);
+    static bool deserializeKeyData(ByteBuf& _buf, std::shared_ptr<KeyData>& _out);
 
     KeyData()
     { 
@@ -2501,7 +2502,7 @@ class KeyData : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2521,7 +2522,7 @@ class FloatKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeFloatKeyData(ByteBuf& _buf, FloatKeyData*& _out);
+    static bool deserializeFloatKeyData(ByteBuf& _buf, std::shared_ptr<FloatKeyData>& _out);
 
     FloatKeyData()
     { 
@@ -2547,7 +2548,7 @@ class FloatKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2567,7 +2568,7 @@ class IntKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeIntKeyData(ByteBuf& _buf, IntKeyData*& _out);
+    static bool deserializeIntKeyData(ByteBuf& _buf, std::shared_ptr<IntKeyData>& _out);
 
     IntKeyData()
     { 
@@ -2593,7 +2594,7 @@ class IntKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2613,14 +2614,14 @@ class StringKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeStringKeyData(ByteBuf& _buf, StringKeyData*& _out);
+    static bool deserializeStringKeyData(ByteBuf& _buf, std::shared_ptr<StringKeyData>& _out);
 
     StringKeyData()
     { 
 
     }
 
-    StringKeyData(bright::String value ) 
+    StringKeyData(std::string value ) 
             : ai::KeyData()
     {
 
@@ -2633,13 +2634,13 @@ class StringKeyData : public  ai::KeyData
     /**
      
      */
-    bright::String value;
+    std::string value;
 
     static constexpr int ID = -307888654;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2659,14 +2660,14 @@ class BlackboardKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeBlackboardKeyData(ByteBuf& _buf, BlackboardKeyData*& _out);
+    static bool deserializeBlackboardKeyData(ByteBuf& _buf, std::shared_ptr<BlackboardKeyData>& _out);
 
     BlackboardKeyData()
     { 
 
     }
 
-    BlackboardKeyData(bright::String value ) 
+    BlackboardKeyData(std::string value ) 
             : ai::KeyData()
     {
 
@@ -2679,13 +2680,13 @@ class BlackboardKeyData : public  ai::KeyData
     /**
      
      */
-    bright::String value;
+    std::string value;
 
     static constexpr int ID = 1517269500;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2705,14 +2706,14 @@ class UeForceSuccess : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeForceSuccess(ByteBuf& _buf, UeForceSuccess*& _out);
+    static bool deserializeUeForceSuccess(ByteBuf& _buf, std::shared_ptr<UeForceSuccess>& _out);
 
     UeForceSuccess()
     { 
 
     }
 
-    UeForceSuccess(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    UeForceSuccess(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2726,7 +2727,7 @@ class UeForceSuccess : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2746,14 +2747,14 @@ class IsAtLocation : public  ai::Decorator
 {
     public:
 
-    static bool deserializeIsAtLocation(ByteBuf& _buf, IsAtLocation*& _out);
+    static bool deserializeIsAtLocation(ByteBuf& _buf, std::shared_ptr<IsAtLocation>& _out);
 
     IsAtLocation()
     { 
 
     }
 
-    IsAtLocation(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, bright::String keyboard_key, bool inverse_condition ) 
+    IsAtLocation(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, std::string keyboard_key, bool inverse_condition ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2772,7 +2773,7 @@ class IsAtLocation : public  ai::Decorator
     /**
      
      */
-    bright::String keyboardKey;
+    std::string keyboardKey;
     /**
      
      */
@@ -2782,7 +2783,7 @@ class IsAtLocation : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2802,14 +2803,14 @@ class DistanceLessThan : public  ai::Decorator
 {
     public:
 
-    static bool deserializeDistanceLessThan(ByteBuf& _buf, DistanceLessThan*& _out);
+    static bool deserializeDistanceLessThan(ByteBuf& _buf, std::shared_ptr<DistanceLessThan>& _out);
 
     DistanceLessThan()
     { 
 
     }
 
-    DistanceLessThan(int32_t id, bright::String node_name, ai::EFlowAbortMode flow_abort_mode, bright::String actor1_key, bright::String actor2_key, float distance, bool reverse_result ) 
+    DistanceLessThan(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, std::string actor1_key, std::string actor2_key, float distance, bool reverse_result ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2825,11 +2826,11 @@ class DistanceLessThan : public  ai::Decorator
     /**
      
      */
-    bright::String actor1Key;
+    std::string actor1Key;
     /**
      
      */
-    bright::String actor2Key;
+    std::string actor2Key;
     /**
      
      */
@@ -2843,7 +2844,7 @@ class DistanceLessThan : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2863,14 +2864,14 @@ class FlowNode : public  ai::Node
 {
     public:
 
-    static bool deserializeFlowNode(ByteBuf& _buf, FlowNode*& _out);
+    static bool deserializeFlowNode(ByteBuf& _buf, std::shared_ptr<FlowNode>& _out);
 
     FlowNode()
     { 
 
     }
 
-    FlowNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+    FlowNode(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services ) 
             : ai::Node(id, node_name)
     {
 
@@ -2884,14 +2885,14 @@ class FlowNode : public  ai::Node
     /**
      
      */
-    std::vector<ai::Decorator*> decorators;
+    std::vector<std::shared_ptr<ai::Decorator>> decorators;
     /**
      
      */
-    std::vector<ai::Service*> services;
+    std::vector<std::shared_ptr<ai::Service>> services;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2911,14 +2912,14 @@ class ComposeNode : public  ai::FlowNode
 {
     public:
 
-    static bool deserializeComposeNode(ByteBuf& _buf, ComposeNode*& _out);
+    static bool deserializeComposeNode(ByteBuf& _buf, std::shared_ptr<ComposeNode>& _out);
 
     ComposeNode()
     { 
 
     }
 
-    ComposeNode(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services ) 
+    ComposeNode(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -2929,7 +2930,7 @@ class ComposeNode : public  ai::FlowNode
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2949,14 +2950,14 @@ class Sequence : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSequence(ByteBuf& _buf, Sequence*& _out);
+    static bool deserializeSequence(ByteBuf& _buf, std::shared_ptr<Sequence>& _out);
 
     Sequence()
     { 
 
     }
 
-    Sequence(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+    Sequence(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, std::vector<std::shared_ptr<ai::FlowNode>> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -2969,13 +2970,13 @@ class Sequence : public  ai::ComposeNode
     /**
      
      */
-    std::vector<ai::FlowNode*> children;
+    std::vector<std::shared_ptr<ai::FlowNode>> children;
 
     static constexpr int ID = -1789006105;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -2995,14 +2996,14 @@ class Selector : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSelector(ByteBuf& _buf, Selector*& _out);
+    static bool deserializeSelector(ByteBuf& _buf, std::shared_ptr<Selector>& _out);
 
     Selector()
     { 
 
     }
 
-    Selector(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, std::vector<ai::FlowNode*> children ) 
+    Selector(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, std::vector<std::shared_ptr<ai::FlowNode>> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -3015,13 +3016,13 @@ class Selector : public  ai::ComposeNode
     /**
      
      */
-    std::vector<ai::FlowNode*> children;
+    std::vector<std::shared_ptr<ai::FlowNode>> children;
 
     static constexpr int ID = -1946981627;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3041,14 +3042,14 @@ class SimpleParallel : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSimpleParallel(ByteBuf& _buf, SimpleParallel*& _out);
+    static bool deserializeSimpleParallel(ByteBuf& _buf, std::shared_ptr<SimpleParallel>& _out);
 
     SimpleParallel()
     { 
 
     }
 
-    SimpleParallel(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, ai::EFinishMode finish_mode, ai::Task* main_task, ai::FlowNode* background_node ) 
+    SimpleParallel(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, ai::EFinishMode finish_mode, std::shared_ptr<ai::Task> main_task, std::shared_ptr<ai::FlowNode> background_node ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -3067,17 +3068,17 @@ class SimpleParallel : public  ai::ComposeNode
     /**
      
      */
-    ai::Task* mainTask;
+    std::shared_ptr<ai::Task> mainTask;
     /**
      
      */
-    ai::FlowNode* backgroundNode;
+    std::shared_ptr<ai::FlowNode> backgroundNode;
 
     static constexpr int ID = -1952582529;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3097,14 +3098,14 @@ class Task : public  ai::FlowNode
 {
     public:
 
-    static bool deserializeTask(ByteBuf& _buf, Task*& _out);
+    static bool deserializeTask(ByteBuf& _buf, std::shared_ptr<Task>& _out);
 
     Task()
     { 
 
     }
 
-    Task(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self ) 
+    Task(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -3120,7 +3121,7 @@ class Task : public  ai::FlowNode
     bool ignoreRestartSelf;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3140,14 +3141,14 @@ class UeWait : public  ai::Task
 {
     public:
 
-    static bool deserializeUeWait(ByteBuf& _buf, UeWait*& _out);
+    static bool deserializeUeWait(ByteBuf& _buf, std::shared_ptr<UeWait>& _out);
 
     UeWait()
     { 
 
     }
 
-    UeWait(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
+    UeWait(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3171,7 +3172,7 @@ class UeWait : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3191,14 +3192,14 @@ class UeWaitBlackboardTime : public  ai::Task
 {
     public:
 
-    static bool deserializeUeWaitBlackboardTime(ByteBuf& _buf, UeWaitBlackboardTime*& _out);
+    static bool deserializeUeWaitBlackboardTime(ByteBuf& _buf, std::shared_ptr<UeWaitBlackboardTime>& _out);
 
     UeWaitBlackboardTime()
     { 
 
     }
 
-    UeWaitBlackboardTime(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String blackboard_key ) 
+    UeWaitBlackboardTime(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string blackboard_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3211,13 +3212,13 @@ class UeWaitBlackboardTime : public  ai::Task
     /**
      
      */
-    bright::String blackboardKey;
+    std::string blackboardKey;
 
     static constexpr int ID = 1215378271;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3237,14 +3238,14 @@ class MoveToTarget : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToTarget(ByteBuf& _buf, MoveToTarget*& _out);
+    static bool deserializeMoveToTarget(ByteBuf& _buf, std::shared_ptr<MoveToTarget>& _out);
 
     MoveToTarget()
     { 
 
     }
 
-    MoveToTarget(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, float acceptable_radius ) 
+    MoveToTarget(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string target_actor_key, float acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3258,7 +3259,7 @@ class MoveToTarget : public  ai::Task
     /**
      
      */
-    bright::String targetActorKey;
+    std::string targetActorKey;
     /**
      
      */
@@ -3268,7 +3269,7 @@ class MoveToTarget : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3288,14 +3289,14 @@ class ChooseSkill : public  ai::Task
 {
     public:
 
-    static bool deserializeChooseSkill(ByteBuf& _buf, ChooseSkill*& _out);
+    static bool deserializeChooseSkill(ByteBuf& _buf, std::shared_ptr<ChooseSkill>& _out);
 
     ChooseSkill()
     { 
 
     }
 
-    ChooseSkill(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String target_actor_key, bright::String result_skill_id_key ) 
+    ChooseSkill(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string target_actor_key, std::string result_skill_id_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3309,17 +3310,17 @@ class ChooseSkill : public  ai::Task
     /**
      
      */
-    bright::String targetActorKey;
+    std::string targetActorKey;
     /**
      
      */
-    bright::String resultSkillIdKey;
+    std::string resultSkillIdKey;
 
     static constexpr int ID = -918812268;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3339,14 +3340,14 @@ class MoveToRandomLocation : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToRandomLocation(ByteBuf& _buf, MoveToRandomLocation*& _out);
+    static bool deserializeMoveToRandomLocation(ByteBuf& _buf, std::shared_ptr<MoveToRandomLocation>& _out);
 
     MoveToRandomLocation()
     { 
 
     }
 
-    MoveToRandomLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String origin_position_key, float radius ) 
+    MoveToRandomLocation(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string origin_position_key, float radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3360,7 +3361,7 @@ class MoveToRandomLocation : public  ai::Task
     /**
      
      */
-    bright::String originPositionKey;
+    std::string originPositionKey;
     /**
      
      */
@@ -3370,7 +3371,7 @@ class MoveToRandomLocation : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3390,14 +3391,14 @@ class MoveToLocation : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToLocation(ByteBuf& _buf, MoveToLocation*& _out);
+    static bool deserializeMoveToLocation(ByteBuf& _buf, std::shared_ptr<MoveToLocation>& _out);
 
     MoveToLocation()
     { 
 
     }
 
-    MoveToLocation(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
+    MoveToLocation(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3421,7 +3422,7 @@ class MoveToLocation : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3441,14 +3442,14 @@ class DebugPrint : public  ai::Task
 {
     public:
 
-    static bool deserializeDebugPrint(ByteBuf& _buf, DebugPrint*& _out);
+    static bool deserializeDebugPrint(ByteBuf& _buf, std::shared_ptr<DebugPrint>& _out);
 
     DebugPrint()
     { 
 
     }
 
-    DebugPrint(int32_t id, bright::String node_name, std::vector<ai::Decorator*> decorators, std::vector<ai::Service*> services, bool ignore_restart_self, bright::String text ) 
+    DebugPrint(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string text ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3461,13 +3462,13 @@ class DebugPrint : public  ai::Task
     /**
      
      */
-    bright::String text;
+    std::string text;
 
     static constexpr int ID = 1357409728;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3487,14 +3488,14 @@ class Clazz : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeClazz(ByteBuf& _buf, Clazz*& _out);
+    static bool deserializeClazz(ByteBuf& _buf, std::shared_ptr<Clazz>& _out);
 
     Clazz()
     { 
 
     }
 
-    Clazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+    Clazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods ) 
     {
 
         this->name = name;
@@ -3509,22 +3510,22 @@ class Clazz : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
-    std::vector<blueprint::Clazz*> parents;
+    std::vector<std::shared_ptr<blueprint::Clazz>> parents;
     /**
      
      */
-    std::vector<blueprint::Method*> methods;
+    std::vector<std::shared_ptr<blueprint::Method>> methods;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3544,14 +3545,14 @@ class Method : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMethod(ByteBuf& _buf, Method*& _out);
+    static bool deserializeMethod(ByteBuf& _buf, std::shared_ptr<Method>& _out);
 
     Method()
     { 
 
     }
 
-    Method(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    Method(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
     {
 
         this->name = name;
@@ -3567,11 +3568,11 @@ class Method : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
@@ -3579,14 +3580,14 @@ class Method : public  bright::CfgBean
     /**
      
      */
-    bright::String returnType;
+    std::string returnType;
     /**
      
      */
-    std::vector<blueprint::ParamInfo*> parameters;
+    std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3606,14 +3607,14 @@ class ParamInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeParamInfo(ByteBuf& _buf, ParamInfo*& _out);
+    static bool deserializeParamInfo(ByteBuf& _buf, std::shared_ptr<ParamInfo>& _out);
 
     ParamInfo()
     { 
 
     }
 
-    ParamInfo(bright::String name, bright::String type, bool is_ref ) 
+    ParamInfo(std::string name, std::string type, bool is_ref ) 
     {
 
         this->name = name;
@@ -3627,11 +3628,11 @@ class ParamInfo : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String type;
+    std::string type;
     /**
      
      */
@@ -3641,7 +3642,7 @@ class ParamInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3661,14 +3662,14 @@ class AbstraceMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeAbstraceMethod(ByteBuf& _buf, AbstraceMethod*& _out);
+    static bool deserializeAbstraceMethod(ByteBuf& _buf, std::shared_ptr<AbstraceMethod>& _out);
 
     AbstraceMethod()
     { 
 
     }
 
-    AbstraceMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    AbstraceMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3682,7 +3683,7 @@ class AbstraceMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3702,14 +3703,14 @@ class ExternalMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeExternalMethod(ByteBuf& _buf, ExternalMethod*& _out);
+    static bool deserializeExternalMethod(ByteBuf& _buf, std::shared_ptr<ExternalMethod>& _out);
 
     ExternalMethod()
     { 
 
     }
 
-    ExternalMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    ExternalMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3723,7 +3724,7 @@ class ExternalMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3743,14 +3744,14 @@ class BlueprintMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeBlueprintMethod(ByteBuf& _buf, BlueprintMethod*& _out);
+    static bool deserializeBlueprintMethod(ByteBuf& _buf, std::shared_ptr<BlueprintMethod>& _out);
 
     BlueprintMethod()
     { 
 
     }
 
-    BlueprintMethod(bright::String name, bright::String desc, bool is_static, bright::String return_type, std::vector<blueprint::ParamInfo*> parameters ) 
+    BlueprintMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3764,7 +3765,7 @@ class BlueprintMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3784,14 +3785,14 @@ class Interface : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeInterface(ByteBuf& _buf, Interface*& _out);
+    static bool deserializeInterface(ByteBuf& _buf, std::shared_ptr<Interface>& _out);
 
     Interface()
     { 
 
     }
 
-    Interface(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods ) 
+    Interface(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3805,7 +3806,7 @@ class Interface : public  blueprint::Clazz
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3825,14 +3826,14 @@ class NormalClazz : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeNormalClazz(ByteBuf& _buf, NormalClazz*& _out);
+    static bool deserializeNormalClazz(ByteBuf& _buf, std::shared_ptr<NormalClazz>& _out);
 
     NormalClazz()
     { 
 
     }
 
-    NormalClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, bool is_abstract, std::vector<blueprint::Field*> fields ) 
+    NormalClazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods, bool is_abstract, std::vector<std::shared_ptr<blueprint::Field>> fields ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3850,13 +3851,13 @@ class NormalClazz : public  blueprint::Clazz
     /**
      
      */
-    std::vector<blueprint::Field*> fields;
+    std::vector<std::shared_ptr<blueprint::Field>> fields;
 
     static constexpr int ID = -2073576778;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3876,14 +3877,14 @@ class Field : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeField(ByteBuf& _buf, Field*& _out);
+    static bool deserializeField(ByteBuf& _buf, std::shared_ptr<Field>& _out);
 
     Field()
     { 
 
     }
 
-    Field(bright::String name, bright::String type, bright::String desc ) 
+    Field(std::string name, std::string type, std::string desc ) 
     {
 
         this->name = name;
@@ -3897,21 +3898,21 @@ class Field : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    bright::String type;
+    std::string type;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
 
     static constexpr int ID = 1694158271;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3931,14 +3932,14 @@ class EnumClazz : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeEnumClazz(ByteBuf& _buf, EnumClazz*& _out);
+    static bool deserializeEnumClazz(ByteBuf& _buf, std::shared_ptr<EnumClazz>& _out);
 
     EnumClazz()
     { 
 
     }
 
-    EnumClazz(bright::String name, bright::String desc, std::vector<blueprint::Clazz*> parents, std::vector<blueprint::Method*> methods, std::vector<blueprint::EnumField*> enums ) 
+    EnumClazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods, std::vector<std::shared_ptr<blueprint::EnumField>> enums ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3951,13 +3952,13 @@ class EnumClazz : public  blueprint::Clazz
     /**
      
      */
-    std::vector<blueprint::EnumField*> enums;
+    std::vector<std::shared_ptr<blueprint::EnumField>> enums;
 
     static constexpr int ID = 1827364892;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -3977,14 +3978,14 @@ class EnumField : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeEnumField(ByteBuf& _buf, EnumField*& _out);
+    static bool deserializeEnumField(ByteBuf& _buf, std::shared_ptr<EnumField>& _out);
 
     EnumField()
     { 
 
     }
 
-    EnumField(bright::String name, int32_t value ) 
+    EnumField(std::string name, int32_t value ) 
     {
 
         this->name = name;
@@ -3997,7 +3998,7 @@ class EnumField : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
@@ -4007,7 +4008,7 @@ class EnumField : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4027,14 +4028,14 @@ class DropInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDropInfo(ByteBuf& _buf, DropInfo*& _out);
+    static bool deserializeDropInfo(ByteBuf& _buf, std::shared_ptr<DropInfo>& _out);
 
     DropInfo()
     { 
 
     }
 
-    DropInfo(int32_t id, bright::String desc, std::vector<bonus::ShowItemInfo*> client_show_items, bonus::Bonus* bonus ) 
+    DropInfo(int32_t id, std::string desc, std::vector<std::shared_ptr<bonus::ShowItemInfo>> client_show_items, std::shared_ptr<bonus::Bonus> bonus ) 
     {
 
         this->id = id;
@@ -4053,21 +4054,21 @@ class DropInfo : public  bright::CfgBean
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
-    std::vector<bonus::ShowItemInfo*> clientShowItems;
+    std::vector<std::shared_ptr<bonus::ShowItemInfo>> clientShowItems;
     /**
      
      */
-    bonus::Bonus* bonus;
+    std::shared_ptr<bonus::Bonus> bonus;
 
     static constexpr int ID = -2014781108;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4087,7 +4088,7 @@ class ShowItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeShowItemInfo(ByteBuf& _buf, ShowItemInfo*& _out);
+    static bool deserializeShowItemInfo(ByteBuf& _buf, std::shared_ptr<ShowItemInfo>& _out);
 
     ShowItemInfo()
     { 
@@ -4108,7 +4109,7 @@ class ShowItemInfo : public  bright::CfgBean
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -4118,7 +4119,7 @@ class ShowItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4138,7 +4139,7 @@ class Bonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBonus(ByteBuf& _buf, Bonus*& _out);
+    static bool deserializeBonus(ByteBuf& _buf, std::shared_ptr<Bonus>& _out);
 
     Bonus()
     { 
@@ -4151,7 +4152,7 @@ class Bonus : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4171,7 +4172,7 @@ class OneItem : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeOneItem(ByteBuf& _buf, OneItem*& _out);
+    static bool deserializeOneItem(ByteBuf& _buf, std::shared_ptr<OneItem>& _out);
 
     OneItem()
     { 
@@ -4192,13 +4193,13 @@ class OneItem : public  bonus::Bonus
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
 
     static constexpr int ID = -1649658966;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4218,7 +4219,7 @@ class OneItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeOneItems(ByteBuf& _buf, OneItems*& _out);
+    static bool deserializeOneItems(ByteBuf& _buf, std::shared_ptr<OneItems>& _out);
 
     OneItems()
     { 
@@ -4244,7 +4245,7 @@ class OneItems : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4264,7 +4265,7 @@ class Item : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeItem(ByteBuf& _buf, Item*& _out);
+    static bool deserializeItem(ByteBuf& _buf, std::shared_ptr<Item>& _out);
 
     Item()
     { 
@@ -4286,7 +4287,7 @@ class Item : public  bonus::Bonus
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -4296,7 +4297,7 @@ class Item : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4316,14 +4317,14 @@ class Items : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeItems(ByteBuf& _buf, Items*& _out);
+    static bool deserializeItems(ByteBuf& _buf, std::shared_ptr<Items>& _out);
 
     Items()
     { 
 
     }
 
-    Items(std::vector<bonus::Item*> item_list ) 
+    Items(std::vector<std::shared_ptr<bonus::Item>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4336,13 +4337,13 @@ class Items : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::Item*> itemList;
+    std::vector<std::shared_ptr<bonus::Item>> itemList;
 
     static constexpr int ID = 819736849;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4362,14 +4363,14 @@ class CoefficientItem : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeCoefficientItem(ByteBuf& _buf, CoefficientItem*& _out);
+    static bool deserializeCoefficientItem(ByteBuf& _buf, std::shared_ptr<CoefficientItem>& _out);
 
     CoefficientItem()
     { 
 
     }
 
-    CoefficientItem(int32_t bonus_id, bonus::Items* bonus_list ) 
+    CoefficientItem(int32_t bonus_id, std::shared_ptr<bonus::Items> bonus_list ) 
             : bonus::Bonus()
     {
 
@@ -4387,13 +4388,13 @@ class CoefficientItem : public  bonus::Bonus
     /**
      
      */
-    bonus::Items* bonusList;
+    std::shared_ptr<bonus::Items> bonusList;
 
     static constexpr int ID = -229470727;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4413,14 +4414,14 @@ class WeightItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeWeightItems(ByteBuf& _buf, WeightItems*& _out);
+    static bool deserializeWeightItems(ByteBuf& _buf, std::shared_ptr<WeightItems>& _out);
 
     WeightItems()
     { 
 
     }
 
-    WeightItems(std::vector<bonus::WeightItemInfo*> item_list ) 
+    WeightItems(std::vector<std::shared_ptr<bonus::WeightItemInfo>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4433,13 +4434,13 @@ class WeightItems : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::WeightItemInfo*> itemList;
+    std::vector<std::shared_ptr<bonus::WeightItemInfo>> itemList;
 
     static constexpr int ID = -356202311;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4459,7 +4460,7 @@ class WeightItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeWeightItemInfo(ByteBuf& _buf, WeightItemInfo*& _out);
+    static bool deserializeWeightItemInfo(ByteBuf& _buf, std::shared_ptr<WeightItemInfo>& _out);
 
     WeightItemInfo()
     { 
@@ -4481,7 +4482,7 @@ class WeightItemInfo : public  bright::CfgBean
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -4495,7 +4496,7 @@ class WeightItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4515,14 +4516,14 @@ class ProbabilityItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeProbabilityItems(ByteBuf& _buf, ProbabilityItems*& _out);
+    static bool deserializeProbabilityItems(ByteBuf& _buf, std::shared_ptr<ProbabilityItems>& _out);
 
     ProbabilityItems()
     { 
 
     }
 
-    ProbabilityItems(std::vector<bonus::ProbabilityItemInfo*> item_list ) 
+    ProbabilityItems(std::vector<std::shared_ptr<bonus::ProbabilityItemInfo>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4535,13 +4536,13 @@ class ProbabilityItems : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::ProbabilityItemInfo*> itemList;
+    std::vector<std::shared_ptr<bonus::ProbabilityItemInfo>> itemList;
 
     static constexpr int ID = 366387866;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4561,7 +4562,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeProbabilityItemInfo(ByteBuf& _buf, ProbabilityItemInfo*& _out);
+    static bool deserializeProbabilityItemInfo(ByteBuf& _buf, std::shared_ptr<ProbabilityItemInfo>& _out);
 
     ProbabilityItemInfo()
     { 
@@ -4583,7 +4584,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -4597,7 +4598,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4617,14 +4618,14 @@ class MultiBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeMultiBonus(ByteBuf& _buf, MultiBonus*& _out);
+    static bool deserializeMultiBonus(ByteBuf& _buf, std::shared_ptr<MultiBonus>& _out);
 
     MultiBonus()
     { 
 
     }
 
-    MultiBonus(std::vector<bonus::Bonus*> bonuses ) 
+    MultiBonus(std::vector<std::shared_ptr<bonus::Bonus>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4637,13 +4638,13 @@ class MultiBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::Bonus*> bonuses;
+    std::vector<std::shared_ptr<bonus::Bonus>> bonuses;
 
     static constexpr int ID = 1421907893;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4663,14 +4664,14 @@ class ProbabilityBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeProbabilityBonus(ByteBuf& _buf, ProbabilityBonus*& _out);
+    static bool deserializeProbabilityBonus(ByteBuf& _buf, std::shared_ptr<ProbabilityBonus>& _out);
 
     ProbabilityBonus()
     { 
 
     }
 
-    ProbabilityBonus(std::vector<bonus::ProbabilityBonusInfo*> bonuses ) 
+    ProbabilityBonus(std::vector<std::shared_ptr<bonus::ProbabilityBonusInfo>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4683,13 +4684,13 @@ class ProbabilityBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::ProbabilityBonusInfo*> bonuses;
+    std::vector<std::shared_ptr<bonus::ProbabilityBonusInfo>> bonuses;
 
     static constexpr int ID = 359783161;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4709,14 +4710,14 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeProbabilityBonusInfo(ByteBuf& _buf, ProbabilityBonusInfo*& _out);
+    static bool deserializeProbabilityBonusInfo(ByteBuf& _buf, std::shared_ptr<ProbabilityBonusInfo>& _out);
 
     ProbabilityBonusInfo()
     { 
 
     }
 
-    ProbabilityBonusInfo(bonus::Bonus* bonus, float probability ) 
+    ProbabilityBonusInfo(std::shared_ptr<bonus::Bonus> bonus, float probability ) 
     {
 
         this->bonus = bonus;
@@ -4729,7 +4730,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
     /**
      
      */
-    bonus::Bonus* bonus;
+    std::shared_ptr<bonus::Bonus> bonus;
     /**
      
      */
@@ -4739,7 +4740,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4759,14 +4760,14 @@ class WeightBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeWeightBonus(ByteBuf& _buf, WeightBonus*& _out);
+    static bool deserializeWeightBonus(ByteBuf& _buf, std::shared_ptr<WeightBonus>& _out);
 
     WeightBonus()
     { 
 
     }
 
-    WeightBonus(std::vector<bonus::WeightBonusInfo*> bonuses ) 
+    WeightBonus(std::vector<std::shared_ptr<bonus::WeightBonusInfo>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4779,13 +4780,13 @@ class WeightBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<bonus::WeightBonusInfo*> bonuses;
+    std::vector<std::shared_ptr<bonus::WeightBonusInfo>> bonuses;
 
     static constexpr int ID = -362807016;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4805,14 +4806,14 @@ class WeightBonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeWeightBonusInfo(ByteBuf& _buf, WeightBonusInfo*& _out);
+    static bool deserializeWeightBonusInfo(ByteBuf& _buf, std::shared_ptr<WeightBonusInfo>& _out);
 
     WeightBonusInfo()
     { 
 
     }
 
-    WeightBonusInfo(bonus::Bonus* bonus, int32_t weight ) 
+    WeightBonusInfo(std::shared_ptr<bonus::Bonus> bonus, int32_t weight ) 
     {
 
         this->bonus = bonus;
@@ -4825,7 +4826,7 @@ class WeightBonusInfo : public  bright::CfgBean
     /**
      
      */
-    bonus::Bonus* bonus;
+    std::shared_ptr<bonus::Bonus> bonus;
     /**
      
      */
@@ -4835,7 +4836,7 @@ class WeightBonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4855,7 +4856,7 @@ class DropBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeDropBonus(ByteBuf& _buf, DropBonus*& _out);
+    static bool deserializeDropBonus(ByteBuf& _buf, std::shared_ptr<DropBonus>& _out);
 
     DropBonus()
     { 
@@ -4876,13 +4877,13 @@ class DropBonus : public  bonus::Bonus
      
      */
     int32_t id;
-    bonus::DropInfo* id_Ref;
+    std::shared_ptr<bonus::DropInfo> id_Ref;
 
     static constexpr int ID = 1959868225;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -4902,7 +4903,7 @@ class GlobalConfig : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeGlobalConfig(ByteBuf& _buf, GlobalConfig*& _out);
+    static bool deserializeGlobalConfig(ByteBuf& _buf, std::shared_ptr<GlobalConfig>& _out);
 
     GlobalConfig()
     { 
@@ -4978,7 +4979,7 @@ class GlobalConfig : public  bright::CfgBean
      
      */
     int32_t* bagInitItemsDropId;
-    bonus::DropInfo* bagInitItemsDropId_Ref;
+    std::shared_ptr<bonus::DropInfo> bagInitItemsDropId_Ref;
     /**
      
      */
@@ -5028,7 +5029,7 @@ class GlobalConfig : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5048,14 +5049,14 @@ class Dummy : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDummy(ByteBuf& _buf, Dummy*& _out);
+    static bool deserializeDummy(ByteBuf& _buf, std::shared_ptr<Dummy>& _out);
 
     Dummy()
     { 
 
     }
 
-    Dummy(int32_t id, limit::LimitBase* limit ) 
+    Dummy(int32_t id, std::shared_ptr<limit::LimitBase> limit ) 
     {
 
         this->id = id;
@@ -5072,13 +5073,13 @@ class Dummy : public  bright::CfgBean
     /**
      
      */
-    limit::LimitBase* limit;
+    std::shared_ptr<limit::LimitBase> limit;
 
     static constexpr int ID = -985084219;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5098,7 +5099,7 @@ class LimitBase : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLimitBase(ByteBuf& _buf, LimitBase*& _out);
+    static bool deserializeLimitBase(ByteBuf& _buf, std::shared_ptr<LimitBase>& _out);
 
     LimitBase()
     { 
@@ -5111,7 +5112,7 @@ class LimitBase : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5131,7 +5132,7 @@ class DailyLimitBase : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeDailyLimitBase(ByteBuf& _buf, DailyLimitBase*& _out);
+    static bool deserializeDailyLimitBase(ByteBuf& _buf, std::shared_ptr<DailyLimitBase>& _out);
 
     DailyLimitBase()
     { 
@@ -5144,7 +5145,7 @@ class DailyLimitBase : public  limit::LimitBase
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5164,7 +5165,7 @@ class DailyLimit : public  limit::DailyLimitBase
 {
     public:
 
-    static bool deserializeDailyLimit(ByteBuf& _buf, DailyLimit*& _out);
+    static bool deserializeDailyLimit(ByteBuf& _buf, std::shared_ptr<DailyLimit>& _out);
 
     DailyLimit()
     { 
@@ -5190,7 +5191,7 @@ class DailyLimit : public  limit::DailyLimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5210,7 +5211,7 @@ class MultiDayLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeMultiDayLimit(ByteBuf& _buf, MultiDayLimit*& _out);
+    static bool deserializeMultiDayLimit(ByteBuf& _buf, std::shared_ptr<MultiDayLimit>& _out);
 
     MultiDayLimit()
     { 
@@ -5241,7 +5242,7 @@ class MultiDayLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5261,7 +5262,7 @@ class WeeklyLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeWeeklyLimit(ByteBuf& _buf, WeeklyLimit*& _out);
+    static bool deserializeWeeklyLimit(ByteBuf& _buf, std::shared_ptr<WeeklyLimit>& _out);
 
     WeeklyLimit()
     { 
@@ -5287,7 +5288,7 @@ class WeeklyLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5307,7 +5308,7 @@ class MonthlyLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeMonthlyLimit(ByteBuf& _buf, MonthlyLimit*& _out);
+    static bool deserializeMonthlyLimit(ByteBuf& _buf, std::shared_ptr<MonthlyLimit>& _out);
 
     MonthlyLimit()
     { 
@@ -5333,7 +5334,7 @@ class MonthlyLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5353,7 +5354,7 @@ class CoolDown : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeCoolDown(ByteBuf& _buf, CoolDown*& _out);
+    static bool deserializeCoolDown(ByteBuf& _buf, std::shared_ptr<CoolDown>& _out);
 
     CoolDown()
     { 
@@ -5379,7 +5380,7 @@ class CoolDown : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5399,7 +5400,7 @@ class GroupCoolDown : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeGroupCoolDown(ByteBuf& _buf, GroupCoolDown*& _out);
+    static bool deserializeGroupCoolDown(ByteBuf& _buf, std::shared_ptr<GroupCoolDown>& _out);
 
     GroupCoolDown()
     { 
@@ -5430,7 +5431,7 @@ class GroupCoolDown : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5450,14 +5451,14 @@ class ErrorInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeErrorInfo(ByteBuf& _buf, ErrorInfo*& _out);
+    static bool deserializeErrorInfo(ByteBuf& _buf, std::shared_ptr<ErrorInfo>& _out);
 
     ErrorInfo()
     { 
 
     }
 
-    ErrorInfo(bright::String code, bright::String desc, error::ErrorStyle* style ) 
+    ErrorInfo(std::string code, std::string desc, std::shared_ptr<error::ErrorStyle> style ) 
     {
 
         this->code = code;
@@ -5471,21 +5472,21 @@ class ErrorInfo : public  bright::CfgBean
     /**
      
      */
-    bright::String code;
+    std::string code;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
-    error::ErrorStyle* style;
+    std::shared_ptr<error::ErrorStyle> style;
 
     static constexpr int ID = 1389347408;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5505,7 +5506,7 @@ class ErrorStyle : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeErrorStyle(ByteBuf& _buf, ErrorStyle*& _out);
+    static bool deserializeErrorStyle(ByteBuf& _buf, std::shared_ptr<ErrorStyle>& _out);
 
     ErrorStyle()
     { 
@@ -5518,7 +5519,7 @@ class ErrorStyle : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5538,7 +5539,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleTip(ByteBuf& _buf, ErrorStyleTip*& _out);
+    static bool deserializeErrorStyleTip(ByteBuf& _buf, std::shared_ptr<ErrorStyleTip>& _out);
 
     ErrorStyleTip()
     { 
@@ -5554,7 +5555,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5574,14 +5575,14 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleMsgbox(ByteBuf& _buf, ErrorStyleMsgbox*& _out);
+    static bool deserializeErrorStyleMsgbox(ByteBuf& _buf, std::shared_ptr<ErrorStyleMsgbox>& _out);
 
     ErrorStyleMsgbox()
     { 
 
     }
 
-    ErrorStyleMsgbox(bright::String btn_name, error::EOperation operation ) 
+    ErrorStyleMsgbox(std::string btn_name, error::EOperation operation ) 
             : error::ErrorStyle()
     {
 
@@ -5595,7 +5596,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
     /**
      
      */
-    bright::String btnName;
+    std::string btnName;
     /**
      
      */
@@ -5605,7 +5606,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5625,14 +5626,14 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleDlgOk(ByteBuf& _buf, ErrorStyleDlgOk*& _out);
+    static bool deserializeErrorStyleDlgOk(ByteBuf& _buf, std::shared_ptr<ErrorStyleDlgOk>& _out);
 
     ErrorStyleDlgOk()
     { 
 
     }
 
-    ErrorStyleDlgOk(bright::String btn_name ) 
+    ErrorStyleDlgOk(std::string btn_name ) 
             : error::ErrorStyle()
     {
 
@@ -5645,13 +5646,13 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
     /**
      
      */
-    bright::String btnName;
+    std::string btnName;
 
     static constexpr int ID = -2010134516;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5671,14 +5672,14 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, ErrorStyleDlgOkCancel*& _out);
+    static bool deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, std::shared_ptr<ErrorStyleDlgOkCancel>& _out);
 
     ErrorStyleDlgOkCancel()
     { 
 
     }
 
-    ErrorStyleDlgOkCancel(bright::String btn1_name, bright::String btn2_name ) 
+    ErrorStyleDlgOkCancel(std::string btn1_name, std::string btn2_name ) 
             : error::ErrorStyle()
     {
 
@@ -5692,17 +5693,17 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
     /**
      
      */
-    bright::String btn1Name;
+    std::string btn1Name;
     /**
      
      */
-    bright::String btn2Name;
+    std::string btn2Name;
 
     static constexpr int ID = 971221414;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5722,14 +5723,14 @@ class CodeInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCodeInfo(ByteBuf& _buf, CodeInfo*& _out);
+    static bool deserializeCodeInfo(ByteBuf& _buf, std::shared_ptr<CodeInfo>& _out);
 
     CodeInfo()
     { 
 
     }
 
-    CodeInfo(error::EErrorCode code, bright::String key ) 
+    CodeInfo(error::EErrorCode code, std::string key ) 
     {
 
         this->code = code;
@@ -5746,13 +5747,13 @@ class CodeInfo : public  bright::CfgBean
     /**
      
      */
-    bright::String key;
+    std::string key;
 
     static constexpr int ID = -1942481535;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5772,14 +5773,14 @@ class Item : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItem(ByteBuf& _buf, Item*& _out);
+    static bool deserializeItem(ByteBuf& _buf, std::shared_ptr<Item>& _out);
 
     Item()
     { 
 
     }
 
-    Item(int32_t id, bright::String name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, bright::String icon, bright::String icon_backgroud, bright::String icon_mask, bright::String desc, int32_t show_order, bright::String quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t* price, item::EUseType use_type, int32_t* level_up_id ) 
+    Item(int32_t id, std::string name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, std::string icon, std::string icon_backgroud, std::string icon_mask, std::string desc, int32_t show_order, std::string quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t* price, item::EUseType use_type, int32_t* level_up_id ) 
     {
 
         this->id = id;
@@ -5815,7 +5816,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
@@ -5835,19 +5836,19 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    bright::String icon;
+    std::string icon;
     /**
      
      */
-    bright::String iconBackgroud;
+    std::string iconBackgroud;
     /**
      
      */
-    bright::String iconMask;
+    std::string iconMask;
     /**
      
      */
-    bright::String desc;
+    std::string desc;
     /**
      
      */
@@ -5855,7 +5856,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    bright::String quantifier;
+    std::string quantifier;
     /**
      
      */
@@ -5897,7 +5898,7 @@ class Item : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5917,14 +5918,14 @@ class ItemFunction : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItemFunction(ByteBuf& _buf, ItemFunction*& _out);
+    static bool deserializeItemFunction(ByteBuf& _buf, std::shared_ptr<ItemFunction>& _out);
 
     ItemFunction()
     { 
 
     }
 
-    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, bright::String method, bool close_bag_ui ) 
+    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, std::string method, bool close_bag_ui ) 
     {
 
         this->minorType = minor_type;
@@ -5947,7 +5948,7 @@ class ItemFunction : public  bright::CfgBean
     /**
      
      */
-    bright::String method;
+    std::string method;
     /**
      
      */
@@ -5957,7 +5958,7 @@ class ItemFunction : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -5977,7 +5978,7 @@ class ItemExtra : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItemExtra(ByteBuf& _buf, ItemExtra*& _out);
+    static bool deserializeItemExtra(ByteBuf& _buf, std::shared_ptr<ItemExtra>& _out);
 
     ItemExtra()
     { 
@@ -5999,7 +6000,7 @@ class ItemExtra : public  bright::CfgBean
     int32_t id;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6019,14 +6020,14 @@ class TreasureBox : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeTreasureBox(ByteBuf& _buf, TreasureBox*& _out);
+    static bool deserializeTreasureBox(ByteBuf& _buf, std::shared_ptr<TreasureBox>& _out);
 
     TreasureBox()
     { 
 
     }
 
-    TreasureBox(int32_t id, int32_t* key_item_id, condition::MinLevel* open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<item::ChooseOneBonus*> choose_list ) 
+    TreasureBox(int32_t id, int32_t* key_item_id, std::shared_ptr<condition::MinLevel> open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<std::shared_ptr<item::ChooseOneBonus>> choose_list ) 
             : item::ItemExtra(id)
     {
 
@@ -6047,7 +6048,7 @@ class TreasureBox : public  item::ItemExtra
     /**
      
      */
-    condition::MinLevel* openLevel;
+    std::shared_ptr<condition::MinLevel> openLevel;
     /**
      
      */
@@ -6059,13 +6060,13 @@ class TreasureBox : public  item::ItemExtra
     /**
      
      */
-    std::vector<item::ChooseOneBonus*> chooseList;
+    std::vector<std::shared_ptr<item::ChooseOneBonus>> chooseList;
 
     static constexpr int ID = 1494222369;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6085,7 +6086,7 @@ class Condition : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCondition(ByteBuf& _buf, Condition*& _out);
+    static bool deserializeCondition(ByteBuf& _buf, std::shared_ptr<Condition>& _out);
 
     Condition()
     { 
@@ -6098,7 +6099,7 @@ class Condition : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6118,14 +6119,14 @@ class TimeRange : public  condition::Condition
 {
     public:
 
-    static bool deserializeTimeRange(ByteBuf& _buf, TimeRange*& _out);
+    static bool deserializeTimeRange(ByteBuf& _buf, std::shared_ptr<TimeRange>& _out);
 
     TimeRange()
     { 
 
     }
 
-    TimeRange(common::DateTimeRange* date_time_range ) 
+    TimeRange(std::shared_ptr<common::DateTimeRange> date_time_range ) 
             : condition::Condition()
     {
 
@@ -6138,13 +6139,13 @@ class TimeRange : public  condition::Condition
     /**
      
      */
-    common::DateTimeRange* dateTimeRange;
+    std::shared_ptr<common::DateTimeRange> dateTimeRange;
 
     static constexpr int ID = 1069033789;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6164,7 +6165,7 @@ class DateTimeRange : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDateTimeRange(ByteBuf& _buf, DateTimeRange*& _out);
+    static bool deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<DateTimeRange>& _out);
 
     DateTimeRange()
     { 
@@ -6194,7 +6195,7 @@ class DateTimeRange : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6214,7 +6215,7 @@ class RoleCondition : public  condition::Condition
 {
     public:
 
-    static bool deserializeRoleCondition(ByteBuf& _buf, RoleCondition*& _out);
+    static bool deserializeRoleCondition(ByteBuf& _buf, std::shared_ptr<RoleCondition>& _out);
 
     RoleCondition()
     { 
@@ -6227,7 +6228,7 @@ class RoleCondition : public  condition::Condition
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6247,14 +6248,14 @@ class MultiRoleCondition : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeMultiRoleCondition(ByteBuf& _buf, MultiRoleCondition*& _out);
+    static bool deserializeMultiRoleCondition(ByteBuf& _buf, std::shared_ptr<MultiRoleCondition>& _out);
 
     MultiRoleCondition()
     { 
 
     }
 
-    MultiRoleCondition(std::vector<condition::RoleCondition*> conditions ) 
+    MultiRoleCondition(std::vector<std::shared_ptr<condition::RoleCondition>> conditions ) 
             : condition::RoleCondition()
     {
 
@@ -6267,13 +6268,13 @@ class MultiRoleCondition : public  condition::RoleCondition
     /**
      
      */
-    std::vector<condition::RoleCondition*> conditions;
+    std::vector<std::shared_ptr<condition::RoleCondition>> conditions;
 
     static constexpr int ID = 934079583;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6293,7 +6294,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeBoolRoleCondition(ByteBuf& _buf, BoolRoleCondition*& _out);
+    static bool deserializeBoolRoleCondition(ByteBuf& _buf, std::shared_ptr<BoolRoleCondition>& _out);
 
     BoolRoleCondition()
     { 
@@ -6306,7 +6307,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6326,7 +6327,7 @@ class GenderLimit : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeGenderLimit(ByteBuf& _buf, GenderLimit*& _out);
+    static bool deserializeGenderLimit(ByteBuf& _buf, std::shared_ptr<GenderLimit>& _out);
 
     GenderLimit()
     { 
@@ -6352,7 +6353,7 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6372,7 +6373,7 @@ class MinLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMinLevel(ByteBuf& _buf, MinLevel*& _out);
+    static bool deserializeMinLevel(ByteBuf& _buf, std::shared_ptr<MinLevel>& _out);
 
     MinLevel()
     { 
@@ -6398,7 +6399,7 @@ class MinLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6418,7 +6419,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMaxLevel(ByteBuf& _buf, MaxLevel*& _out);
+    static bool deserializeMaxLevel(ByteBuf& _buf, std::shared_ptr<MaxLevel>& _out);
 
     MaxLevel()
     { 
@@ -6444,7 +6445,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6464,7 +6465,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMinMaxLevel(ByteBuf& _buf, MinMaxLevel*& _out);
+    static bool deserializeMinMaxLevel(ByteBuf& _buf, std::shared_ptr<MinMaxLevel>& _out);
 
     MinMaxLevel()
     { 
@@ -6495,7 +6496,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6515,7 +6516,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, ClothesPropertyScoreGreaterThan*& _out);
+    static bool deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, std::shared_ptr<ClothesPropertyScoreGreaterThan>& _out);
 
     ClothesPropertyScoreGreaterThan()
     { 
@@ -6546,7 +6547,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6566,7 +6567,7 @@ class ContainsItem : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeContainsItem(ByteBuf& _buf, ContainsItem*& _out);
+    static bool deserializeContainsItem(ByteBuf& _buf, std::shared_ptr<ContainsItem>& _out);
 
     ContainsItem()
     { 
@@ -6589,7 +6590,7 @@ class ContainsItem : public  condition::RoleCondition
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -6603,7 +6604,7 @@ class ContainsItem : public  condition::RoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6623,7 +6624,7 @@ class ChooseOneBonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeChooseOneBonus(ByteBuf& _buf, ChooseOneBonus*& _out);
+    static bool deserializeChooseOneBonus(ByteBuf& _buf, std::shared_ptr<ChooseOneBonus>& _out);
 
     ChooseOneBonus()
     { 
@@ -6644,7 +6645,7 @@ class ChooseOneBonus : public  bright::CfgBean
      
      */
     int32_t dropId;
-    bonus::DropInfo* dropId_Ref;
+    std::shared_ptr<bonus::DropInfo> dropId_Ref;
     /**
      
      */
@@ -6654,7 +6655,7 @@ class ChooseOneBonus : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6674,14 +6675,14 @@ class InteractionItem : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeInteractionItem(ByteBuf& _buf, InteractionItem*& _out);
+    static bool deserializeInteractionItem(ByteBuf& _buf, std::shared_ptr<InteractionItem>& _out);
 
     InteractionItem()
     { 
 
     }
 
-    InteractionItem(int32_t id, int32_t* attack_num, bright::String holding_static_mesh, bright::String holding_static_mesh_mat ) 
+    InteractionItem(int32_t id, int32_t* attack_num, std::string holding_static_mesh, std::string holding_static_mesh_mat ) 
             : item::ItemExtra(id)
     {
 
@@ -6700,17 +6701,17 @@ class InteractionItem : public  item::ItemExtra
     /**
      
      */
-    bright::String holdingStaticMesh;
+    std::string holdingStaticMesh;
     /**
      
      */
-    bright::String holdingStaticMeshMat;
+    std::string holdingStaticMeshMat;
 
     static constexpr int ID = 640937802;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6730,7 +6731,7 @@ class Clothes : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeClothes(ByteBuf& _buf, Clothes*& _out);
+    static bool deserializeClothes(ByteBuf& _buf, std::shared_ptr<Clothes>& _out);
 
     Clothes()
     { 
@@ -6771,7 +6772,7 @@ class Clothes : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6791,7 +6792,7 @@ class DesignDrawing : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeDesignDrawing(ByteBuf& _buf, DesignDrawing*& _out);
+    static bool deserializeDesignDrawing(ByteBuf& _buf, std::shared_ptr<DesignDrawing>& _out);
 
     DesignDrawing()
     { 
@@ -6817,7 +6818,7 @@ class DesignDrawing : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6837,14 +6838,14 @@ class Dymmy : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeDymmy(ByteBuf& _buf, Dymmy*& _out);
+    static bool deserializeDymmy(ByteBuf& _buf, std::shared_ptr<Dymmy>& _out);
 
     Dymmy()
     { 
 
     }
 
-    Dymmy(int32_t id, cost::Cost* cost ) 
+    Dymmy(int32_t id, std::shared_ptr<cost::Cost> cost ) 
             : item::ItemExtra(id)
     {
 
@@ -6857,13 +6858,13 @@ class Dymmy : public  item::ItemExtra
     /**
      
      */
-    cost::Cost* cost;
+    std::shared_ptr<cost::Cost> cost;
 
     static constexpr int ID = 896889705;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6883,7 +6884,7 @@ class Cost : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCost(ByteBuf& _buf, Cost*& _out);
+    static bool deserializeCost(ByteBuf& _buf, std::shared_ptr<Cost>& _out);
 
     Cost()
     { 
@@ -6896,7 +6897,7 @@ class Cost : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6916,7 +6917,7 @@ class CostCurrency : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostCurrency(ByteBuf& _buf, CostCurrency*& _out);
+    static bool deserializeCostCurrency(ByteBuf& _buf, std::shared_ptr<CostCurrency>& _out);
 
     CostCurrency()
     { 
@@ -6947,7 +6948,7 @@ class CostCurrency : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -6967,14 +6968,14 @@ class CostCurrencies : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostCurrencies(ByteBuf& _buf, CostCurrencies*& _out);
+    static bool deserializeCostCurrencies(ByteBuf& _buf, std::shared_ptr<CostCurrencies>& _out);
 
     CostCurrencies()
     { 
 
     }
 
-    CostCurrencies(std::vector<cost::CostCurrency*> currencies ) 
+    CostCurrencies(std::vector<std::shared_ptr<cost::CostCurrency>> currencies ) 
             : cost::Cost()
     {
 
@@ -6987,13 +6988,13 @@ class CostCurrencies : public  cost::Cost
     /**
      
      */
-    std::vector<cost::CostCurrency*> currencies;
+    std::vector<std::shared_ptr<cost::CostCurrency>> currencies;
 
     static constexpr int ID = 103084157;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7013,7 +7014,7 @@ class CostOneItem : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostOneItem(ByteBuf& _buf, CostOneItem*& _out);
+    static bool deserializeCostOneItem(ByteBuf& _buf, std::shared_ptr<CostOneItem>& _out);
 
     CostOneItem()
     { 
@@ -7034,13 +7035,13 @@ class CostOneItem : public  cost::Cost
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
 
     static constexpr int ID = -1033587381;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7060,7 +7061,7 @@ class CostItem : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostItem(ByteBuf& _buf, CostItem*& _out);
+    static bool deserializeCostItem(ByteBuf& _buf, std::shared_ptr<CostItem>& _out);
 
     CostItem()
     { 
@@ -7082,7 +7083,7 @@ class CostItem : public  cost::Cost
      
      */
     int32_t itemId;
-    item::Item* itemId_Ref;
+    std::shared_ptr<item::Item> itemId_Ref;
     /**
      
      */
@@ -7092,7 +7093,7 @@ class CostItem : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7112,14 +7113,14 @@ class CostItems : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostItems(ByteBuf& _buf, CostItems*& _out);
+    static bool deserializeCostItems(ByteBuf& _buf, std::shared_ptr<CostItems>& _out);
 
     CostItems()
     { 
 
     }
 
-    CostItems(std::vector<cost::CostItem*> item_list ) 
+    CostItems(std::vector<std::shared_ptr<cost::CostItem>> item_list ) 
             : cost::Cost()
     {
 
@@ -7132,13 +7133,13 @@ class CostItems : public  cost::Cost
     /**
      
      */
-    std::vector<cost::CostItem*> itemList;
+    std::vector<std::shared_ptr<cost::CostItem>> itemList;
 
     static constexpr int ID = -77945102;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7158,14 +7159,14 @@ class L10NDemo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeL10NDemo(ByteBuf& _buf, L10NDemo*& _out);
+    static bool deserializeL10NDemo(ByteBuf& _buf, std::shared_ptr<L10NDemo>& _out);
 
     L10NDemo()
     { 
 
     }
 
-    L10NDemo(int32_t id, bright::String text ) 
+    L10NDemo(int32_t id, std::string text ) 
     {
 
         this->id = id;
@@ -7182,13 +7183,13 @@ class L10NDemo : public  bright::CfgBean
     /**
      
      */
-    bright::String text;
+    std::string text;
 
     static constexpr int ID = -331195887;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7208,7 +7209,7 @@ class PatchDemo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializePatchDemo(ByteBuf& _buf, PatchDemo*& _out);
+    static bool deserializePatchDemo(ByteBuf& _buf, std::shared_ptr<PatchDemo>& _out);
 
     PatchDemo()
     { 
@@ -7238,7 +7239,7 @@ class PatchDemo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7258,14 +7259,14 @@ class SystemMail : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeSystemMail(ByteBuf& _buf, SystemMail*& _out);
+    static bool deserializeSystemMail(ByteBuf& _buf, std::shared_ptr<SystemMail>& _out);
 
     SystemMail()
     { 
 
     }
 
-    SystemMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award ) 
+    SystemMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award ) 
     {
 
         this->id = id;
@@ -7285,15 +7286,15 @@ class SystemMail : public  bright::CfgBean
     /**
      
      */
-    bright::String title;
+    std::string title;
     /**
      
      */
-    bright::String sender;
+    std::string sender;
     /**
      
      */
-    bright::String content;
+    std::string content;
     /**
      
      */
@@ -7303,7 +7304,7 @@ class SystemMail : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7323,14 +7324,14 @@ class GlobalMail : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeGlobalMail(ByteBuf& _buf, GlobalMail*& _out);
+    static bool deserializeGlobalMail(ByteBuf& _buf, std::shared_ptr<GlobalMail>& _out);
 
     GlobalMail()
     { 
 
     }
 
-    GlobalMail(int32_t id, bright::String title, bright::String sender, bright::String content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, bright::String platform, bright::String channel, condition::MinMaxLevel* min_max_level, condition::TimeRange* register_time, condition::TimeRange* mail_time ) 
+    GlobalMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, std::string platform, std::string channel, std::shared_ptr<condition::MinMaxLevel> min_max_level, std::shared_ptr<condition::TimeRange> register_time, std::shared_ptr<condition::TimeRange> mail_time ) 
     {
 
         this->id = id;
@@ -7357,15 +7358,15 @@ class GlobalMail : public  bright::CfgBean
     /**
      
      */
-    bright::String title;
+    std::string title;
     /**
      
      */
-    bright::String sender;
+    std::string sender;
     /**
      
      */
-    bright::String content;
+    std::string content;
     /**
      
      */
@@ -7381,29 +7382,29 @@ class GlobalMail : public  bright::CfgBean
     /**
      
      */
-    bright::String platform;
+    std::string platform;
     /**
      
      */
-    bright::String channel;
+    std::string channel;
     /**
      
      */
-    condition::MinMaxLevel* minMaxLevel;
+    std::shared_ptr<condition::MinMaxLevel> minMaxLevel;
     /**
      
      */
-    condition::TimeRange* registerTime;
+    std::shared_ptr<condition::TimeRange> registerTime;
     /**
      
      */
-    condition::TimeRange* mailTime;
+    std::shared_ptr<condition::TimeRange> mailTime;
 
     static constexpr int ID = -287571791;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7423,7 +7424,7 @@ class LevelExpAttr : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLevelExpAttr(ByteBuf& _buf, LevelExpAttr*& _out);
+    static bool deserializeLevelExpAttr(ByteBuf& _buf, std::shared_ptr<LevelExpAttr>& _out);
 
     LevelExpAttr()
     { 
@@ -7458,7 +7459,7 @@ class LevelExpAttr : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7478,14 +7479,14 @@ class LevelBonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLevelBonus(ByteBuf& _buf, LevelBonus*& _out);
+    static bool deserializeLevelBonus(ByteBuf& _buf, std::shared_ptr<LevelBonus>& _out);
 
     LevelBonus()
     { 
 
     }
 
-    LevelBonus(int32_t id, std::vector<role::DistinctBonusInfos*> distinct_bonus_infos ) 
+    LevelBonus(int32_t id, std::vector<std::shared_ptr<role::DistinctBonusInfos>> distinct_bonus_infos ) 
     {
 
         this->id = id;
@@ -7502,13 +7503,13 @@ class LevelBonus : public  bright::CfgBean
     /**
      
      */
-    std::vector<role::DistinctBonusInfos*> distinctBonusInfos;
+    std::vector<std::shared_ptr<role::DistinctBonusInfos>> distinctBonusInfos;
 
     static constexpr int ID = -572269677;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7528,14 +7529,14 @@ class DistinctBonusInfos : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDistinctBonusInfos(ByteBuf& _buf, DistinctBonusInfos*& _out);
+    static bool deserializeDistinctBonusInfos(ByteBuf& _buf, std::shared_ptr<DistinctBonusInfos>& _out);
 
     DistinctBonusInfos()
     { 
 
     }
 
-    DistinctBonusInfos(int32_t effective_level, std::vector<role::BonusInfo*> bonus_info ) 
+    DistinctBonusInfos(int32_t effective_level, std::vector<std::shared_ptr<role::BonusInfo>> bonus_info ) 
     {
 
         this->effectiveLevel = effective_level;
@@ -7552,13 +7553,13 @@ class DistinctBonusInfos : public  bright::CfgBean
     /**
      
      */
-    std::vector<role::BonusInfo*> bonusInfo;
+    std::vector<std::shared_ptr<role::BonusInfo>> bonusInfo;
 
     static constexpr int ID = -854361766;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7578,7 +7579,7 @@ class BonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBonusInfo(ByteBuf& _buf, BonusInfo*& _out);
+    static bool deserializeBonusInfo(ByteBuf& _buf, std::shared_ptr<BonusInfo>& _out);
 
     BonusInfo()
     { 
@@ -7608,7 +7609,7 @@ class BonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7628,14 +7629,14 @@ class TestTag : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestTag(ByteBuf& _buf, TestTag*& _out);
+    static bool deserializeTestTag(ByteBuf& _buf, std::shared_ptr<TestTag>& _out);
 
     TestTag()
     { 
 
     }
 
-    TestTag(int32_t id, bright::String value ) 
+    TestTag(int32_t id, std::string value ) 
     {
 
         this->id = id;
@@ -7652,13 +7653,13 @@ class TestTag : public  bright::CfgBean
     /**
      
      */
-    bright::String value;
+    std::string value;
 
     static constexpr int ID = 1742933812;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7678,14 +7679,14 @@ class DemoType2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoType2(ByteBuf& _buf, DemoType2*& _out);
+    static bool deserializeDemoType2(ByteBuf& _buf, std::shared_ptr<DemoType2>& _out);
 
     DemoType2()
     { 
 
     }
 
-    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, bright::String x10, test::DemoType1* x12, test::DemoEnum x13, test::DemoDynamic* x14, bright::String s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9, std::vector<test::DemoDynamic*> k15 ) 
+    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, std::string x10, std::shared_ptr<test::DemoType1> x12, test::DemoEnum x13, std::shared_ptr<test::DemoDynamic> x14, std::string s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9, std::vector<std::shared_ptr<test::DemoDynamic>> k15 ) 
     {
 
         this->x4 = x4;
@@ -7738,7 +7739,7 @@ class DemoType2 : public  bright::CfgBean
      
      */
     int16_t x3;
-    test::DemoType2* x3_Ref;
+    std::shared_ptr<test::DemoType2> x3_Ref;
     /**
      
      */
@@ -7766,11 +7767,11 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    bright::String x10;
+    std::string x10;
     /**
      
      */
-    test::DemoType1* x12;
+    std::shared_ptr<test::DemoType1> x12;
     /**
      
      */
@@ -7778,11 +7779,11 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    test::DemoDynamic* x14;
+    std::shared_ptr<test::DemoDynamic> x14;
     /**
      
      */
-    bright::String s1;
+    std::string s1;
     /**
      
      */
@@ -7834,18 +7835,18 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    std::vector<test::DemoE2*> k9;
-    std::unordered_map<int32_t*, test::DemoE2*> k9_Index;
+    std::vector<std::shared_ptr<test::DemoE2>> k9;
+    std::unordered_map<int32_t*, std::shared_ptr<test::DemoE2>> k9_Index;
     /**
      
      */
-    std::vector<test::DemoDynamic*> k15;
+    std::vector<std::shared_ptr<test::DemoDynamic>> k15;
 
     static constexpr int ID = -367048295;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7865,7 +7866,7 @@ class DemoType1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoType1(ByteBuf& _buf, DemoType1*& _out);
+    static bool deserializeDemoType1(ByteBuf& _buf, std::shared_ptr<DemoType1>& _out);
 
     DemoType1()
     { 
@@ -7890,7 +7891,7 @@ class DemoType1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7910,7 +7911,7 @@ class DemoDynamic : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoDynamic(ByteBuf& _buf, DemoDynamic*& _out);
+    static bool deserializeDemoDynamic(ByteBuf& _buf, std::shared_ptr<DemoDynamic>& _out);
 
     DemoDynamic()
     { 
@@ -7932,7 +7933,7 @@ class DemoDynamic : public  bright::CfgBean
     int32_t x1;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7952,7 +7953,7 @@ class DemoD2 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD2(ByteBuf& _buf, DemoD2*& _out);
+    static bool deserializeDemoD2(ByteBuf& _buf, std::shared_ptr<DemoD2>& _out);
 
     DemoD2()
     { 
@@ -7978,7 +7979,7 @@ class DemoD2 : public  test::DemoDynamic
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -7998,7 +7999,7 @@ class DemoD3 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD3(ByteBuf& _buf, DemoD3*& _out);
+    static bool deserializeDemoD3(ByteBuf& _buf, std::shared_ptr<DemoD3>& _out);
 
     DemoD3()
     { 
@@ -8021,7 +8022,7 @@ class DemoD3 : public  test::DemoDynamic
     int32_t x3;
 
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8041,7 +8042,7 @@ class DemoE1 : public  test::DemoD3
 {
     public:
 
-    static bool deserializeDemoE1(ByteBuf& _buf, DemoE1*& _out);
+    static bool deserializeDemoE1(ByteBuf& _buf, std::shared_ptr<DemoE1>& _out);
 
     DemoE1()
     { 
@@ -8067,7 +8068,7 @@ class DemoE1 : public  test::DemoD3
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8087,14 +8088,14 @@ class DemoD5 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD5(ByteBuf& _buf, DemoD5*& _out);
+    static bool deserializeDemoD5(ByteBuf& _buf, std::shared_ptr<DemoD5>& _out);
 
     DemoD5()
     { 
 
     }
 
-    DemoD5(int32_t x1, test::DateTimeRange* time ) 
+    DemoD5(int32_t x1, std::shared_ptr<test::DateTimeRange> time ) 
             : test::DemoDynamic(x1)
     {
 
@@ -8107,13 +8108,13 @@ class DemoD5 : public  test::DemoDynamic
     /**
      
      */
-    test::DateTimeRange* time;
+    std::shared_ptr<test::DateTimeRange> time;
 
     static constexpr int ID = -2138341744;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8133,7 +8134,7 @@ class DateTimeRange : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDateTimeRange(ByteBuf& _buf, DateTimeRange*& _out);
+    static bool deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<DateTimeRange>& _out);
 
     DateTimeRange()
     { 
@@ -8163,7 +8164,7 @@ class DateTimeRange : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8183,7 +8184,7 @@ class DemoE2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoE2(ByteBuf& _buf, DemoE2*& _out);
+    static bool deserializeDemoE2(ByteBuf& _buf, std::shared_ptr<DemoE2>& _out);
 
     DemoE2()
     { 
@@ -8213,7 +8214,7 @@ class DemoE2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8233,14 +8234,14 @@ class DemoSingletonType : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoSingletonType(ByteBuf& _buf, DemoSingletonType*& _out);
+    static bool deserializeDemoSingletonType(ByteBuf& _buf, std::shared_ptr<DemoSingletonType>& _out);
 
     DemoSingletonType()
     { 
 
     }
 
-    DemoSingletonType(int32_t id, bright::String name, test::DemoDynamic* date ) 
+    DemoSingletonType(int32_t id, std::string name, std::shared_ptr<test::DemoDynamic> date ) 
     {
 
         this->id = id;
@@ -8258,17 +8259,17 @@ class DemoSingletonType : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    test::DemoDynamic* date;
+    std::shared_ptr<test::DemoDynamic> date;
 
     static constexpr int ID = 539196998;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8288,14 +8289,14 @@ class MultiRowRecord : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowRecord(ByteBuf& _buf, MultiRowRecord*& _out);
+    static bool deserializeMultiRowRecord(ByteBuf& _buf, std::shared_ptr<MultiRowRecord>& _out);
 
     MultiRowRecord()
     { 
 
     }
 
-    MultiRowRecord(int32_t id, bright::String name, std::vector<test::MultiRowType1*> one_rows, std::vector<test::MultiRowType1*> multi_rows1, std::vector<test::MultiRowType1*> multi_rows2, std::unordered_set<test::MultiRowType2*> multi_rows3, std::unordered_map<int32_t, test::MultiRowType2*> multi_rows4, std::vector<test::MultiRowType3*> multi_rows5 ) 
+    MultiRowRecord(int32_t id, std::string name, std::vector<std::shared_ptr<test::MultiRowType1>> one_rows, std::vector<std::shared_ptr<test::MultiRowType1>> multi_rows1, std::vector<std::shared_ptr<test::MultiRowType1>> multi_rows2, std::unordered_set<std::shared_ptr<test::MultiRowType2>> multi_rows3, std::unordered_map<int32_t, std::shared_ptr<test::MultiRowType2>> multi_rows4, std::vector<std::shared_ptr<test::MultiRowType3>> multi_rows5 ) 
     {
 
         this->id = id;
@@ -8318,37 +8319,37 @@ class MultiRowRecord : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    std::vector<test::MultiRowType1*> oneRows;
+    std::vector<std::shared_ptr<test::MultiRowType1>> oneRows;
     /**
      
      */
-    std::vector<test::MultiRowType1*> multiRows1;
+    std::vector<std::shared_ptr<test::MultiRowType1>> multiRows1;
     /**
      
      */
-    std::vector<test::MultiRowType1*> multiRows2;
+    std::vector<std::shared_ptr<test::MultiRowType1>> multiRows2;
     /**
      
      */
-    std::unordered_set<test::MultiRowType2*> multiRows3;
+    std::unordered_set<std::shared_ptr<test::MultiRowType2>> multiRows3;
     /**
      
      */
-    std::unordered_map<int32_t, test::MultiRowType2*> multiRows4;
+    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowType2>> multiRows4;
     /**
      
      */
-    std::vector<test::MultiRowType3*> multiRows5;
+    std::vector<std::shared_ptr<test::MultiRowType3>> multiRows5;
 
     static constexpr int ID = -501249394;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8368,7 +8369,7 @@ class MultiRowType1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType1(ByteBuf& _buf, MultiRowType1*& _out);
+    static bool deserializeMultiRowType1(ByteBuf& _buf, std::shared_ptr<MultiRowType1>& _out);
 
     MultiRowType1()
     { 
@@ -8398,7 +8399,7 @@ class MultiRowType1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8418,7 +8419,7 @@ class MultiRowType2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType2(ByteBuf& _buf, MultiRowType2*& _out);
+    static bool deserializeMultiRowType2(ByteBuf& _buf, std::shared_ptr<MultiRowType2>& _out);
 
     MultiRowType2()
     { 
@@ -8453,7 +8454,7 @@ class MultiRowType2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8473,14 +8474,14 @@ class MultiRowType3 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType3(ByteBuf& _buf, MultiRowType3*& _out);
+    static bool deserializeMultiRowType3(ByteBuf& _buf, std::shared_ptr<MultiRowType3>& _out);
 
     MultiRowType3()
     { 
 
     }
 
-    MultiRowType3(int32_t id, std::vector<test::MultiRowType1*> items ) 
+    MultiRowType3(int32_t id, std::vector<std::shared_ptr<test::MultiRowType1>> items ) 
     {
 
         this->id = id;
@@ -8497,13 +8498,13 @@ class MultiRowType3 : public  bright::CfgBean
     /**
      
      */
-    std::vector<test::MultiRowType1*> items;
+    std::vector<std::shared_ptr<test::MultiRowType1>> items;
 
     static constexpr int ID = 540474972;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8523,14 +8524,14 @@ class MultiRowTitle : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowTitle(ByteBuf& _buf, MultiRowTitle*& _out);
+    static bool deserializeMultiRowTitle(ByteBuf& _buf, std::shared_ptr<MultiRowTitle>& _out);
 
     MultiRowTitle()
     { 
 
     }
 
-    MultiRowTitle(int32_t id, bright::String name, test::H1* x1, std::vector<test::H2*> x2, std::vector<test::H2*> x3 ) 
+    MultiRowTitle(int32_t id, std::string name, std::shared_ptr<test::H1> x1, std::vector<std::shared_ptr<test::H2>> x2, std::vector<std::shared_ptr<test::H2>> x3 ) 
     {
 
         this->id = id;
@@ -8550,25 +8551,25 @@ class MultiRowTitle : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
     /**
      
      */
-    test::H1* x1;
+    std::shared_ptr<test::H1> x1;
     /**
      
      */
-    std::vector<test::H2*> x2;
+    std::vector<std::shared_ptr<test::H2>> x2;
     /**
      
      */
-    std::vector<test::H2*> x3;
+    std::vector<std::shared_ptr<test::H2>> x3;
 
     static constexpr int ID = 540002427;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8588,14 +8589,14 @@ class H1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeH1(ByteBuf& _buf, H1*& _out);
+    static bool deserializeH1(ByteBuf& _buf, std::shared_ptr<H1>& _out);
 
     H1()
     { 
 
     }
 
-    H1(test::H2* y2, int32_t y3 ) 
+    H1(std::shared_ptr<test::H2> y2, int32_t y3 ) 
     {
 
         this->y2 = y2;
@@ -8608,7 +8609,7 @@ class H1 : public  bright::CfgBean
     /**
      
      */
-    test::H2* y2;
+    std::shared_ptr<test::H2> y2;
     /**
      
      */
@@ -8618,7 +8619,7 @@ class H1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8638,7 +8639,7 @@ class H2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeH2(ByteBuf& _buf, H2*& _out);
+    static bool deserializeH2(ByteBuf& _buf, std::shared_ptr<H2>& _out);
 
     H2()
     { 
@@ -8668,7 +8669,7 @@ class H2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8688,14 +8689,14 @@ class TestNull : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestNull(ByteBuf& _buf, TestNull*& _out);
+    static bool deserializeTestNull(ByteBuf& _buf, std::shared_ptr<TestNull>& _out);
 
     TestNull()
     { 
 
     }
 
-    TestNull(int32_t id, int32_t* x1, test::DemoEnum* x2, test::DemoType1* x3, test::DemoDynamic* x4, bright::String* s1, bright::String* s2 ) 
+    TestNull(int32_t id, int32_t* x1, test::DemoEnum* x2, std::shared_ptr<test::DemoType1> x3, std::shared_ptr<test::DemoDynamic> x4, std::string* s1, std::string* s2 ) 
     {
 
         this->id = id;
@@ -8725,25 +8726,25 @@ class TestNull : public  bright::CfgBean
     /**
      
      */
-    test::DemoType1* x3;
+    std::shared_ptr<test::DemoType1> x3;
     /**
      
      */
-    test::DemoDynamic* x4;
+    std::shared_ptr<test::DemoDynamic> x4;
     /**
      
      */
-    bright::String* s1;
+    std::string* s1;
     /**
      
      */
-    bright::String* s2;
+    std::string* s2;
 
     static constexpr int ID = 339868469;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8763,14 +8764,14 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, DemoPrimitiveTypesTable*& _out);
+    static bool deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, std::shared_ptr<DemoPrimitiveTypesTable>& _out);
 
     DemoPrimitiveTypesTable()
     { 
 
     }
 
-    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, bright::String s1, bright::String s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
+    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, std::string s1, std::string s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
     {
 
         this->x1 = x1;
@@ -8822,11 +8823,11 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
     /**
      
      */
-    bright::String s1;
+    std::string s1;
     /**
      
      */
-    bright::String s2;
+    std::string s2;
     /**
      
      */
@@ -8848,7 +8849,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8868,14 +8869,14 @@ class TestString : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestString(ByteBuf& _buf, TestString*& _out);
+    static bool deserializeTestString(ByteBuf& _buf, std::shared_ptr<TestString>& _out);
 
     TestString()
     { 
 
     }
 
-    TestString(int32_t id, bright::String s1, test::CompactString* cs1, test::CompactString* cs2 ) 
+    TestString(int32_t id, std::string s1, std::shared_ptr<test::CompactString> cs1, std::shared_ptr<test::CompactString> cs2 ) 
     {
 
         this->id = id;
@@ -8894,21 +8895,21 @@ class TestString : public  bright::CfgBean
     /**
      
      */
-    bright::String s1;
+    std::string s1;
     /**
      
      */
-    test::CompactString* cs1;
+    std::shared_ptr<test::CompactString> cs1;
     /**
      
      */
-    test::CompactString* cs2;
+    std::shared_ptr<test::CompactString> cs2;
 
     static constexpr int ID = 338485823;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8928,14 +8929,14 @@ class CompactString : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCompactString(ByteBuf& _buf, CompactString*& _out);
+    static bool deserializeCompactString(ByteBuf& _buf, std::shared_ptr<CompactString>& _out);
 
     CompactString()
     { 
 
     }
 
-    CompactString(int32_t id, bright::String s2, bright::String s3 ) 
+    CompactString(int32_t id, std::string s2, std::string s3 ) 
     {
 
         this->id = id;
@@ -8953,17 +8954,17 @@ class CompactString : public  bright::CfgBean
     /**
      
      */
-    bright::String s2;
+    std::string s2;
     /**
      
      */
-    bright::String s3;
+    std::string s3;
 
     static constexpr int ID = 1968089240;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -8983,14 +8984,14 @@ class DemoGroup : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoGroup(ByteBuf& _buf, DemoGroup*& _out);
+    static bool deserializeDemoGroup(ByteBuf& _buf, std::shared_ptr<DemoGroup>& _out);
 
     DemoGroup()
     { 
 
     }
 
-    DemoGroup(int32_t id, int32_t x1, int32_t x2, int32_t x3, int32_t x4, test::InnerGroup* x5 ) 
+    DemoGroup(int32_t id, int32_t x1, int32_t x2, int32_t x3, int32_t x4, std::shared_ptr<test::InnerGroup> x5 ) 
     {
 
         this->id = id;
@@ -9027,13 +9028,13 @@ class DemoGroup : public  bright::CfgBean
     /**
      
      */
-    test::InnerGroup* x5;
+    std::shared_ptr<test::InnerGroup> x5;
 
     static constexpr int ID = -379263008;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9053,7 +9054,7 @@ class InnerGroup : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeInnerGroup(ByteBuf& _buf, InnerGroup*& _out);
+    static bool deserializeInnerGroup(ByteBuf& _buf, std::shared_ptr<InnerGroup>& _out);
 
     InnerGroup()
     { 
@@ -9093,7 +9094,7 @@ class InnerGroup : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9113,7 +9114,7 @@ class TestGlobal : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestGlobal(ByteBuf& _buf, TestGlobal*& _out);
+    static bool deserializeTestGlobal(ByteBuf& _buf, std::shared_ptr<TestGlobal>& _out);
 
     TestGlobal()
     { 
@@ -9143,7 +9144,7 @@ class TestGlobal : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9163,14 +9164,14 @@ class DetectEncoding : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDetectEncoding(ByteBuf& _buf, DetectEncoding*& _out);
+    static bool deserializeDetectEncoding(ByteBuf& _buf, std::shared_ptr<DetectEncoding>& _out);
 
     DetectEncoding()
     { 
 
     }
 
-    DetectEncoding(int32_t id, bright::String name ) 
+    DetectEncoding(int32_t id, std::string name ) 
     {
 
         this->id = id;
@@ -9187,13 +9188,13 @@ class DetectEncoding : public  bright::CfgBean
     /**
      
      */
-    bright::String name;
+    std::string name;
 
     static constexpr int ID = -1154609646;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9213,14 +9214,14 @@ class DefineFromExcel : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcel(ByteBuf& _buf, DefineFromExcel*& _out);
+    static bool deserializeDefineFromExcel(ByteBuf& _buf, std::shared_ptr<DefineFromExcel>& _out);
 
     DefineFromExcel()
     { 
 
     }
 
-    DefineFromExcel(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, bright::String x10, test::ETestQuality x13, test::DemoDynamic* x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9 ) 
+    DefineFromExcel(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, std::shared_ptr<test::DemoDynamic> x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9261,11 +9262,11 @@ class DefineFromExcel : public  bright::CfgBean
      
      */
     int32_t x8;
-    test::DemoPrimitiveTypesTable* x8_Ref;
+    std::shared_ptr<test::DemoPrimitiveTypesTable> x8_Ref;
     /**
      
      */
-    bright::String x10;
+    std::string x10;
     /**
      
      */
@@ -9273,7 +9274,7 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    test::DemoDynamic* x14;
+    std::shared_ptr<test::DemoDynamic> x14;
     /**
      
      */
@@ -9293,13 +9294,13 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    std::vector<test::DemoE2*> k9;
+    std::vector<std::shared_ptr<test::DemoE2>> k9;
 
     static constexpr int ID = 2100429878;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9319,14 +9320,14 @@ class DefineFromExcelOne : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcelOne(ByteBuf& _buf, DefineFromExcelOne*& _out);
+    static bool deserializeDefineFromExcelOne(ByteBuf& _buf, std::shared_ptr<DefineFromExcelOne>& _out);
 
     DefineFromExcelOne()
     { 
 
     }
 
-    DefineFromExcelOne(int32_t unlock_equip, int32_t unlock_hero, bright::String default_avatar, bright::String default_item ) 
+    DefineFromExcelOne(int32_t unlock_equip, int32_t unlock_hero, std::string default_avatar, std::string default_item ) 
     {
 
         this->unlockEquip = unlock_equip;
@@ -9349,17 +9350,17 @@ class DefineFromExcelOne : public  bright::CfgBean
     /**
      默认头像
      */
-    bright::String defaultAvatar;
+    std::string defaultAvatar;
     /**
      
      */
-    bright::String defaultItem;
+    std::string defaultItem;
 
     static constexpr int ID = 528039504;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9379,14 +9380,14 @@ class DefineFromExcel2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcel2(ByteBuf& _buf, DefineFromExcel2*& _out);
+    static bool deserializeDefineFromExcel2(ByteBuf& _buf, std::shared_ptr<DefineFromExcel2>& _out);
 
     DefineFromExcel2()
     { 
 
     }
 
-    DefineFromExcel2(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, bright::String x10, test::ETestQuality x13, test::DemoDynamic* x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<test::DemoE2*> k9 ) 
+    DefineFromExcel2(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, std::shared_ptr<test::DemoDynamic> x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9427,11 +9428,11 @@ class DefineFromExcel2 : public  bright::CfgBean
      
      */
     int32_t x8;
-    test::DemoPrimitiveTypesTable* x8_Ref;
+    std::shared_ptr<test::DemoPrimitiveTypesTable> x8_Ref;
     /**
      
      */
-    bright::String x10;
+    std::string x10;
     /**
      
      */
@@ -9439,7 +9440,7 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    test::DemoDynamic* x14;
+    std::shared_ptr<test::DemoDynamic> x14;
     /**
      
      */
@@ -9459,13 +9460,13 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    std::vector<test::DemoE2*> k9;
+    std::vector<std::shared_ptr<test::DemoE2>> k9;
 
     static constexpr int ID = 688816828;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9485,14 +9486,14 @@ class TestExcelBean1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestExcelBean1(ByteBuf& _buf, TestExcelBean1*& _out);
+    static bool deserializeTestExcelBean1(ByteBuf& _buf, std::shared_ptr<TestExcelBean1>& _out);
 
     TestExcelBean1()
     { 
 
     }
 
-    TestExcelBean1(int32_t x1, bright::String x2, int32_t x3, float x4 ) 
+    TestExcelBean1(int32_t x1, std::string x2, int32_t x3, float x4 ) 
     {
 
         this->x1 = x1;
@@ -9511,7 +9512,7 @@ class TestExcelBean1 : public  bright::CfgBean
     /**
      黑色的
      */
-    bright::String x2;
+    std::string x2;
     /**
      蓝色的
      */
@@ -9525,7 +9526,7 @@ class TestExcelBean1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<bright::String, void*>& _tables);
+    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
 };
 
 }
@@ -9541,8 +9542,8 @@ namespace ai {
 class TbBlackboard
 {
     private:
-    std::unordered_map<bright::String, ai::Blackboard*> _dataMap;
-    std::vector<ai::Blackboard*> _dataList;
+    std::unordered_map<std::string, std::shared_ptr<ai::Blackboard>> _dataMap;
+    std::vector<std::shared_ptr<ai::Blackboard>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9551,7 +9552,7 @@ class TbBlackboard
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            ai::Blackboard* _v;
+            std::shared_ptr<ai::Blackboard> _v;
             if(!ai::Blackboard::deserializeBlackboard(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->name] = _v;
@@ -9559,16 +9560,22 @@ class TbBlackboard
         return true;
     }
 
-    const std::unordered_map<bright::String, ai::Blackboard*>& getDataMap() const { return _dataMap; }
-    const std::vector<ai::Blackboard*>& getDataList() const { return _dataList; }
+    const std::unordered_map<std::string, std::shared_ptr<ai::Blackboard>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<ai::Blackboard>>& getDataList() const { return _dataList; }
 
-    ai::Blackboard* get(bright::String key)
+    ai::Blackboard* getRaw(std::string key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<ai::Blackboard> get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9589,8 +9596,8 @@ namespace ai {
 class TbBehaviorTree
 {
     private:
-    std::unordered_map<int32_t, ai::BehaviorTree*> _dataMap;
-    std::vector<ai::BehaviorTree*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<ai::BehaviorTree>> _dataMap;
+    std::vector<std::shared_ptr<ai::BehaviorTree>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9599,7 +9606,7 @@ class TbBehaviorTree
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            ai::BehaviorTree* _v;
+            std::shared_ptr<ai::BehaviorTree> _v;
             if(!ai::BehaviorTree::deserializeBehaviorTree(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9607,16 +9614,22 @@ class TbBehaviorTree
         return true;
     }
 
-    const std::unordered_map<int32_t, ai::BehaviorTree*>& getDataMap() const { return _dataMap; }
-    const std::vector<ai::BehaviorTree*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<ai::BehaviorTree>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<ai::BehaviorTree>>& getDataList() const { return _dataList; }
 
-    ai::BehaviorTree* get(int32_t key)
+    ai::BehaviorTree* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<ai::BehaviorTree> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9637,8 +9650,8 @@ namespace blueprint {
 class TbClazz
 {
     private:
-    std::unordered_map<bright::String, blueprint::Clazz*> _dataMap;
-    std::vector<blueprint::Clazz*> _dataList;
+    std::unordered_map<std::string, std::shared_ptr<blueprint::Clazz>> _dataMap;
+    std::vector<std::shared_ptr<blueprint::Clazz>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9647,7 +9660,7 @@ class TbClazz
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            blueprint::Clazz* _v;
+            std::shared_ptr<blueprint::Clazz> _v;
             if(!blueprint::Clazz::deserializeClazz(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->name] = _v;
@@ -9655,16 +9668,22 @@ class TbClazz
         return true;
     }
 
-    const std::unordered_map<bright::String, blueprint::Clazz*>& getDataMap() const { return _dataMap; }
-    const std::vector<blueprint::Clazz*>& getDataList() const { return _dataList; }
+    const std::unordered_map<std::string, std::shared_ptr<blueprint::Clazz>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<blueprint::Clazz>>& getDataList() const { return _dataList; }
 
-    blueprint::Clazz* get(bright::String key)
+    blueprint::Clazz* getRaw(std::string key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<blueprint::Clazz> get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9685,8 +9704,8 @@ namespace bonus {
 class TbDrop
 {
     private:
-    std::unordered_map<int32_t, bonus::DropInfo*> _dataMap;
-    std::vector<bonus::DropInfo*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<bonus::DropInfo>> _dataMap;
+    std::vector<std::shared_ptr<bonus::DropInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9695,7 +9714,7 @@ class TbDrop
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            bonus::DropInfo* _v;
+            std::shared_ptr<bonus::DropInfo> _v;
             if(!bonus::DropInfo::deserializeDropInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9703,16 +9722,22 @@ class TbDrop
         return true;
     }
 
-    const std::unordered_map<int32_t, bonus::DropInfo*>& getDataMap() const { return _dataMap; }
-    const std::vector<bonus::DropInfo*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<bonus::DropInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<bonus::DropInfo>>& getDataList() const { return _dataList; }
 
-    bonus::DropInfo* get(int32_t key)
+    bonus::DropInfo* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<bonus::DropInfo> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9733,10 +9758,10 @@ namespace common {
 class TbGlobalConfig
 {
      private:
-    common::GlobalConfig* _data;
+    std::shared_ptr<common::GlobalConfig> _data;
 
     public:
-    common::GlobalConfig* data() const { return _data; }
+    std::shared_ptr<common::GlobalConfig> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -9747,7 +9772,7 @@ class TbGlobalConfig
         return true;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -9849,8 +9874,8 @@ namespace common {
 class TbDummy
 {
     private:
-    std::unordered_map<int32_t, common::Dummy*> _dataMap;
-    std::vector<common::Dummy*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<common::Dummy>> _dataMap;
+    std::vector<std::shared_ptr<common::Dummy>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9859,7 +9884,7 @@ class TbDummy
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            common::Dummy* _v;
+            std::shared_ptr<common::Dummy> _v;
             if(!common::Dummy::deserializeDummy(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9867,16 +9892,22 @@ class TbDummy
         return true;
     }
 
-    const std::unordered_map<int32_t, common::Dummy*>& getDataMap() const { return _dataMap; }
-    const std::vector<common::Dummy*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<common::Dummy>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<common::Dummy>>& getDataList() const { return _dataList; }
 
-    common::Dummy* get(int32_t key)
+    common::Dummy* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<common::Dummy> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9897,8 +9928,8 @@ namespace error {
 class TbErrorInfo
 {
     private:
-    std::unordered_map<bright::String, error::ErrorInfo*> _dataMap;
-    std::vector<error::ErrorInfo*> _dataList;
+    std::unordered_map<std::string, std::shared_ptr<error::ErrorInfo>> _dataMap;
+    std::vector<std::shared_ptr<error::ErrorInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9907,7 +9938,7 @@ class TbErrorInfo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            error::ErrorInfo* _v;
+            std::shared_ptr<error::ErrorInfo> _v;
             if(!error::ErrorInfo::deserializeErrorInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->code] = _v;
@@ -9915,16 +9946,22 @@ class TbErrorInfo
         return true;
     }
 
-    const std::unordered_map<bright::String, error::ErrorInfo*>& getDataMap() const { return _dataMap; }
-    const std::vector<error::ErrorInfo*>& getDataList() const { return _dataList; }
+    const std::unordered_map<std::string, std::shared_ptr<error::ErrorInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<error::ErrorInfo>>& getDataList() const { return _dataList; }
 
-    error::ErrorInfo* get(bright::String key)
+    error::ErrorInfo* getRaw(std::string key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<error::ErrorInfo> get(std::string key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9945,8 +9982,8 @@ namespace error {
 class TbCodeInfo
 {
     private:
-    std::unordered_map<error::EErrorCode, error::CodeInfo*> _dataMap;
-    std::vector<error::CodeInfo*> _dataList;
+    std::unordered_map<error::EErrorCode, std::shared_ptr<error::CodeInfo>> _dataMap;
+    std::vector<std::shared_ptr<error::CodeInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9955,7 +9992,7 @@ class TbCodeInfo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            error::CodeInfo* _v;
+            std::shared_ptr<error::CodeInfo> _v;
             if(!error::CodeInfo::deserializeCodeInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->code] = _v;
@@ -9963,16 +10000,22 @@ class TbCodeInfo
         return true;
     }
 
-    const std::unordered_map<error::EErrorCode, error::CodeInfo*>& getDataMap() const { return _dataMap; }
-    const std::vector<error::CodeInfo*>& getDataList() const { return _dataList; }
+    const std::unordered_map<error::EErrorCode, std::shared_ptr<error::CodeInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<error::CodeInfo>>& getDataList() const { return _dataList; }
 
-    error::CodeInfo* get(error::EErrorCode key)
+    error::CodeInfo* getRaw(error::EErrorCode key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<error::CodeInfo> get(error::EErrorCode key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9993,8 +10036,8 @@ namespace item {
 class TbItem
 {
     private:
-    std::unordered_map<int32_t, item::Item*> _dataMap;
-    std::vector<item::Item*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<item::Item>> _dataMap;
+    std::vector<std::shared_ptr<item::Item>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10003,7 +10046,7 @@ class TbItem
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            item::Item* _v;
+            std::shared_ptr<item::Item> _v;
             if(!item::Item::deserializeItem(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10011,16 +10054,22 @@ class TbItem
         return true;
     }
 
-    const std::unordered_map<int32_t, item::Item*>& getDataMap() const { return _dataMap; }
-    const std::vector<item::Item*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<item::Item>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<item::Item>>& getDataList() const { return _dataList; }
 
-    item::Item* get(int32_t key)
+    item::Item* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<item::Item> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10041,8 +10090,8 @@ namespace item {
 class TbItemFunc
 {
     private:
-    std::unordered_map<item::EMinorType, item::ItemFunction*> _dataMap;
-    std::vector<item::ItemFunction*> _dataList;
+    std::unordered_map<item::EMinorType, std::shared_ptr<item::ItemFunction>> _dataMap;
+    std::vector<std::shared_ptr<item::ItemFunction>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10051,7 +10100,7 @@ class TbItemFunc
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            item::ItemFunction* _v;
+            std::shared_ptr<item::ItemFunction> _v;
             if(!item::ItemFunction::deserializeItemFunction(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->minorType] = _v;
@@ -10059,16 +10108,22 @@ class TbItemFunc
         return true;
     }
 
-    const std::unordered_map<item::EMinorType, item::ItemFunction*>& getDataMap() const { return _dataMap; }
-    const std::vector<item::ItemFunction*>& getDataList() const { return _dataList; }
+    const std::unordered_map<item::EMinorType, std::shared_ptr<item::ItemFunction>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<item::ItemFunction>>& getDataList() const { return _dataList; }
 
-    item::ItemFunction* get(item::EMinorType key)
+    item::ItemFunction* getRaw(item::EMinorType key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<item::ItemFunction> get(item::EMinorType key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10089,8 +10144,8 @@ namespace item {
 class TbItemExtra
 {
     private:
-    std::unordered_map<int32_t, item::ItemExtra*> _dataMap;
-    std::vector<item::ItemExtra*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<item::ItemExtra>> _dataMap;
+    std::vector<std::shared_ptr<item::ItemExtra>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10099,7 +10154,7 @@ class TbItemExtra
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            item::ItemExtra* _v;
+            std::shared_ptr<item::ItemExtra> _v;
             if(!item::ItemExtra::deserializeItemExtra(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10107,16 +10162,22 @@ class TbItemExtra
         return true;
     }
 
-    const std::unordered_map<int32_t, item::ItemExtra*>& getDataMap() const { return _dataMap; }
-    const std::vector<item::ItemExtra*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<item::ItemExtra>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<item::ItemExtra>>& getDataList() const { return _dataList; }
 
-    item::ItemExtra* get(int32_t key)
+    item::ItemExtra* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<item::ItemExtra> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10137,8 +10198,8 @@ namespace l10n {
 class TbL10NDemo
 {
     private:
-    std::unordered_map<int32_t, l10n::L10NDemo*> _dataMap;
-    std::vector<l10n::L10NDemo*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<l10n::L10NDemo>> _dataMap;
+    std::vector<std::shared_ptr<l10n::L10NDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10147,7 +10208,7 @@ class TbL10NDemo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            l10n::L10NDemo* _v;
+            std::shared_ptr<l10n::L10NDemo> _v;
             if(!l10n::L10NDemo::deserializeL10NDemo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10155,16 +10216,22 @@ class TbL10NDemo
         return true;
     }
 
-    const std::unordered_map<int32_t, l10n::L10NDemo*>& getDataMap() const { return _dataMap; }
-    const std::vector<l10n::L10NDemo*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<l10n::L10NDemo>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<l10n::L10NDemo>>& getDataList() const { return _dataList; }
 
-    l10n::L10NDemo* get(int32_t key)
+    l10n::L10NDemo* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<l10n::L10NDemo> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10185,8 +10252,8 @@ namespace l10n {
 class TbPatchDemo
 {
     private:
-    std::unordered_map<int32_t, l10n::PatchDemo*> _dataMap;
-    std::vector<l10n::PatchDemo*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<l10n::PatchDemo>> _dataMap;
+    std::vector<std::shared_ptr<l10n::PatchDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10195,7 +10262,7 @@ class TbPatchDemo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            l10n::PatchDemo* _v;
+            std::shared_ptr<l10n::PatchDemo> _v;
             if(!l10n::PatchDemo::deserializePatchDemo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10203,16 +10270,22 @@ class TbPatchDemo
         return true;
     }
 
-    const std::unordered_map<int32_t, l10n::PatchDemo*>& getDataMap() const { return _dataMap; }
-    const std::vector<l10n::PatchDemo*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<l10n::PatchDemo>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<l10n::PatchDemo>>& getDataList() const { return _dataList; }
 
-    l10n::PatchDemo* get(int32_t key)
+    l10n::PatchDemo* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<l10n::PatchDemo> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10233,8 +10306,8 @@ namespace mail {
 class TbSystemMail
 {
     private:
-    std::unordered_map<int32_t, mail::SystemMail*> _dataMap;
-    std::vector<mail::SystemMail*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<mail::SystemMail>> _dataMap;
+    std::vector<std::shared_ptr<mail::SystemMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10243,7 +10316,7 @@ class TbSystemMail
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            mail::SystemMail* _v;
+            std::shared_ptr<mail::SystemMail> _v;
             if(!mail::SystemMail::deserializeSystemMail(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10251,16 +10324,22 @@ class TbSystemMail
         return true;
     }
 
-    const std::unordered_map<int32_t, mail::SystemMail*>& getDataMap() const { return _dataMap; }
-    const std::vector<mail::SystemMail*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<mail::SystemMail>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<mail::SystemMail>>& getDataList() const { return _dataList; }
 
-    mail::SystemMail* get(int32_t key)
+    mail::SystemMail* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<mail::SystemMail> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10281,8 +10360,8 @@ namespace mail {
 class TbGlobalMail
 {
     private:
-    std::unordered_map<int32_t, mail::GlobalMail*> _dataMap;
-    std::vector<mail::GlobalMail*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<mail::GlobalMail>> _dataMap;
+    std::vector<std::shared_ptr<mail::GlobalMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10291,7 +10370,7 @@ class TbGlobalMail
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            mail::GlobalMail* _v;
+            std::shared_ptr<mail::GlobalMail> _v;
             if(!mail::GlobalMail::deserializeGlobalMail(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10299,16 +10378,22 @@ class TbGlobalMail
         return true;
     }
 
-    const std::unordered_map<int32_t, mail::GlobalMail*>& getDataMap() const { return _dataMap; }
-    const std::vector<mail::GlobalMail*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<mail::GlobalMail>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<mail::GlobalMail>>& getDataList() const { return _dataList; }
 
-    mail::GlobalMail* get(int32_t key)
+    mail::GlobalMail* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<mail::GlobalMail> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10329,8 +10414,8 @@ namespace role {
 class TbRoleLevelExpAttr
 {
     private:
-    std::unordered_map<int32_t, role::LevelExpAttr*> _dataMap;
-    std::vector<role::LevelExpAttr*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<role::LevelExpAttr>> _dataMap;
+    std::vector<std::shared_ptr<role::LevelExpAttr>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10339,7 +10424,7 @@ class TbRoleLevelExpAttr
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            role::LevelExpAttr* _v;
+            std::shared_ptr<role::LevelExpAttr> _v;
             if(!role::LevelExpAttr::deserializeLevelExpAttr(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->level] = _v;
@@ -10347,16 +10432,22 @@ class TbRoleLevelExpAttr
         return true;
     }
 
-    const std::unordered_map<int32_t, role::LevelExpAttr*>& getDataMap() const { return _dataMap; }
-    const std::vector<role::LevelExpAttr*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<role::LevelExpAttr>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<role::LevelExpAttr>>& getDataList() const { return _dataList; }
 
-    role::LevelExpAttr* get(int32_t key)
+    role::LevelExpAttr* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<role::LevelExpAttr> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10377,8 +10468,8 @@ namespace role {
 class TbRoleLevelBonusCoefficient
 {
     private:
-    std::unordered_map<int32_t, role::LevelBonus*> _dataMap;
-    std::vector<role::LevelBonus*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<role::LevelBonus>> _dataMap;
+    std::vector<std::shared_ptr<role::LevelBonus>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10387,7 +10478,7 @@ class TbRoleLevelBonusCoefficient
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            role::LevelBonus* _v;
+            std::shared_ptr<role::LevelBonus> _v;
             if(!role::LevelBonus::deserializeLevelBonus(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10395,16 +10486,22 @@ class TbRoleLevelBonusCoefficient
         return true;
     }
 
-    const std::unordered_map<int32_t, role::LevelBonus*>& getDataMap() const { return _dataMap; }
-    const std::vector<role::LevelBonus*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<role::LevelBonus>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<role::LevelBonus>>& getDataList() const { return _dataList; }
 
-    role::LevelBonus* get(int32_t key)
+    role::LevelBonus* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<role::LevelBonus> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10425,8 +10522,8 @@ namespace tag {
 class TbTestTag
 {
     private:
-    std::unordered_map<int32_t, tag::TestTag*> _dataMap;
-    std::vector<tag::TestTag*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<tag::TestTag>> _dataMap;
+    std::vector<std::shared_ptr<tag::TestTag>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10435,7 +10532,7 @@ class TbTestTag
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            tag::TestTag* _v;
+            std::shared_ptr<tag::TestTag> _v;
             if(!tag::TestTag::deserializeTestTag(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10443,16 +10540,22 @@ class TbTestTag
         return true;
     }
 
-    const std::unordered_map<int32_t, tag::TestTag*>& getDataMap() const { return _dataMap; }
-    const std::vector<tag::TestTag*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<tag::TestTag>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<tag::TestTag>>& getDataList() const { return _dataList; }
 
-    tag::TestTag* get(int32_t key)
+    tag::TestTag* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<tag::TestTag> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10473,8 +10576,8 @@ namespace test {
 class TbFullTypes
 {
     private:
-    std::unordered_map<int16_t, test::DemoType2*> _dataMap;
-    std::vector<test::DemoType2*> _dataList;
+    std::unordered_map<int16_t, std::shared_ptr<test::DemoType2>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10483,7 +10586,7 @@ class TbFullTypes
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoType2* _v;
+            std::shared_ptr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x3] = _v;
@@ -10491,16 +10594,22 @@ class TbFullTypes
         return true;
     }
 
-    const std::unordered_map<int16_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int16_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* get(int16_t key)
+    test::DemoType2* getRaw(int16_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoType2> get(int16_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10521,10 +10630,10 @@ namespace test {
 class TbSingleton
 {
      private:
-    test::DemoSingletonType* _data;
+    std::shared_ptr<test::DemoSingletonType> _data;
 
     public:
-    test::DemoSingletonType* data() const { return _data; }
+    std::shared_ptr<test::DemoSingletonType> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -10535,7 +10644,7 @@ class TbSingleton
         return true;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -10547,11 +10656,11 @@ class TbSingleton
     /**
     
      */
-    bright::String& getName() const { return _data->name; }
+    std::string& getName() const { return _data->name; }
     /**
     
      */
-    test::DemoDynamic*& getDate() const { return _data->date; }
+    std::shared_ptr<test::DemoDynamic>& getDate() const { return _data->date; }
 };
 }
 
@@ -10565,8 +10674,8 @@ namespace test {
 class TbDataFromJson
 {
     private:
-    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
-    std::vector<test::DemoType2*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10575,7 +10684,7 @@ class TbDataFromJson
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoType2* _v;
+            std::shared_ptr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10583,16 +10692,22 @@ class TbDataFromJson
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* get(int32_t key)
+    test::DemoType2* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoType2> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10613,8 +10728,8 @@ namespace test {
 class TbDataFromXml
 {
     private:
-    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
-    std::vector<test::DemoType2*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10623,7 +10738,7 @@ class TbDataFromXml
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoType2* _v;
+            std::shared_ptr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10631,16 +10746,22 @@ class TbDataFromXml
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* get(int32_t key)
+    test::DemoType2* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoType2> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10661,8 +10782,8 @@ namespace test {
 class TbDataFromLua
 {
     private:
-    std::unordered_map<int32_t, test::DemoType2*> _dataMap;
-    std::vector<test::DemoType2*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10671,7 +10792,7 @@ class TbDataFromLua
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoType2* _v;
+            std::shared_ptr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10679,16 +10800,22 @@ class TbDataFromLua
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoType2*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoType2*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* get(int32_t key)
+    test::DemoType2* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoType2> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10709,8 +10836,8 @@ namespace test {
 class TbMultiRowRecord
 {
     private:
-    std::unordered_map<int32_t, test::MultiRowRecord*> _dataMap;
-    std::vector<test::MultiRowRecord*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowRecord>> _dataMap;
+    std::vector<std::shared_ptr<test::MultiRowRecord>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10719,7 +10846,7 @@ class TbMultiRowRecord
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::MultiRowRecord* _v;
+            std::shared_ptr<test::MultiRowRecord> _v;
             if(!test::MultiRowRecord::deserializeMultiRowRecord(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10727,16 +10854,22 @@ class TbMultiRowRecord
         return true;
     }
 
-    const std::unordered_map<int32_t, test::MultiRowRecord*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::MultiRowRecord*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::MultiRowRecord>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::MultiRowRecord>>& getDataList() const { return _dataList; }
 
-    test::MultiRowRecord* get(int32_t key)
+    test::MultiRowRecord* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::MultiRowRecord> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10757,8 +10890,8 @@ namespace test {
 class TbMultiRowTitle
 {
     private:
-    std::unordered_map<int32_t, test::MultiRowTitle*> _dataMap;
-    std::vector<test::MultiRowTitle*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowTitle>> _dataMap;
+    std::vector<std::shared_ptr<test::MultiRowTitle>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10767,7 +10900,7 @@ class TbMultiRowTitle
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::MultiRowTitle* _v;
+            std::shared_ptr<test::MultiRowTitle> _v;
             if(!test::MultiRowTitle::deserializeMultiRowTitle(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10775,16 +10908,22 @@ class TbMultiRowTitle
         return true;
     }
 
-    const std::unordered_map<int32_t, test::MultiRowTitle*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::MultiRowTitle*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::MultiRowTitle>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::MultiRowTitle>>& getDataList() const { return _dataList; }
 
-    test::MultiRowTitle* get(int32_t key)
+    test::MultiRowTitle* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::MultiRowTitle> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10805,8 +10944,8 @@ namespace test {
 class TbTestNull
 {
     private:
-    std::unordered_map<int32_t, test::TestNull*> _dataMap;
-    std::vector<test::TestNull*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::TestNull>> _dataMap;
+    std::vector<std::shared_ptr<test::TestNull>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10815,7 +10954,7 @@ class TbTestNull
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::TestNull* _v;
+            std::shared_ptr<test::TestNull> _v;
             if(!test::TestNull::deserializeTestNull(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10823,16 +10962,22 @@ class TbTestNull
         return true;
     }
 
-    const std::unordered_map<int32_t, test::TestNull*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::TestNull*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::TestNull>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::TestNull>>& getDataList() const { return _dataList; }
 
-    test::TestNull* get(int32_t key)
+    test::TestNull* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::TestNull> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10853,8 +10998,8 @@ namespace test {
 class TbDemoPrimitive
 {
     private:
-    std::unordered_map<int32_t, test::DemoPrimitiveTypesTable*> _dataMap;
-    std::vector<test::DemoPrimitiveTypesTable*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoPrimitiveTypesTable>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoPrimitiveTypesTable>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10863,7 +11008,7 @@ class TbDemoPrimitive
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoPrimitiveTypesTable* _v;
+            std::shared_ptr<test::DemoPrimitiveTypesTable> _v;
             if(!test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10871,16 +11016,22 @@ class TbDemoPrimitive
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoPrimitiveTypesTable*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoPrimitiveTypesTable*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoPrimitiveTypesTable>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoPrimitiveTypesTable>>& getDataList() const { return _dataList; }
 
-    test::DemoPrimitiveTypesTable* get(int32_t key)
+    test::DemoPrimitiveTypesTable* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoPrimitiveTypesTable> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10901,8 +11052,8 @@ namespace test {
 class TbTestString
 {
     private:
-    std::unordered_map<int32_t, test::TestString*> _dataMap;
-    std::vector<test::TestString*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::TestString>> _dataMap;
+    std::vector<std::shared_ptr<test::TestString>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10911,7 +11062,7 @@ class TbTestString
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::TestString* _v;
+            std::shared_ptr<test::TestString> _v;
             if(!test::TestString::deserializeTestString(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10919,16 +11070,22 @@ class TbTestString
         return true;
     }
 
-    const std::unordered_map<int32_t, test::TestString*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::TestString*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::TestString>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::TestString>>& getDataList() const { return _dataList; }
 
-    test::TestString* get(int32_t key)
+    test::TestString* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::TestString> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10949,8 +11106,8 @@ namespace test {
 class TbDemoGroup
 {
     private:
-    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
-    std::vector<test::DemoGroup*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10959,7 +11116,7 @@ class TbDemoGroup
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoGroup* _v;
+            std::shared_ptr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10967,16 +11124,22 @@ class TbDemoGroup
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* get(int32_t key)
+    test::DemoGroup* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoGroup> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10997,8 +11160,8 @@ namespace test {
 class TbDemoGroup_C
 {
     private:
-    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
-    std::vector<test::DemoGroup*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11007,7 +11170,7 @@ class TbDemoGroup_C
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoGroup* _v;
+            std::shared_ptr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11015,16 +11178,22 @@ class TbDemoGroup_C
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* get(int32_t key)
+    test::DemoGroup* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoGroup> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11045,8 +11214,8 @@ namespace test {
 class TbDemoGroup_S
 {
     private:
-    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
-    std::vector<test::DemoGroup*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11055,7 +11224,7 @@ class TbDemoGroup_S
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoGroup* _v;
+            std::shared_ptr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11063,16 +11232,22 @@ class TbDemoGroup_S
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* get(int32_t key)
+    test::DemoGroup* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoGroup> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11093,8 +11268,8 @@ namespace test {
 class TbDemoGroup_E
 {
     private:
-    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
-    std::vector<test::DemoGroup*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11103,7 +11278,7 @@ class TbDemoGroup_E
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoGroup* _v;
+            std::shared_ptr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11111,16 +11286,22 @@ class TbDemoGroup_E
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* get(int32_t key)
+    test::DemoGroup* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoGroup> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11141,10 +11322,10 @@ namespace test {
 class TbTestGlobal
 {
      private:
-    test::TestGlobal* _data;
+    std::shared_ptr<test::TestGlobal> _data;
 
     public:
-    test::TestGlobal* data() const { return _data; }
+    std::shared_ptr<test::TestGlobal> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -11155,7 +11336,7 @@ class TbTestGlobal
         return true;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -11181,8 +11362,8 @@ namespace test {
 class TbDetectCsvEncoding
 {
     private:
-    std::unordered_map<int32_t, test::DetectEncoding*> _dataMap;
-    std::vector<test::DetectEncoding*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DetectEncoding>> _dataMap;
+    std::vector<std::shared_ptr<test::DetectEncoding>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11191,7 +11372,7 @@ class TbDetectCsvEncoding
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DetectEncoding* _v;
+            std::shared_ptr<test::DetectEncoding> _v;
             if(!test::DetectEncoding::deserializeDetectEncoding(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11199,16 +11380,22 @@ class TbDetectCsvEncoding
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DetectEncoding*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DetectEncoding*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DetectEncoding>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DetectEncoding>>& getDataList() const { return _dataList; }
 
-    test::DetectEncoding* get(int32_t key)
+    test::DetectEncoding* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DetectEncoding> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11229,8 +11416,8 @@ namespace test {
 class TbDefineFromExcel
 {
     private:
-    std::unordered_map<int32_t, test::DefineFromExcel*> _dataMap;
-    std::vector<test::DefineFromExcel*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel>> _dataMap;
+    std::vector<std::shared_ptr<test::DefineFromExcel>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11239,7 +11426,7 @@ class TbDefineFromExcel
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DefineFromExcel* _v;
+            std::shared_ptr<test::DefineFromExcel> _v;
             if(!test::DefineFromExcel::deserializeDefineFromExcel(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11247,16 +11434,22 @@ class TbDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DefineFromExcel*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DefineFromExcel*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DefineFromExcel>>& getDataList() const { return _dataList; }
 
-    test::DefineFromExcel* get(int32_t key)
+    test::DefineFromExcel* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DefineFromExcel> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11277,10 +11470,10 @@ namespace test {
 class TbDefineFromExcelOne
 {
      private:
-    test::DefineFromExcelOne* _data;
+    std::shared_ptr<test::DefineFromExcelOne> _data;
 
     public:
-    test::DefineFromExcelOne* data() const { return _data; }
+    std::shared_ptr<test::DefineFromExcelOne> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -11291,7 +11484,7 @@ class TbDefineFromExcelOne
         return true;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -11307,11 +11500,11 @@ class TbDefineFromExcelOne
     /**
     默认头像
      */
-    bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
+    std::string& getDefaultAvatar() const { return _data->defaultAvatar; }
     /**
     
      */
-    bright::String& getDefaultItem() const { return _data->defaultItem; }
+    std::string& getDefaultItem() const { return _data->defaultItem; }
 };
 }
 
@@ -11325,8 +11518,8 @@ namespace test {
 class TbDemoGroupDefineFromExcel
 {
     private:
-    std::unordered_map<int32_t, test::DemoGroup*> _dataMap;
-    std::vector<test::DemoGroup*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
+    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11335,7 +11528,7 @@ class TbDemoGroupDefineFromExcel
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DemoGroup* _v;
+            std::shared_ptr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11343,16 +11536,22 @@ class TbDemoGroupDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DemoGroup*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DemoGroup*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* get(int32_t key)
+    test::DemoGroup* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DemoGroup> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11373,8 +11572,8 @@ namespace test {
 class TbDefineFromExcel2
 {
     private:
-    std::unordered_map<int32_t, test::DefineFromExcel2*> _dataMap;
-    std::vector<test::DefineFromExcel2*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel2>> _dataMap;
+    std::vector<std::shared_ptr<test::DefineFromExcel2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11383,7 +11582,7 @@ class TbDefineFromExcel2
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::DefineFromExcel2* _v;
+            std::shared_ptr<test::DefineFromExcel2> _v;
             if(!test::DefineFromExcel2::deserializeDefineFromExcel2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11391,16 +11590,22 @@ class TbDefineFromExcel2
         return true;
     }
 
-    const std::unordered_map<int32_t, test::DefineFromExcel2*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::DefineFromExcel2*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel2>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::DefineFromExcel2>>& getDataList() const { return _dataList; }
 
-    test::DefineFromExcel2* get(int32_t key)
+    test::DefineFromExcel2* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::DefineFromExcel2> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11421,8 +11626,8 @@ namespace test {
 class TbTestExcelBean
 {
     private:
-    std::unordered_map<int32_t, test::TestExcelBean1*> _dataMap;
-    std::vector<test::TestExcelBean1*> _dataList;
+    std::unordered_map<int32_t, std::shared_ptr<test::TestExcelBean1>> _dataMap;
+    std::vector<std::shared_ptr<test::TestExcelBean1>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11431,7 +11636,7 @@ class TbTestExcelBean
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            test::TestExcelBean1* _v;
+            std::shared_ptr<test::TestExcelBean1> _v;
             if(!test::TestExcelBean1::deserializeTestExcelBean1(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x1] = _v;
@@ -11439,16 +11644,22 @@ class TbTestExcelBean
         return true;
     }
 
-    const std::unordered_map<int32_t, test::TestExcelBean1*>& getDataMap() const { return _dataMap; }
-    const std::vector<test::TestExcelBean1*>& getDataList() const { return _dataList; }
+    const std::unordered_map<int32_t, std::shared_ptr<test::TestExcelBean1>>& getDataMap() const { return _dataMap; }
+    const std::vector<std::shared_ptr<test::TestExcelBean1>>& getDataList() const { return _dataList; }
 
-    test::TestExcelBean1* get(int32_t key)
+    test::TestExcelBean1* getRaw(int32_t key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    std::shared_ptr<test::TestExcelBean1> get(int32_t key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<bright::String, void*>& _tables)
+    void resolve(std::unordered_map<std::string, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11620,9 +11831,9 @@ class Tables
      */
      test::TbTestExcelBean TbTestExcelBean;
 
-    bool load(std::function<bool(ByteBuf&, const bright::String&)> loader)
+    bool load(std::function<bool(ByteBuf&, const std::string&)> loader)
     {
-        std::unordered_map<bright::String, void*> __tables__;
+        std::unordered_map<std::string, void*> __tables__;
 
         ByteBuf buf;
         if (!loader(buf, "ai.TbBlackboard")) return false;

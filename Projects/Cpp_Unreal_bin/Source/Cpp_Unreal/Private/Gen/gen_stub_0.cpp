@@ -14,12 +14,13 @@ using ByteBuf = bright::serialization::ByteBuf;
 
 namespace cfg
 {
+
     bool ai::Blackboard::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, parentName)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(desc)) return false;
+        if(!_buf.readString(parentName)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); keys.reserve(n);for(int i = 0 ; i < n ; i++) { ai::BlackboardKey* _e;  if(!ai::BlackboardKey::deserializeBlackboardKey(_buf, _e)) return false; keys.push_back(_e);}}
 
         return true;
@@ -39,14 +40,21 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::Blackboard::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->parentName_Ref = ((ai::TbBlackboard*)(_tables["ai.TbBlackboard"]))->get(parentName);
+        for(auto _e : keys) { _e->resolve(_tables); }
+    }
+
     bool ai::BlackboardKey::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(desc)) return false;
         if (!_buf.readBool(isStatic)) return false;
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; type = ai::EKeyType(_temp_); }
-        if(!BYTEBUF_READ_STRING(_buf, typeClassName)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; type = ai::EKeyType(__enum_temp__); }
+        if(!_buf.readString(typeClassName)) return false;
 
         return true;
     }
@@ -65,13 +73,18 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::BlackboardKey::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool ai::BehaviorTree::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, blackboardId)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(desc)) return false;
+        if(!_buf.readString(blackboardId)) return false;
         if(!ai::ComposeNode::deserializeComposeNode(_buf, root)) return false;
 
         return true;
@@ -91,11 +104,18 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::BehaviorTree::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->blackboardId_Ref = ((ai::TbBlackboard*)(_tables["ai.TbBlackboard"]))->get(blackboardId);
+        root->resolve(_tables);
+    }
+
     bool ai::Node::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, nodeName)) return false;
+        if(!_buf.readString(nodeName)) return false;
 
         return true;
     }
@@ -132,6 +152,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::Node::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool ai::Service::deserialize(ByteBuf& _buf)
     {
         if (!ai::Node::deserialize(_buf))
@@ -158,6 +183,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::Service::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Node::resolve(_tables);
+    }
+
     bool ai::UeSetDefaultFocus::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -165,7 +196,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, keyboardKey)) return false;
+        if(!_buf.readString(keyboardKey)) return false;
 
         return true;
     }
@@ -184,6 +215,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeSetDefaultFocus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::ExecuteTimeStatistic::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -209,6 +246,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::ExecuteTimeStatistic::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::ChooseTarget::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -216,7 +259,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, resultTargetKey)) return false;
+        if(!_buf.readString(resultTargetKey)) return false;
 
         return true;
     }
@@ -235,6 +278,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::ChooseTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::KeepFaceTarget::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -242,7 +291,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, targetActorKey)) return false;
+        if(!_buf.readString(targetActorKey)) return false;
 
         return true;
     }
@@ -261,6 +310,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::KeepFaceTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::GetOwnerPlayer::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -268,7 +323,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, playerActorKey)) return false;
+        if(!_buf.readString(playerActorKey)) return false;
 
         return true;
     }
@@ -287,6 +342,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::GetOwnerPlayer::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::UpdateDailyBehaviorProps::deserialize(ByteBuf& _buf)
     {
         if (!ai::Service::deserialize(_buf))
@@ -294,15 +355,15 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, satietyKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, energyKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, moodKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, satietyLowerThresholdKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, satietyUpperThresholdKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, energyLowerThresholdKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, energyUpperThresholdKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, moodLowerThresholdKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, moodUpperThresholdKey)) return false;
+        if(!_buf.readString(satietyKey)) return false;
+        if(!_buf.readString(energyKey)) return false;
+        if(!_buf.readString(moodKey)) return false;
+        if(!_buf.readString(satietyLowerThresholdKey)) return false;
+        if(!_buf.readString(satietyUpperThresholdKey)) return false;
+        if(!_buf.readString(energyLowerThresholdKey)) return false;
+        if(!_buf.readString(energyUpperThresholdKey)) return false;
+        if(!_buf.readString(moodLowerThresholdKey)) return false;
+        if(!_buf.readString(moodUpperThresholdKey)) return false;
 
         return true;
     }
@@ -321,6 +382,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UpdateDailyBehaviorProps::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Service::resolve(_tables);
+    }
+
     bool ai::Decorator::deserialize(ByteBuf& _buf)
     {
         if (!ai::Node::deserialize(_buf))
@@ -328,7 +395,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; flowAbortMode = ai::EFlowAbortMode(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; flowAbortMode = ai::EFlowAbortMode(__enum_temp__); }
 
         return true;
     }
@@ -349,6 +416,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::Decorator::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Node::resolve(_tables);
+    }
+
     bool ai::UeLoop::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -377,6 +450,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeLoop::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::UeCooldown::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -403,6 +482,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeCooldown::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::UeTimeLimit::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -429,6 +514,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeTimeLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::UeBlackboard::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -436,8 +527,8 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; notifyObserver = ai::ENotifyObserverMode(_temp_); }
-        if(!BYTEBUF_READ_STRING(_buf, blackboardKey)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; notifyObserver = ai::ENotifyObserverMode(__enum_temp__); }
+        if(!_buf.readString(blackboardKey)) return false;
         if(!ai::KeyQueryOperator::deserializeKeyQueryOperator(_buf, keyQuery)) return false;
 
         return true;
@@ -457,6 +548,13 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeBlackboard::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+        keyQuery->resolve(_tables);
+    }
+
     bool ai::KeyQueryOperator::deserialize(ByteBuf& _buf)
     {
 
@@ -476,6 +574,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::KeyQueryOperator::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool ai::IsSet::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyQueryOperator::deserialize(_buf))
@@ -501,6 +604,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::IsSet::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyQueryOperator::resolve(_tables);
+    }
+
     bool ai::IsNotSet::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyQueryOperator::deserialize(_buf))
@@ -526,6 +635,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::IsNotSet::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyQueryOperator::resolve(_tables);
+    }
+
     bool ai::BinaryOperator::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyQueryOperator::deserialize(_buf))
@@ -533,7 +648,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; oper = ai::EOperator(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; oper = ai::EOperator(__enum_temp__); }
         if(!ai::KeyData::deserializeKeyData(_buf, data)) return false;
 
         return true;
@@ -553,6 +668,13 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::BinaryOperator::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyQueryOperator::resolve(_tables);
+        data->resolve(_tables);
+    }
+
     bool ai::KeyData::deserialize(ByteBuf& _buf)
     {
 
@@ -573,6 +695,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::KeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool ai::FloatKeyData::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyData::deserialize(_buf))
@@ -599,6 +726,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::FloatKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyData::resolve(_tables);
+    }
+
     bool ai::IntKeyData::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyData::deserialize(_buf))
@@ -625,6 +758,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::IntKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyData::resolve(_tables);
+    }
+
     bool ai::StringKeyData::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyData::deserialize(_buf))
@@ -632,7 +771,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, value)) return false;
+        if(!_buf.readString(value)) return false;
 
         return true;
     }
@@ -651,6 +790,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::StringKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyData::resolve(_tables);
+    }
+
     bool ai::BlackboardKeyData::deserialize(ByteBuf& _buf)
     {
         if (!ai::KeyData::deserialize(_buf))
@@ -658,7 +803,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, value)) return false;
+        if(!_buf.readString(value)) return false;
 
         return true;
     }
@@ -677,6 +822,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::BlackboardKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        KeyData::resolve(_tables);
+    }
+
     bool ai::UeForceSuccess::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -702,6 +853,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeForceSuccess::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::IsAtLocation::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -710,7 +867,7 @@ namespace cfg
         }
 
         if(!_buf.readFloat(acceptableRadius)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, keyboardKey)) return false;
+        if(!_buf.readString(keyboardKey)) return false;
         if (!_buf.readBool(inverseCondition)) return false;
 
         return true;
@@ -730,6 +887,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::IsAtLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::DistanceLessThan::deserialize(ByteBuf& _buf)
     {
         if (!ai::Decorator::deserialize(_buf))
@@ -737,8 +900,8 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, actor1Key)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, actor2Key)) return false;
+        if(!_buf.readString(actor1Key)) return false;
+        if(!_buf.readString(actor2Key)) return false;
         if(!_buf.readFloat(distance)) return false;
         if (!_buf.readBool(reverseResult)) return false;
 
@@ -759,6 +922,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::DistanceLessThan::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Decorator::resolve(_tables);
+    }
+
     bool ai::FlowNode::deserialize(ByteBuf& _buf)
     {
         if (!ai::Node::deserialize(_buf))
@@ -791,6 +960,14 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::FlowNode::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Node::resolve(_tables);
+        for(auto _e : decorators) { _e->resolve(_tables); }
+        for(auto _e : services) { _e->resolve(_tables); }
+    }
+
     bool ai::ComposeNode::deserialize(ByteBuf& _buf)
     {
         if (!ai::FlowNode::deserialize(_buf))
@@ -814,6 +991,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::ComposeNode::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        FlowNode::resolve(_tables);
+    }
+
     bool ai::Sequence::deserialize(ByteBuf& _buf)
     {
         if (!ai::ComposeNode::deserialize(_buf))
@@ -840,6 +1023,13 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::Sequence::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ComposeNode::resolve(_tables);
+        for(auto _e : children) { _e->resolve(_tables); }
+    }
+
     bool ai::Selector::deserialize(ByteBuf& _buf)
     {
         if (!ai::ComposeNode::deserialize(_buf))
@@ -866,6 +1056,13 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::Selector::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ComposeNode::resolve(_tables);
+        for(auto _e : children) { _e->resolve(_tables); }
+    }
+
     bool ai::SimpleParallel::deserialize(ByteBuf& _buf)
     {
         if (!ai::ComposeNode::deserialize(_buf))
@@ -873,7 +1070,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; finishMode = ai::EFinishMode(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; finishMode = ai::EFinishMode(__enum_temp__); }
         if(!ai::Task::deserializeTask(_buf, mainTask)) return false;
         if(!ai::FlowNode::deserializeFlowNode(_buf, backgroundNode)) return false;
 
@@ -894,6 +1091,14 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::SimpleParallel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ComposeNode::resolve(_tables);
+        mainTask->resolve(_tables);
+        backgroundNode->resolve(_tables);
+    }
+
     bool ai::Task::deserialize(ByteBuf& _buf)
     {
         if (!ai::FlowNode::deserialize(_buf))
@@ -922,6 +1127,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void ai::Task::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        FlowNode::resolve(_tables);
+    }
+
     bool ai::UeWait::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -949,6 +1160,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeWait::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::UeWaitBlackboardTime::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -956,7 +1173,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, blackboardKey)) return false;
+        if(!_buf.readString(blackboardKey)) return false;
 
         return true;
     }
@@ -975,6 +1192,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::UeWaitBlackboardTime::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::MoveToTarget::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -982,7 +1205,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, targetActorKey)) return false;
+        if(!_buf.readString(targetActorKey)) return false;
         if(!_buf.readFloat(acceptableRadius)) return false;
 
         return true;
@@ -1002,6 +1225,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::MoveToTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::ChooseSkill::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -1009,8 +1238,8 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, targetActorKey)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, resultSkillIdKey)) return false;
+        if(!_buf.readString(targetActorKey)) return false;
+        if(!_buf.readString(resultSkillIdKey)) return false;
 
         return true;
     }
@@ -1029,6 +1258,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::ChooseSkill::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::MoveToRandomLocation::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -1036,7 +1271,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, originPositionKey)) return false;
+        if(!_buf.readString(originPositionKey)) return false;
         if(!_buf.readFloat(radius)) return false;
 
         return true;
@@ -1056,6 +1291,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::MoveToRandomLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::MoveToLocation::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -1083,6 +1324,12 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::MoveToLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool ai::DebugPrint::deserialize(ByteBuf& _buf)
     {
         if (!ai::Task::deserialize(_buf))
@@ -1090,7 +1337,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, text)) return false;
+        if(!_buf.readString(text)) return false;
 
         return true;
     }
@@ -1109,11 +1356,17 @@ namespace cfg
             return false;
         }
     }
+
+    void ai::DebugPrint::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Task::resolve(_tables);
+    }
+
     bool blueprint::Clazz::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(desc)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parents.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::Clazz* _e;  if(!blueprint::Clazz::deserializeClazz(_buf, _e)) return false; parents.push_back(_e);}}
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); methods.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::Method* _e;  if(!blueprint::Method::deserializeMethod(_buf, _e)) return false; methods.push_back(_e);}}
 
@@ -1132,13 +1385,20 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void blueprint::Clazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : parents) { _e->resolve(_tables); }
+        for(auto _e : methods) { _e->resolve(_tables); }
+    }
+
     bool blueprint::Method::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(desc)) return false;
         if (!_buf.readBool(isStatic)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, returnType)) return false;
+        if(!_buf.readString(returnType)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parameters.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::ParamInfo* _e;  if(!blueprint::ParamInfo::deserializeParamInfo(_buf, _e)) return false; parameters.push_back(_e);}}
 
         return true;
@@ -1156,11 +1416,17 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void blueprint::Method::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : parameters) { _e->resolve(_tables); }
+    }
+
     bool blueprint::ParamInfo::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, type)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(type)) return false;
         if (!_buf.readBool(isRef)) return false;
 
         return true;
@@ -1180,6 +1446,11 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::ParamInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool blueprint::AbstraceMethod::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Method::deserialize(_buf))
@@ -1205,6 +1476,12 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::AbstraceMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Method::resolve(_tables);
+    }
+
     bool blueprint::ExternalMethod::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Method::deserialize(_buf))
@@ -1230,6 +1507,12 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::ExternalMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Method::resolve(_tables);
+    }
+
     bool blueprint::BlueprintMethod::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Method::deserialize(_buf))
@@ -1255,6 +1538,12 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::BlueprintMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Method::resolve(_tables);
+    }
+
     bool blueprint::Interface::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Clazz::deserialize(_buf))
@@ -1280,6 +1569,12 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::Interface::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Clazz::resolve(_tables);
+    }
+
     bool blueprint::NormalClazz::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Clazz::deserialize(_buf))
@@ -1307,12 +1602,19 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::NormalClazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Clazz::resolve(_tables);
+        for(auto _e : fields) { _e->resolve(_tables); }
+    }
+
     bool blueprint::Field::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, type)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(type)) return false;
+        if(!_buf.readString(desc)) return false;
 
         return true;
     }
@@ -1331,6 +1633,11 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::Field::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool blueprint::EnumClazz::deserialize(ByteBuf& _buf)
     {
         if (!blueprint::Clazz::deserialize(_buf))
@@ -1357,10 +1664,17 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::EnumClazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Clazz::resolve(_tables);
+        for(auto _e : enums) { _e->resolve(_tables); }
+    }
+
     bool blueprint::EnumField::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
+        if(!_buf.readString(name)) return false;
         if(!_buf.readInt(value)) return false;
 
         return true;
@@ -1380,11 +1694,16 @@ namespace cfg
             return false;
         }
     }
+
+    void blueprint::EnumField::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool bonus::DropInfo::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(desc)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); clientShowItems.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::ShowItemInfo* _e;  if(!bonus::ShowItemInfo::deserializeShowItemInfo(_buf, _e)) return false; clientShowItems.push_back(_e);}}
         if(!bonus::Bonus::deserializeBonus(_buf, bonus)) return false;
 
@@ -1405,6 +1724,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::DropInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        for(auto _e : clientShowItems) { _e->resolve(_tables); }
+        bonus->resolve(_tables);
+    }
+
     bool bonus::ShowItemInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -1428,6 +1754,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::ShowItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool bonus::Bonus::deserialize(ByteBuf& _buf)
     {
 
@@ -1455,6 +1787,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void bonus::Bonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool bonus::OneItem::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1481,6 +1818,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::OneItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool bonus::OneItems::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1507,6 +1851,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::OneItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+    }
+
     bool bonus::Item::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1534,6 +1884,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::Item::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool bonus::Items::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1560,6 +1917,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::Items::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : itemList) { _e->resolve(_tables); }
+    }
+
     bool bonus::CoefficientItem::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1587,6 +1951,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::CoefficientItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        bonusList->resolve(_tables);
+    }
+
     bool bonus::WeightItems::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1613,6 +1984,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::WeightItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : itemList) { _e->resolve(_tables); }
+    }
+
     bool bonus::WeightItemInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -1637,6 +2015,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::WeightItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool bonus::ProbabilityItems::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1663,6 +2047,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::ProbabilityItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : itemList) { _e->resolve(_tables); }
+    }
+
     bool bonus::ProbabilityItemInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -1687,6 +2078,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::ProbabilityItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
     bool bonus::MultiBonus::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1713,6 +2110,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::MultiBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : bonuses) { _e->resolve(_tables); }
+    }
+
     bool bonus::ProbabilityBonus::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1739,6 +2143,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::ProbabilityBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : bonuses) { _e->resolve(_tables); }
+    }
+
     bool bonus::ProbabilityBonusInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -1762,6 +2173,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::ProbabilityBonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        bonus->resolve(_tables);
+    }
+
     bool bonus::WeightBonus::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1788,6 +2205,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::WeightBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        for(auto _e : bonuses) { _e->resolve(_tables); }
+    }
+
     bool bonus::WeightBonusInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -1811,6 +2235,12 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::WeightBonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        bonus->resolve(_tables);
+    }
+
     bool bonus::DropBonus::deserialize(ByteBuf& _buf)
     {
         if (!bonus::Bonus::deserialize(_buf))
@@ -1837,6 +2267,13 @@ namespace cfg
             return false;
         }
     }
+
+    void bonus::DropBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Bonus::resolve(_tables);
+        this->id_Ref = ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(id);
+    }
+
     bool common::GlobalConfig::deserialize(ByteBuf& _buf)
     {
 
@@ -1849,7 +2286,7 @@ namespace cfg
         if(!_buf.readInt(clothBagCapacity)) return false;
         if(!_buf.readInt(clothBagInitCapacity)) return false;
         if(!_buf.readInt(clothBagCapacitySpecial)) return false;
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(bagInitItemsDropId)) return false; } else { bagInitItemsDropId = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; bagInitItemsDropId = new int32_t; *bagInitItemsDropId = _temp_; } else { bagInitItemsDropId = nullptr; } }
         if(!_buf.readInt(mailBoxCapacity)) return false;
         if(!_buf.readFloat(damageParamC)) return false;
         if(!_buf.readFloat(damageParamE)) return false;
@@ -1879,6 +2316,12 @@ namespace cfg
             return false;
         }
     }
+
+    void common::GlobalConfig::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        this->bagInitItemsDropId_Ref = this->bagInitItemsDropId != nullptr ? ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(*(this->bagInitItemsDropId)) : nullptr;
+    }
+
     bool common::Dummy::deserialize(ByteBuf& _buf)
     {
 
@@ -1902,6 +2345,12 @@ namespace cfg
             return false;
         }
     }
+
+    void common::Dummy::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        limit->resolve(_tables);
+    }
+
     bool limit::LimitBase::deserialize(ByteBuf& _buf)
     {
 
@@ -1924,6 +2373,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void limit::LimitBase::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool limit::DailyLimitBase::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -1945,6 +2399,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void limit::DailyLimitBase::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool limit::DailyLimit::deserialize(ByteBuf& _buf)
     {
         if (!limit::DailyLimitBase::deserialize(_buf))
@@ -1971,6 +2431,12 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::DailyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        DailyLimitBase::resolve(_tables);
+    }
+
     bool limit::MultiDayLimit::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -1998,6 +2464,12 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::MultiDayLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool limit::WeeklyLimit::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -2024,6 +2496,12 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::WeeklyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool limit::MonthlyLimit::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -2050,6 +2528,12 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::MonthlyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool limit::CoolDown::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -2076,6 +2560,12 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::CoolDown::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool limit::GroupCoolDown::deserialize(ByteBuf& _buf)
     {
         if (!limit::LimitBase::deserialize(_buf))
@@ -2103,11 +2593,17 @@ namespace cfg
             return false;
         }
     }
+
+    void limit::GroupCoolDown::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        LimitBase::resolve(_tables);
+    }
+
     bool error::ErrorInfo::deserialize(ByteBuf& _buf)
     {
 
-        if(!BYTEBUF_READ_STRING(_buf, code)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        if(!_buf.readString(code)) return false;
+        if(!_buf.readString(desc)) return false;
         if(!error::ErrorStyle::deserializeErrorStyle(_buf, style)) return false;
 
         return true;
@@ -2127,6 +2623,12 @@ namespace cfg
             return false;
         }
     }
+
+    void error::ErrorInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        style->resolve(_tables);
+    }
+
     bool error::ErrorStyle::deserialize(ByteBuf& _buf)
     {
 
@@ -2147,6 +2649,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void error::ErrorStyle::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool error::ErrorStyleTip::deserialize(ByteBuf& _buf)
     {
         if (!error::ErrorStyle::deserialize(_buf))
@@ -2172,6 +2679,12 @@ namespace cfg
             return false;
         }
     }
+
+    void error::ErrorStyleTip::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ErrorStyle::resolve(_tables);
+    }
+
     bool error::ErrorStyleMsgbox::deserialize(ByteBuf& _buf)
     {
         if (!error::ErrorStyle::deserialize(_buf))
@@ -2179,8 +2692,8 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, btnName)) return false;
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; operation = error::EOperation(_temp_); }
+        if(!_buf.readString(btnName)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; operation = error::EOperation(__enum_temp__); }
 
         return true;
     }
@@ -2199,6 +2712,12 @@ namespace cfg
             return false;
         }
     }
+
+    void error::ErrorStyleMsgbox::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ErrorStyle::resolve(_tables);
+    }
+
     bool error::ErrorStyleDlgOk::deserialize(ByteBuf& _buf)
     {
         if (!error::ErrorStyle::deserialize(_buf))
@@ -2206,7 +2725,7 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, btnName)) return false;
+        if(!_buf.readString(btnName)) return false;
 
         return true;
     }
@@ -2225,6 +2744,12 @@ namespace cfg
             return false;
         }
     }
+
+    void error::ErrorStyleDlgOk::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ErrorStyle::resolve(_tables);
+    }
+
     bool error::ErrorStyleDlgOkCancel::deserialize(ByteBuf& _buf)
     {
         if (!error::ErrorStyle::deserialize(_buf))
@@ -2232,8 +2757,8 @@ namespace cfg
             return false;
         }
 
-        if(!BYTEBUF_READ_STRING(_buf, btn1Name)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, btn2Name)) return false;
+        if(!_buf.readString(btn1Name)) return false;
+        if(!_buf.readString(btn2Name)) return false;
 
         return true;
     }
@@ -2252,11 +2777,17 @@ namespace cfg
             return false;
         }
     }
+
+    void error::ErrorStyleDlgOkCancel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ErrorStyle::resolve(_tables);
+    }
+
     bool error::CodeInfo::deserialize(ByteBuf& _buf)
     {
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; code = error::EErrorCode(_temp_); }
-        if(!BYTEBUF_READ_STRING(_buf, key)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; code = error::EErrorCode(__enum_temp__); }
+        if(!_buf.readString(key)) return false;
 
         return true;
     }
@@ -2275,30 +2806,35 @@ namespace cfg
             return false;
         }
     }
+
+    void error::CodeInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool item::Item::deserialize(ByteBuf& _buf)
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, name)) return false;
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; majorType = item::EMajorType(_temp_); }
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; minorType = item::EMinorType(_temp_); }
+        if(!_buf.readString(name)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; majorType = item::EMajorType(__enum_temp__); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; minorType = item::EMinorType(__enum_temp__); }
         if(!_buf.readInt(maxPileNum)) return false;
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; quality = item::EItemQuality(_temp_); }
-        if(!BYTEBUF_READ_STRING(_buf, icon)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, iconBackgroud)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, iconMask)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, desc)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; quality = item::EItemQuality(__enum_temp__); }
+        if(!_buf.readString(icon)) return false;
+        if(!_buf.readString(iconBackgroud)) return false;
+        if(!_buf.readString(iconMask)) return false;
+        if(!_buf.readString(desc)) return false;
         if(!_buf.readInt(showOrder)) return false;
-        if(!BYTEBUF_READ_STRING(_buf, quantifier)) return false;
+        if(!_buf.readString(quantifier)) return false;
         if (!_buf.readBool(showInBag)) return false;
         if(!_buf.readInt(minShowLevel)) return false;
         if (!_buf.readBool(batchUsable)) return false;
         if(!_buf.readFloat(progressTimeWhenUse)) return false;
         if (!_buf.readBool(showHintWhenUse)) return false;
         if (!_buf.readBool(droppable)) return false;
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(price)) return false; } else { price = {}; } }
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; useType = item::EUseType(_temp_); }
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(levelUpId)) return false; } else { levelUpId = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; price = new int32_t; *price = _temp_; } else { price = nullptr; } }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; useType = item::EUseType(__enum_temp__); }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; levelUpId = new int32_t; *levelUpId = _temp_; } else { levelUpId = nullptr; } }
 
         return true;
     }
@@ -2317,12 +2853,17 @@ namespace cfg
             return false;
         }
     }
+
+    void item::Item::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool item::ItemFunction::deserialize(ByteBuf& _buf)
     {
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; minorType = item::EMinorType(_temp_); }
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; funcType = item::EItemFunctionType(_temp_); }
-        if(!BYTEBUF_READ_STRING(_buf, method)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; minorType = item::EMinorType(__enum_temp__); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; funcType = item::EItemFunctionType(__enum_temp__); }
+        if(!_buf.readString(method)) return false;
         if (!_buf.readBool(closeBagUi)) return false;
 
         return true;
@@ -2342,6 +2883,11 @@ namespace cfg
             return false;
         }
     }
+
+    void item::ItemFunction::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool item::ItemExtra::deserialize(ByteBuf& _buf)
     {
 
@@ -2364,6 +2910,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void item::ItemExtra::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool item::TreasureBox::deserialize(ByteBuf& _buf)
     {
         if (!item::ItemExtra::deserialize(_buf))
@@ -2371,7 +2922,7 @@ namespace cfg
             return false;
         }
 
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(keyItemId)) return false; } else { keyItemId = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; keyItemId = new int32_t; *keyItemId = _temp_; } else { keyItemId = nullptr; } }
         if(!condition::MinLevel::deserializeMinLevel(_buf, openLevel)) return false;
         if (!_buf.readBool(useOnObtain)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
@@ -2394,6 +2945,14 @@ namespace cfg
             return false;
         }
     }
+
+    void item::TreasureBox::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+        openLevel->resolve(_tables);
+        for(auto _e : chooseList) { _e->resolve(_tables); }
+    }
+
     bool condition::Condition::deserialize(ByteBuf& _buf)
     {
 
@@ -2418,6 +2977,11 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void condition::Condition::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool condition::TimeRange::deserialize(ByteBuf& _buf)
     {
         if (!condition::Condition::deserialize(_buf))
@@ -2444,11 +3008,18 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::TimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Condition::resolve(_tables);
+        dateTimeRange->resolve(_tables);
+    }
+
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(startTime)) return false; } else { startTime = {}; } }
-        { bool _read_succ_; if(!_buf.readBool(_read_succ_)){return false;}  if(_read_succ_) { if(!_buf.readInt(endTime)) return false; } else { endTime = {}; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; startTime = new int32_t; *startTime = _temp_; } else { startTime = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; endTime = new int32_t; *endTime = _temp_; } else { endTime = nullptr; } }
 
         return true;
     }
@@ -2467,6 +3038,11 @@ namespace cfg
             return false;
         }
     }
+
+    void common::DateTimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+    }
+
     bool condition::RoleCondition::deserialize(ByteBuf& _buf)
     {
         if (!condition::Condition::deserialize(_buf))
@@ -2494,6 +3070,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void condition::RoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        Condition::resolve(_tables);
+    }
+
     bool condition::MultiRoleCondition::deserialize(ByteBuf& _buf)
     {
         if (!condition::RoleCondition::deserialize(_buf))
@@ -2520,6 +3102,13 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::MultiRoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        RoleCondition::resolve(_tables);
+        for(auto _e : conditions) { _e->resolve(_tables); }
+    }
+
     bool condition::BoolRoleCondition::deserialize(ByteBuf& _buf)
     {
         if (!condition::RoleCondition::deserialize(_buf))
@@ -2545,6 +3134,12 @@ namespace cfg
             default: { _out = nullptr; return false;}
         }
     }
+
+    void condition::BoolRoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        RoleCondition::resolve(_tables);
+    }
+
     bool condition::GenderLimit::deserialize(ByteBuf& _buf)
     {
         if (!condition::BoolRoleCondition::deserialize(_buf))
@@ -2552,7 +3147,7 @@ namespace cfg
             return false;
         }
 
-        {int _temp_; if(!_buf.readInt(_temp_)) return false; gender = role::EGenderType(_temp_); }
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; gender = role::EGenderType(__enum_temp__); }
 
         return true;
     }
@@ -2571,6 +3166,12 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::GenderLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
     bool condition::MinLevel::deserialize(ByteBuf& _buf)
     {
         if (!condition::BoolRoleCondition::deserialize(_buf))
@@ -2597,6 +3198,12 @@ namespace cfg
             return false;
         }
     }
+
+    void condition::MinLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
     bool condition::MaxLevel::deserialize(ByteBuf& _buf)
     {
         if (!condition::BoolRoleCondition::deserialize(_buf))
@@ -2622,5 +3229,10 @@ namespace cfg
             _out = nullptr;
             return false;
         }
+    }
+
+    void condition::MaxLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
     }
 }
