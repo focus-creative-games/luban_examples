@@ -18,9 +18,9 @@ namespace cfg.test
 /// <summary>
 /// 
 /// </summary>
-public sealed partial class DefineFromExcel :  Bright.Config.BeanBase 
+public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase 
 {
-    public DefineFromExcel(ByteBuf _buf) 
+    public DefineFromExcel2(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         X1 = _buf.ReadBool();
@@ -37,7 +37,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
     }
 
-    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -54,9 +54,9 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         this.K9 = k9;
     }
 
-    public static DefineFromExcel DeserializeDefineFromExcel(ByteBuf _buf)
+    public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
     {
-        return new test.DefineFromExcel(_buf);
+        return new test.DefineFromExcel2(_buf);
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     /// </summary>
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
 
-    public const int ID = 2100429878;
+    public const int ID = 688816828;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)

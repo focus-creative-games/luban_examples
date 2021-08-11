@@ -150,11 +150,27 @@ public sealed class Tables
     /// <summary>
     /// 
     /// </summary>
+    public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
+    /// <summary>
+    /// 
+    /// </summary>
     public test.TbDefineFromExcel TbDefineFromExcel {get; }
     /// <summary>
     /// 
     /// </summary>
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbTestExcelBean TbTestExcelBean {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -225,10 +241,18 @@ public sealed class Tables
         tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
         tables.Add("test.TbTestGlobal", TbTestGlobal);
+        TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader("test.TbDetectCsvEncoding")); 
+        tables.Add("test.TbDetectCsvEncoding", TbDetectCsvEncoding);
         TbDefineFromExcel = new test.TbDefineFromExcel(loader("test.TbDefineFromExcel")); 
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
         tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
+        TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
+        tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
+        TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
+        tables.Add("test.TbDefineFromExcel2", TbDefineFromExcel2);
+        TbTestExcelBean = new test.TbTestExcelBean(loader("test.TbTestExcelBean")); 
+        tables.Add("test.TbTestExcelBean", TbTestExcelBean);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -263,8 +287,12 @@ public sealed class Tables
         TbDemoGroup_S.Resolve(tables); 
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
+        TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
+        TbDemoGroupDefineFromExcel.Resolve(tables); 
+        TbDefineFromExcel2.Resolve(tables); 
+        TbTestExcelBean.Resolve(tables); 
     }
 }
 
