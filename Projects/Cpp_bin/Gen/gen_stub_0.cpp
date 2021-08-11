@@ -2227,7 +2227,7 @@ namespace cfg
         if(!_buf.readInt(clothBagCapacity)) return false;
         if(!_buf.readInt(clothBagInitCapacity)) return false;
         if(!_buf.readInt(clothBagCapacitySpecial)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; bagInitItemsDropId = new int32_t; *bagInitItemsDropId = _temp_; } else { bagInitItemsDropId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { bagInitItemsDropId.reset(new int32_t()); if(!_buf.readInt(*bagInitItemsDropId)) return false; } else { bagInitItemsDropId.reset(); } }
         if(!_buf.readInt(mailBoxCapacity)) return false;
         if(!_buf.readFloat(damageParamC)) return false;
         if(!_buf.readFloat(damageParamE)) return false;
@@ -2759,9 +2759,9 @@ namespace cfg
         if(!_buf.readFloat(progressTimeWhenUse)) return false;
         if (!_buf.readBool(showHintWhenUse)) return false;
         if (!_buf.readBool(droppable)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; price = new int32_t; *price = _temp_; } else { price = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { price.reset(new int32_t()); if(!_buf.readInt(*price)) return false; } else { price.reset(); } }
         {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; useType = item::EUseType(__enum_temp__); }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; levelUpId = new int32_t; *levelUpId = _temp_; } else { levelUpId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { levelUpId.reset(new int32_t()); if(!_buf.readInt(*levelUpId)) return false; } else { levelUpId.reset(); } }
 
         return true;
     }
@@ -2847,7 +2847,7 @@ namespace cfg
             return false;
         }
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; keyItemId = new int32_t; *keyItemId = _temp_; } else { keyItemId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { keyItemId.reset(new int32_t()); if(!_buf.readInt(*keyItemId)) return false; } else { keyItemId.reset(); } }
         if(!condition::MinLevel::deserializeMinLevel(_buf, openLevel)) return false;
         if (!_buf.readBool(useOnObtain)) return false;
         {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
@@ -2941,8 +2941,8 @@ namespace cfg
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; startTime = new int32_t; *startTime = _temp_; } else { startTime = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; endTime = new int32_t; *endTime = _temp_; } else { endTime = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new int32_t()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new int32_t()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
 
         return true;
     }

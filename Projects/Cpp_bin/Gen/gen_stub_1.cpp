@@ -148,7 +148,7 @@ namespace cfg
             return false;
         }
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; attackNum = new int32_t; *attackNum = _temp_; } else { attackNum = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { attackNum.reset(new int32_t()); if(!_buf.readInt(*attackNum)) return false; } else { attackNum.reset(); } }
         if(!_buf.readString(holdingStaticMesh)) return false;
         if(!_buf.readString(holdingStaticMeshMat)) return false;
 
@@ -982,7 +982,7 @@ namespace cfg
     bool test::DemoE2::deserialize(ByteBuf& _buf)
     {
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; y1 = new int32_t; *y1 = _temp_; } else { y1 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { y1.reset(new int32_t()); if(!_buf.readInt(*y1)) return false; } else { y1.reset(); } }
         if (!_buf.readBool(y2)) return false;
 
         return true;
@@ -1248,12 +1248,12 @@ namespace cfg
     {
 
         if(!_buf.readInt(id)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; x1 = new int32_t; *x1 = _temp_; } else { x1 = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {test::DemoEnum _temp_;  {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _temp_ = test::DemoEnum(__enum_temp__); } x2 = new test::DemoEnum; *x2 = _temp_; } else { x2 = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::shared_ptr<test::DemoType1> _temp_;  if(!test::DemoType1::deserializeDemoType1(_buf, _temp_)) return false; x3 = _temp_; } else { x3 = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::shared_ptr<test::DemoDynamic> _temp_;  if(!test::DemoDynamic::deserializeDemoDynamic(_buf, _temp_)) return false; x4 = _temp_; } else { x4 = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::string _temp_;  if(!_buf.readString(_temp_)) return false; s1 = new std::string; *s1 = _temp_; } else { s1 = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {std::string _temp_;  if(!_buf.readString(_temp_)) return false; s2 = new std::string; *s2 = _temp_; } else { s2 = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x1.reset(new int32_t()); if(!_buf.readInt(*x1)) return false; } else { x1.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x2.reset(new test::DemoEnum()); {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; *x2 = test::DemoEnum(__enum_temp__); } } else { x2.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x3.reset(); if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false; } else { x3.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x4.reset(); if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false; } else { x4.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s1.reset(new std::string()); if(!_buf.readString(*s1)) return false; } else { s1.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2.reset(new std::string()); if(!_buf.readString(*s2)) return false; } else { s2.reset(); } }
 
         return true;
     }

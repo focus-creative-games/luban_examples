@@ -4910,7 +4910,7 @@ class GlobalConfig : public  bright::CfgBean
 
     }
 
-    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, int32_t* bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
+    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, std::shared_ptr<int32_t> bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
     {
 
         this->bagCapacity = bag_capacity;
@@ -4978,7 +4978,7 @@ class GlobalConfig : public  bright::CfgBean
     /**
      
      */
-    int32_t* bagInitItemsDropId;
+    std::shared_ptr<int32_t> bagInitItemsDropId;
     std::shared_ptr<bonus::DropInfo> bagInitItemsDropId_Ref;
     /**
      
@@ -5780,7 +5780,7 @@ class Item : public  bright::CfgBean
 
     }
 
-    Item(int32_t id, std::string name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, std::string icon, std::string icon_backgroud, std::string icon_mask, std::string desc, int32_t show_order, std::string quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int32_t* price, item::EUseType use_type, int32_t* level_up_id ) 
+    Item(int32_t id, std::string name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, std::string icon, std::string icon_backgroud, std::string icon_mask, std::string desc, int32_t show_order, std::string quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, std::shared_ptr<int32_t> price, item::EUseType use_type, std::shared_ptr<int32_t> level_up_id ) 
     {
 
         this->id = id;
@@ -5884,7 +5884,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    int32_t* price;
+    std::shared_ptr<int32_t> price;
     /**
      
      */
@@ -5892,7 +5892,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    int32_t* levelUpId;
+    std::shared_ptr<int32_t> levelUpId;
 
     static constexpr int ID = 2107285806;
 
@@ -6027,7 +6027,7 @@ class TreasureBox : public  item::ItemExtra
 
     }
 
-    TreasureBox(int32_t id, int32_t* key_item_id, std::shared_ptr<condition::MinLevel> open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<std::shared_ptr<item::ChooseOneBonus>> choose_list ) 
+    TreasureBox(int32_t id, std::shared_ptr<int32_t> key_item_id, std::shared_ptr<condition::MinLevel> open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<std::shared_ptr<item::ChooseOneBonus>> choose_list ) 
             : item::ItemExtra(id)
     {
 
@@ -6044,7 +6044,7 @@ class TreasureBox : public  item::ItemExtra
     /**
      
      */
-    int32_t* keyItemId;
+    std::shared_ptr<int32_t> keyItemId;
     /**
      
      */
@@ -6172,7 +6172,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(int32_t* start_time, int32_t* end_time ) 
+    DateTimeRange(std::shared_ptr<int32_t> start_time, std::shared_ptr<int32_t> end_time ) 
     {
 
         this->startTime = start_time;
@@ -6185,11 +6185,11 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    int32_t* startTime;
+    std::shared_ptr<int32_t> startTime;
     /**
      
      */
-    int32_t* endTime;
+    std::shared_ptr<int32_t> endTime;
 
     static constexpr int ID = 1642200959;
 
@@ -6682,7 +6682,7 @@ class InteractionItem : public  item::ItemExtra
 
     }
 
-    InteractionItem(int32_t id, int32_t* attack_num, std::string holding_static_mesh, std::string holding_static_mesh_mat ) 
+    InteractionItem(int32_t id, std::shared_ptr<int32_t> attack_num, std::string holding_static_mesh, std::string holding_static_mesh_mat ) 
             : item::ItemExtra(id)
     {
 
@@ -6697,7 +6697,7 @@ class InteractionItem : public  item::ItemExtra
     /**
      
      */
-    int32_t* attackNum;
+    std::shared_ptr<int32_t> attackNum;
     /**
      
      */
@@ -7836,7 +7836,7 @@ class DemoType2 : public  bright::CfgBean
      
      */
     std::vector<std::shared_ptr<test::DemoE2>> k9;
-    std::unordered_map<int32_t*, std::shared_ptr<test::DemoE2>> k9_Index;
+    std::unordered_map<std::shared_ptr<int32_t>, std::shared_ptr<test::DemoE2>> k9_Index;
     /**
      
      */
@@ -8191,7 +8191,7 @@ class DemoE2 : public  bright::CfgBean
 
     }
 
-    DemoE2(int32_t* y1, bool y2 ) 
+    DemoE2(std::shared_ptr<int32_t> y1, bool y2 ) 
     {
 
         this->y1 = y1;
@@ -8204,7 +8204,7 @@ class DemoE2 : public  bright::CfgBean
     /**
      
      */
-    int32_t* y1;
+    std::shared_ptr<int32_t> y1;
     /**
      
      */
@@ -8696,7 +8696,7 @@ class TestNull : public  bright::CfgBean
 
     }
 
-    TestNull(int32_t id, int32_t* x1, test::DemoEnum* x2, std::shared_ptr<test::DemoType1> x3, std::shared_ptr<test::DemoDynamic> x4, std::string* s1, std::string* s2 ) 
+    TestNull(int32_t id, std::shared_ptr<int32_t> x1, std::shared_ptr<test::DemoEnum> x2, std::shared_ptr<test::DemoType1> x3, std::shared_ptr<test::DemoDynamic> x4, std::shared_ptr<std::string> s1, std::shared_ptr<std::string> s2 ) 
     {
 
         this->id = id;
@@ -8718,11 +8718,11 @@ class TestNull : public  bright::CfgBean
     /**
      
      */
-    int32_t* x1;
+    std::shared_ptr<int32_t> x1;
     /**
      
      */
-    test::DemoEnum* x2;
+    std::shared_ptr<test::DemoEnum> x2;
     /**
      
      */
@@ -8734,11 +8734,11 @@ class TestNull : public  bright::CfgBean
     /**
      
      */
-    std::string* s1;
+    std::shared_ptr<std::string> s1;
     /**
      
      */
-    std::string* s2;
+    std::shared_ptr<std::string> s2;
 
     static constexpr int ID = 339868469;
 
@@ -9816,7 +9816,7 @@ class TbGlobalConfig
     /**
     
      */
-    int32_t*& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
+    std::shared_ptr<int32_t>& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
     /**
     
      */
