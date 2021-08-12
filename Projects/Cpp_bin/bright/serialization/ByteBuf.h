@@ -10,11 +10,6 @@
 
 #include "../CommonMacros.h"
 
-#include "../math/Vector2.hpp"
-#include "../math/Vector3.hpp"
-#include "../math/Vector4.hpp"
-
-
 namespace bright
 {
     namespace serialization

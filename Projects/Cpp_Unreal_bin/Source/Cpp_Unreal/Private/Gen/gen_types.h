@@ -9,16 +9,14 @@
 
 #pragma once
 #include <functional>
-#include <memory>
 
 #include "bright/serialization/ByteBuf.h"
 #include "bright/CfgBean.hpp"
 
-using ByteBuf = bright::serialization::ByteBuf;
+using ByteBuf = ::bright::serialization::ByteBuf;
 
 namespace cfg
 {
-
 
 
 namespace ai {
@@ -1539,7 +1537,7 @@ class Blackboard : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1604,7 +1602,7 @@ class BlackboardKey : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1670,7 +1668,7 @@ class BehaviorTree : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1717,7 +1715,7 @@ class Node : public  bright::CfgBean
     ::bright::String nodeName;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1755,7 +1753,7 @@ class Service : public  ai::Node
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1801,7 +1799,7 @@ class UeSetDefaultFocus : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1842,7 +1840,7 @@ class ExecuteTimeStatistic : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1888,7 +1886,7 @@ class ChooseTarget : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1934,7 +1932,7 @@ class KeepFaceTarget : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -1980,7 +1978,7 @@ class GetOwnerPlayer : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2066,7 +2064,7 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2109,7 +2107,7 @@ class Decorator : public  ai::Node
     ai::EFlowAbortMode flowAbortMode;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2165,7 +2163,7 @@ class UeLoop : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2211,7 +2209,7 @@ class UeCooldown : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2257,7 +2255,7 @@ class UeTimeLimit : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2313,7 +2311,7 @@ class UeBlackboard : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2346,7 +2344,7 @@ class KeyQueryOperator : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2382,7 +2380,7 @@ class IsSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2418,7 +2416,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2469,7 +2467,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2502,7 +2500,7 @@ class KeyData : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2548,7 +2546,7 @@ class FloatKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2594,7 +2592,7 @@ class IntKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2640,7 +2638,7 @@ class StringKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2686,7 +2684,7 @@ class BlackboardKeyData : public  ai::KeyData
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2727,7 +2725,7 @@ class UeForceSuccess : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2783,7 +2781,7 @@ class IsAtLocation : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2844,7 +2842,7 @@ class DistanceLessThan : public  ai::Decorator
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2892,7 +2890,7 @@ class FlowNode : public  ai::Node
     ::bright::Vector<::bright::SharedPtr<ai::Service>> services;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2930,7 +2928,7 @@ class ComposeNode : public  ai::FlowNode
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -2976,7 +2974,7 @@ class Sequence : public  ai::ComposeNode
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3022,7 +3020,7 @@ class Selector : public  ai::ComposeNode
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3078,7 +3076,7 @@ class SimpleParallel : public  ai::ComposeNode
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3121,7 +3119,7 @@ class Task : public  ai::FlowNode
     bool ignoreRestartSelf;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3172,7 +3170,7 @@ class UeWait : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3218,7 +3216,7 @@ class UeWaitBlackboardTime : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3269,7 +3267,7 @@ class MoveToTarget : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3320,7 +3318,7 @@ class ChooseSkill : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3371,7 +3369,7 @@ class MoveToRandomLocation : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3422,7 +3420,7 @@ class MoveToLocation : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3468,7 +3466,7 @@ class DebugPrint : public  ai::Task
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3525,7 +3523,7 @@ class Clazz : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3587,7 +3585,7 @@ class Method : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3642,7 +3640,7 @@ class ParamInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3683,7 +3681,7 @@ class AbstraceMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3724,7 +3722,7 @@ class ExternalMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3765,7 +3763,7 @@ class BlueprintMethod : public  blueprint::Method
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3806,7 +3804,7 @@ class Interface : public  blueprint::Clazz
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3857,7 +3855,7 @@ class NormalClazz : public  blueprint::Clazz
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3912,7 +3910,7 @@ class Field : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -3958,7 +3956,7 @@ class EnumClazz : public  blueprint::Clazz
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4008,7 +4006,7 @@ class EnumField : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4068,7 +4066,7 @@ class DropInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4119,7 +4117,7 @@ class ShowItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4152,7 +4150,7 @@ class Bonus : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4199,7 +4197,7 @@ class OneItem : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4245,7 +4243,7 @@ class OneItems : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4297,7 +4295,7 @@ class Item : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4343,7 +4341,7 @@ class Items : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4394,7 +4392,7 @@ class CoefficientItem : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4440,7 +4438,7 @@ class WeightItems : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4496,7 +4494,7 @@ class WeightItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4542,7 +4540,7 @@ class ProbabilityItems : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4598,7 +4596,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4644,7 +4642,7 @@ class MultiBonus : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4690,7 +4688,7 @@ class ProbabilityBonus : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4740,7 +4738,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4786,7 +4784,7 @@ class WeightBonus : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4836,7 +4834,7 @@ class WeightBonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -4883,7 +4881,7 @@ class DropBonus : public  bonus::Bonus
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5029,7 +5027,7 @@ class GlobalConfig : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5079,7 +5077,7 @@ class Dummy : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5112,7 +5110,7 @@ class LimitBase : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5145,7 +5143,7 @@ class DailyLimitBase : public  limit::LimitBase
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5191,7 +5189,7 @@ class DailyLimit : public  limit::DailyLimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5242,7 +5240,7 @@ class MultiDayLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5288,7 +5286,7 @@ class WeeklyLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5334,7 +5332,7 @@ class MonthlyLimit : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5380,7 +5378,7 @@ class CoolDown : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5431,7 +5429,7 @@ class GroupCoolDown : public  limit::LimitBase
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5486,7 +5484,7 @@ class ErrorInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5519,7 +5517,7 @@ class ErrorStyle : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5555,7 +5553,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5606,7 +5604,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5652,7 +5650,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5703,7 +5701,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5753,7 +5751,7 @@ class CodeInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5898,7 +5896,7 @@ class Item : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -5958,7 +5956,7 @@ class ItemFunction : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6000,7 +5998,7 @@ class ItemExtra : public  bright::CfgBean
     ::bright::int32 id;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6066,7 +6064,7 @@ class TreasureBox : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6099,7 +6097,7 @@ class Condition : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6145,7 +6143,7 @@ class TimeRange : public  condition::Condition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6172,7 +6170,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(::bright::SharedPtr<::bright::datetime_t> start_time, ::bright::SharedPtr<::bright::datetime_t> end_time ) 
+    DateTimeRange(::bright::SharedPtr<::bright::int32> start_time, ::bright::SharedPtr<::bright::int32> end_time ) 
     {
 
         this->startTime = start_time;
@@ -6185,17 +6183,17 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    ::bright::SharedPtr<::bright::datetime_t> startTime;
+    ::bright::SharedPtr<::bright::int32> startTime;
     /**
      
      */
-    ::bright::SharedPtr<::bright::datetime_t> endTime;
+    ::bright::SharedPtr<::bright::int32> endTime;
 
     static constexpr int ID = 1642200959;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6228,7 +6226,7 @@ class RoleCondition : public  condition::Condition
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6274,7 +6272,7 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6307,7 +6305,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6353,7 +6351,7 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6399,7 +6397,7 @@ class MinLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6445,7 +6443,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6496,7 +6494,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6547,7 +6545,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6604,7 +6602,7 @@ class ContainsItem : public  condition::RoleCondition
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6655,7 +6653,7 @@ class ChooseOneBonus : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6711,7 +6709,7 @@ class InteractionItem : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6772,7 +6770,7 @@ class Clothes : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6818,7 +6816,7 @@ class DesignDrawing : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6864,7 +6862,7 @@ class Dymmy : public  item::ItemExtra
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6897,7 +6895,7 @@ class Cost : public  bright::CfgBean
 
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6948,7 +6946,7 @@ class CostCurrency : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -6994,7 +6992,7 @@ class CostCurrencies : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7041,7 +7039,7 @@ class CostOneItem : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7093,7 +7091,7 @@ class CostItem : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7139,7 +7137,7 @@ class CostItems : public  cost::Cost
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7189,7 +7187,7 @@ class L10NDemo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7239,7 +7237,7 @@ class PatchDemo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7304,7 +7302,7 @@ class SystemMail : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7404,7 +7402,7 @@ class GlobalMail : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7459,7 +7457,7 @@ class LevelExpAttr : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7509,7 +7507,7 @@ class LevelBonus : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7559,7 +7557,7 @@ class DistinctBonusInfos : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7609,7 +7607,7 @@ class BonusInfo : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7659,7 +7657,7 @@ class TestTag : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7686,7 +7684,7 @@ class DemoType2 : public  bright::CfgBean
 
     }
 
-    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
+    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::int32 t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
     {
 
         this->x4 = x4;
@@ -7799,7 +7797,7 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::int32 t1;
     /**
      
      */
@@ -7836,7 +7834,7 @@ class DemoType2 : public  bright::CfgBean
      
      */
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
-    std::unordered_map<::bright::SharedPtr<::bright::int32>, ::bright::SharedPtr<test::DemoE2>> k9_Index;
+    ::bright::HashMap<::bright::SharedPtr<::bright::int32>, ::bright::SharedPtr<test::DemoE2>> k9_Index;
     /**
      
      */
@@ -7846,7 +7844,7 @@ class DemoType2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7891,7 +7889,7 @@ class DemoType1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7933,7 +7931,7 @@ class DemoDynamic : public  bright::CfgBean
     ::bright::int32 x1;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -7979,7 +7977,7 @@ class DemoD2 : public  test::DemoDynamic
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8022,7 +8020,7 @@ class DemoD3 : public  test::DemoDynamic
     ::bright::int32 x3;
 
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8068,7 +8066,7 @@ class DemoE1 : public  test::DemoD3
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8114,7 +8112,7 @@ class DemoD5 : public  test::DemoDynamic
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8141,7 +8139,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(::bright::datetime_t start_time, ::bright::datetime_t end_time ) 
+    DateTimeRange(::bright::int32 start_time, ::bright::int32 end_time ) 
     {
 
         this->startTime = start_time;
@@ -8154,17 +8152,17 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t startTime;
+    ::bright::int32 startTime;
     /**
      
      */
-    ::bright::datetime_t endTime;
+    ::bright::int32 endTime;
 
     static constexpr int ID = 495315430;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8214,7 +8212,7 @@ class DemoE2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8269,7 +8267,7 @@ class DemoSingletonType : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8349,7 +8347,7 @@ class MultiRowRecord : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8399,7 +8397,7 @@ class MultiRowType1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8454,7 +8452,7 @@ class MultiRowType2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8504,7 +8502,7 @@ class MultiRowType3 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8569,7 +8567,7 @@ class MultiRowTitle : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8619,7 +8617,7 @@ class H1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8669,7 +8667,7 @@ class H2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8744,7 +8742,7 @@ class TestNull : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8771,7 +8769,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     }
 
-    DemoPrimitiveTypesTable(bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int32 x4, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1 ) 
+    DemoPrimitiveTypesTable(bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int32 x4, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::int32 t1 ) 
     {
 
         this->x1 = x1;
@@ -8843,13 +8841,13 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::int32 t1;
 
     static constexpr int ID = -370934083;
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8909,7 +8907,7 @@ class TestString : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -8964,7 +8962,7 @@ class CompactString : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9034,7 +9032,7 @@ class DemoGroup : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9094,7 +9092,7 @@ class InnerGroup : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9144,7 +9142,7 @@ class TestGlobal : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9194,7 +9192,7 @@ class DetectEncoding : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9221,7 +9219,7 @@ class DefineFromExcel : public  bright::CfgBean
 
     }
 
-    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::int32 t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9282,7 +9280,7 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::int32 t1;
     /**
      
      */
@@ -9300,7 +9298,7 @@ class DefineFromExcel : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9360,7 +9358,7 @@ class DefineFromExcelOne : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9387,7 +9385,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 
     }
 
-    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::int32 t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9448,7 +9446,7 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::int32 t1;
     /**
      
      */
@@ -9466,7 +9464,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9526,7 +9524,7 @@ class TestExcelBean1 : public  bright::CfgBean
 
     int getTypeId() const { return ID; }
 
-    virtual void resolve(std::unordered_map<std::string, void*>& _tables);
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
 
 }
@@ -9542,8 +9540,8 @@ namespace ai {
 class TbBlackboard
 {
     private:
-    std::unordered_map<::bright::String, ::bright::SharedPtr<ai::Blackboard>> _dataMap;
-    std::vector<::bright::SharedPtr<ai::Blackboard>> _dataList;
+    ::bright::HashMap<::bright::String, ::bright::SharedPtr<ai::Blackboard>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<ai::Blackboard>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9560,8 +9558,8 @@ class TbBlackboard
         return true;
     }
 
-    const std::unordered_map<::bright::String, ::bright::SharedPtr<ai::Blackboard>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<ai::Blackboard>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::String, ::bright::SharedPtr<ai::Blackboard>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<ai::Blackboard>>& getDataList() const { return _dataList; }
 
     ai::Blackboard* getRaw(::bright::String key)
     { 
@@ -9575,7 +9573,7 @@ class TbBlackboard
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9596,8 +9594,8 @@ namespace ai {
 class TbBehaviorTree
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>> _dataMap;
-    std::vector<::bright::SharedPtr<ai::BehaviorTree>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<ai::BehaviorTree>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9614,8 +9612,8 @@ class TbBehaviorTree
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<ai::BehaviorTree>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<ai::BehaviorTree>>& getDataList() const { return _dataList; }
 
     ai::BehaviorTree* getRaw(::bright::int32 key)
     { 
@@ -9629,7 +9627,7 @@ class TbBehaviorTree
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9650,8 +9648,8 @@ namespace blueprint {
 class TbClazz
 {
     private:
-    std::unordered_map<::bright::String, ::bright::SharedPtr<blueprint::Clazz>> _dataMap;
-    std::vector<::bright::SharedPtr<blueprint::Clazz>> _dataList;
+    ::bright::HashMap<::bright::String, ::bright::SharedPtr<blueprint::Clazz>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9668,8 +9666,8 @@ class TbClazz
         return true;
     }
 
-    const std::unordered_map<::bright::String, ::bright::SharedPtr<blueprint::Clazz>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<blueprint::Clazz>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::String, ::bright::SharedPtr<blueprint::Clazz>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>>& getDataList() const { return _dataList; }
 
     blueprint::Clazz* getRaw(::bright::String key)
     { 
@@ -9683,7 +9681,7 @@ class TbClazz
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9704,8 +9702,8 @@ namespace bonus {
 class TbDrop
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>> _dataMap;
-    std::vector<::bright::SharedPtr<bonus::DropInfo>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<bonus::DropInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9722,8 +9720,8 @@ class TbDrop
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<bonus::DropInfo>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<bonus::DropInfo>>& getDataList() const { return _dataList; }
 
     bonus::DropInfo* getRaw(::bright::int32 key)
     { 
@@ -9737,7 +9735,7 @@ class TbDrop
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9772,7 +9770,7 @@ class TbGlobalConfig
         return true;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -9874,8 +9872,8 @@ namespace common {
 class TbDummy
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<common::Dummy>> _dataMap;
-    std::vector<::bright::SharedPtr<common::Dummy>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<common::Dummy>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<common::Dummy>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9892,8 +9890,8 @@ class TbDummy
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<common::Dummy>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<common::Dummy>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<common::Dummy>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<common::Dummy>>& getDataList() const { return _dataList; }
 
     common::Dummy* getRaw(::bright::int32 key)
     { 
@@ -9907,7 +9905,7 @@ class TbDummy
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9928,8 +9926,8 @@ namespace error {
 class TbErrorInfo
 {
     private:
-    std::unordered_map<::bright::String, ::bright::SharedPtr<error::ErrorInfo>> _dataMap;
-    std::vector<::bright::SharedPtr<error::ErrorInfo>> _dataList;
+    ::bright::HashMap<::bright::String, ::bright::SharedPtr<error::ErrorInfo>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<error::ErrorInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9946,8 +9944,8 @@ class TbErrorInfo
         return true;
     }
 
-    const std::unordered_map<::bright::String, ::bright::SharedPtr<error::ErrorInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<error::ErrorInfo>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::String, ::bright::SharedPtr<error::ErrorInfo>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<error::ErrorInfo>>& getDataList() const { return _dataList; }
 
     error::ErrorInfo* getRaw(::bright::String key)
     { 
@@ -9961,7 +9959,7 @@ class TbErrorInfo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -9982,8 +9980,8 @@ namespace error {
 class TbCodeInfo
 {
     private:
-    std::unordered_map<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>> _dataMap;
-    std::vector<::bright::SharedPtr<error::CodeInfo>> _dataList;
+    ::bright::HashMap<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<error::CodeInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10000,8 +9998,8 @@ class TbCodeInfo
         return true;
     }
 
-    const std::unordered_map<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<error::CodeInfo>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<error::CodeInfo>>& getDataList() const { return _dataList; }
 
     error::CodeInfo* getRaw(error::EErrorCode key)
     { 
@@ -10015,7 +10013,7 @@ class TbCodeInfo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10036,8 +10034,8 @@ namespace item {
 class TbItem
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<item::Item>> _dataMap;
-    std::vector<::bright::SharedPtr<item::Item>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<item::Item>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<item::Item>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10054,8 +10052,8 @@ class TbItem
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<item::Item>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<item::Item>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<item::Item>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<item::Item>>& getDataList() const { return _dataList; }
 
     item::Item* getRaw(::bright::int32 key)
     { 
@@ -10069,7 +10067,7 @@ class TbItem
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10090,8 +10088,8 @@ namespace item {
 class TbItemFunc
 {
     private:
-    std::unordered_map<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>> _dataMap;
-    std::vector<::bright::SharedPtr<item::ItemFunction>> _dataList;
+    ::bright::HashMap<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<item::ItemFunction>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10108,8 +10106,8 @@ class TbItemFunc
         return true;
     }
 
-    const std::unordered_map<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<item::ItemFunction>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<item::ItemFunction>>& getDataList() const { return _dataList; }
 
     item::ItemFunction* getRaw(item::EMinorType key)
     { 
@@ -10123,7 +10121,7 @@ class TbItemFunc
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10144,8 +10142,8 @@ namespace item {
 class TbItemExtra
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<item::ItemExtra>> _dataMap;
-    std::vector<::bright::SharedPtr<item::ItemExtra>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<item::ItemExtra>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<item::ItemExtra>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10162,8 +10160,8 @@ class TbItemExtra
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<item::ItemExtra>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<item::ItemExtra>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<item::ItemExtra>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<item::ItemExtra>>& getDataList() const { return _dataList; }
 
     item::ItemExtra* getRaw(::bright::int32 key)
     { 
@@ -10177,7 +10175,7 @@ class TbItemExtra
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10198,8 +10196,8 @@ namespace l10n {
 class TbL10NDemo
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>> _dataMap;
-    std::vector<::bright::SharedPtr<l10n::L10NDemo>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<l10n::L10NDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10216,8 +10214,8 @@ class TbL10NDemo
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<l10n::L10NDemo>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<l10n::L10NDemo>>& getDataList() const { return _dataList; }
 
     l10n::L10NDemo* getRaw(::bright::int32 key)
     { 
@@ -10231,7 +10229,7 @@ class TbL10NDemo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10252,8 +10250,8 @@ namespace l10n {
 class TbPatchDemo
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>> _dataMap;
-    std::vector<::bright::SharedPtr<l10n::PatchDemo>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<l10n::PatchDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10270,8 +10268,8 @@ class TbPatchDemo
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<l10n::PatchDemo>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<l10n::PatchDemo>>& getDataList() const { return _dataList; }
 
     l10n::PatchDemo* getRaw(::bright::int32 key)
     { 
@@ -10285,7 +10283,7 @@ class TbPatchDemo
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10306,8 +10304,8 @@ namespace mail {
 class TbSystemMail
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::SystemMail>> _dataMap;
-    std::vector<::bright::SharedPtr<mail::SystemMail>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<mail::SystemMail>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<mail::SystemMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10324,8 +10322,8 @@ class TbSystemMail
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::SystemMail>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<mail::SystemMail>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<mail::SystemMail>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<mail::SystemMail>>& getDataList() const { return _dataList; }
 
     mail::SystemMail* getRaw(::bright::int32 key)
     { 
@@ -10339,7 +10337,7 @@ class TbSystemMail
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10360,8 +10358,8 @@ namespace mail {
 class TbGlobalMail
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>> _dataMap;
-    std::vector<::bright::SharedPtr<mail::GlobalMail>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<mail::GlobalMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10378,8 +10376,8 @@ class TbGlobalMail
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<mail::GlobalMail>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<mail::GlobalMail>>& getDataList() const { return _dataList; }
 
     mail::GlobalMail* getRaw(::bright::int32 key)
     { 
@@ -10393,7 +10391,7 @@ class TbGlobalMail
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10414,8 +10412,8 @@ namespace role {
 class TbRoleLevelExpAttr
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>> _dataMap;
-    std::vector<::bright::SharedPtr<role::LevelExpAttr>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<role::LevelExpAttr>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10432,8 +10430,8 @@ class TbRoleLevelExpAttr
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<role::LevelExpAttr>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<role::LevelExpAttr>>& getDataList() const { return _dataList; }
 
     role::LevelExpAttr* getRaw(::bright::int32 key)
     { 
@@ -10447,7 +10445,7 @@ class TbRoleLevelExpAttr
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10468,8 +10466,8 @@ namespace role {
 class TbRoleLevelBonusCoefficient
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelBonus>> _dataMap;
-    std::vector<::bright::SharedPtr<role::LevelBonus>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<role::LevelBonus>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<role::LevelBonus>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10486,8 +10484,8 @@ class TbRoleLevelBonusCoefficient
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelBonus>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<role::LevelBonus>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<role::LevelBonus>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<role::LevelBonus>>& getDataList() const { return _dataList; }
 
     role::LevelBonus* getRaw(::bright::int32 key)
     { 
@@ -10501,7 +10499,7 @@ class TbRoleLevelBonusCoefficient
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10522,8 +10520,8 @@ namespace tag {
 class TbTestTag
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<tag::TestTag>> _dataMap;
-    std::vector<::bright::SharedPtr<tag::TestTag>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<tag::TestTag>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<tag::TestTag>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10540,8 +10538,8 @@ class TbTestTag
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<tag::TestTag>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<tag::TestTag>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<tag::TestTag>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<tag::TestTag>>& getDataList() const { return _dataList; }
 
     tag::TestTag* getRaw(::bright::int32 key)
     { 
@@ -10555,7 +10553,7 @@ class TbTestTag
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10576,8 +10574,8 @@ namespace test {
 class TbFullTypes
 {
     private:
-    std::unordered_map<::bright::int16, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
+    ::bright::HashMap<::bright::int16, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10594,8 +10592,8 @@ class TbFullTypes
         return true;
     }
 
-    const std::unordered_map<::bright::int16, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int16, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
     test::DemoType2* getRaw(::bright::int16 key)
     { 
@@ -10609,7 +10607,7 @@ class TbFullTypes
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10644,7 +10642,7 @@ class TbSingleton
         return true;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -10674,8 +10672,8 @@ namespace test {
 class TbDataFromJson
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10692,8 +10690,8 @@ class TbDataFromJson
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
     test::DemoType2* getRaw(::bright::int32 key)
     { 
@@ -10707,7 +10705,7 @@ class TbDataFromJson
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10728,8 +10726,8 @@ namespace test {
 class TbDataFromXml
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10746,8 +10744,8 @@ class TbDataFromXml
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
     test::DemoType2* getRaw(::bright::int32 key)
     { 
@@ -10761,7 +10759,7 @@ class TbDataFromXml
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10782,8 +10780,8 @@ namespace test {
 class TbDataFromLua
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10800,8 +10798,8 @@ class TbDataFromLua
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
     test::DemoType2* getRaw(::bright::int32 key)
     { 
@@ -10815,7 +10813,7 @@ class TbDataFromLua
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10836,8 +10834,8 @@ namespace test {
 class TbMultiRowRecord
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>> _dataMap;
-    std::vector<::bright::SharedPtr<test::MultiRowRecord>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowRecord>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10854,8 +10852,8 @@ class TbMultiRowRecord
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::MultiRowRecord>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::MultiRowRecord>>& getDataList() const { return _dataList; }
 
     test::MultiRowRecord* getRaw(::bright::int32 key)
     { 
@@ -10869,7 +10867,7 @@ class TbMultiRowRecord
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10890,8 +10888,8 @@ namespace test {
 class TbMultiRowTitle
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>> _dataMap;
-    std::vector<::bright::SharedPtr<test::MultiRowTitle>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowTitle>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10908,8 +10906,8 @@ class TbMultiRowTitle
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::MultiRowTitle>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::MultiRowTitle>>& getDataList() const { return _dataList; }
 
     test::MultiRowTitle* getRaw(::bright::int32 key)
     { 
@@ -10923,7 +10921,7 @@ class TbMultiRowTitle
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10944,8 +10942,8 @@ namespace test {
 class TbTestNull
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestNull>> _dataMap;
-    std::vector<::bright::SharedPtr<test::TestNull>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestNull>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestNull>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10962,8 +10960,8 @@ class TbTestNull
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestNull>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::TestNull>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestNull>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestNull>>& getDataList() const { return _dataList; }
 
     test::TestNull* getRaw(::bright::int32 key)
     { 
@@ -10977,7 +10975,7 @@ class TbTestNull
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -10998,8 +10996,8 @@ namespace test {
 class TbDemoPrimitive
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11016,8 +11014,8 @@ class TbDemoPrimitive
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataList() const { return _dataList; }
 
     test::DemoPrimitiveTypesTable* getRaw(::bright::int32 key)
     { 
@@ -11031,7 +11029,7 @@ class TbDemoPrimitive
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11052,8 +11050,8 @@ namespace test {
 class TbTestString
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestString>> _dataMap;
-    std::vector<::bright::SharedPtr<test::TestString>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestString>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestString>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11070,8 +11068,8 @@ class TbTestString
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestString>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::TestString>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestString>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestString>>& getDataList() const { return _dataList; }
 
     test::TestString* getRaw(::bright::int32 key)
     { 
@@ -11085,7 +11083,7 @@ class TbTestString
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11106,8 +11104,8 @@ namespace test {
 class TbDemoGroup
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11124,8 +11122,8 @@ class TbDemoGroup
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
     test::DemoGroup* getRaw(::bright::int32 key)
     { 
@@ -11139,7 +11137,7 @@ class TbDemoGroup
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11160,8 +11158,8 @@ namespace test {
 class TbDemoGroup_C
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11178,8 +11176,8 @@ class TbDemoGroup_C
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
     test::DemoGroup* getRaw(::bright::int32 key)
     { 
@@ -11193,7 +11191,7 @@ class TbDemoGroup_C
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11214,8 +11212,8 @@ namespace test {
 class TbDemoGroup_S
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11232,8 +11230,8 @@ class TbDemoGroup_S
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
     test::DemoGroup* getRaw(::bright::int32 key)
     { 
@@ -11247,7 +11245,7 @@ class TbDemoGroup_S
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11268,8 +11266,8 @@ namespace test {
 class TbDemoGroup_E
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11286,8 +11284,8 @@ class TbDemoGroup_E
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
     test::DemoGroup* getRaw(::bright::int32 key)
     { 
@@ -11301,7 +11299,7 @@ class TbDemoGroup_E
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11336,7 +11334,7 @@ class TbTestGlobal
         return true;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -11362,8 +11360,8 @@ namespace test {
 class TbDetectCsvEncoding
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DetectEncoding>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DetectEncoding>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11380,8 +11378,8 @@ class TbDetectCsvEncoding
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DetectEncoding>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DetectEncoding>>& getDataList() const { return _dataList; }
 
     test::DetectEncoding* getRaw(::bright::int32 key)
     { 
@@ -11395,7 +11393,7 @@ class TbDetectCsvEncoding
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11416,8 +11414,8 @@ namespace test {
 class TbDefineFromExcel
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DefineFromExcel>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DefineFromExcel>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11434,8 +11432,8 @@ class TbDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DefineFromExcel>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DefineFromExcel>>& getDataList() const { return _dataList; }
 
     test::DefineFromExcel* getRaw(::bright::int32 key)
     { 
@@ -11449,7 +11447,7 @@ class TbDefineFromExcel
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11484,7 +11482,7 @@ class TbDefineFromExcelOne
         return true;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         _data->resolve(_tables);
     }
@@ -11518,8 +11516,8 @@ namespace test {
 class TbDemoGroupDefineFromExcel
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11536,8 +11534,8 @@ class TbDemoGroupDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
     test::DemoGroup* getRaw(::bright::int32 key)
     { 
@@ -11551,7 +11549,7 @@ class TbDemoGroupDefineFromExcel
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11572,8 +11570,8 @@ namespace test {
 class TbDefineFromExcel2
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>> _dataMap;
-    std::vector<::bright::SharedPtr<test::DefineFromExcel2>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::DefineFromExcel2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11590,8 +11588,8 @@ class TbDefineFromExcel2
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::DefineFromExcel2>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::DefineFromExcel2>>& getDataList() const { return _dataList; }
 
     test::DefineFromExcel2* getRaw(::bright::int32 key)
     { 
@@ -11605,7 +11603,7 @@ class TbDefineFromExcel2
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11626,8 +11624,8 @@ namespace test {
 class TbTestExcelBean
 {
     private:
-    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>> _dataMap;
-    std::vector<::bright::SharedPtr<test::TestExcelBean1>> _dataList;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestExcelBean1>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11644,8 +11642,8 @@ class TbTestExcelBean
         return true;
     }
 
-    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>>& getDataMap() const { return _dataMap; }
-    const std::vector<::bright::SharedPtr<test::TestExcelBean1>>& getDataList() const { return _dataList; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestExcelBean1>>& getDataList() const { return _dataList; }
 
     test::TestExcelBean1* getRaw(::bright::int32 key)
     { 
@@ -11659,7 +11657,7 @@ class TbTestExcelBean
         return it != _dataMap.end() ? it->second : nullptr;
     }
 
-    void resolve(std::unordered_map<std::string, void*>& _tables)
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto v : _dataList)
         {
@@ -11831,9 +11829,9 @@ class Tables
      */
      test::TbTestExcelBean TbTestExcelBean;
 
-    bool load(std::function<bool(ByteBuf&, const std::string&)> loader)
+    bool load(::bright::Function<bool(ByteBuf&, const ::bright::String&)> loader)
     {
-        std::unordered_map<std::string, void*> __tables__;
+        ::bright::HashMap<::bright::String, void*> __tables__;
 
         ByteBuf buf;
         if (!loader(buf, "ai.TbBlackboard")) return false;

@@ -2941,8 +2941,8 @@ namespace cfg
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new ::bright::datetime()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new ::bright::datetime()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
 
         return true;
     }

@@ -42,7 +42,7 @@ namespace cfg
         }
     }
 
-    void condition::MinMaxLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::MinMaxLevel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
     }
@@ -74,7 +74,7 @@ namespace cfg
         }
     }
 
-    void condition::ClothesPropertyScoreGreaterThan::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::ClothesPropertyScoreGreaterThan::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
     }
@@ -107,7 +107,7 @@ namespace cfg
         }
     }
 
-    void condition::ContainsItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::ContainsItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         RoleCondition::resolve(_tables);
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
@@ -136,7 +136,7 @@ namespace cfg
         }
     }
 
-    void item::ChooseOneBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::ChooseOneBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->dropId_Ref = ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(dropId);
     }
@@ -169,7 +169,7 @@ namespace cfg
         }
     }
 
-    void item::InteractionItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::InteractionItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ItemExtra::resolve(_tables);
     }
@@ -203,7 +203,7 @@ namespace cfg
         }
     }
 
-    void item::Clothes::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::Clothes::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ItemExtra::resolve(_tables);
     }
@@ -234,7 +234,7 @@ namespace cfg
         }
     }
 
-    void item::DesignDrawing::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::DesignDrawing::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ItemExtra::resolve(_tables);
     }
@@ -265,7 +265,7 @@ namespace cfg
         }
     }
 
-    void item::Dymmy::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::Dymmy::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ItemExtra::resolve(_tables);
         cost->resolve(_tables);
@@ -293,7 +293,7 @@ namespace cfg
         }
     }
 
-    void cost::Cost::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::Cost::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -324,7 +324,7 @@ namespace cfg
         }
     }
 
-    void cost::CostCurrency::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::CostCurrency::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Cost::resolve(_tables);
     }
@@ -355,7 +355,7 @@ namespace cfg
         }
     }
 
-    void cost::CostCurrencies::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::CostCurrencies::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Cost::resolve(_tables);
         for(auto _e : currencies) { _e->resolve(_tables); }
@@ -387,7 +387,7 @@ namespace cfg
         }
     }
 
-    void cost::CostOneItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::CostOneItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Cost::resolve(_tables);
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
@@ -420,7 +420,7 @@ namespace cfg
         }
     }
 
-    void cost::CostItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::CostItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Cost::resolve(_tables);
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
@@ -452,7 +452,7 @@ namespace cfg
         }
     }
 
-    void cost::CostItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    void cost::CostItems::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Cost::resolve(_tables);
         for(auto _e : itemList) { _e->resolve(_tables); }
@@ -481,7 +481,7 @@ namespace cfg
         }
     }
 
-    void l10n::L10NDemo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void l10n::L10NDemo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -508,7 +508,7 @@ namespace cfg
         }
     }
 
-    void l10n::PatchDemo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void l10n::PatchDemo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -538,7 +538,7 @@ namespace cfg
         }
     }
 
-    void mail::SystemMail::resolve(std::unordered_map<std::string, void*>& _tables)
+    void mail::SystemMail::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -575,7 +575,7 @@ namespace cfg
         }
     }
 
-    void mail::GlobalMail::resolve(std::unordered_map<std::string, void*>& _tables)
+    void mail::GlobalMail::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         minMaxLevel->resolve(_tables);
         registerTime->resolve(_tables);
@@ -606,7 +606,7 @@ namespace cfg
         }
     }
 
-    void role::LevelExpAttr::resolve(std::unordered_map<std::string, void*>& _tables)
+    void role::LevelExpAttr::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -633,7 +633,7 @@ namespace cfg
         }
     }
 
-    void role::LevelBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void role::LevelBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : distinctBonusInfos) { _e->resolve(_tables); }
     }
@@ -661,7 +661,7 @@ namespace cfg
         }
     }
 
-    void role::DistinctBonusInfos::resolve(std::unordered_map<std::string, void*>& _tables)
+    void role::DistinctBonusInfos::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : bonusInfo) { _e->resolve(_tables); }
     }
@@ -689,7 +689,7 @@ namespace cfg
         }
     }
 
-    void role::BonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void role::BonusInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -716,7 +716,7 @@ namespace cfg
         }
     }
 
-    void tag::TestTag::resolve(std::unordered_map<std::string, void*>& _tables)
+    void tag::TestTag::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -770,7 +770,7 @@ namespace cfg
         }
     }
 
-    void test::DemoType2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoType2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->x3_Ref = ((test::TbFullTypes*)(_tables["test.TbFullTypes"]))->get(x3);
         x12->resolve(_tables);
@@ -801,7 +801,7 @@ namespace cfg
         }
     }
 
-    void test::DemoType1::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoType1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -826,7 +826,7 @@ namespace cfg
         }
     }
 
-    void test::DemoDynamic::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoDynamic::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -856,7 +856,7 @@ namespace cfg
         }
     }
 
-    void test::DemoD2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoD2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         DemoDynamic::resolve(_tables);
     }
@@ -884,7 +884,7 @@ namespace cfg
         }
     }
 
-    void test::DemoD3::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoD3::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         DemoDynamic::resolve(_tables);
     }
@@ -915,7 +915,7 @@ namespace cfg
         }
     }
 
-    void test::DemoE1::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoE1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         DemoD3::resolve(_tables);
     }
@@ -946,7 +946,7 @@ namespace cfg
         }
     }
 
-    void test::DemoD5::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoD5::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         DemoDynamic::resolve(_tables);
         time->resolve(_tables);
@@ -975,7 +975,7 @@ namespace cfg
         }
     }
 
-    void test::DateTimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DateTimeRange::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1002,7 +1002,7 @@ namespace cfg
         }
     }
 
-    void test::DemoE2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoE2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1030,7 +1030,7 @@ namespace cfg
         }
     }
 
-    void test::DemoSingletonType::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoSingletonType::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         date->resolve(_tables);
     }
@@ -1064,7 +1064,7 @@ namespace cfg
         }
     }
 
-    void test::MultiRowRecord::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::MultiRowRecord::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : oneRows) { _e->resolve(_tables); }
         for(auto _e : multiRows1) { _e->resolve(_tables); }
@@ -1096,7 +1096,7 @@ namespace cfg
         }
     }
 
-    void test::MultiRowType1::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::MultiRowType1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1124,7 +1124,7 @@ namespace cfg
         }
     }
 
-    void test::MultiRowType2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::MultiRowType2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1151,7 +1151,7 @@ namespace cfg
         }
     }
 
-    void test::MultiRowType3::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::MultiRowType3::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : items) { _e->resolve(_tables); }
     }
@@ -1182,7 +1182,7 @@ namespace cfg
         }
     }
 
-    void test::MultiRowTitle::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::MultiRowTitle::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         x1->resolve(_tables);
         for(auto _e : x2) { _e->resolve(_tables); }
@@ -1212,7 +1212,7 @@ namespace cfg
         }
     }
 
-    void test::H1::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::H1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         y2->resolve(_tables);
     }
@@ -1240,7 +1240,7 @@ namespace cfg
         }
     }
 
-    void test::H2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::H2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1272,7 +1272,7 @@ namespace cfg
         }
     }
 
-    void test::TestNull::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::TestNull::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         if (x3 != nullptr) x3->resolve(_tables);
         if (x4 != nullptr) x4->resolve(_tables);
@@ -1312,7 +1312,7 @@ namespace cfg
         }
     }
 
-    void test::DemoPrimitiveTypesTable::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoPrimitiveTypesTable::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1341,7 +1341,7 @@ namespace cfg
         }
     }
 
-    void test::TestString::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::TestString::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         cs1->resolve(_tables);
         cs2->resolve(_tables);
@@ -1371,7 +1371,7 @@ namespace cfg
         }
     }
 
-    void test::CompactString::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::CompactString::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1402,7 +1402,7 @@ namespace cfg
         }
     }
 
-    void test::DemoGroup::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DemoGroup::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         x5->resolve(_tables);
     }
@@ -1432,7 +1432,7 @@ namespace cfg
         }
     }
 
-    void test::InnerGroup::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::InnerGroup::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1459,7 +1459,7 @@ namespace cfg
         }
     }
 
-    void test::TestGlobal::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::TestGlobal::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1486,7 +1486,7 @@ namespace cfg
         }
     }
 
-    void test::DetectEncoding::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DetectEncoding::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1524,7 +1524,7 @@ namespace cfg
         }
     }
 
-    void test::DefineFromExcel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DefineFromExcel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
         x14->resolve(_tables);
@@ -1556,7 +1556,7 @@ namespace cfg
         }
     }
 
-    void test::DefineFromExcelOne::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DefineFromExcelOne::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1594,7 +1594,7 @@ namespace cfg
         }
     }
 
-    void test::DefineFromExcel2::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::DefineFromExcel2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
         x14->resolve(_tables);
@@ -1626,7 +1626,7 @@ namespace cfg
         }
     }
 
-    void test::TestExcelBean1::resolve(std::unordered_map<std::string, void*>& _tables)
+    void test::TestExcelBean1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 }

@@ -5,6 +5,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <string>
+#include <functional>
 
 #include "math/Vector2.hpp"
 #include "math/Vector3.hpp"
@@ -16,7 +17,6 @@ namespace bright
     typedef std::int16_t int16;
     typedef std::int32_t int32;
     typedef std::int64_t int64;
-    typedef std::int32_t datetime_t;
     typedef float float32;
     typedef double float64;
 
@@ -26,6 +26,8 @@ namespace bright
     typedef ::bright::math::Vector2 Vector2;
     typedef ::bright::math::Vector3 Vector3;
     typedef ::bright::math::Vector4 Vector4;
+
+    typedef std::int32_t datetime;
 
     template<typename T>
     using Vector = std::vector<T>;
@@ -38,4 +40,7 @@ namespace bright
 
     template <typename T>
     using SharedPtr = std::shared_ptr<T>;
+
+    template <typename T>
+    using Function = std::function<T>;
 }

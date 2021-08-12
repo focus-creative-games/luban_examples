@@ -9,16 +9,14 @@
 
 #pragma once
 #include <functional>
-#include <memory>
 
 #include "bright/serialization/ByteBuf.h"
 #include "bright/CfgBean.hpp"
 
-using ByteBuf = bright::serialization::ByteBuf;
+using ByteBuf = ::bright::serialization::ByteBuf;
 
 namespace cfg
 {
-
 
 
 namespace ai {
@@ -6172,7 +6170,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(::bright::SharedPtr<::bright::datetime_t> start_time, ::bright::SharedPtr<::bright::datetime_t> end_time ) 
+    DateTimeRange(::bright::SharedPtr<::bright::datetime> start_time, ::bright::SharedPtr<::bright::datetime> end_time ) 
     {
 
         this->startTime = start_time;
@@ -6185,11 +6183,11 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    ::bright::SharedPtr<::bright::datetime_t> startTime;
+    ::bright::SharedPtr<::bright::datetime> startTime;
     /**
      
      */
-    ::bright::SharedPtr<::bright::datetime_t> endTime;
+    ::bright::SharedPtr<::bright::datetime> endTime;
 
     static constexpr int ID = 1642200959;
 
@@ -7686,7 +7684,7 @@ class DemoType2 : public  bright::CfgBean
 
     }
 
-    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
+    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
     {
 
         this->x4 = x4;
@@ -7799,7 +7797,7 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::datetime t1;
     /**
      
      */
@@ -8141,7 +8139,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(::bright::datetime_t start_time, ::bright::datetime_t end_time ) 
+    DateTimeRange(::bright::datetime start_time, ::bright::datetime end_time ) 
     {
 
         this->startTime = start_time;
@@ -8154,11 +8152,11 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t startTime;
+    ::bright::datetime startTime;
     /**
      
      */
-    ::bright::datetime_t endTime;
+    ::bright::datetime endTime;
 
     static constexpr int ID = 495315430;
 
@@ -8771,7 +8769,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     }
 
-    DemoPrimitiveTypesTable(bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int32 x4, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1 ) 
+    DemoPrimitiveTypesTable(bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int32 x4, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime t1 ) 
     {
 
         this->x1 = x1;
@@ -8843,7 +8841,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::datetime t1;
 
     static constexpr int ID = -370934083;
 
@@ -9221,7 +9219,7 @@ class DefineFromExcel : public  bright::CfgBean
 
     }
 
-    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9282,7 +9280,7 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::datetime t1;
     /**
      
      */
@@ -9387,7 +9385,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 
     }
 
-    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9448,7 +9446,7 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    ::bright::datetime_t t1;
+    ::bright::datetime t1;
     /**
      
      */
@@ -11831,7 +11829,7 @@ class Tables
      */
      test::TbTestExcelBean TbTestExcelBean;
 
-    bool load(std::function<bool(ByteBuf&, const ::bright::String&)> loader)
+    bool load(::bright::Function<bool(ByteBuf&, const ::bright::String&)> loader)
     {
         ::bright::HashMap<::bright::String, void*> __tables__;
 
