@@ -1498,7 +1498,7 @@ class Blackboard : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBlackboard(ByteBuf& _buf, std::shared_ptr<Blackboard>& _out);
+    static bool deserializeBlackboard(ByteBuf& _buf, ::bright::SharedPtr<Blackboard>& _out);
 
     Blackboard()
     { 
@@ -1559,7 +1559,7 @@ class BlackboardKey : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBlackboardKey(ByteBuf& _buf, std::shared_ptr<BlackboardKey>& _out);
+    static bool deserializeBlackboardKey(ByteBuf& _buf, ::bright::SharedPtr<BlackboardKey>& _out);
 
     BlackboardKey()
     { 
@@ -1624,7 +1624,7 @@ class BehaviorTree : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBehaviorTree(ByteBuf& _buf, std::shared_ptr<BehaviorTree>& _out);
+    static bool deserializeBehaviorTree(ByteBuf& _buf, ::bright::SharedPtr<BehaviorTree>& _out);
 
     BehaviorTree()
     { 
@@ -1690,7 +1690,7 @@ class Node : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeNode(ByteBuf& _buf, std::shared_ptr<Node>& _out);
+    static bool deserializeNode(ByteBuf& _buf, ::bright::SharedPtr<Node>& _out);
 
     Node()
     { 
@@ -1737,7 +1737,7 @@ class Service : public  ai::Node
 {
     public:
 
-    static bool deserializeService(ByteBuf& _buf, std::shared_ptr<Service>& _out);
+    static bool deserializeService(ByteBuf& _buf, ::bright::SharedPtr<Service>& _out);
 
     Service()
     { 
@@ -1775,7 +1775,7 @@ class UeSetDefaultFocus : public  ai::Service
 {
     public:
 
-    static bool deserializeUeSetDefaultFocus(ByteBuf& _buf, std::shared_ptr<UeSetDefaultFocus>& _out);
+    static bool deserializeUeSetDefaultFocus(ByteBuf& _buf, ::bright::SharedPtr<UeSetDefaultFocus>& _out);
 
     UeSetDefaultFocus()
     { 
@@ -1821,7 +1821,7 @@ class ExecuteTimeStatistic : public  ai::Service
 {
     public:
 
-    static bool deserializeExecuteTimeStatistic(ByteBuf& _buf, std::shared_ptr<ExecuteTimeStatistic>& _out);
+    static bool deserializeExecuteTimeStatistic(ByteBuf& _buf, ::bright::SharedPtr<ExecuteTimeStatistic>& _out);
 
     ExecuteTimeStatistic()
     { 
@@ -1862,7 +1862,7 @@ class ChooseTarget : public  ai::Service
 {
     public:
 
-    static bool deserializeChooseTarget(ByteBuf& _buf, std::shared_ptr<ChooseTarget>& _out);
+    static bool deserializeChooseTarget(ByteBuf& _buf, ::bright::SharedPtr<ChooseTarget>& _out);
 
     ChooseTarget()
     { 
@@ -1908,7 +1908,7 @@ class KeepFaceTarget : public  ai::Service
 {
     public:
 
-    static bool deserializeKeepFaceTarget(ByteBuf& _buf, std::shared_ptr<KeepFaceTarget>& _out);
+    static bool deserializeKeepFaceTarget(ByteBuf& _buf, ::bright::SharedPtr<KeepFaceTarget>& _out);
 
     KeepFaceTarget()
     { 
@@ -1954,7 +1954,7 @@ class GetOwnerPlayer : public  ai::Service
 {
     public:
 
-    static bool deserializeGetOwnerPlayer(ByteBuf& _buf, std::shared_ptr<GetOwnerPlayer>& _out);
+    static bool deserializeGetOwnerPlayer(ByteBuf& _buf, ::bright::SharedPtr<GetOwnerPlayer>& _out);
 
     GetOwnerPlayer()
     { 
@@ -2000,7 +2000,7 @@ class UpdateDailyBehaviorProps : public  ai::Service
 {
     public:
 
-    static bool deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, std::shared_ptr<UpdateDailyBehaviorProps>& _out);
+    static bool deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, ::bright::SharedPtr<UpdateDailyBehaviorProps>& _out);
 
     UpdateDailyBehaviorProps()
     { 
@@ -2086,7 +2086,7 @@ class Decorator : public  ai::Node
 {
     public:
 
-    static bool deserializeDecorator(ByteBuf& _buf, std::shared_ptr<Decorator>& _out);
+    static bool deserializeDecorator(ByteBuf& _buf, ::bright::SharedPtr<Decorator>& _out);
 
     Decorator()
     { 
@@ -2129,7 +2129,7 @@ class UeLoop : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeLoop(ByteBuf& _buf, std::shared_ptr<UeLoop>& _out);
+    static bool deserializeUeLoop(ByteBuf& _buf, ::bright::SharedPtr<UeLoop>& _out);
 
     UeLoop()
     { 
@@ -2185,7 +2185,7 @@ class UeCooldown : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeCooldown(ByteBuf& _buf, std::shared_ptr<UeCooldown>& _out);
+    static bool deserializeUeCooldown(ByteBuf& _buf, ::bright::SharedPtr<UeCooldown>& _out);
 
     UeCooldown()
     { 
@@ -2231,7 +2231,7 @@ class UeTimeLimit : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeTimeLimit(ByteBuf& _buf, std::shared_ptr<UeTimeLimit>& _out);
+    static bool deserializeUeTimeLimit(ByteBuf& _buf, ::bright::SharedPtr<UeTimeLimit>& _out);
 
     UeTimeLimit()
     { 
@@ -2277,7 +2277,7 @@ class UeBlackboard : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeBlackboard(ByteBuf& _buf, std::shared_ptr<UeBlackboard>& _out);
+    static bool deserializeUeBlackboard(ByteBuf& _buf, ::bright::SharedPtr<UeBlackboard>& _out);
 
     UeBlackboard()
     { 
@@ -2333,7 +2333,7 @@ class KeyQueryOperator : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeKeyQueryOperator(ByteBuf& _buf, std::shared_ptr<KeyQueryOperator>& _out);
+    static bool deserializeKeyQueryOperator(ByteBuf& _buf, ::bright::SharedPtr<KeyQueryOperator>& _out);
 
     KeyQueryOperator()
     { 
@@ -2366,7 +2366,7 @@ class IsSet : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeIsSet(ByteBuf& _buf, std::shared_ptr<IsSet>& _out);
+    static bool deserializeIsSet(ByteBuf& _buf, ::bright::SharedPtr<IsSet>& _out);
 
     IsSet()
     { 
@@ -2402,7 +2402,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeIsNotSet(ByteBuf& _buf, std::shared_ptr<IsNotSet>& _out);
+    static bool deserializeIsNotSet(ByteBuf& _buf, ::bright::SharedPtr<IsNotSet>& _out);
 
     IsNotSet()
     { 
@@ -2438,7 +2438,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
 {
     public:
 
-    static bool deserializeBinaryOperator(ByteBuf& _buf, std::shared_ptr<BinaryOperator>& _out);
+    static bool deserializeBinaryOperator(ByteBuf& _buf, ::bright::SharedPtr<BinaryOperator>& _out);
 
     BinaryOperator()
     { 
@@ -2489,7 +2489,7 @@ class KeyData : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeKeyData(ByteBuf& _buf, std::shared_ptr<KeyData>& _out);
+    static bool deserializeKeyData(ByteBuf& _buf, ::bright::SharedPtr<KeyData>& _out);
 
     KeyData()
     { 
@@ -2522,7 +2522,7 @@ class FloatKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeFloatKeyData(ByteBuf& _buf, std::shared_ptr<FloatKeyData>& _out);
+    static bool deserializeFloatKeyData(ByteBuf& _buf, ::bright::SharedPtr<FloatKeyData>& _out);
 
     FloatKeyData()
     { 
@@ -2568,7 +2568,7 @@ class IntKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeIntKeyData(ByteBuf& _buf, std::shared_ptr<IntKeyData>& _out);
+    static bool deserializeIntKeyData(ByteBuf& _buf, ::bright::SharedPtr<IntKeyData>& _out);
 
     IntKeyData()
     { 
@@ -2614,7 +2614,7 @@ class StringKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeStringKeyData(ByteBuf& _buf, std::shared_ptr<StringKeyData>& _out);
+    static bool deserializeStringKeyData(ByteBuf& _buf, ::bright::SharedPtr<StringKeyData>& _out);
 
     StringKeyData()
     { 
@@ -2660,7 +2660,7 @@ class BlackboardKeyData : public  ai::KeyData
 {
     public:
 
-    static bool deserializeBlackboardKeyData(ByteBuf& _buf, std::shared_ptr<BlackboardKeyData>& _out);
+    static bool deserializeBlackboardKeyData(ByteBuf& _buf, ::bright::SharedPtr<BlackboardKeyData>& _out);
 
     BlackboardKeyData()
     { 
@@ -2706,7 +2706,7 @@ class UeForceSuccess : public  ai::Decorator
 {
     public:
 
-    static bool deserializeUeForceSuccess(ByteBuf& _buf, std::shared_ptr<UeForceSuccess>& _out);
+    static bool deserializeUeForceSuccess(ByteBuf& _buf, ::bright::SharedPtr<UeForceSuccess>& _out);
 
     UeForceSuccess()
     { 
@@ -2747,7 +2747,7 @@ class IsAtLocation : public  ai::Decorator
 {
     public:
 
-    static bool deserializeIsAtLocation(ByteBuf& _buf, std::shared_ptr<IsAtLocation>& _out);
+    static bool deserializeIsAtLocation(ByteBuf& _buf, ::bright::SharedPtr<IsAtLocation>& _out);
 
     IsAtLocation()
     { 
@@ -2803,7 +2803,7 @@ class DistanceLessThan : public  ai::Decorator
 {
     public:
 
-    static bool deserializeDistanceLessThan(ByteBuf& _buf, std::shared_ptr<DistanceLessThan>& _out);
+    static bool deserializeDistanceLessThan(ByteBuf& _buf, ::bright::SharedPtr<DistanceLessThan>& _out);
 
     DistanceLessThan()
     { 
@@ -2864,7 +2864,7 @@ class FlowNode : public  ai::Node
 {
     public:
 
-    static bool deserializeFlowNode(ByteBuf& _buf, std::shared_ptr<FlowNode>& _out);
+    static bool deserializeFlowNode(ByteBuf& _buf, ::bright::SharedPtr<FlowNode>& _out);
 
     FlowNode()
     { 
@@ -2912,7 +2912,7 @@ class ComposeNode : public  ai::FlowNode
 {
     public:
 
-    static bool deserializeComposeNode(ByteBuf& _buf, std::shared_ptr<ComposeNode>& _out);
+    static bool deserializeComposeNode(ByteBuf& _buf, ::bright::SharedPtr<ComposeNode>& _out);
 
     ComposeNode()
     { 
@@ -2950,7 +2950,7 @@ class Sequence : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSequence(ByteBuf& _buf, std::shared_ptr<Sequence>& _out);
+    static bool deserializeSequence(ByteBuf& _buf, ::bright::SharedPtr<Sequence>& _out);
 
     Sequence()
     { 
@@ -2996,7 +2996,7 @@ class Selector : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSelector(ByteBuf& _buf, std::shared_ptr<Selector>& _out);
+    static bool deserializeSelector(ByteBuf& _buf, ::bright::SharedPtr<Selector>& _out);
 
     Selector()
     { 
@@ -3042,7 +3042,7 @@ class SimpleParallel : public  ai::ComposeNode
 {
     public:
 
-    static bool deserializeSimpleParallel(ByteBuf& _buf, std::shared_ptr<SimpleParallel>& _out);
+    static bool deserializeSimpleParallel(ByteBuf& _buf, ::bright::SharedPtr<SimpleParallel>& _out);
 
     SimpleParallel()
     { 
@@ -3098,7 +3098,7 @@ class Task : public  ai::FlowNode
 {
     public:
 
-    static bool deserializeTask(ByteBuf& _buf, std::shared_ptr<Task>& _out);
+    static bool deserializeTask(ByteBuf& _buf, ::bright::SharedPtr<Task>& _out);
 
     Task()
     { 
@@ -3141,7 +3141,7 @@ class UeWait : public  ai::Task
 {
     public:
 
-    static bool deserializeUeWait(ByteBuf& _buf, std::shared_ptr<UeWait>& _out);
+    static bool deserializeUeWait(ByteBuf& _buf, ::bright::SharedPtr<UeWait>& _out);
 
     UeWait()
     { 
@@ -3192,7 +3192,7 @@ class UeWaitBlackboardTime : public  ai::Task
 {
     public:
 
-    static bool deserializeUeWaitBlackboardTime(ByteBuf& _buf, std::shared_ptr<UeWaitBlackboardTime>& _out);
+    static bool deserializeUeWaitBlackboardTime(ByteBuf& _buf, ::bright::SharedPtr<UeWaitBlackboardTime>& _out);
 
     UeWaitBlackboardTime()
     { 
@@ -3238,7 +3238,7 @@ class MoveToTarget : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToTarget(ByteBuf& _buf, std::shared_ptr<MoveToTarget>& _out);
+    static bool deserializeMoveToTarget(ByteBuf& _buf, ::bright::SharedPtr<MoveToTarget>& _out);
 
     MoveToTarget()
     { 
@@ -3289,7 +3289,7 @@ class ChooseSkill : public  ai::Task
 {
     public:
 
-    static bool deserializeChooseSkill(ByteBuf& _buf, std::shared_ptr<ChooseSkill>& _out);
+    static bool deserializeChooseSkill(ByteBuf& _buf, ::bright::SharedPtr<ChooseSkill>& _out);
 
     ChooseSkill()
     { 
@@ -3340,7 +3340,7 @@ class MoveToRandomLocation : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToRandomLocation(ByteBuf& _buf, std::shared_ptr<MoveToRandomLocation>& _out);
+    static bool deserializeMoveToRandomLocation(ByteBuf& _buf, ::bright::SharedPtr<MoveToRandomLocation>& _out);
 
     MoveToRandomLocation()
     { 
@@ -3391,7 +3391,7 @@ class MoveToLocation : public  ai::Task
 {
     public:
 
-    static bool deserializeMoveToLocation(ByteBuf& _buf, std::shared_ptr<MoveToLocation>& _out);
+    static bool deserializeMoveToLocation(ByteBuf& _buf, ::bright::SharedPtr<MoveToLocation>& _out);
 
     MoveToLocation()
     { 
@@ -3442,7 +3442,7 @@ class DebugPrint : public  ai::Task
 {
     public:
 
-    static bool deserializeDebugPrint(ByteBuf& _buf, std::shared_ptr<DebugPrint>& _out);
+    static bool deserializeDebugPrint(ByteBuf& _buf, ::bright::SharedPtr<DebugPrint>& _out);
 
     DebugPrint()
     { 
@@ -3488,7 +3488,7 @@ class Clazz : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeClazz(ByteBuf& _buf, std::shared_ptr<Clazz>& _out);
+    static bool deserializeClazz(ByteBuf& _buf, ::bright::SharedPtr<Clazz>& _out);
 
     Clazz()
     { 
@@ -3545,7 +3545,7 @@ class Method : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMethod(ByteBuf& _buf, std::shared_ptr<Method>& _out);
+    static bool deserializeMethod(ByteBuf& _buf, ::bright::SharedPtr<Method>& _out);
 
     Method()
     { 
@@ -3607,7 +3607,7 @@ class ParamInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeParamInfo(ByteBuf& _buf, std::shared_ptr<ParamInfo>& _out);
+    static bool deserializeParamInfo(ByteBuf& _buf, ::bright::SharedPtr<ParamInfo>& _out);
 
     ParamInfo()
     { 
@@ -3662,7 +3662,7 @@ class AbstraceMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeAbstraceMethod(ByteBuf& _buf, std::shared_ptr<AbstraceMethod>& _out);
+    static bool deserializeAbstraceMethod(ByteBuf& _buf, ::bright::SharedPtr<AbstraceMethod>& _out);
 
     AbstraceMethod()
     { 
@@ -3703,7 +3703,7 @@ class ExternalMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeExternalMethod(ByteBuf& _buf, std::shared_ptr<ExternalMethod>& _out);
+    static bool deserializeExternalMethod(ByteBuf& _buf, ::bright::SharedPtr<ExternalMethod>& _out);
 
     ExternalMethod()
     { 
@@ -3744,7 +3744,7 @@ class BlueprintMethod : public  blueprint::Method
 {
     public:
 
-    static bool deserializeBlueprintMethod(ByteBuf& _buf, std::shared_ptr<BlueprintMethod>& _out);
+    static bool deserializeBlueprintMethod(ByteBuf& _buf, ::bright::SharedPtr<BlueprintMethod>& _out);
 
     BlueprintMethod()
     { 
@@ -3785,7 +3785,7 @@ class Interface : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeInterface(ByteBuf& _buf, std::shared_ptr<Interface>& _out);
+    static bool deserializeInterface(ByteBuf& _buf, ::bright::SharedPtr<Interface>& _out);
 
     Interface()
     { 
@@ -3826,7 +3826,7 @@ class NormalClazz : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeNormalClazz(ByteBuf& _buf, std::shared_ptr<NormalClazz>& _out);
+    static bool deserializeNormalClazz(ByteBuf& _buf, ::bright::SharedPtr<NormalClazz>& _out);
 
     NormalClazz()
     { 
@@ -3877,7 +3877,7 @@ class Field : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeField(ByteBuf& _buf, std::shared_ptr<Field>& _out);
+    static bool deserializeField(ByteBuf& _buf, ::bright::SharedPtr<Field>& _out);
 
     Field()
     { 
@@ -3932,7 +3932,7 @@ class EnumClazz : public  blueprint::Clazz
 {
     public:
 
-    static bool deserializeEnumClazz(ByteBuf& _buf, std::shared_ptr<EnumClazz>& _out);
+    static bool deserializeEnumClazz(ByteBuf& _buf, ::bright::SharedPtr<EnumClazz>& _out);
 
     EnumClazz()
     { 
@@ -3978,7 +3978,7 @@ class EnumField : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeEnumField(ByteBuf& _buf, std::shared_ptr<EnumField>& _out);
+    static bool deserializeEnumField(ByteBuf& _buf, ::bright::SharedPtr<EnumField>& _out);
 
     EnumField()
     { 
@@ -4028,7 +4028,7 @@ class DropInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDropInfo(ByteBuf& _buf, std::shared_ptr<DropInfo>& _out);
+    static bool deserializeDropInfo(ByteBuf& _buf, ::bright::SharedPtr<DropInfo>& _out);
 
     DropInfo()
     { 
@@ -4088,7 +4088,7 @@ class ShowItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeShowItemInfo(ByteBuf& _buf, std::shared_ptr<ShowItemInfo>& _out);
+    static bool deserializeShowItemInfo(ByteBuf& _buf, ::bright::SharedPtr<ShowItemInfo>& _out);
 
     ShowItemInfo()
     { 
@@ -4139,7 +4139,7 @@ class Bonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBonus(ByteBuf& _buf, std::shared_ptr<Bonus>& _out);
+    static bool deserializeBonus(ByteBuf& _buf, ::bright::SharedPtr<Bonus>& _out);
 
     Bonus()
     { 
@@ -4172,7 +4172,7 @@ class OneItem : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeOneItem(ByteBuf& _buf, std::shared_ptr<OneItem>& _out);
+    static bool deserializeOneItem(ByteBuf& _buf, ::bright::SharedPtr<OneItem>& _out);
 
     OneItem()
     { 
@@ -4219,7 +4219,7 @@ class OneItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeOneItems(ByteBuf& _buf, std::shared_ptr<OneItems>& _out);
+    static bool deserializeOneItems(ByteBuf& _buf, ::bright::SharedPtr<OneItems>& _out);
 
     OneItems()
     { 
@@ -4265,7 +4265,7 @@ class Item : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeItem(ByteBuf& _buf, std::shared_ptr<Item>& _out);
+    static bool deserializeItem(ByteBuf& _buf, ::bright::SharedPtr<Item>& _out);
 
     Item()
     { 
@@ -4317,7 +4317,7 @@ class Items : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeItems(ByteBuf& _buf, std::shared_ptr<Items>& _out);
+    static bool deserializeItems(ByteBuf& _buf, ::bright::SharedPtr<Items>& _out);
 
     Items()
     { 
@@ -4363,7 +4363,7 @@ class CoefficientItem : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeCoefficientItem(ByteBuf& _buf, std::shared_ptr<CoefficientItem>& _out);
+    static bool deserializeCoefficientItem(ByteBuf& _buf, ::bright::SharedPtr<CoefficientItem>& _out);
 
     CoefficientItem()
     { 
@@ -4414,7 +4414,7 @@ class WeightItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeWeightItems(ByteBuf& _buf, std::shared_ptr<WeightItems>& _out);
+    static bool deserializeWeightItems(ByteBuf& _buf, ::bright::SharedPtr<WeightItems>& _out);
 
     WeightItems()
     { 
@@ -4460,7 +4460,7 @@ class WeightItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeWeightItemInfo(ByteBuf& _buf, std::shared_ptr<WeightItemInfo>& _out);
+    static bool deserializeWeightItemInfo(ByteBuf& _buf, ::bright::SharedPtr<WeightItemInfo>& _out);
 
     WeightItemInfo()
     { 
@@ -4516,7 +4516,7 @@ class ProbabilityItems : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeProbabilityItems(ByteBuf& _buf, std::shared_ptr<ProbabilityItems>& _out);
+    static bool deserializeProbabilityItems(ByteBuf& _buf, ::bright::SharedPtr<ProbabilityItems>& _out);
 
     ProbabilityItems()
     { 
@@ -4562,7 +4562,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeProbabilityItemInfo(ByteBuf& _buf, std::shared_ptr<ProbabilityItemInfo>& _out);
+    static bool deserializeProbabilityItemInfo(ByteBuf& _buf, ::bright::SharedPtr<ProbabilityItemInfo>& _out);
 
     ProbabilityItemInfo()
     { 
@@ -4618,7 +4618,7 @@ class MultiBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeMultiBonus(ByteBuf& _buf, std::shared_ptr<MultiBonus>& _out);
+    static bool deserializeMultiBonus(ByteBuf& _buf, ::bright::SharedPtr<MultiBonus>& _out);
 
     MultiBonus()
     { 
@@ -4664,7 +4664,7 @@ class ProbabilityBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeProbabilityBonus(ByteBuf& _buf, std::shared_ptr<ProbabilityBonus>& _out);
+    static bool deserializeProbabilityBonus(ByteBuf& _buf, ::bright::SharedPtr<ProbabilityBonus>& _out);
 
     ProbabilityBonus()
     { 
@@ -4710,7 +4710,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeProbabilityBonusInfo(ByteBuf& _buf, std::shared_ptr<ProbabilityBonusInfo>& _out);
+    static bool deserializeProbabilityBonusInfo(ByteBuf& _buf, ::bright::SharedPtr<ProbabilityBonusInfo>& _out);
 
     ProbabilityBonusInfo()
     { 
@@ -4760,7 +4760,7 @@ class WeightBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeWeightBonus(ByteBuf& _buf, std::shared_ptr<WeightBonus>& _out);
+    static bool deserializeWeightBonus(ByteBuf& _buf, ::bright::SharedPtr<WeightBonus>& _out);
 
     WeightBonus()
     { 
@@ -4806,7 +4806,7 @@ class WeightBonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeWeightBonusInfo(ByteBuf& _buf, std::shared_ptr<WeightBonusInfo>& _out);
+    static bool deserializeWeightBonusInfo(ByteBuf& _buf, ::bright::SharedPtr<WeightBonusInfo>& _out);
 
     WeightBonusInfo()
     { 
@@ -4856,7 +4856,7 @@ class DropBonus : public  bonus::Bonus
 {
     public:
 
-    static bool deserializeDropBonus(ByteBuf& _buf, std::shared_ptr<DropBonus>& _out);
+    static bool deserializeDropBonus(ByteBuf& _buf, ::bright::SharedPtr<DropBonus>& _out);
 
     DropBonus()
     { 
@@ -4903,7 +4903,7 @@ class GlobalConfig : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeGlobalConfig(ByteBuf& _buf, std::shared_ptr<GlobalConfig>& _out);
+    static bool deserializeGlobalConfig(ByteBuf& _buf, ::bright::SharedPtr<GlobalConfig>& _out);
 
     GlobalConfig()
     { 
@@ -5049,7 +5049,7 @@ class Dummy : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDummy(ByteBuf& _buf, std::shared_ptr<Dummy>& _out);
+    static bool deserializeDummy(ByteBuf& _buf, ::bright::SharedPtr<Dummy>& _out);
 
     Dummy()
     { 
@@ -5099,7 +5099,7 @@ class LimitBase : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLimitBase(ByteBuf& _buf, std::shared_ptr<LimitBase>& _out);
+    static bool deserializeLimitBase(ByteBuf& _buf, ::bright::SharedPtr<LimitBase>& _out);
 
     LimitBase()
     { 
@@ -5132,7 +5132,7 @@ class DailyLimitBase : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeDailyLimitBase(ByteBuf& _buf, std::shared_ptr<DailyLimitBase>& _out);
+    static bool deserializeDailyLimitBase(ByteBuf& _buf, ::bright::SharedPtr<DailyLimitBase>& _out);
 
     DailyLimitBase()
     { 
@@ -5165,7 +5165,7 @@ class DailyLimit : public  limit::DailyLimitBase
 {
     public:
 
-    static bool deserializeDailyLimit(ByteBuf& _buf, std::shared_ptr<DailyLimit>& _out);
+    static bool deserializeDailyLimit(ByteBuf& _buf, ::bright::SharedPtr<DailyLimit>& _out);
 
     DailyLimit()
     { 
@@ -5211,7 +5211,7 @@ class MultiDayLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeMultiDayLimit(ByteBuf& _buf, std::shared_ptr<MultiDayLimit>& _out);
+    static bool deserializeMultiDayLimit(ByteBuf& _buf, ::bright::SharedPtr<MultiDayLimit>& _out);
 
     MultiDayLimit()
     { 
@@ -5262,7 +5262,7 @@ class WeeklyLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeWeeklyLimit(ByteBuf& _buf, std::shared_ptr<WeeklyLimit>& _out);
+    static bool deserializeWeeklyLimit(ByteBuf& _buf, ::bright::SharedPtr<WeeklyLimit>& _out);
 
     WeeklyLimit()
     { 
@@ -5308,7 +5308,7 @@ class MonthlyLimit : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeMonthlyLimit(ByteBuf& _buf, std::shared_ptr<MonthlyLimit>& _out);
+    static bool deserializeMonthlyLimit(ByteBuf& _buf, ::bright::SharedPtr<MonthlyLimit>& _out);
 
     MonthlyLimit()
     { 
@@ -5354,7 +5354,7 @@ class CoolDown : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeCoolDown(ByteBuf& _buf, std::shared_ptr<CoolDown>& _out);
+    static bool deserializeCoolDown(ByteBuf& _buf, ::bright::SharedPtr<CoolDown>& _out);
 
     CoolDown()
     { 
@@ -5400,7 +5400,7 @@ class GroupCoolDown : public  limit::LimitBase
 {
     public:
 
-    static bool deserializeGroupCoolDown(ByteBuf& _buf, std::shared_ptr<GroupCoolDown>& _out);
+    static bool deserializeGroupCoolDown(ByteBuf& _buf, ::bright::SharedPtr<GroupCoolDown>& _out);
 
     GroupCoolDown()
     { 
@@ -5451,7 +5451,7 @@ class ErrorInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeErrorInfo(ByteBuf& _buf, std::shared_ptr<ErrorInfo>& _out);
+    static bool deserializeErrorInfo(ByteBuf& _buf, ::bright::SharedPtr<ErrorInfo>& _out);
 
     ErrorInfo()
     { 
@@ -5506,7 +5506,7 @@ class ErrorStyle : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeErrorStyle(ByteBuf& _buf, std::shared_ptr<ErrorStyle>& _out);
+    static bool deserializeErrorStyle(ByteBuf& _buf, ::bright::SharedPtr<ErrorStyle>& _out);
 
     ErrorStyle()
     { 
@@ -5539,7 +5539,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleTip(ByteBuf& _buf, std::shared_ptr<ErrorStyleTip>& _out);
+    static bool deserializeErrorStyleTip(ByteBuf& _buf, ::bright::SharedPtr<ErrorStyleTip>& _out);
 
     ErrorStyleTip()
     { 
@@ -5575,7 +5575,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleMsgbox(ByteBuf& _buf, std::shared_ptr<ErrorStyleMsgbox>& _out);
+    static bool deserializeErrorStyleMsgbox(ByteBuf& _buf, ::bright::SharedPtr<ErrorStyleMsgbox>& _out);
 
     ErrorStyleMsgbox()
     { 
@@ -5626,7 +5626,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleDlgOk(ByteBuf& _buf, std::shared_ptr<ErrorStyleDlgOk>& _out);
+    static bool deserializeErrorStyleDlgOk(ByteBuf& _buf, ::bright::SharedPtr<ErrorStyleDlgOk>& _out);
 
     ErrorStyleDlgOk()
     { 
@@ -5672,7 +5672,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 {
     public:
 
-    static bool deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, std::shared_ptr<ErrorStyleDlgOkCancel>& _out);
+    static bool deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, ::bright::SharedPtr<ErrorStyleDlgOkCancel>& _out);
 
     ErrorStyleDlgOkCancel()
     { 
@@ -5723,7 +5723,7 @@ class CodeInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCodeInfo(ByteBuf& _buf, std::shared_ptr<CodeInfo>& _out);
+    static bool deserializeCodeInfo(ByteBuf& _buf, ::bright::SharedPtr<CodeInfo>& _out);
 
     CodeInfo()
     { 
@@ -5773,7 +5773,7 @@ class Item : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItem(ByteBuf& _buf, std::shared_ptr<Item>& _out);
+    static bool deserializeItem(ByteBuf& _buf, ::bright::SharedPtr<Item>& _out);
 
     Item()
     { 
@@ -5918,7 +5918,7 @@ class ItemFunction : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItemFunction(ByteBuf& _buf, std::shared_ptr<ItemFunction>& _out);
+    static bool deserializeItemFunction(ByteBuf& _buf, ::bright::SharedPtr<ItemFunction>& _out);
 
     ItemFunction()
     { 
@@ -5978,7 +5978,7 @@ class ItemExtra : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeItemExtra(ByteBuf& _buf, std::shared_ptr<ItemExtra>& _out);
+    static bool deserializeItemExtra(ByteBuf& _buf, ::bright::SharedPtr<ItemExtra>& _out);
 
     ItemExtra()
     { 
@@ -6020,7 +6020,7 @@ class TreasureBox : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeTreasureBox(ByteBuf& _buf, std::shared_ptr<TreasureBox>& _out);
+    static bool deserializeTreasureBox(ByteBuf& _buf, ::bright::SharedPtr<TreasureBox>& _out);
 
     TreasureBox()
     { 
@@ -6086,7 +6086,7 @@ class Condition : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCondition(ByteBuf& _buf, std::shared_ptr<Condition>& _out);
+    static bool deserializeCondition(ByteBuf& _buf, ::bright::SharedPtr<Condition>& _out);
 
     Condition()
     { 
@@ -6119,7 +6119,7 @@ class TimeRange : public  condition::Condition
 {
     public:
 
-    static bool deserializeTimeRange(ByteBuf& _buf, std::shared_ptr<TimeRange>& _out);
+    static bool deserializeTimeRange(ByteBuf& _buf, ::bright::SharedPtr<TimeRange>& _out);
 
     TimeRange()
     { 
@@ -6165,7 +6165,7 @@ class DateTimeRange : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<DateTimeRange>& _out);
+    static bool deserializeDateTimeRange(ByteBuf& _buf, ::bright::SharedPtr<DateTimeRange>& _out);
 
     DateTimeRange()
     { 
@@ -6215,7 +6215,7 @@ class RoleCondition : public  condition::Condition
 {
     public:
 
-    static bool deserializeRoleCondition(ByteBuf& _buf, std::shared_ptr<RoleCondition>& _out);
+    static bool deserializeRoleCondition(ByteBuf& _buf, ::bright::SharedPtr<RoleCondition>& _out);
 
     RoleCondition()
     { 
@@ -6248,7 +6248,7 @@ class MultiRoleCondition : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeMultiRoleCondition(ByteBuf& _buf, std::shared_ptr<MultiRoleCondition>& _out);
+    static bool deserializeMultiRoleCondition(ByteBuf& _buf, ::bright::SharedPtr<MultiRoleCondition>& _out);
 
     MultiRoleCondition()
     { 
@@ -6294,7 +6294,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeBoolRoleCondition(ByteBuf& _buf, std::shared_ptr<BoolRoleCondition>& _out);
+    static bool deserializeBoolRoleCondition(ByteBuf& _buf, ::bright::SharedPtr<BoolRoleCondition>& _out);
 
     BoolRoleCondition()
     { 
@@ -6327,7 +6327,7 @@ class GenderLimit : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeGenderLimit(ByteBuf& _buf, std::shared_ptr<GenderLimit>& _out);
+    static bool deserializeGenderLimit(ByteBuf& _buf, ::bright::SharedPtr<GenderLimit>& _out);
 
     GenderLimit()
     { 
@@ -6373,7 +6373,7 @@ class MinLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMinLevel(ByteBuf& _buf, std::shared_ptr<MinLevel>& _out);
+    static bool deserializeMinLevel(ByteBuf& _buf, ::bright::SharedPtr<MinLevel>& _out);
 
     MinLevel()
     { 
@@ -6419,7 +6419,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMaxLevel(ByteBuf& _buf, std::shared_ptr<MaxLevel>& _out);
+    static bool deserializeMaxLevel(ByteBuf& _buf, ::bright::SharedPtr<MaxLevel>& _out);
 
     MaxLevel()
     { 
@@ -6465,7 +6465,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeMinMaxLevel(ByteBuf& _buf, std::shared_ptr<MinMaxLevel>& _out);
+    static bool deserializeMinMaxLevel(ByteBuf& _buf, ::bright::SharedPtr<MinMaxLevel>& _out);
 
     MinMaxLevel()
     { 
@@ -6516,7 +6516,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 {
     public:
 
-    static bool deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, std::shared_ptr<ClothesPropertyScoreGreaterThan>& _out);
+    static bool deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, ::bright::SharedPtr<ClothesPropertyScoreGreaterThan>& _out);
 
     ClothesPropertyScoreGreaterThan()
     { 
@@ -6567,7 +6567,7 @@ class ContainsItem : public  condition::RoleCondition
 {
     public:
 
-    static bool deserializeContainsItem(ByteBuf& _buf, std::shared_ptr<ContainsItem>& _out);
+    static bool deserializeContainsItem(ByteBuf& _buf, ::bright::SharedPtr<ContainsItem>& _out);
 
     ContainsItem()
     { 
@@ -6624,7 +6624,7 @@ class ChooseOneBonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeChooseOneBonus(ByteBuf& _buf, std::shared_ptr<ChooseOneBonus>& _out);
+    static bool deserializeChooseOneBonus(ByteBuf& _buf, ::bright::SharedPtr<ChooseOneBonus>& _out);
 
     ChooseOneBonus()
     { 
@@ -6675,7 +6675,7 @@ class InteractionItem : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeInteractionItem(ByteBuf& _buf, std::shared_ptr<InteractionItem>& _out);
+    static bool deserializeInteractionItem(ByteBuf& _buf, ::bright::SharedPtr<InteractionItem>& _out);
 
     InteractionItem()
     { 
@@ -6731,7 +6731,7 @@ class Clothes : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeClothes(ByteBuf& _buf, std::shared_ptr<Clothes>& _out);
+    static bool deserializeClothes(ByteBuf& _buf, ::bright::SharedPtr<Clothes>& _out);
 
     Clothes()
     { 
@@ -6792,7 +6792,7 @@ class DesignDrawing : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeDesignDrawing(ByteBuf& _buf, std::shared_ptr<DesignDrawing>& _out);
+    static bool deserializeDesignDrawing(ByteBuf& _buf, ::bright::SharedPtr<DesignDrawing>& _out);
 
     DesignDrawing()
     { 
@@ -6838,7 +6838,7 @@ class Dymmy : public  item::ItemExtra
 {
     public:
 
-    static bool deserializeDymmy(ByteBuf& _buf, std::shared_ptr<Dymmy>& _out);
+    static bool deserializeDymmy(ByteBuf& _buf, ::bright::SharedPtr<Dymmy>& _out);
 
     Dymmy()
     { 
@@ -6884,7 +6884,7 @@ class Cost : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCost(ByteBuf& _buf, std::shared_ptr<Cost>& _out);
+    static bool deserializeCost(ByteBuf& _buf, ::bright::SharedPtr<Cost>& _out);
 
     Cost()
     { 
@@ -6917,7 +6917,7 @@ class CostCurrency : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostCurrency(ByteBuf& _buf, std::shared_ptr<CostCurrency>& _out);
+    static bool deserializeCostCurrency(ByteBuf& _buf, ::bright::SharedPtr<CostCurrency>& _out);
 
     CostCurrency()
     { 
@@ -6968,7 +6968,7 @@ class CostCurrencies : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostCurrencies(ByteBuf& _buf, std::shared_ptr<CostCurrencies>& _out);
+    static bool deserializeCostCurrencies(ByteBuf& _buf, ::bright::SharedPtr<CostCurrencies>& _out);
 
     CostCurrencies()
     { 
@@ -7014,7 +7014,7 @@ class CostOneItem : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostOneItem(ByteBuf& _buf, std::shared_ptr<CostOneItem>& _out);
+    static bool deserializeCostOneItem(ByteBuf& _buf, ::bright::SharedPtr<CostOneItem>& _out);
 
     CostOneItem()
     { 
@@ -7061,7 +7061,7 @@ class CostItem : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostItem(ByteBuf& _buf, std::shared_ptr<CostItem>& _out);
+    static bool deserializeCostItem(ByteBuf& _buf, ::bright::SharedPtr<CostItem>& _out);
 
     CostItem()
     { 
@@ -7113,7 +7113,7 @@ class CostItems : public  cost::Cost
 {
     public:
 
-    static bool deserializeCostItems(ByteBuf& _buf, std::shared_ptr<CostItems>& _out);
+    static bool deserializeCostItems(ByteBuf& _buf, ::bright::SharedPtr<CostItems>& _out);
 
     CostItems()
     { 
@@ -7159,7 +7159,7 @@ class L10NDemo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeL10NDemo(ByteBuf& _buf, std::shared_ptr<L10NDemo>& _out);
+    static bool deserializeL10NDemo(ByteBuf& _buf, ::bright::SharedPtr<L10NDemo>& _out);
 
     L10NDemo()
     { 
@@ -7209,7 +7209,7 @@ class PatchDemo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializePatchDemo(ByteBuf& _buf, std::shared_ptr<PatchDemo>& _out);
+    static bool deserializePatchDemo(ByteBuf& _buf, ::bright::SharedPtr<PatchDemo>& _out);
 
     PatchDemo()
     { 
@@ -7259,7 +7259,7 @@ class SystemMail : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeSystemMail(ByteBuf& _buf, std::shared_ptr<SystemMail>& _out);
+    static bool deserializeSystemMail(ByteBuf& _buf, ::bright::SharedPtr<SystemMail>& _out);
 
     SystemMail()
     { 
@@ -7324,7 +7324,7 @@ class GlobalMail : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeGlobalMail(ByteBuf& _buf, std::shared_ptr<GlobalMail>& _out);
+    static bool deserializeGlobalMail(ByteBuf& _buf, ::bright::SharedPtr<GlobalMail>& _out);
 
     GlobalMail()
     { 
@@ -7424,7 +7424,7 @@ class LevelExpAttr : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLevelExpAttr(ByteBuf& _buf, std::shared_ptr<LevelExpAttr>& _out);
+    static bool deserializeLevelExpAttr(ByteBuf& _buf, ::bright::SharedPtr<LevelExpAttr>& _out);
 
     LevelExpAttr()
     { 
@@ -7479,7 +7479,7 @@ class LevelBonus : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeLevelBonus(ByteBuf& _buf, std::shared_ptr<LevelBonus>& _out);
+    static bool deserializeLevelBonus(ByteBuf& _buf, ::bright::SharedPtr<LevelBonus>& _out);
 
     LevelBonus()
     { 
@@ -7529,7 +7529,7 @@ class DistinctBonusInfos : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDistinctBonusInfos(ByteBuf& _buf, std::shared_ptr<DistinctBonusInfos>& _out);
+    static bool deserializeDistinctBonusInfos(ByteBuf& _buf, ::bright::SharedPtr<DistinctBonusInfos>& _out);
 
     DistinctBonusInfos()
     { 
@@ -7579,7 +7579,7 @@ class BonusInfo : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeBonusInfo(ByteBuf& _buf, std::shared_ptr<BonusInfo>& _out);
+    static bool deserializeBonusInfo(ByteBuf& _buf, ::bright::SharedPtr<BonusInfo>& _out);
 
     BonusInfo()
     { 
@@ -7629,7 +7629,7 @@ class TestTag : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestTag(ByteBuf& _buf, std::shared_ptr<TestTag>& _out);
+    static bool deserializeTestTag(ByteBuf& _buf, ::bright::SharedPtr<TestTag>& _out);
 
     TestTag()
     { 
@@ -7679,7 +7679,7 @@ class DemoType2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoType2(ByteBuf& _buf, std::shared_ptr<DemoType2>& _out);
+    static bool deserializeDemoType2(ByteBuf& _buf, ::bright::SharedPtr<DemoType2>& _out);
 
     DemoType2()
     { 
@@ -7866,7 +7866,7 @@ class DemoType1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoType1(ByteBuf& _buf, std::shared_ptr<DemoType1>& _out);
+    static bool deserializeDemoType1(ByteBuf& _buf, ::bright::SharedPtr<DemoType1>& _out);
 
     DemoType1()
     { 
@@ -7911,7 +7911,7 @@ class DemoDynamic : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoDynamic(ByteBuf& _buf, std::shared_ptr<DemoDynamic>& _out);
+    static bool deserializeDemoDynamic(ByteBuf& _buf, ::bright::SharedPtr<DemoDynamic>& _out);
 
     DemoDynamic()
     { 
@@ -7953,7 +7953,7 @@ class DemoD2 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD2(ByteBuf& _buf, std::shared_ptr<DemoD2>& _out);
+    static bool deserializeDemoD2(ByteBuf& _buf, ::bright::SharedPtr<DemoD2>& _out);
 
     DemoD2()
     { 
@@ -7999,7 +7999,7 @@ class DemoD3 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD3(ByteBuf& _buf, std::shared_ptr<DemoD3>& _out);
+    static bool deserializeDemoD3(ByteBuf& _buf, ::bright::SharedPtr<DemoD3>& _out);
 
     DemoD3()
     { 
@@ -8042,7 +8042,7 @@ class DemoE1 : public  test::DemoD3
 {
     public:
 
-    static bool deserializeDemoE1(ByteBuf& _buf, std::shared_ptr<DemoE1>& _out);
+    static bool deserializeDemoE1(ByteBuf& _buf, ::bright::SharedPtr<DemoE1>& _out);
 
     DemoE1()
     { 
@@ -8088,7 +8088,7 @@ class DemoD5 : public  test::DemoDynamic
 {
     public:
 
-    static bool deserializeDemoD5(ByteBuf& _buf, std::shared_ptr<DemoD5>& _out);
+    static bool deserializeDemoD5(ByteBuf& _buf, ::bright::SharedPtr<DemoD5>& _out);
 
     DemoD5()
     { 
@@ -8134,7 +8134,7 @@ class DateTimeRange : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<DateTimeRange>& _out);
+    static bool deserializeDateTimeRange(ByteBuf& _buf, ::bright::SharedPtr<DateTimeRange>& _out);
 
     DateTimeRange()
     { 
@@ -8184,7 +8184,7 @@ class DemoE2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoE2(ByteBuf& _buf, std::shared_ptr<DemoE2>& _out);
+    static bool deserializeDemoE2(ByteBuf& _buf, ::bright::SharedPtr<DemoE2>& _out);
 
     DemoE2()
     { 
@@ -8234,7 +8234,7 @@ class DemoSingletonType : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoSingletonType(ByteBuf& _buf, std::shared_ptr<DemoSingletonType>& _out);
+    static bool deserializeDemoSingletonType(ByteBuf& _buf, ::bright::SharedPtr<DemoSingletonType>& _out);
 
     DemoSingletonType()
     { 
@@ -8289,7 +8289,7 @@ class MultiRowRecord : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowRecord(ByteBuf& _buf, std::shared_ptr<MultiRowRecord>& _out);
+    static bool deserializeMultiRowRecord(ByteBuf& _buf, ::bright::SharedPtr<MultiRowRecord>& _out);
 
     MultiRowRecord()
     { 
@@ -8369,7 +8369,7 @@ class MultiRowType1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType1(ByteBuf& _buf, std::shared_ptr<MultiRowType1>& _out);
+    static bool deserializeMultiRowType1(ByteBuf& _buf, ::bright::SharedPtr<MultiRowType1>& _out);
 
     MultiRowType1()
     { 
@@ -8419,7 +8419,7 @@ class MultiRowType2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType2(ByteBuf& _buf, std::shared_ptr<MultiRowType2>& _out);
+    static bool deserializeMultiRowType2(ByteBuf& _buf, ::bright::SharedPtr<MultiRowType2>& _out);
 
     MultiRowType2()
     { 
@@ -8474,7 +8474,7 @@ class MultiRowType3 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowType3(ByteBuf& _buf, std::shared_ptr<MultiRowType3>& _out);
+    static bool deserializeMultiRowType3(ByteBuf& _buf, ::bright::SharedPtr<MultiRowType3>& _out);
 
     MultiRowType3()
     { 
@@ -8524,7 +8524,7 @@ class MultiRowTitle : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeMultiRowTitle(ByteBuf& _buf, std::shared_ptr<MultiRowTitle>& _out);
+    static bool deserializeMultiRowTitle(ByteBuf& _buf, ::bright::SharedPtr<MultiRowTitle>& _out);
 
     MultiRowTitle()
     { 
@@ -8589,7 +8589,7 @@ class H1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeH1(ByteBuf& _buf, std::shared_ptr<H1>& _out);
+    static bool deserializeH1(ByteBuf& _buf, ::bright::SharedPtr<H1>& _out);
 
     H1()
     { 
@@ -8639,7 +8639,7 @@ class H2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeH2(ByteBuf& _buf, std::shared_ptr<H2>& _out);
+    static bool deserializeH2(ByteBuf& _buf, ::bright::SharedPtr<H2>& _out);
 
     H2()
     { 
@@ -8689,7 +8689,7 @@ class TestNull : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestNull(ByteBuf& _buf, std::shared_ptr<TestNull>& _out);
+    static bool deserializeTestNull(ByteBuf& _buf, ::bright::SharedPtr<TestNull>& _out);
 
     TestNull()
     { 
@@ -8764,7 +8764,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, std::shared_ptr<DemoPrimitiveTypesTable>& _out);
+    static bool deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, ::bright::SharedPtr<DemoPrimitiveTypesTable>& _out);
 
     DemoPrimitiveTypesTable()
     { 
@@ -8869,7 +8869,7 @@ class TestString : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestString(ByteBuf& _buf, std::shared_ptr<TestString>& _out);
+    static bool deserializeTestString(ByteBuf& _buf, ::bright::SharedPtr<TestString>& _out);
 
     TestString()
     { 
@@ -8929,7 +8929,7 @@ class CompactString : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeCompactString(ByteBuf& _buf, std::shared_ptr<CompactString>& _out);
+    static bool deserializeCompactString(ByteBuf& _buf, ::bright::SharedPtr<CompactString>& _out);
 
     CompactString()
     { 
@@ -8984,7 +8984,7 @@ class DemoGroup : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDemoGroup(ByteBuf& _buf, std::shared_ptr<DemoGroup>& _out);
+    static bool deserializeDemoGroup(ByteBuf& _buf, ::bright::SharedPtr<DemoGroup>& _out);
 
     DemoGroup()
     { 
@@ -9054,7 +9054,7 @@ class InnerGroup : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeInnerGroup(ByteBuf& _buf, std::shared_ptr<InnerGroup>& _out);
+    static bool deserializeInnerGroup(ByteBuf& _buf, ::bright::SharedPtr<InnerGroup>& _out);
 
     InnerGroup()
     { 
@@ -9114,7 +9114,7 @@ class TestGlobal : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestGlobal(ByteBuf& _buf, std::shared_ptr<TestGlobal>& _out);
+    static bool deserializeTestGlobal(ByteBuf& _buf, ::bright::SharedPtr<TestGlobal>& _out);
 
     TestGlobal()
     { 
@@ -9164,7 +9164,7 @@ class DetectEncoding : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDetectEncoding(ByteBuf& _buf, std::shared_ptr<DetectEncoding>& _out);
+    static bool deserializeDetectEncoding(ByteBuf& _buf, ::bright::SharedPtr<DetectEncoding>& _out);
 
     DetectEncoding()
     { 
@@ -9214,7 +9214,7 @@ class DefineFromExcel : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcel(ByteBuf& _buf, std::shared_ptr<DefineFromExcel>& _out);
+    static bool deserializeDefineFromExcel(ByteBuf& _buf, ::bright::SharedPtr<DefineFromExcel>& _out);
 
     DefineFromExcel()
     { 
@@ -9320,7 +9320,7 @@ class DefineFromExcelOne : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcelOne(ByteBuf& _buf, std::shared_ptr<DefineFromExcelOne>& _out);
+    static bool deserializeDefineFromExcelOne(ByteBuf& _buf, ::bright::SharedPtr<DefineFromExcelOne>& _out);
 
     DefineFromExcelOne()
     { 
@@ -9380,7 +9380,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeDefineFromExcel2(ByteBuf& _buf, std::shared_ptr<DefineFromExcel2>& _out);
+    static bool deserializeDefineFromExcel2(ByteBuf& _buf, ::bright::SharedPtr<DefineFromExcel2>& _out);
 
     DefineFromExcel2()
     { 
@@ -9486,7 +9486,7 @@ class TestExcelBean1 : public  bright::CfgBean
 {
     public:
 
-    static bool deserializeTestExcelBean1(ByteBuf& _buf, std::shared_ptr<TestExcelBean1>& _out);
+    static bool deserializeTestExcelBean1(ByteBuf& _buf, ::bright::SharedPtr<TestExcelBean1>& _out);
 
     TestExcelBean1()
     { 

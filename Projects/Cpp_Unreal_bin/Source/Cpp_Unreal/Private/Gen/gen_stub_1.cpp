@@ -28,7 +28,7 @@ namespace cfg
         return true;
     }
 
-    bool condition::MinMaxLevel::deserializeMinMaxLevel(ByteBuf& _buf, std::shared_ptr<condition::MinMaxLevel>& _out)
+    bool condition::MinMaxLevel::deserializeMinMaxLevel(ByteBuf& _buf, ::bright::SharedPtr<condition::MinMaxLevel>& _out)
     {
         _out.reset(new condition::MinMaxLevel());
         if (_out->deserialize(_buf))
@@ -60,7 +60,7 @@ namespace cfg
         return true;
     }
 
-    bool condition::ClothesPropertyScoreGreaterThan::deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, std::shared_ptr<condition::ClothesPropertyScoreGreaterThan>& _out)
+    bool condition::ClothesPropertyScoreGreaterThan::deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, ::bright::SharedPtr<condition::ClothesPropertyScoreGreaterThan>& _out)
     {
         _out.reset(new condition::ClothesPropertyScoreGreaterThan());
         if (_out->deserialize(_buf))
@@ -93,7 +93,7 @@ namespace cfg
         return true;
     }
 
-    bool condition::ContainsItem::deserializeContainsItem(ByteBuf& _buf, std::shared_ptr<condition::ContainsItem>& _out)
+    bool condition::ContainsItem::deserializeContainsItem(ByteBuf& _buf, ::bright::SharedPtr<condition::ContainsItem>& _out)
     {
         _out.reset(new condition::ContainsItem());
         if (_out->deserialize(_buf))
@@ -122,7 +122,7 @@ namespace cfg
         return true;
     }
 
-    bool item::ChooseOneBonus::deserializeChooseOneBonus(ByteBuf& _buf, std::shared_ptr<item::ChooseOneBonus>& _out)
+    bool item::ChooseOneBonus::deserializeChooseOneBonus(ByteBuf& _buf, ::bright::SharedPtr<item::ChooseOneBonus>& _out)
     {
         _out.reset(new item::ChooseOneBonus());
         if (_out->deserialize(_buf))
@@ -155,7 +155,7 @@ namespace cfg
         return true;
     }
 
-    bool item::InteractionItem::deserializeInteractionItem(ByteBuf& _buf, std::shared_ptr<item::InteractionItem>& _out)
+    bool item::InteractionItem::deserializeInteractionItem(ByteBuf& _buf, ::bright::SharedPtr<item::InteractionItem>& _out)
     {
         _out.reset(new item::InteractionItem());
         if (_out->deserialize(_buf))
@@ -189,7 +189,7 @@ namespace cfg
         return true;
     }
 
-    bool item::Clothes::deserializeClothes(ByteBuf& _buf, std::shared_ptr<item::Clothes>& _out)
+    bool item::Clothes::deserializeClothes(ByteBuf& _buf, ::bright::SharedPtr<item::Clothes>& _out)
     {
         _out.reset(new item::Clothes());
         if (_out->deserialize(_buf))
@@ -220,7 +220,7 @@ namespace cfg
         return true;
     }
 
-    bool item::DesignDrawing::deserializeDesignDrawing(ByteBuf& _buf, std::shared_ptr<item::DesignDrawing>& _out)
+    bool item::DesignDrawing::deserializeDesignDrawing(ByteBuf& _buf, ::bright::SharedPtr<item::DesignDrawing>& _out)
     {
         _out.reset(new item::DesignDrawing());
         if (_out->deserialize(_buf))
@@ -251,7 +251,7 @@ namespace cfg
         return true;
     }
 
-    bool item::Dymmy::deserializeDymmy(ByteBuf& _buf, std::shared_ptr<item::Dymmy>& _out)
+    bool item::Dymmy::deserializeDymmy(ByteBuf& _buf, ::bright::SharedPtr<item::Dymmy>& _out)
     {
         _out.reset(new item::Dymmy());
         if (_out->deserialize(_buf))
@@ -278,7 +278,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::Cost::deserializeCost(ByteBuf& _buf, std::shared_ptr<cost::Cost>& _out)
+    bool cost::Cost::deserializeCost(ByteBuf& _buf, ::bright::SharedPtr<cost::Cost>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
@@ -310,7 +310,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::CostCurrency::deserializeCostCurrency(ByteBuf& _buf, std::shared_ptr<cost::CostCurrency>& _out)
+    bool cost::CostCurrency::deserializeCostCurrency(ByteBuf& _buf, ::bright::SharedPtr<cost::CostCurrency>& _out)
     {
         _out.reset(new cost::CostCurrency());
         if (_out->deserialize(_buf))
@@ -341,7 +341,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::CostCurrencies::deserializeCostCurrencies(ByteBuf& _buf, std::shared_ptr<cost::CostCurrencies>& _out)
+    bool cost::CostCurrencies::deserializeCostCurrencies(ByteBuf& _buf, ::bright::SharedPtr<cost::CostCurrencies>& _out)
     {
         _out.reset(new cost::CostCurrencies());
         if (_out->deserialize(_buf))
@@ -373,7 +373,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::CostOneItem::deserializeCostOneItem(ByteBuf& _buf, std::shared_ptr<cost::CostOneItem>& _out)
+    bool cost::CostOneItem::deserializeCostOneItem(ByteBuf& _buf, ::bright::SharedPtr<cost::CostOneItem>& _out)
     {
         _out.reset(new cost::CostOneItem());
         if (_out->deserialize(_buf))
@@ -406,7 +406,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::CostItem::deserializeCostItem(ByteBuf& _buf, std::shared_ptr<cost::CostItem>& _out)
+    bool cost::CostItem::deserializeCostItem(ByteBuf& _buf, ::bright::SharedPtr<cost::CostItem>& _out)
     {
         _out.reset(new cost::CostItem());
         if (_out->deserialize(_buf))
@@ -438,7 +438,7 @@ namespace cfg
         return true;
     }
 
-    bool cost::CostItems::deserializeCostItems(ByteBuf& _buf, std::shared_ptr<cost::CostItems>& _out)
+    bool cost::CostItems::deserializeCostItems(ByteBuf& _buf, ::bright::SharedPtr<cost::CostItems>& _out)
     {
         _out.reset(new cost::CostItems());
         if (_out->deserialize(_buf))
@@ -467,7 +467,7 @@ namespace cfg
         return true;
     }
 
-    bool l10n::L10NDemo::deserializeL10NDemo(ByteBuf& _buf, std::shared_ptr<l10n::L10NDemo>& _out)
+    bool l10n::L10NDemo::deserializeL10NDemo(ByteBuf& _buf, ::bright::SharedPtr<l10n::L10NDemo>& _out)
     {
         _out.reset(new l10n::L10NDemo());
         if (_out->deserialize(_buf))
@@ -494,7 +494,7 @@ namespace cfg
         return true;
     }
 
-    bool l10n::PatchDemo::deserializePatchDemo(ByteBuf& _buf, std::shared_ptr<l10n::PatchDemo>& _out)
+    bool l10n::PatchDemo::deserializePatchDemo(ByteBuf& _buf, ::bright::SharedPtr<l10n::PatchDemo>& _out)
     {
         _out.reset(new l10n::PatchDemo());
         if (_out->deserialize(_buf))
@@ -524,7 +524,7 @@ namespace cfg
         return true;
     }
 
-    bool mail::SystemMail::deserializeSystemMail(ByteBuf& _buf, std::shared_ptr<mail::SystemMail>& _out)
+    bool mail::SystemMail::deserializeSystemMail(ByteBuf& _buf, ::bright::SharedPtr<mail::SystemMail>& _out)
     {
         _out.reset(new mail::SystemMail());
         if (_out->deserialize(_buf))
@@ -561,7 +561,7 @@ namespace cfg
         return true;
     }
 
-    bool mail::GlobalMail::deserializeGlobalMail(ByteBuf& _buf, std::shared_ptr<mail::GlobalMail>& _out)
+    bool mail::GlobalMail::deserializeGlobalMail(ByteBuf& _buf, ::bright::SharedPtr<mail::GlobalMail>& _out)
     {
         _out.reset(new mail::GlobalMail());
         if (_out->deserialize(_buf))
@@ -592,7 +592,7 @@ namespace cfg
         return true;
     }
 
-    bool role::LevelExpAttr::deserializeLevelExpAttr(ByteBuf& _buf, std::shared_ptr<role::LevelExpAttr>& _out)
+    bool role::LevelExpAttr::deserializeLevelExpAttr(ByteBuf& _buf, ::bright::SharedPtr<role::LevelExpAttr>& _out)
     {
         _out.reset(new role::LevelExpAttr());
         if (_out->deserialize(_buf))
@@ -619,7 +619,7 @@ namespace cfg
         return true;
     }
 
-    bool role::LevelBonus::deserializeLevelBonus(ByteBuf& _buf, std::shared_ptr<role::LevelBonus>& _out)
+    bool role::LevelBonus::deserializeLevelBonus(ByteBuf& _buf, ::bright::SharedPtr<role::LevelBonus>& _out)
     {
         _out.reset(new role::LevelBonus());
         if (_out->deserialize(_buf))
@@ -647,7 +647,7 @@ namespace cfg
         return true;
     }
 
-    bool role::DistinctBonusInfos::deserializeDistinctBonusInfos(ByteBuf& _buf, std::shared_ptr<role::DistinctBonusInfos>& _out)
+    bool role::DistinctBonusInfos::deserializeDistinctBonusInfos(ByteBuf& _buf, ::bright::SharedPtr<role::DistinctBonusInfos>& _out)
     {
         _out.reset(new role::DistinctBonusInfos());
         if (_out->deserialize(_buf))
@@ -675,7 +675,7 @@ namespace cfg
         return true;
     }
 
-    bool role::BonusInfo::deserializeBonusInfo(ByteBuf& _buf, std::shared_ptr<role::BonusInfo>& _out)
+    bool role::BonusInfo::deserializeBonusInfo(ByteBuf& _buf, ::bright::SharedPtr<role::BonusInfo>& _out)
     {
         _out.reset(new role::BonusInfo());
         if (_out->deserialize(_buf))
@@ -702,7 +702,7 @@ namespace cfg
         return true;
     }
 
-    bool tag::TestTag::deserializeTestTag(ByteBuf& _buf, std::shared_ptr<tag::TestTag>& _out)
+    bool tag::TestTag::deserializeTestTag(ByteBuf& _buf, ::bright::SharedPtr<tag::TestTag>& _out)
     {
         _out.reset(new tag::TestTag());
         if (_out->deserialize(_buf))
@@ -756,7 +756,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoType2::deserializeDemoType2(ByteBuf& _buf, std::shared_ptr<test::DemoType2>& _out)
+    bool test::DemoType2::deserializeDemoType2(ByteBuf& _buf, ::bright::SharedPtr<test::DemoType2>& _out)
     {
         _out.reset(new test::DemoType2());
         if (_out->deserialize(_buf))
@@ -787,7 +787,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoType1::deserializeDemoType1(ByteBuf& _buf, std::shared_ptr<test::DemoType1>& _out)
+    bool test::DemoType1::deserializeDemoType1(ByteBuf& _buf, ::bright::SharedPtr<test::DemoType1>& _out)
     {
         _out.reset(new test::DemoType1());
         if (_out->deserialize(_buf))
@@ -813,7 +813,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoDynamic::deserializeDemoDynamic(ByteBuf& _buf, std::shared_ptr<test::DemoDynamic>& _out)
+    bool test::DemoDynamic::deserializeDemoDynamic(ByteBuf& _buf, ::bright::SharedPtr<test::DemoDynamic>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
@@ -842,7 +842,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoD2::deserializeDemoD2(ByteBuf& _buf, std::shared_ptr<test::DemoD2>& _out)
+    bool test::DemoD2::deserializeDemoD2(ByteBuf& _buf, ::bright::SharedPtr<test::DemoD2>& _out)
     {
         _out.reset(new test::DemoD2());
         if (_out->deserialize(_buf))
@@ -873,7 +873,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoD3::deserializeDemoD3(ByteBuf& _buf, std::shared_ptr<test::DemoD3>& _out)
+    bool test::DemoD3::deserializeDemoD3(ByteBuf& _buf, ::bright::SharedPtr<test::DemoD3>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
@@ -901,7 +901,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoE1::deserializeDemoE1(ByteBuf& _buf, std::shared_ptr<test::DemoE1>& _out)
+    bool test::DemoE1::deserializeDemoE1(ByteBuf& _buf, ::bright::SharedPtr<test::DemoE1>& _out)
     {
         _out.reset(new test::DemoE1());
         if (_out->deserialize(_buf))
@@ -932,7 +932,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoD5::deserializeDemoD5(ByteBuf& _buf, std::shared_ptr<test::DemoD5>& _out)
+    bool test::DemoD5::deserializeDemoD5(ByteBuf& _buf, ::bright::SharedPtr<test::DemoD5>& _out)
     {
         _out.reset(new test::DemoD5());
         if (_out->deserialize(_buf))
@@ -961,7 +961,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<test::DateTimeRange>& _out)
+    bool test::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, ::bright::SharedPtr<test::DateTimeRange>& _out)
     {
         _out.reset(new test::DateTimeRange());
         if (_out->deserialize(_buf))
@@ -988,7 +988,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoE2::deserializeDemoE2(ByteBuf& _buf, std::shared_ptr<test::DemoE2>& _out)
+    bool test::DemoE2::deserializeDemoE2(ByteBuf& _buf, ::bright::SharedPtr<test::DemoE2>& _out)
     {
         _out.reset(new test::DemoE2());
         if (_out->deserialize(_buf))
@@ -1016,7 +1016,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoSingletonType::deserializeDemoSingletonType(ByteBuf& _buf, std::shared_ptr<test::DemoSingletonType>& _out)
+    bool test::DemoSingletonType::deserializeDemoSingletonType(ByteBuf& _buf, ::bright::SharedPtr<test::DemoSingletonType>& _out)
     {
         _out.reset(new test::DemoSingletonType());
         if (_out->deserialize(_buf))
@@ -1050,7 +1050,7 @@ namespace cfg
         return true;
     }
 
-    bool test::MultiRowRecord::deserializeMultiRowRecord(ByteBuf& _buf, std::shared_ptr<test::MultiRowRecord>& _out)
+    bool test::MultiRowRecord::deserializeMultiRowRecord(ByteBuf& _buf, ::bright::SharedPtr<test::MultiRowRecord>& _out)
     {
         _out.reset(new test::MultiRowRecord());
         if (_out->deserialize(_buf))
@@ -1082,7 +1082,7 @@ namespace cfg
         return true;
     }
 
-    bool test::MultiRowType1::deserializeMultiRowType1(ByteBuf& _buf, std::shared_ptr<test::MultiRowType1>& _out)
+    bool test::MultiRowType1::deserializeMultiRowType1(ByteBuf& _buf, ::bright::SharedPtr<test::MultiRowType1>& _out)
     {
         _out.reset(new test::MultiRowType1());
         if (_out->deserialize(_buf))
@@ -1110,7 +1110,7 @@ namespace cfg
         return true;
     }
 
-    bool test::MultiRowType2::deserializeMultiRowType2(ByteBuf& _buf, std::shared_ptr<test::MultiRowType2>& _out)
+    bool test::MultiRowType2::deserializeMultiRowType2(ByteBuf& _buf, ::bright::SharedPtr<test::MultiRowType2>& _out)
     {
         _out.reset(new test::MultiRowType2());
         if (_out->deserialize(_buf))
@@ -1137,7 +1137,7 @@ namespace cfg
         return true;
     }
 
-    bool test::MultiRowType3::deserializeMultiRowType3(ByteBuf& _buf, std::shared_ptr<test::MultiRowType3>& _out)
+    bool test::MultiRowType3::deserializeMultiRowType3(ByteBuf& _buf, ::bright::SharedPtr<test::MultiRowType3>& _out)
     {
         _out.reset(new test::MultiRowType3());
         if (_out->deserialize(_buf))
@@ -1168,7 +1168,7 @@ namespace cfg
         return true;
     }
 
-    bool test::MultiRowTitle::deserializeMultiRowTitle(ByteBuf& _buf, std::shared_ptr<test::MultiRowTitle>& _out)
+    bool test::MultiRowTitle::deserializeMultiRowTitle(ByteBuf& _buf, ::bright::SharedPtr<test::MultiRowTitle>& _out)
     {
         _out.reset(new test::MultiRowTitle());
         if (_out->deserialize(_buf))
@@ -1198,7 +1198,7 @@ namespace cfg
         return true;
     }
 
-    bool test::H1::deserializeH1(ByteBuf& _buf, std::shared_ptr<test::H1>& _out)
+    bool test::H1::deserializeH1(ByteBuf& _buf, ::bright::SharedPtr<test::H1>& _out)
     {
         _out.reset(new test::H1());
         if (_out->deserialize(_buf))
@@ -1226,7 +1226,7 @@ namespace cfg
         return true;
     }
 
-    bool test::H2::deserializeH2(ByteBuf& _buf, std::shared_ptr<test::H2>& _out)
+    bool test::H2::deserializeH2(ByteBuf& _buf, ::bright::SharedPtr<test::H2>& _out)
     {
         _out.reset(new test::H2());
         if (_out->deserialize(_buf))
@@ -1258,7 +1258,7 @@ namespace cfg
         return true;
     }
 
-    bool test::TestNull::deserializeTestNull(ByteBuf& _buf, std::shared_ptr<test::TestNull>& _out)
+    bool test::TestNull::deserializeTestNull(ByteBuf& _buf, ::bright::SharedPtr<test::TestNull>& _out)
     {
         _out.reset(new test::TestNull());
         if (_out->deserialize(_buf))
@@ -1298,7 +1298,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, std::shared_ptr<test::DemoPrimitiveTypesTable>& _out)
+    bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(ByteBuf& _buf, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>& _out)
     {
         _out.reset(new test::DemoPrimitiveTypesTable());
         if (_out->deserialize(_buf))
@@ -1327,7 +1327,7 @@ namespace cfg
         return true;
     }
 
-    bool test::TestString::deserializeTestString(ByteBuf& _buf, std::shared_ptr<test::TestString>& _out)
+    bool test::TestString::deserializeTestString(ByteBuf& _buf, ::bright::SharedPtr<test::TestString>& _out)
     {
         _out.reset(new test::TestString());
         if (_out->deserialize(_buf))
@@ -1357,7 +1357,7 @@ namespace cfg
         return true;
     }
 
-    bool test::CompactString::deserializeCompactString(ByteBuf& _buf, std::shared_ptr<test::CompactString>& _out)
+    bool test::CompactString::deserializeCompactString(ByteBuf& _buf, ::bright::SharedPtr<test::CompactString>& _out)
     {
         _out.reset(new test::CompactString());
         if (_out->deserialize(_buf))
@@ -1388,7 +1388,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DemoGroup::deserializeDemoGroup(ByteBuf& _buf, std::shared_ptr<test::DemoGroup>& _out)
+    bool test::DemoGroup::deserializeDemoGroup(ByteBuf& _buf, ::bright::SharedPtr<test::DemoGroup>& _out)
     {
         _out.reset(new test::DemoGroup());
         if (_out->deserialize(_buf))
@@ -1418,7 +1418,7 @@ namespace cfg
         return true;
     }
 
-    bool test::InnerGroup::deserializeInnerGroup(ByteBuf& _buf, std::shared_ptr<test::InnerGroup>& _out)
+    bool test::InnerGroup::deserializeInnerGroup(ByteBuf& _buf, ::bright::SharedPtr<test::InnerGroup>& _out)
     {
         _out.reset(new test::InnerGroup());
         if (_out->deserialize(_buf))
@@ -1445,7 +1445,7 @@ namespace cfg
         return true;
     }
 
-    bool test::TestGlobal::deserializeTestGlobal(ByteBuf& _buf, std::shared_ptr<test::TestGlobal>& _out)
+    bool test::TestGlobal::deserializeTestGlobal(ByteBuf& _buf, ::bright::SharedPtr<test::TestGlobal>& _out)
     {
         _out.reset(new test::TestGlobal());
         if (_out->deserialize(_buf))
@@ -1472,7 +1472,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DetectEncoding::deserializeDetectEncoding(ByteBuf& _buf, std::shared_ptr<test::DetectEncoding>& _out)
+    bool test::DetectEncoding::deserializeDetectEncoding(ByteBuf& _buf, ::bright::SharedPtr<test::DetectEncoding>& _out)
     {
         _out.reset(new test::DetectEncoding());
         if (_out->deserialize(_buf))
@@ -1510,7 +1510,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DefineFromExcel::deserializeDefineFromExcel(ByteBuf& _buf, std::shared_ptr<test::DefineFromExcel>& _out)
+    bool test::DefineFromExcel::deserializeDefineFromExcel(ByteBuf& _buf, ::bright::SharedPtr<test::DefineFromExcel>& _out)
     {
         _out.reset(new test::DefineFromExcel());
         if (_out->deserialize(_buf))
@@ -1542,7 +1542,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DefineFromExcelOne::deserializeDefineFromExcelOne(ByteBuf& _buf, std::shared_ptr<test::DefineFromExcelOne>& _out)
+    bool test::DefineFromExcelOne::deserializeDefineFromExcelOne(ByteBuf& _buf, ::bright::SharedPtr<test::DefineFromExcelOne>& _out)
     {
         _out.reset(new test::DefineFromExcelOne());
         if (_out->deserialize(_buf))
@@ -1580,7 +1580,7 @@ namespace cfg
         return true;
     }
 
-    bool test::DefineFromExcel2::deserializeDefineFromExcel2(ByteBuf& _buf, std::shared_ptr<test::DefineFromExcel2>& _out)
+    bool test::DefineFromExcel2::deserializeDefineFromExcel2(ByteBuf& _buf, ::bright::SharedPtr<test::DefineFromExcel2>& _out)
     {
         _out.reset(new test::DefineFromExcel2());
         if (_out->deserialize(_buf))
@@ -1612,7 +1612,7 @@ namespace cfg
         return true;
     }
 
-    bool test::TestExcelBean1::deserializeTestExcelBean1(ByteBuf& _buf, std::shared_ptr<test::TestExcelBean1>& _out)
+    bool test::TestExcelBean1::deserializeTestExcelBean1(ByteBuf& _buf, ::bright::SharedPtr<test::TestExcelBean1>& _out)
     {
         _out.reset(new test::TestExcelBean1());
         if (_out->deserialize(_buf))
