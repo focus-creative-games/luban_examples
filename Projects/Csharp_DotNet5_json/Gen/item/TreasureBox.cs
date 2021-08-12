@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(JsonElement _json)  : base(_json) 
@@ -44,25 +41,10 @@ public sealed partial class TreasureBox :  item.ItemExtra
         return new item.TreasureBox(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? KeyItemId;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.MinLevel OpenLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool UseOnObtain;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> DropIds;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
 
     public const int ID = 1494222369;

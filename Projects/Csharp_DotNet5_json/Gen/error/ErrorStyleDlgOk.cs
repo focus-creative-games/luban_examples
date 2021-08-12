@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         return new error.ErrorStyleDlgOk(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string BtnName;
 
     public const int ID = -2010134516;

@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CoolDown :  limit.LimitBase 
 {
     public CoolDown(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class CoolDown :  limit.LimitBase
         return new limit.CoolDown(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Duration;
 
     public const int ID = -1366194050;

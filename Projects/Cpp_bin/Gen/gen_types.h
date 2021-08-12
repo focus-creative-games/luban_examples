@@ -20,207 +20,93 @@ namespace cfg
 
 
 namespace ai {
-/**
-
-*/
 enum class EExecutor
 {
-    /**
-    
-    */
     CLIENT = 0,
-    /**
-    
-    */
     SERVER = 1,
 };
 }
 
 
 namespace ai {
-/**
-
-*/
 enum class EKeyType
 {
-    /**
-    
-    */
     BOOL = 1,
-    /**
-    
-    */
     INT = 2,
-    /**
-    
-    */
     FLOAT = 3,
-    /**
-    
-    */
     STRING = 4,
-    /**
-    
-    */
     VECTOR = 5,
-    /**
-    
-    */
     ROTATOR = 6,
-    /**
-    
-    */
     NAME = 7,
-    /**
-    
-    */
     CLASS = 8,
-    /**
-    
-    */
     ENUM = 9,
-    /**
-    
-    */
     OBJECT = 10,
 };
 }
 
 
 namespace ai {
-/**
-
-*/
 enum class EFlowAbortMode
 {
-    /**
-    
-    */
     NONE = 0,
-    /**
-    
-    */
     LOWER_PRIORITY = 1,
-    /**
-    
-    */
     SELF = 2,
-    /**
-    
-    */
     BOTH = 3,
 };
 }
 
 
 namespace ai {
-/**
-
-*/
 enum class EFinishMode
 {
-    /**
-    
-    */
     IMMEDIATE = 0,
-    /**
-    
-    */
     DELAYED = 1,
 };
 }
 
 
 namespace ai {
-/**
-
-*/
 enum class ENotifyObserverMode
 {
-    /**
-    
-    */
     ON_VALUE_CHANGE = 0,
-    /**
-    
-    */
     ON_RESULT_CHANGE = 1,
 };
 }
 
 
 namespace ai {
-/**
-
-*/
 enum class EOperator
 {
-    /**
-    
-    */
     IS_EQUAL_TO = 0,
-    /**
-    
-    */
     IS_NOT_EQUAL_TO = 1,
-    /**
-    
-    */
     IS_LESS_THAN = 2,
-    /**
-    
-    */
     IS_LESS_THAN_OR_EQUAL_TO = 3,
-    /**
-    
-    */
     IS_GREAT_THAN = 4,
-    /**
-    
-    */
     IS_GREAT_THAN_OR_EQUAL_TO = 5,
-    /**
-    
-    */
     CONTAINS = 6,
-    /**
-    
-    */
     NOT_CONTAINS = 7,
 };
 }
 
 
 namespace common {
-/**
-
-*/
 enum class EBoolOperator
 {
-    /**
-    
-    */
     AND = 0,
-    /**
-    
-    */
     OR = 1,
 };
 }
 
 
 namespace error {
-/**
-
-*/
 enum class EOperation
 {
     /**
-    
+     * 登出
     */
     LOGOUT = 0,
     /**
-    
+     * 重启
     */
     RESTART = 1,
 };
@@ -228,350 +114,92 @@ enum class EOperation
 
 
 namespace error {
-/**
-
-*/
 enum class EErrorCode
 {
-    /**
-    
-    */
     OK = 0,
-    /**
-    
-    */
     SERVER_NOT_EXISTS = 1,
-    /**
-    
-    */
     HAS_BIND_SERVER = 2,
-    /**
-    
-    */
     AUTH_FAIL = 3,
-    /**
-    
-    */
     NOT_BIND_SERVER = 4,
-    /**
-    
-    */
     SERVER_ACCESS_FAIL = 5,
-    /**
-    
-    */
     EXAMPLE_FLASH = 6,
-    /**
-    
-    */
     EXAMPLE_MSGBOX = 7,
-    /**
-    
-    */
     EXAMPLE_DLG_OK = 8,
-    /**
-    
-    */
     EXAMPLE_DLG_OK_CANCEL = 9,
-    /**
-    
-    */
     ROLE_CREATE_NAME_INVALID_CHAR = 100,
-    /**
-    
-    */
     ROLE_CREATE_NAME_EMPTY = 101,
-    /**
-    
-    */
     ROLE_CREATE_NAME_EXCEED_MAX_LENGTH = 102,
-    /**
-    
-    */
     ROLE_CREATE_ROLE_LIST_FULL = 103,
-    /**
-    
-    */
     ROLE_CREATE_INVALID_PROFESSION = 104,
-    /**
-    
-    */
     ROLE_CREATE_INVALID_GENDER = 105,
-    /**
-    
-    */
     ROLE_NOT_OWNED_BY_USER = 106,
-    /**
-    
-    */
     ROLE_LEVEL_NOT_ARRIVE = 107,
-    /**
-    
-    */
     PARAM_ILLEGAL = 200,
-    /**
-    
-    */
     TEMP_BAG_NOT_EMPTY = 201,
-    /**
-    
-    */
     ITEM_CAN_NOT_USE = 202,
-    /**
-    
-    */
     CURRENCY_NOT_ENOUGH = 203,
-    /**
-    
-    */
     BAG_IS_FULL = 204,
-    /**
-    
-    */
     ITEM_NOT_ENOUGH = 205,
-    /**
-    
-    */
     ITEM_IN_BAG = 206,
-    /**
-    
-    */
     GENDER_NOT_MATCH = 300,
-    /**
-    
-    */
     LEVEL_TOO_LOW = 301,
-    /**
-    
-    */
     LEVEL_TOO_HIGH = 302,
-    /**
-    
-    */
     EXCEED_LIMIT = 303,
-    /**
-    
-    */
     OVER_TIME = 304,
-    /**
-    
-    */
     SERVER_ERROR = 305,
-    /**
-    
-    */
     SKILL_NOT_IN_LIST = 400,
-    /**
-    
-    */
     SKILL_NOT_COOLDOWN = 401,
-    /**
-    
-    */
     SKILL_TARGET_NOT_EXIST = 402,
-    /**
-    
-    */
     SKILL_ANOTHER_CASTING = 403,
-    /**
-    
-    */
     SKILL_OUT_OF_DISTANCE = 404,
-    /**
-    
-    */
     SKILL_TARGET_CAMP_NOT_MATCH = 405,
-    /**
-    
-    */
     SKILL_INVALID_DIRECTION = 406,
-    /**
-    
-    */
     SKILL_NOT_IN_SELECT_SHAPE = 407,
-    /**
-    
-    */
     SKILL_ENERGY_NOT_ENOUGH = 408,
-    /**
-    
-    */
     DIALOG_NODE_NOT_CHOOSEN = 500,
-    /**
-    
-    */
     DIALOG_NOT_FINISH = 501,
-    /**
-    
-    */
     DIALOG_HAS_FINISH = 502,
-    /**
-    
-    */
     QUEST_STAGE_NOT_FINISHED = 503,
-    /**
-    
-    */
     QUEST_NOT_DOING = 504,
-    /**
-    
-    */
     QUEST_STAGE_NOT_DOING = 505,
-    /**
-    
-    */
     QUEST_HAS_ACCEPTED = 506,
-    /**
-    
-    */
     MAP_OBJECT_NOT_EXIST = 600,
-    /**
-    
-    */
     INTERACTION_OBJECT_NOT_SUPPORT_OPERATION = 601,
-    /**
-    
-    */
     HAS_NOT_EQUIP = 602,
-    /**
-    
-    */
     HANDHELD_EQUIP_ID_NOT_MATCH = 603,
-    /**
-    
-    */
     NOT_AVAILABLE_SUIT_ID = 604,
-    /**
-    
-    */
     NO_INTERACTION_COMPONENT = 605,
-    /**
-    
-    */
     HAS_INTERACTED = 606,
-    /**
-    
-    */
     VIALITY_NOT_ENOUGH = 607,
-    /**
-    
-    */
     PLAYER_SESSION_NOT_EXIST = 608,
-    /**
-    
-    */
     PLAYER_SESSION_WORLD_PLAYER_NOT_INIT = 609,
-    /**
-    
-    */
     MAP_NOT_EXIST = 610,
-    /**
-    
-    */
     MAIL_TYPE_ERROR = 700,
-    /**
-    
-    */
     MAIL_NOT_EXITST = 701,
-    /**
-    
-    */
     MAIL_HAVE_DELETED = 702,
-    /**
-    
-    */
     MAIL_AWARD_HAVE_RECEIVED = 703,
-    /**
-    
-    */
     MAIL_OPERATE_TYPE_ERROR = 704,
-    /**
-    
-    */
     MAIL_CONDITION_NOT_MEET = 705,
-    /**
-    
-    */
     MAIL_STATE_ERROR = 706,
-    /**
-    
-    */
     MAIL_NO_AWARD = 707,
-    /**
-    
-    */
     MAIL_BOX_IS_FULL = 708,
-    /**
-    
-    */
     PROP_SCORE_NOT_BIGGER_THAN = 800,
-    /**
-    
-    */
     NOT_WEAR_CLOTHES = 801,
-    /**
-    
-    */
     NOT_WEAR_SUIT = 802,
-    /**
-    
-    */
     SUIT_NOT_UNLOCK = 900,
-    /**
-    
-    */
     SUIT_COMPONENT_NOT_UNLOCK = 901,
-    /**
-    
-    */
     SUIT_STATE_ERROR = 902,
-    /**
-    
-    */
     SUIT_COMPONENT_STATE_ERROR = 903,
-    /**
-    
-    */
     SUIT_COMPONENT_NO_NEED_LEARN = 904,
-    /**
-    
-    */
     STORE_NOT_ENABLED = 1000,
-    /**
-    
-    */
     SHELF_NOT_ENABLED = 1001,
-    /**
-    
-    */
     GOODS_NOT_ENABLED = 1002,
-    /**
-    
-    */
     GOODS_NOT_IN_CUR_REFRESH = 1003,
-    /**
-    
-    */
     RETRY = 1100,
-    /**
-    
-    */
     NOT_COOLDOWN = 1101,
-    /**
-    
-    */
     SELFIE_UNLOCK = 1200,
-    /**
-    
-    */
     SELFIE_ALREADY_UNLOCK = 1201,
-    /**
-    
-    */
     SELFIE_LACK_STARTS = 1202,
-    /**
-    
-    */
     SELFIE_HAD_REWARD = 1203,
 };
 }
@@ -579,28 +207,28 @@ enum class EErrorCode
 
 namespace item {
 /**
-道具品质
-*/
+ * 道具品质
+ */
 enum class EItemQuality
 {
     /**
-    白
+     * 白
     */
     WHITE = 0,
     /**
-    
+     * 绿
     */
     GREEN = 1,
     /**
-    
+     * 蓝
     */
     BLUE = 2,
     /**
-    
+     * 紫
     */
     PURPLE = 3,
     /**
-    
+     * 金
     */
     GOLDEN = 4,
 };
@@ -608,29 +236,26 @@ enum class EItemQuality
 
 
 namespace item {
-/**
-
-*/
 enum class ECurrencyType
 {
     /**
-    
+     * 钻石
     */
     DIAMOND = 1,
     /**
-    
+     * 金币
     */
     GOLD = 2,
     /**
-    
+     * 银币
     */
     SILVER = 3,
     /**
-    
+     * 经验
     */
     EXP = 4,
     /**
-    
+     * 能量点
     */
     POWER_POINT = 5,
 };
@@ -638,53 +263,50 @@ enum class ECurrencyType
 
 
 namespace item {
-/**
-
-*/
 enum class EMajorType
 {
     /**
-    
+     * 货币
     */
     CURRENCY = 1,
     /**
-    
+     * 服装
     */
     CLOTH = 2,
     /**
-    
+     * 任务
     */
     QUEST = 3,
     /**
-    
+     * 消耗品
     */
     CONSUMABLES = 4,
     /**
-    
+     * 宝箱
     */
     TREASURE_BOX = 5,
     /**
-    
+     * 成就和称谓
     */
     ACHIEVEMENT_AND_TITLE = 6,
     /**
-    
+     * 头像框
     */
     HEAD_FRAME = 7,
     /**
-    
+     * 语音
     */
     VOICE = 8,
     /**
-    
+     * 动作
     */
     ACTION = 9,
     /**
-    
+     * 扩容道具
     */
     EXPANSION = 10,
     /**
-    
+     * 制作材料
     */
     MATERIAL = 11,
 };
@@ -692,205 +314,202 @@ enum class EMajorType
 
 
 namespace item {
-/**
-
-*/
 enum class EMinorType
 {
     /**
-    
+     * 钻石
     */
     DIAMOND = 101,
     /**
-    
+     * 金币
     */
     GOLD = 102,
     /**
-    
+     * 银币
     */
     SILVER = 103,
     /**
-    
+     * 经验
     */
     EXP = 104,
     /**
-    
+     * 能量点
     */
     POWER_POINT = 105,
     /**
-    
+     * 发型
     */
     HAIR_STYLE = 210,
     /**
-    
+     * 外套
     */
     COAT = 220,
     /**
-    
+     * 上衣
     */
     UPPER_JACKET = 230,
     /**
-    
+     * 裤子
     */
     TROUSERS = 241,
     /**
-    
+     * 裙子
     */
     SKIRT = 242,
     /**
-    
+     * 袜子
     */
     SOCKS = 250,
     /**
-    
+     * 鞋子
     */
     SHOES = 260,
     /**
-    
+     * 发饰
     */
     HAIR_ACCESSORY = 271,
     /**
-    
+     * 帽子
     */
     HAT = 272,
     /**
-    
+     * 耳饰
     */
     EARRING = 273,
     /**
-    
+     * 颈饰
     */
     NECKLACE = 274,
     /**
-    
+     * 腕饰
     */
     BRACELET = 275,
     /**
-    
+     * 发箍
     */
     HAIR_CLASP = 276,
     /**
-    
+     * 手套
     */
     GLOVE = 277,
     /**
-    
+     * 手持物
     */
     HANDHELD_OBJECT = 278,
     /**
-    
+     * 特殊
     */
     SPECIAL = 279,
     /**
-    
+     * 底妆
     */
     BASE_COSMETIC = 281,
     /**
-    
+     * 眉妆
     */
     EYEBROW_COSMETIC = 282,
     /**
-    
+     * 睫毛
     */
     EYELASH = 283,
     /**
-    
+     * 美瞳
     */
     COSMETIC_CONTACT_LENSES = 284,
     /**
-    
+     * 唇妆
     */
     LIP_COSMETIC = 285,
     /**
-    
+     * 肤色
     */
     SKIN_COLOR = 286,
     /**
-    
+     * 连衣裙
     */
     ONE_PIECE_DRESS = 290,
     /**
-    
+     * 换装场景
     */
     SWITCH_CLOTHES_SCENE = 291,
     /**
-    
+     * 任务道具
     */
     QUEST = 301,
     /**
-    
+     * 投掷物
     */
     CAST = 401,
     /**
-    
+     * 刀剑
     */
     SWORD = 421,
     /**
-    
+     * 弓箭
     */
     BOW_ARROW = 422,
     /**
-    
+     * 法杖
     */
     WANDS = 423,
     /**
-    
+     * 特殊工具
     */
     SPECIAL_TOOL = 424,
     /**
-    
+     * 食物
     */
     FOOD = 403,
     /**
-    
+     * 宝箱
     */
     TREASURE_BOX = 501,
     /**
-    
+     * 钥匙
     */
     KEY = 502,
     /**
-    
+     * 多选一宝箱
     */
     MULTI_CHOOSE_TREASURE_BOX = 503,
     /**
-    
+     * 成就相关
     */
     ACHIEVEMENT = 601,
     /**
-    
+     * 称谓相关
     */
     TITLE = 602,
     /**
-    
+     * 头像框
     */
     AVATAR_FRAME = 701,
     /**
-    
+     * 语音
     */
     VOICE = 801,
     /**
-    
+     * 特殊待机动作
     */
     IDLE_POSE = 901,
     /**
-    
+     * 拍照动作
     */
     PHOTO_POSE = 902,
     /**
-    
+     * 背包
     */
     BAG = 1001,
     /**
-    
+     * 好友数量
     */
     FRIEND_CAPACITY = 1002,
     /**
-    
+     * 制作材料
     */
     CONSTRUCTION_MATERIAL = 1101,
     /**
-    
+     * 设计图纸
     */
     DESIGN_DRAWING = 1102,
 };
@@ -898,49 +517,46 @@ enum class EMinorType
 
 
 namespace item {
-/**
-
-*/
 enum class EClothersStarQualityType
 {
     /**
-    
+     * 一星
     */
     ONE = 1,
     /**
-    
+     * 二星
     */
     TWO = 2,
     /**
-    
+     * 三星
     */
     THREE = 3,
     /**
-    
+     * 四星
     */
     FOUR = 4,
     /**
-    
+     * 五星
     */
     FIVE = 5,
     /**
-    
+     * 六星
     */
     SIX = 6,
     /**
-    
+     * 七星
     */
     SEVEN = 7,
     /**
-    
+     * 八星
     */
     EIGHT = 8,
     /**
-    
+     * 九星
     */
     NINE = 9,
     /**
-    
+     * 十星
     */
     TEN = 10,
 };
@@ -948,17 +564,14 @@ enum class EClothersStarQualityType
 
 
 namespace item {
-/**
-
-*/
 enum class EClothersTag
 {
     /**
-    
+     * 防晒
     */
     FANG_SHAI = 1,
     /**
-    
+     * 舞者
     */
     WU_ZHE = 2,
 };
@@ -966,17 +579,14 @@ enum class EClothersTag
 
 
 namespace item {
-/**
-
-*/
 enum class EUseType
 {
     /**
-    
+     * 手动
     */
     MANUAL = 0,
     /**
-    
+     * 自动
     */
     AUTO = 1,
 };
@@ -984,41 +594,38 @@ enum class EUseType
 
 
 namespace item {
-/**
-
-*/
 enum class EClothesHidePartType
 {
     /**
-    
+     * 胸部
     */
     CHEST = 0,
     /**
-    
+     * 手
     */
     HEAD = 1,
     /**
-    
+     * 脊柱上
     */
     SPINE_UPPER = 2,
     /**
-    
+     * 脊柱下
     */
     SPINE_LOWER = 3,
     /**
-    
+     * 臀部
     */
     HIP = 4,
     /**
-    
+     * 腿上
     */
     LEG_UPPER = 5,
     /**
-    
+     * 腿中
     */
     LEG_MIDDLE = 6,
     /**
-    
+     * 腿下
     */
     LEG_LOWER = 7,
 };
@@ -1026,49 +633,46 @@ enum class EClothesHidePartType
 
 
 namespace item {
-/**
-
-*/
 enum class EClothesPropertyType
 {
     /**
-    
+     * 简约
     */
     JIAN_YUE = 1,
     /**
-    
+     * 华丽
     */
     HUA_LI = 2,
     /**
-    
+     * 可爱
     */
     KE_AI = 3,
     /**
-    
+     * 成熟
     */
     CHENG_SHU = 4,
     /**
-    
+     * 活泼
     */
     HUO_PO = 5,
     /**
-    
+     * 优雅
     */
     YOU_YA = 6,
     /**
-    
+     * 清纯
     */
     QING_CHUN = 7,
     /**
-    
+     * 性感
     */
     XING_GAN = 8,
     /**
-    
+     * 清凉
     */
     QING_LIANG = 9,
     /**
-    
+     * 保暖
     */
     BAO_NUAN = 10,
 };
@@ -1076,17 +680,14 @@ enum class EClothesPropertyType
 
 
 namespace item {
-/**
-
-*/
 enum class EItemFunctionType
 {
     /**
-    
+     * 更换手持物
     */
     REPLACE_HANDHELD = 0,
     /**
-    
+     * 使用设计图纸
     */
     USE_DESIGN_DRAWING = 1,
 };
@@ -1094,39 +695,24 @@ enum class EItemFunctionType
 
 
 namespace limit {
-/**
-
-*/
 enum class ENamespace
 {
-    /**
-    
-    */
     ITEM_DAILY_OBTAIN = 1,
-    /**
-    
-    */
     TREASURE_DAILY_USE = 2,
-    /**
-    
-    */
     STORE_GOODS_LIMIT_BUY = 3,
 };
 }
 
 
 namespace mail {
-/**
-
-*/
 enum class EMailType
 {
     /**
-    
+     * 全局邮件
     */
     GLOBAL = 0,
     /**
-    
+     * 系统邮件
     */
     SYSTEM = 1,
 };
@@ -1134,17 +720,14 @@ enum class EMailType
 
 
 namespace role {
-/**
-
-*/
 enum class EGenderType
 {
     /**
-    
+     * 男
     */
     MALE = 1,
     /**
-    
+     * 女
     */
     FEMALE = 2,
 };
@@ -1152,39 +735,30 @@ enum class EGenderType
 
 
 namespace role {
-/**
-
-*/
 enum class EProfession
 {
-    /**
-    
-    */
     TEST_PROFESSION = 1,
 };
 }
 
 
 namespace test {
-/**
-
-*/
 enum class DemoEnum
 {
     /**
-    
+     * aa
     */
     A = 1,
     /**
-    
+     * bb
     */
     B = 2,
     /**
-    
+     * cc
     */
     C = 4,
     /**
-    
+     * dd
     */
     D = 5,
 };
@@ -1192,27 +766,18 @@ enum class DemoEnum
 
 
 namespace test {
-/**
-
-*/
 enum class ETestUeType
 {
     /**
-    
+     * 白
     */
     WHITE = 0,
-    /**
-    
-    */
     BLACK = 1,
 };
 }
 
 
 namespace test {
-/**
-
-*/
 enum class ETestEmptyEnum
 {
 };
@@ -1220,47 +785,32 @@ enum class ETestEmptyEnum
 
 
 namespace test {
-/**
-
-*/
 enum class ETestEmptyEnum2
 {
-    /**
-    
-    */
     SMALL_THAN_256 = 255,
-    /**
-    
-    */
     X_256 = 256,
-    /**
-    
-    */
     X_257 = 257,
 };
 }
 
 
 namespace test {
-/**
-
-*/
 enum class ETestQuality
 {
     /**
-    最高品质
+     * 最高品质
     */
     A = 1,
     /**
-    黑色的
+     * 黑色的
     */
     B = 2,
     /**
-    蓝色的
+     * 蓝色的
     */
     C = 3,
     /**
-    最差品质
+     * 最差品质
     */
     D = 4,
 };
@@ -1268,17 +818,14 @@ enum class ETestQuality
 
 
 namespace test {
-/**
-
-*/
 enum class ETestCurrency
 {
     /**
-    重要
+     * 重要
     */
     DIAMOND = 1,
     /**
-    有用
+     * 有用
     */
     GOLD = 2,
 };
@@ -1287,17 +834,11 @@ enum class ETestCurrency
 
 namespace role {
 /**
-
-*/
+ * 
+ */
 struct Consts
 {
-    /**
-    
-    */
     static constexpr ::bright::int32 MAX_NAME_LENGTH = 20;
-    /**
-    
-    */
     static constexpr ::bright::int32 MAX_USER_ROLE_NUM = 10;
 };
 }
@@ -1306,25 +847,13 @@ struct Consts
 
 namespace test {
 /**
-
-*/
+ * 
+ */
 struct DemoConst
 {
-    /**
-    
-    */
     static constexpr ::bright::int32 x1 = 0;
-    /**
-    
-    */
     static constexpr ::bright::int64 x2 = 3242L;
-    /**
-    
-    */
     static constexpr ::bright::float32 x3 = 444.3f;
-    /**
-    
-    */
     static constexpr ::bright::float64 x4 = 55.3;
 };
 }
@@ -1489,9 +1018,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Blackboard : public  bright::CfgBean 
 {
     public:
@@ -1515,22 +1041,10 @@ class Blackboard : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::String parentName;
     ::bright::SharedPtr<ai::Blackboard> parentName_Ref;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<ai::BlackboardKey>> keys;
 
     static constexpr int ID = 1576193005;
@@ -1550,9 +1064,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class BlackboardKey : public  bright::CfgBean 
 {
     public:
@@ -1577,25 +1088,10 @@ class BlackboardKey : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     bool isStatic;
-    /**
-     
-     */
     ai::EKeyType type;
-    /**
-     
-     */
     ::bright::String typeClassName;
 
     static constexpr int ID = -511559886;
@@ -1615,9 +1111,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class BehaviorTree : public  bright::CfgBean 
 {
     public:
@@ -1642,26 +1135,11 @@ class BehaviorTree : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::String blackboardId;
     ::bright::SharedPtr<ai::Blackboard> blackboardId_Ref;
-    /**
-     
-     */
     ::bright::SharedPtr<ai::ComposeNode> root;
 
     static constexpr int ID = 159552822;
@@ -1681,9 +1159,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Node : public  bright::CfgBean 
 {
     public:
@@ -1705,13 +1180,7 @@ class Node : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String nodeName;
 
 
@@ -1728,9 +1197,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Service : public  ai::Node 
 {
     public:
@@ -1766,9 +1232,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeSetDefaultFocus : public  ai::Service 
 {
     public:
@@ -1790,9 +1253,6 @@ class UeSetDefaultFocus : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String keyboardKey;
 
     static constexpr int ID = 1812449155;
@@ -1812,9 +1272,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class ExecuteTimeStatistic : public  ai::Service 
 {
     public:
@@ -1853,9 +1310,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class ChooseTarget : public  ai::Service 
 {
     public:
@@ -1877,9 +1331,6 @@ class ChooseTarget : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String resultTargetKey;
 
     static constexpr int ID = 1601247918;
@@ -1899,9 +1350,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class KeepFaceTarget : public  ai::Service 
 {
     public:
@@ -1923,9 +1371,6 @@ class KeepFaceTarget : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String targetActorKey;
 
     static constexpr int ID = 1195270745;
@@ -1945,9 +1390,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class GetOwnerPlayer : public  ai::Service 
 {
     public:
@@ -1969,9 +1411,6 @@ class GetOwnerPlayer : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String playerActorKey;
 
     static constexpr int ID = -999247644;
@@ -1991,9 +1430,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UpdateDailyBehaviorProps : public  ai::Service 
 {
     public:
@@ -2023,41 +1459,14 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String satietyKey;
-    /**
-     
-     */
     ::bright::String energyKey;
-    /**
-     
-     */
     ::bright::String moodKey;
-    /**
-     
-     */
     ::bright::String satietyLowerThresholdKey;
-    /**
-     
-     */
     ::bright::String satietyUpperThresholdKey;
-    /**
-     
-     */
     ::bright::String energyLowerThresholdKey;
-    /**
-     
-     */
     ::bright::String energyUpperThresholdKey;
-    /**
-     
-     */
     ::bright::String moodLowerThresholdKey;
-    /**
-     
-     */
     ::bright::String moodUpperThresholdKey;
 
     static constexpr int ID = -61887372;
@@ -2077,9 +1486,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Decorator : public  ai::Node 
 {
     public:
@@ -2101,9 +1507,6 @@ class Decorator : public  ai::Node
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ai::EFlowAbortMode flowAbortMode;
 
 
@@ -2120,9 +1523,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeLoop : public  ai::Decorator 
 {
     public:
@@ -2146,17 +1546,8 @@ class UeLoop : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 numLoops;
-    /**
-     
-     */
     bool infiniteLoop;
-    /**
-     
-     */
     ::bright::float32 infiniteLoopTimeoutTime;
 
     static constexpr int ID = -513308166;
@@ -2176,9 +1567,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeCooldown : public  ai::Decorator 
 {
     public:
@@ -2200,9 +1588,6 @@ class UeCooldown : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::float32 cooldownTime;
 
     static constexpr int ID = -951439423;
@@ -2222,9 +1607,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeTimeLimit : public  ai::Decorator 
 {
     public:
@@ -2246,9 +1628,6 @@ class UeTimeLimit : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::float32 limitTime;
 
     static constexpr int ID = 338469720;
@@ -2268,9 +1647,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeBlackboard : public  ai::Decorator 
 {
     public:
@@ -2294,17 +1670,8 @@ class UeBlackboard : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ai::ENotifyObserverMode notifyObserver;
-    /**
-     
-     */
     ::bright::String blackboardKey;
-    /**
-     
-     */
     ::bright::SharedPtr<ai::KeyQueryOperator> keyQuery;
 
     static constexpr int ID = -315297507;
@@ -2324,9 +1691,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class KeyQueryOperator : public  bright::CfgBean 
 {
     public:
@@ -2357,9 +1721,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class IsSet : public  ai::KeyQueryOperator 
 {
     public:
@@ -2393,9 +1754,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class IsNotSet : public  ai::KeyQueryOperator 
 {
     public:
@@ -2429,9 +1787,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class BinaryOperator : public  ai::KeyQueryOperator 
 {
     public:
@@ -2454,13 +1809,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ai::EOperator oper;
-    /**
-     
-     */
     ::bright::SharedPtr<ai::KeyData> data;
 
     static constexpr int ID = -979891605;
@@ -2480,9 +1829,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class KeyData : public  bright::CfgBean 
 {
     public:
@@ -2513,9 +1859,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class FloatKeyData : public  ai::KeyData 
 {
     public:
@@ -2537,9 +1880,6 @@ class FloatKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::float32 value;
 
     static constexpr int ID = -719747885;
@@ -2559,9 +1899,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class IntKeyData : public  ai::KeyData 
 {
     public:
@@ -2583,9 +1920,6 @@ class IntKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 value;
 
     static constexpr int ID = -342751904;
@@ -2605,9 +1939,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class StringKeyData : public  ai::KeyData 
 {
     public:
@@ -2629,9 +1960,6 @@ class StringKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String value;
 
     static constexpr int ID = -307888654;
@@ -2651,9 +1979,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class BlackboardKeyData : public  ai::KeyData 
 {
     public:
@@ -2675,9 +2000,6 @@ class BlackboardKeyData : public  ai::KeyData
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String value;
 
     static constexpr int ID = 1517269500;
@@ -2697,9 +2019,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeForceSuccess : public  ai::Decorator 
 {
     public:
@@ -2738,9 +2057,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class IsAtLocation : public  ai::Decorator 
 {
     public:
@@ -2764,17 +2080,8 @@ class IsAtLocation : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::float32 acceptableRadius;
-    /**
-     
-     */
     ::bright::String keyboardKey;
-    /**
-     
-     */
     bool inverseCondition;
 
     static constexpr int ID = 1255972344;
@@ -2794,9 +2101,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class DistanceLessThan : public  ai::Decorator 
 {
     public:
@@ -2821,21 +2125,9 @@ class DistanceLessThan : public  ai::Decorator
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String actor1Key;
-    /**
-     
-     */
     ::bright::String actor2Key;
-    /**
-     
-     */
     ::bright::float32 distance;
-    /**
-     
-     */
     bool reverseResult;
 
     static constexpr int ID = -1207170283;
@@ -2855,9 +2147,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class FlowNode : public  ai::Node 
 {
     public:
@@ -2880,13 +2169,7 @@ class FlowNode : public  ai::Node
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<ai::Service>> services;
 
 
@@ -2903,9 +2186,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class ComposeNode : public  ai::FlowNode 
 {
     public:
@@ -2941,9 +2221,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Sequence : public  ai::ComposeNode 
 {
     public:
@@ -2965,9 +2242,6 @@ class Sequence : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
     static constexpr int ID = -1789006105;
@@ -2987,9 +2261,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Selector : public  ai::ComposeNode 
 {
     public:
@@ -3011,9 +2282,6 @@ class Selector : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
     static constexpr int ID = -1946981627;
@@ -3033,9 +2301,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class SimpleParallel : public  ai::ComposeNode 
 {
     public:
@@ -3059,17 +2324,8 @@ class SimpleParallel : public  ai::ComposeNode
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ai::EFinishMode finishMode;
-    /**
-     
-     */
     ::bright::SharedPtr<ai::Task> mainTask;
-    /**
-     
-     */
     ::bright::SharedPtr<ai::FlowNode> backgroundNode;
 
     static constexpr int ID = -1952582529;
@@ -3089,9 +2345,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class Task : public  ai::FlowNode 
 {
     public:
@@ -3113,9 +2366,6 @@ class Task : public  ai::FlowNode
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     bool ignoreRestartSelf;
 
 
@@ -3132,9 +2382,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeWait : public  ai::Task 
 {
     public:
@@ -3157,13 +2404,7 @@ class UeWait : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::float32 waitTime;
-    /**
-     
-     */
     ::bright::float32 randomDeviation;
 
     static constexpr int ID = -512994101;
@@ -3183,9 +2424,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class UeWaitBlackboardTime : public  ai::Task 
 {
     public:
@@ -3207,9 +2445,6 @@ class UeWaitBlackboardTime : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String blackboardKey;
 
     static constexpr int ID = 1215378271;
@@ -3229,9 +2464,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class MoveToTarget : public  ai::Task 
 {
     public:
@@ -3254,13 +2486,7 @@ class MoveToTarget : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String targetActorKey;
-    /**
-     
-     */
     ::bright::float32 acceptableRadius;
 
     static constexpr int ID = 514987779;
@@ -3280,9 +2506,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class ChooseSkill : public  ai::Task 
 {
     public:
@@ -3305,13 +2528,7 @@ class ChooseSkill : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String targetActorKey;
-    /**
-     
-     */
     ::bright::String resultSkillIdKey;
 
     static constexpr int ID = -918812268;
@@ -3331,9 +2548,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class MoveToRandomLocation : public  ai::Task 
 {
     public:
@@ -3356,13 +2570,7 @@ class MoveToRandomLocation : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String originPositionKey;
-    /**
-     
-     */
     ::bright::float32 radius;
 
     static constexpr int ID = -2140042998;
@@ -3382,9 +2590,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class MoveToLocation : public  ai::Task 
 {
     public:
@@ -3407,13 +2612,7 @@ class MoveToLocation : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector3 location;
-    /**
-     
-     */
     ::bright::float32 acceptableRadius;
 
     static constexpr int ID = -969953113;
@@ -3433,9 +2632,6 @@ namespace ai {
 
 
 
-/**
-
- */
 class DebugPrint : public  ai::Task 
 {
     public:
@@ -3457,9 +2653,6 @@ class DebugPrint : public  ai::Task
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String text;
 
     static constexpr int ID = 1357409728;
@@ -3479,9 +2672,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class Clazz : public  bright::CfgBean 
 {
     public:
@@ -3505,21 +2695,9 @@ class Clazz : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods;
 
 
@@ -3536,9 +2714,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class Method : public  bright::CfgBean 
 {
     public:
@@ -3563,25 +2738,10 @@ class Method : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     bool isStatic;
-    /**
-     
-     */
     ::bright::String returnType;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters;
 
 
@@ -3598,9 +2758,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class ParamInfo : public  bright::CfgBean 
 {
     public:
@@ -3623,17 +2780,8 @@ class ParamInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String type;
-    /**
-     
-     */
     bool isRef;
 
     static constexpr int ID = -729799392;
@@ -3653,9 +2801,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class AbstraceMethod : public  blueprint::Method 
 {
     public:
@@ -3694,9 +2839,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class ExternalMethod : public  blueprint::Method 
 {
     public:
@@ -3735,9 +2877,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class BlueprintMethod : public  blueprint::Method 
 {
     public:
@@ -3776,9 +2915,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class Interface : public  blueprint::Clazz 
 {
     public:
@@ -3817,9 +2953,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class NormalClazz : public  blueprint::Clazz 
 {
     public:
@@ -3842,13 +2975,7 @@ class NormalClazz : public  blueprint::Clazz
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     bool isAbstract;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<blueprint::Field>> fields;
 
     static constexpr int ID = -2073576778;
@@ -3868,9 +2995,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class Field : public  bright::CfgBean 
 {
     public:
@@ -3893,17 +3017,8 @@ class Field : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::String type;
-    /**
-     
-     */
     ::bright::String desc;
 
     static constexpr int ID = 1694158271;
@@ -3923,9 +3038,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class EnumClazz : public  blueprint::Clazz 
 {
     public:
@@ -3947,9 +3059,6 @@ class EnumClazz : public  blueprint::Clazz
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<blueprint::EnumField>> enums;
 
     static constexpr int ID = 1827364892;
@@ -3969,9 +3078,6 @@ namespace blueprint {
 
 
 
-/**
-
- */
 class EnumField : public  bright::CfgBean 
 {
     public:
@@ -3993,13 +3099,7 @@ class EnumField : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::int32 value;
 
     static constexpr int ID = 1830049470;
@@ -4019,9 +3119,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class DropInfo : public  bright::CfgBean 
 {
     public:
@@ -4045,21 +3142,9 @@ class DropInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::ShowItemInfo>> clientShowItems;
-    /**
-     
-     */
     ::bright::SharedPtr<bonus::Bonus> bonus;
 
     static constexpr int ID = -2014781108;
@@ -4079,9 +3164,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class ShowItemInfo : public  bright::CfgBean 
 {
     public:
@@ -4103,14 +3185,8 @@ class ShowItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int64 itemNum;
 
     static constexpr int ID = -1496363507;
@@ -4130,9 +3206,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class Bonus : public  bright::CfgBean 
 {
     public:
@@ -4163,9 +3236,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class OneItem : public  bonus::Bonus 
 {
     public:
@@ -4187,9 +3257,6 @@ class OneItem : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
 
@@ -4210,9 +3277,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class OneItems : public  bonus::Bonus 
 {
     public:
@@ -4234,9 +3298,6 @@ class OneItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> items;
 
     static constexpr int ID = 400179721;
@@ -4256,9 +3317,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class Item : public  bonus::Bonus 
 {
     public:
@@ -4281,14 +3339,8 @@ class Item : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int32 amount;
 
     static constexpr int ID = 1689011106;
@@ -4308,9 +3360,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class Items : public  bonus::Bonus 
 {
     public:
@@ -4332,9 +3381,6 @@ class Items : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::Item>> itemList;
 
     static constexpr int ID = 819736849;
@@ -4354,9 +3400,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class CoefficientItem : public  bonus::Bonus 
 {
     public:
@@ -4379,13 +3422,7 @@ class CoefficientItem : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 bonusId;
-    /**
-     
-     */
     ::bright::SharedPtr<bonus::Items> bonusList;
 
     static constexpr int ID = -229470727;
@@ -4405,9 +3442,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class WeightItems : public  bonus::Bonus 
 {
     public:
@@ -4429,9 +3463,6 @@ class WeightItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::WeightItemInfo>> itemList;
 
     static constexpr int ID = -356202311;
@@ -4451,9 +3482,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class WeightItemInfo : public  bright::CfgBean 
 {
     public:
@@ -4476,18 +3504,9 @@ class WeightItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int32 num;
-    /**
-     
-     */
     ::bright::int32 weight;
 
     static constexpr int ID = 1239999176;
@@ -4507,9 +3526,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class ProbabilityItems : public  bonus::Bonus 
 {
     public:
@@ -4531,9 +3547,6 @@ class ProbabilityItems : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityItemInfo>> itemList;
 
     static constexpr int ID = 366387866;
@@ -4553,9 +3566,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class ProbabilityItemInfo : public  bright::CfgBean 
 {
     public:
@@ -4578,18 +3588,9 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int32 num;
-    /**
-     
-     */
     ::bright::float32 probability;
 
     static constexpr int ID = 1547874631;
@@ -4609,9 +3610,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class MultiBonus : public  bonus::Bonus 
 {
     public:
@@ -4633,9 +3631,6 @@ class MultiBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::Bonus>> bonuses;
 
     static constexpr int ID = 1421907893;
@@ -4655,9 +3650,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class ProbabilityBonus : public  bonus::Bonus 
 {
     public:
@@ -4679,9 +3671,6 @@ class ProbabilityBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityBonusInfo>> bonuses;
 
     static constexpr int ID = 359783161;
@@ -4701,9 +3690,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class ProbabilityBonusInfo : public  bright::CfgBean 
 {
     public:
@@ -4725,13 +3711,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<bonus::Bonus> bonus;
-    /**
-     
-     */
     ::bright::float32 probability;
 
     static constexpr int ID = 46960455;
@@ -4751,9 +3731,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class WeightBonus : public  bonus::Bonus 
 {
     public:
@@ -4775,9 +3752,6 @@ class WeightBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<bonus::WeightBonusInfo>> bonuses;
 
     static constexpr int ID = -362807016;
@@ -4797,9 +3771,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class WeightBonusInfo : public  bright::CfgBean 
 {
     public:
@@ -4821,13 +3792,7 @@ class WeightBonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<bonus::Bonus> bonus;
-    /**
-     
-     */
     ::bright::int32 weight;
 
     static constexpr int ID = -907244058;
@@ -4847,9 +3812,6 @@ namespace bonus {
 
 
 
-/**
-
- */
 class DropBonus : public  bonus::Bonus 
 {
     public:
@@ -4871,9 +3833,6 @@ class DropBonus : public  bonus::Bonus
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
     ::bright::SharedPtr<bonus::DropInfo> id_Ref;
 
@@ -4894,9 +3853,6 @@ namespace common {
 
 
 
-/**
-
- */
 class GlobalConfig : public  bright::CfgBean 
 {
     public:
@@ -4938,89 +3894,29 @@ class GlobalConfig : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     背包容量
+     * 背包容量
      */
     ::bright::int32 bagCapacity;
-    /**
-     
-     */
     ::bright::int32 bagCapacitySpecial;
-    /**
-     
-     */
     ::bright::int32 bagTempExpendableCapacity;
-    /**
-     
-     */
     ::bright::int32 bagTempToolCapacity;
-    /**
-     
-     */
     ::bright::int32 bagInitCapacity;
-    /**
-     
-     */
     ::bright::int32 quickBagCapacity;
-    /**
-     
-     */
     ::bright::int32 clothBagCapacity;
-    /**
-     
-     */
     ::bright::int32 clothBagInitCapacity;
-    /**
-     
-     */
     ::bright::int32 clothBagCapacitySpecial;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> bagInitItemsDropId;
     ::bright::SharedPtr<bonus::DropInfo> bagInitItemsDropId_Ref;
-    /**
-     
-     */
     ::bright::int32 mailBoxCapacity;
-    /**
-     
-     */
     ::bright::float32 damageParamC;
-    /**
-     
-     */
     ::bright::float32 damageParamE;
-    /**
-     
-     */
     ::bright::float32 damageParamF;
-    /**
-     
-     */
     ::bright::float32 damageParamD;
-    /**
-     
-     */
     ::bright::float32 roleSpeed;
-    /**
-     
-     */
     ::bright::float32 monsterSpeed;
-    /**
-     
-     */
     ::bright::int32 initEnergy;
-    /**
-     
-     */
     ::bright::int32 initViality;
-    /**
-     
-     */
     ::bright::int32 maxViality;
-    /**
-     
-     */
     ::bright::int32 perVialityRecoveryTime;
 
     static constexpr int ID = -848234488;
@@ -5040,9 +3936,6 @@ namespace common {
 
 
 
-/**
-
- */
 class Dummy : public  bright::CfgBean 
 {
     public:
@@ -5064,13 +3957,7 @@ class Dummy : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::SharedPtr<limit::LimitBase> limit;
 
     static constexpr int ID = -985084219;
@@ -5090,9 +3977,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class LimitBase : public  bright::CfgBean 
 {
     public:
@@ -5123,9 +4007,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class DailyLimitBase : public  limit::LimitBase 
 {
     public:
@@ -5156,9 +4037,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class DailyLimit : public  limit::DailyLimitBase 
 {
     public:
@@ -5180,9 +4058,6 @@ class DailyLimit : public  limit::DailyLimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 num;
 
     static constexpr int ID = 303235413;
@@ -5202,9 +4077,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class MultiDayLimit : public  limit::LimitBase 
 {
     public:
@@ -5227,13 +4099,7 @@ class MultiDayLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 day;
-    /**
-     
-     */
     ::bright::int32 num;
 
     static constexpr int ID = -1753629499;
@@ -5253,9 +4119,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class WeeklyLimit : public  limit::LimitBase 
 {
     public:
@@ -5277,9 +4140,6 @@ class WeeklyLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 num;
 
     static constexpr int ID = -252187161;
@@ -5299,9 +4159,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class MonthlyLimit : public  limit::LimitBase 
 {
     public:
@@ -5323,9 +4180,6 @@ class MonthlyLimit : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 num;
 
     static constexpr int ID = 2063279905;
@@ -5345,9 +4199,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class CoolDown : public  limit::LimitBase 
 {
     public:
@@ -5369,9 +4220,6 @@ class CoolDown : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 duration;
 
     static constexpr int ID = -1366194050;
@@ -5391,9 +4239,6 @@ namespace limit {
 
 
 
-/**
-
- */
 class GroupCoolDown : public  limit::LimitBase 
 {
     public:
@@ -5416,13 +4261,7 @@ class GroupCoolDown : public  limit::LimitBase
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 groupId;
-    /**
-     
-     */
     ::bright::int32 duration;
 
     static constexpr int ID = 394328599;
@@ -5442,9 +4281,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorInfo : public  bright::CfgBean 
 {
     public:
@@ -5467,17 +4303,8 @@ class ErrorInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String code;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::SharedPtr<error::ErrorStyle> style;
 
     static constexpr int ID = 1389347408;
@@ -5497,9 +4324,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorStyle : public  bright::CfgBean 
 {
     public:
@@ -5530,9 +4354,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorStyleTip : public  error::ErrorStyle 
 {
     public:
@@ -5566,9 +4387,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorStyleMsgbox : public  error::ErrorStyle 
 {
     public:
@@ -5591,13 +4409,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String btnName;
-    /**
-     
-     */
     error::EOperation operation;
 
     static constexpr int ID = -1920482343;
@@ -5617,9 +4429,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorStyleDlgOk : public  error::ErrorStyle 
 {
     public:
@@ -5641,9 +4450,6 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String btnName;
 
     static constexpr int ID = -2010134516;
@@ -5663,9 +4469,6 @@ namespace error {
 
 
 
-/**
-
- */
 class ErrorStyleDlgOkCancel : public  error::ErrorStyle 
 {
     public:
@@ -5688,13 +4491,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::String btn1Name;
-    /**
-     
-     */
     ::bright::String btn2Name;
 
     static constexpr int ID = 971221414;
@@ -5714,9 +4511,6 @@ namespace error {
 
 
 
-/**
-
- */
 class CodeInfo : public  bright::CfgBean 
 {
     public:
@@ -5738,13 +4532,7 @@ class CodeInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     error::EErrorCode code;
-    /**
-     
-     */
     ::bright::String key;
 
     static constexpr int ID = -1942481535;
@@ -5765,7 +4553,7 @@ namespace item {
 
 
 /**
-道具
+ * 道具
  */
 class Item : public  bright::CfgBean 
 {
@@ -5808,88 +4596,28 @@ class Item : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     道具id
+     * 道具id
      */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     item::EMajorType majorType;
-    /**
-     
-     */
     item::EMinorType minorType;
-    /**
-     
-     */
     ::bright::int32 maxPileNum;
-    /**
-     
-     */
     item::EItemQuality quality;
-    /**
-     
-     */
     ::bright::String icon;
-    /**
-     
-     */
     ::bright::String iconBackgroud;
-    /**
-     
-     */
     ::bright::String iconMask;
-    /**
-     
-     */
     ::bright::String desc;
-    /**
-     
-     */
     ::bright::int32 showOrder;
-    /**
-     
-     */
     ::bright::String quantifier;
-    /**
-     
-     */
     bool showInBag;
-    /**
-     
-     */
     ::bright::int32 minShowLevel;
-    /**
-     
-     */
     bool batchUsable;
-    /**
-     
-     */
     ::bright::float32 progressTimeWhenUse;
-    /**
-     
-     */
     bool showHintWhenUse;
-    /**
-     
-     */
     bool droppable;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> price;
-    /**
-     
-     */
     item::EUseType useType;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> levelUpId;
 
     static constexpr int ID = 2107285806;
@@ -5909,9 +4637,6 @@ namespace item {
 
 
 
-/**
-
- */
 class ItemFunction : public  bright::CfgBean 
 {
     public:
@@ -5935,21 +4660,9 @@ class ItemFunction : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     item::EMinorType minorType;
-    /**
-     
-     */
     item::EItemFunctionType funcType;
-    /**
-     
-     */
     ::bright::String method;
-    /**
-     
-     */
     bool closeBagUi;
 
     static constexpr int ID = 1205824294;
@@ -5969,9 +4682,6 @@ namespace item {
 
 
 
-/**
-
- */
 class ItemExtra : public  bright::CfgBean 
 {
     public:
@@ -5992,9 +4702,6 @@ class ItemExtra : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
 
 
@@ -6011,9 +4718,6 @@ namespace item {
 
 
 
-/**
-
- */
 class TreasureBox : public  item::ItemExtra 
 {
     public:
@@ -6039,25 +4743,10 @@ class TreasureBox : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> keyItemId;
-    /**
-     
-     */
     ::bright::SharedPtr<condition::MinLevel> openLevel;
-    /**
-     
-     */
     bool useOnObtain;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> dropIds;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<item::ChooseOneBonus>> chooseList;
 
     static constexpr int ID = 1494222369;
@@ -6077,9 +4766,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class Condition : public  bright::CfgBean 
 {
     public:
@@ -6110,9 +4796,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class TimeRange : public  condition::Condition 
 {
     public:
@@ -6134,9 +4817,6 @@ class TimeRange : public  condition::Condition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<common::DateTimeRange> dateTimeRange;
 
     static constexpr int ID = 1069033789;
@@ -6156,9 +4836,6 @@ namespace common {
 
 
 
-/**
-
- */
 class DateTimeRange : public  bright::CfgBean 
 {
     public:
@@ -6180,13 +4857,7 @@ class DateTimeRange : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::datetime> startTime;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::datetime> endTime;
 
     static constexpr int ID = 1642200959;
@@ -6206,9 +4877,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class RoleCondition : public  condition::Condition 
 {
     public:
@@ -6239,9 +4907,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class MultiRoleCondition : public  condition::RoleCondition 
 {
     public:
@@ -6263,9 +4928,6 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<condition::RoleCondition>> conditions;
 
     static constexpr int ID = 934079583;
@@ -6285,9 +4947,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class BoolRoleCondition : public  condition::RoleCondition 
 {
     public:
@@ -6318,9 +4977,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class GenderLimit : public  condition::BoolRoleCondition 
 {
     public:
@@ -6342,9 +4998,6 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     role::EGenderType gender;
 
     static constexpr int ID = 103675143;
@@ -6364,9 +5017,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class MinLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -6388,9 +5038,6 @@ class MinLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 level;
 
     static constexpr int ID = -1075273755;
@@ -6410,9 +5057,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class MaxLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -6434,9 +5078,6 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 level;
 
     static constexpr int ID = 700922899;
@@ -6456,9 +5097,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class MinMaxLevel : public  condition::BoolRoleCondition 
 {
     public:
@@ -6481,13 +5119,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 min;
-    /**
-     
-     */
     ::bright::int32 max;
 
     static constexpr int ID = 907499647;
@@ -6507,9 +5139,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition 
 {
     public:
@@ -6532,13 +5161,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     item::EClothesPropertyType prop;
-    /**
-     
-     */
     ::bright::int32 value;
 
     static constexpr int ID = 696630835;
@@ -6558,9 +5181,6 @@ namespace condition {
 
 
 
-/**
-
- */
 class ContainsItem : public  condition::RoleCondition 
 {
     public:
@@ -6584,18 +5204,9 @@ class ContainsItem : public  condition::RoleCondition
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int32 num;
-    /**
-     
-     */
     bool reverse;
 
     static constexpr int ID = 1961145317;
@@ -6615,9 +5226,6 @@ namespace item {
 
 
 
-/**
-
- */
 class ChooseOneBonus : public  bright::CfgBean 
 {
     public:
@@ -6639,14 +5247,8 @@ class ChooseOneBonus : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 dropId;
     ::bright::SharedPtr<bonus::DropInfo> dropId_Ref;
-    /**
-     
-     */
     bool isUnique;
 
     static constexpr int ID = 228058347;
@@ -6666,9 +5268,6 @@ namespace item {
 
 
 
-/**
-
- */
 class InteractionItem : public  item::ItemExtra 
 {
     public:
@@ -6692,17 +5291,8 @@ class InteractionItem : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> attackNum;
-    /**
-     
-     */
     ::bright::String holdingStaticMesh;
-    /**
-     
-     */
     ::bright::String holdingStaticMeshMat;
 
     static constexpr int ID = 640937802;
@@ -6722,9 +5312,6 @@ namespace item {
 
 
 
-/**
-
- */
 class Clothes : public  item::ItemExtra 
 {
     public:
@@ -6749,21 +5336,9 @@ class Clothes : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 attack;
-    /**
-     
-     */
     ::bright::int64 hp;
-    /**
-     
-     */
     ::bright::int32 energyLimit;
-    /**
-     
-     */
     ::bright::int32 energyResume;
 
     static constexpr int ID = 1659907149;
@@ -6783,9 +5358,6 @@ namespace item {
 
 
 
-/**
-
- */
 class DesignDrawing : public  item::ItemExtra 
 {
     public:
@@ -6807,9 +5379,6 @@ class DesignDrawing : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> learnComponentId;
 
     static constexpr int ID = -1679179579;
@@ -6829,9 +5398,6 @@ namespace item {
 
 
 
-/**
-
- */
 class Dymmy : public  item::ItemExtra 
 {
     public:
@@ -6853,9 +5419,6 @@ class Dymmy : public  item::ItemExtra
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<cost::Cost> cost;
 
     static constexpr int ID = 896889705;
@@ -6875,9 +5438,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class Cost : public  bright::CfgBean 
 {
     public:
@@ -6908,9 +5468,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class CostCurrency : public  cost::Cost 
 {
     public:
@@ -6933,13 +5490,7 @@ class CostCurrency : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     item::ECurrencyType type;
-    /**
-     
-     */
     ::bright::int32 num;
 
     static constexpr int ID = 911838111;
@@ -6959,9 +5510,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class CostCurrencies : public  cost::Cost 
 {
     public:
@@ -6983,9 +5531,6 @@ class CostCurrencies : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<cost::CostCurrency>> currencies;
 
     static constexpr int ID = 103084157;
@@ -7005,9 +5550,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class CostOneItem : public  cost::Cost 
 {
     public:
@@ -7029,9 +5571,6 @@ class CostOneItem : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
 
@@ -7052,9 +5591,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class CostItem : public  cost::Cost 
 {
     public:
@@ -7077,14 +5613,8 @@ class CostItem : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
-    /**
-     
-     */
     ::bright::int32 amount;
 
     static constexpr int ID = -1249440351;
@@ -7104,9 +5634,6 @@ namespace cost {
 
 
 
-/**
-
- */
 class CostItems : public  cost::Cost 
 {
     public:
@@ -7128,9 +5655,6 @@ class CostItems : public  cost::Cost
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<cost::CostItem>> itemList;
 
     static constexpr int ID = -77945102;
@@ -7150,9 +5674,6 @@ namespace l10n {
 
 
 
-/**
-
- */
 class L10NDemo : public  bright::CfgBean 
 {
     public:
@@ -7174,13 +5695,7 @@ class L10NDemo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String text;
 
     static constexpr int ID = -331195887;
@@ -7200,9 +5715,6 @@ namespace l10n {
 
 
 
-/**
-
- */
 class PatchDemo : public  bright::CfgBean 
 {
     public:
@@ -7224,13 +5736,7 @@ class PatchDemo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::int32 value;
 
     static constexpr int ID = -1707294656;
@@ -7250,9 +5756,6 @@ namespace mail {
 
 
 
-/**
-
- */
 class SystemMail : public  bright::CfgBean 
 {
     public:
@@ -7277,25 +5780,10 @@ class SystemMail : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String title;
-    /**
-     
-     */
     ::bright::String sender;
-    /**
-     
-     */
     ::bright::String content;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> award;
 
     static constexpr int ID = 1214073149;
@@ -7315,9 +5803,6 @@ namespace mail {
 
 
 
-/**
-
- */
 class GlobalMail : public  bright::CfgBean 
 {
     public:
@@ -7349,53 +5834,17 @@ class GlobalMail : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String title;
-    /**
-     
-     */
     ::bright::String sender;
-    /**
-     
-     */
     ::bright::String content;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> award;
-    /**
-     
-     */
     bool allServer;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> serverList;
-    /**
-     
-     */
     ::bright::String platform;
-    /**
-     
-     */
     ::bright::String channel;
-    /**
-     
-     */
     ::bright::SharedPtr<condition::MinMaxLevel> minMaxLevel;
-    /**
-     
-     */
     ::bright::SharedPtr<condition::TimeRange> registerTime;
-    /**
-     
-     */
     ::bright::SharedPtr<condition::TimeRange> mailTime;
 
     static constexpr int ID = -287571791;
@@ -7415,9 +5864,6 @@ namespace role {
 
 
 
-/**
-
- */
 class LevelExpAttr : public  bright::CfgBean 
 {
     public:
@@ -7440,17 +5886,8 @@ class LevelExpAttr : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 level;
-    /**
-     
-     */
     ::bright::int64 needExp;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> clothesAttrs;
 
     static constexpr int ID = -1569837022;
@@ -7470,9 +5907,6 @@ namespace role {
 
 
 
-/**
-
- */
 class LevelBonus : public  bright::CfgBean 
 {
     public:
@@ -7494,13 +5928,7 @@ class LevelBonus : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<role::DistinctBonusInfos>> distinctBonusInfos;
 
     static constexpr int ID = -572269677;
@@ -7520,9 +5948,6 @@ namespace role {
 
 
 
-/**
-
- */
 class DistinctBonusInfos : public  bright::CfgBean 
 {
     public:
@@ -7544,13 +5969,7 @@ class DistinctBonusInfos : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 effectiveLevel;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<role::BonusInfo>> bonusInfo;
 
     static constexpr int ID = -854361766;
@@ -7570,9 +5989,6 @@ namespace role {
 
 
 
-/**
-
- */
 class BonusInfo : public  bright::CfgBean 
 {
     public:
@@ -7594,13 +6010,7 @@ class BonusInfo : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     item::ECurrencyType type;
-    /**
-     
-     */
     ::bright::float32 coefficient;
 
     static constexpr int ID = -1354421803;
@@ -7620,9 +6030,6 @@ namespace tag {
 
 
 
-/**
-
- */
 class TestTag : public  bright::CfgBean 
 {
     public:
@@ -7644,13 +6051,7 @@ class TestTag : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String value;
 
     static constexpr int ID = 1742933812;
@@ -7670,9 +6071,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoType2 : public  bright::CfgBean 
 {
     public:
@@ -7684,7 +6082,7 @@ class DemoType2 : public  bright::CfgBean
 
     }
 
-    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
+    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::HashSet<::bright::int32> k5, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
     {
 
         this->x4 = x4;
@@ -7708,11 +6106,7 @@ class DemoType2 : public  bright::CfgBean
         this->t1 = t1;
         this->k1 = k1;
         this->k2 = k2;
-        this->k3 = k3;
-        this->k4 = k4;
         this->k5 = k5;
-        this->k6 = k6;
-        this->k7 = k7;
         this->k8 = k8;
         this->k9 = k9;
         this->k15 = k15;
@@ -7721,123 +6115,32 @@ class DemoType2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x4;
-    /**
-     
-     */
     bool x1;
-    /**
-     
-     */
     ::bright::byte x2;
-    /**
-     
-     */
     ::bright::int16 x3;
     ::bright::SharedPtr<test::DemoType2> x3_Ref;
-    /**
-     
-     */
     ::bright::int64 x5;
-    /**
-     
-     */
     ::bright::float32 x6;
-    /**
-     
-     */
     ::bright::float64 x7;
-    /**
-     
-     */
     ::bright::int16 x80;
-    /**
-     
-     */
     ::bright::int32 x8;
-    /**
-     
-     */
     ::bright::int64 x9;
-    /**
-     
-     */
     ::bright::String x10;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoType1> x12;
-    /**
-     
-     */
     test::DemoEnum x13;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoDynamic> x14;
-    /**
-     
-     */
     ::bright::String s1;
-    /**
-     
-     */
     ::bright::Vector2 v2;
-    /**
-     
-     */
     ::bright::Vector3 v3;
-    /**
-     
-     */
     ::bright::Vector4 v4;
-    /**
-     
-     */
     ::bright::datetime t1;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> k1;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> k2;
-    /**
-     
-     */
-    ::bright::Vector<::bright::int32> k3;
-    /**
-     
-     */
-    ::bright::Vector<::bright::int32> k4;
-    /**
-     
-     */
     ::bright::HashSet<::bright::int32> k5;
-    /**
-     
-     */
-    ::bright::HashSet<::bright::int32> k6;
-    /**
-     
-     */
-    ::bright::HashSet<::bright::int32> k7;
-    /**
-     
-     */
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
     ::bright::HashMap<::bright::SharedPtr<::bright::int32>, ::bright::SharedPtr<test::DemoE2>> k9_Index;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
 
     static constexpr int ID = -367048295;
@@ -7857,9 +6160,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoType1 : public  bright::CfgBean 
 {
     public:
@@ -7880,9 +6180,6 @@ class DemoType1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x1;
 
     static constexpr int ID = -367048296;
@@ -7902,9 +6199,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoDynamic : public  bright::CfgBean 
 {
     public:
@@ -7925,9 +6219,6 @@ class DemoDynamic : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x1;
 
 
@@ -7944,9 +6235,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoD2 : public  test::DemoDynamic 
 {
     public:
@@ -7968,9 +6256,6 @@ class DemoD2 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x2;
 
     static constexpr int ID = -2138341747;
@@ -7990,9 +6275,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoD3 : public  test::DemoDynamic 
 {
     public:
@@ -8014,9 +6296,6 @@ class DemoD3 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x3;
 
 
@@ -8033,9 +6312,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoE1 : public  test::DemoD3 
 {
     public:
@@ -8057,9 +6333,6 @@ class DemoE1 : public  test::DemoD3
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 x4;
 
     static constexpr int ID = -2138341717;
@@ -8079,9 +6352,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoD5 : public  test::DemoDynamic 
 {
     public:
@@ -8103,9 +6373,6 @@ class DemoD5 : public  test::DemoDynamic
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<test::DateTimeRange> time;
 
     static constexpr int ID = -2138341744;
@@ -8125,9 +6392,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DateTimeRange : public  bright::CfgBean 
 {
     public:
@@ -8149,13 +6413,7 @@ class DateTimeRange : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::datetime startTime;
-    /**
-     
-     */
     ::bright::datetime endTime;
 
     static constexpr int ID = 495315430;
@@ -8175,9 +6433,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoE2 : public  bright::CfgBean 
 {
     public:
@@ -8199,13 +6454,7 @@ class DemoE2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> y1;
-    /**
-     
-     */
     bool y2;
 
     static constexpr int ID = -2138341716;
@@ -8225,9 +6474,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoSingletonType : public  bright::CfgBean 
 {
     public:
@@ -8250,17 +6496,8 @@ class DemoSingletonType : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoDynamic> date;
 
     static constexpr int ID = 539196998;
@@ -8280,9 +6517,6 @@ namespace test {
 
 
 
-/**
-
- */
 class MultiRowRecord : public  bright::CfgBean 
 {
     public:
@@ -8310,37 +6544,13 @@ class MultiRowRecord : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> oneRows;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows1;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows2;
-    /**
-     
-     */
     ::bright::HashSet<::bright::SharedPtr<test::MultiRowType2>> multiRows3;
-    /**
-     
-     */
     ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multiRows4;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multiRows5;
 
     static constexpr int ID = -501249394;
@@ -8360,9 +6570,6 @@ namespace test {
 
 
 
-/**
-
- */
 class MultiRowType1 : public  bright::CfgBean 
 {
     public:
@@ -8384,13 +6591,7 @@ class MultiRowType1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::int32 x;
 
     static constexpr int ID = 540474970;
@@ -8410,9 +6611,6 @@ namespace test {
 
 
 
-/**
-
- */
 class MultiRowType2 : public  bright::CfgBean 
 {
     public:
@@ -8435,17 +6633,8 @@ class MultiRowType2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::int32 x;
-    /**
-     
-     */
     ::bright::float32 y;
 
     static constexpr int ID = 540474971;
@@ -8465,9 +6654,6 @@ namespace test {
 
 
 
-/**
-
- */
 class MultiRowType3 : public  bright::CfgBean 
 {
     public:
@@ -8489,13 +6675,7 @@ class MultiRowType3 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> items;
 
     static constexpr int ID = 540474972;
@@ -8515,9 +6695,6 @@ namespace test {
 
 
 
-/**
-
- */
 class MultiRowTitle : public  bright::CfgBean 
 {
     public:
@@ -8542,25 +6719,10 @@ class MultiRowTitle : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
-    /**
-     
-     */
     ::bright::SharedPtr<test::H1> x1;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
 
     static constexpr int ID = 540002427;
@@ -8580,9 +6742,6 @@ namespace test {
 
 
 
-/**
-
- */
 class H1 : public  bright::CfgBean 
 {
     public:
@@ -8604,13 +6763,7 @@ class H1 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::SharedPtr<test::H2> y2;
-    /**
-     
-     */
     ::bright::int32 y3;
 
     static constexpr int ID = -1422503995;
@@ -8630,9 +6783,6 @@ namespace test {
 
 
 
-/**
-
- */
 class H2 : public  bright::CfgBean 
 {
     public:
@@ -8654,13 +6804,7 @@ class H2 : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 z2;
-    /**
-     
-     */
     ::bright::int32 z3;
 
     static constexpr int ID = -1422503994;
@@ -8680,9 +6824,6 @@ namespace test {
 
 
 
-/**
-
- */
 class TestNull : public  bright::CfgBean 
 {
     public:
@@ -8709,33 +6850,12 @@ class TestNull : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::int32> x1;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoEnum> x2;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoType1> x3;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoDynamic> x4;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::String> s1;
-    /**
-     
-     */
     ::bright::SharedPtr<::bright::String> s2;
 
     static constexpr int ID = 339868469;
@@ -8755,9 +6875,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoPrimitiveTypesTable : public  bright::CfgBean 
 {
     public:
@@ -8790,57 +6907,18 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     bool x1;
-    /**
-     
-     */
     ::bright::byte x2;
-    /**
-     
-     */
     ::bright::int16 x3;
-    /**
-     
-     */
     ::bright::int32 x4;
-    /**
-     
-     */
     ::bright::int64 x5;
-    /**
-     
-     */
     ::bright::float32 x6;
-    /**
-     
-     */
     ::bright::float64 x7;
-    /**
-     
-     */
     ::bright::String s1;
-    /**
-     
-     */
     ::bright::String s2;
-    /**
-     
-     */
     ::bright::Vector2 v2;
-    /**
-     
-     */
     ::bright::Vector3 v3;
-    /**
-     
-     */
     ::bright::Vector4 v4;
-    /**
-     
-     */
     ::bright::datetime t1;
 
     static constexpr int ID = -370934083;
@@ -8860,9 +6938,6 @@ namespace test {
 
 
 
-/**
-
- */
 class TestString : public  bright::CfgBean 
 {
     public:
@@ -8886,21 +6961,9 @@ class TestString : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String s1;
-    /**
-     
-     */
     ::bright::SharedPtr<test::CompactString> cs1;
-    /**
-     
-     */
     ::bright::SharedPtr<test::CompactString> cs2;
 
     static constexpr int ID = 338485823;
@@ -8920,9 +6983,6 @@ namespace test {
 
 
 
-/**
-
- */
 class CompactString : public  bright::CfgBean 
 {
     public:
@@ -8945,17 +7005,8 @@ class CompactString : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String s2;
-    /**
-     
-     */
     ::bright::String s3;
 
     static constexpr int ID = 1968089240;
@@ -8975,9 +7026,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DemoGroup : public  bright::CfgBean 
 {
     public:
@@ -9003,29 +7051,11 @@ class DemoGroup : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::int32 x1;
-    /**
-     
-     */
     ::bright::int32 x2;
-    /**
-     
-     */
     ::bright::int32 x3;
-    /**
-     
-     */
     ::bright::int32 x4;
-    /**
-     
-     */
     ::bright::SharedPtr<test::InnerGroup> x5;
 
     static constexpr int ID = -379263008;
@@ -9045,9 +7075,6 @@ namespace test {
 
 
 
-/**
-
- */
 class InnerGroup : public  bright::CfgBean 
 {
     public:
@@ -9071,21 +7098,9 @@ class InnerGroup : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 y1;
-    /**
-     
-     */
     ::bright::int32 y2;
-    /**
-     
-     */
     ::bright::int32 y3;
-    /**
-     
-     */
     ::bright::int32 y4;
 
     static constexpr int ID = -587873083;
@@ -9105,9 +7120,6 @@ namespace test {
 
 
 
-/**
-
- */
 class TestGlobal : public  bright::CfgBean 
 {
     public:
@@ -9129,13 +7141,7 @@ class TestGlobal : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 unlockEquip;
-    /**
-     
-     */
     ::bright::int32 unlockHero;
 
     static constexpr int ID = -12548655;
@@ -9155,9 +7161,6 @@ namespace test {
 
 
 
-/**
-
- */
 class DetectEncoding : public  bright::CfgBean 
 {
     public:
@@ -9179,13 +7182,7 @@ class DetectEncoding : public  bright::CfgBean
 
     bool deserialize(ByteBuf& _buf);
 
-    /**
-     
-     */
     ::bright::int32 id;
-    /**
-     
-     */
     ::bright::String name;
 
     static constexpr int ID = -1154609646;
@@ -9206,7 +7203,7 @@ namespace test {
 
 
 /**
-
+ * 
  */
 class DefineFromExcel : public  bright::CfgBean 
 {
@@ -9241,57 +7238,24 @@ class DefineFromExcel : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     id的描述
+     * id的描述
      */
     ::bright::int32 id;
     /**
-     字段的描述
+     * 字段的描述
      */
     bool x1;
-    /**
-     
-     */
     ::bright::int64 x5;
-    /**
-     
-     */
     ::bright::float32 x6;
-    /**
-     
-     */
     ::bright::int32 x8;
     ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
-    /**
-     
-     */
     ::bright::String x10;
-    /**
-     
-     */
     test::ETestQuality x13;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoDynamic> x14;
-    /**
-     
-     */
     ::bright::Vector2 v2;
-    /**
-     
-     */
     ::bright::datetime t1;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> k1;
-    /**
-     
-     */
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
     static constexpr int ID = 2100429878;
@@ -9312,7 +7276,7 @@ namespace test {
 
 
 /**
-
+ * 
  */
 class DefineFromExcelOne : public  bright::CfgBean 
 {
@@ -9338,20 +7302,17 @@ class DefineFromExcelOne : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     装备解锁等级_描述
+     * 装备解锁等级_描述
      */
     ::bright::int32 unlockEquip;
     /**
-     英雄解锁等级
+     * 英雄解锁等级
      */
     ::bright::int32 unlockHero;
     /**
-     默认头像
+     * 默认头像
      */
     ::bright::String defaultAvatar;
-    /**
-     
-     */
     ::bright::String defaultItem;
 
     static constexpr int ID = 528039504;
@@ -9372,7 +7333,7 @@ namespace test {
 
 
 /**
-
+ * 
  */
 class DefineFromExcel2 : public  bright::CfgBean 
 {
@@ -9407,57 +7368,24 @@ class DefineFromExcel2 : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     id的描述
+     * id的描述
      */
     ::bright::int32 id;
     /**
-     字段的描述
+     * 字段的描述
      */
     bool x1;
-    /**
-     
-     */
     ::bright::int64 x5;
-    /**
-     
-     */
     ::bright::float32 x6;
-    /**
-     
-     */
     ::bright::int32 x8;
     ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
-    /**
-     
-     */
     ::bright::String x10;
-    /**
-     
-     */
     test::ETestQuality x13;
-    /**
-     
-     */
     ::bright::SharedPtr<test::DemoDynamic> x14;
-    /**
-     
-     */
     ::bright::Vector2 v2;
-    /**
-     
-     */
     ::bright::datetime t1;
-    /**
-     
-     */
     ::bright::Vector<::bright::int32> k1;
-    /**
-     
-     */
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
-    /**
-     
-     */
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
     static constexpr int ID = 688816828;
@@ -9478,7 +7406,7 @@ namespace test {
 
 
 /**
-这是个测试excel结构
+ * 这是个测试excel结构
  */
 class TestExcelBean1 : public  bright::CfgBean 
 {
@@ -9504,19 +7432,19 @@ class TestExcelBean1 : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     最高品质
+     * 最高品质
      */
     ::bright::int32 x1;
     /**
-     黑色的
+     * 黑色的
      */
     ::bright::String x2;
     /**
-     蓝色的
+     * 蓝色的
      */
     ::bright::int32 x3;
     /**
-     最差品质
+     * 最差品质
      */
     ::bright::float32 x4;
 
@@ -9534,9 +7462,6 @@ class TestExcelBean1 : public  bright::CfgBean
 namespace ai {
 
 
-/**
-
- */
 class TbBlackboard
 {
     private:
@@ -9588,9 +7513,6 @@ class TbBlackboard
 namespace ai {
 
 
-/**
-
- */
 class TbBehaviorTree
 {
     private:
@@ -9642,9 +7564,6 @@ class TbBehaviorTree
 namespace blueprint {
 
 
-/**
-
- */
 class TbClazz
 {
     private:
@@ -9696,9 +7615,6 @@ class TbClazz
 namespace bonus {
 
 
-/**
-
- */
 class TbDrop
 {
     private:
@@ -9750,9 +7666,6 @@ class TbDrop
 namespace common {
 
 
-/**
-
- */
 class TbGlobalConfig
 {
      private:
@@ -9776,88 +7689,28 @@ class TbGlobalConfig
     }
 
     /**
-    背包容量
+     * 背包容量
      */
     ::bright::int32& getBagCapacity() const { return _data->bagCapacity; }
-    /**
-    
-     */
     ::bright::int32& getBagCapacitySpecial() const { return _data->bagCapacitySpecial; }
-    /**
-    
-     */
     ::bright::int32& getBagTempExpendableCapacity() const { return _data->bagTempExpendableCapacity; }
-    /**
-    
-     */
     ::bright::int32& getBagTempToolCapacity() const { return _data->bagTempToolCapacity; }
-    /**
-    
-     */
     ::bright::int32& getBagInitCapacity() const { return _data->bagInitCapacity; }
-    /**
-    
-     */
     ::bright::int32& getQuickBagCapacity() const { return _data->quickBagCapacity; }
-    /**
-    
-     */
     ::bright::int32& getClothBagCapacity() const { return _data->clothBagCapacity; }
-    /**
-    
-     */
     ::bright::int32& getClothBagInitCapacity() const { return _data->clothBagInitCapacity; }
-    /**
-    
-     */
     ::bright::int32& getClothBagCapacitySpecial() const { return _data->clothBagCapacitySpecial; }
-    /**
-    
-     */
     ::bright::SharedPtr<::bright::int32>& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
-    /**
-    
-     */
     ::bright::int32& getMailBoxCapacity() const { return _data->mailBoxCapacity; }
-    /**
-    
-     */
     ::bright::float32& getDamageParamC() const { return _data->damageParamC; }
-    /**
-    
-     */
     ::bright::float32& getDamageParamE() const { return _data->damageParamE; }
-    /**
-    
-     */
     ::bright::float32& getDamageParamF() const { return _data->damageParamF; }
-    /**
-    
-     */
     ::bright::float32& getDamageParamD() const { return _data->damageParamD; }
-    /**
-    
-     */
     ::bright::float32& getRoleSpeed() const { return _data->roleSpeed; }
-    /**
-    
-     */
     ::bright::float32& getMonsterSpeed() const { return _data->monsterSpeed; }
-    /**
-    
-     */
     ::bright::int32& getInitEnergy() const { return _data->initEnergy; }
-    /**
-    
-     */
     ::bright::int32& getInitViality() const { return _data->initViality; }
-    /**
-    
-     */
     ::bright::int32& getMaxViality() const { return _data->maxViality; }
-    /**
-    
-     */
     ::bright::int32& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
 };
 }
@@ -9866,9 +7719,6 @@ class TbGlobalConfig
 namespace common {
 
 
-/**
-
- */
 class TbDummy
 {
     private:
@@ -9920,9 +7770,6 @@ class TbDummy
 namespace error {
 
 
-/**
-
- */
 class TbErrorInfo
 {
     private:
@@ -9974,9 +7821,6 @@ class TbErrorInfo
 namespace error {
 
 
-/**
-
- */
 class TbCodeInfo
 {
     private:
@@ -10029,7 +7873,7 @@ namespace item {
 
 
 /**
-道具表
+ * 道具表
  */
 class TbItem
 {
@@ -10082,9 +7926,6 @@ class TbItem
 namespace item {
 
 
-/**
-
- */
 class TbItemFunc
 {
     private:
@@ -10136,9 +7977,6 @@ class TbItemFunc
 namespace item {
 
 
-/**
-
- */
 class TbItemExtra
 {
     private:
@@ -10190,9 +8028,6 @@ class TbItemExtra
 namespace l10n {
 
 
-/**
-
- */
 class TbL10NDemo
 {
     private:
@@ -10244,9 +8079,6 @@ class TbL10NDemo
 namespace l10n {
 
 
-/**
-
- */
 class TbPatchDemo
 {
     private:
@@ -10298,9 +8130,6 @@ class TbPatchDemo
 namespace mail {
 
 
-/**
-
- */
 class TbSystemMail
 {
     private:
@@ -10352,9 +8181,6 @@ class TbSystemMail
 namespace mail {
 
 
-/**
-
- */
 class TbGlobalMail
 {
     private:
@@ -10406,9 +8232,6 @@ class TbGlobalMail
 namespace role {
 
 
-/**
-
- */
 class TbRoleLevelExpAttr
 {
     private:
@@ -10460,9 +8283,6 @@ class TbRoleLevelExpAttr
 namespace role {
 
 
-/**
-
- */
 class TbRoleLevelBonusCoefficient
 {
     private:
@@ -10514,9 +8334,6 @@ class TbRoleLevelBonusCoefficient
 namespace tag {
 
 
-/**
-
- */
 class TbTestTag
 {
     private:
@@ -10568,9 +8385,6 @@ class TbTestTag
 namespace test {
 
 
-/**
-
- */
 class TbFullTypes
 {
     private:
@@ -10622,9 +8436,6 @@ class TbFullTypes
 namespace test {
 
 
-/**
-
- */
 class TbSingleton
 {
      private:
@@ -10647,17 +8458,8 @@ class TbSingleton
         _data->resolve(_tables);
     }
 
-    /**
-    
-     */
     ::bright::int32& getId() const { return _data->id; }
-    /**
-    
-     */
     ::bright::String& getName() const { return _data->name; }
-    /**
-    
-     */
     ::bright::SharedPtr<test::DemoDynamic>& getDate() const { return _data->date; }
 };
 }
@@ -10666,10 +8468,7 @@ class TbSingleton
 namespace test {
 
 
-/**
-
- */
-class TbDataFromJson
+class TbDataFromMisc
 {
     private:
     ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
@@ -10720,117 +8519,6 @@ class TbDataFromJson
 namespace test {
 
 
-/**
-
- */
-class TbDataFromXml
-{
-    private:
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
-    
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::DemoType2> _v;
-            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->x4] = _v;
-        }
-        return true;
-    }
-
-    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
-
-    test::DemoType2* getRaw(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
-        {
-            v->resolve(_tables);
-        }
-    }
-
-};
-}
-
-
-namespace test {
-
-
-/**
-
- */
-class TbDataFromLua
-{
-    private:
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
-    ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
-    
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::DemoType2> _v;
-            if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->x4] = _v;
-        }
-        return true;
-    }
-
-    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
-
-    test::DemoType2* getRaw(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
-        {
-            v->resolve(_tables);
-        }
-    }
-
-};
-}
-
-
-namespace test {
-
-
-/**
-
- */
 class TbMultiRowRecord
 {
     private:
@@ -10882,9 +8570,6 @@ class TbMultiRowRecord
 namespace test {
 
 
-/**
-
- */
 class TbMultiRowTitle
 {
     private:
@@ -10936,9 +8621,6 @@ class TbMultiRowTitle
 namespace test {
 
 
-/**
-
- */
 class TbTestNull
 {
     private:
@@ -10990,9 +8672,6 @@ class TbTestNull
 namespace test {
 
 
-/**
-
- */
 class TbDemoPrimitive
 {
     private:
@@ -11044,9 +8723,6 @@ class TbDemoPrimitive
 namespace test {
 
 
-/**
-
- */
 class TbTestString
 {
     private:
@@ -11098,9 +8774,6 @@ class TbTestString
 namespace test {
 
 
-/**
-
- */
 class TbDemoGroup
 {
     private:
@@ -11152,9 +8825,6 @@ class TbDemoGroup
 namespace test {
 
 
-/**
-
- */
 class TbDemoGroup_C
 {
     private:
@@ -11206,9 +8876,6 @@ class TbDemoGroup_C
 namespace test {
 
 
-/**
-
- */
 class TbDemoGroup_S
 {
     private:
@@ -11260,9 +8927,6 @@ class TbDemoGroup_S
 namespace test {
 
 
-/**
-
- */
 class TbDemoGroup_E
 {
     private:
@@ -11314,9 +8978,6 @@ class TbDemoGroup_E
 namespace test {
 
 
-/**
-
- */
 class TbTestGlobal
 {
      private:
@@ -11339,13 +9000,7 @@ class TbTestGlobal
         _data->resolve(_tables);
     }
 
-    /**
-    
-     */
     ::bright::int32& getUnlockEquip() const { return _data->unlockEquip; }
-    /**
-    
-     */
     ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
 };
 }
@@ -11354,9 +9009,6 @@ class TbTestGlobal
 namespace test {
 
 
-/**
-
- */
 class TbDetectCsvEncoding
 {
     private:
@@ -11408,9 +9060,6 @@ class TbDetectCsvEncoding
 namespace test {
 
 
-/**
-
- */
 class TbDefineFromExcel
 {
     private:
@@ -11462,9 +9111,6 @@ class TbDefineFromExcel
 namespace test {
 
 
-/**
-
- */
 class TbDefineFromExcelOne
 {
      private:
@@ -11488,20 +9134,17 @@ class TbDefineFromExcelOne
     }
 
     /**
-    装备解锁等级_描述
+     * 装备解锁等级_描述
      */
     ::bright::int32& getUnlockEquip() const { return _data->unlockEquip; }
     /**
-    英雄解锁等级
+     * 英雄解锁等级
      */
     ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
     /**
-    默认头像
+     * 默认头像
      */
     ::bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
-    /**
-    
-     */
     ::bright::String& getDefaultItem() const { return _data->defaultItem; }
 };
 }
@@ -11510,9 +9153,6 @@ class TbDefineFromExcelOne
 namespace test {
 
 
-/**
-
- */
 class TbDemoGroupDefineFromExcel
 {
     private:
@@ -11564,9 +9204,6 @@ class TbDemoGroupDefineFromExcel
 namespace test {
 
 
-/**
-
- */
 class TbDefineFromExcel2
 {
     private:
@@ -11618,9 +9255,6 @@ class TbDefineFromExcel2
 namespace test {
 
 
-/**
-
- */
 class TbTestExcelBean
 {
     private:
@@ -11672,161 +9306,45 @@ class TbTestExcelBean
 class Tables
 {
     public:
-    /**
-     
-     */
      ai::TbBlackboard TbBlackboard;
-    /**
-     
-     */
      ai::TbBehaviorTree TbBehaviorTree;
-    /**
-     
-     */
      blueprint::TbClazz TbClazz;
-    /**
-     
-     */
      bonus::TbDrop TbDrop;
-    /**
-     
-     */
      common::TbGlobalConfig TbGlobalConfig;
-    /**
-     
-     */
      common::TbDummy TbDummy;
-    /**
-     
-     */
      error::TbErrorInfo TbErrorInfo;
-    /**
-     
-     */
      error::TbCodeInfo TbCodeInfo;
     /**
      道具表
      */
      item::TbItem TbItem;
-    /**
-     
-     */
      item::TbItemFunc TbItemFunc;
-    /**
-     
-     */
      item::TbItemExtra TbItemExtra;
-    /**
-     
-     */
      l10n::TbL10NDemo TbL10NDemo;
-    /**
-     
-     */
      l10n::TbPatchDemo TbPatchDemo;
-    /**
-     
-     */
      mail::TbSystemMail TbSystemMail;
-    /**
-     
-     */
      mail::TbGlobalMail TbGlobalMail;
-    /**
-     
-     */
      role::TbRoleLevelExpAttr TbRoleLevelExpAttr;
-    /**
-     
-     */
      role::TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
-    /**
-     
-     */
      tag::TbTestTag TbTestTag;
-    /**
-     
-     */
      test::TbFullTypes TbFullTypes;
-    /**
-     
-     */
      test::TbSingleton TbSingleton;
-    /**
-     
-     */
-     test::TbDataFromJson TbDataFromJson;
-    /**
-     
-     */
-     test::TbDataFromXml TbDataFromXml;
-    /**
-     
-     */
-     test::TbDataFromLua TbDataFromLua;
-    /**
-     
-     */
+     test::TbDataFromMisc TbDataFromMisc;
      test::TbMultiRowRecord TbMultiRowRecord;
-    /**
-     
-     */
      test::TbMultiRowTitle TbMultiRowTitle;
-    /**
-     
-     */
      test::TbTestNull TbTestNull;
-    /**
-     
-     */
      test::TbDemoPrimitive TbDemoPrimitive;
-    /**
-     
-     */
      test::TbTestString TbTestString;
-    /**
-     
-     */
      test::TbDemoGroup TbDemoGroup;
-    /**
-     
-     */
      test::TbDemoGroup_C TbDemoGroup_C;
-    /**
-     
-     */
      test::TbDemoGroup_S TbDemoGroup_S;
-    /**
-     
-     */
      test::TbDemoGroup_E TbDemoGroup_E;
-    /**
-     
-     */
      test::TbTestGlobal TbTestGlobal;
-    /**
-     
-     */
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
-    /**
-     
-     */
      test::TbDefineFromExcel TbDefineFromExcel;
-    /**
-     
-     */
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
-    /**
-     
-     */
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
-    /**
-     
-     */
      test::TbDefineFromExcel2 TbDefineFromExcel2;
-    /**
-     
-     */
      test::TbTestExcelBean TbTestExcelBean;
 
     bool load(::bright::Function<bool(ByteBuf&, const ::bright::String&)> loader)
@@ -11894,15 +9412,9 @@ class Tables
         if (!loader(buf, "test.TbSingleton")) return false;
         if (!TbSingleton.load(buf)) return false;
         __tables__["test.TbSingleton"] = &TbSingleton;
-        if (!loader(buf, "test.TbDataFromJson")) return false;
-        if (!TbDataFromJson.load(buf)) return false;
-        __tables__["test.TbDataFromJson"] = &TbDataFromJson;
-        if (!loader(buf, "test.TbDataFromXml")) return false;
-        if (!TbDataFromXml.load(buf)) return false;
-        __tables__["test.TbDataFromXml"] = &TbDataFromXml;
-        if (!loader(buf, "test.TbDataFromLua")) return false;
-        if (!TbDataFromLua.load(buf)) return false;
-        __tables__["test.TbDataFromLua"] = &TbDataFromLua;
+        if (!loader(buf, "test.TbDataFromMisc")) return false;
+        if (!TbDataFromMisc.load(buf)) return false;
+        __tables__["test.TbDataFromMisc"] = &TbDataFromMisc;
         if (!loader(buf, "test.TbMultiRowRecord")) return false;
         if (!TbMultiRowRecord.load(buf)) return false;
         __tables__["test.TbMultiRowRecord"] = &TbMultiRowRecord;
@@ -11972,9 +9484,7 @@ class Tables
         TbTestTag.resolve(__tables__); 
         TbFullTypes.resolve(__tables__); 
         TbSingleton.resolve(__tables__); 
-        TbDataFromJson.resolve(__tables__); 
-        TbDataFromXml.resolve(__tables__); 
-        TbDataFromLua.resolve(__tables__); 
+        TbDataFromMisc.resolve(__tables__); 
         TbMultiRowRecord.resolve(__tables__); 
         TbMultiRowTitle.resolve(__tables__); 
         TbTestNull.resolve(__tables__); 

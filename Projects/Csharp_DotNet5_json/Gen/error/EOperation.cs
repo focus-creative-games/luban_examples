@@ -9,9 +9,6 @@
 
 namespace cfg.error
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EOperation
     {
         /// <summary>

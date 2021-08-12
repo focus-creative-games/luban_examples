@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Sequence :  ai.ComposeNode 
 {
     public Sequence(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class Sequence :  ai.ComposeNode
         return new ai.Sequence(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
     public const int ID = -1789006105;

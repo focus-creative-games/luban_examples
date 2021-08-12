@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbPatchDemo
 {
     private readonly Dictionary<int, l10n.PatchDemo> _dataMap;

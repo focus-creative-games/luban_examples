@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CostCurrency :  cost.Cost 
 {
     public CostCurrency(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class CostCurrency :  cost.Cost
         return new cost.CostCurrency(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.ECurrencyType Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Num;
 
     public const int ID = 911838111;

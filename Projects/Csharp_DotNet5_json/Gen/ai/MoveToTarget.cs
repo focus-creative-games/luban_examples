@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class MoveToTarget :  ai.Task
         return new ai.MoveToTarget(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string TargetActorKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float AcceptableRadius;
 
     public const int ID = 514987779;

@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbDefineFromExcel2
 {
     private readonly Dictionary<int, test.DefineFromExcel2> _dataMap;

@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(JsonElement _json) 
@@ -38,13 +35,7 @@ public sealed partial class DetectEncoding :  Bright.Config.BeanBase
         return new test.DetectEncoding(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
 
     public const int ID = -1154609646;

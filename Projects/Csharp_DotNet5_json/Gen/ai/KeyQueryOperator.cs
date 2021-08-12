@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
     public KeyQueryOperator(JsonElement _json) 

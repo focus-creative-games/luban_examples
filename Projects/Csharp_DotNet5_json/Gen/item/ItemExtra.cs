@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(JsonElement _json) 
@@ -44,9 +41,6 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
 
 

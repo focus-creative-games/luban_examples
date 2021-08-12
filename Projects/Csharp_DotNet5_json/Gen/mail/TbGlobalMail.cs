@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.mail
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbGlobalMail
 {
     private readonly Dictionary<int, mail.GlobalMail> _dataMap;

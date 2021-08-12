@@ -9,9 +9,6 @@
 
 namespace cfg.item
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EItemFunctionType
     {
         /// <summary>

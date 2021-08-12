@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityBonusInfo(JsonElement _json) 
@@ -38,13 +35,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         return new bonus.ProbabilityBonusInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Bonus Bonus;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Probability;
 
     public const int ID = 46960455;

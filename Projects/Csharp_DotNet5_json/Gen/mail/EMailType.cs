@@ -9,9 +9,6 @@
 
 namespace cfg.mail
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EMailType
     {
         /// <summary>

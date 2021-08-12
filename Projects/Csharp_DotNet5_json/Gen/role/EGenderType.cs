@@ -9,9 +9,6 @@
 
 namespace cfg.role
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EGenderType
     {
         /// <summary>

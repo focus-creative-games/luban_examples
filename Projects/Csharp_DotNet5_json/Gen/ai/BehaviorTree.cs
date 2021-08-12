@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BehaviorTree :  Bright.Config.BeanBase 
 {
     public BehaviorTree(JsonElement _json) 
@@ -44,26 +41,11 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         return new ai.BehaviorTree(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string BlackboardId;
     public ai.Blackboard BlackboardId_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.ComposeNode Root;
 
     public const int ID = 159552822;

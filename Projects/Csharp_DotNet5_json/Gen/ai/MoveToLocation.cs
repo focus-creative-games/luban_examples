@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MoveToLocation :  ai.Task 
 {
     public MoveToLocation(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class MoveToLocation :  ai.Task
         return new ai.MoveToLocation(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector3 Location;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float AcceptableRadius;
 
     public const int ID = -969953113;

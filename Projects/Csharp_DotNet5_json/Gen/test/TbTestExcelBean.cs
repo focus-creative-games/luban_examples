@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbTestExcelBean
 {
     private readonly Dictionary<int, test.TestExcelBean1> _dataMap;

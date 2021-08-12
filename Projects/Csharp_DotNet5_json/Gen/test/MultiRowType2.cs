@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MultiRowType2 :  Bright.Config.BeanBase 
 {
     public MultiRowType2(JsonElement _json) 
@@ -40,17 +37,8 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
         return new test.MultiRowType2(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Y;
 
     public const int ID = 540474971;

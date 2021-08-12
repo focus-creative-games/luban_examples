@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ExternalMethod :  blueprint.Method 
 {
     public ExternalMethod(JsonElement _json)  : base(_json) 

@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(JsonElement _json)  : base(_json) 
@@ -40,17 +37,8 @@ public sealed partial class IsAtLocation :  ai.Decorator
         return new ai.IsAtLocation(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float AcceptableRadius;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string KeyboardKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool InverseCondition;
 
     public const int ID = 1255972344;

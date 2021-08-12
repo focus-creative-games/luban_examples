@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoType2 :  Bright.Config.BeanBase 
 {
     public DemoType2(JsonElement _json) 
@@ -86,107 +83,32 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         return new test.DemoType2(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly byte X2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly short X3;
     public test.DemoType2 X3_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float X6;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly double X7;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly short X80;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X8;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X9;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string X10;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoType1 X12;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoEnum X13;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic X14;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector2 V2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector3 V3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector4 V4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int T1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int[] K1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> K2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.HashSet<int> K5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
     public readonly Dictionary<int?, test.DemoE2> K9_Index = new Dictionary<int?, test.DemoE2>();
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic[] K15;
 
     public const int ID = -367048295;

@@ -9,18 +9,12 @@
 
 namespace cfg.test
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum ETestUeType
     {
         /// <summary>
         /// 白
         /// </summary>
         WHITE = 0,
-        /// <summary>
-        /// 
-        /// </summary>
         BLACK = 1,
     }
 }

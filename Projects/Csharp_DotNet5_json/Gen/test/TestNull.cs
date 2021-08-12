@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(JsonElement _json) 
@@ -48,33 +45,12 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoEnum? X2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoType1 X3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic X4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S2;
 
     public const int ID = 339868469;

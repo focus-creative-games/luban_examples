@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ChooseTarget :  ai.Service 
 {
     public ChooseTarget(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class ChooseTarget :  ai.Service
         return new ai.ChooseTarget(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string ResultTargetKey;
 
     public const int ID = 1601247918;

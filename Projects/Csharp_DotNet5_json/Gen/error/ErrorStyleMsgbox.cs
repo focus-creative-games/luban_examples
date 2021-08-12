@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
         return new error.ErrorStyleMsgbox(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string BtnName;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly error.EOperation Operation;
 
     public const int ID = -1920482343;

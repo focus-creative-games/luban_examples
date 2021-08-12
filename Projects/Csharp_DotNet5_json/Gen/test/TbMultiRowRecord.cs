@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbMultiRowRecord
 {
     private readonly Dictionary<int, test.MultiRowRecord> _dataMap;

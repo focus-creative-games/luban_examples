@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MultiRowRecord :  Bright.Config.BeanBase 
 {
     public MultiRowRecord(JsonElement _json) 
@@ -50,37 +47,13 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
         return new test.MultiRowRecord(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.MultiRowType1> OneRows;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.MultiRowType1> MultiRows1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.MultiRowType1[] MultiRows2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.HashSet<test.MultiRowType2> MultiRows3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.MultiRowType3> MultiRows5;
 
     public const int ID = -501249394;

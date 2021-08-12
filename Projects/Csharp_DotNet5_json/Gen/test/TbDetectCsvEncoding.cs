@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbDetectCsvEncoding
 {
     private readonly Dictionary<int, test.DetectEncoding> _dataMap;

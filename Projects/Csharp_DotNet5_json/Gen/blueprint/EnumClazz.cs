@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         return new blueprint.EnumClazz(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
 
     public const int ID = 1827364892;
