@@ -21,7 +21,7 @@ namespace cfg
         if(!_buf.readString(name)) return false;
         if(!_buf.readString(desc)) return false;
         if(!_buf.readString(parentName)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); keys.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<ai::BlackboardKey> _e;  if(!ai::BlackboardKey::deserializeBlackboardKey(_buf, _e)) return false; keys.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); keys.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::BlackboardKey> _e;  if(!ai::BlackboardKey::deserializeBlackboardKey(_buf, _e)) return false; keys.push_back(_e);}}
 
         return true;
     }
@@ -912,8 +912,8 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<ai::Decorator> _e;  if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); services.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<ai::Service> _e;  if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::Decorator> _e;  if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); services.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::Service> _e;  if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
 
         return true;
     }
@@ -981,7 +981,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); children.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
 
         return true;
     }
@@ -1013,7 +1013,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); children.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
 
         return true;
     }
@@ -1334,8 +1334,8 @@ namespace cfg
 
         if(!_buf.readString(name)) return false;
         if(!_buf.readString(desc)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parents.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<blueprint::Clazz> _e;  if(!blueprint::Clazz::deserializeClazz(_buf, _e)) return false; parents.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); methods.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<blueprint::Method> _e;  if(!blueprint::Method::deserializeMethod(_buf, _e)) return false; methods.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); parents.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Clazz> _e;  if(!blueprint::Clazz::deserializeClazz(_buf, _e)) return false; parents.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); methods.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Method> _e;  if(!blueprint::Method::deserializeMethod(_buf, _e)) return false; methods.push_back(_e);}}
 
         return true;
     }
@@ -1366,7 +1366,7 @@ namespace cfg
         if(!_buf.readString(desc)) return false;
         if (!_buf.readBool(isStatic)) return false;
         if(!_buf.readString(returnType)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parameters.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<blueprint::ParamInfo> _e;  if(!blueprint::ParamInfo::deserializeParamInfo(_buf, _e)) return false; parameters.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); parameters.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::ParamInfo> _e;  if(!blueprint::ParamInfo::deserializeParamInfo(_buf, _e)) return false; parameters.push_back(_e);}}
 
         return true;
     }
@@ -1545,7 +1545,7 @@ namespace cfg
         }
 
         if (!_buf.readBool(isAbstract)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); fields.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<blueprint::Field> _e;  if(!blueprint::Field::deserializeField(_buf, _e)) return false; fields.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); fields.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Field> _e;  if(!blueprint::Field::deserializeField(_buf, _e)) return false; fields.push_back(_e);}}
 
         return true;
     }
@@ -1605,7 +1605,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); enums.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<blueprint::EnumField> _e;  if(!blueprint::EnumField::deserializeEnumField(_buf, _e)) return false; enums.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); enums.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::EnumField> _e;  if(!blueprint::EnumField::deserializeEnumField(_buf, _e)) return false; enums.push_back(_e);}}
 
         return true;
     }
@@ -1662,7 +1662,7 @@ namespace cfg
 
         if(!_buf.readInt(id)) return false;
         if(!_buf.readString(desc)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); clientShowItems.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::ShowItemInfo> _e;  if(!bonus::ShowItemInfo::deserializeShowItemInfo(_buf, _e)) return false; clientShowItems.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); clientShowItems.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ShowItemInfo> _e;  if(!bonus::ShowItemInfo::deserializeShowItemInfo(_buf, _e)) return false; clientShowItems.push_back(_e);}}
         if(!bonus::Bonus::deserializeBonus(_buf, bonus)) return false;
 
         return true;
@@ -1787,7 +1787,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());items.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;if(!_buf.readInt(_e)) return false; items.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));items.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; items.push_back(_e);}}
 
         return true;
     }
@@ -1851,7 +1851,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::Item> _e;if(!bonus::Item::deserializeItem(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::Item> _e;if(!bonus::Item::deserializeItem(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
@@ -1916,7 +1916,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::WeightItemInfo> _e;if(!bonus::WeightItemInfo::deserializeWeightItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::WeightItemInfo> _e;if(!bonus::WeightItemInfo::deserializeWeightItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
@@ -1977,7 +1977,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::ProbabilityItemInfo> _e;if(!bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ProbabilityItemInfo> _e;if(!bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
@@ -2038,7 +2038,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::Bonus> _e;if(!bonus::Bonus::deserializeBonus(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::Bonus> _e;if(!bonus::Bonus::deserializeBonus(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
@@ -2070,7 +2070,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::ProbabilityBonusInfo> _e;if(!bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ProbabilityBonusInfo> _e;if(!bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
@@ -2130,7 +2130,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<bonus::WeightBonusInfo> _e;if(!bonus::WeightBonusInfo::deserializeWeightBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::WeightBonusInfo> _e;if(!bonus::WeightBonusInfo::deserializeWeightBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
@@ -2227,7 +2227,7 @@ namespace cfg
         if(!_buf.readInt(clothBagCapacity)) return false;
         if(!_buf.readInt(clothBagInitCapacity)) return false;
         if(!_buf.readInt(clothBagCapacitySpecial)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { bagInitItemsDropId.reset(new int32_t()); if(!_buf.readInt(*bagInitItemsDropId)) return false; } else { bagInitItemsDropId.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { bagInitItemsDropId.reset(new ::bright::int32()); if(!_buf.readInt(*bagInitItemsDropId)) return false; } else { bagInitItemsDropId.reset(); } }
         if(!_buf.readInt(mailBoxCapacity)) return false;
         if(!_buf.readFloat(damageParamC)) return false;
         if(!_buf.readFloat(damageParamE)) return false;
@@ -2759,9 +2759,9 @@ namespace cfg
         if(!_buf.readFloat(progressTimeWhenUse)) return false;
         if (!_buf.readBool(showHintWhenUse)) return false;
         if (!_buf.readBool(droppable)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { price.reset(new int32_t()); if(!_buf.readInt(*price)) return false; } else { price.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { price.reset(new ::bright::int32()); if(!_buf.readInt(*price)) return false; } else { price.reset(); } }
         {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; useType = item::EUseType(__enum_temp__); }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { levelUpId.reset(new int32_t()); if(!_buf.readInt(*levelUpId)) return false; } else { levelUpId.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { levelUpId.reset(new ::bright::int32()); if(!_buf.readInt(*levelUpId)) return false; } else { levelUpId.reset(); } }
 
         return true;
     }
@@ -2847,11 +2847,11 @@ namespace cfg
             return false;
         }
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { keyItemId.reset(new int32_t()); if(!_buf.readInt(*keyItemId)) return false; } else { keyItemId.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { keyItemId.reset(new ::bright::int32()); if(!_buf.readInt(*keyItemId)) return false; } else { keyItemId.reset(); } }
         if(!condition::MinLevel::deserializeMinLevel(_buf, openLevel)) return false;
         if (!_buf.readBool(useOnObtain)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); chooseList.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<item::ChooseOneBonus> _e;  if(!item::ChooseOneBonus::deserializeChooseOneBonus(_buf, _e)) return false; chooseList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); chooseList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<item::ChooseOneBonus> _e;  if(!item::ChooseOneBonus::deserializeChooseOneBonus(_buf, _e)) return false; chooseList.push_back(_e);}}
 
         return true;
     }
@@ -2941,8 +2941,8 @@ namespace cfg
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new int32_t()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new int32_t()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
 
         return true;
     }
@@ -3005,7 +3005,7 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());conditions.reserve(n);for(int i = 0 ; i < n ; i++) { std::shared_ptr<condition::RoleCondition> _e;if(!condition::RoleCondition::deserializeRoleCondition(_buf, _e)) return false; conditions.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));conditions.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<condition::RoleCondition> _e;if(!condition::RoleCondition::deserializeRoleCondition(_buf, _e)) return false; conditions.push_back(_e);}}
 
         return true;
     }

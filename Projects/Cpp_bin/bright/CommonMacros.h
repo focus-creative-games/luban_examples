@@ -6,17 +6,36 @@
 #include <unordered_map>
 #include <string>
 
+#include "math/Vector2.hpp"
+#include "math/Vector3.hpp"
+#include "math/Vector4.hpp"
+
 namespace bright
 {
-
-    typedef uint8_t byte;
-
-    typedef std::vector<byte> Bytes;
+    typedef std::uint8_t byte;
+    typedef std::int16_t int16;
+    typedef std::int32_t int32;
+    typedef std::int64_t int64;
+    typedef std::int32_t datetime_t;
+    typedef float float32;
+    typedef double float64;
 
     typedef std::string String;
+    typedef std::vector<byte> Bytes;
 
-#define BYTEBUF_READ_STRING(buf, str) buf.readString(str)
+    typedef ::bright::math::Vector2 Vector2;
+    typedef ::bright::math::Vector3 Vector3;
+    typedef ::bright::math::Vector4 Vector4;
 
-#define BYTEBUF_WRITE_STRING(buf, str) buf.writeString(str)
+    template<typename T>
+    using Vector = std::vector<T>;
 
+    template<typename T>
+    using HashSet = std::unordered_set<T>;
+
+    template<typename K, typename V>
+    using HashMap = std::unordered_map<K, V>;
+
+    template <typename T>
+    using SharedPtr = std::shared_ptr<T>;
 }

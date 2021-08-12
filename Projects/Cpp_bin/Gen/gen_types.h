@@ -1296,11 +1296,11 @@ struct Consts
     /**
     
     */
-    static constexpr int32_t MAX_NAME_LENGTH = 20;
+    static constexpr ::bright::int32 MAX_NAME_LENGTH = 20;
     /**
     
     */
-    static constexpr int32_t MAX_USER_ROLE_NUM = 10;
+    static constexpr ::bright::int32 MAX_USER_ROLE_NUM = 10;
 };
 }
 
@@ -1315,19 +1315,19 @@ struct DemoConst
     /**
     
     */
-    static constexpr int32_t x1 = 0;
+    static constexpr ::bright::int32 x1 = 0;
     /**
     
     */
-    static constexpr int64_t x2 = 3242L;
+    static constexpr ::bright::int64 x2 = 3242L;
     /**
     
     */
-    static constexpr float x3 = 444.3f;
+    static constexpr ::bright::float32 x3 = 444.3f;
     /**
     
     */
-    static constexpr double x4 = 55.3;
+    static constexpr ::bright::float64 x4 = 55.3;
 };
 }
 
@@ -1505,7 +1505,7 @@ class Blackboard : public  bright::CfgBean
 
     }
 
-    Blackboard(std::string name, std::string desc, std::string parent_name, std::vector<std::shared_ptr<ai::BlackboardKey>> keys ) 
+    Blackboard(::bright::String name, ::bright::String desc, ::bright::String parent_name, ::bright::Vector<::bright::SharedPtr<ai::BlackboardKey>> keys ) 
     {
 
         this->name = name;
@@ -1520,20 +1520,20 @@ class Blackboard : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    std::string parentName;
-    std::shared_ptr<ai::Blackboard> parentName_Ref;
+    ::bright::String parentName;
+    ::bright::SharedPtr<ai::Blackboard> parentName_Ref;
     /**
      
      */
-    std::vector<std::shared_ptr<ai::BlackboardKey>> keys;
+    ::bright::Vector<::bright::SharedPtr<ai::BlackboardKey>> keys;
 
     static constexpr int ID = 1576193005;
 
@@ -1566,7 +1566,7 @@ class BlackboardKey : public  bright::CfgBean
 
     }
 
-    BlackboardKey(std::string name, std::string desc, bool is_static, ai::EKeyType type, std::string type_class_name ) 
+    BlackboardKey(::bright::String name, ::bright::String desc, bool is_static, ai::EKeyType type, ::bright::String type_class_name ) 
     {
 
         this->name = name;
@@ -1582,11 +1582,11 @@ class BlackboardKey : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
@@ -1598,7 +1598,7 @@ class BlackboardKey : public  bright::CfgBean
     /**
      
      */
-    std::string typeClassName;
+    ::bright::String typeClassName;
 
     static constexpr int ID = -511559886;
 
@@ -1631,7 +1631,7 @@ class BehaviorTree : public  bright::CfgBean
 
     }
 
-    BehaviorTree(int32_t id, std::string name, std::string desc, std::string blackboard_id, std::shared_ptr<ai::ComposeNode> root ) 
+    BehaviorTree(::bright::int32 id, ::bright::String name, ::bright::String desc, ::bright::String blackboard_id, ::bright::SharedPtr<ai::ComposeNode> root ) 
     {
 
         this->id = id;
@@ -1647,24 +1647,24 @@ class BehaviorTree : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    std::string blackboardId;
-    std::shared_ptr<ai::Blackboard> blackboardId_Ref;
+    ::bright::String blackboardId;
+    ::bright::SharedPtr<ai::Blackboard> blackboardId_Ref;
     /**
      
      */
-    std::shared_ptr<ai::ComposeNode> root;
+    ::bright::SharedPtr<ai::ComposeNode> root;
 
     static constexpr int ID = 159552822;
 
@@ -1697,7 +1697,7 @@ class Node : public  bright::CfgBean
 
     }
 
-    Node(int32_t id, std::string node_name ) 
+    Node(::bright::int32 id, ::bright::String node_name ) 
     {
 
         this->id = id;
@@ -1710,11 +1710,11 @@ class Node : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string nodeName;
+    ::bright::String nodeName;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -1744,7 +1744,7 @@ class Service : public  ai::Node
 
     }
 
-    Service(int32_t id, std::string node_name ) 
+    Service(::bright::int32 id, ::bright::String node_name ) 
             : ai::Node(id, node_name)
     {
 
@@ -1782,7 +1782,7 @@ class UeSetDefaultFocus : public  ai::Service
 
     }
 
-    UeSetDefaultFocus(int32_t id, std::string node_name, std::string keyboard_key ) 
+    UeSetDefaultFocus(::bright::int32 id, ::bright::String node_name, ::bright::String keyboard_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1795,7 +1795,7 @@ class UeSetDefaultFocus : public  ai::Service
     /**
      
      */
-    std::string keyboardKey;
+    ::bright::String keyboardKey;
 
     static constexpr int ID = 1812449155;
 
@@ -1828,7 +1828,7 @@ class ExecuteTimeStatistic : public  ai::Service
 
     }
 
-    ExecuteTimeStatistic(int32_t id, std::string node_name ) 
+    ExecuteTimeStatistic(::bright::int32 id, ::bright::String node_name ) 
             : ai::Service(id, node_name)
     {
 
@@ -1869,7 +1869,7 @@ class ChooseTarget : public  ai::Service
 
     }
 
-    ChooseTarget(int32_t id, std::string node_name, std::string result_target_key ) 
+    ChooseTarget(::bright::int32 id, ::bright::String node_name, ::bright::String result_target_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1882,7 +1882,7 @@ class ChooseTarget : public  ai::Service
     /**
      
      */
-    std::string resultTargetKey;
+    ::bright::String resultTargetKey;
 
     static constexpr int ID = 1601247918;
 
@@ -1915,7 +1915,7 @@ class KeepFaceTarget : public  ai::Service
 
     }
 
-    KeepFaceTarget(int32_t id, std::string node_name, std::string target_actor_key ) 
+    KeepFaceTarget(::bright::int32 id, ::bright::String node_name, ::bright::String target_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1928,7 +1928,7 @@ class KeepFaceTarget : public  ai::Service
     /**
      
      */
-    std::string targetActorKey;
+    ::bright::String targetActorKey;
 
     static constexpr int ID = 1195270745;
 
@@ -1961,7 +1961,7 @@ class GetOwnerPlayer : public  ai::Service
 
     }
 
-    GetOwnerPlayer(int32_t id, std::string node_name, std::string player_actor_key ) 
+    GetOwnerPlayer(::bright::int32 id, ::bright::String node_name, ::bright::String player_actor_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -1974,7 +1974,7 @@ class GetOwnerPlayer : public  ai::Service
     /**
      
      */
-    std::string playerActorKey;
+    ::bright::String playerActorKey;
 
     static constexpr int ID = -999247644;
 
@@ -2007,7 +2007,7 @@ class UpdateDailyBehaviorProps : public  ai::Service
 
     }
 
-    UpdateDailyBehaviorProps(int32_t id, std::string node_name, std::string satiety_key, std::string energy_key, std::string mood_key, std::string satiety_lower_threshold_key, std::string satiety_upper_threshold_key, std::string energy_lower_threshold_key, std::string energy_upper_threshold_key, std::string mood_lower_threshold_key, std::string mood_upper_threshold_key ) 
+    UpdateDailyBehaviorProps(::bright::int32 id, ::bright::String node_name, ::bright::String satiety_key, ::bright::String energy_key, ::bright::String mood_key, ::bright::String satiety_lower_threshold_key, ::bright::String satiety_upper_threshold_key, ::bright::String energy_lower_threshold_key, ::bright::String energy_upper_threshold_key, ::bright::String mood_lower_threshold_key, ::bright::String mood_upper_threshold_key ) 
             : ai::Service(id, node_name)
     {
 
@@ -2028,39 +2028,39 @@ class UpdateDailyBehaviorProps : public  ai::Service
     /**
      
      */
-    std::string satietyKey;
+    ::bright::String satietyKey;
     /**
      
      */
-    std::string energyKey;
+    ::bright::String energyKey;
     /**
      
      */
-    std::string moodKey;
+    ::bright::String moodKey;
     /**
      
      */
-    std::string satietyLowerThresholdKey;
+    ::bright::String satietyLowerThresholdKey;
     /**
      
      */
-    std::string satietyUpperThresholdKey;
+    ::bright::String satietyUpperThresholdKey;
     /**
      
      */
-    std::string energyLowerThresholdKey;
+    ::bright::String energyLowerThresholdKey;
     /**
      
      */
-    std::string energyUpperThresholdKey;
+    ::bright::String energyUpperThresholdKey;
     /**
      
      */
-    std::string moodLowerThresholdKey;
+    ::bright::String moodLowerThresholdKey;
     /**
      
      */
-    std::string moodUpperThresholdKey;
+    ::bright::String moodUpperThresholdKey;
 
     static constexpr int ID = -61887372;
 
@@ -2093,7 +2093,7 @@ class Decorator : public  ai::Node
 
     }
 
-    Decorator(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    Decorator(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Node(id, node_name)
     {
 
@@ -2136,7 +2136,7 @@ class UeLoop : public  ai::Decorator
 
     }
 
-    UeLoop(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, int32_t num_loops, bool infinite_loop, float infinite_loop_timeout_time ) 
+    UeLoop(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ::bright::int32 num_loops, bool infinite_loop, ::bright::float32 infinite_loop_timeout_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2151,7 +2151,7 @@ class UeLoop : public  ai::Decorator
     /**
      
      */
-    int32_t numLoops;
+    ::bright::int32 numLoops;
     /**
      
      */
@@ -2159,7 +2159,7 @@ class UeLoop : public  ai::Decorator
     /**
      
      */
-    float infiniteLoopTimeoutTime;
+    ::bright::float32 infiniteLoopTimeoutTime;
 
     static constexpr int ID = -513308166;
 
@@ -2192,7 +2192,7 @@ class UeCooldown : public  ai::Decorator
 
     }
 
-    UeCooldown(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float cooldown_time ) 
+    UeCooldown(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ::bright::float32 cooldown_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2205,7 +2205,7 @@ class UeCooldown : public  ai::Decorator
     /**
      
      */
-    float cooldownTime;
+    ::bright::float32 cooldownTime;
 
     static constexpr int ID = -951439423;
 
@@ -2238,7 +2238,7 @@ class UeTimeLimit : public  ai::Decorator
 
     }
 
-    UeTimeLimit(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float limit_time ) 
+    UeTimeLimit(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ::bright::float32 limit_time ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2251,7 +2251,7 @@ class UeTimeLimit : public  ai::Decorator
     /**
      
      */
-    float limitTime;
+    ::bright::float32 limitTime;
 
     static constexpr int ID = 338469720;
 
@@ -2284,7 +2284,7 @@ class UeBlackboard : public  ai::Decorator
 
     }
 
-    UeBlackboard(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, std::string blackboard_key, std::shared_ptr<ai::KeyQueryOperator> key_query ) 
+    UeBlackboard(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ai::ENotifyObserverMode notify_observer, ::bright::String blackboard_key, ::bright::SharedPtr<ai::KeyQueryOperator> key_query ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2303,11 +2303,11 @@ class UeBlackboard : public  ai::Decorator
     /**
      
      */
-    std::string blackboardKey;
+    ::bright::String blackboardKey;
     /**
      
      */
-    std::shared_ptr<ai::KeyQueryOperator> keyQuery;
+    ::bright::SharedPtr<ai::KeyQueryOperator> keyQuery;
 
     static constexpr int ID = -315297507;
 
@@ -2445,7 +2445,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
 
     }
 
-    BinaryOperator(ai::EOperator oper, std::shared_ptr<ai::KeyData> data ) 
+    BinaryOperator(ai::EOperator oper, ::bright::SharedPtr<ai::KeyData> data ) 
             : ai::KeyQueryOperator()
     {
 
@@ -2463,7 +2463,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
     /**
      
      */
-    std::shared_ptr<ai::KeyData> data;
+    ::bright::SharedPtr<ai::KeyData> data;
 
     static constexpr int ID = -979891605;
 
@@ -2529,7 +2529,7 @@ class FloatKeyData : public  ai::KeyData
 
     }
 
-    FloatKeyData(float value ) 
+    FloatKeyData(::bright::float32 value ) 
             : ai::KeyData()
     {
 
@@ -2542,7 +2542,7 @@ class FloatKeyData : public  ai::KeyData
     /**
      
      */
-    float value;
+    ::bright::float32 value;
 
     static constexpr int ID = -719747885;
 
@@ -2575,7 +2575,7 @@ class IntKeyData : public  ai::KeyData
 
     }
 
-    IntKeyData(int32_t value ) 
+    IntKeyData(::bright::int32 value ) 
             : ai::KeyData()
     {
 
@@ -2588,7 +2588,7 @@ class IntKeyData : public  ai::KeyData
     /**
      
      */
-    int32_t value;
+    ::bright::int32 value;
 
     static constexpr int ID = -342751904;
 
@@ -2621,7 +2621,7 @@ class StringKeyData : public  ai::KeyData
 
     }
 
-    StringKeyData(std::string value ) 
+    StringKeyData(::bright::String value ) 
             : ai::KeyData()
     {
 
@@ -2634,7 +2634,7 @@ class StringKeyData : public  ai::KeyData
     /**
      
      */
-    std::string value;
+    ::bright::String value;
 
     static constexpr int ID = -307888654;
 
@@ -2667,7 +2667,7 @@ class BlackboardKeyData : public  ai::KeyData
 
     }
 
-    BlackboardKeyData(std::string value ) 
+    BlackboardKeyData(::bright::String value ) 
             : ai::KeyData()
     {
 
@@ -2680,7 +2680,7 @@ class BlackboardKeyData : public  ai::KeyData
     /**
      
      */
-    std::string value;
+    ::bright::String value;
 
     static constexpr int ID = 1517269500;
 
@@ -2713,7 +2713,7 @@ class UeForceSuccess : public  ai::Decorator
 
     }
 
-    UeForceSuccess(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode ) 
+    UeForceSuccess(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2754,7 +2754,7 @@ class IsAtLocation : public  ai::Decorator
 
     }
 
-    IsAtLocation(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, float acceptable_radius, std::string keyboard_key, bool inverse_condition ) 
+    IsAtLocation(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ::bright::float32 acceptable_radius, ::bright::String keyboard_key, bool inverse_condition ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2769,11 +2769,11 @@ class IsAtLocation : public  ai::Decorator
     /**
      
      */
-    float acceptableRadius;
+    ::bright::float32 acceptableRadius;
     /**
      
      */
-    std::string keyboardKey;
+    ::bright::String keyboardKey;
     /**
      
      */
@@ -2810,7 +2810,7 @@ class DistanceLessThan : public  ai::Decorator
 
     }
 
-    DistanceLessThan(int32_t id, std::string node_name, ai::EFlowAbortMode flow_abort_mode, std::string actor1_key, std::string actor2_key, float distance, bool reverse_result ) 
+    DistanceLessThan(::bright::int32 id, ::bright::String node_name, ai::EFlowAbortMode flow_abort_mode, ::bright::String actor1_key, ::bright::String actor2_key, ::bright::float32 distance, bool reverse_result ) 
             : ai::Decorator(id, node_name, flow_abort_mode)
     {
 
@@ -2826,15 +2826,15 @@ class DistanceLessThan : public  ai::Decorator
     /**
      
      */
-    std::string actor1Key;
+    ::bright::String actor1Key;
     /**
      
      */
-    std::string actor2Key;
+    ::bright::String actor2Key;
     /**
      
      */
-    float distance;
+    ::bright::float32 distance;
     /**
      
      */
@@ -2871,7 +2871,7 @@ class FlowNode : public  ai::Node
 
     }
 
-    FlowNode(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services ) 
+    FlowNode(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services ) 
             : ai::Node(id, node_name)
     {
 
@@ -2885,11 +2885,11 @@ class FlowNode : public  ai::Node
     /**
      
      */
-    std::vector<std::shared_ptr<ai::Decorator>> decorators;
+    ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators;
     /**
      
      */
-    std::vector<std::shared_ptr<ai::Service>> services;
+    ::bright::Vector<::bright::SharedPtr<ai::Service>> services;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -2919,7 +2919,7 @@ class ComposeNode : public  ai::FlowNode
 
     }
 
-    ComposeNode(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services ) 
+    ComposeNode(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -2957,7 +2957,7 @@ class Sequence : public  ai::ComposeNode
 
     }
 
-    Sequence(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, std::vector<std::shared_ptr<ai::FlowNode>> children ) 
+    Sequence(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -2970,7 +2970,7 @@ class Sequence : public  ai::ComposeNode
     /**
      
      */
-    std::vector<std::shared_ptr<ai::FlowNode>> children;
+    ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
     static constexpr int ID = -1789006105;
 
@@ -3003,7 +3003,7 @@ class Selector : public  ai::ComposeNode
 
     }
 
-    Selector(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, std::vector<std::shared_ptr<ai::FlowNode>> children ) 
+    Selector(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -3016,7 +3016,7 @@ class Selector : public  ai::ComposeNode
     /**
      
      */
-    std::vector<std::shared_ptr<ai::FlowNode>> children;
+    ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
     static constexpr int ID = -1946981627;
 
@@ -3049,7 +3049,7 @@ class SimpleParallel : public  ai::ComposeNode
 
     }
 
-    SimpleParallel(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, ai::EFinishMode finish_mode, std::shared_ptr<ai::Task> main_task, std::shared_ptr<ai::FlowNode> background_node ) 
+    SimpleParallel(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, ai::EFinishMode finish_mode, ::bright::SharedPtr<ai::Task> main_task, ::bright::SharedPtr<ai::FlowNode> background_node ) 
             : ai::ComposeNode(id, node_name, decorators, services)
     {
 
@@ -3068,11 +3068,11 @@ class SimpleParallel : public  ai::ComposeNode
     /**
      
      */
-    std::shared_ptr<ai::Task> mainTask;
+    ::bright::SharedPtr<ai::Task> mainTask;
     /**
      
      */
-    std::shared_ptr<ai::FlowNode> backgroundNode;
+    ::bright::SharedPtr<ai::FlowNode> backgroundNode;
 
     static constexpr int ID = -1952582529;
 
@@ -3105,7 +3105,7 @@ class Task : public  ai::FlowNode
 
     }
 
-    Task(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self ) 
+    Task(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self ) 
             : ai::FlowNode(id, node_name, decorators, services)
     {
 
@@ -3148,7 +3148,7 @@ class UeWait : public  ai::Task
 
     }
 
-    UeWait(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, float wait_time, float random_deviation ) 
+    UeWait(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::float32 wait_time, ::bright::float32 random_deviation ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3162,11 +3162,11 @@ class UeWait : public  ai::Task
     /**
      
      */
-    float waitTime;
+    ::bright::float32 waitTime;
     /**
      
      */
-    float randomDeviation;
+    ::bright::float32 randomDeviation;
 
     static constexpr int ID = -512994101;
 
@@ -3199,7 +3199,7 @@ class UeWaitBlackboardTime : public  ai::Task
 
     }
 
-    UeWaitBlackboardTime(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string blackboard_key ) 
+    UeWaitBlackboardTime(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::String blackboard_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3212,7 +3212,7 @@ class UeWaitBlackboardTime : public  ai::Task
     /**
      
      */
-    std::string blackboardKey;
+    ::bright::String blackboardKey;
 
     static constexpr int ID = 1215378271;
 
@@ -3245,7 +3245,7 @@ class MoveToTarget : public  ai::Task
 
     }
 
-    MoveToTarget(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string target_actor_key, float acceptable_radius ) 
+    MoveToTarget(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::String target_actor_key, ::bright::float32 acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3259,11 +3259,11 @@ class MoveToTarget : public  ai::Task
     /**
      
      */
-    std::string targetActorKey;
+    ::bright::String targetActorKey;
     /**
      
      */
-    float acceptableRadius;
+    ::bright::float32 acceptableRadius;
 
     static constexpr int ID = 514987779;
 
@@ -3296,7 +3296,7 @@ class ChooseSkill : public  ai::Task
 
     }
 
-    ChooseSkill(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string target_actor_key, std::string result_skill_id_key ) 
+    ChooseSkill(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::String target_actor_key, ::bright::String result_skill_id_key ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3310,11 +3310,11 @@ class ChooseSkill : public  ai::Task
     /**
      
      */
-    std::string targetActorKey;
+    ::bright::String targetActorKey;
     /**
      
      */
-    std::string resultSkillIdKey;
+    ::bright::String resultSkillIdKey;
 
     static constexpr int ID = -918812268;
 
@@ -3347,7 +3347,7 @@ class MoveToRandomLocation : public  ai::Task
 
     }
 
-    MoveToRandomLocation(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string origin_position_key, float radius ) 
+    MoveToRandomLocation(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::String origin_position_key, ::bright::float32 radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3361,11 +3361,11 @@ class MoveToRandomLocation : public  ai::Task
     /**
      
      */
-    std::string originPositionKey;
+    ::bright::String originPositionKey;
     /**
      
      */
-    float radius;
+    ::bright::float32 radius;
 
     static constexpr int ID = -2140042998;
 
@@ -3398,7 +3398,7 @@ class MoveToLocation : public  ai::Task
 
     }
 
-    MoveToLocation(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, bright::math::Vector3 location, float acceptable_radius ) 
+    MoveToLocation(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::Vector3 location, ::bright::float32 acceptable_radius ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3412,11 +3412,11 @@ class MoveToLocation : public  ai::Task
     /**
      
      */
-    bright::math::Vector3 location;
+    ::bright::Vector3 location;
     /**
      
      */
-    float acceptableRadius;
+    ::bright::float32 acceptableRadius;
 
     static constexpr int ID = -969953113;
 
@@ -3449,7 +3449,7 @@ class DebugPrint : public  ai::Task
 
     }
 
-    DebugPrint(int32_t id, std::string node_name, std::vector<std::shared_ptr<ai::Decorator>> decorators, std::vector<std::shared_ptr<ai::Service>> services, bool ignore_restart_self, std::string text ) 
+    DebugPrint(::bright::int32 id, ::bright::String node_name, ::bright::Vector<::bright::SharedPtr<ai::Decorator>> decorators, ::bright::Vector<::bright::SharedPtr<ai::Service>> services, bool ignore_restart_self, ::bright::String text ) 
             : ai::Task(id, node_name, decorators, services, ignore_restart_self)
     {
 
@@ -3462,7 +3462,7 @@ class DebugPrint : public  ai::Task
     /**
      
      */
-    std::string text;
+    ::bright::String text;
 
     static constexpr int ID = 1357409728;
 
@@ -3495,7 +3495,7 @@ class Clazz : public  bright::CfgBean
 
     }
 
-    Clazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods ) 
+    Clazz(::bright::String name, ::bright::String desc, ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents, ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods ) 
     {
 
         this->name = name;
@@ -3510,19 +3510,19 @@ class Clazz : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    std::vector<std::shared_ptr<blueprint::Clazz>> parents;
+    ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents;
     /**
      
      */
-    std::vector<std::shared_ptr<blueprint::Method>> methods;
+    ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -3552,7 +3552,7 @@ class Method : public  bright::CfgBean
 
     }
 
-    Method(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
+    Method(::bright::String name, ::bright::String desc, bool is_static, ::bright::String return_type, ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters ) 
     {
 
         this->name = name;
@@ -3568,11 +3568,11 @@ class Method : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
@@ -3580,11 +3580,11 @@ class Method : public  bright::CfgBean
     /**
      
      */
-    std::string returnType;
+    ::bright::String returnType;
     /**
      
      */
-    std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters;
+    ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -3614,7 +3614,7 @@ class ParamInfo : public  bright::CfgBean
 
     }
 
-    ParamInfo(std::string name, std::string type, bool is_ref ) 
+    ParamInfo(::bright::String name, ::bright::String type, bool is_ref ) 
     {
 
         this->name = name;
@@ -3628,11 +3628,11 @@ class ParamInfo : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string type;
+    ::bright::String type;
     /**
      
      */
@@ -3669,7 +3669,7 @@ class AbstraceMethod : public  blueprint::Method
 
     }
 
-    AbstraceMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
+    AbstraceMethod(::bright::String name, ::bright::String desc, bool is_static, ::bright::String return_type, ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3710,7 +3710,7 @@ class ExternalMethod : public  blueprint::Method
 
     }
 
-    ExternalMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
+    ExternalMethod(::bright::String name, ::bright::String desc, bool is_static, ::bright::String return_type, ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3751,7 +3751,7 @@ class BlueprintMethod : public  blueprint::Method
 
     }
 
-    BlueprintMethod(std::string name, std::string desc, bool is_static, std::string return_type, std::vector<std::shared_ptr<blueprint::ParamInfo>> parameters ) 
+    BlueprintMethod(::bright::String name, ::bright::String desc, bool is_static, ::bright::String return_type, ::bright::Vector<::bright::SharedPtr<blueprint::ParamInfo>> parameters ) 
             : blueprint::Method(name, desc, is_static, return_type, parameters)
     {
 
@@ -3792,7 +3792,7 @@ class Interface : public  blueprint::Clazz
 
     }
 
-    Interface(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods ) 
+    Interface(::bright::String name, ::bright::String desc, ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents, ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3833,7 +3833,7 @@ class NormalClazz : public  blueprint::Clazz
 
     }
 
-    NormalClazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods, bool is_abstract, std::vector<std::shared_ptr<blueprint::Field>> fields ) 
+    NormalClazz(::bright::String name, ::bright::String desc, ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents, ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods, bool is_abstract, ::bright::Vector<::bright::SharedPtr<blueprint::Field>> fields ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3851,7 +3851,7 @@ class NormalClazz : public  blueprint::Clazz
     /**
      
      */
-    std::vector<std::shared_ptr<blueprint::Field>> fields;
+    ::bright::Vector<::bright::SharedPtr<blueprint::Field>> fields;
 
     static constexpr int ID = -2073576778;
 
@@ -3884,7 +3884,7 @@ class Field : public  bright::CfgBean
 
     }
 
-    Field(std::string name, std::string type, std::string desc ) 
+    Field(::bright::String name, ::bright::String type, ::bright::String desc ) 
     {
 
         this->name = name;
@@ -3898,15 +3898,15 @@ class Field : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::string type;
+    ::bright::String type;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
 
     static constexpr int ID = 1694158271;
 
@@ -3939,7 +3939,7 @@ class EnumClazz : public  blueprint::Clazz
 
     }
 
-    EnumClazz(std::string name, std::string desc, std::vector<std::shared_ptr<blueprint::Clazz>> parents, std::vector<std::shared_ptr<blueprint::Method>> methods, std::vector<std::shared_ptr<blueprint::EnumField>> enums ) 
+    EnumClazz(::bright::String name, ::bright::String desc, ::bright::Vector<::bright::SharedPtr<blueprint::Clazz>> parents, ::bright::Vector<::bright::SharedPtr<blueprint::Method>> methods, ::bright::Vector<::bright::SharedPtr<blueprint::EnumField>> enums ) 
             : blueprint::Clazz(name, desc, parents, methods)
     {
 
@@ -3952,7 +3952,7 @@ class EnumClazz : public  blueprint::Clazz
     /**
      
      */
-    std::vector<std::shared_ptr<blueprint::EnumField>> enums;
+    ::bright::Vector<::bright::SharedPtr<blueprint::EnumField>> enums;
 
     static constexpr int ID = 1827364892;
 
@@ -3985,7 +3985,7 @@ class EnumField : public  bright::CfgBean
 
     }
 
-    EnumField(std::string name, int32_t value ) 
+    EnumField(::bright::String name, ::bright::int32 value ) 
     {
 
         this->name = name;
@@ -3998,11 +3998,11 @@ class EnumField : public  bright::CfgBean
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    int32_t value;
+    ::bright::int32 value;
 
     static constexpr int ID = 1830049470;
 
@@ -4035,7 +4035,7 @@ class DropInfo : public  bright::CfgBean
 
     }
 
-    DropInfo(int32_t id, std::string desc, std::vector<std::shared_ptr<bonus::ShowItemInfo>> client_show_items, std::shared_ptr<bonus::Bonus> bonus ) 
+    DropInfo(::bright::int32 id, ::bright::String desc, ::bright::Vector<::bright::SharedPtr<bonus::ShowItemInfo>> client_show_items, ::bright::SharedPtr<bonus::Bonus> bonus ) 
     {
 
         this->id = id;
@@ -4050,19 +4050,19 @@ class DropInfo : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::ShowItemInfo>> clientShowItems;
+    ::bright::Vector<::bright::SharedPtr<bonus::ShowItemInfo>> clientShowItems;
     /**
      
      */
-    std::shared_ptr<bonus::Bonus> bonus;
+    ::bright::SharedPtr<bonus::Bonus> bonus;
 
     static constexpr int ID = -2014781108;
 
@@ -4095,7 +4095,7 @@ class ShowItemInfo : public  bright::CfgBean
 
     }
 
-    ShowItemInfo(int32_t item_id, int64_t item_num ) 
+    ShowItemInfo(::bright::int32 item_id, ::bright::int64 item_num ) 
     {
 
         this->itemId = item_id;
@@ -4108,12 +4108,12 @@ class ShowItemInfo : public  bright::CfgBean
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int64_t itemNum;
+    ::bright::int64 itemNum;
 
     static constexpr int ID = -1496363507;
 
@@ -4179,7 +4179,7 @@ class OneItem : public  bonus::Bonus
 
     }
 
-    OneItem(int32_t item_id ) 
+    OneItem(::bright::int32 item_id ) 
             : bonus::Bonus()
     {
 
@@ -4192,8 +4192,8 @@ class OneItem : public  bonus::Bonus
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
 
     static constexpr int ID = -1649658966;
 
@@ -4226,7 +4226,7 @@ class OneItems : public  bonus::Bonus
 
     }
 
-    OneItems(std::vector<int32_t> items ) 
+    OneItems(::bright::Vector<::bright::int32> items ) 
             : bonus::Bonus()
     {
 
@@ -4239,7 +4239,7 @@ class OneItems : public  bonus::Bonus
     /**
      
      */
-    std::vector<int32_t> items;
+    ::bright::Vector<::bright::int32> items;
 
     static constexpr int ID = 400179721;
 
@@ -4272,7 +4272,7 @@ class Item : public  bonus::Bonus
 
     }
 
-    Item(int32_t item_id, int32_t amount ) 
+    Item(::bright::int32 item_id, ::bright::int32 amount ) 
             : bonus::Bonus()
     {
 
@@ -4286,12 +4286,12 @@ class Item : public  bonus::Bonus
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int32_t amount;
+    ::bright::int32 amount;
 
     static constexpr int ID = 1689011106;
 
@@ -4324,7 +4324,7 @@ class Items : public  bonus::Bonus
 
     }
 
-    Items(std::vector<std::shared_ptr<bonus::Item>> item_list ) 
+    Items(::bright::Vector<::bright::SharedPtr<bonus::Item>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4337,7 +4337,7 @@ class Items : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::Item>> itemList;
+    ::bright::Vector<::bright::SharedPtr<bonus::Item>> itemList;
 
     static constexpr int ID = 819736849;
 
@@ -4370,7 +4370,7 @@ class CoefficientItem : public  bonus::Bonus
 
     }
 
-    CoefficientItem(int32_t bonus_id, std::shared_ptr<bonus::Items> bonus_list ) 
+    CoefficientItem(::bright::int32 bonus_id, ::bright::SharedPtr<bonus::Items> bonus_list ) 
             : bonus::Bonus()
     {
 
@@ -4384,11 +4384,11 @@ class CoefficientItem : public  bonus::Bonus
     /**
      
      */
-    int32_t bonusId;
+    ::bright::int32 bonusId;
     /**
      
      */
-    std::shared_ptr<bonus::Items> bonusList;
+    ::bright::SharedPtr<bonus::Items> bonusList;
 
     static constexpr int ID = -229470727;
 
@@ -4421,7 +4421,7 @@ class WeightItems : public  bonus::Bonus
 
     }
 
-    WeightItems(std::vector<std::shared_ptr<bonus::WeightItemInfo>> item_list ) 
+    WeightItems(::bright::Vector<::bright::SharedPtr<bonus::WeightItemInfo>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4434,7 +4434,7 @@ class WeightItems : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::WeightItemInfo>> itemList;
+    ::bright::Vector<::bright::SharedPtr<bonus::WeightItemInfo>> itemList;
 
     static constexpr int ID = -356202311;
 
@@ -4467,7 +4467,7 @@ class WeightItemInfo : public  bright::CfgBean
 
     }
 
-    WeightItemInfo(int32_t item_id, int32_t num, int32_t weight ) 
+    WeightItemInfo(::bright::int32 item_id, ::bright::int32 num, ::bright::int32 weight ) 
     {
 
         this->itemId = item_id;
@@ -4481,16 +4481,16 @@ class WeightItemInfo : public  bright::CfgBean
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
     /**
      
      */
-    int32_t weight;
+    ::bright::int32 weight;
 
     static constexpr int ID = 1239999176;
 
@@ -4523,7 +4523,7 @@ class ProbabilityItems : public  bonus::Bonus
 
     }
 
-    ProbabilityItems(std::vector<std::shared_ptr<bonus::ProbabilityItemInfo>> item_list ) 
+    ProbabilityItems(::bright::Vector<::bright::SharedPtr<bonus::ProbabilityItemInfo>> item_list ) 
             : bonus::Bonus()
     {
 
@@ -4536,7 +4536,7 @@ class ProbabilityItems : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::ProbabilityItemInfo>> itemList;
+    ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityItemInfo>> itemList;
 
     static constexpr int ID = 366387866;
 
@@ -4569,7 +4569,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 
     }
 
-    ProbabilityItemInfo(int32_t item_id, int32_t num, float probability ) 
+    ProbabilityItemInfo(::bright::int32 item_id, ::bright::int32 num, ::bright::float32 probability ) 
     {
 
         this->itemId = item_id;
@@ -4583,16 +4583,16 @@ class ProbabilityItemInfo : public  bright::CfgBean
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
     /**
      
      */
-    float probability;
+    ::bright::float32 probability;
 
     static constexpr int ID = 1547874631;
 
@@ -4625,7 +4625,7 @@ class MultiBonus : public  bonus::Bonus
 
     }
 
-    MultiBonus(std::vector<std::shared_ptr<bonus::Bonus>> bonuses ) 
+    MultiBonus(::bright::Vector<::bright::SharedPtr<bonus::Bonus>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4638,7 +4638,7 @@ class MultiBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::Bonus>> bonuses;
+    ::bright::Vector<::bright::SharedPtr<bonus::Bonus>> bonuses;
 
     static constexpr int ID = 1421907893;
 
@@ -4671,7 +4671,7 @@ class ProbabilityBonus : public  bonus::Bonus
 
     }
 
-    ProbabilityBonus(std::vector<std::shared_ptr<bonus::ProbabilityBonusInfo>> bonuses ) 
+    ProbabilityBonus(::bright::Vector<::bright::SharedPtr<bonus::ProbabilityBonusInfo>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4684,7 +4684,7 @@ class ProbabilityBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::ProbabilityBonusInfo>> bonuses;
+    ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityBonusInfo>> bonuses;
 
     static constexpr int ID = 359783161;
 
@@ -4717,7 +4717,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 
     }
 
-    ProbabilityBonusInfo(std::shared_ptr<bonus::Bonus> bonus, float probability ) 
+    ProbabilityBonusInfo(::bright::SharedPtr<bonus::Bonus> bonus, ::bright::float32 probability ) 
     {
 
         this->bonus = bonus;
@@ -4730,11 +4730,11 @@ class ProbabilityBonusInfo : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<bonus::Bonus> bonus;
+    ::bright::SharedPtr<bonus::Bonus> bonus;
     /**
      
      */
-    float probability;
+    ::bright::float32 probability;
 
     static constexpr int ID = 46960455;
 
@@ -4767,7 +4767,7 @@ class WeightBonus : public  bonus::Bonus
 
     }
 
-    WeightBonus(std::vector<std::shared_ptr<bonus::WeightBonusInfo>> bonuses ) 
+    WeightBonus(::bright::Vector<::bright::SharedPtr<bonus::WeightBonusInfo>> bonuses ) 
             : bonus::Bonus()
     {
 
@@ -4780,7 +4780,7 @@ class WeightBonus : public  bonus::Bonus
     /**
      
      */
-    std::vector<std::shared_ptr<bonus::WeightBonusInfo>> bonuses;
+    ::bright::Vector<::bright::SharedPtr<bonus::WeightBonusInfo>> bonuses;
 
     static constexpr int ID = -362807016;
 
@@ -4813,7 +4813,7 @@ class WeightBonusInfo : public  bright::CfgBean
 
     }
 
-    WeightBonusInfo(std::shared_ptr<bonus::Bonus> bonus, int32_t weight ) 
+    WeightBonusInfo(::bright::SharedPtr<bonus::Bonus> bonus, ::bright::int32 weight ) 
     {
 
         this->bonus = bonus;
@@ -4826,11 +4826,11 @@ class WeightBonusInfo : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<bonus::Bonus> bonus;
+    ::bright::SharedPtr<bonus::Bonus> bonus;
     /**
      
      */
-    int32_t weight;
+    ::bright::int32 weight;
 
     static constexpr int ID = -907244058;
 
@@ -4863,7 +4863,7 @@ class DropBonus : public  bonus::Bonus
 
     }
 
-    DropBonus(int32_t id ) 
+    DropBonus(::bright::int32 id ) 
             : bonus::Bonus()
     {
 
@@ -4876,8 +4876,8 @@ class DropBonus : public  bonus::Bonus
     /**
      
      */
-    int32_t id;
-    std::shared_ptr<bonus::DropInfo> id_Ref;
+    ::bright::int32 id;
+    ::bright::SharedPtr<bonus::DropInfo> id_Ref;
 
     static constexpr int ID = 1959868225;
 
@@ -4910,7 +4910,7 @@ class GlobalConfig : public  bright::CfgBean
 
     }
 
-    GlobalConfig(int32_t bag_capacity, int32_t bag_capacity_special, int32_t bag_temp_expendable_capacity, int32_t bag_temp_tool_capacity, int32_t bag_init_capacity, int32_t quick_bag_capacity, int32_t cloth_bag_capacity, int32_t cloth_bag_init_capacity, int32_t cloth_bag_capacity_special, std::shared_ptr<int32_t> bag_init_items_drop_id, int32_t mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int32_t init_energy, int32_t init_viality, int32_t max_viality, int32_t per_viality_recovery_time ) 
+    GlobalConfig(::bright::int32 bag_capacity, ::bright::int32 bag_capacity_special, ::bright::int32 bag_temp_expendable_capacity, ::bright::int32 bag_temp_tool_capacity, ::bright::int32 bag_init_capacity, ::bright::int32 quick_bag_capacity, ::bright::int32 cloth_bag_capacity, ::bright::int32 cloth_bag_init_capacity, ::bright::int32 cloth_bag_capacity_special, ::bright::SharedPtr<::bright::int32> bag_init_items_drop_id, ::bright::int32 mail_box_capacity, ::bright::float32 damage_param_c, ::bright::float32 damage_param_e, ::bright::float32 damage_param_f, ::bright::float32 damage_param_d, ::bright::float32 role_speed, ::bright::float32 monster_speed, ::bright::int32 init_energy, ::bright::int32 init_viality, ::bright::int32 max_viality, ::bright::int32 per_viality_recovery_time ) 
     {
 
         this->bagCapacity = bag_capacity;
@@ -4942,88 +4942,88 @@ class GlobalConfig : public  bright::CfgBean
     /**
      背包容量
      */
-    int32_t bagCapacity;
+    ::bright::int32 bagCapacity;
     /**
      
      */
-    int32_t bagCapacitySpecial;
+    ::bright::int32 bagCapacitySpecial;
     /**
      
      */
-    int32_t bagTempExpendableCapacity;
+    ::bright::int32 bagTempExpendableCapacity;
     /**
      
      */
-    int32_t bagTempToolCapacity;
+    ::bright::int32 bagTempToolCapacity;
     /**
      
      */
-    int32_t bagInitCapacity;
+    ::bright::int32 bagInitCapacity;
     /**
      
      */
-    int32_t quickBagCapacity;
+    ::bright::int32 quickBagCapacity;
     /**
      
      */
-    int32_t clothBagCapacity;
+    ::bright::int32 clothBagCapacity;
     /**
      
      */
-    int32_t clothBagInitCapacity;
+    ::bright::int32 clothBagInitCapacity;
     /**
      
      */
-    int32_t clothBagCapacitySpecial;
+    ::bright::int32 clothBagCapacitySpecial;
     /**
      
      */
-    std::shared_ptr<int32_t> bagInitItemsDropId;
-    std::shared_ptr<bonus::DropInfo> bagInitItemsDropId_Ref;
+    ::bright::SharedPtr<::bright::int32> bagInitItemsDropId;
+    ::bright::SharedPtr<bonus::DropInfo> bagInitItemsDropId_Ref;
     /**
      
      */
-    int32_t mailBoxCapacity;
+    ::bright::int32 mailBoxCapacity;
     /**
      
      */
-    float damageParamC;
+    ::bright::float32 damageParamC;
     /**
      
      */
-    float damageParamE;
+    ::bright::float32 damageParamE;
     /**
      
      */
-    float damageParamF;
+    ::bright::float32 damageParamF;
     /**
      
      */
-    float damageParamD;
+    ::bright::float32 damageParamD;
     /**
      
      */
-    float roleSpeed;
+    ::bright::float32 roleSpeed;
     /**
      
      */
-    float monsterSpeed;
+    ::bright::float32 monsterSpeed;
     /**
      
      */
-    int32_t initEnergy;
+    ::bright::int32 initEnergy;
     /**
      
      */
-    int32_t initViality;
+    ::bright::int32 initViality;
     /**
      
      */
-    int32_t maxViality;
+    ::bright::int32 maxViality;
     /**
      
      */
-    int32_t perVialityRecoveryTime;
+    ::bright::int32 perVialityRecoveryTime;
 
     static constexpr int ID = -848234488;
 
@@ -5056,7 +5056,7 @@ class Dummy : public  bright::CfgBean
 
     }
 
-    Dummy(int32_t id, std::shared_ptr<limit::LimitBase> limit ) 
+    Dummy(::bright::int32 id, ::bright::SharedPtr<limit::LimitBase> limit ) 
     {
 
         this->id = id;
@@ -5069,11 +5069,11 @@ class Dummy : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::shared_ptr<limit::LimitBase> limit;
+    ::bright::SharedPtr<limit::LimitBase> limit;
 
     static constexpr int ID = -985084219;
 
@@ -5172,7 +5172,7 @@ class DailyLimit : public  limit::DailyLimitBase
 
     }
 
-    DailyLimit(int32_t num ) 
+    DailyLimit(::bright::int32 num ) 
             : limit::DailyLimitBase()
     {
 
@@ -5185,7 +5185,7 @@ class DailyLimit : public  limit::DailyLimitBase
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
 
     static constexpr int ID = 303235413;
 
@@ -5218,7 +5218,7 @@ class MultiDayLimit : public  limit::LimitBase
 
     }
 
-    MultiDayLimit(int32_t day, int32_t num ) 
+    MultiDayLimit(::bright::int32 day, ::bright::int32 num ) 
             : limit::LimitBase()
     {
 
@@ -5232,11 +5232,11 @@ class MultiDayLimit : public  limit::LimitBase
     /**
      
      */
-    int32_t day;
+    ::bright::int32 day;
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
 
     static constexpr int ID = -1753629499;
 
@@ -5269,7 +5269,7 @@ class WeeklyLimit : public  limit::LimitBase
 
     }
 
-    WeeklyLimit(int32_t num ) 
+    WeeklyLimit(::bright::int32 num ) 
             : limit::LimitBase()
     {
 
@@ -5282,7 +5282,7 @@ class WeeklyLimit : public  limit::LimitBase
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
 
     static constexpr int ID = -252187161;
 
@@ -5315,7 +5315,7 @@ class MonthlyLimit : public  limit::LimitBase
 
     }
 
-    MonthlyLimit(int32_t num ) 
+    MonthlyLimit(::bright::int32 num ) 
             : limit::LimitBase()
     {
 
@@ -5328,7 +5328,7 @@ class MonthlyLimit : public  limit::LimitBase
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
 
     static constexpr int ID = 2063279905;
 
@@ -5361,7 +5361,7 @@ class CoolDown : public  limit::LimitBase
 
     }
 
-    CoolDown(int32_t duration ) 
+    CoolDown(::bright::int32 duration ) 
             : limit::LimitBase()
     {
 
@@ -5374,7 +5374,7 @@ class CoolDown : public  limit::LimitBase
     /**
      
      */
-    int32_t duration;
+    ::bright::int32 duration;
 
     static constexpr int ID = -1366194050;
 
@@ -5407,7 +5407,7 @@ class GroupCoolDown : public  limit::LimitBase
 
     }
 
-    GroupCoolDown(int32_t group_id, int32_t duration ) 
+    GroupCoolDown(::bright::int32 group_id, ::bright::int32 duration ) 
             : limit::LimitBase()
     {
 
@@ -5421,11 +5421,11 @@ class GroupCoolDown : public  limit::LimitBase
     /**
      
      */
-    int32_t groupId;
+    ::bright::int32 groupId;
     /**
      
      */
-    int32_t duration;
+    ::bright::int32 duration;
 
     static constexpr int ID = 394328599;
 
@@ -5458,7 +5458,7 @@ class ErrorInfo : public  bright::CfgBean
 
     }
 
-    ErrorInfo(std::string code, std::string desc, std::shared_ptr<error::ErrorStyle> style ) 
+    ErrorInfo(::bright::String code, ::bright::String desc, ::bright::SharedPtr<error::ErrorStyle> style ) 
     {
 
         this->code = code;
@@ -5472,15 +5472,15 @@ class ErrorInfo : public  bright::CfgBean
     /**
      
      */
-    std::string code;
+    ::bright::String code;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    std::shared_ptr<error::ErrorStyle> style;
+    ::bright::SharedPtr<error::ErrorStyle> style;
 
     static constexpr int ID = 1389347408;
 
@@ -5582,7 +5582,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 
     }
 
-    ErrorStyleMsgbox(std::string btn_name, error::EOperation operation ) 
+    ErrorStyleMsgbox(::bright::String btn_name, error::EOperation operation ) 
             : error::ErrorStyle()
     {
 
@@ -5596,7 +5596,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
     /**
      
      */
-    std::string btnName;
+    ::bright::String btnName;
     /**
      
      */
@@ -5633,7 +5633,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOk(std::string btn_name ) 
+    ErrorStyleDlgOk(::bright::String btn_name ) 
             : error::ErrorStyle()
     {
 
@@ -5646,7 +5646,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
     /**
      
      */
-    std::string btnName;
+    ::bright::String btnName;
 
     static constexpr int ID = -2010134516;
 
@@ -5679,7 +5679,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 
     }
 
-    ErrorStyleDlgOkCancel(std::string btn1_name, std::string btn2_name ) 
+    ErrorStyleDlgOkCancel(::bright::String btn1_name, ::bright::String btn2_name ) 
             : error::ErrorStyle()
     {
 
@@ -5693,11 +5693,11 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
     /**
      
      */
-    std::string btn1Name;
+    ::bright::String btn1Name;
     /**
      
      */
-    std::string btn2Name;
+    ::bright::String btn2Name;
 
     static constexpr int ID = 971221414;
 
@@ -5730,7 +5730,7 @@ class CodeInfo : public  bright::CfgBean
 
     }
 
-    CodeInfo(error::EErrorCode code, std::string key ) 
+    CodeInfo(error::EErrorCode code, ::bright::String key ) 
     {
 
         this->code = code;
@@ -5747,7 +5747,7 @@ class CodeInfo : public  bright::CfgBean
     /**
      
      */
-    std::string key;
+    ::bright::String key;
 
     static constexpr int ID = -1942481535;
 
@@ -5780,7 +5780,7 @@ class Item : public  bright::CfgBean
 
     }
 
-    Item(int32_t id, std::string name, item::EMajorType major_type, item::EMinorType minor_type, int32_t max_pile_num, item::EItemQuality quality, std::string icon, std::string icon_backgroud, std::string icon_mask, std::string desc, int32_t show_order, std::string quantifier, bool show_in_bag, int32_t min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, std::shared_ptr<int32_t> price, item::EUseType use_type, std::shared_ptr<int32_t> level_up_id ) 
+    Item(::bright::int32 id, ::bright::String name, item::EMajorType major_type, item::EMinorType minor_type, ::bright::int32 max_pile_num, item::EItemQuality quality, ::bright::String icon, ::bright::String icon_backgroud, ::bright::String icon_mask, ::bright::String desc, ::bright::int32 show_order, ::bright::String quantifier, bool show_in_bag, ::bright::int32 min_show_level, bool batch_usable, ::bright::float32 progress_time_when_use, bool show_hint_when_use, bool droppable, ::bright::SharedPtr<::bright::int32> price, item::EUseType use_type, ::bright::SharedPtr<::bright::int32> level_up_id ) 
     {
 
         this->id = id;
@@ -5812,11 +5812,11 @@ class Item : public  bright::CfgBean
     /**
      道具id
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
@@ -5828,7 +5828,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    int32_t maxPileNum;
+    ::bright::int32 maxPileNum;
     /**
      
      */
@@ -5836,27 +5836,27 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    std::string icon;
+    ::bright::String icon;
     /**
      
      */
-    std::string iconBackgroud;
+    ::bright::String iconBackgroud;
     /**
      
      */
-    std::string iconMask;
+    ::bright::String iconMask;
     /**
      
      */
-    std::string desc;
+    ::bright::String desc;
     /**
      
      */
-    int32_t showOrder;
+    ::bright::int32 showOrder;
     /**
      
      */
-    std::string quantifier;
+    ::bright::String quantifier;
     /**
      
      */
@@ -5864,7 +5864,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    int32_t minShowLevel;
+    ::bright::int32 minShowLevel;
     /**
      
      */
@@ -5872,7 +5872,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    float progressTimeWhenUse;
+    ::bright::float32 progressTimeWhenUse;
     /**
      
      */
@@ -5884,7 +5884,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<int32_t> price;
+    ::bright::SharedPtr<::bright::int32> price;
     /**
      
      */
@@ -5892,7 +5892,7 @@ class Item : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<int32_t> levelUpId;
+    ::bright::SharedPtr<::bright::int32> levelUpId;
 
     static constexpr int ID = 2107285806;
 
@@ -5925,7 +5925,7 @@ class ItemFunction : public  bright::CfgBean
 
     }
 
-    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, std::string method, bool close_bag_ui ) 
+    ItemFunction(item::EMinorType minor_type, item::EItemFunctionType func_type, ::bright::String method, bool close_bag_ui ) 
     {
 
         this->minorType = minor_type;
@@ -5948,7 +5948,7 @@ class ItemFunction : public  bright::CfgBean
     /**
      
      */
-    std::string method;
+    ::bright::String method;
     /**
      
      */
@@ -5985,7 +5985,7 @@ class ItemExtra : public  bright::CfgBean
 
     }
 
-    ItemExtra(int32_t id ) 
+    ItemExtra(::bright::int32 id ) 
     {
 
         this->id = id;
@@ -5997,7 +5997,7 @@ class ItemExtra : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -6027,7 +6027,7 @@ class TreasureBox : public  item::ItemExtra
 
     }
 
-    TreasureBox(int32_t id, std::shared_ptr<int32_t> key_item_id, std::shared_ptr<condition::MinLevel> open_level, bool use_on_obtain, std::vector<int32_t> drop_ids, std::vector<std::shared_ptr<item::ChooseOneBonus>> choose_list ) 
+    TreasureBox(::bright::int32 id, ::bright::SharedPtr<::bright::int32> key_item_id, ::bright::SharedPtr<condition::MinLevel> open_level, bool use_on_obtain, ::bright::Vector<::bright::int32> drop_ids, ::bright::Vector<::bright::SharedPtr<item::ChooseOneBonus>> choose_list ) 
             : item::ItemExtra(id)
     {
 
@@ -6044,11 +6044,11 @@ class TreasureBox : public  item::ItemExtra
     /**
      
      */
-    std::shared_ptr<int32_t> keyItemId;
+    ::bright::SharedPtr<::bright::int32> keyItemId;
     /**
      
      */
-    std::shared_ptr<condition::MinLevel> openLevel;
+    ::bright::SharedPtr<condition::MinLevel> openLevel;
     /**
      
      */
@@ -6056,11 +6056,11 @@ class TreasureBox : public  item::ItemExtra
     /**
      
      */
-    std::vector<int32_t> dropIds;
+    ::bright::Vector<::bright::int32> dropIds;
     /**
      
      */
-    std::vector<std::shared_ptr<item::ChooseOneBonus>> chooseList;
+    ::bright::Vector<::bright::SharedPtr<item::ChooseOneBonus>> chooseList;
 
     static constexpr int ID = 1494222369;
 
@@ -6126,7 +6126,7 @@ class TimeRange : public  condition::Condition
 
     }
 
-    TimeRange(std::shared_ptr<common::DateTimeRange> date_time_range ) 
+    TimeRange(::bright::SharedPtr<common::DateTimeRange> date_time_range ) 
             : condition::Condition()
     {
 
@@ -6139,7 +6139,7 @@ class TimeRange : public  condition::Condition
     /**
      
      */
-    std::shared_ptr<common::DateTimeRange> dateTimeRange;
+    ::bright::SharedPtr<common::DateTimeRange> dateTimeRange;
 
     static constexpr int ID = 1069033789;
 
@@ -6172,7 +6172,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(std::shared_ptr<int32_t> start_time, std::shared_ptr<int32_t> end_time ) 
+    DateTimeRange(::bright::SharedPtr<::bright::datetime_t> start_time, ::bright::SharedPtr<::bright::datetime_t> end_time ) 
     {
 
         this->startTime = start_time;
@@ -6185,11 +6185,11 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<int32_t> startTime;
+    ::bright::SharedPtr<::bright::datetime_t> startTime;
     /**
      
      */
-    std::shared_ptr<int32_t> endTime;
+    ::bright::SharedPtr<::bright::datetime_t> endTime;
 
     static constexpr int ID = 1642200959;
 
@@ -6255,7 +6255,7 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     }
 
-    MultiRoleCondition(std::vector<std::shared_ptr<condition::RoleCondition>> conditions ) 
+    MultiRoleCondition(::bright::Vector<::bright::SharedPtr<condition::RoleCondition>> conditions ) 
             : condition::RoleCondition()
     {
 
@@ -6268,7 +6268,7 @@ class MultiRoleCondition : public  condition::RoleCondition
     /**
      
      */
-    std::vector<std::shared_ptr<condition::RoleCondition>> conditions;
+    ::bright::Vector<::bright::SharedPtr<condition::RoleCondition>> conditions;
 
     static constexpr int ID = 934079583;
 
@@ -6380,7 +6380,7 @@ class MinLevel : public  condition::BoolRoleCondition
 
     }
 
-    MinLevel(int32_t level ) 
+    MinLevel(::bright::int32 level ) 
             : condition::BoolRoleCondition()
     {
 
@@ -6393,7 +6393,7 @@ class MinLevel : public  condition::BoolRoleCondition
     /**
      
      */
-    int32_t level;
+    ::bright::int32 level;
 
     static constexpr int ID = -1075273755;
 
@@ -6426,7 +6426,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     }
 
-    MaxLevel(int32_t level ) 
+    MaxLevel(::bright::int32 level ) 
             : condition::BoolRoleCondition()
     {
 
@@ -6439,7 +6439,7 @@ class MaxLevel : public  condition::BoolRoleCondition
     /**
      
      */
-    int32_t level;
+    ::bright::int32 level;
 
     static constexpr int ID = 700922899;
 
@@ -6472,7 +6472,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     }
 
-    MinMaxLevel(int32_t min, int32_t max ) 
+    MinMaxLevel(::bright::int32 min, ::bright::int32 max ) 
             : condition::BoolRoleCondition()
     {
 
@@ -6486,11 +6486,11 @@ class MinMaxLevel : public  condition::BoolRoleCondition
     /**
      
      */
-    int32_t min;
+    ::bright::int32 min;
     /**
      
      */
-    int32_t max;
+    ::bright::int32 max;
 
     static constexpr int ID = 907499647;
 
@@ -6523,7 +6523,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 
     }
 
-    ClothesPropertyScoreGreaterThan(item::EClothesPropertyType prop, int32_t value ) 
+    ClothesPropertyScoreGreaterThan(item::EClothesPropertyType prop, ::bright::int32 value ) 
             : condition::BoolRoleCondition()
     {
 
@@ -6541,7 +6541,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
     /**
      
      */
-    int32_t value;
+    ::bright::int32 value;
 
     static constexpr int ID = 696630835;
 
@@ -6574,7 +6574,7 @@ class ContainsItem : public  condition::RoleCondition
 
     }
 
-    ContainsItem(int32_t item_id, int32_t num, bool reverse ) 
+    ContainsItem(::bright::int32 item_id, ::bright::int32 num, bool reverse ) 
             : condition::RoleCondition()
     {
 
@@ -6589,12 +6589,12 @@ class ContainsItem : public  condition::RoleCondition
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
     /**
      
      */
@@ -6631,7 +6631,7 @@ class ChooseOneBonus : public  bright::CfgBean
 
     }
 
-    ChooseOneBonus(int32_t drop_id, bool is_unique ) 
+    ChooseOneBonus(::bright::int32 drop_id, bool is_unique ) 
     {
 
         this->dropId = drop_id;
@@ -6644,8 +6644,8 @@ class ChooseOneBonus : public  bright::CfgBean
     /**
      
      */
-    int32_t dropId;
-    std::shared_ptr<bonus::DropInfo> dropId_Ref;
+    ::bright::int32 dropId;
+    ::bright::SharedPtr<bonus::DropInfo> dropId_Ref;
     /**
      
      */
@@ -6682,7 +6682,7 @@ class InteractionItem : public  item::ItemExtra
 
     }
 
-    InteractionItem(int32_t id, std::shared_ptr<int32_t> attack_num, std::string holding_static_mesh, std::string holding_static_mesh_mat ) 
+    InteractionItem(::bright::int32 id, ::bright::SharedPtr<::bright::int32> attack_num, ::bright::String holding_static_mesh, ::bright::String holding_static_mesh_mat ) 
             : item::ItemExtra(id)
     {
 
@@ -6697,15 +6697,15 @@ class InteractionItem : public  item::ItemExtra
     /**
      
      */
-    std::shared_ptr<int32_t> attackNum;
+    ::bright::SharedPtr<::bright::int32> attackNum;
     /**
      
      */
-    std::string holdingStaticMesh;
+    ::bright::String holdingStaticMesh;
     /**
      
      */
-    std::string holdingStaticMeshMat;
+    ::bright::String holdingStaticMeshMat;
 
     static constexpr int ID = 640937802;
 
@@ -6738,7 +6738,7 @@ class Clothes : public  item::ItemExtra
 
     }
 
-    Clothes(int32_t id, int32_t attack, int64_t hp, int32_t energy_limit, int32_t energy_resume ) 
+    Clothes(::bright::int32 id, ::bright::int32 attack, ::bright::int64 hp, ::bright::int32 energy_limit, ::bright::int32 energy_resume ) 
             : item::ItemExtra(id)
     {
 
@@ -6754,19 +6754,19 @@ class Clothes : public  item::ItemExtra
     /**
      
      */
-    int32_t attack;
+    ::bright::int32 attack;
     /**
      
      */
-    int64_t hp;
+    ::bright::int64 hp;
     /**
      
      */
-    int32_t energyLimit;
+    ::bright::int32 energyLimit;
     /**
      
      */
-    int32_t energyResume;
+    ::bright::int32 energyResume;
 
     static constexpr int ID = 1659907149;
 
@@ -6799,7 +6799,7 @@ class DesignDrawing : public  item::ItemExtra
 
     }
 
-    DesignDrawing(int32_t id, std::vector<int32_t> learn_component_id ) 
+    DesignDrawing(::bright::int32 id, ::bright::Vector<::bright::int32> learn_component_id ) 
             : item::ItemExtra(id)
     {
 
@@ -6812,7 +6812,7 @@ class DesignDrawing : public  item::ItemExtra
     /**
      
      */
-    std::vector<int32_t> learnComponentId;
+    ::bright::Vector<::bright::int32> learnComponentId;
 
     static constexpr int ID = -1679179579;
 
@@ -6845,7 +6845,7 @@ class Dymmy : public  item::ItemExtra
 
     }
 
-    Dymmy(int32_t id, std::shared_ptr<cost::Cost> cost ) 
+    Dymmy(::bright::int32 id, ::bright::SharedPtr<cost::Cost> cost ) 
             : item::ItemExtra(id)
     {
 
@@ -6858,7 +6858,7 @@ class Dymmy : public  item::ItemExtra
     /**
      
      */
-    std::shared_ptr<cost::Cost> cost;
+    ::bright::SharedPtr<cost::Cost> cost;
 
     static constexpr int ID = 896889705;
 
@@ -6924,7 +6924,7 @@ class CostCurrency : public  cost::Cost
 
     }
 
-    CostCurrency(item::ECurrencyType type, int32_t num ) 
+    CostCurrency(item::ECurrencyType type, ::bright::int32 num ) 
             : cost::Cost()
     {
 
@@ -6942,7 +6942,7 @@ class CostCurrency : public  cost::Cost
     /**
      
      */
-    int32_t num;
+    ::bright::int32 num;
 
     static constexpr int ID = 911838111;
 
@@ -6975,7 +6975,7 @@ class CostCurrencies : public  cost::Cost
 
     }
 
-    CostCurrencies(std::vector<std::shared_ptr<cost::CostCurrency>> currencies ) 
+    CostCurrencies(::bright::Vector<::bright::SharedPtr<cost::CostCurrency>> currencies ) 
             : cost::Cost()
     {
 
@@ -6988,7 +6988,7 @@ class CostCurrencies : public  cost::Cost
     /**
      
      */
-    std::vector<std::shared_ptr<cost::CostCurrency>> currencies;
+    ::bright::Vector<::bright::SharedPtr<cost::CostCurrency>> currencies;
 
     static constexpr int ID = 103084157;
 
@@ -7021,7 +7021,7 @@ class CostOneItem : public  cost::Cost
 
     }
 
-    CostOneItem(int32_t item_id ) 
+    CostOneItem(::bright::int32 item_id ) 
             : cost::Cost()
     {
 
@@ -7034,8 +7034,8 @@ class CostOneItem : public  cost::Cost
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
 
     static constexpr int ID = -1033587381;
 
@@ -7068,7 +7068,7 @@ class CostItem : public  cost::Cost
 
     }
 
-    CostItem(int32_t item_id, int32_t amount ) 
+    CostItem(::bright::int32 item_id, ::bright::int32 amount ) 
             : cost::Cost()
     {
 
@@ -7082,12 +7082,12 @@ class CostItem : public  cost::Cost
     /**
      
      */
-    int32_t itemId;
-    std::shared_ptr<item::Item> itemId_Ref;
+    ::bright::int32 itemId;
+    ::bright::SharedPtr<item::Item> itemId_Ref;
     /**
      
      */
-    int32_t amount;
+    ::bright::int32 amount;
 
     static constexpr int ID = -1249440351;
 
@@ -7120,7 +7120,7 @@ class CostItems : public  cost::Cost
 
     }
 
-    CostItems(std::vector<std::shared_ptr<cost::CostItem>> item_list ) 
+    CostItems(::bright::Vector<::bright::SharedPtr<cost::CostItem>> item_list ) 
             : cost::Cost()
     {
 
@@ -7133,7 +7133,7 @@ class CostItems : public  cost::Cost
     /**
      
      */
-    std::vector<std::shared_ptr<cost::CostItem>> itemList;
+    ::bright::Vector<::bright::SharedPtr<cost::CostItem>> itemList;
 
     static constexpr int ID = -77945102;
 
@@ -7166,7 +7166,7 @@ class L10NDemo : public  bright::CfgBean
 
     }
 
-    L10NDemo(int32_t id, std::string text ) 
+    L10NDemo(::bright::int32 id, ::bright::String text ) 
     {
 
         this->id = id;
@@ -7179,11 +7179,11 @@ class L10NDemo : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string text;
+    ::bright::String text;
 
     static constexpr int ID = -331195887;
 
@@ -7216,7 +7216,7 @@ class PatchDemo : public  bright::CfgBean
 
     }
 
-    PatchDemo(int32_t id, int32_t value ) 
+    PatchDemo(::bright::int32 id, ::bright::int32 value ) 
     {
 
         this->id = id;
@@ -7229,11 +7229,11 @@ class PatchDemo : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    int32_t value;
+    ::bright::int32 value;
 
     static constexpr int ID = -1707294656;
 
@@ -7266,7 +7266,7 @@ class SystemMail : public  bright::CfgBean
 
     }
 
-    SystemMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award ) 
+    SystemMail(::bright::int32 id, ::bright::String title, ::bright::String sender, ::bright::String content, ::bright::Vector<::bright::int32> award ) 
     {
 
         this->id = id;
@@ -7282,23 +7282,23 @@ class SystemMail : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string title;
+    ::bright::String title;
     /**
      
      */
-    std::string sender;
+    ::bright::String sender;
     /**
      
      */
-    std::string content;
+    ::bright::String content;
     /**
      
      */
-    std::vector<int32_t> award;
+    ::bright::Vector<::bright::int32> award;
 
     static constexpr int ID = 1214073149;
 
@@ -7331,7 +7331,7 @@ class GlobalMail : public  bright::CfgBean
 
     }
 
-    GlobalMail(int32_t id, std::string title, std::string sender, std::string content, std::vector<int32_t> award, bool all_server, std::vector<int32_t> server_list, std::string platform, std::string channel, std::shared_ptr<condition::MinMaxLevel> min_max_level, std::shared_ptr<condition::TimeRange> register_time, std::shared_ptr<condition::TimeRange> mail_time ) 
+    GlobalMail(::bright::int32 id, ::bright::String title, ::bright::String sender, ::bright::String content, ::bright::Vector<::bright::int32> award, bool all_server, ::bright::Vector<::bright::int32> server_list, ::bright::String platform, ::bright::String channel, ::bright::SharedPtr<condition::MinMaxLevel> min_max_level, ::bright::SharedPtr<condition::TimeRange> register_time, ::bright::SharedPtr<condition::TimeRange> mail_time ) 
     {
 
         this->id = id;
@@ -7354,23 +7354,23 @@ class GlobalMail : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string title;
+    ::bright::String title;
     /**
      
      */
-    std::string sender;
+    ::bright::String sender;
     /**
      
      */
-    std::string content;
+    ::bright::String content;
     /**
      
      */
-    std::vector<int32_t> award;
+    ::bright::Vector<::bright::int32> award;
     /**
      
      */
@@ -7378,27 +7378,27 @@ class GlobalMail : public  bright::CfgBean
     /**
      
      */
-    std::vector<int32_t> serverList;
+    ::bright::Vector<::bright::int32> serverList;
     /**
      
      */
-    std::string platform;
+    ::bright::String platform;
     /**
      
      */
-    std::string channel;
+    ::bright::String channel;
     /**
      
      */
-    std::shared_ptr<condition::MinMaxLevel> minMaxLevel;
+    ::bright::SharedPtr<condition::MinMaxLevel> minMaxLevel;
     /**
      
      */
-    std::shared_ptr<condition::TimeRange> registerTime;
+    ::bright::SharedPtr<condition::TimeRange> registerTime;
     /**
      
      */
-    std::shared_ptr<condition::TimeRange> mailTime;
+    ::bright::SharedPtr<condition::TimeRange> mailTime;
 
     static constexpr int ID = -287571791;
 
@@ -7431,7 +7431,7 @@ class LevelExpAttr : public  bright::CfgBean
 
     }
 
-    LevelExpAttr(int32_t level, int64_t need_exp, std::vector<int32_t> clothes_attrs ) 
+    LevelExpAttr(::bright::int32 level, ::bright::int64 need_exp, ::bright::Vector<::bright::int32> clothes_attrs ) 
     {
 
         this->level = level;
@@ -7445,15 +7445,15 @@ class LevelExpAttr : public  bright::CfgBean
     /**
      
      */
-    int32_t level;
+    ::bright::int32 level;
     /**
      
      */
-    int64_t needExp;
+    ::bright::int64 needExp;
     /**
      
      */
-    std::vector<int32_t> clothesAttrs;
+    ::bright::Vector<::bright::int32> clothesAttrs;
 
     static constexpr int ID = -1569837022;
 
@@ -7486,7 +7486,7 @@ class LevelBonus : public  bright::CfgBean
 
     }
 
-    LevelBonus(int32_t id, std::vector<std::shared_ptr<role::DistinctBonusInfos>> distinct_bonus_infos ) 
+    LevelBonus(::bright::int32 id, ::bright::Vector<::bright::SharedPtr<role::DistinctBonusInfos>> distinct_bonus_infos ) 
     {
 
         this->id = id;
@@ -7499,11 +7499,11 @@ class LevelBonus : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::vector<std::shared_ptr<role::DistinctBonusInfos>> distinctBonusInfos;
+    ::bright::Vector<::bright::SharedPtr<role::DistinctBonusInfos>> distinctBonusInfos;
 
     static constexpr int ID = -572269677;
 
@@ -7536,7 +7536,7 @@ class DistinctBonusInfos : public  bright::CfgBean
 
     }
 
-    DistinctBonusInfos(int32_t effective_level, std::vector<std::shared_ptr<role::BonusInfo>> bonus_info ) 
+    DistinctBonusInfos(::bright::int32 effective_level, ::bright::Vector<::bright::SharedPtr<role::BonusInfo>> bonus_info ) 
     {
 
         this->effectiveLevel = effective_level;
@@ -7549,11 +7549,11 @@ class DistinctBonusInfos : public  bright::CfgBean
     /**
      
      */
-    int32_t effectiveLevel;
+    ::bright::int32 effectiveLevel;
     /**
      
      */
-    std::vector<std::shared_ptr<role::BonusInfo>> bonusInfo;
+    ::bright::Vector<::bright::SharedPtr<role::BonusInfo>> bonusInfo;
 
     static constexpr int ID = -854361766;
 
@@ -7586,7 +7586,7 @@ class BonusInfo : public  bright::CfgBean
 
     }
 
-    BonusInfo(item::ECurrencyType type, float coefficient ) 
+    BonusInfo(item::ECurrencyType type, ::bright::float32 coefficient ) 
     {
 
         this->type = type;
@@ -7603,7 +7603,7 @@ class BonusInfo : public  bright::CfgBean
     /**
      
      */
-    float coefficient;
+    ::bright::float32 coefficient;
 
     static constexpr int ID = -1354421803;
 
@@ -7636,7 +7636,7 @@ class TestTag : public  bright::CfgBean
 
     }
 
-    TestTag(int32_t id, std::string value ) 
+    TestTag(::bright::int32 id, ::bright::String value ) 
     {
 
         this->id = id;
@@ -7649,11 +7649,11 @@ class TestTag : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string value;
+    ::bright::String value;
 
     static constexpr int ID = 1742933812;
 
@@ -7686,7 +7686,7 @@ class DemoType2 : public  bright::CfgBean
 
     }
 
-    DemoType2(int32_t x4, bool x1, uint8_t x2, int16_t x3, int64_t x5, float x6, double x7, int16_t x8_0, int32_t x8, int64_t x9, std::string x10, std::shared_ptr<test::DemoType1> x12, test::DemoEnum x13, std::shared_ptr<test::DemoDynamic> x14, std::string s1, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1, std::vector<int32_t> k1, std::vector<int32_t> k2, std::vector<int32_t> k3, std::vector<int32_t> k4, std::unordered_set<int32_t> k5, std::unordered_set<int32_t> k6, std::unordered_set<int32_t> k7, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9, std::vector<std::shared_ptr<test::DemoDynamic>> k15 ) 
+    DemoType2(::bright::int32 x4, bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::int16 x8_0, ::bright::int32 x8, ::bright::int64 x9, ::bright::String x10, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::String s1, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::Vector<::bright::int32> k3, ::bright::Vector<::bright::int32> k4, ::bright::HashSet<::bright::int32> k5, ::bright::HashSet<::bright::int32> k6, ::bright::HashSet<::bright::int32> k7, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
     {
 
         this->x4 = x4;
@@ -7726,7 +7726,7 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    int32_t x4;
+    ::bright::int32 x4;
     /**
      
      */
@@ -7734,44 +7734,44 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    uint8_t x2;
+    ::bright::byte x2;
     /**
      
      */
-    int16_t x3;
-    std::shared_ptr<test::DemoType2> x3_Ref;
+    ::bright::int16 x3;
+    ::bright::SharedPtr<test::DemoType2> x3_Ref;
     /**
      
      */
-    int64_t x5;
+    ::bright::int64 x5;
     /**
      
      */
-    float x6;
+    ::bright::float32 x6;
     /**
      
      */
-    double x7;
+    ::bright::float64 x7;
     /**
      
      */
-    int16_t x80;
+    ::bright::int16 x80;
     /**
      
      */
-    int32_t x8;
+    ::bright::int32 x8;
     /**
      
      */
-    int64_t x9;
+    ::bright::int64 x9;
     /**
      
      */
-    std::string x10;
+    ::bright::String x10;
     /**
      
      */
-    std::shared_ptr<test::DemoType1> x12;
+    ::bright::SharedPtr<test::DemoType1> x12;
     /**
      
      */
@@ -7779,68 +7779,68 @@ class DemoType2 : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<test::DemoDynamic> x14;
+    ::bright::SharedPtr<test::DemoDynamic> x14;
     /**
      
      */
-    std::string s1;
+    ::bright::String s1;
     /**
      
      */
-    bright::math::Vector2 v2;
+    ::bright::Vector2 v2;
     /**
      
      */
-    bright::math::Vector3 v3;
+    ::bright::Vector3 v3;
     /**
      
      */
-    bright::math::Vector4 v4;
+    ::bright::Vector4 v4;
     /**
      
      */
-    int32_t t1;
+    ::bright::datetime_t t1;
     /**
      
      */
-    std::vector<int32_t> k1;
+    ::bright::Vector<::bright::int32> k1;
     /**
      
      */
-    std::vector<int32_t> k2;
+    ::bright::Vector<::bright::int32> k2;
     /**
      
      */
-    std::vector<int32_t> k3;
+    ::bright::Vector<::bright::int32> k3;
     /**
      
      */
-    std::vector<int32_t> k4;
+    ::bright::Vector<::bright::int32> k4;
     /**
      
      */
-    std::unordered_set<int32_t> k5;
+    ::bright::HashSet<::bright::int32> k5;
     /**
      
      */
-    std::unordered_set<int32_t> k6;
+    ::bright::HashSet<::bright::int32> k6;
     /**
      
      */
-    std::unordered_set<int32_t> k7;
+    ::bright::HashSet<::bright::int32> k7;
     /**
      
      */
-    std::unordered_map<int32_t, int32_t> k8;
+    ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     /**
      
      */
-    std::vector<std::shared_ptr<test::DemoE2>> k9;
-    std::unordered_map<std::shared_ptr<int32_t>, std::shared_ptr<test::DemoE2>> k9_Index;
+    ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
+    std::unordered_map<::bright::SharedPtr<::bright::int32>, ::bright::SharedPtr<test::DemoE2>> k9_Index;
     /**
      
      */
-    std::vector<std::shared_ptr<test::DemoDynamic>> k15;
+    ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
 
     static constexpr int ID = -367048295;
 
@@ -7873,7 +7873,7 @@ class DemoType1 : public  bright::CfgBean
 
     }
 
-    DemoType1(int32_t x1 ) 
+    DemoType1(::bright::int32 x1 ) 
     {
 
         this->x1 = x1;
@@ -7885,7 +7885,7 @@ class DemoType1 : public  bright::CfgBean
     /**
      
      */
-    int32_t x1;
+    ::bright::int32 x1;
 
     static constexpr int ID = -367048296;
 
@@ -7918,7 +7918,7 @@ class DemoDynamic : public  bright::CfgBean
 
     }
 
-    DemoDynamic(int32_t x1 ) 
+    DemoDynamic(::bright::int32 x1 ) 
     {
 
         this->x1 = x1;
@@ -7930,7 +7930,7 @@ class DemoDynamic : public  bright::CfgBean
     /**
      
      */
-    int32_t x1;
+    ::bright::int32 x1;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -7960,7 +7960,7 @@ class DemoD2 : public  test::DemoDynamic
 
     }
 
-    DemoD2(int32_t x1, int32_t x2 ) 
+    DemoD2(::bright::int32 x1, ::bright::int32 x2 ) 
             : test::DemoDynamic(x1)
     {
 
@@ -7973,7 +7973,7 @@ class DemoD2 : public  test::DemoDynamic
     /**
      
      */
-    int32_t x2;
+    ::bright::int32 x2;
 
     static constexpr int ID = -2138341747;
 
@@ -8006,7 +8006,7 @@ class DemoD3 : public  test::DemoDynamic
 
     }
 
-    DemoD3(int32_t x1, int32_t x3 ) 
+    DemoD3(::bright::int32 x1, ::bright::int32 x3 ) 
             : test::DemoDynamic(x1)
     {
 
@@ -8019,7 +8019,7 @@ class DemoD3 : public  test::DemoDynamic
     /**
      
      */
-    int32_t x3;
+    ::bright::int32 x3;
 
 
     virtual void resolve(std::unordered_map<std::string, void*>& _tables);
@@ -8049,7 +8049,7 @@ class DemoE1 : public  test::DemoD3
 
     }
 
-    DemoE1(int32_t x1, int32_t x3, int32_t x4 ) 
+    DemoE1(::bright::int32 x1, ::bright::int32 x3, ::bright::int32 x4 ) 
             : test::DemoD3(x1, x3)
     {
 
@@ -8062,7 +8062,7 @@ class DemoE1 : public  test::DemoD3
     /**
      
      */
-    int32_t x4;
+    ::bright::int32 x4;
 
     static constexpr int ID = -2138341717;
 
@@ -8095,7 +8095,7 @@ class DemoD5 : public  test::DemoDynamic
 
     }
 
-    DemoD5(int32_t x1, std::shared_ptr<test::DateTimeRange> time ) 
+    DemoD5(::bright::int32 x1, ::bright::SharedPtr<test::DateTimeRange> time ) 
             : test::DemoDynamic(x1)
     {
 
@@ -8108,7 +8108,7 @@ class DemoD5 : public  test::DemoDynamic
     /**
      
      */
-    std::shared_ptr<test::DateTimeRange> time;
+    ::bright::SharedPtr<test::DateTimeRange> time;
 
     static constexpr int ID = -2138341744;
 
@@ -8141,7 +8141,7 @@ class DateTimeRange : public  bright::CfgBean
 
     }
 
-    DateTimeRange(int32_t start_time, int32_t end_time ) 
+    DateTimeRange(::bright::datetime_t start_time, ::bright::datetime_t end_time ) 
     {
 
         this->startTime = start_time;
@@ -8154,11 +8154,11 @@ class DateTimeRange : public  bright::CfgBean
     /**
      
      */
-    int32_t startTime;
+    ::bright::datetime_t startTime;
     /**
      
      */
-    int32_t endTime;
+    ::bright::datetime_t endTime;
 
     static constexpr int ID = 495315430;
 
@@ -8191,7 +8191,7 @@ class DemoE2 : public  bright::CfgBean
 
     }
 
-    DemoE2(std::shared_ptr<int32_t> y1, bool y2 ) 
+    DemoE2(::bright::SharedPtr<::bright::int32> y1, bool y2 ) 
     {
 
         this->y1 = y1;
@@ -8204,7 +8204,7 @@ class DemoE2 : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<int32_t> y1;
+    ::bright::SharedPtr<::bright::int32> y1;
     /**
      
      */
@@ -8241,7 +8241,7 @@ class DemoSingletonType : public  bright::CfgBean
 
     }
 
-    DemoSingletonType(int32_t id, std::string name, std::shared_ptr<test::DemoDynamic> date ) 
+    DemoSingletonType(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::DemoDynamic> date ) 
     {
 
         this->id = id;
@@ -8255,15 +8255,15 @@ class DemoSingletonType : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::shared_ptr<test::DemoDynamic> date;
+    ::bright::SharedPtr<test::DemoDynamic> date;
 
     static constexpr int ID = 539196998;
 
@@ -8296,7 +8296,7 @@ class MultiRowRecord : public  bright::CfgBean
 
     }
 
-    MultiRowRecord(int32_t id, std::string name, std::vector<std::shared_ptr<test::MultiRowType1>> one_rows, std::vector<std::shared_ptr<test::MultiRowType1>> multi_rows1, std::vector<std::shared_ptr<test::MultiRowType1>> multi_rows2, std::unordered_set<std::shared_ptr<test::MultiRowType2>> multi_rows3, std::unordered_map<int32_t, std::shared_ptr<test::MultiRowType2>> multi_rows4, std::vector<std::shared_ptr<test::MultiRowType3>> multi_rows5 ) 
+    MultiRowRecord(::bright::int32 id, ::bright::String name, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> one_rows, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows1, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows2, ::bright::HashSet<::bright::SharedPtr<test::MultiRowType2>> multi_rows3, ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multi_rows4, ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multi_rows5 ) 
     {
 
         this->id = id;
@@ -8315,35 +8315,35 @@ class MultiRowRecord : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::vector<std::shared_ptr<test::MultiRowType1>> oneRows;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> oneRows;
     /**
      
      */
-    std::vector<std::shared_ptr<test::MultiRowType1>> multiRows1;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows1;
     /**
      
      */
-    std::vector<std::shared_ptr<test::MultiRowType1>> multiRows2;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows2;
     /**
      
      */
-    std::unordered_set<std::shared_ptr<test::MultiRowType2>> multiRows3;
+    ::bright::HashSet<::bright::SharedPtr<test::MultiRowType2>> multiRows3;
     /**
      
      */
-    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowType2>> multiRows4;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multiRows4;
     /**
      
      */
-    std::vector<std::shared_ptr<test::MultiRowType3>> multiRows5;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multiRows5;
 
     static constexpr int ID = -501249394;
 
@@ -8376,7 +8376,7 @@ class MultiRowType1 : public  bright::CfgBean
 
     }
 
-    MultiRowType1(int32_t id, int32_t x ) 
+    MultiRowType1(::bright::int32 id, ::bright::int32 x ) 
     {
 
         this->id = id;
@@ -8389,11 +8389,11 @@ class MultiRowType1 : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    int32_t x;
+    ::bright::int32 x;
 
     static constexpr int ID = 540474970;
 
@@ -8426,7 +8426,7 @@ class MultiRowType2 : public  bright::CfgBean
 
     }
 
-    MultiRowType2(int32_t id, int32_t x, float y ) 
+    MultiRowType2(::bright::int32 id, ::bright::int32 x, ::bright::float32 y ) 
     {
 
         this->id = id;
@@ -8440,15 +8440,15 @@ class MultiRowType2 : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    int32_t x;
+    ::bright::int32 x;
     /**
      
      */
-    float y;
+    ::bright::float32 y;
 
     static constexpr int ID = 540474971;
 
@@ -8481,7 +8481,7 @@ class MultiRowType3 : public  bright::CfgBean
 
     }
 
-    MultiRowType3(int32_t id, std::vector<std::shared_ptr<test::MultiRowType1>> items ) 
+    MultiRowType3(::bright::int32 id, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> items ) 
     {
 
         this->id = id;
@@ -8494,11 +8494,11 @@ class MultiRowType3 : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::vector<std::shared_ptr<test::MultiRowType1>> items;
+    ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> items;
 
     static constexpr int ID = 540474972;
 
@@ -8531,7 +8531,7 @@ class MultiRowTitle : public  bright::CfgBean
 
     }
 
-    MultiRowTitle(int32_t id, std::string name, std::shared_ptr<test::H1> x1, std::vector<std::shared_ptr<test::H2>> x2, std::vector<std::shared_ptr<test::H2>> x3 ) 
+    MultiRowTitle(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::H1> x1, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3 ) 
     {
 
         this->id = id;
@@ -8547,23 +8547,23 @@ class MultiRowTitle : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
     /**
      
      */
-    std::shared_ptr<test::H1> x1;
+    ::bright::SharedPtr<test::H1> x1;
     /**
      
      */
-    std::vector<std::shared_ptr<test::H2>> x2;
+    ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
     /**
      
      */
-    std::vector<std::shared_ptr<test::H2>> x3;
+    ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
 
     static constexpr int ID = 540002427;
 
@@ -8596,7 +8596,7 @@ class H1 : public  bright::CfgBean
 
     }
 
-    H1(std::shared_ptr<test::H2> y2, int32_t y3 ) 
+    H1(::bright::SharedPtr<test::H2> y2, ::bright::int32 y3 ) 
     {
 
         this->y2 = y2;
@@ -8609,11 +8609,11 @@ class H1 : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<test::H2> y2;
+    ::bright::SharedPtr<test::H2> y2;
     /**
      
      */
-    int32_t y3;
+    ::bright::int32 y3;
 
     static constexpr int ID = -1422503995;
 
@@ -8646,7 +8646,7 @@ class H2 : public  bright::CfgBean
 
     }
 
-    H2(int32_t z2, int32_t z3 ) 
+    H2(::bright::int32 z2, ::bright::int32 z3 ) 
     {
 
         this->z2 = z2;
@@ -8659,11 +8659,11 @@ class H2 : public  bright::CfgBean
     /**
      
      */
-    int32_t z2;
+    ::bright::int32 z2;
     /**
      
      */
-    int32_t z3;
+    ::bright::int32 z3;
 
     static constexpr int ID = -1422503994;
 
@@ -8696,7 +8696,7 @@ class TestNull : public  bright::CfgBean
 
     }
 
-    TestNull(int32_t id, std::shared_ptr<int32_t> x1, std::shared_ptr<test::DemoEnum> x2, std::shared_ptr<test::DemoType1> x3, std::shared_ptr<test::DemoDynamic> x4, std::shared_ptr<std::string> s1, std::shared_ptr<std::string> s2 ) 
+    TestNull(::bright::int32 id, ::bright::SharedPtr<::bright::int32> x1, ::bright::SharedPtr<test::DemoEnum> x2, ::bright::SharedPtr<test::DemoType1> x3, ::bright::SharedPtr<test::DemoDynamic> x4, ::bright::SharedPtr<::bright::String> s1, ::bright::SharedPtr<::bright::String> s2 ) 
     {
 
         this->id = id;
@@ -8714,31 +8714,31 @@ class TestNull : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::shared_ptr<int32_t> x1;
+    ::bright::SharedPtr<::bright::int32> x1;
     /**
      
      */
-    std::shared_ptr<test::DemoEnum> x2;
+    ::bright::SharedPtr<test::DemoEnum> x2;
     /**
      
      */
-    std::shared_ptr<test::DemoType1> x3;
+    ::bright::SharedPtr<test::DemoType1> x3;
     /**
      
      */
-    std::shared_ptr<test::DemoDynamic> x4;
+    ::bright::SharedPtr<test::DemoDynamic> x4;
     /**
      
      */
-    std::shared_ptr<std::string> s1;
+    ::bright::SharedPtr<::bright::String> s1;
     /**
      
      */
-    std::shared_ptr<std::string> s2;
+    ::bright::SharedPtr<::bright::String> s2;
 
     static constexpr int ID = 339868469;
 
@@ -8771,7 +8771,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 
     }
 
-    DemoPrimitiveTypesTable(bool x1, uint8_t x2, int16_t x3, int32_t x4, int64_t x5, float x6, double x7, std::string s1, std::string s2, bright::math::Vector2 v2, bright::math::Vector3 v3, bright::math::Vector4 v4, int32_t t1 ) 
+    DemoPrimitiveTypesTable(bool x1, ::bright::byte x2, ::bright::int16 x3, ::bright::int32 x4, ::bright::int64 x5, ::bright::float32 x6, ::bright::float64 x7, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime_t t1 ) 
     {
 
         this->x1 = x1;
@@ -8799,51 +8799,51 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
     /**
      
      */
-    uint8_t x2;
+    ::bright::byte x2;
     /**
      
      */
-    int16_t x3;
+    ::bright::int16 x3;
     /**
      
      */
-    int32_t x4;
+    ::bright::int32 x4;
     /**
      
      */
-    int64_t x5;
+    ::bright::int64 x5;
     /**
      
      */
-    float x6;
+    ::bright::float32 x6;
     /**
      
      */
-    double x7;
+    ::bright::float64 x7;
     /**
      
      */
-    std::string s1;
+    ::bright::String s1;
     /**
      
      */
-    std::string s2;
+    ::bright::String s2;
     /**
      
      */
-    bright::math::Vector2 v2;
+    ::bright::Vector2 v2;
     /**
      
      */
-    bright::math::Vector3 v3;
+    ::bright::Vector3 v3;
     /**
      
      */
-    bright::math::Vector4 v4;
+    ::bright::Vector4 v4;
     /**
      
      */
-    int32_t t1;
+    ::bright::datetime_t t1;
 
     static constexpr int ID = -370934083;
 
@@ -8876,7 +8876,7 @@ class TestString : public  bright::CfgBean
 
     }
 
-    TestString(int32_t id, std::string s1, std::shared_ptr<test::CompactString> cs1, std::shared_ptr<test::CompactString> cs2 ) 
+    TestString(::bright::int32 id, ::bright::String s1, ::bright::SharedPtr<test::CompactString> cs1, ::bright::SharedPtr<test::CompactString> cs2 ) 
     {
 
         this->id = id;
@@ -8891,19 +8891,19 @@ class TestString : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string s1;
+    ::bright::String s1;
     /**
      
      */
-    std::shared_ptr<test::CompactString> cs1;
+    ::bright::SharedPtr<test::CompactString> cs1;
     /**
      
      */
-    std::shared_ptr<test::CompactString> cs2;
+    ::bright::SharedPtr<test::CompactString> cs2;
 
     static constexpr int ID = 338485823;
 
@@ -8936,7 +8936,7 @@ class CompactString : public  bright::CfgBean
 
     }
 
-    CompactString(int32_t id, std::string s2, std::string s3 ) 
+    CompactString(::bright::int32 id, ::bright::String s2, ::bright::String s3 ) 
     {
 
         this->id = id;
@@ -8950,15 +8950,15 @@ class CompactString : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string s2;
+    ::bright::String s2;
     /**
      
      */
-    std::string s3;
+    ::bright::String s3;
 
     static constexpr int ID = 1968089240;
 
@@ -8991,7 +8991,7 @@ class DemoGroup : public  bright::CfgBean
 
     }
 
-    DemoGroup(int32_t id, int32_t x1, int32_t x2, int32_t x3, int32_t x4, std::shared_ptr<test::InnerGroup> x5 ) 
+    DemoGroup(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x2, ::bright::int32 x3, ::bright::int32 x4, ::bright::SharedPtr<test::InnerGroup> x5 ) 
     {
 
         this->id = id;
@@ -9008,27 +9008,27 @@ class DemoGroup : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    int32_t x1;
+    ::bright::int32 x1;
     /**
      
      */
-    int32_t x2;
+    ::bright::int32 x2;
     /**
      
      */
-    int32_t x3;
+    ::bright::int32 x3;
     /**
      
      */
-    int32_t x4;
+    ::bright::int32 x4;
     /**
      
      */
-    std::shared_ptr<test::InnerGroup> x5;
+    ::bright::SharedPtr<test::InnerGroup> x5;
 
     static constexpr int ID = -379263008;
 
@@ -9061,7 +9061,7 @@ class InnerGroup : public  bright::CfgBean
 
     }
 
-    InnerGroup(int32_t y1, int32_t y2, int32_t y3, int32_t y4 ) 
+    InnerGroup(::bright::int32 y1, ::bright::int32 y2, ::bright::int32 y3, ::bright::int32 y4 ) 
     {
 
         this->y1 = y1;
@@ -9076,19 +9076,19 @@ class InnerGroup : public  bright::CfgBean
     /**
      
      */
-    int32_t y1;
+    ::bright::int32 y1;
     /**
      
      */
-    int32_t y2;
+    ::bright::int32 y2;
     /**
      
      */
-    int32_t y3;
+    ::bright::int32 y3;
     /**
      
      */
-    int32_t y4;
+    ::bright::int32 y4;
 
     static constexpr int ID = -587873083;
 
@@ -9121,7 +9121,7 @@ class TestGlobal : public  bright::CfgBean
 
     }
 
-    TestGlobal(int32_t unlock_equip, int32_t unlock_hero ) 
+    TestGlobal(::bright::int32 unlock_equip, ::bright::int32 unlock_hero ) 
     {
 
         this->unlockEquip = unlock_equip;
@@ -9134,11 +9134,11 @@ class TestGlobal : public  bright::CfgBean
     /**
      
      */
-    int32_t unlockEquip;
+    ::bright::int32 unlockEquip;
     /**
      
      */
-    int32_t unlockHero;
+    ::bright::int32 unlockHero;
 
     static constexpr int ID = -12548655;
 
@@ -9171,7 +9171,7 @@ class DetectEncoding : public  bright::CfgBean
 
     }
 
-    DetectEncoding(int32_t id, std::string name ) 
+    DetectEncoding(::bright::int32 id, ::bright::String name ) 
     {
 
         this->id = id;
@@ -9184,11 +9184,11 @@ class DetectEncoding : public  bright::CfgBean
     /**
      
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      
      */
-    std::string name;
+    ::bright::String name;
 
     static constexpr int ID = -1154609646;
 
@@ -9221,7 +9221,7 @@ class DefineFromExcel : public  bright::CfgBean
 
     }
 
-    DefineFromExcel(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, std::shared_ptr<test::DemoDynamic> x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9 ) 
+    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9245,7 +9245,7 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      id的描述
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      字段的描述
      */
@@ -9253,20 +9253,20 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    int64_t x5;
+    ::bright::int64 x5;
     /**
      
      */
-    float x6;
+    ::bright::float32 x6;
     /**
      
      */
-    int32_t x8;
-    std::shared_ptr<test::DemoPrimitiveTypesTable> x8_Ref;
+    ::bright::int32 x8;
+    ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
     /**
      
      */
-    std::string x10;
+    ::bright::String x10;
     /**
      
      */
@@ -9274,27 +9274,27 @@ class DefineFromExcel : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<test::DemoDynamic> x14;
+    ::bright::SharedPtr<test::DemoDynamic> x14;
     /**
      
      */
-    bright::math::Vector2 v2;
+    ::bright::Vector2 v2;
     /**
      
      */
-    int32_t t1;
+    ::bright::datetime_t t1;
     /**
      
      */
-    std::vector<int32_t> k1;
+    ::bright::Vector<::bright::int32> k1;
     /**
      
      */
-    std::unordered_map<int32_t, int32_t> k8;
+    ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     /**
      
      */
-    std::vector<std::shared_ptr<test::DemoE2>> k9;
+    ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
     static constexpr int ID = 2100429878;
 
@@ -9327,7 +9327,7 @@ class DefineFromExcelOne : public  bright::CfgBean
 
     }
 
-    DefineFromExcelOne(int32_t unlock_equip, int32_t unlock_hero, std::string default_avatar, std::string default_item ) 
+    DefineFromExcelOne(::bright::int32 unlock_equip, ::bright::int32 unlock_hero, ::bright::String default_avatar, ::bright::String default_item ) 
     {
 
         this->unlockEquip = unlock_equip;
@@ -9342,19 +9342,19 @@ class DefineFromExcelOne : public  bright::CfgBean
     /**
      装备解锁等级_描述
      */
-    int32_t unlockEquip;
+    ::bright::int32 unlockEquip;
     /**
      英雄解锁等级
      */
-    int32_t unlockHero;
+    ::bright::int32 unlockHero;
     /**
      默认头像
      */
-    std::string defaultAvatar;
+    ::bright::String defaultAvatar;
     /**
      
      */
-    std::string defaultItem;
+    ::bright::String defaultItem;
 
     static constexpr int ID = 528039504;
 
@@ -9387,7 +9387,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 
     }
 
-    DefineFromExcel2(int32_t id, bool x1, int64_t x5, float x6, int32_t x8, std::string x10, test::ETestQuality x13, std::shared_ptr<test::DemoDynamic> x14, bright::math::Vector2 v2, int32_t t1, std::vector<int32_t> k1, std::unordered_map<int32_t, int32_t> k8, std::vector<std::shared_ptr<test::DemoE2>> k9 ) 
+    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector2 v2, ::bright::datetime_t t1, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
     {
 
         this->id = id;
@@ -9411,7 +9411,7 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      id的描述
      */
-    int32_t id;
+    ::bright::int32 id;
     /**
      字段的描述
      */
@@ -9419,20 +9419,20 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    int64_t x5;
+    ::bright::int64 x5;
     /**
      
      */
-    float x6;
+    ::bright::float32 x6;
     /**
      
      */
-    int32_t x8;
-    std::shared_ptr<test::DemoPrimitiveTypesTable> x8_Ref;
+    ::bright::int32 x8;
+    ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
     /**
      
      */
-    std::string x10;
+    ::bright::String x10;
     /**
      
      */
@@ -9440,27 +9440,27 @@ class DefineFromExcel2 : public  bright::CfgBean
     /**
      
      */
-    std::shared_ptr<test::DemoDynamic> x14;
+    ::bright::SharedPtr<test::DemoDynamic> x14;
     /**
      
      */
-    bright::math::Vector2 v2;
+    ::bright::Vector2 v2;
     /**
      
      */
-    int32_t t1;
+    ::bright::datetime_t t1;
     /**
      
      */
-    std::vector<int32_t> k1;
+    ::bright::Vector<::bright::int32> k1;
     /**
      
      */
-    std::unordered_map<int32_t, int32_t> k8;
+    ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     /**
      
      */
-    std::vector<std::shared_ptr<test::DemoE2>> k9;
+    ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
     static constexpr int ID = 688816828;
 
@@ -9493,7 +9493,7 @@ class TestExcelBean1 : public  bright::CfgBean
 
     }
 
-    TestExcelBean1(int32_t x1, std::string x2, int32_t x3, float x4 ) 
+    TestExcelBean1(::bright::int32 x1, ::bright::String x2, ::bright::int32 x3, ::bright::float32 x4 ) 
     {
 
         this->x1 = x1;
@@ -9508,19 +9508,19 @@ class TestExcelBean1 : public  bright::CfgBean
     /**
      最高品质
      */
-    int32_t x1;
+    ::bright::int32 x1;
     /**
      黑色的
      */
-    std::string x2;
+    ::bright::String x2;
     /**
      蓝色的
      */
-    int32_t x3;
+    ::bright::int32 x3;
     /**
      最差品质
      */
-    float x4;
+    ::bright::float32 x4;
 
     static constexpr int ID = -1738345160;
 
@@ -9542,8 +9542,8 @@ namespace ai {
 class TbBlackboard
 {
     private:
-    std::unordered_map<std::string, std::shared_ptr<ai::Blackboard>> _dataMap;
-    std::vector<std::shared_ptr<ai::Blackboard>> _dataList;
+    std::unordered_map<::bright::String, ::bright::SharedPtr<ai::Blackboard>> _dataMap;
+    std::vector<::bright::SharedPtr<ai::Blackboard>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9552,7 +9552,7 @@ class TbBlackboard
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<ai::Blackboard> _v;
+            ::bright::SharedPtr<ai::Blackboard> _v;
             if(!ai::Blackboard::deserializeBlackboard(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->name] = _v;
@@ -9560,16 +9560,16 @@ class TbBlackboard
         return true;
     }
 
-    const std::unordered_map<std::string, std::shared_ptr<ai::Blackboard>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<ai::Blackboard>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::String, ::bright::SharedPtr<ai::Blackboard>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<ai::Blackboard>>& getDataList() const { return _dataList; }
 
-    ai::Blackboard* getRaw(std::string key)
+    ai::Blackboard* getRaw(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<ai::Blackboard> get(std::string key)
+    ::bright::SharedPtr<ai::Blackboard> get(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9596,8 +9596,8 @@ namespace ai {
 class TbBehaviorTree
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<ai::BehaviorTree>> _dataMap;
-    std::vector<std::shared_ptr<ai::BehaviorTree>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>> _dataMap;
+    std::vector<::bright::SharedPtr<ai::BehaviorTree>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9606,7 +9606,7 @@ class TbBehaviorTree
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<ai::BehaviorTree> _v;
+            ::bright::SharedPtr<ai::BehaviorTree> _v;
             if(!ai::BehaviorTree::deserializeBehaviorTree(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9614,16 +9614,16 @@ class TbBehaviorTree
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<ai::BehaviorTree>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<ai::BehaviorTree>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<ai::BehaviorTree>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<ai::BehaviorTree>>& getDataList() const { return _dataList; }
 
-    ai::BehaviorTree* getRaw(int32_t key)
+    ai::BehaviorTree* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<ai::BehaviorTree> get(int32_t key)
+    ::bright::SharedPtr<ai::BehaviorTree> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9650,8 +9650,8 @@ namespace blueprint {
 class TbClazz
 {
     private:
-    std::unordered_map<std::string, std::shared_ptr<blueprint::Clazz>> _dataMap;
-    std::vector<std::shared_ptr<blueprint::Clazz>> _dataList;
+    std::unordered_map<::bright::String, ::bright::SharedPtr<blueprint::Clazz>> _dataMap;
+    std::vector<::bright::SharedPtr<blueprint::Clazz>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9660,7 +9660,7 @@ class TbClazz
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<blueprint::Clazz> _v;
+            ::bright::SharedPtr<blueprint::Clazz> _v;
             if(!blueprint::Clazz::deserializeClazz(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->name] = _v;
@@ -9668,16 +9668,16 @@ class TbClazz
         return true;
     }
 
-    const std::unordered_map<std::string, std::shared_ptr<blueprint::Clazz>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<blueprint::Clazz>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::String, ::bright::SharedPtr<blueprint::Clazz>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<blueprint::Clazz>>& getDataList() const { return _dataList; }
 
-    blueprint::Clazz* getRaw(std::string key)
+    blueprint::Clazz* getRaw(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<blueprint::Clazz> get(std::string key)
+    ::bright::SharedPtr<blueprint::Clazz> get(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9704,8 +9704,8 @@ namespace bonus {
 class TbDrop
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<bonus::DropInfo>> _dataMap;
-    std::vector<std::shared_ptr<bonus::DropInfo>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>> _dataMap;
+    std::vector<::bright::SharedPtr<bonus::DropInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9714,7 +9714,7 @@ class TbDrop
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<bonus::DropInfo> _v;
+            ::bright::SharedPtr<bonus::DropInfo> _v;
             if(!bonus::DropInfo::deserializeDropInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9722,16 +9722,16 @@ class TbDrop
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<bonus::DropInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<bonus::DropInfo>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<bonus::DropInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<bonus::DropInfo>>& getDataList() const { return _dataList; }
 
-    bonus::DropInfo* getRaw(int32_t key)
+    bonus::DropInfo* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<bonus::DropInfo> get(int32_t key)
+    ::bright::SharedPtr<bonus::DropInfo> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9758,10 +9758,10 @@ namespace common {
 class TbGlobalConfig
 {
      private:
-    std::shared_ptr<common::GlobalConfig> _data;
+    ::bright::SharedPtr<common::GlobalConfig> _data;
 
     public:
-    std::shared_ptr<common::GlobalConfig> data() const { return _data; }
+    ::bright::SharedPtr<common::GlobalConfig> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -9780,87 +9780,87 @@ class TbGlobalConfig
     /**
     背包容量
      */
-    int32_t& getBagCapacity() const { return _data->bagCapacity; }
+    ::bright::int32& getBagCapacity() const { return _data->bagCapacity; }
     /**
     
      */
-    int32_t& getBagCapacitySpecial() const { return _data->bagCapacitySpecial; }
+    ::bright::int32& getBagCapacitySpecial() const { return _data->bagCapacitySpecial; }
     /**
     
      */
-    int32_t& getBagTempExpendableCapacity() const { return _data->bagTempExpendableCapacity; }
+    ::bright::int32& getBagTempExpendableCapacity() const { return _data->bagTempExpendableCapacity; }
     /**
     
      */
-    int32_t& getBagTempToolCapacity() const { return _data->bagTempToolCapacity; }
+    ::bright::int32& getBagTempToolCapacity() const { return _data->bagTempToolCapacity; }
     /**
     
      */
-    int32_t& getBagInitCapacity() const { return _data->bagInitCapacity; }
+    ::bright::int32& getBagInitCapacity() const { return _data->bagInitCapacity; }
     /**
     
      */
-    int32_t& getQuickBagCapacity() const { return _data->quickBagCapacity; }
+    ::bright::int32& getQuickBagCapacity() const { return _data->quickBagCapacity; }
     /**
     
      */
-    int32_t& getClothBagCapacity() const { return _data->clothBagCapacity; }
+    ::bright::int32& getClothBagCapacity() const { return _data->clothBagCapacity; }
     /**
     
      */
-    int32_t& getClothBagInitCapacity() const { return _data->clothBagInitCapacity; }
+    ::bright::int32& getClothBagInitCapacity() const { return _data->clothBagInitCapacity; }
     /**
     
      */
-    int32_t& getClothBagCapacitySpecial() const { return _data->clothBagCapacitySpecial; }
+    ::bright::int32& getClothBagCapacitySpecial() const { return _data->clothBagCapacitySpecial; }
     /**
     
      */
-    std::shared_ptr<int32_t>& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
+    ::bright::SharedPtr<::bright::int32>& getBagInitItemsDropId() const { return _data->bagInitItemsDropId; }
     /**
     
      */
-    int32_t& getMailBoxCapacity() const { return _data->mailBoxCapacity; }
+    ::bright::int32& getMailBoxCapacity() const { return _data->mailBoxCapacity; }
     /**
     
      */
-    float& getDamageParamC() const { return _data->damageParamC; }
+    ::bright::float32& getDamageParamC() const { return _data->damageParamC; }
     /**
     
      */
-    float& getDamageParamE() const { return _data->damageParamE; }
+    ::bright::float32& getDamageParamE() const { return _data->damageParamE; }
     /**
     
      */
-    float& getDamageParamF() const { return _data->damageParamF; }
+    ::bright::float32& getDamageParamF() const { return _data->damageParamF; }
     /**
     
      */
-    float& getDamageParamD() const { return _data->damageParamD; }
+    ::bright::float32& getDamageParamD() const { return _data->damageParamD; }
     /**
     
      */
-    float& getRoleSpeed() const { return _data->roleSpeed; }
+    ::bright::float32& getRoleSpeed() const { return _data->roleSpeed; }
     /**
     
      */
-    float& getMonsterSpeed() const { return _data->monsterSpeed; }
+    ::bright::float32& getMonsterSpeed() const { return _data->monsterSpeed; }
     /**
     
      */
-    int32_t& getInitEnergy() const { return _data->initEnergy; }
+    ::bright::int32& getInitEnergy() const { return _data->initEnergy; }
     /**
     
      */
-    int32_t& getInitViality() const { return _data->initViality; }
+    ::bright::int32& getInitViality() const { return _data->initViality; }
     /**
     
      */
-    int32_t& getMaxViality() const { return _data->maxViality; }
+    ::bright::int32& getMaxViality() const { return _data->maxViality; }
     /**
     
      */
-    int32_t& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
+    ::bright::int32& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
 };
 }
 
@@ -9874,8 +9874,8 @@ namespace common {
 class TbDummy
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<common::Dummy>> _dataMap;
-    std::vector<std::shared_ptr<common::Dummy>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<common::Dummy>> _dataMap;
+    std::vector<::bright::SharedPtr<common::Dummy>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9884,7 +9884,7 @@ class TbDummy
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<common::Dummy> _v;
+            ::bright::SharedPtr<common::Dummy> _v;
             if(!common::Dummy::deserializeDummy(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -9892,16 +9892,16 @@ class TbDummy
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<common::Dummy>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<common::Dummy>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<common::Dummy>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<common::Dummy>>& getDataList() const { return _dataList; }
 
-    common::Dummy* getRaw(int32_t key)
+    common::Dummy* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<common::Dummy> get(int32_t key)
+    ::bright::SharedPtr<common::Dummy> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9928,8 +9928,8 @@ namespace error {
 class TbErrorInfo
 {
     private:
-    std::unordered_map<std::string, std::shared_ptr<error::ErrorInfo>> _dataMap;
-    std::vector<std::shared_ptr<error::ErrorInfo>> _dataList;
+    std::unordered_map<::bright::String, ::bright::SharedPtr<error::ErrorInfo>> _dataMap;
+    std::vector<::bright::SharedPtr<error::ErrorInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9938,7 +9938,7 @@ class TbErrorInfo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<error::ErrorInfo> _v;
+            ::bright::SharedPtr<error::ErrorInfo> _v;
             if(!error::ErrorInfo::deserializeErrorInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->code] = _v;
@@ -9946,16 +9946,16 @@ class TbErrorInfo
         return true;
     }
 
-    const std::unordered_map<std::string, std::shared_ptr<error::ErrorInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<error::ErrorInfo>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::String, ::bright::SharedPtr<error::ErrorInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<error::ErrorInfo>>& getDataList() const { return _dataList; }
 
-    error::ErrorInfo* getRaw(std::string key)
+    error::ErrorInfo* getRaw(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<error::ErrorInfo> get(std::string key)
+    ::bright::SharedPtr<error::ErrorInfo> get(::bright::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -9982,8 +9982,8 @@ namespace error {
 class TbCodeInfo
 {
     private:
-    std::unordered_map<error::EErrorCode, std::shared_ptr<error::CodeInfo>> _dataMap;
-    std::vector<std::shared_ptr<error::CodeInfo>> _dataList;
+    std::unordered_map<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>> _dataMap;
+    std::vector<::bright::SharedPtr<error::CodeInfo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -9992,7 +9992,7 @@ class TbCodeInfo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<error::CodeInfo> _v;
+            ::bright::SharedPtr<error::CodeInfo> _v;
             if(!error::CodeInfo::deserializeCodeInfo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->code] = _v;
@@ -10000,8 +10000,8 @@ class TbCodeInfo
         return true;
     }
 
-    const std::unordered_map<error::EErrorCode, std::shared_ptr<error::CodeInfo>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<error::CodeInfo>>& getDataList() const { return _dataList; }
+    const std::unordered_map<error::EErrorCode, ::bright::SharedPtr<error::CodeInfo>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<error::CodeInfo>>& getDataList() const { return _dataList; }
 
     error::CodeInfo* getRaw(error::EErrorCode key)
     { 
@@ -10009,7 +10009,7 @@ class TbCodeInfo
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<error::CodeInfo> get(error::EErrorCode key)
+    ::bright::SharedPtr<error::CodeInfo> get(error::EErrorCode key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10036,8 +10036,8 @@ namespace item {
 class TbItem
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<item::Item>> _dataMap;
-    std::vector<std::shared_ptr<item::Item>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<item::Item>> _dataMap;
+    std::vector<::bright::SharedPtr<item::Item>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10046,7 +10046,7 @@ class TbItem
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<item::Item> _v;
+            ::bright::SharedPtr<item::Item> _v;
             if(!item::Item::deserializeItem(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10054,16 +10054,16 @@ class TbItem
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<item::Item>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<item::Item>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<item::Item>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<item::Item>>& getDataList() const { return _dataList; }
 
-    item::Item* getRaw(int32_t key)
+    item::Item* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<item::Item> get(int32_t key)
+    ::bright::SharedPtr<item::Item> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10090,8 +10090,8 @@ namespace item {
 class TbItemFunc
 {
     private:
-    std::unordered_map<item::EMinorType, std::shared_ptr<item::ItemFunction>> _dataMap;
-    std::vector<std::shared_ptr<item::ItemFunction>> _dataList;
+    std::unordered_map<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>> _dataMap;
+    std::vector<::bright::SharedPtr<item::ItemFunction>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10100,7 +10100,7 @@ class TbItemFunc
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<item::ItemFunction> _v;
+            ::bright::SharedPtr<item::ItemFunction> _v;
             if(!item::ItemFunction::deserializeItemFunction(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->minorType] = _v;
@@ -10108,8 +10108,8 @@ class TbItemFunc
         return true;
     }
 
-    const std::unordered_map<item::EMinorType, std::shared_ptr<item::ItemFunction>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<item::ItemFunction>>& getDataList() const { return _dataList; }
+    const std::unordered_map<item::EMinorType, ::bright::SharedPtr<item::ItemFunction>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<item::ItemFunction>>& getDataList() const { return _dataList; }
 
     item::ItemFunction* getRaw(item::EMinorType key)
     { 
@@ -10117,7 +10117,7 @@ class TbItemFunc
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<item::ItemFunction> get(item::EMinorType key)
+    ::bright::SharedPtr<item::ItemFunction> get(item::EMinorType key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10144,8 +10144,8 @@ namespace item {
 class TbItemExtra
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<item::ItemExtra>> _dataMap;
-    std::vector<std::shared_ptr<item::ItemExtra>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<item::ItemExtra>> _dataMap;
+    std::vector<::bright::SharedPtr<item::ItemExtra>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10154,7 +10154,7 @@ class TbItemExtra
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<item::ItemExtra> _v;
+            ::bright::SharedPtr<item::ItemExtra> _v;
             if(!item::ItemExtra::deserializeItemExtra(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10162,16 +10162,16 @@ class TbItemExtra
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<item::ItemExtra>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<item::ItemExtra>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<item::ItemExtra>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<item::ItemExtra>>& getDataList() const { return _dataList; }
 
-    item::ItemExtra* getRaw(int32_t key)
+    item::ItemExtra* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<item::ItemExtra> get(int32_t key)
+    ::bright::SharedPtr<item::ItemExtra> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10198,8 +10198,8 @@ namespace l10n {
 class TbL10NDemo
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<l10n::L10NDemo>> _dataMap;
-    std::vector<std::shared_ptr<l10n::L10NDemo>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>> _dataMap;
+    std::vector<::bright::SharedPtr<l10n::L10NDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10208,7 +10208,7 @@ class TbL10NDemo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<l10n::L10NDemo> _v;
+            ::bright::SharedPtr<l10n::L10NDemo> _v;
             if(!l10n::L10NDemo::deserializeL10NDemo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10216,16 +10216,16 @@ class TbL10NDemo
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<l10n::L10NDemo>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<l10n::L10NDemo>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::L10NDemo>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<l10n::L10NDemo>>& getDataList() const { return _dataList; }
 
-    l10n::L10NDemo* getRaw(int32_t key)
+    l10n::L10NDemo* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<l10n::L10NDemo> get(int32_t key)
+    ::bright::SharedPtr<l10n::L10NDemo> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10252,8 +10252,8 @@ namespace l10n {
 class TbPatchDemo
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<l10n::PatchDemo>> _dataMap;
-    std::vector<std::shared_ptr<l10n::PatchDemo>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>> _dataMap;
+    std::vector<::bright::SharedPtr<l10n::PatchDemo>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10262,7 +10262,7 @@ class TbPatchDemo
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<l10n::PatchDemo> _v;
+            ::bright::SharedPtr<l10n::PatchDemo> _v;
             if(!l10n::PatchDemo::deserializePatchDemo(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10270,16 +10270,16 @@ class TbPatchDemo
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<l10n::PatchDemo>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<l10n::PatchDemo>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<l10n::PatchDemo>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<l10n::PatchDemo>>& getDataList() const { return _dataList; }
 
-    l10n::PatchDemo* getRaw(int32_t key)
+    l10n::PatchDemo* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<l10n::PatchDemo> get(int32_t key)
+    ::bright::SharedPtr<l10n::PatchDemo> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10306,8 +10306,8 @@ namespace mail {
 class TbSystemMail
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<mail::SystemMail>> _dataMap;
-    std::vector<std::shared_ptr<mail::SystemMail>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::SystemMail>> _dataMap;
+    std::vector<::bright::SharedPtr<mail::SystemMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10316,7 +10316,7 @@ class TbSystemMail
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<mail::SystemMail> _v;
+            ::bright::SharedPtr<mail::SystemMail> _v;
             if(!mail::SystemMail::deserializeSystemMail(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10324,16 +10324,16 @@ class TbSystemMail
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<mail::SystemMail>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<mail::SystemMail>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::SystemMail>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<mail::SystemMail>>& getDataList() const { return _dataList; }
 
-    mail::SystemMail* getRaw(int32_t key)
+    mail::SystemMail* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<mail::SystemMail> get(int32_t key)
+    ::bright::SharedPtr<mail::SystemMail> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10360,8 +10360,8 @@ namespace mail {
 class TbGlobalMail
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<mail::GlobalMail>> _dataMap;
-    std::vector<std::shared_ptr<mail::GlobalMail>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>> _dataMap;
+    std::vector<::bright::SharedPtr<mail::GlobalMail>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10370,7 +10370,7 @@ class TbGlobalMail
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<mail::GlobalMail> _v;
+            ::bright::SharedPtr<mail::GlobalMail> _v;
             if(!mail::GlobalMail::deserializeGlobalMail(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10378,16 +10378,16 @@ class TbGlobalMail
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<mail::GlobalMail>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<mail::GlobalMail>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<mail::GlobalMail>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<mail::GlobalMail>>& getDataList() const { return _dataList; }
 
-    mail::GlobalMail* getRaw(int32_t key)
+    mail::GlobalMail* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<mail::GlobalMail> get(int32_t key)
+    ::bright::SharedPtr<mail::GlobalMail> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10414,8 +10414,8 @@ namespace role {
 class TbRoleLevelExpAttr
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<role::LevelExpAttr>> _dataMap;
-    std::vector<std::shared_ptr<role::LevelExpAttr>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>> _dataMap;
+    std::vector<::bright::SharedPtr<role::LevelExpAttr>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10424,7 +10424,7 @@ class TbRoleLevelExpAttr
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<role::LevelExpAttr> _v;
+            ::bright::SharedPtr<role::LevelExpAttr> _v;
             if(!role::LevelExpAttr::deserializeLevelExpAttr(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->level] = _v;
@@ -10432,16 +10432,16 @@ class TbRoleLevelExpAttr
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<role::LevelExpAttr>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<role::LevelExpAttr>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelExpAttr>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<role::LevelExpAttr>>& getDataList() const { return _dataList; }
 
-    role::LevelExpAttr* getRaw(int32_t key)
+    role::LevelExpAttr* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<role::LevelExpAttr> get(int32_t key)
+    ::bright::SharedPtr<role::LevelExpAttr> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10468,8 +10468,8 @@ namespace role {
 class TbRoleLevelBonusCoefficient
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<role::LevelBonus>> _dataMap;
-    std::vector<std::shared_ptr<role::LevelBonus>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelBonus>> _dataMap;
+    std::vector<::bright::SharedPtr<role::LevelBonus>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10478,7 +10478,7 @@ class TbRoleLevelBonusCoefficient
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<role::LevelBonus> _v;
+            ::bright::SharedPtr<role::LevelBonus> _v;
             if(!role::LevelBonus::deserializeLevelBonus(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10486,16 +10486,16 @@ class TbRoleLevelBonusCoefficient
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<role::LevelBonus>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<role::LevelBonus>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<role::LevelBonus>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<role::LevelBonus>>& getDataList() const { return _dataList; }
 
-    role::LevelBonus* getRaw(int32_t key)
+    role::LevelBonus* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<role::LevelBonus> get(int32_t key)
+    ::bright::SharedPtr<role::LevelBonus> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10522,8 +10522,8 @@ namespace tag {
 class TbTestTag
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<tag::TestTag>> _dataMap;
-    std::vector<std::shared_ptr<tag::TestTag>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<tag::TestTag>> _dataMap;
+    std::vector<::bright::SharedPtr<tag::TestTag>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10532,7 +10532,7 @@ class TbTestTag
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<tag::TestTag> _v;
+            ::bright::SharedPtr<tag::TestTag> _v;
             if(!tag::TestTag::deserializeTestTag(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10540,16 +10540,16 @@ class TbTestTag
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<tag::TestTag>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<tag::TestTag>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<tag::TestTag>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<tag::TestTag>>& getDataList() const { return _dataList; }
 
-    tag::TestTag* getRaw(int32_t key)
+    tag::TestTag* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<tag::TestTag> get(int32_t key)
+    ::bright::SharedPtr<tag::TestTag> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10576,8 +10576,8 @@ namespace test {
 class TbFullTypes
 {
     private:
-    std::unordered_map<int16_t, std::shared_ptr<test::DemoType2>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
+    std::unordered_map<::bright::int16, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10586,7 +10586,7 @@ class TbFullTypes
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoType2> _v;
+            ::bright::SharedPtr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x3] = _v;
@@ -10594,16 +10594,16 @@ class TbFullTypes
         return true;
     }
 
-    const std::unordered_map<int16_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int16, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* getRaw(int16_t key)
+    test::DemoType2* getRaw(::bright::int16 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoType2> get(int16_t key)
+    ::bright::SharedPtr<test::DemoType2> get(::bright::int16 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10630,10 +10630,10 @@ namespace test {
 class TbSingleton
 {
      private:
-    std::shared_ptr<test::DemoSingletonType> _data;
+    ::bright::SharedPtr<test::DemoSingletonType> _data;
 
     public:
-    std::shared_ptr<test::DemoSingletonType> data() const { return _data; }
+    ::bright::SharedPtr<test::DemoSingletonType> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -10652,15 +10652,15 @@ class TbSingleton
     /**
     
      */
-    int32_t& getId() const { return _data->id; }
+    ::bright::int32& getId() const { return _data->id; }
     /**
     
      */
-    std::string& getName() const { return _data->name; }
+    ::bright::String& getName() const { return _data->name; }
     /**
     
      */
-    std::shared_ptr<test::DemoDynamic>& getDate() const { return _data->date; }
+    ::bright::SharedPtr<test::DemoDynamic>& getDate() const { return _data->date; }
 };
 }
 
@@ -10674,8 +10674,8 @@ namespace test {
 class TbDataFromJson
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10684,7 +10684,7 @@ class TbDataFromJson
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoType2> _v;
+            ::bright::SharedPtr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10692,16 +10692,16 @@ class TbDataFromJson
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* getRaw(int32_t key)
+    test::DemoType2* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoType2> get(int32_t key)
+    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10728,8 +10728,8 @@ namespace test {
 class TbDataFromXml
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10738,7 +10738,7 @@ class TbDataFromXml
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoType2> _v;
+            ::bright::SharedPtr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10746,16 +10746,16 @@ class TbDataFromXml
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* getRaw(int32_t key)
+    test::DemoType2* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoType2> get(int32_t key)
+    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10782,8 +10782,8 @@ namespace test {
 class TbDataFromLua
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoType2>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10792,7 +10792,7 @@ class TbDataFromLua
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoType2> _v;
+            ::bright::SharedPtr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -10800,16 +10800,16 @@ class TbDataFromLua
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoType2>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoType2>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* getRaw(int32_t key)
+    test::DemoType2* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoType2> get(int32_t key)
+    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10836,8 +10836,8 @@ namespace test {
 class TbMultiRowRecord
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowRecord>> _dataMap;
-    std::vector<std::shared_ptr<test::MultiRowRecord>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>> _dataMap;
+    std::vector<::bright::SharedPtr<test::MultiRowRecord>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10846,7 +10846,7 @@ class TbMultiRowRecord
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::MultiRowRecord> _v;
+            ::bright::SharedPtr<test::MultiRowRecord> _v;
             if(!test::MultiRowRecord::deserializeMultiRowRecord(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10854,16 +10854,16 @@ class TbMultiRowRecord
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::MultiRowRecord>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::MultiRowRecord>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowRecord>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::MultiRowRecord>>& getDataList() const { return _dataList; }
 
-    test::MultiRowRecord* getRaw(int32_t key)
+    test::MultiRowRecord* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::MultiRowRecord> get(int32_t key)
+    ::bright::SharedPtr<test::MultiRowRecord> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10890,8 +10890,8 @@ namespace test {
 class TbMultiRowTitle
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::MultiRowTitle>> _dataMap;
-    std::vector<std::shared_ptr<test::MultiRowTitle>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>> _dataMap;
+    std::vector<::bright::SharedPtr<test::MultiRowTitle>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10900,7 +10900,7 @@ class TbMultiRowTitle
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::MultiRowTitle> _v;
+            ::bright::SharedPtr<test::MultiRowTitle> _v;
             if(!test::MultiRowTitle::deserializeMultiRowTitle(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10908,16 +10908,16 @@ class TbMultiRowTitle
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::MultiRowTitle>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::MultiRowTitle>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::MultiRowTitle>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::MultiRowTitle>>& getDataList() const { return _dataList; }
 
-    test::MultiRowTitle* getRaw(int32_t key)
+    test::MultiRowTitle* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::MultiRowTitle> get(int32_t key)
+    ::bright::SharedPtr<test::MultiRowTitle> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10944,8 +10944,8 @@ namespace test {
 class TbTestNull
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::TestNull>> _dataMap;
-    std::vector<std::shared_ptr<test::TestNull>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestNull>> _dataMap;
+    std::vector<::bright::SharedPtr<test::TestNull>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -10954,7 +10954,7 @@ class TbTestNull
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::TestNull> _v;
+            ::bright::SharedPtr<test::TestNull> _v;
             if(!test::TestNull::deserializeTestNull(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -10962,16 +10962,16 @@ class TbTestNull
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::TestNull>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::TestNull>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestNull>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::TestNull>>& getDataList() const { return _dataList; }
 
-    test::TestNull* getRaw(int32_t key)
+    test::TestNull* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::TestNull> get(int32_t key)
+    ::bright::SharedPtr<test::TestNull> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -10998,8 +10998,8 @@ namespace test {
 class TbDemoPrimitive
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoPrimitiveTypesTable>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoPrimitiveTypesTable>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11008,7 +11008,7 @@ class TbDemoPrimitive
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoPrimitiveTypesTable> _v;
+            ::bright::SharedPtr<test::DemoPrimitiveTypesTable> _v;
             if(!test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x4] = _v;
@@ -11016,16 +11016,16 @@ class TbDemoPrimitive
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoPrimitiveTypesTable>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoPrimitiveTypesTable>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoPrimitiveTypesTable>>& getDataList() const { return _dataList; }
 
-    test::DemoPrimitiveTypesTable* getRaw(int32_t key)
+    test::DemoPrimitiveTypesTable* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoPrimitiveTypesTable> get(int32_t key)
+    ::bright::SharedPtr<test::DemoPrimitiveTypesTable> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11052,8 +11052,8 @@ namespace test {
 class TbTestString
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::TestString>> _dataMap;
-    std::vector<std::shared_ptr<test::TestString>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestString>> _dataMap;
+    std::vector<::bright::SharedPtr<test::TestString>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11062,7 +11062,7 @@ class TbTestString
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::TestString> _v;
+            ::bright::SharedPtr<test::TestString> _v;
             if(!test::TestString::deserializeTestString(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11070,16 +11070,16 @@ class TbTestString
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::TestString>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::TestString>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestString>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::TestString>>& getDataList() const { return _dataList; }
 
-    test::TestString* getRaw(int32_t key)
+    test::TestString* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::TestString> get(int32_t key)
+    ::bright::SharedPtr<test::TestString> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11106,8 +11106,8 @@ namespace test {
 class TbDemoGroup
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11116,7 +11116,7 @@ class TbDemoGroup
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoGroup> _v;
+            ::bright::SharedPtr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11124,16 +11124,16 @@ class TbDemoGroup
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* getRaw(int32_t key)
+    test::DemoGroup* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoGroup> get(int32_t key)
+    ::bright::SharedPtr<test::DemoGroup> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11160,8 +11160,8 @@ namespace test {
 class TbDemoGroup_C
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11170,7 +11170,7 @@ class TbDemoGroup_C
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoGroup> _v;
+            ::bright::SharedPtr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11178,16 +11178,16 @@ class TbDemoGroup_C
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* getRaw(int32_t key)
+    test::DemoGroup* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoGroup> get(int32_t key)
+    ::bright::SharedPtr<test::DemoGroup> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11214,8 +11214,8 @@ namespace test {
 class TbDemoGroup_S
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11224,7 +11224,7 @@ class TbDemoGroup_S
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoGroup> _v;
+            ::bright::SharedPtr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11232,16 +11232,16 @@ class TbDemoGroup_S
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* getRaw(int32_t key)
+    test::DemoGroup* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoGroup> get(int32_t key)
+    ::bright::SharedPtr<test::DemoGroup> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11268,8 +11268,8 @@ namespace test {
 class TbDemoGroup_E
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11278,7 +11278,7 @@ class TbDemoGroup_E
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoGroup> _v;
+            ::bright::SharedPtr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11286,16 +11286,16 @@ class TbDemoGroup_E
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* getRaw(int32_t key)
+    test::DemoGroup* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoGroup> get(int32_t key)
+    ::bright::SharedPtr<test::DemoGroup> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11322,10 +11322,10 @@ namespace test {
 class TbTestGlobal
 {
      private:
-    std::shared_ptr<test::TestGlobal> _data;
+    ::bright::SharedPtr<test::TestGlobal> _data;
 
     public:
-    std::shared_ptr<test::TestGlobal> data() const { return _data; }
+    ::bright::SharedPtr<test::TestGlobal> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -11344,11 +11344,11 @@ class TbTestGlobal
     /**
     
      */
-    int32_t& getUnlockEquip() const { return _data->unlockEquip; }
+    ::bright::int32& getUnlockEquip() const { return _data->unlockEquip; }
     /**
     
      */
-    int32_t& getUnlockHero() const { return _data->unlockHero; }
+    ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
 };
 }
 
@@ -11362,8 +11362,8 @@ namespace test {
 class TbDetectCsvEncoding
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DetectEncoding>> _dataMap;
-    std::vector<std::shared_ptr<test::DetectEncoding>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DetectEncoding>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11372,7 +11372,7 @@ class TbDetectCsvEncoding
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DetectEncoding> _v;
+            ::bright::SharedPtr<test::DetectEncoding> _v;
             if(!test::DetectEncoding::deserializeDetectEncoding(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11380,16 +11380,16 @@ class TbDetectCsvEncoding
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DetectEncoding>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DetectEncoding>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DetectEncoding>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DetectEncoding>>& getDataList() const { return _dataList; }
 
-    test::DetectEncoding* getRaw(int32_t key)
+    test::DetectEncoding* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DetectEncoding> get(int32_t key)
+    ::bright::SharedPtr<test::DetectEncoding> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11416,8 +11416,8 @@ namespace test {
 class TbDefineFromExcel
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel>> _dataMap;
-    std::vector<std::shared_ptr<test::DefineFromExcel>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DefineFromExcel>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11426,7 +11426,7 @@ class TbDefineFromExcel
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DefineFromExcel> _v;
+            ::bright::SharedPtr<test::DefineFromExcel> _v;
             if(!test::DefineFromExcel::deserializeDefineFromExcel(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11434,16 +11434,16 @@ class TbDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DefineFromExcel>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DefineFromExcel>>& getDataList() const { return _dataList; }
 
-    test::DefineFromExcel* getRaw(int32_t key)
+    test::DefineFromExcel* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DefineFromExcel> get(int32_t key)
+    ::bright::SharedPtr<test::DefineFromExcel> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11470,10 +11470,10 @@ namespace test {
 class TbDefineFromExcelOne
 {
      private:
-    std::shared_ptr<test::DefineFromExcelOne> _data;
+    ::bright::SharedPtr<test::DefineFromExcelOne> _data;
 
     public:
-    std::shared_ptr<test::DefineFromExcelOne> data() const { return _data; }
+    ::bright::SharedPtr<test::DefineFromExcelOne> data() const { return _data; }
 
     bool load(ByteBuf& _buf)
     {
@@ -11492,19 +11492,19 @@ class TbDefineFromExcelOne
     /**
     装备解锁等级_描述
      */
-    int32_t& getUnlockEquip() const { return _data->unlockEquip; }
+    ::bright::int32& getUnlockEquip() const { return _data->unlockEquip; }
     /**
     英雄解锁等级
      */
-    int32_t& getUnlockHero() const { return _data->unlockHero; }
+    ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
     /**
     默认头像
      */
-    std::string& getDefaultAvatar() const { return _data->defaultAvatar; }
+    ::bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
     /**
     
      */
-    std::string& getDefaultItem() const { return _data->defaultItem; }
+    ::bright::String& getDefaultItem() const { return _data->defaultItem; }
 };
 }
 
@@ -11518,8 +11518,8 @@ namespace test {
 class TbDemoGroupDefineFromExcel
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>> _dataMap;
-    std::vector<std::shared_ptr<test::DemoGroup>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DemoGroup>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11528,7 +11528,7 @@ class TbDemoGroupDefineFromExcel
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DemoGroup> _v;
+            ::bright::SharedPtr<test::DemoGroup> _v;
             if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11536,16 +11536,16 @@ class TbDemoGroupDefineFromExcel
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DemoGroup>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
 
-    test::DemoGroup* getRaw(int32_t key)
+    test::DemoGroup* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DemoGroup> get(int32_t key)
+    ::bright::SharedPtr<test::DemoGroup> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11572,8 +11572,8 @@ namespace test {
 class TbDefineFromExcel2
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel2>> _dataMap;
-    std::vector<std::shared_ptr<test::DefineFromExcel2>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>> _dataMap;
+    std::vector<::bright::SharedPtr<test::DefineFromExcel2>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11582,7 +11582,7 @@ class TbDefineFromExcel2
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::DefineFromExcel2> _v;
+            ::bright::SharedPtr<test::DefineFromExcel2> _v;
             if(!test::DefineFromExcel2::deserializeDefineFromExcel2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
@@ -11590,16 +11590,16 @@ class TbDefineFromExcel2
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::DefineFromExcel2>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::DefineFromExcel2>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::DefineFromExcel2>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::DefineFromExcel2>>& getDataList() const { return _dataList; }
 
-    test::DefineFromExcel2* getRaw(int32_t key)
+    test::DefineFromExcel2* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::DefineFromExcel2> get(int32_t key)
+    ::bright::SharedPtr<test::DefineFromExcel2> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -11626,8 +11626,8 @@ namespace test {
 class TbTestExcelBean
 {
     private:
-    std::unordered_map<int32_t, std::shared_ptr<test::TestExcelBean1>> _dataMap;
-    std::vector<std::shared_ptr<test::TestExcelBean1>> _dataList;
+    std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>> _dataMap;
+    std::vector<::bright::SharedPtr<test::TestExcelBean1>> _dataList;
     
     public:
     bool load(ByteBuf& _buf)
@@ -11636,7 +11636,7 @@ class TbTestExcelBean
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            std::shared_ptr<test::TestExcelBean1> _v;
+            ::bright::SharedPtr<test::TestExcelBean1> _v;
             if(!test::TestExcelBean1::deserializeTestExcelBean1(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->x1] = _v;
@@ -11644,16 +11644,16 @@ class TbTestExcelBean
         return true;
     }
 
-    const std::unordered_map<int32_t, std::shared_ptr<test::TestExcelBean1>>& getDataMap() const { return _dataMap; }
-    const std::vector<std::shared_ptr<test::TestExcelBean1>>& getDataList() const { return _dataList; }
+    const std::unordered_map<::bright::int32, ::bright::SharedPtr<test::TestExcelBean1>>& getDataMap() const { return _dataMap; }
+    const std::vector<::bright::SharedPtr<test::TestExcelBean1>>& getDataList() const { return _dataList; }
 
-    test::TestExcelBean1* getRaw(int32_t key)
+    test::TestExcelBean1* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    std::shared_ptr<test::TestExcelBean1> get(int32_t key)
+    ::bright::SharedPtr<test::TestExcelBean1> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;

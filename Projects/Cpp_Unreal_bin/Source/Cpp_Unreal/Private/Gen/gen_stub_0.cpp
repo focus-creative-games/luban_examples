@@ -21,22 +21,21 @@ namespace cfg
         if(!_buf.readString(name)) return false;
         if(!_buf.readString(desc)) return false;
         if(!_buf.readString(parentName)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); keys.reserve(n);for(int i = 0 ; i < n ; i++) { ai::BlackboardKey* _e;  if(!ai::BlackboardKey::deserializeBlackboardKey(_buf, _e)) return false; keys.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); keys.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::BlackboardKey> _e;  if(!ai::BlackboardKey::deserializeBlackboardKey(_buf, _e)) return false; keys.push_back(_e);}}
 
         return true;
     }
 
-    bool ai::Blackboard::deserializeBlackboard(ByteBuf& _buf, ai::Blackboard*& _out)
+    bool ai::Blackboard::deserializeBlackboard(ByteBuf& _buf, std::shared_ptr<ai::Blackboard>& _out)
     {
-        _out = new ai::Blackboard();
+        _out.reset(new ai::Blackboard());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -59,17 +58,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::BlackboardKey::deserializeBlackboardKey(ByteBuf& _buf, ai::BlackboardKey*& _out)
+    bool ai::BlackboardKey::deserializeBlackboardKey(ByteBuf& _buf, std::shared_ptr<ai::BlackboardKey>& _out)
     {
-        _out = new ai::BlackboardKey();
+        _out.reset(new ai::BlackboardKey());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -90,17 +88,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::BehaviorTree::deserializeBehaviorTree(ByteBuf& _buf, ai::BehaviorTree*& _out)
+    bool ai::BehaviorTree::deserializeBehaviorTree(ByteBuf& _buf, std::shared_ptr<ai::BehaviorTree>& _out)
     {
-        _out = new ai::BehaviorTree();
+        _out.reset(new ai::BehaviorTree());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -120,35 +117,35 @@ namespace cfg
         return true;
     }
 
-    bool ai::Node::deserializeNode(ByteBuf& _buf, ai::Node*& _out)
+    bool ai::Node::deserializeNode(ByteBuf& _buf, std::shared_ptr<ai::Node>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeSetDefaultFocus::ID: { _out = new ai::UeSetDefaultFocus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ExecuteTimeStatistic::ID: { _out = new ai::ExecuteTimeStatistic(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ChooseTarget::ID: { _out = new ai::ChooseTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::KeepFaceTarget::ID: { _out = new ai::KeepFaceTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::GetOwnerPlayer::ID: { _out = new ai::GetOwnerPlayer(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UpdateDailyBehaviorProps::ID: { _out = new ai::UpdateDailyBehaviorProps(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeLoop::ID: { _out = new ai::UeLoop(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeCooldown::ID: { _out = new ai::UeCooldown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeTimeLimit::ID: { _out = new ai::UeTimeLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeBlackboard::ID: { _out = new ai::UeBlackboard(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeForceSuccess::ID: { _out = new ai::UeForceSuccess(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::IsAtLocation::ID: { _out = new ai::IsAtLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::DistanceLessThan::ID: { _out = new ai::DistanceLessThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::Sequence::ID: { _out = new ai::Sequence(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::Selector::ID: { _out = new ai::Selector(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::SimpleParallel::ID: { _out = new ai::SimpleParallel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeWait::ID: { _out = new ai::UeWait(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out = new ai::UeWaitBlackboardTime(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToTarget::ID: { _out = new ai::MoveToTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ChooseSkill::ID: { _out = new ai::ChooseSkill(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToRandomLocation::ID: { _out = new ai::MoveToRandomLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToLocation::ID: { _out = new ai::MoveToLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::UeSetDefaultFocus::ID: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ExecuteTimeStatistic::ID: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseTarget::ID: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::KeepFaceTarget::ID: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::GetOwnerPlayer::ID: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UpdateDailyBehaviorProps::ID: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeLoop::ID: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeCooldown::ID: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeTimeLimit::ID: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeBlackboard::ID: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeForceSuccess::ID: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsAtLocation::ID: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DistanceLessThan::ID: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -168,18 +165,18 @@ namespace cfg
         return true;
     }
 
-    bool ai::Service::deserializeService(ByteBuf& _buf, ai::Service*& _out)
+    bool ai::Service::deserializeService(ByteBuf& _buf, std::shared_ptr<ai::Service>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeSetDefaultFocus::ID: { _out = new ai::UeSetDefaultFocus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ExecuteTimeStatistic::ID: { _out = new ai::ExecuteTimeStatistic(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ChooseTarget::ID: { _out = new ai::ChooseTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::KeepFaceTarget::ID: { _out = new ai::KeepFaceTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::GetOwnerPlayer::ID: { _out = new ai::GetOwnerPlayer(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UpdateDailyBehaviorProps::ID: { _out = new ai::UpdateDailyBehaviorProps(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::UeSetDefaultFocus::ID: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ExecuteTimeStatistic::ID: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseTarget::ID: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::KeepFaceTarget::ID: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::GetOwnerPlayer::ID: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UpdateDailyBehaviorProps::ID: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -201,17 +198,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeSetDefaultFocus::deserializeUeSetDefaultFocus(ByteBuf& _buf, ai::UeSetDefaultFocus*& _out)
+    bool ai::UeSetDefaultFocus::deserializeUeSetDefaultFocus(ByteBuf& _buf, std::shared_ptr<ai::UeSetDefaultFocus>& _out)
     {
-        _out = new ai::UeSetDefaultFocus();
+        _out.reset(new ai::UeSetDefaultFocus());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -232,17 +228,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::ExecuteTimeStatistic::deserializeExecuteTimeStatistic(ByteBuf& _buf, ai::ExecuteTimeStatistic*& _out)
+    bool ai::ExecuteTimeStatistic::deserializeExecuteTimeStatistic(ByteBuf& _buf, std::shared_ptr<ai::ExecuteTimeStatistic>& _out)
     {
-        _out = new ai::ExecuteTimeStatistic();
+        _out.reset(new ai::ExecuteTimeStatistic());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -264,17 +259,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::ChooseTarget::deserializeChooseTarget(ByteBuf& _buf, ai::ChooseTarget*& _out)
+    bool ai::ChooseTarget::deserializeChooseTarget(ByteBuf& _buf, std::shared_ptr<ai::ChooseTarget>& _out)
     {
-        _out = new ai::ChooseTarget();
+        _out.reset(new ai::ChooseTarget());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -296,17 +290,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::KeepFaceTarget::deserializeKeepFaceTarget(ByteBuf& _buf, ai::KeepFaceTarget*& _out)
+    bool ai::KeepFaceTarget::deserializeKeepFaceTarget(ByteBuf& _buf, std::shared_ptr<ai::KeepFaceTarget>& _out)
     {
-        _out = new ai::KeepFaceTarget();
+        _out.reset(new ai::KeepFaceTarget());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -328,17 +321,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::GetOwnerPlayer::deserializeGetOwnerPlayer(ByteBuf& _buf, ai::GetOwnerPlayer*& _out)
+    bool ai::GetOwnerPlayer::deserializeGetOwnerPlayer(ByteBuf& _buf, std::shared_ptr<ai::GetOwnerPlayer>& _out)
     {
-        _out = new ai::GetOwnerPlayer();
+        _out.reset(new ai::GetOwnerPlayer());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -368,17 +360,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UpdateDailyBehaviorProps::deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, ai::UpdateDailyBehaviorProps*& _out)
+    bool ai::UpdateDailyBehaviorProps::deserializeUpdateDailyBehaviorProps(ByteBuf& _buf, std::shared_ptr<ai::UpdateDailyBehaviorProps>& _out)
     {
-        _out = new ai::UpdateDailyBehaviorProps();
+        _out.reset(new ai::UpdateDailyBehaviorProps());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -400,19 +391,19 @@ namespace cfg
         return true;
     }
 
-    bool ai::Decorator::deserializeDecorator(ByteBuf& _buf, ai::Decorator*& _out)
+    bool ai::Decorator::deserializeDecorator(ByteBuf& _buf, std::shared_ptr<ai::Decorator>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeLoop::ID: { _out = new ai::UeLoop(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeCooldown::ID: { _out = new ai::UeCooldown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeTimeLimit::ID: { _out = new ai::UeTimeLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeBlackboard::ID: { _out = new ai::UeBlackboard(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeForceSuccess::ID: { _out = new ai::UeForceSuccess(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::IsAtLocation::ID: { _out = new ai::IsAtLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::DistanceLessThan::ID: { _out = new ai::DistanceLessThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::UeLoop::ID: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeCooldown::ID: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeTimeLimit::ID: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeBlackboard::ID: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeForceSuccess::ID: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsAtLocation::ID: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DistanceLessThan::ID: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -436,17 +427,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeLoop::deserializeUeLoop(ByteBuf& _buf, ai::UeLoop*& _out)
+    bool ai::UeLoop::deserializeUeLoop(ByteBuf& _buf, std::shared_ptr<ai::UeLoop>& _out)
     {
-        _out = new ai::UeLoop();
+        _out.reset(new ai::UeLoop());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -468,17 +458,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeCooldown::deserializeUeCooldown(ByteBuf& _buf, ai::UeCooldown*& _out)
+    bool ai::UeCooldown::deserializeUeCooldown(ByteBuf& _buf, std::shared_ptr<ai::UeCooldown>& _out)
     {
-        _out = new ai::UeCooldown();
+        _out.reset(new ai::UeCooldown());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -500,17 +489,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeTimeLimit::deserializeUeTimeLimit(ByteBuf& _buf, ai::UeTimeLimit*& _out)
+    bool ai::UeTimeLimit::deserializeUeTimeLimit(ByteBuf& _buf, std::shared_ptr<ai::UeTimeLimit>& _out)
     {
-        _out = new ai::UeTimeLimit();
+        _out.reset(new ai::UeTimeLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -534,17 +522,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeBlackboard::deserializeUeBlackboard(ByteBuf& _buf, ai::UeBlackboard*& _out)
+    bool ai::UeBlackboard::deserializeUeBlackboard(ByteBuf& _buf, std::shared_ptr<ai::UeBlackboard>& _out)
     {
-        _out = new ai::UeBlackboard();
+        _out.reset(new ai::UeBlackboard());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -562,15 +549,15 @@ namespace cfg
         return true;
     }
 
-    bool ai::KeyQueryOperator::deserializeKeyQueryOperator(ByteBuf& _buf, ai::KeyQueryOperator*& _out)
+    bool ai::KeyQueryOperator::deserializeKeyQueryOperator(ByteBuf& _buf, std::shared_ptr<ai::KeyQueryOperator>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::IsSet::ID: { _out = new ai::IsSet(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::IsNotSet::ID: { _out = new ai::IsNotSet(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::BinaryOperator::ID: { _out = new ai::BinaryOperator(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::IsSet::ID: { _out.reset(new ai::IsSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsNotSet::ID: { _out.reset(new ai::IsNotSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::BinaryOperator::ID: { _out.reset(new ai::BinaryOperator()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -590,17 +577,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::IsSet::deserializeIsSet(ByteBuf& _buf, ai::IsSet*& _out)
+    bool ai::IsSet::deserializeIsSet(ByteBuf& _buf, std::shared_ptr<ai::IsSet>& _out)
     {
-        _out = new ai::IsSet();
+        _out.reset(new ai::IsSet());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -621,17 +607,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::IsNotSet::deserializeIsNotSet(ByteBuf& _buf, ai::IsNotSet*& _out)
+    bool ai::IsNotSet::deserializeIsNotSet(ByteBuf& _buf, std::shared_ptr<ai::IsNotSet>& _out)
     {
-        _out = new ai::IsNotSet();
+        _out.reset(new ai::IsNotSet());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -654,17 +639,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::BinaryOperator::deserializeBinaryOperator(ByteBuf& _buf, ai::BinaryOperator*& _out)
+    bool ai::BinaryOperator::deserializeBinaryOperator(ByteBuf& _buf, std::shared_ptr<ai::BinaryOperator>& _out)
     {
-        _out = new ai::BinaryOperator();
+        _out.reset(new ai::BinaryOperator());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -682,16 +666,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::KeyData::deserializeKeyData(ByteBuf& _buf, ai::KeyData*& _out)
+    bool ai::KeyData::deserializeKeyData(ByteBuf& _buf, std::shared_ptr<ai::KeyData>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::FloatKeyData::ID: { _out = new ai::FloatKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::IntKeyData::ID: { _out = new ai::IntKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::StringKeyData::ID: { _out = new ai::StringKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::BlackboardKeyData::ID: { _out = new ai::BlackboardKeyData(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::FloatKeyData::ID: { _out.reset(new ai::FloatKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IntKeyData::ID: { _out.reset(new ai::IntKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::StringKeyData::ID: { _out.reset(new ai::StringKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::BlackboardKeyData::ID: { _out.reset(new ai::BlackboardKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -712,17 +696,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::FloatKeyData::deserializeFloatKeyData(ByteBuf& _buf, ai::FloatKeyData*& _out)
+    bool ai::FloatKeyData::deserializeFloatKeyData(ByteBuf& _buf, std::shared_ptr<ai::FloatKeyData>& _out)
     {
-        _out = new ai::FloatKeyData();
+        _out.reset(new ai::FloatKeyData());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -744,17 +727,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::IntKeyData::deserializeIntKeyData(ByteBuf& _buf, ai::IntKeyData*& _out)
+    bool ai::IntKeyData::deserializeIntKeyData(ByteBuf& _buf, std::shared_ptr<ai::IntKeyData>& _out)
     {
-        _out = new ai::IntKeyData();
+        _out.reset(new ai::IntKeyData());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -776,17 +758,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::StringKeyData::deserializeStringKeyData(ByteBuf& _buf, ai::StringKeyData*& _out)
+    bool ai::StringKeyData::deserializeStringKeyData(ByteBuf& _buf, std::shared_ptr<ai::StringKeyData>& _out)
     {
-        _out = new ai::StringKeyData();
+        _out.reset(new ai::StringKeyData());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -808,17 +789,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::BlackboardKeyData::deserializeBlackboardKeyData(ByteBuf& _buf, ai::BlackboardKeyData*& _out)
+    bool ai::BlackboardKeyData::deserializeBlackboardKeyData(ByteBuf& _buf, std::shared_ptr<ai::BlackboardKeyData>& _out)
     {
-        _out = new ai::BlackboardKeyData();
+        _out.reset(new ai::BlackboardKeyData());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -839,17 +819,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeForceSuccess::deserializeUeForceSuccess(ByteBuf& _buf, ai::UeForceSuccess*& _out)
+    bool ai::UeForceSuccess::deserializeUeForceSuccess(ByteBuf& _buf, std::shared_ptr<ai::UeForceSuccess>& _out)
     {
-        _out = new ai::UeForceSuccess();
+        _out.reset(new ai::UeForceSuccess());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -873,17 +852,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::IsAtLocation::deserializeIsAtLocation(ByteBuf& _buf, ai::IsAtLocation*& _out)
+    bool ai::IsAtLocation::deserializeIsAtLocation(ByteBuf& _buf, std::shared_ptr<ai::IsAtLocation>& _out)
     {
-        _out = new ai::IsAtLocation();
+        _out.reset(new ai::IsAtLocation());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -908,17 +886,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::DistanceLessThan::deserializeDistanceLessThan(ByteBuf& _buf, ai::DistanceLessThan*& _out)
+    bool ai::DistanceLessThan::deserializeDistanceLessThan(ByteBuf& _buf, std::shared_ptr<ai::DistanceLessThan>& _out)
     {
-        _out = new ai::DistanceLessThan();
+        _out.reset(new ai::DistanceLessThan());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -935,28 +912,28 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Decorator* _e;  if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); services.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Service* _e;  if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::Decorator> _e;  if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); services.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::Service> _e;  if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
 
         return true;
     }
 
-    bool ai::FlowNode::deserializeFlowNode(ByteBuf& _buf, ai::FlowNode*& _out)
+    bool ai::FlowNode::deserializeFlowNode(ByteBuf& _buf, std::shared_ptr<ai::FlowNode>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::Sequence::ID: { _out = new ai::Sequence(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::Selector::ID: { _out = new ai::Selector(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::SimpleParallel::ID: { _out = new ai::SimpleParallel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeWait::ID: { _out = new ai::UeWait(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out = new ai::UeWaitBlackboardTime(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToTarget::ID: { _out = new ai::MoveToTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ChooseSkill::ID: { _out = new ai::ChooseSkill(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToRandomLocation::ID: { _out = new ai::MoveToRandomLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToLocation::ID: { _out = new ai::MoveToLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -979,15 +956,15 @@ namespace cfg
         return true;
     }
 
-    bool ai::ComposeNode::deserializeComposeNode(ByteBuf& _buf, ai::ComposeNode*& _out)
+    bool ai::ComposeNode::deserializeComposeNode(ByteBuf& _buf, std::shared_ptr<ai::ComposeNode>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::Sequence::ID: { _out = new ai::Sequence(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::Selector::ID: { _out = new ai::Selector(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::SimpleParallel::ID: { _out = new ai::SimpleParallel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1004,22 +981,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
 
         return true;
     }
 
-    bool ai::Sequence::deserializeSequence(ByteBuf& _buf, ai::Sequence*& _out)
+    bool ai::Sequence::deserializeSequence(ByteBuf& _buf, std::shared_ptr<ai::Sequence>& _out)
     {
-        _out = new ai::Sequence();
+        _out.reset(new ai::Sequence());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1037,22 +1013,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<ai::FlowNode> _e;  if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
 
         return true;
     }
 
-    bool ai::Selector::deserializeSelector(ByteBuf& _buf, ai::Selector*& _out)
+    bool ai::Selector::deserializeSelector(ByteBuf& _buf, std::shared_ptr<ai::Selector>& _out)
     {
-        _out = new ai::Selector();
+        _out.reset(new ai::Selector());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1077,17 +1052,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::SimpleParallel::deserializeSimpleParallel(ByteBuf& _buf, ai::SimpleParallel*& _out)
+    bool ai::SimpleParallel::deserializeSimpleParallel(ByteBuf& _buf, std::shared_ptr<ai::SimpleParallel>& _out)
     {
-        _out = new ai::SimpleParallel();
+        _out.reset(new ai::SimpleParallel());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1111,19 +1085,19 @@ namespace cfg
         return true;
     }
 
-    bool ai::Task::deserializeTask(ByteBuf& _buf, ai::Task*& _out)
+    bool ai::Task::deserializeTask(ByteBuf& _buf, std::shared_ptr<ai::Task>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeWait::ID: { _out = new ai::UeWait(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out = new ai::UeWaitBlackboardTime(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToTarget::ID: { _out = new ai::MoveToTarget(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::ChooseSkill::ID: { _out = new ai::ChooseSkill(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToRandomLocation::ID: { _out = new ai::MoveToRandomLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::MoveToLocation::ID: { _out = new ai::MoveToLocation(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case ai::DebugPrint::ID: { _out = new ai::DebugPrint(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1146,17 +1120,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeWait::deserializeUeWait(ByteBuf& _buf, ai::UeWait*& _out)
+    bool ai::UeWait::deserializeUeWait(ByteBuf& _buf, std::shared_ptr<ai::UeWait>& _out)
     {
-        _out = new ai::UeWait();
+        _out.reset(new ai::UeWait());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1178,17 +1151,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::UeWaitBlackboardTime::deserializeUeWaitBlackboardTime(ByteBuf& _buf, ai::UeWaitBlackboardTime*& _out)
+    bool ai::UeWaitBlackboardTime::deserializeUeWaitBlackboardTime(ByteBuf& _buf, std::shared_ptr<ai::UeWaitBlackboardTime>& _out)
     {
-        _out = new ai::UeWaitBlackboardTime();
+        _out.reset(new ai::UeWaitBlackboardTime());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1211,17 +1183,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::MoveToTarget::deserializeMoveToTarget(ByteBuf& _buf, ai::MoveToTarget*& _out)
+    bool ai::MoveToTarget::deserializeMoveToTarget(ByteBuf& _buf, std::shared_ptr<ai::MoveToTarget>& _out)
     {
-        _out = new ai::MoveToTarget();
+        _out.reset(new ai::MoveToTarget());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1244,17 +1215,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::ChooseSkill::deserializeChooseSkill(ByteBuf& _buf, ai::ChooseSkill*& _out)
+    bool ai::ChooseSkill::deserializeChooseSkill(ByteBuf& _buf, std::shared_ptr<ai::ChooseSkill>& _out)
     {
-        _out = new ai::ChooseSkill();
+        _out.reset(new ai::ChooseSkill());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1277,17 +1247,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::MoveToRandomLocation::deserializeMoveToRandomLocation(ByteBuf& _buf, ai::MoveToRandomLocation*& _out)
+    bool ai::MoveToRandomLocation::deserializeMoveToRandomLocation(ByteBuf& _buf, std::shared_ptr<ai::MoveToRandomLocation>& _out)
     {
-        _out = new ai::MoveToRandomLocation();
+        _out.reset(new ai::MoveToRandomLocation());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1310,17 +1279,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::MoveToLocation::deserializeMoveToLocation(ByteBuf& _buf, ai::MoveToLocation*& _out)
+    bool ai::MoveToLocation::deserializeMoveToLocation(ByteBuf& _buf, std::shared_ptr<ai::MoveToLocation>& _out)
     {
-        _out = new ai::MoveToLocation();
+        _out.reset(new ai::MoveToLocation());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1342,17 +1310,16 @@ namespace cfg
         return true;
     }
 
-    bool ai::DebugPrint::deserializeDebugPrint(ByteBuf& _buf, ai::DebugPrint*& _out)
+    bool ai::DebugPrint::deserializeDebugPrint(ByteBuf& _buf, std::shared_ptr<ai::DebugPrint>& _out)
     {
-        _out = new ai::DebugPrint();
+        _out.reset(new ai::DebugPrint());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1367,21 +1334,21 @@ namespace cfg
 
         if(!_buf.readString(name)) return false;
         if(!_buf.readString(desc)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parents.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::Clazz* _e;  if(!blueprint::Clazz::deserializeClazz(_buf, _e)) return false; parents.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); methods.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::Method* _e;  if(!blueprint::Method::deserializeMethod(_buf, _e)) return false; methods.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); parents.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Clazz> _e;  if(!blueprint::Clazz::deserializeClazz(_buf, _e)) return false; parents.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); methods.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Method> _e;  if(!blueprint::Method::deserializeMethod(_buf, _e)) return false; methods.push_back(_e);}}
 
         return true;
     }
 
-    bool blueprint::Clazz::deserializeClazz(ByteBuf& _buf, blueprint::Clazz*& _out)
+    bool blueprint::Clazz::deserializeClazz(ByteBuf& _buf, std::shared_ptr<blueprint::Clazz>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case blueprint::Interface::ID: { _out = new blueprint::Interface(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case blueprint::NormalClazz::ID: { _out = new blueprint::NormalClazz(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case blueprint::EnumClazz::ID: { _out = new blueprint::EnumClazz(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case blueprint::Interface::ID: { _out.reset(new blueprint::Interface()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::NormalClazz::ID: { _out.reset(new blueprint::NormalClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::EnumClazz::ID: { _out.reset(new blueprint::EnumClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1399,20 +1366,20 @@ namespace cfg
         if(!_buf.readString(desc)) return false;
         if (!_buf.readBool(isStatic)) return false;
         if(!_buf.readString(returnType)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); parameters.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::ParamInfo* _e;  if(!blueprint::ParamInfo::deserializeParamInfo(_buf, _e)) return false; parameters.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); parameters.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::ParamInfo> _e;  if(!blueprint::ParamInfo::deserializeParamInfo(_buf, _e)) return false; parameters.push_back(_e);}}
 
         return true;
     }
 
-    bool blueprint::Method::deserializeMethod(ByteBuf& _buf, blueprint::Method*& _out)
+    bool blueprint::Method::deserializeMethod(ByteBuf& _buf, std::shared_ptr<blueprint::Method>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case blueprint::AbstraceMethod::ID: { _out = new blueprint::AbstraceMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case blueprint::ExternalMethod::ID: { _out = new blueprint::ExternalMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case blueprint::BlueprintMethod::ID: { _out = new blueprint::BlueprintMethod(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case blueprint::AbstraceMethod::ID: { _out.reset(new blueprint::AbstraceMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::ExternalMethod::ID: { _out.reset(new blueprint::ExternalMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::BlueprintMethod::ID: { _out.reset(new blueprint::BlueprintMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1432,17 +1399,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::ParamInfo::deserializeParamInfo(ByteBuf& _buf, blueprint::ParamInfo*& _out)
+    bool blueprint::ParamInfo::deserializeParamInfo(ByteBuf& _buf, std::shared_ptr<blueprint::ParamInfo>& _out)
     {
-        _out = new blueprint::ParamInfo();
+        _out.reset(new blueprint::ParamInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1462,17 +1428,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::AbstraceMethod::deserializeAbstraceMethod(ByteBuf& _buf, blueprint::AbstraceMethod*& _out)
+    bool blueprint::AbstraceMethod::deserializeAbstraceMethod(ByteBuf& _buf, std::shared_ptr<blueprint::AbstraceMethod>& _out)
     {
-        _out = new blueprint::AbstraceMethod();
+        _out.reset(new blueprint::AbstraceMethod());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1493,17 +1458,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::ExternalMethod::deserializeExternalMethod(ByteBuf& _buf, blueprint::ExternalMethod*& _out)
+    bool blueprint::ExternalMethod::deserializeExternalMethod(ByteBuf& _buf, std::shared_ptr<blueprint::ExternalMethod>& _out)
     {
-        _out = new blueprint::ExternalMethod();
+        _out.reset(new blueprint::ExternalMethod());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1524,17 +1488,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::BlueprintMethod::deserializeBlueprintMethod(ByteBuf& _buf, blueprint::BlueprintMethod*& _out)
+    bool blueprint::BlueprintMethod::deserializeBlueprintMethod(ByteBuf& _buf, std::shared_ptr<blueprint::BlueprintMethod>& _out)
     {
-        _out = new blueprint::BlueprintMethod();
+        _out.reset(new blueprint::BlueprintMethod());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1555,17 +1518,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::Interface::deserializeInterface(ByteBuf& _buf, blueprint::Interface*& _out)
+    bool blueprint::Interface::deserializeInterface(ByteBuf& _buf, std::shared_ptr<blueprint::Interface>& _out)
     {
-        _out = new blueprint::Interface();
+        _out.reset(new blueprint::Interface());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1583,22 +1545,21 @@ namespace cfg
         }
 
         if (!_buf.readBool(isAbstract)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); fields.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::Field* _e;  if(!blueprint::Field::deserializeField(_buf, _e)) return false; fields.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); fields.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::Field> _e;  if(!blueprint::Field::deserializeField(_buf, _e)) return false; fields.push_back(_e);}}
 
         return true;
     }
 
-    bool blueprint::NormalClazz::deserializeNormalClazz(ByteBuf& _buf, blueprint::NormalClazz*& _out)
+    bool blueprint::NormalClazz::deserializeNormalClazz(ByteBuf& _buf, std::shared_ptr<blueprint::NormalClazz>& _out)
     {
-        _out = new blueprint::NormalClazz();
+        _out.reset(new blueprint::NormalClazz());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1619,17 +1580,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::Field::deserializeField(ByteBuf& _buf, blueprint::Field*& _out)
+    bool blueprint::Field::deserializeField(ByteBuf& _buf, std::shared_ptr<blueprint::Field>& _out)
     {
-        _out = new blueprint::Field();
+        _out.reset(new blueprint::Field());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1645,22 +1605,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); enums.reserve(n);for(int i = 0 ; i < n ; i++) { blueprint::EnumField* _e;  if(!blueprint::EnumField::deserializeEnumField(_buf, _e)) return false; enums.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); enums.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<blueprint::EnumField> _e;  if(!blueprint::EnumField::deserializeEnumField(_buf, _e)) return false; enums.push_back(_e);}}
 
         return true;
     }
 
-    bool blueprint::EnumClazz::deserializeEnumClazz(ByteBuf& _buf, blueprint::EnumClazz*& _out)
+    bool blueprint::EnumClazz::deserializeEnumClazz(ByteBuf& _buf, std::shared_ptr<blueprint::EnumClazz>& _out)
     {
-        _out = new blueprint::EnumClazz();
+        _out.reset(new blueprint::EnumClazz());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1680,17 +1639,16 @@ namespace cfg
         return true;
     }
 
-    bool blueprint::EnumField::deserializeEnumField(ByteBuf& _buf, blueprint::EnumField*& _out)
+    bool blueprint::EnumField::deserializeEnumField(ByteBuf& _buf, std::shared_ptr<blueprint::EnumField>& _out)
     {
-        _out = new blueprint::EnumField();
+        _out.reset(new blueprint::EnumField());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1704,23 +1662,22 @@ namespace cfg
 
         if(!_buf.readInt(id)) return false;
         if(!_buf.readString(desc)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); clientShowItems.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::ShowItemInfo* _e;  if(!bonus::ShowItemInfo::deserializeShowItemInfo(_buf, _e)) return false; clientShowItems.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); clientShowItems.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ShowItemInfo> _e;  if(!bonus::ShowItemInfo::deserializeShowItemInfo(_buf, _e)) return false; clientShowItems.push_back(_e);}}
         if(!bonus::Bonus::deserializeBonus(_buf, bonus)) return false;
 
         return true;
     }
 
-    bool bonus::DropInfo::deserializeDropInfo(ByteBuf& _buf, bonus::DropInfo*& _out)
+    bool bonus::DropInfo::deserializeDropInfo(ByteBuf& _buf, std::shared_ptr<bonus::DropInfo>& _out)
     {
-        _out = new bonus::DropInfo();
+        _out.reset(new bonus::DropInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1740,17 +1697,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::ShowItemInfo::deserializeShowItemInfo(ByteBuf& _buf, bonus::ShowItemInfo*& _out)
+    bool bonus::ShowItemInfo::deserializeShowItemInfo(ByteBuf& _buf, std::shared_ptr<bonus::ShowItemInfo>& _out)
     {
-        _out = new bonus::ShowItemInfo();
+        _out.reset(new bonus::ShowItemInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1767,23 +1723,23 @@ namespace cfg
         return true;
     }
 
-    bool bonus::Bonus::deserializeBonus(ByteBuf& _buf, bonus::Bonus*& _out)
+    bool bonus::Bonus::deserializeBonus(ByteBuf& _buf, std::shared_ptr<bonus::Bonus>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case bonus::OneItem::ID: { _out = new bonus::OneItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::OneItems::ID: { _out = new bonus::OneItems(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::Item::ID: { _out = new bonus::Item(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::Items::ID: { _out = new bonus::Items(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::CoefficientItem::ID: { _out = new bonus::CoefficientItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::WeightItems::ID: { _out = new bonus::WeightItems(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::ProbabilityItems::ID: { _out = new bonus::ProbabilityItems(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::MultiBonus::ID: { _out = new bonus::MultiBonus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::ProbabilityBonus::ID: { _out = new bonus::ProbabilityBonus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::WeightBonus::ID: { _out = new bonus::WeightBonus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case bonus::DropBonus::ID: { _out = new bonus::DropBonus(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case bonus::OneItem::ID: { _out.reset(new bonus::OneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::OneItems::ID: { _out.reset(new bonus::OneItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::Item::ID: { _out.reset(new bonus::Item()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::Items::ID: { _out.reset(new bonus::Items()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::CoefficientItem::ID: { _out.reset(new bonus::CoefficientItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::WeightItems::ID: { _out.reset(new bonus::WeightItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::ProbabilityItems::ID: { _out.reset(new bonus::ProbabilityItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::MultiBonus::ID: { _out.reset(new bonus::MultiBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::ProbabilityBonus::ID: { _out.reset(new bonus::ProbabilityBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::WeightBonus::ID: { _out.reset(new bonus::WeightBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::DropBonus::ID: { _out.reset(new bonus::DropBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1804,17 +1760,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::OneItem::deserializeOneItem(ByteBuf& _buf, bonus::OneItem*& _out)
+    bool bonus::OneItem::deserializeOneItem(ByteBuf& _buf, std::shared_ptr<bonus::OneItem>& _out)
     {
-        _out = new bonus::OneItem();
+        _out.reset(new bonus::OneItem());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1832,22 +1787,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());items.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;if(!_buf.readInt(_e)) return false; items.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));items.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; items.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::OneItems::deserializeOneItems(ByteBuf& _buf, bonus::OneItems*& _out)
+    bool bonus::OneItems::deserializeOneItems(ByteBuf& _buf, std::shared_ptr<bonus::OneItems>& _out)
     {
-        _out = new bonus::OneItems();
+        _out.reset(new bonus::OneItems());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1870,17 +1824,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::Item::deserializeItem(ByteBuf& _buf, bonus::Item*& _out)
+    bool bonus::Item::deserializeItem(ByteBuf& _buf, std::shared_ptr<bonus::Item>& _out)
     {
-        _out = new bonus::Item();
+        _out.reset(new bonus::Item());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1898,22 +1851,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::Item* _e;if(!bonus::Item::deserializeItem(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::Item> _e;if(!bonus::Item::deserializeItem(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::Items::deserializeItems(ByteBuf& _buf, bonus::Items*& _out)
+    bool bonus::Items::deserializeItems(ByteBuf& _buf, std::shared_ptr<bonus::Items>& _out)
     {
-        _out = new bonus::Items();
+        _out.reset(new bonus::Items());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1937,17 +1889,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::CoefficientItem::deserializeCoefficientItem(ByteBuf& _buf, bonus::CoefficientItem*& _out)
+    bool bonus::CoefficientItem::deserializeCoefficientItem(ByteBuf& _buf, std::shared_ptr<bonus::CoefficientItem>& _out)
     {
-        _out = new bonus::CoefficientItem();
+        _out.reset(new bonus::CoefficientItem());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -1965,22 +1916,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::WeightItemInfo* _e;if(!bonus::WeightItemInfo::deserializeWeightItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::WeightItemInfo> _e;if(!bonus::WeightItemInfo::deserializeWeightItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::WeightItems::deserializeWeightItems(ByteBuf& _buf, bonus::WeightItems*& _out)
+    bool bonus::WeightItems::deserializeWeightItems(ByteBuf& _buf, std::shared_ptr<bonus::WeightItems>& _out)
     {
-        _out = new bonus::WeightItems();
+        _out.reset(new bonus::WeightItems());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2001,17 +1951,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::WeightItemInfo::deserializeWeightItemInfo(ByteBuf& _buf, bonus::WeightItemInfo*& _out)
+    bool bonus::WeightItemInfo::deserializeWeightItemInfo(ByteBuf& _buf, std::shared_ptr<bonus::WeightItemInfo>& _out)
     {
-        _out = new bonus::WeightItemInfo();
+        _out.reset(new bonus::WeightItemInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2028,22 +1977,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());itemList.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::ProbabilityItemInfo* _e;if(!bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));itemList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ProbabilityItemInfo> _e;if(!bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(_buf, _e)) return false; itemList.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::ProbabilityItems::deserializeProbabilityItems(ByteBuf& _buf, bonus::ProbabilityItems*& _out)
+    bool bonus::ProbabilityItems::deserializeProbabilityItems(ByteBuf& _buf, std::shared_ptr<bonus::ProbabilityItems>& _out)
     {
-        _out = new bonus::ProbabilityItems();
+        _out.reset(new bonus::ProbabilityItems());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2064,17 +2012,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(ByteBuf& _buf, bonus::ProbabilityItemInfo*& _out)
+    bool bonus::ProbabilityItemInfo::deserializeProbabilityItemInfo(ByteBuf& _buf, std::shared_ptr<bonus::ProbabilityItemInfo>& _out)
     {
-        _out = new bonus::ProbabilityItemInfo();
+        _out.reset(new bonus::ProbabilityItemInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2091,22 +2038,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::Bonus* _e;if(!bonus::Bonus::deserializeBonus(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::Bonus> _e;if(!bonus::Bonus::deserializeBonus(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::MultiBonus::deserializeMultiBonus(ByteBuf& _buf, bonus::MultiBonus*& _out)
+    bool bonus::MultiBonus::deserializeMultiBonus(ByteBuf& _buf, std::shared_ptr<bonus::MultiBonus>& _out)
     {
-        _out = new bonus::MultiBonus();
+        _out.reset(new bonus::MultiBonus());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2124,22 +2070,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::ProbabilityBonusInfo* _e;if(!bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::ProbabilityBonusInfo> _e;if(!bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::ProbabilityBonus::deserializeProbabilityBonus(ByteBuf& _buf, bonus::ProbabilityBonus*& _out)
+    bool bonus::ProbabilityBonus::deserializeProbabilityBonus(ByteBuf& _buf, std::shared_ptr<bonus::ProbabilityBonus>& _out)
     {
-        _out = new bonus::ProbabilityBonus();
+        _out.reset(new bonus::ProbabilityBonus());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2159,17 +2104,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(ByteBuf& _buf, bonus::ProbabilityBonusInfo*& _out)
+    bool bonus::ProbabilityBonusInfo::deserializeProbabilityBonusInfo(ByteBuf& _buf, std::shared_ptr<bonus::ProbabilityBonusInfo>& _out)
     {
-        _out = new bonus::ProbabilityBonusInfo();
+        _out.reset(new bonus::ProbabilityBonusInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2186,22 +2130,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { bonus::WeightBonusInfo* _e;if(!bonus::WeightBonusInfo::deserializeWeightBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));bonuses.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<bonus::WeightBonusInfo> _e;if(!bonus::WeightBonusInfo::deserializeWeightBonusInfo(_buf, _e)) return false; bonuses.push_back(_e);}}
 
         return true;
     }
 
-    bool bonus::WeightBonus::deserializeWeightBonus(ByteBuf& _buf, bonus::WeightBonus*& _out)
+    bool bonus::WeightBonus::deserializeWeightBonus(ByteBuf& _buf, std::shared_ptr<bonus::WeightBonus>& _out)
     {
-        _out = new bonus::WeightBonus();
+        _out.reset(new bonus::WeightBonus());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2221,17 +2164,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::WeightBonusInfo::deserializeWeightBonusInfo(ByteBuf& _buf, bonus::WeightBonusInfo*& _out)
+    bool bonus::WeightBonusInfo::deserializeWeightBonusInfo(ByteBuf& _buf, std::shared_ptr<bonus::WeightBonusInfo>& _out)
     {
-        _out = new bonus::WeightBonusInfo();
+        _out.reset(new bonus::WeightBonusInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2253,17 +2195,16 @@ namespace cfg
         return true;
     }
 
-    bool bonus::DropBonus::deserializeDropBonus(ByteBuf& _buf, bonus::DropBonus*& _out)
+    bool bonus::DropBonus::deserializeDropBonus(ByteBuf& _buf, std::shared_ptr<bonus::DropBonus>& _out)
     {
-        _out = new bonus::DropBonus();
+        _out.reset(new bonus::DropBonus());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2286,7 +2227,7 @@ namespace cfg
         if(!_buf.readInt(clothBagCapacity)) return false;
         if(!_buf.readInt(clothBagInitCapacity)) return false;
         if(!_buf.readInt(clothBagCapacitySpecial)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; bagInitItemsDropId = new int32_t; *bagInitItemsDropId = _temp_; } else { bagInitItemsDropId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { bagInitItemsDropId.reset(new ::bright::int32()); if(!_buf.readInt(*bagInitItemsDropId)) return false; } else { bagInitItemsDropId.reset(); } }
         if(!_buf.readInt(mailBoxCapacity)) return false;
         if(!_buf.readFloat(damageParamC)) return false;
         if(!_buf.readFloat(damageParamE)) return false;
@@ -2302,17 +2243,16 @@ namespace cfg
         return true;
     }
 
-    bool common::GlobalConfig::deserializeGlobalConfig(ByteBuf& _buf, common::GlobalConfig*& _out)
+    bool common::GlobalConfig::deserializeGlobalConfig(ByteBuf& _buf, std::shared_ptr<common::GlobalConfig>& _out)
     {
-        _out = new common::GlobalConfig();
+        _out.reset(new common::GlobalConfig());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2331,17 +2271,16 @@ namespace cfg
         return true;
     }
 
-    bool common::Dummy::deserializeDummy(ByteBuf& _buf, common::Dummy*& _out)
+    bool common::Dummy::deserializeDummy(ByteBuf& _buf, std::shared_ptr<common::Dummy>& _out)
     {
-        _out = new common::Dummy();
+        _out.reset(new common::Dummy());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2358,18 +2297,18 @@ namespace cfg
         return true;
     }
 
-    bool limit::LimitBase::deserializeLimitBase(ByteBuf& _buf, limit::LimitBase*& _out)
+    bool limit::LimitBase::deserializeLimitBase(ByteBuf& _buf, std::shared_ptr<limit::LimitBase>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case limit::DailyLimit::ID: { _out = new limit::DailyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case limit::MultiDayLimit::ID: { _out = new limit::MultiDayLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case limit::WeeklyLimit::ID: { _out = new limit::WeeklyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case limit::MonthlyLimit::ID: { _out = new limit::MonthlyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case limit::CoolDown::ID: { _out = new limit::CoolDown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case limit::GroupCoolDown::ID: { _out = new limit::GroupCoolDown(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case limit::DailyLimit::ID: { _out.reset(new limit::DailyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case limit::MultiDayLimit::ID: { _out.reset(new limit::MultiDayLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case limit::WeeklyLimit::ID: { _out.reset(new limit::WeeklyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case limit::MonthlyLimit::ID: { _out.reset(new limit::MonthlyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case limit::CoolDown::ID: { _out.reset(new limit::CoolDown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case limit::GroupCoolDown::ID: { _out.reset(new limit::GroupCoolDown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2389,13 +2328,13 @@ namespace cfg
         return true;
     }
 
-    bool limit::DailyLimitBase::deserializeDailyLimitBase(ByteBuf& _buf, limit::DailyLimitBase*& _out)
+    bool limit::DailyLimitBase::deserializeDailyLimitBase(ByteBuf& _buf, std::shared_ptr<limit::DailyLimitBase>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case limit::DailyLimit::ID: { _out = new limit::DailyLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case limit::DailyLimit::ID: { _out.reset(new limit::DailyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2417,17 +2356,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::DailyLimit::deserializeDailyLimit(ByteBuf& _buf, limit::DailyLimit*& _out)
+    bool limit::DailyLimit::deserializeDailyLimit(ByteBuf& _buf, std::shared_ptr<limit::DailyLimit>& _out)
     {
-        _out = new limit::DailyLimit();
+        _out.reset(new limit::DailyLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2450,17 +2388,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::MultiDayLimit::deserializeMultiDayLimit(ByteBuf& _buf, limit::MultiDayLimit*& _out)
+    bool limit::MultiDayLimit::deserializeMultiDayLimit(ByteBuf& _buf, std::shared_ptr<limit::MultiDayLimit>& _out)
     {
-        _out = new limit::MultiDayLimit();
+        _out.reset(new limit::MultiDayLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2482,17 +2419,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::WeeklyLimit::deserializeWeeklyLimit(ByteBuf& _buf, limit::WeeklyLimit*& _out)
+    bool limit::WeeklyLimit::deserializeWeeklyLimit(ByteBuf& _buf, std::shared_ptr<limit::WeeklyLimit>& _out)
     {
-        _out = new limit::WeeklyLimit();
+        _out.reset(new limit::WeeklyLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2514,17 +2450,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::MonthlyLimit::deserializeMonthlyLimit(ByteBuf& _buf, limit::MonthlyLimit*& _out)
+    bool limit::MonthlyLimit::deserializeMonthlyLimit(ByteBuf& _buf, std::shared_ptr<limit::MonthlyLimit>& _out)
     {
-        _out = new limit::MonthlyLimit();
+        _out.reset(new limit::MonthlyLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2546,17 +2481,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::CoolDown::deserializeCoolDown(ByteBuf& _buf, limit::CoolDown*& _out)
+    bool limit::CoolDown::deserializeCoolDown(ByteBuf& _buf, std::shared_ptr<limit::CoolDown>& _out)
     {
-        _out = new limit::CoolDown();
+        _out.reset(new limit::CoolDown());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2579,17 +2513,16 @@ namespace cfg
         return true;
     }
 
-    bool limit::GroupCoolDown::deserializeGroupCoolDown(ByteBuf& _buf, limit::GroupCoolDown*& _out)
+    bool limit::GroupCoolDown::deserializeGroupCoolDown(ByteBuf& _buf, std::shared_ptr<limit::GroupCoolDown>& _out)
     {
-        _out = new limit::GroupCoolDown();
+        _out.reset(new limit::GroupCoolDown());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2609,17 +2542,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorInfo::deserializeErrorInfo(ByteBuf& _buf, error::ErrorInfo*& _out)
+    bool error::ErrorInfo::deserializeErrorInfo(ByteBuf& _buf, std::shared_ptr<error::ErrorInfo>& _out)
     {
-        _out = new error::ErrorInfo();
+        _out.reset(new error::ErrorInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2636,16 +2568,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorStyle::deserializeErrorStyle(ByteBuf& _buf, error::ErrorStyle*& _out)
+    bool error::ErrorStyle::deserializeErrorStyle(ByteBuf& _buf, std::shared_ptr<error::ErrorStyle>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case error::ErrorStyleTip::ID: { _out = new error::ErrorStyleTip(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case error::ErrorStyleMsgbox::ID: { _out = new error::ErrorStyleMsgbox(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case error::ErrorStyleDlgOk::ID: { _out = new error::ErrorStyleDlgOk(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case error::ErrorStyleDlgOkCancel::ID: { _out = new error::ErrorStyleDlgOkCancel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case error::ErrorStyleTip::ID: { _out.reset(new error::ErrorStyleTip()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleMsgbox::ID: { _out.reset(new error::ErrorStyleMsgbox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleDlgOk::ID: { _out.reset(new error::ErrorStyleDlgOk()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleDlgOkCancel::ID: { _out.reset(new error::ErrorStyleDlgOkCancel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2665,17 +2597,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorStyleTip::deserializeErrorStyleTip(ByteBuf& _buf, error::ErrorStyleTip*& _out)
+    bool error::ErrorStyleTip::deserializeErrorStyleTip(ByteBuf& _buf, std::shared_ptr<error::ErrorStyleTip>& _out)
     {
-        _out = new error::ErrorStyleTip();
+        _out.reset(new error::ErrorStyleTip());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2698,17 +2629,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorStyleMsgbox::deserializeErrorStyleMsgbox(ByteBuf& _buf, error::ErrorStyleMsgbox*& _out)
+    bool error::ErrorStyleMsgbox::deserializeErrorStyleMsgbox(ByteBuf& _buf, std::shared_ptr<error::ErrorStyleMsgbox>& _out)
     {
-        _out = new error::ErrorStyleMsgbox();
+        _out.reset(new error::ErrorStyleMsgbox());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2730,17 +2660,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorStyleDlgOk::deserializeErrorStyleDlgOk(ByteBuf& _buf, error::ErrorStyleDlgOk*& _out)
+    bool error::ErrorStyleDlgOk::deserializeErrorStyleDlgOk(ByteBuf& _buf, std::shared_ptr<error::ErrorStyleDlgOk>& _out)
     {
-        _out = new error::ErrorStyleDlgOk();
+        _out.reset(new error::ErrorStyleDlgOk());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2763,17 +2692,16 @@ namespace cfg
         return true;
     }
 
-    bool error::ErrorStyleDlgOkCancel::deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, error::ErrorStyleDlgOkCancel*& _out)
+    bool error::ErrorStyleDlgOkCancel::deserializeErrorStyleDlgOkCancel(ByteBuf& _buf, std::shared_ptr<error::ErrorStyleDlgOkCancel>& _out)
     {
-        _out = new error::ErrorStyleDlgOkCancel();
+        _out.reset(new error::ErrorStyleDlgOkCancel());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2792,17 +2720,16 @@ namespace cfg
         return true;
     }
 
-    bool error::CodeInfo::deserializeCodeInfo(ByteBuf& _buf, error::CodeInfo*& _out)
+    bool error::CodeInfo::deserializeCodeInfo(ByteBuf& _buf, std::shared_ptr<error::CodeInfo>& _out)
     {
-        _out = new error::CodeInfo();
+        _out.reset(new error::CodeInfo());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2832,24 +2759,23 @@ namespace cfg
         if(!_buf.readFloat(progressTimeWhenUse)) return false;
         if (!_buf.readBool(showHintWhenUse)) return false;
         if (!_buf.readBool(droppable)) return false;
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; price = new int32_t; *price = _temp_; } else { price = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { price.reset(new ::bright::int32()); if(!_buf.readInt(*price)) return false; } else { price.reset(); } }
         {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; useType = item::EUseType(__enum_temp__); }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; levelUpId = new int32_t; *levelUpId = _temp_; } else { levelUpId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { levelUpId.reset(new ::bright::int32()); if(!_buf.readInt(*levelUpId)) return false; } else { levelUpId.reset(); } }
 
         return true;
     }
 
-    bool item::Item::deserializeItem(ByteBuf& _buf, item::Item*& _out)
+    bool item::Item::deserializeItem(ByteBuf& _buf, std::shared_ptr<item::Item>& _out)
     {
-        _out = new item::Item();
+        _out.reset(new item::Item());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2869,17 +2795,16 @@ namespace cfg
         return true;
     }
 
-    bool item::ItemFunction::deserializeItemFunction(ByteBuf& _buf, item::ItemFunction*& _out)
+    bool item::ItemFunction::deserializeItemFunction(ByteBuf& _buf, std::shared_ptr<item::ItemFunction>& _out)
     {
-        _out = new item::ItemFunction();
+        _out.reset(new item::ItemFunction());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2896,17 +2821,17 @@ namespace cfg
         return true;
     }
 
-    bool item::ItemExtra::deserializeItemExtra(ByteBuf& _buf, item::ItemExtra*& _out)
+    bool item::ItemExtra::deserializeItemExtra(ByteBuf& _buf, std::shared_ptr<item::ItemExtra>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case item::TreasureBox::ID: { _out = new item::TreasureBox(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case item::InteractionItem::ID: { _out = new item::InteractionItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case item::Clothes::ID: { _out = new item::Clothes(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case item::DesignDrawing::ID: { _out = new item::DesignDrawing(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case item::Dymmy::ID: { _out = new item::Dymmy(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case item::TreasureBox::ID: { _out.reset(new item::TreasureBox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::InteractionItem::ID: { _out.reset(new item::InteractionItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::Clothes::ID: { _out.reset(new item::Clothes()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::DesignDrawing::ID: { _out.reset(new item::DesignDrawing()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::Dymmy::ID: { _out.reset(new item::Dymmy()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2922,26 +2847,25 @@ namespace cfg
             return false;
         }
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; keyItemId = new int32_t; *keyItemId = _temp_; } else { keyItemId = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { keyItemId.reset(new ::bright::int32()); if(!_buf.readInt(*keyItemId)) return false; } else { keyItemId.reset(); } }
         if(!condition::MinLevel::deserializeMinLevel(_buf, openLevel)) return false;
         if (!_buf.readBool(useOnObtain)) return false;
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { int32_t _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size()); chooseList.reserve(n);for(int i = 0 ; i < n ; i++) { item::ChooseOneBonus* _e;  if(!item::ChooseOneBonus::deserializeChooseOneBonus(_buf, _e)) return false; chooseList.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); dropIds.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; dropIds.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); chooseList.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<item::ChooseOneBonus> _e;  if(!item::ChooseOneBonus::deserializeChooseOneBonus(_buf, _e)) return false; chooseList.push_back(_e);}}
 
         return true;
     }
 
-    bool item::TreasureBox::deserializeTreasureBox(ByteBuf& _buf, item::TreasureBox*& _out)
+    bool item::TreasureBox::deserializeTreasureBox(ByteBuf& _buf, std::shared_ptr<item::TreasureBox>& _out)
     {
-        _out = new item::TreasureBox();
+        _out.reset(new item::TreasureBox());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -2960,20 +2884,20 @@ namespace cfg
         return true;
     }
 
-    bool condition::Condition::deserializeCondition(ByteBuf& _buf, condition::Condition*& _out)
+    bool condition::Condition::deserializeCondition(ByteBuf& _buf, std::shared_ptr<condition::Condition>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::TimeRange::ID: { _out = new condition::TimeRange(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MultiRoleCondition::ID: { _out = new condition::MultiRoleCondition(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinLevel::ID: { _out = new condition::MinLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MaxLevel::ID: { _out = new condition::MaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinMaxLevel::ID: { _out = new condition::MinMaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out = new condition::ClothesPropertyScoreGreaterThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::ContainsItem::ID: { _out = new condition::ContainsItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case condition::TimeRange::ID: { _out.reset(new condition::TimeRange()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MultiRoleCondition::ID: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ContainsItem::ID: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2994,17 +2918,16 @@ namespace cfg
         return true;
     }
 
-    bool condition::TimeRange::deserializeTimeRange(ByteBuf& _buf, condition::TimeRange*& _out)
+    bool condition::TimeRange::deserializeTimeRange(ByteBuf& _buf, std::shared_ptr<condition::TimeRange>& _out)
     {
-        _out = new condition::TimeRange();
+        _out.reset(new condition::TimeRange());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -3018,23 +2941,22 @@ namespace cfg
     bool common::DateTimeRange::deserialize(ByteBuf& _buf)
     {
 
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; startTime = new int32_t; *startTime = _temp_; } else { startTime = nullptr; } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) {int32_t _temp_;  if(!_buf.readInt(_temp_)) return false; endTime = new int32_t; *endTime = _temp_; } else { endTime = nullptr; } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*startTime)) return false; } else { startTime.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime.reset(new ::bright::datetime_t()); if(!_buf.readInt(*endTime)) return false; } else { endTime.reset(); } }
 
         return true;
     }
 
-    bool common::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, common::DateTimeRange*& _out)
+    bool common::DateTimeRange::deserializeDateTimeRange(ByteBuf& _buf, std::shared_ptr<common::DateTimeRange>& _out)
     {
-        _out = new common::DateTimeRange();
+        _out.reset(new common::DateTimeRange());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -3054,19 +2976,19 @@ namespace cfg
         return true;
     }
 
-    bool condition::RoleCondition::deserializeRoleCondition(ByteBuf& _buf, condition::RoleCondition*& _out)
+    bool condition::RoleCondition::deserializeRoleCondition(ByteBuf& _buf, std::shared_ptr<condition::RoleCondition>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::MultiRoleCondition::ID: { _out = new condition::MultiRoleCondition(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinLevel::ID: { _out = new condition::MinLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MaxLevel::ID: { _out = new condition::MaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinMaxLevel::ID: { _out = new condition::MinMaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out = new condition::ClothesPropertyScoreGreaterThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::ContainsItem::ID: { _out = new condition::ContainsItem(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case condition::MultiRoleCondition::ID: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ContainsItem::ID: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -3083,22 +3005,21 @@ namespace cfg
             return false;
         }
 
-        {int32_t n; if(!_buf.readSize(n)) return false; n = std::min(n, _buf.size());conditions.reserve(n);for(int i = 0 ; i < n ; i++) { condition::RoleCondition* _e;if(!condition::RoleCondition::deserializeRoleCondition(_buf, _e)) return false; conditions.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));conditions.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<condition::RoleCondition> _e;if(!condition::RoleCondition::deserializeRoleCondition(_buf, _e)) return false; conditions.push_back(_e);}}
 
         return true;
     }
 
-    bool condition::MultiRoleCondition::deserializeMultiRoleCondition(ByteBuf& _buf, condition::MultiRoleCondition*& _out)
+    bool condition::MultiRoleCondition::deserializeMultiRoleCondition(ByteBuf& _buf, std::shared_ptr<condition::MultiRoleCondition>& _out)
     {
-        _out = new condition::MultiRoleCondition();
+        _out.reset(new condition::MultiRoleCondition());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -3120,17 +3041,17 @@ namespace cfg
         return true;
     }
 
-    bool condition::BoolRoleCondition::deserializeBoolRoleCondition(ByteBuf& _buf, condition::BoolRoleCondition*& _out)
+    bool condition::BoolRoleCondition::deserializeBoolRoleCondition(ByteBuf& _buf, std::shared_ptr<condition::BoolRoleCondition>& _out)
     {
         int id;
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::GenderLimit::ID: { _out = new condition::GenderLimit(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinLevel::ID: { _out = new condition::MinLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MaxLevel::ID: { _out = new condition::MaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::MinMaxLevel::ID: { _out = new condition::MinMaxLevel(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out = new condition::ClothesPropertyScoreGreaterThan(); if (_out->deserialize(_buf)) { return true; } else { delete _out; _out = nullptr; return false;} }
+            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -3152,17 +3073,16 @@ namespace cfg
         return true;
     }
 
-    bool condition::GenderLimit::deserializeGenderLimit(ByteBuf& _buf, condition::GenderLimit*& _out)
+    bool condition::GenderLimit::deserializeGenderLimit(ByteBuf& _buf, std::shared_ptr<condition::GenderLimit>& _out)
     {
-        _out = new condition::GenderLimit();
+        _out.reset(new condition::GenderLimit());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -3184,17 +3104,16 @@ namespace cfg
         return true;
     }
 
-    bool condition::MinLevel::deserializeMinLevel(ByteBuf& _buf, condition::MinLevel*& _out)
+    bool condition::MinLevel::deserializeMinLevel(ByteBuf& _buf, std::shared_ptr<condition::MinLevel>& _out)
     {
-        _out = new condition::MinLevel();
+        _out.reset(new condition::MinLevel());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
@@ -3216,17 +3135,16 @@ namespace cfg
         return true;
     }
 
-    bool condition::MaxLevel::deserializeMaxLevel(ByteBuf& _buf, condition::MaxLevel*& _out)
+    bool condition::MaxLevel::deserializeMaxLevel(ByteBuf& _buf, std::shared_ptr<condition::MaxLevel>& _out)
     {
-        _out = new condition::MaxLevel();
+        _out.reset(new condition::MaxLevel());
         if (_out->deserialize(_buf))
         {
             return true;
         }
         else
         { 
-            delete _out;
-            _out = nullptr;
+            _out.reset();
             return false;
         }
     }
