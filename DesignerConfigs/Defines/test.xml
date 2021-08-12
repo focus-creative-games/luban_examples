@@ -8,10 +8,10 @@
 	</const>
 	
 	<enum name="DemoEnum">
-		<var name="A" value="1"/>
-		<var name="B"/>
-		<var name="C" value="4"/>
-		<var name="D"/>
+		<var name="A" alias="aa" value="1"/>
+		<var name="B" alias="bb"/>
+		<var name="C" alias="cc" value="4"/>
+		<var name="D" alias="dd"/>
 	</enum>
 	
 	<bean name="DemoType1">
@@ -41,6 +41,16 @@
 		<var name="y2" type="bool"/>
 	</bean>
 	
+	<bean name="DemoExplicitType">
+		<var name="x1" type="uint8"/>
+		<var name="x2" type="int16"/>
+		<var name="x3" type="int32"/>
+		<var name="x4" type="int64"/>
+		<var name="x5" type="float32"/>
+		<var name="x6" type="float64"/>
+		<var name="x7" type="bigint"/>
+	</bean>
+	
 	<bean name="DemoType2" >
 		<var name="x4" type="int" convert="DemoEnum"/>
 		<var name="x1" type="bool"/>
@@ -66,14 +76,9 @@
 		
 		<var name="t1" type="datetime"/>
 
-		<var name="k1" type="array,int"/> 使用;来分隔
-		
+		<var name="k1" type="array,int"/>
 		<var name="k2" type="list,int"/>
-		<var name="k3" type="linkedlist,int"/>
-		<var name="k4" type="arraylist,int"/>
 		<var name="k5" type="set,int"/>
-		<var name="k6" type="treeset,int"/>
-		<var name="k7" type="hashset,int"/>
 		<var name="k8" type="map,int,int"/>
 		<var name="k9" type="list,DemoE2" sep="," index="y1"/>
 		<var name="k15" type="array,DemoDynamic" sep=","/> 
@@ -94,12 +99,8 @@
 	
 	<table name="TbSingleton" mode="one" value="DemoSingletonType" input="test/table_one.xlsx"/> 单例表，只有一个记录
 	
-	<table name="TbDataFromJson" value="DemoType2" input="test/json_datas"/> 普通表，不过数据从tbrole_datas目录递归读入，每个文件是一个记录
+	<table name="TbDataFromMisc" value="DemoType2" input="test/misc_datas"/> 普通表，不过数据从misc_datas目录递归读入各种类型的数据源
  	
-	<table name="TbDataFromXml" value="DemoType2" input="test/xml_datas"/> 普通表，不过数据从tbrole_datas目录递归读入，每个文件是一个记录
- 	
-	<table name="TbDataFromLua" value="DemoType2" input="test/lua_datas"/> 普通表，不过数据从tbrole_datas目录递归读入，每个文件是一个记录
-	
 	<bean name="MultiRowType1">
 		<var name="id" type="int"/>
 		<var name="x" type="int"/>
@@ -163,11 +164,7 @@
 		<var name="k1" type="array,int"/>
 		
 		<var name="k2" type="list,int"/>
-		<var name="k3" type="linkedlist,int"/>
-		<var name="k4" type="arraylist,int"/>
 		<var name="k5" type="set,int"/>
-		<var name="k6" type="treeset,int"/>
-		<var name="k7" type="hashset,int"/>
 		<var name="k8" type="map,int,int"/>
 		<var name="k9" type="list,DemoE2"/>
 	</bean>	

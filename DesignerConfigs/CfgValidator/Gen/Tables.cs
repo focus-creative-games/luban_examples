@@ -98,15 +98,7 @@ public sealed partial class Tables
     /// <summary>
     /// 
     /// </summary>
-    public test.TbDataFromJson TbDataFromJson {get; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public test.TbDataFromXml TbDataFromXml {get; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public test.TbDataFromLua TbDataFromLua {get; }
+    public test.TbDataFromMisc TbDataFromMisc {get; }
     /// <summary>
     /// 
     /// </summary>
@@ -147,6 +139,10 @@ public sealed partial class Tables
     /// 
     /// </summary>
     public test.TbTestGlobal TbTestGlobal {get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
     /// <summary>
     /// 
     /// </summary>
@@ -211,12 +207,8 @@ public sealed partial class Tables
         tables.Add("test.TbFullTypes", TbFullTypes);
         TbSingleton = new test.TbSingleton(loader("test.TbSingleton")); 
         tables.Add("test.TbSingleton", TbSingleton);
-        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson")); 
-        tables.Add("test.TbDataFromJson", TbDataFromJson);
-        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml")); 
-        tables.Add("test.TbDataFromXml", TbDataFromXml);
-        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua")); 
-        tables.Add("test.TbDataFromLua", TbDataFromLua);
+        TbDataFromMisc = new test.TbDataFromMisc(loader("test.TbDataFromMisc")); 
+        tables.Add("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord")); 
         tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
         TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle")); 
@@ -237,6 +229,8 @@ public sealed partial class Tables
         tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
         tables.Add("test.TbTestGlobal", TbTestGlobal);
+        TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader("test.TbDetectCsvEncoding")); 
+        tables.Add("test.TbDetectCsvEncoding", TbDetectCsvEncoding);
         TbDefineFromExcel = new test.TbDefineFromExcel(loader("test.TbDefineFromExcel")); 
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
@@ -268,9 +262,7 @@ public sealed partial class Tables
         TbTestTag.Resolve(tables); 
         TbFullTypes.Resolve(tables); 
         TbSingleton.Resolve(tables); 
-        TbDataFromJson.Resolve(tables); 
-        TbDataFromXml.Resolve(tables); 
-        TbDataFromLua.Resolve(tables); 
+        TbDataFromMisc.Resolve(tables); 
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
@@ -281,6 +273,7 @@ public sealed partial class Tables
         TbDemoGroup_S.Resolve(tables); 
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
+        TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 

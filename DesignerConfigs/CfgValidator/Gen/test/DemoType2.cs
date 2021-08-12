@@ -44,18 +44,14 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         T1 = _json.GetProperty("t1").GetInt32();
         { var _json0 = _json.GetProperty("k1"); int _n = _json0.GetArrayLength(); K1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K1[_index++] = __v; }   }
         { var _json0 = _json.GetProperty("k2"); K2 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K2.Add(__v); }   }
-        { var _json0 = _json.GetProperty("k3"); K3 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K3.Add(__v); }   }
-        { var _json0 = _json.GetProperty("k4"); K4 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K4.Add(__v); }   }
         { var _json0 = _json.GetProperty("k5"); K5 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K5.Add(__v); }   }
-        { var _json0 = _json.GetProperty("k6"); K6 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K6.Add(__v); }   }
-        { var _json0 = _json.GetProperty("k7"); K7 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K7.Add(__v); }   }
         { var _json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
         foreach(var _v in K9) { K9_Index.Add(_v.Y1, _v); }
         { var _json0 = _json.GetProperty("k15"); int _n = _json0.GetArrayLength(); K15 = new test.DemoDynamic[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoDynamic __v;  __v =  test.DemoDynamic.DeserializeDemoDynamic(__e);  K15[_index++] = __v; }   }
     }
 
-    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.List<int> k3, System.Collections.Generic.List<int> k4, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.HashSet<int> k6, System.Collections.Generic.HashSet<int> k7, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
+    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
     {
         this.X4 = x4;
         this.X1 = x1;
@@ -78,11 +74,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         this.T1 = t1;
         this.K1 = k1;
         this.K2 = k2;
-        this.K3 = k3;
-        this.K4 = k4;
         this.K5 = k5;
-        this.K6 = k6;
-        this.K7 = k7;
         this.K8 = k8;
         this.K9 = k9;
         foreach(var _v in K9) { K9_Index.Add(_v.Y1, _v); }
@@ -182,23 +174,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     /// <summary>
     /// 
     /// </summary>
-    public readonly System.Collections.Generic.List<int> K3;
-    /// <summary>
-    /// 
-    /// </summary>
-    public readonly System.Collections.Generic.List<int> K4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.HashSet<int> K5;
-    /// <summary>
-    /// 
-    /// </summary>
-    public readonly System.Collections.Generic.HashSet<int> K6;
-    /// <summary>
-    /// 
-    /// </summary>
-    public readonly System.Collections.Generic.HashSet<int> K7;
     /// <summary>
     /// 
     /// </summary>
@@ -252,11 +228,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         + "T1:" + T1 + ","
         + "K1:" + Bright.Common.StringUtil.CollectionToString(K1) + ","
         + "K2:" + Bright.Common.StringUtil.CollectionToString(K2) + ","
-        + "K3:" + Bright.Common.StringUtil.CollectionToString(K3) + ","
-        + "K4:" + Bright.Common.StringUtil.CollectionToString(K4) + ","
         + "K5:" + Bright.Common.StringUtil.CollectionToString(K5) + ","
-        + "K6:" + Bright.Common.StringUtil.CollectionToString(K6) + ","
-        + "K7:" + Bright.Common.StringUtil.CollectionToString(K7) + ","
         + "K8:" + Bright.Common.StringUtil.CollectionToString(K8) + ","
         + "K9:" + Bright.Common.StringUtil.CollectionToString(K9) + ","
         + "K15:" + Bright.Common.StringUtil.CollectionToString(K15) + ","

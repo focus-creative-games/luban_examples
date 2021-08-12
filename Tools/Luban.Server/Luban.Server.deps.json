@@ -880,6 +880,14 @@
           }
         }
       },
+      "YamlDotNet/11.2.1": {
+        "runtime": {
+          "lib/netstandard2.1/YamlDotNet.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.1.0"
+          }
+        }
+      },
       "Luban.Common/1.0.0": {
         "dependencies": {
           "Bright.Net": "1.1.0.41"
@@ -893,7 +901,8 @@
           "ExcelDataReader": "3.6.0",
           "Luban.Job.Common": "1.0.0",
           "NeoLua": "1.3.13",
-          "Ude.NetStandard": "1.2.0"
+          "Ude.NetStandard": "1.2.0",
+          "YamlDotNet": "11.2.1"
         },
         "runtime": {
           "Luban.Job.Cfg.dll": {}
@@ -1570,6 +1579,13 @@
       "sha512": "sha512-zRWpPAxBg3lNdm4UiKixTe+DFPoNid9CILggTCy/0WR2WKETe17kTWhiiIpLB2k5IEgnvA0QLfKlvd6Tvu0pzA==",
       "path": "ude.netstandard/1.2.0",
       "hashPath": "ude.netstandard.1.2.0.nupkg.sha512"
+    },
+    "YamlDotNet/11.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw==",
+      "path": "yamldotnet/11.2.1",
+      "hashPath": "yamldotnet.11.2.1.nupkg.sha512"
     },
     "Luban.Common/1.0.0": {
       "type": "project",
