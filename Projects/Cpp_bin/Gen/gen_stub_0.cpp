@@ -40,7 +40,7 @@ namespace cfg
         }
     }
 
-    void ai::Blackboard::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Blackboard::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->parentName_Ref = ((ai::TbBlackboard*)(_tables["ai.TbBlackboard"]))->get(parentName);
         for(auto _e : keys) { _e->resolve(_tables); }
@@ -72,7 +72,7 @@ namespace cfg
         }
     }
 
-    void ai::BlackboardKey::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::BlackboardKey::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -102,7 +102,7 @@ namespace cfg
         }
     }
 
-    void ai::BehaviorTree::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::BehaviorTree::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->blackboardId_Ref = ((ai::TbBlackboard*)(_tables["ai.TbBlackboard"]))->get(blackboardId);
         root->resolve(_tables);
@@ -150,7 +150,7 @@ namespace cfg
         }
     }
 
-    void ai::Node::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Node::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -181,7 +181,7 @@ namespace cfg
         }
     }
 
-    void ai::Service::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Service::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Node::resolve(_tables);
     }
@@ -212,7 +212,7 @@ namespace cfg
         }
     }
 
-    void ai::UeSetDefaultFocus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeSetDefaultFocus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -242,7 +242,7 @@ namespace cfg
         }
     }
 
-    void ai::ExecuteTimeStatistic::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::ExecuteTimeStatistic::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -273,7 +273,7 @@ namespace cfg
         }
     }
 
-    void ai::ChooseTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::ChooseTarget::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -304,7 +304,7 @@ namespace cfg
         }
     }
 
-    void ai::KeepFaceTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::KeepFaceTarget::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -335,7 +335,7 @@ namespace cfg
         }
     }
 
-    void ai::GetOwnerPlayer::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::GetOwnerPlayer::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -374,7 +374,7 @@ namespace cfg
         }
     }
 
-    void ai::UpdateDailyBehaviorProps::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UpdateDailyBehaviorProps::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Service::resolve(_tables);
     }
@@ -408,7 +408,7 @@ namespace cfg
         }
     }
 
-    void ai::Decorator::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Decorator::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Node::resolve(_tables);
     }
@@ -441,7 +441,7 @@ namespace cfg
         }
     }
 
-    void ai::UeLoop::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeLoop::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -472,7 +472,7 @@ namespace cfg
         }
     }
 
-    void ai::UeCooldown::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeCooldown::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -503,7 +503,7 @@ namespace cfg
         }
     }
 
-    void ai::UeTimeLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeTimeLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -536,7 +536,7 @@ namespace cfg
         }
     }
 
-    void ai::UeBlackboard::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeBlackboard::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
         keyQuery->resolve(_tables);
@@ -562,7 +562,7 @@ namespace cfg
         }
     }
 
-    void ai::KeyQueryOperator::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::KeyQueryOperator::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -591,7 +591,7 @@ namespace cfg
         }
     }
 
-    void ai::IsSet::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::IsSet::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyQueryOperator::resolve(_tables);
     }
@@ -621,7 +621,7 @@ namespace cfg
         }
     }
 
-    void ai::IsNotSet::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::IsNotSet::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyQueryOperator::resolve(_tables);
     }
@@ -653,7 +653,7 @@ namespace cfg
         }
     }
 
-    void ai::BinaryOperator::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::BinaryOperator::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyQueryOperator::resolve(_tables);
         data->resolve(_tables);
@@ -680,7 +680,7 @@ namespace cfg
         }
     }
 
-    void ai::KeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::KeyData::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -710,7 +710,7 @@ namespace cfg
         }
     }
 
-    void ai::FloatKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::FloatKeyData::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyData::resolve(_tables);
     }
@@ -741,7 +741,7 @@ namespace cfg
         }
     }
 
-    void ai::IntKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::IntKeyData::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyData::resolve(_tables);
     }
@@ -772,7 +772,7 @@ namespace cfg
         }
     }
 
-    void ai::StringKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::StringKeyData::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyData::resolve(_tables);
     }
@@ -803,7 +803,7 @@ namespace cfg
         }
     }
 
-    void ai::BlackboardKeyData::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::BlackboardKeyData::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         KeyData::resolve(_tables);
     }
@@ -833,7 +833,7 @@ namespace cfg
         }
     }
 
-    void ai::UeForceSuccess::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeForceSuccess::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -866,7 +866,7 @@ namespace cfg
         }
     }
 
-    void ai::IsAtLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::IsAtLocation::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -900,7 +900,7 @@ namespace cfg
         }
     }
 
-    void ai::DistanceLessThan::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::DistanceLessThan::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Decorator::resolve(_tables);
     }
@@ -938,7 +938,7 @@ namespace cfg
         }
     }
 
-    void ai::FlowNode::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::FlowNode::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Node::resolve(_tables);
         for(auto _e : decorators) { _e->resolve(_tables); }
@@ -969,7 +969,7 @@ namespace cfg
         }
     }
 
-    void ai::ComposeNode::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::ComposeNode::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         FlowNode::resolve(_tables);
     }
@@ -1000,7 +1000,7 @@ namespace cfg
         }
     }
 
-    void ai::Sequence::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Sequence::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ComposeNode::resolve(_tables);
         for(auto _e : children) { _e->resolve(_tables); }
@@ -1032,7 +1032,7 @@ namespace cfg
         }
     }
 
-    void ai::Selector::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Selector::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ComposeNode::resolve(_tables);
         for(auto _e : children) { _e->resolve(_tables); }
@@ -1066,7 +1066,7 @@ namespace cfg
         }
     }
 
-    void ai::SimpleParallel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::SimpleParallel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ComposeNode::resolve(_tables);
         mainTask->resolve(_tables);
@@ -1102,7 +1102,7 @@ namespace cfg
         }
     }
 
-    void ai::Task::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::Task::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         FlowNode::resolve(_tables);
     }
@@ -1134,7 +1134,7 @@ namespace cfg
         }
     }
 
-    void ai::UeWait::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeWait::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1165,7 +1165,7 @@ namespace cfg
         }
     }
 
-    void ai::UeWaitBlackboardTime::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::UeWaitBlackboardTime::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1197,7 +1197,7 @@ namespace cfg
         }
     }
 
-    void ai::MoveToTarget::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::MoveToTarget::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1229,7 +1229,7 @@ namespace cfg
         }
     }
 
-    void ai::ChooseSkill::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::ChooseSkill::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1261,7 +1261,7 @@ namespace cfg
         }
     }
 
-    void ai::MoveToRandomLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::MoveToRandomLocation::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1293,7 +1293,7 @@ namespace cfg
         }
     }
 
-    void ai::MoveToLocation::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::MoveToLocation::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1324,7 +1324,7 @@ namespace cfg
         }
     }
 
-    void ai::DebugPrint::resolve(std::unordered_map<std::string, void*>& _tables)
+    void ai::DebugPrint::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Task::resolve(_tables);
     }
@@ -1353,7 +1353,7 @@ namespace cfg
         }
     }
 
-    void blueprint::Clazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::Clazz::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : parents) { _e->resolve(_tables); }
         for(auto _e : methods) { _e->resolve(_tables); }
@@ -1384,7 +1384,7 @@ namespace cfg
         }
     }
 
-    void blueprint::Method::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::Method::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : parameters) { _e->resolve(_tables); }
     }
@@ -1413,7 +1413,7 @@ namespace cfg
         }
     }
 
-    void blueprint::ParamInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::ParamInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1442,7 +1442,7 @@ namespace cfg
         }
     }
 
-    void blueprint::AbstraceMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::AbstraceMethod::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Method::resolve(_tables);
     }
@@ -1472,7 +1472,7 @@ namespace cfg
         }
     }
 
-    void blueprint::ExternalMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::ExternalMethod::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Method::resolve(_tables);
     }
@@ -1502,7 +1502,7 @@ namespace cfg
         }
     }
 
-    void blueprint::BlueprintMethod::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::BlueprintMethod::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Method::resolve(_tables);
     }
@@ -1532,7 +1532,7 @@ namespace cfg
         }
     }
 
-    void blueprint::Interface::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::Interface::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Clazz::resolve(_tables);
     }
@@ -1564,7 +1564,7 @@ namespace cfg
         }
     }
 
-    void blueprint::NormalClazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::NormalClazz::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Clazz::resolve(_tables);
         for(auto _e : fields) { _e->resolve(_tables); }
@@ -1594,7 +1594,7 @@ namespace cfg
         }
     }
 
-    void blueprint::Field::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::Field::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1624,7 +1624,7 @@ namespace cfg
         }
     }
 
-    void blueprint::EnumClazz::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::EnumClazz::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Clazz::resolve(_tables);
         for(auto _e : enums) { _e->resolve(_tables); }
@@ -1653,7 +1653,7 @@ namespace cfg
         }
     }
 
-    void blueprint::EnumField::resolve(std::unordered_map<std::string, void*>& _tables)
+    void blueprint::EnumField::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1682,7 +1682,7 @@ namespace cfg
         }
     }
 
-    void bonus::DropInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::DropInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : clientShowItems) { _e->resolve(_tables); }
         bonus->resolve(_tables);
@@ -1711,7 +1711,7 @@ namespace cfg
         }
     }
 
-    void bonus::ShowItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::ShowItemInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
     }
@@ -1744,7 +1744,7 @@ namespace cfg
         }
     }
 
-    void bonus::Bonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::Bonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -1774,7 +1774,7 @@ namespace cfg
         }
     }
 
-    void bonus::OneItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::OneItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
@@ -1806,7 +1806,7 @@ namespace cfg
         }
     }
 
-    void bonus::OneItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::OneItems::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
     }
@@ -1838,7 +1838,7 @@ namespace cfg
         }
     }
 
-    void bonus::Item::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::Item::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
@@ -1870,7 +1870,7 @@ namespace cfg
         }
     }
 
-    void bonus::Items::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::Items::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : itemList) { _e->resolve(_tables); }
@@ -1903,7 +1903,7 @@ namespace cfg
         }
     }
 
-    void bonus::CoefficientItem::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::CoefficientItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         bonusList->resolve(_tables);
@@ -1935,7 +1935,7 @@ namespace cfg
         }
     }
 
-    void bonus::WeightItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::WeightItems::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : itemList) { _e->resolve(_tables); }
@@ -1965,7 +1965,7 @@ namespace cfg
         }
     }
 
-    void bonus::WeightItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::WeightItemInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
     }
@@ -1996,7 +1996,7 @@ namespace cfg
         }
     }
 
-    void bonus::ProbabilityItems::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::ProbabilityItems::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : itemList) { _e->resolve(_tables); }
@@ -2026,7 +2026,7 @@ namespace cfg
         }
     }
 
-    void bonus::ProbabilityItemInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::ProbabilityItemInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
     }
@@ -2057,7 +2057,7 @@ namespace cfg
         }
     }
 
-    void bonus::MultiBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::MultiBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : bonuses) { _e->resolve(_tables); }
@@ -2089,7 +2089,7 @@ namespace cfg
         }
     }
 
-    void bonus::ProbabilityBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::ProbabilityBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : bonuses) { _e->resolve(_tables); }
@@ -2118,7 +2118,7 @@ namespace cfg
         }
     }
 
-    void bonus::ProbabilityBonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::ProbabilityBonusInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         bonus->resolve(_tables);
     }
@@ -2149,7 +2149,7 @@ namespace cfg
         }
     }
 
-    void bonus::WeightBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::WeightBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         for(auto _e : bonuses) { _e->resolve(_tables); }
@@ -2178,7 +2178,7 @@ namespace cfg
         }
     }
 
-    void bonus::WeightBonusInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::WeightBonusInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         bonus->resolve(_tables);
     }
@@ -2209,7 +2209,7 @@ namespace cfg
         }
     }
 
-    void bonus::DropBonus::resolve(std::unordered_map<std::string, void*>& _tables)
+    void bonus::DropBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Bonus::resolve(_tables);
         this->id_Ref = ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(id);
@@ -2257,7 +2257,7 @@ namespace cfg
         }
     }
 
-    void common::GlobalConfig::resolve(std::unordered_map<std::string, void*>& _tables)
+    void common::GlobalConfig::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         this->bagInitItemsDropId_Ref = this->bagInitItemsDropId != nullptr ? ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(*(this->bagInitItemsDropId)) : nullptr;
     }
@@ -2285,7 +2285,7 @@ namespace cfg
         }
     }
 
-    void common::Dummy::resolve(std::unordered_map<std::string, void*>& _tables)
+    void common::Dummy::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         limit->resolve(_tables);
     }
@@ -2313,7 +2313,7 @@ namespace cfg
         }
     }
 
-    void limit::LimitBase::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::LimitBase::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2339,7 +2339,7 @@ namespace cfg
         }
     }
 
-    void limit::DailyLimitBase::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::DailyLimitBase::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2370,7 +2370,7 @@ namespace cfg
         }
     }
 
-    void limit::DailyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::DailyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         DailyLimitBase::resolve(_tables);
     }
@@ -2402,7 +2402,7 @@ namespace cfg
         }
     }
 
-    void limit::MultiDayLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::MultiDayLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2433,7 +2433,7 @@ namespace cfg
         }
     }
 
-    void limit::WeeklyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::WeeklyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2464,7 +2464,7 @@ namespace cfg
         }
     }
 
-    void limit::MonthlyLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::MonthlyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2495,7 +2495,7 @@ namespace cfg
         }
     }
 
-    void limit::CoolDown::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::CoolDown::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2527,7 +2527,7 @@ namespace cfg
         }
     }
 
-    void limit::GroupCoolDown::resolve(std::unordered_map<std::string, void*>& _tables)
+    void limit::GroupCoolDown::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         LimitBase::resolve(_tables);
     }
@@ -2556,7 +2556,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         style->resolve(_tables);
     }
@@ -2582,7 +2582,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorStyle::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorStyle::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2611,7 +2611,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorStyleTip::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorStyleTip::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ErrorStyle::resolve(_tables);
     }
@@ -2643,7 +2643,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorStyleMsgbox::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorStyleMsgbox::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ErrorStyle::resolve(_tables);
     }
@@ -2674,7 +2674,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorStyleDlgOk::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorStyleDlgOk::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ErrorStyle::resolve(_tables);
     }
@@ -2706,7 +2706,7 @@ namespace cfg
         }
     }
 
-    void error::ErrorStyleDlgOkCancel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::ErrorStyleDlgOkCancel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ErrorStyle::resolve(_tables);
     }
@@ -2734,7 +2734,7 @@ namespace cfg
         }
     }
 
-    void error::CodeInfo::resolve(std::unordered_map<std::string, void*>& _tables)
+    void error::CodeInfo::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2780,7 +2780,7 @@ namespace cfg
         }
     }
 
-    void item::Item::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::Item::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2809,7 +2809,7 @@ namespace cfg
         }
     }
 
-    void item::ItemFunction::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::ItemFunction::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2836,7 +2836,7 @@ namespace cfg
         }
     }
 
-    void item::ItemExtra::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::ItemExtra::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2870,7 +2870,7 @@ namespace cfg
         }
     }
 
-    void item::TreasureBox::resolve(std::unordered_map<std::string, void*>& _tables)
+    void item::TreasureBox::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         ItemExtra::resolve(_tables);
         openLevel->resolve(_tables);
@@ -2902,7 +2902,7 @@ namespace cfg
         }
     }
 
-    void condition::Condition::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::Condition::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2932,7 +2932,7 @@ namespace cfg
         }
     }
 
-    void condition::TimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::TimeRange::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Condition::resolve(_tables);
         dateTimeRange->resolve(_tables);
@@ -2961,7 +2961,7 @@ namespace cfg
         }
     }
 
-    void common::DateTimeRange::resolve(std::unordered_map<std::string, void*>& _tables)
+    void common::DateTimeRange::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
@@ -2993,7 +2993,7 @@ namespace cfg
         }
     }
 
-    void condition::RoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::RoleCondition::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         Condition::resolve(_tables);
     }
@@ -3024,7 +3024,7 @@ namespace cfg
         }
     }
 
-    void condition::MultiRoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::MultiRoleCondition::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         RoleCondition::resolve(_tables);
         for(auto _e : conditions) { _e->resolve(_tables); }
@@ -3056,7 +3056,7 @@ namespace cfg
         }
     }
 
-    void condition::BoolRoleCondition::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::BoolRoleCondition::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         RoleCondition::resolve(_tables);
     }
@@ -3087,7 +3087,7 @@ namespace cfg
         }
     }
 
-    void condition::GenderLimit::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::GenderLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
     }
@@ -3118,7 +3118,7 @@ namespace cfg
         }
     }
 
-    void condition::MinLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::MinLevel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
     }
@@ -3149,7 +3149,7 @@ namespace cfg
         }
     }
 
-    void condition::MaxLevel::resolve(std::unordered_map<std::string, void*>& _tables)
+    void condition::MaxLevel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
     }
