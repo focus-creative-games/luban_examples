@@ -1556,6 +1556,37 @@ namespace cfg
     {
     }
 
+    bool test::TestJson2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m1[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int64 _k;  if(!_buf.readLong(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m2[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m3[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::SharedPtr<test::DemoType1> _v;  if(!test::DemoType1::deserializeDemoType1(_buf, _v)) return false;     m4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::TestJson2::deserializeTestJson2(ByteBuf& _buf, ::bright::SharedPtr<test::TestJson2>& _out)
+    {
+        _out.reset(new test::TestJson2());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestJson2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto _e : m4) { _e.second->resolve(_tables); }
+    }
+
     bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)
     {
 

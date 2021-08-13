@@ -103,11 +103,11 @@ enum class EOperation
 {
     /**
      * 登出
-    */
+     */
     LOGOUT = 0,
     /**
      * 重启
-    */
+     */
     RESTART = 1,
 };
 }
@@ -213,23 +213,23 @@ enum class EItemQuality
 {
     /**
      * 白
-    */
+     */
     WHITE = 0,
     /**
      * 绿
-    */
+     */
     GREEN = 1,
     /**
      * 蓝
-    */
+     */
     BLUE = 2,
     /**
      * 紫
-    */
+     */
     PURPLE = 3,
     /**
      * 金
-    */
+     */
     GOLDEN = 4,
 };
 }
@@ -240,23 +240,23 @@ enum class ECurrencyType
 {
     /**
      * 钻石
-    */
+     */
     DIAMOND = 1,
     /**
      * 金币
-    */
+     */
     GOLD = 2,
     /**
      * 银币
-    */
+     */
     SILVER = 3,
     /**
      * 经验
-    */
+     */
     EXP = 4,
     /**
      * 能量点
-    */
+     */
     POWER_POINT = 5,
 };
 }
@@ -267,47 +267,47 @@ enum class EMajorType
 {
     /**
      * 货币
-    */
+     */
     CURRENCY = 1,
     /**
      * 服装
-    */
+     */
     CLOTH = 2,
     /**
      * 任务
-    */
+     */
     QUEST = 3,
     /**
      * 消耗品
-    */
+     */
     CONSUMABLES = 4,
     /**
      * 宝箱
-    */
+     */
     TREASURE_BOX = 5,
     /**
      * 成就和称谓
-    */
+     */
     ACHIEVEMENT_AND_TITLE = 6,
     /**
      * 头像框
-    */
+     */
     HEAD_FRAME = 7,
     /**
      * 语音
-    */
+     */
     VOICE = 8,
     /**
      * 动作
-    */
+     */
     ACTION = 9,
     /**
      * 扩容道具
-    */
+     */
     EXPANSION = 10,
     /**
      * 制作材料
-    */
+     */
     MATERIAL = 11,
 };
 }
@@ -318,199 +318,199 @@ enum class EMinorType
 {
     /**
      * 钻石
-    */
+     */
     DIAMOND = 101,
     /**
      * 金币
-    */
+     */
     GOLD = 102,
     /**
      * 银币
-    */
+     */
     SILVER = 103,
     /**
      * 经验
-    */
+     */
     EXP = 104,
     /**
      * 能量点
-    */
+     */
     POWER_POINT = 105,
     /**
      * 发型
-    */
+     */
     HAIR_STYLE = 210,
     /**
      * 外套
-    */
+     */
     COAT = 220,
     /**
      * 上衣
-    */
+     */
     UPPER_JACKET = 230,
     /**
      * 裤子
-    */
+     */
     TROUSERS = 241,
     /**
      * 裙子
-    */
+     */
     SKIRT = 242,
     /**
      * 袜子
-    */
+     */
     SOCKS = 250,
     /**
      * 鞋子
-    */
+     */
     SHOES = 260,
     /**
      * 发饰
-    */
+     */
     HAIR_ACCESSORY = 271,
     /**
      * 帽子
-    */
+     */
     HAT = 272,
     /**
      * 耳饰
-    */
+     */
     EARRING = 273,
     /**
      * 颈饰
-    */
+     */
     NECKLACE = 274,
     /**
      * 腕饰
-    */
+     */
     BRACELET = 275,
     /**
      * 发箍
-    */
+     */
     HAIR_CLASP = 276,
     /**
      * 手套
-    */
+     */
     GLOVE = 277,
     /**
      * 手持物
-    */
+     */
     HANDHELD_OBJECT = 278,
     /**
      * 特殊
-    */
+     */
     SPECIAL = 279,
     /**
      * 底妆
-    */
+     */
     BASE_COSMETIC = 281,
     /**
      * 眉妆
-    */
+     */
     EYEBROW_COSMETIC = 282,
     /**
      * 睫毛
-    */
+     */
     EYELASH = 283,
     /**
      * 美瞳
-    */
+     */
     COSMETIC_CONTACT_LENSES = 284,
     /**
      * 唇妆
-    */
+     */
     LIP_COSMETIC = 285,
     /**
      * 肤色
-    */
+     */
     SKIN_COLOR = 286,
     /**
      * 连衣裙
-    */
+     */
     ONE_PIECE_DRESS = 290,
     /**
      * 换装场景
-    */
+     */
     SWITCH_CLOTHES_SCENE = 291,
     /**
      * 任务道具
-    */
+     */
     QUEST = 301,
     /**
      * 投掷物
-    */
+     */
     CAST = 401,
     /**
      * 刀剑
-    */
+     */
     SWORD = 421,
     /**
      * 弓箭
-    */
+     */
     BOW_ARROW = 422,
     /**
      * 法杖
-    */
+     */
     WANDS = 423,
     /**
      * 特殊工具
-    */
+     */
     SPECIAL_TOOL = 424,
     /**
      * 食物
-    */
+     */
     FOOD = 403,
     /**
      * 宝箱
-    */
+     */
     TREASURE_BOX = 501,
     /**
      * 钥匙
-    */
+     */
     KEY = 502,
     /**
      * 多选一宝箱
-    */
+     */
     MULTI_CHOOSE_TREASURE_BOX = 503,
     /**
      * 成就相关
-    */
+     */
     ACHIEVEMENT = 601,
     /**
      * 称谓相关
-    */
+     */
     TITLE = 602,
     /**
      * 头像框
-    */
+     */
     AVATAR_FRAME = 701,
     /**
      * 语音
-    */
+     */
     VOICE = 801,
     /**
      * 特殊待机动作
-    */
+     */
     IDLE_POSE = 901,
     /**
      * 拍照动作
-    */
+     */
     PHOTO_POSE = 902,
     /**
      * 背包
-    */
+     */
     BAG = 1001,
     /**
      * 好友数量
-    */
+     */
     FRIEND_CAPACITY = 1002,
     /**
      * 制作材料
-    */
+     */
     CONSTRUCTION_MATERIAL = 1101,
     /**
      * 设计图纸
-    */
+     */
     DESIGN_DRAWING = 1102,
 };
 }
@@ -521,43 +521,43 @@ enum class EClothersStarQualityType
 {
     /**
      * 一星
-    */
+     */
     ONE = 1,
     /**
      * 二星
-    */
+     */
     TWO = 2,
     /**
      * 三星
-    */
+     */
     THREE = 3,
     /**
      * 四星
-    */
+     */
     FOUR = 4,
     /**
      * 五星
-    */
+     */
     FIVE = 5,
     /**
      * 六星
-    */
+     */
     SIX = 6,
     /**
      * 七星
-    */
+     */
     SEVEN = 7,
     /**
      * 八星
-    */
+     */
     EIGHT = 8,
     /**
      * 九星
-    */
+     */
     NINE = 9,
     /**
      * 十星
-    */
+     */
     TEN = 10,
 };
 }
@@ -568,11 +568,11 @@ enum class EClothersTag
 {
     /**
      * 防晒
-    */
+     */
     FANG_SHAI = 1,
     /**
      * 舞者
-    */
+     */
     WU_ZHE = 2,
 };
 }
@@ -583,11 +583,11 @@ enum class EUseType
 {
     /**
      * 手动
-    */
+     */
     MANUAL = 0,
     /**
      * 自动
-    */
+     */
     AUTO = 1,
 };
 }
@@ -598,35 +598,35 @@ enum class EClothesHidePartType
 {
     /**
      * 胸部
-    */
+     */
     CHEST = 0,
     /**
      * 手
-    */
+     */
     HEAD = 1,
     /**
      * 脊柱上
-    */
+     */
     SPINE_UPPER = 2,
     /**
      * 脊柱下
-    */
+     */
     SPINE_LOWER = 3,
     /**
      * 臀部
-    */
+     */
     HIP = 4,
     /**
      * 腿上
-    */
+     */
     LEG_UPPER = 5,
     /**
      * 腿中
-    */
+     */
     LEG_MIDDLE = 6,
     /**
      * 腿下
-    */
+     */
     LEG_LOWER = 7,
 };
 }
@@ -637,43 +637,43 @@ enum class EClothesPropertyType
 {
     /**
      * 简约
-    */
+     */
     JIAN_YUE = 1,
     /**
      * 华丽
-    */
+     */
     HUA_LI = 2,
     /**
      * 可爱
-    */
+     */
     KE_AI = 3,
     /**
      * 成熟
-    */
+     */
     CHENG_SHU = 4,
     /**
      * 活泼
-    */
+     */
     HUO_PO = 5,
     /**
      * 优雅
-    */
+     */
     YOU_YA = 6,
     /**
      * 清纯
-    */
+     */
     QING_CHUN = 7,
     /**
      * 性感
-    */
+     */
     XING_GAN = 8,
     /**
      * 清凉
-    */
+     */
     QING_LIANG = 9,
     /**
      * 保暖
-    */
+     */
     BAO_NUAN = 10,
 };
 }
@@ -684,11 +684,11 @@ enum class EItemFunctionType
 {
     /**
      * 更换手持物
-    */
+     */
     REPLACE_HANDHELD = 0,
     /**
      * 使用设计图纸
-    */
+     */
     USE_DESIGN_DRAWING = 1,
 };
 }
@@ -709,11 +709,11 @@ enum class EMailType
 {
     /**
      * 全局邮件
-    */
+     */
     GLOBAL = 0,
     /**
      * 系统邮件
-    */
+     */
     SYSTEM = 1,
 };
 }
@@ -724,11 +724,11 @@ enum class EGenderType
 {
     /**
      * 男
-    */
+     */
     MALE = 1,
     /**
      * 女
-    */
+     */
     FEMALE = 2,
 };
 }
@@ -747,19 +747,19 @@ enum class DemoEnum
 {
     /**
      * aa
-    */
+     */
     A = 1,
     /**
      * bb
-    */
+     */
     B = 2,
     /**
      * cc
-    */
+     */
     C = 4,
     /**
      * dd
-    */
+     */
     D = 5,
 };
 }
@@ -770,7 +770,7 @@ enum class ETestUeType
 {
     /**
      * 白
-    */
+     */
     WHITE = 0,
     BLACK = 1,
 };
@@ -799,19 +799,19 @@ enum class ETestQuality
 {
     /**
      * 最高品质
-    */
+     */
     A = 1,
     /**
      * 黑色的
-    */
+     */
     B = 2,
     /**
      * 蓝色的
-    */
+     */
     C = 3,
     /**
      * 最差品质
-    */
+     */
     D = 4,
 };
 }
@@ -822,11 +822,11 @@ enum class ETestCurrency
 {
     /**
      * 重要
-    */
+     */
     DIAMOND = 1,
     /**
      * 有用
-    */
+     */
     GOLD = 2,
 };
 }
@@ -1009,6 +1009,7 @@ namespace test { class TestGlobal; }
 namespace test { class DetectEncoding; } 
 namespace test { class DefineFromExcel; } 
 namespace test { class DefineFromExcelOne; } 
+namespace test { class TestJson2; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
 
@@ -7332,6 +7333,53 @@ namespace test {
 
 
 
+class TestJson2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestJson2(ByteBuf& _buf, ::bright::SharedPtr<TestJson2>& _out);
+
+    TestJson2()
+    { 
+
+    }
+
+    TestJson2(::bright::int32 id, ::bright::HashMap<::bright::int32, ::bright::int32> m1, ::bright::HashMap<::bright::int64, ::bright::int32> m2, ::bright::HashMap<::bright::String, ::bright::int32> m3, ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::DemoType1>> m4 ) 
+    {
+
+        this->id = id;
+        this->m1 = m1;
+        this->m2 = m2;
+        this->m3 = m3;
+        this->m4 = m4;
+    }
+    virtual ~TestJson2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::HashMap<::bright::int32, ::bright::int32> m1;
+    ::bright::HashMap<::bright::int64, ::bright::int32> m2;
+    ::bright::HashMap<::bright::String, ::bright::int32> m3;
+    ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::DemoType1>> m4;
+
+    static constexpr int ID = 1942237276;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
 /**
  * 
  */
@@ -9153,6 +9201,57 @@ class TbDefineFromExcelOne
 namespace test {
 
 
+class TbTestJson2
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestJson2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestJson2>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestJson2> _v;
+            if(!test::TestJson2::deserializeTestJson2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestJson2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestJson2>>& getDataList() const { return _dataList; }
+
+    test::TestJson2* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestJson2> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
 class TbDemoGroupDefineFromExcel
 {
     private:
@@ -9315,7 +9414,7 @@ class Tables
      error::TbErrorInfo TbErrorInfo;
      error::TbCodeInfo TbCodeInfo;
     /**
-     道具表
+     * 道具表
      */
      item::TbItem TbItem;
      item::TbItemFunc TbItemFunc;
@@ -9343,6 +9442,7 @@ class Tables
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
      test::TbDefineFromExcel TbDefineFromExcel;
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
+     test::TbTestJson2 TbTestJson2;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
@@ -9454,6 +9554,9 @@ class Tables
         if (!loader(buf, "test.TbDefineFromExcelOne")) return false;
         if (!TbDefineFromExcelOne.load(buf)) return false;
         __tables__["test.TbDefineFromExcelOne"] = &TbDefineFromExcelOne;
+        if (!loader(buf, "test.TbTestJson2")) return false;
+        if (!TbTestJson2.load(buf)) return false;
+        __tables__["test.TbTestJson2"] = &TbTestJson2;
         if (!loader(buf, "test.TbDemoGroupDefineFromExcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
@@ -9498,6 +9601,7 @@ class Tables
         TbDetectCsvEncoding.resolve(__tables__); 
         TbDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcelOne.resolve(__tables__); 
+        TbTestJson2.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 
