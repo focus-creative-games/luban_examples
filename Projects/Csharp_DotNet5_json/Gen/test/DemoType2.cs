@@ -44,7 +44,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("k5"); K5 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K5.Add(__v); }   }
         { var _json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
-        foreach(var _v in K9) { K9_Index.Add(_v.Y1, _v); }
         { var _json0 = _json.GetProperty("k15"); int _n = _json0.GetArrayLength(); K15 = new test.DemoDynamic[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoDynamic __v;  __v =  test.DemoDynamic.DeserializeDemoDynamic(__e);  K15[_index++] = __v; }   }
     }
 
@@ -74,7 +73,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         this.K5 = k5;
         this.K8 = k8;
         this.K9 = k9;
-        foreach(var _v in K9) { K9_Index.Add(_v.Y1, _v); }
         this.K15 = k15;
     }
 
@@ -108,7 +106,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public readonly System.Collections.Generic.HashSet<int> K5;
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly Dictionary<int?, test.DemoE2> K9_Index = new Dictionary<int?, test.DemoE2>();
     public readonly test.DemoDynamic[] K15;
 
     public const int ID = -367048295;

@@ -52,6 +52,8 @@ public sealed partial class Tables
     public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
     public test.TbDefineFromExcel TbDefineFromExcel {get; }
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
+    public test.TbTestJson2 TbTestJson2 {get; }
+    public test.TbTestIndex TbTestIndex {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -127,6 +129,10 @@ public sealed partial class Tables
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
         tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
+        TbTestJson2 = new test.TbTestJson2(loader("test.TbTestJson2")); 
+        tables.Add("test.TbTestJson2", TbTestJson2);
+        TbTestIndex = new test.TbTestIndex(loader("test.TbTestIndex")); 
+        tables.Add("test.TbTestIndex", TbTestIndex);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
@@ -168,6 +174,8 @@ public sealed partial class Tables
         TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
+        TbTestJson2.Resolve(tables); 
+        TbTestIndex.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
