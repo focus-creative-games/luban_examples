@@ -1010,6 +1010,7 @@ namespace test { class DetectEncoding; }
 namespace test { class DefineFromExcel; } 
 namespace test { class DefineFromExcelOne; } 
 namespace test { class TestJson2; } 
+namespace test { class TestIndex; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
 
@@ -6141,7 +6142,6 @@ class DemoType2 : public  bright::CfgBean
     ::bright::HashSet<::bright::int32> k5;
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
-    ::bright::HashMap<::bright::SharedPtr<::bright::int32>, ::bright::SharedPtr<test::DemoE2>> k9_Index;
     ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
 
     static constexpr int ID = -367048295;
@@ -7364,6 +7364,48 @@ class TestJson2 : public  bright::CfgBean
     ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::DemoType1>> m4;
 
     static constexpr int ID = 1942237276;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+
+
+
+namespace test {
+
+
+
+
+
+class TestIndex : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestIndex(ByteBuf& _buf, ::bright::SharedPtr<TestIndex>& _out);
+
+    TestIndex()
+    { 
+
+    }
+
+    TestIndex(::bright::int32 id, ::bright::Vector<::bright::SharedPtr<test::DemoType1>> eles ) 
+    {
+
+        this->id = id;
+        this->eles = eles;
+    }
+    virtual ~TestIndex() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::Vector<::bright::SharedPtr<test::DemoType1>> eles;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType1>> eles_Index;
+
+    static constexpr int ID = 1941154020;
 
     int getTypeId() const { return ID; }
 
@@ -9252,6 +9294,57 @@ class TbTestJson2
 namespace test {
 
 
+class TbTestIndex
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestIndex>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestIndex>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestIndex> _v;
+            if(!test::TestIndex::deserializeTestIndex(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestIndex>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestIndex>>& getDataList() const { return _dataList; }
+
+    test::TestIndex* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestIndex> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+
+
+namespace test {
+
+
 class TbDemoGroupDefineFromExcel
 {
     private:
@@ -9443,6 +9536,7 @@ class Tables
      test::TbDefineFromExcel TbDefineFromExcel;
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
      test::TbTestJson2 TbTestJson2;
+     test::TbTestIndex TbTestIndex;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
@@ -9557,6 +9651,9 @@ class Tables
         if (!loader(buf, "test.TbTestJson2")) return false;
         if (!TbTestJson2.load(buf)) return false;
         __tables__["test.TbTestJson2"] = &TbTestJson2;
+        if (!loader(buf, "test.TbTestIndex")) return false;
+        if (!TbTestIndex.load(buf)) return false;
+        __tables__["test.TbTestIndex"] = &TbTestIndex;
         if (!loader(buf, "test.TbDemoGroupDefineFromExcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
@@ -9602,6 +9699,7 @@ class Tables
         TbDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcelOne.resolve(__tables__); 
         TbTestJson2.resolve(__tables__); 
+        TbTestIndex.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 

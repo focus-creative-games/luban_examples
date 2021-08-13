@@ -1587,6 +1587,38 @@ namespace cfg
         for(auto _e : m4) { _e.second->resolve(_tables); }
     }
 
+    bool test::TestIndex::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); eles.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoType1> _e;  if(!test::DemoType1::deserializeDemoType1(_buf, _e)) return false; eles.push_back(_e);}}
+        for(auto& _v : this->eles)
+        { 
+            eles_Index.insert({_v->x1, _v});
+        }
+
+        return true;
+    }
+
+    bool test::TestIndex::deserializeTestIndex(ByteBuf& _buf, ::bright::SharedPtr<test::TestIndex>& _out)
+    {
+        _out.reset(new test::TestIndex());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestIndex::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto _e : eles) { _e->resolve(_tables); }
+    }
+
     bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)
     {
 

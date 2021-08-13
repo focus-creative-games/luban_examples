@@ -80,7 +80,7 @@
 		<var name="k2" type="list,int"/>
 		<var name="k5" type="set,int"/>
 		<var name="k8" type="map,int,int"/>
-		<var name="k9" type="list,DemoE2" sep="," index="y1"/>
+		<var name="k9" type="list,DemoE2" sep=","/>
 		<var name="k15" type="array,DemoDynamic" sep=","/> 
 	</bean>
 	
@@ -284,6 +284,12 @@
 		<var name="m4" type="map,string,DemoType1" sep=",|"/>
 	</bean>
 	<table name="TbTestJson2" value="TestJson2" input="test/test_json2.xlsx"/>
+	
+	<bean name="TestIndex">
+		<var name="id" type="int"/>
+		<var name="eles" type="list,DemoType1" index="x1"/>
+	</bean>
+	<table name="TbTestIndex" value="TestIndex" input="test/test_index.xlsx"/>
  
 	<module name="login">
 		支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。
