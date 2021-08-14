@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DemoE1 extends  cfg.test.DemoD3 
 {
     public DemoE1(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class DemoE1 extends  cfg.test.DemoD3
         return new DemoE1(_buf);
     }
 
-    /**
-     * 
-     */
     public final int x4;
 
     public static final int ID = -2138341717;

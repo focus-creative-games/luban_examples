@@ -79,85 +79,25 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// 道具id
     /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EMajorType MajorType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EMinorType MinorType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MaxPileNum;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EItemQuality Quality;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Icon;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string IconBackgroud;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string IconMask;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int ShowOrder;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Quantifier;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool ShowInBag;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MinShowLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool BatchUsable;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float ProgressTimeWhenUse;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool ShowHintWhenUse;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool Droppable;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? Price;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EUseType UseType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? LevelUpId;
 
     public const int ID = 2107285806;

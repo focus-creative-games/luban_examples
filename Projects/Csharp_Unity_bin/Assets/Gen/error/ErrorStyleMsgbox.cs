@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(ByteBuf _buf)  : base(_buf) 
@@ -37,13 +34,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
         return new error.ErrorStyleMsgbox(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string BtnName;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly error.EOperation Operation;
 
     public const int ID = -1920482343;

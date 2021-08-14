@@ -8,17 +8,14 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-/**
- * 
- */
 public enum EItemFunctionType
 {
     /**
-     * 
+     * 更换手持物
      */
     REPLACE_HANDHELD(0),
     /**
-     * 
+     * 使用设计图纸
      */
     USE_DESIGN_DRAWING(1),
     ;

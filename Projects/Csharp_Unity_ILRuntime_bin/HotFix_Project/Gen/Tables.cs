@@ -23,6 +23,9 @@ public sealed class Tables
     public common.TbDummy TbDummy {get; }
     public error.TbErrorInfo TbErrorInfo {get; }
     public error.TbCodeInfo TbCodeInfo {get; }
+    /// <summary>
+    /// 道具表
+    /// </summary>
     public item.TbItem TbItem {get; }
     public item.TbItemFunc TbItemFunc {get; }
     public item.TbItemExtra TbItemExtra {get; }
@@ -35,9 +38,7 @@ public sealed class Tables
     public tag.TbTestTag TbTestTag {get; }
     public test.TbFullTypes TbFullTypes {get; }
     public test.TbSingleton TbSingleton {get; }
-    public test.TbDataFromJson TbDataFromJson {get; }
-    public test.TbDataFromXml TbDataFromXml {get; }
-    public test.TbDataFromLua TbDataFromLua {get; }
+    public test.TbDataFromMisc TbDataFromMisc {get; }
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
     public test.TbTestNull TbTestNull {get; }
@@ -48,6 +49,14 @@ public sealed class Tables
     public test.TbDemoGroup_S TbDemoGroup_S {get; }
     public test.TbDemoGroup_E TbDemoGroup_E {get; }
     public test.TbTestGlobal TbTestGlobal {get; }
+    public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
+    public test.TbDefineFromExcel TbDefineFromExcel {get; }
+    public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
+    public test.TbTestJson2 TbTestJson2 {get; }
+    public test.TbTestIndex TbTestIndex {get; }
+    public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
+    public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
+    public test.TbTestExcelBean TbTestExcelBean {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -92,12 +101,8 @@ public sealed class Tables
         tables.Add("test.TbFullTypes", TbFullTypes);
         TbSingleton = new test.TbSingleton(loader("test.TbSingleton")); 
         tables.Add("test.TbSingleton", TbSingleton);
-        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson")); 
-        tables.Add("test.TbDataFromJson", TbDataFromJson);
-        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml")); 
-        tables.Add("test.TbDataFromXml", TbDataFromXml);
-        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua")); 
-        tables.Add("test.TbDataFromLua", TbDataFromLua);
+        TbDataFromMisc = new test.TbDataFromMisc(loader("test.TbDataFromMisc")); 
+        tables.Add("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord")); 
         tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
         TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle")); 
@@ -118,6 +123,22 @@ public sealed class Tables
         tables.Add("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new test.TbTestGlobal(loader("test.TbTestGlobal")); 
         tables.Add("test.TbTestGlobal", TbTestGlobal);
+        TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader("test.TbDetectCsvEncoding")); 
+        tables.Add("test.TbDetectCsvEncoding", TbDetectCsvEncoding);
+        TbDefineFromExcel = new test.TbDefineFromExcel(loader("test.TbDefineFromExcel")); 
+        tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
+        TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
+        tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
+        TbTestJson2 = new test.TbTestJson2(loader("test.TbTestJson2")); 
+        tables.Add("test.TbTestJson2", TbTestJson2);
+        TbTestIndex = new test.TbTestIndex(loader("test.TbTestIndex")); 
+        tables.Add("test.TbTestIndex", TbTestIndex);
+        TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
+        tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
+        TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
+        tables.Add("test.TbDefineFromExcel2", TbDefineFromExcel2);
+        TbTestExcelBean = new test.TbTestExcelBean(loader("test.TbTestExcelBean")); 
+        tables.Add("test.TbTestExcelBean", TbTestExcelBean);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -139,9 +160,7 @@ public sealed class Tables
         TbTestTag.Resolve(tables); 
         TbFullTypes.Resolve(tables); 
         TbSingleton.Resolve(tables); 
-        TbDataFromJson.Resolve(tables); 
-        TbDataFromXml.Resolve(tables); 
-        TbDataFromLua.Resolve(tables); 
+        TbDataFromMisc.Resolve(tables); 
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
@@ -152,6 +171,14 @@ public sealed class Tables
         TbDemoGroup_S.Resolve(tables); 
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
+        TbDetectCsvEncoding.Resolve(tables); 
+        TbDefineFromExcel.Resolve(tables); 
+        TbDefineFromExcelOne.Resolve(tables); 
+        TbTestJson2.Resolve(tables); 
+        TbTestIndex.Resolve(tables); 
+        TbDemoGroupDefineFromExcel.Resolve(tables); 
+        TbDefineFromExcel2.Resolve(tables); 
+        TbTestExcelBean.Resolve(tables); 
     }
 }
 

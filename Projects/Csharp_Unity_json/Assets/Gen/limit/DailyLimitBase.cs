@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class DailyLimitBase :  limit.LimitBase 
 {
     public DailyLimitBase(JSONNode _json)  : base(_json) 

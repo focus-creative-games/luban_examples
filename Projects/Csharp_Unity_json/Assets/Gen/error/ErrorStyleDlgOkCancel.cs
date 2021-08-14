@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle 
 {
     public ErrorStyleDlgOkCancel(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
         return new error.ErrorStyleDlgOkCancel(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Btn1Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Btn2Name;
 
     public const int ID = 971221414;

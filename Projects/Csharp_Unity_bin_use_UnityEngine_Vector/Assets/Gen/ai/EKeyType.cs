@@ -9,50 +9,17 @@
 
 namespace cfg.ai
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EKeyType
     {
-        /// <summary>
-        /// 
-        /// </summary>
         BOOL = 1,
-        /// <summary>
-        /// 
-        /// </summary>
         INT = 2,
-        /// <summary>
-        /// 
-        /// </summary>
         FLOAT = 3,
-        /// <summary>
-        /// 
-        /// </summary>
         STRING = 4,
-        /// <summary>
-        /// 
-        /// </summary>
         VECTOR = 5,
-        /// <summary>
-        /// 
-        /// </summary>
         ROTATOR = 6,
-        /// <summary>
-        /// 
-        /// </summary>
         NAME = 7,
-        /// <summary>
-        /// 
-        /// </summary>
         CLASS = 8,
-        /// <summary>
-        /// 
-        /// </summary>
         ENUM = 9,
-        /// <summary>
-        /// 
-        /// </summary>
         OBJECT = 10,
     }
 }

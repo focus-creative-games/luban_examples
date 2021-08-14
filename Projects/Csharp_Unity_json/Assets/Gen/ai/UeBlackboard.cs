@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JSONNode _json)  : base(_json) 
@@ -40,17 +37,8 @@ public sealed partial class UeBlackboard :  ai.Decorator
         return new ai.UeBlackboard(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.ENotifyObserverMode NotifyObserver;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string BlackboardKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.KeyQueryOperator KeyQuery;
 
     public const int ID = -315297507;

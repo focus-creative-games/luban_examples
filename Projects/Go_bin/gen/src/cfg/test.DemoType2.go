@@ -36,11 +36,7 @@ type Test_DemoType2 struct {
     T1 int32
     K1 []int32
     K2 []int32
-    K3 []int32
-    K4 []int32
     K5 []int32
-    K6 []int32
-    K7 []int32
     K8 map[int32]int32
     K9 []*Test_DemoE2
     K15 []interface{}
@@ -94,28 +90,6 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
             }
 
      {
-                _v.K3 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.K3 = append(_v.K3, _e_)
-                }
-            }
-
-     {
-                _v.K4 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.K4 = append(_v.K4, _e_)
-                }
-            }
-
-     {
                 _v.K5 = make([]int32, 0)
                 var _n_ int
                 if _n_, err = _buf.ReadSize(); err != nil {return}
@@ -123,28 +97,6 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
                     var _e_ int32
                     { if _e_, err = _buf.ReadInt(); err != nil { return } }
                     _v.K5 = append(_v.K5, _e_)
-                }
-            }
-
-     {
-                _v.K6 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.K6 = append(_v.K6, _e_)
-                }
-            }
-
-     {
-                _v.K7 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.K7 = append(_v.K7, _e_)
                 }
             }
 

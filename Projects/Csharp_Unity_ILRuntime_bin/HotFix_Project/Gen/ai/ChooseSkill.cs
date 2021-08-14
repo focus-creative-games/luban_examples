@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(ByteBuf _buf)  : base(_buf) 

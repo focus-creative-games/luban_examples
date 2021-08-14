@@ -35,9 +35,7 @@ type Tables struct {
     TbTestTag *Tag_TbTestTag
     TbFullTypes *Test_TbFullTypes
     TbSingleton *Test_TbSingleton
-    TbDataFromJson *Test_TbDataFromJson
-    TbDataFromXml *Test_TbDataFromXml
-    TbDataFromLua *Test_TbDataFromLua
+    TbDataFromMisc *Test_TbDataFromMisc
     TbMultiRowRecord *Test_TbMultiRowRecord
     TbMultiRowTitle *Test_TbMultiRowTitle
     TbTestNull *Test_TbTestNull
@@ -48,6 +46,14 @@ type Tables struct {
     TbDemoGroup_S *Test_TbDemoGroup_S
     TbDemoGroup_E *Test_TbDemoGroup_E
     TbTestGlobal *Test_TbTestGlobal
+    TbDetectCsvEncoding *Test_TbDetectCsvEncoding
+    TbDefineFromExcel *Test_TbDefineFromExcel
+    TbDefineFromExcelOne *Test_TbDefineFromExcelOne
+    TbTestJson2 *Test_TbTestJson2
+    TbTestIndex *Test_TbTestIndex
+    TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
+    TbDefineFromExcel2 *Test_TbDefineFromExcel2
+    TbTestExcelBean *Test_TbTestExcelBean
 }
 
 func NewTables(loader ByteBufLoader) (*Tables, error) {
@@ -175,22 +181,10 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     if tables.TbSingleton, err = NewTest_TbSingleton(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDataFromJson") ; err != nil {
+    if buf, err = loader("test.TbDataFromMisc") ; err != nil {
         return nil, err
     }
-    if tables.TbDataFromJson, err = NewTest_TbDataFromJson(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("test.TbDataFromXml") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDataFromXml, err = NewTest_TbDataFromXml(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("test.TbDataFromLua") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDataFromLua, err = NewTest_TbDataFromLua(buf) ; err != nil {
+    if tables.TbDataFromMisc, err = NewTest_TbDataFromMisc(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test.TbMultiRowRecord") ; err != nil {
@@ -251,6 +245,54 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestGlobal, err = NewTest_TbTestGlobal(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDetectCsvEncoding") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDetectCsvEncoding, err = NewTest_TbDetectCsvEncoding(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDefineFromExcel") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDefineFromExcel, err = NewTest_TbDefineFromExcel(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDefineFromExcelOne") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDefineFromExcelOne, err = NewTest_TbDefineFromExcelOne(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestJson2") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestJson2, err = NewTest_TbTestJson2(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestIndex") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestIndex, err = NewTest_TbTestIndex(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDemoGroupDefineFromExcel") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDemoGroupDefineFromExcel, err = NewTest_TbDemoGroupDefineFromExcel(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbDefineFromExcel2") ; err != nil {
+        return nil, err
+    }
+    if tables.TbDefineFromExcel2, err = NewTest_TbDefineFromExcel2(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test.TbTestExcelBean") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestExcelBean, err = NewTest_TbTestExcelBean(buf) ; err != nil {
         return nil, err
     }
     return tables, nil

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.error
 {
-   
+
 public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(ByteBuf _buf)  : base(_buf) 

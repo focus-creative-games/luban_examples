@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class WeightBonusInfo extends  bright.serialization.AbstractBean 
 {
     public WeightBonusInfo(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class WeightBonusInfo extends  bright.serialization.AbstractBean
         return new WeightBonusInfo(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.bonus.Bonus bonus;
-    /**
-     * 
-     */
     public final int weight;
 
     public static final int ID = -907244058;

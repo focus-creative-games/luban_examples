@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JSONNode _json) 
@@ -38,13 +35,7 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new test.DateTimeRange(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int StartTime;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int EndTime;
 
     public const int ID = 495315430;

@@ -8,42 +8,15 @@
 //------------------------------------------------------------------------------
 
 package cfg.ai;
-/**
- * 
- */
 public enum EOperator
 {
-    /**
-     * 
-     */
     IS_EQUAL_TO(0),
-    /**
-     * 
-     */
     IS_NOT_EQUAL_TO(1),
-    /**
-     * 
-     */
     IS_LESS_THAN(2),
-    /**
-     * 
-     */
     IS_LESS_THAN_OR_EQUAL_TO(3),
-    /**
-     * 
-     */
     IS_GREAT_THAN(4),
-    /**
-     * 
-     */
     IS_GREAT_THAN_OR_EQUAL_TO(5),
-    /**
-     * 
-     */
     CONTAINS(6),
-    /**
-     * 
-     */
     NOT_CONTAINS(7),
     ;
 

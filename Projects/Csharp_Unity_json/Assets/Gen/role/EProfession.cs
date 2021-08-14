@@ -9,14 +9,8 @@
 
 namespace cfg.role
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EProfession
     {
-        /// <summary>
-        /// 
-        /// </summary>
         TEST_PROFESSION = 1,
     }
 }

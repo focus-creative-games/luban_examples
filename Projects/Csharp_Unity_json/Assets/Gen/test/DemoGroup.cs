@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoGroup :  Bright.Config.BeanBase 
 {
     public DemoGroup(JSONNode _json) 
@@ -46,29 +43,11 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         return new test.DemoGroup(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.InnerGroup X5;
 
     public const int ID = -379263008;

@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class LevelBonus :  Bright.Config.BeanBase 
 {
     public LevelBonus(JSONNode _json) 
@@ -38,13 +35,7 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
         return new role.LevelBonus(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos;
 
     public const int ID = -572269677;

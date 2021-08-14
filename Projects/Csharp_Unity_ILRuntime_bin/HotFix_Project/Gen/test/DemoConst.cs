@@ -9,7 +9,6 @@
 
 namespace cfg.test
 {
-   
     public sealed class DemoConst
     {
         public const int x1 = 0;

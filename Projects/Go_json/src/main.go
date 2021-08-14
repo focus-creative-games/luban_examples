@@ -8,7 +8,7 @@ import (
 )
 
 func loader(file string) ([]map[string]interface{}, error) {
-	if bytes, err := ioutil.ReadFile("./config_data/" + file + ".json") ; err != nil {
+	if bytes, err := ioutil.ReadFile("../GenerateDatas/json/" + file + ".json") ; err != nil {
 		return nil, err
 	} else {
 		jsonData := make([]map[string]interface{}, 0)

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(ByteBuf _buf)  : base(_buf) 

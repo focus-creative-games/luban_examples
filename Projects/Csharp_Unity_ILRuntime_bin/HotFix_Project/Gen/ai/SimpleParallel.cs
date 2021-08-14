@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 

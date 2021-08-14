@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         return new role.BonusInfo(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.ECurrencyType Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Coefficient;
 
     public const int ID = -1354421803;

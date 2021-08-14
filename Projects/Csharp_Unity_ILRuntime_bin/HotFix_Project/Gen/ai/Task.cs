@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public abstract partial class Task :  ai.FlowNode 
 {
     public Task(ByteBuf _buf)  : base(_buf) 

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.test
 {
-   
+
 public sealed partial class CompactString :  Bright.Config.BeanBase 
 {
     public CompactString(ByteBuf _buf) 

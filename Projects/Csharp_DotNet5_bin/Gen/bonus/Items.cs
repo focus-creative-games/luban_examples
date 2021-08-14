@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Items :  bonus.Bonus 
 {
     public Items(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class Items :  bonus.Bonus
         return new bonus.Items(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Item[] ItemList;
 
     public const int ID = 819736849;

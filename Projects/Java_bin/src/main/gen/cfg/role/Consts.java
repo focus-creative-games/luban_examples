@@ -9,18 +9,9 @@
 
 package cfg.role;
 
-/**
- * 
- */
 public final class Consts
 {
-    /**
-     * 
-     */
     public static final int MAX_NAME_LENGTH = 20;
-    /**
-     * 
-     */
     public static final int MAX_USER_ROLE_NUM = 10;
 }
 

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class DebugPrint :  ai.Task 
 {
     public DebugPrint(ByteBuf _buf)  : base(_buf) 

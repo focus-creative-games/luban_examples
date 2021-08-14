@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MoveToRandomLocation extends  cfg.ai.Task 
 {
     public MoveToRandomLocation(ByteBuf _buf)
@@ -37,13 +34,7 @@ public final class MoveToRandomLocation extends  cfg.ai.Task
         return new MoveToRandomLocation(_buf);
     }
 
-    /**
-     * 
-     */
     public final String originPositionKey;
-    /**
-     * 
-     */
     public final float radius;
 
     public static final int ID = -2140042998;

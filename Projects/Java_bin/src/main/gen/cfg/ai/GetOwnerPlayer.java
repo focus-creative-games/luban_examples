@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class GetOwnerPlayer extends  cfg.ai.Service 
 {
     public GetOwnerPlayer(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class GetOwnerPlayer extends  cfg.ai.Service
         return new GetOwnerPlayer(_buf);
     }
 
-    /**
-     * 
-     */
     public final String playerActorKey;
 
     public static final int ID = -999247644;

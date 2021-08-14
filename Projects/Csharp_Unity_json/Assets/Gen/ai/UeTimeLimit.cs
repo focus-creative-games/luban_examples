@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeTimeLimit :  ai.Decorator 
 {
     public UeTimeLimit(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         return new ai.UeTimeLimit(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float LimitTime;
 
     public const int ID = 338469720;

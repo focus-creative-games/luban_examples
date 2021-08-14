@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class Node extends  bright.serialization.AbstractBean 
 {
     public Node(ByteBuf _buf)
@@ -61,13 +58,7 @@ public abstract class Node extends  bright.serialization.AbstractBean
         }
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String nodeName;
 
 

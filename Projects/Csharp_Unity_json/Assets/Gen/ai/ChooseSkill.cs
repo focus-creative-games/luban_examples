@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class ChooseSkill :  ai.Task
         return new ai.ChooseSkill(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string TargetActorKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string ResultSkillIdKey;
 
     public const int ID = -918812268;

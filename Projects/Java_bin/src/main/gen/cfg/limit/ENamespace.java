@@ -8,22 +8,10 @@
 //------------------------------------------------------------------------------
 
 package cfg.limit;
-/**
- * 
- */
 public enum ENamespace
 {
-    /**
-     * 
-     */
     ITEM_DAILY_OBTAIN(1),
-    /**
-     * 
-     */
     TREASURE_DAILY_USE(2),
-    /**
-     * 
-     */
     STORE_GOODS_LIMIT_BUY(3),
     ;
 

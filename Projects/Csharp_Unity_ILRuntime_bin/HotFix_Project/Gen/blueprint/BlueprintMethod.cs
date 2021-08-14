@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public sealed partial class BlueprintMethod :  blueprint.Method 
 {
     public BlueprintMethod(ByteBuf _buf)  : base(_buf) 

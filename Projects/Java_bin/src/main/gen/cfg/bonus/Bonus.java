@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class Bonus extends  bright.serialization.AbstractBean 
 {
     public Bonus(ByteBuf _buf)

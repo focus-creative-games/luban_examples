@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class BoolRoleCondition :  condition.RoleCondition 
 {
     public BoolRoleCondition(JSONNode _json)  : base(_json) 

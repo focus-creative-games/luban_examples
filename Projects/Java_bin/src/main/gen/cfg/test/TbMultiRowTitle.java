@@ -12,9 +12,6 @@ package cfg.test;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbMultiRowTitle
 {
     private final java.util.HashMap<Integer, cfg.test.MultiRowTitle> _dataMap;

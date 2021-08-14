@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public sealed partial class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(ByteBuf _buf)  : base(_buf) 

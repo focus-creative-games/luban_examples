@@ -18,6 +18,6 @@ public class Main : MonoBehaviour
 
     private static ByteBuf LoadByteBuf(string file)
     {
-        return new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../config_data/" + file + ".bin"));
+        return new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../../GenerateDatas/bin/" + file + ".bin"));
     }
 }

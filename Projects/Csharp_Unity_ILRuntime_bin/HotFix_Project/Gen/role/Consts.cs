@@ -9,7 +9,6 @@
 
 namespace cfg.role
 {
-   
     public sealed class Consts
     {
         public const int MAX_NAME_LENGTH = 20;

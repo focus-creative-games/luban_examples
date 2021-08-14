@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoD2 :  test.DemoDynamic 
 {
     public DemoD2(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class DemoD2 :  test.DemoDynamic
         return new test.DemoD2(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X2;
 
     public const int ID = -2138341747;

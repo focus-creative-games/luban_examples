@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbDemoGroup_C
 {
     private readonly Dictionary<int, test.DemoGroup> _dataMap;

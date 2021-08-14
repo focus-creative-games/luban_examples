@@ -9,26 +9,11 @@
 
 package cfg.test;
 
-/**
- * 
- */
 public final class DemoConst
 {
-    /**
-     * 
-     */
     public static final int x1 = 0;
-    /**
-     * 
-     */
     public static final long x2 = 3242L;
-    /**
-     * 
-     */
     public static final float x3 = 444.3f;
-    /**
-     * 
-     */
     public static final double x4 = 55.3;
 }
 

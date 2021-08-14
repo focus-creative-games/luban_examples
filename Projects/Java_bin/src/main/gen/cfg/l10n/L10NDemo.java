@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class L10NDemo extends  bright.serialization.AbstractBean 
 {
     public L10NDemo(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class L10NDemo extends  bright.serialization.AbstractBean
         return new L10NDemo(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String text;
 
     public static final int ID = -331195887;

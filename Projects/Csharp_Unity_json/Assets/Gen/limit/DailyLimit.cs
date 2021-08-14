@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DailyLimit :  limit.DailyLimitBase 
 {
     public DailyLimit(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class DailyLimit :  limit.DailyLimitBase
         return new limit.DailyLimit(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Num;
 
     public const int ID = 303235413;

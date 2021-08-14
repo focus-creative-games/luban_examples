@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         return new ai.BinaryOperator(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.EOperator Oper;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.KeyData Data;
 
     public const int ID = -979891605;

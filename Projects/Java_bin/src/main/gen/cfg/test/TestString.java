@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class TestString extends  bright.serialization.AbstractBean 
 {
     public TestString(ByteBuf _buf)
@@ -39,21 +36,9 @@ public final class TestString extends  bright.serialization.AbstractBean
         return new TestString(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String s1;
-    /**
-     * 
-     */
     public final cfg.test.CompactString cs1;
-    /**
-     * 
-     */
     public final cfg.test.CompactString cs2;
 
     public static final int ID = 338485823;

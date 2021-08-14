@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class Selector :  ai.ComposeNode 
 {
     public Selector(ByteBuf _buf)  : base(_buf) 

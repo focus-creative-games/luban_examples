@@ -54,9 +54,6 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     /// 默认头像
     /// </summary>
     public readonly string DefaultAvatar;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string DefaultItem;
 
     public const int ID = 528039504;

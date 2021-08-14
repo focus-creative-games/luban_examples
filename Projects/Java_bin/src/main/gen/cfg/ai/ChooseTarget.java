@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class ChooseTarget extends  cfg.ai.Service 
 {
     public ChooseTarget(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class ChooseTarget extends  cfg.ai.Service
         return new ChooseTarget(_buf);
     }
 
-    /**
-     * 
-     */
     public final String resultTargetKey;
 
     public static final int ID = 1601247918;

@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class GroupCoolDown extends  cfg.limit.LimitBase 
 {
     public GroupCoolDown(ByteBuf _buf)
@@ -37,13 +34,7 @@ public final class GroupCoolDown extends  cfg.limit.LimitBase
         return new GroupCoolDown(_buf);
     }
 
-    /**
-     * 
-     */
     public final int groupId;
-    /**
-     * 
-     */
     public final int duration;
 
     public static final int ID = 394328599;

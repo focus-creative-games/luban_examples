@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
 public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(ByteBuf _buf)  : base(_buf) 

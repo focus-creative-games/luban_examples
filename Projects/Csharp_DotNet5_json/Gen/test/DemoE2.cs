@@ -20,7 +20,7 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
 {
     public DemoE2(JsonElement _json) 
     {
-        { var _j = _json.GetProperty("y1"); if (_j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
+        { if (_json.TryGetProperty("y1", out var _j) && _j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
         Y2 = _json.GetProperty("y2").GetBoolean();
     }
 

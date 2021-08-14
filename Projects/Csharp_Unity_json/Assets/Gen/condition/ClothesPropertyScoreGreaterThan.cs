@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         return new condition.ClothesPropertyScoreGreaterThan(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EClothesPropertyType Prop;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Value;
 
     public const int ID = 696630835;

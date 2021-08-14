@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class RoleCondition extends  cfg.condition.Condition 
 {
     public RoleCondition(ByteBuf _buf)

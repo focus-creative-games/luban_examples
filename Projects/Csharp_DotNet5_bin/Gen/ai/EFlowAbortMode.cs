@@ -9,26 +9,11 @@
 
 namespace cfg.ai
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EFlowAbortMode
     {
-        /// <summary>
-        /// 
-        /// </summary>
         NONE = 0,
-        /// <summary>
-        /// 
-        /// </summary>
         LOWER_PRIORITY = 1,
-        /// <summary>
-        /// 
-        /// </summary>
         SELF = 2,
-        /// <summary>
-        /// 
-        /// </summary>
         BOTH = 3,
     }
 }

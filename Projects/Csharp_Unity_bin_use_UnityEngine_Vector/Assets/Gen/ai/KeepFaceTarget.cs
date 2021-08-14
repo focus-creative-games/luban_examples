@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class KeepFaceTarget :  ai.Service
         return new ai.KeepFaceTarget(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string TargetActorKey;
 
     public const int ID = 1195270745;

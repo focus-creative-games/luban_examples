@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class IsSet :  ai.KeyQueryOperator 
 {
     public IsSet(ByteBuf _buf)  : base(_buf) 

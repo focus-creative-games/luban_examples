@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class FlowNode :  ai.Node 
 {
     public FlowNode(ByteBuf _buf)  : base(_buf) 
@@ -50,13 +47,7 @@ public abstract partial class FlowNode :  ai.Node
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.Service> Services;
 
 

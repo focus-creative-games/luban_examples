@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class DailyLimitBase extends  cfg.limit.LimitBase 
 {
     public DailyLimitBase(ByteBuf _buf)

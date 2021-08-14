@@ -12,9 +12,6 @@ package cfg.test;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbSingleton
 {
     private final cfg.test.DemoSingletonType _data;
@@ -29,17 +26,8 @@ public final class TbSingleton
     }
 
 
-    /**
-     * 
-     */
      public int getId() { return _data.id; }
-    /**
-     * 
-     */
      public String getName() { return _data.name; }
-    /**
-     * 
-     */
      public cfg.test.DemoDynamic getDate() { return _data.date; }
 
     public void resolve(java.util.HashMap<String, Object> _tables)

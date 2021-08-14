@@ -14,7 +14,10 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
+/// <summary>
+/// 道具
+/// </summary>
 public sealed partial class Item :  Bright.Config.BeanBase 
 {
     public Item(ByteBuf _buf) 
@@ -72,6 +75,9 @@ public sealed partial class Item :  Bright.Config.BeanBase
         return new item.Item(_buf);
     }
 
+    /// <summary>
+    /// 道具id
+    /// </summary>
     public readonly int Id;
     public readonly string Name;
     public readonly item.EMajorType MajorType;

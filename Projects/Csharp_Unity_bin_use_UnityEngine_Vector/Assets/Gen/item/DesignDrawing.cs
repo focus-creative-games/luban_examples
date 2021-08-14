@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class DesignDrawing :  item.ItemExtra
         return new item.DesignDrawing(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> LearnComponentId;
 
     public const int ID = -1679179579;

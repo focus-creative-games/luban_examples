@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class UeWaitBlackboardTime extends  cfg.ai.Task 
 {
     public UeWaitBlackboardTime(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class UeWaitBlackboardTime extends  cfg.ai.Task
         return new UeWaitBlackboardTime(_buf);
     }
 
-    /**
-     * 
-     */
     public final String blackboardKey;
 
     public static final int ID = 1215378271;

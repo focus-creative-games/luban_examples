@@ -333,6 +333,16 @@ local enums =
      ---@field public X_256 int
      ---@field public X_257 int
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
+    ---@class test.ETestQuality
+     ---@field public A int
+     ---@field public B int
+     ---@field public C int
+     ---@field public D int
+    ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
+    ---@class test.ETestCurrency
+     ---@field public DIAMOND int
+     ---@field public GOLD int
+    ['test.ETestCurrency'] = {   DIAMOND=1,  GOLD=2,  };
 }
 
 
@@ -2715,11 +2725,7 @@ local function InitTypes(methods)
      ---@field public t1 int
      ---@field public k1 int[]
      ---@field public k2 int[]
-     ---@field public k3 int[]
-     ---@field public k4 int[]
      ---@field public k5 int[]
-     ---@field public k6 int[]
-     ---@field public k7 int[]
      ---@field public k8 table<int,int>
      ---@field public k9 test.DemoE2[]
      ---@field public k15 test.DemoDynamic[]
@@ -2750,11 +2756,7 @@ local function InitTypes(methods)
             t1 = readInt(bs),
             k1 = readArray(bs, readInt),
             k2 = readList(bs, readInt),
-            k3 = readList(bs, readInt),
-            k4 = readList(bs, readInt),
             k5 = readSet(bs, readInt),
-            k6 = readSet(bs, readInt),
-            k7 = readSet(bs, readInt),
             k8 = readMap(bs, readInt, readInt),
             k9 = readList(bs, beans['test.DemoE2']._deserialize),
             k15 = readArray(bs, beans['test.DemoDynamic']._deserialize),
@@ -2923,6 +2925,7 @@ local function InitTypes(methods)
      ---@field public multi_rows2 test.MultiRowType1[]
      ---@field public multi_rows3 test.MultiRowType2[]
      ---@field public multi_rows4 table<int,test.MultiRowType2>
+     ---@field public multi_rows5 test.MultiRowType3[]
         local class = SimpleClass()
         class._id = -501249394
         class._name = 'test.MultiRowRecord'
@@ -2936,6 +2939,7 @@ local function InitTypes(methods)
             multi_rows2 = readArray(bs, beans['test.MultiRowType1']._deserialize),
             multi_rows3 = readSet(bs, beans['test.MultiRowType2']._deserialize),
             multi_rows4 = readMap(bs, readInt, beans['test.MultiRowType2']._deserialize),
+            multi_rows5 = readList(bs, beans['test.MultiRowType3']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -2974,6 +2978,24 @@ local function InitTypes(methods)
             id = readInt(bs),
             x = readInt(bs),
             y = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiRowType3 
+     ---@field public id int
+     ---@field public items test.MultiRowType1[]
+        local class = SimpleClass()
+        class._id = 540474972
+        class._name = 'test.MultiRowType3'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            items = readList(bs, beans['test.MultiRowType1']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -3216,6 +3238,190 @@ local function InitTypes(methods)
         end
         beans[class._name] = class
     end
+    do
+    ---@class test.DetectEncoding 
+     ---@field public id int
+     ---@field public name string
+        local class = SimpleClass()
+        class._id = -1154609646
+        class._name = 'test.DetectEncoding'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DefineFromExcel 
+     ---@field public id int
+     ---@field public x1 bool
+     ---@field public x5 long
+     ---@field public x6 float
+     ---@field public x8 int
+     ---@field public x10 string
+     ---@field public x13 test.ETestQuality
+     ---@field public x14 test.DemoDynamic
+     ---@field public v2 vector2
+     ---@field public t1 int
+     ---@field public k1 int[]
+     ---@field public k8 table<int,int>
+     ---@field public k9 test.DemoE2[]
+        local class = SimpleClass()
+        class._id = 2100429878
+        class._name = 'test.DefineFromExcel'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readBool(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            x8 = readInt(bs),
+            x10 = readString(bs),
+            x13 = readInt(bs),
+            x14 = beans['test.DemoDynamic']._deserialize(bs),
+            v2 = readVector2(bs),
+            t1 = readInt(bs),
+            k1 = readArray(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DefineFromExcelOne 
+     ---@field public unlock_equip int
+     ---@field public unlock_hero int
+     ---@field public default_avatar string
+     ---@field public default_item string
+        local class = SimpleClass()
+        class._id = 528039504
+        class._name = 'test.DefineFromExcelOne'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            unlock_equip = readInt(bs),
+            unlock_hero = readInt(bs),
+            default_avatar = readString(bs),
+            default_item = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestJson2 
+     ---@field public id int
+     ---@field public m1 table<int,int>
+     ---@field public m2 table<long,int>
+     ---@field public m3 table<string,int>
+     ---@field public m4 table<string,test.DemoType1>
+        local class = SimpleClass()
+        class._id = 1942237276
+        class._name = 'test.TestJson2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            m1 = readMap(bs, readInt, readInt),
+            m2 = readMap(bs, readLong, readInt),
+            m3 = readMap(bs, readString, readInt),
+            m4 = readMap(bs, readString, beans['test.DemoType1']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestIndex 
+     ---@field public id int
+     ---@field public eles test.DemoType1[]
+        local class = SimpleClass()
+        class._id = 1941154020
+        class._name = 'test.TestIndex'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            eles = readList(bs, beans['test.DemoType1']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.DefineFromExcel2 
+     ---@field public id int
+     ---@field public x1 bool
+     ---@field public x5 long
+     ---@field public x6 float
+     ---@field public x8 int
+     ---@field public x10 string
+     ---@field public x13 test.ETestQuality
+     ---@field public x14 test.DemoDynamic
+     ---@field public v2 vector2
+     ---@field public t1 int
+     ---@field public k1 int[]
+     ---@field public k8 table<int,int>
+     ---@field public k9 test.DemoE2[]
+        local class = SimpleClass()
+        class._id = 688816828
+        class._name = 'test.DefineFromExcel2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readBool(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            x8 = readInt(bs),
+            x10 = readString(bs),
+            x13 = readInt(bs),
+            x14 = beans['test.DemoDynamic']._deserialize(bs),
+            v2 = readVector2(bs),
+            t1 = readInt(bs),
+            k1 = readArray(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestExcelBean1 
+     ---@field public x1 int
+     ---@field public x2 string
+     ---@field public x3 int
+     ---@field public x4 float
+        local class = SimpleClass()
+        class._id = -1738345160
+        class._name = 'test.TestExcelBean1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            x2 = readString(bs),
+            x3 = readInt(bs),
+            x4 = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
 
     local tables =
     {
@@ -3239,9 +3445,7 @@ local function InitTypes(methods)
     { name='TbTestTag', file='tag.TbTestTag', mode='map', index='id', value_type='tag.TestTag' },
     { name='TbFullTypes', file='test.TbFullTypes', mode='map', index='x3', value_type='test.DemoType2' },
     { name='TbSingleton', file='test.TbSingleton', mode='one', value_type='test.DemoSingletonType'},
-    { name='TbDataFromJson', file='test.TbDataFromJson', mode='map', index='x4', value_type='test.DemoType2' },
-    { name='TbDataFromXml', file='test.TbDataFromXml', mode='map', index='x4', value_type='test.DemoType2' },
-    { name='TbDataFromLua', file='test.TbDataFromLua', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbDataFromMisc', file='test.TbDataFromMisc', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbMultiRowRecord', file='test.TbMultiRowRecord', mode='map', index='id', value_type='test.MultiRowRecord' },
     { name='TbMultiRowTitle', file='test.TbMultiRowTitle', mode='map', index='id', value_type='test.MultiRowTitle' },
     { name='TbTestNull', file='test.TbTestNull', mode='map', index='id', value_type='test.TestNull' },
@@ -3252,6 +3456,14 @@ local function InitTypes(methods)
     { name='TbDemoGroup_S', file='test.TbDemoGroup_S', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDemoGroup_E', file='test.TbDemoGroup_E', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbTestGlobal', file='test.TbTestGlobal', mode='one', value_type='test.TestGlobal'},
+    { name='TbDetectCsvEncoding', file='test.TbDetectCsvEncoding', mode='map', index='id', value_type='test.DetectEncoding' },
+    { name='TbDefineFromExcel', file='test.TbDefineFromExcel', mode='map', index='id', value_type='test.DefineFromExcel' },
+    { name='TbDefineFromExcelOne', file='test.TbDefineFromExcelOne', mode='one', value_type='test.DefineFromExcelOne'},
+    { name='TbTestJson2', file='test.TbTestJson2', mode='map', index='id', value_type='test.TestJson2' },
+    { name='TbTestIndex', file='test.TbTestIndex', mode='map', index='id', value_type='test.TestIndex' },
+    { name='TbDemoGroupDefineFromExcel', file='test.TbDemoGroupDefineFromExcel', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDefineFromExcel2', file='test.TbDefineFromExcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
+    { name='TbTestExcelBean', file='test.TbTestExcelBean', mode='map', index='x1', value_type='test.TestExcelBean1' },
     }
     return { consts = consts, enums = enums, beans = beans, tables = tables }
     end

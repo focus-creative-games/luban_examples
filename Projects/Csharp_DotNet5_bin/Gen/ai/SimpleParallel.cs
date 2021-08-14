@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 
@@ -39,17 +36,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         return new ai.SimpleParallel(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.EFinishMode FinishMode;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.Task MainTask;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.FlowNode BackgroundNode;
 
     public const int ID = -1952582529;

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
 public sealed partial class Clothes :  item.ItemExtra 
 {
     public Clothes(ByteBuf _buf)  : base(_buf) 

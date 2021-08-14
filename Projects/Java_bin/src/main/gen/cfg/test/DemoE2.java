@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DemoE2 extends  bright.serialization.AbstractBean 
 {
     public DemoE2(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class DemoE2 extends  bright.serialization.AbstractBean
         return new DemoE2(_buf);
     }
 
-    /**
-     * 
-     */
     public final Integer y1;
-    /**
-     * 
-     */
     public final boolean y2;
 
     public static final int ID = -2138341716;

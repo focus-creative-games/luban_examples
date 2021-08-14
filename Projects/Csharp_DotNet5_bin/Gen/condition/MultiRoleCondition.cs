@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         return new condition.MultiRoleCondition(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.RoleCondition[] Conditions;
 
     public const int ID = 934079583;

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.limit
 {
-   
+
 public sealed partial class MultiDayLimit :  limit.LimitBase 
 {
     public MultiDayLimit(ByteBuf _buf)  : base(_buf) 

@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DateTimeRange extends  bright.serialization.AbstractBean 
 {
     public DateTimeRange(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class DateTimeRange extends  bright.serialization.AbstractBean
         return new DateTimeRange(_buf);
     }
 
-    /**
-     * 
-     */
     public final int startTime;
-    /**
-     * 
-     */
     public final int endTime;
 
     public static final int ID = 495315430;

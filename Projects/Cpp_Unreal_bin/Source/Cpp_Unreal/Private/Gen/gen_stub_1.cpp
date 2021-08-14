@@ -744,11 +744,7 @@ namespace cfg
         if(!_buf.readInt(t1)) return false;
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));k1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k2.push_back(_e);}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k3.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k3.push_back(_e);}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k4.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k4.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k5.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k5.insert(_e);}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k6.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k6.insert(_e);}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k7.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; k7.insert(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     k8[_k] = _v;}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k9.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoE2> _e;  if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));k15.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoDynamic> _e;if(!test::DemoDynamic::deserializeDemoDynamic(_buf, _e)) return false; k15.push_back(_e);}}
@@ -1558,6 +1554,69 @@ namespace cfg
 
     void test::DefineFromExcelOne::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
+    }
+
+    bool test::TestJson2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m1[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int64 _k;  if(!_buf.readLong(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m2[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m3[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::SharedPtr<test::DemoType1> _v;  if(!test::DemoType1::deserializeDemoType1(_buf, _v)) return false;     m4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::TestJson2::deserializeTestJson2(ByteBuf& _buf, ::bright::SharedPtr<test::TestJson2>& _out)
+    {
+        _out.reset(new test::TestJson2());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestJson2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto _e : m4) { _e.second->resolve(_tables); }
+    }
+
+    bool test::TestIndex::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); eles.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoType1> _e;  if(!test::DemoType1::deserializeDemoType1(_buf, _e)) return false; eles.push_back(_e);}}
+        for(auto& _v : this->eles)
+        { 
+            eles_Index.insert({_v->x1, _v});
+        }
+
+        return true;
+    }
+
+    bool test::TestIndex::deserializeTestIndex(ByteBuf& _buf, ::bright::SharedPtr<test::TestIndex>& _out)
+    {
+        _out.reset(new test::TestIndex());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestIndex::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto _e : eles) { _e->resolve(_tables); }
     }
 
     bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)

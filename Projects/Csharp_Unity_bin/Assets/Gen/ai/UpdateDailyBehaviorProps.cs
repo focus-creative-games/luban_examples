@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
 {
     public UpdateDailyBehaviorProps(ByteBuf _buf)  : base(_buf) 
@@ -51,41 +48,14 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
         return new ai.UpdateDailyBehaviorProps(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string SatietyKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string EnergyKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string MoodKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string SatietyLowerThresholdKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string SatietyUpperThresholdKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string EnergyLowerThresholdKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string EnergyUpperThresholdKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string MoodLowerThresholdKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string MoodUpperThresholdKey;
 
     public const int ID = -61887372;

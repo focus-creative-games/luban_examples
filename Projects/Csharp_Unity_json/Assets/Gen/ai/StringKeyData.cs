@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class StringKeyData :  ai.KeyData 
 {
     public StringKeyData(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class StringKeyData :  ai.KeyData
         return new ai.StringKeyData(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Value;
 
     public const int ID = -307888654;

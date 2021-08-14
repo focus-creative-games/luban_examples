@@ -11,7 +11,13 @@ namespace cfg.error
 {
     public enum EOperation
     {
+        /// <summary>
+        /// 登出
+        /// </summary>
         LOGOUT = 0,
+        /// <summary>
+        /// 重启
+        /// </summary>
         RESTART = 1,
     }
 }

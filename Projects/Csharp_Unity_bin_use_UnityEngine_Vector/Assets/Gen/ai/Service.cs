@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class Service :  ai.Node 
 {
     public Service(ByteBuf _buf)  : base(_buf) 

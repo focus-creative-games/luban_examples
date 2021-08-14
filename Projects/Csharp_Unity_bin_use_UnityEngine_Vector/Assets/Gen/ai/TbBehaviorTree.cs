@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
    
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbBehaviorTree
 {
     private readonly Dictionary<int, ai.BehaviorTree> _dataMap;

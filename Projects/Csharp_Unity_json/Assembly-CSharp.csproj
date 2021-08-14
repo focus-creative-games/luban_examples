@@ -63,6 +63,8 @@
     <Compile Include="Assets\LubanLib\StringUtil.cs" />
     <Compile Include="Assets\Gen\test\TestGlobal.cs" />
     <Compile Include="Assets\Gen\blueprint\EnumClazz.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcelOne.cs" />
+    <Compile Include="Assets\Gen\test\TbTestIndex.cs" />
     <Compile Include="Assets\Gen\item\EMajorType.cs" />
     <Compile Include="Assets\Gen\test\DemoPrimitiveTypesTable.cs" />
     <Compile Include="Assets\Gen\condition\BoolRoleCondition.cs" />
@@ -76,7 +78,6 @@
     <Compile Include="Assets\Gen\error\ErrorStyleMsgbox.cs" />
     <Compile Include="Assets\Gen\ai\UeTimeLimit.cs" />
     <Compile Include="Assets\Gen\ai\ChooseSkill.cs" />
-    <Compile Include="Assets\Gen\test\TbDataFromLua.cs" />
     <Compile Include="Assets\Gen\mail\TbSystemMail.cs" />
     <Compile Include="Assets\Gen\test\H1.cs" />
     <Compile Include="Assets\Gen\error\ErrorInfo.cs" />
@@ -87,12 +88,12 @@
     <Compile Include="Assets\Gen\limit\CoolDown.cs" />
     <Compile Include="Assets\Gen\ai\GetOwnerPlayer.cs" />
     <Compile Include="Assets\Gen\item\DesignDrawing.cs" />
+    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONBinary.cs" />
     <Compile Include="Assets\Gen\common\DateTimeRange.cs" />
     <Compile Include="Assets\LubanLib\BeanBase.cs" />
     <Compile Include="Assets\Gen\bonus\ShowItemInfo.cs" />
     <Compile Include="Assets\Gen\ai\MoveToTarget.cs" />
     <Compile Include="Assets\Gen\ai\TbBehaviorTree.cs" />
-    <Compile Include="Assets\Gen\test\TbDataFromXml.cs" />
     <Compile Include="Assets\Gen\item\TbItemFunc.cs" />
     <Compile Include="Assets\Gen\ai\DistanceLessThan.cs" />
     <Compile Include="Assets\Gen\common\TbGlobalConfig.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Gen\test\MultiRowType2.cs" />
     <Compile Include="Assets\Gen\item\Clothes.cs" />
     <Compile Include="Assets\Gen\condition\GenderLimit.cs" />
+    <Compile Include="Assets\Gen\test\TbDataFromMisc.cs" />
     <Compile Include="Assets\Gen\error\CodeInfo.cs" />
     <Compile Include="Assets\Gen\ai\UeLoop.cs" />
     <Compile Include="Assets\Gen\item\Item.cs" />
@@ -134,13 +136,15 @@
     <Compile Include="Assets\Gen\ai\ComposeNode.cs" />
     <Compile Include="Assets\Gen\test\DemoGroup.cs" />
     <Compile Include="Assets\Gen\test\CompactString.cs" />
-    <Compile Include="Assets\Gen\test\TbTestString.cs" />
+    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONUnity.cs" />
     <Compile Include="Assets\LubanLib\ByteBuf.cs" />
+    <Compile Include="Assets\Gen\test\TbTestString.cs" />
     <Compile Include="Assets\Gen\common\GlobalConfig.cs" />
     <Compile Include="Assets\Gen\ai\EOperator.cs" />
     <Compile Include="Assets\Gen\ai\ChooseTarget.cs" />
     <Compile Include="Assets\Gen\item\TreasureBox.cs" />
     <Compile Include="Assets\Gen\test\DemoConst.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcel2.cs" />
     <Compile Include="Assets\Gen\test\DemoE2.cs" />
     <Compile Include="Assets\Gen\common\TbDummy.cs" />
     <Compile Include="Assets\Gen\ai\Sequence.cs" />
@@ -148,8 +152,11 @@
     <Compile Include="Assets\Gen\error\TbErrorInfo.cs" />
     <Compile Include="Assets\Gen\test\ETestUeType.cs" />
     <Compile Include="Assets\Gen\tag\TbTestTag.cs" />
+    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONDotNetTypes.cs" />
     <Compile Include="Assets\Gen\role\LevelExpAttr.cs" />
+    <Compile Include="Assets\Gen\test\TestIndex.cs" />
     <Compile Include="Assets\Gen\ai\SimpleParallel.cs" />
+    <Compile Include="Assets\Gen\test\ETestCurrency.cs" />
     <Compile Include="Assets\LubanLib\ITypeId.cs" />
     <Compile Include="Assets\Gen\test\MultiRowType1.cs" />
     <Compile Include="Assets\Gen\l10n\L10NDemo.cs" />
@@ -157,8 +164,10 @@
     <Compile Include="Assets\Gen\limit\MonthlyLimit.cs" />
     <Compile Include="Assets\Gen\test\DemoEnum.cs" />
     <Compile Include="Assets\Gen\item\EClothesHidePartType.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcel.cs" />
     <Compile Include="Assets\Gen\blueprint\Field.cs" />
     <Compile Include="Assets\Gen\bonus\ProbabilityItems.cs" />
+    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSON.cs" />
     <Compile Include="Assets\Gen\blueprint\AbstraceMethod.cs" />
     <Compile Include="Assets\Gen\error\ErrorStyle.cs" />
     <Compile Include="Assets\Gen\test\H2.cs" />
@@ -166,8 +175,9 @@
     <Compile Include="Assets\Gen\test\TbDemoGroup_S.cs" />
     <Compile Include="Assets\Gen\ai\ExecuteTimeStatistic.cs" />
     <Compile Include="Assets\Gen\blueprint\BlueprintMethod.cs" />
-    <Compile Include="Assets\Gen\test\MultiRowRecord.cs" />
+    <Compile Include="Assets\Gen\test\ETestQuality.cs" />
     <Compile Include="Assets\Gen\ai\Service.cs" />
+    <Compile Include="Assets\Gen\test\MultiRowRecord.cs" />
     <Compile Include="Assets\Gen\blueprint\ExternalMethod.cs" />
     <Compile Include="Assets\Gen\item\EClothersStarQualityType.cs" />
     <Compile Include="Assets\Gen\ai\MoveToLocation.cs" />
@@ -181,6 +191,7 @@
     <Compile Include="Assets\Gen\error\ErrorStyleDlgOkCancel.cs" />
     <Compile Include="Assets\Gen\test\DateTimeRange.cs" />
     <Compile Include="Assets\Gen\limit\ENamespace.cs" />
+    <Compile Include="Assets\Gen\test\TestJson2.cs" />
     <Compile Include="Assets\Gen\ai\UeWait.cs" />
     <Compile Include="Assets\Gen\bonus\DropInfo.cs" />
     <Compile Include="Assets\Gen\test\DemoSingletonType.cs" />
@@ -188,6 +199,7 @@
     <Compile Include="Assets\Gen\limit\MultiDayLimit.cs" />
     <Compile Include="Assets\Gen\role\EGenderType.cs" />
     <Compile Include="Assets\Gen\test\TbMultiRowTitle.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcelOne.cs" />
     <Compile Include="Assets\Gen\ai\BlackboardKey.cs" />
     <Compile Include="Assets\Gen\ai\UeSetDefaultFocus.cs" />
     <Compile Include="Assets\Gen\item\ItemFunction.cs" />
@@ -197,6 +209,7 @@
     <Compile Include="Assets\Gen\bonus\Bonus.cs" />
     <Compile Include="Assets\Gen\item\EClothesPropertyType.cs" />
     <Compile Include="Assets\Gen\condition\ContainsItem.cs" />
+    <Compile Include="Assets\Gen\test\TbDefineFromExcel.cs" />
     <Compile Include="Assets\Gen\limit\GroupCoolDown.cs" />
     <Compile Include="Assets\Gen\bonus\Items.cs" />
     <Compile Include="Assets\Gen\ai\Blackboard.cs" />
@@ -225,12 +238,14 @@
     <Compile Include="Assets\Gen\common\Dummy.cs" />
     <Compile Include="Assets\Gen\l10n\PatchDemo.cs" />
     <Compile Include="Assets\Gen\condition\MinMaxLevel.cs" />
+    <Compile Include="Assets\Gen\test\TbTestExcelBean.cs" />
     <Compile Include="Assets\Gen\cost\CostOneItem.cs" />
     <Compile Include="Assets\Gen\test\TbDemoGroup.cs" />
     <Compile Include="Assets\Gen\ai\BlackboardKeyData.cs" />
     <Compile Include="Assets\Gen\bonus\ProbabilityItemInfo.cs" />
     <Compile Include="Assets\Gen\bonus\WeightItems.cs" />
-    <Compile Include="Assets\Gen\test\TbDataFromJson.cs" />
+    <Compile Include="Assets\Gen\test\TbDetectCsvEncoding.cs" />
+    <Compile Include="Assets\Gen\test\DefineFromExcel2.cs" />
     <Compile Include="Assets\Gen\blueprint\ParamInfo.cs" />
     <Compile Include="Assets\Gen\ai\UeBlackboard.cs" />
     <Compile Include="Assets\Gen\test\TbFullTypes.cs" />
@@ -249,9 +264,13 @@
     <Compile Include="Assets\Gen\blueprint\Interface.cs" />
     <Compile Include="Assets\Gen\blueprint\Method.cs" />
     <Compile Include="Assets\Gen\error\TbCodeInfo.cs" />
+    <Compile Include="Assets\Gen\test\TbTestJson2.cs" />
     <Compile Include="Assets\Gen\ai\KeepFaceTarget.cs" />
     <Compile Include="Assets\Gen\ai\EExecutor.cs" />
+    <Compile Include="Assets\Gen\test\DetectEncoding.cs" />
     <Compile Include="Assets\Gen\bonus\OneItem.cs" />
+    <Compile Include="Assets\Gen\test\MultiRowType3.cs" />
+    <Compile Include="Assets\Gen\test\TestExcelBean1.cs" />
     <Compile Include="Assets\Gen\ai\UeForceSuccess.cs" />
     <Compile Include="Assets\Gen\condition\Condition.cs" />
     <Compile Include="Assets\Gen\role\DistinctBonusInfos.cs" />
@@ -262,6 +281,7 @@
     <Compile Include="Assets\Gen\condition\ClothesPropertyScoreGreaterThan.cs" />
     <Compile Include="Assets\Gen\item\TbItem.cs" />
     <Compile Include="Assets\Gen\role\LevelBonus.cs" />
+    <Compile Include="Assets\Gen\test\TbDemoGroupDefineFromExcel.cs" />
     <Compile Include="Assets\Gen\bonus\OneItems.cs" />
     <Compile Include="Assets\Gen\item\ItemExtra.cs" />
     <Compile Include="Assets\Gen\ai\EKeyType.cs" />
@@ -270,14 +290,6 @@
     <Compile Include="Assets\Gen\condition\MinLevel.cs" />
     <Compile Include="Assets\Gen\common\EBoolOperator.cs" />
     <Compile Include="Assets\Gen\blueprint\NormalClazz.cs" />
-    <Compile Include="Assets\Gen\test\TbDefineFromExcelOne.cs" />
-    <Compile Include="Assets\Gen\test\DefineFromExcelOne.cs" />
-    <Compile Include="Assets\Gen\test\TbDefineFromExcel.cs" />
-    <Compile Include="Assets\Gen\test\DefineFromExcel.cs" />
-    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSON.cs" />
-    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONBinary.cs" />
-    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONUnity.cs" />
-    <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONDotNetTypes.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\LubanLib\SimpleJSON\Changelog.txt" />

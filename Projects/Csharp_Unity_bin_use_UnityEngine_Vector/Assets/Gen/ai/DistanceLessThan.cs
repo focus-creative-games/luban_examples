@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DistanceLessThan :  ai.Decorator 
 {
     public DistanceLessThan(ByteBuf _buf)  : base(_buf) 
@@ -41,21 +38,9 @@ public sealed partial class DistanceLessThan :  ai.Decorator
         return new ai.DistanceLessThan(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Actor1Key;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Actor2Key;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Distance;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool ReverseResult;
 
     public const int ID = -1207170283;

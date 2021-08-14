@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DropBonus :  bonus.Bonus 
 {
     public DropBonus(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class DropBonus :  bonus.Bonus
         return new bonus.DropBonus(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
     public bonus.DropInfo Id_Ref;
 

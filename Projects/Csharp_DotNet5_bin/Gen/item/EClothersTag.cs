@@ -9,17 +9,14 @@
 
 namespace cfg.item
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EClothersTag
     {
         /// <summary>
-        /// 
+        /// 防晒
         /// </summary>
         FANG_SHAI = 1,
         /// <summary>
-        /// 
+        /// 舞者
         /// </summary>
         WU_ZHE = 2,
     }

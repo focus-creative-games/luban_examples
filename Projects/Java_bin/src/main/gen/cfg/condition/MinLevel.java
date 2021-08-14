@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MinLevel extends  cfg.condition.BoolRoleCondition 
 {
     public MinLevel(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class MinLevel extends  cfg.condition.BoolRoleCondition
         return new MinLevel(_buf);
     }
 
-    /**
-     * 
-     */
     public final int level;
 
     public static final int ID = -1075273755;

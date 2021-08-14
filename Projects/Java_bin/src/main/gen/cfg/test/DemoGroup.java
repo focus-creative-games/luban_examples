@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DemoGroup extends  bright.serialization.AbstractBean 
 {
     public DemoGroup(ByteBuf _buf)
@@ -43,29 +40,11 @@ public final class DemoGroup extends  bright.serialization.AbstractBean
         return new DemoGroup(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final int x1;
-    /**
-     * 
-     */
     public final int x2;
-    /**
-     * 
-     */
     public final int x3;
-    /**
-     * 
-     */
     public final int x4;
-    /**
-     * 
-     */
     public final cfg.test.InnerGroup x5;
 
     public static final int ID = -379263008;

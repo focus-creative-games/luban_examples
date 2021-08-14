@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
 {
     public ErrorStyle(JSONNode _json) 

@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbClazz
 {
     private readonly Dictionary<string, blueprint.Clazz> _dataMap;

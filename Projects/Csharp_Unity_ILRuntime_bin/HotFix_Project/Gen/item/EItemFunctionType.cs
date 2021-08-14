@@ -11,7 +11,13 @@ namespace cfg.item
 {
     public enum EItemFunctionType
     {
+        /// <summary>
+        /// 更换手持物
+        /// </summary>
         REPLACE_HANDHELD = 0,
+        /// <summary>
+        /// 使用设计图纸
+        /// </summary>
         USE_DESIGN_DRAWING = 1,
     }
 }

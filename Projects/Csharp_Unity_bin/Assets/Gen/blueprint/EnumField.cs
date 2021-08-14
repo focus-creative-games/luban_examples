@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         return new blueprint.EnumField(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Value;
 
     public const int ID = 1830049470;

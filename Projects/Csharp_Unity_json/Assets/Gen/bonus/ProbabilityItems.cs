@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ProbabilityItems :  bonus.Bonus 
 {
     public ProbabilityItems(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
         return new bonus.ProbabilityItems(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.ProbabilityItemInfo[] ItemList;
 
     public const int ID = 366387866;

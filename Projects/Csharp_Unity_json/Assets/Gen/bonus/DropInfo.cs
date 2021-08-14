@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DropInfo :  Bright.Config.BeanBase 
 {
     public DropInfo(JSONNode _json) 
@@ -42,21 +39,9 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return new bonus.DropInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Bonus Bonus;
 
     public const int ID = -2014781108;

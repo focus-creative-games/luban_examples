@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.bonus
 {
-   
+
 public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(ByteBuf _buf) 

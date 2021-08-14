@@ -9,26 +9,11 @@
 
 namespace cfg.test
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public sealed class DemoConst
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public const int x1 = 0;
-        /// <summary>
-        /// 
-        /// </summary>
         public const long x2 = 3242L;
-        /// <summary>
-        /// 
-        /// </summary>
         public const float x3 = 444.3f;
-        /// <summary>
-        /// 
-        /// </summary>
         public const double x4 = 55.3;
     }
 }

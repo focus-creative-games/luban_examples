@@ -17,138 +17,48 @@ public final class Tables
         ByteBuf load(String file) throws java.io.IOException;
     }
 
-    /**
-     * 
-     */
     public final cfg.ai.TbBlackboard TbBlackboard;
-    /**
-     * 
-     */
     public final cfg.ai.TbBehaviorTree TbBehaviorTree;
-    /**
-     * 
-     */
     public final cfg.blueprint.TbClazz TbClazz;
-    /**
-     * 
-     */
     public final cfg.bonus.TbDrop TbDrop;
-    /**
-     * 
-     */
     public final cfg.common.TbGlobalConfig TbGlobalConfig;
-    /**
-     * 
-     */
     public final cfg.common.TbDummy TbDummy;
-    /**
-     * 
-     */
     public final cfg.error.TbErrorInfo TbErrorInfo;
-    /**
-     * 
-     */
     public final cfg.error.TbCodeInfo TbCodeInfo;
     /**
      * 道具表
      */
     public final cfg.item.TbItem TbItem;
-    /**
-     * 
-     */
     public final cfg.item.TbItemFunc TbItemFunc;
-    /**
-     * 
-     */
     public final cfg.item.TbItemExtra TbItemExtra;
-    /**
-     * 
-     */
     public final cfg.l10n.TbL10NDemo TbL10NDemo;
-    /**
-     * 
-     */
     public final cfg.l10n.TbPatchDemo TbPatchDemo;
-    /**
-     * 
-     */
     public final cfg.mail.TbSystemMail TbSystemMail;
-    /**
-     * 
-     */
     public final cfg.mail.TbGlobalMail TbGlobalMail;
-    /**
-     * 
-     */
     public final cfg.role.TbRoleLevelExpAttr TbRoleLevelExpAttr;
-    /**
-     * 
-     */
     public final cfg.role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient;
-    /**
-     * 
-     */
     public final cfg.tag.TbTestTag TbTestTag;
-    /**
-     * 
-     */
     public final cfg.test.TbFullTypes TbFullTypes;
-    /**
-     * 
-     */
     public final cfg.test.TbSingleton TbSingleton;
-    /**
-     * 
-     */
-    public final cfg.test.TbDataFromJson TbDataFromJson;
-    /**
-     * 
-     */
-    public final cfg.test.TbDataFromXml TbDataFromXml;
-    /**
-     * 
-     */
-    public final cfg.test.TbDataFromLua TbDataFromLua;
-    /**
-     * 
-     */
+    public final cfg.test.TbDataFromMisc TbDataFromMisc;
     public final cfg.test.TbMultiRowRecord TbMultiRowRecord;
-    /**
-     * 
-     */
     public final cfg.test.TbMultiRowTitle TbMultiRowTitle;
-    /**
-     * 
-     */
     public final cfg.test.TbTestNull TbTestNull;
-    /**
-     * 
-     */
     public final cfg.test.TbDemoPrimitive TbDemoPrimitive;
-    /**
-     * 
-     */
     public final cfg.test.TbTestString TbTestString;
-    /**
-     * 
-     */
     public final cfg.test.TbDemoGroup TbDemoGroup;
-    /**
-     * 
-     */
     public final cfg.test.TbDemoGroup_C TbDemoGroup_C;
-    /**
-     * 
-     */
     public final cfg.test.TbDemoGroup_S TbDemoGroup_S;
-    /**
-     * 
-     */
     public final cfg.test.TbDemoGroup_E TbDemoGroup_E;
-    /**
-     * 
-     */
     public final cfg.test.TbTestGlobal TbTestGlobal;
+    public final cfg.test.TbDetectCsvEncoding TbDetectCsvEncoding;
+    public final cfg.test.TbDefineFromExcel TbDefineFromExcel;
+    public final cfg.test.TbDefineFromExcelOne TbDefineFromExcelOne;
+    public final cfg.test.TbTestJson2 TbTestJson2;
+    public final cfg.test.TbTestIndex TbTestIndex;
+    public final cfg.test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
+    public final cfg.test.TbDefineFromExcel2 TbDefineFromExcel2;
+    public final cfg.test.TbTestExcelBean TbTestExcelBean;
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
         var tables = new java.util.HashMap<String, Object>();
@@ -192,12 +102,8 @@ public final class Tables
         tables.put("test.TbFullTypes", TbFullTypes);
         TbSingleton = new cfg.test.TbSingleton(loader.load("test.TbSingleton")); 
         tables.put("test.TbSingleton", TbSingleton);
-        TbDataFromJson = new cfg.test.TbDataFromJson(loader.load("test.TbDataFromJson")); 
-        tables.put("test.TbDataFromJson", TbDataFromJson);
-        TbDataFromXml = new cfg.test.TbDataFromXml(loader.load("test.TbDataFromXml")); 
-        tables.put("test.TbDataFromXml", TbDataFromXml);
-        TbDataFromLua = new cfg.test.TbDataFromLua(loader.load("test.TbDataFromLua")); 
-        tables.put("test.TbDataFromLua", TbDataFromLua);
+        TbDataFromMisc = new cfg.test.TbDataFromMisc(loader.load("test.TbDataFromMisc")); 
+        tables.put("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new cfg.test.TbMultiRowRecord(loader.load("test.TbMultiRowRecord")); 
         tables.put("test.TbMultiRowRecord", TbMultiRowRecord);
         TbMultiRowTitle = new cfg.test.TbMultiRowTitle(loader.load("test.TbMultiRowTitle")); 
@@ -218,6 +124,22 @@ public final class Tables
         tables.put("test.TbDemoGroup_E", TbDemoGroup_E);
         TbTestGlobal = new cfg.test.TbTestGlobal(loader.load("test.TbTestGlobal")); 
         tables.put("test.TbTestGlobal", TbTestGlobal);
+        TbDetectCsvEncoding = new cfg.test.TbDetectCsvEncoding(loader.load("test.TbDetectCsvEncoding")); 
+        tables.put("test.TbDetectCsvEncoding", TbDetectCsvEncoding);
+        TbDefineFromExcel = new cfg.test.TbDefineFromExcel(loader.load("test.TbDefineFromExcel")); 
+        tables.put("test.TbDefineFromExcel", TbDefineFromExcel);
+        TbDefineFromExcelOne = new cfg.test.TbDefineFromExcelOne(loader.load("test.TbDefineFromExcelOne")); 
+        tables.put("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
+        TbTestJson2 = new cfg.test.TbTestJson2(loader.load("test.TbTestJson2")); 
+        tables.put("test.TbTestJson2", TbTestJson2);
+        TbTestIndex = new cfg.test.TbTestIndex(loader.load("test.TbTestIndex")); 
+        tables.put("test.TbTestIndex", TbTestIndex);
+        TbDemoGroupDefineFromExcel = new cfg.test.TbDemoGroupDefineFromExcel(loader.load("test.TbDemoGroupDefineFromExcel")); 
+        tables.put("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
+        TbDefineFromExcel2 = new cfg.test.TbDefineFromExcel2(loader.load("test.TbDefineFromExcel2")); 
+        tables.put("test.TbDefineFromExcel2", TbDefineFromExcel2);
+        TbTestExcelBean = new cfg.test.TbTestExcelBean(loader.load("test.TbTestExcelBean")); 
+        tables.put("test.TbTestExcelBean", TbTestExcelBean);
 
         TbBlackboard.resolve(tables); 
         TbBehaviorTree.resolve(tables); 
@@ -239,9 +161,7 @@ public final class Tables
         TbTestTag.resolve(tables); 
         TbFullTypes.resolve(tables); 
         TbSingleton.resolve(tables); 
-        TbDataFromJson.resolve(tables); 
-        TbDataFromXml.resolve(tables); 
-        TbDataFromLua.resolve(tables); 
+        TbDataFromMisc.resolve(tables); 
         TbMultiRowRecord.resolve(tables); 
         TbMultiRowTitle.resolve(tables); 
         TbTestNull.resolve(tables); 
@@ -252,6 +172,14 @@ public final class Tables
         TbDemoGroup_S.resolve(tables); 
         TbDemoGroup_E.resolve(tables); 
         TbTestGlobal.resolve(tables); 
+        TbDetectCsvEncoding.resolve(tables); 
+        TbDefineFromExcel.resolve(tables); 
+        TbDefineFromExcelOne.resolve(tables); 
+        TbTestJson2.resolve(tables); 
+        TbTestIndex.resolve(tables); 
+        TbDemoGroupDefineFromExcel.resolve(tables); 
+        TbDefineFromExcel2.resolve(tables); 
+        TbTestExcelBean.resolve(tables); 
     }
 }
 

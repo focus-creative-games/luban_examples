@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(JSONNode _json) 
@@ -38,13 +35,7 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         return new role.BonusInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.ECurrencyType Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Coefficient;
 
     public const int ID = -1354421803;

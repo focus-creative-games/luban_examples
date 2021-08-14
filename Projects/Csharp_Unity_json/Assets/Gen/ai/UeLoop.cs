@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeLoop :  ai.Decorator 
 {
     public UeLoop(JSONNode _json)  : base(_json) 
@@ -40,17 +37,8 @@ public sealed partial class UeLoop :  ai.Decorator
         return new ai.UeLoop(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int NumLoops;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool InfiniteLoop;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float InfiniteLoopTimeoutTime;
 
     public const int ID = -513308166;

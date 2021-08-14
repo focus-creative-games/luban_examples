@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class TestGlobal extends  bright.serialization.AbstractBean 
 {
     public TestGlobal(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class TestGlobal extends  bright.serialization.AbstractBean
         return new TestGlobal(_buf);
     }
 
-    /**
-     * 
-     */
     public final int unlockEquip;
-    /**
-     * 
-     */
     public final int unlockHero;
 
     public static final int ID = -12548655;

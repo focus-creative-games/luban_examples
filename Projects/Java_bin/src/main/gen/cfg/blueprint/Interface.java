@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class Interface extends  cfg.blueprint.Clazz 
 {
     public Interface(ByteBuf _buf)

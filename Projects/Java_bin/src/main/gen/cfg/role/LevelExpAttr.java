@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class LevelExpAttr extends  bright.serialization.AbstractBean 
 {
     public LevelExpAttr(ByteBuf _buf)
@@ -37,17 +34,8 @@ public final class LevelExpAttr extends  bright.serialization.AbstractBean
         return new LevelExpAttr(_buf);
     }
 
-    /**
-     * 
-     */
     public final int level;
-    /**
-     * 
-     */
     public final long needExp;
-    /**
-     * 
-     */
     public final java.util.ArrayList<Integer> clothesAttrs;
 
     public static final int ID = -1569837022;

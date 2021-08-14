@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class IntKeyData :  ai.KeyData 
 {
     public IntKeyData(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class IntKeyData :  ai.KeyData
         return new ai.IntKeyData(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Value;
 
     public const int ID = -342751904;

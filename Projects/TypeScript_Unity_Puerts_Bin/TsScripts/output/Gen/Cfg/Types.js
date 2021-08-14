@@ -9,14 +9,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cfg = exports.BeanBase = exports.Vector4 = exports.Vector3 = exports.Vector2 = void 0;
 class Vector2 {
-    constructor(x = 0, y = 0) {
-        this.x = x;
-        this.y = y;
-    }
     static deserializeFrom(buf) {
         var v = new Vector2();
         v.deserialize(buf);
         return v;
+    }
+    x;
+    y;
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
     }
     serialize(_buf_) {
         _buf_.WriteFloat(this.x);
@@ -29,15 +31,18 @@ class Vector2 {
 }
 exports.Vector2 = Vector2;
 class Vector3 {
-    constructor(x = 0, y = 0, z = 0) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
     static deserializeFrom(buf) {
         var v = new Vector3();
         v.deserialize(buf);
         return v;
+    }
+    x;
+    y;
+    z;
+    constructor(x = 0, y = 0, z = 0) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
     serialize(_buf_) {
         _buf_.WriteFloat(this.x);
@@ -52,16 +57,20 @@ class Vector3 {
 }
 exports.Vector3 = Vector3;
 class Vector4 {
+    static deserializeFrom(buf) {
+        var v = new Vector4();
+        v.deserialize(buf);
+        return v;
+    }
+    x;
+    y;
+    z;
+    w;
     constructor(x = 0, y = 0, z = 0, w = 0) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.w = w;
-    }
-    static deserializeFrom(buf) {
-        var v = new Vector4();
-        v.deserialize(buf);
-        return v;
     }
     serialize(_buf_) {
         _buf_.WriteFloat(this.x);
@@ -85,19 +94,19 @@ var cfg;
     let role;
     (function (role) {
         class Consts {
+            static MAX_NAME_LENGTH = 20;
+            static MAX_USER_ROLE_NUM = 10;
         }
-        Consts.MAX_NAME_LENGTH = 20;
-        Consts.MAX_USER_ROLE_NUM = 10;
         role.Consts = Consts;
     })(role = cfg.role || (cfg.role = {}));
     let test;
     (function (test) {
         class DemoConst {
+            static x1 = 0;
+            static x2 = 3242;
+            static x3 = 444.3;
+            static x4 = 55.3;
         }
-        DemoConst.x1 = 0;
-        DemoConst.x2 = 3242;
-        DemoConst.x3 = 444.3;
-        DemoConst.x4 = 55.3;
         test.DemoConst = DemoConst;
     })(test = cfg.test || (cfg.test = {}));
     let ai;
@@ -171,7 +180,13 @@ var cfg;
     (function (error) {
         let EOperation;
         (function (EOperation) {
+            /**
+             * 登出
+             */
             EOperation[EOperation["LOGOUT"] = 0] = "LOGOUT";
+            /**
+             * 重启
+             */
             EOperation[EOperation["RESTART"] = 1] = "RESTART";
         })(EOperation = error.EOperation || (error.EOperation = {}));
     })(error = cfg.error || (cfg.error = {}));
@@ -267,156 +282,471 @@ var cfg;
     })(error = cfg.error || (cfg.error = {}));
     let item;
     (function (item) {
+        /**
+         * 道具品质
+         */
         let EItemQuality;
         (function (EItemQuality) {
+            /**
+             * 白
+             */
             EItemQuality[EItemQuality["WHITE"] = 0] = "WHITE";
+            /**
+             * 绿
+             */
             EItemQuality[EItemQuality["GREEN"] = 1] = "GREEN";
+            /**
+             * 蓝
+             */
             EItemQuality[EItemQuality["BLUE"] = 2] = "BLUE";
+            /**
+             * 紫
+             */
             EItemQuality[EItemQuality["PURPLE"] = 3] = "PURPLE";
+            /**
+             * 金
+             */
             EItemQuality[EItemQuality["GOLDEN"] = 4] = "GOLDEN";
         })(EItemQuality = item.EItemQuality || (item.EItemQuality = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let ECurrencyType;
         (function (ECurrencyType) {
+            /**
+             * 钻石
+             */
             ECurrencyType[ECurrencyType["DIAMOND"] = 1] = "DIAMOND";
+            /**
+             * 金币
+             */
             ECurrencyType[ECurrencyType["GOLD"] = 2] = "GOLD";
+            /**
+             * 银币
+             */
             ECurrencyType[ECurrencyType["SILVER"] = 3] = "SILVER";
+            /**
+             * 经验
+             */
             ECurrencyType[ECurrencyType["EXP"] = 4] = "EXP";
+            /**
+             * 能量点
+             */
             ECurrencyType[ECurrencyType["POWER_POINT"] = 5] = "POWER_POINT";
         })(ECurrencyType = item.ECurrencyType || (item.ECurrencyType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EMajorType;
         (function (EMajorType) {
+            /**
+             * 货币
+             */
             EMajorType[EMajorType["CURRENCY"] = 1] = "CURRENCY";
+            /**
+             * 服装
+             */
             EMajorType[EMajorType["CLOTH"] = 2] = "CLOTH";
+            /**
+             * 任务
+             */
             EMajorType[EMajorType["QUEST"] = 3] = "QUEST";
+            /**
+             * 消耗品
+             */
             EMajorType[EMajorType["CONSUMABLES"] = 4] = "CONSUMABLES";
+            /**
+             * 宝箱
+             */
             EMajorType[EMajorType["TREASURE_BOX"] = 5] = "TREASURE_BOX";
+            /**
+             * 成就和称谓
+             */
             EMajorType[EMajorType["ACHIEVEMENT_AND_TITLE"] = 6] = "ACHIEVEMENT_AND_TITLE";
+            /**
+             * 头像框
+             */
             EMajorType[EMajorType["HEAD_FRAME"] = 7] = "HEAD_FRAME";
+            /**
+             * 语音
+             */
             EMajorType[EMajorType["VOICE"] = 8] = "VOICE";
+            /**
+             * 动作
+             */
             EMajorType[EMajorType["ACTION"] = 9] = "ACTION";
+            /**
+             * 扩容道具
+             */
             EMajorType[EMajorType["EXPANSION"] = 10] = "EXPANSION";
+            /**
+             * 制作材料
+             */
             EMajorType[EMajorType["MATERIAL"] = 11] = "MATERIAL";
         })(EMajorType = item.EMajorType || (item.EMajorType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EMinorType;
         (function (EMinorType) {
+            /**
+             * 钻石
+             */
             EMinorType[EMinorType["DIAMOND"] = 101] = "DIAMOND";
+            /**
+             * 金币
+             */
             EMinorType[EMinorType["GOLD"] = 102] = "GOLD";
+            /**
+             * 银币
+             */
             EMinorType[EMinorType["SILVER"] = 103] = "SILVER";
+            /**
+             * 经验
+             */
             EMinorType[EMinorType["EXP"] = 104] = "EXP";
+            /**
+             * 能量点
+             */
             EMinorType[EMinorType["POWER_POINT"] = 105] = "POWER_POINT";
+            /**
+             * 发型
+             */
             EMinorType[EMinorType["HAIR_STYLE"] = 210] = "HAIR_STYLE";
+            /**
+             * 外套
+             */
             EMinorType[EMinorType["COAT"] = 220] = "COAT";
+            /**
+             * 上衣
+             */
             EMinorType[EMinorType["UPPER_JACKET"] = 230] = "UPPER_JACKET";
+            /**
+             * 裤子
+             */
             EMinorType[EMinorType["TROUSERS"] = 241] = "TROUSERS";
+            /**
+             * 裙子
+             */
             EMinorType[EMinorType["SKIRT"] = 242] = "SKIRT";
+            /**
+             * 袜子
+             */
             EMinorType[EMinorType["SOCKS"] = 250] = "SOCKS";
+            /**
+             * 鞋子
+             */
             EMinorType[EMinorType["SHOES"] = 260] = "SHOES";
+            /**
+             * 发饰
+             */
             EMinorType[EMinorType["HAIR_ACCESSORY"] = 271] = "HAIR_ACCESSORY";
+            /**
+             * 帽子
+             */
             EMinorType[EMinorType["HAT"] = 272] = "HAT";
+            /**
+             * 耳饰
+             */
             EMinorType[EMinorType["EARRING"] = 273] = "EARRING";
+            /**
+             * 颈饰
+             */
             EMinorType[EMinorType["NECKLACE"] = 274] = "NECKLACE";
+            /**
+             * 腕饰
+             */
             EMinorType[EMinorType["BRACELET"] = 275] = "BRACELET";
+            /**
+             * 发箍
+             */
             EMinorType[EMinorType["HAIR_CLASP"] = 276] = "HAIR_CLASP";
+            /**
+             * 手套
+             */
             EMinorType[EMinorType["GLOVE"] = 277] = "GLOVE";
+            /**
+             * 手持物
+             */
             EMinorType[EMinorType["HANDHELD_OBJECT"] = 278] = "HANDHELD_OBJECT";
+            /**
+             * 特殊
+             */
             EMinorType[EMinorType["SPECIAL"] = 279] = "SPECIAL";
+            /**
+             * 底妆
+             */
             EMinorType[EMinorType["BASE_COSMETIC"] = 281] = "BASE_COSMETIC";
+            /**
+             * 眉妆
+             */
             EMinorType[EMinorType["EYEBROW_COSMETIC"] = 282] = "EYEBROW_COSMETIC";
+            /**
+             * 睫毛
+             */
             EMinorType[EMinorType["EYELASH"] = 283] = "EYELASH";
+            /**
+             * 美瞳
+             */
             EMinorType[EMinorType["COSMETIC_CONTACT_LENSES"] = 284] = "COSMETIC_CONTACT_LENSES";
+            /**
+             * 唇妆
+             */
             EMinorType[EMinorType["LIP_COSMETIC"] = 285] = "LIP_COSMETIC";
+            /**
+             * 肤色
+             */
             EMinorType[EMinorType["SKIN_COLOR"] = 286] = "SKIN_COLOR";
+            /**
+             * 连衣裙
+             */
             EMinorType[EMinorType["ONE_PIECE_DRESS"] = 290] = "ONE_PIECE_DRESS";
+            /**
+             * 换装场景
+             */
             EMinorType[EMinorType["SWITCH_CLOTHES_SCENE"] = 291] = "SWITCH_CLOTHES_SCENE";
+            /**
+             * 任务道具
+             */
             EMinorType[EMinorType["QUEST"] = 301] = "QUEST";
+            /**
+             * 投掷物
+             */
             EMinorType[EMinorType["CAST"] = 401] = "CAST";
+            /**
+             * 刀剑
+             */
             EMinorType[EMinorType["SWORD"] = 421] = "SWORD";
+            /**
+             * 弓箭
+             */
             EMinorType[EMinorType["BOW_ARROW"] = 422] = "BOW_ARROW";
+            /**
+             * 法杖
+             */
             EMinorType[EMinorType["WANDS"] = 423] = "WANDS";
+            /**
+             * 特殊工具
+             */
             EMinorType[EMinorType["SPECIAL_TOOL"] = 424] = "SPECIAL_TOOL";
+            /**
+             * 食物
+             */
             EMinorType[EMinorType["FOOD"] = 403] = "FOOD";
+            /**
+             * 宝箱
+             */
             EMinorType[EMinorType["TREASURE_BOX"] = 501] = "TREASURE_BOX";
+            /**
+             * 钥匙
+             */
             EMinorType[EMinorType["KEY"] = 502] = "KEY";
+            /**
+             * 多选一宝箱
+             */
             EMinorType[EMinorType["MULTI_CHOOSE_TREASURE_BOX"] = 503] = "MULTI_CHOOSE_TREASURE_BOX";
+            /**
+             * 成就相关
+             */
             EMinorType[EMinorType["ACHIEVEMENT"] = 601] = "ACHIEVEMENT";
+            /**
+             * 称谓相关
+             */
             EMinorType[EMinorType["TITLE"] = 602] = "TITLE";
+            /**
+             * 头像框
+             */
             EMinorType[EMinorType["AVATAR_FRAME"] = 701] = "AVATAR_FRAME";
+            /**
+             * 语音
+             */
             EMinorType[EMinorType["VOICE"] = 801] = "VOICE";
+            /**
+             * 特殊待机动作
+             */
             EMinorType[EMinorType["IDLE_POSE"] = 901] = "IDLE_POSE";
+            /**
+             * 拍照动作
+             */
             EMinorType[EMinorType["PHOTO_POSE"] = 902] = "PHOTO_POSE";
+            /**
+             * 背包
+             */
             EMinorType[EMinorType["BAG"] = 1001] = "BAG";
+            /**
+             * 好友数量
+             */
             EMinorType[EMinorType["FRIEND_CAPACITY"] = 1002] = "FRIEND_CAPACITY";
+            /**
+             * 制作材料
+             */
             EMinorType[EMinorType["CONSTRUCTION_MATERIAL"] = 1101] = "CONSTRUCTION_MATERIAL";
+            /**
+             * 设计图纸
+             */
             EMinorType[EMinorType["DESIGN_DRAWING"] = 1102] = "DESIGN_DRAWING";
         })(EMinorType = item.EMinorType || (item.EMinorType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothersStarQualityType;
         (function (EClothersStarQualityType) {
+            /**
+             * 一星
+             */
             EClothersStarQualityType[EClothersStarQualityType["ONE"] = 1] = "ONE";
+            /**
+             * 二星
+             */
             EClothersStarQualityType[EClothersStarQualityType["TWO"] = 2] = "TWO";
+            /**
+             * 三星
+             */
             EClothersStarQualityType[EClothersStarQualityType["THREE"] = 3] = "THREE";
+            /**
+             * 四星
+             */
             EClothersStarQualityType[EClothersStarQualityType["FOUR"] = 4] = "FOUR";
+            /**
+             * 五星
+             */
             EClothersStarQualityType[EClothersStarQualityType["FIVE"] = 5] = "FIVE";
+            /**
+             * 六星
+             */
             EClothersStarQualityType[EClothersStarQualityType["SIX"] = 6] = "SIX";
+            /**
+             * 七星
+             */
             EClothersStarQualityType[EClothersStarQualityType["SEVEN"] = 7] = "SEVEN";
+            /**
+             * 八星
+             */
             EClothersStarQualityType[EClothersStarQualityType["EIGHT"] = 8] = "EIGHT";
+            /**
+             * 九星
+             */
             EClothersStarQualityType[EClothersStarQualityType["NINE"] = 9] = "NINE";
+            /**
+             * 十星
+             */
             EClothersStarQualityType[EClothersStarQualityType["TEN"] = 10] = "TEN";
         })(EClothersStarQualityType = item.EClothersStarQualityType || (item.EClothersStarQualityType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothersTag;
         (function (EClothersTag) {
+            /**
+             * 防晒
+             */
             EClothersTag[EClothersTag["FANG_SHAI"] = 1] = "FANG_SHAI";
+            /**
+             * 舞者
+             */
             EClothersTag[EClothersTag["WU_ZHE"] = 2] = "WU_ZHE";
         })(EClothersTag = item.EClothersTag || (item.EClothersTag = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EUseType;
         (function (EUseType) {
+            /**
+             * 手动
+             */
             EUseType[EUseType["MANUAL"] = 0] = "MANUAL";
+            /**
+             * 自动
+             */
             EUseType[EUseType["AUTO"] = 1] = "AUTO";
         })(EUseType = item.EUseType || (item.EUseType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothesHidePartType;
         (function (EClothesHidePartType) {
+            /**
+             * 胸部
+             */
             EClothesHidePartType[EClothesHidePartType["CHEST"] = 0] = "CHEST";
+            /**
+             * 手
+             */
             EClothesHidePartType[EClothesHidePartType["HEAD"] = 1] = "HEAD";
+            /**
+             * 脊柱上
+             */
             EClothesHidePartType[EClothesHidePartType["SPINE_UPPER"] = 2] = "SPINE_UPPER";
+            /**
+             * 脊柱下
+             */
             EClothesHidePartType[EClothesHidePartType["SPINE_LOWER"] = 3] = "SPINE_LOWER";
+            /**
+             * 臀部
+             */
             EClothesHidePartType[EClothesHidePartType["HIP"] = 4] = "HIP";
+            /**
+             * 腿上
+             */
             EClothesHidePartType[EClothesHidePartType["LEG_UPPER"] = 5] = "LEG_UPPER";
+            /**
+             * 腿中
+             */
             EClothesHidePartType[EClothesHidePartType["LEG_MIDDLE"] = 6] = "LEG_MIDDLE";
+            /**
+             * 腿下
+             */
             EClothesHidePartType[EClothesHidePartType["LEG_LOWER"] = 7] = "LEG_LOWER";
         })(EClothesHidePartType = item.EClothesHidePartType || (item.EClothesHidePartType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EClothesPropertyType;
         (function (EClothesPropertyType) {
+            /**
+             * 简约
+             */
             EClothesPropertyType[EClothesPropertyType["JIAN_YUE"] = 1] = "JIAN_YUE";
+            /**
+             * 华丽
+             */
             EClothesPropertyType[EClothesPropertyType["HUA_LI"] = 2] = "HUA_LI";
+            /**
+             * 可爱
+             */
             EClothesPropertyType[EClothesPropertyType["KE_AI"] = 3] = "KE_AI";
+            /**
+             * 成熟
+             */
             EClothesPropertyType[EClothesPropertyType["CHENG_SHU"] = 4] = "CHENG_SHU";
+            /**
+             * 活泼
+             */
             EClothesPropertyType[EClothesPropertyType["HUO_PO"] = 5] = "HUO_PO";
+            /**
+             * 优雅
+             */
             EClothesPropertyType[EClothesPropertyType["YOU_YA"] = 6] = "YOU_YA";
+            /**
+             * 清纯
+             */
             EClothesPropertyType[EClothesPropertyType["QING_CHUN"] = 7] = "QING_CHUN";
+            /**
+             * 性感
+             */
             EClothesPropertyType[EClothesPropertyType["XING_GAN"] = 8] = "XING_GAN";
+            /**
+             * 清凉
+             */
             EClothesPropertyType[EClothesPropertyType["QING_LIANG"] = 9] = "QING_LIANG";
+            /**
+             * 保暖
+             */
             EClothesPropertyType[EClothesPropertyType["BAO_NUAN"] = 10] = "BAO_NUAN";
         })(EClothesPropertyType = item.EClothesPropertyType || (item.EClothesPropertyType = {}));
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         let EItemFunctionType;
         (function (EItemFunctionType) {
+            /**
+             * 更换手持物
+             */
             EItemFunctionType[EItemFunctionType["REPLACE_HANDHELD"] = 0] = "REPLACE_HANDHELD";
+            /**
+             * 使用设计图纸
+             */
             EItemFunctionType[EItemFunctionType["USE_DESIGN_DRAWING"] = 1] = "USE_DESIGN_DRAWING";
         })(EItemFunctionType = item.EItemFunctionType || (item.EItemFunctionType = {}));
     })(item = cfg.item || (cfg.item = {}));
@@ -433,14 +763,26 @@ var cfg;
     (function (mail) {
         let EMailType;
         (function (EMailType) {
+            /**
+             * 全局邮件
+             */
             EMailType[EMailType["GLOBAL"] = 0] = "GLOBAL";
+            /**
+             * 系统邮件
+             */
             EMailType[EMailType["SYSTEM"] = 1] = "SYSTEM";
         })(EMailType = mail.EMailType || (mail.EMailType = {}));
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (role) {
         let EGenderType;
         (function (EGenderType) {
+            /**
+             * 男
+             */
             EGenderType[EGenderType["MALE"] = 1] = "MALE";
+            /**
+             * 女
+             */
             EGenderType[EGenderType["FEMALE"] = 2] = "FEMALE";
         })(EGenderType = role.EGenderType || (role.EGenderType = {}));
     })(role = cfg.role || (cfg.role = {}));
@@ -453,15 +795,30 @@ var cfg;
     (function (test) {
         let DemoEnum;
         (function (DemoEnum) {
+            /**
+             * aa
+             */
             DemoEnum[DemoEnum["A"] = 1] = "A";
+            /**
+             * bb
+             */
             DemoEnum[DemoEnum["B"] = 2] = "B";
+            /**
+             * cc
+             */
             DemoEnum[DemoEnum["C"] = 4] = "C";
+            /**
+             * dd
+             */
             DemoEnum[DemoEnum["D"] = 5] = "D";
         })(DemoEnum = test.DemoEnum || (test.DemoEnum = {}));
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         let ETestUeType;
         (function (ETestUeType) {
+            /**
+             * 白
+             */
             ETestUeType[ETestUeType["WHITE"] = 0] = "WHITE";
             ETestUeType[ETestUeType["BLACK"] = 1] = "BLACK";
         })(ETestUeType = test.ETestUeType || (test.ETestUeType = {}));
@@ -479,8 +836,44 @@ var cfg;
             ETestEmptyEnum2[ETestEmptyEnum2["X_257"] = 257] = "X_257";
         })(ETestEmptyEnum2 = test.ETestEmptyEnum2 || (test.ETestEmptyEnum2 = {}));
     })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        let ETestQuality;
+        (function (ETestQuality) {
+            /**
+             * 最高品质
+             */
+            ETestQuality[ETestQuality["A"] = 1] = "A";
+            /**
+             * 黑色的
+             */
+            ETestQuality[ETestQuality["B"] = 2] = "B";
+            /**
+             * 蓝色的
+             */
+            ETestQuality[ETestQuality["C"] = 3] = "C";
+            /**
+             * 最差品质
+             */
+            ETestQuality[ETestQuality["D"] = 4] = "D";
+        })(ETestQuality = test.ETestQuality || (test.ETestQuality = {}));
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        let ETestCurrency;
+        (function (ETestCurrency) {
+            /**
+             * 重要
+             */
+            ETestCurrency[ETestCurrency["DIAMOND"] = 1] = "DIAMOND";
+            /**
+             * 有用
+             */
+            ETestCurrency[ETestCurrency["GOLD"] = 2] = "GOLD";
+        })(ETestCurrency = test.ETestCurrency || (test.ETestCurrency = {}));
+    })(test = cfg.test || (cfg.test = {}));
     (function (ai) {
         class TbBlackboard {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -517,6 +910,11 @@ var cfg;
                     }
                 }
             }
+            name;
+            desc;
+            parentName;
+            parentName_Ref = undefined;
+            keys;
             resolve(_tables) {
                 this.parentName_Ref = _tables.get('ai.TbBlackboard').get(this.parentName);
                 for (let _e of this.keys) {
@@ -537,6 +935,11 @@ var cfg;
                 this.type = _buf_.ReadInt();
                 this.typeClassName = _buf_.ReadString();
             }
+            name;
+            desc;
+            isStatic;
+            type;
+            typeClassName;
             resolve(_tables) {
             }
         }
@@ -544,6 +947,8 @@ var cfg;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class TbBehaviorTree {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -574,6 +979,12 @@ var cfg;
                 this.blackboardId = _buf_.ReadString();
                 this.root = ai.ComposeNode.constructorFrom(_buf_);
             }
+            id;
+            name;
+            desc;
+            blackboardId;
+            blackboardId_Ref = undefined;
+            root;
             resolve(_tables) {
                 this.blackboardId_Ref = _tables.get('ai.TbBlackboard').get(this.blackboardId);
                 if (this.root != null) {
@@ -585,10 +996,6 @@ var cfg;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Node {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-                this.nodeName = _buf_.ReadString();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case 1812449155: return new ai.UeSetDefaultFocus(_buf_);
@@ -617,6 +1024,12 @@ var cfg;
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.nodeName = _buf_.ReadString();
+            }
+            id;
+            nodeName;
             resolve(_tables) {
             }
         }
@@ -650,6 +1063,7 @@ var cfg;
                 super(_buf_);
                 this.keyboardKey = _buf_.ReadString();
             }
+            keyboardKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -673,6 +1087,7 @@ var cfg;
                 super(_buf_);
                 this.resultTargetKey = _buf_.ReadString();
             }
+            resultTargetKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -685,6 +1100,7 @@ var cfg;
                 super(_buf_);
                 this.targetActorKey = _buf_.ReadString();
             }
+            targetActorKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -697,6 +1113,7 @@ var cfg;
                 super(_buf_);
                 this.playerActorKey = _buf_.ReadString();
             }
+            playerActorKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -717,6 +1134,15 @@ var cfg;
                 this.moodLowerThresholdKey = _buf_.ReadString();
                 this.moodUpperThresholdKey = _buf_.ReadString();
             }
+            satietyKey;
+            energyKey;
+            moodKey;
+            satietyLowerThresholdKey;
+            satietyUpperThresholdKey;
+            energyLowerThresholdKey;
+            energyUpperThresholdKey;
+            moodLowerThresholdKey;
+            moodUpperThresholdKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -725,10 +1151,6 @@ var cfg;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Decorator extends ai.Node {
-            constructor(_buf_) {
-                super(_buf_);
-                this.flowAbortMode = _buf_.ReadInt();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case -513308166: return new ai.UeLoop(_buf_);
@@ -741,6 +1163,11 @@ var cfg;
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                super(_buf_);
+                this.flowAbortMode = _buf_.ReadInt();
+            }
+            flowAbortMode;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -755,6 +1182,9 @@ var cfg;
                 this.infiniteLoop = _buf_.ReadBool();
                 this.infiniteLoopTimeoutTime = _buf_.ReadFloat();
             }
+            numLoops;
+            infiniteLoop;
+            infiniteLoopTimeoutTime;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -767,6 +1197,7 @@ var cfg;
                 super(_buf_);
                 this.cooldownTime = _buf_.ReadFloat();
             }
+            cooldownTime;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -779,6 +1210,7 @@ var cfg;
                 super(_buf_);
                 this.limitTime = _buf_.ReadFloat();
             }
+            limitTime;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -793,6 +1225,9 @@ var cfg;
                 this.blackboardKey = _buf_.ReadString();
                 this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_);
             }
+            notifyObserver;
+            blackboardKey;
+            keyQuery;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.keyQuery != null) {
@@ -848,6 +1283,8 @@ var cfg;
                 this.oper = _buf_.ReadInt();
                 this.data = ai.KeyData.constructorFrom(_buf_);
             }
+            oper;
+            data;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.data != null) {
@@ -881,6 +1318,7 @@ var cfg;
                 super(_buf_);
                 this.value = _buf_.ReadFloat();
             }
+            value;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -893,6 +1331,7 @@ var cfg;
                 super(_buf_);
                 this.value = _buf_.ReadInt();
             }
+            value;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -905,6 +1344,7 @@ var cfg;
                 super(_buf_);
                 this.value = _buf_.ReadString();
             }
+            value;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -917,6 +1357,7 @@ var cfg;
                 super(_buf_);
                 this.value = _buf_.ReadString();
             }
+            value;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -942,6 +1383,9 @@ var cfg;
                 this.keyboardKey = _buf_.ReadString();
                 this.inverseCondition = _buf_.ReadBool();
             }
+            acceptableRadius;
+            keyboardKey;
+            inverseCondition;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -957,6 +1401,10 @@ var cfg;
                 this.distance = _buf_.ReadFloat();
                 this.reverseResult = _buf_.ReadBool();
             }
+            actor1Key;
+            actor2Key;
+            distance;
+            reverseResult;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -965,6 +1413,21 @@ var cfg;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class FlowNode extends ai.Node {
+            static constructorFrom(_buf_) {
+                switch (_buf_.ReadInt()) {
+                    case -1789006105: return new ai.Sequence(_buf_);
+                    case -1946981627: return new ai.Selector(_buf_);
+                    case -1952582529: return new ai.SimpleParallel(_buf_);
+                    case -512994101: return new ai.UeWait(_buf_);
+                    case 1215378271: return new ai.UeWaitBlackboardTime(_buf_);
+                    case 514987779: return new ai.MoveToTarget(_buf_);
+                    case -918812268: return new ai.ChooseSkill(_buf_);
+                    case -2140042998: return new ai.MoveToRandomLocation(_buf_);
+                    case -969953113: return new ai.MoveToLocation(_buf_);
+                    case 1357409728: return new ai.DebugPrint(_buf_);
+                    default: throw new Error();
+                }
+            }
             constructor(_buf_) {
                 super(_buf_);
                 {
@@ -984,21 +1447,8 @@ var cfg;
                     }
                 }
             }
-            static constructorFrom(_buf_) {
-                switch (_buf_.ReadInt()) {
-                    case -1789006105: return new ai.Sequence(_buf_);
-                    case -1946981627: return new ai.Selector(_buf_);
-                    case -1952582529: return new ai.SimpleParallel(_buf_);
-                    case -512994101: return new ai.UeWait(_buf_);
-                    case 1215378271: return new ai.UeWaitBlackboardTime(_buf_);
-                    case 514987779: return new ai.MoveToTarget(_buf_);
-                    case -918812268: return new ai.ChooseSkill(_buf_);
-                    case -2140042998: return new ai.MoveToRandomLocation(_buf_);
-                    case -969953113: return new ai.MoveToLocation(_buf_);
-                    case 1357409728: return new ai.DebugPrint(_buf_);
-                    default: throw new Error();
-                }
-            }
+            decorators;
+            services;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.decorators) {
@@ -1047,6 +1497,7 @@ var cfg;
                     }
                 }
             }
+            children;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.children) {
@@ -1071,6 +1522,7 @@ var cfg;
                     }
                 }
             }
+            children;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.children) {
@@ -1090,6 +1542,9 @@ var cfg;
                 this.mainTask = ai.Task.constructorFrom(_buf_);
                 this.backgroundNode = ai.FlowNode.constructorFrom(_buf_);
             }
+            finishMode;
+            mainTask;
+            backgroundNode;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.mainTask != null) {
@@ -1104,10 +1559,6 @@ var cfg;
     })(ai = cfg.ai || (cfg.ai = {}));
     (function (ai) {
         class Task extends ai.FlowNode {
-            constructor(_buf_) {
-                super(_buf_);
-                this.ignoreRestartSelf = _buf_.ReadBool();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case -512994101: return new ai.UeWait(_buf_);
@@ -1120,6 +1571,11 @@ var cfg;
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                super(_buf_);
+                this.ignoreRestartSelf = _buf_.ReadBool();
+            }
+            ignoreRestartSelf;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1133,6 +1589,8 @@ var cfg;
                 this.waitTime = _buf_.ReadFloat();
                 this.randomDeviation = _buf_.ReadFloat();
             }
+            waitTime;
+            randomDeviation;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1145,6 +1603,7 @@ var cfg;
                 super(_buf_);
                 this.blackboardKey = _buf_.ReadString();
             }
+            blackboardKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1158,6 +1617,8 @@ var cfg;
                 this.targetActorKey = _buf_.ReadString();
                 this.acceptableRadius = _buf_.ReadFloat();
             }
+            targetActorKey;
+            acceptableRadius;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1171,6 +1632,8 @@ var cfg;
                 this.targetActorKey = _buf_.ReadString();
                 this.resultSkillIdKey = _buf_.ReadString();
             }
+            targetActorKey;
+            resultSkillIdKey;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1184,6 +1647,8 @@ var cfg;
                 this.originPositionKey = _buf_.ReadString();
                 this.radius = _buf_.ReadFloat();
             }
+            originPositionKey;
+            radius;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1197,6 +1662,8 @@ var cfg;
                 this.location = Vector3.deserializeFrom(_buf_);
                 this.acceptableRadius = _buf_.ReadFloat();
             }
+            location;
+            acceptableRadius;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1209,6 +1676,7 @@ var cfg;
                 super(_buf_);
                 this.text = _buf_.ReadString();
             }
+            text;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1218,6 +1686,8 @@ var cfg;
     let blueprint;
     (function (blueprint) {
         class TbClazz {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -1241,6 +1711,14 @@ var cfg;
     })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Clazz {
+            static constructorFrom(_buf_) {
+                switch (_buf_.ReadInt()) {
+                    case 2114170750: return new blueprint.Interface(_buf_);
+                    case -2073576778: return new blueprint.NormalClazz(_buf_);
+                    case 1827364892: return new blueprint.EnumClazz(_buf_);
+                    default: throw new Error();
+                }
+            }
             constructor(_buf_) {
                 this.name = _buf_.ReadString();
                 this.desc = _buf_.ReadString();
@@ -1261,14 +1739,10 @@ var cfg;
                     }
                 }
             }
-            static constructorFrom(_buf_) {
-                switch (_buf_.ReadInt()) {
-                    case 2114170750: return new blueprint.Interface(_buf_);
-                    case -2073576778: return new blueprint.NormalClazz(_buf_);
-                    case 1827364892: return new blueprint.EnumClazz(_buf_);
-                    default: throw new Error();
-                }
-            }
+            name;
+            desc;
+            parents;
+            methods;
             resolve(_tables) {
                 for (let _e of this.parents) {
                     if (_e != null) {
@@ -1286,6 +1760,14 @@ var cfg;
     })(blueprint = cfg.blueprint || (cfg.blueprint = {}));
     (function (blueprint) {
         class Method {
+            static constructorFrom(_buf_) {
+                switch (_buf_.ReadInt()) {
+                    case -392137809: return new blueprint.AbstraceMethod(_buf_);
+                    case 1739079015: return new blueprint.ExternalMethod(_buf_);
+                    case -696408103: return new blueprint.BlueprintMethod(_buf_);
+                    default: throw new Error();
+                }
+            }
             constructor(_buf_) {
                 this.name = _buf_.ReadString();
                 this.desc = _buf_.ReadString();
@@ -1300,14 +1782,11 @@ var cfg;
                     }
                 }
             }
-            static constructorFrom(_buf_) {
-                switch (_buf_.ReadInt()) {
-                    case -392137809: return new blueprint.AbstraceMethod(_buf_);
-                    case 1739079015: return new blueprint.ExternalMethod(_buf_);
-                    case -696408103: return new blueprint.BlueprintMethod(_buf_);
-                    default: throw new Error();
-                }
-            }
+            name;
+            desc;
+            isStatic;
+            returnType;
+            parameters;
             resolve(_tables) {
                 for (let _e of this.parameters) {
                     if (_e != null) {
@@ -1325,6 +1804,9 @@ var cfg;
                 this.type = _buf_.ReadString();
                 this.isRef = _buf_.ReadBool();
             }
+            name;
+            type;
+            isRef;
             resolve(_tables) {
             }
         }
@@ -1388,6 +1870,8 @@ var cfg;
                     }
                 }
             }
+            isAbstract;
+            fields;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.fields) {
@@ -1406,6 +1890,9 @@ var cfg;
                 this.type = _buf_.ReadString();
                 this.desc = _buf_.ReadString();
             }
+            name;
+            type;
+            desc;
             resolve(_tables) {
             }
         }
@@ -1424,6 +1911,7 @@ var cfg;
                     }
                 }
             }
+            enums;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.enums) {
@@ -1441,6 +1929,8 @@ var cfg;
                 this.name = _buf_.ReadString();
                 this.value = _buf_.ReadInt();
             }
+            name;
+            value;
             resolve(_tables) {
             }
         }
@@ -1449,6 +1939,8 @@ var cfg;
     let bonus;
     (function (bonus) {
         class TbDrop {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -1485,6 +1977,10 @@ var cfg;
                 }
                 this.bonus = bonus.Bonus.constructorFrom(_buf_);
             }
+            id;
+            desc;
+            clientShowItems;
+            bonus;
             resolve(_tables) {
                 for (let _e of this.clientShowItems) {
                     if (_e != null) {
@@ -1504,6 +2000,9 @@ var cfg;
                 this.itemId = _buf_.ReadInt();
                 this.itemNum = _buf_.ReadLongAsNumber();
             }
+            itemId;
+            itemId_Ref = undefined;
+            itemNum;
             resolve(_tables) {
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
             }
@@ -1541,6 +2040,8 @@ var cfg;
                 super(_buf_);
                 this.itemId = _buf_.ReadInt();
             }
+            itemId;
+            itemId_Ref = undefined;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -1558,11 +2059,11 @@ var cfg;
                     for (let i = 0; i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.items[i] = _e;
                     }
                 }
             }
+            items;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1576,6 +2077,9 @@ var cfg;
                 this.itemId = _buf_.ReadInt();
                 this.amount = _buf_.ReadInt();
             }
+            itemId;
+            itemId_Ref = undefined;
+            amount;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -1597,6 +2101,7 @@ var cfg;
                     }
                 }
             }
+            itemList;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.itemList) {
@@ -1615,6 +2120,8 @@ var cfg;
                 this.bonusId = _buf_.ReadInt();
                 this.bonusList = new bonus.Items(_buf_);
             }
+            bonusId;
+            bonusList;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.bonusList != null) {
@@ -1638,6 +2145,7 @@ var cfg;
                     }
                 }
             }
+            itemList;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.itemList) {
@@ -1656,6 +2164,10 @@ var cfg;
                 this.num = _buf_.ReadInt();
                 this.weight = _buf_.ReadInt();
             }
+            itemId;
+            itemId_Ref = undefined;
+            num;
+            weight;
             resolve(_tables) {
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
             }
@@ -1676,6 +2188,7 @@ var cfg;
                     }
                 }
             }
+            itemList;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.itemList) {
@@ -1694,6 +2207,10 @@ var cfg;
                 this.num = _buf_.ReadInt();
                 this.probability = _buf_.ReadFloat();
             }
+            itemId;
+            itemId_Ref = undefined;
+            num;
+            probability;
             resolve(_tables) {
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
             }
@@ -1714,6 +2231,7 @@ var cfg;
                     }
                 }
             }
+            bonuses;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.bonuses) {
@@ -1739,6 +2257,7 @@ var cfg;
                     }
                 }
             }
+            bonuses;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.bonuses) {
@@ -1756,6 +2275,8 @@ var cfg;
                 this.bonus = bonus.Bonus.constructorFrom(_buf_);
                 this.probability = _buf_.ReadFloat();
             }
+            bonus;
+            probability;
             resolve(_tables) {
                 if (this.bonus != null) {
                     this.bonus.resolve(_tables);
@@ -1778,6 +2299,7 @@ var cfg;
                     }
                 }
             }
+            bonuses;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.bonuses) {
@@ -1795,6 +2317,8 @@ var cfg;
                 this.bonus = bonus.Bonus.constructorFrom(_buf_);
                 this.weight = _buf_.ReadInt();
             }
+            bonus;
+            weight;
             resolve(_tables) {
                 if (this.bonus != null) {
                     this.bonus.resolve(_tables);
@@ -1809,6 +2333,8 @@ var cfg;
                 super(_buf_);
                 this.id = _buf_.ReadInt();
             }
+            id;
+            id_Ref = undefined;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.id_Ref = _tables.get('bonus.TbDrop').get(this.id);
@@ -1818,12 +2344,16 @@ var cfg;
     })(bonus = cfg.bonus || (cfg.bonus = {}));
     (function (common) {
         class TbGlobalConfig {
+            _data;
             constructor(_buf_) {
                 if (_buf_.ReadInt() != 1)
                     throw new Error('table mode=one, but size != 1');
                 this._data = new common.GlobalConfig(_buf_);
             }
             getData() { return this._data; }
+            /**
+             * 背包容量
+             */
             get bagCapacity() { return this._data.bagCapacity; }
             get bagCapacitySpecial() { return this._data.bagCapacitySpecial; }
             get bagTempExpendableCapacity() { return this._data.bagTempExpendableCapacity; }
@@ -1867,7 +2397,7 @@ var cfg;
                     this.bagInitItemsDropId = _buf_.ReadInt();
                 }
                 else {
-                    this.bagInitItemsDropId = null;
+                    this.bagInitItemsDropId = undefined;
                 }
                 this.mailBoxCapacity = _buf_.ReadInt();
                 this.damageParamC = _buf_.ReadFloat();
@@ -1881,14 +2411,41 @@ var cfg;
                 this.maxViality = _buf_.ReadInt();
                 this.perVialityRecoveryTime = _buf_.ReadInt();
             }
+            /**
+             * 背包容量
+             */
+            bagCapacity;
+            bagCapacitySpecial;
+            bagTempExpendableCapacity;
+            bagTempToolCapacity;
+            bagInitCapacity;
+            quickBagCapacity;
+            clothBagCapacity;
+            clothBagInitCapacity;
+            clothBagCapacitySpecial;
+            bagInitItemsDropId;
+            bagInitItemsDropId_Ref;
+            mailBoxCapacity;
+            damageParamC;
+            damageParamE;
+            damageParamF;
+            damageParamD;
+            roleSpeed;
+            monsterSpeed;
+            initEnergy;
+            initViality;
+            maxViality;
+            perVialityRecoveryTime;
             resolve(_tables) {
-                this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? _tables.get('bonus.TbDrop').get(this.bagInitItemsDropId) : null;
+                this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != undefined ? _tables.get('bonus.TbDrop').get(this.bagInitItemsDropId) : undefined;
             }
         }
         common.GlobalConfig = GlobalConfig;
     })(common = cfg.common || (cfg.common = {}));
     (function (common) {
         class TbDummy {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -1916,6 +2473,8 @@ var cfg;
                 this.id = _buf_.ReadInt();
                 this.limit = limit.LimitBase.constructorFrom(_buf_);
             }
+            id;
+            limit;
             resolve(_tables) {
                 if (this.limit != null) {
                     this.limit.resolve(_tables);
@@ -1967,6 +2526,7 @@ var cfg;
                 super(_buf_);
                 this.num = _buf_.ReadInt();
             }
+            num;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1980,6 +2540,8 @@ var cfg;
                 this.day = _buf_.ReadInt();
                 this.num = _buf_.ReadInt();
             }
+            day;
+            num;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -1992,6 +2554,7 @@ var cfg;
                 super(_buf_);
                 this.num = _buf_.ReadInt();
             }
+            num;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2004,6 +2567,7 @@ var cfg;
                 super(_buf_);
                 this.num = _buf_.ReadInt();
             }
+            num;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2016,6 +2580,7 @@ var cfg;
                 super(_buf_);
                 this.duration = _buf_.ReadInt();
             }
+            duration;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2029,6 +2594,8 @@ var cfg;
                 this.groupId = _buf_.ReadInt();
                 this.duration = _buf_.ReadInt();
             }
+            groupId;
+            duration;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2037,6 +2604,8 @@ var cfg;
     })(limit = cfg.limit || (cfg.limit = {}));
     (function (error) {
         class TbErrorInfo {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2065,6 +2634,9 @@ var cfg;
                 this.desc = _buf_.ReadString();
                 this.style = error.ErrorStyle.constructorFrom(_buf_);
             }
+            code;
+            desc;
+            style;
             resolve(_tables) {
                 if (this.style != null) {
                     this.style.resolve(_tables);
@@ -2109,6 +2681,8 @@ var cfg;
                 this.btnName = _buf_.ReadString();
                 this.operation = _buf_.ReadInt();
             }
+            btnName;
+            operation;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2121,6 +2695,7 @@ var cfg;
                 super(_buf_);
                 this.btnName = _buf_.ReadString();
             }
+            btnName;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2134,6 +2709,8 @@ var cfg;
                 this.btn1Name = _buf_.ReadString();
                 this.btn2Name = _buf_.ReadString();
             }
+            btn1Name;
+            btn2Name;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2142,6 +2719,8 @@ var cfg;
     })(error = cfg.error || (cfg.error = {}));
     (function (error) {
         class TbCodeInfo {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2169,13 +2748,20 @@ var cfg;
                 this.code = _buf_.ReadInt();
                 this.key = _buf_.ReadString();
             }
+            code;
+            key;
             resolve(_tables) {
             }
         }
         error.CodeInfo = CodeInfo;
     })(error = cfg.error || (cfg.error = {}));
     (function (item) {
+        /**
+         * 道具表
+         */
         class TbItem {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2198,6 +2784,9 @@ var cfg;
         item.TbItem = TbItem;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
+        /**
+         * 道具
+         */
         class Item {
             constructor(_buf_) {
                 this.id = _buf_.ReadInt();
@@ -2222,16 +2811,40 @@ var cfg;
                     this.price = _buf_.ReadInt();
                 }
                 else {
-                    this.price = null;
+                    this.price = undefined;
                 }
                 this.useType = _buf_.ReadInt();
                 if (_buf_.ReadBool()) {
                     this.levelUpId = _buf_.ReadInt();
                 }
                 else {
-                    this.levelUpId = null;
+                    this.levelUpId = undefined;
                 }
             }
+            /**
+             * 道具id
+             */
+            id;
+            name;
+            majorType;
+            minorType;
+            maxPileNum;
+            quality;
+            icon;
+            iconBackgroud;
+            iconMask;
+            desc;
+            showOrder;
+            quantifier;
+            showInBag;
+            minShowLevel;
+            batchUsable;
+            progressTimeWhenUse;
+            showHintWhenUse;
+            droppable;
+            price;
+            useType;
+            levelUpId;
             resolve(_tables) {
             }
         }
@@ -2239,6 +2852,8 @@ var cfg;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class TbItemFunc {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2268,6 +2883,10 @@ var cfg;
                 this.method = _buf_.ReadString();
                 this.closeBagUi = _buf_.ReadBool();
             }
+            minorType;
+            funcType;
+            method;
+            closeBagUi;
             resolve(_tables) {
             }
         }
@@ -2275,6 +2894,8 @@ var cfg;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class TbItemExtra {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2298,9 +2919,6 @@ var cfg;
     })(item = cfg.item || (cfg.item = {}));
     (function (item) {
         class ItemExtra {
-            constructor(_buf_) {
-                this.id = _buf_.ReadInt();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case 1494222369: return new item.TreasureBox(_buf_);
@@ -2311,6 +2929,10 @@ var cfg;
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+            }
+            id;
             resolve(_tables) {
             }
         }
@@ -2324,7 +2946,7 @@ var cfg;
                     this.keyItemId = _buf_.ReadInt();
                 }
                 else {
-                    this.keyItemId = null;
+                    this.keyItemId = undefined;
                 }
                 this.openLevel = new condition.MinLevel(_buf_);
                 this.useOnObtain = _buf_.ReadBool();
@@ -2333,7 +2955,6 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.dropIds.push(_e);
                     }
                 }
@@ -2346,6 +2967,11 @@ var cfg;
                     }
                 }
             }
+            keyItemId;
+            openLevel;
+            useOnObtain;
+            dropIds;
+            chooseList;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.openLevel != null) {
@@ -2389,6 +3015,7 @@ var cfg;
                 super(_buf_);
                 this.dateTimeRange = new common.DateTimeRange(_buf_);
             }
+            dateTimeRange;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.dateTimeRange != null) {
@@ -2405,15 +3032,17 @@ var cfg;
                     this.startTime = _buf_.ReadInt();
                 }
                 else {
-                    this.startTime = null;
+                    this.startTime = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.endTime = _buf_.ReadInt();
                 }
                 else {
-                    this.endTime = null;
+                    this.endTime = undefined;
                 }
             }
+            startTime;
+            endTime;
             resolve(_tables) {
             }
         }
@@ -2456,6 +3085,7 @@ var cfg;
                     }
                 }
             }
+            conditions;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.conditions) {
@@ -2494,6 +3124,7 @@ var cfg;
                 super(_buf_);
                 this.gender = _buf_.ReadInt();
             }
+            gender;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2506,6 +3137,7 @@ var cfg;
                 super(_buf_);
                 this.level = _buf_.ReadInt();
             }
+            level;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2518,6 +3150,7 @@ var cfg;
                 super(_buf_);
                 this.level = _buf_.ReadInt();
             }
+            level;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2531,6 +3164,8 @@ var cfg;
                 this.min = _buf_.ReadInt();
                 this.max = _buf_.ReadInt();
             }
+            min;
+            max;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2544,6 +3179,8 @@ var cfg;
                 this.prop = _buf_.ReadInt();
                 this.value = _buf_.ReadInt();
             }
+            prop;
+            value;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2558,6 +3195,10 @@ var cfg;
                 this.num = _buf_.ReadInt();
                 this.reverse = _buf_.ReadBool();
             }
+            itemId;
+            itemId_Ref = undefined;
+            num;
+            reverse;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -2571,6 +3212,9 @@ var cfg;
                 this.dropId = _buf_.ReadInt();
                 this.isUnique = _buf_.ReadBool();
             }
+            dropId;
+            dropId_Ref = undefined;
+            isUnique;
             resolve(_tables) {
                 this.dropId_Ref = _tables.get('bonus.TbDrop').get(this.dropId);
             }
@@ -2585,11 +3229,14 @@ var cfg;
                     this.attackNum = _buf_.ReadInt();
                 }
                 else {
-                    this.attackNum = null;
+                    this.attackNum = undefined;
                 }
                 this.holdingStaticMesh = _buf_.ReadString();
                 this.holdingStaticMeshMat = _buf_.ReadString();
             }
+            attackNum;
+            holdingStaticMesh;
+            holdingStaticMeshMat;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2605,6 +3252,10 @@ var cfg;
                 this.energyLimit = _buf_.ReadInt();
                 this.energyResume = _buf_.ReadInt();
             }
+            attack;
+            hp;
+            energyLimit;
+            energyResume;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2620,11 +3271,11 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.learnComponentId.push(_e);
                     }
                 }
             }
+            learnComponentId;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2637,6 +3288,7 @@ var cfg;
                 super(_buf_);
                 this.cost = cost.Cost.constructorFrom(_buf_);
             }
+            cost;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.cost != null) {
@@ -2673,6 +3325,8 @@ var cfg;
                 this.type = _buf_.ReadInt();
                 this.num = _buf_.ReadInt();
             }
+            type;
+            num;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -2692,6 +3346,7 @@ var cfg;
                     }
                 }
             }
+            currencies;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.currencies) {
@@ -2709,6 +3364,8 @@ var cfg;
                 super(_buf_);
                 this.itemId = _buf_.ReadInt();
             }
+            itemId;
+            itemId_Ref = undefined;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -2723,6 +3380,9 @@ var cfg;
                 this.itemId = _buf_.ReadInt();
                 this.amount = _buf_.ReadInt();
             }
+            itemId;
+            itemId_Ref = undefined;
+            amount;
             resolve(_tables) {
                 super.resolve(_tables);
                 this.itemId_Ref = _tables.get('item.TbItem').get(this.itemId);
@@ -2744,6 +3404,7 @@ var cfg;
                     }
                 }
             }
+            itemList;
             resolve(_tables) {
                 super.resolve(_tables);
                 for (let _e of this.itemList) {
@@ -2758,6 +3419,8 @@ var cfg;
     let l10n;
     (function (l10n) {
         class TbL10NDemo {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2785,6 +3448,8 @@ var cfg;
                 this.id = _buf_.ReadInt();
                 this.text = _buf_.ReadString();
             }
+            id;
+            text;
             resolve(_tables) {
             }
         }
@@ -2792,6 +3457,8 @@ var cfg;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
     (function (l10n) {
         class TbPatchDemo {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2819,6 +3486,8 @@ var cfg;
                 this.id = _buf_.ReadInt();
                 this.value = _buf_.ReadInt();
             }
+            id;
+            value;
             resolve(_tables) {
             }
         }
@@ -2826,6 +3495,8 @@ var cfg;
     })(l10n = cfg.l10n || (cfg.l10n = {}));
     (function (mail) {
         class TbSystemMail {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2859,11 +3530,15 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.award.push(_e);
                     }
                 }
             }
+            id;
+            title;
+            sender;
+            content;
+            award;
             resolve(_tables) {
             }
         }
@@ -2871,6 +3546,8 @@ var cfg;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (mail) {
         class TbGlobalMail {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2904,7 +3581,6 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.award.push(_e);
                     }
                 }
@@ -2914,7 +3590,6 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.serverList.push(_e);
                     }
                 }
@@ -2924,6 +3599,18 @@ var cfg;
                 this.registerTime = new condition.TimeRange(_buf_);
                 this.mailTime = new condition.TimeRange(_buf_);
             }
+            id;
+            title;
+            sender;
+            content;
+            award;
+            allServer;
+            serverList;
+            platform;
+            channel;
+            minMaxLevel;
+            registerTime;
+            mailTime;
             resolve(_tables) {
                 if (this.minMaxLevel != null) {
                     this.minMaxLevel.resolve(_tables);
@@ -2940,6 +3627,8 @@ var cfg;
     })(mail = cfg.mail || (cfg.mail = {}));
     (function (role) {
         class TbRoleLevelExpAttr {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -2971,11 +3660,13 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.clothesAttrs.push(_e);
                     }
                 }
             }
+            level;
+            needExp;
+            clothesAttrs;
             resolve(_tables) {
             }
         }
@@ -2983,6 +3674,8 @@ var cfg;
     })(role = cfg.role || (cfg.role = {}));
     (function (role) {
         class TbRoleLevelBonusCoefficient {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3017,6 +3710,8 @@ var cfg;
                     }
                 }
             }
+            id;
+            distinctBonusInfos;
             resolve(_tables) {
                 for (let _e of this.distinctBonusInfos) {
                     if (_e != null) {
@@ -3040,6 +3735,8 @@ var cfg;
                     }
                 }
             }
+            effectiveLevel;
+            bonusInfo;
             resolve(_tables) {
                 for (let _e of this.bonusInfo) {
                     if (_e != null) {
@@ -3056,6 +3753,8 @@ var cfg;
                 this.type = _buf_.ReadInt();
                 this.coefficient = _buf_.ReadFloat();
             }
+            type;
+            coefficient;
             resolve(_tables) {
             }
         }
@@ -3064,6 +3763,8 @@ var cfg;
     let tag;
     (function (tag) {
         class TbTestTag {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3091,6 +3792,8 @@ var cfg;
                 this.id = _buf_.ReadInt();
                 this.value = _buf_.ReadString();
             }
+            id;
+            value;
             resolve(_tables) {
             }
         }
@@ -3098,6 +3801,8 @@ var cfg;
     })(tag = cfg.tag || (cfg.tag = {}));
     (function (test) {
         class TbFullTypes {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3147,7 +3852,6 @@ var cfg;
                     for (let i = 0; i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.k1[i] = _e;
                     }
                 }
@@ -3156,26 +3860,7 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.k2.push(_e);
-                    }
-                }
-                {
-                    this.k3 = [];
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = _buf_.ReadInt();
-                        ;
-                        this.k3.push(_e);
-                    }
-                }
-                {
-                    this.k4 = [];
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = _buf_.ReadInt();
-                        ;
-                        this.k4.push(_e);
                     }
                 }
                 {
@@ -3183,26 +3868,7 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _e;
                         _e = _buf_.ReadInt();
-                        ;
                         this.k5.add(_e);
-                    }
-                }
-                {
-                    this.k6 = new Set();
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = _buf_.ReadInt();
-                        ;
-                        this.k6.add(_e);
-                    }
-                }
-                {
-                    this.k7 = new Set();
-                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
-                        let _e;
-                        _e = _buf_.ReadInt();
-                        ;
-                        this.k7.add(_e);
                     }
                 }
                 {
@@ -3210,10 +3876,8 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _k;
                         _k = _buf_.ReadInt();
-                        ;
                         let _v;
                         _v = _buf_.ReadInt();
-                        ;
                         this.k8.set(_k, _v);
                     }
                 }
@@ -3235,6 +3899,32 @@ var cfg;
                     }
                 }
             }
+            x4;
+            x1;
+            x2;
+            x3;
+            x3_Ref = undefined;
+            x5;
+            x6;
+            x7;
+            x80;
+            x8;
+            x9;
+            x10;
+            x12;
+            x13;
+            x14;
+            s1;
+            v2;
+            v3;
+            v4;
+            t1;
+            k1;
+            k2;
+            k5;
+            k8;
+            k9;
+            k15;
             resolve(_tables) {
                 this.x3_Ref = _tables.get('test.TbFullTypes').get(this.x3);
                 if (this.x12 != null) {
@@ -3262,6 +3952,7 @@ var cfg;
             constructor(_buf_) {
                 this.x1 = _buf_.ReadInt();
             }
+            x1;
             resolve(_tables) {
             }
         }
@@ -3269,9 +3960,6 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class DemoDynamic {
-            constructor(_buf_) {
-                this.x1 = _buf_.ReadInt();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case -2138341747: return new test.DemoD2(_buf_);
@@ -3280,6 +3968,10 @@ var cfg;
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                this.x1 = _buf_.ReadInt();
+            }
+            x1;
             resolve(_tables) {
             }
         }
@@ -3291,6 +3983,7 @@ var cfg;
                 super(_buf_);
                 this.x2 = _buf_.ReadInt();
             }
+            x2;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -3299,16 +3992,17 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class DemoD3 extends test.DemoDynamic {
-            constructor(_buf_) {
-                super(_buf_);
-                this.x3 = _buf_.ReadInt();
-            }
             static constructorFrom(_buf_) {
                 switch (_buf_.ReadInt()) {
                     case -2138341717: return new test.DemoE1(_buf_);
                     default: throw new Error();
                 }
             }
+            constructor(_buf_) {
+                super(_buf_);
+                this.x3 = _buf_.ReadInt();
+            }
+            x3;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -3321,6 +4015,7 @@ var cfg;
                 super(_buf_);
                 this.x4 = _buf_.ReadInt();
             }
+            x4;
             resolve(_tables) {
                 super.resolve(_tables);
             }
@@ -3333,6 +4028,7 @@ var cfg;
                 super(_buf_);
                 this.time = new test.DateTimeRange(_buf_);
             }
+            time;
             resolve(_tables) {
                 super.resolve(_tables);
                 if (this.time != null) {
@@ -3348,6 +4044,8 @@ var cfg;
                 this.startTime = _buf_.ReadInt();
                 this.endTime = _buf_.ReadInt();
             }
+            startTime;
+            endTime;
             resolve(_tables) {
             }
         }
@@ -3360,10 +4058,12 @@ var cfg;
                     this.y1 = _buf_.ReadInt();
                 }
                 else {
-                    this.y1 = null;
+                    this.y1 = undefined;
                 }
                 this.y2 = _buf_.ReadBool();
             }
+            y1;
+            y2;
             resolve(_tables) {
             }
         }
@@ -3371,6 +4071,7 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbSingleton {
+            _data;
             constructor(_buf_) {
                 if (_buf_.ReadInt() != 1)
                     throw new Error('table mode=one, but size != 1');
@@ -3393,6 +4094,9 @@ var cfg;
                 this.name = _buf_.ReadString();
                 this.date = test.DemoDynamic.constructorFrom(_buf_);
             }
+            id;
+            name;
+            date;
             resolve(_tables) {
                 if (this.date != null) {
                     this.date.resolve(_tables);
@@ -3402,7 +4106,9 @@ var cfg;
         test.DemoSingletonType = DemoSingletonType;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
-        class TbDataFromJson {
+        class TbDataFromMisc {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3422,56 +4128,12 @@ var cfg;
                 }
             }
         }
-        test.TbDataFromJson = TbDataFromJson;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbDataFromXml {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new test.DemoType2(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x4, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbDataFromXml = TbDataFromXml;
-    })(test = cfg.test || (cfg.test = {}));
-    (function (test) {
-        class TbDataFromLua {
-            constructor(_buf_) {
-                this._dataMap = new Map();
-                this._dataList = [];
-                for (let n = _buf_.ReadInt(); n > 0; n--) {
-                    let _v;
-                    _v = new test.DemoType2(_buf_);
-                    this._dataList.push(_v);
-                    this._dataMap.set(_v.x4, _v);
-                }
-            }
-            getDataMap() { return this._dataMap; }
-            getDataList() { return this._dataList; }
-            get(key) { return this._dataMap.get(key); }
-            resolve(_tables) {
-                for (var v of this._dataList) {
-                    v.resolve(_tables);
-                }
-            }
-        }
-        test.TbDataFromLua = TbDataFromLua;
+        test.TbDataFromMisc = TbDataFromMisc;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbMultiRowRecord {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3536,13 +4198,28 @@ var cfg;
                     for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
                         let _k;
                         _k = _buf_.ReadInt();
-                        ;
                         let _v;
                         _v = new test.MultiRowType2(_buf_);
                         this.multiRows4.set(_k, _v);
                     }
                 }
+                {
+                    this.multiRows5 = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType3(_buf_);
+                        this.multiRows5.push(_e);
+                    }
+                }
             }
+            id;
+            name;
+            oneRows;
+            multiRows1;
+            multiRows2;
+            multiRows3;
+            multiRows4;
+            multiRows5;
             resolve(_tables) {
                 for (let _e of this.oneRows) {
                     if (_e != null) {
@@ -3564,6 +4241,11 @@ var cfg;
                         _e.resolve(_tables);
                     }
                 }
+                for (let _e of this.multiRows5) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
             }
         }
         test.MultiRowRecord = MultiRowRecord;
@@ -3574,6 +4256,8 @@ var cfg;
                 this.id = _buf_.ReadInt();
                 this.x = _buf_.ReadInt();
             }
+            id;
+            x;
             resolve(_tables) {
             }
         }
@@ -3586,13 +4270,43 @@ var cfg;
                 this.x = _buf_.ReadInt();
                 this.y = _buf_.ReadFloat();
             }
+            id;
+            x;
+            y;
             resolve(_tables) {
             }
         }
         test.MultiRowType2 = MultiRowType2;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
+        class MultiRowType3 {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                {
+                    this.items = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.MultiRowType1(_buf_);
+                        this.items.push(_e);
+                    }
+                }
+            }
+            id;
+            items;
+            resolve(_tables) {
+                for (let _e of this.items) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.MultiRowType3 = MultiRowType3;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
         class TbMultiRowTitle {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3638,6 +4352,11 @@ var cfg;
                     }
                 }
             }
+            id;
+            name;
+            x1;
+            x2;
+            x3;
             resolve(_tables) {
                 if (this.x1 != null) {
                     this.x1.resolve(_tables);
@@ -3662,6 +4381,8 @@ var cfg;
                 this.y2 = new test.H2(_buf_);
                 this.y3 = _buf_.ReadInt();
             }
+            y2;
+            y3;
             resolve(_tables) {
                 if (this.y2 != null) {
                     this.y2.resolve(_tables);
@@ -3676,6 +4397,8 @@ var cfg;
                 this.z2 = _buf_.ReadInt();
                 this.z3 = _buf_.ReadInt();
             }
+            z2;
+            z3;
             resolve(_tables) {
             }
         }
@@ -3683,6 +4406,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbTestNull {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3712,39 +4437,46 @@ var cfg;
                     this.x1 = _buf_.ReadInt();
                 }
                 else {
-                    this.x1 = null;
+                    this.x1 = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.x2 = _buf_.ReadInt();
                 }
                 else {
-                    this.x2 = null;
+                    this.x2 = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.x3 = new test.DemoType1(_buf_);
                 }
                 else {
-                    this.x3 = null;
+                    this.x3 = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.x4 = test.DemoDynamic.constructorFrom(_buf_);
                 }
                 else {
-                    this.x4 = null;
+                    this.x4 = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.s1 = _buf_.ReadString();
                 }
                 else {
-                    this.s1 = null;
+                    this.s1 = undefined;
                 }
                 if (_buf_.ReadBool()) {
                     this.s2 = _buf_.ReadString();
                 }
                 else {
-                    this.s2 = null;
+                    this.s2 = undefined;
                 }
             }
+            id;
+            x1;
+            x2;
+            x3;
+            x4;
+            s1;
+            s2;
             resolve(_tables) {
                 if (this.x3 != null) {
                     this.x3.resolve(_tables);
@@ -3758,6 +4490,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDemoPrimitive {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3796,6 +4530,19 @@ var cfg;
                 this.v4 = Vector4.deserializeFrom(_buf_);
                 this.t1 = _buf_.ReadInt();
             }
+            x1;
+            x2;
+            x3;
+            x4;
+            x5;
+            x6;
+            x7;
+            s1;
+            s2;
+            v2;
+            v3;
+            v4;
+            t1;
             resolve(_tables) {
             }
         }
@@ -3803,6 +4550,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbTestString {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3832,6 +4581,10 @@ var cfg;
                 this.cs1 = new test.CompactString(_buf_);
                 this.cs2 = new test.CompactString(_buf_);
             }
+            id;
+            s1;
+            cs1;
+            cs2;
             resolve(_tables) {
                 if (this.cs1 != null) {
                     this.cs1.resolve(_tables);
@@ -3850,6 +4603,9 @@ var cfg;
                 this.s2 = _buf_.ReadString();
                 this.s3 = _buf_.ReadString();
             }
+            id;
+            s2;
+            s3;
             resolve(_tables) {
             }
         }
@@ -3857,6 +4613,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDemoGroup {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3888,6 +4646,12 @@ var cfg;
                 this.x4 = _buf_.ReadInt();
                 this.x5 = new test.InnerGroup(_buf_);
             }
+            id;
+            x1;
+            x2;
+            x3;
+            x4;
+            x5;
             resolve(_tables) {
                 if (this.x5 != null) {
                     this.x5.resolve(_tables);
@@ -3904,6 +4668,10 @@ var cfg;
                 this.y3 = _buf_.ReadInt();
                 this.y4 = _buf_.ReadInt();
             }
+            y1;
+            y2;
+            y3;
+            y4;
             resolve(_tables) {
             }
         }
@@ -3911,6 +4679,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDemoGroup_C {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3934,6 +4704,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDemoGroup_S {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3957,6 +4729,8 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbDemoGroup_E {
+            _dataMap;
+            _dataList;
             constructor(_buf_) {
                 this._dataMap = new Map();
                 this._dataList = [];
@@ -3980,6 +4754,7 @@ var cfg;
     })(test = cfg.test || (cfg.test = {}));
     (function (test) {
         class TbTestGlobal {
+            _data;
             constructor(_buf_) {
                 if (_buf_.ReadInt() != 1)
                     throw new Error('table mode=one, but size != 1');
@@ -4000,12 +4775,613 @@ var cfg;
                 this.unlockEquip = _buf_.ReadInt();
                 this.unlockHero = _buf_.ReadInt();
             }
+            unlockEquip;
+            unlockHero;
             resolve(_tables) {
             }
         }
         test.TestGlobal = TestGlobal;
     })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDetectCsvEncoding {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DetectEncoding(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDetectCsvEncoding = TbDetectCsvEncoding;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class DetectEncoding {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.name = _buf_.ReadString();
+            }
+            id;
+            name;
+            resolve(_tables) {
+            }
+        }
+        test.DetectEncoding = DetectEncoding;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDefineFromExcel {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DefineFromExcel(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDefineFromExcel = TbDefineFromExcel;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        /**
+         *
+         */
+        class DefineFromExcel {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.x1 = _buf_.ReadBool();
+                this.x5 = _buf_.ReadLongAsNumber();
+                this.x6 = _buf_.ReadFloat();
+                this.x8 = _buf_.ReadInt();
+                this.x10 = _buf_.ReadString();
+                this.x13 = _buf_.ReadInt();
+                this.x14 = test.DemoDynamic.constructorFrom(_buf_);
+                this.v2 = Vector2.deserializeFrom(_buf_);
+                this.t1 = _buf_.ReadInt();
+                {
+                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
+                    this.k1 = new Int32Array(n);
+                    for (let i = 0; i < n; i++) {
+                        let _e;
+                        _e = _buf_.ReadInt();
+                        this.k1[i] = _e;
+                    }
+                }
+                {
+                    this.k8 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadInt();
+                        let _v;
+                        _v = _buf_.ReadInt();
+                        this.k8.set(_k, _v);
+                    }
+                }
+                {
+                    this.k9 = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.DemoE2(_buf_);
+                        this.k9.push(_e);
+                    }
+                }
+            }
+            /**
+             * id的描述
+             */
+            id;
+            /**
+             * 字段的描述
+             */
+            x1;
+            x5;
+            x6;
+            x8;
+            x8_Ref = undefined;
+            x10;
+            x13;
+            x14;
+            v2;
+            t1;
+            k1;
+            k8;
+            k9;
+            resolve(_tables) {
+                this.x8_Ref = _tables.get('test.TbDemoPrimitive').get(this.x8);
+                if (this.x14 != null) {
+                    this.x14.resolve(_tables);
+                }
+                for (let _e of this.k9) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.DefineFromExcel = DefineFromExcel;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDefineFromExcelOne {
+            _data;
+            constructor(_buf_) {
+                if (_buf_.ReadInt() != 1)
+                    throw new Error('table mode=one, but size != 1');
+                this._data = new test.DefineFromExcelOne(_buf_);
+            }
+            getData() { return this._data; }
+            /**
+             * 装备解锁等级_描述
+             */
+            get unlockEquip() { return this._data.unlockEquip; }
+            /**
+             * 英雄解锁等级
+             */
+            get unlockHero() { return this._data.unlockHero; }
+            /**
+             * 默认头像
+             */
+            get defaultAvatar() { return this._data.defaultAvatar; }
+            get defaultItem() { return this._data.defaultItem; }
+            resolve(_tables) {
+                this._data.resolve(_tables);
+            }
+        }
+        test.TbDefineFromExcelOne = TbDefineFromExcelOne;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        /**
+         *
+         */
+        class DefineFromExcelOne {
+            constructor(_buf_) {
+                this.unlockEquip = _buf_.ReadInt();
+                this.unlockHero = _buf_.ReadInt();
+                this.defaultAvatar = _buf_.ReadString();
+                this.defaultItem = _buf_.ReadString();
+            }
+            /**
+             * 装备解锁等级_描述
+             */
+            unlockEquip;
+            /**
+             * 英雄解锁等级
+             */
+            unlockHero;
+            /**
+             * 默认头像
+             */
+            defaultAvatar;
+            defaultItem;
+            resolve(_tables) {
+            }
+        }
+        test.DefineFromExcelOne = DefineFromExcelOne;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestJson2 {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.TestJson2(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestJson2 = TbTestJson2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestJson2 {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                {
+                    this.m1 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadInt();
+                        let _v;
+                        _v = _buf_.ReadInt();
+                        this.m1.set(_k, _v);
+                    }
+                }
+                {
+                    this.m2 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadLongAsNumber();
+                        let _v;
+                        _v = _buf_.ReadInt();
+                        this.m2.set(_k, _v);
+                    }
+                }
+                {
+                    this.m3 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadString();
+                        let _v;
+                        _v = _buf_.ReadInt();
+                        this.m3.set(_k, _v);
+                    }
+                }
+                {
+                    this.m4 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadString();
+                        let _v;
+                        _v = new test.DemoType1(_buf_);
+                        this.m4.set(_k, _v);
+                    }
+                }
+            }
+            id;
+            m1;
+            m2;
+            m3;
+            m4;
+            resolve(_tables) {
+                for (let _e of this.m4.values()) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.TestJson2 = TestJson2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestIndex {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.TestIndex(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestIndex = TbTestIndex;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TestIndex {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                {
+                    this.eles = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.DemoType1(_buf_);
+                        this.eles.push(_e);
+                    }
+                }
+            }
+            id;
+            eles;
+            resolve(_tables) {
+                for (let _e of this.eles) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.TestIndex = TestIndex;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDemoGroupDefineFromExcel {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DemoGroup(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDemoGroupDefineFromExcel = TbDemoGroupDefineFromExcel;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbDefineFromExcel2 {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.DefineFromExcel2(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.id, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbDefineFromExcel2 = TbDefineFromExcel2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        /**
+         *
+         */
+        class DefineFromExcel2 {
+            constructor(_buf_) {
+                this.id = _buf_.ReadInt();
+                this.x1 = _buf_.ReadBool();
+                this.x5 = _buf_.ReadLongAsNumber();
+                this.x6 = _buf_.ReadFloat();
+                this.x8 = _buf_.ReadInt();
+                this.x10 = _buf_.ReadString();
+                this.x13 = _buf_.ReadInt();
+                this.x14 = test.DemoDynamic.constructorFrom(_buf_);
+                this.v2 = Vector2.deserializeFrom(_buf_);
+                this.t1 = _buf_.ReadInt();
+                {
+                    let n = Math.min(_buf_.ReadSize(), _buf_.Size);
+                    this.k1 = new Int32Array(n);
+                    for (let i = 0; i < n; i++) {
+                        let _e;
+                        _e = _buf_.ReadInt();
+                        this.k1[i] = _e;
+                    }
+                }
+                {
+                    this.k8 = new Map();
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _k;
+                        _k = _buf_.ReadInt();
+                        let _v;
+                        _v = _buf_.ReadInt();
+                        this.k8.set(_k, _v);
+                    }
+                }
+                {
+                    this.k9 = [];
+                    for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                        let _e;
+                        _e = new test.DemoE2(_buf_);
+                        this.k9.push(_e);
+                    }
+                }
+            }
+            /**
+             * id的描述
+             */
+            id;
+            /**
+             * 字段的描述
+             */
+            x1;
+            x5;
+            x6;
+            x8;
+            x8_Ref = undefined;
+            x10;
+            x13;
+            x14;
+            v2;
+            t1;
+            k1;
+            k8;
+            k9;
+            resolve(_tables) {
+                this.x8_Ref = _tables.get('test.TbDemoPrimitive').get(this.x8);
+                if (this.x14 != null) {
+                    this.x14.resolve(_tables);
+                }
+                for (let _e of this.k9) {
+                    if (_e != null) {
+                        _e.resolve(_tables);
+                    }
+                }
+            }
+        }
+        test.DefineFromExcel2 = DefineFromExcel2;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        class TbTestExcelBean {
+            _dataMap;
+            _dataList;
+            constructor(_buf_) {
+                this._dataMap = new Map();
+                this._dataList = [];
+                for (let n = _buf_.ReadInt(); n > 0; n--) {
+                    let _v;
+                    _v = new test.TestExcelBean1(_buf_);
+                    this._dataList.push(_v);
+                    this._dataMap.set(_v.x1, _v);
+                }
+            }
+            getDataMap() { return this._dataMap; }
+            getDataList() { return this._dataList; }
+            get(key) { return this._dataMap.get(key); }
+            resolve(_tables) {
+                for (var v of this._dataList) {
+                    v.resolve(_tables);
+                }
+            }
+        }
+        test.TbTestExcelBean = TbTestExcelBean;
+    })(test = cfg.test || (cfg.test = {}));
+    (function (test) {
+        /**
+         * 这是个测试excel结构
+         */
+        class TestExcelBean1 {
+            constructor(_buf_) {
+                this.x1 = _buf_.ReadInt();
+                this.x2 = _buf_.ReadString();
+                this.x3 = _buf_.ReadInt();
+                this.x4 = _buf_.ReadFloat();
+            }
+            /**
+             * 最高品质
+             */
+            x1;
+            /**
+             * 黑色的
+             */
+            x2;
+            /**
+             * 蓝色的
+             */
+            x3;
+            /**
+             * 最差品质
+             */
+            x4;
+            resolve(_tables) {
+            }
+        }
+        test.TestExcelBean1 = TestExcelBean1;
+    })(test = cfg.test || (cfg.test = {}));
     class Tables {
+        _TbBlackboard;
+        get TbBlackboard() { return this._TbBlackboard; }
+        _TbBehaviorTree;
+        get TbBehaviorTree() { return this._TbBehaviorTree; }
+        _TbClazz;
+        get TbClazz() { return this._TbClazz; }
+        _TbDrop;
+        get TbDrop() { return this._TbDrop; }
+        _TbGlobalConfig;
+        get TbGlobalConfig() { return this._TbGlobalConfig; }
+        _TbDummy;
+        get TbDummy() { return this._TbDummy; }
+        _TbErrorInfo;
+        get TbErrorInfo() { return this._TbErrorInfo; }
+        _TbCodeInfo;
+        get TbCodeInfo() { return this._TbCodeInfo; }
+        _TbItem;
+        /**
+         * 道具表
+         */
+        get TbItem() { return this._TbItem; }
+        _TbItemFunc;
+        get TbItemFunc() { return this._TbItemFunc; }
+        _TbItemExtra;
+        get TbItemExtra() { return this._TbItemExtra; }
+        _TbL10NDemo;
+        get TbL10NDemo() { return this._TbL10NDemo; }
+        _TbPatchDemo;
+        get TbPatchDemo() { return this._TbPatchDemo; }
+        _TbSystemMail;
+        get TbSystemMail() { return this._TbSystemMail; }
+        _TbGlobalMail;
+        get TbGlobalMail() { return this._TbGlobalMail; }
+        _TbRoleLevelExpAttr;
+        get TbRoleLevelExpAttr() { return this._TbRoleLevelExpAttr; }
+        _TbRoleLevelBonusCoefficient;
+        get TbRoleLevelBonusCoefficient() { return this._TbRoleLevelBonusCoefficient; }
+        _TbTestTag;
+        get TbTestTag() { return this._TbTestTag; }
+        _TbFullTypes;
+        get TbFullTypes() { return this._TbFullTypes; }
+        _TbSingleton;
+        get TbSingleton() { return this._TbSingleton; }
+        _TbDataFromMisc;
+        get TbDataFromMisc() { return this._TbDataFromMisc; }
+        _TbMultiRowRecord;
+        get TbMultiRowRecord() { return this._TbMultiRowRecord; }
+        _TbMultiRowTitle;
+        get TbMultiRowTitle() { return this._TbMultiRowTitle; }
+        _TbTestNull;
+        get TbTestNull() { return this._TbTestNull; }
+        _TbDemoPrimitive;
+        get TbDemoPrimitive() { return this._TbDemoPrimitive; }
+        _TbTestString;
+        get TbTestString() { return this._TbTestString; }
+        _TbDemoGroup;
+        get TbDemoGroup() { return this._TbDemoGroup; }
+        _TbDemoGroup_C;
+        get TbDemoGroup_C() { return this._TbDemoGroup_C; }
+        _TbDemoGroup_S;
+        get TbDemoGroup_S() { return this._TbDemoGroup_S; }
+        _TbDemoGroup_E;
+        get TbDemoGroup_E() { return this._TbDemoGroup_E; }
+        _TbTestGlobal;
+        get TbTestGlobal() { return this._TbTestGlobal; }
+        _TbDetectCsvEncoding;
+        get TbDetectCsvEncoding() { return this._TbDetectCsvEncoding; }
+        _TbDefineFromExcel;
+        get TbDefineFromExcel() { return this._TbDefineFromExcel; }
+        _TbDefineFromExcelOne;
+        get TbDefineFromExcelOne() { return this._TbDefineFromExcelOne; }
+        _TbTestJson2;
+        get TbTestJson2() { return this._TbTestJson2; }
+        _TbTestIndex;
+        get TbTestIndex() { return this._TbTestIndex; }
+        _TbDemoGroupDefineFromExcel;
+        get TbDemoGroupDefineFromExcel() { return this._TbDemoGroupDefineFromExcel; }
+        _TbDefineFromExcel2;
+        get TbDefineFromExcel2() { return this._TbDefineFromExcel2; }
+        _TbTestExcelBean;
+        get TbTestExcelBean() { return this._TbTestExcelBean; }
         constructor(loader) {
             let tables = new Map();
             this._TbBlackboard = new ai.TbBlackboard(loader('ai.TbBlackboard'));
@@ -4048,12 +5424,8 @@ var cfg;
             tables.set('test.TbFullTypes', this._TbFullTypes);
             this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton'));
             tables.set('test.TbSingleton', this._TbSingleton);
-            this._TbDataFromJson = new test.TbDataFromJson(loader('test.TbDataFromJson'));
-            tables.set('test.TbDataFromJson', this._TbDataFromJson);
-            this._TbDataFromXml = new test.TbDataFromXml(loader('test.TbDataFromXml'));
-            tables.set('test.TbDataFromXml', this._TbDataFromXml);
-            this._TbDataFromLua = new test.TbDataFromLua(loader('test.TbDataFromLua'));
-            tables.set('test.TbDataFromLua', this._TbDataFromLua);
+            this._TbDataFromMisc = new test.TbDataFromMisc(loader('test.TbDataFromMisc'));
+            tables.set('test.TbDataFromMisc', this._TbDataFromMisc);
             this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord'));
             tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord);
             this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle'));
@@ -4074,6 +5446,22 @@ var cfg;
             tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E);
             this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal'));
             tables.set('test.TbTestGlobal', this._TbTestGlobal);
+            this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding'));
+            tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding);
+            this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test.TbDefineFromExcel'));
+            tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel);
+            this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne'));
+            tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne);
+            this._TbTestJson2 = new test.TbTestJson2(loader('test.TbTestJson2'));
+            tables.set('test.TbTestJson2', this._TbTestJson2);
+            this._TbTestIndex = new test.TbTestIndex(loader('test.TbTestIndex'));
+            tables.set('test.TbTestIndex', this._TbTestIndex);
+            this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel'));
+            tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel);
+            this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test.TbDefineFromExcel2'));
+            tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2);
+            this._TbTestExcelBean = new test.TbTestExcelBean(loader('test.TbTestExcelBean'));
+            tables.set('test.TbTestExcelBean', this._TbTestExcelBean);
             this._TbBlackboard.resolve(tables);
             this._TbBehaviorTree.resolve(tables);
             this._TbClazz.resolve(tables);
@@ -4094,9 +5482,7 @@ var cfg;
             this._TbTestTag.resolve(tables);
             this._TbFullTypes.resolve(tables);
             this._TbSingleton.resolve(tables);
-            this._TbDataFromJson.resolve(tables);
-            this._TbDataFromXml.resolve(tables);
-            this._TbDataFromLua.resolve(tables);
+            this._TbDataFromMisc.resolve(tables);
             this._TbMultiRowRecord.resolve(tables);
             this._TbMultiRowTitle.resolve(tables);
             this._TbTestNull.resolve(tables);
@@ -4107,40 +5493,15 @@ var cfg;
             this._TbDemoGroup_S.resolve(tables);
             this._TbDemoGroup_E.resolve(tables);
             this._TbTestGlobal.resolve(tables);
+            this._TbDetectCsvEncoding.resolve(tables);
+            this._TbDefineFromExcel.resolve(tables);
+            this._TbDefineFromExcelOne.resolve(tables);
+            this._TbTestJson2.resolve(tables);
+            this._TbTestIndex.resolve(tables);
+            this._TbDemoGroupDefineFromExcel.resolve(tables);
+            this._TbDefineFromExcel2.resolve(tables);
+            this._TbTestExcelBean.resolve(tables);
         }
-        get TbBlackboard() { return this._TbBlackboard; }
-        get TbBehaviorTree() { return this._TbBehaviorTree; }
-        get TbClazz() { return this._TbClazz; }
-        get TbDrop() { return this._TbDrop; }
-        get TbGlobalConfig() { return this._TbGlobalConfig; }
-        get TbDummy() { return this._TbDummy; }
-        get TbErrorInfo() { return this._TbErrorInfo; }
-        get TbCodeInfo() { return this._TbCodeInfo; }
-        get TbItem() { return this._TbItem; }
-        get TbItemFunc() { return this._TbItemFunc; }
-        get TbItemExtra() { return this._TbItemExtra; }
-        get TbL10NDemo() { return this._TbL10NDemo; }
-        get TbPatchDemo() { return this._TbPatchDemo; }
-        get TbSystemMail() { return this._TbSystemMail; }
-        get TbGlobalMail() { return this._TbGlobalMail; }
-        get TbRoleLevelExpAttr() { return this._TbRoleLevelExpAttr; }
-        get TbRoleLevelBonusCoefficient() { return this._TbRoleLevelBonusCoefficient; }
-        get TbTestTag() { return this._TbTestTag; }
-        get TbFullTypes() { return this._TbFullTypes; }
-        get TbSingleton() { return this._TbSingleton; }
-        get TbDataFromJson() { return this._TbDataFromJson; }
-        get TbDataFromXml() { return this._TbDataFromXml; }
-        get TbDataFromLua() { return this._TbDataFromLua; }
-        get TbMultiRowRecord() { return this._TbMultiRowRecord; }
-        get TbMultiRowTitle() { return this._TbMultiRowTitle; }
-        get TbTestNull() { return this._TbTestNull; }
-        get TbDemoPrimitive() { return this._TbDemoPrimitive; }
-        get TbTestString() { return this._TbTestString; }
-        get TbDemoGroup() { return this._TbDemoGroup; }
-        get TbDemoGroup_C() { return this._TbDemoGroup_C; }
-        get TbDemoGroup_S() { return this._TbDemoGroup_S; }
-        get TbDemoGroup_E() { return this._TbDemoGroup_E; }
-        get TbTestGlobal() { return this._TbTestGlobal; }
     }
     cfg.Tables = Tables;
 })(cfg = exports.cfg || (exports.cfg = {}));

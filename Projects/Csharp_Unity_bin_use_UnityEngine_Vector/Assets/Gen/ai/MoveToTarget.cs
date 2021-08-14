@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(ByteBuf _buf)  : base(_buf) 
@@ -37,13 +34,7 @@ public sealed partial class MoveToTarget :  ai.Task
         return new ai.MoveToTarget(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string TargetActorKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float AcceptableRadius;
 
     public const int ID = 514987779;

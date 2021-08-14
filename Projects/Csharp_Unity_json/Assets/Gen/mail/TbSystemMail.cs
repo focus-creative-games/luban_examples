@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.mail
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbSystemMail
 {
     private readonly Dictionary<int, mail.SystemMail> _dataMap;

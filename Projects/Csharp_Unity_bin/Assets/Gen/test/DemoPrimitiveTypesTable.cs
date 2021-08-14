@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(ByteBuf _buf) 
@@ -59,57 +56,18 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         return new test.DemoPrimitiveTypesTable(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly byte X2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly short X3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float X6;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly double X7;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector2 V2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector3 V3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector4 V4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int T1;
 
     public const int ID = -370934083;

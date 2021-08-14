@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class TestTag extends  bright.serialization.AbstractBean 
 {
     public TestTag(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class TestTag extends  bright.serialization.AbstractBean
         return new TestTag(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String value;
 
     public static final int ID = 1742933812;

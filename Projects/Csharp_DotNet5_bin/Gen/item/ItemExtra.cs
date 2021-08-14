@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(ByteBuf _buf) 
@@ -43,9 +40,6 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
 
 

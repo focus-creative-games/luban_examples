@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class CoolDown extends  cfg.limit.LimitBase 
 {
     public CoolDown(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class CoolDown extends  cfg.limit.LimitBase
         return new CoolDown(_buf);
     }
 
-    /**
-     * 
-     */
     public final int duration;
 
     public static final int ID = -1366194050;

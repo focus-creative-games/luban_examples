@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DropInfo :  Bright.Config.BeanBase 
 {
     public DropInfo(ByteBuf _buf) 
@@ -41,21 +38,9 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return new bonus.DropInfo(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Bonus Bonus;
 
     public const int ID = -2014781108;

@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class IsNotSet :  ai.KeyQueryOperator 
 {
     public IsNotSet(JSONNode _json)  : base(_json) 

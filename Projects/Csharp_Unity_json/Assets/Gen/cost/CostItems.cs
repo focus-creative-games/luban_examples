@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CostItems :  cost.Cost 
 {
     public CostItems(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class CostItems :  cost.Cost
         return new cost.CostItems(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly cost.CostItem[] ItemList;
 
     public const int ID = -77945102;

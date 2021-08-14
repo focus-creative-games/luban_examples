@@ -2,7 +2,7 @@ import json
 import gen.Types
 
 def loader(f):
-    return json.load(open('config_data/' + f, 'r', encoding="utf-8"))
+    return json.load(open('../GenerateDatas/json/' + f + ".json", 'r', encoding="utf-8"))
 
 tables = gen.Types.Tables(loader)
 

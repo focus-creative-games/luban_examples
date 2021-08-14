@@ -17,17 +17,8 @@ import Vector4 from '../bright/math/Vector4'
 export namespace cfg {
 
 export namespace role {
-/**
- * 
- */
 export class Consts {
-    /**
-     * 
-     */
     static MAX_NAME_LENGTH = 20;
-    /**
-     * 
-     */
     static MAX_USER_ROLE_NUM = 10;
 }
 }
@@ -35,25 +26,10 @@ export class Consts {
 
 
 export namespace test {
-/**
- * 
- */
 export class DemoConst {
-    /**
-     * 
-     */
     static x1 = 0;
-    /**
-     * 
-     */
     static x2 = 3242;
-    /**
-     * 
-     */
     static x3 = 444.3;
-    /**
-     * 
-     */
     static x4 = 55.3;
 }
 }
@@ -61,199 +37,85 @@ export class DemoConst {
 
 
 export namespace ai {
-/**
- * 
- */
 export enum EExecutor {
-    /**
-     * 
-     */
     CLIENT = 0,
-    /**
-     * 
-     */
     SERVER = 1,
 }
 }
 
 
 export namespace ai {
-/**
- * 
- */
 export enum EKeyType {
-    /**
-     * 
-     */
     BOOL = 1,
-    /**
-     * 
-     */
     INT = 2,
-    /**
-     * 
-     */
     FLOAT = 3,
-    /**
-     * 
-     */
     STRING = 4,
-    /**
-     * 
-     */
     VECTOR = 5,
-    /**
-     * 
-     */
     ROTATOR = 6,
-    /**
-     * 
-     */
     NAME = 7,
-    /**
-     * 
-     */
     CLASS = 8,
-    /**
-     * 
-     */
     ENUM = 9,
-    /**
-     * 
-     */
     OBJECT = 10,
 }
 }
 
 
 export namespace ai {
-/**
- * 
- */
 export enum EFlowAbortMode {
-    /**
-     * 
-     */
     NONE = 0,
-    /**
-     * 
-     */
     LOWER_PRIORITY = 1,
-    /**
-     * 
-     */
     SELF = 2,
-    /**
-     * 
-     */
     BOTH = 3,
 }
 }
 
 
 export namespace ai {
-/**
- * 
- */
 export enum EFinishMode {
-    /**
-     * 
-     */
     IMMEDIATE = 0,
-    /**
-     * 
-     */
     DELAYED = 1,
 }
 }
 
 
 export namespace ai {
-/**
- * 
- */
 export enum ENotifyObserverMode {
-    /**
-     * 
-     */
     ON_VALUE_CHANGE = 0,
-    /**
-     * 
-     */
     ON_RESULT_CHANGE = 1,
 }
 }
 
 
 export namespace ai {
-/**
- * 
- */
 export enum EOperator {
-    /**
-     * 
-     */
     IS_EQUAL_TO = 0,
-    /**
-     * 
-     */
     IS_NOT_EQUAL_TO = 1,
-    /**
-     * 
-     */
     IS_LESS_THAN = 2,
-    /**
-     * 
-     */
     IS_LESS_THAN_OR_EQUAL_TO = 3,
-    /**
-     * 
-     */
     IS_GREAT_THAN = 4,
-    /**
-     * 
-     */
     IS_GREAT_THAN_OR_EQUAL_TO = 5,
-    /**
-     * 
-     */
     CONTAINS = 6,
-    /**
-     * 
-     */
     NOT_CONTAINS = 7,
 }
 }
 
 
 export namespace common {
-/**
- * 
- */
 export enum EBoolOperator {
-    /**
-     * 
-     */
     AND = 0,
-    /**
-     * 
-     */
     OR = 1,
 }
 }
 
 
 export namespace error {
-/**
- * 
- */
 export enum EOperation {
     /**
-     * 
+     * 登出
      */
     LOGOUT = 0,
     /**
-     * 
+     * 重启
      */
     RESTART = 1,
 }
@@ -261,349 +123,91 @@ export enum EOperation {
 
 
 export namespace error {
-/**
- * 
- */
 export enum EErrorCode {
-    /**
-     * 
-     */
     OK = 0,
-    /**
-     * 
-     */
     SERVER_NOT_EXISTS = 1,
-    /**
-     * 
-     */
     HAS_BIND_SERVER = 2,
-    /**
-     * 
-     */
     AUTH_FAIL = 3,
-    /**
-     * 
-     */
     NOT_BIND_SERVER = 4,
-    /**
-     * 
-     */
     SERVER_ACCESS_FAIL = 5,
-    /**
-     * 
-     */
     EXAMPLE_FLASH = 6,
-    /**
-     * 
-     */
     EXAMPLE_MSGBOX = 7,
-    /**
-     * 
-     */
     EXAMPLE_DLG_OK = 8,
-    /**
-     * 
-     */
     EXAMPLE_DLG_OK_CANCEL = 9,
-    /**
-     * 
-     */
     ROLE_CREATE_NAME_INVALID_CHAR = 100,
-    /**
-     * 
-     */
     ROLE_CREATE_NAME_EMPTY = 101,
-    /**
-     * 
-     */
     ROLE_CREATE_NAME_EXCEED_MAX_LENGTH = 102,
-    /**
-     * 
-     */
     ROLE_CREATE_ROLE_LIST_FULL = 103,
-    /**
-     * 
-     */
     ROLE_CREATE_INVALID_PROFESSION = 104,
-    /**
-     * 
-     */
     ROLE_CREATE_INVALID_GENDER = 105,
-    /**
-     * 
-     */
     ROLE_NOT_OWNED_BY_USER = 106,
-    /**
-     * 
-     */
     ROLE_LEVEL_NOT_ARRIVE = 107,
-    /**
-     * 
-     */
     PARAM_ILLEGAL = 200,
-    /**
-     * 
-     */
     TEMP_BAG_NOT_EMPTY = 201,
-    /**
-     * 
-     */
     ITEM_CAN_NOT_USE = 202,
-    /**
-     * 
-     */
     CURRENCY_NOT_ENOUGH = 203,
-    /**
-     * 
-     */
     BAG_IS_FULL = 204,
-    /**
-     * 
-     */
     ITEM_NOT_ENOUGH = 205,
-    /**
-     * 
-     */
     ITEM_IN_BAG = 206,
-    /**
-     * 
-     */
     GENDER_NOT_MATCH = 300,
-    /**
-     * 
-     */
     LEVEL_TOO_LOW = 301,
-    /**
-     * 
-     */
     LEVEL_TOO_HIGH = 302,
-    /**
-     * 
-     */
     EXCEED_LIMIT = 303,
-    /**
-     * 
-     */
     OVER_TIME = 304,
-    /**
-     * 
-     */
     SERVER_ERROR = 305,
-    /**
-     * 
-     */
     SKILL_NOT_IN_LIST = 400,
-    /**
-     * 
-     */
     SKILL_NOT_COOLDOWN = 401,
-    /**
-     * 
-     */
     SKILL_TARGET_NOT_EXIST = 402,
-    /**
-     * 
-     */
     SKILL_ANOTHER_CASTING = 403,
-    /**
-     * 
-     */
     SKILL_OUT_OF_DISTANCE = 404,
-    /**
-     * 
-     */
     SKILL_TARGET_CAMP_NOT_MATCH = 405,
-    /**
-     * 
-     */
     SKILL_INVALID_DIRECTION = 406,
-    /**
-     * 
-     */
     SKILL_NOT_IN_SELECT_SHAPE = 407,
-    /**
-     * 
-     */
     SKILL_ENERGY_NOT_ENOUGH = 408,
-    /**
-     * 
-     */
     DIALOG_NODE_NOT_CHOOSEN = 500,
-    /**
-     * 
-     */
     DIALOG_NOT_FINISH = 501,
-    /**
-     * 
-     */
     DIALOG_HAS_FINISH = 502,
-    /**
-     * 
-     */
     QUEST_STAGE_NOT_FINISHED = 503,
-    /**
-     * 
-     */
     QUEST_NOT_DOING = 504,
-    /**
-     * 
-     */
     QUEST_STAGE_NOT_DOING = 505,
-    /**
-     * 
-     */
     QUEST_HAS_ACCEPTED = 506,
-    /**
-     * 
-     */
     MAP_OBJECT_NOT_EXIST = 600,
-    /**
-     * 
-     */
     INTERACTION_OBJECT_NOT_SUPPORT_OPERATION = 601,
-    /**
-     * 
-     */
     HAS_NOT_EQUIP = 602,
-    /**
-     * 
-     */
     HANDHELD_EQUIP_ID_NOT_MATCH = 603,
-    /**
-     * 
-     */
     NOT_AVAILABLE_SUIT_ID = 604,
-    /**
-     * 
-     */
     NO_INTERACTION_COMPONENT = 605,
-    /**
-     * 
-     */
     HAS_INTERACTED = 606,
-    /**
-     * 
-     */
     VIALITY_NOT_ENOUGH = 607,
-    /**
-     * 
-     */
     PLAYER_SESSION_NOT_EXIST = 608,
-    /**
-     * 
-     */
     PLAYER_SESSION_WORLD_PLAYER_NOT_INIT = 609,
-    /**
-     * 
-     */
     MAP_NOT_EXIST = 610,
-    /**
-     * 
-     */
     MAIL_TYPE_ERROR = 700,
-    /**
-     * 
-     */
     MAIL_NOT_EXITST = 701,
-    /**
-     * 
-     */
     MAIL_HAVE_DELETED = 702,
-    /**
-     * 
-     */
     MAIL_AWARD_HAVE_RECEIVED = 703,
-    /**
-     * 
-     */
     MAIL_OPERATE_TYPE_ERROR = 704,
-    /**
-     * 
-     */
     MAIL_CONDITION_NOT_MEET = 705,
-    /**
-     * 
-     */
     MAIL_STATE_ERROR = 706,
-    /**
-     * 
-     */
     MAIL_NO_AWARD = 707,
-    /**
-     * 
-     */
     MAIL_BOX_IS_FULL = 708,
-    /**
-     * 
-     */
     PROP_SCORE_NOT_BIGGER_THAN = 800,
-    /**
-     * 
-     */
     NOT_WEAR_CLOTHES = 801,
-    /**
-     * 
-     */
     NOT_WEAR_SUIT = 802,
-    /**
-     * 
-     */
     SUIT_NOT_UNLOCK = 900,
-    /**
-     * 
-     */
     SUIT_COMPONENT_NOT_UNLOCK = 901,
-    /**
-     * 
-     */
     SUIT_STATE_ERROR = 902,
-    /**
-     * 
-     */
     SUIT_COMPONENT_STATE_ERROR = 903,
-    /**
-     * 
-     */
     SUIT_COMPONENT_NO_NEED_LEARN = 904,
-    /**
-     * 
-     */
     STORE_NOT_ENABLED = 1000,
-    /**
-     * 
-     */
     SHELF_NOT_ENABLED = 1001,
-    /**
-     * 
-     */
     GOODS_NOT_ENABLED = 1002,
-    /**
-     * 
-     */
     GOODS_NOT_IN_CUR_REFRESH = 1003,
-    /**
-     * 
-     */
     RETRY = 1100,
-    /**
-     * 
-     */
     NOT_COOLDOWN = 1101,
-    /**
-     * 
-     */
     SELFIE_UNLOCK = 1200,
-    /**
-     * 
-     */
     SELFIE_ALREADY_UNLOCK = 1201,
-    /**
-     * 
-     */
     SELFIE_LACK_STARTS = 1202,
-    /**
-     * 
-     */
     SELFIE_HAD_REWARD = 1203,
 }
 }
@@ -619,19 +223,19 @@ export enum EItemQuality {
      */
     WHITE = 0,
     /**
-     * 
+     * 绿
      */
     GREEN = 1,
     /**
-     * 
+     * 蓝
      */
     BLUE = 2,
     /**
-     * 
+     * 紫
      */
     PURPLE = 3,
     /**
-     * 
+     * 金
      */
     GOLDEN = 4,
 }
@@ -639,28 +243,25 @@ export enum EItemQuality {
 
 
 export namespace item {
-/**
- * 
- */
 export enum ECurrencyType {
     /**
-     * 
+     * 钻石
      */
     DIAMOND = 1,
     /**
-     * 
+     * 金币
      */
     GOLD = 2,
     /**
-     * 
+     * 银币
      */
     SILVER = 3,
     /**
-     * 
+     * 经验
      */
     EXP = 4,
     /**
-     * 
+     * 能量点
      */
     POWER_POINT = 5,
 }
@@ -668,52 +269,49 @@ export enum ECurrencyType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EMajorType {
     /**
-     * 
+     * 货币
      */
     CURRENCY = 1,
     /**
-     * 
+     * 服装
      */
     CLOTH = 2,
     /**
-     * 
+     * 任务
      */
     QUEST = 3,
     /**
-     * 
+     * 消耗品
      */
     CONSUMABLES = 4,
     /**
-     * 
+     * 宝箱
      */
     TREASURE_BOX = 5,
     /**
-     * 
+     * 成就和称谓
      */
     ACHIEVEMENT_AND_TITLE = 6,
     /**
-     * 
+     * 头像框
      */
     HEAD_FRAME = 7,
     /**
-     * 
+     * 语音
      */
     VOICE = 8,
     /**
-     * 
+     * 动作
      */
     ACTION = 9,
     /**
-     * 
+     * 扩容道具
      */
     EXPANSION = 10,
     /**
-     * 
+     * 制作材料
      */
     MATERIAL = 11,
 }
@@ -721,204 +319,201 @@ export enum EMajorType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EMinorType {
     /**
-     * 
+     * 钻石
      */
     DIAMOND = 101,
     /**
-     * 
+     * 金币
      */
     GOLD = 102,
     /**
-     * 
+     * 银币
      */
     SILVER = 103,
     /**
-     * 
+     * 经验
      */
     EXP = 104,
     /**
-     * 
+     * 能量点
      */
     POWER_POINT = 105,
     /**
-     * 
+     * 发型
      */
     HAIR_STYLE = 210,
     /**
-     * 
+     * 外套
      */
     COAT = 220,
     /**
-     * 
+     * 上衣
      */
     UPPER_JACKET = 230,
     /**
-     * 
+     * 裤子
      */
     TROUSERS = 241,
     /**
-     * 
+     * 裙子
      */
     SKIRT = 242,
     /**
-     * 
+     * 袜子
      */
     SOCKS = 250,
     /**
-     * 
+     * 鞋子
      */
     SHOES = 260,
     /**
-     * 
+     * 发饰
      */
     HAIR_ACCESSORY = 271,
     /**
-     * 
+     * 帽子
      */
     HAT = 272,
     /**
-     * 
+     * 耳饰
      */
     EARRING = 273,
     /**
-     * 
+     * 颈饰
      */
     NECKLACE = 274,
     /**
-     * 
+     * 腕饰
      */
     BRACELET = 275,
     /**
-     * 
+     * 发箍
      */
     HAIR_CLASP = 276,
     /**
-     * 
+     * 手套
      */
     GLOVE = 277,
     /**
-     * 
+     * 手持物
      */
     HANDHELD_OBJECT = 278,
     /**
-     * 
+     * 特殊
      */
     SPECIAL = 279,
     /**
-     * 
+     * 底妆
      */
     BASE_COSMETIC = 281,
     /**
-     * 
+     * 眉妆
      */
     EYEBROW_COSMETIC = 282,
     /**
-     * 
+     * 睫毛
      */
     EYELASH = 283,
     /**
-     * 
+     * 美瞳
      */
     COSMETIC_CONTACT_LENSES = 284,
     /**
-     * 
+     * 唇妆
      */
     LIP_COSMETIC = 285,
     /**
-     * 
+     * 肤色
      */
     SKIN_COLOR = 286,
     /**
-     * 
+     * 连衣裙
      */
     ONE_PIECE_DRESS = 290,
     /**
-     * 
+     * 换装场景
      */
     SWITCH_CLOTHES_SCENE = 291,
     /**
-     * 
+     * 任务道具
      */
     QUEST = 301,
     /**
-     * 
+     * 投掷物
      */
     CAST = 401,
     /**
-     * 
+     * 刀剑
      */
     SWORD = 421,
     /**
-     * 
+     * 弓箭
      */
     BOW_ARROW = 422,
     /**
-     * 
+     * 法杖
      */
     WANDS = 423,
     /**
-     * 
+     * 特殊工具
      */
     SPECIAL_TOOL = 424,
     /**
-     * 
+     * 食物
      */
     FOOD = 403,
     /**
-     * 
+     * 宝箱
      */
     TREASURE_BOX = 501,
     /**
-     * 
+     * 钥匙
      */
     KEY = 502,
     /**
-     * 
+     * 多选一宝箱
      */
     MULTI_CHOOSE_TREASURE_BOX = 503,
     /**
-     * 
+     * 成就相关
      */
     ACHIEVEMENT = 601,
     /**
-     * 
+     * 称谓相关
      */
     TITLE = 602,
     /**
-     * 
+     * 头像框
      */
     AVATAR_FRAME = 701,
     /**
-     * 
+     * 语音
      */
     VOICE = 801,
     /**
-     * 
+     * 特殊待机动作
      */
     IDLE_POSE = 901,
     /**
-     * 
+     * 拍照动作
      */
     PHOTO_POSE = 902,
     /**
-     * 
+     * 背包
      */
     BAG = 1001,
     /**
-     * 
+     * 好友数量
      */
     FRIEND_CAPACITY = 1002,
     /**
-     * 
+     * 制作材料
      */
     CONSTRUCTION_MATERIAL = 1101,
     /**
-     * 
+     * 设计图纸
      */
     DESIGN_DRAWING = 1102,
 }
@@ -926,48 +521,45 @@ export enum EMinorType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EClothersStarQualityType {
     /**
-     * 
+     * 一星
      */
     ONE = 1,
     /**
-     * 
+     * 二星
      */
     TWO = 2,
     /**
-     * 
+     * 三星
      */
     THREE = 3,
     /**
-     * 
+     * 四星
      */
     FOUR = 4,
     /**
-     * 
+     * 五星
      */
     FIVE = 5,
     /**
-     * 
+     * 六星
      */
     SIX = 6,
     /**
-     * 
+     * 七星
      */
     SEVEN = 7,
     /**
-     * 
+     * 八星
      */
     EIGHT = 8,
     /**
-     * 
+     * 九星
      */
     NINE = 9,
     /**
-     * 
+     * 十星
      */
     TEN = 10,
 }
@@ -975,16 +567,13 @@ export enum EClothersStarQualityType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EClothersTag {
     /**
-     * 
+     * 防晒
      */
     FANG_SHAI = 1,
     /**
-     * 
+     * 舞者
      */
     WU_ZHE = 2,
 }
@@ -992,16 +581,13 @@ export enum EClothersTag {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EUseType {
     /**
-     * 
+     * 手动
      */
     MANUAL = 0,
     /**
-     * 
+     * 自动
      */
     AUTO = 1,
 }
@@ -1009,40 +595,37 @@ export enum EUseType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EClothesHidePartType {
     /**
-     * 
+     * 胸部
      */
     CHEST = 0,
     /**
-     * 
+     * 手
      */
     HEAD = 1,
     /**
-     * 
+     * 脊柱上
      */
     SPINE_UPPER = 2,
     /**
-     * 
+     * 脊柱下
      */
     SPINE_LOWER = 3,
     /**
-     * 
+     * 臀部
      */
     HIP = 4,
     /**
-     * 
+     * 腿上
      */
     LEG_UPPER = 5,
     /**
-     * 
+     * 腿中
      */
     LEG_MIDDLE = 6,
     /**
-     * 
+     * 腿下
      */
     LEG_LOWER = 7,
 }
@@ -1050,48 +633,45 @@ export enum EClothesHidePartType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EClothesPropertyType {
     /**
-     * 
+     * 简约
      */
     JIAN_YUE = 1,
     /**
-     * 
+     * 华丽
      */
     HUA_LI = 2,
     /**
-     * 
+     * 可爱
      */
     KE_AI = 3,
     /**
-     * 
+     * 成熟
      */
     CHENG_SHU = 4,
     /**
-     * 
+     * 活泼
      */
     HUO_PO = 5,
     /**
-     * 
+     * 优雅
      */
     YOU_YA = 6,
     /**
-     * 
+     * 清纯
      */
     QING_CHUN = 7,
     /**
-     * 
+     * 性感
      */
     XING_GAN = 8,
     /**
-     * 
+     * 清凉
      */
     QING_LIANG = 9,
     /**
-     * 
+     * 保暖
      */
     BAO_NUAN = 10,
 }
@@ -1099,16 +679,13 @@ export enum EClothesPropertyType {
 
 
 export namespace item {
-/**
- * 
- */
 export enum EItemFunctionType {
     /**
-     * 
+     * 更换手持物
      */
     REPLACE_HANDHELD = 0,
     /**
-     * 
+     * 使用设计图纸
      */
     USE_DESIGN_DRAWING = 1,
 }
@@ -1116,37 +693,22 @@ export enum EItemFunctionType {
 
 
 export namespace limit {
-/**
- * 
- */
 export enum ENamespace {
-    /**
-     * 
-     */
     ITEM_DAILY_OBTAIN = 1,
-    /**
-     * 
-     */
     TREASURE_DAILY_USE = 2,
-    /**
-     * 
-     */
     STORE_GOODS_LIMIT_BUY = 3,
 }
 }
 
 
 export namespace mail {
-/**
- * 
- */
 export enum EMailType {
     /**
-     * 
+     * 全局邮件
      */
     GLOBAL = 0,
     /**
-     * 
+     * 系统邮件
      */
     SYSTEM = 1,
 }
@@ -1154,16 +716,13 @@ export enum EMailType {
 
 
 export namespace role {
-/**
- * 
- */
 export enum EGenderType {
     /**
-     * 
+     * 男
      */
     MALE = 1,
     /**
-     * 
+     * 女
      */
     FEMALE = 2,
 }
@@ -1171,37 +730,28 @@ export enum EGenderType {
 
 
 export namespace role {
-/**
- * 
- */
 export enum EProfession {
-    /**
-     * 
-     */
     TEST_PROFESSION = 1,
 }
 }
 
 
 export namespace test {
-/**
- * 
- */
 export enum DemoEnum {
     /**
-     * 
+     * aa
      */
     A = 1,
     /**
-     * 
+     * bb
      */
     B = 2,
     /**
-     * 
+     * cc
      */
     C = 4,
     /**
-     * 
+     * dd
      */
     D = 5,
 }
@@ -1209,57 +759,69 @@ export enum DemoEnum {
 
 
 export namespace test {
-/**
- * 
- */
 export enum ETestUeType {
     /**
-     * 
+     * 白
      */
     WHITE = 0,
-    /**
-     * 
-     */
     BLACK = 1,
 }
 }
 
 
 export namespace test {
-/**
- * 
- */
 export enum ETestEmptyEnum {
 }
 }
 
 
 export namespace test {
-/**
- * 
- */
 export enum ETestEmptyEnum2 {
-    /**
-     * 
-     */
     SMALL_THAN_256 = 255,
-    /**
-     * 
-     */
     X_256 = 256,
-    /**
-     * 
-     */
     X_257 = 257,
+}
+}
+
+
+export namespace test {
+export enum ETestQuality {
+    /**
+     * 最高品质
+     */
+    A = 1,
+    /**
+     * 黑色的
+     */
+    B = 2,
+    /**
+     * 蓝色的
+     */
+    C = 3,
+    /**
+     * 最差品质
+     */
+    D = 4,
+}
+}
+
+
+export namespace test {
+export enum ETestCurrency {
+    /**
+     * 重要
+     */
+    DIAMOND = 1,
+    /**
+     * 有用
+     */
+    GOLD = 2,
 }
 }
 
 
    
 export namespace ai {
-/**
- * 
- */
 export class TbBlackboard {
     private _dataMap: Map<string, ai.Blackboard>
     private _dataList: ai.Blackboard[]
@@ -1279,7 +841,7 @@ export class TbBlackboard {
     getDataMap(): Map<string, ai.Blackboard> { return this._dataMap }
     getDataList(): ai.Blackboard[] { return this._dataList }
 
-    get(key: string): ai.Blackboard  { return this._dataMap.get(key) }
+    get(key: string): ai.Blackboard | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -1296,38 +858,23 @@ export class TbBlackboard {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class Blackboard  {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        this.parentName = _buf_.ReadString();
-        { this.keys = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.BlackboardKey;_e = new ai.BlackboardKey(_buf_); this.keys.push(_e) } }
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.parentName = _buf_.ReadString()
+        { this.keys = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.BlackboardKey; _e = new ai.BlackboardKey(_buf_); this.keys.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly parentName: string
-    parentName_Ref : ai.Blackboard
-    /**
-     * 
-     */
+    parentName_Ref : ai.Blackboard = undefined!
     readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
-        this.parentName_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.parentName)
+        this.parentName_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.parentName)!
         for(let _e of this.keys) { if (_e != null ) {_e.resolve(_tables);} }
     }
 }
@@ -1339,38 +886,20 @@ export  class Blackboard  {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class BlackboardKey  {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        this.isStatic = _buf_.ReadBool();
-        this.type = _buf_.ReadInt();
-        this.typeClassName = _buf_.ReadString();
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.isStatic = _buf_.ReadBool()
+        this.type = _buf_.ReadInt()
+        this.typeClassName = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly isStatic: boolean
-    /**
-     * 
-     */
     readonly type: ai.EKeyType
-    /**
-     * 
-     */
     readonly typeClassName: string
 
     resolve(_tables: Map<string, any>) {
@@ -1382,9 +911,6 @@ export  class BlackboardKey  {
 
    
 export namespace ai {
-/**
- * 
- */
 export class TbBehaviorTree {
     private _dataMap: Map<number, ai.BehaviorTree>
     private _dataList: ai.BehaviorTree[]
@@ -1404,7 +930,7 @@ export class TbBehaviorTree {
     getDataMap(): Map<number, ai.BehaviorTree> { return this._dataMap }
     getDataList(): ai.BehaviorTree[] { return this._dataList }
 
-    get(key: number): ai.BehaviorTree  { return this._dataMap.get(key) }
+    get(key: number): ai.BehaviorTree | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -1421,43 +947,25 @@ export class TbBehaviorTree {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class BehaviorTree  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        this.blackboardId = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.blackboardId = _buf_.ReadString()
         this.root = ai.ComposeNode.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly blackboardId: string
-    blackboardId_Ref : ai.Blackboard
-    /**
-     * 
-     */
+    blackboardId_Ref : ai.Blackboard = undefined!
     readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
-        this.blackboardId_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.blackboardId)
+        this.blackboardId_Ref = (_tables.get('ai.TbBlackboard') as ai.TbBlackboard).get(this.blackboardId)!
         if (this.root != null) { this.root.resolve(_tables);}
     }
 }
@@ -1469,9 +977,6 @@ export  class BehaviorTree  {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class Node  {
     static constructorFrom(_buf_: ByteBuf): Node {
         switch (_buf_.ReadInt()) {
@@ -1503,17 +1008,11 @@ export  abstract  class Node  {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.nodeName = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.nodeName = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly nodeName: string
 
     resolve(_tables: Map<string, any>) {
@@ -1527,9 +1026,6 @@ export  abstract  class Node  {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class Service  extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): Service {
         switch (_buf_.ReadInt()) {
@@ -1560,19 +1056,13 @@ export  abstract  class Service  extends ai.Node {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeSetDefaultFocus  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.keyboardKey = _buf_.ReadString();
+        this.keyboardKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly keyboardKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1587,9 +1077,6 @@ export  class UeSetDefaultFocus  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class ExecuteTimeStatistic  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
@@ -1609,19 +1096,13 @@ export  class ExecuteTimeStatistic  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class ChooseTarget  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.resultTargetKey = _buf_.ReadString();
+        this.resultTargetKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly resultTargetKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1636,19 +1117,13 @@ export  class ChooseTarget  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class KeepFaceTarget  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString();
+        this.targetActorKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly targetActorKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1663,19 +1138,13 @@ export  class KeepFaceTarget  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class GetOwnerPlayer  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.playerActorKey = _buf_.ReadString();
+        this.playerActorKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly playerActorKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1690,59 +1159,29 @@ export  class GetOwnerPlayer  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UpdateDailyBehaviorProps  extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.satietyKey = _buf_.ReadString();
-        this.energyKey = _buf_.ReadString();
-        this.moodKey = _buf_.ReadString();
-        this.satietyLowerThresholdKey = _buf_.ReadString();
-        this.satietyUpperThresholdKey = _buf_.ReadString();
-        this.energyLowerThresholdKey = _buf_.ReadString();
-        this.energyUpperThresholdKey = _buf_.ReadString();
-        this.moodLowerThresholdKey = _buf_.ReadString();
-        this.moodUpperThresholdKey = _buf_.ReadString();
+        this.satietyKey = _buf_.ReadString()
+        this.energyKey = _buf_.ReadString()
+        this.moodKey = _buf_.ReadString()
+        this.satietyLowerThresholdKey = _buf_.ReadString()
+        this.satietyUpperThresholdKey = _buf_.ReadString()
+        this.energyLowerThresholdKey = _buf_.ReadString()
+        this.energyUpperThresholdKey = _buf_.ReadString()
+        this.moodLowerThresholdKey = _buf_.ReadString()
+        this.moodUpperThresholdKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly satietyKey: string
-    /**
-     * 
-     */
     readonly energyKey: string
-    /**
-     * 
-     */
     readonly moodKey: string
-    /**
-     * 
-     */
     readonly satietyLowerThresholdKey: string
-    /**
-     * 
-     */
     readonly satietyUpperThresholdKey: string
-    /**
-     * 
-     */
     readonly energyLowerThresholdKey: string
-    /**
-     * 
-     */
     readonly energyUpperThresholdKey: string
-    /**
-     * 
-     */
     readonly moodLowerThresholdKey: string
-    /**
-     * 
-     */
     readonly moodUpperThresholdKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -1757,9 +1196,6 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class Decorator  extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): Decorator {
         switch (_buf_.ReadInt()) {
@@ -1776,12 +1212,9 @@ export  abstract  class Decorator  extends ai.Node {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.flowAbortMode = _buf_.ReadInt();
+        this.flowAbortMode = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly flowAbortMode: ai.EFlowAbortMode
 
     resolve(_tables: Map<string, any>) {
@@ -1796,29 +1229,17 @@ export  abstract  class Decorator  extends ai.Node {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeLoop  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.numLoops = _buf_.ReadInt();
-        this.infiniteLoop = _buf_.ReadBool();
-        this.infiniteLoopTimeoutTime = _buf_.ReadFloat();
+        this.numLoops = _buf_.ReadInt()
+        this.infiniteLoop = _buf_.ReadBool()
+        this.infiniteLoopTimeoutTime = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly numLoops: number
-    /**
-     * 
-     */
     readonly infiniteLoop: boolean
-    /**
-     * 
-     */
     readonly infiniteLoopTimeoutTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1833,19 +1254,13 @@ export  class UeLoop  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeCooldown  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.cooldownTime = _buf_.ReadFloat();
+        this.cooldownTime = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly cooldownTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1860,19 +1275,13 @@ export  class UeCooldown  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeTimeLimit  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.limitTime = _buf_.ReadFloat();
+        this.limitTime = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly limitTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -1887,29 +1296,17 @@ export  class UeTimeLimit  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeBlackboard  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.notifyObserver = _buf_.ReadInt();
-        this.blackboardKey = _buf_.ReadString();
+        this.notifyObserver = _buf_.ReadInt()
+        this.blackboardKey = _buf_.ReadString()
         this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly notifyObserver: ai.ENotifyObserverMode
-    /**
-     * 
-     */
     readonly blackboardKey: string
-    /**
-     * 
-     */
     readonly keyQuery: ai.KeyQueryOperator
 
     resolve(_tables: Map<string, any>) {
@@ -1925,9 +1322,6 @@ export  class UeBlackboard  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class KeyQueryOperator  {
     static constructorFrom(_buf_: ByteBuf): KeyQueryOperator {
         switch (_buf_.ReadInt()) {
@@ -1953,9 +1347,6 @@ export  abstract  class KeyQueryOperator  {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class IsSet  extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
@@ -1975,9 +1366,6 @@ export  class IsSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class IsNotSet  extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
@@ -1997,24 +1385,15 @@ export  class IsNotSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class BinaryOperator  extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.oper = _buf_.ReadInt();
+        this.oper = _buf_.ReadInt()
         this.data = ai.KeyData.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly oper: ai.EOperator
-    /**
-     * 
-     */
     readonly data: ai.KeyData
 
     resolve(_tables: Map<string, any>) {
@@ -2030,9 +1409,6 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class KeyData  {
     static constructorFrom(_buf_: ByteBuf): KeyData {
         switch (_buf_.ReadInt()) {
@@ -2059,19 +1435,13 @@ export  abstract  class KeyData  {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class FloatKeyData  extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadFloat();
+        this.value = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -2086,19 +1456,13 @@ export  class FloatKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class IntKeyData  extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadInt();
+        this.value = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -2113,19 +1477,13 @@ export  class IntKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class StringKeyData  extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadString();
+        this.value = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -2140,19 +1498,13 @@ export  class StringKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class BlackboardKeyData  extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadString();
+        this.value = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -2167,9 +1519,6 @@ export  class BlackboardKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeForceSuccess  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
@@ -2189,29 +1538,17 @@ export  class UeForceSuccess  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class IsAtLocation  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat();
-        this.keyboardKey = _buf_.ReadString();
-        this.inverseCondition = _buf_.ReadBool();
+        this.acceptableRadius = _buf_.ReadFloat()
+        this.keyboardKey = _buf_.ReadString()
+        this.inverseCondition = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly acceptableRadius: number
-    /**
-     * 
-     */
     readonly keyboardKey: string
-    /**
-     * 
-     */
     readonly inverseCondition: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -2226,34 +1563,19 @@ export  class IsAtLocation  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class DistanceLessThan  extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.actor1Key = _buf_.ReadString();
-        this.actor2Key = _buf_.ReadString();
-        this.distance = _buf_.ReadFloat();
-        this.reverseResult = _buf_.ReadBool();
+        this.actor1Key = _buf_.ReadString()
+        this.actor2Key = _buf_.ReadString()
+        this.distance = _buf_.ReadFloat()
+        this.reverseResult = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly actor1Key: string
-    /**
-     * 
-     */
     readonly actor2Key: string
-    /**
-     * 
-     */
     readonly distance: number
-    /**
-     * 
-     */
     readonly reverseResult: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -2268,9 +1590,6 @@ export  class DistanceLessThan  extends ai.Decorator {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class FlowNode  extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): FlowNode {
         switch (_buf_.ReadInt()) {
@@ -2290,17 +1609,11 @@ export  abstract  class FlowNode  extends ai.Node {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.decorators = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Decorator;_e = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e) } }
-        { this.services = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Service;_e = ai.Service.constructorFrom(_buf_); this.services.push(_e) } }
+        { this.decorators = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Decorator; _e = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e) } }
+        { this.services = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Service; _e = ai.Service.constructorFrom(_buf_); this.services.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly decorators: ai.Decorator[]
-    /**
-     * 
-     */
     readonly services: ai.Service[]
 
     resolve(_tables: Map<string, any>) {
@@ -2317,9 +1630,6 @@ export  abstract  class FlowNode  extends ai.Node {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static constructorFrom(_buf_: ByteBuf): ComposeNode {
         switch (_buf_.ReadInt()) {
@@ -2347,19 +1657,13 @@ export  abstract  class ComposeNode  extends ai.FlowNode {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class Sequence  extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
+        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode; _e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
@@ -2375,19 +1679,13 @@ export  class Sequence  extends ai.ComposeNode {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class Selector  extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode;_e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
+        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode; _e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly children: ai.FlowNode[]
 
     resolve(_tables: Map<string, any>) {
@@ -2403,29 +1701,17 @@ export  class Selector  extends ai.ComposeNode {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class SimpleParallel  extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.finishMode = _buf_.ReadInt();
+        this.finishMode = _buf_.ReadInt()
         this.mainTask = ai.Task.constructorFrom(_buf_)
         this.backgroundNode = ai.FlowNode.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly finishMode: ai.EFinishMode
-    /**
-     * 
-     */
     readonly mainTask: ai.Task
-    /**
-     * 
-     */
     readonly backgroundNode: ai.FlowNode
 
     resolve(_tables: Map<string, any>) {
@@ -2442,9 +1728,6 @@ export  class SimpleParallel  extends ai.ComposeNode {
 
 
 export namespace ai {
-/**
- * 
- */
 export  abstract  class Task  extends ai.FlowNode {
     static constructorFrom(_buf_: ByteBuf): Task {
         switch (_buf_.ReadInt()) {
@@ -2461,12 +1744,9 @@ export  abstract  class Task  extends ai.FlowNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.ignoreRestartSelf = _buf_.ReadBool();
+        this.ignoreRestartSelf = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly ignoreRestartSelf: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -2481,24 +1761,15 @@ export  abstract  class Task  extends ai.FlowNode {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeWait  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.waitTime = _buf_.ReadFloat();
-        this.randomDeviation = _buf_.ReadFloat();
+        this.waitTime = _buf_.ReadFloat()
+        this.randomDeviation = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly waitTime: number
-    /**
-     * 
-     */
     readonly randomDeviation: number
 
     resolve(_tables: Map<string, any>) {
@@ -2513,19 +1784,13 @@ export  class UeWait  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class UeWaitBlackboardTime  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.blackboardKey = _buf_.ReadString();
+        this.blackboardKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly blackboardKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -2540,24 +1805,15 @@ export  class UeWaitBlackboardTime  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class MoveToTarget  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString();
-        this.acceptableRadius = _buf_.ReadFloat();
+        this.targetActorKey = _buf_.ReadString()
+        this.acceptableRadius = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly targetActorKey: string
-    /**
-     * 
-     */
     readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
@@ -2572,24 +1828,15 @@ export  class MoveToTarget  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class ChooseSkill  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString();
-        this.resultSkillIdKey = _buf_.ReadString();
+        this.targetActorKey = _buf_.ReadString()
+        this.resultSkillIdKey = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly targetActorKey: string
-    /**
-     * 
-     */
     readonly resultSkillIdKey: string
 
     resolve(_tables: Map<string, any>) {
@@ -2604,24 +1851,15 @@ export  class ChooseSkill  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class MoveToRandomLocation  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.originPositionKey = _buf_.ReadString();
-        this.radius = _buf_.ReadFloat();
+        this.originPositionKey = _buf_.ReadString()
+        this.radius = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly originPositionKey: string
-    /**
-     * 
-     */
     readonly radius: number
 
     resolve(_tables: Map<string, any>) {
@@ -2636,24 +1874,15 @@ export  class MoveToRandomLocation  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class MoveToLocation  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.location = Vector3.deserializeFrom(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat();
+        this.acceptableRadius = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly location: Vector3
-    /**
-     * 
-     */
     readonly acceptableRadius: number
 
     resolve(_tables: Map<string, any>) {
@@ -2668,19 +1897,13 @@ export  class MoveToLocation  extends ai.Task {
 
 
 export namespace ai {
-/**
- * 
- */
 export  class DebugPrint  extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.text = _buf_.ReadString();
+        this.text = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly text: string
 
     resolve(_tables: Map<string, any>) {
@@ -2693,9 +1916,6 @@ export  class DebugPrint  extends ai.Task {
 
    
 export namespace blueprint {
-/**
- * 
- */
 export class TbClazz {
     private _dataMap: Map<string, blueprint.Clazz>
     private _dataList: blueprint.Clazz[]
@@ -2715,7 +1935,7 @@ export class TbClazz {
     getDataMap(): Map<string, blueprint.Clazz> { return this._dataMap }
     getDataList(): blueprint.Clazz[] { return this._dataList }
 
-    get(key: string): blueprint.Clazz  { return this._dataMap.get(key) }
+    get(key: string): blueprint.Clazz | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -2732,9 +1952,6 @@ export class TbClazz {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  abstract  class Clazz  {
     static constructorFrom(_buf_: ByteBuf): Clazz {
         switch (_buf_.ReadInt()) {
@@ -2746,27 +1963,15 @@ export  abstract  class Clazz  {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        { this.parents = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Clazz;_e = blueprint.Clazz.constructorFrom(_buf_); this.parents.push(_e) } }
-        { this.methods = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Method;_e = blueprint.Method.constructorFrom(_buf_); this.methods.push(_e) } }
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        { this.parents = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Clazz; _e = blueprint.Clazz.constructorFrom(_buf_); this.parents.push(_e) } }
+        { this.methods = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Method; _e = blueprint.Method.constructorFrom(_buf_); this.methods.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly parents: blueprint.Clazz[]
-    /**
-     * 
-     */
     readonly methods: blueprint.Method[]
 
     resolve(_tables: Map<string, any>) {
@@ -2782,9 +1987,6 @@ export  abstract  class Clazz  {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  abstract  class Method  {
     static constructorFrom(_buf_: ByteBuf): Method {
         switch (_buf_.ReadInt()) {
@@ -2796,32 +1998,17 @@ export  abstract  class Method  {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        this.isStatic = _buf_.ReadBool();
-        this.returnType = _buf_.ReadString();
-        { this.parameters = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.ParamInfo;_e = new blueprint.ParamInfo(_buf_); this.parameters.push(_e) } }
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.isStatic = _buf_.ReadBool()
+        this.returnType = _buf_.ReadString()
+        { this.parameters = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.ParamInfo; _e = new blueprint.ParamInfo(_buf_); this.parameters.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly isStatic: boolean
-    /**
-     * 
-     */
     readonly returnType: string
-    /**
-     * 
-     */
     readonly parameters: blueprint.ParamInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -2836,28 +2023,16 @@ export  abstract  class Method  {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class ParamInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.type = _buf_.ReadString();
-        this.isRef = _buf_.ReadBool();
+        this.name = _buf_.ReadString()
+        this.type = _buf_.ReadString()
+        this.isRef = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly type: string
-    /**
-     * 
-     */
     readonly isRef: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -2871,9 +2046,6 @@ export  class ParamInfo  {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class AbstraceMethod  extends blueprint.Method {
 
     constructor(_buf_: ByteBuf) {
@@ -2893,9 +2065,6 @@ export  class AbstraceMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class ExternalMethod  extends blueprint.Method {
 
     constructor(_buf_: ByteBuf) {
@@ -2915,9 +2084,6 @@ export  class ExternalMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class BlueprintMethod  extends blueprint.Method {
 
     constructor(_buf_: ByteBuf) {
@@ -2937,9 +2103,6 @@ export  class BlueprintMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class Interface  extends blueprint.Clazz {
 
     constructor(_buf_: ByteBuf) {
@@ -2959,24 +2122,15 @@ export  class Interface  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class NormalClazz  extends blueprint.Clazz {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.isAbstract = _buf_.ReadBool();
-        { this.fields = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Field;_e = new blueprint.Field(_buf_); this.fields.push(_e) } }
+        this.isAbstract = _buf_.ReadBool()
+        { this.fields = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.Field; _e = new blueprint.Field(_buf_); this.fields.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly isAbstract: boolean
-    /**
-     * 
-     */
     readonly fields: blueprint.Field[]
 
     resolve(_tables: Map<string, any>) {
@@ -2992,28 +2146,16 @@ export  class NormalClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class Field  {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.type = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
+        this.name = _buf_.ReadString()
+        this.type = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly type: string
-    /**
-     * 
-     */
     readonly desc: string
 
     resolve(_tables: Map<string, any>) {
@@ -3027,19 +2169,13 @@ export  class Field  {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class EnumClazz  extends blueprint.Clazz {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.enums = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.EnumField;_e = new blueprint.EnumField(_buf_); this.enums.push(_e) } }
+        { this.enums = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :blueprint.EnumField; _e = new blueprint.EnumField(_buf_); this.enums.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly enums: blueprint.EnumField[]
 
     resolve(_tables: Map<string, any>) {
@@ -3055,23 +2191,14 @@ export  class EnumClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-/**
- * 
- */
 export  class EnumField  {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString();
-        this.value = _buf_.ReadInt();
+        this.name = _buf_.ReadString()
+        this.value = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -3083,9 +2210,6 @@ export  class EnumField  {
 
    
 export namespace bonus {
-/**
- * 
- */
 export class TbDrop {
     private _dataMap: Map<number, bonus.DropInfo>
     private _dataList: bonus.DropInfo[]
@@ -3105,7 +2229,7 @@ export class TbDrop {
     getDataMap(): Map<number, bonus.DropInfo> { return this._dataMap }
     getDataList(): bonus.DropInfo[] { return this._dataList }
 
-    get(key: number): bonus.DropInfo  { return this._dataMap.get(key) }
+    get(key: number): bonus.DropInfo | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -3122,33 +2246,18 @@ export class TbDrop {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class DropInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.desc = _buf_.ReadString();
-        { this.clientShowItems = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :bonus.ShowItemInfo;_e = new bonus.ShowItemInfo(_buf_); this.clientShowItems.push(_e) } }
+        this.id = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+        { this.clientShowItems = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :bonus.ShowItemInfo; _e = new bonus.ShowItemInfo(_buf_); this.clientShowItems.push(_e) } }
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly clientShowItems: bonus.ShowItemInfo[]
-    /**
-     * 
-     */
     readonly bonus: bonus.Bonus
 
     resolve(_tables: Map<string, any>) {
@@ -3164,28 +2273,19 @@ export  class DropInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class ShowItemInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.itemId = _buf_.ReadInt();
-        this.itemNum = _buf_.ReadLongAsNumber();
+        this.itemId = _buf_.ReadInt()
+        this.itemNum = _buf_.ReadLongAsNumber()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -3196,9 +2296,6 @@ export  class ShowItemInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  abstract  class Bonus  {
     static constructorFrom(_buf_: ByteBuf): Bonus {
         switch (_buf_.ReadInt()) {
@@ -3232,25 +2329,19 @@ export  abstract  class Bonus  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class OneItem  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.itemId = _buf_.ReadInt();
+        this.itemId = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
+    itemId_Ref : item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -3261,19 +2352,13 @@ export  class OneItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class OneItems  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.items[i] = _e } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.items[i] = _e } }
     }
 
-    /**
-     * 
-     */
     readonly items: Int32Array
 
     resolve(_tables: Map<string, any>) {
@@ -3288,30 +2373,21 @@ export  class OneItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class Item  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.itemId = _buf_.ReadInt();
-        this.amount = _buf_.ReadInt();
+        this.itemId = _buf_.ReadInt()
+        this.amount = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -3322,9 +2398,6 @@ export  class Item  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class Items  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3332,9 +2405,6 @@ export  class Items  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Item;_e = new bonus.Item(_buf_); this.itemList.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly itemList: bonus.Item[]
 
     resolve(_tables: Map<string, any>) {
@@ -3350,24 +2420,15 @@ export  class Items  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class CoefficientItem  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.bonusId = _buf_.ReadInt();
+        this.bonusId = _buf_.ReadInt()
         this.bonusList = new bonus.Items(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly bonusId: number
-    /**
-     * 
-     */
     readonly bonusList: bonus.Items
 
     resolve(_tables: Map<string, any>) {
@@ -3383,9 +2444,6 @@ export  class CoefficientItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class WeightItems  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3393,9 +2451,6 @@ export  class WeightItems  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightItemInfo;_e = new bonus.WeightItemInfo(_buf_); this.itemList.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly itemList: bonus.WeightItemInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -3411,33 +2466,21 @@ export  class WeightItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class WeightItemInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.itemId = _buf_.ReadInt();
-        this.num = _buf_.ReadInt();
-        this.weight = _buf_.ReadInt();
+        this.itemId = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
+        this.weight = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly num: number
-    /**
-     * 
-     */
     readonly weight: number
 
     resolve(_tables: Map<string, any>) {
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -3448,9 +2491,6 @@ export  class WeightItemInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class ProbabilityItems  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3458,9 +2498,6 @@ export  class ProbabilityItems  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityItemInfo;_e = new bonus.ProbabilityItemInfo(_buf_); this.itemList.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly itemList: bonus.ProbabilityItemInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -3476,33 +2513,21 @@ export  class ProbabilityItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class ProbabilityItemInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.itemId = _buf_.ReadInt();
-        this.num = _buf_.ReadInt();
-        this.probability = _buf_.ReadFloat();
+        this.itemId = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
+        this.probability = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly num: number
-    /**
-     * 
-     */
     readonly probability: number
 
     resolve(_tables: Map<string, any>) {
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -3513,9 +2538,6 @@ export  class ProbabilityItemInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class MultiBonus  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3523,9 +2545,6 @@ export  class MultiBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.Bonus;_e = bonus.Bonus.constructorFrom(_buf_); this.bonuses.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly bonuses: bonus.Bonus[]
 
     resolve(_tables: Map<string, any>) {
@@ -3541,9 +2560,6 @@ export  class MultiBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class ProbabilityBonus  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3551,9 +2567,6 @@ export  class ProbabilityBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.ProbabilityBonusInfo;_e = new bonus.ProbabilityBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly bonuses: bonus.ProbabilityBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -3569,23 +2582,14 @@ export  class ProbabilityBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class ProbabilityBonusInfo  {
 
     constructor(_buf_: ByteBuf) {
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
-        this.probability = _buf_.ReadFloat();
+        this.probability = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly bonus: bonus.Bonus
-    /**
-     * 
-     */
     readonly probability: number
 
     resolve(_tables: Map<string, any>) {
@@ -3600,9 +2604,6 @@ export  class ProbabilityBonusInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class WeightBonus  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
@@ -3610,9 +2611,6 @@ export  class WeightBonus  extends bonus.Bonus {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.bonuses = []; for(let i = 0 ; i < n ; i++) { let _e :bonus.WeightBonusInfo;_e = new bonus.WeightBonusInfo(_buf_); this.bonuses.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly bonuses: bonus.WeightBonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -3628,23 +2626,14 @@ export  class WeightBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class WeightBonusInfo  {
 
     constructor(_buf_: ByteBuf) {
         this.bonus = bonus.Bonus.constructorFrom(_buf_)
-        this.weight = _buf_.ReadInt();
+        this.weight = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly bonus: bonus.Bonus
-    /**
-     * 
-     */
     readonly weight: number
 
     resolve(_tables: Map<string, any>) {
@@ -3659,25 +2648,19 @@ export  class WeightBonusInfo  {
 
 
 export namespace bonus {
-/**
- * 
- */
 export  class DropBonus  extends bonus.Bonus {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.id = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    id_Ref : bonus.DropInfo
+    id_Ref : bonus.DropInfo = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.id_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.id)
+        this.id_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.id)!
     }
 }
 
@@ -3686,9 +2669,6 @@ export  class DropBonus  extends bonus.Bonus {
 
    
 export namespace common {
-/**
- * 
- */
 export class TbGlobalConfig {
 
      private _data: common.GlobalConfig
@@ -3704,85 +2684,25 @@ export class TbGlobalConfig {
      * 背包容量
      */
      get bagCapacity(): number { return this._data.bagCapacity }
-    /**
-     * 
-     */
      get bagCapacitySpecial(): number { return this._data.bagCapacitySpecial }
-    /**
-     * 
-     */
      get bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity }
-    /**
-     * 
-     */
      get bagTempToolCapacity(): number { return this._data.bagTempToolCapacity }
-    /**
-     * 
-     */
      get bagInitCapacity(): number { return this._data.bagInitCapacity }
-    /**
-     * 
-     */
      get quickBagCapacity(): number { return this._data.quickBagCapacity }
-    /**
-     * 
-     */
      get clothBagCapacity(): number { return this._data.clothBagCapacity }
-    /**
-     * 
-     */
      get clothBagInitCapacity(): number { return this._data.clothBagInitCapacity }
-    /**
-     * 
-     */
      get clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial }
-    /**
-     * 
-     */
      get bagInitItemsDropId(): number { return this._data.bagInitItemsDropId }
-    /**
-     * 
-     */
      get mailBoxCapacity(): number { return this._data.mailBoxCapacity }
-    /**
-     * 
-     */
      get damageParamC(): number { return this._data.damageParamC }
-    /**
-     * 
-     */
      get damageParamE(): number { return this._data.damageParamE }
-    /**
-     * 
-     */
      get damageParamF(): number { return this._data.damageParamF }
-    /**
-     * 
-     */
      get damageParamD(): number { return this._data.damageParamD }
-    /**
-     * 
-     */
      get roleSpeed(): number { return this._data.roleSpeed }
-    /**
-     * 
-     */
      get monsterSpeed(): number { return this._data.monsterSpeed }
-    /**
-     * 
-     */
      get initEnergy(): number { return this._data.initEnergy }
-    /**
-     * 
-     */
      get initViality(): number { return this._data.initViality }
-    /**
-     * 
-     */
      get maxViality(): number { return this._data.maxViality }
-    /**
-     * 
-     */
      get perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime }
 
     resolve(_tables: Map<string, any>) {
@@ -3798,123 +2718,60 @@ export class TbGlobalConfig {
 
 
 export namespace common {
-/**
- * 
- */
 export  class GlobalConfig  {
 
     constructor(_buf_: ByteBuf) {
-        this.bagCapacity = _buf_.ReadInt();
-        this.bagCapacitySpecial = _buf_.ReadInt();
-        this.bagTempExpendableCapacity = _buf_.ReadInt();
-        this.bagTempToolCapacity = _buf_.ReadInt();
-        this.bagInitCapacity = _buf_.ReadInt();
-        this.quickBagCapacity = _buf_.ReadInt();
-        this.clothBagCapacity = _buf_.ReadInt();
-        this.clothBagInitCapacity = _buf_.ReadInt();
-        this.clothBagCapacitySpecial = _buf_.ReadInt();
-        if(_buf_.ReadBool()) { this.bagInitItemsDropId = _buf_.ReadInt(); } else { this.bagInitItemsDropId = null }
-        this.mailBoxCapacity = _buf_.ReadInt();
-        this.damageParamC = _buf_.ReadFloat();
-        this.damageParamE = _buf_.ReadFloat();
-        this.damageParamF = _buf_.ReadFloat();
-        this.damageParamD = _buf_.ReadFloat();
-        this.roleSpeed = _buf_.ReadFloat();
-        this.monsterSpeed = _buf_.ReadFloat();
-        this.initEnergy = _buf_.ReadInt();
-        this.initViality = _buf_.ReadInt();
-        this.maxViality = _buf_.ReadInt();
-        this.perVialityRecoveryTime = _buf_.ReadInt();
+        this.bagCapacity = _buf_.ReadInt()
+        this.bagCapacitySpecial = _buf_.ReadInt()
+        this.bagTempExpendableCapacity = _buf_.ReadInt()
+        this.bagTempToolCapacity = _buf_.ReadInt()
+        this.bagInitCapacity = _buf_.ReadInt()
+        this.quickBagCapacity = _buf_.ReadInt()
+        this.clothBagCapacity = _buf_.ReadInt()
+        this.clothBagInitCapacity = _buf_.ReadInt()
+        this.clothBagCapacitySpecial = _buf_.ReadInt()
+        if(_buf_.ReadBool()) { this.bagInitItemsDropId = _buf_.ReadInt() } else { this.bagInitItemsDropId = undefined }
+        this.mailBoxCapacity = _buf_.ReadInt()
+        this.damageParamC = _buf_.ReadFloat()
+        this.damageParamE = _buf_.ReadFloat()
+        this.damageParamF = _buf_.ReadFloat()
+        this.damageParamD = _buf_.ReadFloat()
+        this.roleSpeed = _buf_.ReadFloat()
+        this.monsterSpeed = _buf_.ReadFloat()
+        this.initEnergy = _buf_.ReadInt()
+        this.initViality = _buf_.ReadInt()
+        this.maxViality = _buf_.ReadInt()
+        this.perVialityRecoveryTime = _buf_.ReadInt()
     }
 
     /**
      * 背包容量
      */
     readonly bagCapacity: number
-    /**
-     * 
-     */
     readonly bagCapacitySpecial: number
-    /**
-     * 
-     */
     readonly bagTempExpendableCapacity: number
-    /**
-     * 
-     */
     readonly bagTempToolCapacity: number
-    /**
-     * 
-     */
     readonly bagInitCapacity: number
-    /**
-     * 
-     */
     readonly quickBagCapacity: number
-    /**
-     * 
-     */
     readonly clothBagCapacity: number
-    /**
-     * 
-     */
     readonly clothBagInitCapacity: number
-    /**
-     * 
-     */
     readonly clothBagCapacitySpecial: number
-    /**
-     * 
-     */
     readonly bagInitItemsDropId?: number
-    bagInitItemsDropId_Ref : bonus.DropInfo
-    /**
-     * 
-     */
+    bagInitItemsDropId_Ref : bonus.DropInfo | undefined
     readonly mailBoxCapacity: number
-    /**
-     * 
-     */
     readonly damageParamC: number
-    /**
-     * 
-     */
     readonly damageParamE: number
-    /**
-     * 
-     */
     readonly damageParamF: number
-    /**
-     * 
-     */
     readonly damageParamD: number
-    /**
-     * 
-     */
     readonly roleSpeed: number
-    /**
-     * 
-     */
     readonly monsterSpeed: number
-    /**
-     * 
-     */
     readonly initEnergy: number
-    /**
-     * 
-     */
     readonly initViality: number
-    /**
-     * 
-     */
     readonly maxViality: number
-    /**
-     * 
-     */
     readonly perVialityRecoveryTime: number
 
     resolve(_tables: Map<string, any>) {
-        this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? (_tables.get('bonus.TbDrop') as  bonus.TbDrop).get(this.bagInitItemsDropId) : null
+        this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != undefined ? (_tables.get('bonus.TbDrop') as  bonus.TbDrop).get(this.bagInitItemsDropId) : undefined
     }
 }
 
@@ -3923,9 +2780,6 @@ export  class GlobalConfig  {
 
    
 export namespace common {
-/**
- * 
- */
 export class TbDummy {
     private _dataMap: Map<number, common.Dummy>
     private _dataList: common.Dummy[]
@@ -3945,7 +2799,7 @@ export class TbDummy {
     getDataMap(): Map<number, common.Dummy> { return this._dataMap }
     getDataList(): common.Dummy[] { return this._dataList }
 
-    get(key: number): common.Dummy  { return this._dataMap.get(key) }
+    get(key: number): common.Dummy | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -3962,23 +2816,14 @@ export class TbDummy {
 
 
 export namespace common {
-/**
- * 
- */
 export  class Dummy  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
         this.limit = limit.LimitBase.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly limit: limit.LimitBase
 
     resolve(_tables: Map<string, any>) {
@@ -3993,9 +2838,6 @@ export  class Dummy  {
 
 
 export namespace limit {
-/**
- * 
- */
 export  abstract  class LimitBase  {
     static constructorFrom(_buf_: ByteBuf): LimitBase {
         switch (_buf_.ReadInt()) {
@@ -4024,9 +2866,6 @@ export  abstract  class LimitBase  {
 
 
 export namespace limit {
-/**
- * 
- */
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static constructorFrom(_buf_: ByteBuf): DailyLimitBase {
         switch (_buf_.ReadInt()) {
@@ -4052,19 +2891,13 @@ export  abstract  class DailyLimitBase  extends limit.LimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class DailyLimit  extends limit.DailyLimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.num = _buf_.ReadInt();
+        this.num = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -4079,24 +2912,15 @@ export  class DailyLimit  extends limit.DailyLimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class MultiDayLimit  extends limit.LimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.day = _buf_.ReadInt();
-        this.num = _buf_.ReadInt();
+        this.day = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly day: number
-    /**
-     * 
-     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -4111,19 +2935,13 @@ export  class MultiDayLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class WeeklyLimit  extends limit.LimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.num = _buf_.ReadInt();
+        this.num = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -4138,19 +2956,13 @@ export  class WeeklyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class MonthlyLimit  extends limit.LimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.num = _buf_.ReadInt();
+        this.num = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -4165,19 +2977,13 @@ export  class MonthlyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class CoolDown  extends limit.LimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.duration = _buf_.ReadInt();
+        this.duration = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly duration: number
 
     resolve(_tables: Map<string, any>) {
@@ -4192,24 +2998,15 @@ export  class CoolDown  extends limit.LimitBase {
 
 
 export namespace limit {
-/**
- * 
- */
 export  class GroupCoolDown  extends limit.LimitBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.groupId = _buf_.ReadInt();
-        this.duration = _buf_.ReadInt();
+        this.groupId = _buf_.ReadInt()
+        this.duration = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly groupId: number
-    /**
-     * 
-     */
     readonly duration: number
 
     resolve(_tables: Map<string, any>) {
@@ -4222,9 +3019,6 @@ export  class GroupCoolDown  extends limit.LimitBase {
 
    
 export namespace error {
-/**
- * 
- */
 export class TbErrorInfo {
     private _dataMap: Map<string, error.ErrorInfo>
     private _dataList: error.ErrorInfo[]
@@ -4244,7 +3038,7 @@ export class TbErrorInfo {
     getDataMap(): Map<string, error.ErrorInfo> { return this._dataMap }
     getDataList(): error.ErrorInfo[] { return this._dataList }
 
-    get(key: string): error.ErrorInfo  { return this._dataMap.get(key) }
+    get(key: string): error.ErrorInfo | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4261,28 +3055,16 @@ export class TbErrorInfo {
 
 
 export namespace error {
-/**
- * 
- */
 export  class ErrorInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.code = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
+        this.code = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
         this.style = error.ErrorStyle.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly code: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly style: error.ErrorStyle
 
     resolve(_tables: Map<string, any>) {
@@ -4297,9 +3079,6 @@ export  class ErrorInfo  {
 
 
 export namespace error {
-/**
- * 
- */
 export  abstract  class ErrorStyle  {
     static constructorFrom(_buf_: ByteBuf): ErrorStyle {
         switch (_buf_.ReadInt()) {
@@ -4326,9 +3105,6 @@ export  abstract  class ErrorStyle  {
 
 
 export namespace error {
-/**
- * 
- */
 export  class ErrorStyleTip  extends error.ErrorStyle {
 
     constructor(_buf_: ByteBuf) {
@@ -4348,24 +3124,15 @@ export  class ErrorStyleTip  extends error.ErrorStyle {
 
 
 export namespace error {
-/**
- * 
- */
 export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.btnName = _buf_.ReadString();
-        this.operation = _buf_.ReadInt();
+        this.btnName = _buf_.ReadString()
+        this.operation = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly btnName: string
-    /**
-     * 
-     */
     readonly operation: error.EOperation
 
     resolve(_tables: Map<string, any>) {
@@ -4380,19 +3147,13 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
 
 export namespace error {
-/**
- * 
- */
 export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.btnName = _buf_.ReadString();
+        this.btnName = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly btnName: string
 
     resolve(_tables: Map<string, any>) {
@@ -4407,24 +3168,15 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
 
 export namespace error {
-/**
- * 
- */
 export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.btn1Name = _buf_.ReadString();
-        this.btn2Name = _buf_.ReadString();
+        this.btn1Name = _buf_.ReadString()
+        this.btn2Name = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly btn1Name: string
-    /**
-     * 
-     */
     readonly btn2Name: string
 
     resolve(_tables: Map<string, any>) {
@@ -4437,9 +3189,6 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
    
 export namespace error {
-/**
- * 
- */
 export class TbCodeInfo {
     private _dataMap: Map<error.EErrorCode, error.CodeInfo>
     private _dataList: error.CodeInfo[]
@@ -4459,7 +3208,7 @@ export class TbCodeInfo {
     getDataMap(): Map<error.EErrorCode, error.CodeInfo> { return this._dataMap }
     getDataList(): error.CodeInfo[] { return this._dataList }
 
-    get(key: error.EErrorCode): error.CodeInfo  { return this._dataMap.get(key) }
+    get(key: error.EErrorCode): error.CodeInfo | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4476,23 +3225,14 @@ export class TbCodeInfo {
 
 
 export namespace error {
-/**
- * 
- */
 export  class CodeInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.code = _buf_.ReadInt();
-        this.key = _buf_.ReadString();
+        this.code = _buf_.ReadInt()
+        this.key = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly code: error.EErrorCode
-    /**
-     * 
-     */
     readonly key: string
 
     resolve(_tables: Map<string, any>) {
@@ -4526,7 +3266,7 @@ export class TbItem {
     getDataMap(): Map<number, item.Item> { return this._dataMap }
     getDataList(): item.Item[] { return this._dataList }
 
-    get(key: number): item.Item  { return this._dataMap.get(key) }
+    get(key: number): item.Item | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4549,112 +3289,52 @@ export namespace item {
 export  class Item  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        this.majorType = _buf_.ReadInt();
-        this.minorType = _buf_.ReadInt();
-        this.maxPileNum = _buf_.ReadInt();
-        this.quality = _buf_.ReadInt();
-        this.icon = _buf_.ReadString();
-        this.iconBackgroud = _buf_.ReadString();
-        this.iconMask = _buf_.ReadString();
-        this.desc = _buf_.ReadString();
-        this.showOrder = _buf_.ReadInt();
-        this.quantifier = _buf_.ReadString();
-        this.showInBag = _buf_.ReadBool();
-        this.minShowLevel = _buf_.ReadInt();
-        this.batchUsable = _buf_.ReadBool();
-        this.progressTimeWhenUse = _buf_.ReadFloat();
-        this.showHintWhenUse = _buf_.ReadBool();
-        this.droppable = _buf_.ReadBool();
-        if(_buf_.ReadBool()) { this.price = _buf_.ReadInt(); } else { this.price = null }
-        this.useType = _buf_.ReadInt();
-        if(_buf_.ReadBool()) { this.levelUpId = _buf_.ReadInt(); } else { this.levelUpId = null }
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.majorType = _buf_.ReadInt()
+        this.minorType = _buf_.ReadInt()
+        this.maxPileNum = _buf_.ReadInt()
+        this.quality = _buf_.ReadInt()
+        this.icon = _buf_.ReadString()
+        this.iconBackgroud = _buf_.ReadString()
+        this.iconMask = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.showOrder = _buf_.ReadInt()
+        this.quantifier = _buf_.ReadString()
+        this.showInBag = _buf_.ReadBool()
+        this.minShowLevel = _buf_.ReadInt()
+        this.batchUsable = _buf_.ReadBool()
+        this.progressTimeWhenUse = _buf_.ReadFloat()
+        this.showHintWhenUse = _buf_.ReadBool()
+        this.droppable = _buf_.ReadBool()
+        if(_buf_.ReadBool()) { this.price = _buf_.ReadInt() } else { this.price = undefined }
+        this.useType = _buf_.ReadInt()
+        if(_buf_.ReadBool()) { this.levelUpId = _buf_.ReadInt() } else { this.levelUpId = undefined }
     }
 
     /**
      * 道具id
      */
     readonly id: number
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly majorType: item.EMajorType
-    /**
-     * 
-     */
     readonly minorType: item.EMinorType
-    /**
-     * 
-     */
     readonly maxPileNum: number
-    /**
-     * 
-     */
     readonly quality: item.EItemQuality
-    /**
-     * 
-     */
     readonly icon: string
-    /**
-     * 
-     */
     readonly iconBackgroud: string
-    /**
-     * 
-     */
     readonly iconMask: string
-    /**
-     * 
-     */
     readonly desc: string
-    /**
-     * 
-     */
     readonly showOrder: number
-    /**
-     * 
-     */
     readonly quantifier: string
-    /**
-     * 
-     */
     readonly showInBag: boolean
-    /**
-     * 
-     */
     readonly minShowLevel: number
-    /**
-     * 
-     */
     readonly batchUsable: boolean
-    /**
-     * 
-     */
     readonly progressTimeWhenUse: number
-    /**
-     * 
-     */
     readonly showHintWhenUse: boolean
-    /**
-     * 
-     */
     readonly droppable: boolean
-    /**
-     * 
-     */
     readonly price?: number
-    /**
-     * 
-     */
     readonly useType: item.EUseType
-    /**
-     * 
-     */
     readonly levelUpId?: number
 
     resolve(_tables: Map<string, any>) {
@@ -4666,9 +3346,6 @@ export  class Item  {
 
    
 export namespace item {
-/**
- * 
- */
 export class TbItemFunc {
     private _dataMap: Map<item.EMinorType, item.ItemFunction>
     private _dataList: item.ItemFunction[]
@@ -4688,7 +3365,7 @@ export class TbItemFunc {
     getDataMap(): Map<item.EMinorType, item.ItemFunction> { return this._dataMap }
     getDataList(): item.ItemFunction[] { return this._dataList }
 
-    get(key: item.EMinorType): item.ItemFunction  { return this._dataMap.get(key) }
+    get(key: item.EMinorType): item.ItemFunction | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4705,33 +3382,18 @@ export class TbItemFunc {
 
 
 export namespace item {
-/**
- * 
- */
 export  class ItemFunction  {
 
     constructor(_buf_: ByteBuf) {
-        this.minorType = _buf_.ReadInt();
-        this.funcType = _buf_.ReadInt();
-        this.method = _buf_.ReadString();
-        this.closeBagUi = _buf_.ReadBool();
+        this.minorType = _buf_.ReadInt()
+        this.funcType = _buf_.ReadInt()
+        this.method = _buf_.ReadString()
+        this.closeBagUi = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly minorType: item.EMinorType
-    /**
-     * 
-     */
     readonly funcType: item.EItemFunctionType
-    /**
-     * 
-     */
     readonly method: string
-    /**
-     * 
-     */
     readonly closeBagUi: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -4743,9 +3405,6 @@ export  class ItemFunction  {
 
    
 export namespace item {
-/**
- * 
- */
 export class TbItemExtra {
     private _dataMap: Map<number, item.ItemExtra>
     private _dataList: item.ItemExtra[]
@@ -4765,7 +3424,7 @@ export class TbItemExtra {
     getDataMap(): Map<number, item.ItemExtra> { return this._dataMap }
     getDataList(): item.ItemExtra[] { return this._dataList }
 
-    get(key: number): item.ItemExtra  { return this._dataMap.get(key) }
+    get(key: number): item.ItemExtra | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -4782,9 +3441,6 @@ export class TbItemExtra {
 
 
 export namespace item {
-/**
- * 
- */
 export  abstract  class ItemExtra  {
     static constructorFrom(_buf_: ByteBuf): ItemExtra {
         switch (_buf_.ReadInt()) {
@@ -4798,12 +3454,9 @@ export  abstract  class ItemExtra  {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly id: number
 
     resolve(_tables: Map<string, any>) {
@@ -4817,39 +3470,21 @@ export  abstract  class ItemExtra  {
 
 
 export namespace item {
-/**
- * 
- */
 export  class TreasureBox  extends item.ItemExtra {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        if(_buf_.ReadBool()) { this.keyItemId = _buf_.ReadInt(); } else { this.keyItemId = null }
+        if(_buf_.ReadBool()) { this.keyItemId = _buf_.ReadInt() } else { this.keyItemId = undefined }
         this.openLevel = new condition.MinLevel(_buf_)
-        this.useOnObtain = _buf_.ReadBool();
-        { this.dropIds = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.dropIds.push(_e) } }
-        { this.chooseList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :item.ChooseOneBonus;_e = new item.ChooseOneBonus(_buf_); this.chooseList.push(_e) } }
+        this.useOnObtain = _buf_.ReadBool()
+        { this.dropIds = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.dropIds.push(_e) } }
+        { this.chooseList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :item.ChooseOneBonus; _e = new item.ChooseOneBonus(_buf_); this.chooseList.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly keyItemId?: number
-    /**
-     * 
-     */
     readonly openLevel: condition.MinLevel
-    /**
-     * 
-     */
     readonly useOnObtain: boolean
-    /**
-     * 
-     */
     readonly dropIds: number[]
-    /**
-     * 
-     */
     readonly chooseList: item.ChooseOneBonus[]
 
     resolve(_tables: Map<string, any>) {
@@ -4866,9 +3501,6 @@ export  class TreasureBox  extends item.ItemExtra {
 
 
 export namespace condition {
-/**
- * 
- */
 export  abstract  class Condition  {
     static constructorFrom(_buf_: ByteBuf): Condition {
         switch (_buf_.ReadInt()) {
@@ -4899,9 +3531,6 @@ export  abstract  class Condition  {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class TimeRange  extends condition.Condition {
 
     constructor(_buf_: ByteBuf) {
@@ -4909,9 +3538,6 @@ export  class TimeRange  extends condition.Condition {
         this.dateTimeRange = new common.DateTimeRange(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly dateTimeRange: common.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -4927,23 +3553,14 @@ export  class TimeRange  extends condition.Condition {
 
 
 export namespace common {
-/**
- * 
- */
 export  class DateTimeRange  {
 
     constructor(_buf_: ByteBuf) {
-        if(_buf_.ReadBool()) { this.startTime = _buf_.ReadInt(); } else { this.startTime = null }
-        if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt(); } else { this.endTime = null }
+        if(_buf_.ReadBool()) { this.startTime = _buf_.ReadInt() } else { this.startTime = undefined }
+        if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt() } else { this.endTime = undefined }
     }
 
-    /**
-     * 
-     */
     readonly startTime?: number
-    /**
-     * 
-     */
     readonly endTime?: number
 
     resolve(_tables: Map<string, any>) {
@@ -4957,9 +3574,6 @@ export  class DateTimeRange  {
 
 
 export namespace condition {
-/**
- * 
- */
 export  abstract  class RoleCondition  extends condition.Condition {
     static constructorFrom(_buf_: ByteBuf): RoleCondition {
         switch (_buf_.ReadInt()) {
@@ -4991,9 +3605,6 @@ export  abstract  class RoleCondition  extends condition.Condition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class MultiRoleCondition  extends condition.RoleCondition {
 
     constructor(_buf_: ByteBuf) {
@@ -5001,9 +3612,6 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.conditions = []; for(let i = 0 ; i < n ; i++) { let _e :condition.RoleCondition;_e = condition.RoleCondition.constructorFrom(_buf_); this.conditions.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly conditions: condition.RoleCondition[]
 
     resolve(_tables: Map<string, any>) {
@@ -5019,9 +3627,6 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
     static constructorFrom(_buf_: ByteBuf): BoolRoleCondition {
         switch (_buf_.ReadInt()) {
@@ -5051,19 +3656,13 @@ export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class GenderLimit  extends condition.BoolRoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.gender = _buf_.ReadInt();
+        this.gender = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly gender: role.EGenderType
 
     resolve(_tables: Map<string, any>) {
@@ -5078,19 +3677,13 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class MinLevel  extends condition.BoolRoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.level = _buf_.ReadInt();
+        this.level = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly level: number
 
     resolve(_tables: Map<string, any>) {
@@ -5105,19 +3698,13 @@ export  class MinLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class MaxLevel  extends condition.BoolRoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.level = _buf_.ReadInt();
+        this.level = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly level: number
 
     resolve(_tables: Map<string, any>) {
@@ -5132,24 +3719,15 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.min = _buf_.ReadInt();
-        this.max = _buf_.ReadInt();
+        this.min = _buf_.ReadInt()
+        this.max = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly min: number
-    /**
-     * 
-     */
     readonly max: number
 
     resolve(_tables: Map<string, any>) {
@@ -5164,24 +3742,15 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-/**
- * 
- */
 export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.prop = _buf_.ReadInt();
-        this.value = _buf_.ReadInt();
+        this.prop = _buf_.ReadInt()
+        this.value = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly prop: item.EClothesPropertyType
-    /**
-     * 
-     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -5196,35 +3765,23 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
 
 
 export namespace condition {
-/**
- * 
- */
 export  class ContainsItem  extends condition.RoleCondition {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.itemId = _buf_.ReadInt();
-        this.num = _buf_.ReadInt();
-        this.reverse = _buf_.ReadBool();
+        this.itemId = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
+        this.reverse = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly num: number
-    /**
-     * 
-     */
     readonly reverse: boolean
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -5235,28 +3792,19 @@ export  class ContainsItem  extends condition.RoleCondition {
 
 
 export namespace item {
-/**
- * 
- */
 export  class ChooseOneBonus  {
 
     constructor(_buf_: ByteBuf) {
-        this.dropId = _buf_.ReadInt();
-        this.isUnique = _buf_.ReadBool();
+        this.dropId = _buf_.ReadInt()
+        this.isUnique = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly dropId: number
-    dropId_Ref : bonus.DropInfo
-    /**
-     * 
-     */
+    dropId_Ref : bonus.DropInfo = undefined!
     readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
-        this.dropId_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.dropId)
+        this.dropId_Ref = (_tables.get('bonus.TbDrop') as bonus.TbDrop).get(this.dropId)!
     }
 }
 
@@ -5267,29 +3815,17 @@ export  class ChooseOneBonus  {
 
 
 export namespace item {
-/**
- * 
- */
 export  class InteractionItem  extends item.ItemExtra {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        if(_buf_.ReadBool()) { this.attackNum = _buf_.ReadInt(); } else { this.attackNum = null }
-        this.holdingStaticMesh = _buf_.ReadString();
-        this.holdingStaticMeshMat = _buf_.ReadString();
+        if(_buf_.ReadBool()) { this.attackNum = _buf_.ReadInt() } else { this.attackNum = undefined }
+        this.holdingStaticMesh = _buf_.ReadString()
+        this.holdingStaticMeshMat = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly attackNum?: number
-    /**
-     * 
-     */
     readonly holdingStaticMesh: string
-    /**
-     * 
-     */
     readonly holdingStaticMeshMat: string
 
     resolve(_tables: Map<string, any>) {
@@ -5304,34 +3840,19 @@ export  class InteractionItem  extends item.ItemExtra {
 
 
 export namespace item {
-/**
- * 
- */
 export  class Clothes  extends item.ItemExtra {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.attack = _buf_.ReadInt();
-        this.hp = _buf_.ReadLongAsNumber();
-        this.energyLimit = _buf_.ReadInt();
-        this.energyResume = _buf_.ReadInt();
+        this.attack = _buf_.ReadInt()
+        this.hp = _buf_.ReadLongAsNumber()
+        this.energyLimit = _buf_.ReadInt()
+        this.energyResume = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly attack: number
-    /**
-     * 
-     */
     readonly hp: number
-    /**
-     * 
-     */
     readonly energyLimit: number
-    /**
-     * 
-     */
     readonly energyResume: number
 
     resolve(_tables: Map<string, any>) {
@@ -5346,19 +3867,13 @@ export  class Clothes  extends item.ItemExtra {
 
 
 export namespace item {
-/**
- * 
- */
 export  class DesignDrawing  extends item.ItemExtra {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.learnComponentId = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.learnComponentId.push(_e) } }
+        { this.learnComponentId = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.learnComponentId.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly learnComponentId: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -5373,9 +3888,6 @@ export  class DesignDrawing  extends item.ItemExtra {
 
 
 export namespace item {
-/**
- * 
- */
 export  class Dymmy  extends item.ItemExtra {
 
     constructor(_buf_: ByteBuf) {
@@ -5383,9 +3895,6 @@ export  class Dymmy  extends item.ItemExtra {
         this.cost = cost.Cost.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly cost: cost.Cost
 
     resolve(_tables: Map<string, any>) {
@@ -5401,9 +3910,6 @@ export  class Dymmy  extends item.ItemExtra {
 
 
 export namespace cost {
-/**
- * 
- */
 export  abstract  class Cost  {
     static constructorFrom(_buf_: ByteBuf): Cost {
         switch (_buf_.ReadInt()) {
@@ -5431,24 +3937,15 @@ export  abstract  class Cost  {
 
 
 export namespace cost {
-/**
- * 
- */
 export  class CostCurrency  extends cost.Cost {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.type = _buf_.ReadInt();
-        this.num = _buf_.ReadInt();
+        this.type = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly type: item.ECurrencyType
-    /**
-     * 
-     */
     readonly num: number
 
     resolve(_tables: Map<string, any>) {
@@ -5463,19 +3960,13 @@ export  class CostCurrency  extends cost.Cost {
 
 
 export namespace cost {
-/**
- * 
- */
 export  class CostCurrencies  extends cost.Cost {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.currencies = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :cost.CostCurrency;_e = new cost.CostCurrency(_buf_); this.currencies.push(_e) } }
+        { this.currencies = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :cost.CostCurrency; _e = new cost.CostCurrency(_buf_); this.currencies.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly currencies: cost.CostCurrency[]
 
     resolve(_tables: Map<string, any>) {
@@ -5491,25 +3982,19 @@ export  class CostCurrencies  extends cost.Cost {
 
 
 export namespace cost {
-/**
- * 
- */
 export  class CostOneItem  extends cost.Cost {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.itemId = _buf_.ReadInt();
+        this.itemId = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
+    itemId_Ref : item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -5520,30 +4005,21 @@ export  class CostOneItem  extends cost.Cost {
 
 
 export namespace cost {
-/**
- * 
- */
 export  class CostItem  extends cost.Cost {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.itemId = _buf_.ReadInt();
-        this.amount = _buf_.ReadInt();
+        this.itemId = _buf_.ReadInt()
+        this.amount = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly itemId: number
-    itemId_Ref : item.Item
-    /**
-     * 
-     */
+    itemId_Ref : item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
-        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)
+        this.itemId_Ref = (_tables.get('item.TbItem') as item.TbItem).get(this.itemId)!
     }
 }
 
@@ -5554,9 +4030,6 @@ export  class CostItem  extends cost.Cost {
 
 
 export namespace cost {
-/**
- * 
- */
 export  class CostItems  extends cost.Cost {
 
     constructor(_buf_: ByteBuf) {
@@ -5564,9 +4037,6 @@ export  class CostItems  extends cost.Cost {
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.itemList = []; for(let i = 0 ; i < n ; i++) { let _e :cost.CostItem;_e = new cost.CostItem(_buf_); this.itemList.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly itemList: cost.CostItem[]
 
     resolve(_tables: Map<string, any>) {
@@ -5580,9 +4050,6 @@ export  class CostItems  extends cost.Cost {
 
    
 export namespace l10n {
-/**
- * 
- */
 export class TbL10NDemo {
     private _dataMap: Map<number, l10n.L10NDemo>
     private _dataList: l10n.L10NDemo[]
@@ -5602,7 +4069,7 @@ export class TbL10NDemo {
     getDataMap(): Map<number, l10n.L10NDemo> { return this._dataMap }
     getDataList(): l10n.L10NDemo[] { return this._dataList }
 
-    get(key: number): l10n.L10NDemo  { return this._dataMap.get(key) }
+    get(key: number): l10n.L10NDemo | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -5619,23 +4086,14 @@ export class TbL10NDemo {
 
 
 export namespace l10n {
-/**
- * 
- */
 export  class L10NDemo  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.text = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.text = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly text: string
 
     resolve(_tables: Map<string, any>) {
@@ -5647,9 +4105,6 @@ export  class L10NDemo  {
 
    
 export namespace l10n {
-/**
- * 
- */
 export class TbPatchDemo {
     private _dataMap: Map<number, l10n.PatchDemo>
     private _dataList: l10n.PatchDemo[]
@@ -5669,7 +4124,7 @@ export class TbPatchDemo {
     getDataMap(): Map<number, l10n.PatchDemo> { return this._dataMap }
     getDataList(): l10n.PatchDemo[] { return this._dataList }
 
-    get(key: number): l10n.PatchDemo  { return this._dataMap.get(key) }
+    get(key: number): l10n.PatchDemo | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -5686,23 +4141,14 @@ export class TbPatchDemo {
 
 
 export namespace l10n {
-/**
- * 
- */
 export  class PatchDemo  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.value = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
+        this.value = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly value: number
 
     resolve(_tables: Map<string, any>) {
@@ -5714,9 +4160,6 @@ export  class PatchDemo  {
 
    
 export namespace mail {
-/**
- * 
- */
 export class TbSystemMail {
     private _dataMap: Map<number, mail.SystemMail>
     private _dataList: mail.SystemMail[]
@@ -5736,7 +4179,7 @@ export class TbSystemMail {
     getDataMap(): Map<number, mail.SystemMail> { return this._dataMap }
     getDataList(): mail.SystemMail[] { return this._dataList }
 
-    get(key: number): mail.SystemMail  { return this._dataMap.get(key) }
+    get(key: number): mail.SystemMail | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -5753,38 +4196,20 @@ export class TbSystemMail {
 
 
 export namespace mail {
-/**
- * 
- */
 export  class SystemMail  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.title = _buf_.ReadString();
-        this.sender = _buf_.ReadString();
-        this.content = _buf_.ReadString();
-        { this.award = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.award.push(_e) } }
+        this.id = _buf_.ReadInt()
+        this.title = _buf_.ReadString()
+        this.sender = _buf_.ReadString()
+        this.content = _buf_.ReadString()
+        { this.award = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.award.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly title: string
-    /**
-     * 
-     */
     readonly sender: string
-    /**
-     * 
-     */
     readonly content: string
-    /**
-     * 
-     */
     readonly award: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -5796,9 +4221,6 @@ export  class SystemMail  {
 
    
 export namespace mail {
-/**
- * 
- */
 export class TbGlobalMail {
     private _dataMap: Map<number, mail.GlobalMail>
     private _dataList: mail.GlobalMail[]
@@ -5818,7 +4240,7 @@ export class TbGlobalMail {
     getDataMap(): Map<number, mail.GlobalMail> { return this._dataMap }
     getDataList(): mail.GlobalMail[] { return this._dataList }
 
-    get(key: number): mail.GlobalMail  { return this._dataMap.get(key) }
+    get(key: number): mail.GlobalMail | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -5835,73 +4257,34 @@ export class TbGlobalMail {
 
 
 export namespace mail {
-/**
- * 
- */
 export  class GlobalMail  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.title = _buf_.ReadString();
-        this.sender = _buf_.ReadString();
-        this.content = _buf_.ReadString();
-        { this.award = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.award.push(_e) } }
-        this.allServer = _buf_.ReadBool();
-        { this.serverList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.serverList.push(_e) } }
-        this.platform = _buf_.ReadString();
-        this.channel = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.title = _buf_.ReadString()
+        this.sender = _buf_.ReadString()
+        this.content = _buf_.ReadString()
+        { this.award = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.award.push(_e) } }
+        this.allServer = _buf_.ReadBool()
+        { this.serverList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.serverList.push(_e) } }
+        this.platform = _buf_.ReadString()
+        this.channel = _buf_.ReadString()
         this.minMaxLevel = new condition.MinMaxLevel(_buf_)
         this.registerTime = new condition.TimeRange(_buf_)
         this.mailTime = new condition.TimeRange(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly title: string
-    /**
-     * 
-     */
     readonly sender: string
-    /**
-     * 
-     */
     readonly content: string
-    /**
-     * 
-     */
     readonly award: number[]
-    /**
-     * 
-     */
     readonly allServer: boolean
-    /**
-     * 
-     */
     readonly serverList: number[]
-    /**
-     * 
-     */
     readonly platform: string
-    /**
-     * 
-     */
     readonly channel: string
-    /**
-     * 
-     */
     readonly minMaxLevel: condition.MinMaxLevel
-    /**
-     * 
-     */
     readonly registerTime: condition.TimeRange
-    /**
-     * 
-     */
     readonly mailTime: condition.TimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -5916,9 +4299,6 @@ export  class GlobalMail  {
 
    
 export namespace role {
-/**
- * 
- */
 export class TbRoleLevelExpAttr {
     private _dataMap: Map<number, role.LevelExpAttr>
     private _dataList: role.LevelExpAttr[]
@@ -5938,7 +4318,7 @@ export class TbRoleLevelExpAttr {
     getDataMap(): Map<number, role.LevelExpAttr> { return this._dataMap }
     getDataList(): role.LevelExpAttr[] { return this._dataList }
 
-    get(key: number): role.LevelExpAttr  { return this._dataMap.get(key) }
+    get(key: number): role.LevelExpAttr | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -5955,28 +4335,16 @@ export class TbRoleLevelExpAttr {
 
 
 export namespace role {
-/**
- * 
- */
 export  class LevelExpAttr  {
 
     constructor(_buf_: ByteBuf) {
-        this.level = _buf_.ReadInt();
-        this.needExp = _buf_.ReadLongAsNumber();
-        { this.clothesAttrs = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.clothesAttrs.push(_e) } }
+        this.level = _buf_.ReadInt()
+        this.needExp = _buf_.ReadLongAsNumber()
+        { this.clothesAttrs = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.clothesAttrs.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly level: number
-    /**
-     * 
-     */
     readonly needExp: number
-    /**
-     * 
-     */
     readonly clothesAttrs: number[]
 
     resolve(_tables: Map<string, any>) {
@@ -5988,9 +4356,6 @@ export  class LevelExpAttr  {
 
    
 export namespace role {
-/**
- * 
- */
 export class TbRoleLevelBonusCoefficient {
     private _dataMap: Map<number, role.LevelBonus>
     private _dataList: role.LevelBonus[]
@@ -6010,7 +4375,7 @@ export class TbRoleLevelBonusCoefficient {
     getDataMap(): Map<number, role.LevelBonus> { return this._dataMap }
     getDataList(): role.LevelBonus[] { return this._dataList }
 
-    get(key: number): role.LevelBonus  { return this._dataMap.get(key) }
+    get(key: number): role.LevelBonus | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -6027,23 +4392,14 @@ export class TbRoleLevelBonusCoefficient {
 
 
 export namespace role {
-/**
- * 
- */
 export  class LevelBonus  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        { this.distinctBonusInfos = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.DistinctBonusInfos;_e = new role.DistinctBonusInfos(_buf_); this.distinctBonusInfos.push(_e) } }
+        this.id = _buf_.ReadInt()
+        { this.distinctBonusInfos = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.DistinctBonusInfos; _e = new role.DistinctBonusInfos(_buf_); this.distinctBonusInfos.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly distinctBonusInfos: role.DistinctBonusInfos[]
 
     resolve(_tables: Map<string, any>) {
@@ -6058,23 +4414,14 @@ export  class LevelBonus  {
 
 
 export namespace role {
-/**
- * 
- */
 export  class DistinctBonusInfos  {
 
     constructor(_buf_: ByteBuf) {
-        this.effectiveLevel = _buf_.ReadInt();
-        { this.bonusInfo = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.BonusInfo;_e = new role.BonusInfo(_buf_); this.bonusInfo.push(_e) } }
+        this.effectiveLevel = _buf_.ReadInt()
+        { this.bonusInfo = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :role.BonusInfo; _e = new role.BonusInfo(_buf_); this.bonusInfo.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly effectiveLevel: number
-    /**
-     * 
-     */
     readonly bonusInfo: role.BonusInfo[]
 
     resolve(_tables: Map<string, any>) {
@@ -6089,23 +4436,14 @@ export  class DistinctBonusInfos  {
 
 
 export namespace role {
-/**
- * 
- */
 export  class BonusInfo  {
 
     constructor(_buf_: ByteBuf) {
-        this.type = _buf_.ReadInt();
-        this.coefficient = _buf_.ReadFloat();
+        this.type = _buf_.ReadInt()
+        this.coefficient = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly type: item.ECurrencyType
-    /**
-     * 
-     */
     readonly coefficient: number
 
     resolve(_tables: Map<string, any>) {
@@ -6117,9 +4455,6 @@ export  class BonusInfo  {
 
    
 export namespace tag {
-/**
- * 
- */
 export class TbTestTag {
     private _dataMap: Map<number, tag.TestTag>
     private _dataList: tag.TestTag[]
@@ -6139,7 +4474,7 @@ export class TbTestTag {
     getDataMap(): Map<number, tag.TestTag> { return this._dataMap }
     getDataList(): tag.TestTag[] { return this._dataList }
 
-    get(key: number): tag.TestTag  { return this._dataMap.get(key) }
+    get(key: number): tag.TestTag | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -6156,23 +4491,14 @@ export class TbTestTag {
 
 
 export namespace tag {
-/**
- * 
- */
 export  class TestTag  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.value = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.value = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly value: string
 
     resolve(_tables: Map<string, any>) {
@@ -6184,9 +4510,6 @@ export  class TestTag  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbFullTypes {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -6206,7 +4529,7 @@ export class TbFullTypes {
     getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
     getDataList(): test.DemoType2[] { return this._dataList }
 
-    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+    get(key: number): test.DemoType2 | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -6223,163 +4546,65 @@ export class TbFullTypes {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoType2  {
 
     constructor(_buf_: ByteBuf) {
-        this.x4 = _buf_.ReadInt();
-        this.x1 = _buf_.ReadBool();
-        this.x2 = _buf_.ReadByte();
-        this.x3 = _buf_.ReadShort();
-        this.x5 = _buf_.ReadLongAsNumber();
-        this.x6 = _buf_.ReadFloat();
-        this.x7 = _buf_.ReadDouble();
-        this.x80 = _buf_.ReadFshort();
-        this.x8 = _buf_.ReadFint();
-        this.x9 = _buf_.ReadFlong();
-        this.x10 = _buf_.ReadString();
+        this.x4 = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x2 = _buf_.ReadByte()
+        this.x3 = _buf_.ReadShort()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x7 = _buf_.ReadDouble()
+        this.x80 = _buf_.ReadFshort()
+        this.x8 = _buf_.ReadFint()
+        this.x9 = _buf_.ReadFlong()
+        this.x10 = _buf_.ReadString()
         this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt();
+        this.x13 = _buf_.ReadInt()
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        this.s1 = _buf_.ReadString();
+        this.s1 = _buf_.ReadString()
         this.v2 = Vector2.deserializeFrom(_buf_)
         this.v3 = Vector3.deserializeFrom(_buf_)
         this.v4 = Vector4.deserializeFrom(_buf_)
-        this.t1 = _buf_.ReadInt();
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k1[i] = _e } }
-        { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k2.push(_e) } }
-        { this.k3 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k3.push(_e) } }
-        { this.k4 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt();; this.k4.push(_e) } }
-        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k5.add(_e);}}
-        { this.k6 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k6.add(_e);}}
-        { this.k7 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt();; this.k7.add(_e);}}
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt();; let _v:number; _v = _buf_.ReadInt();; this.k8.set(_k, _v);  } }
-        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2;_e = new test.DemoE2(_buf_); this.k9.push(_e) } }
+        this.t1 = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
+        { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.k2.push(_e) } }
+        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k5.add(_e);}}
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
+        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly x4: number
-    /**
-     * 
-     */
     readonly x1: boolean
-    /**
-     * 
-     */
     readonly x2: number
-    /**
-     * 
-     */
     readonly x3: number
-    x3_Ref : test.DemoType2
-    /**
-     * 
-     */
+    x3_Ref : test.DemoType2 = undefined!
     readonly x5: number
-    /**
-     * 
-     */
     readonly x6: number
-    /**
-     * 
-     */
     readonly x7: number
-    /**
-     * 
-     */
     readonly x80: number
-    /**
-     * 
-     */
     readonly x8: number
-    /**
-     * 
-     */
     readonly x9: bigint
-    /**
-     * 
-     */
     readonly x10: string
-    /**
-     * 
-     */
     readonly x12: test.DemoType1
-    /**
-     * 
-     */
     readonly x13: test.DemoEnum
-    /**
-     * 
-     */
     readonly x14: test.DemoDynamic
-    /**
-     * 
-     */
     readonly s1: string
-    /**
-     * 
-     */
     readonly v2: Vector2
-    /**
-     * 
-     */
     readonly v3: Vector3
-    /**
-     * 
-     */
     readonly v4: Vector4
-    /**
-     * 
-     */
     readonly t1: number
-    /**
-     * 
-     */
     readonly k1: Int32Array
-    /**
-     * 
-     */
     readonly k2: number[]
-    /**
-     * 
-     */
-    readonly k3: number[]
-    /**
-     * 
-     */
-    readonly k4: number[]
-    /**
-     * 
-     */
     readonly k5: Set<number>
-    /**
-     * 
-     */
-    readonly k6: Set<number>
-    /**
-     * 
-     */
-    readonly k7: Set<number>
-    /**
-     * 
-     */
     readonly k8: Map<number, number>
-    /**
-     * 
-     */
     readonly k9: test.DemoE2[]
-    /**
-     * 
-     */
     readonly k15: test.DemoDynamic[]
 
     resolve(_tables: Map<string, any>) {
-        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)
+        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)!
         if (this.x12 != null) { this.x12.resolve(_tables);}
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
@@ -6394,18 +4619,12 @@ export  class DemoType2  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoType1  {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt();
+        this.x1 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x1: number
 
     resolve(_tables: Map<string, any>) {
@@ -6419,9 +4638,6 @@ export  class DemoType1  {
 
 
 export namespace test {
-/**
- * 
- */
 export  abstract  class DemoDynamic  {
     static constructorFrom(_buf_: ByteBuf): DemoDynamic {
         switch (_buf_.ReadInt()) {
@@ -6433,12 +4649,9 @@ export  abstract  class DemoDynamic  {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt();
+        this.x1 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x1: number
 
     resolve(_tables: Map<string, any>) {
@@ -6452,19 +4665,13 @@ export  abstract  class DemoDynamic  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoD2  extends test.DemoDynamic {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x2 = _buf_.ReadInt();
+        this.x2 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x2: number
 
     resolve(_tables: Map<string, any>) {
@@ -6479,9 +4686,6 @@ export  class DemoD2  extends test.DemoDynamic {
 
 
 export namespace test {
-/**
- * 
- */
 export  abstract  class DemoD3  extends test.DemoDynamic {
     static constructorFrom(_buf_: ByteBuf): DemoD3 {
         switch (_buf_.ReadInt()) {
@@ -6492,12 +4696,9 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x3 = _buf_.ReadInt();
+        this.x3 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x3: number
 
     resolve(_tables: Map<string, any>) {
@@ -6512,19 +4713,13 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoE1  extends test.DemoD3 {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x4 = _buf_.ReadInt();
+        this.x4 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x4: number
 
     resolve(_tables: Map<string, any>) {
@@ -6539,9 +4734,6 @@ export  class DemoE1  extends test.DemoD3 {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoD5  extends test.DemoDynamic {
 
     constructor(_buf_: ByteBuf) {
@@ -6549,9 +4741,6 @@ export  class DemoD5  extends test.DemoDynamic {
         this.time = new test.DateTimeRange(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly time: test.DateTimeRange
 
     resolve(_tables: Map<string, any>) {
@@ -6567,23 +4756,14 @@ export  class DemoD5  extends test.DemoDynamic {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DateTimeRange  {
 
     constructor(_buf_: ByteBuf) {
-        this.startTime = _buf_.ReadInt();
-        this.endTime = _buf_.ReadInt();
+        this.startTime = _buf_.ReadInt()
+        this.endTime = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly startTime: number
-    /**
-     * 
-     */
     readonly endTime: number
 
     resolve(_tables: Map<string, any>) {
@@ -6597,23 +4777,14 @@ export  class DateTimeRange  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoE2  {
 
     constructor(_buf_: ByteBuf) {
-        if(_buf_.ReadBool()) { this.y1 = _buf_.ReadInt(); } else { this.y1 = null }
-        this.y2 = _buf_.ReadBool();
+        if(_buf_.ReadBool()) { this.y1 = _buf_.ReadInt() } else { this.y1 = undefined }
+        this.y2 = _buf_.ReadBool()
     }
 
-    /**
-     * 
-     */
     readonly y1?: number
-    /**
-     * 
-     */
     readonly y2: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -6625,9 +4796,6 @@ export  class DemoE2  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbSingleton {
 
      private _data: test.DemoSingletonType
@@ -6639,17 +4807,8 @@ export class TbSingleton {
 
     getData(): test.DemoSingletonType { return this._data }
 
-    /**
-     * 
-     */
      get id(): number { return this._data.id }
-    /**
-     * 
-     */
      get name(): string { return this._data.name }
-    /**
-     * 
-     */
      get date(): test.DemoDynamic { return this._data.date }
 
     resolve(_tables: Map<string, any>) {
@@ -6665,28 +4824,16 @@ export class TbSingleton {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoSingletonType  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
         this.date = test.DemoDynamic.constructorFrom(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly date: test.DemoDynamic
 
     resolve(_tables: Map<string, any>) {
@@ -6699,10 +4846,7 @@ export  class DemoSingletonType  {
 
    
 export namespace test {
-/**
- * 
- */
-export class TbDataFromJson {
+export class TbDataFromMisc {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     
@@ -6721,7 +4865,7 @@ export class TbDataFromJson {
     getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
     getDataList(): test.DemoType2[] { return this._dataList }
 
-    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
+    get(key: number): test.DemoType2 | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -6736,83 +4880,6 @@ export class TbDataFromJson {
 
    
 export namespace test {
-/**
- * 
- */
-export class TbDataFromXml {
-    private _dataMap: Map<number, test.DemoType2>
-    private _dataList: test.DemoType2[]
-    
-    constructor(_buf_: ByteBuf) {
-        this._dataMap = new Map<number, test.DemoType2>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: test.DemoType2
-            _v = new test.DemoType2(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.x4, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
-    getDataList(): test.DemoType2[] { return this._dataList }
-
-    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace test {
-/**
- * 
- */
-export class TbDataFromLua {
-    private _dataMap: Map<number, test.DemoType2>
-    private _dataList: test.DemoType2[]
-    
-    constructor(_buf_: ByteBuf) {
-        this._dataMap = new Map<number, test.DemoType2>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: test.DemoType2
-            _v = new test.DemoType2(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.x4, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoType2> { return this._dataMap }
-    getDataList(): test.DemoType2[] { return this._dataList }
-
-    get(key: number): test.DemoType2  { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-   
-export namespace test {
-/**
- * 
- */
 export class TbMultiRowRecord {
     private _dataMap: Map<number, test.MultiRowRecord>
     private _dataList: test.MultiRowRecord[]
@@ -6832,7 +4899,7 @@ export class TbMultiRowRecord {
     getDataMap(): Map<number, test.MultiRowRecord> { return this._dataMap }
     getDataList(): test.MultiRowRecord[] { return this._dataList }
 
-    get(key: number): test.MultiRowRecord  { return this._dataMap.get(key) }
+    get(key: number): test.MultiRowRecord | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -6849,55 +4916,34 @@ export class TbMultiRowRecord {
 
 
 export namespace test {
-/**
- * 
- */
 export  class MultiRowRecord  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
-        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
-        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
+        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
         { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_); this.multiRows3.add(_e);}}
-        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt();; let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
+        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
+        { this.multiRows5 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType3; _e = new test.MultiRowType3(_buf_); this.multiRows5.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly oneRows: test.MultiRowType1[]
-    /**
-     * 
-     */
     readonly multiRows1: test.MultiRowType1[]
-    /**
-     * 
-     */
     readonly multiRows2: test.MultiRowType1[]
-    /**
-     * 
-     */
     readonly multiRows3: Set<test.MultiRowType2>
-    /**
-     * 
-     */
     readonly multiRows4: Map<number, test.MultiRowType2>
+    readonly multiRows5: test.MultiRowType3[]
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
         for(let _e of this.multiRows1) { if (_e != null ) {_e.resolve(_tables);} }
         for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
         for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows5) { if (_e != null ) {_e.resolve(_tables);} }
     }
 }
 
@@ -6908,23 +4954,14 @@ export  class MultiRowRecord  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class MultiRowType1  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.x = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly x: number
 
     resolve(_tables: Map<string, any>) {
@@ -6938,28 +4975,16 @@ export  class MultiRowType1  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class MultiRowType2  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.x = _buf_.ReadInt();
-        this.y = _buf_.ReadFloat();
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadFloat()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly x: number
-    /**
-     * 
-     */
     readonly y: number
 
     resolve(_tables: Map<string, any>) {
@@ -6969,11 +4994,30 @@ export  class MultiRowType2  {
 }
 
 
+
+
+
+export namespace test {
+export  class MultiRowType3  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { this.items = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.items.push(_e) } }
+    }
+
+    readonly id: number
+    readonly items: test.MultiRowType1[]
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.items) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
    
 export namespace test {
-/**
- * 
- */
 export class TbMultiRowTitle {
     private _dataMap: Map<number, test.MultiRowTitle>
     private _dataList: test.MultiRowTitle[]
@@ -6993,7 +5037,7 @@ export class TbMultiRowTitle {
     getDataMap(): Map<number, test.MultiRowTitle> { return this._dataMap }
     getDataList(): test.MultiRowTitle[] { return this._dataList }
 
-    get(key: number): test.MultiRowTitle  { return this._dataMap.get(key) }
+    get(key: number): test.MultiRowTitle | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7010,38 +5054,20 @@ export class TbMultiRowTitle {
 
 
 export namespace test {
-/**
- * 
- */
 export  class MultiRowTitle  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.name = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
         this.x1 = new test.H1(_buf_)
-        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x2.push(_e) } }
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2; _e = new test.H2(_buf_); this.x2.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly name: string
-    /**
-     * 
-     */
     readonly x1: test.H1
-    /**
-     * 
-     */
     readonly x2: test.H2[]
-    /**
-     * 
-     */
     readonly x3: test.H2[]
 
     resolve(_tables: Map<string, any>) {
@@ -7058,23 +5084,14 @@ export  class MultiRowTitle  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class H1  {
 
     constructor(_buf_: ByteBuf) {
         this.y2 = new test.H2(_buf_)
-        this.y3 = _buf_.ReadInt();
+        this.y3 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly y2: test.H2
-    /**
-     * 
-     */
     readonly y3: number
 
     resolve(_tables: Map<string, any>) {
@@ -7089,23 +5106,14 @@ export  class H1  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class H2  {
 
     constructor(_buf_: ByteBuf) {
-        this.z2 = _buf_.ReadInt();
-        this.z3 = _buf_.ReadInt();
+        this.z2 = _buf_.ReadInt()
+        this.z3 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly z2: number
-    /**
-     * 
-     */
     readonly z3: number
 
     resolve(_tables: Map<string, any>) {
@@ -7117,9 +5125,6 @@ export  class H2  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbTestNull {
     private _dataMap: Map<number, test.TestNull>
     private _dataList: test.TestNull[]
@@ -7139,7 +5144,7 @@ export class TbTestNull {
     getDataMap(): Map<number, test.TestNull> { return this._dataMap }
     getDataList(): test.TestNull[] { return this._dataList }
 
-    get(key: number): test.TestNull  { return this._dataMap.get(key) }
+    get(key: number): test.TestNull | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7156,48 +5161,24 @@ export class TbTestNull {
 
 
 export namespace test {
-/**
- * 
- */
 export  class TestNull  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt(); } else { this.x1 = null }
-        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt(); } else { this.x2 = null }
-        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null }
-        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null }
-        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString(); } else { this.s1 = null }
-        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString(); } else { this.s2 = null }
+        this.id = _buf_.ReadInt()
+        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt() } else { this.x1 = undefined }
+        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt() } else { this.x2 = undefined }
+        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = undefined }
+        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = undefined }
+        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString() } else { this.s1 = undefined }
+        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString() } else { this.s2 = undefined }
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly x1?: number
-    /**
-     * 
-     */
     readonly x2?: test.DemoEnum
-    /**
-     * 
-     */
     readonly x3?: test.DemoType1
-    /**
-     * 
-     */
     readonly x4?: test.DemoDynamic
-    /**
-     * 
-     */
     readonly s1?: string
-    /**
-     * 
-     */
     readonly s2?: string
 
     resolve(_tables: Map<string, any>) {
@@ -7211,9 +5192,6 @@ export  class TestNull  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbDemoPrimitive {
     private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
     private _dataList: test.DemoPrimitiveTypesTable[]
@@ -7233,7 +5211,7 @@ export class TbDemoPrimitive {
     getDataMap(): Map<number, test.DemoPrimitiveTypesTable> { return this._dataMap }
     getDataList(): test.DemoPrimitiveTypesTable[] { return this._dataList }
 
-    get(key: number): test.DemoPrimitiveTypesTable  { return this._dataMap.get(key) }
+    get(key: number): test.DemoPrimitiveTypesTable | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7250,78 +5228,36 @@ export class TbDemoPrimitive {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoPrimitiveTypesTable  {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadBool();
-        this.x2 = _buf_.ReadByte();
-        this.x3 = _buf_.ReadShort();
-        this.x4 = _buf_.ReadInt();
-        this.x5 = _buf_.ReadLongAsNumber();
-        this.x6 = _buf_.ReadFloat();
-        this.x7 = _buf_.ReadDouble();
-        this.s1 = _buf_.ReadString();
-        this.s2 = _buf_.ReadString();
+        this.x1 = _buf_.ReadBool()
+        this.x2 = _buf_.ReadByte()
+        this.x3 = _buf_.ReadShort()
+        this.x4 = _buf_.ReadInt()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x7 = _buf_.ReadDouble()
+        this.s1 = _buf_.ReadString()
+        this.s2 = _buf_.ReadString()
         this.v2 = Vector2.deserializeFrom(_buf_)
         this.v3 = Vector3.deserializeFrom(_buf_)
         this.v4 = Vector4.deserializeFrom(_buf_)
-        this.t1 = _buf_.ReadInt();
+        this.t1 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly x1: boolean
-    /**
-     * 
-     */
     readonly x2: number
-    /**
-     * 
-     */
     readonly x3: number
-    /**
-     * 
-     */
     readonly x4: number
-    /**
-     * 
-     */
     readonly x5: number
-    /**
-     * 
-     */
     readonly x6: number
-    /**
-     * 
-     */
     readonly x7: number
-    /**
-     * 
-     */
     readonly s1: string
-    /**
-     * 
-     */
     readonly s2: string
-    /**
-     * 
-     */
     readonly v2: Vector2
-    /**
-     * 
-     */
     readonly v3: Vector3
-    /**
-     * 
-     */
     readonly v4: Vector4
-    /**
-     * 
-     */
     readonly t1: number
 
     resolve(_tables: Map<string, any>) {
@@ -7333,9 +5269,6 @@ export  class DemoPrimitiveTypesTable  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbTestString {
     private _dataMap: Map<number, test.TestString>
     private _dataList: test.TestString[]
@@ -7355,7 +5288,7 @@ export class TbTestString {
     getDataMap(): Map<number, test.TestString> { return this._dataMap }
     getDataList(): test.TestString[] { return this._dataList }
 
-    get(key: number): test.TestString  { return this._dataMap.get(key) }
+    get(key: number): test.TestString | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7372,33 +5305,18 @@ export class TbTestString {
 
 
 export namespace test {
-/**
- * 
- */
 export  class TestString  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.s1 = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.s1 = _buf_.ReadString()
         this.cs1 = new test.CompactString(_buf_)
         this.cs2 = new test.CompactString(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly s1: string
-    /**
-     * 
-     */
     readonly cs1: test.CompactString
-    /**
-     * 
-     */
     readonly cs2: test.CompactString
 
     resolve(_tables: Map<string, any>) {
@@ -7414,28 +5332,16 @@ export  class TestString  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class CompactString  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.s2 = _buf_.ReadString();
-        this.s3 = _buf_.ReadString();
+        this.id = _buf_.ReadInt()
+        this.s2 = _buf_.ReadString()
+        this.s3 = _buf_.ReadString()
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly s2: string
-    /**
-     * 
-     */
     readonly s3: string
 
     resolve(_tables: Map<string, any>) {
@@ -7447,9 +5353,6 @@ export  class CompactString  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbDemoGroup {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -7469,7 +5372,7 @@ export class TbDemoGroup {
     getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
     getDataList(): test.DemoGroup[] { return this._dataList }
 
-    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7486,43 +5389,22 @@ export class TbDemoGroup {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DemoGroup  {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt();
-        this.x1 = _buf_.ReadInt();
-        this.x2 = _buf_.ReadInt();
-        this.x3 = _buf_.ReadInt();
-        this.x4 = _buf_.ReadInt();
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadInt()
+        this.x3 = _buf_.ReadInt()
+        this.x4 = _buf_.ReadInt()
         this.x5 = new test.InnerGroup(_buf_)
     }
 
-    /**
-     * 
-     */
     readonly id: number
-    /**
-     * 
-     */
     readonly x1: number
-    /**
-     * 
-     */
     readonly x2: number
-    /**
-     * 
-     */
     readonly x3: number
-    /**
-     * 
-     */
     readonly x4: number
-    /**
-     * 
-     */
     readonly x5: test.InnerGroup
 
     resolve(_tables: Map<string, any>) {
@@ -7537,33 +5419,18 @@ export  class DemoGroup  {
 
 
 export namespace test {
-/**
- * 
- */
 export  class InnerGroup  {
 
     constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt();
-        this.y2 = _buf_.ReadInt();
-        this.y3 = _buf_.ReadInt();
-        this.y4 = _buf_.ReadInt();
+        this.y1 = _buf_.ReadInt()
+        this.y2 = _buf_.ReadInt()
+        this.y3 = _buf_.ReadInt()
+        this.y4 = _buf_.ReadInt()
     }
 
-    /**
-     * 
-     */
     readonly y1: number
-    /**
-     * 
-     */
     readonly y2: number
-    /**
-     * 
-     */
     readonly y3: number
-    /**
-     * 
-     */
     readonly y4: number
 
     resolve(_tables: Map<string, any>) {
@@ -7575,9 +5442,6 @@ export  class InnerGroup  {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbDemoGroup_C {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -7597,7 +5461,7 @@ export class TbDemoGroup_C {
     getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
     getDataList(): test.DemoGroup[] { return this._dataList }
 
-    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7612,9 +5476,6 @@ export class TbDemoGroup_C {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbDemoGroup_S {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -7634,7 +5495,7 @@ export class TbDemoGroup_S {
     getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
     getDataList(): test.DemoGroup[] { return this._dataList }
 
-    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7649,9 +5510,6 @@ export class TbDemoGroup_S {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbDemoGroup_E {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -7671,7 +5529,7 @@ export class TbDemoGroup_E {
     getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
     getDataList(): test.DemoGroup[] { return this._dataList }
 
-    get(key: number): test.DemoGroup  { return this._dataMap.get(key) }
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key) }
 
     resolve(_tables: Map<string, any>) {
         for(var v of this._dataList) {
@@ -7686,9 +5544,6 @@ export class TbDemoGroup_E {
 
    
 export namespace test {
-/**
- * 
- */
 export class TbTestGlobal {
 
      private _data: test.TestGlobal
@@ -7700,14 +5555,210 @@ export class TbTestGlobal {
 
     getData(): test.TestGlobal { return this._data }
 
+     get unlockEquip(): number { return this._data.unlockEquip }
+     get unlockHero(): number { return this._data.unlockHero }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+
+
+export namespace test {
+export  class TestGlobal  {
+
+    constructor(_buf_: ByteBuf) {
+        this.unlockEquip = _buf_.ReadInt()
+        this.unlockHero = _buf_.ReadInt()
+    }
+
+    readonly unlockEquip: number
+    readonly unlockHero: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDetectCsvEncoding {
+    private _dataMap: Map<number, test.DetectEncoding>
+    private _dataList: test.DetectEncoding[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DetectEncoding>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DetectEncoding
+            _v = new test.DetectEncoding(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DetectEncoding> { return this._dataMap }
+    getDataList(): test.DetectEncoding[] { return this._dataList }
+
+    get(key: number): test.DetectEncoding | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+export  class DetectEncoding  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly name: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDefineFromExcel {
+    private _dataMap: Map<number, test.DefineFromExcel>
+    private _dataList: test.DefineFromExcel[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DefineFromExcel>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DefineFromExcel
+            _v = new test.DefineFromExcel(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DefineFromExcel> { return this._dataMap }
+    getDataList(): test.DefineFromExcel[] { return this._dataList }
+
+    get(key: number): test.DefineFromExcel | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+/**
+ * 
+ */
+export  class DefineFromExcel  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x8 = _buf_.ReadInt()
+        this.x10 = _buf_.ReadString()
+        this.x13 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.v2 = Vector2.deserializeFrom(_buf_)
+        this.t1 = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
+        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
+    }
+
     /**
-     * 
+     * id的描述
+     */
+    readonly id: number
+    /**
+     * 字段的描述
+     */
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly x8: number
+    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
+    readonly x10: string
+    readonly x13: test.ETestQuality
+    readonly x14: test.DemoDynamic
+    readonly v2: Vector2
+    readonly t1: number
+    readonly k1: Int32Array
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+
+    resolve(_tables: Map<string, any>) {
+        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDefineFromExcelOne {
+
+     private _data: test.DefineFromExcelOne
+
+    constructor(_buf_: ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.DefineFromExcelOne(_buf_)
+    }
+
+    getData(): test.DefineFromExcelOne { return this._data }
+
+    /**
+     * 装备解锁等级_描述
      */
      get unlockEquip(): number { return this._data.unlockEquip }
     /**
-     * 
+     * 英雄解锁等级
      */
      get unlockHero(): number { return this._data.unlockHero }
+    /**
+     * 默认头像
+     */
+     get defaultAvatar(): string { return this._data.defaultAvatar }
+     get defaultItem(): string { return this._data.defaultItem }
 
     resolve(_tables: Map<string, any>) {
         this._data.resolve(_tables)
@@ -7725,21 +5776,344 @@ export namespace test {
 /**
  * 
  */
-export  class TestGlobal  {
+export  class DefineFromExcelOne  {
 
     constructor(_buf_: ByteBuf) {
-        this.unlockEquip = _buf_.ReadInt();
-        this.unlockHero = _buf_.ReadInt();
+        this.unlockEquip = _buf_.ReadInt()
+        this.unlockHero = _buf_.ReadInt()
+        this.defaultAvatar = _buf_.ReadString()
+        this.defaultItem = _buf_.ReadString()
     }
 
     /**
-     * 
+     * 装备解锁等级_描述
      */
     readonly unlockEquip: number
     /**
-     * 
+     * 英雄解锁等级
      */
     readonly unlockHero: number
+    /**
+     * 默认头像
+     */
+    readonly defaultAvatar: string
+    readonly defaultItem: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbTestJson2 {
+    private _dataMap: Map<number, test.TestJson2>
+    private _dataList: test.TestJson2[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestJson2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestJson2
+            _v = new test.TestJson2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestJson2> { return this._dataMap }
+    getDataList(): test.TestJson2[] { return this._dataList }
+
+    get(key: number): test.TestJson2 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+export  class TestJson2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { this.m1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.m1.set(_k, _v);  } }
+        { this.m2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadLongAsNumber(); let _v:number; _v = _buf_.ReadInt(); this.m2.set(_k, _v);  } }
+        { this.m3 = new Map<string, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:string; _k = _buf_.ReadString(); let _v:number; _v = _buf_.ReadInt(); this.m3.set(_k, _v);  } }
+        { this.m4 = new Map<string, test.DemoType1>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:string; _k = _buf_.ReadString(); let _v:test.DemoType1; _v = new test.DemoType1(_buf_); this.m4.set(_k, _v);  } }
+    }
+
+    readonly id: number
+    readonly m1: Map<number, number>
+    readonly m2: Map<number, number>
+    readonly m3: Map<string, number>
+    readonly m4: Map<string, test.DemoType1>
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.m4.values()) { if (_e != null) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbTestIndex {
+    private _dataMap: Map<number, test.TestIndex>
+    private _dataList: test.TestIndex[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestIndex>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestIndex
+            _v = new test.TestIndex(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestIndex> { return this._dataMap }
+    getDataList(): test.TestIndex[] { return this._dataList }
+
+    get(key: number): test.TestIndex | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+export  class TestIndex  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { this.eles = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoType1; _e = new test.DemoType1(_buf_); this.eles.push(_e) } }
+    }
+
+    readonly id: number
+    readonly eles: test.DemoType1[]
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.eles) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbDemoGroupDefineFromExcel {
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap }
+    getDataList(): test.DemoGroup[] { return this._dataList }
+
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+   
+export namespace test {
+export class TbDefineFromExcel2 {
+    private _dataMap: Map<number, test.DefineFromExcel2>
+    private _dataList: test.DefineFromExcel2[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.DefineFromExcel2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.DefineFromExcel2
+            _v = new test.DefineFromExcel2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DefineFromExcel2> { return this._dataMap }
+    getDataList(): test.DefineFromExcel2[] { return this._dataList }
+
+    get(key: number): test.DefineFromExcel2 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+/**
+ * 
+ */
+export  class DefineFromExcel2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x8 = _buf_.ReadInt()
+        this.x10 = _buf_.ReadString()
+        this.x13 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.v2 = Vector2.deserializeFrom(_buf_)
+        this.t1 = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
+        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
+    }
+
+    /**
+     * id的描述
+     */
+    readonly id: number
+    /**
+     * 字段的描述
+     */
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly x8: number
+    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
+    readonly x10: string
+    readonly x13: test.ETestQuality
+    readonly x14: test.DemoDynamic
+    readonly v2: Vector2
+    readonly t1: number
+    readonly k1: Int32Array
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+
+    resolve(_tables: Map<string, any>) {
+        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+   
+export namespace test {
+export class TbTestExcelBean {
+    private _dataMap: Map<number, test.TestExcelBean1>
+    private _dataList: test.TestExcelBean1[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestExcelBean1>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestExcelBean1
+            _v = new test.TestExcelBean1(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x1, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestExcelBean1> { return this._dataMap }
+    getDataList(): test.TestExcelBean1[] { return this._dataList }
+
+    get(key: number): test.TestExcelBean1 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+
+export namespace test {
+/**
+ * 这是个测试excel结构
+ */
+export  class TestExcelBean1  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x1 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadString()
+        this.x3 = _buf_.ReadInt()
+        this.x4 = _buf_.ReadFloat()
+    }
+
+    /**
+     * 最高品质
+     */
+    readonly x1: number
+    /**
+     * 黑色的
+     */
+    readonly x2: string
+    /**
+     * 蓝色的
+     */
+    readonly x3: number
+    /**
+     * 最差品质
+     */
+    readonly x4: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -7754,44 +6128,20 @@ type ByteBufLoader = (file: string) => ByteBuf
 
 export class Tables {
     private _TbBlackboard: ai.TbBlackboard
-    /**
-     * 
-     */
     get TbBlackboard(): ai.TbBlackboard  { return this._TbBlackboard}
     private _TbBehaviorTree: ai.TbBehaviorTree
-    /**
-     * 
-     */
     get TbBehaviorTree(): ai.TbBehaviorTree  { return this._TbBehaviorTree}
     private _TbClazz: blueprint.TbClazz
-    /**
-     * 
-     */
     get TbClazz(): blueprint.TbClazz  { return this._TbClazz}
     private _TbDrop: bonus.TbDrop
-    /**
-     * 
-     */
     get TbDrop(): bonus.TbDrop  { return this._TbDrop}
     private _TbGlobalConfig: common.TbGlobalConfig
-    /**
-     * 
-     */
     get TbGlobalConfig(): common.TbGlobalConfig  { return this._TbGlobalConfig}
     private _TbDummy: common.TbDummy
-    /**
-     * 
-     */
     get TbDummy(): common.TbDummy  { return this._TbDummy}
     private _TbErrorInfo: error.TbErrorInfo
-    /**
-     * 
-     */
     get TbErrorInfo(): error.TbErrorInfo  { return this._TbErrorInfo}
     private _TbCodeInfo: error.TbCodeInfo
-    /**
-     * 
-     */
     get TbCodeInfo(): error.TbCodeInfo  { return this._TbCodeInfo}
     private _TbItem: item.TbItem
     /**
@@ -7799,125 +6149,65 @@ export class Tables {
      */
     get TbItem(): item.TbItem  { return this._TbItem}
     private _TbItemFunc: item.TbItemFunc
-    /**
-     * 
-     */
     get TbItemFunc(): item.TbItemFunc  { return this._TbItemFunc}
     private _TbItemExtra: item.TbItemExtra
-    /**
-     * 
-     */
     get TbItemExtra(): item.TbItemExtra  { return this._TbItemExtra}
     private _TbL10NDemo: l10n.TbL10NDemo
-    /**
-     * 
-     */
     get TbL10NDemo(): l10n.TbL10NDemo  { return this._TbL10NDemo}
     private _TbPatchDemo: l10n.TbPatchDemo
-    /**
-     * 
-     */
     get TbPatchDemo(): l10n.TbPatchDemo  { return this._TbPatchDemo}
     private _TbSystemMail: mail.TbSystemMail
-    /**
-     * 
-     */
     get TbSystemMail(): mail.TbSystemMail  { return this._TbSystemMail}
     private _TbGlobalMail: mail.TbGlobalMail
-    /**
-     * 
-     */
     get TbGlobalMail(): mail.TbGlobalMail  { return this._TbGlobalMail}
     private _TbRoleLevelExpAttr: role.TbRoleLevelExpAttr
-    /**
-     * 
-     */
     get TbRoleLevelExpAttr(): role.TbRoleLevelExpAttr  { return this._TbRoleLevelExpAttr}
     private _TbRoleLevelBonusCoefficient: role.TbRoleLevelBonusCoefficient
-    /**
-     * 
-     */
     get TbRoleLevelBonusCoefficient(): role.TbRoleLevelBonusCoefficient  { return this._TbRoleLevelBonusCoefficient}
     private _TbTestTag: tag.TbTestTag
-    /**
-     * 
-     */
     get TbTestTag(): tag.TbTestTag  { return this._TbTestTag}
     private _TbFullTypes: test.TbFullTypes
-    /**
-     * 
-     */
     get TbFullTypes(): test.TbFullTypes  { return this._TbFullTypes}
     private _TbSingleton: test.TbSingleton
-    /**
-     * 
-     */
     get TbSingleton(): test.TbSingleton  { return this._TbSingleton}
-    private _TbDataFromJson: test.TbDataFromJson
-    /**
-     * 
-     */
-    get TbDataFromJson(): test.TbDataFromJson  { return this._TbDataFromJson}
-    private _TbDataFromXml: test.TbDataFromXml
-    /**
-     * 
-     */
-    get TbDataFromXml(): test.TbDataFromXml  { return this._TbDataFromXml}
-    private _TbDataFromLua: test.TbDataFromLua
-    /**
-     * 
-     */
-    get TbDataFromLua(): test.TbDataFromLua  { return this._TbDataFromLua}
+    private _TbDataFromMisc: test.TbDataFromMisc
+    get TbDataFromMisc(): test.TbDataFromMisc  { return this._TbDataFromMisc}
     private _TbMultiRowRecord: test.TbMultiRowRecord
-    /**
-     * 
-     */
     get TbMultiRowRecord(): test.TbMultiRowRecord  { return this._TbMultiRowRecord}
     private _TbMultiRowTitle: test.TbMultiRowTitle
-    /**
-     * 
-     */
     get TbMultiRowTitle(): test.TbMultiRowTitle  { return this._TbMultiRowTitle}
     private _TbTestNull: test.TbTestNull
-    /**
-     * 
-     */
     get TbTestNull(): test.TbTestNull  { return this._TbTestNull}
     private _TbDemoPrimitive: test.TbDemoPrimitive
-    /**
-     * 
-     */
     get TbDemoPrimitive(): test.TbDemoPrimitive  { return this._TbDemoPrimitive}
     private _TbTestString: test.TbTestString
-    /**
-     * 
-     */
     get TbTestString(): test.TbTestString  { return this._TbTestString}
     private _TbDemoGroup: test.TbDemoGroup
-    /**
-     * 
-     */
     get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup}
     private _TbDemoGroup_C: test.TbDemoGroup_C
-    /**
-     * 
-     */
     get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C}
     private _TbDemoGroup_S: test.TbDemoGroup_S
-    /**
-     * 
-     */
     get TbDemoGroup_S(): test.TbDemoGroup_S  { return this._TbDemoGroup_S}
     private _TbDemoGroup_E: test.TbDemoGroup_E
-    /**
-     * 
-     */
     get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E}
     private _TbTestGlobal: test.TbTestGlobal
-    /**
-     * 
-     */
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal}
+    private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
+    get TbDetectCsvEncoding(): test.TbDetectCsvEncoding  { return this._TbDetectCsvEncoding}
+    private _TbDefineFromExcel: test.TbDefineFromExcel
+    get TbDefineFromExcel(): test.TbDefineFromExcel  { return this._TbDefineFromExcel}
+    private _TbDefineFromExcelOne: test.TbDefineFromExcelOne
+    get TbDefineFromExcelOne(): test.TbDefineFromExcelOne  { return this._TbDefineFromExcelOne}
+    private _TbTestJson2: test.TbTestJson2
+    get TbTestJson2(): test.TbTestJson2  { return this._TbTestJson2}
+    private _TbTestIndex: test.TbTestIndex
+    get TbTestIndex(): test.TbTestIndex  { return this._TbTestIndex}
+    private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
+    get TbDemoGroupDefineFromExcel(): test.TbDemoGroupDefineFromExcel  { return this._TbDemoGroupDefineFromExcel}
+    private _TbDefineFromExcel2: test.TbDefineFromExcel2
+    get TbDefineFromExcel2(): test.TbDefineFromExcel2  { return this._TbDefineFromExcel2}
+    private _TbTestExcelBean: test.TbTestExcelBean
+    get TbTestExcelBean(): test.TbTestExcelBean  { return this._TbTestExcelBean}
 
     constructor(loader: ByteBufLoader) {
         let tables = new Map<string, any>()
@@ -7961,12 +6251,8 @@ export class Tables {
         tables.set('test.TbFullTypes', this._TbFullTypes)
         this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton')) 
         tables.set('test.TbSingleton', this._TbSingleton)
-        this._TbDataFromJson = new test.TbDataFromJson(loader('test.TbDataFromJson')) 
-        tables.set('test.TbDataFromJson', this._TbDataFromJson)
-        this._TbDataFromXml = new test.TbDataFromXml(loader('test.TbDataFromXml')) 
-        tables.set('test.TbDataFromXml', this._TbDataFromXml)
-        this._TbDataFromLua = new test.TbDataFromLua(loader('test.TbDataFromLua')) 
-        tables.set('test.TbDataFromLua', this._TbDataFromLua)
+        this._TbDataFromMisc = new test.TbDataFromMisc(loader('test.TbDataFromMisc')) 
+        tables.set('test.TbDataFromMisc', this._TbDataFromMisc)
         this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord')) 
         tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord)
         this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle')) 
@@ -7987,6 +6273,22 @@ export class Tables {
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
         this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal')) 
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
+        this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding')) 
+        tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
+        this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test.TbDefineFromExcel')) 
+        tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel)
+        this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne')) 
+        tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne)
+        this._TbTestJson2 = new test.TbTestJson2(loader('test.TbTestJson2')) 
+        tables.set('test.TbTestJson2', this._TbTestJson2)
+        this._TbTestIndex = new test.TbTestIndex(loader('test.TbTestIndex')) 
+        tables.set('test.TbTestIndex', this._TbTestIndex)
+        this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel')) 
+        tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
+        this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test.TbDefineFromExcel2')) 
+        tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2)
+        this._TbTestExcelBean = new test.TbTestExcelBean(loader('test.TbTestExcelBean')) 
+        tables.set('test.TbTestExcelBean', this._TbTestExcelBean)
 
         this._TbBlackboard.resolve(tables) 
         this._TbBehaviorTree.resolve(tables) 
@@ -8008,9 +6310,7 @@ export class Tables {
         this._TbTestTag.resolve(tables) 
         this._TbFullTypes.resolve(tables) 
         this._TbSingleton.resolve(tables) 
-        this._TbDataFromJson.resolve(tables) 
-        this._TbDataFromXml.resolve(tables) 
-        this._TbDataFromLua.resolve(tables) 
+        this._TbDataFromMisc.resolve(tables) 
         this._TbMultiRowRecord.resolve(tables) 
         this._TbMultiRowTitle.resolve(tables) 
         this._TbTestNull.resolve(tables) 
@@ -8021,6 +6321,14 @@ export class Tables {
         this._TbDemoGroup_S.resolve(tables) 
         this._TbDemoGroup_E.resolve(tables) 
         this._TbTestGlobal.resolve(tables) 
+        this._TbDetectCsvEncoding.resolve(tables) 
+        this._TbDefineFromExcel.resolve(tables) 
+        this._TbDefineFromExcelOne.resolve(tables) 
+        this._TbTestJson2.resolve(tables) 
+        this._TbTestIndex.resolve(tables) 
+        this._TbDemoGroupDefineFromExcel.resolve(tables) 
+        this._TbDefineFromExcel2.resolve(tables) 
+        this._TbTestExcelBean.resolve(tables) 
     }
 }
 

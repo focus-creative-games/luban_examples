@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class KeepFaceTarget extends  cfg.ai.Service 
 {
     public KeepFaceTarget(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class KeepFaceTarget extends  cfg.ai.Service
         return new KeepFaceTarget(_buf);
     }
 
-    /**
-     * 
-     */
     public final String targetActorKey;
 
     public static final int ID = 1195270745;

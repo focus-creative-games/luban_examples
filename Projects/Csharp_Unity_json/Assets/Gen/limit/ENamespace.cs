@@ -9,22 +9,10 @@
 
 namespace cfg.limit
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum ENamespace
     {
-        /// <summary>
-        /// 
-        /// </summary>
         ITEM_DAILY_OBTAIN = 1,
-        /// <summary>
-        /// 
-        /// </summary>
         TREASURE_DAILY_USE = 2,
-        /// <summary>
-        /// 
-        /// </summary>
         STORE_GOODS_LIMIT_BUY = 3,
     }
 }

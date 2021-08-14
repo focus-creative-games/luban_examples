@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.common
 {
-   
+
 public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(ByteBuf _buf) 
@@ -72,6 +72,9 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
         return new common.GlobalConfig(_buf);
     }
 
+    /// <summary>
+    /// 背包容量
+    /// </summary>
     public readonly int BagCapacity;
     public readonly int BagCapacitySpecial;
     public readonly int BagTempExpendableCapacity;

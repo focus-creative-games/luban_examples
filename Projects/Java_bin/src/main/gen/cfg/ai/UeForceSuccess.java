@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class UeForceSuccess extends  cfg.ai.Decorator 
 {
     public UeForceSuccess(ByteBuf _buf)

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.condition
 {
-   
+
 public sealed partial class MinLevel :  condition.BoolRoleCondition 
 {
     public MinLevel(ByteBuf _buf)  : base(_buf) 

@@ -28,7 +28,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         X6 = _buf.ReadFloat();
         X8 = _buf.ReadInt();
         X10 = _buf.ReadString();
-        X13 = (test.DemoEnum)_buf.ReadInt();
+        X13 = (test.ETestQuality)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         V2 = _buf.ReadVector2();
         T1 = _buf.ReadInt();
@@ -37,7 +37,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
     }
 
-    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.DemoEnum x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -67,50 +67,17 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     /// 字段的描述
     /// </summary>
     public readonly bool X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float X6;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X8;
     public test.DemoPrimitiveTypesTable X8_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string X10;
-    /// <summary>
-    /// 
-    /// </summary>
-    public readonly test.DemoEnum X13;
-    /// <summary>
-    /// 
-    /// </summary>
+    public readonly test.ETestQuality X13;
     public readonly test.DemoDynamic X14;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector2 V2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int T1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int[] K1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
 
     public const int ID = 2100429878;

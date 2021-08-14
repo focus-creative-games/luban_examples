@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbRoleLevelBonusCoefficient
 {
     private readonly Dictionary<int, role.LevelBonus> _dataMap;

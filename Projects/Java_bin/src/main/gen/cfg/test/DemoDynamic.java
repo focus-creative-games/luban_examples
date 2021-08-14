@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class DemoDynamic extends  bright.serialization.AbstractBean 
 {
     public DemoDynamic(ByteBuf _buf)
@@ -39,9 +36,6 @@ public abstract class DemoDynamic extends  bright.serialization.AbstractBean
         }
     }
 
-    /**
-     * 
-     */
     public final int x1;
 
 

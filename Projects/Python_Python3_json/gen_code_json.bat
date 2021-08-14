@@ -6,8 +6,8 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 %GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_code_dir Gen ^
- --output_data_dir config_data ^
+ --output_code_dir gen ^
+ --output_data_dir ..\GenerateDatas\json ^
  --gen_types code_python3_json,data_json ^
  -s all ^
 --export_test_data

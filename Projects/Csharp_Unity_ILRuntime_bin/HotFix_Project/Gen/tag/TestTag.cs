@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.tag
 {
-   
+
 public sealed partial class TestTag :  Bright.Config.BeanBase 
 {
     public TestTag(ByteBuf _buf) 

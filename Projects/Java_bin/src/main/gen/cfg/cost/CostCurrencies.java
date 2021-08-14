@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class CostCurrencies extends  cfg.cost.Cost 
 {
     public CostCurrencies(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class CostCurrencies extends  cfg.cost.Cost
         return new CostCurrencies(_buf);
     }
 
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.cost.CostCurrency> currencies;
 
     public static final int ID = 103084157;

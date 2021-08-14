@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class Sequence extends  cfg.ai.ComposeNode 
 {
     public Sequence(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class Sequence extends  cfg.ai.ComposeNode
         return new Sequence(_buf);
     }
 
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.ai.FlowNode> children;
 
     public static final int ID = -1789006105;

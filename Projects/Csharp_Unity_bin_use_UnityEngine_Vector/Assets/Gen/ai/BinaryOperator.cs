@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
@@ -37,13 +34,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         return new ai.BinaryOperator(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.EOperator Oper;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.KeyData Data;
 
     public const int ID = -979891605;

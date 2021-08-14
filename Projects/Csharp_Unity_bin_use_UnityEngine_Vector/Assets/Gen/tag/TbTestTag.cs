@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.tag
 {
    
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbTestTag
 {
     private readonly Dictionary<int, tag.TestTag> _dataMap;

@@ -295,3 +295,4 @@ gradle/
 /Tools/build_luban_client.bat
 /Tools/build_luban_server.bat
 /Projects/TypeScript_NodeJs_Bin/dist
+!/Projects/GenerateDatas/bin

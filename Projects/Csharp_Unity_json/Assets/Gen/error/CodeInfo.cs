@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(JSONNode _json) 
@@ -38,13 +35,7 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
         return new error.CodeInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly error.EErrorCode Code;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Key;
 
     public const int ID = -1942481535;

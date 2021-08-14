@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbDefineFromExcelOne
 {
 
@@ -46,9 +43,6 @@ public sealed partial class TbDefineFromExcelOne
     /// 默认头像
     /// </summary>
      public string DefaultAvatar => _data.DefaultAvatar;
-    /// <summary>
-    /// 
-    /// </summary>
      public string DefaultItem => _data.DefaultItem;
 
     public void Resolve(Dictionary<string, object> _tables)

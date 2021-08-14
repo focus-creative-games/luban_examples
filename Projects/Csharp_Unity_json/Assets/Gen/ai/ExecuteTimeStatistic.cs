@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ExecuteTimeStatistic :  ai.Service 
 {
     public ExecuteTimeStatistic(JSONNode _json)  : base(_json) 

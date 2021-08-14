@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class BlueprintMethod extends  cfg.blueprint.Method 
 {
     public BlueprintMethod(ByteBuf _buf)

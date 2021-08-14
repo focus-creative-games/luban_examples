@@ -26,6 +26,9 @@ public sealed partial class TbGlobalConfig
     }
 
 
+    /// <summary>
+    /// 背包容量
+    /// </summary>
      public int BagCapacity => _data.BagCapacity;
      public int BagCapacitySpecial => _data.BagCapacitySpecial;
      public int BagTempExpendableCapacity => _data.BagTempExpendableCapacity;

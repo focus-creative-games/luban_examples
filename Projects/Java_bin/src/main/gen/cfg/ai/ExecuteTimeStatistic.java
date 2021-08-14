@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class ExecuteTimeStatistic extends  cfg.ai.Service 
 {
     public ExecuteTimeStatistic(ByteBuf _buf)

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public abstract partial class Method :  Bright.Config.BeanBase 
 {
     public Method(ByteBuf _buf) 

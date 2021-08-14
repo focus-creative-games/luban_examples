@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-/// <summary>
-/// TbDemoGroupDefineFromExcel
-/// </summary>
 public sealed partial class TbDemoGroupDefineFromExcel
 {
     private readonly Dictionary<int, test.DemoGroup> _dataMap;

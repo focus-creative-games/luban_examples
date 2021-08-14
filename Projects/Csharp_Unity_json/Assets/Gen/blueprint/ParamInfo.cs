@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
     public ParamInfo(JSONNode _json) 
@@ -40,17 +37,8 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         return new blueprint.ParamInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool IsRef;
 
     public const int ID = -729799392;

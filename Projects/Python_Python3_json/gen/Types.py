@@ -7,6 +7,7 @@
   </auto-generated>
 '''
 
+
 from enum import Enum
 import abc
 
@@ -64,6 +65,20 @@ class Vector4:
 
 
 
+class role_Consts:
+    MAX_NAME_LENGTH = 20
+    MAX_USER_ROLE_NUM = 10
+
+
+
+class test_DemoConst:
+    x1 = 0
+    x2 = 3242
+    x3 = 444.3
+    x4 = 55.3
+
+
+
 class ai_EExecutor(Enum):
     CLIENT = 0
     SERVER = 1
@@ -116,7 +131,13 @@ class common_EBoolOperator(Enum):
 
 
 class error_EOperation(Enum):
+    '''
+    登出
+    '''
     LOGOUT = 0
+    '''
+    重启
+    '''
     RESTART = 1
 
 
@@ -208,137 +229,452 @@ class error_EErrorCode(Enum):
     SELFIE_HAD_REWARD = 1203
 
 
+'''
+道具品质
+'''
 class item_EItemQuality(Enum):
+    '''
+    白
+    '''
     WHITE = 0
+    '''
+    绿
+    '''
     GREEN = 1
+    '''
+    蓝
+    '''
     BLUE = 2
+    '''
+    紫
+    '''
     PURPLE = 3
+    '''
+    金
+    '''
     GOLDEN = 4
 
 
 class item_ECurrencyType(Enum):
+    '''
+    钻石
+    '''
     DIAMOND = 1
+    '''
+    金币
+    '''
     GOLD = 2
+    '''
+    银币
+    '''
     SILVER = 3
+    '''
+    经验
+    '''
     EXP = 4
+    '''
+    能量点
+    '''
     POWER_POINT = 5
 
 
 class item_EMajorType(Enum):
+    '''
+    货币
+    '''
     CURRENCY = 1
+    '''
+    服装
+    '''
     CLOTH = 2
+    '''
+    任务
+    '''
     QUEST = 3
+    '''
+    消耗品
+    '''
     CONSUMABLES = 4
+    '''
+    宝箱
+    '''
     TREASURE_BOX = 5
+    '''
+    成就和称谓
+    '''
     ACHIEVEMENT_AND_TITLE = 6
+    '''
+    头像框
+    '''
     HEAD_FRAME = 7
+    '''
+    语音
+    '''
     VOICE = 8
+    '''
+    动作
+    '''
     ACTION = 9
+    '''
+    扩容道具
+    '''
     EXPANSION = 10
+    '''
+    制作材料
+    '''
     MATERIAL = 11
 
 
 class item_EMinorType(Enum):
+    '''
+    钻石
+    '''
     DIAMOND = 101
+    '''
+    金币
+    '''
     GOLD = 102
+    '''
+    银币
+    '''
     SILVER = 103
+    '''
+    经验
+    '''
     EXP = 104
+    '''
+    能量点
+    '''
     POWER_POINT = 105
+    '''
+    发型
+    '''
     HAIR_STYLE = 210
+    '''
+    外套
+    '''
     COAT = 220
+    '''
+    上衣
+    '''
     UPPER_JACKET = 230
+    '''
+    裤子
+    '''
     TROUSERS = 241
+    '''
+    裙子
+    '''
     SKIRT = 242
+    '''
+    袜子
+    '''
     SOCKS = 250
+    '''
+    鞋子
+    '''
     SHOES = 260
+    '''
+    发饰
+    '''
     HAIR_ACCESSORY = 271
+    '''
+    帽子
+    '''
     HAT = 272
+    '''
+    耳饰
+    '''
     EARRING = 273
+    '''
+    颈饰
+    '''
     NECKLACE = 274
+    '''
+    腕饰
+    '''
     BRACELET = 275
+    '''
+    发箍
+    '''
     HAIR_CLASP = 276
+    '''
+    手套
+    '''
     GLOVE = 277
+    '''
+    手持物
+    '''
     HANDHELD_OBJECT = 278
+    '''
+    特殊
+    '''
     SPECIAL = 279
+    '''
+    底妆
+    '''
     BASE_COSMETIC = 281
+    '''
+    眉妆
+    '''
     EYEBROW_COSMETIC = 282
+    '''
+    睫毛
+    '''
     EYELASH = 283
+    '''
+    美瞳
+    '''
     COSMETIC_CONTACT_LENSES = 284
+    '''
+    唇妆
+    '''
     LIP_COSMETIC = 285
+    '''
+    肤色
+    '''
     SKIN_COLOR = 286
+    '''
+    连衣裙
+    '''
     ONE_PIECE_DRESS = 290
+    '''
+    换装场景
+    '''
     SWITCH_CLOTHES_SCENE = 291
+    '''
+    任务道具
+    '''
     QUEST = 301
+    '''
+    投掷物
+    '''
     CAST = 401
+    '''
+    刀剑
+    '''
     SWORD = 421
+    '''
+    弓箭
+    '''
     BOW_ARROW = 422
+    '''
+    法杖
+    '''
     WANDS = 423
+    '''
+    特殊工具
+    '''
     SPECIAL_TOOL = 424
+    '''
+    食物
+    '''
     FOOD = 403
+    '''
+    宝箱
+    '''
     TREASURE_BOX = 501
+    '''
+    钥匙
+    '''
     KEY = 502
+    '''
+    多选一宝箱
+    '''
     MULTI_CHOOSE_TREASURE_BOX = 503
+    '''
+    成就相关
+    '''
     ACHIEVEMENT = 601
+    '''
+    称谓相关
+    '''
     TITLE = 602
+    '''
+    头像框
+    '''
     AVATAR_FRAME = 701
+    '''
+    语音
+    '''
     VOICE = 801
+    '''
+    特殊待机动作
+    '''
     IDLE_POSE = 901
+    '''
+    拍照动作
+    '''
     PHOTO_POSE = 902
+    '''
+    背包
+    '''
     BAG = 1001
+    '''
+    好友数量
+    '''
     FRIEND_CAPACITY = 1002
+    '''
+    制作材料
+    '''
     CONSTRUCTION_MATERIAL = 1101
+    '''
+    设计图纸
+    '''
     DESIGN_DRAWING = 1102
 
 
 class item_EClothersStarQualityType(Enum):
+    '''
+    一星
+    '''
     ONE = 1
+    '''
+    二星
+    '''
     TWO = 2
+    '''
+    三星
+    '''
     THREE = 3
+    '''
+    四星
+    '''
     FOUR = 4
+    '''
+    五星
+    '''
     FIVE = 5
+    '''
+    六星
+    '''
     SIX = 6
+    '''
+    七星
+    '''
     SEVEN = 7
+    '''
+    八星
+    '''
     EIGHT = 8
+    '''
+    九星
+    '''
     NINE = 9
+    '''
+    十星
+    '''
     TEN = 10
 
 
 class item_EClothersTag(Enum):
+    '''
+    防晒
+    '''
     FANG_SHAI = 1
+    '''
+    舞者
+    '''
     WU_ZHE = 2
 
 
 class item_EUseType(Enum):
+    '''
+    手动
+    '''
     MANUAL = 0
+    '''
+    自动
+    '''
     AUTO = 1
 
 
 class item_EClothesHidePartType(Enum):
+    '''
+    胸部
+    '''
     CHEST = 0
+    '''
+    手
+    '''
     HEAD = 1
+    '''
+    脊柱上
+    '''
     SPINE_UPPER = 2
+    '''
+    脊柱下
+    '''
     SPINE_LOWER = 3
+    '''
+    臀部
+    '''
     HIP = 4
+    '''
+    腿上
+    '''
     LEG_UPPER = 5
+    '''
+    腿中
+    '''
     LEG_MIDDLE = 6
+    '''
+    腿下
+    '''
     LEG_LOWER = 7
 
 
 class item_EClothesPropertyType(Enum):
+    '''
+    简约
+    '''
     JIAN_YUE = 1
+    '''
+    华丽
+    '''
     HUA_LI = 2
+    '''
+    可爱
+    '''
     KE_AI = 3
+    '''
+    成熟
+    '''
     CHENG_SHU = 4
+    '''
+    活泼
+    '''
     HUO_PO = 5
+    '''
+    优雅
+    '''
     YOU_YA = 6
+    '''
+    清纯
+    '''
     QING_CHUN = 7
+    '''
+    性感
+    '''
     XING_GAN = 8
+    '''
+    清凉
+    '''
     QING_LIANG = 9
+    '''
+    保暖
+    '''
     BAO_NUAN = 10
 
 
 class item_EItemFunctionType(Enum):
+    '''
+    更换手持物
+    '''
     REPLACE_HANDHELD = 0
+    '''
+    使用设计图纸
+    '''
     USE_DESIGN_DRAWING = 1
 
 
@@ -349,12 +685,24 @@ class limit_ENamespace(Enum):
 
 
 class mail_EMailType(Enum):
+    '''
+    全局邮件
+    '''
     GLOBAL = 0
+    '''
+    系统邮件
+    '''
     SYSTEM = 1
 
 
 class role_EGenderType(Enum):
+    '''
+    男
+    '''
     MALE = 1
+    '''
+    女
+    '''
     FEMALE = 2
 
 
@@ -363,13 +711,28 @@ class role_EProfession(Enum):
 
 
 class test_DemoEnum(Enum):
+    '''
+    aa
+    '''
     A = 1
+    '''
+    bb
+    '''
     B = 2
+    '''
+    cc
+    '''
     C = 4
+    '''
+    dd
+    '''
     D = 5
 
 
 class test_ETestUeType(Enum):
+    '''
+    白
+    '''
     WHITE = 0
     BLACK = 1
 
@@ -384,19 +747,53 @@ class test_ETestEmptyEnum2(Enum):
     X_257 = 257
 
 
+class test_ETestQuality(Enum):
+    '''
+    最高品质
+    '''
+    A = 1
+    '''
+    黑色的
+    '''
+    B = 2
+    '''
+    蓝色的
+    '''
+    C = 3
+    '''
+    最差品质
+    '''
+    D = 4
 
-class role_Consts:
-    MAX_NAME_LENGTH = 20
-    MAX_USER_ROLE_NUM = 10
+
+class test_ETestCurrency(Enum):
+    '''
+    重要
+    '''
+    DIAMOND = 1
+    '''
+    有用
+    '''
+    GOLD = 2
 
 
 
 
-class test_DemoConst:
-    x1 = 0
-    x2 = 3242
-    x3 = 444.3
-    x4 = 55.3
+class ai_TbBlackboard:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = ai_Blackboard(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.name] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
 
 
 
@@ -406,15 +803,11 @@ class test_DemoConst:
 class ai_Blackboard :
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['parent_name'] == None: raise Exception()
-        self.parent_name = _json_["parent_name"]
-        if _json_['keys'] == None: raise Exception()
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.parent_name = _json_['parent_name']
         self.keys = []
-        for _ele in _json_["keys"]: _e = ai_BlackboardKey(_ele); self.keys.append(_e)
+        for _ele in _json_['keys']: _e = ai_BlackboardKey(_ele); self.keys.append(_e)
 
 
 
@@ -423,16 +816,31 @@ class ai_Blackboard :
 class ai_BlackboardKey :
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['is_static'] == None: raise Exception()
-        self.is_static = _json_["is_static"]
-        if _json_['type'] == None: raise Exception()
-        self.type = ai_EKeyType(_json_["type"])
-        if _json_['type_class_name'] == None: raise Exception()
-        self.type_class_name = _json_["type_class_name"]
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.is_static = _json_['is_static']
+        self.type = ai_EKeyType(_json_['type'])
+        self.type_class_name = _json_['type_class_name']
+
+
+
+
+class ai_TbBehaviorTree:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = ai_BehaviorTree(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -441,16 +849,11 @@ class ai_BlackboardKey :
 class ai_BehaviorTree :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['blackboard_id'] == None: raise Exception()
-        self.blackboard_id = _json_["blackboard_id"]
-        if _json_['root'] == None: raise Exception()
-        self.root = ai_ComposeNode.fromJson(_json_["root"])
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.blackboard_id = _json_['blackboard_id']
+        self.root = ai_ComposeNode.fromJson(_json_['root'])
 
 
 
@@ -496,10 +899,8 @@ class ai_Node (metaclass=abc.ABCMeta):
             raise Exception()
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['node_name'] == None: raise Exception()
-        self.node_name = _json_["node_name"]
+        self.id = _json_['id']
+        self.node_name = _json_['node_name']
 
 
 
@@ -540,8 +941,7 @@ class ai_UeSetDefaultFocus (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
-        if _json_['keyboard_key'] == None: raise Exception()
-        self.keyboard_key = _json_["keyboard_key"]
+        self.keyboard_key = _json_['keyboard_key']
 
 
 
@@ -562,8 +962,7 @@ class ai_ChooseTarget (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
-        if _json_['result_target_key'] == None: raise Exception()
-        self.result_target_key = _json_["result_target_key"]
+        self.result_target_key = _json_['result_target_key']
 
 
 
@@ -573,8 +972,7 @@ class ai_KeepFaceTarget (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
-        if _json_['target_actor_key'] == None: raise Exception()
-        self.target_actor_key = _json_["target_actor_key"]
+        self.target_actor_key = _json_['target_actor_key']
 
 
 
@@ -584,8 +982,7 @@ class ai_GetOwnerPlayer (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
-        if _json_['player_actor_key'] == None: raise Exception()
-        self.player_actor_key = _json_["player_actor_key"]
+        self.player_actor_key = _json_['player_actor_key']
 
 
 
@@ -595,24 +992,15 @@ class ai_UpdateDailyBehaviorProps (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
-        if _json_['satiety_key'] == None: raise Exception()
-        self.satiety_key = _json_["satiety_key"]
-        if _json_['energy_key'] == None: raise Exception()
-        self.energy_key = _json_["energy_key"]
-        if _json_['mood_key'] == None: raise Exception()
-        self.mood_key = _json_["mood_key"]
-        if _json_['satiety_lower_threshold_key'] == None: raise Exception()
-        self.satiety_lower_threshold_key = _json_["satiety_lower_threshold_key"]
-        if _json_['satiety_upper_threshold_key'] == None: raise Exception()
-        self.satiety_upper_threshold_key = _json_["satiety_upper_threshold_key"]
-        if _json_['energy_lower_threshold_key'] == None: raise Exception()
-        self.energy_lower_threshold_key = _json_["energy_lower_threshold_key"]
-        if _json_['energy_upper_threshold_key'] == None: raise Exception()
-        self.energy_upper_threshold_key = _json_["energy_upper_threshold_key"]
-        if _json_['mood_lower_threshold_key'] == None: raise Exception()
-        self.mood_lower_threshold_key = _json_["mood_lower_threshold_key"]
-        if _json_['mood_upper_threshold_key'] == None: raise Exception()
-        self.mood_upper_threshold_key = _json_["mood_upper_threshold_key"]
+        self.satiety_key = _json_['satiety_key']
+        self.energy_key = _json_['energy_key']
+        self.mood_key = _json_['mood_key']
+        self.satiety_lower_threshold_key = _json_['satiety_lower_threshold_key']
+        self.satiety_upper_threshold_key = _json_['satiety_upper_threshold_key']
+        self.energy_lower_threshold_key = _json_['energy_lower_threshold_key']
+        self.energy_upper_threshold_key = _json_['energy_upper_threshold_key']
+        self.mood_lower_threshold_key = _json_['mood_lower_threshold_key']
+        self.mood_upper_threshold_key = _json_['mood_upper_threshold_key']
 
 
 
@@ -643,8 +1031,7 @@ class ai_Decorator (ai_Node):
 
     def __init__(self, _json_):
         ai_Node.__init__(self, _json_)
-        if _json_['flow_abort_mode'] == None: raise Exception()
-        self.flow_abort_mode = ai_EFlowAbortMode(_json_["flow_abort_mode"])
+        self.flow_abort_mode = ai_EFlowAbortMode(_json_['flow_abort_mode'])
 
 
 
@@ -654,12 +1041,9 @@ class ai_UeLoop (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['num_loops'] == None: raise Exception()
-        self.num_loops = _json_["num_loops"]
-        if _json_['infinite_loop'] == None: raise Exception()
-        self.infinite_loop = _json_["infinite_loop"]
-        if _json_['infinite_loop_timeout_time'] == None: raise Exception()
-        self.infinite_loop_timeout_time = _json_["infinite_loop_timeout_time"]
+        self.num_loops = _json_['num_loops']
+        self.infinite_loop = _json_['infinite_loop']
+        self.infinite_loop_timeout_time = _json_['infinite_loop_timeout_time']
 
 
 
@@ -669,8 +1053,7 @@ class ai_UeCooldown (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['cooldown_time'] == None: raise Exception()
-        self.cooldown_time = _json_["cooldown_time"]
+        self.cooldown_time = _json_['cooldown_time']
 
 
 
@@ -680,8 +1063,7 @@ class ai_UeTimeLimit (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['limit_time'] == None: raise Exception()
-        self.limit_time = _json_["limit_time"]
+        self.limit_time = _json_['limit_time']
 
 
 
@@ -691,12 +1073,9 @@ class ai_UeBlackboard (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['notify_observer'] == None: raise Exception()
-        self.notify_observer = ai_ENotifyObserverMode(_json_["notify_observer"])
-        if _json_['blackboard_key'] == None: raise Exception()
-        self.blackboard_key = _json_["blackboard_key"]
-        if _json_['key_query'] == None: raise Exception()
-        self.key_query = ai_KeyQueryOperator.fromJson(_json_["key_query"])
+        self.notify_observer = ai_ENotifyObserverMode(_json_['notify_observer'])
+        self.blackboard_key = _json_['blackboard_key']
+        self.key_query = ai_KeyQueryOperator.fromJson(_json_['key_query'])
 
 
 
@@ -755,10 +1134,8 @@ class ai_BinaryOperator (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
         ai_KeyQueryOperator.__init__(self, _json_)
-        if _json_['oper'] == None: raise Exception()
-        self.oper = ai_EOperator(_json_["oper"])
-        if _json_['data'] == None: raise Exception()
-        self.data = ai_KeyData.fromJson(_json_["data"])
+        self.oper = ai_EOperator(_json_['oper'])
+        self.data = ai_KeyData.fromJson(_json_['data'])
 
 
 
@@ -796,8 +1173,7 @@ class ai_FloatKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.value = _json_['value']
 
 
 
@@ -807,8 +1183,7 @@ class ai_IntKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.value = _json_['value']
 
 
 
@@ -818,8 +1193,7 @@ class ai_StringKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.value = _json_['value']
 
 
 
@@ -829,8 +1203,7 @@ class ai_BlackboardKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.value = _json_['value']
 
 
 
@@ -851,12 +1224,9 @@ class ai_IsAtLocation (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['acceptable_radius'] == None: raise Exception()
-        self.acceptable_radius = _json_["acceptable_radius"]
-        if _json_['keyboard_key'] == None: raise Exception()
-        self.keyboard_key = _json_["keyboard_key"]
-        if _json_['inverse_condition'] == None: raise Exception()
-        self.inverse_condition = _json_["inverse_condition"]
+        self.acceptable_radius = _json_['acceptable_radius']
+        self.keyboard_key = _json_['keyboard_key']
+        self.inverse_condition = _json_['inverse_condition']
 
 
 
@@ -866,14 +1236,10 @@ class ai_DistanceLessThan (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
-        if _json_['actor1_key'] == None: raise Exception()
-        self.actor1_key = _json_["actor1_key"]
-        if _json_['actor2_key'] == None: raise Exception()
-        self.actor2_key = _json_["actor2_key"]
-        if _json_['distance'] == None: raise Exception()
-        self.distance = _json_["distance"]
-        if _json_['reverse_result'] == None: raise Exception()
-        self.reverse_result = _json_["reverse_result"]
+        self.actor1_key = _json_['actor1_key']
+        self.actor2_key = _json_['actor2_key']
+        self.distance = _json_['distance']
+        self.reverse_result = _json_['reverse_result']
 
 
 
@@ -907,12 +1273,10 @@ class ai_FlowNode (ai_Node):
 
     def __init__(self, _json_):
         ai_Node.__init__(self, _json_)
-        if _json_['decorators'] == None: raise Exception()
         self.decorators = []
-        for _ele in _json_["decorators"]: _e = ai_Decorator.fromJson(_ele); self.decorators.append(_e)
-        if _json_['services'] == None: raise Exception()
+        for _ele in _json_['decorators']: _e = ai_Decorator.fromJson(_ele); self.decorators.append(_e)
         self.services = []
-        for _ele in _json_["services"]: _e = ai_Service.fromJson(_ele); self.services.append(_e)
+        for _ele in _json_['services']: _e = ai_Service.fromJson(_ele); self.services.append(_e)
 
 
 
@@ -950,9 +1314,8 @@ class ai_Sequence (ai_ComposeNode):
 
     def __init__(self, _json_):
         ai_ComposeNode.__init__(self, _json_)
-        if _json_['children'] == None: raise Exception()
         self.children = []
-        for _ele in _json_["children"]: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
+        for _ele in _json_['children']: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
 
 
 
@@ -962,9 +1325,8 @@ class ai_Selector (ai_ComposeNode):
 
     def __init__(self, _json_):
         ai_ComposeNode.__init__(self, _json_)
-        if _json_['children'] == None: raise Exception()
         self.children = []
-        for _ele in _json_["children"]: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
+        for _ele in _json_['children']: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
 
 
 
@@ -974,12 +1336,9 @@ class ai_SimpleParallel (ai_ComposeNode):
 
     def __init__(self, _json_):
         ai_ComposeNode.__init__(self, _json_)
-        if _json_['finish_mode'] == None: raise Exception()
-        self.finish_mode = ai_EFinishMode(_json_["finish_mode"])
-        if _json_['main_task'] == None: raise Exception()
-        self.main_task = ai_Task.fromJson(_json_["main_task"])
-        if _json_['background_node'] == None: raise Exception()
-        self.background_node = ai_FlowNode.fromJson(_json_["background_node"])
+        self.finish_mode = ai_EFinishMode(_json_['finish_mode'])
+        self.main_task = ai_Task.fromJson(_json_['main_task'])
+        self.background_node = ai_FlowNode.fromJson(_json_['background_node'])
 
 
 
@@ -1010,8 +1369,7 @@ class ai_Task (ai_FlowNode):
 
     def __init__(self, _json_):
         ai_FlowNode.__init__(self, _json_)
-        if _json_['ignore_restart_self'] == None: raise Exception()
-        self.ignore_restart_self = _json_["ignore_restart_self"]
+        self.ignore_restart_self = _json_['ignore_restart_self']
 
 
 
@@ -1021,10 +1379,8 @@ class ai_UeWait (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['wait_time'] == None: raise Exception()
-        self.wait_time = _json_["wait_time"]
-        if _json_['random_deviation'] == None: raise Exception()
-        self.random_deviation = _json_["random_deviation"]
+        self.wait_time = _json_['wait_time']
+        self.random_deviation = _json_['random_deviation']
 
 
 
@@ -1034,8 +1390,7 @@ class ai_UeWaitBlackboardTime (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['blackboard_key'] == None: raise Exception()
-        self.blackboard_key = _json_["blackboard_key"]
+        self.blackboard_key = _json_['blackboard_key']
 
 
 
@@ -1045,10 +1400,8 @@ class ai_MoveToTarget (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['target_actor_key'] == None: raise Exception()
-        self.target_actor_key = _json_["target_actor_key"]
-        if _json_['acceptable_radius'] == None: raise Exception()
-        self.acceptable_radius = _json_["acceptable_radius"]
+        self.target_actor_key = _json_['target_actor_key']
+        self.acceptable_radius = _json_['acceptable_radius']
 
 
 
@@ -1058,10 +1411,8 @@ class ai_ChooseSkill (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['target_actor_key'] == None: raise Exception()
-        self.target_actor_key = _json_["target_actor_key"]
-        if _json_['result_skill_id_key'] == None: raise Exception()
-        self.result_skill_id_key = _json_["result_skill_id_key"]
+        self.target_actor_key = _json_['target_actor_key']
+        self.result_skill_id_key = _json_['result_skill_id_key']
 
 
 
@@ -1071,10 +1422,8 @@ class ai_MoveToRandomLocation (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['origin_position_key'] == None: raise Exception()
-        self.origin_position_key = _json_["origin_position_key"]
-        if _json_['radius'] == None: raise Exception()
-        self.radius = _json_["radius"]
+        self.origin_position_key = _json_['origin_position_key']
+        self.radius = _json_['radius']
 
 
 
@@ -1084,10 +1433,8 @@ class ai_MoveToLocation (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['location'] == None: raise Exception()
-        self.location = Vector3.fromJson(_json_["location"])
-        if _json_['acceptable_radius'] == None: raise Exception()
-        self.acceptable_radius = _json_["acceptable_radius"]
+        self.location = Vector3.fromJson(_json_['location'])
+        self.acceptable_radius = _json_['acceptable_radius']
 
 
 
@@ -1097,8 +1444,27 @@ class ai_DebugPrint (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
-        if _json_['text'] == None: raise Exception()
-        self.text = _json_["text"]
+        self.text = _json_['text']
+
+
+
+
+class blueprint_TbClazz:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = blueprint_Clazz.fromJson(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.name] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1124,16 +1490,12 @@ class blueprint_Clazz (metaclass=abc.ABCMeta):
             raise Exception()
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['parents'] == None: raise Exception()
+        self.name = _json_['name']
+        self.desc = _json_['desc']
         self.parents = []
-        for _ele in _json_["parents"]: _e = blueprint_Clazz.fromJson(_ele); self.parents.append(_e)
-        if _json_['methods'] == None: raise Exception()
+        for _ele in _json_['parents']: _e = blueprint_Clazz.fromJson(_ele); self.parents.append(_e)
         self.methods = []
-        for _ele in _json_["methods"]: _e = blueprint_Method.fromJson(_ele); self.methods.append(_e)
+        for _ele in _json_['methods']: _e = blueprint_Method.fromJson(_ele); self.methods.append(_e)
 
 
 
@@ -1159,17 +1521,12 @@ class blueprint_Method (metaclass=abc.ABCMeta):
             raise Exception()
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['is_static'] == None: raise Exception()
-        self.is_static = _json_["is_static"]
-        if _json_['return_type'] == None: raise Exception()
-        self.return_type = _json_["return_type"]
-        if _json_['parameters'] == None: raise Exception()
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.is_static = _json_['is_static']
+        self.return_type = _json_['return_type']
         self.parameters = []
-        for _ele in _json_["parameters"]: _e = blueprint_ParamInfo(_ele); self.parameters.append(_e)
+        for _ele in _json_['parameters']: _e = blueprint_ParamInfo(_ele); self.parameters.append(_e)
 
 
 
@@ -1178,12 +1535,9 @@ class blueprint_Method (metaclass=abc.ABCMeta):
 class blueprint_ParamInfo :
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['type'] == None: raise Exception()
-        self.type = _json_["type"]
-        if _json_['is_ref'] == None: raise Exception()
-        self.is_ref = _json_["is_ref"]
+        self.name = _json_['name']
+        self.type = _json_['type']
+        self.is_ref = _json_['is_ref']
 
 
 
@@ -1237,11 +1591,9 @@ class blueprint_NormalClazz (blueprint_Clazz):
 
     def __init__(self, _json_):
         blueprint_Clazz.__init__(self, _json_)
-        if _json_['is_abstract'] == None: raise Exception()
-        self.is_abstract = _json_["is_abstract"]
-        if _json_['fields'] == None: raise Exception()
+        self.is_abstract = _json_['is_abstract']
         self.fields = []
-        for _ele in _json_["fields"]: _e = blueprint_Field(_ele); self.fields.append(_e)
+        for _ele in _json_['fields']: _e = blueprint_Field(_ele); self.fields.append(_e)
 
 
 
@@ -1250,12 +1602,9 @@ class blueprint_NormalClazz (blueprint_Clazz):
 class blueprint_Field :
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['type'] == None: raise Exception()
-        self.type = _json_["type"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
+        self.name = _json_['name']
+        self.type = _json_['type']
+        self.desc = _json_['desc']
 
 
 
@@ -1265,9 +1614,8 @@ class blueprint_EnumClazz (blueprint_Clazz):
 
     def __init__(self, _json_):
         blueprint_Clazz.__init__(self, _json_)
-        if _json_['enums'] == None: raise Exception()
         self.enums = []
-        for _ele in _json_["enums"]: _e = blueprint_EnumField(_ele); self.enums.append(_e)
+        for _ele in _json_['enums']: _e = blueprint_EnumField(_ele); self.enums.append(_e)
 
 
 
@@ -1276,10 +1624,28 @@ class blueprint_EnumClazz (blueprint_Clazz):
 class blueprint_EnumField :
 
     def __init__(self, _json_):
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.name = _json_['name']
+        self.value = _json_['value']
+
+
+
+
+class bonus_TbDrop:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = bonus_DropInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1288,15 +1654,11 @@ class blueprint_EnumField :
 class bonus_DropInfo :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['client_show_items'] == None: raise Exception()
+        self.id = _json_['id']
+        self.desc = _json_['desc']
         self.client_show_items = []
-        for _ele in _json_["client_show_items"]: _e = bonus_ShowItemInfo(_ele); self.client_show_items.append(_e)
-        if _json_['bonus'] == None: raise Exception()
-        self.bonus = bonus_Bonus.fromJson(_json_["bonus"])
+        for _ele in _json_['client_show_items']: _e = bonus_ShowItemInfo(_ele); self.client_show_items.append(_e)
+        self.bonus = bonus_Bonus.fromJson(_json_['bonus'])
 
 
 
@@ -1305,10 +1667,8 @@ class bonus_DropInfo :
 class bonus_ShowItemInfo :
 
     def __init__(self, _json_):
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['item_num'] == None: raise Exception()
-        self.item_num = _json_["item_num"]
+        self.item_id = _json_['item_id']
+        self.item_num = _json_['item_num']
 
 
 
@@ -1353,8 +1713,7 @@ class bonus_OneItem (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
+        self.item_id = _json_['item_id']
 
 
 
@@ -1364,8 +1723,7 @@ class bonus_OneItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['items'] == None: raise Exception()
-        self.items = _json_["items"]
+        self.items = _json_['items']
 
 
 
@@ -1375,10 +1733,8 @@ class bonus_Item (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['amount'] == None: raise Exception()
-        self.amount = _json_["amount"]
+        self.item_id = _json_['item_id']
+        self.amount = _json_['amount']
 
 
 
@@ -1388,9 +1744,8 @@ class bonus_Items (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['item_list'] == None: raise Exception()
         self.item_list = []
-        for _ele in _json_["item_list"]: _e = bonus_Item(_ele); self.item_list.append(_e)
+        for _ele in _json_['item_list']: _e = bonus_Item(_ele); self.item_list.append(_e)
 
 
 
@@ -1400,10 +1755,8 @@ class bonus_CoefficientItem (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['bonus_id'] == None: raise Exception()
-        self.bonus_id = _json_["bonus_id"]
-        if _json_['bonus_list'] == None: raise Exception()
-        self.bonus_list = bonus_Items(_json_["bonus_list"])
+        self.bonus_id = _json_['bonus_id']
+        self.bonus_list = bonus_Items(_json_['bonus_list'])
 
 
 
@@ -1413,9 +1766,8 @@ class bonus_WeightItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['item_list'] == None: raise Exception()
         self.item_list = []
-        for _ele in _json_["item_list"]: _e = bonus_WeightItemInfo(_ele); self.item_list.append(_e)
+        for _ele in _json_['item_list']: _e = bonus_WeightItemInfo(_ele); self.item_list.append(_e)
 
 
 
@@ -1424,12 +1776,9 @@ class bonus_WeightItems (bonus_Bonus):
 class bonus_WeightItemInfo :
 
     def __init__(self, _json_):
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
-        if _json_['weight'] == None: raise Exception()
-        self.weight = _json_["weight"]
+        self.item_id = _json_['item_id']
+        self.num = _json_['num']
+        self.weight = _json_['weight']
 
 
 
@@ -1439,9 +1788,8 @@ class bonus_ProbabilityItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['item_list'] == None: raise Exception()
         self.item_list = []
-        for _ele in _json_["item_list"]: _e = bonus_ProbabilityItemInfo(_ele); self.item_list.append(_e)
+        for _ele in _json_['item_list']: _e = bonus_ProbabilityItemInfo(_ele); self.item_list.append(_e)
 
 
 
@@ -1450,12 +1798,9 @@ class bonus_ProbabilityItems (bonus_Bonus):
 class bonus_ProbabilityItemInfo :
 
     def __init__(self, _json_):
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
-        if _json_['probability'] == None: raise Exception()
-        self.probability = _json_["probability"]
+        self.item_id = _json_['item_id']
+        self.num = _json_['num']
+        self.probability = _json_['probability']
 
 
 
@@ -1465,9 +1810,8 @@ class bonus_MultiBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['bonuses'] == None: raise Exception()
         self.bonuses = []
-        for _ele in _json_["bonuses"]: _e = bonus_Bonus.fromJson(_ele); self.bonuses.append(_e)
+        for _ele in _json_['bonuses']: _e = bonus_Bonus.fromJson(_ele); self.bonuses.append(_e)
 
 
 
@@ -1477,9 +1821,8 @@ class bonus_ProbabilityBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['bonuses'] == None: raise Exception()
         self.bonuses = []
-        for _ele in _json_["bonuses"]: _e = bonus_ProbabilityBonusInfo(_ele); self.bonuses.append(_e)
+        for _ele in _json_['bonuses']: _e = bonus_ProbabilityBonusInfo(_ele); self.bonuses.append(_e)
 
 
 
@@ -1488,10 +1831,8 @@ class bonus_ProbabilityBonus (bonus_Bonus):
 class bonus_ProbabilityBonusInfo :
 
     def __init__(self, _json_):
-        if _json_['bonus'] == None: raise Exception()
-        self.bonus = bonus_Bonus.fromJson(_json_["bonus"])
-        if _json_['probability'] == None: raise Exception()
-        self.probability = _json_["probability"]
+        self.bonus = bonus_Bonus.fromJson(_json_['bonus'])
+        self.probability = _json_['probability']
 
 
 
@@ -1501,9 +1842,8 @@ class bonus_WeightBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['bonuses'] == None: raise Exception()
         self.bonuses = []
-        for _ele in _json_["bonuses"]: _e = bonus_WeightBonusInfo(_ele); self.bonuses.append(_e)
+        for _ele in _json_['bonuses']: _e = bonus_WeightBonusInfo(_ele); self.bonuses.append(_e)
 
 
 
@@ -1512,10 +1852,8 @@ class bonus_WeightBonus (bonus_Bonus):
 class bonus_WeightBonusInfo :
 
     def __init__(self, _json_):
-        if _json_['bonus'] == None: raise Exception()
-        self.bonus = bonus_Bonus.fromJson(_json_["bonus"])
-        if _json_['weight'] == None: raise Exception()
-        self.weight = _json_["weight"]
+        self.bonus = bonus_Bonus.fromJson(_json_['bonus'])
+        self.weight = _json_['weight']
 
 
 
@@ -1525,8 +1863,43 @@ class bonus_DropBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
+        self.id = _json_['id']
+
+
+
+
+class common_TbGlobalConfig:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = common_GlobalConfig(_json_[0])
+
+    def getData(self) : return self._data
+
+    '''
+    背包容量
+    '''
+    def bag_capacity(self) : return self._data.bag_capacity
+    def bag_capacity_special(self) : return self._data.bag_capacity_special
+    def bag_temp_expendable_capacity(self) : return self._data.bag_temp_expendable_capacity
+    def bag_temp_tool_capacity(self) : return self._data.bag_temp_tool_capacity
+    def bag_init_capacity(self) : return self._data.bag_init_capacity
+    def quick_bag_capacity(self) : return self._data.quick_bag_capacity
+    def cloth_bag_capacity(self) : return self._data.cloth_bag_capacity
+    def cloth_bag_init_capacity(self) : return self._data.cloth_bag_init_capacity
+    def cloth_bag_capacity_special(self) : return self._data.cloth_bag_capacity_special
+    def bag_init_items_drop_id(self) : return self._data.bag_init_items_drop_id
+    def mail_box_capacity(self) : return self._data.mail_box_capacity
+    def damage_param_c(self) : return self._data.damage_param_c
+    def damage_param_e(self) : return self._data.damage_param_e
+    def damage_param_f(self) : return self._data.damage_param_f
+    def damage_param_d(self) : return self._data.damage_param_d
+    def role_speed(self) : return self._data.role_speed
+    def monster_speed(self) : return self._data.monster_speed
+    def init_energy(self) : return self._data.init_energy
+    def init_viality(self) : return self._data.init_viality
+    def max_viality(self) : return self._data.max_viality
+    def per_viality_recovery_time(self) : return self._data.per_viality_recovery_time
 
 
 
@@ -1535,47 +1908,47 @@ class bonus_DropBonus (bonus_Bonus):
 class common_GlobalConfig :
 
     def __init__(self, _json_):
-        if _json_['bag_capacity'] == None: raise Exception()
-        self.bag_capacity = _json_["bag_capacity"]
-        if _json_['bag_capacity_special'] == None: raise Exception()
-        self.bag_capacity_special = _json_["bag_capacity_special"]
-        if _json_['bag_temp_expendable_capacity'] == None: raise Exception()
-        self.bag_temp_expendable_capacity = _json_["bag_temp_expendable_capacity"]
-        if _json_['bag_temp_tool_capacity'] == None: raise Exception()
-        self.bag_temp_tool_capacity = _json_["bag_temp_tool_capacity"]
-        if _json_['bag_init_capacity'] == None: raise Exception()
-        self.bag_init_capacity = _json_["bag_init_capacity"]
-        if _json_['quick_bag_capacity'] == None: raise Exception()
-        self.quick_bag_capacity = _json_["quick_bag_capacity"]
-        if _json_['cloth_bag_capacity'] == None: raise Exception()
-        self.cloth_bag_capacity = _json_["cloth_bag_capacity"]
-        if _json_['cloth_bag_init_capacity'] == None: raise Exception()
-        self.cloth_bag_init_capacity = _json_["cloth_bag_init_capacity"]
-        if _json_['cloth_bag_capacity_special'] == None: raise Exception()
-        self.cloth_bag_capacity_special = _json_["cloth_bag_capacity_special"]
-        if _json_["bag_init_items_drop_id"] != None: self.bag_init_items_drop_id = _json_["bag_init_items_drop_id"]
-        if _json_['mail_box_capacity'] == None: raise Exception()
-        self.mail_box_capacity = _json_["mail_box_capacity"]
-        if _json_['damage_param_c'] == None: raise Exception()
-        self.damage_param_c = _json_["damage_param_c"]
-        if _json_['damage_param_e'] == None: raise Exception()
-        self.damage_param_e = _json_["damage_param_e"]
-        if _json_['damage_param_f'] == None: raise Exception()
-        self.damage_param_f = _json_["damage_param_f"]
-        if _json_['damage_param_d'] == None: raise Exception()
-        self.damage_param_d = _json_["damage_param_d"]
-        if _json_['role_speed'] == None: raise Exception()
-        self.role_speed = _json_["role_speed"]
-        if _json_['monster_speed'] == None: raise Exception()
-        self.monster_speed = _json_["monster_speed"]
-        if _json_['init_energy'] == None: raise Exception()
-        self.init_energy = _json_["init_energy"]
-        if _json_['init_viality'] == None: raise Exception()
-        self.init_viality = _json_["init_viality"]
-        if _json_['max_viality'] == None: raise Exception()
-        self.max_viality = _json_["max_viality"]
-        if _json_['per_viality_recovery_time'] == None: raise Exception()
-        self.per_viality_recovery_time = _json_["per_viality_recovery_time"]
+        self.bag_capacity = _json_['bag_capacity']
+        self.bag_capacity_special = _json_['bag_capacity_special']
+        self.bag_temp_expendable_capacity = _json_['bag_temp_expendable_capacity']
+        self.bag_temp_tool_capacity = _json_['bag_temp_tool_capacity']
+        self.bag_init_capacity = _json_['bag_init_capacity']
+        self.quick_bag_capacity = _json_['quick_bag_capacity']
+        self.cloth_bag_capacity = _json_['cloth_bag_capacity']
+        self.cloth_bag_init_capacity = _json_['cloth_bag_init_capacity']
+        self.cloth_bag_capacity_special = _json_['cloth_bag_capacity_special']
+        if _json_.get('bag_init_items_drop_id') != None: self.bag_init_items_drop_id = _json_['bag_init_items_drop_id']
+        self.mail_box_capacity = _json_['mail_box_capacity']
+        self.damage_param_c = _json_['damage_param_c']
+        self.damage_param_e = _json_['damage_param_e']
+        self.damage_param_f = _json_['damage_param_f']
+        self.damage_param_d = _json_['damage_param_d']
+        self.role_speed = _json_['role_speed']
+        self.monster_speed = _json_['monster_speed']
+        self.init_energy = _json_['init_energy']
+        self.init_viality = _json_['init_viality']
+        self.max_viality = _json_['max_viality']
+        self.per_viality_recovery_time = _json_['per_viality_recovery_time']
+
+
+
+
+class common_TbDummy:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = common_Dummy(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1584,10 +1957,8 @@ class common_GlobalConfig :
 class common_Dummy :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['limit'] == None: raise Exception()
-        self.limit = limit_LimitBase.fromJson(_json_["limit"])
+        self.id = _json_['id']
+        self.limit = limit_LimitBase.fromJson(_json_['limit'])
 
 
 
@@ -1653,8 +2024,7 @@ class limit_DailyLimit (limit_DailyLimitBase):
 
     def __init__(self, _json_):
         limit_DailyLimitBase.__init__(self, _json_)
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
+        self.num = _json_['num']
 
 
 
@@ -1664,10 +2034,8 @@ class limit_MultiDayLimit (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
-        if _json_['day'] == None: raise Exception()
-        self.day = _json_["day"]
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
+        self.day = _json_['day']
+        self.num = _json_['num']
 
 
 
@@ -1677,8 +2045,7 @@ class limit_WeeklyLimit (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
+        self.num = _json_['num']
 
 
 
@@ -1688,8 +2055,7 @@ class limit_MonthlyLimit (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
+        self.num = _json_['num']
 
 
 
@@ -1699,8 +2065,7 @@ class limit_CoolDown (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
-        if _json_['duration'] == None: raise Exception()
-        self.duration = _json_["duration"]
+        self.duration = _json_['duration']
 
 
 
@@ -1710,10 +2075,28 @@ class limit_GroupCoolDown (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
-        if _json_['group_id'] == None: raise Exception()
-        self.group_id = _json_["group_id"]
-        if _json_['duration'] == None: raise Exception()
-        self.duration = _json_["duration"]
+        self.group_id = _json_['group_id']
+        self.duration = _json_['duration']
+
+
+
+
+class error_TbErrorInfo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = error_ErrorInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.code] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1722,12 +2105,9 @@ class limit_GroupCoolDown (limit_LimitBase):
 class error_ErrorInfo :
 
     def __init__(self, _json_):
-        if _json_['code'] == None: raise Exception()
-        self.code = _json_["code"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['style'] == None: raise Exception()
-        self.style = error_ErrorStyle.fromJson(_json_["style"])
+        self.code = _json_['code']
+        self.desc = _json_['desc']
+        self.style = error_ErrorStyle.fromJson(_json_['style'])
 
 
 
@@ -1776,10 +2156,8 @@ class error_ErrorStyleMsgbox (error_ErrorStyle):
 
     def __init__(self, _json_):
         error_ErrorStyle.__init__(self, _json_)
-        if _json_['btn_name'] == None: raise Exception()
-        self.btn_name = _json_["btn_name"]
-        if _json_['operation'] == None: raise Exception()
-        self.operation = error_EOperation(_json_["operation"])
+        self.btn_name = _json_['btn_name']
+        self.operation = error_EOperation(_json_['operation'])
 
 
 
@@ -1789,8 +2167,7 @@ class error_ErrorStyleDlgOk (error_ErrorStyle):
 
     def __init__(self, _json_):
         error_ErrorStyle.__init__(self, _json_)
-        if _json_['btn_name'] == None: raise Exception()
-        self.btn_name = _json_["btn_name"]
+        self.btn_name = _json_['btn_name']
 
 
 
@@ -1800,10 +2177,28 @@ class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
 
     def __init__(self, _json_):
         error_ErrorStyle.__init__(self, _json_)
-        if _json_['btn1_name'] == None: raise Exception()
-        self.btn1_name = _json_["btn1_name"]
-        if _json_['btn2_name'] == None: raise Exception()
-        self.btn2_name = _json_["btn2_name"]
+        self.btn1_name = _json_['btn1_name']
+        self.btn2_name = _json_['btn2_name']
+
+
+
+
+class error_TbCodeInfo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = error_CodeInfo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.code] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1812,10 +2207,28 @@ class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
 class error_CodeInfo :
 
     def __init__(self, _json_):
-        if _json_['code'] == None: raise Exception()
-        self.code = error_EErrorCode(_json_["code"])
-        if _json_['key'] == None: raise Exception()
-        self.key = _json_["key"]
+        self.code = error_EErrorCode(_json_['code'])
+        self.key = _json_['key']
+
+
+
+
+class item_TbItem:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_Item(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1824,46 +2237,47 @@ class error_CodeInfo :
 class item_Item :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['major_type'] == None: raise Exception()
-        self.major_type = item_EMajorType(_json_["major_type"])
-        if _json_['minor_type'] == None: raise Exception()
-        self.minor_type = item_EMinorType(_json_["minor_type"])
-        if _json_['max_pile_num'] == None: raise Exception()
-        self.max_pile_num = _json_["max_pile_num"]
-        if _json_['quality'] == None: raise Exception()
-        self.quality = item_EItemQuality(_json_["quality"])
-        if _json_['icon'] == None: raise Exception()
-        self.icon = _json_["icon"]
-        if _json_['icon_backgroud'] == None: raise Exception()
-        self.icon_backgroud = _json_["icon_backgroud"]
-        if _json_['icon_mask'] == None: raise Exception()
-        self.icon_mask = _json_["icon_mask"]
-        if _json_['desc'] == None: raise Exception()
-        self.desc = _json_["desc"]
-        if _json_['show_order'] == None: raise Exception()
-        self.show_order = _json_["show_order"]
-        if _json_['quantifier'] == None: raise Exception()
-        self.quantifier = _json_["quantifier"]
-        if _json_['show_in_bag'] == None: raise Exception()
-        self.show_in_bag = _json_["show_in_bag"]
-        if _json_['min_show_level'] == None: raise Exception()
-        self.min_show_level = _json_["min_show_level"]
-        if _json_['batch_usable'] == None: raise Exception()
-        self.batch_usable = _json_["batch_usable"]
-        if _json_['progress_time_when_use'] == None: raise Exception()
-        self.progress_time_when_use = _json_["progress_time_when_use"]
-        if _json_['show_hint_when_use'] == None: raise Exception()
-        self.show_hint_when_use = _json_["show_hint_when_use"]
-        if _json_['droppable'] == None: raise Exception()
-        self.droppable = _json_["droppable"]
-        if _json_["price"] != None: self.price = _json_["price"]
-        if _json_['use_type'] == None: raise Exception()
-        self.use_type = item_EUseType(_json_["use_type"])
-        if _json_["level_up_id"] != None: self.level_up_id = _json_["level_up_id"]
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.major_type = item_EMajorType(_json_['major_type'])
+        self.minor_type = item_EMinorType(_json_['minor_type'])
+        self.max_pile_num = _json_['max_pile_num']
+        self.quality = item_EItemQuality(_json_['quality'])
+        self.icon = _json_['icon']
+        self.icon_backgroud = _json_['icon_backgroud']
+        self.icon_mask = _json_['icon_mask']
+        self.desc = _json_['desc']
+        self.show_order = _json_['show_order']
+        self.quantifier = _json_['quantifier']
+        self.show_in_bag = _json_['show_in_bag']
+        self.min_show_level = _json_['min_show_level']
+        self.batch_usable = _json_['batch_usable']
+        self.progress_time_when_use = _json_['progress_time_when_use']
+        self.show_hint_when_use = _json_['show_hint_when_use']
+        self.droppable = _json_['droppable']
+        if _json_.get('price') != None: self.price = _json_['price']
+        self.use_type = item_EUseType(_json_['use_type'])
+        if _json_.get('level_up_id') != None: self.level_up_id = _json_['level_up_id']
+
+
+
+
+class item_TbItemFunc:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_ItemFunction(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.minor_type] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1872,14 +2286,30 @@ class item_Item :
 class item_ItemFunction :
 
     def __init__(self, _json_):
-        if _json_['minor_type'] == None: raise Exception()
-        self.minor_type = item_EMinorType(_json_["minor_type"])
-        if _json_['func_type'] == None: raise Exception()
-        self.func_type = item_EItemFunctionType(_json_["func_type"])
-        if _json_['method'] == None: raise Exception()
-        self.method = _json_["method"]
-        if _json_['close_bag_ui'] == None: raise Exception()
-        self.close_bag_ui = _json_["close_bag_ui"]
+        self.minor_type = item_EMinorType(_json_['minor_type'])
+        self.func_type = item_EItemFunctionType(_json_['func_type'])
+        self.method = _json_['method']
+        self.close_bag_ui = _json_['close_bag_ui']
+
+
+
+
+class item_TbItemExtra:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = item_ItemExtra.fromJson(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -1907,8 +2337,7 @@ class item_ItemExtra (metaclass=abc.ABCMeta):
             raise Exception()
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
+        self.id = _json_['id']
 
 
 
@@ -1918,16 +2347,12 @@ class item_TreasureBox (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
-        if _json_["key_item_id"] != None: self.key_item_id = _json_["key_item_id"]
-        if _json_['open_level'] == None: raise Exception()
-        self.open_level = condition_MinLevel(_json_["open_level"])
-        if _json_['use_on_obtain'] == None: raise Exception()
-        self.use_on_obtain = _json_["use_on_obtain"]
-        if _json_['drop_ids'] == None: raise Exception()
-        self.drop_ids = _json_["drop_ids"]
-        if _json_['choose_list'] == None: raise Exception()
+        if _json_.get('key_item_id') != None: self.key_item_id = _json_['key_item_id']
+        self.open_level = condition_MinLevel(_json_['open_level'])
+        self.use_on_obtain = _json_['use_on_obtain']
+        self.drop_ids = _json_['drop_ids']
         self.choose_list = []
-        for _ele in _json_["choose_list"]: _e = item_ChooseOneBonus(_ele); self.choose_list.append(_e)
+        for _ele in _json_['choose_list']: _e = item_ChooseOneBonus(_ele); self.choose_list.append(_e)
 
 
 
@@ -1969,8 +2394,7 @@ class condition_TimeRange (condition_Condition):
 
     def __init__(self, _json_):
         condition_Condition.__init__(self, _json_)
-        if _json_['date_time_range'] == None: raise Exception()
-        self.date_time_range = common_DateTimeRange(_json_["date_time_range"])
+        self.date_time_range = common_DateTimeRange(_json_['date_time_range'])
 
 
 
@@ -1979,8 +2403,8 @@ class condition_TimeRange (condition_Condition):
 class common_DateTimeRange :
 
     def __init__(self, _json_):
-        if _json_["start_time"] != None: self.start_time = _json_["start_time"]
-        if _json_["end_time"] != None: self.end_time = _json_["end_time"]
+        if _json_.get('start_time') != None: self.start_time = _json_['start_time']
+        if _json_.get('end_time') != None: self.end_time = _json_['end_time']
 
 
 
@@ -2022,9 +2446,8 @@ class condition_MultiRoleCondition (condition_RoleCondition):
 
     def __init__(self, _json_):
         condition_RoleCondition.__init__(self, _json_)
-        if _json_['conditions'] == None: raise Exception()
         self.conditions = []
-        for _ele in _json_["conditions"]: _e = condition_RoleCondition.fromJson(_ele); self.conditions.append(_e)
+        for _ele in _json_['conditions']: _e = condition_RoleCondition.fromJson(_ele); self.conditions.append(_e)
 
 
 
@@ -2064,8 +2487,7 @@ class condition_GenderLimit (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
-        if _json_['gender'] == None: raise Exception()
-        self.gender = role_EGenderType(_json_["gender"])
+        self.gender = role_EGenderType(_json_['gender'])
 
 
 
@@ -2075,8 +2497,7 @@ class condition_MinLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
-        if _json_['level'] == None: raise Exception()
-        self.level = _json_["level"]
+        self.level = _json_['level']
 
 
 
@@ -2086,8 +2507,7 @@ class condition_MaxLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
-        if _json_['level'] == None: raise Exception()
-        self.level = _json_["level"]
+        self.level = _json_['level']
 
 
 
@@ -2097,10 +2517,8 @@ class condition_MinMaxLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
-        if _json_['min'] == None: raise Exception()
-        self.min = _json_["min"]
-        if _json_['max'] == None: raise Exception()
-        self.max = _json_["max"]
+        self.min = _json_['min']
+        self.max = _json_['max']
 
 
 
@@ -2110,10 +2528,8 @@ class condition_ClothesPropertyScoreGreaterThan (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
-        if _json_['prop'] == None: raise Exception()
-        self.prop = item_EClothesPropertyType(_json_["prop"])
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.prop = item_EClothesPropertyType(_json_['prop'])
+        self.value = _json_['value']
 
 
 
@@ -2123,12 +2539,9 @@ class condition_ContainsItem (condition_RoleCondition):
 
     def __init__(self, _json_):
         condition_RoleCondition.__init__(self, _json_)
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
-        if _json_['reverse'] == None: raise Exception()
-        self.reverse = _json_["reverse"]
+        self.item_id = _json_['item_id']
+        self.num = _json_['num']
+        self.reverse = _json_['reverse']
 
 
 
@@ -2137,10 +2550,8 @@ class condition_ContainsItem (condition_RoleCondition):
 class item_ChooseOneBonus :
 
     def __init__(self, _json_):
-        if _json_['drop_id'] == None: raise Exception()
-        self.drop_id = _json_["drop_id"]
-        if _json_['is_unique'] == None: raise Exception()
-        self.is_unique = _json_["is_unique"]
+        self.drop_id = _json_['drop_id']
+        self.is_unique = _json_['is_unique']
 
 
 
@@ -2150,11 +2561,9 @@ class item_InteractionItem (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
-        if _json_["attack_num"] != None: self.attack_num = _json_["attack_num"]
-        if _json_['holding_static_mesh'] == None: raise Exception()
-        self.holding_static_mesh = _json_["holding_static_mesh"]
-        if _json_['holding_static_mesh_mat'] == None: raise Exception()
-        self.holding_static_mesh_mat = _json_["holding_static_mesh_mat"]
+        if _json_.get('attack_num') != None: self.attack_num = _json_['attack_num']
+        self.holding_static_mesh = _json_['holding_static_mesh']
+        self.holding_static_mesh_mat = _json_['holding_static_mesh_mat']
 
 
 
@@ -2164,14 +2573,10 @@ class item_Clothes (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
-        if _json_['attack'] == None: raise Exception()
-        self.attack = _json_["attack"]
-        if _json_['hp'] == None: raise Exception()
-        self.hp = _json_["hp"]
-        if _json_['energy_limit'] == None: raise Exception()
-        self.energy_limit = _json_["energy_limit"]
-        if _json_['energy_resume'] == None: raise Exception()
-        self.energy_resume = _json_["energy_resume"]
+        self.attack = _json_['attack']
+        self.hp = _json_['hp']
+        self.energy_limit = _json_['energy_limit']
+        self.energy_resume = _json_['energy_resume']
 
 
 
@@ -2181,8 +2586,7 @@ class item_DesignDrawing (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
-        if _json_['learn_component_id'] == None: raise Exception()
-        self.learn_component_id = _json_["learn_component_id"]
+        self.learn_component_id = _json_['learn_component_id']
 
 
 
@@ -2192,8 +2596,7 @@ class item_Dymmy (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
-        if _json_['cost'] == None: raise Exception()
-        self.cost = cost_Cost.fromJson(_json_["cost"])
+        self.cost = cost_Cost.fromJson(_json_['cost'])
 
 
 
@@ -2232,10 +2635,8 @@ class cost_CostCurrency (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
-        if _json_['type'] == None: raise Exception()
-        self.type = item_ECurrencyType(_json_["type"])
-        if _json_['num'] == None: raise Exception()
-        self.num = _json_["num"]
+        self.type = item_ECurrencyType(_json_['type'])
+        self.num = _json_['num']
 
 
 
@@ -2245,9 +2646,8 @@ class cost_CostCurrencies (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
-        if _json_['currencies'] == None: raise Exception()
         self.currencies = []
-        for _ele in _json_["currencies"]: _e = cost_CostCurrency(_ele); self.currencies.append(_e)
+        for _ele in _json_['currencies']: _e = cost_CostCurrency(_ele); self.currencies.append(_e)
 
 
 
@@ -2257,8 +2657,7 @@ class cost_CostOneItem (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
+        self.item_id = _json_['item_id']
 
 
 
@@ -2268,10 +2667,8 @@ class cost_CostItem (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
-        if _json_['item_id'] == None: raise Exception()
-        self.item_id = _json_["item_id"]
-        if _json_['amount'] == None: raise Exception()
-        self.amount = _json_["amount"]
+        self.item_id = _json_['item_id']
+        self.amount = _json_['amount']
 
 
 
@@ -2281,9 +2678,28 @@ class cost_CostItems (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
-        if _json_['item_list'] == None: raise Exception()
         self.item_list = []
-        for _ele in _json_["item_list"]: _e = cost_CostItem(_ele); self.item_list.append(_e)
+        for _ele in _json_['item_list']: _e = cost_CostItem(_ele); self.item_list.append(_e)
+
+
+
+
+class l10n_TbL10NDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_L10NDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2292,10 +2708,28 @@ class cost_CostItems (cost_Cost):
 class l10n_L10NDemo :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['text'] == None: raise Exception()
-        self.text = _json_["text"]
+        self.id = _json_['id']
+        self.text = _json_['text']
+
+
+
+
+class l10n_TbPatchDemo:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = l10n_PatchDemo(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2304,10 +2738,28 @@ class l10n_L10NDemo :
 class l10n_PatchDemo :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.id = _json_['id']
+        self.value = _json_['value']
+
+
+
+
+class mail_TbSystemMail:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = mail_SystemMail(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2316,16 +2768,31 @@ class l10n_PatchDemo :
 class mail_SystemMail :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['title'] == None: raise Exception()
-        self.title = _json_["title"]
-        if _json_['sender'] == None: raise Exception()
-        self.sender = _json_["sender"]
-        if _json_['content'] == None: raise Exception()
-        self.content = _json_["content"]
-        if _json_['award'] == None: raise Exception()
-        self.award = _json_["award"]
+        self.id = _json_['id']
+        self.title = _json_['title']
+        self.sender = _json_['sender']
+        self.content = _json_['content']
+        self.award = _json_['award']
+
+
+
+
+class mail_TbGlobalMail:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = mail_GlobalMail(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2334,30 +2801,38 @@ class mail_SystemMail :
 class mail_GlobalMail :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['title'] == None: raise Exception()
-        self.title = _json_["title"]
-        if _json_['sender'] == None: raise Exception()
-        self.sender = _json_["sender"]
-        if _json_['content'] == None: raise Exception()
-        self.content = _json_["content"]
-        if _json_['award'] == None: raise Exception()
-        self.award = _json_["award"]
-        if _json_['all_server'] == None: raise Exception()
-        self.all_server = _json_["all_server"]
-        if _json_['server_list'] == None: raise Exception()
-        self.server_list = _json_["server_list"]
-        if _json_['platform'] == None: raise Exception()
-        self.platform = _json_["platform"]
-        if _json_['channel'] == None: raise Exception()
-        self.channel = _json_["channel"]
-        if _json_['min_max_level'] == None: raise Exception()
-        self.min_max_level = condition_MinMaxLevel(_json_["min_max_level"])
-        if _json_['register_time'] == None: raise Exception()
-        self.register_time = condition_TimeRange(_json_["register_time"])
-        if _json_['mail_time'] == None: raise Exception()
-        self.mail_time = condition_TimeRange(_json_["mail_time"])
+        self.id = _json_['id']
+        self.title = _json_['title']
+        self.sender = _json_['sender']
+        self.content = _json_['content']
+        self.award = _json_['award']
+        self.all_server = _json_['all_server']
+        self.server_list = _json_['server_list']
+        self.platform = _json_['platform']
+        self.channel = _json_['channel']
+        self.min_max_level = condition_MinMaxLevel(_json_['min_max_level'])
+        self.register_time = condition_TimeRange(_json_['register_time'])
+        self.mail_time = condition_TimeRange(_json_['mail_time'])
+
+
+
+
+class role_TbRoleLevelExpAttr:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = role_LevelExpAttr(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.level] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2366,12 +2841,29 @@ class mail_GlobalMail :
 class role_LevelExpAttr :
 
     def __init__(self, _json_):
-        if _json_['level'] == None: raise Exception()
-        self.level = _json_["level"]
-        if _json_['need_exp'] == None: raise Exception()
-        self.need_exp = _json_["need_exp"]
-        if _json_['clothes_attrs'] == None: raise Exception()
-        self.clothes_attrs = _json_["clothes_attrs"]
+        self.level = _json_['level']
+        self.need_exp = _json_['need_exp']
+        self.clothes_attrs = _json_['clothes_attrs']
+
+
+
+
+class role_TbRoleLevelBonusCoefficient:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = role_LevelBonus(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2380,11 +2872,9 @@ class role_LevelExpAttr :
 class role_LevelBonus :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['distinct_bonus_infos'] == None: raise Exception()
+        self.id = _json_['id']
         self.distinct_bonus_infos = []
-        for _ele in _json_["distinct_bonus_infos"]: _e = role_DistinctBonusInfos(_ele); self.distinct_bonus_infos.append(_e)
+        for _ele in _json_['distinct_bonus_infos']: _e = role_DistinctBonusInfos(_ele); self.distinct_bonus_infos.append(_e)
 
 
 
@@ -2393,11 +2883,9 @@ class role_LevelBonus :
 class role_DistinctBonusInfos :
 
     def __init__(self, _json_):
-        if _json_['effective_level'] == None: raise Exception()
-        self.effective_level = _json_["effective_level"]
-        if _json_['bonus_info'] == None: raise Exception()
+        self.effective_level = _json_['effective_level']
         self.bonus_info = []
-        for _ele in _json_["bonus_info"]: _e = role_BonusInfo(_ele); self.bonus_info.append(_e)
+        for _ele in _json_['bonus_info']: _e = role_BonusInfo(_ele); self.bonus_info.append(_e)
 
 
 
@@ -2406,10 +2894,28 @@ class role_DistinctBonusInfos :
 class role_BonusInfo :
 
     def __init__(self, _json_):
-        if _json_['type'] == None: raise Exception()
-        self.type = item_ECurrencyType(_json_["type"])
-        if _json_['coefficient'] == None: raise Exception()
-        self.coefficient = _json_["coefficient"]
+        self.type = item_ECurrencyType(_json_['type'])
+        self.coefficient = _json_['coefficient']
+
+
+
+
+class tag_TbTestTag:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = tag_TestTag(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2418,10 +2924,28 @@ class role_BonusInfo :
 class tag_TestTag :
 
     def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['value'] == None: raise Exception()
-        self.value = _json_["value"]
+        self.id = _json_['id']
+        self.value = _json_['value']
+
+
+
+
+class test_TbFullTypes:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoType2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x3] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 
@@ -2430,67 +2954,34 @@ class tag_TestTag :
 class test_DemoType2 :
 
     def __init__(self, _json_):
-        if _json_['x4'] == None: raise Exception()
-        self.x4 = _json_["x4"]
-        if _json_['x1'] == None: raise Exception()
-        self.x1 = _json_["x1"]
-        if _json_['x2'] == None: raise Exception()
-        self.x2 = _json_["x2"]
-        if _json_['x3'] == None: raise Exception()
-        self.x3 = _json_["x3"]
-        if _json_['x5'] == None: raise Exception()
-        self.x5 = _json_["x5"]
-        if _json_['x6'] == None: raise Exception()
-        self.x6 = _json_["x6"]
-        if _json_['x7'] == None: raise Exception()
-        self.x7 = _json_["x7"]
-        if _json_['x8_0'] == None: raise Exception()
-        self.x8_0 = _json_["x8_0"]
-        if _json_['x8'] == None: raise Exception()
-        self.x8 = _json_["x8"]
-        if _json_['x9'] == None: raise Exception()
-        self.x9 = _json_["x9"]
-        if _json_['x10'] == None: raise Exception()
-        self.x10 = _json_["x10"]
-        if _json_['x12'] == None: raise Exception()
-        self.x12 = test_DemoType1(_json_["x12"])
-        if _json_['x13'] == None: raise Exception()
-        self.x13 = test_DemoEnum(_json_["x13"])
-        if _json_['x14'] == None: raise Exception()
-        self.x14 = test_DemoDynamic.fromJson(_json_["x14"])
-        if _json_['s1'] == None: raise Exception()
-        self.s1 = _json_["s1"]
-        if _json_['v2'] == None: raise Exception()
-        self.v2 = Vector2.fromJson(_json_["v2"])
-        if _json_['v3'] == None: raise Exception()
-        self.v3 = Vector3.fromJson(_json_["v3"])
-        if _json_['v4'] == None: raise Exception()
-        self.v4 = Vector4.fromJson(_json_["v4"])
-        if _json_['t1'] == None: raise Exception()
-        self.t1 = _json_["t1"]
-        if _json_['k1'] == None: raise Exception()
-        self.k1 = _json_["k1"]
-        if _json_['k2'] == None: raise Exception()
-        self.k2 = _json_["k2"]
-        if _json_['k3'] == None: raise Exception()
-        self.k3 = _json_["k3"]
-        if _json_['k4'] == None: raise Exception()
-        self.k4 = _json_["k4"]
-        if _json_['k5'] == None: raise Exception()
-        self.k5 = _json_["k5"]
-        if _json_['k6'] == None: raise Exception()
-        self.k6 = _json_["k6"]
-        if _json_['k7'] == None: raise Exception()
-        self.k7 = _json_["k7"]
-        if _json_['k8'] == None: raise Exception()
+        self.x4 = _json_['x4']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = _json_['x7']
+        self.x8_0 = _json_['x8_0']
+        self.x8 = _json_['x8']
+        self.x9 = _json_['x9']
+        self.x10 = _json_['x10']
+        self.x12 = test_DemoType1(_json_['x12'])
+        self.x13 = test_DemoEnum(_json_['x13'])
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.s1 = _json_['s1']
+        self.v2 = Vector2.fromJson(_json_['v2'])
+        self.v3 = Vector3.fromJson(_json_['v3'])
+        self.v4 = Vector4.fromJson(_json_['v4'])
+        self.t1 = _json_['t1']
+        self.k1 = _json_['k1']
+        self.k2 = _json_['k2']
+        self.k5 = _json_['k5']
         self.k8 = {}
-        for _ek, _ev in _json_["k8"]: _k = _ek; _v = _ev; self.k8[_k] =_v
-        if _json_['k9'] == None: raise Exception()
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
-        for _ele in _json_["k9"]: _e = test_DemoE2(_ele); self.k9.append(_e)
-        if _json_['k15'] == None: raise Exception()
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
         self.k15 = []
-        for _ele in _json_["k15"]: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
+        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
 
 
 
@@ -2499,8 +2990,7 @@ class test_DemoType2 :
 class test_DemoType1 :
 
     def __init__(self, _json_):
-        if _json_['x1'] == None: raise Exception()
-        self.x1 = _json_["x1"]
+        self.x1 = _json_['x1']
 
 
 
@@ -2526,8 +3016,7 @@ class test_DemoDynamic (metaclass=abc.ABCMeta):
             raise Exception()
 
     def __init__(self, _json_):
-        if _json_['x1'] == None: raise Exception()
-        self.x1 = _json_["x1"]
+        self.x1 = _json_['x1']
 
 
 
@@ -2537,8 +3026,7 @@ class test_DemoD2 (test_DemoDynamic):
 
     def __init__(self, _json_):
         test_DemoDynamic.__init__(self, _json_)
-        if _json_['x2'] == None: raise Exception()
-        self.x2 = _json_["x2"]
+        self.x2 = _json_['x2']
 
 
 
@@ -2563,8 +3051,7 @@ class test_DemoD3 (test_DemoDynamic):
 
     def __init__(self, _json_):
         test_DemoDynamic.__init__(self, _json_)
-        if _json_['x3'] == None: raise Exception()
-        self.x3 = _json_["x3"]
+        self.x3 = _json_['x3']
 
 
 
@@ -2574,8 +3061,7 @@ class test_DemoE1 (test_DemoD3):
 
     def __init__(self, _json_):
         test_DemoD3.__init__(self, _json_)
-        if _json_['x4'] == None: raise Exception()
-        self.x4 = _json_["x4"]
+        self.x4 = _json_['x4']
 
 
 
@@ -2585,8 +3071,7 @@ class test_DemoD5 (test_DemoDynamic):
 
     def __init__(self, _json_):
         test_DemoDynamic.__init__(self, _json_)
-        if _json_['time'] == None: raise Exception()
-        self.time = test_DateTimeRange(_json_["time"])
+        self.time = test_DateTimeRange(_json_['time'])
 
 
 
@@ -2595,10 +3080,8 @@ class test_DemoD5 (test_DemoDynamic):
 class test_DateTimeRange :
 
     def __init__(self, _json_):
-        if _json_['start_time'] == None: raise Exception()
-        self.start_time = _json_["start_time"]
-        if _json_['end_time'] == None: raise Exception()
-        self.end_time = _json_["end_time"]
+        self.start_time = _json_['start_time']
+        self.end_time = _json_['end_time']
 
 
 
@@ -2607,527 +3090,8 @@ class test_DateTimeRange :
 class test_DemoE2 :
 
     def __init__(self, _json_):
-        if _json_["y1"] != None: self.y1 = _json_["y1"]
-        if _json_['y2'] == None: raise Exception()
-        self.y2 = _json_["y2"]
-
-
-
-
-
-class test_DemoSingletonType :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['date'] == None: raise Exception()
-        self.date = test_DemoDynamic.fromJson(_json_["date"])
-
-
-
-
-
-class test_MultiRowRecord :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['one_rows'] == None: raise Exception()
-        self.one_rows = []
-        for _ele in _json_["one_rows"]: _e = test_MultiRowType1(_ele); self.one_rows.append(_e)
-        if _json_['multi_rows1'] == None: raise Exception()
-        self.multi_rows1 = []
-        for _ele in _json_["multi_rows1"]: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
-        if _json_['multi_rows2'] == None: raise Exception()
-        self.multi_rows2 = []
-        for _ele in _json_["multi_rows2"]: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
-        if _json_['multi_rows3'] == None: raise Exception()
-        self.multi_rows3 = set()
-        for _ele in _json_["multi_rows3"]: _e = test_MultiRowType2(_ele); self.multi_rows3.add(_e)
-        if _json_['multi_rows4'] == None: raise Exception()
-        self.multi_rows4 = {}
-        for _ek, _ev in _json_["multi_rows4"]: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
-
-
-
-
-
-class test_MultiRowType1 :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['x'] == None: raise Exception()
-        self.x = _json_["x"]
-
-
-
-
-
-class test_MultiRowType2 :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['x'] == None: raise Exception()
-        self.x = _json_["x"]
-        if _json_['y'] == None: raise Exception()
-        self.y = _json_["y"]
-
-
-
-
-
-class test_MultiRowTitle :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_['name'] == None: raise Exception()
-        self.name = _json_["name"]
-        if _json_['x1'] == None: raise Exception()
-        self.x1 = test_H1(_json_["x1"])
-        if _json_['x2'] == None: raise Exception()
-        self.x2 = []
-        for _ele in _json_["x2"]: _e = test_H2(_ele); self.x2.append(_e)
-        if _json_['x3'] == None: raise Exception()
-        self.x3 = []
-        for _ele in _json_["x3"]: _e = test_H2(_ele); self.x3.append(_e)
-
-
-
-
-
-class test_H1 :
-
-    def __init__(self, _json_):
-        if _json_['y2'] == None: raise Exception()
-        self.y2 = test_H2(_json_["y2"])
-        if _json_['y3'] == None: raise Exception()
-        self.y3 = _json_["y3"]
-
-
-
-
-
-class test_H2 :
-
-    def __init__(self, _json_):
-        if _json_['z2'] == None: raise Exception()
-        self.z2 = _json_["z2"]
-        if _json_['z3'] == None: raise Exception()
-        self.z3 = _json_["z3"]
-
-
-
-
-
-class test_TestNull :
-
-    def __init__(self, _json_):
-        if _json_['id'] == None: raise Exception()
-        self.id = _json_["id"]
-        if _json_["x1"] != None: self.x1 = _json_["x1"]
-        if _json_["x2"] != None: self.x2 = test_DemoEnum(_json_["x2"])
-        if _json_["x3"] != None: self.x3 = test_DemoType1(_json_["x3"])
-        if _json_["x4"] != None: self.x4 = test_DemoDynamic.fromJson(_json_["x4"])
-
-
-
-
-class ai_TbBlackboard:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = ai_Blackboard(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.name] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class ai_TbBehaviorTree:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = ai_BehaviorTree(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class blueprint_TbClazz:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = blueprint_Clazz.fromJson(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.name] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class bonus_TbDrop:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = bonus_DropInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class common_TbGlobalConfig:
-
-    def __init__(self, _json_):
-        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
-        self._data = common_GlobalConfig(_json_[0])
-
-    def getData(self) : return self._data
-
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity_special(self) : return self._data.bag_capacity_special
-    def bag_temp_expendable_capacity(self) : return self._data.bag_temp_expendable_capacity
-    def bag_temp_tool_capacity(self) : return self._data.bag_temp_tool_capacity
-    def bag_init_capacity(self) : return self._data.bag_init_capacity
-    def quick_bag_capacity(self) : return self._data.quick_bag_capacity
-    def cloth_bag_capacity(self) : return self._data.cloth_bag_capacity
-    def cloth_bag_init_capacity(self) : return self._data.cloth_bag_init_capacity
-    def cloth_bag_capacity_special(self) : return self._data.cloth_bag_capacity_special
-    def bag_init_items_drop_id(self) : return self._data.bag_init_items_drop_id
-    def mail_box_capacity(self) : return self._data.mail_box_capacity
-    def damage_param_c(self) : return self._data.damage_param_c
-    def damage_param_e(self) : return self._data.damage_param_e
-    def damage_param_f(self) : return self._data.damage_param_f
-    def damage_param_d(self) : return self._data.damage_param_d
-    def role_speed(self) : return self._data.role_speed
-    def monster_speed(self) : return self._data.monster_speed
-    def init_energy(self) : return self._data.init_energy
-    def init_viality(self) : return self._data.init_viality
-    def max_viality(self) : return self._data.max_viality
-    def per_viality_recovery_time(self) : return self._data.per_viality_recovery_time
-
-
-
-
-class common_TbDummy:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = common_Dummy(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class error_TbErrorInfo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = error_ErrorInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.code] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class error_TbCodeInfo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = error_CodeInfo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.code] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItem:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_Item(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItemFunc:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_ItemFunction(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.minor_type] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class item_TbItemExtra:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = item_ItemExtra.fromJson(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class l10n_TbL10NDemo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = l10n_L10NDemo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class l10n_TbPatchDemo:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = l10n_PatchDemo(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class mail_TbSystemMail:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = mail_SystemMail(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class mail_TbGlobalMail:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = mail_GlobalMail(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class role_TbRoleLevelExpAttr:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = role_LevelExpAttr(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.level] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class role_TbRoleLevelBonusCoefficient:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = role_LevelBonus(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class tag_TbTestTag:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = tag_TestTag(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class test_TbFullTypes:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = test_DemoType2(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.x3] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
+        if _json_.get('y1') != None: self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
 
 
 
@@ -3147,47 +3111,18 @@ class test_TbSingleton:
 
 
 
-class test_TbDataFromJson:
 
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = test_DemoType2(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.x4] = _v
+class test_DemoSingletonType :
 
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.date = test_DemoDynamic.fromJson(_json_['date'])
 
 
 
 
-
-class test_TbDataFromXml:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = test_DemoType2(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.x4] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class test_TbDataFromLua:
+class test_TbDataFromMisc:
 
     def __init__(self, _json_ ):
         self._dataMap = {}
@@ -3227,6 +3162,60 @@ class test_TbMultiRowRecord:
 
 
 
+
+class test_MultiRowRecord :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.one_rows = []
+        for _ele in _json_['one_rows']: _e = test_MultiRowType1(_ele); self.one_rows.append(_e)
+        self.multi_rows1 = []
+        for _ele in _json_['multi_rows1']: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
+        self.multi_rows2 = []
+        for _ele in _json_['multi_rows2']: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
+        self.multi_rows3 = set()
+        for _ele in _json_['multi_rows3']: _e = test_MultiRowType2(_ele); self.multi_rows3.add(_e)
+        self.multi_rows4 = {}
+        for _ek, _ev in _json_['multi_rows4']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
+        self.multi_rows5 = []
+        for _ele in _json_['multi_rows5']: _e = test_MultiRowType3(_ele); self.multi_rows5.append(_e)
+
+
+
+
+
+class test_MultiRowType1 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+
+
+
+
+
+class test_MultiRowType2 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+
+
+
+
+class test_MultiRowType3 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.items = []
+        for _ele in _json_['items']: _e = test_MultiRowType1(_ele); self.items.append(_e)
+
+
+
+
 class test_TbMultiRowTitle:
 
     def __init__(self, _json_ ):
@@ -3247,6 +3236,41 @@ class test_TbMultiRowTitle:
 
 
 
+
+class test_MultiRowTitle :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.x1 = test_H1(_json_['x1'])
+        self.x2 = []
+        for _ele in _json_['x2']: _e = test_H2(_ele); self.x2.append(_e)
+        self.x3 = []
+        for _ele in _json_['x3']: _e = test_H2(_ele); self.x3.append(_e)
+
+
+
+
+
+class test_H1 :
+
+    def __init__(self, _json_):
+        self.y2 = test_H2(_json_['y2'])
+        self.y3 = _json_['y3']
+
+
+
+
+
+class test_H2 :
+
+    def __init__(self, _json_):
+        self.z2 = _json_['z2']
+        self.z3 = _json_['z3']
+
+
+
+
 class test_TbTestNull:
 
     def __init__(self, _json_ ):
@@ -3263,6 +3287,508 @@ class test_TbTestNull:
 
     def get(self, key) : return self._dataMap.get(key)
 
+
+
+
+
+
+class test_TestNull :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        if _json_.get('x1') != None: self.x1 = _json_['x1']
+        if _json_.get('x2') != None: self.x2 = test_DemoEnum(_json_['x2'])
+        if _json_.get('x3') != None: self.x3 = test_DemoType1(_json_['x3'])
+        if _json_.get('x4') != None: self.x4 = test_DemoDynamic.fromJson(_json_['x4'])
+        if _json_.get('s1') != None: self.s1 = _json_['s1']
+        if _json_.get('s2') != None: self.s2 = _json_['s2']
+
+
+
+
+class test_TbDemoPrimitive:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoPrimitiveTypesTable(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x4] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DemoPrimitiveTypesTable :
+
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = _json_['x7']
+        self.s1 = _json_['s1']
+        self.s2 = _json_['s2']
+        self.v2 = Vector2.fromJson(_json_['v2'])
+        self.v3 = Vector3.fromJson(_json_['v3'])
+        self.v4 = Vector4.fromJson(_json_['v4'])
+        self.t1 = _json_['t1']
+
+
+
+
+class test_TbTestString:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestString(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_TestString :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.s1 = _json_['s1']
+        self.cs1 = test_CompactString(_json_['cs1'])
+        self.cs2 = test_CompactString(_json_['cs2'])
+
+
+
+
+
+class test_CompactString :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.s2 = _json_['s2']
+        self.s3 = _json_['s3']
+
+
+
+
+class test_TbDemoGroup:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DemoGroup :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = test_InnerGroup(_json_['x5'])
+
+
+
+
+
+class test_InnerGroup :
+
+    def __init__(self, _json_):
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
+        self.y4 = _json_['y4']
+
+
+
+
+class test_TbDemoGroup_C:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbDemoGroup_S:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbDemoGroup_E:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbTestGlobal:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = test_TestGlobal(_json_[0])
+
+    def getData(self) : return self._data
+
+    def unlock_equip(self) : return self._data.unlock_equip
+    def unlock_hero(self) : return self._data.unlock_hero
+
+
+
+
+
+class test_TestGlobal :
+
+    def __init__(self, _json_):
+        self.unlock_equip = _json_['unlock_equip']
+        self.unlock_hero = _json_['unlock_hero']
+
+
+
+
+class test_TbDetectCsvEncoding:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DetectEncoding(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DetectEncoding :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+
+
+
+
+class test_TbDefineFromExcel:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DefineFromExcel(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DefineFromExcel :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = test_ETestQuality(_json_['x13'])
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.v2 = Vector2.fromJson(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = _json_['k1']
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+
+
+
+
+class test_TbDefineFromExcelOne:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = test_DefineFromExcelOne(_json_[0])
+
+    def getData(self) : return self._data
+
+    '''
+    装备解锁等级_描述
+    '''
+    def unlock_equip(self) : return self._data.unlock_equip
+    '''
+    英雄解锁等级
+    '''
+    def unlock_hero(self) : return self._data.unlock_hero
+    '''
+    默认头像
+    '''
+    def default_avatar(self) : return self._data.default_avatar
+    def default_item(self) : return self._data.default_item
+
+
+
+
+
+class test_DefineFromExcelOne :
+
+    def __init__(self, _json_):
+        self.unlock_equip = _json_['unlock_equip']
+        self.unlock_hero = _json_['unlock_hero']
+        self.default_avatar = _json_['default_avatar']
+        self.default_item = _json_['default_item']
+
+
+
+
+class test_TbTestJson2:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestJson2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_TestJson2 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.m1 = {}
+        for _ek, _ev in _json_['m1']: _k = _ek; _v = _ev; self.m1[_k] =_v
+        self.m2 = {}
+        for _ek, _ev in _json_['m2']: _k = _ek; _v = _ev; self.m2[_k] =_v
+        self.m3 = {}
+        for _ek, _ev in _json_['m3']: _k = _ek; _v = _ev; self.m3[_k] =_v
+        self.m4 = {}
+        for _ek, _ev in _json_['m4']: _k = _ek; _v = test_DemoType1(_ev); self.m4[_k] =_v
+
+
+
+
+class test_TbTestIndex:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestIndex(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_TestIndex :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.eles = []
+        for _ele in _json_['eles']: _e = test_DemoType1(_ele); self.eles.append(_e)
+
+
+
+
+class test_TbDemoGroupDefineFromExcel:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DemoGroup(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TbDefineFromExcel2:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_DefineFromExcel2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_DefineFromExcel2 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = test_ETestQuality(_json_['x13'])
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.v2 = Vector2.fromJson(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = _json_['k1']
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+
+
+
+
+class test_TbTestExcelBean:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestExcelBean1(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x1] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+
+class test_TestExcelBean1 :
+
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
 
 
 
@@ -3288,38 +3814,64 @@ class Tables:
     #def TbTestTag : return self._TbTestTag
     #def TbFullTypes : return self._TbFullTypes
     #def TbSingleton : return self._TbSingleton
-    #def TbDataFromJson : return self._TbDataFromJson
-    #def TbDataFromXml : return self._TbDataFromXml
-    #def TbDataFromLua : return self._TbDataFromLua
+    #def TbDataFromMisc : return self._TbDataFromMisc
     #def TbMultiRowRecord : return self._TbMultiRowRecord
     #def TbMultiRowTitle : return self._TbMultiRowTitle
     #def TbTestNull : return self._TbTestNull
+    #def TbDemoPrimitive : return self._TbDemoPrimitive
+    #def TbTestString : return self._TbTestString
+    #def TbDemoGroup : return self._TbDemoGroup
+    #def TbDemoGroup_C : return self._TbDemoGroup_C
+    #def TbDemoGroup_S : return self._TbDemoGroup_S
+    #def TbDemoGroup_E : return self._TbDemoGroup_E
+    #def TbTestGlobal : return self._TbTestGlobal
+    #def TbDetectCsvEncoding : return self._TbDetectCsvEncoding
+    #def TbDefineFromExcel : return self._TbDefineFromExcel
+    #def TbDefineFromExcelOne : return self._TbDefineFromExcelOne
+    #def TbTestJson2 : return self._TbTestJson2
+    #def TbTestIndex : return self._TbTestIndex
+    #def TbDemoGroupDefineFromExcel : return self._TbDemoGroupDefineFromExcel
+    #def TbDefineFromExcel2 : return self._TbDefineFromExcel2
+    #def TbTestExcelBean : return self._TbTestExcelBean
 
     def __init__(self, loader):
-        self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard.json')); 
-        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai.TbBehaviorTree.json')); 
-        self.TbClazz = blueprint_TbClazz(loader('blueprint.TbClazz.json')); 
-        self.TbDrop = bonus_TbDrop(loader('bonus.TbDrop.json')); 
-        self.TbGlobalConfig = common_TbGlobalConfig(loader('common.TbGlobalConfig.json')); 
-        self.TbDummy = common_TbDummy(loader('common.TbDummy.json')); 
-        self.TbErrorInfo = error_TbErrorInfo(loader('error.TbErrorInfo.json')); 
-        self.TbCodeInfo = error_TbCodeInfo(loader('error.TbCodeInfo.json')); 
-        self.TbItem = item_TbItem(loader('item.TbItem.json')); 
-        self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc.json')); 
-        self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra.json')); 
-        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo.json')); 
-        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo.json')); 
-        self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail.json')); 
-        self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail.json')); 
-        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr.json')); 
-        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient.json')); 
-        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag.json')); 
-        self.TbFullTypes = test_TbFullTypes(loader('test.TbFullTypes.json')); 
-        self.TbSingleton = test_TbSingleton(loader('test.TbSingleton.json')); 
-        self.TbDataFromJson = test_TbDataFromJson(loader('test.TbDataFromJson.json')); 
-        self.TbDataFromXml = test_TbDataFromXml(loader('test.TbDataFromXml.json')); 
-        self.TbDataFromLua = test_TbDataFromLua(loader('test.TbDataFromLua.json')); 
-        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test.TbMultiRowRecord.json')); 
-        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test.TbMultiRowTitle.json')); 
-        self.TbTestNull = test_TbTestNull(loader('test.TbTestNull.json')); 
+        self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard')); 
+        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai.TbBehaviorTree')); 
+        self.TbClazz = blueprint_TbClazz(loader('blueprint.TbClazz')); 
+        self.TbDrop = bonus_TbDrop(loader('bonus.TbDrop')); 
+        self.TbGlobalConfig = common_TbGlobalConfig(loader('common.TbGlobalConfig')); 
+        self.TbDummy = common_TbDummy(loader('common.TbDummy')); 
+        self.TbErrorInfo = error_TbErrorInfo(loader('error.TbErrorInfo')); 
+        self.TbCodeInfo = error_TbCodeInfo(loader('error.TbCodeInfo')); 
+        self.TbItem = item_TbItem(loader('item.TbItem')); 
+        self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc')); 
+        self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra')); 
+        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo')); 
+        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo')); 
+        self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail')); 
+        self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail')); 
+        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr')); 
+        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient')); 
+        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag')); 
+        self.TbFullTypes = test_TbFullTypes(loader('test.TbFullTypes')); 
+        self.TbSingleton = test_TbSingleton(loader('test.TbSingleton')); 
+        self.TbDataFromMisc = test_TbDataFromMisc(loader('test.TbDataFromMisc')); 
+        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test.TbMultiRowRecord')); 
+        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test.TbMultiRowTitle')); 
+        self.TbTestNull = test_TbTestNull(loader('test.TbTestNull')); 
+        self.TbDemoPrimitive = test_TbDemoPrimitive(loader('test.TbDemoPrimitive')); 
+        self.TbTestString = test_TbTestString(loader('test.TbTestString')); 
+        self.TbDemoGroup = test_TbDemoGroup(loader('test.TbDemoGroup')); 
+        self.TbDemoGroup_C = test_TbDemoGroup_C(loader('test.TbDemoGroup_C')); 
+        self.TbDemoGroup_S = test_TbDemoGroup_S(loader('test.TbDemoGroup_S')); 
+        self.TbDemoGroup_E = test_TbDemoGroup_E(loader('test.TbDemoGroup_E')); 
+        self.TbTestGlobal = test_TbTestGlobal(loader('test.TbTestGlobal')); 
+        self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding')); 
+        self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test.TbDefineFromExcel')); 
+        self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne')); 
+        self.TbTestJson2 = test_TbTestJson2(loader('test.TbTestJson2')); 
+        self.TbTestIndex = test_TbTestIndex(loader('test.TbTestIndex')); 
+        self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel')); 
+        self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test.TbDefineFromExcel2')); 
+        self.TbTestExcelBean = test_TbTestExcelBean(loader('test.TbTestExcelBean')); 
 

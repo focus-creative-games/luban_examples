@@ -19,7 +19,7 @@ public class Main : MonoBehaviour
 
     private static JSONNode LoadByteBuf(string file)
     {
-        return JSON.Parse(File.ReadAllText(Application.dataPath + "/../config_data/" + file + ".json", System.Text.Encoding.UTF8));
+        return JSON.Parse(File.ReadAllText(Application.dataPath + "/../../GenerateDatas/json/" + file + ".json", System.Text.Encoding.UTF8));
     }
 
     // Update is called once per frame

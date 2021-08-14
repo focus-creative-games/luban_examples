@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class FloatKeyData extends  cfg.ai.KeyData 
 {
     public FloatKeyData(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class FloatKeyData extends  cfg.ai.KeyData
         return new FloatKeyData(_buf);
     }
 
-    /**
-     * 
-     */
     public final float value;
 
     public static final int ID = -719747885;

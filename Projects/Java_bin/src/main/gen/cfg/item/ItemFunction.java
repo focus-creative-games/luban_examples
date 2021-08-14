@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class ItemFunction extends  bright.serialization.AbstractBean 
 {
     public ItemFunction(ByteBuf _buf)
@@ -39,21 +36,9 @@ public final class ItemFunction extends  bright.serialization.AbstractBean
         return new ItemFunction(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.item.EMinorType minorType;
-    /**
-     * 
-     */
     public final cfg.item.EItemFunctionType funcType;
-    /**
-     * 
-     */
     public final String method;
-    /**
-     * 
-     */
     public final boolean closeBagUi;
 
     public static final int ID = 1205824294;

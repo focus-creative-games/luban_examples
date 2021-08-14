@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class KeyData extends  bright.serialization.AbstractBean 
 {
     public KeyData(ByteBuf _buf)

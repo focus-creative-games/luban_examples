@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.bonus
 {
-   
+
 public sealed partial class OneItems :  bonus.Bonus 
 {
     public OneItems(ByteBuf _buf)  : base(_buf) 

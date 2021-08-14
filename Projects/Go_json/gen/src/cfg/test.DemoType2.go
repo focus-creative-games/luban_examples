@@ -33,11 +33,7 @@ type Test_DemoType2 struct {
     T1 int32
     K1 []int32
     K2 []int32
-    K3 []int32
-    K4 []int32
     K5 []int32
-    K6 []int32
-    K7 []int32
     K8 map[int32]int32
     K9 []*Test_DemoE2
     K15 []interface{}
@@ -120,34 +116,6 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
      {
                 var _arr_ []interface{}
                 var _ok_ bool
-                if _arr_, _ok_ = _buf["k3"].([]interface{}); !_ok_ { err = errors.New("k3 error"); return }
-
-                _v.K3 = make([]int32, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ int32
-                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
-                    _v.K3 = append(_v.K3, _list_v_)
-                }
-            }
-
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["k4"].([]interface{}); !_ok_ { err = errors.New("k4 error"); return }
-
-                _v.K4 = make([]int32, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ int32
-                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
-                    _v.K4 = append(_v.K4, _list_v_)
-                }
-            }
-
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
                 if _arr_, _ok_ = _buf["k5"].([]interface{}); !_ok_ { err = errors.New("k5 error"); return }
 
                 _v.K5 = make([]int32, 0, len(_arr_))
@@ -156,34 +124,6 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
                     var _list_v_ int32
                     { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
                     _v.K5 = append(_v.K5, _list_v_)
-                }
-            }
-
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["k6"].([]interface{}); !_ok_ { err = errors.New("k6 error"); return }
-
-                _v.K6 = make([]int32, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ int32
-                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
-                    _v.K6 = append(_v.K6, _list_v_)
-                }
-            }
-
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["k7"].([]interface{}); !_ok_ { err = errors.New("k7 error"); return }
-
-                _v.K7 = make([]int32, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ int32
-                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
-                    _v.K7 = append(_v.K7, _list_v_)
                 }
             }
 

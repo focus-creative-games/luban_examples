@@ -8,41 +8,38 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-/**
- * 
- */
 public enum EClothesHidePartType
 {
     /**
-     * 
+     * 胸部
      */
     CHEST(0),
     /**
-     * 
+     * 手
      */
     HEAD(1),
     /**
-     * 
+     * 脊柱上
      */
     SPINE_UPPER(2),
     /**
-     * 
+     * 脊柱下
      */
     SPINE_LOWER(3),
     /**
-     * 
+     * 臀部
      */
     HIP(4),
     /**
-     * 
+     * 腿上
      */
     LEG_UPPER(5),
     /**
-     * 
+     * 腿中
      */
     LEG_MIDDLE(6),
     /**
-     * 
+     * 腿下
      */
     LEG_LOWER(7),
     ;

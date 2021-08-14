@@ -15,161 +15,47 @@ namespace cfg
    
 public sealed class Tables
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public ai.TbBlackboard TbBlackboard {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public ai.TbBehaviorTree TbBehaviorTree {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public blueprint.TbClazz TbClazz {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public bonus.TbDrop TbDrop {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public common.TbGlobalConfig TbGlobalConfig {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public common.TbDummy TbDummy {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public error.TbErrorInfo TbErrorInfo {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public error.TbCodeInfo TbCodeInfo {get; }
     /// <summary>
     /// 道具表
     /// </summary>
     public item.TbItem TbItem {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public item.TbItemFunc TbItemFunc {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public item.TbItemExtra TbItemExtra {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public l10n.TbL10NDemo TbL10NDemo {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public l10n.TbPatchDemo TbPatchDemo {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public mail.TbSystemMail TbSystemMail {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public mail.TbGlobalMail TbGlobalMail {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public role.TbRoleLevelExpAttr TbRoleLevelExpAttr {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public role.TbRoleLevelBonusCoefficient TbRoleLevelBonusCoefficient {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public tag.TbTestTag TbTestTag {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbFullTypes TbFullTypes {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbSingleton TbSingleton {get; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public test.TbDataFromJson TbDataFromJson {get; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public test.TbDataFromXml TbDataFromXml {get; }
-    /// <summary>
-    /// 
-    /// </summary>
-    public test.TbDataFromLua TbDataFromLua {get; }
-    /// <summary>
-    /// 
-    /// </summary>
+    public test.TbDataFromMisc TbDataFromMisc {get; }
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbTestNull TbTestNull {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDemoPrimitive TbDemoPrimitive {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbTestString TbTestString {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDemoGroup TbDemoGroup {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDemoGroup_C TbDemoGroup_C {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDemoGroup_S TbDemoGroup_S {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDemoGroup_E TbDemoGroup_E {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbTestGlobal TbTestGlobal {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDefineFromExcel TbDefineFromExcel {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
-    /// <summary>
-    /// 
-    /// </summary>
+    public test.TbTestJson2 TbTestJson2 {get; }
+    public test.TbTestIndex TbTestIndex {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
-    /// <summary>
-    /// 
-    /// </summary>
     public test.TbTestExcelBean TbTestExcelBean {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
@@ -215,12 +101,8 @@ public sealed class Tables
         tables.Add("test.TbFullTypes", TbFullTypes);
         TbSingleton = new test.TbSingleton(loader("test.TbSingleton")); 
         tables.Add("test.TbSingleton", TbSingleton);
-        TbDataFromJson = new test.TbDataFromJson(loader("test.TbDataFromJson")); 
-        tables.Add("test.TbDataFromJson", TbDataFromJson);
-        TbDataFromXml = new test.TbDataFromXml(loader("test.TbDataFromXml")); 
-        tables.Add("test.TbDataFromXml", TbDataFromXml);
-        TbDataFromLua = new test.TbDataFromLua(loader("test.TbDataFromLua")); 
-        tables.Add("test.TbDataFromLua", TbDataFromLua);
+        TbDataFromMisc = new test.TbDataFromMisc(loader("test.TbDataFromMisc")); 
+        tables.Add("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new test.TbMultiRowRecord(loader("test.TbMultiRowRecord")); 
         tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
         TbMultiRowTitle = new test.TbMultiRowTitle(loader("test.TbMultiRowTitle")); 
@@ -247,6 +129,10 @@ public sealed class Tables
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test.TbDefineFromExcelOne")); 
         tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
+        TbTestJson2 = new test.TbTestJson2(loader("test.TbTestJson2")); 
+        tables.Add("test.TbTestJson2", TbTestJson2);
+        TbTestIndex = new test.TbTestIndex(loader("test.TbTestIndex")); 
+        tables.Add("test.TbTestIndex", TbTestIndex);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
@@ -274,9 +160,7 @@ public sealed class Tables
         TbTestTag.Resolve(tables); 
         TbFullTypes.Resolve(tables); 
         TbSingleton.Resolve(tables); 
-        TbDataFromJson.Resolve(tables); 
-        TbDataFromXml.Resolve(tables); 
-        TbDataFromLua.Resolve(tables); 
+        TbDataFromMisc.Resolve(tables); 
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
@@ -290,6 +174,8 @@ public sealed class Tables
         TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
+        TbTestJson2.Resolve(tables); 
+        TbTestIndex.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 

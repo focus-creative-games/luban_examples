@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(ByteBuf _buf) 
@@ -41,21 +38,9 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         return new item.ItemFunction(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EMinorType MinorType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EItemFunctionType FuncType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Method;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool CloseBagUi;
 
     public const int ID = 1205824294;

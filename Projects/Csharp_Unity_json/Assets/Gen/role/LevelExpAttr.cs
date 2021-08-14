@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(JSONNode _json) 
@@ -40,17 +37,8 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         return new role.LevelExpAttr(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Level;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long NeedExp;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> ClothesAttrs;
 
     public const int ID = -1569837022;

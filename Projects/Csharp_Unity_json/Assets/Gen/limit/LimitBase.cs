@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class LimitBase :  Bright.Config.BeanBase 
 {
     public LimitBase(JSONNode _json) 

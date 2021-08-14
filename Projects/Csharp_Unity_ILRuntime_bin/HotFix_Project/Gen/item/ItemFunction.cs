@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.item
 {
-   
+
 public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(ByteBuf _buf) 

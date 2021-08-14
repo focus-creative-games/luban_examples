@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase 
 {
     public WeightBonusInfo(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
         return new bonus.WeightBonusInfo(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Bonus Bonus;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Weight;
 
     public const int ID = -907244058;

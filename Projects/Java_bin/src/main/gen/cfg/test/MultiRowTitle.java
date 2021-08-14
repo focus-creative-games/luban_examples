@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MultiRowTitle extends  bright.serialization.AbstractBean 
 {
     public MultiRowTitle(ByteBuf _buf)
@@ -41,25 +38,10 @@ public final class MultiRowTitle extends  bright.serialization.AbstractBean
         return new MultiRowTitle(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String name;
-    /**
-     * 
-     */
     public final cfg.test.H1 x1;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.test.H2> x2;
-    /**
-     * 
-     */
     public final cfg.test.H2[] x3;
 
     public static final int ID = 540002427;

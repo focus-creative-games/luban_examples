@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
 {
     public ChooseOneBonus(JSONNode _json) 
@@ -38,14 +35,8 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
         return new item.ChooseOneBonus(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int DropId;
     public bonus.DropInfo DropId_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool IsUnique;
 
     public const int ID = 228058347;

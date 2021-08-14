@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class DemoD3 extends  cfg.test.DemoDynamic 
 {
     public DemoD3(ByteBuf _buf)
@@ -39,9 +36,6 @@ public abstract class DemoD3 extends  cfg.test.DemoDynamic
         }
     }
 
-    /**
-     * 
-     */
     public final int x3;
 
 

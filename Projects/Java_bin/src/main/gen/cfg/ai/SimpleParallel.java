@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class SimpleParallel extends  cfg.ai.ComposeNode 
 {
     public SimpleParallel(ByteBuf _buf)
@@ -39,17 +36,8 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
         return new SimpleParallel(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.ai.EFinishMode finishMode;
-    /**
-     * 
-     */
     public final cfg.ai.Task mainTask;
-    /**
-     * 
-     */
     public final cfg.ai.FlowNode backgroundNode;
 
     public static final int ID = -1952582529;

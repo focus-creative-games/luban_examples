@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class EnumField extends  bright.serialization.AbstractBean 
 {
     public EnumField(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class EnumField extends  bright.serialization.AbstractBean
         return new EnumField(_buf);
     }
 
-    /**
-     * 
-     */
     public final String name;
-    /**
-     * 
-     */
     public final int value;
 
     public static final int ID = 1830049470;

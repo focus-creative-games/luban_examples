@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class ChooseSkill extends  cfg.ai.Task 
 {
     public ChooseSkill(ByteBuf _buf)
@@ -37,13 +34,7 @@ public final class ChooseSkill extends  cfg.ai.Task
         return new ChooseSkill(_buf);
     }
 
-    /**
-     * 
-     */
     public final String targetActorKey;
-    /**
-     * 
-     */
     public final String resultSkillIdKey;
 
     public static final int ID = -918812268;

@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Selector :  ai.ComposeNode 
 {
     public Selector(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class Selector :  ai.ComposeNode
         return new ai.Selector(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.FlowNode> Children;
 
     public const int ID = -1946981627;

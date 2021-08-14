@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Dummy :  Bright.Config.BeanBase 
 {
     public Dummy(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         return new common.Dummy(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly limit.LimitBase Limit;
 
     public const int ID = -985084219;

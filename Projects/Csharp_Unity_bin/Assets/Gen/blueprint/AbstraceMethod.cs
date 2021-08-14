@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class AbstraceMethod :  blueprint.Method 
 {
     public AbstraceMethod(ByteBuf _buf)  : base(_buf) 

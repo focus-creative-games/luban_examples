@@ -12,9 +12,6 @@ package cfg.blueprint;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbClazz
 {
     private final java.util.HashMap<String, cfg.blueprint.Clazz> _dataMap;

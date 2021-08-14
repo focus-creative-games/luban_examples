@@ -9,17 +9,14 @@
 
 namespace cfg.mail
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EMailType
     {
         /// <summary>
-        /// 
+        /// 全局邮件
         /// </summary>
         GLOBAL = 0,
         /// <summary>
-        /// 
+        /// 系统邮件
         /// </summary>
         SYSTEM = 1,
     }

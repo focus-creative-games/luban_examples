@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class Task extends  cfg.ai.FlowNode 
 {
     public Task(ByteBuf _buf)
@@ -45,9 +42,6 @@ public abstract class Task extends  cfg.ai.FlowNode
         }
     }
 
-    /**
-     * 
-     */
     public final boolean ignoreRestartSelf;
 
 

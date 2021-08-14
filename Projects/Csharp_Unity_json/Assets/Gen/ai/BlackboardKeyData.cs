@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BlackboardKeyData :  ai.KeyData 
 {
     public BlackboardKeyData(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
         return new ai.BlackboardKeyData(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Value;
 
     public const int ID = 1517269500;

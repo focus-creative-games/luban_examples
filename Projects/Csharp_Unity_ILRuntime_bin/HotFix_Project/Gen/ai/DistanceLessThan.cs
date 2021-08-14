@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class DistanceLessThan :  ai.Decorator 
 {
     public DistanceLessThan(ByteBuf _buf)  : base(_buf) 

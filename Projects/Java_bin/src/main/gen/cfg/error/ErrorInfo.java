@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class ErrorInfo extends  bright.serialization.AbstractBean 
 {
     public ErrorInfo(ByteBuf _buf)
@@ -37,17 +34,8 @@ public final class ErrorInfo extends  bright.serialization.AbstractBean
         return new ErrorInfo(_buf);
     }
 
-    /**
-     * 
-     */
     public final String code;
-    /**
-     * 
-     */
     public final String desc;
-    /**
-     * 
-     */
     public final cfg.error.ErrorStyle style;
 
     public static final int ID = 1389347408;

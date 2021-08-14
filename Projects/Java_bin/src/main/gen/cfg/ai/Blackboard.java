@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class Blackboard extends  bright.serialization.AbstractBean 
 {
     public Blackboard(ByteBuf _buf)
@@ -39,22 +36,10 @@ public final class Blackboard extends  bright.serialization.AbstractBean
         return new Blackboard(_buf);
     }
 
-    /**
-     * 
-     */
     public final String name;
-    /**
-     * 
-     */
     public final String desc;
-    /**
-     * 
-     */
     public final String parentName;
     public cfg.ai.Blackboard parentName_Ref;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.ai.BlackboardKey> keys;
 
     public static final int ID = 1576193005;

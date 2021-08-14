@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class CostCurrency extends  cfg.cost.Cost 
 {
     public CostCurrency(ByteBuf _buf)
@@ -37,13 +34,7 @@ public final class CostCurrency extends  cfg.cost.Cost
         return new CostCurrency(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.item.ECurrencyType type;
-    /**
-     * 
-     */
     public final int num;
 
     public static final int ID = 911838111;

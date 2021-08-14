@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class ErrorStyle extends  bright.serialization.AbstractBean 
 {
     public ErrorStyle(ByteBuf _buf)

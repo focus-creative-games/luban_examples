@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(JSONNode _json) 
@@ -40,17 +37,8 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         return new test.DemoSingletonType(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic Date;
 
     public const int ID = 539196998;

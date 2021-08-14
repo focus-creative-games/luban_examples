@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DemoType2 extends  bright.serialization.AbstractBean 
 {
     public DemoType2(ByteBuf _buf)
@@ -41,21 +38,13 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         t1 = _buf.readInt();
         {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k2 = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k3 = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k3.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k4 = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k4.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k5 = new java.util.HashSet<Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k5.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k6 = new java.util.HashSet<Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k6.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k7 = new java.util.HashSet<Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k7.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = cfg.test.DemoE2.deserializeDemoE2(_buf); k9.add(_e);}}
-        for(cfg.test.DemoE2 _v : k9)
-        {
-            k9_Index.put(_v.y1, _v); 
-        }
         {int n = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[n];for(var i = 0 ; i < n ; i++) { cfg.test.DemoDynamic _e;_e = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); k15[i] = _e;}}
     }
 
-    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.ArrayList<Integer> k3, java.util.ArrayList<Integer> k4, java.util.HashSet<Integer> k5, java.util.HashSet<Integer> k6, java.util.HashSet<Integer> k7, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 )
+    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 )
     {
         this.x4 = x4;
         this.x1 = x1;
@@ -78,17 +67,9 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         this.t1 = t1;
         this.k1 = k1;
         this.k2 = k2;
-        this.k3 = k3;
-        this.k4 = k4;
         this.k5 = k5;
-        this.k6 = k6;
-        this.k7 = k7;
         this.k8 = k8;
         this.k9 = k9;
-        for(cfg.test.DemoE2 _v : k9)
-        {
-            k9_Index.put(_v.y1, _v); 
-        }
         this.k15 = k15;
     }
 
@@ -97,123 +78,31 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         return new DemoType2(_buf);
     }
 
-    /**
-     * 
-     */
     public final int x4;
-    /**
-     * 
-     */
     public final boolean x1;
-    /**
-     * 
-     */
     public final byte x2;
-    /**
-     * 
-     */
     public final short x3;
     public cfg.test.DemoType2 x3_Ref;
-    /**
-     * 
-     */
     public final long x5;
-    /**
-     * 
-     */
     public final float x6;
-    /**
-     * 
-     */
     public final double x7;
-    /**
-     * 
-     */
     public final short x80;
-    /**
-     * 
-     */
     public final int x8;
-    /**
-     * 
-     */
     public final long x9;
-    /**
-     * 
-     */
     public final String x10;
-    /**
-     * 
-     */
     public final cfg.test.DemoType1 x12;
-    /**
-     * 
-     */
     public final cfg.test.DemoEnum x13;
-    /**
-     * 
-     */
     public final cfg.test.DemoDynamic x14;
-    /**
-     * 
-     */
     public final String s1;
-    /**
-     * 
-     */
     public final bright.math.Vector2 v2;
-    /**
-     * 
-     */
     public final bright.math.Vector3 v3;
-    /**
-     * 
-     */
     public final bright.math.Vector4 v4;
-    /**
-     * 
-     */
     public final int t1;
-    /**
-     * 
-     */
     public final int[] k1;
-    /**
-     * 
-     */
     public final java.util.ArrayList<Integer> k2;
-    /**
-     * 
-     */
-    public final java.util.ArrayList<Integer> k3;
-    /**
-     * 
-     */
-    public final java.util.ArrayList<Integer> k4;
-    /**
-     * 
-     */
     public final java.util.HashSet<Integer> k5;
-    /**
-     * 
-     */
-    public final java.util.HashSet<Integer> k6;
-    /**
-     * 
-     */
-    public final java.util.HashSet<Integer> k7;
-    /**
-     * 
-     */
     public final java.util.HashMap<Integer, Integer> k8;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
-    public final java.util.HashMap<Integer, cfg.test.DemoE2> k9_Index = new java.util.HashMap<>();
-    /**
-     * 
-     */
     public final cfg.test.DemoDynamic[] k15;
 
     public static final int ID = -367048295;
@@ -267,11 +156,7 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         + "t1:" + t1 + ","
         + "k1:" + k1 + ","
         + "k2:" + k2 + ","
-        + "k3:" + k3 + ","
-        + "k4:" + k4 + ","
         + "k5:" + k5 + ","
-        + "k6:" + k6 + ","
-        + "k7:" + k7 + ","
         + "k8:" + k8 + ","
         + "k9:" + k9 + ","
         + "k15:" + k15 + ","

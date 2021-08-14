@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class Condition :  Bright.Config.BeanBase 
 {
     public Condition(JSONNode _json) 

@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class ItemExtra extends  bright.serialization.AbstractBean 
 {
     public ItemExtra(ByteBuf _buf)
@@ -41,9 +38,6 @@ public abstract class ItemExtra extends  bright.serialization.AbstractBean
         }
     }
 
-    /**
-     * 
-     */
     public final int id;
 
 

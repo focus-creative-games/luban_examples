@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BlueprintMethod :  blueprint.Method 
 {
     public BlueprintMethod(JSONNode _json)  : base(_json) 

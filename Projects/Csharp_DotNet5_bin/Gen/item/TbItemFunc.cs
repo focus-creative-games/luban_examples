@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.item
 {
    
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbItemFunc
 {
     private readonly Dictionary<item.EMinorType, item.ItemFunction> _dataMap;

@@ -18,6 +18,7 @@ type Test_MultiRowRecord struct {
     MultiRows2 []*Test_MultiRowType1
     MultiRows3 []*Test_MultiRowType2
     MultiRows4 map[int32]*Test_MultiRowType2
+    MultiRows5 []*Test_MultiRowType3
 }
 
 func (Test_MultiRowRecord) GetTypeId() int {
@@ -101,6 +102,20 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                     _v.MultiRows4[_key_] = _value_
                 }
                 }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["multi_rows5"].([]interface{}); !_ok_ { err = errors.New("multi_rows5 error"); return }
+
+                _v.MultiRows5 = make([]*Test_MultiRowType3, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ *Test_MultiRowType3
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType3(_x_); err != nil { return } }
+                    _v.MultiRows5 = append(_v.MultiRows5, _list_v_)
+                }
+            }
+
     return
 }
 

@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class KeyData :  Bright.Config.BeanBase 
 {
     public KeyData(ByteBuf _buf) 

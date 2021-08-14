@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class CompactString extends  bright.serialization.AbstractBean 
 {
     public CompactString(ByteBuf _buf)
@@ -37,17 +34,8 @@ public final class CompactString extends  bright.serialization.AbstractBean
         return new CompactString(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String s2;
-    /**
-     * 
-     */
     public final String s3;
 
     public static final int ID = 1968089240;

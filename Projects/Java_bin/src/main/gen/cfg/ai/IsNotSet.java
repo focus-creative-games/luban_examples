@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class IsNotSet extends  cfg.ai.KeyQueryOperator 
 {
     public IsNotSet(ByteBuf _buf)

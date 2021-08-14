@@ -29,7 +29,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         { if(!_json["x6"].IsNumber) { throw new SerializationException(); }  X6 = _json["x6"]; }
         { if(!_json["x8"].IsNumber) { throw new SerializationException(); }  X8 = _json["x8"]; }
         { if(!_json["x10"].IsString) { throw new SerializationException(); }  X10 = _json["x10"]; }
-        { if(!_json["x13"].IsNumber) { throw new SerializationException(); }  X13 = (test.DemoEnum)_json["x13"].AsInt; }
+        { if(!_json["x13"].IsNumber) { throw new SerializationException(); }  X13 = (test.ETestQuality)_json["x13"].AsInt; }
         { if(!_json["x14"].IsObject) { throw new SerializationException(); }  X14 = test.DemoDynamic.DeserializeDemoDynamic(_json["x14"]); }
         { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
         { if(!_json["t1"].IsNumber) { throw new SerializationException(); }  T1 = _json["t1"]; }
@@ -38,7 +38,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         { var _json1 = _json["k9"]; if(!_json1.IsArray) { throw new SerializationException(); } K9 = new System.Collections.Generic.List<test.DemoE2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.DemoE2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoE2.DeserializeDemoE2(__e); }  K9.Add(__v); }   }
     }
 
-    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.DemoEnum x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -68,50 +68,17 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// 字段的描述
     /// </summary>
     public readonly bool X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float X6;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X8;
     public test.DemoPrimitiveTypesTable X8_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string X10;
-    /// <summary>
-    /// 
-    /// </summary>
-    public readonly test.DemoEnum X13;
-    /// <summary>
-    /// 
-    /// </summary>
+    public readonly test.ETestQuality X13;
     public readonly test.DemoDynamic X14;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector2 V2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int T1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int[] K1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
 
     public const int ID = 688816828;

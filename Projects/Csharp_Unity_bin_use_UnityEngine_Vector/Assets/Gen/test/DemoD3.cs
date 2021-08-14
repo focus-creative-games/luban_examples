@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class DemoD3 :  test.DemoDynamic 
 {
     public DemoD3(ByteBuf _buf)  : base(_buf) 
@@ -39,9 +36,6 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X3;
 
 

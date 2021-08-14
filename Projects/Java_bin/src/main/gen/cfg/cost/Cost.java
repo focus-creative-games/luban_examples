@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class Cost extends  bright.serialization.AbstractBean 
 {
     public Cost(ByteBuf _buf)

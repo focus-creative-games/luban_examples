@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MultiBonus extends  cfg.bonus.Bonus 
 {
     public MultiBonus(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class MultiBonus extends  cfg.bonus.Bonus
         return new MultiBonus(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.bonus.Bonus[] bonuses;
 
     public static final int ID = 1421907893;

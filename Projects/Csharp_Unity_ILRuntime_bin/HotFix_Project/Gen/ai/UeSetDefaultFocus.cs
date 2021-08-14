@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 

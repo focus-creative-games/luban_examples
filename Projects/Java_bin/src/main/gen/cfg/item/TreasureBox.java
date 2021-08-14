@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class TreasureBox extends  cfg.item.ItemExtra 
 {
     public TreasureBox(ByteBuf _buf)
@@ -43,25 +40,10 @@ public final class TreasureBox extends  cfg.item.ItemExtra
         return new TreasureBox(_buf);
     }
 
-    /**
-     * 
-     */
     public final Integer keyItemId;
-    /**
-     * 
-     */
     public final cfg.condition.MinLevel openLevel;
-    /**
-     * 
-     */
     public final boolean useOnObtain;
-    /**
-     * 
-     */
     public final java.util.ArrayList<Integer> dropIds;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.item.ChooseOneBonus> chooseList;
 
     public static final int ID = 1494222369;

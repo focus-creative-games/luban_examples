@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         return new role.DistinctBonusInfos(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int EffectiveLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
 
     public const int ID = -854361766;

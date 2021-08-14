@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoD5 :  test.DemoDynamic 
 {
     public DemoD5(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         return new test.DemoD5(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DateTimeRange Time;
 
     public const int ID = -2138341744;

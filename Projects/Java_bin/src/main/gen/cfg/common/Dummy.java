@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class Dummy extends  bright.serialization.AbstractBean 
 {
     public Dummy(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class Dummy extends  bright.serialization.AbstractBean
         return new Dummy(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final cfg.limit.LimitBase limit;
 
     public static final int ID = -985084219;

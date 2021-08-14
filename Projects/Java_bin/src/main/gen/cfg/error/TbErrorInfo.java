@@ -12,9 +12,6 @@ package cfg.error;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbErrorInfo
 {
     private final java.util.HashMap<String, cfg.error.ErrorInfo> _dataMap;

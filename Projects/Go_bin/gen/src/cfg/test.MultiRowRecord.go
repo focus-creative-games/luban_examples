@@ -22,6 +22,7 @@ type Test_MultiRowRecord struct {
     MultiRows2 []*Test_MultiRowType1
     MultiRows3 []*Test_MultiRowType2
     MultiRows4 map[int32]*Test_MultiRowType2
+    MultiRows5 []*Test_MultiRowType3
 }
 
 func (Test_MultiRowRecord) GetTypeId() int {
@@ -88,6 +89,17 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                     _v.MultiRows4[_key_] = _value_
                 }
                 }
+     {
+                _v.MultiRows5 = make([]*Test_MultiRowType3, 0)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _e_ *Test_MultiRowType3
+                    { if _e_, err = NewTest_MultiRowType3(_buf); err != nil { return } }
+                    _v.MultiRows5 = append(_v.MultiRows5, _e_)
+                }
+            }
+
     return
 }
 

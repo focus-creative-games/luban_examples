@@ -12,9 +12,6 @@ package cfg.test;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbTestGlobal
 {
     private final cfg.test.TestGlobal _data;
@@ -29,13 +26,7 @@ public final class TbTestGlobal
     }
 
 
-    /**
-     * 
-     */
      public int getUnlockEquip() { return _data.unlockEquip; }
-    /**
-     * 
-     */
      public int getUnlockHero() { return _data.unlockHero; }
 
     public void resolve(java.util.HashMap<String, Object> _tables)

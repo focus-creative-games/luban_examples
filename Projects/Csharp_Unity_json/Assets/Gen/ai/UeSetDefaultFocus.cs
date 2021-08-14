@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
         return new ai.UeSetDefaultFocus(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string KeyboardKey;
 
     public const int ID = 1812449155;

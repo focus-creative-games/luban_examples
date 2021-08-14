@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DebugPrint :  ai.Task 
 {
     public DebugPrint(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class DebugPrint :  ai.Task
         return new ai.DebugPrint(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Text;
 
     public const int ID = 1357409728;

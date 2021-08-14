@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class FlowNode :  ai.Node 
 {
     public FlowNode(JSONNode _json)  : base(_json) 
@@ -52,13 +49,7 @@ public abstract partial class FlowNode :  ai.Node
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<ai.Service> Services;
 
 

@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MultiRowType2 extends  bright.serialization.AbstractBean 
 {
     public MultiRowType2(ByteBuf _buf)
@@ -37,17 +34,8 @@ public final class MultiRowType2 extends  bright.serialization.AbstractBean
         return new MultiRowType2(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final int x;
-    /**
-     * 
-     */
     public final float y;
 
     public static final int ID = 540474971;

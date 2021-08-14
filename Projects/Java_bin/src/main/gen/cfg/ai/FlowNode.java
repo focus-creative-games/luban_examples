@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class FlowNode extends  cfg.ai.Node 
 {
     public FlowNode(ByteBuf _buf)
@@ -50,13 +47,7 @@ public abstract class FlowNode extends  cfg.ai.Node
         }
     }
 
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.ai.Decorator> decorators;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.ai.Service> services;
 
 

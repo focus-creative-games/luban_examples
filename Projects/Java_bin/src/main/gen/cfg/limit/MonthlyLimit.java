@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MonthlyLimit extends  cfg.limit.LimitBase 
 {
     public MonthlyLimit(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class MonthlyLimit extends  cfg.limit.LimitBase
         return new MonthlyLimit(_buf);
     }
 
-    /**
-     * 
-     */
     public final int num;
 
     public static final int ID = 2063279905;

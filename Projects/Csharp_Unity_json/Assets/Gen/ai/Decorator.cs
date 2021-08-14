@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(JSONNode _json)  : base(_json) 
@@ -47,9 +44,6 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.EFlowAbortMode FlowAbortMode;
 
 

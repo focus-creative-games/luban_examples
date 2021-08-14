@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(ByteBuf _buf)  : base(_buf) 

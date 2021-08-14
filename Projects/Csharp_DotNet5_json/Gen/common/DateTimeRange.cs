@@ -20,8 +20,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
 {
     public DateTimeRange(JsonElement _json) 
     {
-        { var _j = _json.GetProperty("start_time"); if (_j.ValueKind != JsonValueKind.Null) { StartTime = _j.GetInt32(); } else { StartTime = null; } }
-        { var _j = _json.GetProperty("end_time"); if (_j.ValueKind != JsonValueKind.Null) { EndTime = _j.GetInt32(); } else { EndTime = null; } }
+        { if (_json.TryGetProperty("start_time", out var _j) && _j.ValueKind != JsonValueKind.Null) { StartTime = _j.GetInt32(); } else { StartTime = null; } }
+        { if (_json.TryGetProperty("end_time", out var _j) && _j.ValueKind != JsonValueKind.Null) { EndTime = _j.GetInt32(); } else { EndTime = null; } }
     }
 
     public DateTimeRange(int? start_time, int? end_time ) 

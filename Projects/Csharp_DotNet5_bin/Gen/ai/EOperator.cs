@@ -9,42 +9,15 @@
 
 namespace cfg.ai
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EOperator
     {
-        /// <summary>
-        /// 
-        /// </summary>
         IS_EQUAL_TO = 0,
-        /// <summary>
-        /// 
-        /// </summary>
         IS_NOT_EQUAL_TO = 1,
-        /// <summary>
-        /// 
-        /// </summary>
         IS_LESS_THAN = 2,
-        /// <summary>
-        /// 
-        /// </summary>
         IS_LESS_THAN_OR_EQUAL_TO = 3,
-        /// <summary>
-        /// 
-        /// </summary>
         IS_GREAT_THAN = 4,
-        /// <summary>
-        /// 
-        /// </summary>
         IS_GREAT_THAN_OR_EQUAL_TO = 5,
-        /// <summary>
-        /// 
-        /// </summary>
         CONTAINS = 6,
-        /// <summary>
-        /// 
-        /// </summary>
         NOT_CONTAINS = 7,
     }
 }

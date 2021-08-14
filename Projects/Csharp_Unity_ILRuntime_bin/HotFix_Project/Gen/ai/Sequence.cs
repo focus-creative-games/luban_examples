@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class Sequence :  ai.ComposeNode 
 {
     public Sequence(ByteBuf _buf)  : base(_buf) 

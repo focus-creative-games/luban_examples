@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.condition
 {
-   
+
 public sealed partial class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(ByteBuf _buf)  : base(_buf) 

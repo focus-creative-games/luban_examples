@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class Dymmy extends  cfg.item.ItemExtra 
 {
     public Dymmy(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class Dymmy extends  cfg.item.ItemExtra
         return new Dymmy(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.cost.Cost cost;
 
     public static final int ID = 896889705;

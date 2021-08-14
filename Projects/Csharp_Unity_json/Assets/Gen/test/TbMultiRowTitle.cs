@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbMultiRowTitle
 {
     private readonly Dictionary<int, test.MultiRowTitle> _dataMap;

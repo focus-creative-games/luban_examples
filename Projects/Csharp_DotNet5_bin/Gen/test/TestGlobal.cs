@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TestGlobal :  Bright.Config.BeanBase 
 {
     public TestGlobal(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
         return new test.TestGlobal(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int UnlockEquip;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int UnlockHero;
 
     public const int ID = -12548655;

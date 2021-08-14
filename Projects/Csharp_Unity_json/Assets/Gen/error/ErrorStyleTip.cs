@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorStyleTip :  error.ErrorStyle 
 {
     public ErrorStyleTip(JSONNode _json)  : base(_json) 

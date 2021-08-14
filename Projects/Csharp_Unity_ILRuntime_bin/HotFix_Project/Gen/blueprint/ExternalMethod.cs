@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public sealed partial class ExternalMethod :  blueprint.Method 
 {
     public ExternalMethod(ByteBuf _buf)  : base(_buf) 

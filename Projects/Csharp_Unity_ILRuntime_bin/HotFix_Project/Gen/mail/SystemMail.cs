@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.mail
 {
-   
+
 public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(ByteBuf _buf) 

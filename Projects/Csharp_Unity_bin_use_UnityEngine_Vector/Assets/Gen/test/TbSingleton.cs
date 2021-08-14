@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbSingleton
 {
 
@@ -29,17 +26,8 @@ public sealed partial class TbSingleton
     }
 
 
-    /// <summary>
-    /// 
-    /// </summary>
      public int Id => _data.Id;
-    /// <summary>
-    /// 
-    /// </summary>
      public string Name => _data.Name;
-    /// <summary>
-    /// 
-    /// </summary>
      public test.DemoDynamic Date => _data.Date;
 
     public void Resolve(Dictionary<string, object> _tables)

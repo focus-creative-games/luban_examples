@@ -12,9 +12,6 @@ package cfg.test;
 import bright.serialization.*;
 
 
-/**
- * 
- */
 public final class TbFullTypes
 {
     private final java.util.HashMap<Short, cfg.test.DemoType2> _dataMap;

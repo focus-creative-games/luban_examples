@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DemoSingletonType extends  bright.serialization.AbstractBean 
 {
     public DemoSingletonType(ByteBuf _buf)
@@ -37,17 +34,8 @@ public final class DemoSingletonType extends  bright.serialization.AbstractBean
         return new DemoSingletonType(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String name;
-    /**
-     * 
-     */
     public final cfg.test.DemoDynamic date;
 
     public static final int ID = 539196998;

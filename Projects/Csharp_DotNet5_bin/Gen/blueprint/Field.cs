@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Field :  Bright.Config.BeanBase 
 {
     public Field(ByteBuf _buf) 
@@ -39,17 +36,8 @@ public sealed partial class Field :  Bright.Config.BeanBase
         return new blueprint.Field(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
 
     public const int ID = 1694158271;

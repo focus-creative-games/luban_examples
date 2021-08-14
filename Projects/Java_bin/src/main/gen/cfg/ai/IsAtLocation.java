@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class IsAtLocation extends  cfg.ai.Decorator 
 {
     public IsAtLocation(ByteBuf _buf)
@@ -39,17 +36,8 @@ public final class IsAtLocation extends  cfg.ai.Decorator
         return new IsAtLocation(_buf);
     }
 
-    /**
-     * 
-     */
     public final float acceptableRadius;
-    /**
-     * 
-     */
     public final String keyboardKey;
-    /**
-     * 
-     */
     public final boolean inverseCondition;
 
     public static final int ID = 1255972344;

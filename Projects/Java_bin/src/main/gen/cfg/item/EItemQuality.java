@@ -18,19 +18,19 @@ public enum EItemQuality
      */
     WHITE(0),
     /**
-     * 
+     * 绿
      */
     GREEN(1),
     /**
-     * 
+     * 蓝
      */
     BLUE(2),
     /**
-     * 
+     * 紫
      */
     PURPLE(3),
     /**
-     * 
+     * 金
      */
     GOLDEN(4),
     ;

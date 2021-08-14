@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 
@@ -35,9 +32,6 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
         return new ai.UeSetDefaultFocus(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string KeyboardKey;
 
     public const int ID = 1812449155;

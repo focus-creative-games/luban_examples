@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoE2 :  Bright.Config.BeanBase 
 {
     public DemoE2(JSONNode _json) 
@@ -38,13 +35,7 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
         return new test.DemoE2(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? Y1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool Y2;
 
     public const int ID = -2138341716;

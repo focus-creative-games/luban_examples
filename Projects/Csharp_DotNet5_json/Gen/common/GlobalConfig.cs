@@ -29,7 +29,7 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
         ClothBagCapacity = _json.GetProperty("cloth_bag_capacity").GetInt32();
         ClothBagInitCapacity = _json.GetProperty("cloth_bag_init_capacity").GetInt32();
         ClothBagCapacitySpecial = _json.GetProperty("cloth_bag_capacity_special").GetInt32();
-        { var _j = _json.GetProperty("bag_init_items_drop_id"); if (_j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
+        { if (_json.TryGetProperty("bag_init_items_drop_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
         MailBoxCapacity = _json.GetProperty("mail_box_capacity").GetInt32();
         DamageParamC = _json.GetProperty("damage_param_c").GetSingle();
         DamageParamE = _json.GetProperty("damage_param_e").GetSingle();

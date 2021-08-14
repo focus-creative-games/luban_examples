@@ -15,9 +15,6 @@ using System.Collections.Generic;
 namespace cfg.l10n
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(ByteBuf _buf) 
@@ -37,13 +34,7 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
         return new l10n.PatchDemo(_buf);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Value;
 
     public const int ID = -1707294656;

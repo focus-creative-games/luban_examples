@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class WeeklyLimit :  limit.LimitBase 
 {
     public WeeklyLimit(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         return new limit.WeeklyLimit(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Num;
 
     public const int ID = -252187161;

@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MaxLevel extends  cfg.condition.BoolRoleCondition 
 {
     public MaxLevel(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class MaxLevel extends  cfg.condition.BoolRoleCondition
         return new MaxLevel(_buf);
     }
 
-    /**
-     * 
-     */
     public final int level;
 
     public static final int ID = 700922899;

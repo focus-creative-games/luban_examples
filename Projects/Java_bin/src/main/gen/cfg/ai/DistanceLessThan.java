@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class DistanceLessThan extends  cfg.ai.Decorator 
 {
     public DistanceLessThan(ByteBuf _buf)
@@ -41,21 +38,9 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
         return new DistanceLessThan(_buf);
     }
 
-    /**
-     * 
-     */
     public final String actor1Key;
-    /**
-     * 
-     */
     public final String actor2Key;
-    /**
-     * 
-     */
     public final float distance;
-    /**
-     * 
-     */
     public final boolean reverseResult;
 
     public static final int ID = -1207170283;

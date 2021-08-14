@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(JSONNode _json) 
@@ -42,21 +39,9 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
         return new test.InnerGroup(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Y1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Y2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Y3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Y4;
 
     public const int ID = -587873083;

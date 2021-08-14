@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class InteractionItem extends  cfg.item.ItemExtra 
 {
     public InteractionItem(ByteBuf _buf)
@@ -39,17 +36,8 @@ public final class InteractionItem extends  cfg.item.ItemExtra
         return new InteractionItem(_buf);
     }
 
-    /**
-     * 
-     */
     public final Integer attackNum;
-    /**
-     * 
-     */
     public final String holdingStaticMesh;
-    /**
-     * 
-     */
     public final String holdingStaticMeshMat;
 
     public static final int ID = 640937802;

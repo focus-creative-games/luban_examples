@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MonthlyLimit :  limit.LimitBase 
 {
     public MonthlyLimit(JSONNode _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
         return new limit.MonthlyLimit(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Num;
 
     public const int ID = 2063279905;

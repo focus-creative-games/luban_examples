@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public sealed partial class Interface :  blueprint.Clazz 
 {
     public Interface(ByteBuf _buf)  : base(_buf) 

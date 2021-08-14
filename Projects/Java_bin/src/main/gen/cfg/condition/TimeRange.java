@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class TimeRange extends  cfg.condition.Condition 
 {
     public TimeRange(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class TimeRange extends  cfg.condition.Condition
         return new TimeRange(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.common.DateTimeRange dateTimeRange;
 
     public static final int ID = 1069033789;

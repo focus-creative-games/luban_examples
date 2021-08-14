@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MultiRoleCondition extends  cfg.condition.RoleCondition 
 {
     public MultiRoleCondition(ByteBuf _buf)
@@ -35,9 +32,6 @@ public final class MultiRoleCondition extends  cfg.condition.RoleCondition
         return new MultiRoleCondition(_buf);
     }
 
-    /**
-     * 
-     */
     public final cfg.condition.RoleCondition[] conditions;
 
     public static final int ID = 934079583;

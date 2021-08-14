@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public abstract class LimitBase extends  bright.serialization.AbstractBean 
 {
     public LimitBase(ByteBuf _buf)

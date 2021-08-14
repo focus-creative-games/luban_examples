@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.ai
 {
-   
+
 public sealed partial class MoveToLocation :  ai.Task 
 {
     public MoveToLocation(ByteBuf _buf)  : base(_buf) 

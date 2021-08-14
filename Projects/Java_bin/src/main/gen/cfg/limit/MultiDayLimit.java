@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class MultiDayLimit extends  cfg.limit.LimitBase 
 {
     public MultiDayLimit(ByteBuf _buf)
@@ -37,13 +34,7 @@ public final class MultiDayLimit extends  cfg.limit.LimitBase
         return new MultiDayLimit(_buf);
     }
 
-    /**
-     * 
-     */
     public final int day;
-    /**
-     * 
-     */
     public final int num;
 
     public static final int ID = -1753629499;

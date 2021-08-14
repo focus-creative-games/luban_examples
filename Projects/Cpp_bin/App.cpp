@@ -9,7 +9,7 @@
 int main()
 {
     cfg::Tables tables;
-    if (tables.load([](ByteBuf& buf, const std::string& s) { buf.clear(); return buf.loadFromFile("config_data/" + s + ".bin"); }))
+    if (tables.load([](ByteBuf& buf, const std::string& s) { buf.clear(); return buf.loadFromFile("../GenerateDatas/bin/" + s + ".bin"); }))
     {
         std::cout << "== load succ == " << std::endl;
     }

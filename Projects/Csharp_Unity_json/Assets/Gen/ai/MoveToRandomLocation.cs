@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MoveToRandomLocation :  ai.Task 
 {
     public MoveToRandomLocation(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         return new ai.MoveToRandomLocation(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string OriginPositionKey;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float Radius;
 
     public const int ID = -2140042998;

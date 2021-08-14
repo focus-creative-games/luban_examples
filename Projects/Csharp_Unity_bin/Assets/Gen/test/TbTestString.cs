@@ -13,9 +13,6 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbTestString
 {
     private readonly Dictionary<int, test.TestString> _dataMap;

@@ -16,9 +16,6 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(JSONNode _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         return new blueprint.NormalClazz(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool IsAbstract;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<blueprint.Field> Fields;
 
     public const int ID = -2073576778;

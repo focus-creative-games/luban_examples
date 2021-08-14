@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.blueprint
 {
-   
+
 public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
     public ParamInfo(ByteBuf _buf) 

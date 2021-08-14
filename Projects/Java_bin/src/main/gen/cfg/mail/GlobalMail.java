@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class GlobalMail extends  bright.serialization.AbstractBean 
 {
     public GlobalMail(ByteBuf _buf)
@@ -55,53 +52,17 @@ public final class GlobalMail extends  bright.serialization.AbstractBean
         return new GlobalMail(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final String title;
-    /**
-     * 
-     */
     public final String sender;
-    /**
-     * 
-     */
     public final String content;
-    /**
-     * 
-     */
     public final java.util.ArrayList<Integer> award;
-    /**
-     * 
-     */
     public final boolean allServer;
-    /**
-     * 
-     */
     public final java.util.ArrayList<Integer> serverList;
-    /**
-     * 
-     */
     public final String platform;
-    /**
-     * 
-     */
     public final String channel;
-    /**
-     * 
-     */
     public final cfg.condition.MinMaxLevel minMaxLevel;
-    /**
-     * 
-     */
     public final cfg.condition.TimeRange registerTime;
-    /**
-     * 
-     */
     public final cfg.condition.TimeRange mailTime;
 
     public static final int ID = -287571791;

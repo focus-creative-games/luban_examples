@@ -13,9 +13,6 @@ import bright.serialization.*;
 
 
 
-/**
- * 
- */
 public final class LevelBonus extends  bright.serialization.AbstractBean 
 {
     public LevelBonus(ByteBuf _buf)
@@ -35,13 +32,7 @@ public final class LevelBonus extends  bright.serialization.AbstractBean
         return new LevelBonus(_buf);
     }
 
-    /**
-     * 
-     */
     public final int id;
-    /**
-     * 
-     */
     public final java.util.ArrayList<cfg.role.DistinctBonusInfos> distinctBonusInfos;
 
     public static final int ID = -572269677;

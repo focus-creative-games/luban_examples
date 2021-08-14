@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace cfg.error
 {
-   
+
 public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
     public ErrorInfo(ByteBuf _buf) 
