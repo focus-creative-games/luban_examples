@@ -296,3 +296,5 @@ gradle/
 /Tools/build_luban_server.bat
 /Projects/TypeScript_NodeJs_Bin/dist
 !/Projects/GenerateDatas/bin
+/Benchmark/data_bin
+/Benchmark/data_json
