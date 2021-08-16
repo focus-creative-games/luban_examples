@@ -298,3 +298,4 @@ gradle/
 !/Projects/GenerateDatas/bin
 /Benchmark/data_bin
 /Benchmark/data_json
+/Benchmark/data_lua
