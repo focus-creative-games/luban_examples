@@ -14,6 +14,12 @@
 		<var name="D" alias="dd"/>
 	</enum>
 	
+	<enum name="DemoFlag" flags="1">
+		<var name="A" value="1"/>
+		<var name="B" value="2"/>
+		<var name="D" value="A|B"/>
+	</enum>
+	
 	<bean name="DemoType1">
 		<var name="x1" type="int"/>
 	</bean>

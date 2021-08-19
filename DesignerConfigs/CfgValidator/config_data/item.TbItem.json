@@ -18,9 +18,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 2,
@@ -41,9 +39,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 3,
@@ -64,9 +60,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 4,
@@ -87,9 +81,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 5,
@@ -110,9 +102,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020100001,
@@ -133,9 +123,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020200001,
@@ -156,9 +144,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020300001,
@@ -179,9 +165,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020400001,
@@ -202,9 +186,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020500001,
@@ -225,9 +207,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020600001,
@@ -248,9 +228,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1020700001,
@@ -271,9 +249,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1022490000,
@@ -294,9 +270,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": true,
-    "price": null,
-    "use_type": 1,
-    "level_up_id": null
+    "use_type": 1
   },
   {
     "id": 1022490001,
@@ -318,8 +292,7 @@
     "show_hint_when_use": false,
     "droppable": false,
     "price": 100,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1021490001,
@@ -340,9 +313,7 @@
     "progress_time_when_use": 1,
     "show_hint_when_use": false,
     "droppable": false,
-    "price": null,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   },
   {
     "id": 1022490002,
@@ -364,7 +335,6 @@
     "show_hint_when_use": false,
     "droppable": false,
     "price": 8,
-    "use_type": 0,
-    "level_up_id": null
+    "use_type": 0
   }
 ]

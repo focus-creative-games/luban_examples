@@ -48,8 +48,7 @@
     },
     "register_time": {
       "date_time_range": {
-        "start_time": 1588608000,
-        "end_time": null
+        "start_time": 1588608000
       }
     },
     "mail_time": {
@@ -79,15 +78,11 @@
     },
     "register_time": {
       "date_time_range": {
-        "start_time": null,
         "end_time": 1589644800
       }
     },
     "mail_time": {
-      "date_time_range": {
-        "start_time": null,
-        "end_time": null
-      }
+      "date_time_range": {}
     }
   },
   {
@@ -110,15 +105,11 @@
     },
     "register_time": {
       "date_time_range": {
-        "start_time": null,
         "end_time": 1589644800
       }
     },
     "mail_time": {
-      "date_time_range": {
-        "start_time": null,
-        "end_time": null
-      }
+      "date_time_range": {}
     }
   }
 ]
