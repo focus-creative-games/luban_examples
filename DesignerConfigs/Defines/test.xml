@@ -297,6 +297,15 @@
 	</bean>
 	<table name="TbTestIndex" value="TestIndex" input="test/test_index.xlsx"/>
  
+	<bean name="TestMap">
+		<var name="id" type="int"/>
+		<var name="x1" type="map,int,int"/>
+		<var name="x2" type="map,long,int"/>
+		<var name="x3" type="map,string,int" sep=","/>
+		<var name="x4" type="map,DemoEnum,int" sep=","/>
+	</bean>
+	<table name="TbTestMap" value="TestMap" input="test/test_map.xlsx"/>
+ 
 	<module name="login">
 		支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。
 		<bean name="RoleInfo">
