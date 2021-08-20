@@ -25,7 +25,12 @@
 
 Projects里的项目都已经过测试，已经包含了生成代码和数据，可以直接运行。
 
-如果想修改定义或配置数据，在重新生成之前，必须执行以下两个步骤：
+如果想修改定义或配置数据，在重新生成之前，必须执行以下步骤：
 
-- 运行 set_global_envs。 运行一次即可，以后永远不必再运行。
-- 运行 run_luban_server。 请务必保持它运行，不然luban.client的生成操作会失败。如果被意外关闭了，重新运行它即可。
+1. windows
+
+  - 运行 set_local_luban_server_envs.bat 运行一次即可，以后永远不必再运行。
+  - 运行 run_luban_server.bat。 请务必保持它运行，不然luban.client的生成操作会失败。如果被意外关闭了，重新运行它即可。
+
+2. mac
+  - 运行 run_luban_server.sh 请务必保持它运行，不然luban.client的生成操作会失败。如果被意外关闭了，重新运行它即可。
