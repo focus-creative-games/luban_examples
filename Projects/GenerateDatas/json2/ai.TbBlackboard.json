@@ -1,5 +1,5 @@
-[
-  {
+{
+  "attack_or_patrol": {
     "name": "attack_or_patrol",
     "desc": "demo hahaha",
     "parent_name": "",
@@ -34,7 +34,7 @@
       }
     ]
   },
-  {
+  "demo": {
     "name": "demo",
     "desc": "demo hahaha",
     "parent_name": "demo_parent",
@@ -111,7 +111,7 @@
       }
     ]
   },
-  {
+  "demo_parent": {
     "name": "demo_parent",
     "desc": "demo parent",
     "parent_name": "",
@@ -125,4 +125,4 @@
       }
     ]
   }
-]
+}

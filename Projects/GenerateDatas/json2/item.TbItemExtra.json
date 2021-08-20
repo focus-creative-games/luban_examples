@@ -1,5 +1,5 @@
-[
-  {
+{
+  "1022200001": {
     "__type__": "TreasureBox",
     "id": 1022200001,
     "key_item_id": 1022300001,
@@ -12,7 +12,7 @@
     ],
     "choose_list": []
   },
-  {
+  "1022300001": {
     "__type__": "TreasureBox",
     "id": 1022300001,
     "open_level": {
@@ -22,7 +22,7 @@
     "drop_ids": [],
     "choose_list": []
   },
-  {
+  "1010010003": {
     "__type__": "TreasureBox",
     "id": 1010010003,
     "open_level": {
@@ -32,7 +32,7 @@
     "drop_ids": [],
     "choose_list": []
   },
-  {
+  "1050010001": {
     "__type__": "TreasureBox",
     "id": 1050010001,
     "open_level": {
@@ -44,74 +44,74 @@
     ],
     "choose_list": []
   },
-  {
+  "1040010001": {
     "__type__": "InteractionItem",
     "id": 1040010001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040020001": {
     "__type__": "InteractionItem",
     "id": 1040020001,
     "holding_static_mesh": "StaticMesh\u0027/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple\u0027",
     "holding_static_mesh_mat": "MaterialInstanceConstant\u0027/Game/X6GameData/Prototype/PrototypeAssets/Material/LD_Red.LD_Red\u0027"
   },
-  {
+  "1040040001": {
     "__type__": "InteractionItem",
     "id": 1040040001,
     "holding_static_mesh": "StaticMesh\u0027/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Ball.SM_Ball\u0027",
     "holding_static_mesh_mat": "MaterialInstanceConstant\u0027/Game/X6GameData/Prototype/PrototypeAssets/CustomizableGrid/Materials/Presets/M_Grid_preset_002.M_Grid_preset_002\u0027"
   },
-  {
+  "1040040002": {
     "__type__": "InteractionItem",
     "id": 1040040002,
     "holding_static_mesh": "StaticMesh\u0027/Game/X6GameData/Art_assets/Props/Prop_test/Interactive/PenQuanHua/SM_Penquanhua.SM_Penquanhua\u0027",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040040003": {
     "__type__": "InteractionItem",
     "id": 1040040003,
     "holding_static_mesh": "StaticMesh\u0027/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple\u0027",
     "holding_static_mesh_mat": "MaterialInstanceConstant\u0027/Game/X6GameData/Art_assets/Props/Prop_test/Materials/Prop_Red_MI.Prop_Red_MI\u0027"
   },
-  {
+  "1040210001": {
     "__type__": "InteractionItem",
     "id": 1040210001,
     "attack_num": 3,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040220001": {
     "__type__": "InteractionItem",
     "id": 1040220001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040230001": {
     "__type__": "InteractionItem",
     "id": 1040230001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040240001": {
     "__type__": "InteractionItem",
     "id": 1040240001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040250001": {
     "__type__": "InteractionItem",
     "id": 1040250001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1040030001": {
     "__type__": "InteractionItem",
     "id": 1040030001,
     "holding_static_mesh": "",
     "holding_static_mesh_mat": ""
   },
-  {
+  "1020100001": {
     "__type__": "Clothes",
     "id": 1020100001,
     "attack": 100,
@@ -119,7 +119,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200001": {
     "__type__": "Clothes",
     "id": 1020200001,
     "attack": 100,
@@ -127,7 +127,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300001": {
     "__type__": "Clothes",
     "id": 1020300001,
     "attack": 100,
@@ -135,7 +135,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400001": {
     "__type__": "Clothes",
     "id": 1020400001,
     "attack": 100,
@@ -143,7 +143,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020500001": {
     "__type__": "Clothes",
     "id": 1020500001,
     "attack": 100,
@@ -151,7 +151,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600001": {
     "__type__": "Clothes",
     "id": 1020600001,
     "attack": 100,
@@ -159,7 +159,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700001": {
     "__type__": "Clothes",
     "id": 1020700001,
     "attack": 100,
@@ -167,7 +167,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020800001": {
     "__type__": "Clothes",
     "id": 1020800001,
     "attack": 100,
@@ -175,7 +175,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020900001": {
     "__type__": "Clothes",
     "id": 1020900001,
     "attack": 100,
@@ -183,7 +183,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000001": {
     "__type__": "Clothes",
     "id": 1021000001,
     "attack": 100,
@@ -191,7 +191,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021100001": {
     "__type__": "Clothes",
     "id": 1021100001,
     "attack": 100,
@@ -199,7 +199,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021200001": {
     "__type__": "Clothes",
     "id": 1021200001,
     "attack": 100,
@@ -207,7 +207,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021300001": {
     "__type__": "Clothes",
     "id": 1021300001,
     "attack": 100,
@@ -215,7 +215,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400001": {
     "__type__": "Clothes",
     "id": 1021400001,
     "attack": 100,
@@ -223,7 +223,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400002": {
     "__type__": "Clothes",
     "id": 1021400002,
     "attack": 100,
@@ -231,7 +231,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400003": {
     "__type__": "Clothes",
     "id": 1021400003,
     "attack": 100,
@@ -239,7 +239,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400004": {
     "__type__": "Clothes",
     "id": 1021400004,
     "attack": 100,
@@ -247,7 +247,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400005": {
     "__type__": "Clothes",
     "id": 1021400005,
     "attack": 100,
@@ -255,7 +255,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400006": {
     "__type__": "Clothes",
     "id": 1021400006,
     "attack": 100,
@@ -263,7 +263,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021400007": {
     "__type__": "Clothes",
     "id": 1021400007,
     "attack": 100,
@@ -271,7 +271,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500001": {
     "__type__": "Clothes",
     "id": 1021500001,
     "attack": 100,
@@ -279,7 +279,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021600001": {
     "__type__": "Clothes",
     "id": 1021600001,
     "attack": 100,
@@ -287,7 +287,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021700001": {
     "__type__": "Clothes",
     "id": 1021700001,
     "attack": 100,
@@ -295,7 +295,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021800001": {
     "__type__": "Clothes",
     "id": 1021800001,
     "attack": 100,
@@ -303,7 +303,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021900001": {
     "__type__": "Clothes",
     "id": 1021900001,
     "attack": 100,
@@ -311,7 +311,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022000001": {
     "__type__": "Clothes",
     "id": 1022000001,
     "attack": 100,
@@ -319,7 +319,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022100001": {
     "__type__": "Clothes",
     "id": 1022100001,
     "attack": 100,
@@ -327,7 +327,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020100002": {
     "__type__": "Clothes",
     "id": 1020100002,
     "attack": 100,
@@ -335,7 +335,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020100003": {
     "__type__": "Clothes",
     "id": 1020100003,
     "attack": 100,
@@ -343,7 +343,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020100004": {
     "__type__": "Clothes",
     "id": 1020100004,
     "attack": 100,
@@ -351,7 +351,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020100005": {
     "__type__": "Clothes",
     "id": 1020100005,
     "attack": 100,
@@ -359,7 +359,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200002": {
     "__type__": "Clothes",
     "id": 1020200002,
     "attack": 100,
@@ -367,7 +367,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200003": {
     "__type__": "Clothes",
     "id": 1020200003,
     "attack": 100,
@@ -375,7 +375,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200004": {
     "__type__": "Clothes",
     "id": 1020200004,
     "attack": 100,
@@ -383,7 +383,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200005": {
     "__type__": "Clothes",
     "id": 1020200005,
     "attack": 100,
@@ -391,7 +391,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200006": {
     "__type__": "Clothes",
     "id": 1020200006,
     "attack": 100,
@@ -399,7 +399,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020200007": {
     "__type__": "Clothes",
     "id": 1020200007,
     "attack": 100,
@@ -407,7 +407,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300002": {
     "__type__": "Clothes",
     "id": 1020300002,
     "attack": 100,
@@ -415,7 +415,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300003": {
     "__type__": "Clothes",
     "id": 1020300003,
     "attack": 100,
@@ -423,7 +423,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300004": {
     "__type__": "Clothes",
     "id": 1020300004,
     "attack": 100,
@@ -431,7 +431,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300005": {
     "__type__": "Clothes",
     "id": 1020300005,
     "attack": 100,
@@ -439,7 +439,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300006": {
     "__type__": "Clothes",
     "id": 1020300006,
     "attack": 100,
@@ -447,7 +447,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300007": {
     "__type__": "Clothes",
     "id": 1020300007,
     "attack": 100,
@@ -455,7 +455,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300008": {
     "__type__": "Clothes",
     "id": 1020300008,
     "attack": 100,
@@ -463,7 +463,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300009": {
     "__type__": "Clothes",
     "id": 1020300009,
     "attack": 100,
@@ -471,7 +471,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020300010": {
     "__type__": "Clothes",
     "id": 1020300010,
     "attack": 100,
@@ -479,7 +479,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400002": {
     "__type__": "Clothes",
     "id": 1020400002,
     "attack": 100,
@@ -487,7 +487,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400003": {
     "__type__": "Clothes",
     "id": 1020400003,
     "attack": 100,
@@ -495,7 +495,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400004": {
     "__type__": "Clothes",
     "id": 1020400004,
     "attack": 100,
@@ -503,7 +503,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400005": {
     "__type__": "Clothes",
     "id": 1020400005,
     "attack": 100,
@@ -511,7 +511,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400006": {
     "__type__": "Clothes",
     "id": 1020400006,
     "attack": 100,
@@ -519,7 +519,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400007": {
     "__type__": "Clothes",
     "id": 1020400007,
     "attack": 100,
@@ -527,7 +527,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400008": {
     "__type__": "Clothes",
     "id": 1020400008,
     "attack": 100,
@@ -535,7 +535,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400009": {
     "__type__": "Clothes",
     "id": 1020400009,
     "attack": 100,
@@ -543,7 +543,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400010": {
     "__type__": "Clothes",
     "id": 1020400010,
     "attack": 100,
@@ -551,7 +551,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400011": {
     "__type__": "Clothes",
     "id": 1020400011,
     "attack": 100,
@@ -559,7 +559,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400012": {
     "__type__": "Clothes",
     "id": 1020400012,
     "attack": 100,
@@ -567,7 +567,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020400013": {
     "__type__": "Clothes",
     "id": 1020400013,
     "attack": 100,
@@ -575,7 +575,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020500002": {
     "__type__": "Clothes",
     "id": 1020500002,
     "attack": 100,
@@ -583,7 +583,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020500003": {
     "__type__": "Clothes",
     "id": 1020500003,
     "attack": 100,
@@ -591,7 +591,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020500004": {
     "__type__": "Clothes",
     "id": 1020500004,
     "attack": 100,
@@ -599,7 +599,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600002": {
     "__type__": "Clothes",
     "id": 1020600002,
     "attack": 100,
@@ -607,7 +607,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600003": {
     "__type__": "Clothes",
     "id": 1020600003,
     "attack": 100,
@@ -615,7 +615,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600004": {
     "__type__": "Clothes",
     "id": 1020600004,
     "attack": 100,
@@ -623,7 +623,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600005": {
     "__type__": "Clothes",
     "id": 1020600005,
     "attack": 100,
@@ -631,7 +631,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020600006": {
     "__type__": "Clothes",
     "id": 1020600006,
     "attack": 100,
@@ -639,7 +639,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700002": {
     "__type__": "Clothes",
     "id": 1020700002,
     "attack": 100,
@@ -647,7 +647,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700003": {
     "__type__": "Clothes",
     "id": 1020700003,
     "attack": 100,
@@ -655,7 +655,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700004": {
     "__type__": "Clothes",
     "id": 1020700004,
     "attack": 100,
@@ -663,7 +663,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700005": {
     "__type__": "Clothes",
     "id": 1020700005,
     "attack": 100,
@@ -671,7 +671,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700006": {
     "__type__": "Clothes",
     "id": 1020700006,
     "attack": 100,
@@ -679,7 +679,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020700007": {
     "__type__": "Clothes",
     "id": 1020700007,
     "attack": 100,
@@ -687,7 +687,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020800002": {
     "__type__": "Clothes",
     "id": 1020800002,
     "attack": 100,
@@ -695,7 +695,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020900002": {
     "__type__": "Clothes",
     "id": 1020900002,
     "attack": 100,
@@ -703,7 +703,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020900003": {
     "__type__": "Clothes",
     "id": 1020900003,
     "attack": 100,
@@ -711,7 +711,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020900004": {
     "__type__": "Clothes",
     "id": 1020900004,
     "attack": 100,
@@ -719,7 +719,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000002": {
     "__type__": "Clothes",
     "id": 1021000002,
     "attack": 100,
@@ -727,7 +727,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000003": {
     "__type__": "Clothes",
     "id": 1021000003,
     "attack": 100,
@@ -735,7 +735,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000004": {
     "__type__": "Clothes",
     "id": 1021000004,
     "attack": 100,
@@ -743,7 +743,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000005": {
     "__type__": "Clothes",
     "id": 1021000005,
     "attack": 100,
@@ -751,7 +751,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021000006": {
     "__type__": "Clothes",
     "id": 1021000006,
     "attack": 100,
@@ -759,7 +759,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021100002": {
     "__type__": "Clothes",
     "id": 1021100002,
     "attack": 100,
@@ -767,7 +767,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021100003": {
     "__type__": "Clothes",
     "id": 1021100003,
     "attack": 100,
@@ -775,7 +775,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021100004": {
     "__type__": "Clothes",
     "id": 1021100004,
     "attack": 100,
@@ -783,7 +783,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021200002": {
     "__type__": "Clothes",
     "id": 1021200002,
     "attack": 100,
@@ -791,7 +791,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021300002": {
     "__type__": "Clothes",
     "id": 1021300002,
     "attack": 100,
@@ -799,7 +799,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021300003": {
     "__type__": "Clothes",
     "id": 1021300003,
     "attack": 100,
@@ -807,7 +807,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021300004": {
     "__type__": "Clothes",
     "id": 1021300004,
     "attack": 100,
@@ -815,7 +815,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500002": {
     "__type__": "Clothes",
     "id": 1021500002,
     "attack": 100,
@@ -823,7 +823,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500003": {
     "__type__": "Clothes",
     "id": 1021500003,
     "attack": 100,
@@ -831,7 +831,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500004": {
     "__type__": "Clothes",
     "id": 1021500004,
     "attack": 100,
@@ -839,7 +839,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500005": {
     "__type__": "Clothes",
     "id": 1021500005,
     "attack": 100,
@@ -847,7 +847,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500006": {
     "__type__": "Clothes",
     "id": 1021500006,
     "attack": 100,
@@ -855,7 +855,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021500007": {
     "__type__": "Clothes",
     "id": 1021500007,
     "attack": 100,
@@ -863,7 +863,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021600002": {
     "__type__": "Clothes",
     "id": 1021600002,
     "attack": 100,
@@ -871,7 +871,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021700002": {
     "__type__": "Clothes",
     "id": 1021700002,
     "attack": 100,
@@ -879,7 +879,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021800002": {
     "__type__": "Clothes",
     "id": 1021800002,
     "attack": 100,
@@ -887,7 +887,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021900002": {
     "__type__": "Clothes",
     "id": 1021900002,
     "attack": 100,
@@ -895,7 +895,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022000002": {
     "__type__": "Clothes",
     "id": 1022000002,
     "attack": 100,
@@ -903,7 +903,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022100002": {
     "__type__": "Clothes",
     "id": 1022100002,
     "attack": 100,
@@ -911,7 +911,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022100003": {
     "__type__": "Clothes",
     "id": 1022100003,
     "attack": 100,
@@ -919,7 +919,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109005": {
     "__type__": "Clothes",
     "id": 1020109005,
     "attack": 100,
@@ -927,7 +927,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609005": {
     "__type__": "Clothes",
     "id": 1020609005,
     "attack": 100,
@@ -935,7 +935,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809005": {
     "__type__": "Clothes",
     "id": 1020809005,
     "attack": 100,
@@ -943,7 +943,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009005": {
     "__type__": "Clothes",
     "id": 1021009005,
     "attack": 100,
@@ -951,7 +951,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109005": {
     "__type__": "Clothes",
     "id": 1022109005,
     "attack": 100,
@@ -959,7 +959,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109012": {
     "__type__": "Clothes",
     "id": 1020109012,
     "attack": 100,
@@ -967,7 +967,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509012": {
     "__type__": "Clothes",
     "id": 1020509012,
     "attack": 100,
@@ -975,7 +975,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609012": {
     "__type__": "Clothes",
     "id": 1020609012,
     "attack": 100,
@@ -983,7 +983,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809012": {
     "__type__": "Clothes",
     "id": 1020809012,
     "attack": 100,
@@ -991,7 +991,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909012": {
     "__type__": "Clothes",
     "id": 1020909012,
     "attack": 100,
@@ -999,7 +999,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009012": {
     "__type__": "Clothes",
     "id": 1021009012,
     "attack": 100,
@@ -1007,7 +1007,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021309012": {
     "__type__": "Clothes",
     "id": 1021309012,
     "attack": 100,
@@ -1015,7 +1015,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409012": {
     "__type__": "Clothes",
     "id": 1021409012,
     "attack": 100,
@@ -1023,7 +1023,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109012": {
     "__type__": "Clothes",
     "id": 1022109012,
     "attack": 100,
@@ -1031,7 +1031,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109017": {
     "__type__": "Clothes",
     "id": 1020109017,
     "attack": 100,
@@ -1039,7 +1039,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309017": {
     "__type__": "Clothes",
     "id": 1020309017,
     "attack": 100,
@@ -1047,7 +1047,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409017": {
     "__type__": "Clothes",
     "id": 1020409017,
     "attack": 100,
@@ -1055,7 +1055,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509017": {
     "__type__": "Clothes",
     "id": 1020509017,
     "attack": 100,
@@ -1063,7 +1063,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609017": {
     "__type__": "Clothes",
     "id": 1020609017,
     "attack": 100,
@@ -1071,7 +1071,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709017": {
     "__type__": "Clothes",
     "id": 1020709017,
     "attack": 100,
@@ -1079,7 +1079,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409017": {
     "__type__": "Clothes",
     "id": 1021409017,
     "attack": 100,
@@ -1087,7 +1087,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109018": {
     "__type__": "Clothes",
     "id": 1020109018,
     "attack": 100,
@@ -1095,7 +1095,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509018": {
     "__type__": "Clothes",
     "id": 1020509018,
     "attack": 100,
@@ -1103,7 +1103,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609018": {
     "__type__": "Clothes",
     "id": 1020609018,
     "attack": 100,
@@ -1111,7 +1111,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809018": {
     "__type__": "Clothes",
     "id": 1020809018,
     "attack": 100,
@@ -1119,7 +1119,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009018": {
     "__type__": "Clothes",
     "id": 1021009018,
     "attack": 100,
@@ -1127,7 +1127,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109018": {
     "__type__": "Clothes",
     "id": 1022109018,
     "attack": 100,
@@ -1135,7 +1135,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109022": {
     "__type__": "Clothes",
     "id": 1020109022,
     "attack": 100,
@@ -1143,7 +1143,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309022": {
     "__type__": "Clothes",
     "id": 1020309022,
     "attack": 100,
@@ -1151,7 +1151,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409022": {
     "__type__": "Clothes",
     "id": 1020409022,
     "attack": 100,
@@ -1159,7 +1159,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609022": {
     "__type__": "Clothes",
     "id": 1020609022,
     "attack": 100,
@@ -1167,7 +1167,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809022": {
     "__type__": "Clothes",
     "id": 1020809022,
     "attack": 100,
@@ -1175,7 +1175,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109024": {
     "__type__": "Clothes",
     "id": 1020109024,
     "attack": 100,
@@ -1183,7 +1183,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309024": {
     "__type__": "Clothes",
     "id": 1020309024,
     "attack": 100,
@@ -1191,7 +1191,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409024": {
     "__type__": "Clothes",
     "id": 1020409024,
     "attack": 100,
@@ -1199,7 +1199,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509024": {
     "__type__": "Clothes",
     "id": 1020509024,
     "attack": 100,
@@ -1207,7 +1207,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609024": {
     "__type__": "Clothes",
     "id": 1020609024,
     "attack": 100,
@@ -1215,7 +1215,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709024": {
     "__type__": "Clothes",
     "id": 1020709024,
     "attack": 100,
@@ -1223,7 +1223,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009024": {
     "__type__": "Clothes",
     "id": 1021009024,
     "attack": 100,
@@ -1231,7 +1231,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409024": {
     "__type__": "Clothes",
     "id": 1021409024,
     "attack": 100,
@@ -1239,7 +1239,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109029": {
     "__type__": "Clothes",
     "id": 1020109029,
     "attack": 100,
@@ -1247,7 +1247,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509029": {
     "__type__": "Clothes",
     "id": 1020509029,
     "attack": 100,
@@ -1255,7 +1255,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609029": {
     "__type__": "Clothes",
     "id": 1020609029,
     "attack": 100,
@@ -1263,7 +1263,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809029": {
     "__type__": "Clothes",
     "id": 1020809029,
     "attack": 100,
@@ -1271,7 +1271,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909029": {
     "__type__": "Clothes",
     "id": 1020909029,
     "attack": 100,
@@ -1279,7 +1279,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409029": {
     "__type__": "Clothes",
     "id": 1021409029,
     "attack": 100,
@@ -1287,7 +1287,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109029": {
     "__type__": "Clothes",
     "id": 1022109029,
     "attack": 100,
@@ -1295,7 +1295,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109033": {
     "__type__": "Clothes",
     "id": 1020109033,
     "attack": 100,
@@ -1303,7 +1303,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020209033": {
     "__type__": "Clothes",
     "id": 1020209033,
     "attack": 100,
@@ -1311,7 +1311,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509033": {
     "__type__": "Clothes",
     "id": 1020509033,
     "attack": 100,
@@ -1319,7 +1319,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609033": {
     "__type__": "Clothes",
     "id": 1020609033,
     "attack": 100,
@@ -1327,7 +1327,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709033": {
     "__type__": "Clothes",
     "id": 1020709033,
     "attack": 100,
@@ -1335,7 +1335,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009033": {
     "__type__": "Clothes",
     "id": 1021009033,
     "attack": 100,
@@ -1343,7 +1343,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109033": {
     "__type__": "Clothes",
     "id": 1022109033,
     "attack": 100,
@@ -1351,7 +1351,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109039": {
     "__type__": "Clothes",
     "id": 1020109039,
     "attack": 100,
@@ -1359,7 +1359,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020209039": {
     "__type__": "Clothes",
     "id": 1020209039,
     "attack": 100,
@@ -1367,7 +1367,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509039": {
     "__type__": "Clothes",
     "id": 1020509039,
     "attack": 100,
@@ -1375,7 +1375,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609039": {
     "__type__": "Clothes",
     "id": 1020609039,
     "attack": 100,
@@ -1383,7 +1383,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709039": {
     "__type__": "Clothes",
     "id": 1020709039,
     "attack": 100,
@@ -1391,7 +1391,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109039": {
     "__type__": "Clothes",
     "id": 1022109039,
     "attack": 100,
@@ -1399,7 +1399,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109044": {
     "__type__": "Clothes",
     "id": 1020109044,
     "attack": 100,
@@ -1407,7 +1407,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309044": {
     "__type__": "Clothes",
     "id": 1020309044,
     "attack": 100,
@@ -1415,7 +1415,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409044": {
     "__type__": "Clothes",
     "id": 1020409044,
     "attack": 100,
@@ -1423,7 +1423,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509044": {
     "__type__": "Clothes",
     "id": 1020509044,
     "attack": 100,
@@ -1431,7 +1431,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609044": {
     "__type__": "Clothes",
     "id": 1020609044,
     "attack": 100,
@@ -1439,7 +1439,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709044": {
     "__type__": "Clothes",
     "id": 1020709044,
     "attack": 100,
@@ -1447,7 +1447,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009044": {
     "__type__": "Clothes",
     "id": 1021009044,
     "attack": 100,
@@ -1455,7 +1455,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409044": {
     "__type__": "Clothes",
     "id": 1021409044,
     "attack": 100,
@@ -1463,7 +1463,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109048": {
     "__type__": "Clothes",
     "id": 1020109048,
     "attack": 100,
@@ -1471,7 +1471,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509048": {
     "__type__": "Clothes",
     "id": 1020509048,
     "attack": 100,
@@ -1479,7 +1479,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609048": {
     "__type__": "Clothes",
     "id": 1020609048,
     "attack": 100,
@@ -1487,7 +1487,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809048": {
     "__type__": "Clothes",
     "id": 1020809048,
     "attack": 100,
@@ -1495,7 +1495,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109048": {
     "__type__": "Clothes",
     "id": 1022109048,
     "attack": 100,
@@ -1503,7 +1503,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109051": {
     "__type__": "Clothes",
     "id": 1020109051,
     "attack": 100,
@@ -1511,7 +1511,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609051": {
     "__type__": "Clothes",
     "id": 1020609051,
     "attack": 100,
@@ -1519,7 +1519,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709051": {
     "__type__": "Clothes",
     "id": 1020709051,
     "attack": 100,
@@ -1527,7 +1527,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909051": {
     "__type__": "Clothes",
     "id": 1020909051,
     "attack": 100,
@@ -1535,7 +1535,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009051": {
     "__type__": "Clothes",
     "id": 1021009051,
     "attack": 100,
@@ -1543,7 +1543,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409051": {
     "__type__": "Clothes",
     "id": 1021409051,
     "attack": 100,
@@ -1551,7 +1551,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109057": {
     "__type__": "Clothes",
     "id": 1020109057,
     "attack": 100,
@@ -1559,7 +1559,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509057": {
     "__type__": "Clothes",
     "id": 1020509057,
     "attack": 100,
@@ -1567,7 +1567,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609057": {
     "__type__": "Clothes",
     "id": 1020609057,
     "attack": 100,
@@ -1575,7 +1575,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709057": {
     "__type__": "Clothes",
     "id": 1020709057,
     "attack": 100,
@@ -1583,7 +1583,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009057": {
     "__type__": "Clothes",
     "id": 1021009057,
     "attack": 100,
@@ -1591,7 +1591,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109057": {
     "__type__": "Clothes",
     "id": 1022109057,
     "attack": 100,
@@ -1599,7 +1599,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109059": {
     "__type__": "Clothes",
     "id": 1020109059,
     "attack": 100,
@@ -1607,7 +1607,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509059": {
     "__type__": "Clothes",
     "id": 1020509059,
     "attack": 100,
@@ -1615,7 +1615,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609059": {
     "__type__": "Clothes",
     "id": 1020609059,
     "attack": 100,
@@ -1623,7 +1623,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809059": {
     "__type__": "Clothes",
     "id": 1020809059,
     "attack": 100,
@@ -1631,7 +1631,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009059": {
     "__type__": "Clothes",
     "id": 1021009059,
     "attack": 100,
@@ -1639,7 +1639,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021309059": {
     "__type__": "Clothes",
     "id": 1021309059,
     "attack": 100,
@@ -1647,7 +1647,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109059": {
     "__type__": "Clothes",
     "id": 1022109059,
     "attack": 100,
@@ -1655,7 +1655,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109064": {
     "__type__": "Clothes",
     "id": 1020109064,
     "attack": 100,
@@ -1663,7 +1663,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309064": {
     "__type__": "Clothes",
     "id": 1020309064,
     "attack": 100,
@@ -1671,7 +1671,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409064": {
     "__type__": "Clothes",
     "id": 1020409064,
     "attack": 100,
@@ -1679,7 +1679,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509064": {
     "__type__": "Clothes",
     "id": 1020509064,
     "attack": 100,
@@ -1687,7 +1687,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609064": {
     "__type__": "Clothes",
     "id": 1020609064,
     "attack": 100,
@@ -1695,7 +1695,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809064": {
     "__type__": "Clothes",
     "id": 1020809064,
     "attack": 100,
@@ -1703,7 +1703,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909064": {
     "__type__": "Clothes",
     "id": 1020909064,
     "attack": 100,
@@ -1711,7 +1711,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021309064": {
     "__type__": "Clothes",
     "id": 1021309064,
     "attack": 100,
@@ -1719,7 +1719,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409064": {
     "__type__": "Clothes",
     "id": 1021409064,
     "attack": 100,
@@ -1727,7 +1727,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109082": {
     "__type__": "Clothes",
     "id": 1020109082,
     "attack": 100,
@@ -1735,7 +1735,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509082": {
     "__type__": "Clothes",
     "id": 1020509082,
     "attack": 100,
@@ -1743,7 +1743,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609082": {
     "__type__": "Clothes",
     "id": 1020609082,
     "attack": 100,
@@ -1751,7 +1751,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809082": {
     "__type__": "Clothes",
     "id": 1020809082,
     "attack": 100,
@@ -1759,7 +1759,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021309082": {
     "__type__": "Clothes",
     "id": 1021309082,
     "attack": 100,
@@ -1767,7 +1767,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409082": {
     "__type__": "Clothes",
     "id": 1021409082,
     "attack": 100,
@@ -1775,7 +1775,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109082": {
     "__type__": "Clothes",
     "id": 1022109082,
     "attack": 100,
@@ -1783,7 +1783,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109085": {
     "__type__": "Clothes",
     "id": 1020109085,
     "attack": 100,
@@ -1791,7 +1791,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509085": {
     "__type__": "Clothes",
     "id": 1020509085,
     "attack": 100,
@@ -1799,7 +1799,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609085": {
     "__type__": "Clothes",
     "id": 1020609085,
     "attack": 100,
@@ -1807,7 +1807,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709085": {
     "__type__": "Clothes",
     "id": 1020709085,
     "attack": 100,
@@ -1815,7 +1815,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809085": {
     "__type__": "Clothes",
     "id": 1020809085,
     "attack": 100,
@@ -1823,7 +1823,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409085": {
     "__type__": "Clothes",
     "id": 1021409085,
     "attack": 100,
@@ -1831,7 +1831,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109085": {
     "__type__": "Clothes",
     "id": 1022109085,
     "attack": 100,
@@ -1839,7 +1839,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109087": {
     "__type__": "Clothes",
     "id": 1020109087,
     "attack": 100,
@@ -1847,7 +1847,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020209087": {
     "__type__": "Clothes",
     "id": 1020209087,
     "attack": 100,
@@ -1855,7 +1855,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509087": {
     "__type__": "Clothes",
     "id": 1020509087,
     "attack": 100,
@@ -1863,7 +1863,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609087": {
     "__type__": "Clothes",
     "id": 1020609087,
     "attack": 100,
@@ -1871,7 +1871,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709087": {
     "__type__": "Clothes",
     "id": 1020709087,
     "attack": 100,
@@ -1879,7 +1879,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909087": {
     "__type__": "Clothes",
     "id": 1020909087,
     "attack": 100,
@@ -1887,7 +1887,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409087": {
     "__type__": "Clothes",
     "id": 1021409087,
     "attack": 100,
@@ -1895,7 +1895,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109087": {
     "__type__": "Clothes",
     "id": 1022109087,
     "attack": 100,
@@ -1903,7 +1903,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609089": {
     "__type__": "Clothes",
     "id": 1020609089,
     "attack": 100,
@@ -1911,7 +1911,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709089": {
     "__type__": "Clothes",
     "id": 1020709089,
     "attack": 100,
@@ -1919,7 +1919,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009089": {
     "__type__": "Clothes",
     "id": 1021009089,
     "attack": 100,
@@ -1927,7 +1927,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109089": {
     "__type__": "Clothes",
     "id": 1022109089,
     "attack": 100,
@@ -1935,7 +1935,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109093": {
     "__type__": "Clothes",
     "id": 1020109093,
     "attack": 100,
@@ -1943,7 +1943,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509093": {
     "__type__": "Clothes",
     "id": 1020509093,
     "attack": 100,
@@ -1951,7 +1951,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609093": {
     "__type__": "Clothes",
     "id": 1020609093,
     "attack": 100,
@@ -1959,7 +1959,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709093": {
     "__type__": "Clothes",
     "id": 1020709093,
     "attack": 100,
@@ -1967,7 +1967,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909093": {
     "__type__": "Clothes",
     "id": 1020909093,
     "attack": 100,
@@ -1975,7 +1975,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109093": {
     "__type__": "Clothes",
     "id": 1022109093,
     "attack": 100,
@@ -1983,7 +1983,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109095": {
     "__type__": "Clothes",
     "id": 1020109095,
     "attack": 100,
@@ -1991,7 +1991,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020309095": {
     "__type__": "Clothes",
     "id": 1020309095,
     "attack": 100,
@@ -1999,7 +1999,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020409095": {
     "__type__": "Clothes",
     "id": 1020409095,
     "attack": 100,
@@ -2007,7 +2007,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020509095": {
     "__type__": "Clothes",
     "id": 1020509095,
     "attack": 100,
@@ -2015,7 +2015,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609095": {
     "__type__": "Clothes",
     "id": 1020609095,
     "attack": 100,
@@ -2023,7 +2023,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020809095": {
     "__type__": "Clothes",
     "id": 1020809095,
     "attack": 100,
@@ -2031,7 +2031,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909095": {
     "__type__": "Clothes",
     "id": 1020909095,
     "attack": 100,
@@ -2039,7 +2039,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009095": {
     "__type__": "Clothes",
     "id": 1021009095,
     "attack": 100,
@@ -2047,7 +2047,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409095": {
     "__type__": "Clothes",
     "id": 1021409095,
     "attack": 100,
@@ -2055,7 +2055,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020109132": {
     "__type__": "Clothes",
     "id": 1020109132,
     "attack": 100,
@@ -2063,7 +2063,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020609132": {
     "__type__": "Clothes",
     "id": 1020609132,
     "attack": 100,
@@ -2071,7 +2071,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020709132": {
     "__type__": "Clothes",
     "id": 1020709132,
     "attack": 100,
@@ -2079,7 +2079,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1020909132": {
     "__type__": "Clothes",
     "id": 1020909132,
     "attack": 100,
@@ -2087,7 +2087,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021009132": {
     "__type__": "Clothes",
     "id": 1021009132,
     "attack": 100,
@@ -2095,7 +2095,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021309132": {
     "__type__": "Clothes",
     "id": 1021309132,
     "attack": 100,
@@ -2103,7 +2103,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1021409132": {
     "__type__": "Clothes",
     "id": 1021409132,
     "attack": 100,
@@ -2111,7 +2111,7 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1022109132": {
     "__type__": "Clothes",
     "id": 1022109132,
     "attack": 100,
@@ -2119,130 +2119,130 @@
     "energy_limit": 5,
     "energy_resume": 1
   },
-  {
+  "1110010005": {
     "__type__": "DesignDrawing",
     "id": 1110010005,
     "learn_component_id": [
       1020400006
     ]
   },
-  {
+  "1110010006": {
     "__type__": "DesignDrawing",
     "id": 1110010006,
     "learn_component_id": [
       1020500003
     ]
   },
-  {
+  "1110020001": {
     "__type__": "DesignDrawing",
     "id": 1110020001,
     "learn_component_id": [
       1021009005
     ]
   },
-  {
+  "1110020002": {
     "__type__": "DesignDrawing",
     "id": 1110020002,
     "learn_component_id": [
       1022109005
     ]
   },
-  {
+  "1110020003": {
     "__type__": "DesignDrawing",
     "id": 1110020003,
     "learn_component_id": [
       1020409017
     ]
   },
-  {
+  "1110020004": {
     "__type__": "DesignDrawing",
     "id": 1110020004,
     "learn_component_id": [
       1021409017
     ]
   },
-  {
+  "1110020005": {
     "__type__": "DesignDrawing",
     "id": 1110020005,
     "learn_component_id": [
       1021300002
     ]
   },
-  {
+  "1110020009": {
     "__type__": "DesignDrawing",
     "id": 1110020009,
     "learn_component_id": [
       1020409024
     ]
   },
-  {
+  "1110020010": {
     "__type__": "DesignDrawing",
     "id": 1110020010,
     "learn_component_id": [
       1020509024
     ]
   },
-  {
+  "1110020011": {
     "__type__": "DesignDrawing",
     "id": 1110020011,
     "learn_component_id": [
       1020609024
     ]
   },
-  {
+  "1110020012": {
     "__type__": "DesignDrawing",
     "id": 1110020012,
     "learn_component_id": [
       1020809022
     ]
   },
-  {
+  "1110020013": {
     "__type__": "DesignDrawing",
     "id": 1110020013,
     "learn_component_id": [
       1020709024
     ]
   },
-  {
+  "1110020014": {
     "__type__": "DesignDrawing",
     "id": 1110020014,
     "learn_component_id": [
       1021009024
     ]
   },
-  {
+  "1110020015": {
     "__type__": "DesignDrawing",
     "id": 1110020015,
     "learn_component_id": [
       1021409024
     ]
   },
-  {
+  "1110020016": {
     "__type__": "DesignDrawing",
     "id": 1110020016,
     "learn_component_id": [
       1021309132
     ]
   },
-  {
+  "1110020017": {
     "__type__": "DesignDrawing",
     "id": 1110020017,
     "learn_component_id": [
       1020909132
     ]
   },
-  {
+  "1110020018": {
     "__type__": "DesignDrawing",
     "id": 1110020018,
     "learn_component_id": [
       1021500007
     ]
   },
-  {
+  "1110020080": {
     "__type__": "DesignDrawing",
     "id": 1110020080,
     "learn_component_id": [
       1021009132
     ]
   }
-]
+}

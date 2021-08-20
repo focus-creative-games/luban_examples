@@ -1,5 +1,5 @@
-[
-  {
+{
+  "1": {
     "id": 1,
     "name": "钻石",
     "major_type": 1,
@@ -20,7 +20,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "2": {
     "id": 2,
     "name": "金币",
     "major_type": 1,
@@ -41,7 +41,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "3": {
     "id": 3,
     "name": "银币",
     "major_type": 1,
@@ -62,7 +62,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "4": {
     "id": 4,
     "name": "经验",
     "major_type": 1,
@@ -83,7 +83,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "5": {
     "id": 5,
     "name": "能量点",
     "major_type": 1,
@@ -104,7 +104,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020100001": {
     "id": 1020100001,
     "name": "初始发型",
     "major_type": 2,
@@ -125,7 +125,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020200001": {
     "id": 1020200001,
     "name": "初始外套",
     "major_type": 2,
@@ -146,7 +146,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020300001": {
     "id": 1020300001,
     "name": "初始上衣",
     "major_type": 2,
@@ -167,7 +167,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020400001": {
     "id": 1020400001,
     "name": "初始裤子",
     "major_type": 2,
@@ -188,7 +188,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020500001": {
     "id": 1020500001,
     "name": "初始袜子",
     "major_type": 2,
@@ -209,7 +209,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020600001": {
     "id": 1020600001,
     "name": "初始鞋子",
     "major_type": 2,
@@ -230,7 +230,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1020700001": {
     "id": 1020700001,
     "name": "初始发饰",
     "major_type": 2,
@@ -251,7 +251,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1022490000": {
     "id": 1022490000,
     "name": "测试数据-包子",
     "major_type": 4,
@@ -272,7 +272,7 @@
     "droppable": true,
     "use_type": 1
   },
-  {
+  "1022490001": {
     "id": 1022490001,
     "name": "测试数据-铲子",
     "major_type": 4,
@@ -294,7 +294,7 @@
     "price": 100,
     "use_type": 0
   },
-  {
+  "1021490001": {
     "id": 1021490001,
     "name": "测试数据-不要动",
     "major_type": 2,
@@ -315,7 +315,7 @@
     "droppable": false,
     "use_type": 0
   },
-  {
+  "1022490002": {
     "id": 1022490002,
     "name": "测试数据-不要动",
     "major_type": 2,
@@ -337,4 +337,4 @@
     "price": 8,
     "use_type": 0
   }
-]
+}

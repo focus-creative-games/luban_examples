@@ -1,5 +1,5 @@
-[
-  {
+{
+  "int": {
     "__type__": "NormalClazz",
     "name": "int",
     "desc": "primity type:int",
@@ -8,4 +8,4 @@
     "is_abstract": false,
     "fields": []
   }
-]
+}

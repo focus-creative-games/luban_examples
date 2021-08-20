@@ -1,5 +1,5 @@
-[
-  {
+{
+  "10002": {
     "id": 10002,
     "name": "random move",
     "desc": "demo behaviour tree haha",
@@ -44,4 +44,4 @@
       ]
     }
   }
-]
+}
