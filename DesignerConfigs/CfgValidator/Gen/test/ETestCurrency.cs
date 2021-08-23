@@ -9,9 +9,6 @@
 
 namespace cfg.test
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum ETestCurrency
     {
         /// <summary>

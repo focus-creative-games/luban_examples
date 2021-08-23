@@ -41,9 +41,9 @@ public sealed partial class Item :  Bright.Config.BeanBase
         ProgressTimeWhenUse = _json.GetProperty("progress_time_when_use").GetSingle();
         ShowHintWhenUse = _json.GetProperty("show_hint_when_use").GetBoolean();
         Droppable = _json.GetProperty("droppable").GetBoolean();
-        { var _j = _json.GetProperty("price"); if (_j.ValueKind != JsonValueKind.Null) { Price = _j.GetInt32(); } else { Price = null; } }
+        { if (_json.TryGetProperty("price", out var _j) && _j.ValueKind != JsonValueKind.Null) { Price = _j.GetInt32(); } else { Price = null; } }
         UseType = (item.EUseType)_json.GetProperty("use_type").GetInt32();
-        { var _j = _json.GetProperty("level_up_id"); if (_j.ValueKind != JsonValueKind.Null) { LevelUpId = _j.GetInt32(); } else { LevelUpId = null; } }
+        { if (_json.TryGetProperty("level_up_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { LevelUpId = _j.GetInt32(); } else { LevelUpId = null; } }
     }
 
     public Item(int id, string name, item.EMajorType major_type, item.EMinorType minor_type, int max_pile_num, item.EItemQuality quality, string icon, string icon_backgroud, string icon_mask, string desc, int show_order, string quantifier, bool show_in_bag, int min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int? price, item.EUseType use_type, int? level_up_id ) 
@@ -80,85 +80,25 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// 道具id
     /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EMajorType MajorType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EMinorType MinorType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MaxPileNum;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EItemQuality Quality;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Icon;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string IconBackgroud;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string IconMask;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int ShowOrder;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Quantifier;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool ShowInBag;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MinShowLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool BatchUsable;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float ProgressTimeWhenUse;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool ShowHintWhenUse;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool Droppable;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? Price;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly item.EUseType UseType;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? LevelUpId;
 
     public const int ID = 2107285806;

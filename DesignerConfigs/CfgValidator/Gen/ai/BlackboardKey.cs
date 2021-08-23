@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class BlackboardKey :  Bright.Config.BeanBase 
 {
     public BlackboardKey(JsonElement _json) 
@@ -44,25 +41,10 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
         return new ai.BlackboardKey(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Name;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool IsStatic;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly ai.EKeyType Type;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string TypeClassName;
 
     public const int ID = -511559886;

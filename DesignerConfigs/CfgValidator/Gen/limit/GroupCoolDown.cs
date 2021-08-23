@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.limit
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class GroupCoolDown :  limit.LimitBase 
 {
     public GroupCoolDown(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
         return new limit.GroupCoolDown(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int GroupId;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Duration;
 
     public const int ID = 394328599;

@@ -8,7 +8,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 %GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir CfgValidator/config_data ^
+ --output_data_dir ../Projects/GenerateDatas/json ^
  --gen_types data_json ^
  -s all ^
 --export_test_data

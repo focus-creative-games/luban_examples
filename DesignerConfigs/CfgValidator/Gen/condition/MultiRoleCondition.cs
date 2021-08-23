@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         return new condition.MultiRoleCondition(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.RoleCondition[] Conditions;
 
     public const int ID = 934079583;

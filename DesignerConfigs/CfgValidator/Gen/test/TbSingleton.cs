@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TbSingleton
 {
 
@@ -31,17 +28,8 @@ public sealed partial class TbSingleton
         _data = test.DemoSingletonType.DeserializeDemoSingletonType(_json[0]);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
      public int Id => _data.Id;
-    /// <summary>
-    /// 
-    /// </summary>
      public string Name => _data.Name;
-    /// <summary>
-    /// 
-    /// </summary>
      public test.DemoDynamic Date => _data.Date;
 
     public void Resolve(Dictionary<string, object> _tables)

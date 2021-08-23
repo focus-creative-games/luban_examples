@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
     public ErrorInfo(JsonElement _json) 
@@ -40,17 +37,8 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         return new error.ErrorInfo(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Code;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Desc;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly error.ErrorStyle Style;
 
     public const int ID = 1389347408;

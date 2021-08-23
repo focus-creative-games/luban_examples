@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CoefficientItem :  bonus.Bonus 
 {
     public CoefficientItem(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         return new bonus.CoefficientItem(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int BonusId;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Items BonusList;
 
     public const int ID = -229470727;

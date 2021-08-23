@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoType1 :  Bright.Config.BeanBase 
 {
     public DemoType1(JsonElement _json) 
@@ -36,9 +33,6 @@ public sealed partial class DemoType1 :  Bright.Config.BeanBase
         return new test.DemoType1(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X1;
 
     public const int ID = -367048296;

@@ -9,17 +9,14 @@
 
 namespace cfg.item
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public enum EUseType
     {
         /// <summary>
-        /// 
+        /// 手动
         /// </summary>
         MANUAL = 0,
         /// <summary>
-        /// 
+        /// 自动
         /// </summary>
         AUTO = 1,
     }

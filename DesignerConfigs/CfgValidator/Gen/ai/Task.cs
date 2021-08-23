@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class Task :  ai.FlowNode 
 {
     public Task(JsonElement _json)  : base(_json) 
@@ -46,9 +43,6 @@ public abstract partial class Task :  ai.FlowNode
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool IgnoreRestartSelf;
 
 

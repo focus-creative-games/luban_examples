@@ -16,14 +16,11 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(JsonElement _json)  : base(_json) 
     {
-        { var _j = _json.GetProperty("attack_num"); if (_j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
+        { if (_json.TryGetProperty("attack_num", out var _j) && _j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
         HoldingStaticMesh = _json.GetProperty("holding_static_mesh").GetString();
         HoldingStaticMeshMat = _json.GetProperty("holding_static_mesh_mat").GetString();
     }
@@ -40,17 +37,8 @@ public sealed partial class InteractionItem :  item.ItemExtra
         return new item.InteractionItem(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? AttackNum;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string HoldingStaticMesh;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string HoldingStaticMeshMat;
 
     public const int ID = 640937802;

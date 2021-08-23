@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeWait :  ai.Task 
 {
     public UeWait(JsonElement _json)  : base(_json) 
@@ -38,13 +35,7 @@ public sealed partial class UeWait :  ai.Task
         return new ai.UeWait(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float WaitTime;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float RandomDeviation;
 
     public const int ID = -512994101;

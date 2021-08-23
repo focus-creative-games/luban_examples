@@ -68,50 +68,17 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     /// 字段的描述
     /// </summary>
     public readonly bool X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly long X5;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float X6;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X8;
     public test.DemoPrimitiveTypesTable X8_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string X10;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.ETestQuality X13;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic X14;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Numerics.Vector2 V2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int T1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int[] K1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
 
     public const int ID = 2100429878;

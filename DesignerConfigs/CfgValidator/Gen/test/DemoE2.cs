@@ -16,14 +16,11 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DemoE2 :  Bright.Config.BeanBase 
 {
     public DemoE2(JsonElement _json) 
     {
-        { var _j = _json.GetProperty("y1"); if (_j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
+        { if (_json.TryGetProperty("y1", out var _j) && _j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
         Y2 = _json.GetProperty("y2").GetBoolean();
     }
 
@@ -38,13 +35,7 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
         return new test.DemoE2(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? Y1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool Y2;
 
     public const int ID = -2138341716;

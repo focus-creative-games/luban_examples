@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class MultiBonus :  bonus.Bonus 
 {
     public MultiBonus(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class MultiBonus :  bonus.Bonus
         return new bonus.MultiBonus(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bonus.Bonus[] Bonuses;
 
     public const int ID = 1421907893;

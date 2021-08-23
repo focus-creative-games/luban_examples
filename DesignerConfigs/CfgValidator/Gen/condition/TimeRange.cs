@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TimeRange :  condition.Condition 
 {
     public TimeRange(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class TimeRange :  condition.Condition
         return new condition.TimeRange(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly common.DateTimeRange DateTimeRange;
 
     public const int ID = 1069033789;

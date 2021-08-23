@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class Node :  Bright.Config.BeanBase 
 {
     public Node(JsonElement _json) 
@@ -64,13 +61,7 @@ public abstract partial class Node :  Bright.Config.BeanBase
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string NodeName;
 
 

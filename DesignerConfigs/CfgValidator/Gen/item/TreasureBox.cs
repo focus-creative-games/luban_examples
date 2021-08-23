@@ -16,14 +16,11 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(JsonElement _json)  : base(_json) 
     {
-        { var _j = _json.GetProperty("key_item_id"); if (_j.ValueKind != JsonValueKind.Null) { KeyItemId = _j.GetInt32(); } else { KeyItemId = null; } }
+        { if (_json.TryGetProperty("key_item_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { KeyItemId = _j.GetInt32(); } else { KeyItemId = null; } }
         OpenLevel =  condition.MinLevel.DeserializeMinLevel(_json.GetProperty("open_level"));
         UseOnObtain = _json.GetProperty("use_on_obtain").GetBoolean();
         { var _json0 = _json.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  DropIds.Add(__v); }   }
@@ -44,25 +41,10 @@ public sealed partial class TreasureBox :  item.ItemExtra
         return new item.TreasureBox(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? KeyItemId;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.MinLevel OpenLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool UseOnObtain;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> DropIds;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
 
     public const int ID = 1494222369;

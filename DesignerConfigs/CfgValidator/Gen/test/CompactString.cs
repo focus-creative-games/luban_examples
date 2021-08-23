@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class CompactString :  Bright.Config.BeanBase 
 {
     public CompactString(JsonElement _json) 
@@ -40,17 +37,8 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
         return new test.CompactString(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S3;
 
     public const int ID = 1968089240;

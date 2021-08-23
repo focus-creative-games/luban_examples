@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class UeCooldown :  ai.Decorator
         return new ai.UeCooldown(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float CooldownTime;
 
     public const int ID = -951439423;

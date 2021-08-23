@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.common
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(JsonElement _json) 
@@ -32,7 +29,7 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
         ClothBagCapacity = _json.GetProperty("cloth_bag_capacity").GetInt32();
         ClothBagInitCapacity = _json.GetProperty("cloth_bag_init_capacity").GetInt32();
         ClothBagCapacitySpecial = _json.GetProperty("cloth_bag_capacity_special").GetInt32();
-        { var _j = _json.GetProperty("bag_init_items_drop_id"); if (_j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
+        { if (_json.TryGetProperty("bag_init_items_drop_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
         MailBoxCapacity = _json.GetProperty("mail_box_capacity").GetInt32();
         DamageParamC = _json.GetProperty("damage_param_c").GetSingle();
         DamageParamE = _json.GetProperty("damage_param_e").GetSingle();
@@ -80,86 +77,26 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     /// 背包容量
     /// </summary>
     public readonly int BagCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int BagCapacitySpecial;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int BagTempExpendableCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int BagTempToolCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int BagInitCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int QuickBagCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int ClothBagCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int ClothBagInitCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int ClothBagCapacitySpecial;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? BagInitItemsDropId;
     public bonus.DropInfo BagInitItemsDropId_Ref;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MailBoxCapacity;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float DamageParamC;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float DamageParamE;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float DamageParamF;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float DamageParamD;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float RoleSpeed;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly float MonsterSpeed;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int InitEnergy;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int InitViality;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int MaxViality;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int PerVialityRecoveryTime;
 
     public const int ID = -848234488;

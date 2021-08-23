@@ -16,15 +16,12 @@ using System.Text.Json;
 namespace cfg.common
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JsonElement _json) 
     {
-        { var _j = _json.GetProperty("start_time"); if (_j.ValueKind != JsonValueKind.Null) { StartTime = _j.GetInt32(); } else { StartTime = null; } }
-        { var _j = _json.GetProperty("end_time"); if (_j.ValueKind != JsonValueKind.Null) { EndTime = _j.GetInt32(); } else { EndTime = null; } }
+        { if (_json.TryGetProperty("start_time", out var _j) && _j.ValueKind != JsonValueKind.Null) { StartTime = _j.GetInt32(); } else { StartTime = null; } }
+        { if (_json.TryGetProperty("end_time", out var _j) && _j.ValueKind != JsonValueKind.Null) { EndTime = _j.GetInt32(); } else { EndTime = null; } }
     }
 
     public DateTimeRange(int? start_time, int? end_time ) 
@@ -38,13 +35,7 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new common.DateTimeRange(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? StartTime;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? EndTime;
 
     public const int ID = 1642200959;

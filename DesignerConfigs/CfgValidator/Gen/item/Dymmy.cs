@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class Dymmy :  item.ItemExtra 
 {
     public Dymmy(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class Dymmy :  item.ItemExtra
         return new item.Dymmy(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly cost.Cost Cost;
 
     public const int ID = 896889705;

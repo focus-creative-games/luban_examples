@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.mail
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class GlobalMail :  Bright.Config.BeanBase 
 {
     public GlobalMail(JsonElement _json) 
@@ -58,53 +55,17 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         return new mail.GlobalMail(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Title;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Sender;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Content;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> Award;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly bool AllServer;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly System.Collections.Generic.List<int> ServerList;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Platform;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string Channel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.MinMaxLevel MinMaxLevel;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.TimeRange RegisterTime;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly condition.TimeRange MailTime;
 
     public const int ID = -287571791;

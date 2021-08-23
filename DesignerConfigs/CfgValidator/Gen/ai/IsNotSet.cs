@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class IsNotSet :  ai.KeyQueryOperator 
 {
     public IsNotSet(JsonElement _json)  : base(_json) 

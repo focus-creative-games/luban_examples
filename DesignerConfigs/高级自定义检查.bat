@@ -7,7 +7,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir CfgValidator/Gen ^
- --output_data_dir CfgValidator/config_data ^
+ --output_data_dir ../Projects/GenerateDatas/json ^
  --gen_types code_cs_json,data_json ^
  -s all ^
 --export_test_data

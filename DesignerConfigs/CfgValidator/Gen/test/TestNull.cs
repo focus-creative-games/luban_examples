@@ -16,20 +16,17 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _j = _json.GetProperty("x1"); if (_j.ValueKind != JsonValueKind.Null) { X1 = _j.GetInt32(); } else { X1 = null; } }
-        { var _j = _json.GetProperty("x2"); if (_j.ValueKind != JsonValueKind.Null) { X2 = (test.DemoEnum)_j.GetInt32(); } else { X2 = null; } }
-        { var _j = _json.GetProperty("x3"); if (_j.ValueKind != JsonValueKind.Null) { X3 =  test.DemoType1.DeserializeDemoType1(_j); } else { X3 = null; } }
-        { var _j = _json.GetProperty("x4"); if (_j.ValueKind != JsonValueKind.Null) { X4 =  test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
-        { var _j = _json.GetProperty("s1"); if (_j.ValueKind != JsonValueKind.Null) { S1 = _j.GetString(); } else { S1 = null; } }
-        { var _j = _json.GetProperty("s2"); if (_j.ValueKind != JsonValueKind.Null) { S2 = _j.GetString(); } else { S2 = null; } }
+        { if (_json.TryGetProperty("x1", out var _j) && _j.ValueKind != JsonValueKind.Null) { X1 = _j.GetInt32(); } else { X1 = null; } }
+        { if (_json.TryGetProperty("x2", out var _j) && _j.ValueKind != JsonValueKind.Null) { X2 = (test.DemoEnum)_j.GetInt32(); } else { X2 = null; } }
+        { if (_json.TryGetProperty("x3", out var _j) && _j.ValueKind != JsonValueKind.Null) { X3 =  test.DemoType1.DeserializeDemoType1(_j); } else { X3 = null; } }
+        { if (_json.TryGetProperty("x4", out var _j) && _j.ValueKind != JsonValueKind.Null) { X4 =  test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
+        { if (_json.TryGetProperty("s1", out var _j) && _j.ValueKind != JsonValueKind.Null) { S1 = _j.GetString(); } else { S1 = null; } }
+        { if (_json.TryGetProperty("s2", out var _j) && _j.ValueKind != JsonValueKind.Null) { S2 = _j.GetString(); } else { S2 = null; } }
     }
 
     public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
@@ -48,33 +45,12 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int Id;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int? X1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoEnum? X2;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoType1 X3;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly test.DemoDynamic X4;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S1;
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string S2;
 
     public const int ID = 339868469;

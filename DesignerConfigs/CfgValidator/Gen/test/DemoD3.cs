@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public abstract partial class DemoD3 :  test.DemoDynamic 
 {
     public DemoD3(JsonElement _json)  : base(_json) 
@@ -40,9 +37,6 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly int X3;
 
 

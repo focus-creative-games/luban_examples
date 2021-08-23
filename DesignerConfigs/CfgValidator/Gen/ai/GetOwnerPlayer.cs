@@ -16,9 +16,6 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed partial class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(JsonElement _json)  : base(_json) 
@@ -36,9 +33,6 @@ public sealed partial class GetOwnerPlayer :  ai.Service
         return new ai.GetOwnerPlayer(_json);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public readonly string PlayerActorKey;
 
     public const int ID = -999247644;
