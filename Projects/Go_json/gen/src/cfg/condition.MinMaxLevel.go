@@ -29,4 +29,3 @@ func NewCondition_MinMaxLevel(_buf map[string]interface{}) (_v *Condition_MinMax
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["max"].(float64); !_ok_ { err = errors.New("max error"); return }; _v.Max = int32(_tempNum_) }
     return
 }
-

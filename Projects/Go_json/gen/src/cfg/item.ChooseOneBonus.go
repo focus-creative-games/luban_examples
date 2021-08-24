@@ -25,4 +25,3 @@ func NewItem_ChooseOneBonus(_buf map[string]interface{}) (_v *Item_ChooseOneBonu
     { var _ok_ bool; if _v.IsUnique, _ok_ = _buf["is_unique"].(bool); !_ok_ { err = errors.New("is_unique error"); return } }
     return
 }
-

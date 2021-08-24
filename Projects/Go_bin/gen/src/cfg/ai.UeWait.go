@@ -33,4 +33,3 @@ func NewAi_UeWait(_buf *serialization.ByteBuf) (_v *Ai_UeWait, err error) {
     { if _v.RandomDeviation, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

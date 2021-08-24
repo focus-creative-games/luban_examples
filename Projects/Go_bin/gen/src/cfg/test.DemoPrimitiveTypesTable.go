@@ -51,4 +51,3 @@ func NewTest_DemoPrimitiveTypesTable(_buf *serialization.ByteBuf) (_v *Test_Demo
     { if _v.T1, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

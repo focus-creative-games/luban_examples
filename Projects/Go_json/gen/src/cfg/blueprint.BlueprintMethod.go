@@ -25,4 +25,3 @@ func NewBlueprint_BlueprintMethod(_buf map[string]interface{}) (_v *Blueprint_Bl
     _v.Blueprint_Method = *_p
     return
 }
-

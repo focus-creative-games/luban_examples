@@ -37,4 +37,3 @@ func NewAi_KeyQueryOperator_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyQueryOp
     return
 }
 
-

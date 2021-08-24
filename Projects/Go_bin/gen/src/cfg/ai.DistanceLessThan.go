@@ -37,4 +37,3 @@ func NewAi_DistanceLessThan(_buf *serialization.ByteBuf) (_v *Ai_DistanceLessTha
     { if _v.ReverseResult, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

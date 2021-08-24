@@ -29,4 +29,3 @@ func NewBonus_ProbabilityBonusInfo(_buf *serialization.ByteBuf) (_v *Bonus_Proba
     { if _v.Probability, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

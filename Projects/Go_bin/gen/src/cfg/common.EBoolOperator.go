@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Common_EBoolOperator_AND = 0
     Common_EBoolOperator_OR = 1
 )
-

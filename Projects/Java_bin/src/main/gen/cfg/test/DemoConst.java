@@ -16,5 +16,3 @@ public final class DemoConst
     public static final float x3 = 444.3f;
     public static final double x4 = 55.3;
 }
-
-

@@ -35,4 +35,3 @@ func NewCondition_ContainsItem(_buf *serialization.ByteBuf) (_v *Condition_Conta
     { if _v.Reverse, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -17,4 +15,3 @@ const (
     Item_ECurrencyType_EXP = 4
     Item_ECurrencyType_POWER_POINT = 5
 )
-

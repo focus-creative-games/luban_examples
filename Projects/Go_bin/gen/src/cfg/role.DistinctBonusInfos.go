@@ -39,4 +39,3 @@ func NewRole_DistinctBonusInfos(_buf *serialization.ByteBuf) (_v *Role_DistinctB
 
     return
 }
-

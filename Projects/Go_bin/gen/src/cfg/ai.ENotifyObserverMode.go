@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Ai_ENotifyObserverMode_ON_VALUE_CHANGE = 0
     Ai_ENotifyObserverMode_ON_RESULT_CHANGE = 1
 )
-

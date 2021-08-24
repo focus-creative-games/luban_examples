@@ -25,4 +25,3 @@ func NewBlueprint_ExternalMethod(_buf map[string]interface{}) (_v *Blueprint_Ext
     _v.Blueprint_Method = *_p
     return
 }
-

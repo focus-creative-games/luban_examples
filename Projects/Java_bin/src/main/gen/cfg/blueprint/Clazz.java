@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.blueprint;
 
 import bright.serialization.*;
@@ -77,4 +76,3 @@ public abstract class Clazz extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

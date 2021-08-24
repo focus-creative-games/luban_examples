@@ -43,4 +43,3 @@ func NewAi_UpdateDailyBehaviorProps(_buf map[string]interface{}) (_v *Ai_UpdateD
     { var _ok_ bool; if _v.MoodUpperThresholdKey, _ok_ = _buf["mood_upper_threshold_key"].(string); !_ok_ { err = errors.New("mood_upper_threshold_key error"); return } }
     return
 }
-

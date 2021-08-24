@@ -41,4 +41,3 @@ func NewBonus_OneItems(_buf *serialization.ByteBuf) (_v *Bonus_OneItems, err err
 
     return
 }
-

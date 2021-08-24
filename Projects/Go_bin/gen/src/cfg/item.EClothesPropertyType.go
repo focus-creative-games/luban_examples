@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -22,4 +20,3 @@ const (
     Item_EClothesPropertyType_QING_LIANG = 9
     Item_EClothesPropertyType_BAO_NUAN = 10
 )
-

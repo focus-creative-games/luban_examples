@@ -41,4 +41,3 @@ func NewTest_DemoD3_Body(_buf *serialization.ByteBuf) (_v *Test_DemoD3, err erro
     return
 }
 
-

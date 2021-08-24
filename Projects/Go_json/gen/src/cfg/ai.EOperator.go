@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -20,4 +18,3 @@ const (
     Ai_EOperator_CONTAINS = 6
     Ai_EOperator_NOT_CONTAINS = 7
 )
-

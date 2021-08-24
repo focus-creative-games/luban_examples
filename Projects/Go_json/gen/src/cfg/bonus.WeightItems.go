@@ -40,4 +40,3 @@ func NewBonus_WeightItems(_buf map[string]interface{}) (_v *Bonus_WeightItems, e
 
     return
 }
-

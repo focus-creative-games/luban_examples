@@ -72,4 +72,3 @@ func NewAi_FlowNode_Body(_buf *serialization.ByteBuf) (_v *Ai_FlowNode, err erro
     return
 }
 
-

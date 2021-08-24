@@ -8,7 +8,7 @@ import (
 )
 
 func loader(file string) (*serialization.ByteBuf, error) {
-	if bytes, err := ioutil.ReadFile("./config_data/" + file + ".bin") ; err != nil {
+	if bytes, err := ioutil.ReadFile("../GenerateDatas/bin/" + file + ".bin") ; err != nil {
 		return nil, err
 	} else {
 		return serialization.WrapByteBuf(bytes), nil

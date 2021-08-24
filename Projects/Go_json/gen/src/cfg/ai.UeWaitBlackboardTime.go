@@ -27,4 +27,3 @@ func NewAi_UeWaitBlackboardTime(_buf map[string]interface{}) (_v *Ai_UeWaitBlack
     { var _ok_ bool; if _v.BlackboardKey, _ok_ = _buf["blackboard_key"].(string); !_ok_ { err = errors.New("blackboard_key error"); return } }
     return
 }
-

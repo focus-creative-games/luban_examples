@@ -27,4 +27,3 @@ func NewAi_UeTimeLimit(_buf map[string]interface{}) (_v *Ai_UeTimeLimit, err err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["limit_time"].(float64); !_ok_ { err = errors.New("limit_time error"); return }; _v.LimitTime = float32(_tempNum_) }
     return
 }
-

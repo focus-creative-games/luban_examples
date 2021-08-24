@@ -27,4 +27,3 @@ func NewTest_CompactString(_buf map[string]interface{}) (_v *Test_CompactString,
     { var _ok_ bool; if _v.S3, _ok_ = _buf["s3"].(string); !_ok_ { err = errors.New("s3 error"); return } }
     return
 }
-

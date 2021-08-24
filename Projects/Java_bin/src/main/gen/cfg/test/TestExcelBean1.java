@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.test;
 
 import bright.serialization.*;
@@ -88,4 +87,3 @@ public final class TestExcelBean1 extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

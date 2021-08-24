@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 public enum EFlowAbortMode
 {
@@ -34,4 +33,3 @@ public enum EFlowAbortMode
         throw new IllegalArgumentException("");
     }
 }
-

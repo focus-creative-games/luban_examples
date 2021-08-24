@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.mail;
 
 import bright.serialization.*;
@@ -77,4 +76,3 @@ public final class SystemMail extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

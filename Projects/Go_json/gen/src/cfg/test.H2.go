@@ -25,4 +25,3 @@ func NewTest_H2(_buf map[string]interface{}) (_v *Test_H2, err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["z3"].(float64); !_ok_ { err = errors.New("z3 error"); return }; _v.Z3 = int32(_tempNum_) }
     return
 }
-

@@ -27,4 +27,3 @@ func NewBlueprint_Field(_buf map[string]interface{}) (_v *Blueprint_Field, err e
     { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
     return
 }
-

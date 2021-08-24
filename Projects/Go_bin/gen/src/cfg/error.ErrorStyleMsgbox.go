@@ -33,4 +33,3 @@ func NewError_ErrorStyleMsgbox(_buf *serialization.ByteBuf) (_v *Error_ErrorStyl
     { if _v.Operation, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

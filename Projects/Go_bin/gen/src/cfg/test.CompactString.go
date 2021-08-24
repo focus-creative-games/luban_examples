@@ -31,4 +31,3 @@ func NewTest_CompactString(_buf *serialization.ByteBuf) (_v *Test_CompactString,
     { if _v.S3, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.limit;
 
 import bright.serialization.*;
@@ -64,4 +63,3 @@ public final class DailyLimit extends  cfg.limit.DailyLimitBase
         + "}";
     }
 }
-

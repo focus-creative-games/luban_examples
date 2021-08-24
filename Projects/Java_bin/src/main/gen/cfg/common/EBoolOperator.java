@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.common;
 public enum EBoolOperator
 {
@@ -30,4 +29,3 @@ public enum EBoolOperator
         throw new IllegalArgumentException("");
     }
 }
-

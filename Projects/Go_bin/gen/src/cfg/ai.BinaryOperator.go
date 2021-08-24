@@ -33,4 +33,3 @@ func NewAi_BinaryOperator(_buf *serialization.ByteBuf) (_v *Ai_BinaryOperator, e
     { if _v.Data, err = NewAi_KeyData(_buf); err != nil { return } }
     return
 }
-

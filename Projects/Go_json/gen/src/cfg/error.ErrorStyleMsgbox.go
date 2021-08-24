@@ -29,4 +29,3 @@ func NewError_ErrorStyleMsgbox(_buf map[string]interface{}) (_v *Error_ErrorStyl
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["operation"].(float64); !_ok_ { err = errors.New("operation error"); return }; _v.Operation = int32(_tempNum_) }
     return
 }
-

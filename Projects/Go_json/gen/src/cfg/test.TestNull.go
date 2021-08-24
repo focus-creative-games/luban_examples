@@ -35,4 +35,3 @@ func NewTest_TestNull(_buf map[string]interface{}) (_v *Test_TestNull, err error
     { var _ok_ bool; var __json_s2__ interface{}; if __json_s2__, _ok_ = _buf["s2"]; !_ok_ || __json_s2__ == nil { return } else { var __x__ string;  {  if __x__, _ok_ = __json_s2__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.S2 = &__x__ }}
     return
 }
-

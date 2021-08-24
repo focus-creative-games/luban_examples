@@ -16,5 +16,3 @@ namespace cfg.limit
         STORE_GOODS_LIMIT_BUY = 3,
     }
 }
-
-

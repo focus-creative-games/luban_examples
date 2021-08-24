@@ -31,4 +31,3 @@ func NewCondition_ContainsItem(_buf map[string]interface{}) (_v *Condition_Conta
     { var _ok_ bool; if _v.Reverse, _ok_ = _buf["reverse"].(bool); !_ok_ { err = errors.New("reverse error"); return } }
     return
 }
-

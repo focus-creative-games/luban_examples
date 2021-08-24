@@ -29,4 +29,3 @@ func NewTest_TestGlobal(_buf *serialization.ByteBuf) (_v *Test_TestGlobal, err e
     { if _v.UnlockHero, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

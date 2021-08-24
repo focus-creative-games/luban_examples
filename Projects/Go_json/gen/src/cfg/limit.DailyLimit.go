@@ -27,4 +27,3 @@ func NewLimit_DailyLimit(_buf map[string]interface{}) (_v *Limit_DailyLimit, err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }
     return
 }
-

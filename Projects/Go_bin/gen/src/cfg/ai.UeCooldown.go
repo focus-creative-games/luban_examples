@@ -31,4 +31,3 @@ func NewAi_UeCooldown(_buf *serialization.ByteBuf) (_v *Ai_UeCooldown, err error
     { if _v.CooldownTime, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

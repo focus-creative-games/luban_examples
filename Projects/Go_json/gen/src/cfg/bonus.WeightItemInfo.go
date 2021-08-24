@@ -27,4 +27,3 @@ func NewBonus_WeightItemInfo(_buf map[string]interface{}) (_v *Bonus_WeightItemI
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["weight"].(float64); !_ok_ { err = errors.New("weight error"); return }; _v.Weight = int32(_tempNum_) }
     return
 }
-

@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -15,4 +13,3 @@ const (
     Limit_ENamespace_TREASURE_DAILY_USE = 2
     Limit_ENamespace_STORE_GOODS_LIMIT_BUY = 3
 )
-

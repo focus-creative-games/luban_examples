@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.role;
 public enum EGenderType
 {
@@ -36,4 +35,3 @@ public enum EGenderType
         throw new IllegalArgumentException("");
     }
 }
-

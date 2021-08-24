@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.common;
 
 import bright.serialization.*;
@@ -146,4 +145,3 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

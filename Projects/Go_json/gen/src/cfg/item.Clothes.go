@@ -33,4 +33,3 @@ func NewItem_Clothes(_buf map[string]interface{}) (_v *Item_Clothes, err error) 
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["energy_resume"].(float64); !_ok_ { err = errors.New("energy_resume error"); return }; _v.EnergyResume = int32(_tempNum_) }
     return
 }
-

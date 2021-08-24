@@ -33,4 +33,3 @@ func NewAi_ChooseSkill(_buf *serialization.ByteBuf) (_v *Ai_ChooseSkill, err err
     { if _v.ResultSkillIdKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

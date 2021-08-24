@@ -27,4 +27,3 @@ func NewTest_DemoD2(_buf map[string]interface{}) (_v *Test_DemoD2, err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int32(_tempNum_) }
     return
 }
-

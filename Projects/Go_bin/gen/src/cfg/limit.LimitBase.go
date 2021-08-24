@@ -40,4 +40,3 @@ func NewLimit_LimitBase_Body(_buf *serialization.ByteBuf) (_v *Limit_LimitBase, 
     return
 }
 
-

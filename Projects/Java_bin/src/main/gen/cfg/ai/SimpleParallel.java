@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 
 import bright.serialization.*;
@@ -78,4 +77,3 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
         + "}";
     }
 }
-

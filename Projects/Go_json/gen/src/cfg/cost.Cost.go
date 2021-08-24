@@ -35,4 +35,3 @@ func NewCost_Cost_Body(_buf map[string]interface{}) (_v *Cost_Cost, err error) {
     _v = &Cost_Cost{}
     return
 }
-

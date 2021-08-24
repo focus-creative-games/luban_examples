@@ -31,4 +31,3 @@ func NewItem_InteractionItem(_buf map[string]interface{}) (_v *Item_InteractionI
     { var _ok_ bool; if _v.HoldingStaticMeshMat, _ok_ = _buf["holding_static_mesh_mat"].(string); !_ok_ { err = errors.New("holding_static_mesh_mat error"); return } }
     return
 }
-

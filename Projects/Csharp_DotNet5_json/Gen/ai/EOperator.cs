@@ -21,5 +21,3 @@ namespace cfg.ai
         NOT_CONTAINS = 7,
     }
 }
-
-

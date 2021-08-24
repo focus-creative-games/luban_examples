@@ -29,4 +29,3 @@ func NewAi_MoveToRandomLocation(_buf map[string]interface{}) (_v *Ai_MoveToRando
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["radius"].(float64); !_ok_ { err = errors.New("radius error"); return }; _v.Radius = float32(_tempNum_) }
     return
 }
-

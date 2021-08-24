@@ -63,4 +63,3 @@ func NewItem_Item(_buf map[string]interface{}) (_v *Item_Item, err error) {
     { var _ok_ bool; var __json_level_up_id__ interface{}; if __json_level_up_id__, _ok_ = _buf["level_up_id"]; !_ok_ || __json_level_up_id__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_level_up_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.LevelUpId = &__x__ }}
     return
 }
-

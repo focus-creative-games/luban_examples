@@ -29,4 +29,3 @@ func NewBonus_WeightBonusInfo(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonu
     { if _v.Weight, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

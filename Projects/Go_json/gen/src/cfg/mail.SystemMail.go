@@ -44,4 +44,3 @@ func NewMail_SystemMail(_buf map[string]interface{}) (_v *Mail_SystemMail, err e
 
     return
 }
-

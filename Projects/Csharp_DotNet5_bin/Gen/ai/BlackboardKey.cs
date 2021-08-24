@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -69,4 +68,3 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
     }
 
 }
-

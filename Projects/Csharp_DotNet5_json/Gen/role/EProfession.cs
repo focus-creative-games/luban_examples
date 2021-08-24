@@ -14,5 +14,3 @@ namespace cfg.role
         TEST_PROFESSION = 1,
     }
 }
-
-

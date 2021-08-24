@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.blueprint;
 
 import bright.serialization.*;
@@ -80,4 +79,3 @@ public abstract class Method extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

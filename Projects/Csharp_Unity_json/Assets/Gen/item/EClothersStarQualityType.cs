@@ -53,5 +53,3 @@ namespace cfg.item
         TEN = 10,
     }
 }
-
-

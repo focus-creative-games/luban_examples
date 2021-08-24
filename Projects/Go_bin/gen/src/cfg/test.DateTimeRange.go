@@ -29,4 +29,3 @@ func NewTest_DateTimeRange(_buf *serialization.ByteBuf) (_v *Test_DateTimeRange,
     { if _v.EndTime, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.bonus;
 
 import bright.serialization.*;
@@ -67,4 +66,3 @@ public abstract class Bonus extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

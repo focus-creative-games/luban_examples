@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 using SimpleJSON;
@@ -52,4 +51,3 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     }
     }
 }
-

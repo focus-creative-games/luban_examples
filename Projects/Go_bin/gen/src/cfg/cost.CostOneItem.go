@@ -31,4 +31,3 @@ func NewCost_CostOneItem(_buf *serialization.ByteBuf) (_v *Cost_CostOneItem, err
     { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

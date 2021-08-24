@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.role;
 public enum EProfession
 {
@@ -28,4 +27,3 @@ public enum EProfession
         throw new IllegalArgumentException("");
     }
 }
-

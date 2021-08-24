@@ -35,4 +35,3 @@ func NewAi_IsAtLocation(_buf *serialization.ByteBuf) (_v *Ai_IsAtLocation, err e
     { if _v.InverseCondition, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

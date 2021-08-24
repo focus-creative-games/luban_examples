@@ -29,4 +29,3 @@ func NewBlueprint_BlueprintMethod(_buf *serialization.ByteBuf) (_v *Blueprint_Bl
     _v.Blueprint_Method = *_p
     return
 }
-

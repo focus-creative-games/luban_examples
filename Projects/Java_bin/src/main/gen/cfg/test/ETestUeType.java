@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.test;
 public enum ETestUeType
 {
@@ -33,4 +32,3 @@ public enum ETestUeType
         throw new IllegalArgumentException("");
     }
 }
-

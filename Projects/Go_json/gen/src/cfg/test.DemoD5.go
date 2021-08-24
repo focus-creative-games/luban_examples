@@ -27,4 +27,3 @@ func NewTest_DemoD5(_buf map[string]interface{}) (_v *Test_DemoD5, err error) {
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["time"].(map[string]interface{}); !_ok_ { err = errors.New("time error"); return }; if _v.Time, err = NewTest_DateTimeRange(_x_); err != nil { return } }
     return
 }
-

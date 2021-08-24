@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Ai_EExecutor_CLIENT = 0
     Ai_EExecutor_SERVER = 1
 )
-

@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Mail_EMailType_GLOBAL = 0
     Mail_EMailType_SYSTEM = 1
 )
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 public enum ECurrencyType
 {
@@ -51,4 +50,3 @@ public enum ECurrencyType
         throw new IllegalArgumentException("");
     }
 }
-

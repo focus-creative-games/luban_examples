@@ -40,4 +40,3 @@ func NewBlueprint_EnumClazz(_buf map[string]interface{}) (_v *Blueprint_EnumClaz
 
     return
 }
-

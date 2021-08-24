@@ -41,4 +41,3 @@ func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err
 
     return
 }
-

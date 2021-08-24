@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.cost;
 
 import bright.serialization.*;
@@ -70,4 +69,3 @@ public final class CostItem extends  cfg.cost.Cost
         + "}";
     }
 }
-

@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -97,4 +95,3 @@ const (
     Error_EErrorCode_SELFIE_LACK_STARTS = 1202
     Error_EErrorCode_SELFIE_HAD_REWARD = 1203
 )
-

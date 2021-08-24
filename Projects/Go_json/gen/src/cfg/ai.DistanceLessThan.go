@@ -33,4 +33,3 @@ func NewAi_DistanceLessThan(_buf map[string]interface{}) (_v *Ai_DistanceLessTha
     { var _ok_ bool; if _v.ReverseResult, _ok_ = _buf["reverse_result"].(bool); !_ok_ { err = errors.New("reverse_result error"); return } }
     return
 }
-

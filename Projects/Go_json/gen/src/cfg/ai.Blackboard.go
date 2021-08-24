@@ -42,4 +42,3 @@ func NewAi_Blackboard(_buf map[string]interface{}) (_v *Ai_Blackboard, err error
 
     return
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 public enum EItemFunctionType
 {
@@ -36,4 +35,3 @@ public enum EItemFunctionType
         throw new IllegalArgumentException("");
     }
 }
-

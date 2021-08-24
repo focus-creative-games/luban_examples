@@ -47,4 +47,3 @@ func NewAi_UpdateDailyBehaviorProps(_buf *serialization.ByteBuf) (_v *Ai_UpdateD
     { if _v.MoodUpperThresholdKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

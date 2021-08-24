@@ -29,4 +29,3 @@ func NewTag_TestTag(_buf *serialization.ByteBuf) (_v *Tag_TestTag, err error) {
     { if _v.Value, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

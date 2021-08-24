@@ -47,4 +47,3 @@ func NewAi_Task_Body(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
     return
 }
 
-

@@ -27,4 +27,3 @@ func NewCondition_MinLevel(_buf map[string]interface{}) (_v *Condition_MinLevel,
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["level"].(float64); !_ok_ { err = errors.New("level error"); return }; _v.Level = int32(_tempNum_) }
     return
 }
-

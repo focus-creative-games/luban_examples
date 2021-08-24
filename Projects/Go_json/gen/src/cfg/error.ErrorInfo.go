@@ -27,4 +27,3 @@ func NewError_ErrorInfo(_buf map[string]interface{}) (_v *Error_ErrorInfo, err e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["style"].(map[string]interface{}); !_ok_ { err = errors.New("style error"); return }; if _v.Style, err = NewError_ErrorStyle(_x_); err != nil { return } }
     return
 }
-

@@ -33,4 +33,3 @@ func NewAi_MoveToRandomLocation(_buf *serialization.ByteBuf) (_v *Ai_MoveToRando
     { if _v.Radius, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

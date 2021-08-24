@@ -31,4 +31,3 @@ func NewAi_BehaviorTree(_buf map[string]interface{}) (_v *Ai_BehaviorTree, err e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["root"].(map[string]interface{}); !_ok_ { err = errors.New("root error"); return }; if _v.Root, err = NewAi_ComposeNode(_x_); err != nil { return } }
     return
 }
-

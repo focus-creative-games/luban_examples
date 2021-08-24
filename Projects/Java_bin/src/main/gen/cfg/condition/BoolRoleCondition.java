@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.condition;
 
 import bright.serialization.*;
@@ -64,4 +63,3 @@ public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition
         + "}";
     }
 }
-

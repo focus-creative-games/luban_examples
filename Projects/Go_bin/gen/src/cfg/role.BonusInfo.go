@@ -29,4 +29,3 @@ func NewRole_BonusInfo(_buf *serialization.ByteBuf) (_v *Role_BonusInfo, err err
     { if _v.Coefficient, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

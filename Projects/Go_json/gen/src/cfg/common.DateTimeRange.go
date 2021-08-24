@@ -25,4 +25,3 @@ func NewCommon_DateTimeRange(_buf map[string]interface{}) (_v *Common_DateTimeRa
     { var _ok_ bool; var __json_end_time__ interface{}; if __json_end_time__, _ok_ = _buf["end_time"]; !_ok_ || __json_end_time__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_end_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.EndTime = &__x__ }}
     return
 }
-

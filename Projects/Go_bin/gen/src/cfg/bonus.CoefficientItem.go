@@ -33,4 +33,3 @@ func NewBonus_CoefficientItem(_buf *serialization.ByteBuf) (_v *Bonus_Coefficien
     { if _v.BonusList, err = NewBonus_Items(_buf); err != nil { return } }
     return
 }
-

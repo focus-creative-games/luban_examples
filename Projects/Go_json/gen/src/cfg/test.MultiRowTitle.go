@@ -57,4 +57,3 @@ func NewTest_MultiRowTitle(_buf map[string]interface{}) (_v *Test_MultiRowTitle,
 
     return
 }
-

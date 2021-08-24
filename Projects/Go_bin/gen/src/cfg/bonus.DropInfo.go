@@ -43,4 +43,3 @@ func NewBonus_DropInfo(_buf *serialization.ByteBuf) (_v *Bonus_DropInfo, err err
     { if _v.Bonus, err = NewBonus_Bonus(_buf); err != nil { return } }
     return
 }
-

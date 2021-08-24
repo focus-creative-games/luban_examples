@@ -35,4 +35,3 @@ func NewAi_SimpleParallel(_buf *serialization.ByteBuf) (_v *Ai_SimpleParallel, e
     { if _v.BackgroundNode, err = NewAi_FlowNode(_buf); err != nil { return } }
     return
 }
-

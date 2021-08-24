@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 public enum EKeyType
 {
@@ -46,4 +45,3 @@ public enum EKeyType
         throw new IllegalArgumentException("");
     }
 }
-

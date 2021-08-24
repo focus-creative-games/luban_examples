@@ -34,4 +34,3 @@ func NewError_ErrorStyle_Body(_buf map[string]interface{}) (_v *Error_ErrorStyle
     _v = &Error_ErrorStyle{}
     return
 }
-

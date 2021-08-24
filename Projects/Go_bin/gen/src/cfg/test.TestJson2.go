@@ -79,4 +79,3 @@ func NewTest_TestJson2(_buf *serialization.ByteBuf) (_v *Test_TestJson2, err err
                 }
     return
 }
-

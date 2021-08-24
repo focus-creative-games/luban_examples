@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -22,4 +20,3 @@ const (
     Ai_EKeyType_ENUM = 9
     Ai_EKeyType_OBJECT = 10
 )
-

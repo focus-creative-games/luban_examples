@@ -31,4 +31,3 @@ func NewAi_UeSetDefaultFocus(_buf *serialization.ByteBuf) (_v *Ai_UeSetDefaultFo
     { if _v.KeyboardKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

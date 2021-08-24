@@ -29,4 +29,3 @@ func NewTest_H1(_buf *serialization.ByteBuf) (_v *Test_H1, err error) {
     { if _v.Y3, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

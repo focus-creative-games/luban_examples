@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 #include <algorithm>
 #include "gen_types.h"
 
@@ -1617,6 +1616,36 @@ namespace cfg
     void test::TestIndex::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : eles) { _e->resolve(_tables); }
+    }
+
+    bool test::TestMap::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x1[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int64 _k;  if(!_buf.readLong(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x2[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x3[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { test::DemoEnum _k;  {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _k = test::DemoEnum(__enum_temp__); } ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::TestMap::deserializeTestMap(ByteBuf& _buf, ::bright::SharedPtr<test::TestMap>& _out)
+    {
+        _out.reset(new test::TestMap());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestMap::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
     }
 
     bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)

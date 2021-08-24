@@ -38,4 +38,3 @@ func NewAi_KeyData_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyData, err error)
     return
 }
 
-

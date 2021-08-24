@@ -27,4 +27,3 @@ func NewTest_DemoType1(_buf *serialization.ByteBuf) (_v *Test_DemoType1, err err
     { if _v.X1, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

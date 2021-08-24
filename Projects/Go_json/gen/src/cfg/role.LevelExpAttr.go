@@ -40,4 +40,3 @@ func NewRole_LevelExpAttr(_buf map[string]interface{}) (_v *Role_LevelExpAttr, e
 
     return
 }
-

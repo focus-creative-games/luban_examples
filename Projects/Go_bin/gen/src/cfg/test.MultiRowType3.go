@@ -39,4 +39,3 @@ func NewTest_MultiRowType3(_buf *serialization.ByteBuf) (_v *Test_MultiRowType3,
 
     return
 }
-

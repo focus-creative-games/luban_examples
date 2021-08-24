@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -17,4 +15,3 @@ const (
     Item_EItemQuality_PURPLE = 3
     Item_EItemQuality_GOLDEN = 4
 )
-

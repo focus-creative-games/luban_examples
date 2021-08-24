@@ -23,5 +23,3 @@ namespace cfg.ai
         OBJECT = 10,
     }
 }
-
-

@@ -25,4 +25,3 @@ func NewError_ErrorStyleTip(_buf map[string]interface{}) (_v *Error_ErrorStyleTi
     _v.Error_ErrorStyle = *_p
     return
 }
-

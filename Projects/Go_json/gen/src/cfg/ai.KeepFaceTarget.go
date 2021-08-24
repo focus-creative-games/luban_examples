@@ -27,4 +27,3 @@ func NewAi_KeepFaceTarget(_buf map[string]interface{}) (_v *Ai_KeepFaceTarget, e
     { var _ok_ bool; if _v.TargetActorKey, _ok_ = _buf["target_actor_key"].(string); !_ok_ { err = errors.New("target_actor_key error"); return } }
     return
 }
-

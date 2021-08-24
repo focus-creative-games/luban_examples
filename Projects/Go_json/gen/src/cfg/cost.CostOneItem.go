@@ -27,4 +27,3 @@ func NewCost_CostOneItem(_buf map[string]interface{}) (_v *Cost_CostOneItem, err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["item_id"].(float64); !_ok_ { err = errors.New("item_id error"); return }; _v.ItemId = int32(_tempNum_) }
     return
 }
-

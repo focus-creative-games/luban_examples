@@ -15,5 +15,3 @@ namespace cfg.ai
         ON_RESULT_CHANGE = 1,
     }
 }
-
-

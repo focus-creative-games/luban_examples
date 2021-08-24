@@ -37,4 +37,3 @@ func NewItem_ItemExtra_Body(_buf map[string]interface{}) (_v *Item_ItemExtra, er
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     return
 }
-

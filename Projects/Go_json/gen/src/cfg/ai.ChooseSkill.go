@@ -29,4 +29,3 @@ func NewAi_ChooseSkill(_buf map[string]interface{}) (_v *Ai_ChooseSkill, err err
     { var _ok_ bool; if _v.ResultSkillIdKey, _ok_ = _buf["result_skill_id_key"].(string); !_ok_ { err = errors.New("result_skill_id_key error"); return } }
     return
 }
-

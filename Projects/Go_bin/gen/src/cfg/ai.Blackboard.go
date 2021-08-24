@@ -43,4 +43,3 @@ func NewAi_Blackboard(_buf *serialization.ByteBuf) (_v *Ai_Blackboard, err error
 
     return
 }
-

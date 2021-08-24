@@ -37,4 +37,3 @@ func NewItem_Clothes(_buf *serialization.ByteBuf) (_v *Item_Clothes, err error) 
     { if _v.EnergyResume, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

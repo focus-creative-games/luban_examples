@@ -55,4 +55,3 @@ func NewTest_MultiRowTitle(_buf *serialization.ByteBuf) (_v *Test_MultiRowTitle,
 
     return
 }
-

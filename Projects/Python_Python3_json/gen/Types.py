@@ -64,12 +64,9 @@ class Vector4:
         return Vector4(x, y, z, w)
 
 
-
 class role_Consts:
     MAX_NAME_LENGTH = 20
     MAX_USER_ROLE_NUM = 10
-
-
 
 class test_DemoConst:
     x1 = 0
@@ -77,12 +74,9 @@ class test_DemoConst:
     x3 = 444.3
     x4 = 55.3
 
-
-
 class ai_EExecutor(Enum):
     CLIENT = 0
     SERVER = 1
-
 
 class ai_EKeyType(Enum):
     BOOL = 1
@@ -96,23 +90,19 @@ class ai_EKeyType(Enum):
     ENUM = 9
     OBJECT = 10
 
-
 class ai_EFlowAbortMode(Enum):
     NONE = 0
     LOWER_PRIORITY = 1
     SELF = 2
     BOTH = 3
 
-
 class ai_EFinishMode(Enum):
     IMMEDIATE = 0
     DELAYED = 1
 
-
 class ai_ENotifyObserverMode(Enum):
     ON_VALUE_CHANGE = 0
     ON_RESULT_CHANGE = 1
-
 
 class ai_EOperator(Enum):
     IS_EQUAL_TO = 0
@@ -124,11 +114,9 @@ class ai_EOperator(Enum):
     CONTAINS = 6
     NOT_CONTAINS = 7
 
-
 class common_EBoolOperator(Enum):
     AND = 0
     OR = 1
-
 
 class error_EOperation(Enum):
     '''
@@ -139,7 +127,6 @@ class error_EOperation(Enum):
     重启
     '''
     RESTART = 1
-
 
 class error_EErrorCode(Enum):
     OK = 0
@@ -228,7 +215,6 @@ class error_EErrorCode(Enum):
     SELFIE_LACK_STARTS = 1202
     SELFIE_HAD_REWARD = 1203
 
-
 '''
 道具品质
 '''
@@ -254,7 +240,6 @@ class item_EItemQuality(Enum):
     '''
     GOLDEN = 4
 
-
 class item_ECurrencyType(Enum):
     '''
     钻石
@@ -276,7 +261,6 @@ class item_ECurrencyType(Enum):
     能量点
     '''
     POWER_POINT = 5
-
 
 class item_EMajorType(Enum):
     '''
@@ -323,7 +307,6 @@ class item_EMajorType(Enum):
     制作材料
     '''
     MATERIAL = 11
-
 
 class item_EMinorType(Enum):
     '''
@@ -523,7 +506,6 @@ class item_EMinorType(Enum):
     '''
     DESIGN_DRAWING = 1102
 
-
 class item_EClothersStarQualityType(Enum):
     '''
     一星
@@ -566,7 +548,6 @@ class item_EClothersStarQualityType(Enum):
     '''
     TEN = 10
 
-
 class item_EClothersTag(Enum):
     '''
     防晒
@@ -577,7 +558,6 @@ class item_EClothersTag(Enum):
     '''
     WU_ZHE = 2
 
-
 class item_EUseType(Enum):
     '''
     手动
@@ -587,7 +567,6 @@ class item_EUseType(Enum):
     自动
     '''
     AUTO = 1
-
 
 class item_EClothesHidePartType(Enum):
     '''
@@ -622,7 +601,6 @@ class item_EClothesHidePartType(Enum):
     腿下
     '''
     LEG_LOWER = 7
-
 
 class item_EClothesPropertyType(Enum):
     '''
@@ -666,7 +644,6 @@ class item_EClothesPropertyType(Enum):
     '''
     BAO_NUAN = 10
 
-
 class item_EItemFunctionType(Enum):
     '''
     更换手持物
@@ -677,12 +654,10 @@ class item_EItemFunctionType(Enum):
     '''
     USE_DESIGN_DRAWING = 1
 
-
 class limit_ENamespace(Enum):
     ITEM_DAILY_OBTAIN = 1
     TREASURE_DAILY_USE = 2
     STORE_GOODS_LIMIT_BUY = 3
-
 
 class mail_EMailType(Enum):
     '''
@@ -694,7 +669,6 @@ class mail_EMailType(Enum):
     '''
     SYSTEM = 1
 
-
 class role_EGenderType(Enum):
     '''
     男
@@ -705,10 +679,8 @@ class role_EGenderType(Enum):
     '''
     FEMALE = 2
 
-
 class role_EProfession(Enum):
     TEST_PROFESSION = 1
-
 
 class test_DemoEnum(Enum):
     '''
@@ -728,6 +700,10 @@ class test_DemoEnum(Enum):
     '''
     D = 5
 
+class test_DemoFlag(Enum):
+    A = 1
+    B = 2
+    D = A|B
 
 class test_ETestUeType(Enum):
     '''
@@ -736,16 +712,13 @@ class test_ETestUeType(Enum):
     WHITE = 0
     BLACK = 1
 
-
 class test_ETestEmptyEnum(Enum):
     pass
-
 
 class test_ETestEmptyEnum2(Enum):
     SMALL_THAN_256 = 255
     X_256 = 256
     X_257 = 257
-
 
 class test_ETestQuality(Enum):
     '''
@@ -765,7 +738,6 @@ class test_ETestQuality(Enum):
     '''
     D = 4
 
-
 class test_ETestCurrency(Enum):
     '''
     重要
@@ -775,7 +747,6 @@ class test_ETestCurrency(Enum):
     有用
     '''
     GOLD = 2
-
 
 
 
@@ -799,7 +770,6 @@ class ai_TbBlackboard:
 
 
 
-
 class ai_Blackboard :
 
     def __init__(self, _json_):
@@ -812,7 +782,6 @@ class ai_Blackboard :
 
 
 
-
 class ai_BlackboardKey :
 
     def __init__(self, _json_):
@@ -821,7 +790,6 @@ class ai_BlackboardKey :
         self.is_static = _json_['is_static']
         self.type = ai_EKeyType(_json_['type'])
         self.type_class_name = _json_['type_class_name']
-
 
 
 
@@ -845,7 +813,6 @@ class ai_TbBehaviorTree:
 
 
 
-
 class ai_BehaviorTree :
 
     def __init__(self, _json_):
@@ -854,7 +821,6 @@ class ai_BehaviorTree :
         self.desc = _json_['desc']
         self.blackboard_id = _json_['blackboard_id']
         self.root = ai_ComposeNode.fromJson(_json_['root'])
-
 
 
 
@@ -905,7 +871,6 @@ class ai_Node (metaclass=abc.ABCMeta):
 
 
 
-
 class ai_Service (ai_Node):
     _childrenTypes = None
 
@@ -936,13 +901,11 @@ class ai_Service (ai_Node):
 
 
 
-
 class ai_UeSetDefaultFocus (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
         self.keyboard_key = _json_['keyboard_key']
-
 
 
 
@@ -957,13 +920,11 @@ class ai_ExecuteTimeStatistic (ai_Service):
 
 
 
-
 class ai_ChooseTarget (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
         self.result_target_key = _json_['result_target_key']
-
 
 
 
@@ -977,13 +938,11 @@ class ai_KeepFaceTarget (ai_Service):
 
 
 
-
 class ai_GetOwnerPlayer (ai_Service):
 
     def __init__(self, _json_):
         ai_Service.__init__(self, _json_)
         self.player_actor_key = _json_['player_actor_key']
-
 
 
 
@@ -1001,7 +960,6 @@ class ai_UpdateDailyBehaviorProps (ai_Service):
         self.energy_upper_threshold_key = _json_['energy_upper_threshold_key']
         self.mood_lower_threshold_key = _json_['mood_lower_threshold_key']
         self.mood_upper_threshold_key = _json_['mood_upper_threshold_key']
-
 
 
 
@@ -1036,7 +994,6 @@ class ai_Decorator (ai_Node):
 
 
 
-
 class ai_UeLoop (ai_Decorator):
 
     def __init__(self, _json_):
@@ -1044,7 +1001,6 @@ class ai_UeLoop (ai_Decorator):
         self.num_loops = _json_['num_loops']
         self.infinite_loop = _json_['infinite_loop']
         self.infinite_loop_timeout_time = _json_['infinite_loop_timeout_time']
-
 
 
 
@@ -1058,13 +1014,11 @@ class ai_UeCooldown (ai_Decorator):
 
 
 
-
 class ai_UeTimeLimit (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
         self.limit_time = _json_['limit_time']
-
 
 
 
@@ -1076,7 +1030,6 @@ class ai_UeBlackboard (ai_Decorator):
         self.notify_observer = ai_ENotifyObserverMode(_json_['notify_observer'])
         self.blackboard_key = _json_['blackboard_key']
         self.key_query = ai_KeyQueryOperator.fromJson(_json_['key_query'])
-
 
 
 
@@ -1107,14 +1060,12 @@ class ai_KeyQueryOperator (metaclass=abc.ABCMeta):
 
 
 
-
 class ai_IsSet (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
         ai_KeyQueryOperator.__init__(self, _json_)
 
         pass
-
 
 
 
@@ -1129,14 +1080,12 @@ class ai_IsNotSet (ai_KeyQueryOperator):
 
 
 
-
 class ai_BinaryOperator (ai_KeyQueryOperator):
 
     def __init__(self, _json_):
         ai_KeyQueryOperator.__init__(self, _json_)
         self.oper = ai_EOperator(_json_['oper'])
         self.data = ai_KeyData.fromJson(_json_['data'])
-
 
 
 
@@ -1168,13 +1117,11 @@ class ai_KeyData (metaclass=abc.ABCMeta):
 
 
 
-
 class ai_FloatKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
         self.value = _json_['value']
-
 
 
 
@@ -1188,13 +1135,11 @@ class ai_IntKeyData (ai_KeyData):
 
 
 
-
 class ai_StringKeyData (ai_KeyData):
 
     def __init__(self, _json_):
         ai_KeyData.__init__(self, _json_)
         self.value = _json_['value']
-
 
 
 
@@ -1208,14 +1153,12 @@ class ai_BlackboardKeyData (ai_KeyData):
 
 
 
-
 class ai_UeForceSuccess (ai_Decorator):
 
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
 
         pass
-
 
 
 
@@ -1231,7 +1174,6 @@ class ai_IsAtLocation (ai_Decorator):
 
 
 
-
 class ai_DistanceLessThan (ai_Decorator):
 
     def __init__(self, _json_):
@@ -1240,7 +1182,6 @@ class ai_DistanceLessThan (ai_Decorator):
         self.actor2_key = _json_['actor2_key']
         self.distance = _json_['distance']
         self.reverse_result = _json_['reverse_result']
-
 
 
 
@@ -1281,7 +1222,6 @@ class ai_FlowNode (ai_Node):
 
 
 
-
 class ai_ComposeNode (ai_FlowNode):
     _childrenTypes = None
 
@@ -1309,14 +1249,12 @@ class ai_ComposeNode (ai_FlowNode):
 
 
 
-
 class ai_Sequence (ai_ComposeNode):
 
     def __init__(self, _json_):
         ai_ComposeNode.__init__(self, _json_)
         self.children = []
         for _ele in _json_['children']: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
-
 
 
 
@@ -1331,7 +1269,6 @@ class ai_Selector (ai_ComposeNode):
 
 
 
-
 class ai_SimpleParallel (ai_ComposeNode):
 
     def __init__(self, _json_):
@@ -1339,7 +1276,6 @@ class ai_SimpleParallel (ai_ComposeNode):
         self.finish_mode = ai_EFinishMode(_json_['finish_mode'])
         self.main_task = ai_Task.fromJson(_json_['main_task'])
         self.background_node = ai_FlowNode.fromJson(_json_['background_node'])
-
 
 
 
@@ -1374,7 +1310,6 @@ class ai_Task (ai_FlowNode):
 
 
 
-
 class ai_UeWait (ai_Task):
 
     def __init__(self, _json_):
@@ -1385,13 +1320,11 @@ class ai_UeWait (ai_Task):
 
 
 
-
 class ai_UeWaitBlackboardTime (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
         self.blackboard_key = _json_['blackboard_key']
-
 
 
 
@@ -1406,14 +1339,12 @@ class ai_MoveToTarget (ai_Task):
 
 
 
-
 class ai_ChooseSkill (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
         self.target_actor_key = _json_['target_actor_key']
         self.result_skill_id_key = _json_['result_skill_id_key']
-
 
 
 
@@ -1428,7 +1359,6 @@ class ai_MoveToRandomLocation (ai_Task):
 
 
 
-
 class ai_MoveToLocation (ai_Task):
 
     def __init__(self, _json_):
@@ -1439,13 +1369,11 @@ class ai_MoveToLocation (ai_Task):
 
 
 
-
 class ai_DebugPrint (ai_Task):
 
     def __init__(self, _json_):
         ai_Task.__init__(self, _json_)
         self.text = _json_['text']
-
 
 
 
@@ -1464,7 +1392,6 @@ class blueprint_TbClazz:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -1500,7 +1427,6 @@ class blueprint_Clazz (metaclass=abc.ABCMeta):
 
 
 
-
 class blueprint_Method (metaclass=abc.ABCMeta):
     _childrenTypes = None
 
@@ -1531,14 +1457,12 @@ class blueprint_Method (metaclass=abc.ABCMeta):
 
 
 
-
 class blueprint_ParamInfo :
 
     def __init__(self, _json_):
         self.name = _json_['name']
         self.type = _json_['type']
         self.is_ref = _json_['is_ref']
-
 
 
 
@@ -1553,14 +1477,12 @@ class blueprint_AbstraceMethod (blueprint_Method):
 
 
 
-
 class blueprint_ExternalMethod (blueprint_Method):
 
     def __init__(self, _json_):
         blueprint_Method.__init__(self, _json_)
 
         pass
-
 
 
 
@@ -1575,14 +1497,12 @@ class blueprint_BlueprintMethod (blueprint_Method):
 
 
 
-
 class blueprint_Interface (blueprint_Clazz):
 
     def __init__(self, _json_):
         blueprint_Clazz.__init__(self, _json_)
 
         pass
-
 
 
 
@@ -1598,14 +1518,12 @@ class blueprint_NormalClazz (blueprint_Clazz):
 
 
 
-
 class blueprint_Field :
 
     def __init__(self, _json_):
         self.name = _json_['name']
         self.type = _json_['type']
         self.desc = _json_['desc']
-
 
 
 
@@ -1620,13 +1538,11 @@ class blueprint_EnumClazz (blueprint_Clazz):
 
 
 
-
 class blueprint_EnumField :
 
     def __init__(self, _json_):
         self.name = _json_['name']
         self.value = _json_['value']
-
 
 
 
@@ -1650,7 +1566,6 @@ class bonus_TbDrop:
 
 
 
-
 class bonus_DropInfo :
 
     def __init__(self, _json_):
@@ -1663,13 +1578,11 @@ class bonus_DropInfo :
 
 
 
-
 class bonus_ShowItemInfo :
 
     def __init__(self, _json_):
         self.item_id = _json_['item_id']
         self.item_num = _json_['item_num']
-
 
 
 
@@ -1708,7 +1621,6 @@ class bonus_Bonus (metaclass=abc.ABCMeta):
 
 
 
-
 class bonus_OneItem (bonus_Bonus):
 
     def __init__(self, _json_):
@@ -1718,13 +1630,11 @@ class bonus_OneItem (bonus_Bonus):
 
 
 
-
 class bonus_OneItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.items = _json_['items']
-
 
 
 
@@ -1739,14 +1649,12 @@ class bonus_Item (bonus_Bonus):
 
 
 
-
 class bonus_Items (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.item_list = []
         for _ele in _json_['item_list']: _e = bonus_Item(_ele); self.item_list.append(_e)
-
 
 
 
@@ -1761,14 +1669,12 @@ class bonus_CoefficientItem (bonus_Bonus):
 
 
 
-
 class bonus_WeightItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.item_list = []
         for _ele in _json_['item_list']: _e = bonus_WeightItemInfo(_ele); self.item_list.append(_e)
-
 
 
 
@@ -1783,14 +1689,12 @@ class bonus_WeightItemInfo :
 
 
 
-
 class bonus_ProbabilityItems (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.item_list = []
         for _ele in _json_['item_list']: _e = bonus_ProbabilityItemInfo(_ele); self.item_list.append(_e)
-
 
 
 
@@ -1805,14 +1709,12 @@ class bonus_ProbabilityItemInfo :
 
 
 
-
 class bonus_MultiBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.bonuses = []
         for _ele in _json_['bonuses']: _e = bonus_Bonus.fromJson(_ele); self.bonuses.append(_e)
-
 
 
 
@@ -1827,13 +1729,11 @@ class bonus_ProbabilityBonus (bonus_Bonus):
 
 
 
-
 class bonus_ProbabilityBonusInfo :
 
     def __init__(self, _json_):
         self.bonus = bonus_Bonus.fromJson(_json_['bonus'])
         self.probability = _json_['probability']
-
 
 
 
@@ -1848,7 +1748,6 @@ class bonus_WeightBonus (bonus_Bonus):
 
 
 
-
 class bonus_WeightBonusInfo :
 
     def __init__(self, _json_):
@@ -1858,13 +1757,11 @@ class bonus_WeightBonusInfo :
 
 
 
-
 class bonus_DropBonus (bonus_Bonus):
 
     def __init__(self, _json_):
         bonus_Bonus.__init__(self, _json_)
         self.id = _json_['id']
-
 
 
 
@@ -1904,7 +1801,6 @@ class common_TbGlobalConfig:
 
 
 
-
 class common_GlobalConfig :
 
     def __init__(self, _json_):
@@ -1932,7 +1828,6 @@ class common_GlobalConfig :
 
 
 
-
 class common_TbDummy:
 
     def __init__(self, _json_ ):
@@ -1953,13 +1848,11 @@ class common_TbDummy:
 
 
 
-
 class common_Dummy :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.limit = limit_LimitBase.fromJson(_json_['limit'])
-
 
 
 
@@ -1993,7 +1886,6 @@ class limit_LimitBase (metaclass=abc.ABCMeta):
 
 
 
-
 class limit_DailyLimitBase (limit_LimitBase):
     _childrenTypes = None
 
@@ -2019,13 +1911,11 @@ class limit_DailyLimitBase (limit_LimitBase):
 
 
 
-
 class limit_DailyLimit (limit_DailyLimitBase):
 
     def __init__(self, _json_):
         limit_DailyLimitBase.__init__(self, _json_)
         self.num = _json_['num']
-
 
 
 
@@ -2040,13 +1930,11 @@ class limit_MultiDayLimit (limit_LimitBase):
 
 
 
-
 class limit_WeeklyLimit (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
         self.num = _json_['num']
-
 
 
 
@@ -2060,13 +1948,11 @@ class limit_MonthlyLimit (limit_LimitBase):
 
 
 
-
 class limit_CoolDown (limit_LimitBase):
 
     def __init__(self, _json_):
         limit_LimitBase.__init__(self, _json_)
         self.duration = _json_['duration']
-
 
 
 
@@ -2077,7 +1963,6 @@ class limit_GroupCoolDown (limit_LimitBase):
         limit_LimitBase.__init__(self, _json_)
         self.group_id = _json_['group_id']
         self.duration = _json_['duration']
-
 
 
 
@@ -2101,14 +1986,12 @@ class error_TbErrorInfo:
 
 
 
-
 class error_ErrorInfo :
 
     def __init__(self, _json_):
         self.code = _json_['code']
         self.desc = _json_['desc']
         self.style = error_ErrorStyle.fromJson(_json_['style'])
-
 
 
 
@@ -2140,14 +2023,12 @@ class error_ErrorStyle (metaclass=abc.ABCMeta):
 
 
 
-
 class error_ErrorStyleTip (error_ErrorStyle):
 
     def __init__(self, _json_):
         error_ErrorStyle.__init__(self, _json_)
 
         pass
-
 
 
 
@@ -2162,13 +2043,11 @@ class error_ErrorStyleMsgbox (error_ErrorStyle):
 
 
 
-
 class error_ErrorStyleDlgOk (error_ErrorStyle):
 
     def __init__(self, _json_):
         error_ErrorStyle.__init__(self, _json_)
         self.btn_name = _json_['btn_name']
-
 
 
 
@@ -2179,7 +2058,6 @@ class error_ErrorStyleDlgOkCancel (error_ErrorStyle):
         error_ErrorStyle.__init__(self, _json_)
         self.btn1_name = _json_['btn1_name']
         self.btn2_name = _json_['btn2_name']
-
 
 
 
@@ -2203,13 +2081,11 @@ class error_TbCodeInfo:
 
 
 
-
 class error_CodeInfo :
 
     def __init__(self, _json_):
         self.code = error_EErrorCode(_json_['code'])
         self.key = _json_['key']
-
 
 
 
@@ -2228,7 +2104,6 @@ class item_TbItem:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -2261,7 +2136,6 @@ class item_Item :
 
 
 
-
 class item_TbItemFunc:
 
     def __init__(self, _json_ ):
@@ -2282,7 +2156,6 @@ class item_TbItemFunc:
 
 
 
-
 class item_ItemFunction :
 
     def __init__(self, _json_):
@@ -2290,7 +2163,6 @@ class item_ItemFunction :
         self.func_type = item_EItemFunctionType(_json_['func_type'])
         self.method = _json_['method']
         self.close_bag_ui = _json_['close_bag_ui']
-
 
 
 
@@ -2309,7 +2181,6 @@ class item_TbItemExtra:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -2342,7 +2213,6 @@ class item_ItemExtra (metaclass=abc.ABCMeta):
 
 
 
-
 class item_TreasureBox (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2353,7 +2223,6 @@ class item_TreasureBox (item_ItemExtra):
         self.drop_ids = _json_['drop_ids']
         self.choose_list = []
         for _ele in _json_['choose_list']: _e = item_ChooseOneBonus(_ele); self.choose_list.append(_e)
-
 
 
 
@@ -2389,7 +2258,6 @@ class condition_Condition (metaclass=abc.ABCMeta):
 
 
 
-
 class condition_TimeRange (condition_Condition):
 
     def __init__(self, _json_):
@@ -2399,13 +2267,11 @@ class condition_TimeRange (condition_Condition):
 
 
 
-
 class common_DateTimeRange :
 
     def __init__(self, _json_):
         if _json_.get('start_time') != None: self.start_time = _json_['start_time']
         if _json_.get('end_time') != None: self.end_time = _json_['end_time']
-
 
 
 
@@ -2441,14 +2307,12 @@ class condition_RoleCondition (condition_Condition):
 
 
 
-
 class condition_MultiRoleCondition (condition_RoleCondition):
 
     def __init__(self, _json_):
         condition_RoleCondition.__init__(self, _json_)
         self.conditions = []
         for _ele in _json_['conditions']: _e = condition_RoleCondition.fromJson(_ele); self.conditions.append(_e)
-
 
 
 
@@ -2482,13 +2346,11 @@ class condition_BoolRoleCondition (condition_RoleCondition):
 
 
 
-
 class condition_GenderLimit (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
         self.gender = role_EGenderType(_json_['gender'])
-
 
 
 
@@ -2502,13 +2364,11 @@ class condition_MinLevel (condition_BoolRoleCondition):
 
 
 
-
 class condition_MaxLevel (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
         self.level = _json_['level']
-
 
 
 
@@ -2523,14 +2383,12 @@ class condition_MinMaxLevel (condition_BoolRoleCondition):
 
 
 
-
 class condition_ClothesPropertyScoreGreaterThan (condition_BoolRoleCondition):
 
     def __init__(self, _json_):
         condition_BoolRoleCondition.__init__(self, _json_)
         self.prop = item_EClothesPropertyType(_json_['prop'])
         self.value = _json_['value']
-
 
 
 
@@ -2546,13 +2404,11 @@ class condition_ContainsItem (condition_RoleCondition):
 
 
 
-
 class item_ChooseOneBonus :
 
     def __init__(self, _json_):
         self.drop_id = _json_['drop_id']
         self.is_unique = _json_['is_unique']
-
 
 
 
@@ -2564,7 +2420,6 @@ class item_InteractionItem (item_ItemExtra):
         if _json_.get('attack_num') != None: self.attack_num = _json_['attack_num']
         self.holding_static_mesh = _json_['holding_static_mesh']
         self.holding_static_mesh_mat = _json_['holding_static_mesh_mat']
-
 
 
 
@@ -2581,7 +2436,6 @@ class item_Clothes (item_ItemExtra):
 
 
 
-
 class item_DesignDrawing (item_ItemExtra):
 
     def __init__(self, _json_):
@@ -2591,13 +2445,11 @@ class item_DesignDrawing (item_ItemExtra):
 
 
 
-
 class item_Dymmy (item_ItemExtra):
 
     def __init__(self, _json_):
         item_ItemExtra.__init__(self, _json_)
         self.cost = cost_Cost.fromJson(_json_['cost'])
-
 
 
 
@@ -2630,14 +2482,12 @@ class cost_Cost (metaclass=abc.ABCMeta):
 
 
 
-
 class cost_CostCurrency (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
         self.type = item_ECurrencyType(_json_['type'])
         self.num = _json_['num']
-
 
 
 
@@ -2652,13 +2502,11 @@ class cost_CostCurrencies (cost_Cost):
 
 
 
-
 class cost_CostOneItem (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
         self.item_id = _json_['item_id']
-
 
 
 
@@ -2673,14 +2521,12 @@ class cost_CostItem (cost_Cost):
 
 
 
-
 class cost_CostItems (cost_Cost):
 
     def __init__(self, _json_):
         cost_Cost.__init__(self, _json_)
         self.item_list = []
         for _ele in _json_['item_list']: _e = cost_CostItem(_ele); self.item_list.append(_e)
-
 
 
 
@@ -2704,13 +2550,11 @@ class l10n_TbL10NDemo:
 
 
 
-
 class l10n_L10NDemo :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.text = _json_['text']
-
 
 
 
@@ -2734,13 +2578,11 @@ class l10n_TbPatchDemo:
 
 
 
-
 class l10n_PatchDemo :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.value = _json_['value']
-
 
 
 
@@ -2764,7 +2606,6 @@ class mail_TbSystemMail:
 
 
 
-
 class mail_SystemMail :
 
     def __init__(self, _json_):
@@ -2773,7 +2614,6 @@ class mail_SystemMail :
         self.sender = _json_['sender']
         self.content = _json_['content']
         self.award = _json_['award']
-
 
 
 
@@ -2797,7 +2637,6 @@ class mail_TbGlobalMail:
 
 
 
-
 class mail_GlobalMail :
 
     def __init__(self, _json_):
@@ -2813,7 +2652,6 @@ class mail_GlobalMail :
         self.min_max_level = condition_MinMaxLevel(_json_['min_max_level'])
         self.register_time = condition_TimeRange(_json_['register_time'])
         self.mail_time = condition_TimeRange(_json_['mail_time'])
-
 
 
 
@@ -2837,14 +2675,12 @@ class role_TbRoleLevelExpAttr:
 
 
 
-
 class role_LevelExpAttr :
 
     def __init__(self, _json_):
         self.level = _json_['level']
         self.need_exp = _json_['need_exp']
         self.clothes_attrs = _json_['clothes_attrs']
-
 
 
 
@@ -2868,14 +2704,12 @@ class role_TbRoleLevelBonusCoefficient:
 
 
 
-
 class role_LevelBonus :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.distinct_bonus_infos = []
         for _ele in _json_['distinct_bonus_infos']: _e = role_DistinctBonusInfos(_ele); self.distinct_bonus_infos.append(_e)
-
 
 
 
@@ -2890,13 +2724,11 @@ class role_DistinctBonusInfos :
 
 
 
-
 class role_BonusInfo :
 
     def __init__(self, _json_):
         self.type = item_ECurrencyType(_json_['type'])
         self.coefficient = _json_['coefficient']
-
 
 
 
@@ -2920,13 +2752,11 @@ class tag_TbTestTag:
 
 
 
-
 class tag_TestTag :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.value = _json_['value']
-
 
 
 
@@ -2945,7 +2775,6 @@ class test_TbFullTypes:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -2986,12 +2815,10 @@ class test_DemoType2 :
 
 
 
-
 class test_DemoType1 :
 
     def __init__(self, _json_):
         self.x1 = _json_['x1']
-
 
 
 
@@ -3021,13 +2848,11 @@ class test_DemoDynamic (metaclass=abc.ABCMeta):
 
 
 
-
 class test_DemoD2 (test_DemoDynamic):
 
     def __init__(self, _json_):
         test_DemoDynamic.__init__(self, _json_)
         self.x2 = _json_['x2']
-
 
 
 
@@ -3056,13 +2881,11 @@ class test_DemoD3 (test_DemoDynamic):
 
 
 
-
 class test_DemoE1 (test_DemoD3):
 
     def __init__(self, _json_):
         test_DemoD3.__init__(self, _json_)
         self.x4 = _json_['x4']
-
 
 
 
@@ -3076,7 +2899,6 @@ class test_DemoD5 (test_DemoDynamic):
 
 
 
-
 class test_DateTimeRange :
 
     def __init__(self, _json_):
@@ -3086,13 +2908,11 @@ class test_DateTimeRange :
 
 
 
-
 class test_DemoE2 :
 
     def __init__(self, _json_):
         if _json_.get('y1') != None: self.y1 = _json_['y1']
         self.y2 = _json_['y2']
-
 
 
 
@@ -3111,14 +2931,12 @@ class test_TbSingleton:
 
 
 
-
 class test_DemoSingletonType :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.name = _json_['name']
         self.date = test_DemoDynamic.fromJson(_json_['date'])
-
 
 
 
@@ -3141,7 +2959,6 @@ class test_TbDataFromMisc:
 
 
 
-
 class test_TbMultiRowRecord:
 
     def __init__(self, _json_ ):
@@ -3157,7 +2974,6 @@ class test_TbMultiRowRecord:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -3184,13 +3000,11 @@ class test_MultiRowRecord :
 
 
 
-
 class test_MultiRowType1 :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.x = _json_['x']
-
 
 
 
@@ -3205,14 +3019,12 @@ class test_MultiRowType2 :
 
 
 
-
 class test_MultiRowType3 :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.items = []
         for _ele in _json_['items']: _e = test_MultiRowType1(_ele); self.items.append(_e)
-
 
 
 
@@ -3236,7 +3048,6 @@ class test_TbMultiRowTitle:
 
 
 
-
 class test_MultiRowTitle :
 
     def __init__(self, _json_):
@@ -3251,7 +3062,6 @@ class test_MultiRowTitle :
 
 
 
-
 class test_H1 :
 
     def __init__(self, _json_):
@@ -3261,13 +3071,11 @@ class test_H1 :
 
 
 
-
 class test_H2 :
 
     def __init__(self, _json_):
         self.z2 = _json_['z2']
         self.z3 = _json_['z3']
-
 
 
 
@@ -3291,7 +3099,6 @@ class test_TbTestNull:
 
 
 
-
 class test_TestNull :
 
     def __init__(self, _json_):
@@ -3302,7 +3109,6 @@ class test_TestNull :
         if _json_.get('x4') != None: self.x4 = test_DemoDynamic.fromJson(_json_['x4'])
         if _json_.get('s1') != None: self.s1 = _json_['s1']
         if _json_.get('s2') != None: self.s2 = _json_['s2']
-
 
 
 
@@ -3321,7 +3127,6 @@ class test_TbDemoPrimitive:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -3346,7 +3151,6 @@ class test_DemoPrimitiveTypesTable :
 
 
 
-
 class test_TbTestString:
 
     def __init__(self, _json_ ):
@@ -3367,7 +3171,6 @@ class test_TbTestString:
 
 
 
-
 class test_TestString :
 
     def __init__(self, _json_):
@@ -3379,14 +3182,12 @@ class test_TestString :
 
 
 
-
 class test_CompactString :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.s2 = _json_['s2']
         self.s3 = _json_['s3']
-
 
 
 
@@ -3410,7 +3211,6 @@ class test_TbDemoGroup:
 
 
 
-
 class test_DemoGroup :
 
     def __init__(self, _json_):
@@ -3424,7 +3224,6 @@ class test_DemoGroup :
 
 
 
-
 class test_InnerGroup :
 
     def __init__(self, _json_):
@@ -3432,7 +3231,6 @@ class test_InnerGroup :
         self.y2 = _json_['y2']
         self.y3 = _json_['y3']
         self.y4 = _json_['y4']
-
 
 
 
@@ -3451,7 +3249,6 @@ class test_TbDemoGroup_C:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -3475,7 +3272,6 @@ class test_TbDemoGroup_S:
 
 
 
-
 class test_TbDemoGroup_E:
 
     def __init__(self, _json_ ):
@@ -3495,7 +3291,6 @@ class test_TbDemoGroup_E:
 
 
 
-
 class test_TbTestGlobal:
 
     def __init__(self, _json_):
@@ -3510,13 +3305,11 @@ class test_TbTestGlobal:
 
 
 
-
 class test_TestGlobal :
 
     def __init__(self, _json_):
         self.unlock_equip = _json_['unlock_equip']
         self.unlock_hero = _json_['unlock_hero']
-
 
 
 
@@ -3540,13 +3333,11 @@ class test_TbDetectCsvEncoding:
 
 
 
-
 class test_DetectEncoding :
 
     def __init__(self, _json_):
         self.id = _json_['id']
         self.name = _json_['name']
-
 
 
 
@@ -3570,7 +3361,6 @@ class test_TbDefineFromExcel:
 
 
 
-
 class test_DefineFromExcel :
 
     def __init__(self, _json_):
@@ -3589,7 +3379,6 @@ class test_DefineFromExcel :
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
         for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-
 
 
 
@@ -3618,7 +3407,6 @@ class test_TbDefineFromExcelOne:
 
 
 
-
 class test_DefineFromExcelOne :
 
     def __init__(self, _json_):
@@ -3626,7 +3414,6 @@ class test_DefineFromExcelOne :
         self.unlock_hero = _json_['unlock_hero']
         self.default_avatar = _json_['default_avatar']
         self.default_item = _json_['default_item']
-
 
 
 
@@ -3650,7 +3437,6 @@ class test_TbTestJson2:
 
 
 
-
 class test_TestJson2 :
 
     def __init__(self, _json_):
@@ -3663,7 +3449,6 @@ class test_TestJson2 :
         for _ek, _ev in _json_['m3']: _k = _ek; _v = _ev; self.m3[_k] =_v
         self.m4 = {}
         for _ek, _ev in _json_['m4']: _k = _ek; _v = test_DemoType1(_ev); self.m4[_k] =_v
-
 
 
 
@@ -3687,7 +3472,6 @@ class test_TbTestIndex:
 
 
 
-
 class test_TestIndex :
 
     def __init__(self, _json_):
@@ -3695,6 +3479,40 @@ class test_TestIndex :
         self.eles = []
         for _ele in _json_['eles']: _e = test_DemoType1(_ele); self.eles.append(_e)
 
+
+
+class test_TbTestMap:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestMap(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestMap :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = {}
+        for _ek, _ev in _json_['x1']: _k = _ek; _v = _ev; self.x1[_k] =_v
+        self.x2 = {}
+        for _ek, _ev in _json_['x2']: _k = _ek; _v = _ev; self.x2[_k] =_v
+        self.x3 = {}
+        for _ek, _ev in _json_['x3']: _k = _ek; _v = _ev; self.x3[_k] =_v
+        self.x4 = {}
+        for _ek, _ev in _json_['x4']: _k = test_DemoEnum(_ek); _v = _ev; self.x4[_k] =_v
 
 
 
@@ -3717,7 +3535,6 @@ class test_TbDemoGroupDefineFromExcel:
 
 
 
-
 class test_TbDefineFromExcel2:
 
     def __init__(self, _json_ ):
@@ -3733,7 +3550,6 @@ class test_TbDefineFromExcel2:
     def getDataList(self) : return self._dataList
 
     def get(self, key) : return self._dataMap.get(key)
-
 
 
 
@@ -3760,7 +3576,6 @@ class test_DefineFromExcel2 :
 
 
 
-
 class test_TbTestExcelBean:
 
     def __init__(self, _json_ ):
@@ -3781,7 +3596,6 @@ class test_TbTestExcelBean:
 
 
 
-
 class test_TestExcelBean1 :
 
     def __init__(self, _json_):
@@ -3789,7 +3603,6 @@ class test_TestExcelBean1 :
         self.x2 = _json_['x2']
         self.x3 = _json_['x3']
         self.x4 = _json_['x4']
-
 
 
 
@@ -3830,6 +3643,7 @@ class Tables:
     #def TbDefineFromExcelOne : return self._TbDefineFromExcelOne
     #def TbTestJson2 : return self._TbTestJson2
     #def TbTestIndex : return self._TbTestIndex
+    #def TbTestMap : return self._TbTestMap
     #def TbDemoGroupDefineFromExcel : return self._TbDemoGroupDefineFromExcel
     #def TbDefineFromExcel2 : return self._TbDefineFromExcel2
     #def TbTestExcelBean : return self._TbTestExcelBean
@@ -3871,7 +3685,7 @@ class Tables:
         self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne')); 
         self.TbTestJson2 = test_TbTestJson2(loader('test.TbTestJson2')); 
         self.TbTestIndex = test_TbTestIndex(loader('test.TbTestIndex')); 
+        self.TbTestMap = test_TbTestMap(loader('test.TbTestMap')); 
         self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel')); 
         self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test.TbDefineFromExcel2')); 
         self.TbTestExcelBean = test_TbTestExcelBean(loader('test.TbTestExcelBean')); 
-

@@ -47,4 +47,3 @@ func NewAi_Decorator_Body(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err er
     return
 }
 
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 public enum EClothesHidePartType
 {
@@ -66,4 +65,3 @@ public enum EClothesHidePartType
         throw new IllegalArgumentException("");
     }
 }
-

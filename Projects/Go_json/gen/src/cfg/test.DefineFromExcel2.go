@@ -96,4 +96,3 @@ func NewTest_DefineFromExcel2(_buf map[string]interface{}) (_v *Test_DefineFromE
 
     return
 }
-

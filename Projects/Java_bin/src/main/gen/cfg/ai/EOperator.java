@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 public enum EOperator
 {
@@ -42,4 +41,3 @@ public enum EOperator
         throw new IllegalArgumentException("");
     }
 }
-

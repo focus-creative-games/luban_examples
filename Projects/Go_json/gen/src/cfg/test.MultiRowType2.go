@@ -27,4 +27,3 @@ func NewTest_MultiRowType2(_buf map[string]interface{}) (_v *Test_MultiRowType2,
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y"].(float64); !_ok_ { err = errors.New("y error"); return }; _v.Y = float32(_tempNum_) }
     return
 }
-

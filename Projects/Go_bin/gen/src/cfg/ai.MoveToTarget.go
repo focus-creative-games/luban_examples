@@ -33,4 +33,3 @@ func NewAi_MoveToTarget(_buf *serialization.ByteBuf) (_v *Ai_MoveToTarget, err e
     { if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

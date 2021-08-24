@@ -31,4 +31,3 @@ func NewAi_UeWaitBlackboardTime(_buf *serialization.ByteBuf) (_v *Ai_UeWaitBlack
     { if _v.BlackboardKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

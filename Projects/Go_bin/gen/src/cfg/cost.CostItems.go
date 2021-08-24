@@ -41,4 +41,3 @@ func NewCost_CostItems(_buf *serialization.ByteBuf) (_v *Cost_CostItems, err err
 
     return
 }
-

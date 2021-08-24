@@ -45,4 +45,3 @@ func NewMail_SystemMail(_buf *serialization.ByteBuf) (_v *Mail_SystemMail, err e
 
     return
 }
-

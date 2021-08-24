@@ -38,4 +38,3 @@ func NewRole_LevelBonus(_buf map[string]interface{}) (_v *Role_LevelBonus, err e
 
     return
 }
-

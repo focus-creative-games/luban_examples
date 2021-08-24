@@ -25,4 +25,3 @@ func NewTest_TestGlobal(_buf map[string]interface{}) (_v *Test_TestGlobal, err e
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["unlock_hero"].(float64); !_ok_ { err = errors.New("unlock_hero error"); return }; _v.UnlockHero = int32(_tempNum_) }
     return
 }
-

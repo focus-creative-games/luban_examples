@@ -25,4 +25,3 @@ func NewBonus_ShowItemInfo(_buf map[string]interface{}) (_v *Bonus_ShowItemInfo,
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["item_num"].(float64); !_ok_ { err = errors.New("item_num error"); return }; _v.ItemNum = int64(_tempNum_) }
     return
 }
-

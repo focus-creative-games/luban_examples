@@ -33,4 +33,3 @@ func NewAi_MoveToLocation(_buf *serialization.ByteBuf) (_v *Ai_MoveToLocation, e
     { if _v.AcceptableRadius, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

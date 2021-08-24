@@ -29,4 +29,3 @@ func NewTest_DetectEncoding(_buf *serialization.ByteBuf) (_v *Test_DetectEncodin
     { if _v.Name, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

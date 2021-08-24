@@ -29,4 +29,3 @@ func NewError_ErrorStyleTip(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleTi
     _v.Error_ErrorStyle = *_p
     return
 }
-

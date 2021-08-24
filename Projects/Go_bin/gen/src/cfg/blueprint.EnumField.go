@@ -29,4 +29,3 @@ func NewBlueprint_EnumField(_buf *serialization.ByteBuf) (_v *Blueprint_EnumFiel
     { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

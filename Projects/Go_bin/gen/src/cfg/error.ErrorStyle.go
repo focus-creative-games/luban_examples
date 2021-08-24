@@ -38,4 +38,3 @@ func NewError_ErrorStyle_Body(_buf *serialization.ByteBuf) (_v *Error_ErrorStyle
     return
 }
 
-

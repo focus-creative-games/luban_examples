@@ -37,4 +37,3 @@ func NewAi_ComposeNode_Body(_buf map[string]interface{}) (_v *Ai_ComposeNode, er
     _v.Ai_FlowNode = *_p
     return
 }
-

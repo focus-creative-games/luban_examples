@@ -31,4 +31,3 @@ func NewAi_DebugPrint(_buf *serialization.ByteBuf) (_v *Ai_DebugPrint, err error
     { if _v.Text, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

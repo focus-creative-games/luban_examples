@@ -29,4 +29,3 @@ func NewAi_MoveToTarget(_buf map[string]interface{}) (_v *Ai_MoveToTarget, err e
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["acceptable_radius"].(float64); !_ok_ { err = errors.New("acceptable_radius error"); return }; _v.AcceptableRadius = float32(_tempNum_) }
     return
 }
-

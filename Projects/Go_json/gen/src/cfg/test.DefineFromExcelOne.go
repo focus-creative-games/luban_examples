@@ -29,4 +29,3 @@ func NewTest_DefineFromExcelOne(_buf map[string]interface{}) (_v *Test_DefineFro
     { var _ok_ bool; if _v.DefaultItem, _ok_ = _buf["default_item"].(string); !_ok_ { err = errors.New("default_item error"); return } }
     return
 }
-

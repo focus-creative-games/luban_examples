@@ -31,4 +31,3 @@ func NewAi_UeLoop(_buf map[string]interface{}) (_v *Ai_UeLoop, err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["infinite_loop_timeout_time"].(float64); !_ok_ { err = errors.New("infinite_loop_timeout_time error"); return }; _v.InfiniteLoopTimeoutTime = float32(_tempNum_) }
     return
 }
-

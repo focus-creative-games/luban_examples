@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Role_EGenderType_MALE = 1
     Role_EGenderType_FEMALE = 2
 )
-

@@ -31,4 +31,3 @@ func NewLimit_MonthlyLimit(_buf *serialization.ByteBuf) (_v *Limit_MonthlyLimit,
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

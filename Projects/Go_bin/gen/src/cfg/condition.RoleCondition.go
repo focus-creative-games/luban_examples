@@ -45,4 +45,3 @@ func NewCondition_RoleCondition_Body(_buf *serialization.ByteBuf) (_v *Condition
     return
 }
 
-

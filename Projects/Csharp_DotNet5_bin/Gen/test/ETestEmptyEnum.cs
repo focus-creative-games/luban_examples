@@ -13,5 +13,3 @@ namespace cfg.test
     {
     }
 }
-
-

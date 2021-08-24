@@ -25,4 +25,3 @@ func NewBlueprint_Interface(_buf map[string]interface{}) (_v *Blueprint_Interfac
     _v.Blueprint_Clazz = *_p
     return
 }
-

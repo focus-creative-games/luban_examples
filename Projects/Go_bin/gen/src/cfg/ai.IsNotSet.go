@@ -29,4 +29,3 @@ func NewAi_IsNotSet(_buf *serialization.ByteBuf) (_v *Ai_IsNotSet, err error) {
     _v.Ai_KeyQueryOperator = *_p
     return
 }
-

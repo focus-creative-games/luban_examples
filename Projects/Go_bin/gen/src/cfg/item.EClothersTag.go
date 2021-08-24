@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Item_EClothersTag_FANG_SHAI = 1
     Item_EClothersTag_WU_ZHE = 2
 )
-

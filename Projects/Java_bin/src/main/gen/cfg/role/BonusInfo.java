@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.role;
 
 import bright.serialization.*;
@@ -65,4 +64,3 @@ public final class BonusInfo extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

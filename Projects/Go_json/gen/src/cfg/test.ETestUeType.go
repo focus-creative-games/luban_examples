@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Test_ETestUeType_WHITE = 0
     Test_ETestUeType_BLACK = 1
 )
-

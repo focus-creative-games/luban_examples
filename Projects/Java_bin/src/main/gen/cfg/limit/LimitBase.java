@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.limit;
 
 import bright.serialization.*;
@@ -62,4 +61,3 @@ public abstract class LimitBase extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

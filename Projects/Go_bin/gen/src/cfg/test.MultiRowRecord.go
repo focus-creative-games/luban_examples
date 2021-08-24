@@ -102,4 +102,3 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
 
     return
 }
-

@@ -21,5 +21,3 @@ namespace cfg.item
         WU_ZHE = 2,
     }
 }
-
-

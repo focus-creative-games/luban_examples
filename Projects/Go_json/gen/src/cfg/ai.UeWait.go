@@ -29,4 +29,3 @@ func NewAi_UeWait(_buf map[string]interface{}) (_v *Ai_UeWait, err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["random_deviation"].(float64); !_ok_ { err = errors.New("random_deviation error"); return }; _v.RandomDeviation = float32(_tempNum_) }
     return
 }
-

@@ -16,5 +16,3 @@ namespace cfg.test
         X_257 = 257,
     }
 }
-
-

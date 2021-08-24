@@ -25,4 +25,3 @@ func NewRole_BonusInfo(_buf map[string]interface{}) (_v *Role_BonusInfo, err err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["coefficient"].(float64); !_ok_ { err = errors.New("coefficient error"); return }; _v.Coefficient = float32(_tempNum_) }
     return
 }
-

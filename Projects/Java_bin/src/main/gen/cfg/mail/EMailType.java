@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.mail;
 public enum EMailType
 {
@@ -36,4 +35,3 @@ public enum EMailType
         throw new IllegalArgumentException("");
     }
 }
-

@@ -33,4 +33,3 @@ func NewAi_KeyQueryOperator_Body(_buf map[string]interface{}) (_v *Ai_KeyQueryOp
     _v = &Ai_KeyQueryOperator{}
     return
 }
-

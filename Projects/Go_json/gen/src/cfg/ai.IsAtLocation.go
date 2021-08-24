@@ -31,4 +31,3 @@ func NewAi_IsAtLocation(_buf map[string]interface{}) (_v *Ai_IsAtLocation, err e
     { var _ok_ bool; if _v.InverseCondition, _ok_ = _buf["inverse_condition"].(bool); !_ok_ { err = errors.New("inverse_condition error"); return } }
     return
 }
-

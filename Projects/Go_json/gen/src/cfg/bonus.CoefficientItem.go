@@ -29,4 +29,3 @@ func NewBonus_CoefficientItem(_buf map[string]interface{}) (_v *Bonus_Coefficien
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus_list"].(map[string]interface{}); !_ok_ { err = errors.New("bonus_list error"); return }; if _v.BonusList, err = NewBonus_Items(_x_); err != nil { return } }
     return
 }
-

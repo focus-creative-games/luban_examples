@@ -31,4 +31,3 @@ func NewCondition_MinLevel(_buf *serialization.ByteBuf) (_v *Condition_MinLevel,
     { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

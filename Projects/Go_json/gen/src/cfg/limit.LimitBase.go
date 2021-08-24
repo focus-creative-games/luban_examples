@@ -36,4 +36,3 @@ func NewLimit_LimitBase_Body(_buf map[string]interface{}) (_v *Limit_LimitBase, 
     _v = &Limit_LimitBase{}
     return
 }
-

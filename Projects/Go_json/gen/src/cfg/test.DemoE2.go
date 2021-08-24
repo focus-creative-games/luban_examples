@@ -25,4 +25,3 @@ func NewTest_DemoE2(_buf map[string]interface{}) (_v *Test_DemoE2, err error) {
     { var _ok_ bool; if _v.Y2, _ok_ = _buf["y2"].(bool); !_ok_ { err = errors.New("y2 error"); return } }
     return
 }
-

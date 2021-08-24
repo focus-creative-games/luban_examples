@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 
 import bright.serialization.*;
@@ -77,4 +76,3 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

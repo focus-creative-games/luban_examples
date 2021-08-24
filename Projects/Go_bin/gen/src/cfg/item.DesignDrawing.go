@@ -41,4 +41,3 @@ func NewItem_DesignDrawing(_buf *serialization.ByteBuf) (_v *Item_DesignDrawing,
 
     return
 }
-

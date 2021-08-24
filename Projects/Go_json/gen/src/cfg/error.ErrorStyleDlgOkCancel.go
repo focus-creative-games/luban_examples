@@ -29,4 +29,3 @@ func NewError_ErrorStyleDlgOkCancel(_buf map[string]interface{}) (_v *Error_Erro
     { var _ok_ bool; if _v.Btn2Name, _ok_ = _buf["btn2_name"].(string); !_ok_ { err = errors.New("btn2_name error"); return } }
     return
 }
-

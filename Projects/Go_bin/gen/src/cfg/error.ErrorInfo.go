@@ -31,4 +31,3 @@ func NewError_ErrorInfo(_buf *serialization.ByteBuf) (_v *Error_ErrorInfo, err e
     { if _v.Style, err = NewError_ErrorStyle(_buf); err != nil { return } }
     return
 }
-

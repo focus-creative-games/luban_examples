@@ -7,7 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 package cfg
 
 import "bright/serialization"
@@ -51,6 +50,7 @@ type Tables struct {
     TbDefineFromExcelOne *Test_TbDefineFromExcelOne
     TbTestJson2 *Test_TbTestJson2
     TbTestIndex *Test_TbTestIndex
+    TbTestMap *Test_TbTestMap
     TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
     TbDefineFromExcel2 *Test_TbDefineFromExcel2
     TbTestExcelBean *Test_TbTestExcelBean
@@ -277,6 +277,12 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     if tables.TbTestIndex, err = NewTest_TbTestIndex(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("test.TbTestMap") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestMap, err = NewTest_TbTestMap(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("test.TbDemoGroupDefineFromExcel") ; err != nil {
         return nil, err
     }
@@ -297,4 +303,3 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     }
     return tables, nil
 }
-

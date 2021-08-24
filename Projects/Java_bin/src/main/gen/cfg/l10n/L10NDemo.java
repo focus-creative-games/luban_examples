@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.l10n;
 
 import bright.serialization.*;
@@ -65,4 +64,3 @@ public final class L10NDemo extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

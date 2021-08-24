@@ -74,4 +74,3 @@ func NewAi_FlowNode_Body(_buf map[string]interface{}) (_v *Ai_FlowNode, err erro
 
     return
 }
-

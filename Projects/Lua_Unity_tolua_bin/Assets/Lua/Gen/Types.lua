@@ -1,5 +1,4 @@
 
-
 local setmetatable = setmetatable
 local pairs = pairs
 local ipairs = ipairs
@@ -322,6 +321,11 @@ local enums =
      ---@field public C int
      ---@field public D int
     ['test.DemoEnum'] = {   A=1,  B=2,  C=4,  D=5,  };
+    ---@class test.DemoFlag
+     ---@field public A int
+     ---@field public B int
+     ---@field public D int
+    ['test.DemoFlag'] = {   A=1,  B=2,  D=3,  };
     ---@class test.ETestUeType
      ---@field public WHITE int
      ---@field public BLACK int
@@ -3361,6 +3365,30 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
+    ---@class test.TestMap 
+     ---@field public id int
+     ---@field public x1 table<int,int>
+     ---@field public x2 table<long,int>
+     ---@field public x3 table<string,int>
+     ---@field public x4 table<test.DemoEnum,int>
+        local class = SimpleClass()
+        class._id = -543227410
+        class._name = 'test.TestMap'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readMap(bs, readInt, readInt),
+            x2 = readMap(bs, readLong, readInt),
+            x3 = readMap(bs, readString, readInt),
+            x4 = readMap(bs, readInt, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
     ---@class test.DefineFromExcel2 
      ---@field public id int
      ---@field public x1 bool
@@ -3461,6 +3489,7 @@ local function InitTypes(methods)
     { name='TbDefineFromExcelOne', file='test.TbDefineFromExcelOne', mode='one', value_type='test.DefineFromExcelOne'},
     { name='TbTestJson2', file='test.TbTestJson2', mode='map', index='id', value_type='test.TestJson2' },
     { name='TbTestIndex', file='test.TbTestIndex', mode='map', index='id', value_type='test.TestIndex' },
+    { name='TbTestMap', file='test.TbTestMap', mode='map', index='id', value_type='test.TestMap' },
     { name='TbDemoGroupDefineFromExcel', file='test.TbDemoGroupDefineFromExcel', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDefineFromExcel2', file='test.TbDefineFromExcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test.TbTestExcelBean', mode='map', index='x1', value_type='test.TestExcelBean1' },
@@ -3469,5 +3498,4 @@ local function InitTypes(methods)
     end
 
 return { InitTypes = InitTypes }
-
 

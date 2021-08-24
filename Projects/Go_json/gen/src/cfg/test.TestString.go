@@ -29,4 +29,3 @@ func NewTest_TestString(_buf map[string]interface{}) (_v *Test_TestString, err e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cs2"].(map[string]interface{}); !_ok_ { err = errors.New("cs2 error"); return }; if _v.Cs2, err = NewTest_CompactString(_x_); err != nil { return } }
     return
 }
-

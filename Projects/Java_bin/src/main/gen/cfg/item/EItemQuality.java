@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 /**
  * 道具品质
@@ -54,4 +53,3 @@ public enum EItemQuality
         throw new IllegalArgumentException("");
     }
 }
-

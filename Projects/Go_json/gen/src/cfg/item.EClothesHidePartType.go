@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -20,4 +18,3 @@ const (
     Item_EClothesHidePartType_LEG_MIDDLE = 6
     Item_EClothesHidePartType_LEG_LOWER = 7
 )
-

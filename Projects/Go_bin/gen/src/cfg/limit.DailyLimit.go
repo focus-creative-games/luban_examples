@@ -31,4 +31,3 @@ func NewLimit_DailyLimit(_buf *serialization.ByteBuf) (_v *Limit_DailyLimit, err
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

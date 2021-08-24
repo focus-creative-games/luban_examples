@@ -44,4 +44,3 @@ func NewAi_Service_Body(_buf *serialization.ByteBuf) (_v *Ai_Service, err error)
     return
 }
 
-

@@ -29,4 +29,3 @@ func NewItem_ChooseOneBonus(_buf *serialization.ByteBuf) (_v *Item_ChooseOneBonu
     { if _v.IsUnique, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

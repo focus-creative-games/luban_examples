@@ -34,4 +34,3 @@ func NewAi_KeyData_Body(_buf map[string]interface{}) (_v *Ai_KeyData, err error)
     _v = &Ai_KeyData{}
     return
 }
-

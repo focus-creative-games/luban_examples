@@ -25,4 +25,3 @@ func NewTest_DateTimeRange(_buf map[string]interface{}) (_v *Test_DateTimeRange,
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["end_time"].(float64); !_ok_ { err = errors.New("end_time error"); return }; _v.EndTime = int32(_tempNum_) }
     return
 }
-

@@ -33,4 +33,3 @@ func NewCost_CostCurrency(_buf *serialization.ByteBuf) (_v *Cost_CostCurrency, e
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

@@ -21,5 +21,3 @@ namespace cfg.item
         AUTO = 1,
     }
 }
-
-

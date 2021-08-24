@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.test;
 
 import bright.serialization.*;
@@ -122,4 +121,3 @@ public final class DefineFromExcel2 extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

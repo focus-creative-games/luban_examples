@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -16,4 +14,3 @@ const (
     Ai_EFlowAbortMode_SELF = 2
     Ai_EFlowAbortMode_BOTH = 3
 )
-

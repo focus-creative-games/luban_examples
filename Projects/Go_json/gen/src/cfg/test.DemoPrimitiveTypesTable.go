@@ -69,4 +69,3 @@ func NewTest_DemoPrimitiveTypesTable(_buf map[string]interface{}) (_v *Test_Demo
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["t1"].(float64); !_ok_ { err = errors.New("t1 error"); return }; _v.T1 = int32(_tempNum_) }
     return
 }
-

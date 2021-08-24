@@ -33,4 +33,3 @@ func NewTest_TestExcelBean1(_buf *serialization.ByteBuf) (_v *Test_TestExcelBean
     { if _v.X4, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

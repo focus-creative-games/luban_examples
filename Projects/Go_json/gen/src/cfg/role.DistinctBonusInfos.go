@@ -38,4 +38,3 @@ func NewRole_DistinctBonusInfos(_buf map[string]interface{}) (_v *Role_DistinctB
 
     return
 }
-

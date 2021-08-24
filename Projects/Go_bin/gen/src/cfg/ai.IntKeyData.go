@@ -31,4 +31,3 @@ func NewAi_IntKeyData(_buf *serialization.ByteBuf) (_v *Ai_IntKeyData, err error
     { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

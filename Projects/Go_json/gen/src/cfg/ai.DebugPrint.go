@@ -27,4 +27,3 @@ func NewAi_DebugPrint(_buf map[string]interface{}) (_v *Ai_DebugPrint, err error
     { var _ok_ bool; if _v.Text, _ok_ = _buf["text"].(string); !_ok_ { err = errors.New("text error"); return } }
     return
 }
-

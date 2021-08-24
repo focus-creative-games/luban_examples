@@ -29,4 +29,3 @@ func NewAi_BinaryOperator(_buf map[string]interface{}) (_v *Ai_BinaryOperator, e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = NewAi_KeyData(_x_); err != nil { return } }
     return
 }
-

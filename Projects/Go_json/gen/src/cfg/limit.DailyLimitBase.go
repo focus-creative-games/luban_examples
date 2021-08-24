@@ -35,4 +35,3 @@ func NewLimit_DailyLimitBase_Body(_buf map[string]interface{}) (_v *Limit_DailyL
     _v.Limit_LimitBase = *_p
     return
 }
-

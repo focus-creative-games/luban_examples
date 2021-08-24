@@ -82,4 +82,3 @@ func NewTest_DefineFromExcel(_buf *serialization.ByteBuf) (_v *Test_DefineFromEx
 
     return
 }
-

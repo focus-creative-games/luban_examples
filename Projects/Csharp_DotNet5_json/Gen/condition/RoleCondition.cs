@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -58,4 +57,3 @@ public abstract partial class RoleCondition :  condition.Condition
     }
     }
 }
-

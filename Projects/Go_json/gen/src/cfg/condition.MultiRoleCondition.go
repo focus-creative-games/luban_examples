@@ -40,4 +40,3 @@ func NewCondition_MultiRoleCondition(_buf map[string]interface{}) (_v *Condition
 
     return
 }
-

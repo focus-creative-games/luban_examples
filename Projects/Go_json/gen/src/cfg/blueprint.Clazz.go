@@ -67,4 +67,3 @@ func NewBlueprint_Clazz_Body(_buf map[string]interface{}) (_v *Blueprint_Clazz, 
 
     return
 }
-

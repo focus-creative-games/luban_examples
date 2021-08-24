@@ -69,4 +69,3 @@ func NewMail_GlobalMail(_buf *serialization.ByteBuf) (_v *Mail_GlobalMail, err e
     { if _v.MailTime, err = NewCondition_TimeRange(_buf); err != nil { return } }
     return
 }
-

@@ -35,4 +35,3 @@ func NewAi_UeLoop(_buf *serialization.ByteBuf) (_v *Ai_UeLoop, err error) {
     { if _v.InfiniteLoopTimeoutTime, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

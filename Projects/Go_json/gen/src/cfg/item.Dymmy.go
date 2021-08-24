@@ -27,4 +27,3 @@ func NewItem_Dymmy(_buf map[string]interface{}) (_v *Item_Dymmy, err error) {
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cost"].(map[string]interface{}); !_ok_ { err = errors.New("cost error"); return }; if _v.Cost, err = NewCost_Cost(_x_); err != nil { return } }
     return
 }
-

@@ -31,4 +31,3 @@ func NewAi_UeTimeLimit(_buf *serialization.ByteBuf) (_v *Ai_UeTimeLimit, err err
     { if _v.LimitTime, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

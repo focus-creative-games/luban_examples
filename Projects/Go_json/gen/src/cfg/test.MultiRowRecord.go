@@ -118,4 +118,3 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
 
     return
 }
-

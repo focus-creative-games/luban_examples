@@ -35,4 +35,3 @@ func NewAi_BlackboardKey(_buf *serialization.ByteBuf) (_v *Ai_BlackboardKey, err
     { if _v.TypeClassName, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

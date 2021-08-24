@@ -31,4 +31,3 @@ func NewAi_SimpleParallel(_buf map[string]interface{}) (_v *Ai_SimpleParallel, e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["background_node"].(map[string]interface{}); !_ok_ { err = errors.New("background_node error"); return }; if _v.BackgroundNode, err = NewAi_FlowNode(_x_); err != nil { return } }
     return
 }
-

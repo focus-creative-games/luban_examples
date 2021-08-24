@@ -29,4 +29,3 @@ func NewCommon_Dummy(_buf *serialization.ByteBuf) (_v *Common_Dummy, err error) 
     { if _v.Limit, err = NewLimit_LimitBase(_buf); err != nil { return } }
     return
 }
-

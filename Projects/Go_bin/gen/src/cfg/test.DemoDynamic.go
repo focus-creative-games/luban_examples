@@ -39,4 +39,3 @@ func NewTest_DemoDynamic_Body(_buf *serialization.ByteBuf) (_v *Test_DemoDynamic
     return
 }
 
-

@@ -95,4 +95,3 @@ func NewTest_TestJson2(_buf map[string]interface{}) (_v *Test_TestJson2, err err
                 }
     return
 }
-

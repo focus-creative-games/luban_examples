@@ -35,4 +35,3 @@ func NewAi_UeBlackboard(_buf *serialization.ByteBuf) (_v *Ai_UeBlackboard, err e
     { if _v.KeyQuery, err = NewAi_KeyQueryOperator(_buf); err != nil { return } }
     return
 }
-

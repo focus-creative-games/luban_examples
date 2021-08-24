@@ -29,4 +29,3 @@ func NewL10n_PatchDemo(_buf *serialization.ByteBuf) (_v *L10n_PatchDemo, err err
     { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

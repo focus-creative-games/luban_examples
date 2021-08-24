@@ -33,4 +33,3 @@ func NewItem_ItemFunction(_buf *serialization.ByteBuf) (_v *Item_ItemFunction, e
     { if _v.CloseBagUi, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

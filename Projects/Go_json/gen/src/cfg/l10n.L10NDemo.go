@@ -25,4 +25,3 @@ func NewL10n_L10NDemo(_buf map[string]interface{}) (_v *L10n_L10NDemo, err error
     { var _ok_ bool; if _v.Text, _ok_ = _buf["text"].(string); !_ok_ { err = errors.New("text error"); return } }
     return
 }
-

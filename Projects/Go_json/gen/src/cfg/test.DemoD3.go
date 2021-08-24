@@ -37,4 +37,3 @@ func NewTest_DemoD3_Body(_buf map[string]interface{}) (_v *Test_DemoD3, err erro
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
     return
 }
-

@@ -38,4 +38,3 @@ func NewCondition_Condition_Body(_buf map[string]interface{}) (_v *Condition_Con
     _v = &Condition_Condition{}
     return
 }
-

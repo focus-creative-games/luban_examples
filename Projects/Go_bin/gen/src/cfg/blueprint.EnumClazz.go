@@ -41,4 +41,3 @@ func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClaz
 
     return
 }
-

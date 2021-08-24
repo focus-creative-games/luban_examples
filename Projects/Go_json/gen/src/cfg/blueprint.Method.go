@@ -56,4 +56,3 @@ func NewBlueprint_Method_Body(_buf map[string]interface{}) (_v *Blueprint_Method
 
     return
 }
-

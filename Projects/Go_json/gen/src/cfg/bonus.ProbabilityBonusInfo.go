@@ -25,4 +25,3 @@ func NewBonus_ProbabilityBonusInfo(_buf map[string]interface{}) (_v *Bonus_Proba
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["probability"].(float64); !_ok_ { err = errors.New("probability error"); return }; _v.Probability = float32(_tempNum_) }
     return
 }
-

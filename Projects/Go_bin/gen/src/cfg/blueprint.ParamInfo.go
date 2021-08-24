@@ -31,4 +31,3 @@ func NewBlueprint_ParamInfo(_buf *serialization.ByteBuf) (_v *Blueprint_ParamInf
     { if _v.IsRef, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

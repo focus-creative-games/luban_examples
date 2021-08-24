@@ -33,4 +33,3 @@ func NewTest_DefineFromExcelOne(_buf *serialization.ByteBuf) (_v *Test_DefineFro
     { if _v.DefaultItem, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

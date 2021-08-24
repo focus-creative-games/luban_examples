@@ -27,4 +27,3 @@ func NewAi_UeSetDefaultFocus(_buf map[string]interface{}) (_v *Ai_UeSetDefaultFo
     { var _ok_ bool; if _v.KeyboardKey, _ok_ = _buf["keyboard_key"].(string); !_ok_ { err = errors.New("keyboard_key error"); return } }
     return
 }
-

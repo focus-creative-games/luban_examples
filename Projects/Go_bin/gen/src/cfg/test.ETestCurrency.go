@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Test_ETestCurrency_DIAMOND = 1
     Test_ETestCurrency_GOLD = 2
 )
-

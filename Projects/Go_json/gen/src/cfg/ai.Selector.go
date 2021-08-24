@@ -40,4 +40,3 @@ func NewAi_Selector(_buf map[string]interface{}) (_v *Ai_Selector, err error) {
 
     return
 }
-

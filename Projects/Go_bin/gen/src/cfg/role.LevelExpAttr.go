@@ -41,4 +41,3 @@ func NewRole_LevelExpAttr(_buf *serialization.ByteBuf) (_v *Role_LevelExpAttr, e
 
     return
 }
-

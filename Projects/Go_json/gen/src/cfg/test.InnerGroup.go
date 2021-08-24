@@ -29,4 +29,3 @@ func NewTest_InnerGroup(_buf map[string]interface{}) (_v *Test_InnerGroup, err e
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y4"].(float64); !_ok_ { err = errors.New("y4 error"); return }; _v.Y4 = int32(_tempNum_) }
     return
 }
-

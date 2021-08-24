@@ -33,4 +33,3 @@ func NewLimit_GroupCoolDown(_buf *serialization.ByteBuf) (_v *Limit_GroupCoolDow
     { if _v.Duration, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

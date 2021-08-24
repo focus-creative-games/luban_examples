@@ -29,4 +29,3 @@ func NewBlueprint_AbstraceMethod(_buf *serialization.ByteBuf) (_v *Blueprint_Abs
     _v.Blueprint_Method = *_p
     return
 }
-

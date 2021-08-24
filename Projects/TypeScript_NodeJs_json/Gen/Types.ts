@@ -13,15 +13,12 @@ import Vector3 from '../bright/math/Vector3'
 import Vector4 from '../bright/math/Vector4'
 
 export namespace cfg {
-
 export namespace role {
 export class Consts {
     static MAX_NAME_LENGTH = 20;
     static MAX_USER_ROLE_NUM = 10;
 }
 }
-
-
 
 export namespace test {
 export class DemoConst {
@@ -32,16 +29,12 @@ export class DemoConst {
 }
 }
 
-
-
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
     SERVER = 1,
 }
 }
-
-
 export namespace ai {
 export enum EKeyType {
     BOOL = 1,
@@ -56,8 +49,6 @@ export enum EKeyType {
     OBJECT = 10,
 }
 }
-
-
 export namespace ai {
 export enum EFlowAbortMode {
     NONE = 0,
@@ -66,24 +57,18 @@ export enum EFlowAbortMode {
     BOTH = 3,
 }
 }
-
-
 export namespace ai {
 export enum EFinishMode {
     IMMEDIATE = 0,
     DELAYED = 1,
 }
 }
-
-
 export namespace ai {
 export enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
 }
 }
-
-
 export namespace ai {
 export enum EOperator {
     IS_EQUAL_TO = 0,
@@ -96,16 +81,12 @@ export enum EOperator {
     NOT_CONTAINS = 7,
 }
 }
-
-
 export namespace common {
 export enum EBoolOperator {
     AND = 0,
     OR = 1,
 }
 }
-
-
 export namespace error {
 export enum EOperation {
     /**
@@ -118,8 +99,6 @@ export enum EOperation {
     RESTART = 1,
 }
 }
-
-
 export namespace error {
 export enum EErrorCode {
     OK = 0,
@@ -209,8 +188,6 @@ export enum EErrorCode {
     SELFIE_HAD_REWARD = 1203,
 }
 }
-
-
 export namespace item {
 /**
  * 道具品质
@@ -238,8 +215,6 @@ export enum EItemQuality {
     GOLDEN = 4,
 }
 }
-
-
 export namespace item {
 export enum ECurrencyType {
     /**
@@ -264,8 +239,6 @@ export enum ECurrencyType {
     POWER_POINT = 5,
 }
 }
-
-
 export namespace item {
 export enum EMajorType {
     /**
@@ -314,8 +287,6 @@ export enum EMajorType {
     MATERIAL = 11,
 }
 }
-
-
 export namespace item {
 export enum EMinorType {
     /**
@@ -516,8 +487,6 @@ export enum EMinorType {
     DESIGN_DRAWING = 1102,
 }
 }
-
-
 export namespace item {
 export enum EClothersStarQualityType {
     /**
@@ -562,8 +531,6 @@ export enum EClothersStarQualityType {
     TEN = 10,
 }
 }
-
-
 export namespace item {
 export enum EClothersTag {
     /**
@@ -576,8 +543,6 @@ export enum EClothersTag {
     WU_ZHE = 2,
 }
 }
-
-
 export namespace item {
 export enum EUseType {
     /**
@@ -590,8 +555,6 @@ export enum EUseType {
     AUTO = 1,
 }
 }
-
-
 export namespace item {
 export enum EClothesHidePartType {
     /**
@@ -628,8 +591,6 @@ export enum EClothesHidePartType {
     LEG_LOWER = 7,
 }
 }
-
-
 export namespace item {
 export enum EClothesPropertyType {
     /**
@@ -674,8 +635,6 @@ export enum EClothesPropertyType {
     BAO_NUAN = 10,
 }
 }
-
-
 export namespace item {
 export enum EItemFunctionType {
     /**
@@ -688,8 +647,6 @@ export enum EItemFunctionType {
     USE_DESIGN_DRAWING = 1,
 }
 }
-
-
 export namespace limit {
 export enum ENamespace {
     ITEM_DAILY_OBTAIN = 1,
@@ -697,8 +654,6 @@ export enum ENamespace {
     STORE_GOODS_LIMIT_BUY = 3,
 }
 }
-
-
 export namespace mail {
 export enum EMailType {
     /**
@@ -711,8 +666,6 @@ export enum EMailType {
     SYSTEM = 1,
 }
 }
-
-
 export namespace role {
 export enum EGenderType {
     /**
@@ -725,15 +678,11 @@ export enum EGenderType {
     FEMALE = 2,
 }
 }
-
-
 export namespace role {
 export enum EProfession {
     TEST_PROFESSION = 1,
 }
 }
-
-
 export namespace test {
 export enum DemoEnum {
     /**
@@ -754,8 +703,13 @@ export enum DemoEnum {
     D = 5,
 }
 }
-
-
+export namespace test {
+export enum DemoFlag {
+    A = 1,
+    B = 2,
+    D = A|B,
+}
+}
 export namespace test {
 export enum ETestUeType {
     /**
@@ -765,14 +719,10 @@ export enum ETestUeType {
     BLACK = 1,
 }
 }
-
-
 export namespace test {
 export enum ETestEmptyEnum {
 }
 }
-
-
 export namespace test {
 export enum ETestEmptyEnum2 {
     SMALL_THAN_256 = 255,
@@ -780,8 +730,6 @@ export enum ETestEmptyEnum2 {
     X_257 = 257,
 }
 }
-
-
 export namespace test {
 export enum ETestQuality {
     /**
@@ -802,8 +750,6 @@ export enum ETestQuality {
     D = 4,
 }
 }
-
-
 export namespace test {
 export enum ETestCurrency {
     /**
@@ -817,8 +763,6 @@ export enum ETestCurrency {
 }
 }
 
-
-   
 export namespace ai {
 export class TbBlackboard{
     private _dataMap: Map<string, ai.Blackboard>
@@ -848,8 +792,6 @@ export class TbBlackboard{
 
 }
 }
-
-
 
 
 
@@ -883,8 +825,6 @@ export  class Blackboard  {
 
 
 
-
-
 export namespace ai {
 export  class BlackboardKey  {
 
@@ -913,8 +853,6 @@ export  class BlackboardKey  {
 
 }
 
-
-   
 export namespace ai {
 export class TbBehaviorTree{
     private _dataMap: Map<number, ai.BehaviorTree>
@@ -944,8 +882,6 @@ export class TbBehaviorTree{
 
 }
 }
-
-
 
 
 
@@ -979,8 +915,6 @@ export  class BehaviorTree  {
 }
 
 }
-
-
 
 
 
@@ -1033,8 +967,6 @@ export  abstract  class Node  {
 
 
 
-
-
 export namespace ai {
 export  abstract  class Service  extends ai.Node {
     static constructorFrom(_json_: any): Service {
@@ -1063,8 +995,6 @@ export  abstract  class Service  extends ai.Node {
 
 
 
-
-
 export namespace ai {
 export  class UeSetDefaultFocus  extends ai.Service {
 
@@ -1085,8 +1015,6 @@ export  class UeSetDefaultFocus  extends ai.Service {
 
 
 
-
-
 export namespace ai {
 export  class ExecuteTimeStatistic  extends ai.Service {
 
@@ -1101,8 +1029,6 @@ export  class ExecuteTimeStatistic  extends ai.Service {
 }
 
 }
-
-
 
 
 
@@ -1126,8 +1052,6 @@ export  class ChooseTarget  extends ai.Service {
 
 
 
-
-
 export namespace ai {
 export  class KeepFaceTarget  extends ai.Service {
 
@@ -1148,8 +1072,6 @@ export  class KeepFaceTarget  extends ai.Service {
 
 
 
-
-
 export namespace ai {
 export  class GetOwnerPlayer  extends ai.Service {
 
@@ -1167,8 +1089,6 @@ export  class GetOwnerPlayer  extends ai.Service {
 }
 
 }
-
-
 
 
 
@@ -1216,8 +1136,6 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
 
 
 
-
-
 export namespace ai {
 export  abstract  class Decorator  extends ai.Node {
     static constructorFrom(_json_: any): Decorator {
@@ -1250,8 +1168,6 @@ export  abstract  class Decorator  extends ai.Node {
 
 
 
-
-
 export namespace ai {
 export  class UeLoop  extends ai.Decorator {
 
@@ -1278,8 +1194,6 @@ export  class UeLoop  extends ai.Decorator {
 
 
 
-
-
 export namespace ai {
 export  class UeCooldown  extends ai.Decorator {
 
@@ -1300,8 +1214,6 @@ export  class UeCooldown  extends ai.Decorator {
 
 
 
-
-
 export namespace ai {
 export  class UeTimeLimit  extends ai.Decorator {
 
@@ -1319,8 +1231,6 @@ export  class UeTimeLimit  extends ai.Decorator {
 }
 
 }
-
-
 
 
 
@@ -1351,8 +1261,6 @@ export  class UeBlackboard  extends ai.Decorator {
 
 
 
-
-
 export namespace ai {
 export  abstract  class KeyQueryOperator  {
     static constructorFrom(_json_: any): KeyQueryOperator {
@@ -1376,8 +1284,6 @@ export  abstract  class KeyQueryOperator  {
 
 
 
-
-
 export namespace ai {
 export  class IsSet  extends ai.KeyQueryOperator {
 
@@ -1395,8 +1301,6 @@ export  class IsSet  extends ai.KeyQueryOperator {
 
 
 
-
-
 export namespace ai {
 export  class IsNotSet  extends ai.KeyQueryOperator {
 
@@ -1411,8 +1315,6 @@ export  class IsNotSet  extends ai.KeyQueryOperator {
 }
 
 }
-
-
 
 
 
@@ -1440,8 +1342,6 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
 
 
 
-
-
 export namespace ai {
 export  abstract  class KeyData  {
     static constructorFrom(_json_: any): KeyData {
@@ -1466,8 +1366,6 @@ export  abstract  class KeyData  {
 
 
 
-
-
 export namespace ai {
 export  class FloatKeyData  extends ai.KeyData {
 
@@ -1485,8 +1383,6 @@ export  class FloatKeyData  extends ai.KeyData {
 }
 
 }
-
-
 
 
 
@@ -1510,8 +1406,6 @@ export  class IntKeyData  extends ai.KeyData {
 
 
 
-
-
 export namespace ai {
 export  class StringKeyData  extends ai.KeyData {
 
@@ -1529,8 +1423,6 @@ export  class StringKeyData  extends ai.KeyData {
 }
 
 }
-
-
 
 
 
@@ -1554,8 +1446,6 @@ export  class BlackboardKeyData  extends ai.KeyData {
 
 
 
-
-
 export namespace ai {
 export  class UeForceSuccess  extends ai.Decorator {
 
@@ -1570,8 +1460,6 @@ export  class UeForceSuccess  extends ai.Decorator {
 }
 
 }
-
-
 
 
 
@@ -1601,8 +1489,6 @@ export  class IsAtLocation  extends ai.Decorator {
 
 
 
-
-
 export namespace ai {
 export  class DistanceLessThan  extends ai.Decorator {
 
@@ -1629,8 +1515,6 @@ export  class DistanceLessThan  extends ai.Decorator {
 }
 
 }
-
-
 
 
 
@@ -1674,8 +1558,6 @@ export  abstract  class FlowNode  extends ai.Node {
 
 
 
-
-
 export namespace ai {
 export  abstract  class ComposeNode  extends ai.FlowNode {
     static constructorFrom(_json_: any): ComposeNode {
@@ -1701,8 +1583,6 @@ export  abstract  class ComposeNode  extends ai.FlowNode {
 
 
 
-
-
 export namespace ai {
 export  class Sequence  extends ai.ComposeNode {
 
@@ -1724,8 +1604,6 @@ export  class Sequence  extends ai.ComposeNode {
 
 
 
-
-
 export namespace ai {
 export  class Selector  extends ai.ComposeNode {
 
@@ -1744,8 +1622,6 @@ export  class Selector  extends ai.ComposeNode {
 }
 
 }
-
-
 
 
 
@@ -1774,8 +1650,6 @@ export  class SimpleParallel  extends ai.ComposeNode {
 }
 
 }
-
-
 
 
 
@@ -1811,8 +1685,6 @@ export  abstract  class Task  extends ai.FlowNode {
 
 
 
-
-
 export namespace ai {
 export  class UeWait  extends ai.Task {
 
@@ -1836,8 +1708,6 @@ export  class UeWait  extends ai.Task {
 
 
 
-
-
 export namespace ai {
 export  class UeWaitBlackboardTime  extends ai.Task {
 
@@ -1855,8 +1725,6 @@ export  class UeWaitBlackboardTime  extends ai.Task {
 }
 
 }
-
-
 
 
 
@@ -1883,8 +1751,6 @@ export  class MoveToTarget  extends ai.Task {
 
 
 
-
-
 export namespace ai {
 export  class ChooseSkill  extends ai.Task {
 
@@ -1905,8 +1771,6 @@ export  class ChooseSkill  extends ai.Task {
 }
 
 }
-
-
 
 
 
@@ -1933,8 +1797,6 @@ export  class MoveToRandomLocation  extends ai.Task {
 
 
 
-
-
 export namespace ai {
 export  class MoveToLocation  extends ai.Task {
 
@@ -1958,8 +1820,6 @@ export  class MoveToLocation  extends ai.Task {
 
 
 
-
-
 export namespace ai {
 export  class DebugPrint  extends ai.Task {
 
@@ -1978,8 +1838,6 @@ export  class DebugPrint  extends ai.Task {
 
 }
 
-
-   
 export namespace blueprint {
 export class TbClazz{
     private _dataMap: Map<string, blueprint.Clazz>
@@ -2009,8 +1867,6 @@ export class TbClazz{
 
 }
 }
-
-
 
 
 
@@ -2048,8 +1904,6 @@ export  abstract  class Clazz  {
 }
 
 }
-
-
 
 
 
@@ -2092,8 +1946,6 @@ export  abstract  class Method  {
 
 
 
-
-
 export namespace blueprint {
 export  class ParamInfo  {
 
@@ -2118,8 +1970,6 @@ export  class ParamInfo  {
 
 
 
-
-
 export namespace blueprint {
 export  class AbstraceMethod  extends blueprint.Method {
 
@@ -2134,8 +1984,6 @@ export  class AbstraceMethod  extends blueprint.Method {
 }
 
 }
-
-
 
 
 
@@ -2156,8 +2004,6 @@ export  class ExternalMethod  extends blueprint.Method {
 
 
 
-
-
 export namespace blueprint {
 export  class BlueprintMethod  extends blueprint.Method {
 
@@ -2175,8 +2021,6 @@ export  class BlueprintMethod  extends blueprint.Method {
 
 
 
-
-
 export namespace blueprint {
 export  class Interface  extends blueprint.Clazz {
 
@@ -2191,8 +2035,6 @@ export  class Interface  extends blueprint.Clazz {
 }
 
 }
-
-
 
 
 
@@ -2220,8 +2062,6 @@ export  class NormalClazz  extends blueprint.Clazz {
 
 
 
-
-
 export namespace blueprint {
 export  class Field  {
 
@@ -2246,8 +2086,6 @@ export  class Field  {
 
 
 
-
-
 export namespace blueprint {
 export  class EnumClazz  extends blueprint.Clazz {
 
@@ -2266,8 +2104,6 @@ export  class EnumClazz  extends blueprint.Clazz {
 }
 
 }
-
-
 
 
 
@@ -2290,8 +2126,6 @@ export  class EnumField  {
 
 }
 
-
-   
 export namespace bonus {
 export class TbDrop{
     private _dataMap: Map<number, bonus.DropInfo>
@@ -2324,8 +2158,6 @@ export class TbDrop{
 
 
 
-
-
 export namespace bonus {
 export  class DropInfo  {
 
@@ -2355,8 +2187,6 @@ export  class DropInfo  {
 
 
 
-
-
 export namespace bonus {
 export  class ShowItemInfo  {
 
@@ -2377,8 +2207,6 @@ export  class ShowItemInfo  {
 }
 
 }
-
-
 
 
 
@@ -2413,8 +2241,6 @@ export  abstract  class Bonus  {
 
 
 
-
-
 export namespace bonus {
 export  class OneItem  extends bonus.Bonus {
 
@@ -2437,8 +2263,6 @@ export  class OneItem  extends bonus.Bonus {
 
 
 
-
-
 export namespace bonus {
 export  class OneItems  extends bonus.Bonus {
 
@@ -2456,8 +2280,6 @@ export  class OneItems  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2486,8 +2308,6 @@ export  class Item  extends bonus.Bonus {
 
 
 
-
-
 export namespace bonus {
 export  class Items  extends bonus.Bonus {
 
@@ -2506,8 +2326,6 @@ export  class Items  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2535,8 +2353,6 @@ export  class CoefficientItem  extends bonus.Bonus {
 
 
 
-
-
 export namespace bonus {
 export  class WeightItems  extends bonus.Bonus {
 
@@ -2555,8 +2371,6 @@ export  class WeightItems  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2586,8 +2400,6 @@ export  class WeightItemInfo  {
 
 
 
-
-
 export namespace bonus {
 export  class ProbabilityItems  extends bonus.Bonus {
 
@@ -2606,8 +2418,6 @@ export  class ProbabilityItems  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2637,8 +2447,6 @@ export  class ProbabilityItemInfo  {
 
 
 
-
-
 export namespace bonus {
 export  class MultiBonus  extends bonus.Bonus {
 
@@ -2660,8 +2468,6 @@ export  class MultiBonus  extends bonus.Bonus {
 
 
 
-
-
 export namespace bonus {
 export  class ProbabilityBonus  extends bonus.Bonus {
 
@@ -2680,8 +2486,6 @@ export  class ProbabilityBonus  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2707,8 +2511,6 @@ export  class ProbabilityBonusInfo  {
 
 
 
-
-
 export namespace bonus {
 export  class WeightBonus  extends bonus.Bonus {
 
@@ -2727,8 +2529,6 @@ export  class WeightBonus  extends bonus.Bonus {
 }
 
 }
-
-
 
 
 
@@ -2754,8 +2554,6 @@ export  class WeightBonusInfo  {
 
 
 
-
-
 export namespace bonus {
 export  class DropBonus  extends bonus.Bonus {
 
@@ -2776,8 +2574,6 @@ export  class DropBonus  extends bonus.Bonus {
 
 }
 
-
-   
 export namespace common {
 export class TbGlobalConfig{
 
@@ -2821,8 +2617,6 @@ export class TbGlobalConfig{
     
 }
 }
-
-
 
 
 
@@ -2906,8 +2700,6 @@ export  class GlobalConfig  {
 
 }
 
-
-   
 export namespace common {
 export class TbDummy{
     private _dataMap: Map<number, common.Dummy>
@@ -2940,8 +2732,6 @@ export class TbDummy{
 
 
 
-
-
 export namespace common {
 export  class Dummy  {
 
@@ -2961,8 +2751,6 @@ export  class Dummy  {
 }
 
 }
-
-
 
 
 
@@ -2992,8 +2780,6 @@ export  abstract  class LimitBase  {
 
 
 
-
-
 export namespace limit {
 export  abstract  class DailyLimitBase  extends limit.LimitBase {
     static constructorFrom(_json_: any): DailyLimitBase {
@@ -3017,8 +2803,6 @@ export  abstract  class DailyLimitBase  extends limit.LimitBase {
 
 
 
-
-
 export namespace limit {
 export  class DailyLimit  extends limit.DailyLimitBase {
 
@@ -3036,8 +2820,6 @@ export  class DailyLimit  extends limit.DailyLimitBase {
 }
 
 }
-
-
 
 
 
@@ -3064,8 +2846,6 @@ export  class MultiDayLimit  extends limit.LimitBase {
 
 
 
-
-
 export namespace limit {
 export  class WeeklyLimit  extends limit.LimitBase {
 
@@ -3083,8 +2863,6 @@ export  class WeeklyLimit  extends limit.LimitBase {
 }
 
 }
-
-
 
 
 
@@ -3108,8 +2886,6 @@ export  class MonthlyLimit  extends limit.LimitBase {
 
 
 
-
-
 export namespace limit {
 export  class CoolDown  extends limit.LimitBase {
 
@@ -3127,8 +2903,6 @@ export  class CoolDown  extends limit.LimitBase {
 }
 
 }
-
-
 
 
 
@@ -3153,8 +2927,6 @@ export  class GroupCoolDown  extends limit.LimitBase {
 
 }
 
-
-   
 export namespace error {
 export class TbErrorInfo{
     private _dataMap: Map<string, error.ErrorInfo>
@@ -3187,8 +2959,6 @@ export class TbErrorInfo{
 
 
 
-
-
 export namespace error {
 export  class ErrorInfo  {
 
@@ -3211,8 +2981,6 @@ export  class ErrorInfo  {
 }
 
 }
-
-
 
 
 
@@ -3240,8 +3008,6 @@ export  abstract  class ErrorStyle  {
 
 
 
-
-
 export namespace error {
 export  class ErrorStyleTip  extends error.ErrorStyle {
 
@@ -3256,8 +3022,6 @@ export  class ErrorStyleTip  extends error.ErrorStyle {
 }
 
 }
-
-
 
 
 
@@ -3284,8 +3048,6 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
 
 
-
-
 export namespace error {
 export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
@@ -3303,8 +3065,6 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 }
 
 }
-
-
 
 
 
@@ -3329,8 +3089,6 @@ export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
 
 }
 
-
-   
 export namespace error {
 export class TbCodeInfo{
     private _dataMap: Map<error.EErrorCode, error.CodeInfo>
@@ -3363,8 +3121,6 @@ export class TbCodeInfo{
 
 
 
-
-
 export namespace error {
 export  class CodeInfo  {
 
@@ -3384,8 +3140,6 @@ export  class CodeInfo  {
 
 }
 
-
-   
 export namespace item {
 /**
  * 道具表
@@ -3418,8 +3172,6 @@ export class TbItem{
 
 }
 }
-
-
 
 
 
@@ -3503,8 +3255,6 @@ export  class Item  {
 
 }
 
-
-   
 export namespace item {
 export class TbItemFunc{
     private _dataMap: Map<item.EMinorType, item.ItemFunction>
@@ -3537,8 +3287,6 @@ export class TbItemFunc{
 
 
 
-
-
 export namespace item {
 export  class ItemFunction  {
 
@@ -3564,8 +3312,6 @@ export  class ItemFunction  {
 
 }
 
-
-   
 export namespace item {
 export class TbItemExtra{
     private _dataMap: Map<number, item.ItemExtra>
@@ -3598,8 +3344,6 @@ export class TbItemExtra{
 
 
 
-
-
 export namespace item {
 export  abstract  class ItemExtra  {
     static constructorFrom(_json_: any): ItemExtra {
@@ -3625,8 +3369,6 @@ export  abstract  class ItemExtra  {
 }
 
 }
-
-
 
 
 
@@ -3663,8 +3405,6 @@ export  class TreasureBox  extends item.ItemExtra {
 
 
 
-
-
 export namespace condition {
 export  abstract  class Condition  {
     static constructorFrom(_json_: any): Condition {
@@ -3693,8 +3433,6 @@ export  abstract  class Condition  {
 
 
 
-
-
 export namespace condition {
 export  class TimeRange  extends condition.Condition {
 
@@ -3716,8 +3454,6 @@ export  class TimeRange  extends condition.Condition {
 
 
 
-
-
 export namespace common {
 export  class DateTimeRange  {
 
@@ -3734,8 +3470,6 @@ export  class DateTimeRange  {
 }
 
 }
-
-
 
 
 
@@ -3768,8 +3502,6 @@ export  abstract  class RoleCondition  extends condition.Condition {
 
 
 
-
-
 export namespace condition {
 export  class MultiRoleCondition  extends condition.RoleCondition {
 
@@ -3788,8 +3520,6 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
 }
 
 }
-
-
 
 
 
@@ -3820,8 +3550,6 @@ export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
 
 
 
-
-
 export namespace condition {
 export  class GenderLimit  extends condition.BoolRoleCondition {
 
@@ -3839,8 +3567,6 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
 }
 
 }
-
-
 
 
 
@@ -3864,8 +3590,6 @@ export  class MinLevel  extends condition.BoolRoleCondition {
 
 
 
-
-
 export namespace condition {
 export  class MaxLevel  extends condition.BoolRoleCondition {
 
@@ -3883,8 +3607,6 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
 }
 
 }
-
-
 
 
 
@@ -3911,8 +3633,6 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
 
 
-
-
 export namespace condition {
 export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleCondition {
 
@@ -3933,8 +3653,6 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
 }
 
 }
-
-
 
 
 
@@ -3966,8 +3684,6 @@ export  class ContainsItem  extends condition.RoleCondition {
 
 
 
-
-
 export namespace item {
 export  class ChooseOneBonus  {
 
@@ -3988,8 +3704,6 @@ export  class ChooseOneBonus  {
 }
 
 }
-
-
 
 
 
@@ -4015,8 +3729,6 @@ export  class InteractionItem  extends item.ItemExtra {
 }
 
 }
-
-
 
 
 
@@ -4049,8 +3761,6 @@ export  class Clothes  extends item.ItemExtra {
 
 
 
-
-
 export namespace item {
 export  class DesignDrawing  extends item.ItemExtra {
 
@@ -4068,8 +3778,6 @@ export  class DesignDrawing  extends item.ItemExtra {
 }
 
 }
-
-
 
 
 
@@ -4091,8 +3799,6 @@ export  class Dymmy  extends item.ItemExtra {
 }
 
 }
-
-
 
 
 
@@ -4121,8 +3827,6 @@ export  abstract  class Cost  {
 
 
 
-
-
 export namespace cost {
 export  class CostCurrency  extends cost.Cost {
 
@@ -4143,8 +3847,6 @@ export  class CostCurrency  extends cost.Cost {
 }
 
 }
-
-
 
 
 
@@ -4169,8 +3871,6 @@ export  class CostCurrencies  extends cost.Cost {
 
 
 
-
-
 export namespace cost {
 export  class CostOneItem  extends cost.Cost {
 
@@ -4190,8 +3890,6 @@ export  class CostOneItem  extends cost.Cost {
 }
 
 }
-
-
 
 
 
@@ -4220,8 +3918,6 @@ export  class CostItem  extends cost.Cost {
 
 
 
-
-
 export namespace cost {
 export  class CostItems  extends cost.Cost {
 
@@ -4241,8 +3937,6 @@ export  class CostItems  extends cost.Cost {
 
 }
 
-
-   
 export namespace l10n {
 export class TbL10NDemo{
     private _dataMap: Map<number, l10n.L10NDemo>
@@ -4275,8 +3969,6 @@ export class TbL10NDemo{
 
 
 
-
-
 export namespace l10n {
 export  class L10NDemo  {
 
@@ -4296,8 +3988,6 @@ export  class L10NDemo  {
 
 }
 
-
-   
 export namespace l10n {
 export class TbPatchDemo{
     private _dataMap: Map<number, l10n.PatchDemo>
@@ -4330,8 +4020,6 @@ export class TbPatchDemo{
 
 
 
-
-
 export namespace l10n {
 export  class PatchDemo  {
 
@@ -4351,8 +4039,6 @@ export  class PatchDemo  {
 
 }
 
-
-   
 export namespace mail {
 export class TbSystemMail{
     private _dataMap: Map<number, mail.SystemMail>
@@ -4385,8 +4071,6 @@ export class TbSystemMail{
 
 
 
-
-
 export namespace mail {
 export  class SystemMail  {
 
@@ -4415,8 +4099,6 @@ export  class SystemMail  {
 
 }
 
-
-   
 export namespace mail {
 export class TbGlobalMail{
     private _dataMap: Map<number, mail.GlobalMail>
@@ -4446,8 +4128,6 @@ export class TbGlobalMail{
 
 }
 }
-
-
 
 
 
@@ -4503,8 +4183,6 @@ export  class GlobalMail  {
 
 }
 
-
-   
 export namespace role {
 export class TbRoleLevelExpAttr{
     private _dataMap: Map<number, role.LevelExpAttr>
@@ -4537,8 +4215,6 @@ export class TbRoleLevelExpAttr{
 
 
 
-
-
 export namespace role {
 export  class LevelExpAttr  {
 
@@ -4561,8 +4237,6 @@ export  class LevelExpAttr  {
 
 }
 
-
-   
 export namespace role {
 export class TbRoleLevelBonusCoefficient{
     private _dataMap: Map<number, role.LevelBonus>
@@ -4595,8 +4269,6 @@ export class TbRoleLevelBonusCoefficient{
 
 
 
-
-
 export namespace role {
 export  class LevelBonus  {
 
@@ -4616,8 +4288,6 @@ export  class LevelBonus  {
 }
 
 }
-
-
 
 
 
@@ -4643,8 +4313,6 @@ export  class DistinctBonusInfos  {
 
 
 
-
-
 export namespace role {
 export  class BonusInfo  {
 
@@ -4664,8 +4332,6 @@ export  class BonusInfo  {
 
 }
 
-
-   
 export namespace tag {
 export class TbTestTag{
     private _dataMap: Map<number, tag.TestTag>
@@ -4698,8 +4364,6 @@ export class TbTestTag{
 
 
 
-
-
 export namespace tag {
 export  class TestTag  {
 
@@ -4719,8 +4383,6 @@ export  class TestTag  {
 
 }
 
-
-   
 export namespace test {
 export class TbFullTypes{
     private _dataMap: Map<number, test.DemoType2>
@@ -4750,8 +4412,6 @@ export class TbFullTypes{
 
 }
 }
-
-
 
 
 
@@ -4851,8 +4511,6 @@ export  class DemoType2  {
 
 
 
-
-
 export namespace test {
 export  class DemoType1  {
 
@@ -4868,8 +4526,6 @@ export  class DemoType1  {
 }
 
 }
-
-
 
 
 
@@ -4899,8 +4555,6 @@ export  abstract  class DemoDynamic  {
 
 
 
-
-
 export namespace test {
 export  class DemoD2  extends test.DemoDynamic {
 
@@ -4918,8 +4572,6 @@ export  class DemoD2  extends test.DemoDynamic {
 }
 
 }
-
-
 
 
 
@@ -4949,8 +4601,6 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
 
 
-
-
 export namespace test {
 export  class DemoE1  extends test.DemoD3 {
 
@@ -4968,8 +4618,6 @@ export  class DemoE1  extends test.DemoD3 {
 }
 
 }
-
-
 
 
 
@@ -4994,8 +4642,6 @@ export  class DemoD5  extends test.DemoDynamic {
 
 
 
-
-
 export namespace test {
 export  class DateTimeRange  {
 
@@ -5017,8 +4663,6 @@ export  class DateTimeRange  {
 
 
 
-
-
 export namespace test {
 export  class DemoE2  {
 
@@ -5037,8 +4681,6 @@ export  class DemoE2  {
 
 }
 
-
-   
 export namespace test {
 export class TbSingleton{
 
@@ -5061,8 +4703,6 @@ export class TbSingleton{
     
 }
 }
-
-
 
 
 
@@ -5089,8 +4729,6 @@ export  class DemoSingletonType  {
 
 }
 
-
-   
 export namespace test {
 export class TbDataFromMisc{
     private _dataMap: Map<number, test.DemoType2>
@@ -5121,8 +4759,6 @@ export class TbDataFromMisc{
 }
 }
 
-
-   
 export namespace test {
 export class TbMultiRowRecord{
     private _dataMap: Map<number, test.MultiRowRecord>
@@ -5152,8 +4788,6 @@ export class TbMultiRowRecord{
 
 }
 }
-
-
 
 
 
@@ -5201,8 +4835,6 @@ export  class MultiRowRecord  {
 
 
 
-
-
 export namespace test {
 export  class MultiRowType1  {
 
@@ -5221,8 +4853,6 @@ export  class MultiRowType1  {
 }
 
 }
-
-
 
 
 
@@ -5250,8 +4880,6 @@ export  class MultiRowType2  {
 
 
 
-
-
 export namespace test {
 export  class MultiRowType3  {
 
@@ -5272,8 +4900,6 @@ export  class MultiRowType3  {
 
 }
 
-
-   
 export namespace test {
 export class TbMultiRowTitle{
     private _dataMap: Map<number, test.MultiRowTitle>
@@ -5303,8 +4929,6 @@ export class TbMultiRowTitle{
 
 }
 }
-
-
 
 
 
@@ -5341,8 +4965,6 @@ export  class MultiRowTitle  {
 
 
 
-
-
 export namespace test {
 export  class H1  {
 
@@ -5365,8 +4987,6 @@ export  class H1  {
 
 
 
-
-
 export namespace test {
 export  class H2  {
 
@@ -5386,8 +5006,6 @@ export  class H2  {
 
 }
 
-
-   
 export namespace test {
 export class TbTestNull{
     private _dataMap: Map<number, test.TestNull>
@@ -5417,8 +5035,6 @@ export class TbTestNull{
 
 }
 }
-
-
 
 
 
@@ -5452,8 +5068,6 @@ export  class TestNull  {
 
 }
 
-
-   
 export namespace test {
 export class TbDemoPrimitive{
     private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
@@ -5483,8 +5097,6 @@ export class TbDemoPrimitive{
 
 }
 }
-
-
 
 
 
@@ -5540,8 +5152,6 @@ export  class DemoPrimitiveTypesTable  {
 
 }
 
-
-   
 export namespace test {
 export class TbTestString{
     private _dataMap: Map<number, test.TestString>
@@ -5574,8 +5184,6 @@ export class TbTestString{
 
 
 
-
-
 export namespace test {
 export  class TestString  {
 
@@ -5605,8 +5213,6 @@ export  class TestString  {
 
 
 
-
-
 export namespace test {
 export  class CompactString  {
 
@@ -5629,8 +5235,6 @@ export  class CompactString  {
 
 }
 
-
-   
 export namespace test {
 export class TbDemoGroup{
     private _dataMap: Map<number, test.DemoGroup>
@@ -5660,8 +5264,6 @@ export class TbDemoGroup{
 
 }
 }
-
-
 
 
 
@@ -5699,8 +5301,6 @@ export  class DemoGroup  {
 
 
 
-
-
 export namespace test {
 export  class InnerGroup  {
 
@@ -5726,8 +5326,6 @@ export  class InnerGroup  {
 
 }
 
-
-   
 export namespace test {
 export class TbDemoGroup_C{
     private _dataMap: Map<number, test.DemoGroup>
@@ -5758,8 +5356,6 @@ export class TbDemoGroup_C{
 }
 }
 
-
-   
 export namespace test {
 export class TbDemoGroup_S{
     private _dataMap: Map<number, test.DemoGroup>
@@ -5790,8 +5386,6 @@ export class TbDemoGroup_S{
 }
 }
 
-
-   
 export namespace test {
 export class TbDemoGroup_E{
     private _dataMap: Map<number, test.DemoGroup>
@@ -5822,8 +5416,6 @@ export class TbDemoGroup_E{
 }
 }
 
-
-   
 export namespace test {
 export class TbTestGlobal{
 
@@ -5848,8 +5440,6 @@ export class TbTestGlobal{
 
 
 
-
-
 export namespace test {
 export  class TestGlobal  {
 
@@ -5869,8 +5459,6 @@ export  class TestGlobal  {
 
 }
 
-
-   
 export namespace test {
 export class TbDetectCsvEncoding{
     private _dataMap: Map<number, test.DetectEncoding>
@@ -5903,8 +5491,6 @@ export class TbDetectCsvEncoding{
 
 
 
-
-
 export namespace test {
 export  class DetectEncoding  {
 
@@ -5924,8 +5510,6 @@ export  class DetectEncoding  {
 
 }
 
-
-   
 export namespace test {
 export class TbDefineFromExcel{
     private _dataMap: Map<number, test.DefineFromExcel>
@@ -5955,8 +5539,6 @@ export class TbDefineFromExcel{
 
 }
 }
-
-
 
 
 
@@ -6025,8 +5607,6 @@ export  class DefineFromExcel  {
 
 }
 
-
-   
 export namespace test {
 export class TbDefineFromExcelOne{
 
@@ -6059,8 +5639,6 @@ export class TbDefineFromExcelOne{
     
 }
 }
-
-
 
 
 
@@ -6101,8 +5679,6 @@ export  class DefineFromExcelOne  {
 
 }
 
-
-   
 export namespace test {
 export class TbTestJson2{
     private _dataMap: Map<number, test.TestJson2>
@@ -6135,8 +5711,6 @@ export class TbTestJson2{
 
 
 
-
-
 export namespace test {
 export  class TestJson2  {
 
@@ -6166,8 +5740,6 @@ export  class TestJson2  {
 
 }
 
-
-   
 export namespace test {
 export class TbTestIndex{
     private _dataMap: Map<number, test.TestIndex>
@@ -6200,8 +5772,6 @@ export class TbTestIndex{
 
 
 
-
-
 export namespace test {
 export  class TestIndex  {
 
@@ -6222,8 +5792,66 @@ export  class TestIndex  {
 
 }
 
+export namespace test {
+export class TbTestMap{
+    private _dataMap: Map<number, test.TestMap>
+    private _dataList: test.TestMap[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestMap>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestMap
+            _v = new test.TestMap(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
 
-   
+    getDataMap(): Map<number, test.TestMap> { return this._dataMap; }
+    getDataList(): test.TestMap[] { return this._dataList; }
+
+    get(key: number): test.TestMap | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export  class TestMap  {
+
+    constructor(_json_: any) {
+        if (_json_.id == undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x1 == undefined) { throw new Error() }
+        this.x1 = new Map<number, number>(); for(var _entry_ of _json_.x1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x1.set(_k, _v);  }
+        if (_json_.x2 == undefined) { throw new Error() }
+        this.x2 = new Map<number, number>(); for(var _entry_ of _json_.x2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x2.set(_k, _v);  }
+        if (_json_.x3 == undefined) { throw new Error() }
+        this.x3 = new Map<string, number>(); for(var _entry_ of _json_.x3) { let _k:string; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x3.set(_k, _v);  }
+        if (_json_.x4 == undefined) { throw new Error() }
+        this.x4 = new Map<test.DemoEnum, number>(); for(var _entry_ of _json_.x4) { let _k:test.DemoEnum; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x4.set(_k, _v);  }
+    }
+
+    readonly id: number
+    readonly x1: Map<number, number>
+    readonly x2: Map<number, number>
+    readonly x3: Map<string, number>
+    readonly x4: Map<test.DemoEnum, number>
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
 export namespace test {
 export class TbDemoGroupDefineFromExcel{
     private _dataMap: Map<number, test.DemoGroup>
@@ -6254,8 +5882,6 @@ export class TbDemoGroupDefineFromExcel{
 }
 }
 
-
-   
 export namespace test {
 export class TbDefineFromExcel2{
     private _dataMap: Map<number, test.DefineFromExcel2>
@@ -6285,8 +5911,6 @@ export class TbDefineFromExcel2{
 
 }
 }
-
-
 
 
 
@@ -6355,8 +5979,6 @@ export  class DefineFromExcel2  {
 
 }
 
-
-   
 export namespace test {
 export class TbTestExcelBean{
     private _dataMap: Map<number, test.TestExcelBean1>
@@ -6386,8 +6008,6 @@ export class TbTestExcelBean{
 
 }
 }
-
-
 
 
 
@@ -6430,8 +6050,6 @@ export  class TestExcelBean1  {
 }
 
 }
-
-
 
 
 type JsonLoader = (file: string) => any
@@ -6512,6 +6130,8 @@ export class Tables {
     get TbTestJson2(): test.TbTestJson2  { return this._TbTestJson2;}
     private _TbTestIndex: test.TbTestIndex
     get TbTestIndex(): test.TbTestIndex  { return this._TbTestIndex;}
+    private _TbTestMap: test.TbTestMap
+    get TbTestMap(): test.TbTestMap  { return this._TbTestMap;}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
     get TbDemoGroupDefineFromExcel(): test.TbDemoGroupDefineFromExcel  { return this._TbDemoGroupDefineFromExcel;}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
@@ -6593,6 +6213,8 @@ export class Tables {
         tables.set('test.TbTestJson2', this._TbTestJson2)
         this._TbTestIndex = new test.TbTestIndex(loader('test.TbTestIndex'))
         tables.set('test.TbTestIndex', this._TbTestIndex)
+        this._TbTestMap = new test.TbTestMap(loader('test.TbTestMap'))
+        tables.set('test.TbTestMap', this._TbTestMap)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel'))
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test.TbDefineFromExcel2'))
@@ -6636,11 +6258,11 @@ export class Tables {
         this._TbDefineFromExcelOne.resolve(tables)
         this._TbTestJson2.resolve(tables)
         this._TbTestIndex.resolve(tables)
+        this._TbTestMap.resolve(tables)
         this._TbDemoGroupDefineFromExcel.resolve(tables)
         this._TbDefineFromExcel2.resolve(tables)
         this._TbTestExcelBean.resolve(tables)
     }
 }
-
 
 }

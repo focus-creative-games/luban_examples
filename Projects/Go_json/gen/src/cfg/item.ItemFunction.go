@@ -29,4 +29,3 @@ func NewItem_ItemFunction(_buf map[string]interface{}) (_v *Item_ItemFunction, e
     { var _ok_ bool; if _v.CloseBagUi, _ok_ = _buf["close_bag_ui"].(bool); !_ok_ { err = errors.New("close_bag_ui error"); return } }
     return
 }
-

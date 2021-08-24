@@ -40,4 +40,3 @@ func NewBonus_MultiBonus(_buf map[string]interface{}) (_v *Bonus_MultiBonus, err
 
     return
 }
-

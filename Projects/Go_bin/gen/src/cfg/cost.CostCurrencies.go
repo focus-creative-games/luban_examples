@@ -41,4 +41,3 @@ func NewCost_CostCurrencies(_buf *serialization.ByteBuf) (_v *Cost_CostCurrencie
 
     return
 }
-

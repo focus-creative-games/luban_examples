@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.limit;
 public enum ENamespace
 {
@@ -32,4 +31,3 @@ public enum ENamespace
         throw new IllegalArgumentException("");
     }
 }
-

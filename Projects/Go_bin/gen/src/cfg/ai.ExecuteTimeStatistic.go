@@ -29,4 +29,3 @@ func NewAi_ExecuteTimeStatistic(_buf *serialization.ByteBuf) (_v *Ai_ExecuteTime
     _v.Ai_Service = *_p
     return
 }
-

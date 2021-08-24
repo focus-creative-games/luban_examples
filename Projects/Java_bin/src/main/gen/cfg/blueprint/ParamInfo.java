@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.blueprint;
 
 import bright.serialization.*;
@@ -69,4 +68,3 @@ public final class ParamInfo extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

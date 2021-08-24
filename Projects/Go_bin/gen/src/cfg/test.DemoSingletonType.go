@@ -31,4 +31,3 @@ func NewTest_DemoSingletonType(_buf *serialization.ByteBuf) (_v *Test_DemoSingle
     { if _v.Date, err = NewTest_DemoDynamic(_buf); err != nil { return } }
     return
 }
-

@@ -45,5 +45,3 @@ namespace cfg.item
         LEG_LOWER = 7,
     }
 }
-
-

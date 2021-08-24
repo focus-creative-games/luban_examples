@@ -31,4 +31,3 @@ func NewAi_GetOwnerPlayer(_buf *serialization.ByteBuf) (_v *Ai_GetOwnerPlayer, e
     { if _v.PlayerActorKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

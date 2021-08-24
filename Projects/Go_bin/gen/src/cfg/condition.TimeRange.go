@@ -31,4 +31,3 @@ func NewCondition_TimeRange(_buf *serialization.ByteBuf) (_v *Condition_TimeRang
     { if _v.DateTimeRange, err = NewCommon_DateTimeRange(_buf); err != nil { return } }
     return
 }
-

@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -16,4 +14,3 @@ const (
     Test_ETestQuality_C = 3
     Test_ETestQuality_D = 4
 )
-

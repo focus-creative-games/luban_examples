@@ -31,4 +31,3 @@ func NewAi_KeepFaceTarget(_buf *serialization.ByteBuf) (_v *Ai_KeepFaceTarget, e
     { if _v.TargetActorKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

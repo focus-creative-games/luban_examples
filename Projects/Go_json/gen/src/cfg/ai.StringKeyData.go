@@ -27,4 +27,3 @@ func NewAi_StringKeyData(_buf map[string]interface{}) (_v *Ai_StringKeyData, err
     { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
     return
 }
-

@@ -33,4 +33,3 @@ func NewTest_DemoGroup(_buf map[string]interface{}) (_v *Test_DemoGroup, err err
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x5"].(map[string]interface{}); !_ok_ { err = errors.New("x5 error"); return }; if _v.X5, err = NewTest_InnerGroup(_x_); err != nil { return } }
     return
 }
-

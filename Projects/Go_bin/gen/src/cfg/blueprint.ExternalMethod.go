@@ -29,4 +29,3 @@ func NewBlueprint_ExternalMethod(_buf *serialization.ByteBuf) (_v *Blueprint_Ext
     _v.Blueprint_Method = *_p
     return
 }
-

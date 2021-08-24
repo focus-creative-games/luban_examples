@@ -43,4 +43,3 @@ func NewBlueprint_NormalClazz(_buf *serialization.ByteBuf) (_v *Blueprint_Normal
 
     return
 }
-

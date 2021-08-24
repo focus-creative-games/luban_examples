@@ -31,4 +31,3 @@ func NewCondition_GenderLimit(_buf *serialization.ByteBuf) (_v *Condition_Gender
     { if _v.Gender, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

@@ -29,4 +29,3 @@ func NewError_CodeInfo(_buf *serialization.ByteBuf) (_v *Error_CodeInfo, err err
     { if _v.Key, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

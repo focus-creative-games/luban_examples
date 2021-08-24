@@ -41,4 +41,3 @@ func NewBonus_ProbabilityItems(_buf *serialization.ByteBuf) (_v *Bonus_Probabili
 
     return
 }
-

@@ -68,6 +68,7 @@
     <Compile Include="Assets\Gen\item\EMajorType.cs" />
     <Compile Include="Assets\Gen\test\DemoPrimitiveTypesTable.cs" />
     <Compile Include="Assets\Gen\condition\BoolRoleCondition.cs" />
+    <Compile Include="Assets\Gen\test\TestMap.cs" />
     <Compile Include="Assets\Gen\item\EClothersTag.cs" />
     <Compile Include="Assets\Gen\test\DemoE1.cs" />
     <Compile Include="Assets\Gen\test\DemoType1.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Assets\Gen\bonus\ProbabilityBonus.cs" />
     <Compile Include="Assets\Gen\cost\CostCurrencies.cs" />
     <Compile Include="Assets\Gen\error\ErrorStyleDlgOkCancel.cs" />
+    <Compile Include="Assets\Gen\test\TbTestMap.cs" />
     <Compile Include="Assets\Gen\test\DateTimeRange.cs" />
     <Compile Include="Assets\Gen\limit\ENamespace.cs" />
     <Compile Include="Assets\Gen\test\TestJson2.cs" />
@@ -289,6 +291,7 @@
     <Compile Include="Assets\Gen\bonus\MultiBonus.cs" />
     <Compile Include="Assets\Gen\condition\MinLevel.cs" />
     <Compile Include="Assets\Gen\common\EBoolOperator.cs" />
+    <Compile Include="Assets\Gen\test\DemoFlag.cs" />
     <Compile Include="Assets\Gen\blueprint\NormalClazz.cs" />
   </ItemGroup>
   <ItemGroup>

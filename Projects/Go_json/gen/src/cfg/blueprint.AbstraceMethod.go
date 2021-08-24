@@ -25,4 +25,3 @@ func NewBlueprint_AbstraceMethod(_buf map[string]interface{}) (_v *Blueprint_Abs
     _v.Blueprint_Method = *_p
     return
 }
-

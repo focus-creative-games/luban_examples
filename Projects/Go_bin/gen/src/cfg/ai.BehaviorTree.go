@@ -35,4 +35,3 @@ func NewAi_BehaviorTree(_buf *serialization.ByteBuf) (_v *Ai_BehaviorTree, err e
     { if _v.Root, err = NewAi_ComposeNode(_buf); err != nil { return } }
     return
 }
-

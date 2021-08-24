@@ -40,4 +40,3 @@ func NewBonus_Items(_buf map[string]interface{}) (_v *Bonus_Items, err error) {
 
     return
 }
-

@@ -36,5 +36,3 @@ namespace cfg.item
         GOLDEN = 4,
     }
 }
-
-

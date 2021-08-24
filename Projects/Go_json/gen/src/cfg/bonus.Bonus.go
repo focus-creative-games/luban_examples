@@ -41,4 +41,3 @@ func NewBonus_Bonus_Body(_buf map[string]interface{}) (_v *Bonus_Bonus, err erro
     _v = &Bonus_Bonus{}
     return
 }
-

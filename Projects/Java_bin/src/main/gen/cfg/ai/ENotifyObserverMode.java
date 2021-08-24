@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 public enum ENotifyObserverMode
 {
@@ -30,4 +29,3 @@ public enum ENotifyObserverMode
         throw new IllegalArgumentException("");
     }
 }
-

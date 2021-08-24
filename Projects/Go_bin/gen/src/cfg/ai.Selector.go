@@ -41,4 +41,3 @@ func NewAi_Selector(_buf *serialization.ByteBuf) (_v *Ai_Selector, err error) {
 
     return
 }
-

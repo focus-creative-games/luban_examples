@@ -29,4 +29,3 @@ func NewBlueprint_Interface(_buf *serialization.ByteBuf) (_v *Blueprint_Interfac
     _v.Blueprint_Clazz = *_p
     return
 }
-

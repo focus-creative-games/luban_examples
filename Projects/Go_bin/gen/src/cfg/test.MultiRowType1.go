@@ -29,4 +29,3 @@ func NewTest_MultiRowType1(_buf *serialization.ByteBuf) (_v *Test_MultiRowType1,
     { if _v.X, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

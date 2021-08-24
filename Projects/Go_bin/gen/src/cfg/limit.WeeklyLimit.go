@@ -31,4 +31,3 @@ func NewLimit_WeeklyLimit(_buf *serialization.ByteBuf) (_v *Limit_WeeklyLimit, e
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

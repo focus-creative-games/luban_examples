@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 public enum EMinorType
 {
@@ -271,4 +270,3 @@ public enum EMinorType
         throw new IllegalArgumentException("");
     }
 }
-

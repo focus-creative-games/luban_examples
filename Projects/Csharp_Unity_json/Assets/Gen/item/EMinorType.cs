@@ -209,5 +209,3 @@ namespace cfg.item
         DESIGN_DRAWING = 1102,
     }
 }
-
-

@@ -31,4 +31,3 @@ func NewItem_Dymmy(_buf *serialization.ByteBuf) (_v *Item_Dymmy, err error) {
     { if _v.Cost, err = NewCost_Cost(_buf); err != nil { return } }
     return
 }
-

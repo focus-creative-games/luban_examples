@@ -31,4 +31,3 @@ func NewAi_ChooseTarget(_buf *serialization.ByteBuf) (_v *Ai_ChooseTarget, err e
     { if _v.ResultTargetKey, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

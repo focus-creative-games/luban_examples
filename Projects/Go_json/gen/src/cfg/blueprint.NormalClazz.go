@@ -42,4 +42,3 @@ func NewBlueprint_NormalClazz(_buf map[string]interface{}) (_v *Blueprint_Normal
 
     return
 }
-

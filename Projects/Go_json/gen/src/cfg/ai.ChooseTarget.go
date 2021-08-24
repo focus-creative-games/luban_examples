@@ -27,4 +27,3 @@ func NewAi_ChooseTarget(_buf map[string]interface{}) (_v *Ai_ChooseTarget, err e
     { var _ok_ bool; if _v.ResultTargetKey, _ok_ = _buf["result_target_key"].(string); !_ok_ { err = errors.New("result_target_key error"); return } }
     return
 }
-

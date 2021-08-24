@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg;
 
 import bright.serialization.*;
@@ -56,6 +55,7 @@ public final class Tables
     public final cfg.test.TbDefineFromExcelOne TbDefineFromExcelOne;
     public final cfg.test.TbTestJson2 TbTestJson2;
     public final cfg.test.TbTestIndex TbTestIndex;
+    public final cfg.test.TbTestMap TbTestMap;
     public final cfg.test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
     public final cfg.test.TbDefineFromExcel2 TbDefineFromExcel2;
     public final cfg.test.TbTestExcelBean TbTestExcelBean;
@@ -134,6 +134,8 @@ public final class Tables
         tables.put("test.TbTestJson2", TbTestJson2);
         TbTestIndex = new cfg.test.TbTestIndex(loader.load("test.TbTestIndex")); 
         tables.put("test.TbTestIndex", TbTestIndex);
+        TbTestMap = new cfg.test.TbTestMap(loader.load("test.TbTestMap")); 
+        tables.put("test.TbTestMap", TbTestMap);
         TbDemoGroupDefineFromExcel = new cfg.test.TbDemoGroupDefineFromExcel(loader.load("test.TbDemoGroupDefineFromExcel")); 
         tables.put("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new cfg.test.TbDefineFromExcel2(loader.load("test.TbDefineFromExcel2")); 
@@ -177,9 +179,9 @@ public final class Tables
         TbDefineFromExcelOne.resolve(tables); 
         TbTestJson2.resolve(tables); 
         TbTestIndex.resolve(tables); 
+        TbTestMap.resolve(tables); 
         TbDemoGroupDefineFromExcel.resolve(tables); 
         TbDefineFromExcel2.resolve(tables); 
         TbTestExcelBean.resolve(tables); 
     }
 }
-

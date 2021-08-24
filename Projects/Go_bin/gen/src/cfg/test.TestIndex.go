@@ -39,4 +39,3 @@ func NewTest_TestIndex(_buf *serialization.ByteBuf) (_v *Test_TestIndex, err err
 
     return
 }
-

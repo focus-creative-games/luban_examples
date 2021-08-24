@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 using SimpleJSON;
@@ -72,4 +71,3 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     }
     }
 }
-

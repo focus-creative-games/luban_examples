@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.condition;
 
 import bright.serialization.*;
@@ -68,4 +67,3 @@ public final class MinMaxLevel extends  cfg.condition.BoolRoleCondition
         + "}";
     }
 }
-

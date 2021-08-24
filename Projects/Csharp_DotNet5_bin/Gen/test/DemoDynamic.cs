@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -57,4 +56,3 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
     }
 
 }
-

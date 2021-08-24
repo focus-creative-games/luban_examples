@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.bonus;
 
 import bright.serialization.*;
@@ -75,4 +74,3 @@ public final class DropInfo extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

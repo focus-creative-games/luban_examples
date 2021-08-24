@@ -61,4 +61,3 @@ func NewAi_Node_Body(_buf *serialization.ByteBuf) (_v *Ai_Node, err error) {
     return
 }
 
-

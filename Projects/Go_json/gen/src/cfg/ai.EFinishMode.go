@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Ai_EFinishMode_IMMEDIATE = 0
     Ai_EFinishMode_DELAYED = 1
 )
-

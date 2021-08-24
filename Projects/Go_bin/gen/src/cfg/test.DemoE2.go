@@ -29,4 +29,3 @@ func NewTest_DemoE2(_buf *serialization.ByteBuf) (_v *Test_DemoE2, err error) {
     { if _v.Y2, err = _buf.ReadBool(); err != nil { return } }
     return
 }
-

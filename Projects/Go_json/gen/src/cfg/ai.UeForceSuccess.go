@@ -25,4 +25,3 @@ func NewAi_UeForceSuccess(_buf map[string]interface{}) (_v *Ai_UeForceSuccess, e
     _v.Ai_Decorator = *_p
     return
 }
-

@@ -61,4 +61,3 @@ func NewItem_TreasureBox(_buf map[string]interface{}) (_v *Item_TreasureBox, err
 
     return
 }
-

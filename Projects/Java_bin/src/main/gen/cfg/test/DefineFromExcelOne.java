@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.test;
 
 import bright.serialization.*;
@@ -85,4 +84,3 @@ public final class DefineFromExcelOne extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

@@ -41,4 +41,3 @@ func NewCondition_MultiRoleCondition(_buf *serialization.ByteBuf) (_v *Condition
 
     return
 }
-

@@ -35,4 +35,3 @@ func NewItem_InteractionItem(_buf *serialization.ByteBuf) (_v *Item_InteractionI
     { if _v.HoldingStaticMeshMat, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

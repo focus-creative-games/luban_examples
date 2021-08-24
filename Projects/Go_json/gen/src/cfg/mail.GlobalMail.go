@@ -71,4 +71,3 @@ func NewMail_GlobalMail(_buf map[string]interface{}) (_v *Mail_GlobalMail, err e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["mail_time"].(map[string]interface{}); !_ok_ { err = errors.New("mail_time error"); return }; if _v.MailTime, err = NewCondition_TimeRange(_x_); err != nil { return } }
     return
 }
-

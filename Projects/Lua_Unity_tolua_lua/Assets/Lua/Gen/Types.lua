@@ -1,5 +1,4 @@
 
-
 local setmetatable = setmetatable
 local pairs = pairs
 local ipairs = ipairs
@@ -322,6 +321,11 @@ local enums =
      ---@field public C int
      ---@field public D int
     ['test.DemoEnum'] = {   A=1,  B=2,  C=4,  D=5,  };
+    ---@class test.DemoFlag
+     ---@field public A int
+     ---@field public B int
+     ---@field public D int
+    ['test.DemoFlag'] = {   A=1,  B=2,  D=3,  };
     ---@class test.ETestUeType
      ---@field public WHITE int
      ---@field public BLACK int
@@ -333,6 +337,16 @@ local enums =
      ---@field public X_256 int
      ---@field public X_257 int
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
+    ---@class test.ETestQuality
+     ---@field public A int
+     ---@field public B int
+     ---@field public C int
+     ---@field public D int
+    ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
+    ---@class test.ETestCurrency
+     ---@field public DIAMOND int
+     ---@field public GOLD int
+    ['test.ETestCurrency'] = {   DIAMOND=1,  GOLD=2,  };
 }
 
 local beans = {}
@@ -1611,11 +1625,7 @@ beans['tag.TestTag'] =
 ---@field public t1 int
 ---@field public k1 int[]
 ---@field public k2 int[]
----@field public k3 int[]
----@field public k4 int[]
 ---@field public k5 int[]
----@field public k6 int[]
----@field public k7 int[]
 ---@field public k8 table<int,int>
 ---@field public k9 test.DemoE2[]
 ---@field public k15 test.DemoDynamic[]
@@ -1642,11 +1652,7 @@ beans['test.DemoType2'] =
     { name='t1', type='int'},
     { name='k1', type='int[]'},
     { name='k2', type='int[]'},
-    { name='k3', type='int[]'},
-    { name='k4', type='int[]'},
     { name='k5', type='int[]'},
-    { name='k6', type='int[]'},
-    { name='k7', type='int[]'},
     { name='k8', type='table<int,int>'},
     { name='k9', type='test.DemoE2[]'},
     { name='k15', type='test.DemoDynamic[]'},
@@ -1736,6 +1742,7 @@ beans['test.DemoSingletonType'] =
 ---@field public multi_rows2 test.MultiRowType1[]
 ---@field public multi_rows3 test.MultiRowType2[]
 ---@field public multi_rows4 table<int,test.MultiRowType2>
+---@field public multi_rows5 test.MultiRowType3[]
 beans['test.MultiRowRecord'] =
 {
     { name='id', type='int'},
@@ -1745,6 +1752,7 @@ beans['test.MultiRowRecord'] =
     { name='multi_rows2', type='test.MultiRowType1[]'},
     { name='multi_rows3', type='test.MultiRowType2[]'},
     { name='multi_rows4', type='table<int,test.MultiRowType2>'},
+    { name='multi_rows5', type='test.MultiRowType3[]'},
 }
 
 ---@class test.MultiRowType1 
@@ -1765,6 +1773,15 @@ beans['test.MultiRowType2'] =
     { name='id', type='int'},
     { name='x', type='int'},
     { name='y', type='float'},
+}
+
+---@class test.MultiRowType3 
+---@field public id int
+---@field public items test.MultiRowType1[]
+beans['test.MultiRowType3'] =
+{
+    { name='id', type='int'},
+    { name='items', type='test.MultiRowType1[]'},
 }
 
 ---@class test.MultiRowTitle 
@@ -1913,6 +1930,142 @@ beans['test.TestGlobal'] =
     { name='unlock_hero', type='int'},
 }
 
+---@class test.DetectEncoding 
+---@field public id int
+---@field public name string
+beans['test.DetectEncoding'] =
+{
+    { name='id', type='int'},
+    { name='name', type='string'},
+}
+
+---@class test.DefineFromExcel 
+---@field public id int
+---@field public x1 bool
+---@field public x5 long
+---@field public x6 float
+---@field public x8 int
+---@field public x10 string
+---@field public x13 test.ETestQuality
+---@field public x14 test.DemoDynamic
+---@field public v2 vector2
+---@field public t1 int
+---@field public k1 int[]
+---@field public k8 table<int,int>
+---@field public k9 test.DemoE2[]
+beans['test.DefineFromExcel'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='bool'},
+    { name='x5', type='long'},
+    { name='x6', type='float'},
+    { name='x8', type='int'},
+    { name='x10', type='string'},
+    { name='x13', type='test.ETestQuality'},
+    { name='x14', type='test.DemoDynamic'},
+    { name='v2', type='vector2'},
+    { name='t1', type='int'},
+    { name='k1', type='int[]'},
+    { name='k8', type='table<int,int>'},
+    { name='k9', type='test.DemoE2[]'},
+}
+
+---@class test.DefineFromExcelOne 
+---@field public unlock_equip int
+---@field public unlock_hero int
+---@field public default_avatar string
+---@field public default_item string
+beans['test.DefineFromExcelOne'] =
+{
+    { name='unlock_equip', type='int'},
+    { name='unlock_hero', type='int'},
+    { name='default_avatar', type='string'},
+    { name='default_item', type='string'},
+}
+
+---@class test.TestJson2 
+---@field public id int
+---@field public m1 table<int,int>
+---@field public m2 table<long,int>
+---@field public m3 table<string,int>
+---@field public m4 table<string,test.DemoType1>
+beans['test.TestJson2'] =
+{
+    { name='id', type='int'},
+    { name='m1', type='table<int,int>'},
+    { name='m2', type='table<long,int>'},
+    { name='m3', type='table<string,int>'},
+    { name='m4', type='table<string,test.DemoType1>'},
+}
+
+---@class test.TestIndex 
+---@field public id int
+---@field public eles test.DemoType1[]
+beans['test.TestIndex'] =
+{
+    { name='id', type='int'},
+    { name='eles', type='test.DemoType1[]'},
+}
+
+---@class test.TestMap 
+---@field public id int
+---@field public x1 table<int,int>
+---@field public x2 table<long,int>
+---@field public x3 table<string,int>
+---@field public x4 table<test.DemoEnum,int>
+beans['test.TestMap'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='table<int,int>'},
+    { name='x2', type='table<long,int>'},
+    { name='x3', type='table<string,int>'},
+    { name='x4', type='table<test.DemoEnum,int>'},
+}
+
+---@class test.DefineFromExcel2 
+---@field public id int
+---@field public x1 bool
+---@field public x5 long
+---@field public x6 float
+---@field public x8 int
+---@field public x10 string
+---@field public x13 test.ETestQuality
+---@field public x14 test.DemoDynamic
+---@field public v2 vector2
+---@field public t1 int
+---@field public k1 int[]
+---@field public k8 table<int,int>
+---@field public k9 test.DemoE2[]
+beans['test.DefineFromExcel2'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='bool'},
+    { name='x5', type='long'},
+    { name='x6', type='float'},
+    { name='x8', type='int'},
+    { name='x10', type='string'},
+    { name='x13', type='test.ETestQuality'},
+    { name='x14', type='test.DemoDynamic'},
+    { name='v2', type='vector2'},
+    { name='t1', type='int'},
+    { name='k1', type='int[]'},
+    { name='k8', type='table<int,int>'},
+    { name='k9', type='test.DemoE2[]'},
+}
+
+---@class test.TestExcelBean1 
+---@field public x1 int
+---@field public x2 string
+---@field public x3 int
+---@field public x4 float
+beans['test.TestExcelBean1'] =
+{
+    { name='x1', type='int'},
+    { name='x2', type='string'},
+    { name='x3', type='int'},
+    { name='x4', type='float'},
+}
+
 
 local tables =
 {
@@ -1956,11 +2109,7 @@ local tables =
 
     { name='TbSingleton', file='test_TbSingleton', mode='one', value_type='test.DemoSingletonType'},
     
-    { name='TbDataFromJson', file='test_TbDataFromJson', mode='map', index='x4', value_type='test.DemoType2' },
-
-    { name='TbDataFromXml', file='test_TbDataFromXml', mode='map', index='x4', value_type='test.DemoType2' },
-
-    { name='TbDataFromLua', file='test_TbDataFromLua', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbDataFromMisc', file='test_TbDataFromMisc', mode='map', index='x4', value_type='test.DemoType2' },
 
     { name='TbMultiRowRecord', file='test_TbMultiRowRecord', mode='map', index='id', value_type='test.MultiRowRecord' },
 
@@ -1982,7 +2131,24 @@ local tables =
 
     { name='TbTestGlobal', file='test_TbTestGlobal', mode='one', value_type='test.TestGlobal'},
     
+    { name='TbDetectCsvEncoding', file='test_TbDetectCsvEncoding', mode='map', index='id', value_type='test.DetectEncoding' },
+
+    { name='TbDefineFromExcel', file='test_TbDefineFromExcel', mode='map', index='id', value_type='test.DefineFromExcel' },
+
+    { name='TbDefineFromExcelOne', file='test_TbDefineFromExcelOne', mode='one', value_type='test.DefineFromExcelOne'},
+    
+    { name='TbTestJson2', file='test_TbTestJson2', mode='map', index='id', value_type='test.TestJson2' },
+
+    { name='TbTestIndex', file='test_TbTestIndex', mode='map', index='id', value_type='test.TestIndex' },
+
+    { name='TbTestMap', file='test_TbTestMap', mode='map', index='id', value_type='test.TestMap' },
+
+    { name='TbDemoGroupDefineFromExcel', file='test_TbDemoGroupDefineFromExcel', mode='map', index='id', value_type='test.DemoGroup' },
+
+    { name='TbDefineFromExcel2', file='test_TbDefineFromExcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
+
+    { name='TbTestExcelBean', file='test_TbTestExcelBean', mode='map', index='x1', value_type='test.TestExcelBean1' },
+
 }
 
 return { consts = consts, enums = enums, beans = beans, tables = tables }
-

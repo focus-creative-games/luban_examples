@@ -57,4 +57,3 @@ func NewBlueprint_Method_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Method
     return
 }
 
-

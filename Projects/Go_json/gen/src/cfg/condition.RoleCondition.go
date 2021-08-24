@@ -41,4 +41,3 @@ func NewCondition_RoleCondition_Body(_buf map[string]interface{}) (_v *Condition
     _v.Condition_Condition = *_p
     return
 }
-

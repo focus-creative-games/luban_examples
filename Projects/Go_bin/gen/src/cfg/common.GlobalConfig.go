@@ -67,4 +67,3 @@ func NewCommon_GlobalConfig(_buf *serialization.ByteBuf) (_v *Common_GlobalConfi
     { if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Item_EItemFunctionType_REPLACE_HANDHELD = 0
     Item_EItemFunctionType_USE_DESIGN_DRAWING = 1
 )
-

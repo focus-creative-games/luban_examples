@@ -41,4 +41,3 @@ func NewItem_ItemExtra_Body(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, er
     return
 }
 
-

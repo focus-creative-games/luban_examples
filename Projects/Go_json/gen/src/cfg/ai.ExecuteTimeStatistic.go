@@ -25,4 +25,3 @@ func NewAi_ExecuteTimeStatistic(_buf map[string]interface{}) (_v *Ai_ExecuteTime
     _v.Ai_Service = *_p
     return
 }
-

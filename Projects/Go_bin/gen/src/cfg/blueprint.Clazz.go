@@ -65,4 +65,3 @@ func NewBlueprint_Clazz_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, 
     return
 }
 
-

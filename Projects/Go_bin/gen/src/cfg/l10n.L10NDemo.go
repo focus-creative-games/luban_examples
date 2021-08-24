@@ -29,4 +29,3 @@ func NewL10n_L10NDemo(_buf *serialization.ByteBuf) (_v *L10n_L10NDemo, err error
     { if _v.Text, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

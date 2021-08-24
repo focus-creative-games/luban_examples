@@ -29,4 +29,3 @@ func NewBonus_ShowItemInfo(_buf *serialization.ByteBuf) (_v *Bonus_ShowItemInfo,
     { if _v.ItemNum, err = _buf.ReadLong(); err != nil { return } }
     return
 }
-

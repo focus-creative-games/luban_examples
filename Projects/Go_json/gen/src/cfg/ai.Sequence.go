@@ -40,4 +40,3 @@ func NewAi_Sequence(_buf map[string]interface{}) (_v *Ai_Sequence, err error) {
 
     return
 }
-

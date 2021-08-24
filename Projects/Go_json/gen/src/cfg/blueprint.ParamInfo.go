@@ -27,4 +27,3 @@ func NewBlueprint_ParamInfo(_buf map[string]interface{}) (_v *Blueprint_ParamInf
     { var _ok_ bool; if _v.IsRef, _ok_ = _buf["is_ref"].(bool); !_ok_ { err = errors.New("is_ref error"); return } }
     return
 }
-

@@ -40,4 +40,3 @@ func NewBonus_ProbabilityBonus(_buf map[string]interface{}) (_v *Bonus_Probabili
 
     return
 }
-

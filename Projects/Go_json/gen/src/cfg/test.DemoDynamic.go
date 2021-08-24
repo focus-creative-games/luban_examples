@@ -35,4 +35,3 @@ func NewTest_DemoDynamic_Body(_buf map[string]interface{}) (_v *Test_DemoDynamic
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
     return
 }
-

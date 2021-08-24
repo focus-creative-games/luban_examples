@@ -63,4 +63,3 @@ func NewCommon_GlobalConfig(_buf map[string]interface{}) (_v *Common_GlobalConfi
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["per_viality_recovery_time"].(float64); !_ok_ { err = errors.New("per_viality_recovery_time error"); return }; _v.PerVialityRecoveryTime = int32(_tempNum_) }
     return
 }
-

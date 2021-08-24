@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -23,4 +21,3 @@ const (
     Item_EMajorType_EXPANSION = 10
     Item_EMajorType_MATERIAL = 11
 )
-

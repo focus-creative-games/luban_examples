@@ -33,4 +33,3 @@ func NewBonus_Item(_buf *serialization.ByteBuf) (_v *Bonus_Item, err error) {
     { if _v.Amount, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

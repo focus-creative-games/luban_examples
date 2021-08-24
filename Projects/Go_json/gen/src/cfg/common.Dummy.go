@@ -25,4 +25,3 @@ func NewCommon_Dummy(_buf map[string]interface{}) (_v *Common_Dummy, err error) 
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["limit"].(map[string]interface{}); !_ok_ { err = errors.New("limit error"); return }; if _v.Limit, err = NewLimit_LimitBase(_x_); err != nil { return } }
     return
 }
-

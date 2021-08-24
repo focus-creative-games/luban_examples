@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -138,4 +137,3 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     }
     }
 }
-

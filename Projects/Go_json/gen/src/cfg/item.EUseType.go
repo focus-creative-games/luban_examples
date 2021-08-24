@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Item_EUseType_MANUAL = 0
     Item_EUseType_AUTO = 1
 )
-

@@ -31,4 +31,3 @@ func NewTest_DemoD5(_buf *serialization.ByteBuf) (_v *Test_DemoD5, err error) {
     { if _v.Time, err = NewTest_DateTimeRange(_buf); err != nil { return } }
     return
 }
-

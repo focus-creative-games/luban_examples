@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
     Error_EOperation_LOGOUT = 0
     Error_EOperation_RESTART = 1
 )
-

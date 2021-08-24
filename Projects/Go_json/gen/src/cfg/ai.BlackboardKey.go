@@ -31,4 +31,3 @@ func NewAi_BlackboardKey(_buf map[string]interface{}) (_v *Ai_BlackboardKey, err
     { var _ok_ bool; if _v.TypeClassName, _ok_ = _buf["type_class_name"].(string); !_ok_ { err = errors.New("type_class_name error"); return } }
     return
 }
-

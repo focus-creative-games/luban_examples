@@ -27,4 +27,3 @@ func NewTest_DemoSingletonType(_buf map[string]interface{}) (_v *Test_DemoSingle
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date"].(map[string]interface{}); !_ok_ { err = errors.New("date error"); return }; if _v.Date, err = NewTest_DemoDynamic(_x_); err != nil { return } }
     return
 }
-

@@ -42,4 +42,3 @@ func NewBonus_DropInfo(_buf map[string]interface{}) (_v *Bonus_DropInfo, err err
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewBonus_Bonus(_x_); err != nil { return } }
     return
 }
-

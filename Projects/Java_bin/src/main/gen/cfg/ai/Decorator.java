@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 
 import bright.serialization.*;
@@ -72,4 +71,3 @@ public abstract class Decorator extends  cfg.ai.Node
         + "}";
     }
 }
-

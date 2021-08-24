@@ -40,4 +40,3 @@ func NewCost_CostCurrencies(_buf map[string]interface{}) (_v *Cost_CostCurrencie
 
     return
 }
-

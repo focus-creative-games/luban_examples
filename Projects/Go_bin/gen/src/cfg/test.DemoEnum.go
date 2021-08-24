@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -16,4 +14,3 @@ const (
     Test_DemoEnum_C = 4
     Test_DemoEnum_D = 5
 )
-

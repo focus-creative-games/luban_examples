@@ -33,4 +33,3 @@ func NewCondition_ClothesPropertyScoreGreaterThan(_buf *serialization.ByteBuf) (
     { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

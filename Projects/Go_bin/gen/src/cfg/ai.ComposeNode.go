@@ -41,4 +41,3 @@ func NewAi_ComposeNode_Body(_buf *serialization.ByteBuf) (_v *Ai_ComposeNode, er
     return
 }
 
-

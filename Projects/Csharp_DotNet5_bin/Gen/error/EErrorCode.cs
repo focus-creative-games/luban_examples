@@ -98,5 +98,3 @@ namespace cfg.error
         SELFIE_HAD_REWARD = 1203,
     }
 }
-
-

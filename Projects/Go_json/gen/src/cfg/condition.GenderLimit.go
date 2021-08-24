@@ -27,4 +27,3 @@ func NewCondition_GenderLimit(_buf map[string]interface{}) (_v *Condition_Gender
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["gender"].(float64); !_ok_ { err = errors.New("gender error"); return }; _v.Gender = int32(_tempNum_) }
     return
 }
-

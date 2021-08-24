@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -61,4 +59,3 @@ const (
     Item_EMinorType_CONSTRUCTION_MATERIAL = 1101
     Item_EMinorType_DESIGN_DRAWING = 1102
 )
-

@@ -25,4 +25,3 @@ func NewTag_TestTag(_buf map[string]interface{}) (_v *Tag_TestTag, err error) {
     { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
     return
 }
-

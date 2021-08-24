@@ -31,4 +31,3 @@ func NewBlueprint_Field(_buf *serialization.ByteBuf) (_v *Blueprint_Field, err e
     { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

@@ -136,4 +136,3 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
 
     return
 }
-

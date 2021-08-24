@@ -40,4 +40,3 @@ func NewBonus_OneItems(_buf map[string]interface{}) (_v *Bonus_OneItems, err err
 
     return
 }
-

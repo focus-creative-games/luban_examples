@@ -41,4 +41,3 @@ func NewBonus_WeightBonus(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonus, e
 
     return
 }
-

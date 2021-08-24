@@ -33,4 +33,3 @@ func NewLimit_MultiDayLimit(_buf *serialization.ByteBuf) (_v *Limit_MultiDayLimi
     { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

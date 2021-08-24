@@ -29,4 +29,3 @@ func NewTest_TestExcelBean1(_buf map[string]interface{}) (_v *Test_TestExcelBean
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = float32(_tempNum_) }
     return
 }
-

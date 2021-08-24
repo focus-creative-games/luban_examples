@@ -43,4 +43,3 @@ func NewAi_Task_Body(_buf map[string]interface{}) (_v *Ai_Task, err error) {
     { var _ok_ bool; if _v.IgnoreRestartSelf, _ok_ = _buf["ignore_restart_self"].(bool); !_ok_ { err = errors.New("ignore_restart_self error"); return } }
     return
 }
-

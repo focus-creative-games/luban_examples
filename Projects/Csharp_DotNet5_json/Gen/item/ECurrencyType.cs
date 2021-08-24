@@ -33,5 +33,3 @@ namespace cfg.item
         POWER_POINT = 5,
     }
 }
-
-

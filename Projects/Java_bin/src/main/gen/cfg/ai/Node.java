@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 
 import bright.serialization.*;
@@ -87,4 +86,3 @@ public abstract class Node extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-

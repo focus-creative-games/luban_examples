@@ -42,4 +42,3 @@ func NewCondition_Condition_Body(_buf *serialization.ByteBuf) (_v *Condition_Con
     return
 }
 
-

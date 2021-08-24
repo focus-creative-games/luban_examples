@@ -45,4 +45,3 @@ func NewBonus_Bonus_Body(_buf *serialization.ByteBuf) (_v *Bonus_Bonus, err erro
     return
 }
 
-

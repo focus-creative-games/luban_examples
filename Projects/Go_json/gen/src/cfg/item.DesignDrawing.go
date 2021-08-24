@@ -40,4 +40,3 @@ func NewItem_DesignDrawing(_buf map[string]interface{}) (_v *Item_DesignDrawing,
 
     return
 }
-

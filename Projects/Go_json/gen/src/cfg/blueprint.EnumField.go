@@ -25,4 +25,3 @@ func NewBlueprint_EnumField(_buf map[string]interface{}) (_v *Blueprint_EnumFiel
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["value"].(float64); !_ok_ { err = errors.New("value error"); return }; _v.Value = int32(_tempNum_) }
     return
 }
-

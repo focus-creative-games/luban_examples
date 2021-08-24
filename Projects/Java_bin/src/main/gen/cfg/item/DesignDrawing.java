@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.item;
 
 import bright.serialization.*;
@@ -65,4 +64,3 @@ public final class DesignDrawing extends  cfg.item.ItemExtra
         + "}";
     }
 }
-

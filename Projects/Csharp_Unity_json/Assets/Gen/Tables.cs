@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using SimpleJSON;
 
@@ -54,6 +53,7 @@ public sealed partial class Tables
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
     public test.TbTestJson2 TbTestJson2 {get; }
     public test.TbTestIndex TbTestIndex {get; }
+    public test.TbTestMap TbTestMap {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -133,6 +133,8 @@ public sealed partial class Tables
         tables.Add("test.TbTestJson2", TbTestJson2);
         TbTestIndex = new test.TbTestIndex(loader("test.TbTestIndex")); 
         tables.Add("test.TbTestIndex", TbTestIndex);
+        TbTestMap = new test.TbTestMap(loader("test.TbTestMap")); 
+        tables.Add("test.TbTestMap", TbTestMap);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
@@ -176,6 +178,7 @@ public sealed partial class Tables
         TbDefineFromExcelOne.Resolve(tables); 
         TbTestJson2.Resolve(tables); 
         TbTestIndex.Resolve(tables); 
+        TbTestMap.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
@@ -183,4 +186,3 @@ public sealed partial class Tables
 }
 
 }
-

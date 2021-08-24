@@ -29,4 +29,3 @@ func NewCommon_DateTimeRange(_buf *serialization.ByteBuf) (_v *Common_DateTimeRa
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.EndTime = &__x__ }}
     return
 }
-

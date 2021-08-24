@@ -38,4 +38,3 @@ func NewTest_TestIndex(_buf map[string]interface{}) (_v *Test_TestIndex, err err
 
     return
 }
-

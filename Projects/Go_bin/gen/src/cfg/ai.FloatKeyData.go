@@ -31,4 +31,3 @@ func NewAi_FloatKeyData(_buf *serialization.ByteBuf) (_v *Ai_FloatKeyData, err e
     { if _v.Value, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

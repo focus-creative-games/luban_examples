@@ -25,4 +25,3 @@ func NewTest_DetectEncoding(_buf map[string]interface{}) (_v *Test_DetectEncodin
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     return
 }
-

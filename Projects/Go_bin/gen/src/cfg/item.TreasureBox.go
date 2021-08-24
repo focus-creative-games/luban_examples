@@ -59,4 +59,3 @@ func NewItem_TreasureBox(_buf *serialization.ByteBuf) (_v *Item_TreasureBox, err
 
     return
 }
-

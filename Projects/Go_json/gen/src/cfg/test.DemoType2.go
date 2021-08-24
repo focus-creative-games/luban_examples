@@ -174,4 +174,3 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
 
     return
 }
-

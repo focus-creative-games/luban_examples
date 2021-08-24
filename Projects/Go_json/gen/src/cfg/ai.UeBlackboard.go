@@ -31,4 +31,3 @@ func NewAi_UeBlackboard(_buf map[string]interface{}) (_v *Ai_UeBlackboard, err e
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["key_query"].(map[string]interface{}); !_ok_ { err = errors.New("key_query error"); return }; if _v.KeyQuery, err = NewAi_KeyQueryOperator(_x_); err != nil { return } }
     return
 }
-

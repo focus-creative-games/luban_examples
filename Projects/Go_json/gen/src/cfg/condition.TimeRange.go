@@ -27,4 +27,3 @@ func NewCondition_TimeRange(_buf map[string]interface{}) (_v *Condition_TimeRang
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date_time_range"].(map[string]interface{}); !_ok_ { err = errors.New("date_time_range error"); return }; if _v.DateTimeRange, err = NewCommon_DateTimeRange(_x_); err != nil { return } }
     return
 }
-

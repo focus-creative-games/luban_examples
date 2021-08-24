@@ -31,4 +31,3 @@ func NewLimit_CoolDown(_buf *serialization.ByteBuf) (_v *Limit_CoolDown, err err
     { if _v.Duration, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

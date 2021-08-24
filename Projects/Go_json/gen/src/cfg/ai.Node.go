@@ -57,4 +57,3 @@ func NewAi_Node_Body(_buf map[string]interface{}) (_v *Ai_Node, err error) {
     { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     return
 }
-

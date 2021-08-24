@@ -25,4 +25,3 @@ func NewError_CodeInfo(_buf map[string]interface{}) (_v *Error_CodeInfo, err err
     { var _ok_ bool; if _v.Key, _ok_ = _buf["key"].(string); !_ok_ { err = errors.New("key error"); return } }
     return
 }
-

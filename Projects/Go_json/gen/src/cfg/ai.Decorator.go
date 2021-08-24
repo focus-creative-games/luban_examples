@@ -43,4 +43,3 @@ func NewAi_Decorator_Body(_buf map[string]interface{}) (_v *Ai_Decorator, err er
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
     return
 }
-

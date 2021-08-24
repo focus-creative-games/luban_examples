@@ -40,4 +40,3 @@ func NewCost_CostItems(_buf map[string]interface{}) (_v *Cost_CostItems, err err
 
     return
 }
-

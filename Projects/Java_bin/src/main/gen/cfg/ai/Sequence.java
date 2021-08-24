@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.ai;
 
 import bright.serialization.*;
@@ -69,4 +68,3 @@ public final class Sequence extends  cfg.ai.ComposeNode
         + "}";
     }
 }
-

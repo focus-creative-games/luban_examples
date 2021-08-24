@@ -33,4 +33,3 @@ func NewError_ErrorStyleDlgOkCancel(_buf *serialization.ByteBuf) (_v *Error_Erro
     { if _v.Btn2Name, err = _buf.ReadString(); err != nil { return } }
     return
 }
-

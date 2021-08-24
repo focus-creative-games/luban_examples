@@ -41,4 +41,3 @@ func NewAi_Sequence(_buf *serialization.ByteBuf) (_v *Ai_Sequence, err error) {
 
     return
 }
-

@@ -33,4 +33,3 @@ func NewTest_InnerGroup(_buf *serialization.ByteBuf) (_v *Test_InnerGroup, err e
     { if _v.Y4, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

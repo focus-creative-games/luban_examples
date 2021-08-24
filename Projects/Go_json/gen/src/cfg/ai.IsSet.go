@@ -25,4 +25,3 @@ func NewAi_IsSet(_buf map[string]interface{}) (_v *Ai_IsSet, err error) {
     _v.Ai_KeyQueryOperator = *_p
     return
 }
-

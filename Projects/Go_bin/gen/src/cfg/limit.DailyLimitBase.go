@@ -39,4 +39,3 @@ func NewLimit_DailyLimitBase_Body(_buf *serialization.ByteBuf) (_v *Limit_DailyL
     return
 }
 
-

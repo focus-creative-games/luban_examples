@@ -39,4 +39,3 @@ func NewCost_Cost_Body(_buf *serialization.ByteBuf) (_v *Cost_Cost, err error) {
     return
 }
 
-

@@ -31,4 +31,3 @@ func NewCondition_MaxLevel(_buf *serialization.ByteBuf) (_v *Condition_MaxLevel,
     { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
     return
 }
-

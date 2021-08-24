@@ -40,4 +40,3 @@ func NewAi_Service_Body(_buf map[string]interface{}) (_v *Ai_Service, err error)
     _v.Ai_Node = *_p
     return
 }
-

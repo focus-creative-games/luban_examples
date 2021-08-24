@@ -21,5 +21,3 @@ namespace cfg.test
         GOLD = 2,
     }
 }
-
-

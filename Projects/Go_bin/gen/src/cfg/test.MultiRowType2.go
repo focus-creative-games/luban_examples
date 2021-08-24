@@ -31,4 +31,3 @@ func NewTest_MultiRowType2(_buf *serialization.ByteBuf) (_v *Test_MultiRowType2,
     { if _v.Y, err = _buf.ReadFloat(); err != nil { return } }
     return
 }
-

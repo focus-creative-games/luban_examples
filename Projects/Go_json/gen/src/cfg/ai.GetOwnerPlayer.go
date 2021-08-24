@@ -27,4 +27,3 @@ func NewAi_GetOwnerPlayer(_buf map[string]interface{}) (_v *Ai_GetOwnerPlayer, e
     { var _ok_ bool; if _v.PlayerActorKey, _ok_ = _buf["player_actor_key"].(string); !_ok_ { err = errors.New("player_actor_key error"); return } }
     return
 }
-

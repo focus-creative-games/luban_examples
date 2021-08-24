@@ -29,4 +29,3 @@ func NewLimit_GroupCoolDown(_buf map[string]interface{}) (_v *Limit_GroupCoolDow
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["duration"].(float64); !_ok_ { err = errors.New("duration error"); return }; _v.Duration = int32(_tempNum_) }
     return
 }
-

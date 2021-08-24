@@ -6,8 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-
 package cfg
 
 const (
@@ -15,4 +13,3 @@ const (
     Test_ETestEmptyEnum2_X_256 = 256
     Test_ETestEmptyEnum2_X_257 = 257
 )
-

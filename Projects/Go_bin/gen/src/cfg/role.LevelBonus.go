@@ -39,4 +39,3 @@ func NewRole_LevelBonus(_buf *serialization.ByteBuf) (_v *Role_LevelBonus, err e
 
     return
 }
-

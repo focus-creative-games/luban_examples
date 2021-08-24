@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.error;
 public enum EErrorCode
 {
@@ -196,4 +195,3 @@ public enum EErrorCode
         throw new IllegalArgumentException("");
     }
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg.test;
 
 import bright.serialization.*;
@@ -63,4 +62,3 @@ public abstract class DemoDynamic extends  bright.serialization.AbstractBean
         + "}";
     }
 }
-
