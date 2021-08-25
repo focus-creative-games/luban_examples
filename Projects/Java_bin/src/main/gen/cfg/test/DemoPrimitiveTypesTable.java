@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class DemoPrimitiveTypesTable extends  bright.serialization.AbstractBean 
-{
-    public DemoPrimitiveTypesTable(ByteBuf _buf)
-    { 
+public final class DemoPrimitiveTypesTable {
+    public DemoPrimitiveTypesTable(ByteBuf _buf) { 
         x1 = _buf.readBool();
         x2 = _buf.readByte();
         x3 = _buf.readShort();
@@ -31,8 +29,7 @@ public final class DemoPrimitiveTypesTable extends  bright.serialization.Abstrac
         t1 = _buf.readInt();
     }
 
-    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1 )
-    {
+    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1 ) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
@@ -48,10 +45,6 @@ public final class DemoPrimitiveTypesTable extends  bright.serialization.Abstrac
         this.t1 = t1;
     }
 
-    public static DemoPrimitiveTypesTable deserializeDemoPrimitiveTypesTable(ByteBuf _buf)
-    {
-        return new DemoPrimitiveTypesTable(_buf);
-    }
 
     public final boolean x1;
     public final byte x2;
@@ -67,30 +60,12 @@ public final class DemoPrimitiveTypesTable extends  bright.serialization.Abstrac
     public final bright.math.Vector4 v4;
     public final int t1;
 
-    public static final int ID = -370934083;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x1:" + x1 + ","
         + "x2:" + x2 + ","

@@ -12,22 +12,15 @@ import bright.serialization.*;
 
 
 
-public final class UeForceSuccess extends  cfg.ai.Decorator 
-{
-    public UeForceSuccess(ByteBuf _buf)
-    { 
+public final class UeForceSuccess extends cfg.ai.Decorator {
+    public UeForceSuccess(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public UeForceSuccess(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode )
-    {
+    public UeForceSuccess(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode ) {
         super(id, node_name, flow_abort_mode);
     }
 
-    public static UeForceSuccess deserializeUeForceSuccess(ByteBuf _buf)
-    {
-        return new UeForceSuccess(_buf);
-    }
 
 
     public static final int ID = 195054574;
@@ -36,25 +29,12 @@ public final class UeForceSuccess extends  cfg.ai.Decorator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

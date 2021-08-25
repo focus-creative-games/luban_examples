@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class MultiDayLimit extends  cfg.limit.LimitBase 
-{
-    public MultiDayLimit(ByteBuf _buf)
-    { 
+public final class MultiDayLimit extends cfg.limit.LimitBase {
+    public MultiDayLimit(ByteBuf _buf) { 
         super(_buf);
         day = _buf.readInt();
         num = _buf.readInt();
     }
 
-    public MultiDayLimit(int day, int num )
-    {
+    public MultiDayLimit(int day, int num ) {
         super();
         this.day = day;
         this.num = num;
     }
 
-    public static MultiDayLimit deserializeMultiDayLimit(ByteBuf _buf)
-    {
-        return new MultiDayLimit(_buf);
-    }
 
     public final int day;
     public final int num;
@@ -42,25 +35,12 @@ public final class MultiDayLimit extends  cfg.limit.LimitBase
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "day:" + day + ","
         + "num:" + num + ","

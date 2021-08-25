@@ -12,57 +12,32 @@ import bright.serialization.*;
 
 
 
-public final class WeightItemInfo extends  bright.serialization.AbstractBean 
-{
-    public WeightItemInfo(ByteBuf _buf)
-    { 
+public final class WeightItemInfo {
+    public WeightItemInfo(ByteBuf _buf) { 
         itemId = _buf.readInt();
         num = _buf.readInt();
         weight = _buf.readInt();
     }
 
-    public WeightItemInfo(int item_id, int num, int weight )
-    {
+    public WeightItemInfo(int item_id, int num, int weight ) {
         this.itemId = item_id;
         this.num = num;
         this.weight = weight;
     }
 
-    public static WeightItemInfo deserializeWeightItemInfo(ByteBuf _buf)
-    {
-        return new WeightItemInfo(_buf);
-    }
 
     public final int itemId;
     public cfg.item.Item itemId_Ref;
     public final int num;
     public final int weight;
 
-    public static final int ID = 1239999176;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "itemId:" + itemId + ","
         + "num:" + num + ","

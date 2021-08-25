@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class NormalClazz extends  cfg.blueprint.Clazz 
-{
-    public NormalClazz(ByteBuf _buf)
-    { 
+public final class NormalClazz extends cfg.blueprint.Clazz {
+    public NormalClazz(ByteBuf _buf) { 
         super(_buf);
         isAbstract = _buf.readBool();
-        {int n = Math.min(_buf.readSize(), _buf.size());fields = new java.util.ArrayList<cfg.blueprint.Field>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.Field _e;  _e = cfg.blueprint.Field.deserializeField(_buf); fields.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());fields = new java.util.ArrayList<cfg.blueprint.Field>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.Field _e;  _e = new cfg.blueprint.Field(_buf); fields.add(_e);}}
     }
 
-    public NormalClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, boolean is_abstract, java.util.ArrayList<cfg.blueprint.Field> fields )
-    {
+    public NormalClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, boolean is_abstract, java.util.ArrayList<cfg.blueprint.Field> fields ) {
         super(name, desc, parents, methods);
         this.isAbstract = is_abstract;
         this.fields = fields;
     }
 
-    public static NormalClazz deserializeNormalClazz(ByteBuf _buf)
-    {
-        return new NormalClazz(_buf);
-    }
 
     public final boolean isAbstract;
     public final java.util.ArrayList<cfg.blueprint.Field> fields;
@@ -42,26 +35,13 @@ public final class NormalClazz extends  cfg.blueprint.Clazz
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.blueprint.Field _e : fields) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.blueprint.Field _e : fields) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "desc:" + desc + ","

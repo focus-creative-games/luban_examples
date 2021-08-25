@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class Bonus extends  bright.serialization.AbstractBean 
-{
-    public Bonus(ByteBuf _buf)
-    { 
+public abstract class Bonus {
+    public Bonus(ByteBuf _buf) { 
     }
 
-    public Bonus()
-    {
+    public Bonus() {
     }
 
-    public static Bonus deserializeBonus(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Bonus deserializeBonus(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.bonus.OneItem.ID: return new cfg.bonus.OneItem(_buf);
             case cfg.bonus.OneItems.ID: return new cfg.bonus.OneItems(_buf);
             case cfg.bonus.Item.ID: return new cfg.bonus.Item(_buf);
@@ -42,26 +37,13 @@ public abstract class Bonus extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

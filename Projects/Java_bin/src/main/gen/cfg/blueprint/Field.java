@@ -12,55 +12,30 @@ import bright.serialization.*;
 
 
 
-public final class Field extends  bright.serialization.AbstractBean 
-{
-    public Field(ByteBuf _buf)
-    { 
+public final class Field {
+    public Field(ByteBuf _buf) { 
         name = _buf.readString();
         type = _buf.readString();
         desc = _buf.readString();
     }
 
-    public Field(String name, String type, String desc )
-    {
+    public Field(String name, String type, String desc ) {
         this.name = name;
         this.type = type;
         this.desc = desc;
     }
 
-    public static Field deserializeField(ByteBuf _buf)
-    {
-        return new Field(_buf);
-    }
 
     public final String name;
     public final String type;
     public final String desc;
 
-    public static final int ID = 1694158271;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "type:" + type + ","

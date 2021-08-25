@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class DemoD5 extends  cfg.test.DemoDynamic 
-{
-    public DemoD5(ByteBuf _buf)
-    { 
+public final class DemoD5 extends cfg.test.DemoDynamic {
+    public DemoD5(ByteBuf _buf) { 
         super(_buf);
-        time = cfg.test.DateTimeRange.deserializeDateTimeRange(_buf);
+        time = new cfg.test.DateTimeRange(_buf);
     }
 
-    public DemoD5(int x1, cfg.test.DateTimeRange time )
-    {
+    public DemoD5(int x1, cfg.test.DateTimeRange time ) {
         super(x1);
         this.time = time;
     }
 
-    public static DemoD5 deserializeDemoD5(ByteBuf _buf)
-    {
-        return new DemoD5(_buf);
-    }
 
     public final cfg.test.DateTimeRange time;
 
@@ -39,26 +32,13 @@ public final class DemoD5 extends  cfg.test.DemoDynamic
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (time != null) {time.resolve(_tables);}
+        if (time != null) {time.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x1:" + x1 + ","
         + "time:" + time + ","

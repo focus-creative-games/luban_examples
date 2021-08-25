@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class ProbabilityItems extends  cfg.bonus.Bonus 
-{
-    public ProbabilityItems(ByteBuf _buf)
-    { 
+public final class ProbabilityItems extends cfg.bonus.Bonus {
+    public ProbabilityItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.ProbabilityItemInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityItemInfo _e;_e = cfg.bonus.ProbabilityItemInfo.deserializeProbabilityItemInfo(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.ProbabilityItemInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityItemInfo _e;_e = new cfg.bonus.ProbabilityItemInfo(_buf); itemList[i] = _e;}}
     }
 
-    public ProbabilityItems(cfg.bonus.ProbabilityItemInfo[] item_list )
-    {
+    public ProbabilityItems(cfg.bonus.ProbabilityItemInfo[] item_list ) {
         super();
         this.itemList = item_list;
     }
 
-    public static ProbabilityItems deserializeProbabilityItems(ByteBuf _buf)
-    {
-        return new ProbabilityItems(_buf);
-    }
 
     public final cfg.bonus.ProbabilityItemInfo[] itemList;
 
@@ -39,26 +32,13 @@ public final class ProbabilityItems extends  cfg.bonus.Bonus
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.bonus.ProbabilityItemInfo _e : itemList) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.bonus.ProbabilityItemInfo _e : itemList) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "itemList:" + itemList + ","
         + "}";

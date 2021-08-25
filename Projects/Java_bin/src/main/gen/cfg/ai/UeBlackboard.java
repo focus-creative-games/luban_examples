@@ -12,28 +12,21 @@ import bright.serialization.*;
 
 
 
-public final class UeBlackboard extends  cfg.ai.Decorator 
-{
-    public UeBlackboard(ByteBuf _buf)
-    { 
+public final class UeBlackboard extends cfg.ai.Decorator {
+    public UeBlackboard(ByteBuf _buf) { 
         super(_buf);
         notifyObserver = cfg.ai.ENotifyObserverMode.valueOf(_buf.readInt());
         blackboardKey = _buf.readString();
         keyQuery = cfg.ai.KeyQueryOperator.deserializeKeyQueryOperator(_buf);
     }
 
-    public UeBlackboard(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, cfg.ai.ENotifyObserverMode notify_observer, String blackboard_key, cfg.ai.KeyQueryOperator key_query )
-    {
+    public UeBlackboard(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, cfg.ai.ENotifyObserverMode notify_observer, String blackboard_key, cfg.ai.KeyQueryOperator key_query ) {
         super(id, node_name, flow_abort_mode);
         this.notifyObserver = notify_observer;
         this.blackboardKey = blackboard_key;
         this.keyQuery = key_query;
     }
 
-    public static UeBlackboard deserializeUeBlackboard(ByteBuf _buf)
-    {
-        return new UeBlackboard(_buf);
-    }
 
     public final cfg.ai.ENotifyObserverMode notifyObserver;
     public final String blackboardKey;
@@ -45,26 +38,13 @@ public final class UeBlackboard extends  cfg.ai.Decorator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (keyQuery != null) {keyQuery.resolve(_tables);}
+        if (keyQuery != null) {keyQuery.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

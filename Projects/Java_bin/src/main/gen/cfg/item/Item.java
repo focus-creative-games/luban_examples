@@ -15,10 +15,8 @@ import bright.serialization.*;
 /**
  * 道具
  */
-public final class Item extends  bright.serialization.AbstractBean 
-{
-    public Item(ByteBuf _buf)
-    { 
+public final class Item {
+    public Item(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
         majorType = cfg.item.EMajorType.valueOf(_buf.readInt());
@@ -42,8 +40,7 @@ public final class Item extends  bright.serialization.AbstractBean
         if(_buf.readBool()){ levelUpId = _buf.readInt(); } else { levelUpId = null; }
     }
 
-    public Item(int id, String name, cfg.item.EMajorType major_type, cfg.item.EMinorType minor_type, int max_pile_num, cfg.item.EItemQuality quality, String icon, String icon_backgroud, String icon_mask, String desc, int show_order, String quantifier, boolean show_in_bag, int min_show_level, boolean batch_usable, float progress_time_when_use, boolean show_hint_when_use, boolean droppable, Integer price, cfg.item.EUseType use_type, Integer level_up_id )
-    {
+    public Item(int id, String name, cfg.item.EMajorType major_type, cfg.item.EMinorType minor_type, int max_pile_num, cfg.item.EItemQuality quality, String icon, String icon_backgroud, String icon_mask, String desc, int show_order, String quantifier, boolean show_in_bag, int min_show_level, boolean batch_usable, float progress_time_when_use, boolean show_hint_when_use, boolean droppable, Integer price, cfg.item.EUseType use_type, Integer level_up_id ) {
         this.id = id;
         this.name = name;
         this.majorType = major_type;
@@ -67,10 +64,6 @@ public final class Item extends  bright.serialization.AbstractBean
         this.levelUpId = level_up_id;
     }
 
-    public static Item deserializeItem(ByteBuf _buf)
-    {
-        return new Item(_buf);
-    }
 
     /**
      * 道具id
@@ -97,30 +90,12 @@ public final class Item extends  bright.serialization.AbstractBean
     public final cfg.item.EUseType useType;
     public final Integer levelUpId;
 
-    public static final int ID = 2107285806;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "name:" + name + ","

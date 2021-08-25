@@ -15,28 +15,21 @@ import bright.serialization.*;
 /**
  * 
  */
-public final class DefineFromExcelOne extends  bright.serialization.AbstractBean 
-{
-    public DefineFromExcelOne(ByteBuf _buf)
-    { 
+public final class DefineFromExcelOne {
+    public DefineFromExcelOne(ByteBuf _buf) { 
         unlockEquip = _buf.readInt();
         unlockHero = _buf.readInt();
         defaultAvatar = _buf.readString();
         defaultItem = _buf.readString();
     }
 
-    public DefineFromExcelOne(int unlock_equip, int unlock_hero, String default_avatar, String default_item )
-    {
+    public DefineFromExcelOne(int unlock_equip, int unlock_hero, String default_avatar, String default_item ) {
         this.unlockEquip = unlock_equip;
         this.unlockHero = unlock_hero;
         this.defaultAvatar = default_avatar;
         this.defaultItem = default_item;
     }
 
-    public static DefineFromExcelOne deserializeDefineFromExcelOne(ByteBuf _buf)
-    {
-        return new DefineFromExcelOne(_buf);
-    }
 
     /**
      * 装备解锁等级_描述
@@ -52,30 +45,12 @@ public final class DefineFromExcelOne extends  bright.serialization.AbstractBean
     public final String defaultAvatar;
     public final String defaultItem;
 
-    public static final int ID = 528039504;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "unlockEquip:" + unlockEquip + ","
         + "unlockHero:" + unlockHero + ","

@@ -11,17 +11,15 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbSingleton
-{
+public final class TbSingleton {
     private final cfg.test.DemoSingletonType _data;
 
     public final cfg.test.DemoSingletonType data() { return _data; }
 
-    public TbSingleton(ByteBuf _buf)
-    {
+    public TbSingleton(ByteBuf _buf) {
         int n = _buf.readSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = cfg.test.DemoSingletonType.deserializeDemoSingletonType(_buf);
+        _data = new cfg.test.DemoSingletonType(_buf);
     }
 
 
@@ -29,9 +27,7 @@ public final class TbSingleton
      public String getName() { return _data.name; }
      public cfg.test.DemoDynamic getDate() { return _data.date; }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);
     }
-
 }

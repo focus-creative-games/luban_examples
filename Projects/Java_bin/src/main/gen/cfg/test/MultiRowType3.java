@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class MultiRowType3 extends  bright.serialization.AbstractBean 
-{
-    public MultiRowType3(ByteBuf _buf)
-    { 
+public final class MultiRowType3 {
+    public MultiRowType3(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = cfg.test.MultiRowType1.deserializeMultiRowType1(_buf); items.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = new cfg.test.MultiRowType1(_buf); items.add(_e);}}
     }
 
-    public MultiRowType3(int id, java.util.ArrayList<cfg.test.MultiRowType1> items )
-    {
+    public MultiRowType3(int id, java.util.ArrayList<cfg.test.MultiRowType1> items ) {
         this.id = id;
         this.items = items;
     }
 
-    public static MultiRowType3 deserializeMultiRowType3(ByteBuf _buf)
-    {
-        return new MultiRowType3(_buf);
-    }
 
     public final int id;
     public final java.util.ArrayList<cfg.test.MultiRowType1> items;
 
-    public static final int ID = 540474972;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.MultiRowType1 _e : items) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.test.MultiRowType1 _e : items) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "items:" + items + ","

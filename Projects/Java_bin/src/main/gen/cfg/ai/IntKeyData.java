@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class IntKeyData extends  cfg.ai.KeyData 
-{
-    public IntKeyData(ByteBuf _buf)
-    { 
+public final class IntKeyData extends cfg.ai.KeyData {
+    public IntKeyData(ByteBuf _buf) { 
         super(_buf);
         value = _buf.readInt();
     }
 
-    public IntKeyData(int value )
-    {
+    public IntKeyData(int value ) {
         super();
         this.value = value;
     }
 
-    public static IntKeyData deserializeIntKeyData(ByteBuf _buf)
-    {
-        return new IntKeyData(_buf);
-    }
 
     public final int value;
 
@@ -39,25 +32,12 @@ public final class IntKeyData extends  cfg.ai.KeyData
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "value:" + value + ","
         + "}";

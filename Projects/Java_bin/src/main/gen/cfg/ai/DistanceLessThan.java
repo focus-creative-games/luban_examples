@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class DistanceLessThan extends  cfg.ai.Decorator 
-{
-    public DistanceLessThan(ByteBuf _buf)
-    { 
+public final class DistanceLessThan extends cfg.ai.Decorator {
+    public DistanceLessThan(ByteBuf _buf) { 
         super(_buf);
         actor1Key = _buf.readString();
         actor2Key = _buf.readString();
@@ -23,8 +21,7 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
         reverseResult = _buf.readBool();
     }
 
-    public DistanceLessThan(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, String actor1_key, String actor2_key, float distance, boolean reverse_result )
-    {
+    public DistanceLessThan(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, String actor1_key, String actor2_key, float distance, boolean reverse_result ) {
         super(id, node_name, flow_abort_mode);
         this.actor1Key = actor1_key;
         this.actor2Key = actor2_key;
@@ -32,10 +29,6 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
         this.reverseResult = reverse_result;
     }
 
-    public static DistanceLessThan deserializeDistanceLessThan(ByteBuf _buf)
-    {
-        return new DistanceLessThan(_buf);
-    }
 
     public final String actor1Key;
     public final String actor2Key;
@@ -48,25 +41,12 @@ public final class DistanceLessThan extends  cfg.ai.Decorator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

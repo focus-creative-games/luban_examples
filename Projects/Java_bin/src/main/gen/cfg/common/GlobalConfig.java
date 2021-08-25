@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class GlobalConfig extends  bright.serialization.AbstractBean 
-{
-    public GlobalConfig(ByteBuf _buf)
-    { 
+public final class GlobalConfig {
+    public GlobalConfig(ByteBuf _buf) { 
         bagCapacity = _buf.readInt();
         bagCapacitySpecial = _buf.readInt();
         bagTempExpendableCapacity = _buf.readInt();
@@ -39,8 +37,7 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
         perVialityRecoveryTime = _buf.readInt();
     }
 
-    public GlobalConfig(int bag_capacity, int bag_capacity_special, int bag_temp_expendable_capacity, int bag_temp_tool_capacity, int bag_init_capacity, int quick_bag_capacity, int cloth_bag_capacity, int cloth_bag_init_capacity, int cloth_bag_capacity_special, Integer bag_init_items_drop_id, int mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int init_energy, int init_viality, int max_viality, int per_viality_recovery_time )
-    {
+    public GlobalConfig(int bag_capacity, int bag_capacity_special, int bag_temp_expendable_capacity, int bag_temp_tool_capacity, int bag_init_capacity, int quick_bag_capacity, int cloth_bag_capacity, int cloth_bag_init_capacity, int cloth_bag_capacity_special, Integer bag_init_items_drop_id, int mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int init_energy, int init_viality, int max_viality, int per_viality_recovery_time ) {
         this.bagCapacity = bag_capacity;
         this.bagCapacitySpecial = bag_capacity_special;
         this.bagTempExpendableCapacity = bag_temp_expendable_capacity;
@@ -64,10 +61,6 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
         this.perVialityRecoveryTime = per_viality_recovery_time;
     }
 
-    public static GlobalConfig deserializeGlobalConfig(ByteBuf _buf)
-    {
-        return new GlobalConfig(_buf);
-    }
 
     /**
      * 背包容量
@@ -95,31 +88,13 @@ public final class GlobalConfig extends  bright.serialization.AbstractBean
     public final int maxViality;
     public final int perVialityRecoveryTime;
 
-    public static final int ID = -848234488;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(bagInitItemsDropId) : null;
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != null ? ((cfg.bonus.TbDrop)_tables.get("bonus.TbDrop")).get(bagInitItemsDropId) : null;
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bagCapacity:" + bagCapacity + ","
         + "bagCapacitySpecial:" + bagCapacitySpecial + ","

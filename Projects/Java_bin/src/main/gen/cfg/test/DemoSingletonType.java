@@ -12,56 +12,31 @@ import bright.serialization.*;
 
 
 
-public final class DemoSingletonType extends  bright.serialization.AbstractBean 
-{
-    public DemoSingletonType(ByteBuf _buf)
-    { 
+public final class DemoSingletonType {
+    public DemoSingletonType(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
         date = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
     }
 
-    public DemoSingletonType(int id, String name, cfg.test.DemoDynamic date )
-    {
+    public DemoSingletonType(int id, String name, cfg.test.DemoDynamic date ) {
         this.id = id;
         this.name = name;
         this.date = date;
     }
 
-    public static DemoSingletonType deserializeDemoSingletonType(ByteBuf _buf)
-    {
-        return new DemoSingletonType(_buf);
-    }
 
     public final int id;
     public final String name;
     public final cfg.test.DemoDynamic date;
 
-    public static final int ID = 539196998;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (date != null) {date.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (date != null) {date.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "name:" + name + ","

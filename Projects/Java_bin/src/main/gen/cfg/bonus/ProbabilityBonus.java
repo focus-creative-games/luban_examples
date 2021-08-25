@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class ProbabilityBonus extends  cfg.bonus.Bonus 
-{
-    public ProbabilityBonus(ByteBuf _buf)
-    { 
+public final class ProbabilityBonus extends cfg.bonus.Bonus {
+    public ProbabilityBonus(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.ProbabilityBonusInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityBonusInfo _e;_e = cfg.bonus.ProbabilityBonusInfo.deserializeProbabilityBonusInfo(_buf); bonuses[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.ProbabilityBonusInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityBonusInfo _e;_e = new cfg.bonus.ProbabilityBonusInfo(_buf); bonuses[i] = _e;}}
     }
 
-    public ProbabilityBonus(cfg.bonus.ProbabilityBonusInfo[] bonuses )
-    {
+    public ProbabilityBonus(cfg.bonus.ProbabilityBonusInfo[] bonuses ) {
         super();
         this.bonuses = bonuses;
     }
 
-    public static ProbabilityBonus deserializeProbabilityBonus(ByteBuf _buf)
-    {
-        return new ProbabilityBonus(_buf);
-    }
 
     public final cfg.bonus.ProbabilityBonusInfo[] bonuses;
 
@@ -39,26 +32,13 @@ public final class ProbabilityBonus extends  cfg.bonus.Bonus
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.bonus.ProbabilityBonusInfo _e : bonuses) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.bonus.ProbabilityBonusInfo _e : bonuses) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bonuses:" + bonuses + ","
         + "}";

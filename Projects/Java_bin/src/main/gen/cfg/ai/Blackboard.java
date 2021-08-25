@@ -12,28 +12,21 @@ import bright.serialization.*;
 
 
 
-public final class Blackboard extends  bright.serialization.AbstractBean 
-{
-    public Blackboard(ByteBuf _buf)
-    { 
+public final class Blackboard {
+    public Blackboard(ByteBuf _buf) { 
         name = _buf.readString();
         desc = _buf.readString();
         parentName = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.BlackboardKey _e;  _e = cfg.ai.BlackboardKey.deserializeBlackboardKey(_buf); keys.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.BlackboardKey _e;  _e = new cfg.ai.BlackboardKey(_buf); keys.add(_e);}}
     }
 
-    public Blackboard(String name, String desc, String parent_name, java.util.ArrayList<cfg.ai.BlackboardKey> keys )
-    {
+    public Blackboard(String name, String desc, String parent_name, java.util.ArrayList<cfg.ai.BlackboardKey> keys ) {
         this.name = name;
         this.desc = desc;
         this.parentName = parent_name;
         this.keys = keys;
     }
 
-    public static Blackboard deserializeBlackboard(ByteBuf _buf)
-    {
-        return new Blackboard(_buf);
-    }
 
     public final String name;
     public final String desc;
@@ -41,32 +34,14 @@ public final class Blackboard extends  bright.serialization.AbstractBean
     public cfg.ai.Blackboard parentName_Ref;
     public final java.util.ArrayList<cfg.ai.BlackboardKey> keys;
 
-    public static final int ID = 1576193005;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.parentName_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(parentName);
+        for(cfg.ai.BlackboardKey _e : keys) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.parentName_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(parentName);
-            for(cfg.ai.BlackboardKey _e : keys) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "desc:" + desc + ","

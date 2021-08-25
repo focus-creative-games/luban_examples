@@ -12,20 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class DemoGroup extends  bright.serialization.AbstractBean 
-{
-    public DemoGroup(ByteBuf _buf)
-    { 
+public final class DemoGroup {
+    public DemoGroup(ByteBuf _buf) { 
         id = _buf.readInt();
         x1 = _buf.readInt();
         x2 = _buf.readInt();
         x3 = _buf.readInt();
         x4 = _buf.readInt();
-        x5 = cfg.test.InnerGroup.deserializeInnerGroup(_buf);
+        x5 = new cfg.test.InnerGroup(_buf);
     }
 
-    public DemoGroup(int id, int x1, int x2, int x3, int x4, cfg.test.InnerGroup x5 )
-    {
+    public DemoGroup(int id, int x1, int x2, int x3, int x4, cfg.test.InnerGroup x5 ) {
         this.id = id;
         this.x1 = x1;
         this.x2 = x2;
@@ -34,10 +31,6 @@ public final class DemoGroup extends  bright.serialization.AbstractBean
         this.x5 = x5;
     }
 
-    public static DemoGroup deserializeDemoGroup(ByteBuf _buf)
-    {
-        return new DemoGroup(_buf);
-    }
 
     public final int id;
     public final int x1;
@@ -46,31 +39,13 @@ public final class DemoGroup extends  bright.serialization.AbstractBean
     public final int x4;
     public final cfg.test.InnerGroup x5;
 
-    public static final int ID = -379263008;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (x5 != null) {x5.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (x5 != null) {x5.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "x1:" + x1 + ","

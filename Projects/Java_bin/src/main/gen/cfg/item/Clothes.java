@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class Clothes extends  cfg.item.ItemExtra 
-{
-    public Clothes(ByteBuf _buf)
-    { 
+public final class Clothes extends cfg.item.ItemExtra {
+    public Clothes(ByteBuf _buf) { 
         super(_buf);
         attack = _buf.readInt();
         hp = _buf.readLong();
@@ -23,8 +21,7 @@ public final class Clothes extends  cfg.item.ItemExtra
         energyResume = _buf.readInt();
     }
 
-    public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume )
-    {
+    public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume ) {
         super(id);
         this.attack = attack;
         this.hp = hp;
@@ -32,10 +29,6 @@ public final class Clothes extends  cfg.item.ItemExtra
         this.energyResume = energy_resume;
     }
 
-    public static Clothes deserializeClothes(ByteBuf _buf)
-    {
-        return new Clothes(_buf);
-    }
 
     public final int attack;
     public final long hp;
@@ -48,25 +41,12 @@ public final class Clothes extends  cfg.item.ItemExtra
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "attack:" + attack + ","

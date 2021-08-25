@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class CostCurrency extends  cfg.cost.Cost 
-{
-    public CostCurrency(ByteBuf _buf)
-    { 
+public final class CostCurrency extends cfg.cost.Cost {
+    public CostCurrency(ByteBuf _buf) { 
         super(_buf);
         type = cfg.item.ECurrencyType.valueOf(_buf.readInt());
         num = _buf.readInt();
     }
 
-    public CostCurrency(cfg.item.ECurrencyType type, int num )
-    {
+    public CostCurrency(cfg.item.ECurrencyType type, int num ) {
         super();
         this.type = type;
         this.num = num;
     }
 
-    public static CostCurrency deserializeCostCurrency(ByteBuf _buf)
-    {
-        return new CostCurrency(_buf);
-    }
 
     public final cfg.item.ECurrencyType type;
     public final int num;
@@ -42,25 +35,12 @@ public final class CostCurrency extends  cfg.cost.Cost
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "type:" + type + ","
         + "num:" + num + ","

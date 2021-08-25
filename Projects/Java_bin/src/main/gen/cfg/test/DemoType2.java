@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class DemoType2 extends  bright.serialization.AbstractBean 
-{
-    public DemoType2(ByteBuf _buf)
-    { 
+public final class DemoType2 {
+    public DemoType2(ByteBuf _buf) { 
         x4 = _buf.readInt();
         x1 = _buf.readBool();
         x2 = _buf.readByte();
@@ -27,7 +25,7 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         x8 = _buf.readFint();
         x9 = _buf.readFlong();
         x10 = _buf.readString();
-        x12 = cfg.test.DemoType1.deserializeDemoType1(_buf);
+        x12 = new cfg.test.DemoType1(_buf);
         x13 = cfg.test.DemoEnum.valueOf(_buf.readInt());
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
         s1 = _buf.readString();
@@ -39,12 +37,11 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         {int n = Math.min(_buf.readSize(), _buf.size());k2 = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k2.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k5 = new java.util.HashSet<Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k5.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = cfg.test.DemoE2.deserializeDemoE2(_buf); k9.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = new cfg.test.DemoE2(_buf); k9.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[n];for(var i = 0 ; i < n ; i++) { cfg.test.DemoDynamic _e;_e = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); k15[i] = _e;}}
     }
 
-    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 )
-    {
+    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x2 = x2;
@@ -72,10 +69,6 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
         this.k15 = k15;
     }
 
-    public static DemoType2 deserializeDemoType2(ByteBuf _buf)
-    {
-        return new DemoType2(_buf);
-    }
 
     public final int x4;
     public final boolean x1;
@@ -104,35 +97,17 @@ public final class DemoType2 extends  bright.serialization.AbstractBean
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
     public final cfg.test.DemoDynamic[] k15;
 
-    public static final int ID = -367048295;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.x3_Ref = ((cfg.test.TbFullTypes)_tables.get("test.TbFullTypes")).get(x3);
+        if (x12 != null) {x12.resolve(_tables);}
+        if (x14 != null) {x14.resolve(_tables);}
+        for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.DemoDynamic _e : k15) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.x3_Ref = ((cfg.test.TbFullTypes)_tables.get("test.TbFullTypes")).get(x3);
-            if (x12 != null) {x12.resolve(_tables);}
-            if (x14 != null) {x14.resolve(_tables);}
-            for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.DemoDynamic _e : k15) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x4:" + x4 + ","
         + "x1:" + x1 + ","

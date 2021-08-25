@@ -11,20 +11,17 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbDemoPrimitive
-{
+public final class TbDemoPrimitive {
     private final java.util.HashMap<Integer, cfg.test.DemoPrimitiveTypesTable> _dataMap;
     private final java.util.ArrayList<cfg.test.DemoPrimitiveTypesTable> _dataList;
     
-    public TbDemoPrimitive(ByteBuf _buf)
-    {
+    public TbDemoPrimitive(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DemoPrimitiveTypesTable>();
         _dataList = new java.util.ArrayList<cfg.test.DemoPrimitiveTypesTable>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.DemoPrimitiveTypesTable _v;
-            _v = cfg.test.DemoPrimitiveTypesTable.deserializeDemoPrimitiveTypesTable(_buf);
+            _v = new cfg.test.DemoPrimitiveTypesTable(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.x4, _v);
         }
@@ -35,10 +32,8 @@ public final class TbDemoPrimitive
 
     public cfg.test.DemoPrimitiveTypesTable get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.test.DemoPrimitiveTypesTable v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.DemoPrimitiveTypesTable v : _dataList) {
             v.resolve(_tables);
         }
     }

@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class BinaryOperator extends  cfg.ai.KeyQueryOperator 
-{
-    public BinaryOperator(ByteBuf _buf)
-    { 
+public final class BinaryOperator extends cfg.ai.KeyQueryOperator {
+    public BinaryOperator(ByteBuf _buf) { 
         super(_buf);
         oper = cfg.ai.EOperator.valueOf(_buf.readInt());
         data = cfg.ai.KeyData.deserializeKeyData(_buf);
     }
 
-    public BinaryOperator(cfg.ai.EOperator oper, cfg.ai.KeyData data )
-    {
+    public BinaryOperator(cfg.ai.EOperator oper, cfg.ai.KeyData data ) {
         super();
         this.oper = oper;
         this.data = data;
     }
 
-    public static BinaryOperator deserializeBinaryOperator(ByteBuf _buf)
-    {
-        return new BinaryOperator(_buf);
-    }
 
     public final cfg.ai.EOperator oper;
     public final cfg.ai.KeyData data;
@@ -42,26 +35,13 @@ public final class BinaryOperator extends  cfg.ai.KeyQueryOperator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (data != null) {data.resolve(_tables);}
+        if (data != null) {data.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "oper:" + oper + ","
         + "data:" + data + ","

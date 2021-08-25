@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRoleCondition 
-{
-    public ClothesPropertyScoreGreaterThan(ByteBuf _buf)
-    { 
+public final class ClothesPropertyScoreGreaterThan extends cfg.condition.BoolRoleCondition {
+    public ClothesPropertyScoreGreaterThan(ByteBuf _buf) { 
         super(_buf);
         prop = cfg.item.EClothesPropertyType.valueOf(_buf.readInt());
         value = _buf.readInt();
     }
 
-    public ClothesPropertyScoreGreaterThan(cfg.item.EClothesPropertyType prop, int value )
-    {
+    public ClothesPropertyScoreGreaterThan(cfg.item.EClothesPropertyType prop, int value ) {
         super();
         this.prop = prop;
         this.value = value;
     }
 
-    public static ClothesPropertyScoreGreaterThan deserializeClothesPropertyScoreGreaterThan(ByteBuf _buf)
-    {
-        return new ClothesPropertyScoreGreaterThan(_buf);
-    }
 
     public final cfg.item.EClothesPropertyType prop;
     public final int value;
@@ -42,25 +35,12 @@ public final class ClothesPropertyScoreGreaterThan extends  cfg.condition.BoolRo
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "prop:" + prop + ","
         + "value:" + value + ","

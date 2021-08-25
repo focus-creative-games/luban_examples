@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class CoefficientItem extends  cfg.bonus.Bonus 
-{
-    public CoefficientItem(ByteBuf _buf)
-    { 
+public final class CoefficientItem extends cfg.bonus.Bonus {
+    public CoefficientItem(ByteBuf _buf) { 
         super(_buf);
         bonusId = _buf.readInt();
-        bonusList = cfg.bonus.Items.deserializeItems(_buf);
+        bonusList = new cfg.bonus.Items(_buf);
     }
 
-    public CoefficientItem(int bonus_id, cfg.bonus.Items bonus_list )
-    {
+    public CoefficientItem(int bonus_id, cfg.bonus.Items bonus_list ) {
         super();
         this.bonusId = bonus_id;
         this.bonusList = bonus_list;
     }
 
-    public static CoefficientItem deserializeCoefficientItem(ByteBuf _buf)
-    {
-        return new CoefficientItem(_buf);
-    }
 
     public final int bonusId;
     public final cfg.bonus.Items bonusList;
@@ -42,26 +35,13 @@ public final class CoefficientItem extends  cfg.bonus.Bonus
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (bonusList != null) {bonusList.resolve(_tables);}
+        if (bonusList != null) {bonusList.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bonusId:" + bonusId + ","
         + "bonusList:" + bonusList + ","

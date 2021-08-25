@@ -12,22 +12,17 @@ import bright.serialization.*;
 
 
 
-public abstract class Service extends  cfg.ai.Node 
-{
-    public Service(ByteBuf _buf)
-    { 
+public abstract class Service extends cfg.ai.Node {
+    public Service(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public Service(int id, String node_name )
-    {
+    public Service(int id, String node_name ) {
         super(id, node_name);
     }
 
-    public static Service deserializeService(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Service deserializeService(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.UeSetDefaultFocus.ID: return new cfg.ai.UeSetDefaultFocus(_buf);
             case cfg.ai.ExecuteTimeStatistic.ID: return new cfg.ai.ExecuteTimeStatistic(_buf);
             case cfg.ai.ChooseTarget.ID: return new cfg.ai.ChooseTarget(_buf);
@@ -41,25 +36,12 @@ public abstract class Service extends  cfg.ai.Node
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

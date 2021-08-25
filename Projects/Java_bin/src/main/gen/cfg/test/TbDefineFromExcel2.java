@@ -11,20 +11,17 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbDefineFromExcel2
-{
+public final class TbDefineFromExcel2 {
     private final java.util.HashMap<Integer, cfg.test.DefineFromExcel2> _dataMap;
     private final java.util.ArrayList<cfg.test.DefineFromExcel2> _dataList;
     
-    public TbDefineFromExcel2(ByteBuf _buf)
-    {
+    public TbDefineFromExcel2(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DefineFromExcel2>();
         _dataList = new java.util.ArrayList<cfg.test.DefineFromExcel2>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.DefineFromExcel2 _v;
-            _v = cfg.test.DefineFromExcel2.deserializeDefineFromExcel2(_buf);
+            _v = new cfg.test.DefineFromExcel2(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbDefineFromExcel2
 
     public cfg.test.DefineFromExcel2 get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.test.DefineFromExcel2 v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.DefineFromExcel2 v : _dataList) {
             v.resolve(_tables);
         }
     }

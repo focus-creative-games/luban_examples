@@ -11,17 +11,15 @@ package cfg.common;
 import bright.serialization.*;
 
 
-public final class TbGlobalConfig
-{
+public final class TbGlobalConfig {
     private final cfg.common.GlobalConfig _data;
 
     public final cfg.common.GlobalConfig data() { return _data; }
 
-    public TbGlobalConfig(ByteBuf _buf)
-    {
+    public TbGlobalConfig(ByteBuf _buf) {
         int n = _buf.readSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = cfg.common.GlobalConfig.deserializeGlobalConfig(_buf);
+        _data = new cfg.common.GlobalConfig(_buf);
     }
 
 
@@ -50,9 +48,7 @@ public final class TbGlobalConfig
      public int getMaxViality() { return _data.maxViality; }
      public int getPerVialityRecoveryTime() { return _data.perVialityRecoveryTime; }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);
     }
-
 }

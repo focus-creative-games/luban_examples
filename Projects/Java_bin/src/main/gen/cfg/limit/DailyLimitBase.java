@@ -12,22 +12,17 @@ import bright.serialization.*;
 
 
 
-public abstract class DailyLimitBase extends  cfg.limit.LimitBase 
-{
-    public DailyLimitBase(ByteBuf _buf)
-    { 
+public abstract class DailyLimitBase extends cfg.limit.LimitBase {
+    public DailyLimitBase(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public DailyLimitBase()
-    {
+    public DailyLimitBase() {
         super();
     }
 
-    public static DailyLimitBase deserializeDailyLimitBase(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static DailyLimitBase deserializeDailyLimitBase(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.limit.DailyLimit.ID: return new cfg.limit.DailyLimit(_buf);
             default: throw new SerializationException();
         }
@@ -36,25 +31,12 @@ public abstract class DailyLimitBase extends  cfg.limit.LimitBase
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

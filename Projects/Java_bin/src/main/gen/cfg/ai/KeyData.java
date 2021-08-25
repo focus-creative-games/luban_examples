@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class KeyData extends  bright.serialization.AbstractBean 
-{
-    public KeyData(ByteBuf _buf)
-    { 
+public abstract class KeyData {
+    public KeyData(ByteBuf _buf) { 
     }
 
-    public KeyData()
-    {
+    public KeyData() {
     }
 
-    public static KeyData deserializeKeyData(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static KeyData deserializeKeyData(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.FloatKeyData.ID: return new cfg.ai.FloatKeyData(_buf);
             case cfg.ai.IntKeyData.ID: return new cfg.ai.IntKeyData(_buf);
             case cfg.ai.StringKeyData.ID: return new cfg.ai.StringKeyData(_buf);
@@ -35,26 +30,13 @@ public abstract class KeyData extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

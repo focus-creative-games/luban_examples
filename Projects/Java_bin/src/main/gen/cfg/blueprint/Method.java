@@ -12,19 +12,16 @@ import bright.serialization.*;
 
 
 
-public abstract class Method extends  bright.serialization.AbstractBean 
-{
-    public Method(ByteBuf _buf)
-    { 
+public abstract class Method {
+    public Method(ByteBuf _buf) { 
         name = _buf.readString();
         desc = _buf.readString();
         isStatic = _buf.readBool();
         returnType = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.ParamInfo _e;  _e = cfg.blueprint.ParamInfo.deserializeParamInfo(_buf); parameters.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.ParamInfo _e;  _e = new cfg.blueprint.ParamInfo(_buf); parameters.add(_e);}}
     }
 
-    public Method(String name, String desc, boolean is_static, String return_type, java.util.ArrayList<cfg.blueprint.ParamInfo> parameters )
-    {
+    public Method(String name, String desc, boolean is_static, String return_type, java.util.ArrayList<cfg.blueprint.ParamInfo> parameters ) {
         this.name = name;
         this.desc = desc;
         this.isStatic = is_static;
@@ -32,10 +29,8 @@ public abstract class Method extends  bright.serialization.AbstractBean
         this.parameters = parameters;
     }
 
-    public static Method deserializeMethod(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Method deserializeMethod(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.blueprint.AbstraceMethod.ID: return new cfg.blueprint.AbstraceMethod(_buf);
             case cfg.blueprint.ExternalMethod.ID: return new cfg.blueprint.ExternalMethod(_buf);
             case cfg.blueprint.BlueprintMethod.ID: return new cfg.blueprint.BlueprintMethod(_buf);
@@ -49,27 +44,14 @@ public abstract class Method extends  bright.serialization.AbstractBean
     public final String returnType;
     public final java.util.ArrayList<cfg.blueprint.ParamInfo> parameters;
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.blueprint.ParamInfo _e : parameters) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.blueprint.ParamInfo _e : parameters) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "desc:" + desc + ","

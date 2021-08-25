@@ -12,55 +12,30 @@ import bright.serialization.*;
 
 
 
-public final class LevelExpAttr extends  bright.serialization.AbstractBean 
-{
-    public LevelExpAttr(ByteBuf _buf)
-    { 
+public final class LevelExpAttr {
+    public LevelExpAttr(ByteBuf _buf) { 
         level = _buf.readInt();
         needExp = _buf.readLong();
         {int n = Math.min(_buf.readSize(), _buf.size());clothesAttrs = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); clothesAttrs.add(_e);}}
     }
 
-    public LevelExpAttr(int level, long need_exp, java.util.ArrayList<Integer> clothes_attrs )
-    {
+    public LevelExpAttr(int level, long need_exp, java.util.ArrayList<Integer> clothes_attrs ) {
         this.level = level;
         this.needExp = need_exp;
         this.clothesAttrs = clothes_attrs;
     }
 
-    public static LevelExpAttr deserializeLevelExpAttr(ByteBuf _buf)
-    {
-        return new LevelExpAttr(_buf);
-    }
 
     public final int level;
     public final long needExp;
     public final java.util.ArrayList<Integer> clothesAttrs;
 
-    public static final int ID = -1569837022;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "level:" + level + ","
         + "needExp:" + needExp + ","

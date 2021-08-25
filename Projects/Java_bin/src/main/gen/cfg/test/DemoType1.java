@@ -12,49 +12,24 @@ import bright.serialization.*;
 
 
 
-public final class DemoType1 extends  bright.serialization.AbstractBean 
-{
-    public DemoType1(ByteBuf _buf)
-    { 
+public final class DemoType1 {
+    public DemoType1(ByteBuf _buf) { 
         x1 = _buf.readInt();
     }
 
-    public DemoType1(int x1 )
-    {
+    public DemoType1(int x1 ) {
         this.x1 = x1;
     }
 
-    public static DemoType1 deserializeDemoType1(ByteBuf _buf)
-    {
-        return new DemoType1(_buf);
-    }
 
     public final int x1;
 
-    public static final int ID = -367048296;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x1:" + x1 + ","
         + "}";

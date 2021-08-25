@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class ChooseSkill extends  cfg.ai.Task 
-{
-    public ChooseSkill(ByteBuf _buf)
-    { 
+public final class ChooseSkill extends cfg.ai.Task {
+    public ChooseSkill(ByteBuf _buf) { 
         super(_buf);
         targetActorKey = _buf.readString();
         resultSkillIdKey = _buf.readString();
     }
 
-    public ChooseSkill(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, String target_actor_key, String result_skill_id_key )
-    {
+    public ChooseSkill(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, String target_actor_key, String result_skill_id_key ) {
         super(id, node_name, decorators, services, ignore_restart_self);
         this.targetActorKey = target_actor_key;
         this.resultSkillIdKey = result_skill_id_key;
     }
 
-    public static ChooseSkill deserializeChooseSkill(ByteBuf _buf)
-    {
-        return new ChooseSkill(_buf);
-    }
 
     public final String targetActorKey;
     public final String resultSkillIdKey;
@@ -42,25 +35,12 @@ public final class ChooseSkill extends  cfg.ai.Task
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class UeWait extends  cfg.ai.Task 
-{
-    public UeWait(ByteBuf _buf)
-    { 
+public final class UeWait extends cfg.ai.Task {
+    public UeWait(ByteBuf _buf) { 
         super(_buf);
         waitTime = _buf.readFloat();
         randomDeviation = _buf.readFloat();
     }
 
-    public UeWait(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, float wait_time, float random_deviation )
-    {
+    public UeWait(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self, float wait_time, float random_deviation ) {
         super(id, node_name, decorators, services, ignore_restart_self);
         this.waitTime = wait_time;
         this.randomDeviation = random_deviation;
     }
 
-    public static UeWait deserializeUeWait(ByteBuf _buf)
-    {
-        return new UeWait(_buf);
-    }
 
     public final float waitTime;
     public final float randomDeviation;
@@ -42,25 +35,12 @@ public final class UeWait extends  cfg.ai.Task
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

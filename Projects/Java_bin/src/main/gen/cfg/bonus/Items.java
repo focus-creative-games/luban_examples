@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class Items extends  cfg.bonus.Bonus 
-{
-    public Items(ByteBuf _buf)
-    { 
+public final class Items extends cfg.bonus.Bonus {
+    public Items(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.Item[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.Item _e;_e = cfg.bonus.Item.deserializeItem(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.Item[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.Item _e;_e = new cfg.bonus.Item(_buf); itemList[i] = _e;}}
     }
 
-    public Items(cfg.bonus.Item[] item_list )
-    {
+    public Items(cfg.bonus.Item[] item_list ) {
         super();
         this.itemList = item_list;
     }
 
-    public static Items deserializeItems(ByteBuf _buf)
-    {
-        return new Items(_buf);
-    }
 
     public final cfg.bonus.Item[] itemList;
 
@@ -39,26 +32,13 @@ public final class Items extends  cfg.bonus.Bonus
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.bonus.Item _e : itemList) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.bonus.Item _e : itemList) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "itemList:" + itemList + ","
         + "}";

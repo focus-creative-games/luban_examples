@@ -12,55 +12,30 @@ import bright.serialization.*;
 
 
 
-public final class CompactString extends  bright.serialization.AbstractBean 
-{
-    public CompactString(ByteBuf _buf)
-    { 
+public final class CompactString {
+    public CompactString(ByteBuf _buf) { 
         id = _buf.readInt();
         s2 = _buf.readString();
         s3 = _buf.readString();
     }
 
-    public CompactString(int id, String s2, String s3 )
-    {
+    public CompactString(int id, String s2, String s3 ) {
         this.id = id;
         this.s2 = s2;
         this.s3 = s3;
     }
 
-    public static CompactString deserializeCompactString(ByteBuf _buf)
-    {
-        return new CompactString(_buf);
-    }
 
     public final int id;
     public final String s2;
     public final String s3;
 
-    public static final int ID = 1968089240;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "s2:" + s2 + ","

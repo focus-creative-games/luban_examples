@@ -12,22 +12,17 @@ import bright.serialization.*;
 
 
 
-public abstract class ComposeNode extends  cfg.ai.FlowNode 
-{
-    public ComposeNode(ByteBuf _buf)
-    { 
+public abstract class ComposeNode extends cfg.ai.FlowNode {
+    public ComposeNode(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public ComposeNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services )
-    {
+    public ComposeNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services ) {
         super(id, node_name, decorators, services);
     }
 
-    public static ComposeNode deserializeComposeNode(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static ComposeNode deserializeComposeNode(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.Sequence.ID: return new cfg.ai.Sequence(_buf);
             case cfg.ai.Selector.ID: return new cfg.ai.Selector(_buf);
             case cfg.ai.SimpleParallel.ID: return new cfg.ai.SimpleParallel(_buf);
@@ -38,25 +33,12 @@ public abstract class ComposeNode extends  cfg.ai.FlowNode
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

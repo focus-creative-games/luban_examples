@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class WeightBonusInfo extends  bright.serialization.AbstractBean 
-{
-    public WeightBonusInfo(ByteBuf _buf)
-    { 
+public final class WeightBonusInfo {
+    public WeightBonusInfo(ByteBuf _buf) { 
         bonus = cfg.bonus.Bonus.deserializeBonus(_buf);
         weight = _buf.readInt();
     }
 
-    public WeightBonusInfo(cfg.bonus.Bonus bonus, int weight )
-    {
+    public WeightBonusInfo(cfg.bonus.Bonus bonus, int weight ) {
         this.bonus = bonus;
         this.weight = weight;
     }
 
-    public static WeightBonusInfo deserializeWeightBonusInfo(ByteBuf _buf)
-    {
-        return new WeightBonusInfo(_buf);
-    }
 
     public final cfg.bonus.Bonus bonus;
     public final int weight;
 
-    public static final int ID = -907244058;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (bonus != null) {bonus.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (bonus != null) {bonus.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bonus:" + bonus + ","
         + "weight:" + weight + ","

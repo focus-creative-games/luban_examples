@@ -12,22 +12,15 @@ import bright.serialization.*;
 
 
 
-public final class ErrorStyleTip extends  cfg.error.ErrorStyle 
-{
-    public ErrorStyleTip(ByteBuf _buf)
-    { 
+public final class ErrorStyleTip extends cfg.error.ErrorStyle {
+    public ErrorStyleTip(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public ErrorStyleTip()
-    {
+    public ErrorStyleTip() {
         super();
     }
 
-    public static ErrorStyleTip deserializeErrorStyleTip(ByteBuf _buf)
-    {
-        return new ErrorStyleTip(_buf);
-    }
 
 
     public static final int ID = 1915239884;
@@ -36,25 +29,12 @@ public final class ErrorStyleTip extends  cfg.error.ErrorStyle
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

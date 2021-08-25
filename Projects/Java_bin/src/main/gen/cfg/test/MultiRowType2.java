@@ -12,55 +12,30 @@ import bright.serialization.*;
 
 
 
-public final class MultiRowType2 extends  bright.serialization.AbstractBean 
-{
-    public MultiRowType2(ByteBuf _buf)
-    { 
+public final class MultiRowType2 {
+    public MultiRowType2(ByteBuf _buf) { 
         id = _buf.readInt();
         x = _buf.readInt();
         y = _buf.readFloat();
     }
 
-    public MultiRowType2(int id, int x, float y )
-    {
+    public MultiRowType2(int id, int x, float y ) {
         this.id = id;
         this.x = x;
         this.y = y;
     }
 
-    public static MultiRowType2 deserializeMultiRowType2(ByteBuf _buf)
-    {
-        return new MultiRowType2(_buf);
-    }
 
     public final int id;
     public final int x;
     public final float y;
 
-    public static final int ID = 540474971;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "x:" + x + ","

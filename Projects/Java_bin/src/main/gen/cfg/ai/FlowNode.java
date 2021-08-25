@@ -12,26 +12,21 @@ import bright.serialization.*;
 
 
 
-public abstract class FlowNode extends  cfg.ai.Node 
-{
-    public FlowNode(ByteBuf _buf)
-    { 
+public abstract class FlowNode extends cfg.ai.Node {
+    public FlowNode(ByteBuf _buf) { 
         super(_buf);
         {int n = Math.min(_buf.readSize(), _buf.size());decorators = new java.util.ArrayList<cfg.ai.Decorator>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.Decorator _e;  _e = cfg.ai.Decorator.deserializeDecorator(_buf); decorators.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());services = new java.util.ArrayList<cfg.ai.Service>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.Service _e;  _e = cfg.ai.Service.deserializeService(_buf); services.add(_e);}}
     }
 
-    public FlowNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services )
-    {
+    public FlowNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services ) {
         super(id, node_name);
         this.decorators = decorators;
         this.services = services;
     }
 
-    public static FlowNode deserializeFlowNode(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static FlowNode deserializeFlowNode(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.Sequence.ID: return new cfg.ai.Sequence(_buf);
             case cfg.ai.Selector.ID: return new cfg.ai.Selector(_buf);
             case cfg.ai.SimpleParallel.ID: return new cfg.ai.SimpleParallel(_buf);
@@ -51,27 +46,14 @@ public abstract class FlowNode extends  cfg.ai.Node
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.ai.Decorator _e : decorators) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.ai.Service _e : services) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.ai.Decorator _e : decorators) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.ai.Service _e : services) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

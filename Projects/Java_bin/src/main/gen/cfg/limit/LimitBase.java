@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class LimitBase extends  bright.serialization.AbstractBean 
-{
-    public LimitBase(ByteBuf _buf)
-    { 
+public abstract class LimitBase {
+    public LimitBase(ByteBuf _buf) { 
     }
 
-    public LimitBase()
-    {
+    public LimitBase() {
     }
 
-    public static LimitBase deserializeLimitBase(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static LimitBase deserializeLimitBase(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.limit.DailyLimit.ID: return new cfg.limit.DailyLimit(_buf);
             case cfg.limit.MultiDayLimit.ID: return new cfg.limit.MultiDayLimit(_buf);
             case cfg.limit.WeeklyLimit.ID: return new cfg.limit.WeeklyLimit(_buf);
@@ -37,26 +32,13 @@ public abstract class LimitBase extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

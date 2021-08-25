@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class TestGlobal extends  bright.serialization.AbstractBean 
-{
-    public TestGlobal(ByteBuf _buf)
-    { 
+public final class TestGlobal {
+    public TestGlobal(ByteBuf _buf) { 
         unlockEquip = _buf.readInt();
         unlockHero = _buf.readInt();
     }
 
-    public TestGlobal(int unlock_equip, int unlock_hero )
-    {
+    public TestGlobal(int unlock_equip, int unlock_hero ) {
         this.unlockEquip = unlock_equip;
         this.unlockHero = unlock_hero;
     }
 
-    public static TestGlobal deserializeTestGlobal(ByteBuf _buf)
-    {
-        return new TestGlobal(_buf);
-    }
 
     public final int unlockEquip;
     public final int unlockHero;
 
-    public static final int ID = -12548655;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "unlockEquip:" + unlockEquip + ","
         + "unlockHero:" + unlockHero + ","

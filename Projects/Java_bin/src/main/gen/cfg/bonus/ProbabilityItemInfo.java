@@ -12,57 +12,32 @@ import bright.serialization.*;
 
 
 
-public final class ProbabilityItemInfo extends  bright.serialization.AbstractBean 
-{
-    public ProbabilityItemInfo(ByteBuf _buf)
-    { 
+public final class ProbabilityItemInfo {
+    public ProbabilityItemInfo(ByteBuf _buf) { 
         itemId = _buf.readInt();
         num = _buf.readInt();
         probability = _buf.readFloat();
     }
 
-    public ProbabilityItemInfo(int item_id, int num, float probability )
-    {
+    public ProbabilityItemInfo(int item_id, int num, float probability ) {
         this.itemId = item_id;
         this.num = num;
         this.probability = probability;
     }
 
-    public static ProbabilityItemInfo deserializeProbabilityItemInfo(ByteBuf _buf)
-    {
-        return new ProbabilityItemInfo(_buf);
-    }
 
     public final int itemId;
     public cfg.item.Item itemId_Ref;
     public final int num;
     public final float probability;
 
-    public static final int ID = 1547874631;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.itemId_Ref = ((cfg.item.TbItem)_tables.get("item.TbItem")).get(itemId);
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "itemId:" + itemId + ","
         + "num:" + num + ","

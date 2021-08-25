@@ -12,22 +12,15 @@ import bright.serialization.*;
 
 
 
-public final class IsNotSet extends  cfg.ai.KeyQueryOperator 
-{
-    public IsNotSet(ByteBuf _buf)
-    { 
+public final class IsNotSet extends cfg.ai.KeyQueryOperator {
+    public IsNotSet(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public IsNotSet()
-    {
+    public IsNotSet() {
         super();
     }
 
-    public static IsNotSet deserializeIsNotSet(ByteBuf _buf)
-    {
-        return new IsNotSet(_buf);
-    }
 
 
     public static final int ID = 790736255;
@@ -36,25 +29,12 @@ public final class IsNotSet extends  cfg.ai.KeyQueryOperator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

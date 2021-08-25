@@ -12,21 +12,18 @@ import bright.serialization.*;
 
 
 
-public final class TestNull extends  bright.serialization.AbstractBean 
-{
-    public TestNull(ByteBuf _buf)
-    { 
+public final class TestNull {
+    public TestNull(ByteBuf _buf) { 
         id = _buf.readInt();
         if(_buf.readBool()){ x1 = _buf.readInt(); } else { x1 = null; }
         if(_buf.readBool()){ x2 = cfg.test.DemoEnum.valueOf(_buf.readInt()); } else { x2 = null; }
-        if(_buf.readBool()){ x3 = cfg.test.DemoType1.deserializeDemoType1(_buf); } else { x3 = null; }
+        if(_buf.readBool()){ x3 = new cfg.test.DemoType1(_buf); } else { x3 = null; }
         if(_buf.readBool()){ x4 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); } else { x4 = null; }
         if(_buf.readBool()){ s1 = _buf.readString(); } else { s1 = null; }
         if(_buf.readBool()){ s2 = _buf.readString(); } else { s2 = null; }
     }
 
-    public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 )
-    {
+    public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 ) {
         this.id = id;
         this.x1 = x1;
         this.x2 = x2;
@@ -36,10 +33,6 @@ public final class TestNull extends  bright.serialization.AbstractBean
         this.s2 = s2;
     }
 
-    public static TestNull deserializeTestNull(ByteBuf _buf)
-    {
-        return new TestNull(_buf);
-    }
 
     public final int id;
     public final Integer x1;
@@ -49,32 +42,14 @@ public final class TestNull extends  bright.serialization.AbstractBean
     public final String s1;
     public final String s2;
 
-    public static final int ID = 339868469;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (x3 != null) {x3.resolve(_tables);}
+        if (x4 != null) {x4.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (x3 != null) {x3.resolve(_tables);}
-            if (x4 != null) {x4.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "x1:" + x1 + ","

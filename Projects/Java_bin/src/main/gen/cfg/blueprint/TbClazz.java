@@ -11,18 +11,15 @@ package cfg.blueprint;
 import bright.serialization.*;
 
 
-public final class TbClazz
-{
+public final class TbClazz {
     private final java.util.HashMap<String, cfg.blueprint.Clazz> _dataMap;
     private final java.util.ArrayList<cfg.blueprint.Clazz> _dataList;
     
-    public TbClazz(ByteBuf _buf)
-    {
+    public TbClazz(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<String, cfg.blueprint.Clazz>();
         _dataList = new java.util.ArrayList<cfg.blueprint.Clazz>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.blueprint.Clazz _v;
             _v = cfg.blueprint.Clazz.deserializeClazz(_buf);
             _dataList.add(_v);
@@ -37,10 +34,8 @@ public final class TbClazz
     public <T extends cfg.blueprint.Clazz> T getAs(String key) { return (T)_dataMap.get(key); }
     public cfg.blueprint.Clazz get(String key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.blueprint.Clazz v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.blueprint.Clazz v : _dataList) {
             v.resolve(_tables);
         }
     }

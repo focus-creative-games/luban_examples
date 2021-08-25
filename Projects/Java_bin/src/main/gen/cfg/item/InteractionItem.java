@@ -12,28 +12,21 @@ import bright.serialization.*;
 
 
 
-public final class InteractionItem extends  cfg.item.ItemExtra 
-{
-    public InteractionItem(ByteBuf _buf)
-    { 
+public final class InteractionItem extends cfg.item.ItemExtra {
+    public InteractionItem(ByteBuf _buf) { 
         super(_buf);
         if(_buf.readBool()){ attackNum = _buf.readInt(); } else { attackNum = null; }
         holdingStaticMesh = _buf.readString();
         holdingStaticMeshMat = _buf.readString();
     }
 
-    public InteractionItem(int id, Integer attack_num, String holding_static_mesh, String holding_static_mesh_mat )
-    {
+    public InteractionItem(int id, Integer attack_num, String holding_static_mesh, String holding_static_mesh_mat ) {
         super(id);
         this.attackNum = attack_num;
         this.holdingStaticMesh = holding_static_mesh;
         this.holdingStaticMeshMat = holding_static_mesh_mat;
     }
 
-    public static InteractionItem deserializeInteractionItem(ByteBuf _buf)
-    {
-        return new InteractionItem(_buf);
-    }
 
     public final Integer attackNum;
     public final String holdingStaticMesh;
@@ -45,25 +38,12 @@ public final class InteractionItem extends  cfg.item.ItemExtra
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "attackNum:" + attackNum + ","

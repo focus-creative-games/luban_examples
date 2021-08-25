@@ -11,20 +11,17 @@ package cfg.mail;
 import bright.serialization.*;
 
 
-public final class TbGlobalMail
-{
+public final class TbGlobalMail {
     private final java.util.HashMap<Integer, cfg.mail.GlobalMail> _dataMap;
     private final java.util.ArrayList<cfg.mail.GlobalMail> _dataList;
     
-    public TbGlobalMail(ByteBuf _buf)
-    {
+    public TbGlobalMail(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.mail.GlobalMail>();
         _dataList = new java.util.ArrayList<cfg.mail.GlobalMail>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.mail.GlobalMail _v;
-            _v = cfg.mail.GlobalMail.deserializeGlobalMail(_buf);
+            _v = new cfg.mail.GlobalMail(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbGlobalMail
 
     public cfg.mail.GlobalMail get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.mail.GlobalMail v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.mail.GlobalMail v : _dataList) {
             v.resolve(_tables);
         }
     }

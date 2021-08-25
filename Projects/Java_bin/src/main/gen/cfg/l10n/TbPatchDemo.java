@@ -11,20 +11,17 @@ package cfg.l10n;
 import bright.serialization.*;
 
 
-public final class TbPatchDemo
-{
+public final class TbPatchDemo {
     private final java.util.HashMap<Integer, cfg.l10n.PatchDemo> _dataMap;
     private final java.util.ArrayList<cfg.l10n.PatchDemo> _dataList;
     
-    public TbPatchDemo(ByteBuf _buf)
-    {
+    public TbPatchDemo(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.l10n.PatchDemo>();
         _dataList = new java.util.ArrayList<cfg.l10n.PatchDemo>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.l10n.PatchDemo _v;
-            _v = cfg.l10n.PatchDemo.deserializePatchDemo(_buf);
+            _v = new cfg.l10n.PatchDemo(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbPatchDemo
 
     public cfg.l10n.PatchDemo get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.l10n.PatchDemo v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.l10n.PatchDemo v : _dataList) {
             v.resolve(_tables);
         }
     }

@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class Condition extends  bright.serialization.AbstractBean 
-{
-    public Condition(ByteBuf _buf)
-    { 
+public abstract class Condition {
+    public Condition(ByteBuf _buf) { 
     }
 
-    public Condition()
-    {
+    public Condition() {
     }
 
-    public static Condition deserializeCondition(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Condition deserializeCondition(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.condition.TimeRange.ID: return new cfg.condition.TimeRange(_buf);
             case cfg.condition.MultiRoleCondition.ID: return new cfg.condition.MultiRoleCondition(_buf);
             case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
@@ -39,26 +34,13 @@ public abstract class Condition extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class DateTimeRange extends  bright.serialization.AbstractBean 
-{
-    public DateTimeRange(ByteBuf _buf)
-    { 
+public final class DateTimeRange {
+    public DateTimeRange(ByteBuf _buf) { 
         if(_buf.readBool()){ startTime = _buf.readInt(); } else { startTime = null; }
         if(_buf.readBool()){ endTime = _buf.readInt(); } else { endTime = null; }
     }
 
-    public DateTimeRange(Integer start_time, Integer end_time )
-    {
+    public DateTimeRange(Integer start_time, Integer end_time ) {
         this.startTime = start_time;
         this.endTime = end_time;
     }
 
-    public static DateTimeRange deserializeDateTimeRange(ByteBuf _buf)
-    {
-        return new DateTimeRange(_buf);
-    }
 
     public final Integer startTime;
     public final Integer endTime;
 
-    public static final int ID = 1642200959;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "startTime:" + startTime + ","
         + "endTime:" + endTime + ","

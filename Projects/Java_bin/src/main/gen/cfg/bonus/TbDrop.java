@@ -11,20 +11,17 @@ package cfg.bonus;
 import bright.serialization.*;
 
 
-public final class TbDrop
-{
+public final class TbDrop {
     private final java.util.HashMap<Integer, cfg.bonus.DropInfo> _dataMap;
     private final java.util.ArrayList<cfg.bonus.DropInfo> _dataList;
     
-    public TbDrop(ByteBuf _buf)
-    {
+    public TbDrop(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.bonus.DropInfo>();
         _dataList = new java.util.ArrayList<cfg.bonus.DropInfo>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.bonus.DropInfo _v;
-            _v = cfg.bonus.DropInfo.deserializeDropInfo(_buf);
+            _v = new cfg.bonus.DropInfo(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbDrop
 
     public cfg.bonus.DropInfo get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.bonus.DropInfo v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.bonus.DropInfo v : _dataList) {
             v.resolve(_tables);
         }
     }

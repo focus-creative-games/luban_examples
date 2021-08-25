@@ -12,22 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class MultiRowRecord extends  bright.serialization.AbstractBean 
-{
-    public MultiRowRecord(ByteBuf _buf)
-    { 
+public final class MultiRowRecord {
+    public MultiRowRecord(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());oneRows = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = cfg.test.MultiRowType1.deserializeMultiRowType1(_buf); oneRows.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());multiRows1 = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = cfg.test.MultiRowType1.deserializeMultiRowType1(_buf); multiRows1.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());multiRows2 = new cfg.test.MultiRowType1[n];for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;_e = cfg.test.MultiRowType1.deserializeMultiRowType1(_buf); multiRows2[i] = _e;}}
-        {int n = Math.min(_buf.readSize(), _buf.size());multiRows3 = new java.util.HashSet<cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType2 _e;  _e = cfg.test.MultiRowType2.deserializeMultiRowType2(_buf); multiRows3.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());multiRows4 = new java.util.HashMap<Integer, cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); cfg.test.MultiRowType2 _v;  _v = cfg.test.MultiRowType2.deserializeMultiRowType2(_buf);     multiRows4.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());multiRows5 = new java.util.ArrayList<cfg.test.MultiRowType3>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType3 _e;  _e = cfg.test.MultiRowType3.deserializeMultiRowType3(_buf); multiRows5.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());oneRows = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = new cfg.test.MultiRowType1(_buf); oneRows.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows1 = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = new cfg.test.MultiRowType1(_buf); multiRows1.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows2 = new cfg.test.MultiRowType1[n];for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;_e = new cfg.test.MultiRowType1(_buf); multiRows2[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows3 = new java.util.HashSet<cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType2 _e;  _e = new cfg.test.MultiRowType2(_buf); multiRows3.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows4 = new java.util.HashMap<Integer, cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); cfg.test.MultiRowType2 _v;  _v = new cfg.test.MultiRowType2(_buf);     multiRows4.put(_k, _v);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows5 = new java.util.ArrayList<cfg.test.MultiRowType3>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType3 _e;  _e = new cfg.test.MultiRowType3(_buf); multiRows5.add(_e);}}
     }
 
-    public MultiRowRecord(int id, String name, java.util.ArrayList<cfg.test.MultiRowType1> one_rows, java.util.ArrayList<cfg.test.MultiRowType1> multi_rows1, cfg.test.MultiRowType1[] multi_rows2, java.util.HashSet<cfg.test.MultiRowType2> multi_rows3, java.util.HashMap<Integer, cfg.test.MultiRowType2> multi_rows4, java.util.ArrayList<cfg.test.MultiRowType3> multi_rows5 )
-    {
+    public MultiRowRecord(int id, String name, java.util.ArrayList<cfg.test.MultiRowType1> one_rows, java.util.ArrayList<cfg.test.MultiRowType1> multi_rows1, cfg.test.MultiRowType1[] multi_rows2, java.util.HashSet<cfg.test.MultiRowType2> multi_rows3, java.util.HashMap<Integer, cfg.test.MultiRowType2> multi_rows4, java.util.ArrayList<cfg.test.MultiRowType3> multi_rows5 ) {
         this.id = id;
         this.name = name;
         this.oneRows = one_rows;
@@ -38,10 +35,6 @@ public final class MultiRowRecord extends  bright.serialization.AbstractBean
         this.multiRows5 = multi_rows5;
     }
 
-    public static MultiRowRecord deserializeMultiRowRecord(ByteBuf _buf)
-    {
-        return new MultiRowRecord(_buf);
-    }
 
     public final int id;
     public final String name;
@@ -52,35 +45,17 @@ public final class MultiRowRecord extends  bright.serialization.AbstractBean
     public final java.util.HashMap<Integer, cfg.test.MultiRowType2> multiRows4;
     public final java.util.ArrayList<cfg.test.MultiRowType3> multiRows5;
 
-    public static final int ID = -501249394;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.MultiRowType1 _e : oneRows) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.MultiRowType1 _e : multiRows1) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.MultiRowType1 _e : multiRows2) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.MultiRowType2 _e : multiRows4.values()) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.MultiRowType3 _e : multiRows5) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.test.MultiRowType1 _e : oneRows) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.MultiRowType1 _e : multiRows1) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.MultiRowType1 _e : multiRows2) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.MultiRowType2 _e : multiRows4.values()) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.MultiRowType3 _e : multiRows5) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "name:" + name + ","

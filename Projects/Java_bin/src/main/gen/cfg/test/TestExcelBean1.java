@@ -15,28 +15,21 @@ import bright.serialization.*;
 /**
  * 这是个测试excel结构
  */
-public final class TestExcelBean1 extends  bright.serialization.AbstractBean 
-{
-    public TestExcelBean1(ByteBuf _buf)
-    { 
+public final class TestExcelBean1 {
+    public TestExcelBean1(ByteBuf _buf) { 
         x1 = _buf.readInt();
         x2 = _buf.readString();
         x3 = _buf.readInt();
         x4 = _buf.readFloat();
     }
 
-    public TestExcelBean1(int x1, String x2, int x3, float x4 )
-    {
+    public TestExcelBean1(int x1, String x2, int x3, float x4 ) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
         this.x4 = x4;
     }
 
-    public static TestExcelBean1 deserializeTestExcelBean1(ByteBuf _buf)
-    {
-        return new TestExcelBean1(_buf);
-    }
 
     /**
      * 最高品质
@@ -55,30 +48,12 @@ public final class TestExcelBean1 extends  bright.serialization.AbstractBean
      */
     public final float x4;
 
-    public static final int ID = -1738345160;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x1:" + x1 + ","
         + "x2:" + x2 + ","

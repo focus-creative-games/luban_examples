@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class GlobalMail extends  bright.serialization.AbstractBean 
-{
-    public GlobalMail(ByteBuf _buf)
-    { 
+public final class GlobalMail {
+    public GlobalMail(ByteBuf _buf) { 
         id = _buf.readInt();
         title = _buf.readString();
         sender = _buf.readString();
@@ -25,13 +23,12 @@ public final class GlobalMail extends  bright.serialization.AbstractBean
         {int n = Math.min(_buf.readSize(), _buf.size());serverList = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); serverList.add(_e);}}
         platform = _buf.readString();
         channel = _buf.readString();
-        minMaxLevel = cfg.condition.MinMaxLevel.deserializeMinMaxLevel(_buf);
-        registerTime = cfg.condition.TimeRange.deserializeTimeRange(_buf);
-        mailTime = cfg.condition.TimeRange.deserializeTimeRange(_buf);
+        minMaxLevel = new cfg.condition.MinMaxLevel(_buf);
+        registerTime = new cfg.condition.TimeRange(_buf);
+        mailTime = new cfg.condition.TimeRange(_buf);
     }
 
-    public GlobalMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award, boolean all_server, java.util.ArrayList<Integer> server_list, String platform, String channel, cfg.condition.MinMaxLevel min_max_level, cfg.condition.TimeRange register_time, cfg.condition.TimeRange mail_time )
-    {
+    public GlobalMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award, boolean all_server, java.util.ArrayList<Integer> server_list, String platform, String channel, cfg.condition.MinMaxLevel min_max_level, cfg.condition.TimeRange register_time, cfg.condition.TimeRange mail_time ) {
         this.id = id;
         this.title = title;
         this.sender = sender;
@@ -46,10 +43,6 @@ public final class GlobalMail extends  bright.serialization.AbstractBean
         this.mailTime = mail_time;
     }
 
-    public static GlobalMail deserializeGlobalMail(ByteBuf _buf)
-    {
-        return new GlobalMail(_buf);
-    }
 
     public final int id;
     public final String title;
@@ -64,33 +57,15 @@ public final class GlobalMail extends  bright.serialization.AbstractBean
     public final cfg.condition.TimeRange registerTime;
     public final cfg.condition.TimeRange mailTime;
 
-    public static final int ID = -287571791;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (minMaxLevel != null) {minMaxLevel.resolve(_tables);}
+        if (registerTime != null) {registerTime.resolve(_tables);}
+        if (mailTime != null) {mailTime.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (minMaxLevel != null) {minMaxLevel.resolve(_tables);}
-            if (registerTime != null) {registerTime.resolve(_tables);}
-            if (mailTime != null) {mailTime.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "title:" + title + ","

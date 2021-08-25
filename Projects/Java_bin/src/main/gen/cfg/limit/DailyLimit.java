@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class DailyLimit extends  cfg.limit.DailyLimitBase 
-{
-    public DailyLimit(ByteBuf _buf)
-    { 
+public final class DailyLimit extends cfg.limit.DailyLimitBase {
+    public DailyLimit(ByteBuf _buf) { 
         super(_buf);
         num = _buf.readInt();
     }
 
-    public DailyLimit(int num )
-    {
+    public DailyLimit(int num ) {
         super();
         this.num = num;
     }
 
-    public static DailyLimit deserializeDailyLimit(ByteBuf _buf)
-    {
-        return new DailyLimit(_buf);
-    }
 
     public final int num;
 
@@ -39,25 +32,12 @@ public final class DailyLimit extends  cfg.limit.DailyLimitBase
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "num:" + num + ","
         + "}";

@@ -11,17 +11,15 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbDefineFromExcelOne
-{
+public final class TbDefineFromExcelOne {
     private final cfg.test.DefineFromExcelOne _data;
 
     public final cfg.test.DefineFromExcelOne data() { return _data; }
 
-    public TbDefineFromExcelOne(ByteBuf _buf)
-    {
+    public TbDefineFromExcelOne(ByteBuf _buf) {
         int n = _buf.readSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = cfg.test.DefineFromExcelOne.deserializeDefineFromExcelOne(_buf);
+        _data = new cfg.test.DefineFromExcelOne(_buf);
     }
 
 
@@ -39,9 +37,7 @@ public final class TbDefineFromExcelOne
      public String getDefaultAvatar() { return _data.defaultAvatar; }
      public String getDefaultItem() { return _data.defaultItem; }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);
     }
-
 }

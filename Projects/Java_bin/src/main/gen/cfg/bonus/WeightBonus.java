@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class WeightBonus extends  cfg.bonus.Bonus 
-{
-    public WeightBonus(ByteBuf _buf)
-    { 
+public final class WeightBonus extends cfg.bonus.Bonus {
+    public WeightBonus(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.WeightBonusInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.WeightBonusInfo _e;_e = cfg.bonus.WeightBonusInfo.deserializeWeightBonusInfo(_buf); bonuses[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.WeightBonusInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.WeightBonusInfo _e;_e = new cfg.bonus.WeightBonusInfo(_buf); bonuses[i] = _e;}}
     }
 
-    public WeightBonus(cfg.bonus.WeightBonusInfo[] bonuses )
-    {
+    public WeightBonus(cfg.bonus.WeightBonusInfo[] bonuses ) {
         super();
         this.bonuses = bonuses;
     }
 
-    public static WeightBonus deserializeWeightBonus(ByteBuf _buf)
-    {
-        return new WeightBonus(_buf);
-    }
 
     public final cfg.bonus.WeightBonusInfo[] bonuses;
 
@@ -39,26 +32,13 @@ public final class WeightBonus extends  cfg.bonus.Bonus
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.bonus.WeightBonusInfo _e : bonuses) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.bonus.WeightBonusInfo _e : bonuses) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bonuses:" + bonuses + ","
         + "}";

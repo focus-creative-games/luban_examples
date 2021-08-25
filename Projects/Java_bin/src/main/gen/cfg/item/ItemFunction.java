@@ -12,58 +12,33 @@ import bright.serialization.*;
 
 
 
-public final class ItemFunction extends  bright.serialization.AbstractBean 
-{
-    public ItemFunction(ByteBuf _buf)
-    { 
+public final class ItemFunction {
+    public ItemFunction(ByteBuf _buf) { 
         minorType = cfg.item.EMinorType.valueOf(_buf.readInt());
         funcType = cfg.item.EItemFunctionType.valueOf(_buf.readInt());
         method = _buf.readString();
         closeBagUi = _buf.readBool();
     }
 
-    public ItemFunction(cfg.item.EMinorType minor_type, cfg.item.EItemFunctionType func_type, String method, boolean close_bag_ui )
-    {
+    public ItemFunction(cfg.item.EMinorType minor_type, cfg.item.EItemFunctionType func_type, String method, boolean close_bag_ui ) {
         this.minorType = minor_type;
         this.funcType = func_type;
         this.method = method;
         this.closeBagUi = close_bag_ui;
     }
 
-    public static ItemFunction deserializeItemFunction(ByteBuf _buf)
-    {
-        return new ItemFunction(_buf);
-    }
 
     public final cfg.item.EMinorType minorType;
     public final cfg.item.EItemFunctionType funcType;
     public final String method;
     public final boolean closeBagUi;
 
-    public static final int ID = 1205824294;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "minorType:" + minorType + ","
         + "funcType:" + funcType + ","

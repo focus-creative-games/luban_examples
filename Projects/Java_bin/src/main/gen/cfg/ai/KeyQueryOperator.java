@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class KeyQueryOperator extends  bright.serialization.AbstractBean 
-{
-    public KeyQueryOperator(ByteBuf _buf)
-    { 
+public abstract class KeyQueryOperator {
+    public KeyQueryOperator(ByteBuf _buf) { 
     }
 
-    public KeyQueryOperator()
-    {
+    public KeyQueryOperator() {
     }
 
-    public static KeyQueryOperator deserializeKeyQueryOperator(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static KeyQueryOperator deserializeKeyQueryOperator(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.IsSet.ID: return new cfg.ai.IsSet(_buf);
             case cfg.ai.IsNotSet.ID: return new cfg.ai.IsNotSet(_buf);
             case cfg.ai.BinaryOperator.ID: return new cfg.ai.BinaryOperator(_buf);
@@ -34,26 +29,13 @@ public abstract class KeyQueryOperator extends  bright.serialization.AbstractBea
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

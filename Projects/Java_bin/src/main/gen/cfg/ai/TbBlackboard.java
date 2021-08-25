@@ -11,20 +11,17 @@ package cfg.ai;
 import bright.serialization.*;
 
 
-public final class TbBlackboard
-{
+public final class TbBlackboard {
     private final java.util.HashMap<String, cfg.ai.Blackboard> _dataMap;
     private final java.util.ArrayList<cfg.ai.Blackboard> _dataList;
     
-    public TbBlackboard(ByteBuf _buf)
-    {
+    public TbBlackboard(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<String, cfg.ai.Blackboard>();
         _dataList = new java.util.ArrayList<cfg.ai.Blackboard>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.ai.Blackboard _v;
-            _v = cfg.ai.Blackboard.deserializeBlackboard(_buf);
+            _v = new cfg.ai.Blackboard(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.name, _v);
         }
@@ -35,10 +32,8 @@ public final class TbBlackboard
 
     public cfg.ai.Blackboard get(String key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.ai.Blackboard v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.ai.Blackboard v : _dataList) {
             v.resolve(_tables);
         }
     }

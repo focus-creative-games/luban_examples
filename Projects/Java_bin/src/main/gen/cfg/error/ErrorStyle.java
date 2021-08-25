@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class ErrorStyle extends  bright.serialization.AbstractBean 
-{
-    public ErrorStyle(ByteBuf _buf)
-    { 
+public abstract class ErrorStyle {
+    public ErrorStyle(ByteBuf _buf) { 
     }
 
-    public ErrorStyle()
-    {
+    public ErrorStyle() {
     }
 
-    public static ErrorStyle deserializeErrorStyle(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static ErrorStyle deserializeErrorStyle(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.error.ErrorStyleTip.ID: return new cfg.error.ErrorStyleTip(_buf);
             case cfg.error.ErrorStyleMsgbox.ID: return new cfg.error.ErrorStyleMsgbox(_buf);
             case cfg.error.ErrorStyleDlgOk.ID: return new cfg.error.ErrorStyleDlgOk(_buf);
@@ -35,26 +30,13 @@ public abstract class ErrorStyle extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

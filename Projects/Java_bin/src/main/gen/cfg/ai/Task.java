@@ -12,24 +12,19 @@ import bright.serialization.*;
 
 
 
-public abstract class Task extends  cfg.ai.FlowNode 
-{
-    public Task(ByteBuf _buf)
-    { 
+public abstract class Task extends cfg.ai.FlowNode {
+    public Task(ByteBuf _buf) { 
         super(_buf);
         ignoreRestartSelf = _buf.readBool();
     }
 
-    public Task(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self )
-    {
+    public Task(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, boolean ignore_restart_self ) {
         super(id, node_name, decorators, services);
         this.ignoreRestartSelf = ignore_restart_self;
     }
 
-    public static Task deserializeTask(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Task deserializeTask(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.UeWait.ID: return new cfg.ai.UeWait(_buf);
             case cfg.ai.UeWaitBlackboardTime.ID: return new cfg.ai.UeWaitBlackboardTime(_buf);
             case cfg.ai.MoveToTarget.ID: return new cfg.ai.MoveToTarget(_buf);
@@ -45,25 +40,12 @@ public abstract class Task extends  cfg.ai.FlowNode
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

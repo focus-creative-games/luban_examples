@@ -11,20 +11,17 @@ package cfg.item;
 import bright.serialization.*;
 
 
-public final class TbItemFunc
-{
+public final class TbItemFunc {
     private final java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction> _dataMap;
     private final java.util.ArrayList<cfg.item.ItemFunction> _dataList;
     
-    public TbItemFunc(ByteBuf _buf)
-    {
+    public TbItemFunc(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction>();
         _dataList = new java.util.ArrayList<cfg.item.ItemFunction>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.item.ItemFunction _v;
-            _v = cfg.item.ItemFunction.deserializeItemFunction(_buf);
+            _v = new cfg.item.ItemFunction(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.minorType, _v);
         }
@@ -35,10 +32,8 @@ public final class TbItemFunc
 
     public cfg.item.ItemFunction get(cfg.item.EMinorType key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.item.ItemFunction v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.item.ItemFunction v : _dataList) {
             v.resolve(_tables);
         }
     }

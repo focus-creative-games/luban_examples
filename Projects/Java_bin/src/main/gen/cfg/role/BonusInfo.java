@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class BonusInfo extends  bright.serialization.AbstractBean 
-{
-    public BonusInfo(ByteBuf _buf)
-    { 
+public final class BonusInfo {
+    public BonusInfo(ByteBuf _buf) { 
         type = cfg.item.ECurrencyType.valueOf(_buf.readInt());
         coefficient = _buf.readFloat();
     }
 
-    public BonusInfo(cfg.item.ECurrencyType type, float coefficient )
-    {
+    public BonusInfo(cfg.item.ECurrencyType type, float coefficient ) {
         this.type = type;
         this.coefficient = coefficient;
     }
 
-    public static BonusInfo deserializeBonusInfo(ByteBuf _buf)
-    {
-        return new BonusInfo(_buf);
-    }
 
     public final cfg.item.ECurrencyType type;
     public final float coefficient;
 
-    public static final int ID = -1354421803;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "type:" + type + ","
         + "coefficient:" + coefficient + ","

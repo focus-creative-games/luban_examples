@@ -12,60 +12,35 @@ import bright.serialization.*;
 
 
 
-public final class DropInfo extends  bright.serialization.AbstractBean 
-{
-    public DropInfo(ByteBuf _buf)
-    { 
+public final class DropInfo {
+    public DropInfo(ByteBuf _buf) { 
         id = _buf.readInt();
         desc = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.bonus.ShowItemInfo _e;  _e = cfg.bonus.ShowItemInfo.deserializeShowItemInfo(_buf); clientShowItems.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.bonus.ShowItemInfo _e;  _e = new cfg.bonus.ShowItemInfo(_buf); clientShowItems.add(_e);}}
         bonus = cfg.bonus.Bonus.deserializeBonus(_buf);
     }
 
-    public DropInfo(int id, String desc, java.util.ArrayList<cfg.bonus.ShowItemInfo> client_show_items, cfg.bonus.Bonus bonus )
-    {
+    public DropInfo(int id, String desc, java.util.ArrayList<cfg.bonus.ShowItemInfo> client_show_items, cfg.bonus.Bonus bonus ) {
         this.id = id;
         this.desc = desc;
         this.clientShowItems = client_show_items;
         this.bonus = bonus;
     }
 
-    public static DropInfo deserializeDropInfo(ByteBuf _buf)
-    {
-        return new DropInfo(_buf);
-    }
 
     public final int id;
     public final String desc;
     public final java.util.ArrayList<cfg.bonus.ShowItemInfo> clientShowItems;
     public final cfg.bonus.Bonus bonus;
 
-    public static final int ID = -2014781108;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.bonus.ShowItemInfo _e : clientShowItems) { if (_e != null) _e.resolve(_tables); }
+        if (bonus != null) {bonus.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.bonus.ShowItemInfo _e : clientShowItems) { if (_e != null) _e.resolve(_tables); }
-            if (bonus != null) {bonus.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "desc:" + desc + ","

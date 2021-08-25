@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class SystemMail extends  bright.serialization.AbstractBean 
-{
-    public SystemMail(ByteBuf _buf)
-    { 
+public final class SystemMail {
+    public SystemMail(ByteBuf _buf) { 
         id = _buf.readInt();
         title = _buf.readString();
         sender = _buf.readString();
@@ -23,8 +21,7 @@ public final class SystemMail extends  bright.serialization.AbstractBean
         {int n = Math.min(_buf.readSize(), _buf.size());award = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); award.add(_e);}}
     }
 
-    public SystemMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award )
-    {
+    public SystemMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award ) {
         this.id = id;
         this.title = title;
         this.sender = sender;
@@ -32,10 +29,6 @@ public final class SystemMail extends  bright.serialization.AbstractBean
         this.award = award;
     }
 
-    public static SystemMail deserializeSystemMail(ByteBuf _buf)
-    {
-        return new SystemMail(_buf);
-    }
 
     public final int id;
     public final String title;
@@ -43,30 +36,12 @@ public final class SystemMail extends  bright.serialization.AbstractBean
     public final String content;
     public final java.util.ArrayList<Integer> award;
 
-    public static final int ID = 1214073149;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "title:" + title + ","

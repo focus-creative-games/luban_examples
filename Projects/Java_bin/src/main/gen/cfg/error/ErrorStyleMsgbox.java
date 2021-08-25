@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle 
-{
-    public ErrorStyleMsgbox(ByteBuf _buf)
-    { 
+public final class ErrorStyleMsgbox extends cfg.error.ErrorStyle {
+    public ErrorStyleMsgbox(ByteBuf _buf) { 
         super(_buf);
         btnName = _buf.readString();
         operation = cfg.error.EOperation.valueOf(_buf.readInt());
     }
 
-    public ErrorStyleMsgbox(String btn_name, cfg.error.EOperation operation )
-    {
+    public ErrorStyleMsgbox(String btn_name, cfg.error.EOperation operation ) {
         super();
         this.btnName = btn_name;
         this.operation = operation;
     }
 
-    public static ErrorStyleMsgbox deserializeErrorStyleMsgbox(ByteBuf _buf)
-    {
-        return new ErrorStyleMsgbox(_buf);
-    }
 
     public final String btnName;
     public final cfg.error.EOperation operation;
@@ -42,25 +35,12 @@ public final class ErrorStyleMsgbox extends  cfg.error.ErrorStyle
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "btnName:" + btnName + ","
         + "operation:" + operation + ","

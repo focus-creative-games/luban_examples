@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class GetOwnerPlayer extends  cfg.ai.Service 
-{
-    public GetOwnerPlayer(ByteBuf _buf)
-    { 
+public final class GetOwnerPlayer extends cfg.ai.Service {
+    public GetOwnerPlayer(ByteBuf _buf) { 
         super(_buf);
         playerActorKey = _buf.readString();
     }
 
-    public GetOwnerPlayer(int id, String node_name, String player_actor_key )
-    {
+    public GetOwnerPlayer(int id, String node_name, String player_actor_key ) {
         super(id, node_name);
         this.playerActorKey = player_actor_key;
     }
 
-    public static GetOwnerPlayer deserializeGetOwnerPlayer(ByteBuf _buf)
-    {
-        return new GetOwnerPlayer(_buf);
-    }
 
     public final String playerActorKey;
 
@@ -39,25 +32,12 @@ public final class GetOwnerPlayer extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

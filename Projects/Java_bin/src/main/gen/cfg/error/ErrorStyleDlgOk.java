@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle 
-{
-    public ErrorStyleDlgOk(ByteBuf _buf)
-    { 
+public final class ErrorStyleDlgOk extends cfg.error.ErrorStyle {
+    public ErrorStyleDlgOk(ByteBuf _buf) { 
         super(_buf);
         btnName = _buf.readString();
     }
 
-    public ErrorStyleDlgOk(String btn_name )
-    {
+    public ErrorStyleDlgOk(String btn_name ) {
         super();
         this.btnName = btn_name;
     }
 
-    public static ErrorStyleDlgOk deserializeErrorStyleDlgOk(ByteBuf _buf)
-    {
-        return new ErrorStyleDlgOk(_buf);
-    }
 
     public final String btnName;
 
@@ -39,25 +32,12 @@ public final class ErrorStyleDlgOk extends  cfg.error.ErrorStyle
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "btnName:" + btnName + ","
         + "}";

@@ -11,20 +11,17 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbDetectCsvEncoding
-{
+public final class TbDetectCsvEncoding {
     private final java.util.HashMap<Integer, cfg.test.DetectEncoding> _dataMap;
     private final java.util.ArrayList<cfg.test.DetectEncoding> _dataList;
     
-    public TbDetectCsvEncoding(ByteBuf _buf)
-    {
+    public TbDetectCsvEncoding(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DetectEncoding>();
         _dataList = new java.util.ArrayList<cfg.test.DetectEncoding>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.DetectEncoding _v;
-            _v = cfg.test.DetectEncoding.deserializeDetectEncoding(_buf);
+            _v = new cfg.test.DetectEncoding(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbDetectCsvEncoding
 
     public cfg.test.DetectEncoding get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.test.DetectEncoding v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.DetectEncoding v : _dataList) {
             v.resolve(_tables);
         }
     }

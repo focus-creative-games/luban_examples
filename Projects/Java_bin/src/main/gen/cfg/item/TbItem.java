@@ -14,20 +14,17 @@ import bright.serialization.*;
 /**
  * 道具表
  */
-public final class TbItem
-{
+public final class TbItem {
     private final java.util.HashMap<Integer, cfg.item.Item> _dataMap;
     private final java.util.ArrayList<cfg.item.Item> _dataList;
     
-    public TbItem(ByteBuf _buf)
-    {
+    public TbItem(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.item.Item>();
         _dataList = new java.util.ArrayList<cfg.item.Item>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.item.Item _v;
-            _v = cfg.item.Item.deserializeItem(_buf);
+            _v = new cfg.item.Item(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -38,10 +35,8 @@ public final class TbItem
 
     public cfg.item.Item get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.item.Item v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.item.Item v : _dataList) {
             v.resolve(_tables);
         }
     }

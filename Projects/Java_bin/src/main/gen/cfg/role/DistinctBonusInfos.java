@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class DistinctBonusInfos extends  bright.serialization.AbstractBean 
-{
-    public DistinctBonusInfos(ByteBuf _buf)
-    { 
+public final class DistinctBonusInfos {
+    public DistinctBonusInfos(ByteBuf _buf) { 
         effectiveLevel = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());bonusInfo = new java.util.ArrayList<cfg.role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.role.BonusInfo _e;  _e = cfg.role.BonusInfo.deserializeBonusInfo(_buf); bonusInfo.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());bonusInfo = new java.util.ArrayList<cfg.role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.role.BonusInfo _e;  _e = new cfg.role.BonusInfo(_buf); bonusInfo.add(_e);}}
     }
 
-    public DistinctBonusInfos(int effective_level, java.util.ArrayList<cfg.role.BonusInfo> bonus_info )
-    {
+    public DistinctBonusInfos(int effective_level, java.util.ArrayList<cfg.role.BonusInfo> bonus_info ) {
         this.effectiveLevel = effective_level;
         this.bonusInfo = bonus_info;
     }
 
-    public static DistinctBonusInfos deserializeDistinctBonusInfos(ByteBuf _buf)
-    {
-        return new DistinctBonusInfos(_buf);
-    }
 
     public final int effectiveLevel;
     public final java.util.ArrayList<cfg.role.BonusInfo> bonusInfo;
 
-    public static final int ID = -854361766;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.role.BonusInfo _e : bonusInfo) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.role.BonusInfo _e : bonusInfo) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "effectiveLevel:" + effectiveLevel + ","
         + "bonusInfo:" + bonusInfo + ","

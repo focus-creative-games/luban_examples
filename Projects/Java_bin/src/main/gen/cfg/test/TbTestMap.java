@@ -11,20 +11,17 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbTestMap
-{
+public final class TbTestMap {
     private final java.util.HashMap<Integer, cfg.test.TestMap> _dataMap;
     private final java.util.ArrayList<cfg.test.TestMap> _dataList;
     
-    public TbTestMap(ByteBuf _buf)
-    {
+    public TbTestMap(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.test.TestMap>();
         _dataList = new java.util.ArrayList<cfg.test.TestMap>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.TestMap _v;
-            _v = cfg.test.TestMap.deserializeTestMap(_buf);
+            _v = new cfg.test.TestMap(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbTestMap
 
     public cfg.test.TestMap get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.test.TestMap v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.TestMap v : _dataList) {
             v.resolve(_tables);
         }
     }

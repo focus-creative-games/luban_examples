@@ -15,19 +15,16 @@ import bright.serialization.*;
  * {{x.comment}}
  */
 {{~end~}}
-public final class {{name}}
-{
+public final class {{name}} {
     {{~if x.is_map_table ~}}
     private final java.util.HashMap<{{java_box_define_type key_type}}, {{java_box_define_type value_type}}> _dataMap;
     private final java.util.ArrayList<{{java_box_define_type value_type}}> _dataList;
     
-    public {{name}}(ByteBuf _buf)
-    {
+    public {{name}}(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<{{java_box_define_type key_type}}, {{java_box_define_type value_type}}>();
         _dataList = new java.util.ArrayList<{{java_box_define_type value_type}}>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             {{java_box_define_type value_type}} _v;
             {{java_deserialize '_buf' '_v' value_type}}
             _dataList.add(_v);
@@ -44,10 +41,8 @@ public final class {{name}}
 {{~end~}}
     public {{java_box_define_type value_type}} get({{java_define_type key_type}} key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for({{java_box_define_type value_type}} v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for({{java_box_define_type value_type}} v : _dataList) {
             v.resolve(_tables);
         }
     }
@@ -57,8 +52,7 @@ public final class {{name}}
 
     public final {{java_define_type value_type}} data() { return _data; }
 
-    public {{name}}(ByteBuf _buf)
-    {
+    public {{name}}(ByteBuf _buf) {
         int n = _buf.readSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         {{java_deserialize '_buf' '_data' value_type}}
@@ -74,10 +68,8 @@ public final class {{name}}
      public {{java_define_type field.ctype}} {{field.java_getter_name}}() { return _data.{{field.java_style_name}}; }
     {{~end~}}
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);
     }
-
     {{~end~}}
 }

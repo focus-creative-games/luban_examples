@@ -11,20 +11,17 @@ package cfg.error;
 import bright.serialization.*;
 
 
-public final class TbErrorInfo
-{
+public final class TbErrorInfo {
     private final java.util.HashMap<String, cfg.error.ErrorInfo> _dataMap;
     private final java.util.ArrayList<cfg.error.ErrorInfo> _dataList;
     
-    public TbErrorInfo(ByteBuf _buf)
-    {
+    public TbErrorInfo(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<String, cfg.error.ErrorInfo>();
         _dataList = new java.util.ArrayList<cfg.error.ErrorInfo>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.error.ErrorInfo _v;
-            _v = cfg.error.ErrorInfo.deserializeErrorInfo(_buf);
+            _v = new cfg.error.ErrorInfo(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.code, _v);
         }
@@ -35,10 +32,8 @@ public final class TbErrorInfo
 
     public cfg.error.ErrorInfo get(String key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.error.ErrorInfo v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.error.ErrorInfo v : _dataList) {
             v.resolve(_tables);
         }
     }

@@ -11,18 +11,15 @@ package cfg.item;
 import bright.serialization.*;
 
 
-public final class TbItemExtra
-{
+public final class TbItemExtra {
     private final java.util.HashMap<Integer, cfg.item.ItemExtra> _dataMap;
     private final java.util.ArrayList<cfg.item.ItemExtra> _dataList;
     
-    public TbItemExtra(ByteBuf _buf)
-    {
+    public TbItemExtra(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.item.ItemExtra>();
         _dataList = new java.util.ArrayList<cfg.item.ItemExtra>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.item.ItemExtra _v;
             _v = cfg.item.ItemExtra.deserializeItemExtra(_buf);
             _dataList.add(_v);
@@ -37,10 +34,8 @@ public final class TbItemExtra
     public <T extends cfg.item.ItemExtra> T getAs(int key) { return (T)_dataMap.get(key); }
     public cfg.item.ItemExtra get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.item.ItemExtra v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.item.ItemExtra v : _dataList) {
             v.resolve(_tables);
         }
     }

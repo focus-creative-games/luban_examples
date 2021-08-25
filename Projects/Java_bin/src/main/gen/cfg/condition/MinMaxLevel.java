@@ -12,26 +12,19 @@ import bright.serialization.*;
 
 
 
-public final class MinMaxLevel extends  cfg.condition.BoolRoleCondition 
-{
-    public MinMaxLevel(ByteBuf _buf)
-    { 
+public final class MinMaxLevel extends cfg.condition.BoolRoleCondition {
+    public MinMaxLevel(ByteBuf _buf) { 
         super(_buf);
         min = _buf.readInt();
         max = _buf.readInt();
     }
 
-    public MinMaxLevel(int min, int max )
-    {
+    public MinMaxLevel(int min, int max ) {
         super();
         this.min = min;
         this.max = max;
     }
 
-    public static MinMaxLevel deserializeMinMaxLevel(ByteBuf _buf)
-    {
-        return new MinMaxLevel(_buf);
-    }
 
     public final int min;
     public final int max;
@@ -42,25 +35,12 @@ public final class MinMaxLevel extends  cfg.condition.BoolRoleCondition
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "min:" + min + ","
         + "max:" + max + ","

@@ -12,22 +12,17 @@ import bright.serialization.*;
 
 
 
-public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition 
-{
-    public BoolRoleCondition(ByteBuf _buf)
-    { 
+public abstract class BoolRoleCondition extends cfg.condition.RoleCondition {
+    public BoolRoleCondition(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public BoolRoleCondition()
-    {
+    public BoolRoleCondition() {
         super();
     }
 
-    public static BoolRoleCondition deserializeBoolRoleCondition(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static BoolRoleCondition deserializeBoolRoleCondition(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
             case cfg.condition.MinLevel.ID: return new cfg.condition.MinLevel(_buf);
             case cfg.condition.MaxLevel.ID: return new cfg.condition.MaxLevel(_buf);
@@ -40,25 +35,12 @@ public abstract class BoolRoleCondition extends  cfg.condition.RoleCondition
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

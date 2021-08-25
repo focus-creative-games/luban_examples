@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class Dummy extends  bright.serialization.AbstractBean 
-{
-    public Dummy(ByteBuf _buf)
-    { 
+public final class Dummy {
+    public Dummy(ByteBuf _buf) { 
         id = _buf.readInt();
         limit = cfg.limit.LimitBase.deserializeLimitBase(_buf);
     }
 
-    public Dummy(int id, cfg.limit.LimitBase limit )
-    {
+    public Dummy(int id, cfg.limit.LimitBase limit ) {
         this.id = id;
         this.limit = limit;
     }
 
-    public static Dummy deserializeDummy(ByteBuf _buf)
-    {
-        return new Dummy(_buf);
-    }
 
     public final int id;
     public final cfg.limit.LimitBase limit;
 
-    public static final int ID = -985084219;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (limit != null) {limit.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (limit != null) {limit.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "limit:" + limit + ","

@@ -15,10 +15,8 @@ import bright.serialization.*;
 /**
  * 
  */
-public final class DefineFromExcel extends  bright.serialization.AbstractBean 
-{
-    public DefineFromExcel(ByteBuf _buf)
-    { 
+public final class DefineFromExcel {
+    public DefineFromExcel(ByteBuf _buf) { 
         id = _buf.readInt();
         x1 = _buf.readBool();
         x5 = _buf.readLong();
@@ -31,11 +29,10 @@ public final class DefineFromExcel extends  bright.serialization.AbstractBean
         t1 = _buf.readInt();
         {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = cfg.test.DemoE2.deserializeDemoE2(_buf); k9.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = new cfg.test.DemoE2(_buf); k9.add(_e);}}
     }
 
-    public DefineFromExcel(int id, boolean x1, long x5, float x6, int x8, String x10, cfg.test.ETestQuality x13, cfg.test.DemoDynamic x14, bright.math.Vector2 v2, int t1, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 )
-    {
+    public DefineFromExcel(int id, boolean x1, long x5, float x6, int x8, String x10, cfg.test.ETestQuality x13, cfg.test.DemoDynamic x14, bright.math.Vector2 v2, int t1, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 ) {
         this.id = id;
         this.x1 = x1;
         this.x5 = x5;
@@ -51,10 +48,6 @@ public final class DefineFromExcel extends  bright.serialization.AbstractBean
         this.k9 = k9;
     }
 
-    public static DefineFromExcel deserializeDefineFromExcel(ByteBuf _buf)
-    {
-        return new DefineFromExcel(_buf);
-    }
 
     /**
      * id的描述
@@ -77,33 +70,15 @@ public final class DefineFromExcel extends  bright.serialization.AbstractBean
     public final java.util.HashMap<Integer, Integer> k8;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
 
-    public static final int ID = 2100429878;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.x8_Ref = ((cfg.test.TbDemoPrimitive)_tables.get("test.TbDemoPrimitive")).get(x8);
+        if (x14 != null) {x14.resolve(_tables);}
+        for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.x8_Ref = ((cfg.test.TbDemoPrimitive)_tables.get("test.TbDemoPrimitive")).get(x8);
-            if (x14 != null) {x14.resolve(_tables);}
-            for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "x1:" + x1 + ","

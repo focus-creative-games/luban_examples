@@ -12,28 +12,21 @@ import bright.serialization.*;
 
 
 
-public final class SimpleParallel extends  cfg.ai.ComposeNode 
-{
-    public SimpleParallel(ByteBuf _buf)
-    { 
+public final class SimpleParallel extends cfg.ai.ComposeNode {
+    public SimpleParallel(ByteBuf _buf) { 
         super(_buf);
         finishMode = cfg.ai.EFinishMode.valueOf(_buf.readInt());
         mainTask = cfg.ai.Task.deserializeTask(_buf);
         backgroundNode = cfg.ai.FlowNode.deserializeFlowNode(_buf);
     }
 
-    public SimpleParallel(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, cfg.ai.EFinishMode finish_mode, cfg.ai.Task main_task, cfg.ai.FlowNode background_node )
-    {
+    public SimpleParallel(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, cfg.ai.EFinishMode finish_mode, cfg.ai.Task main_task, cfg.ai.FlowNode background_node ) {
         super(id, node_name, decorators, services);
         this.finishMode = finish_mode;
         this.mainTask = main_task;
         this.backgroundNode = background_node;
     }
 
-    public static SimpleParallel deserializeSimpleParallel(ByteBuf _buf)
-    {
-        return new SimpleParallel(_buf);
-    }
 
     public final cfg.ai.EFinishMode finishMode;
     public final cfg.ai.Task mainTask;
@@ -45,27 +38,14 @@ public final class SimpleParallel extends  cfg.ai.ComposeNode
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (mainTask != null) {mainTask.resolve(_tables);}
-            if (backgroundNode != null) {backgroundNode.resolve(_tables);}
+        if (mainTask != null) {mainTask.resolve(_tables);}
+        if (backgroundNode != null) {backgroundNode.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

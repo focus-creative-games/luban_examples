@@ -11,26 +11,22 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbTestGlobal
-{
+public final class TbTestGlobal {
     private final cfg.test.TestGlobal _data;
 
     public final cfg.test.TestGlobal data() { return _data; }
 
-    public TbTestGlobal(ByteBuf _buf)
-    {
+    public TbTestGlobal(ByteBuf _buf) {
         int n = _buf.readSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = cfg.test.TestGlobal.deserializeTestGlobal(_buf);
+        _data = new cfg.test.TestGlobal(_buf);
     }
 
 
      public int getUnlockEquip() { return _data.unlockEquip; }
      public int getUnlockHero() { return _data.unlockHero; }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);
     }
-
 }

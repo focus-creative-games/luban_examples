@@ -12,24 +12,19 @@ import bright.serialization.*;
 
 
 
-public abstract class Node extends  bright.serialization.AbstractBean 
-{
-    public Node(ByteBuf _buf)
-    { 
+public abstract class Node {
+    public Node(ByteBuf _buf) { 
         id = _buf.readInt();
         nodeName = _buf.readString();
     }
 
-    public Node(int id, String node_name )
-    {
+    public Node(int id, String node_name ) {
         this.id = id;
         this.nodeName = node_name;
     }
 
-    public static Node deserializeNode(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Node deserializeNode(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.UeSetDefaultFocus.ID: return new cfg.ai.UeSetDefaultFocus(_buf);
             case cfg.ai.ExecuteTimeStatistic.ID: return new cfg.ai.ExecuteTimeStatistic(_buf);
             case cfg.ai.ChooseTarget.ID: return new cfg.ai.ChooseTarget(_buf);
@@ -60,26 +55,13 @@ public abstract class Node extends  bright.serialization.AbstractBean
     public final int id;
     public final String nodeName;
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

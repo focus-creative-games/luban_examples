@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class CostItems extends  cfg.cost.Cost 
-{
-    public CostItems(ByteBuf _buf)
-    { 
+public final class CostItems extends cfg.cost.Cost {
+    public CostItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.cost.CostItem[n];for(var i = 0 ; i < n ; i++) { cfg.cost.CostItem _e;_e = cfg.cost.CostItem.deserializeCostItem(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.cost.CostItem[n];for(var i = 0 ; i < n ; i++) { cfg.cost.CostItem _e;_e = new cfg.cost.CostItem(_buf); itemList[i] = _e;}}
     }
 
-    public CostItems(cfg.cost.CostItem[] item_list )
-    {
+    public CostItems(cfg.cost.CostItem[] item_list ) {
         super();
         this.itemList = item_list;
     }
 
-    public static CostItems deserializeCostItems(ByteBuf _buf)
-    {
-        return new CostItems(_buf);
-    }
 
     public final cfg.cost.CostItem[] itemList;
 
@@ -39,26 +32,13 @@ public final class CostItems extends  cfg.cost.Cost
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            for(cfg.cost.CostItem _e : itemList) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.cost.CostItem _e : itemList) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "itemList:" + itemList + ","
         + "}";

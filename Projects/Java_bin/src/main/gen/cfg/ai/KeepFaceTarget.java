@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class KeepFaceTarget extends  cfg.ai.Service 
-{
-    public KeepFaceTarget(ByteBuf _buf)
-    { 
+public final class KeepFaceTarget extends cfg.ai.Service {
+    public KeepFaceTarget(ByteBuf _buf) { 
         super(_buf);
         targetActorKey = _buf.readString();
     }
 
-    public KeepFaceTarget(int id, String node_name, String target_actor_key )
-    {
+    public KeepFaceTarget(int id, String node_name, String target_actor_key ) {
         super(id, node_name);
         this.targetActorKey = target_actor_key;
     }
 
-    public static KeepFaceTarget deserializeKeepFaceTarget(ByteBuf _buf)
-    {
-        return new KeepFaceTarget(_buf);
-    }
 
     public final String targetActorKey;
 
@@ -39,25 +32,12 @@ public final class KeepFaceTarget extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

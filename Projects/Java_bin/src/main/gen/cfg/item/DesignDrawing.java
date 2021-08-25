@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class DesignDrawing extends  cfg.item.ItemExtra 
-{
-    public DesignDrawing(ByteBuf _buf)
-    { 
+public final class DesignDrawing extends cfg.item.ItemExtra {
+    public DesignDrawing(ByteBuf _buf) { 
         super(_buf);
         {int n = Math.min(_buf.readSize(), _buf.size());learnComponentId = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); learnComponentId.add(_e);}}
     }
 
-    public DesignDrawing(int id, java.util.ArrayList<Integer> learn_component_id )
-    {
+    public DesignDrawing(int id, java.util.ArrayList<Integer> learn_component_id ) {
         super(id);
         this.learnComponentId = learn_component_id;
     }
 
-    public static DesignDrawing deserializeDesignDrawing(ByteBuf _buf)
-    {
-        return new DesignDrawing(_buf);
-    }
 
     public final java.util.ArrayList<Integer> learnComponentId;
 
@@ -39,25 +32,12 @@ public final class DesignDrawing extends  cfg.item.ItemExtra
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "learnComponentId:" + learnComponentId + ","

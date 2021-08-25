@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class CodeInfo extends  bright.serialization.AbstractBean 
-{
-    public CodeInfo(ByteBuf _buf)
-    { 
+public final class CodeInfo {
+    public CodeInfo(ByteBuf _buf) { 
         code = cfg.error.EErrorCode.valueOf(_buf.readInt());
         key = _buf.readString();
     }
 
-    public CodeInfo(cfg.error.EErrorCode code, String key )
-    {
+    public CodeInfo(cfg.error.EErrorCode code, String key ) {
         this.code = code;
         this.key = key;
     }
 
-    public static CodeInfo deserializeCodeInfo(ByteBuf _buf)
-    {
-        return new CodeInfo(_buf);
-    }
 
     public final cfg.error.EErrorCode code;
     public final String key;
 
-    public static final int ID = -1942481535;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "code:" + code + ","
         + "key:" + key + ","

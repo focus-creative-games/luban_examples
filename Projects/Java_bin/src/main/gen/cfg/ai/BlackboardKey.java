@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class BlackboardKey extends  bright.serialization.AbstractBean 
-{
-    public BlackboardKey(ByteBuf _buf)
-    { 
+public final class BlackboardKey {
+    public BlackboardKey(ByteBuf _buf) { 
         name = _buf.readString();
         desc = _buf.readString();
         isStatic = _buf.readBool();
@@ -23,8 +21,7 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
         typeClassName = _buf.readString();
     }
 
-    public BlackboardKey(String name, String desc, boolean is_static, cfg.ai.EKeyType type, String type_class_name )
-    {
+    public BlackboardKey(String name, String desc, boolean is_static, cfg.ai.EKeyType type, String type_class_name ) {
         this.name = name;
         this.desc = desc;
         this.isStatic = is_static;
@@ -32,10 +29,6 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
         this.typeClassName = type_class_name;
     }
 
-    public static BlackboardKey deserializeBlackboardKey(ByteBuf _buf)
-    {
-        return new BlackboardKey(_buf);
-    }
 
     public final String name;
     public final String desc;
@@ -43,30 +36,12 @@ public final class BlackboardKey extends  bright.serialization.AbstractBean
     public final cfg.ai.EKeyType type;
     public final String typeClassName;
 
-    public static final int ID = -511559886;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "desc:" + desc + ","

@@ -12,24 +12,19 @@ import bright.serialization.*;
 
 
 
-public abstract class Decorator extends  cfg.ai.Node 
-{
-    public Decorator(ByteBuf _buf)
-    { 
+public abstract class Decorator extends cfg.ai.Node {
+    public Decorator(ByteBuf _buf) { 
         super(_buf);
         flowAbortMode = cfg.ai.EFlowAbortMode.valueOf(_buf.readInt());
     }
 
-    public Decorator(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode )
-    {
+    public Decorator(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode ) {
         super(id, node_name);
         this.flowAbortMode = flow_abort_mode;
     }
 
-    public static Decorator deserializeDecorator(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Decorator deserializeDecorator(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.ai.UeLoop.ID: return new cfg.ai.UeLoop(_buf);
             case cfg.ai.UeCooldown.ID: return new cfg.ai.UeCooldown(_buf);
             case cfg.ai.UeTimeLimit.ID: return new cfg.ai.UeTimeLimit(_buf);
@@ -45,25 +40,12 @@ public abstract class Decorator extends  cfg.ai.Node
 
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

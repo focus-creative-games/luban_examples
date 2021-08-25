@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class UeSetDefaultFocus extends  cfg.ai.Service 
-{
-    public UeSetDefaultFocus(ByteBuf _buf)
-    { 
+public final class UeSetDefaultFocus extends cfg.ai.Service {
+    public UeSetDefaultFocus(ByteBuf _buf) { 
         super(_buf);
         keyboardKey = _buf.readString();
     }
 
-    public UeSetDefaultFocus(int id, String node_name, String keyboard_key )
-    {
+    public UeSetDefaultFocus(int id, String node_name, String keyboard_key ) {
         super(id, node_name);
         this.keyboardKey = keyboard_key;
     }
 
-    public static UeSetDefaultFocus deserializeUeSetDefaultFocus(ByteBuf _buf)
-    {
-        return new UeSetDefaultFocus(_buf);
-    }
 
     public final String keyboardKey;
 
@@ -39,25 +32,12 @@ public final class UeSetDefaultFocus extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

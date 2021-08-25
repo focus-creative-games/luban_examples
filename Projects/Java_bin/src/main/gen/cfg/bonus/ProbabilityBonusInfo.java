@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class ProbabilityBonusInfo extends  bright.serialization.AbstractBean 
-{
-    public ProbabilityBonusInfo(ByteBuf _buf)
-    { 
+public final class ProbabilityBonusInfo {
+    public ProbabilityBonusInfo(ByteBuf _buf) { 
         bonus = cfg.bonus.Bonus.deserializeBonus(_buf);
         probability = _buf.readFloat();
     }
 
-    public ProbabilityBonusInfo(cfg.bonus.Bonus bonus, float probability )
-    {
+    public ProbabilityBonusInfo(cfg.bonus.Bonus bonus, float probability ) {
         this.bonus = bonus;
         this.probability = probability;
     }
 
-    public static ProbabilityBonusInfo deserializeProbabilityBonusInfo(ByteBuf _buf)
-    {
-        return new ProbabilityBonusInfo(_buf);
-    }
 
     public final cfg.bonus.Bonus bonus;
     public final float probability;
 
-    public static final int ID = 46960455;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (bonus != null) {bonus.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (bonus != null) {bonus.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "bonus:" + bonus + ","
         + "probability:" + probability + ","

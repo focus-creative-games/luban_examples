@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class BehaviorTree extends  bright.serialization.AbstractBean 
-{
-    public BehaviorTree(ByteBuf _buf)
-    { 
+public final class BehaviorTree {
+    public BehaviorTree(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
         desc = _buf.readString();
@@ -23,8 +21,7 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
         root = cfg.ai.ComposeNode.deserializeComposeNode(_buf);
     }
 
-    public BehaviorTree(int id, String name, String desc, String blackboard_id, cfg.ai.ComposeNode root )
-    {
+    public BehaviorTree(int id, String name, String desc, String blackboard_id, cfg.ai.ComposeNode root ) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -32,10 +29,6 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
         this.root = root;
     }
 
-    public static BehaviorTree deserializeBehaviorTree(ByteBuf _buf)
-    {
-        return new BehaviorTree(_buf);
-    }
 
     public final int id;
     public final String name;
@@ -44,32 +37,14 @@ public final class BehaviorTree extends  bright.serialization.AbstractBean
     public cfg.ai.Blackboard blackboardId_Ref;
     public final cfg.ai.ComposeNode root;
 
-    public static final int ID = 159552822;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.blackboardId_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(blackboardId);
+        if (root != null) {root.resolve(_tables);}
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            this.blackboardId_Ref = ((cfg.ai.TbBlackboard)_tables.get("ai.TbBlackboard")).get(blackboardId);
-            if (root != null) {root.resolve(_tables);}
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "name:" + name + ","

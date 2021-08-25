@@ -12,53 +12,28 @@ import bright.serialization.*;
 
 
 
-public final class LevelBonus extends  bright.serialization.AbstractBean 
-{
-    public LevelBonus(ByteBuf _buf)
-    { 
+public final class LevelBonus {
+    public LevelBonus(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(n);for(var i = 0 ; i < n ; i++) { cfg.role.DistinctBonusInfos _e;  _e = cfg.role.DistinctBonusInfos.deserializeDistinctBonusInfos(_buf); distinctBonusInfos.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(n);for(var i = 0 ; i < n ; i++) { cfg.role.DistinctBonusInfos _e;  _e = new cfg.role.DistinctBonusInfos(_buf); distinctBonusInfos.add(_e);}}
     }
 
-    public LevelBonus(int id, java.util.ArrayList<cfg.role.DistinctBonusInfos> distinct_bonus_infos )
-    {
+    public LevelBonus(int id, java.util.ArrayList<cfg.role.DistinctBonusInfos> distinct_bonus_infos ) {
         this.id = id;
         this.distinctBonusInfos = distinct_bonus_infos;
     }
 
-    public static LevelBonus deserializeLevelBonus(ByteBuf _buf)
-    {
-        return new LevelBonus(_buf);
-    }
 
     public final int id;
     public final java.util.ArrayList<cfg.role.DistinctBonusInfos> distinctBonusInfos;
 
-    public static final int ID = -572269677;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.role.DistinctBonusInfos _e : distinctBonusInfos) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            for(cfg.role.DistinctBonusInfos _e : distinctBonusInfos) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "distinctBonusInfos:" + distinctBonusInfos + ","

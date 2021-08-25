@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class L10NDemo extends  bright.serialization.AbstractBean 
-{
-    public L10NDemo(ByteBuf _buf)
-    { 
+public final class L10NDemo {
+    public L10NDemo(ByteBuf _buf) { 
         id = _buf.readInt();
         text = _buf.readString();
     }
 
-    public L10NDemo(int id, String text )
-    {
+    public L10NDemo(int id, String text ) {
         this.id = id;
         this.text = text;
     }
 
-    public static L10NDemo deserializeL10NDemo(ByteBuf _buf)
-    {
-        return new L10NDemo(_buf);
-    }
 
     public final int id;
     public final String text;
 
-    public static final int ID = -331195887;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "text:" + text + ","

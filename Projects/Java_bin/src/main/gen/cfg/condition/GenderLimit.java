@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class GenderLimit extends  cfg.condition.BoolRoleCondition 
-{
-    public GenderLimit(ByteBuf _buf)
-    { 
+public final class GenderLimit extends cfg.condition.BoolRoleCondition {
+    public GenderLimit(ByteBuf _buf) { 
         super(_buf);
         gender = cfg.role.EGenderType.valueOf(_buf.readInt());
     }
 
-    public GenderLimit(cfg.role.EGenderType gender )
-    {
+    public GenderLimit(cfg.role.EGenderType gender ) {
         super();
         this.gender = gender;
     }
 
-    public static GenderLimit deserializeGenderLimit(ByteBuf _buf)
-    {
-        return new GenderLimit(_buf);
-    }
 
     public final cfg.role.EGenderType gender;
 
@@ -39,25 +32,12 @@ public final class GenderLimit extends  cfg.condition.BoolRoleCondition
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "gender:" + gender + ","
         + "}";

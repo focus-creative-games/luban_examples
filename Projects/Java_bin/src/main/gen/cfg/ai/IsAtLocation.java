@@ -12,28 +12,21 @@ import bright.serialization.*;
 
 
 
-public final class IsAtLocation extends  cfg.ai.Decorator 
-{
-    public IsAtLocation(ByteBuf _buf)
-    { 
+public final class IsAtLocation extends cfg.ai.Decorator {
+    public IsAtLocation(ByteBuf _buf) { 
         super(_buf);
         acceptableRadius = _buf.readFloat();
         keyboardKey = _buf.readString();
         inverseCondition = _buf.readBool();
     }
 
-    public IsAtLocation(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float acceptable_radius, String keyboard_key, boolean inverse_condition )
-    {
+    public IsAtLocation(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float acceptable_radius, String keyboard_key, boolean inverse_condition ) {
         super(id, node_name, flow_abort_mode);
         this.acceptableRadius = acceptable_radius;
         this.keyboardKey = keyboard_key;
         this.inverseCondition = inverse_condition;
     }
 
-    public static IsAtLocation deserializeIsAtLocation(ByteBuf _buf)
-    {
-        return new IsAtLocation(_buf);
-    }
 
     public final float acceptableRadius;
     public final String keyboardKey;
@@ -45,25 +38,12 @@ public final class IsAtLocation extends  cfg.ai.Decorator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

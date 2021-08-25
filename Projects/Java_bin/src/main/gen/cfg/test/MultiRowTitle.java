@@ -12,19 +12,16 @@ import bright.serialization.*;
 
 
 
-public final class MultiRowTitle extends  bright.serialization.AbstractBean 
-{
-    public MultiRowTitle(ByteBuf _buf)
-    { 
+public final class MultiRowTitle {
+    public MultiRowTitle(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
-        x1 = cfg.test.H1.deserializeH1(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;  _e = cfg.test.H2.deserializeH2(_buf); x2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[n];for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = cfg.test.H2.deserializeH2(_buf); x3[i] = _e;}}
+        x1 = new cfg.test.H1(_buf);
+        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;  _e = new cfg.test.H2(_buf); x2.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[n];for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = new cfg.test.H2(_buf); x3[i] = _e;}}
     }
 
-    public MultiRowTitle(int id, String name, cfg.test.H1 x1, java.util.ArrayList<cfg.test.H2> x2, cfg.test.H2[] x3 )
-    {
+    public MultiRowTitle(int id, String name, cfg.test.H1 x1, java.util.ArrayList<cfg.test.H2> x2, cfg.test.H2[] x3 ) {
         this.id = id;
         this.name = name;
         this.x1 = x1;
@@ -32,10 +29,6 @@ public final class MultiRowTitle extends  bright.serialization.AbstractBean
         this.x3 = x3;
     }
 
-    public static MultiRowTitle deserializeMultiRowTitle(ByteBuf _buf)
-    {
-        return new MultiRowTitle(_buf);
-    }
 
     public final int id;
     public final String name;
@@ -43,33 +36,15 @@ public final class MultiRowTitle extends  bright.serialization.AbstractBean
     public final java.util.ArrayList<cfg.test.H2> x2;
     public final cfg.test.H2[] x3;
 
-    public static final int ID = 540002427;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (x1 != null) {x1.resolve(_tables);}
+        for(cfg.test.H2 _e : x2) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.H2 _e : x3) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-            if (x1 != null) {x1.resolve(_tables);}
-            for(cfg.test.H2 _e : x2) { if (_e != null) _e.resolve(_tables); }
-            for(cfg.test.H2 _e : x3) { if (_e != null) _e.resolve(_tables); }
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "name:" + name + ","

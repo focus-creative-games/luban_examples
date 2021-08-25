@@ -12,22 +12,15 @@ import bright.serialization.*;
 
 
 
-public final class Interface extends  cfg.blueprint.Clazz 
-{
-    public Interface(ByteBuf _buf)
-    { 
+public final class Interface extends cfg.blueprint.Clazz {
+    public Interface(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public Interface(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods )
-    {
+    public Interface(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods ) {
         super(name, desc, parents, methods);
     }
 
-    public static Interface deserializeInterface(ByteBuf _buf)
-    {
-        return new Interface(_buf);
-    }
 
 
     public static final int ID = 2114170750;
@@ -36,25 +29,12 @@ public final class Interface extends  cfg.blueprint.Clazz
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "name:" + name + ","
         + "desc:" + desc + ","

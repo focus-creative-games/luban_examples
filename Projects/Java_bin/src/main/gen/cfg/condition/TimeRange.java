@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class TimeRange extends  cfg.condition.Condition 
-{
-    public TimeRange(ByteBuf _buf)
-    { 
+public final class TimeRange extends cfg.condition.Condition {
+    public TimeRange(ByteBuf _buf) { 
         super(_buf);
-        dateTimeRange = cfg.common.DateTimeRange.deserializeDateTimeRange(_buf);
+        dateTimeRange = new cfg.common.DateTimeRange(_buf);
     }
 
-    public TimeRange(cfg.common.DateTimeRange date_time_range )
-    {
+    public TimeRange(cfg.common.DateTimeRange date_time_range ) {
         super();
         this.dateTimeRange = date_time_range;
     }
 
-    public static TimeRange deserializeTimeRange(ByteBuf _buf)
-    {
-        return new TimeRange(_buf);
-    }
 
     public final cfg.common.DateTimeRange dateTimeRange;
 
@@ -39,26 +32,13 @@ public final class TimeRange extends  cfg.condition.Condition
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
-            if (dateTimeRange != null) {dateTimeRange.resolve(_tables);}
+        if (dateTimeRange != null) {dateTimeRange.resolve(_tables);}
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "dateTimeRange:" + dateTimeRange + ","
         + "}";

@@ -12,22 +12,17 @@ import bright.serialization.*;
 
 
 
-public abstract class DemoDynamic extends  bright.serialization.AbstractBean 
-{
-    public DemoDynamic(ByteBuf _buf)
-    { 
+public abstract class DemoDynamic {
+    public DemoDynamic(ByteBuf _buf) { 
         x1 = _buf.readInt();
     }
 
-    public DemoDynamic(int x1 )
-    {
+    public DemoDynamic(int x1 ) {
         this.x1 = x1;
     }
 
-    public static DemoDynamic deserializeDemoDynamic(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static DemoDynamic deserializeDemoDynamic(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.test.DemoD2.ID: return new cfg.test.DemoD2(_buf);
             case cfg.test.DemoE1.ID: return new cfg.test.DemoE1(_buf);
             case cfg.test.DemoD5.ID: return new cfg.test.DemoD5(_buf);
@@ -37,26 +32,13 @@ public abstract class DemoDynamic extends  bright.serialization.AbstractBean
 
     public final int x1;
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "x1:" + x1 + ","
         + "}";

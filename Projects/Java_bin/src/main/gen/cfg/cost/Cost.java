@@ -12,20 +12,15 @@ import bright.serialization.*;
 
 
 
-public abstract class Cost extends  bright.serialization.AbstractBean 
-{
-    public Cost(ByteBuf _buf)
-    { 
+public abstract class Cost {
+    public Cost(ByteBuf _buf) { 
     }
 
-    public Cost()
-    {
+    public Cost() {
     }
 
-    public static Cost deserializeCost(ByteBuf _buf)
-    {
-        switch (_buf.readInt())
-        {
+    public static Cost deserializeCost(ByteBuf _buf) {
+        switch (_buf.readInt()) {
             case cfg.cost.CostCurrency.ID: return new cfg.cost.CostCurrency(_buf);
             case cfg.cost.CostCurrencies.ID: return new cfg.cost.CostCurrencies(_buf);
             case cfg.cost.CostOneItem.ID: return new cfg.cost.CostOneItem(_buf);
@@ -36,26 +31,13 @@ public abstract class Cost extends  bright.serialization.AbstractBean
     }
 
 
+    public abstract int getTypeId();
 
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "}";
     }

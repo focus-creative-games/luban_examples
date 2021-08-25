@@ -12,10 +12,8 @@ import bright.serialization.*;
 
 
 
-public final class UpdateDailyBehaviorProps extends  cfg.ai.Service 
-{
-    public UpdateDailyBehaviorProps(ByteBuf _buf)
-    { 
+public final class UpdateDailyBehaviorProps extends cfg.ai.Service {
+    public UpdateDailyBehaviorProps(ByteBuf _buf) { 
         super(_buf);
         satietyKey = _buf.readString();
         energyKey = _buf.readString();
@@ -28,8 +26,7 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
         moodUpperThresholdKey = _buf.readString();
     }
 
-    public UpdateDailyBehaviorProps(int id, String node_name, String satiety_key, String energy_key, String mood_key, String satiety_lower_threshold_key, String satiety_upper_threshold_key, String energy_lower_threshold_key, String energy_upper_threshold_key, String mood_lower_threshold_key, String mood_upper_threshold_key )
-    {
+    public UpdateDailyBehaviorProps(int id, String node_name, String satiety_key, String energy_key, String mood_key, String satiety_lower_threshold_key, String satiety_upper_threshold_key, String energy_lower_threshold_key, String energy_upper_threshold_key, String mood_lower_threshold_key, String mood_upper_threshold_key ) {
         super(id, node_name);
         this.satietyKey = satiety_key;
         this.energyKey = energy_key;
@@ -42,10 +39,6 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
         this.moodUpperThresholdKey = mood_upper_threshold_key;
     }
 
-    public static UpdateDailyBehaviorProps deserializeUpdateDailyBehaviorProps(ByteBuf _buf)
-    {
-        return new UpdateDailyBehaviorProps(_buf);
-    }
 
     public final String satietyKey;
     public final String energyKey;
@@ -63,25 +56,12 @@ public final class UpdateDailyBehaviorProps extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

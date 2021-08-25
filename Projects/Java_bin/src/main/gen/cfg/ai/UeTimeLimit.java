@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class UeTimeLimit extends  cfg.ai.Decorator 
-{
-    public UeTimeLimit(ByteBuf _buf)
-    { 
+public final class UeTimeLimit extends cfg.ai.Decorator {
+    public UeTimeLimit(ByteBuf _buf) { 
         super(_buf);
         limitTime = _buf.readFloat();
     }
 
-    public UeTimeLimit(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float limit_time )
-    {
+    public UeTimeLimit(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float limit_time ) {
         super(id, node_name, flow_abort_mode);
         this.limitTime = limit_time;
     }
 
-    public static UeTimeLimit deserializeUeTimeLimit(ByteBuf _buf)
-    {
-        return new UeTimeLimit(_buf);
-    }
 
     public final float limitTime;
 
@@ -39,25 +32,12 @@ public final class UeTimeLimit extends  cfg.ai.Decorator
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

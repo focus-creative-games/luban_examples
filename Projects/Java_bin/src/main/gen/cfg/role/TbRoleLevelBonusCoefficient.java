@@ -11,20 +11,17 @@ package cfg.role;
 import bright.serialization.*;
 
 
-public final class TbRoleLevelBonusCoefficient
-{
+public final class TbRoleLevelBonusCoefficient {
     private final java.util.HashMap<Integer, cfg.role.LevelBonus> _dataMap;
     private final java.util.ArrayList<cfg.role.LevelBonus> _dataList;
     
-    public TbRoleLevelBonusCoefficient(ByteBuf _buf)
-    {
+    public TbRoleLevelBonusCoefficient(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.role.LevelBonus>();
         _dataList = new java.util.ArrayList<cfg.role.LevelBonus>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.role.LevelBonus _v;
-            _v = cfg.role.LevelBonus.deserializeLevelBonus(_buf);
+            _v = new cfg.role.LevelBonus(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbRoleLevelBonusCoefficient
 
     public cfg.role.LevelBonus get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.role.LevelBonus v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.role.LevelBonus v : _dataList) {
             v.resolve(_tables);
         }
     }

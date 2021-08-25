@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class CoolDown extends  cfg.limit.LimitBase 
-{
-    public CoolDown(ByteBuf _buf)
-    { 
+public final class CoolDown extends cfg.limit.LimitBase {
+    public CoolDown(ByteBuf _buf) { 
         super(_buf);
         duration = _buf.readInt();
     }
 
-    public CoolDown(int duration )
-    {
+    public CoolDown(int duration ) {
         super();
         this.duration = duration;
     }
 
-    public static CoolDown deserializeCoolDown(ByteBuf _buf)
-    {
-        return new CoolDown(_buf);
-    }
 
     public final int duration;
 
@@ -39,25 +32,12 @@ public final class CoolDown extends  cfg.limit.LimitBase
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "duration:" + duration + ","
         + "}";

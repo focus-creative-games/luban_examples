@@ -12,24 +12,17 @@ import bright.serialization.*;
 
 
 
-public final class ChooseTarget extends  cfg.ai.Service 
-{
-    public ChooseTarget(ByteBuf _buf)
-    { 
+public final class ChooseTarget extends cfg.ai.Service {
+    public ChooseTarget(ByteBuf _buf) { 
         super(_buf);
         resultTargetKey = _buf.readString();
     }
 
-    public ChooseTarget(int id, String node_name, String result_target_key )
-    {
+    public ChooseTarget(int id, String node_name, String result_target_key ) {
         super(id, node_name);
         this.resultTargetKey = result_target_key;
     }
 
-    public static ChooseTarget deserializeChooseTarget(ByteBuf _buf)
-    {
-        return new ChooseTarget(_buf);
-    }
 
     public final String resultTargetKey;
 
@@ -39,25 +32,12 @@ public final class ChooseTarget extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

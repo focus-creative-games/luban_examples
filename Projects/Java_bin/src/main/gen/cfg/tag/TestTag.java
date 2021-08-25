@@ -12,52 +12,27 @@ import bright.serialization.*;
 
 
 
-public final class TestTag extends  bright.serialization.AbstractBean 
-{
-    public TestTag(ByteBuf _buf)
-    { 
+public final class TestTag {
+    public TestTag(ByteBuf _buf) { 
         id = _buf.readInt();
         value = _buf.readString();
     }
 
-    public TestTag(int id, String value )
-    {
+    public TestTag(int id, String value ) {
         this.id = id;
         this.value = value;
     }
 
-    public static TestTag deserializeTestTag(ByteBuf _buf)
-    {
-        return new TestTag(_buf);
-    }
 
     public final int id;
     public final String value;
 
-    public static final int ID = 1742933812;
 
-    @Override
-    public int getTypeId() { return ID; }
-
-    @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
+    public void resolve(java.util.HashMap<String, Object> _tables) {
     }
 
     @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "value:" + value + ","

@@ -12,22 +12,15 @@ import bright.serialization.*;
 
 
 
-public final class ExecuteTimeStatistic extends  cfg.ai.Service 
-{
-    public ExecuteTimeStatistic(ByteBuf _buf)
-    { 
+public final class ExecuteTimeStatistic extends cfg.ai.Service {
+    public ExecuteTimeStatistic(ByteBuf _buf) { 
         super(_buf);
     }
 
-    public ExecuteTimeStatistic(int id, String node_name )
-    {
+    public ExecuteTimeStatistic(int id, String node_name ) {
         super(id, node_name);
     }
 
-    public static ExecuteTimeStatistic deserializeExecuteTimeStatistic(ByteBuf _buf)
-    {
-        return new ExecuteTimeStatistic(_buf);
-    }
 
 
     public static final int ID = 990693812;
@@ -36,25 +29,12 @@ public final class ExecuteTimeStatistic extends  cfg.ai.Service
     public int getTypeId() { return ID; }
 
     @Override
-    public void serialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void deserialize(ByteBuf os)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "{ "
         + "id:" + id + ","
         + "nodeName:" + nodeName + ","

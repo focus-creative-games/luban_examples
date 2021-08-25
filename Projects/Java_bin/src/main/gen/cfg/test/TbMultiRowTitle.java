@@ -11,20 +11,17 @@ package cfg.test;
 import bright.serialization.*;
 
 
-public final class TbMultiRowTitle
-{
+public final class TbMultiRowTitle {
     private final java.util.HashMap<Integer, cfg.test.MultiRowTitle> _dataMap;
     private final java.util.ArrayList<cfg.test.MultiRowTitle> _dataList;
     
-    public TbMultiRowTitle(ByteBuf _buf)
-    {
+    public TbMultiRowTitle(ByteBuf _buf) {
         _dataMap = new java.util.HashMap<Integer, cfg.test.MultiRowTitle>();
         _dataList = new java.util.ArrayList<cfg.test.MultiRowTitle>();
         
-        for(int n = _buf.readSize() ; n > 0 ; --n)
-        {
+        for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.MultiRowTitle _v;
-            _v = cfg.test.MultiRowTitle.deserializeMultiRowTitle(_buf);
+            _v = new cfg.test.MultiRowTitle(_buf);
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
@@ -35,10 +32,8 @@ public final class TbMultiRowTitle
 
     public cfg.test.MultiRowTitle get(int key) { return _dataMap.get(key); }
 
-    public void resolve(java.util.HashMap<String, Object> _tables)
-    {
-        for(cfg.test.MultiRowTitle v : _dataList)
-        {
+    public void resolve(java.util.HashMap<String, Object> _tables) {
+        for(cfg.test.MultiRowTitle v : _dataList) {
             v.resolve(_tables);
         }
     }
