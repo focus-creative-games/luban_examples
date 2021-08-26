@@ -41,15 +41,16 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
         }
     }
 
-    public readonly int Id;
+    public int Id { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

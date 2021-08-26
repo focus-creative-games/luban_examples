@@ -22,7 +22,7 @@ public final class DemoPrimitiveTypesTable {
         x6 = _buf.readFloat();
         x7 = _buf.readDouble();
         s1 = _buf.readString();
-        s2 = _buf.readString();
+        _buf.readString(); s2 = _buf.readString();
         v2 = _buf.readVector2();
         v3 = _buf.readVector3();
         v4 = _buf.readVector4();

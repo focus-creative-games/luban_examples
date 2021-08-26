@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class UeCooldown :  ai.Decorator 
+public sealed class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class UeCooldown :  ai.Decorator
         return new ai.UeCooldown(_json);
     }
 
-    public readonly float CooldownTime;
+    public float CooldownTime {get; private set; }
 
     public const int ID = -951439423;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class UeCooldown :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class CostCurrency :  cost.Cost
         Num = _buf.ReadInt();
     }
 
-    public CostCurrency(item.ECurrencyType type, int num )  : base() 
-    {
-        this.Type = type;
-        this.Num = num;
-    }
-
     public static CostCurrency DeserializeCostCurrency(ByteBuf _buf)
     {
         return new cost.CostCurrency(_buf);
     }
 
-    public readonly item.ECurrencyType Type;
-    public readonly int Num;
+    public item.ECurrencyType Type {get; private set;}
+    public int Num {get; private set;}
 
     public const int ID = 911838111;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class CostCurrency :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -58,4 +53,3 @@ public sealed partial class CostCurrency :  cost.Cost
     }
 
 }
-

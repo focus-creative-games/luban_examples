@@ -20,7 +20,7 @@ public final class TestNull {
         if(_buf.readBool()){ x3 = new cfg.test.DemoType1(_buf); } else { x3 = null; }
         if(_buf.readBool()){ x4 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); } else { x4 = null; }
         if(_buf.readBool()){ s1 = _buf.readString(); } else { s1 = null; }
-        if(_buf.readBool()){ s2 = _buf.readString(); } else { s2 = null; }
+        if(_buf.readBool()){ _buf.readString(); s2 = _buf.readString(); } else { s2 = null; }
     }
 
     public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 ) {

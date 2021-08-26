@@ -22,19 +22,13 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         BonusList = bonus.Items.DeserializeItems(_buf);
     }
 
-    public CoefficientItem(int bonus_id, bonus.Items bonus_list )  : base() 
-    {
-        this.BonusId = bonus_id;
-        this.BonusList = bonus_list;
-    }
-
     public static CoefficientItem DeserializeCoefficientItem(ByteBuf _buf)
     {
         return new bonus.CoefficientItem(_buf);
     }
 
-    public readonly int BonusId;
-    public readonly bonus.Items BonusList;
+    public int BonusId {get; private set;}
+    public bonus.Items BonusList {get; private set;}
 
     public const int ID = -229470727;
     public override int GetTypeId() => ID;
@@ -43,10 +37,13 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     {
         base.Resolve(_tables);
         BonusList?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        BonusList?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

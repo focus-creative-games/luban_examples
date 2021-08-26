@@ -34,8 +34,8 @@ public sealed partial class ChooseSkill :  ai.Task
         return new ai.ChooseSkill(_json);
     }
 
-    public readonly string TargetActorKey;
-    public readonly string ResultSkillIdKey;
+    public string TargetActorKey { get; private set; }
+    public string ResultSkillIdKey { get; private set; }
 
     public const int ID = -918812268;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class ChooseSkill :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

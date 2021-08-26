@@ -32,7 +32,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         return new condition.MultiRoleCondition(_json);
     }
 
-    public readonly condition.RoleCondition[] Conditions;
+    public condition.RoleCondition[] Conditions { get; private set; }
 
     public const int ID = 934079583;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     {
         base.Resolve(_tables);
         foreach(var _e in Conditions) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Conditions) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

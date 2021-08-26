@@ -23,31 +23,25 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         IsRef = _buf.ReadBool();
     }
 
-    public ParamInfo(string name, string type, bool is_ref ) 
-    {
-        this.Name = name;
-        this.Type = type;
-        this.IsRef = is_ref;
-    }
-
     public static ParamInfo DeserializeParamInfo(ByteBuf _buf)
     {
         return new blueprint.ParamInfo(_buf);
     }
 
-    public readonly string Name;
-    public readonly string Type;
-    public readonly bool IsRef;
+    public string Name {get; private set;}
+    public string Type {get; private set;}
+    public bool IsRef {get; private set;}
 
     public const int ID = -729799392;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

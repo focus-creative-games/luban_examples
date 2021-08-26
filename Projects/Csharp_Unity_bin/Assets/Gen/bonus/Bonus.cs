@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -18,10 +17,6 @@ namespace cfg.bonus
 public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(ByteBuf _buf) 
-    {
-    }
-
-    public Bonus() 
     {
     }
 
@@ -48,10 +43,11 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -61,4 +57,3 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
     }
 
 }
-

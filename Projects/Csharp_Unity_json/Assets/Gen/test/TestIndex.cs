@@ -36,8 +36,8 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
         return new test.TestIndex(_json);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.List<test.DemoType1> Eles;
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
     public readonly Dictionary<int, test.DemoType1> Eles_Index = new Dictionary<int, test.DemoType1>();
 
     public const int ID = 1941154020;
@@ -46,10 +46,12 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Eles) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Eles) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

@@ -6,14 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
 namespace cfg.common
 {
    
-public sealed partial class TbDummy
+public sealed class TbDummy
 {
     private readonly Dictionary<int, common.Dummy> _dataMap;
     private readonly List<common.Dummy> _dataList;
@@ -45,11 +44,16 @@ public sealed partial class TbDummy
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

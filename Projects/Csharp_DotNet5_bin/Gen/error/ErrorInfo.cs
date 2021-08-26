@@ -23,21 +23,14 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         Style = error.ErrorStyle.DeserializeErrorStyle(_buf);
     }
 
-    public ErrorInfo(string code, string desc, error.ErrorStyle style ) 
-    {
-        this.Code = code;
-        this.Desc = desc;
-        this.Style = style;
-    }
-
     public static ErrorInfo DeserializeErrorInfo(ByteBuf _buf)
     {
         return new error.ErrorInfo(_buf);
     }
 
-    public readonly string Code;
-    public readonly string Desc;
-    public readonly error.ErrorStyle Style;
+    public string Code {get; private set;}
+    public string Desc {get; private set;}
+    public error.ErrorStyle Style {get; private set;}
 
     public const int ID = 1389347408;
     public override int GetTypeId() => ID;
@@ -45,10 +38,12 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Style?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Style?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

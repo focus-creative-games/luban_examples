@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class DemoE2 :  Bright.Config.BeanBase 
+public sealed class DemoE2 :  Bright.Config.BeanBase 
 {
     public DemoE2(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
         return new test.DemoE2(_json);
     }
 
-    public readonly int? Y1;
-    public readonly bool Y2;
+    public int? Y1 {get; private set; }
+    public bool Y2 {get; private set; }
 
     public const int ID = -2138341716;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

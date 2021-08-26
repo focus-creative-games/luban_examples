@@ -27,14 +27,6 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
         X4 = _buf.ReadFloat();
     }
 
-    public TestExcelBean1(int x1, string x2, int x3, float x4 ) 
-    {
-        this.X1 = x1;
-        this.X2 = x2;
-        this.X3 = x3;
-        this.X4 = x4;
-    }
-
     public static TestExcelBean1 DeserializeTestExcelBean1(ByteBuf _buf)
     {
         return new test.TestExcelBean1(_buf);
@@ -43,29 +35,30 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
     /// <summary>
     /// 最高品质
     /// </summary>
-    public readonly int X1;
+    public int X1 {get; private set;}
     /// <summary>
     /// 黑色的
     /// </summary>
-    public readonly string X2;
+    public string X2 {get; private set;}
     /// <summary>
     /// 蓝色的
     /// </summary>
-    public readonly int X3;
+    public int X3 {get; private set;}
     /// <summary>
     /// 最差品质
     /// </summary>
-    public readonly float X4;
+    public float X4 {get; private set;}
 
     public const int ID = -1738345160;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

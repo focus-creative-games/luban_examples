@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class DemoSingletonType {
     public DemoSingletonType(ByteBuf _buf) { 
         id = _buf.readInt();
-        name = _buf.readString();
+        _buf.readString(); name = _buf.readString();
         date = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
     }
 

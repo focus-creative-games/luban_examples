@@ -21,17 +21,12 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Conditions = new condition.RoleCondition[n];for(var i = 0 ; i < n ; i++) { condition.RoleCondition _e;_e = condition.RoleCondition.DeserializeRoleCondition(_buf); Conditions[i] = _e;}}
     }
 
-    public MultiRoleCondition(condition.RoleCondition[] conditions )  : base() 
-    {
-        this.Conditions = conditions;
-    }
-
     public static MultiRoleCondition DeserializeMultiRoleCondition(ByteBuf _buf)
     {
         return new condition.MultiRoleCondition(_buf);
     }
 
-    public readonly condition.RoleCondition[] Conditions;
+    public condition.RoleCondition[] Conditions {get; private set;}
 
     public const int ID = 934079583;
     public override int GetTypeId() => ID;
@@ -40,10 +35,13 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     {
         base.Resolve(_tables);
         foreach(var _e in Conditions) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Conditions) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

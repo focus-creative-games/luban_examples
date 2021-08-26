@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class IsAtLocation :  ai.Decorator 
+public sealed class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(JsonElement _json)  : base(_json) 
     {
@@ -36,9 +36,9 @@ public sealed partial class IsAtLocation :  ai.Decorator
         return new ai.IsAtLocation(_json);
     }
 
-    public readonly float AcceptableRadius;
-    public readonly string KeyboardKey;
-    public readonly bool InverseCondition;
+    public float AcceptableRadius {get; private set; }
+    public string KeyboardKey {get; private set; }
+    public bool InverseCondition {get; private set; }
 
     public const int ID = 1255972344;
     public override int GetTypeId() => ID;
@@ -46,10 +46,12 @@ public sealed partial class IsAtLocation :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

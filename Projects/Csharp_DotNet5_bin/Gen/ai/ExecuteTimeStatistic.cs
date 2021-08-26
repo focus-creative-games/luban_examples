@@ -20,10 +20,6 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     {
     }
 
-    public ExecuteTimeStatistic(int id, string node_name )  : base(id,node_name) 
-    {
-    }
-
     public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(ByteBuf _buf)
     {
         return new ai.ExecuteTimeStatistic(_buf);
@@ -36,10 +32,12 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

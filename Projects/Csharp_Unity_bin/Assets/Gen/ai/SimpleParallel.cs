@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,21 +23,14 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf);
     }
 
-    public SimpleParallel(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, ai.EFinishMode finish_mode, ai.Task main_task, ai.FlowNode background_node )  : base(id,node_name,decorators,services) 
-    {
-        this.FinishMode = finish_mode;
-        this.MainTask = main_task;
-        this.BackgroundNode = background_node;
-    }
-
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
     {
         return new ai.SimpleParallel(_buf);
     }
 
-    public readonly ai.EFinishMode FinishMode;
-    public readonly ai.Task MainTask;
-    public readonly ai.FlowNode BackgroundNode;
+    public ai.EFinishMode FinishMode {get; private set;}
+    public ai.Task MainTask {get; private set;}
+    public ai.FlowNode BackgroundNode {get; private set;}
 
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
@@ -48,10 +40,14 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        MainTask?.TranslateText(translator);
+        BackgroundNode?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -68,4 +64,3 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     }
 
 }
-

@@ -21,17 +21,12 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Bonuses = new bonus.ProbabilityBonusInfo[n];for(var i = 0 ; i < n ; i++) { bonus.ProbabilityBonusInfo _e;_e = bonus.ProbabilityBonusInfo.DeserializeProbabilityBonusInfo(_buf); Bonuses[i] = _e;}}
     }
 
-    public ProbabilityBonus(bonus.ProbabilityBonusInfo[] bonuses )  : base() 
-    {
-        this.Bonuses = bonuses;
-    }
-
     public static ProbabilityBonus DeserializeProbabilityBonus(ByteBuf _buf)
     {
         return new bonus.ProbabilityBonus(_buf);
     }
 
-    public readonly bonus.ProbabilityBonusInfo[] Bonuses;
+    public bonus.ProbabilityBonusInfo[] Bonuses {get; private set;}
 
     public const int ID = 359783161;
     public override int GetTypeId() => ID;
@@ -40,10 +35,13 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Bonuses) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

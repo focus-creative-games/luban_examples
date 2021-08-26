@@ -21,17 +21,12 @@ public sealed partial class Items :  bonus.Bonus
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ItemList = new bonus.Item[n];for(var i = 0 ; i < n ; i++) { bonus.Item _e;_e = bonus.Item.DeserializeItem(_buf); ItemList[i] = _e;}}
     }
 
-    public Items(bonus.Item[] item_list )  : base() 
-    {
-        this.ItemList = item_list;
-    }
-
     public static Items DeserializeItems(ByteBuf _buf)
     {
         return new bonus.Items(_buf);
     }
 
-    public readonly bonus.Item[] ItemList;
+    public bonus.Item[] ItemList {get; private set;}
 
     public const int ID = 819736849;
     public override int GetTypeId() => ID;
@@ -40,10 +35,13 @@ public sealed partial class Items :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in ItemList) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

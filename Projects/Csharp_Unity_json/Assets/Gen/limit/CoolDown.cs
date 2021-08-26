@@ -32,7 +32,7 @@ public sealed partial class CoolDown :  limit.LimitBase
         return new limit.CoolDown(_json);
     }
 
-    public readonly int Duration;
+    public int Duration { get; private set; }
 
     public const int ID = -1366194050;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class CoolDown :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

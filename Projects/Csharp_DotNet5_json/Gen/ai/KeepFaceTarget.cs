@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class KeepFaceTarget :  ai.Service 
+public sealed class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class KeepFaceTarget :  ai.Service
         return new ai.KeepFaceTarget(_json);
     }
 
-    public readonly string TargetActorKey;
+    public string TargetActorKey {get; private set; }
 
     public const int ID = 1195270745;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class KeepFaceTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

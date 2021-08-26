@@ -53,5 +53,3 @@ namespace cfg.item
         BAO_NUAN = 10,
     }
 }
-
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class TimeRange :  condition.Condition
         DateTimeRange = common.DateTimeRange.DeserializeDateTimeRange(_buf);
     }
 
-    public TimeRange(common.DateTimeRange date_time_range )  : base() 
-    {
-        this.DateTimeRange = date_time_range;
-    }
-
     public static TimeRange DeserializeTimeRange(ByteBuf _buf)
     {
         return new condition.TimeRange(_buf);
     }
 
-    public readonly common.DateTimeRange DateTimeRange;
+    public common.DateTimeRange DateTimeRange {get; private set;}
 
     public const int ID = 1069033789;
     public override int GetTypeId() => ID;
@@ -41,10 +35,13 @@ public sealed partial class TimeRange :  condition.Condition
     {
         base.Resolve(_tables);
         DateTimeRange?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        DateTimeRange?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -55,4 +52,3 @@ public sealed partial class TimeRange :  condition.Condition
     }
 
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -33,7 +32,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X12 = test.DemoType1.DeserializeDemoType1(_buf);
         X13 = (test.DemoEnum)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
-        S1 = _buf.ReadString();
+        S1_l10n_key = _buf.ReadString(); S1 = _buf.ReadString();
         V2 = _buf.ReadVector2();
         V3 = _buf.ReadVector3();
         V4 = _buf.ReadVector4();
@@ -46,66 +45,38 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K15 = new test.DemoDynamic[n];for(var i = 0 ; i < n ; i++) { test.DemoDynamic _e;_e = test.DemoDynamic.DeserializeDemoDynamic(_buf); K15[i] = _e;}}
     }
 
-    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
-    {
-        this.X4 = x4;
-        this.X1 = x1;
-        this.X2 = x2;
-        this.X3 = x3;
-        this.X5 = x5;
-        this.X6 = x6;
-        this.X7 = x7;
-        this.X80 = x8_0;
-        this.X8 = x8;
-        this.X9 = x9;
-        this.X10 = x10;
-        this.X12 = x12;
-        this.X13 = x13;
-        this.X14 = x14;
-        this.S1 = s1;
-        this.V2 = v2;
-        this.V3 = v3;
-        this.V4 = v4;
-        this.T1 = t1;
-        this.K1 = k1;
-        this.K2 = k2;
-        this.K5 = k5;
-        this.K8 = k8;
-        this.K9 = k9;
-        this.K15 = k15;
-    }
-
     public static DemoType2 DeserializeDemoType2(ByteBuf _buf)
     {
         return new test.DemoType2(_buf);
     }
 
-    public readonly int X4;
-    public readonly bool X1;
-    public readonly byte X2;
-    public readonly short X3;
-    public test.DemoType2 X3_Ref;
-    public readonly long X5;
-    public readonly float X6;
-    public readonly double X7;
-    public readonly short X80;
-    public readonly int X8;
-    public readonly long X9;
-    public readonly string X10;
-    public readonly test.DemoType1 X12;
-    public readonly test.DemoEnum X13;
-    public readonly test.DemoDynamic X14;
-    public readonly string S1;
-    public readonly System.Numerics.Vector2 V2;
-    public readonly System.Numerics.Vector3 V3;
-    public readonly System.Numerics.Vector4 V4;
-    public readonly int T1;
-    public readonly int[] K1;
-    public readonly System.Collections.Generic.List<int> K2;
-    public readonly System.Collections.Generic.HashSet<int> K5;
-    public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly test.DemoDynamic[] K15;
+    public int X4 {get; private set;}
+    public bool X1 {get; private set;}
+    public byte X2 {get; private set;}
+    public short X3 {get; private set;}
+    public test.DemoType2 X3_Ref {get; private set;}
+    public long X5 {get; private set;}
+    public float X6 {get; private set;}
+    public double X7 {get; private set;}
+    public short X80 {get; private set;}
+    public int X8 {get; private set;}
+    public long X9 {get; private set;}
+    public string X10 {get; private set;}
+    public test.DemoType1 X12 {get; private set;}
+    public test.DemoEnum X13 {get; private set;}
+    public test.DemoDynamic X14 {get; private set;}
+    public string S1 {get; private set;}
+    public string S1_l10n_key {get;}
+    public System.Numerics.Vector2 V2 {get; private set;}
+    public System.Numerics.Vector3 V3 {get; private set;}
+    public System.Numerics.Vector4 V4 {get; private set;}
+    public int T1 {get; private set;}
+    public int[] K1 {get; private set;}
+    public System.Collections.Generic.List<int> K2 {get; private set;}
+    public System.Collections.Generic.HashSet<int> K5 {get; private set;}
+    public System.Collections.Generic.Dictionary<int, int> K8 {get; private set;}
+    public System.Collections.Generic.List<test.DemoE2> K9 {get; private set;}
+    public test.DemoDynamic[] K15 {get; private set;}
 
     public const int ID = -367048295;
     public override int GetTypeId() => ID;
@@ -117,10 +88,16 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X12?.TranslateText(translator);
+        X14?.TranslateText(translator);
+        S1 = translator(S1_l10n_key, S1);
+        foreach(var _e in K9) { _e?.TranslateText(translator); }
+        foreach(var _e in K15) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {
@@ -155,4 +132,3 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     }
 
 }
-

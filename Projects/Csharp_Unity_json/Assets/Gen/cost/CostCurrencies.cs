@@ -32,7 +32,7 @@ public sealed partial class CostCurrencies :  cost.Cost
         return new cost.CostCurrencies(_json);
     }
 
-    public readonly System.Collections.Generic.List<cost.CostCurrency> Currencies;
+    public System.Collections.Generic.List<cost.CostCurrency> Currencies { get; private set; }
 
     public const int ID = 103084157;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class CostCurrencies :  cost.Cost
     {
         base.Resolve(_tables);
         foreach(var _e in Currencies) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Currencies) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

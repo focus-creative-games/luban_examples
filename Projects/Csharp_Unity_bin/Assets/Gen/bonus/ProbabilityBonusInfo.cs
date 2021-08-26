@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         Probability = _buf.ReadFloat();
     }
 
-    public ProbabilityBonusInfo(bonus.Bonus bonus, float probability ) 
-    {
-        this.Bonus = bonus;
-        this.Probability = probability;
-    }
-
     public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(ByteBuf _buf)
     {
         return new bonus.ProbabilityBonusInfo(_buf);
     }
 
-    public readonly bonus.Bonus Bonus;
-    public readonly float Probability;
+    public bonus.Bonus Bonus {get; private set;}
+    public float Probability {get; private set;}
 
     public const int ID = 46960455;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Bonus?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Bonus?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -58,4 +53,3 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
     }
 
 }
-

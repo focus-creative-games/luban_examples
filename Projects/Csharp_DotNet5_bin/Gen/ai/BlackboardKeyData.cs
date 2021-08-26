@@ -21,17 +21,12 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
         Value = _buf.ReadString();
     }
 
-    public BlackboardKeyData(string value )  : base() 
-    {
-        this.Value = value;
-    }
-
     public static BlackboardKeyData DeserializeBlackboardKeyData(ByteBuf _buf)
     {
         return new ai.BlackboardKeyData(_buf);
     }
 
-    public readonly string Value;
+    public string Value {get; private set;}
 
     public const int ID = 1517269500;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

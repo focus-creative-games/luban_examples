@@ -22,19 +22,13 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
         Weight = _buf.ReadInt();
     }
 
-    public WeightBonusInfo(bonus.Bonus bonus, int weight ) 
-    {
-        this.Bonus = bonus;
-        this.Weight = weight;
-    }
-
     public static WeightBonusInfo DeserializeWeightBonusInfo(ByteBuf _buf)
     {
         return new bonus.WeightBonusInfo(_buf);
     }
 
-    public readonly bonus.Bonus Bonus;
-    public readonly int Weight;
+    public bonus.Bonus Bonus {get; private set;}
+    public int Weight {get; private set;}
 
     public const int ID = -907244058;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Bonus?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Bonus?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

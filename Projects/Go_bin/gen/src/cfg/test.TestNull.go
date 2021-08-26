@@ -36,6 +36,6 @@ func NewTest_TestNull(_buf *serialization.ByteBuf) (_v *Test_TestNull, err error
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *Test_DemoType1;  { if __x__, err = NewTest_DemoType1(_buf); err != nil { return } }; _v.X3 = __x__ }}
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ interface{};  { if __x__, err = NewTest_DemoDynamic(_buf); err != nil { return } }; _v.X4 = __x__ }}
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S1 = &__x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S2 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if _, err = _buf.ReadString(); err != nil { return }; if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S2 = &__x__ }}
     return
 }

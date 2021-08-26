@@ -44,7 +44,7 @@ func NewTest_DemoPrimitiveTypesTable(_buf *serialization.ByteBuf) (_v *Test_Demo
     { if _v.X6, err = _buf.ReadFloat(); err != nil { return } }
     { if _v.X7, err = _buf.ReadDouble(); err != nil { return } }
     { if _v.S1, err = _buf.ReadString(); err != nil { return } }
-    { if _v.S2, err = _buf.ReadString(); err != nil { return } }
+    { if _, err = _buf.ReadString(); err != nil { return }; if _v.S2, err = _buf.ReadString(); err != nil { return } }
     { if _v.V2, err = _buf.ReadVector2(); err != nil { return } }
     { if _v.V3, err = _buf.ReadVector3(); err != nil { return } }
     { if _v.V4, err = _buf.ReadVector4(); err != nil { return } }

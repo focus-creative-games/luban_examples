@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,31 +23,25 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
         S3 = _buf.ReadString();
     }
 
-    public CompactString(int id, string s2, string s3 ) 
-    {
-        this.Id = id;
-        this.S2 = s2;
-        this.S3 = s3;
-    }
-
     public static CompactString DeserializeCompactString(ByteBuf _buf)
     {
         return new test.CompactString(_buf);
     }
 
-    public readonly int Id;
-    public readonly string S2;
-    public readonly string S3;
+    public int Id {get; private set;}
+    public string S2 {get; private set;}
+    public string S3 {get; private set;}
 
     public const int ID = 1968089240;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -61,4 +54,3 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
     }
 
 }
-

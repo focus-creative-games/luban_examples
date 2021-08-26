@@ -6,14 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
 namespace cfg.common
 {
    
-public sealed partial class TbGlobalConfig
+public sealed class TbGlobalConfig
 {
 
      private readonly common.GlobalConfig _data;
@@ -55,11 +54,13 @@ public sealed partial class TbGlobalConfig
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        _data.TranslateText(translator);
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

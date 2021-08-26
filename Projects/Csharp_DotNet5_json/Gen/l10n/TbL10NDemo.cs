@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-public sealed partial class TbL10NDemo
+public sealed class TbL10NDemo
 {
     private readonly Dictionary<int, l10n.L10NDemo> _dataMap;
     private readonly List<l10n.L10NDemo> _dataList;
@@ -46,11 +46,16 @@ public sealed partial class TbL10NDemo
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

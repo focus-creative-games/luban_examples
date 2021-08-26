@@ -21,5 +21,3 @@ namespace cfg.mail
         SYSTEM = 1,
     }
 }
-
-

@@ -40,11 +40,11 @@ public sealed partial class TreasureBox :  item.ItemExtra
         return new item.TreasureBox(_json);
     }
 
-    public readonly int? KeyItemId;
-    public readonly condition.MinLevel OpenLevel;
-    public readonly bool UseOnObtain;
-    public readonly System.Collections.Generic.List<int> DropIds;
-    public readonly System.Collections.Generic.List<item.ChooseOneBonus> ChooseList;
+    public int? KeyItemId { get; private set; }
+    public condition.MinLevel OpenLevel { get; private set; }
+    public bool UseOnObtain { get; private set; }
+    public System.Collections.Generic.List<int> DropIds { get; private set; }
+    public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
 
     public const int ID = 1494222369;
     public override int GetTypeId() => ID;
@@ -54,10 +54,14 @@ public sealed partial class TreasureBox :  item.ItemExtra
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        OpenLevel?.TranslateText(translator);
+        foreach(var _e in ChooseList) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

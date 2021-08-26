@@ -25,26 +25,17 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Root = ai.ComposeNode.DeserializeComposeNode(_buf);
     }
 
-    public BehaviorTree(int id, string name, string desc, string blackboard_id, ai.ComposeNode root ) 
-    {
-        this.Id = id;
-        this.Name = name;
-        this.Desc = desc;
-        this.BlackboardId = blackboard_id;
-        this.Root = root;
-    }
-
     public static BehaviorTree DeserializeBehaviorTree(ByteBuf _buf)
     {
         return new ai.BehaviorTree(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly string BlackboardId;
+    public int Id {get; private set;}
+    public string Name {get; private set;}
+    public string Desc {get; private set;}
+    public string BlackboardId {get; private set;}
     public ai.Blackboard BlackboardId_Ref;
-    public readonly ai.ComposeNode Root;
+    public ai.ComposeNode Root {get; private set;}
 
     public const int ID = 159552822;
     public override int GetTypeId() => ID;
@@ -53,10 +44,12 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
     {
         this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
         Root?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Root?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

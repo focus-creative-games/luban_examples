@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed partial class CoefficientItem :  bonus.Bonus 
+public sealed class CoefficientItem :  bonus.Bonus 
 {
     public CoefficientItem(JsonElement _json)  : base(_json) 
     {
@@ -34,8 +34,8 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         return new bonus.CoefficientItem(_json);
     }
 
-    public readonly int BonusId;
-    public readonly bonus.Items BonusList;
+    public int BonusId {get; private set; }
+    public bonus.Items BonusList {get; private set; }
 
     public const int ID = -229470727;
     public override int GetTypeId() => ID;
@@ -44,10 +44,13 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     {
         base.Resolve(_tables);
         BonusList?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        BonusList?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

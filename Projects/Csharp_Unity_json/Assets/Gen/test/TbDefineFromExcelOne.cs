@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TbDefineFromExcelOne
+public sealed class TbDefineFromExcelOne
 {
 
      private readonly test.DefineFromExcelOne _data;
@@ -47,11 +47,13 @@ public sealed partial class TbDefineFromExcelOne
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        _data.TranslateText(translator);
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

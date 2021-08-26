@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,18 +21,13 @@ public sealed partial class OneItem :  bonus.Bonus
         ItemId = _buf.ReadInt();
     }
 
-    public OneItem(int item_id )  : base() 
-    {
-        this.ItemId = item_id;
-    }
-
     public static OneItem DeserializeOneItem(ByteBuf _buf)
     {
         return new bonus.OneItem(_buf);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
+    public int ItemId {get; private set;}
+    public item.Item ItemId_Ref {get; private set;}
 
     public const int ID = -1649658966;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class OneItem :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +52,3 @@ public sealed partial class OneItem :  bonus.Bonus
     }
 
 }
-

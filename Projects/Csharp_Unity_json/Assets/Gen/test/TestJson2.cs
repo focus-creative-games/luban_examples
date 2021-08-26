@@ -40,11 +40,11 @@ public sealed partial class TestJson2 :  Bright.Config.BeanBase
         return new test.TestJson2(_json);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.Dictionary<int, int> M1;
-    public readonly System.Collections.Generic.Dictionary<long, int> M2;
-    public readonly System.Collections.Generic.Dictionary<string, int> M3;
-    public readonly System.Collections.Generic.Dictionary<string, test.DemoType1> M4;
+    public int Id { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> M1 { get; private set; }
+    public System.Collections.Generic.Dictionary<long, int> M2 { get; private set; }
+    public System.Collections.Generic.Dictionary<string, int> M3 { get; private set; }
+    public System.Collections.Generic.Dictionary<string, test.DemoType1> M4 { get; private set; }
 
     public const int ID = 1942237276;
     public override int GetTypeId() => ID;
@@ -52,10 +52,12 @@ public sealed partial class TestJson2 :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in M4.Values) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in M4.Values) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

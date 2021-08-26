@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.tag
 {
 
-public sealed partial class TestTag :  Bright.Config.BeanBase 
+public sealed class TestTag :  Bright.Config.BeanBase 
 {
     public TestTag(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
         return new tag.TestTag(_json);
     }
 
-    public readonly int Id;
-    public readonly string Value;
+    public int Id {get; private set; }
+    public string Value {get; private set; }
 
     public const int ID = 1742933812;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

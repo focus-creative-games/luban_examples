@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -27,28 +26,11 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         X6 = _buf.ReadFloat();
         X7 = _buf.ReadDouble();
         S1 = _buf.ReadString();
-        S2 = _buf.ReadString();
+        S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
         V2 = _buf.ReadUnityVector2();
         V3 = _buf.ReadUnityVector3();
         V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
-    }
-
-    public DemoPrimitiveTypesTable(bool x1, byte x2, short x3, int x4, long x5, float x6, double x7, string s1, string s2, UnityEngine.Vector2 v2, UnityEngine.Vector3 v3, UnityEngine.Vector4 v4, int t1 ) 
-    {
-        this.X1 = x1;
-        this.X2 = x2;
-        this.X3 = x3;
-        this.X4 = x4;
-        this.X5 = x5;
-        this.X6 = x6;
-        this.X7 = x7;
-        this.S1 = s1;
-        this.S2 = s2;
-        this.V2 = v2;
-        this.V3 = v3;
-        this.V4 = v4;
-        this.T1 = t1;
     }
 
     public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(ByteBuf _buf)
@@ -56,29 +38,32 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         return new test.DemoPrimitiveTypesTable(_buf);
     }
 
-    public readonly bool X1;
-    public readonly byte X2;
-    public readonly short X3;
-    public readonly int X4;
-    public readonly long X5;
-    public readonly float X6;
-    public readonly double X7;
-    public readonly string S1;
-    public readonly string S2;
-    public readonly UnityEngine.Vector2 V2;
-    public readonly UnityEngine.Vector3 V3;
-    public readonly UnityEngine.Vector4 V4;
-    public readonly int T1;
+    public bool X1 {get; private set;}
+    public byte X2 {get; private set;}
+    public short X3 {get; private set;}
+    public int X4 {get; private set;}
+    public long X5 {get; private set;}
+    public float X6 {get; private set;}
+    public double X7 {get; private set;}
+    public string S1 {get; private set;}
+    public string S2 {get; private set;}
+    public string S2_l10n_key {get;}
+    public UnityEngine.Vector2 V2 {get; private set;}
+    public UnityEngine.Vector3 V3 {get; private set;}
+    public UnityEngine.Vector4 V4 {get; private set;}
+    public int T1 {get; private set;}
 
     public const int ID = -370934083;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        S2 = translator(S2_l10n_key, S2);
+    }
 
     public override string ToString()
     {
@@ -101,4 +86,3 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     }
 
 }
-

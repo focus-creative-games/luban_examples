@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class StringKeyData :  ai.KeyData
         Value = _buf.ReadString();
     }
 
-    public StringKeyData(string value )  : base() 
-    {
-        this.Value = value;
-    }
-
     public static StringKeyData DeserializeStringKeyData(ByteBuf _buf)
     {
         return new ai.StringKeyData(_buf);
     }
 
-    public readonly string Value;
+    public string Value {get; private set;}
 
     public const int ID = -307888654;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class StringKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -54,4 +50,3 @@ public sealed partial class StringKeyData :  ai.KeyData
     }
 
 }
-

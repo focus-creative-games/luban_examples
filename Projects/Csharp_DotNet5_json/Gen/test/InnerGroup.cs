@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class InnerGroup :  Bright.Config.BeanBase 
+public sealed class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(JsonElement _json) 
     {
@@ -38,20 +38,21 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
         return new test.InnerGroup(_json);
     }
 
-    public readonly int Y1;
-    public readonly int Y2;
-    public readonly int Y3;
-    public readonly int Y4;
+    public int Y1 {get; private set; }
+    public int Y2 {get; private set; }
+    public int Y3 {get; private set; }
+    public int Y4 {get; private set; }
 
     public const int ID = -587873083;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

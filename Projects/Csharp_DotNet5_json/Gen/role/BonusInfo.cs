@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed partial class BonusInfo :  Bright.Config.BeanBase 
+public sealed class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         return new role.BonusInfo(_json);
     }
 
-    public readonly item.ECurrencyType Type;
-    public readonly float Coefficient;
+    public item.ECurrencyType Type {get; private set; }
+    public float Coefficient {get; private set; }
 
     public const int ID = -1354421803;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

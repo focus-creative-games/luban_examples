@@ -17,5 +17,3 @@ namespace cfg.ai
         BOTH = 3,
     }
 }
-
-

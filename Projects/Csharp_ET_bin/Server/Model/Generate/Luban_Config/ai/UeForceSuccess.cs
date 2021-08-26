@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -18,10 +17,6 @@ namespace cfg.ai
 public sealed partial class UeForceSuccess :  ai.Decorator 
 {
     public UeForceSuccess(ByteBuf _buf)  : base(_buf) 
-    {
-    }
-
-    public UeForceSuccess(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name,flow_abort_mode) 
     {
     }
 
@@ -37,10 +32,12 @@ public sealed partial class UeForceSuccess :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -53,4 +50,3 @@ public sealed partial class UeForceSuccess :  ai.Decorator
     }
 
 }
-

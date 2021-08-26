@@ -20,10 +20,6 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
     {
     }
 
-    public ErrorStyleTip()  : base() 
-    {
-    }
-
     public static ErrorStyleTip DeserializeErrorStyleTip(ByteBuf _buf)
     {
         return new error.ErrorStyleTip(_buf);
@@ -36,10 +32,12 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

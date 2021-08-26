@@ -21,17 +21,12 @@ public sealed partial class IntKeyData :  ai.KeyData
         Value = _buf.ReadInt();
     }
 
-    public IntKeyData(int value )  : base() 
-    {
-        this.Value = value;
-    }
-
     public static IntKeyData DeserializeIntKeyData(ByteBuf _buf)
     {
         return new ai.IntKeyData(_buf);
     }
 
-    public readonly int Value;
+    public int Value {get; private set;}
 
     public const int ID = -342751904;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class IntKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

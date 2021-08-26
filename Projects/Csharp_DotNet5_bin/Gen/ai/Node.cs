@@ -22,12 +22,6 @@ public abstract partial class Node :  Bright.Config.BeanBase
         NodeName = _buf.ReadString();
     }
 
-    public Node(int id, string node_name ) 
-    {
-        this.Id = id;
-        this.NodeName = node_name;
-    }
-
     public static Node DeserializeNode(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -59,16 +53,17 @@ public abstract partial class Node :  Bright.Config.BeanBase
         }
     }
 
-    public readonly int Id;
-    public readonly string NodeName;
+    public int Id {get; private set;}
+    public string NodeName {get; private set;}
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

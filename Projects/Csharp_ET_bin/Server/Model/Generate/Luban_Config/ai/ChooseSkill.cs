@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class ChooseSkill :  ai.Task
         ResultSkillIdKey = _buf.ReadString();
     }
 
-    public ChooseSkill(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, string result_skill_id_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
-    {
-        this.TargetActorKey = target_actor_key;
-        this.ResultSkillIdKey = result_skill_id_key;
-    }
-
     public static ChooseSkill DeserializeChooseSkill(ByteBuf _buf)
     {
         return new ai.ChooseSkill(_buf);
     }
 
-    public readonly string TargetActorKey;
-    public readonly string ResultSkillIdKey;
+    public string TargetActorKey {get; private set;}
+    public string ResultSkillIdKey {get; private set;}
 
     public const int ID = -918812268;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class ChooseSkill :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -63,4 +58,3 @@ public sealed partial class ChooseSkill :  ai.Task
     }
 
 }
-

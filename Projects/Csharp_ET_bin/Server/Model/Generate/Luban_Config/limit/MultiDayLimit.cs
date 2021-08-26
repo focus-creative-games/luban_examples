@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
         Num = _buf.ReadInt();
     }
 
-    public MultiDayLimit(int day, int num )  : base() 
-    {
-        this.Day = day;
-        this.Num = num;
-    }
-
     public static MultiDayLimit DeserializeMultiDayLimit(ByteBuf _buf)
     {
         return new limit.MultiDayLimit(_buf);
     }
 
-    public readonly int Day;
-    public readonly int Num;
+    public int Day {get; private set;}
+    public int Num {get; private set;}
 
     public const int ID = -1753629499;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -58,4 +53,3 @@ public sealed partial class MultiDayLimit :  limit.LimitBase
     }
 
 }
-

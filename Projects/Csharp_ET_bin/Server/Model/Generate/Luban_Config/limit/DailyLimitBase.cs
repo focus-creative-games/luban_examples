@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -18,10 +17,6 @@ namespace cfg.limit
 public abstract partial class DailyLimitBase :  limit.LimitBase 
 {
     public DailyLimitBase(ByteBuf _buf)  : base(_buf) 
-    {
-    }
-
-    public DailyLimitBase()  : base() 
     {
     }
 
@@ -39,10 +34,12 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -52,4 +49,3 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     }
 
 }
-

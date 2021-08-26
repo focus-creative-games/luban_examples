@@ -41,31 +41,6 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
         PerVialityRecoveryTime = _buf.ReadInt();
     }
 
-    public GlobalConfig(int bag_capacity, int bag_capacity_special, int bag_temp_expendable_capacity, int bag_temp_tool_capacity, int bag_init_capacity, int quick_bag_capacity, int cloth_bag_capacity, int cloth_bag_init_capacity, int cloth_bag_capacity_special, int? bag_init_items_drop_id, int mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int init_energy, int init_viality, int max_viality, int per_viality_recovery_time ) 
-    {
-        this.BagCapacity = bag_capacity;
-        this.BagCapacitySpecial = bag_capacity_special;
-        this.BagTempExpendableCapacity = bag_temp_expendable_capacity;
-        this.BagTempToolCapacity = bag_temp_tool_capacity;
-        this.BagInitCapacity = bag_init_capacity;
-        this.QuickBagCapacity = quick_bag_capacity;
-        this.ClothBagCapacity = cloth_bag_capacity;
-        this.ClothBagInitCapacity = cloth_bag_init_capacity;
-        this.ClothBagCapacitySpecial = cloth_bag_capacity_special;
-        this.BagInitItemsDropId = bag_init_items_drop_id;
-        this.MailBoxCapacity = mail_box_capacity;
-        this.DamageParamC = damage_param_c;
-        this.DamageParamE = damage_param_e;
-        this.DamageParamF = damage_param_f;
-        this.DamageParamD = damage_param_d;
-        this.RoleSpeed = role_speed;
-        this.MonsterSpeed = monster_speed;
-        this.InitEnergy = init_energy;
-        this.InitViality = init_viality;
-        this.MaxViality = max_viality;
-        this.PerVialityRecoveryTime = per_viality_recovery_time;
-    }
-
     public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
     {
         return new common.GlobalConfig(_buf);
@@ -74,28 +49,28 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     /// <summary>
     /// 背包容量
     /// </summary>
-    public readonly int BagCapacity;
-    public readonly int BagCapacitySpecial;
-    public readonly int BagTempExpendableCapacity;
-    public readonly int BagTempToolCapacity;
-    public readonly int BagInitCapacity;
-    public readonly int QuickBagCapacity;
-    public readonly int ClothBagCapacity;
-    public readonly int ClothBagInitCapacity;
-    public readonly int ClothBagCapacitySpecial;
-    public readonly int? BagInitItemsDropId;
+    public int BagCapacity {get; private set;}
+    public int BagCapacitySpecial {get; private set;}
+    public int BagTempExpendableCapacity {get; private set;}
+    public int BagTempToolCapacity {get; private set;}
+    public int BagInitCapacity {get; private set;}
+    public int QuickBagCapacity {get; private set;}
+    public int ClothBagCapacity {get; private set;}
+    public int ClothBagInitCapacity {get; private set;}
+    public int ClothBagCapacitySpecial {get; private set;}
+    public int? BagInitItemsDropId {get; private set;}
     public bonus.DropInfo BagInitItemsDropId_Ref;
-    public readonly int MailBoxCapacity;
-    public readonly float DamageParamC;
-    public readonly float DamageParamE;
-    public readonly float DamageParamF;
-    public readonly float DamageParamD;
-    public readonly float RoleSpeed;
-    public readonly float MonsterSpeed;
-    public readonly int InitEnergy;
-    public readonly int InitViality;
-    public readonly int MaxViality;
-    public readonly int PerVialityRecoveryTime;
+    public int MailBoxCapacity {get; private set;}
+    public float DamageParamC {get; private set;}
+    public float DamageParamE {get; private set;}
+    public float DamageParamF {get; private set;}
+    public float DamageParamD {get; private set;}
+    public float RoleSpeed {get; private set;}
+    public float MonsterSpeed {get; private set;}
+    public int InitEnergy {get; private set;}
+    public int InitViality {get; private set;}
+    public int MaxViality {get; private set;}
+    public int PerVialityRecoveryTime {get; private set;}
 
     public const int ID = -848234488;
     public override int GetTypeId() => ID;
@@ -103,10 +78,11 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

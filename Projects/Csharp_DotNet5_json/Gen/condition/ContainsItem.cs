@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed partial class ContainsItem :  condition.RoleCondition 
+public sealed class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(JsonElement _json)  : base(_json) 
     {
@@ -36,10 +36,10 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         return new condition.ContainsItem(_json);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
-    public readonly int Num;
-    public readonly bool Reverse;
+    public int ItemId {get; private set; }
+    public item.Item ItemId_Ref {get; private set;}
+    public int Num {get; private set; }
+    public bool Reverse {get; private set; }
 
     public const int ID = 1961145317;
     public override int GetTypeId() => ID;
@@ -48,10 +48,12 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

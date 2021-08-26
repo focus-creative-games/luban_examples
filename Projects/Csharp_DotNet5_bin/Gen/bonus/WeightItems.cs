@@ -21,17 +21,12 @@ public sealed partial class WeightItems :  bonus.Bonus
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ItemList = new bonus.WeightItemInfo[n];for(var i = 0 ; i < n ; i++) { bonus.WeightItemInfo _e;_e = bonus.WeightItemInfo.DeserializeWeightItemInfo(_buf); ItemList[i] = _e;}}
     }
 
-    public WeightItems(bonus.WeightItemInfo[] item_list )  : base() 
-    {
-        this.ItemList = item_list;
-    }
-
     public static WeightItems DeserializeWeightItems(ByteBuf _buf)
     {
         return new bonus.WeightItems(_buf);
     }
 
-    public readonly bonus.WeightItemInfo[] ItemList;
+    public bonus.WeightItemInfo[] ItemList {get; private set;}
 
     public const int ID = -356202311;
     public override int GetTypeId() => ID;
@@ -40,10 +35,13 @@ public sealed partial class WeightItems :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in ItemList) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

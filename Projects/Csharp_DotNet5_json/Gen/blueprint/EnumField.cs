@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed partial class EnumField :  Bright.Config.BeanBase 
+public sealed class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         return new blueprint.EnumField(_json);
     }
 
-    public readonly string Name;
-    public readonly int Value;
+    public string Name {get; private set; }
+    public int Value {get; private set; }
 
     public const int ID = 1830049470;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

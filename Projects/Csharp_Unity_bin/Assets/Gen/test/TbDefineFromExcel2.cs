@@ -6,14 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
 namespace cfg.test
 {
    
-public sealed partial class TbDefineFromExcel2
+public sealed class TbDefineFromExcel2
 {
     private readonly Dictionary<int, test.DefineFromExcel2> _dataMap;
     private readonly List<test.DefineFromExcel2> _dataList;
@@ -45,11 +44,16 @@ public sealed partial class TbDefineFromExcel2
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

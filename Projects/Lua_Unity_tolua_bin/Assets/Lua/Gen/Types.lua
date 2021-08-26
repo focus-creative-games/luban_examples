@@ -2527,7 +2527,7 @@ local function InitTypes(methods)
         class._deserialize = function(bs)
             local o = {
             id = readInt(bs),
-            text = readString(bs),
+            text = readString(bs) and readString(bs),
             }
             setmetatable(o, class)
             return o
@@ -2753,7 +2753,7 @@ local function InitTypes(methods)
             x12 = beans['test.DemoType1']._deserialize(bs),
             x13 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
-            s1 = readString(bs),
+            s1 = readString(bs) and readString(bs),
             v2 = readVector2(bs),
             v3 = readVector3(bs),
             v4 = readVector4(bs),
@@ -2912,7 +2912,7 @@ local function InitTypes(methods)
         class._deserialize = function(bs)
             local o = {
             id = readInt(bs),
-            name = readString(bs),
+            name = readString(bs) and readString(bs),
             date = beans['test.DemoDynamic']._deserialize(bs),
             }
             setmetatable(o, class)
@@ -3087,7 +3087,7 @@ local function InitTypes(methods)
             x3 = readBool(bs) and beans['test.DemoType1']._deserialize(bs) or nil,
             x4 = readBool(bs) and beans['test.DemoDynamic']._deserialize(bs) or nil,
             s1 = readBool(bs) and readString(bs) or nil,
-            s2 = readBool(bs) and readString(bs) or nil,
+            s2 = readBool(bs) and readString(bs) and readString(bs) or nil,
             }
             setmetatable(o, class)
             return o
@@ -3123,7 +3123,7 @@ local function InitTypes(methods)
             x6 = readFloat(bs),
             x7 = readDouble(bs),
             s1 = readString(bs),
-            s2 = readString(bs),
+            s2 = readString(bs) and readString(bs),
             v2 = readVector2(bs),
             v3 = readVector3(bs),
             v4 = readVector4(bs),

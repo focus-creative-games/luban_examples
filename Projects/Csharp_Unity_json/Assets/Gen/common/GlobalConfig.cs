@@ -75,28 +75,28 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     /// <summary>
     /// 背包容量
     /// </summary>
-    public readonly int BagCapacity;
-    public readonly int BagCapacitySpecial;
-    public readonly int BagTempExpendableCapacity;
-    public readonly int BagTempToolCapacity;
-    public readonly int BagInitCapacity;
-    public readonly int QuickBagCapacity;
-    public readonly int ClothBagCapacity;
-    public readonly int ClothBagInitCapacity;
-    public readonly int ClothBagCapacitySpecial;
-    public readonly int? BagInitItemsDropId;
-    public bonus.DropInfo BagInitItemsDropId_Ref;
-    public readonly int MailBoxCapacity;
-    public readonly float DamageParamC;
-    public readonly float DamageParamE;
-    public readonly float DamageParamF;
-    public readonly float DamageParamD;
-    public readonly float RoleSpeed;
-    public readonly float MonsterSpeed;
-    public readonly int InitEnergy;
-    public readonly int InitViality;
-    public readonly int MaxViality;
-    public readonly int PerVialityRecoveryTime;
+    public int BagCapacity { get; private set; }
+    public int BagCapacitySpecial { get; private set; }
+    public int BagTempExpendableCapacity { get; private set; }
+    public int BagTempToolCapacity { get; private set; }
+    public int BagInitCapacity { get; private set; }
+    public int QuickBagCapacity { get; private set; }
+    public int ClothBagCapacity { get; private set; }
+    public int ClothBagInitCapacity { get; private set; }
+    public int ClothBagCapacitySpecial { get; private set; }
+    public int? BagInitItemsDropId { get; private set; }
+    public bonus.DropInfo BagInitItemsDropId_Ref { get; private set; }
+    public int MailBoxCapacity { get; private set; }
+    public float DamageParamC { get; private set; }
+    public float DamageParamE { get; private set; }
+    public float DamageParamF { get; private set; }
+    public float DamageParamD { get; private set; }
+    public float RoleSpeed { get; private set; }
+    public float MonsterSpeed { get; private set; }
+    public int InitEnergy { get; private set; }
+    public int InitViality { get; private set; }
+    public int MaxViality { get; private set; }
+    public int PerVialityRecoveryTime { get; private set; }
 
     public const int ID = -848234488;
     public override int GetTypeId() => ID;
@@ -104,10 +104,11 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

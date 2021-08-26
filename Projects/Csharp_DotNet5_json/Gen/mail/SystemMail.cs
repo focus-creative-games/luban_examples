@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.mail
 {
 
-public sealed partial class SystemMail :  Bright.Config.BeanBase 
+public sealed class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(JsonElement _json) 
     {
@@ -40,21 +40,22 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         return new mail.SystemMail(_json);
     }
 
-    public readonly int Id;
-    public readonly string Title;
-    public readonly string Sender;
-    public readonly string Content;
-    public readonly System.Collections.Generic.List<int> Award;
+    public int Id {get; private set; }
+    public string Title {get; private set; }
+    public string Sender {get; private set; }
+    public string Content {get; private set; }
+    public System.Collections.Generic.List<int> Award {get; private set; }
 
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

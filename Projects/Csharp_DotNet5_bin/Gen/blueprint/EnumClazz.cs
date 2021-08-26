@@ -21,17 +21,12 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Enums = new System.Collections.Generic.List<blueprint.EnumField>(n);for(var i = 0 ; i < n ; i++) { blueprint.EnumField _e;  _e = blueprint.EnumField.DeserializeEnumField(_buf); Enums.Add(_e);}}
     }
 
-    public EnumClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, System.Collections.Generic.List<blueprint.EnumField> enums )  : base(name,desc,parents,methods) 
-    {
-        this.Enums = enums;
-    }
-
     public static EnumClazz DeserializeEnumClazz(ByteBuf _buf)
     {
         return new blueprint.EnumClazz(_buf);
     }
 
-    public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
+    public System.Collections.Generic.List<blueprint.EnumField> Enums {get; private set;}
 
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
@@ -40,10 +35,13 @@ public sealed partial class EnumClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Enums) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Enums) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

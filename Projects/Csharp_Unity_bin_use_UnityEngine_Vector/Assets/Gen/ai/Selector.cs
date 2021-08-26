@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class Selector :  ai.ComposeNode
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Children = new System.Collections.Generic.List<ai.FlowNode>(n);for(var i = 0 ; i < n ; i++) { ai.FlowNode _e;  _e = ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e);}}
     }
 
-    public Selector(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, System.Collections.Generic.List<ai.FlowNode> children )  : base(id,node_name,decorators,services) 
-    {
-        this.Children = children;
-    }
-
     public static Selector DeserializeSelector(ByteBuf _buf)
     {
         return new ai.Selector(_buf);
     }
 
-    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
+    public System.Collections.Generic.List<ai.FlowNode> Children {get; private set;}
 
     public const int ID = -1946981627;
     public override int GetTypeId() => ID;
@@ -41,10 +35,13 @@ public sealed partial class Selector :  ai.ComposeNode
     {
         base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Children) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {
@@ -59,4 +56,3 @@ public sealed partial class Selector :  ai.ComposeNode
     }
 
 }
-

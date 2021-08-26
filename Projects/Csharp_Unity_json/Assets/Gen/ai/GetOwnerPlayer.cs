@@ -32,7 +32,7 @@ public sealed partial class GetOwnerPlayer :  ai.Service
         return new ai.GetOwnerPlayer(_json);
     }
 
-    public readonly string PlayerActorKey;
+    public string PlayerActorKey { get; private set; }
 
     public const int ID = -999247644;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class GetOwnerPlayer :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

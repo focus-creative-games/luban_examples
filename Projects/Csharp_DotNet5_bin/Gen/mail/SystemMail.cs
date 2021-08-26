@@ -25,35 +25,27 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Award = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); Award.Add(_e);}}
     }
 
-    public SystemMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award ) 
-    {
-        this.Id = id;
-        this.Title = title;
-        this.Sender = sender;
-        this.Content = content;
-        this.Award = award;
-    }
-
     public static SystemMail DeserializeSystemMail(ByteBuf _buf)
     {
         return new mail.SystemMail(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Title;
-    public readonly string Sender;
-    public readonly string Content;
-    public readonly System.Collections.Generic.List<int> Award;
+    public int Id {get; private set;}
+    public string Title {get; private set;}
+    public string Sender {get; private set;}
+    public string Content {get; private set;}
+    public System.Collections.Generic.List<int> Award {get; private set;}
 
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

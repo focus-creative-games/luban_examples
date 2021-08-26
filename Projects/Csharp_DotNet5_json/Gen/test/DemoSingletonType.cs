@@ -15,12 +15,12 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
+public sealed class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        Name = _json.GetProperty("name").GetString();
+        Name_l10n_key = _json.GetProperty("name").GetProperty("key").GetString();Name = _json.GetProperty("name").GetProperty("text").GetString();
         Date =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("date"));
     }
 
@@ -36,9 +36,10 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         return new test.DemoSingletonType(_json);
     }
 
-    public readonly int Id;
-    public readonly string Name;
-    public readonly test.DemoDynamic Date;
+    public int Id {get; private set; }
+    public string Name {get; private set; }
+    public string Name_l10n_key {get;}
+    public test.DemoDynamic Date {get; private set; }
 
     public const int ID = 539196998;
     public override int GetTypeId() => ID;
@@ -46,10 +47,13 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Date?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Name = translator(Name_l10n_key, Name);
+        Date?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

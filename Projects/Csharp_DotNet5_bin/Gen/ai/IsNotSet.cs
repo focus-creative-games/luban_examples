@@ -20,10 +20,6 @@ public sealed partial class IsNotSet :  ai.KeyQueryOperator
     {
     }
 
-    public IsNotSet()  : base() 
-    {
-    }
-
     public static IsNotSet DeserializeIsNotSet(ByteBuf _buf)
     {
         return new ai.IsNotSet(_buf);
@@ -36,10 +32,12 @@ public sealed partial class IsNotSet :  ai.KeyQueryOperator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

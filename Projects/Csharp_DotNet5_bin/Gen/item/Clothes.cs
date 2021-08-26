@@ -24,23 +24,15 @@ public sealed partial class Clothes :  item.ItemExtra
         EnergyResume = _buf.ReadInt();
     }
 
-    public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume )  : base(id) 
-    {
-        this.Attack = attack;
-        this.Hp = hp;
-        this.EnergyLimit = energy_limit;
-        this.EnergyResume = energy_resume;
-    }
-
     public static Clothes DeserializeClothes(ByteBuf _buf)
     {
         return new item.Clothes(_buf);
     }
 
-    public readonly int Attack;
-    public readonly long Hp;
-    public readonly int EnergyLimit;
-    public readonly int EnergyResume;
+    public int Attack {get; private set;}
+    public long Hp {get; private set;}
+    public int EnergyLimit {get; private set;}
+    public int EnergyResume {get; private set;}
 
     public const int ID = 1659907149;
     public override int GetTypeId() => ID;
@@ -48,10 +40,12 @@ public sealed partial class Clothes :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

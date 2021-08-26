@@ -36,9 +36,9 @@ public sealed partial class InteractionItem :  item.ItemExtra
         return new item.InteractionItem(_json);
     }
 
-    public readonly int? AttackNum;
-    public readonly string HoldingStaticMesh;
-    public readonly string HoldingStaticMeshMat;
+    public int? AttackNum { get; private set; }
+    public string HoldingStaticMesh { get; private set; }
+    public string HoldingStaticMeshMat { get; private set; }
 
     public const int ID = 640937802;
     public override int GetTypeId() => ID;
@@ -46,10 +46,12 @@ public sealed partial class InteractionItem :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

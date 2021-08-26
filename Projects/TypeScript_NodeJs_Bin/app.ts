@@ -10,5 +10,5 @@ function loader(file: string): any {
 
 //let tables = new cfg.Tables(loader);
 let tables = new cfg.Tables(loader);
-console.log(tables);
+console.log(tables.TbFullTypes.getDataList()[0]);
 

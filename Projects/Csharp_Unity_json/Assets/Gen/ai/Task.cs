@@ -43,16 +43,18 @@ public abstract partial class Task :  ai.FlowNode
         }
     }
 
-    public readonly bool IgnoreRestartSelf;
+    public bool IgnoreRestartSelf { get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

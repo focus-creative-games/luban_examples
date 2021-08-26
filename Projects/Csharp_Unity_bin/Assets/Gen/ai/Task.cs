@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -20,11 +19,6 @@ public abstract partial class Task :  ai.FlowNode
     public Task(ByteBuf _buf)  : base(_buf) 
     {
         IgnoreRestartSelf = _buf.ReadBool();
-    }
-
-    public Task(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self )  : base(id,node_name,decorators,services) 
-    {
-        this.IgnoreRestartSelf = ignore_restart_self;
     }
 
     public static Task DeserializeTask(ByteBuf _buf)
@@ -42,16 +36,18 @@ public abstract partial class Task :  ai.FlowNode
         }
     }
 
-    public readonly bool IgnoreRestartSelf;
+    public bool IgnoreRestartSelf {get; private set;}
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -66,4 +62,3 @@ public abstract partial class Task :  ai.FlowNode
     }
 
 }
-

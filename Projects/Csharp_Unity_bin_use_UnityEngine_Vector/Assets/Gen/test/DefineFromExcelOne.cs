@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -28,14 +27,6 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
         DefaultItem = _buf.ReadString();
     }
 
-    public DefineFromExcelOne(int unlock_equip, int unlock_hero, string default_avatar, string default_item ) 
-    {
-        this.UnlockEquip = unlock_equip;
-        this.UnlockHero = unlock_hero;
-        this.DefaultAvatar = default_avatar;
-        this.DefaultItem = default_item;
-    }
-
     public static DefineFromExcelOne DeserializeDefineFromExcelOne(ByteBuf _buf)
     {
         return new test.DefineFromExcelOne(_buf);
@@ -44,26 +35,27 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     /// <summary>
     /// 装备解锁等级_描述
     /// </summary>
-    public readonly int UnlockEquip;
+    public int UnlockEquip {get; private set;}
     /// <summary>
     /// 英雄解锁等级
     /// </summary>
-    public readonly int UnlockHero;
+    public int UnlockHero {get; private set;}
     /// <summary>
     /// 默认头像
     /// </summary>
-    public readonly string DefaultAvatar;
-    public readonly string DefaultItem;
+    public string DefaultAvatar {get; private set;}
+    public string DefaultItem {get; private set;}
 
     public const int ID = 528039504;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -77,4 +69,3 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     }
 
 }
-

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         Num = _buf.ReadInt();
     }
 
-    public WeeklyLimit(int num )  : base() 
-    {
-        this.Num = num;
-    }
-
     public static WeeklyLimit DeserializeWeeklyLimit(ByteBuf _buf)
     {
         return new limit.WeeklyLimit(_buf);
     }
 
-    public readonly int Num;
+    public int Num {get; private set;}
 
     public const int ID = -252187161;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -54,4 +50,3 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
     }
 
 }
-

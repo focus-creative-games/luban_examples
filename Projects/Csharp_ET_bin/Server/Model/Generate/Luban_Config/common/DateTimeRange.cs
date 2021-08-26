@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,29 +22,24 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         if(_buf.ReadBool()){ EndTime = _buf.ReadInt(); } else { EndTime = null; }
     }
 
-    public DateTimeRange(int? start_time, int? end_time ) 
-    {
-        this.StartTime = start_time;
-        this.EndTime = end_time;
-    }
-
     public static DateTimeRange DeserializeDateTimeRange(ByteBuf _buf)
     {
         return new common.DateTimeRange(_buf);
     }
 
-    public readonly int? StartTime;
-    public readonly int? EndTime;
+    public int? StartTime {get; private set;}
+    public int? EndTime {get; private set;}
 
     public const int ID = 1642200959;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -57,4 +51,3 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
     }
 
 }
-

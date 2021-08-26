@@ -43,4 +43,9 @@ namespace bright
 
     template <typename T>
     using Function = std::function<T>;
+	
+	template <typename T>
+	using Loader=::bright::Function<bool(T&, const ::bright::String&)>;
+	
+	using TextTranslator = ::bright::Function<bool(const ::bright::String&, ::bright::String&)>;
 }

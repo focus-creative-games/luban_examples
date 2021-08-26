@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class DemoSingletonType {
     public DemoSingletonType(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        name = __json__.get("name").getAsString();
+        __json__.get("name").getAsJsonObject().get("key").getAsString(); name = __json__.get("name").getAsJsonObject().get("text").getAsString();
         date = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("date").getAsJsonObject());
     }
 

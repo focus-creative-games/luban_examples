@@ -62,23 +62,23 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// <summary>
     /// id的描述
     /// </summary>
-    public readonly int Id;
+    public int Id { get; private set; }
     /// <summary>
     /// 字段的描述
     /// </summary>
-    public readonly bool X1;
-    public readonly long X5;
-    public readonly float X6;
-    public readonly int X8;
-    public test.DemoPrimitiveTypesTable X8_Ref;
-    public readonly string X10;
-    public readonly test.ETestQuality X13;
-    public readonly test.DemoDynamic X14;
-    public readonly System.Numerics.Vector2 V2;
-    public readonly int T1;
-    public readonly int[] K1;
-    public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    public readonly System.Collections.Generic.List<test.DemoE2> K9;
+    public bool X1 { get; private set; }
+    public long X5 { get; private set; }
+    public float X6 { get; private set; }
+    public int X8 { get; private set; }
+    public test.DemoPrimitiveTypesTable X8_Ref { get; private set; }
+    public string X10 { get; private set; }
+    public test.ETestQuality X13 { get; private set; }
+    public test.DemoDynamic X14 { get; private set; }
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public int T1 { get; private set; }
+    public int[] K1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
 
     public const int ID = 688816828;
     public override int GetTypeId() => ID;
@@ -88,10 +88,13 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         this.X8_Ref = (_tables["test.TbDemoPrimitive"] as test.TbDemoPrimitive).GetOrDefault(X8);
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X14?.TranslateText(translator);
+        foreach(var _e in K9) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

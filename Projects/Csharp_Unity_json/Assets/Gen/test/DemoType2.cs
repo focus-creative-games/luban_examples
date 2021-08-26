@@ -33,7 +33,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         { if(!_json["x12"].IsObject) { throw new SerializationException(); }  X12 = test.DemoType1.DeserializeDemoType1(_json["x12"]); }
         { if(!_json["x13"].IsNumber) { throw new SerializationException(); }  X13 = (test.DemoEnum)_json["x13"].AsInt; }
         { if(!_json["x14"].IsObject) { throw new SerializationException(); }  X14 = test.DemoDynamic.DeserializeDemoDynamic(_json["x14"]); }
-        { if(!_json["s1"].IsString) { throw new SerializationException(); }  S1 = _json["s1"]; }
+        { if(!_json["s1"]["key"].IsString) { throw new SerializationException(); }  S1_l10n_key = _json["s1"]["key"]; if(!_json["s1"]["text"].IsString) { throw new SerializationException(); }  S1 = _json["s1"]["text"]; }
         { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
         { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new System.Numerics.Vector3(__x, __y,__z); }
         { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
@@ -80,32 +80,33 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         return new test.DemoType2(_json);
     }
 
-    public readonly int X4;
-    public readonly bool X1;
-    public readonly byte X2;
-    public readonly short X3;
-    public test.DemoType2 X3_Ref;
-    public readonly long X5;
-    public readonly float X6;
-    public readonly double X7;
-    public readonly short X80;
-    public readonly int X8;
-    public readonly long X9;
-    public readonly string X10;
-    public readonly test.DemoType1 X12;
-    public readonly test.DemoEnum X13;
-    public readonly test.DemoDynamic X14;
-    public readonly string S1;
-    public readonly System.Numerics.Vector2 V2;
-    public readonly System.Numerics.Vector3 V3;
-    public readonly System.Numerics.Vector4 V4;
-    public readonly int T1;
-    public readonly int[] K1;
-    public readonly System.Collections.Generic.List<int> K2;
-    public readonly System.Collections.Generic.HashSet<int> K5;
-    public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly test.DemoDynamic[] K15;
+    public int X4 { get; private set; }
+    public bool X1 { get; private set; }
+    public byte X2 { get; private set; }
+    public short X3 { get; private set; }
+    public test.DemoType2 X3_Ref { get; private set; }
+    public long X5 { get; private set; }
+    public float X6 { get; private set; }
+    public double X7 { get; private set; }
+    public short X80 { get; private set; }
+    public int X8 { get; private set; }
+    public long X9 { get; private set; }
+    public string X10 { get; private set; }
+    public test.DemoType1 X12 { get; private set; }
+    public test.DemoEnum X13 { get; private set; }
+    public test.DemoDynamic X14 { get; private set; }
+    public string S1 { get; private set; }
+    public string S1_l10n_key { get; }
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public System.Numerics.Vector3 V3 { get; private set; }
+    public System.Numerics.Vector4 V4 { get; private set; }
+    public int T1 { get; private set; }
+    public int[] K1 { get; private set; }
+    public System.Collections.Generic.List<int> K2 { get; private set; }
+    public System.Collections.Generic.HashSet<int> K5 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
+    public test.DemoDynamic[] K15 { get; private set; }
 
     public const int ID = -367048295;
     public override int GetTypeId() => ID;
@@ -117,10 +118,16 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X12?.TranslateText(translator);
+        X14?.TranslateText(translator);
+        S1 = translator(S1_l10n_key, S1);
+        foreach(var _e in K9) { _e?.TranslateText(translator); }
+        foreach(var _e in K15) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

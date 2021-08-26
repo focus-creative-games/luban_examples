@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class DebugPrint :  ai.Task
         Text = _buf.ReadString();
     }
 
-    public DebugPrint(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string text )  : base(id,node_name,decorators,services,ignore_restart_self) 
-    {
-        this.Text = text;
-    }
-
     public static DebugPrint DeserializeDebugPrint(ByteBuf _buf)
     {
         return new ai.DebugPrint(_buf);
     }
 
-    public readonly string Text;
+    public string Text {get; private set;}
 
     public const int ID = 1357409728;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class DebugPrint :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -59,4 +55,3 @@ public sealed partial class DebugPrint :  ai.Task
     }
 
 }
-

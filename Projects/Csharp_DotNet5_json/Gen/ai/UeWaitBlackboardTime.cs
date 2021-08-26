@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class UeWaitBlackboardTime :  ai.Task 
+public sealed class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         return new ai.UeWaitBlackboardTime(_json);
     }
 
-    public readonly string BlackboardKey;
+    public string BlackboardKey {get; private set; }
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

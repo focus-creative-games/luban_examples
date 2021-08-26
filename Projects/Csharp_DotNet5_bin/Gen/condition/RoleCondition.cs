@@ -20,10 +20,6 @@ public abstract partial class RoleCondition :  condition.Condition
     {
     }
 
-    public RoleCondition()  : base() 
-    {
-    }
-
     public static RoleCondition DeserializeRoleCondition(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -44,10 +40,12 @@ public abstract partial class RoleCondition :  condition.Condition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

@@ -38,10 +38,10 @@ public sealed partial class Clothes :  item.ItemExtra
         return new item.Clothes(_json);
     }
 
-    public readonly int Attack;
-    public readonly long Hp;
-    public readonly int EnergyLimit;
-    public readonly int EnergyResume;
+    public int Attack { get; private set; }
+    public long Hp { get; private set; }
+    public int EnergyLimit { get; private set; }
+    public int EnergyResume { get; private set; }
 
     public const int ID = 1659907149;
     public override int GetTypeId() => ID;
@@ -49,10 +49,12 @@ public sealed partial class Clothes :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

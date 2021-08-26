@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed partial class MultiBonus :  bonus.Bonus 
+public sealed class MultiBonus :  bonus.Bonus 
 {
     public MultiBonus(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class MultiBonus :  bonus.Bonus
         return new bonus.MultiBonus(_json);
     }
 
-    public readonly bonus.Bonus[] Bonuses;
+    public bonus.Bonus[] Bonuses {get; private set; }
 
     public const int ID = 1421907893;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class MultiBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Bonuses) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

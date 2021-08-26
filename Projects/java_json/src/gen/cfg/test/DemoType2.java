@@ -29,7 +29,7 @@ public final class DemoType2 {
         x12 = new cfg.test.DemoType1(__json__.get("x12").getAsJsonObject());
         x13 = cfg.test.DemoEnum.valueOf(__json__.get("x13").getAsInt());
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x14").getAsJsonObject());
-        s1 = __json__.get("s1").getAsString();
+        __json__.get("s1").getAsJsonObject().get("key").getAsString(); s1 = __json__.get("s1").getAsJsonObject().get("text").getAsString();
         { var _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
         { var _json0_ = __json__.get("v3").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  v3 = new bright.math.Vector3(__x, __y,__z); }
         { var _json0_ = __json__.get("v4").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  float __w; __w = _json0_.get("w").getAsFloat(); v4 = new bright.math.Vector4(__x, __y, __z, __w); }

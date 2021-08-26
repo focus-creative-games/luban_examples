@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,29 +22,24 @@ public sealed partial class DetectEncoding :  Bright.Config.BeanBase
         Name = _buf.ReadString();
     }
 
-    public DetectEncoding(int id, string name ) 
-    {
-        this.Id = id;
-        this.Name = name;
-    }
-
     public static DetectEncoding DeserializeDetectEncoding(ByteBuf _buf)
     {
         return new test.DetectEncoding(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
+    public int Id {get; private set;}
+    public string Name {get; private set;}
 
     public const int ID = -1154609646;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -57,4 +51,3 @@ public sealed partial class DetectEncoding :  Bright.Config.BeanBase
     }
 
 }
-

@@ -22,19 +22,13 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
         Btn2Name = _buf.ReadString();
     }
 
-    public ErrorStyleDlgOkCancel(string btn1_name, string btn2_name )  : base() 
-    {
-        this.Btn1Name = btn1_name;
-        this.Btn2Name = btn2_name;
-    }
-
     public static ErrorStyleDlgOkCancel DeserializeErrorStyleDlgOkCancel(ByteBuf _buf)
     {
         return new error.ErrorStyleDlgOkCancel(_buf);
     }
 
-    public readonly string Btn1Name;
-    public readonly string Btn2Name;
+    public string Btn1Name {get; private set;}
+    public string Btn2Name {get; private set;}
 
     public const int ID = 971221414;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

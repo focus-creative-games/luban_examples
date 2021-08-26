@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,31 +23,25 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
         Y = _buf.ReadFloat();
     }
 
-    public MultiRowType2(int id, int x, float y ) 
-    {
-        this.Id = id;
-        this.X = x;
-        this.Y = y;
-    }
-
     public static MultiRowType2 DeserializeMultiRowType2(ByteBuf _buf)
     {
         return new test.MultiRowType2(_buf);
     }
 
-    public readonly int Id;
-    public readonly int X;
-    public readonly float Y;
+    public int Id {get; private set;}
+    public int X {get; private set;}
+    public float Y {get; private set;}
 
     public const int ID = 540474971;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -61,4 +54,3 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
     }
 
 }
-

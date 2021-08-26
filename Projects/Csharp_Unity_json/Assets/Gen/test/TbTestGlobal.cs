@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TbTestGlobal
+public sealed class TbTestGlobal
 {
 
      private readonly test.TestGlobal _data;
@@ -36,11 +36,13 @@ public sealed partial class TbTestGlobal
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        _data.TranslateText(translator);
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

@@ -43,16 +43,18 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
-    public readonly ai.EFlowAbortMode FlowAbortMode;
+    public ai.EFlowAbortMode FlowAbortMode { get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

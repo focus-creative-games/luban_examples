@@ -32,7 +32,7 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         return new test.DemoD5(_json);
     }
 
-    public readonly test.DateTimeRange Time;
+    public test.DateTimeRange Time { get; private set; }
 
     public const int ID = -2138341744;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     {
         base.Resolve(_tables);
         Time?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        Time?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

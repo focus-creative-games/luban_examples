@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed partial class TbDefineFromExcel
+public sealed class TbDefineFromExcel
 {
     private readonly Dictionary<int, test.DefineFromExcel> _dataMap;
     private readonly List<test.DefineFromExcel> _dataList;
@@ -44,11 +44,16 @@ public sealed partial class TbDefineFromExcel
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

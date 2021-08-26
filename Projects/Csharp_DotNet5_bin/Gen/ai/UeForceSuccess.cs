@@ -20,10 +20,6 @@ public sealed partial class UeForceSuccess :  ai.Decorator
     {
     }
 
-    public UeForceSuccess(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name,flow_abort_mode) 
-    {
-    }
-
     public static UeForceSuccess DeserializeUeForceSuccess(ByteBuf _buf)
     {
         return new ai.UeForceSuccess(_buf);
@@ -36,10 +32,12 @@ public sealed partial class UeForceSuccess :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

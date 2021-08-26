@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class Selector :  ai.ComposeNode 
+public sealed class Selector :  ai.ComposeNode 
 {
     public Selector(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class Selector :  ai.ComposeNode
         return new ai.Selector(_json);
     }
 
-    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
+    public System.Collections.Generic.List<ai.FlowNode> Children {get; private set; }
 
     public const int ID = -1946981627;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class Selector :  ai.ComposeNode
     {
         base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Children) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

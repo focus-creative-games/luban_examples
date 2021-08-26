@@ -2554,7 +2554,7 @@ class l10n_L10NDemo :
 
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.text = _json_['text']
+        self.text = _json_['text']['text']
 
 
 
@@ -2797,7 +2797,7 @@ class test_DemoType2 :
         self.x12 = test_DemoType1(_json_['x12'])
         self.x13 = test_DemoEnum(_json_['x13'])
         self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
-        self.s1 = _json_['s1']
+        self.s1 = _json_['s1']['text']
         self.v2 = Vector2.fromJson(_json_['v2'])
         self.v3 = Vector3.fromJson(_json_['v3'])
         self.v4 = Vector4.fromJson(_json_['v4'])
@@ -2935,7 +2935,7 @@ class test_DemoSingletonType :
 
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.name = _json_['name']
+        self.name = _json_['name']['text']
         self.date = test_DemoDynamic.fromJson(_json_['date'])
 
 
@@ -3108,7 +3108,7 @@ class test_TestNull :
         if _json_.get('x3') != None: self.x3 = test_DemoType1(_json_['x3'])
         if _json_.get('x4') != None: self.x4 = test_DemoDynamic.fromJson(_json_['x4'])
         if _json_.get('s1') != None: self.s1 = _json_['s1']
-        if _json_.get('s2') != None: self.s2 = _json_['s2']
+        if _json_.get('s2') != None: self.s2 = _json_['s2']['text']
 
 
 
@@ -3143,7 +3143,7 @@ class test_DemoPrimitiveTypesTable :
         self.x6 = _json_['x6']
         self.x7 = _json_['x7']
         self.s1 = _json_['s1']
-        self.s2 = _json_['s2']
+        self.s2 = _json_['s2']['text']
         self.v2 = Vector2.fromJson(_json_['v2'])
         self.v3 = Vector3.fromJson(_json_['v3'])
         self.v4 = Vector4.fromJson(_json_['v4'])

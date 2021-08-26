@@ -25,15 +25,6 @@ public abstract partial class Method :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(n);for(var i = 0 ; i < n ; i++) { blueprint.ParamInfo _e;  _e = blueprint.ParamInfo.DeserializeParamInfo(_buf); Parameters.Add(_e);}}
     }
 
-    public Method(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters ) 
-    {
-        this.Name = name;
-        this.Desc = desc;
-        this.IsStatic = is_static;
-        this.ReturnType = return_type;
-        this.Parameters = parameters;
-    }
-
     public static Method DeserializeMethod(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -45,20 +36,22 @@ public abstract partial class Method :  Bright.Config.BeanBase
         }
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly bool IsStatic;
-    public readonly string ReturnType;
-    public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
+    public string Name {get; private set;}
+    public string Desc {get; private set;}
+    public bool IsStatic {get; private set;}
+    public string ReturnType {get; private set;}
+    public System.Collections.Generic.List<blueprint.ParamInfo> Parameters {get; private set;}
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Parameters) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

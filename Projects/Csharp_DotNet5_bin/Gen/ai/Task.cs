@@ -21,11 +21,6 @@ public abstract partial class Task :  ai.FlowNode
         IgnoreRestartSelf = _buf.ReadBool();
     }
 
-    public Task(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self )  : base(id,node_name,decorators,services) 
-    {
-        this.IgnoreRestartSelf = ignore_restart_self;
-    }
-
     public static Task DeserializeTask(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -41,16 +36,18 @@ public abstract partial class Task :  ai.FlowNode
         }
     }
 
-    public readonly bool IgnoreRestartSelf;
+    public bool IgnoreRestartSelf {get; private set;}
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

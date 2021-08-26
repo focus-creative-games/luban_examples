@@ -22,29 +22,24 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         Coefficient = _buf.ReadFloat();
     }
 
-    public BonusInfo(item.ECurrencyType type, float coefficient ) 
-    {
-        this.Type = type;
-        this.Coefficient = coefficient;
-    }
-
     public static BonusInfo DeserializeBonusInfo(ByteBuf _buf)
     {
         return new role.BonusInfo(_buf);
     }
 
-    public readonly item.ECurrencyType Type;
-    public readonly float Coefficient;
+    public item.ECurrencyType Type {get; private set;}
+    public float Coefficient {get; private set;}
 
     public const int ID = -1354421803;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

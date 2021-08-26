@@ -23,21 +23,14 @@ public sealed partial class UeBlackboard :  ai.Decorator
         KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf);
     }
 
-    public UeBlackboard(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, ai.ENotifyObserverMode notify_observer, string blackboard_key, ai.KeyQueryOperator key_query )  : base(id,node_name,flow_abort_mode) 
-    {
-        this.NotifyObserver = notify_observer;
-        this.BlackboardKey = blackboard_key;
-        this.KeyQuery = key_query;
-    }
-
     public static UeBlackboard DeserializeUeBlackboard(ByteBuf _buf)
     {
         return new ai.UeBlackboard(_buf);
     }
 
-    public readonly ai.ENotifyObserverMode NotifyObserver;
-    public readonly string BlackboardKey;
-    public readonly ai.KeyQueryOperator KeyQuery;
+    public ai.ENotifyObserverMode NotifyObserver {get; private set;}
+    public string BlackboardKey {get; private set;}
+    public ai.KeyQueryOperator KeyQuery {get; private set;}
 
     public const int ID = -315297507;
     public override int GetTypeId() => ID;
@@ -46,10 +39,13 @@ public sealed partial class UeBlackboard :  ai.Decorator
     {
         base.Resolve(_tables);
         KeyQuery?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        KeyQuery?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

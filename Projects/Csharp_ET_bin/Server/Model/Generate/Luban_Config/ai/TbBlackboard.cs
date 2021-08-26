@@ -6,14 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
 namespace cfg.ai
 {
    
-public sealed partial class TbBlackboard
+public sealed class TbBlackboard
 {
     private readonly Dictionary<string, ai.Blackboard> _dataMap;
     private readonly List<ai.Blackboard> _dataList;
@@ -45,11 +44,16 @@ public sealed partial class TbBlackboard
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

@@ -27,7 +27,7 @@ func (Test_DemoSingletonType) GetTypeId() int {
 func NewTest_DemoSingletonType(_buf *serialization.ByteBuf) (_v *Test_DemoSingletonType, err error) {
     _v = &Test_DemoSingletonType{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
+    { if _, err = _buf.ReadString(); err != nil { return }; if _v.Name, err = _buf.ReadString(); err != nil { return } }
     { if _v.Date, err = NewTest_DemoDynamic(_buf); err != nil { return } }
     return
 }

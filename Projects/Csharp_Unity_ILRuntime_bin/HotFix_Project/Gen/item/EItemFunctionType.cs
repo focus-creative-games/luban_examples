@@ -21,5 +21,3 @@ namespace cfg.item
         USE_DESIGN_DRAWING = 1,
     }
 }
-
-

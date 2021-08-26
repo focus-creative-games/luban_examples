@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed partial class CodeInfo :  Bright.Config.BeanBase 
+public sealed class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
         return new error.CodeInfo(_json);
     }
 
-    public readonly error.EErrorCode Code;
-    public readonly string Key;
+    public error.EErrorCode Code {get; private set; }
+    public string Key {get; private set; }
 
     public const int ID = -1942481535;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

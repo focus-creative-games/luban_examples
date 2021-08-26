@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         Time = test.DateTimeRange.DeserializeDateTimeRange(_buf);
     }
 
-    public DemoD5(int x1, test.DateTimeRange time )  : base(x1) 
-    {
-        this.Time = time;
-    }
-
     public static DemoD5 DeserializeDemoD5(ByteBuf _buf)
     {
         return new test.DemoD5(_buf);
     }
 
-    public readonly test.DateTimeRange Time;
+    public test.DateTimeRange Time {get; private set;}
 
     public const int ID = -2138341744;
     public override int GetTypeId() => ID;
@@ -41,10 +35,13 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     {
         base.Resolve(_tables);
         Time?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        Time?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +53,3 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     }
 
 }
-

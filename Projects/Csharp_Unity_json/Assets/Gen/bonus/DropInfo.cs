@@ -38,10 +38,10 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return new bonus.DropInfo(_json);
     }
 
-    public readonly int Id;
-    public readonly string Desc;
-    public readonly System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems;
-    public readonly bonus.Bonus Bonus;
+    public int Id { get; private set; }
+    public string Desc { get; private set; }
+    public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems { get; private set; }
+    public bonus.Bonus Bonus { get; private set; }
 
     public const int ID = -2014781108;
     public override int GetTypeId() => ID;
@@ -50,10 +50,13 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     {
         foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
         Bonus?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in ClientShowItems) { _e?.TranslateText(translator); }
+        Bonus?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

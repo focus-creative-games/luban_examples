@@ -24,23 +24,15 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         Cs2 = test.CompactString.DeserializeCompactString(_buf);
     }
 
-    public TestString(int id, string s1, test.CompactString cs1, test.CompactString cs2 ) 
-    {
-        this.Id = id;
-        this.S1 = s1;
-        this.Cs1 = cs1;
-        this.Cs2 = cs2;
-    }
-
     public static TestString DeserializeTestString(ByteBuf _buf)
     {
         return new test.TestString(_buf);
     }
 
-    public readonly int Id;
-    public readonly string S1;
-    public readonly test.CompactString Cs1;
-    public readonly test.CompactString Cs2;
+    public int Id {get; private set;}
+    public string S1 {get; private set;}
+    public test.CompactString Cs1 {get; private set;}
+    public test.CompactString Cs2 {get; private set;}
 
     public const int ID = 338485823;
     public override int GetTypeId() => ID;
@@ -49,10 +41,13 @@ public sealed partial class TestString :  Bright.Config.BeanBase
     {
         Cs1?.Resolve(_tables);
         Cs2?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Cs1?.TranslateText(translator);
+        Cs2?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

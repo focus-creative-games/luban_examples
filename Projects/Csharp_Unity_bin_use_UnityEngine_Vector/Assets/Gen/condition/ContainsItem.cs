@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,22 +23,15 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         Reverse = _buf.ReadBool();
     }
 
-    public ContainsItem(int item_id, int num, bool reverse )  : base() 
-    {
-        this.ItemId = item_id;
-        this.Num = num;
-        this.Reverse = reverse;
-    }
-
     public static ContainsItem DeserializeContainsItem(ByteBuf _buf)
     {
         return new condition.ContainsItem(_buf);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
-    public readonly int Num;
-    public readonly bool Reverse;
+    public int ItemId {get; private set;}
+    public item.Item ItemId_Ref {get; private set;}
+    public int Num {get; private set;}
+    public bool Reverse {get; private set;}
 
     public const int ID = 1961145317;
     public override int GetTypeId() => ID;
@@ -48,10 +40,12 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -64,4 +58,3 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     }
 
 }
-

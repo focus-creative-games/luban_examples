@@ -32,7 +32,7 @@ public sealed partial class Dymmy :  item.ItemExtra
         return new item.Dymmy(_json);
     }
 
-    public readonly cost.Cost Cost;
+    public cost.Cost Cost { get; private set; }
 
     public const int ID = 896889705;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class Dymmy :  item.ItemExtra
     {
         base.Resolve(_tables);
         Cost?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        Cost?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

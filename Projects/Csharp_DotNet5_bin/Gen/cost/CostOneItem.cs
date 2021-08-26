@@ -21,17 +21,12 @@ public sealed partial class CostOneItem :  cost.Cost
         ItemId = _buf.ReadInt();
     }
 
-    public CostOneItem(int item_id )  : base() 
-    {
-        this.ItemId = item_id;
-    }
-
     public static CostOneItem DeserializeCostOneItem(ByteBuf _buf)
     {
         return new cost.CostOneItem(_buf);
     }
 
-    public readonly int ItemId;
+    public int ItemId {get; private set;}
     public item.Item ItemId_Ref;
 
     public const int ID = -1033587381;
@@ -41,10 +36,12 @@ public sealed partial class CostOneItem :  cost.Cost
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

@@ -22,29 +22,24 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         Value = _buf.ReadInt();
     }
 
-    public EnumField(string name, int value ) 
-    {
-        this.Name = name;
-        this.Value = value;
-    }
-
     public static EnumField DeserializeEnumField(ByteBuf _buf)
     {
         return new blueprint.EnumField(_buf);
     }
 
-    public readonly string Name;
-    public readonly int Value;
+    public string Name {get; private set;}
+    public int Value {get; private set;}
 
     public const int ID = 1830049470;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

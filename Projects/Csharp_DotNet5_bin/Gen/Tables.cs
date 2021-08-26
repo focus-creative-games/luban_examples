@@ -183,6 +183,50 @@ public sealed class Tables
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
     }
+
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        TbBlackboard.TranslateText(translator); 
+        TbBehaviorTree.TranslateText(translator); 
+        TbClazz.TranslateText(translator); 
+        TbDrop.TranslateText(translator); 
+        TbGlobalConfig.TranslateText(translator); 
+        TbDummy.TranslateText(translator); 
+        TbErrorInfo.TranslateText(translator); 
+        TbCodeInfo.TranslateText(translator); 
+        TbItem.TranslateText(translator); 
+        TbItemFunc.TranslateText(translator); 
+        TbItemExtra.TranslateText(translator); 
+        TbL10NDemo.TranslateText(translator); 
+        TbPatchDemo.TranslateText(translator); 
+        TbSystemMail.TranslateText(translator); 
+        TbGlobalMail.TranslateText(translator); 
+        TbRoleLevelExpAttr.TranslateText(translator); 
+        TbRoleLevelBonusCoefficient.TranslateText(translator); 
+        TbTestTag.TranslateText(translator); 
+        TbFullTypes.TranslateText(translator); 
+        TbSingleton.TranslateText(translator); 
+        TbDataFromMisc.TranslateText(translator); 
+        TbMultiRowRecord.TranslateText(translator); 
+        TbMultiRowTitle.TranslateText(translator); 
+        TbTestNull.TranslateText(translator); 
+        TbDemoPrimitive.TranslateText(translator); 
+        TbTestString.TranslateText(translator); 
+        TbDemoGroup.TranslateText(translator); 
+        TbDemoGroup_C.TranslateText(translator); 
+        TbDemoGroup_S.TranslateText(translator); 
+        TbDemoGroup_E.TranslateText(translator); 
+        TbTestGlobal.TranslateText(translator); 
+        TbDetectCsvEncoding.TranslateText(translator); 
+        TbDefineFromExcel.TranslateText(translator); 
+        TbDefineFromExcelOne.TranslateText(translator); 
+        TbTestJson2.TranslateText(translator); 
+        TbTestIndex.TranslateText(translator); 
+        TbTestMap.TranslateText(translator); 
+        TbDemoGroupDefineFromExcel.TranslateText(translator); 
+        TbDefineFromExcel2.TranslateText(translator); 
+        TbTestExcelBean.TranslateText(translator); 
+    }
 }
 
 }

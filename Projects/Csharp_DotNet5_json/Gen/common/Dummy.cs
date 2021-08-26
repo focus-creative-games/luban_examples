@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.common
 {
 
-public sealed partial class Dummy :  Bright.Config.BeanBase 
+public sealed class Dummy :  Bright.Config.BeanBase 
 {
     public Dummy(JsonElement _json) 
     {
@@ -34,8 +34,8 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         return new common.Dummy(_json);
     }
 
-    public readonly int Id;
-    public readonly limit.LimitBase Limit;
+    public int Id {get; private set; }
+    public limit.LimitBase Limit {get; private set; }
 
     public const int ID = -985084219;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Limit?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Limit?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

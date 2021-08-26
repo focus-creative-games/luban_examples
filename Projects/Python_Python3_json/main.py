@@ -8,5 +8,5 @@ tables = gen.Types.Tables(loader)
 
 print(tables)
 
-r = tables.TbItem.getDataList()[0]
-print(dir(r))
+r = tables.TbFullTypes.getDataList()[0].__dict__
+print(r)

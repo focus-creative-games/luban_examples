@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class TbFullTypes
+public sealed class TbFullTypes
 {
     private readonly Dictionary<short, test.DemoType2> _dataMap;
     private readonly List<test.DemoType2> _dataList;
@@ -46,11 +46,16 @@ public sealed partial class TbFullTypes
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

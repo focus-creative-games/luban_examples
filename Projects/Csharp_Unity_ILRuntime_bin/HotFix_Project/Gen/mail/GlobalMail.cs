@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -33,39 +32,23 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         MailTime = condition.TimeRange.DeserializeTimeRange(_buf);
     }
 
-    public GlobalMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award, bool all_server, System.Collections.Generic.List<int> server_list, string platform, string channel, condition.MinMaxLevel min_max_level, condition.TimeRange register_time, condition.TimeRange mail_time ) 
-    {
-        this.Id = id;
-        this.Title = title;
-        this.Sender = sender;
-        this.Content = content;
-        this.Award = award;
-        this.AllServer = all_server;
-        this.ServerList = server_list;
-        this.Platform = platform;
-        this.Channel = channel;
-        this.MinMaxLevel = min_max_level;
-        this.RegisterTime = register_time;
-        this.MailTime = mail_time;
-    }
-
     public static GlobalMail DeserializeGlobalMail(ByteBuf _buf)
     {
         return new mail.GlobalMail(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Title;
-    public readonly string Sender;
-    public readonly string Content;
-    public readonly System.Collections.Generic.List<int> Award;
-    public readonly bool AllServer;
-    public readonly System.Collections.Generic.List<int> ServerList;
-    public readonly string Platform;
-    public readonly string Channel;
-    public readonly condition.MinMaxLevel MinMaxLevel;
-    public readonly condition.TimeRange RegisterTime;
-    public readonly condition.TimeRange MailTime;
+    public int Id {get; private set;}
+    public string Title {get; private set;}
+    public string Sender {get; private set;}
+    public string Content {get; private set;}
+    public System.Collections.Generic.List<int> Award {get; private set;}
+    public bool AllServer {get; private set;}
+    public System.Collections.Generic.List<int> ServerList {get; private set;}
+    public string Platform {get; private set;}
+    public string Channel {get; private set;}
+    public condition.MinMaxLevel MinMaxLevel {get; private set;}
+    public condition.TimeRange RegisterTime {get; private set;}
+    public condition.TimeRange MailTime {get; private set;}
 
     public const int ID = -287571791;
     public override int GetTypeId() => ID;
@@ -75,10 +58,14 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        MinMaxLevel?.TranslateText(translator);
+        RegisterTime?.TranslateText(translator);
+        MailTime?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -100,4 +87,3 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     }
 
 }
-

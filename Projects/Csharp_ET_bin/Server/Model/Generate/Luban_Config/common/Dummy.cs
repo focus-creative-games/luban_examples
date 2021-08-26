@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         Limit = limit.LimitBase.DeserializeLimitBase(_buf);
     }
 
-    public Dummy(int id, limit.LimitBase limit ) 
-    {
-        this.Id = id;
-        this.Limit = limit;
-    }
-
     public static Dummy DeserializeDummy(ByteBuf _buf)
     {
         return new common.Dummy(_buf);
     }
 
-    public readonly int Id;
-    public readonly limit.LimitBase Limit;
+    public int Id {get; private set;}
+    public limit.LimitBase Limit {get; private set;}
 
     public const int ID = -985084219;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Limit?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Limit?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -58,4 +53,3 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
     }
 
 }
-

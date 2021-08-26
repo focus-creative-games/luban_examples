@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,29 +22,24 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
         Value = _buf.ReadString();
     }
 
-    public TestTag(int id, string value ) 
-    {
-        this.Id = id;
-        this.Value = value;
-    }
-
     public static TestTag DeserializeTestTag(ByteBuf _buf)
     {
         return new tag.TestTag(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Value;
+    public int Id {get; private set;}
+    public string Value {get; private set;}
 
     public const int ID = 1742933812;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -57,4 +51,3 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
     }
 
 }
-

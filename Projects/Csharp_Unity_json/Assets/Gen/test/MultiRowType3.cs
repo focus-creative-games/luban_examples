@@ -34,8 +34,8 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
         return new test.MultiRowType3(_json);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.List<test.MultiRowType1> Items;
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<test.MultiRowType1> Items { get; private set; }
 
     public const int ID = 540474972;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Items) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Items) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

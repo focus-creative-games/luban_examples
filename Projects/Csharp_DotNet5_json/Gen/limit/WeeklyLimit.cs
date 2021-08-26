@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.limit
 {
 
-public sealed partial class WeeklyLimit :  limit.LimitBase 
+public sealed class WeeklyLimit :  limit.LimitBase 
 {
     public WeeklyLimit(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         return new limit.WeeklyLimit(_json);
     }
 
-    public readonly int Num;
+    public int Num {get; private set; }
 
     public const int ID = -252187161;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

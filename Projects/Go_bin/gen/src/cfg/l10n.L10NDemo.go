@@ -26,6 +26,6 @@ func (L10n_L10NDemo) GetTypeId() int {
 func NewL10n_L10NDemo(_buf *serialization.ByteBuf) (_v *L10n_L10NDemo, err error) {
     _v = &L10n_L10NDemo{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Text, err = _buf.ReadString(); err != nil { return } }
+    { if _, err = _buf.ReadString(); err != nil { return }; if _v.Text, err = _buf.ReadString(); err != nil { return } }
     return
 }

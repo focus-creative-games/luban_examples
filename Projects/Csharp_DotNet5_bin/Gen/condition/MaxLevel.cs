@@ -21,17 +21,12 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
         Level = _buf.ReadInt();
     }
 
-    public MaxLevel(int level )  : base() 
-    {
-        this.Level = level;
-    }
-
     public static MaxLevel DeserializeMaxLevel(ByteBuf _buf)
     {
         return new condition.MaxLevel(_buf);
     }
 
-    public readonly int Level;
+    public int Level {get; private set;}
 
     public const int ID = 700922899;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

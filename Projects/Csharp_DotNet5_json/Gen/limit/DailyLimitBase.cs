@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.limit
 {
 
-public abstract partial class DailyLimitBase :  limit.LimitBase 
+public abstract class DailyLimitBase :  limit.LimitBase 
 {
     public DailyLimitBase(JsonElement _json)  : base(_json) 
     {
@@ -39,10 +39,12 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

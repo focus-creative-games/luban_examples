@@ -22,19 +22,13 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         Radius = _buf.ReadFloat();
     }
 
-    public MoveToRandomLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string origin_position_key, float radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
-    {
-        this.OriginPositionKey = origin_position_key;
-        this.Radius = radius;
-    }
-
     public static MoveToRandomLocation DeserializeMoveToRandomLocation(ByteBuf _buf)
     {
         return new ai.MoveToRandomLocation(_buf);
     }
 
-    public readonly string OriginPositionKey;
-    public readonly float Radius;
+    public string OriginPositionKey {get; private set;}
+    public float Radius {get; private set;}
 
     public const int ID = -2140042998;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class MoveToRandomLocation :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

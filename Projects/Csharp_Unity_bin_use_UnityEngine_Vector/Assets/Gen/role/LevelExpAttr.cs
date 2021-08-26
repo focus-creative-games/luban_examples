@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,31 +23,25 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ClothesAttrs = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); ClothesAttrs.Add(_e);}}
     }
 
-    public LevelExpAttr(int level, long need_exp, System.Collections.Generic.List<int> clothes_attrs ) 
-    {
-        this.Level = level;
-        this.NeedExp = need_exp;
-        this.ClothesAttrs = clothes_attrs;
-    }
-
     public static LevelExpAttr DeserializeLevelExpAttr(ByteBuf _buf)
     {
         return new role.LevelExpAttr(_buf);
     }
 
-    public readonly int Level;
-    public readonly long NeedExp;
-    public readonly System.Collections.Generic.List<int> ClothesAttrs;
+    public int Level {get; private set;}
+    public long NeedExp {get; private set;}
+    public System.Collections.Generic.List<int> ClothesAttrs {get; private set;}
 
     public const int ID = -1569837022;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -61,4 +54,3 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     }
 
 }
-

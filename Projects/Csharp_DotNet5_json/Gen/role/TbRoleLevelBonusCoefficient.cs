@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed partial class TbRoleLevelBonusCoefficient
+public sealed class TbRoleLevelBonusCoefficient
 {
     private readonly Dictionary<int, role.LevelBonus> _dataMap;
     private readonly List<role.LevelBonus> _dataList;
@@ -46,11 +46,16 @@ public sealed partial class TbRoleLevelBonusCoefficient
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

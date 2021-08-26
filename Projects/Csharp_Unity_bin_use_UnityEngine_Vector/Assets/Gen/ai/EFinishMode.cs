@@ -15,5 +15,3 @@ namespace cfg.ai
         DELAYED = 1,
     }
 }
-
-

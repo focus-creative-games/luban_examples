@@ -34,8 +34,8 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         return new blueprint.NormalClazz(_json);
     }
 
-    public readonly bool IsAbstract;
-    public readonly System.Collections.Generic.List<blueprint.Field> Fields;
+    public bool IsAbstract { get; private set; }
+    public System.Collections.Generic.List<blueprint.Field> Fields { get; private set; }
 
     public const int ID = -2073576778;
     public override int GetTypeId() => ID;
@@ -44,10 +44,13 @@ public sealed partial class NormalClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Fields) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Fields) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

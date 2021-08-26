@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.l10n
 {
 
-public sealed partial class TbPatchDemo
+public sealed class TbPatchDemo
 {
     private readonly Dictionary<int, l10n.PatchDemo> _dataMap;
     private readonly List<l10n.PatchDemo> _dataList;
@@ -46,11 +46,16 @@ public sealed partial class TbPatchDemo
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

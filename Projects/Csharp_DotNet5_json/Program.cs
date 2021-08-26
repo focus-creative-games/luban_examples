@@ -11,6 +11,8 @@ namespace Csharp_Server_DotNetCore
         {
             var tables = new cfg.Tables(LoadJson);
 
+            tables.TranslateText((key, text) => text + "# translate");
+
             Console.WriteLine("== load succ ==");
         }
 

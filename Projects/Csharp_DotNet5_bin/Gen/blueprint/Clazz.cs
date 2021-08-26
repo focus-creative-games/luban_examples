@@ -24,14 +24,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Methods = new System.Collections.Generic.List<blueprint.Method>(n);for(var i = 0 ; i < n ; i++) { blueprint.Method _e;  _e = blueprint.Method.DeserializeMethod(_buf); Methods.Add(_e);}}
     }
 
-    public Clazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods ) 
-    {
-        this.Name = name;
-        this.Desc = desc;
-        this.Parents = parents;
-        this.Methods = methods;
-    }
-
     public static Clazz DeserializeClazz(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -43,20 +35,23 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         }
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
-    public readonly System.Collections.Generic.List<blueprint.Method> Methods;
+    public string Name {get; private set;}
+    public string Desc {get; private set;}
+    public System.Collections.Generic.List<blueprint.Clazz> Parents {get; private set;}
+    public System.Collections.Generic.List<blueprint.Method> Methods {get; private set;}
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parents) { _e?.Resolve(_tables); }
         foreach(var _e in Methods) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Parents) { _e?.TranslateText(translator); }
+        foreach(var _e in Methods) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

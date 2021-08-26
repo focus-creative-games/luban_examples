@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,20 +22,14 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
         ItemNum = _buf.ReadLong();
     }
 
-    public ShowItemInfo(int item_id, long item_num ) 
-    {
-        this.ItemId = item_id;
-        this.ItemNum = item_num;
-    }
-
     public static ShowItemInfo DeserializeShowItemInfo(ByteBuf _buf)
     {
         return new bonus.ShowItemInfo(_buf);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
-    public readonly long ItemNum;
+    public int ItemId {get; private set;}
+    public item.Item ItemId_Ref {get; private set;}
+    public long ItemNum {get; private set;}
 
     public const int ID = -1496363507;
     public override int GetTypeId() => ID;
@@ -44,10 +37,11 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -59,4 +53,3 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
     }
 
 }
-

@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace cfg.mail
 {
    
-public sealed partial class TbSystemMail
+public sealed class TbSystemMail
 {
     private readonly Dictionary<int, mail.SystemMail> _dataMap;
     private readonly List<mail.SystemMail> _dataList;
@@ -44,11 +44,16 @@ public sealed partial class TbSystemMail
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

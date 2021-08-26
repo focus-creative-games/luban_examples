@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class TbClazz
+public sealed class TbClazz
 {
     private readonly Dictionary<string, blueprint.Clazz> _dataMap;
     private readonly List<blueprint.Clazz> _dataList;
@@ -48,11 +48,16 @@ public sealed partial class TbClazz
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

@@ -21,17 +21,12 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
         Level = _buf.ReadInt();
     }
 
-    public MinLevel(int level )  : base() 
-    {
-        this.Level = level;
-    }
-
     public static MinLevel DeserializeMinLevel(ByteBuf _buf)
     {
         return new condition.MinLevel(_buf);
     }
 
-    public readonly int Level;
+    public int Level {get; private set;}
 
     public const int ID = -1075273755;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

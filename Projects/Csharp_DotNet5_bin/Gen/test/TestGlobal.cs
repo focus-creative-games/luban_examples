@@ -22,29 +22,24 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
         UnlockHero = _buf.ReadInt();
     }
 
-    public TestGlobal(int unlock_equip, int unlock_hero ) 
-    {
-        this.UnlockEquip = unlock_equip;
-        this.UnlockHero = unlock_hero;
-    }
-
     public static TestGlobal DeserializeTestGlobal(ByteBuf _buf)
     {
         return new test.TestGlobal(_buf);
     }
 
-    public readonly int UnlockEquip;
-    public readonly int UnlockHero;
+    public int UnlockEquip {get; private set;}
+    public int UnlockHero {get; private set;}
 
     public const int ID = -12548655;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class Dymmy :  item.ItemExtra
         Cost = cost.Cost.DeserializeCost(_buf);
     }
 
-    public Dymmy(int id, cost.Cost cost )  : base(id) 
-    {
-        this.Cost = cost;
-    }
-
     public static Dymmy DeserializeDymmy(ByteBuf _buf)
     {
         return new item.Dymmy(_buf);
     }
 
-    public readonly cost.Cost Cost;
+    public cost.Cost Cost {get; private set;}
 
     public const int ID = 896889705;
     public override int GetTypeId() => ID;
@@ -41,10 +35,13 @@ public sealed partial class Dymmy :  item.ItemExtra
     {
         base.Resolve(_tables);
         Cost?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        Cost?.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +53,3 @@ public sealed partial class Dymmy :  item.ItemExtra
     }
 
 }
-

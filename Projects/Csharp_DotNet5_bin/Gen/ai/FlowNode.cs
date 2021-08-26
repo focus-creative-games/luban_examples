@@ -22,12 +22,6 @@ public abstract partial class FlowNode :  ai.Node
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Services = new System.Collections.Generic.List<ai.Service>(n);for(var i = 0 ; i < n ; i++) { ai.Service _e;  _e = ai.Service.DeserializeService(_buf); Services.Add(_e);}}
     }
 
-    public FlowNode(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services )  : base(id,node_name) 
-    {
-        this.Decorators = decorators;
-        this.Services = services;
-    }
-
     public static FlowNode DeserializeFlowNode(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -46,8 +40,8 @@ public abstract partial class FlowNode :  ai.Node
         }
     }
 
-    public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-    public readonly System.Collections.Generic.List<ai.Service> Services;
+    public System.Collections.Generic.List<ai.Decorator> Decorators {get; private set;}
+    public System.Collections.Generic.List<ai.Service> Services {get; private set;}
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -55,10 +49,14 @@ public abstract partial class FlowNode :  ai.Node
         base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Decorators) { _e?.TranslateText(translator); }
+        foreach(var _e in Services) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

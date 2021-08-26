@@ -44,31 +44,6 @@ public sealed partial class Item :  Bright.Config.BeanBase
         if(_buf.ReadBool()){ LevelUpId = _buf.ReadInt(); } else { LevelUpId = null; }
     }
 
-    public Item(int id, string name, item.EMajorType major_type, item.EMinorType minor_type, int max_pile_num, item.EItemQuality quality, string icon, string icon_backgroud, string icon_mask, string desc, int show_order, string quantifier, bool show_in_bag, int min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int? price, item.EUseType use_type, int? level_up_id ) 
-    {
-        this.Id = id;
-        this.Name = name;
-        this.MajorType = major_type;
-        this.MinorType = minor_type;
-        this.MaxPileNum = max_pile_num;
-        this.Quality = quality;
-        this.Icon = icon;
-        this.IconBackgroud = icon_backgroud;
-        this.IconMask = icon_mask;
-        this.Desc = desc;
-        this.ShowOrder = show_order;
-        this.Quantifier = quantifier;
-        this.ShowInBag = show_in_bag;
-        this.MinShowLevel = min_show_level;
-        this.BatchUsable = batch_usable;
-        this.ProgressTimeWhenUse = progress_time_when_use;
-        this.ShowHintWhenUse = show_hint_when_use;
-        this.Droppable = droppable;
-        this.Price = price;
-        this.UseType = use_type;
-        this.LevelUpId = level_up_id;
-    }
-
     public static Item DeserializeItem(ByteBuf _buf)
     {
         return new item.Item(_buf);
@@ -77,37 +52,38 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// <summary>
     /// 道具id
     /// </summary>
-    public readonly int Id;
-    public readonly string Name;
-    public readonly item.EMajorType MajorType;
-    public readonly item.EMinorType MinorType;
-    public readonly int MaxPileNum;
-    public readonly item.EItemQuality Quality;
-    public readonly string Icon;
-    public readonly string IconBackgroud;
-    public readonly string IconMask;
-    public readonly string Desc;
-    public readonly int ShowOrder;
-    public readonly string Quantifier;
-    public readonly bool ShowInBag;
-    public readonly int MinShowLevel;
-    public readonly bool BatchUsable;
-    public readonly float ProgressTimeWhenUse;
-    public readonly bool ShowHintWhenUse;
-    public readonly bool Droppable;
-    public readonly int? Price;
-    public readonly item.EUseType UseType;
-    public readonly int? LevelUpId;
+    public int Id {get; private set;}
+    public string Name {get; private set;}
+    public item.EMajorType MajorType {get; private set;}
+    public item.EMinorType MinorType {get; private set;}
+    public int MaxPileNum {get; private set;}
+    public item.EItemQuality Quality {get; private set;}
+    public string Icon {get; private set;}
+    public string IconBackgroud {get; private set;}
+    public string IconMask {get; private set;}
+    public string Desc {get; private set;}
+    public int ShowOrder {get; private set;}
+    public string Quantifier {get; private set;}
+    public bool ShowInBag {get; private set;}
+    public int MinShowLevel {get; private set;}
+    public bool BatchUsable {get; private set;}
+    public float ProgressTimeWhenUse {get; private set;}
+    public bool ShowHintWhenUse {get; private set;}
+    public bool Droppable {get; private set;}
+    public int? Price {get; private set;}
+    public item.EUseType UseType {get; private set;}
+    public int? LevelUpId {get; private set;}
 
     public const int ID = 2107285806;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

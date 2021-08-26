@@ -23,7 +23,7 @@ func (Test_DemoSingletonType) GetTypeId() int {
 func NewTest_DemoSingletonType(_buf map[string]interface{}) (_v *Test_DemoSingletonType, err error) {
     _v = &Test_DemoSingletonType{}
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
+    {var _ok_ bool; var __json_text__ map[string]interface{}; if __json_text__, _ok_ = _buf["name"].(map[string]interface{}) ; !_ok_ { err = errors.New("_v.Name error"); return };  { var _ok_ bool; if _, _ok_ = __json_text__["key"].(string); !_ok_ { err = errors.New("key error"); return } }; { var _ok_ bool; if _v.Name, _ok_ = __json_text__["text"].(string); !_ok_ { err = errors.New("text error"); return } } }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date"].(map[string]interface{}); !_ok_ { err = errors.New("date error"); return }; if _v.Date, err = NewTest_DemoDynamic(_x_); err != nil { return } }
     return
 }

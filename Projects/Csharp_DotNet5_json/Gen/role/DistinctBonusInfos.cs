@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
+public sealed class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(JsonElement _json) 
     {
@@ -34,8 +34,8 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         return new role.DistinctBonusInfos(_json);
     }
 
-    public readonly int EffectiveLevel;
-    public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
+    public int EffectiveLevel {get; private set; }
+    public System.Collections.Generic.List<role.BonusInfo> BonusInfo {get; private set; }
 
     public const int ID = -854361766;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in BonusInfo) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

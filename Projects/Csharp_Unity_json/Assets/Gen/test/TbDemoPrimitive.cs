@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TbDemoPrimitive
+public sealed class TbDemoPrimitive
 {
     private readonly Dictionary<int, test.DemoPrimitiveTypesTable> _dataMap;
     private readonly List<test.DemoPrimitiveTypesTable> _dataList;
@@ -46,11 +46,16 @@ public sealed partial class TbDemoPrimitive
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

@@ -18,7 +18,7 @@ namespace cfg.test
 /// <summary>
 /// 这是个测试excel结构
 /// </summary>
-public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase 
+public sealed class TestExcelBean1 :  Bright.Config.BeanBase 
 {
     public TestExcelBean1(JsonElement _json) 
     {
@@ -44,29 +44,30 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
     /// <summary>
     /// 最高品质
     /// </summary>
-    public readonly int X1;
+    public int X1 {get; private set; }
     /// <summary>
     /// 黑色的
     /// </summary>
-    public readonly string X2;
+    public string X2 {get; private set; }
     /// <summary>
     /// 蓝色的
     /// </summary>
-    public readonly int X3;
+    public int X3 {get; private set; }
     /// <summary>
     /// 最差品质
     /// </summary>
-    public readonly float X4;
+    public float X4 {get; private set; }
 
     public const int ID = -1738345160;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,22 +23,15 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
         Probability = _buf.ReadFloat();
     }
 
-    public ProbabilityItemInfo(int item_id, int num, float probability ) 
-    {
-        this.ItemId = item_id;
-        this.Num = num;
-        this.Probability = probability;
-    }
-
     public static ProbabilityItemInfo DeserializeProbabilityItemInfo(ByteBuf _buf)
     {
         return new bonus.ProbabilityItemInfo(_buf);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
-    public readonly int Num;
-    public readonly float Probability;
+    public int ItemId {get; private set;}
+    public item.Item ItemId_Ref {get; private set;}
+    public int Num {get; private set;}
+    public float Probability {get; private set;}
 
     public const int ID = 1547874631;
     public override int GetTypeId() => ID;
@@ -47,10 +39,11 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -63,4 +56,3 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     }
 
 }
-

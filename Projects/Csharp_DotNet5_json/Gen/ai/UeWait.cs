@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class UeWait :  ai.Task 
+public sealed class UeWait :  ai.Task 
 {
     public UeWait(JsonElement _json)  : base(_json) 
     {
@@ -34,8 +34,8 @@ public sealed partial class UeWait :  ai.Task
         return new ai.UeWait(_json);
     }
 
-    public readonly float WaitTime;
-    public readonly float RandomDeviation;
+    public float WaitTime {get; private set; }
+    public float RandomDeviation {get; private set; }
 
     public const int ID = -512994101;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class UeWait :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

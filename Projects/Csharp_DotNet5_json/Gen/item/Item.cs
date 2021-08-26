@@ -18,7 +18,7 @@ namespace cfg.item
 /// <summary>
 /// 道具
 /// </summary>
-public sealed partial class Item :  Bright.Config.BeanBase 
+public sealed class Item :  Bright.Config.BeanBase 
 {
     public Item(JsonElement _json) 
     {
@@ -78,37 +78,38 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// <summary>
     /// 道具id
     /// </summary>
-    public readonly int Id;
-    public readonly string Name;
-    public readonly item.EMajorType MajorType;
-    public readonly item.EMinorType MinorType;
-    public readonly int MaxPileNum;
-    public readonly item.EItemQuality Quality;
-    public readonly string Icon;
-    public readonly string IconBackgroud;
-    public readonly string IconMask;
-    public readonly string Desc;
-    public readonly int ShowOrder;
-    public readonly string Quantifier;
-    public readonly bool ShowInBag;
-    public readonly int MinShowLevel;
-    public readonly bool BatchUsable;
-    public readonly float ProgressTimeWhenUse;
-    public readonly bool ShowHintWhenUse;
-    public readonly bool Droppable;
-    public readonly int? Price;
-    public readonly item.EUseType UseType;
-    public readonly int? LevelUpId;
+    public int Id {get; private set; }
+    public string Name {get; private set; }
+    public item.EMajorType MajorType {get; private set; }
+    public item.EMinorType MinorType {get; private set; }
+    public int MaxPileNum {get; private set; }
+    public item.EItemQuality Quality {get; private set; }
+    public string Icon {get; private set; }
+    public string IconBackgroud {get; private set; }
+    public string IconMask {get; private set; }
+    public string Desc {get; private set; }
+    public int ShowOrder {get; private set; }
+    public string Quantifier {get; private set; }
+    public bool ShowInBag {get; private set; }
+    public int MinShowLevel {get; private set; }
+    public bool BatchUsable {get; private set; }
+    public float ProgressTimeWhenUse {get; private set; }
+    public bool ShowHintWhenUse {get; private set; }
+    public bool Droppable {get; private set; }
+    public int? Price {get; private set; }
+    public item.EUseType UseType {get; private set; }
+    public int? LevelUpId {get; private set; }
 
     public const int ID = 2107285806;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

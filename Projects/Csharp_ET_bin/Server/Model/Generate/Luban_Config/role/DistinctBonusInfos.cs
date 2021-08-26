@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -23,19 +22,13 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { role.BonusInfo _e;  _e = role.BonusInfo.DeserializeBonusInfo(_buf); BonusInfo.Add(_e);}}
     }
 
-    public DistinctBonusInfos(int effective_level, System.Collections.Generic.List<role.BonusInfo> bonus_info ) 
-    {
-        this.EffectiveLevel = effective_level;
-        this.BonusInfo = bonus_info;
-    }
-
     public static DistinctBonusInfos DeserializeDistinctBonusInfos(ByteBuf _buf)
     {
         return new role.DistinctBonusInfos(_buf);
     }
 
-    public readonly int EffectiveLevel;
-    public readonly System.Collections.Generic.List<role.BonusInfo> BonusInfo;
+    public int EffectiveLevel {get; private set;}
+    public System.Collections.Generic.List<role.BonusInfo> BonusInfo {get; private set;}
 
     public const int ID = -854361766;
     public override int GetTypeId() => ID;
@@ -43,10 +36,12 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in BonusInfo) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {
@@ -58,4 +53,3 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     }
 
 }
-

@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed partial class EnumClazz :  blueprint.Clazz 
+public sealed class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         return new blueprint.EnumClazz(_json);
     }
 
-    public readonly System.Collections.Generic.List<blueprint.EnumField> Enums;
+    public System.Collections.Generic.List<blueprint.EnumField> Enums {get; private set; }
 
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class EnumClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Enums) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Enums) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

@@ -32,7 +32,7 @@ public sealed partial class DemoE1 :  test.DemoD3
         return new test.DemoE1(_json);
     }
 
-    public readonly int X4;
+    public int X4 { get; private set; }
 
     public const int ID = -2138341717;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class DemoE1 :  test.DemoD3
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

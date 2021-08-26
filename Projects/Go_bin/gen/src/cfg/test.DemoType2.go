@@ -62,7 +62,7 @@ func NewTest_DemoType2(_buf *serialization.ByteBuf) (_v *Test_DemoType2, err err
     { if _v.X12, err = NewTest_DemoType1(_buf); err != nil { return } }
     { if _v.X13, err = _buf.ReadInt(); err != nil { return } }
     { if _v.X14, err = NewTest_DemoDynamic(_buf); err != nil { return } }
-    { if _v.S1, err = _buf.ReadString(); err != nil { return } }
+    { if _, err = _buf.ReadString(); err != nil { return }; if _v.S1, err = _buf.ReadString(); err != nil { return } }
     { if _v.V2, err = _buf.ReadVector2(); err != nil { return } }
     { if _v.V3, err = _buf.ReadVector3(); err != nil { return } }
     { if _v.V4, err = _buf.ReadVector4(); err != nil { return } }

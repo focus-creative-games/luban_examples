@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed partial class BlueprintMethod :  blueprint.Method 
+public sealed class BlueprintMethod :  blueprint.Method 
 {
     public BlueprintMethod(JsonElement _json)  : base(_json) 
     {
@@ -37,10 +37,12 @@ public sealed partial class BlueprintMethod :  blueprint.Method
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

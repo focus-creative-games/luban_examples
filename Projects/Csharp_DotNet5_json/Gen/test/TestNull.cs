@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class TestNull :  Bright.Config.BeanBase 
+public sealed class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(JsonElement _json) 
     {
@@ -25,7 +25,7 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         { if (_json.TryGetProperty("x3", out var _j) && _j.ValueKind != JsonValueKind.Null) { X3 =  test.DemoType1.DeserializeDemoType1(_j); } else { X3 = null; } }
         { if (_json.TryGetProperty("x4", out var _j) && _j.ValueKind != JsonValueKind.Null) { X4 =  test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
         { if (_json.TryGetProperty("s1", out var _j) && _j.ValueKind != JsonValueKind.Null) { S1 = _j.GetString(); } else { S1 = null; } }
-        { if (_json.TryGetProperty("s2", out var _j) && _j.ValueKind != JsonValueKind.Null) { S2 = _j.GetString(); } else { S2 = null; } }
+        { if (_json.TryGetProperty("s2", out var _j) && _j.ValueKind != JsonValueKind.Null) { S2_l10n_key = _j.GetProperty("key").GetString();S2 = _j.GetProperty("text").GetString(); } else { S2 = null; } }
     }
 
     public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
@@ -44,13 +44,14 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_json);
     }
 
-    public readonly int Id;
-    public readonly int? X1;
-    public readonly test.DemoEnum? X2;
-    public readonly test.DemoType1 X3;
-    public readonly test.DemoDynamic X4;
-    public readonly string S1;
-    public readonly string S2;
+    public int Id {get; private set; }
+    public int? X1 {get; private set; }
+    public test.DemoEnum? X2 {get; private set; }
+    public test.DemoType1 X3 {get; private set; }
+    public test.DemoDynamic X4 {get; private set; }
+    public string S1 {get; private set; }
+    public string S2 {get; private set; }
+    public string S2_l10n_key {get;}
 
     public const int ID = 339868469;
     public override int GetTypeId() => ID;
@@ -59,10 +60,14 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
     {
         X3?.Resolve(_tables);
         X4?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X3?.TranslateText(translator);
+        X4?.TranslateText(translator);
+        S2 = translator(S2_l10n_key, S2);
+    }
 
     public override string ToString()
     {

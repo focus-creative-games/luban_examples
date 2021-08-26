@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class WeightBonus :  bonus.Bonus
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Bonuses = new bonus.WeightBonusInfo[n];for(var i = 0 ; i < n ; i++) { bonus.WeightBonusInfo _e;_e = bonus.WeightBonusInfo.DeserializeWeightBonusInfo(_buf); Bonuses[i] = _e;}}
     }
 
-    public WeightBonus(bonus.WeightBonusInfo[] bonuses )  : base() 
-    {
-        this.Bonuses = bonuses;
-    }
-
     public static WeightBonus DeserializeWeightBonus(ByteBuf _buf)
     {
         return new bonus.WeightBonus(_buf);
     }
 
-    public readonly bonus.WeightBonusInfo[] Bonuses;
+    public bonus.WeightBonusInfo[] Bonuses {get; private set;}
 
     public const int ID = -362807016;
     public override int GetTypeId() => ID;
@@ -41,10 +35,13 @@ public sealed partial class WeightBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Bonuses) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {
@@ -55,4 +52,3 @@ public sealed partial class WeightBonus :  bonus.Bonus
     }
 
 }
-

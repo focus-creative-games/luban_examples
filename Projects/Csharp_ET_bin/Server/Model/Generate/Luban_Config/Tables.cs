@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 
 
@@ -54,6 +53,7 @@ public sealed class Tables
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
     public test.TbTestJson2 TbTestJson2 {get; }
     public test.TbTestIndex TbTestIndex {get; }
+    public test.TbTestMap TbTestMap {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -133,6 +133,8 @@ public sealed class Tables
         tables.Add("test.TbTestJson2", TbTestJson2);
         TbTestIndex = new test.TbTestIndex(loader("test.TbTestIndex")); 
         tables.Add("test.TbTestIndex", TbTestIndex);
+        TbTestMap = new test.TbTestMap(loader("test.TbTestMap")); 
+        tables.Add("test.TbTestMap", TbTestMap);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test.TbDemoGroupDefineFromExcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test.TbDefineFromExcel2")); 
@@ -176,11 +178,55 @@ public sealed class Tables
         TbDefineFromExcelOne.Resolve(tables); 
         TbTestJson2.Resolve(tables); 
         TbTestIndex.Resolve(tables); 
+        TbTestMap.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
     }
+
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        TbBlackboard.TranslateText(translator); 
+        TbBehaviorTree.TranslateText(translator); 
+        TbClazz.TranslateText(translator); 
+        TbDrop.TranslateText(translator); 
+        TbGlobalConfig.TranslateText(translator); 
+        TbDummy.TranslateText(translator); 
+        TbErrorInfo.TranslateText(translator); 
+        TbCodeInfo.TranslateText(translator); 
+        TbItem.TranslateText(translator); 
+        TbItemFunc.TranslateText(translator); 
+        TbItemExtra.TranslateText(translator); 
+        TbL10NDemo.TranslateText(translator); 
+        TbPatchDemo.TranslateText(translator); 
+        TbSystemMail.TranslateText(translator); 
+        TbGlobalMail.TranslateText(translator); 
+        TbRoleLevelExpAttr.TranslateText(translator); 
+        TbRoleLevelBonusCoefficient.TranslateText(translator); 
+        TbTestTag.TranslateText(translator); 
+        TbFullTypes.TranslateText(translator); 
+        TbSingleton.TranslateText(translator); 
+        TbDataFromMisc.TranslateText(translator); 
+        TbMultiRowRecord.TranslateText(translator); 
+        TbMultiRowTitle.TranslateText(translator); 
+        TbTestNull.TranslateText(translator); 
+        TbDemoPrimitive.TranslateText(translator); 
+        TbTestString.TranslateText(translator); 
+        TbDemoGroup.TranslateText(translator); 
+        TbDemoGroup_C.TranslateText(translator); 
+        TbDemoGroup_S.TranslateText(translator); 
+        TbDemoGroup_E.TranslateText(translator); 
+        TbTestGlobal.TranslateText(translator); 
+        TbDetectCsvEncoding.TranslateText(translator); 
+        TbDefineFromExcel.TranslateText(translator); 
+        TbDefineFromExcelOne.TranslateText(translator); 
+        TbTestJson2.TranslateText(translator); 
+        TbTestIndex.TranslateText(translator); 
+        TbTestMap.TranslateText(translator); 
+        TbDemoGroupDefineFromExcel.TranslateText(translator); 
+        TbDefineFromExcel2.TranslateText(translator); 
+        TbTestExcelBean.TranslateText(translator); 
+    }
 }
 
 }
-

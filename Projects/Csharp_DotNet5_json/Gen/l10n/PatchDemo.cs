@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-public sealed partial class PatchDemo :  Bright.Config.BeanBase 
+public sealed class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
         return new l10n.PatchDemo(_json);
     }
 
-    public readonly int Id;
-    public readonly int Value;
+    public int Id {get; private set; }
+    public int Value {get; private set; }
 
     public const int ID = -1707294656;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class DemoE1 :  test.DemoD3
         X4 = _buf.ReadInt();
     }
 
-    public DemoE1(int x1, int x3, int x4 )  : base(x1,x3) 
-    {
-        this.X4 = x4;
-    }
-
     public static DemoE1 DeserializeDemoE1(ByteBuf _buf)
     {
         return new test.DemoE1(_buf);
     }
 
-    public readonly int X4;
+    public int X4 {get; private set;}
 
     public const int ID = -2138341717;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class DemoE1 :  test.DemoD3
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +52,3 @@ public sealed partial class DemoE1 :  test.DemoD3
     }
 
 }
-

@@ -34,8 +34,8 @@ public sealed partial class MoveToLocation :  ai.Task
         return new ai.MoveToLocation(_json);
     }
 
-    public readonly System.Numerics.Vector3 Location;
-    public readonly float AcceptableRadius;
+    public System.Numerics.Vector3 Location { get; private set; }
+    public float AcceptableRadius { get; private set; }
 
     public const int ID = -969953113;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class MoveToLocation :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

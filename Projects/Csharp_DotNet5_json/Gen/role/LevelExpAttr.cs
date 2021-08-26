@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
+public sealed class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(JsonElement _json) 
     {
@@ -36,19 +36,20 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
         return new role.LevelExpAttr(_json);
     }
 
-    public readonly int Level;
-    public readonly long NeedExp;
-    public readonly System.Collections.Generic.List<int> ClothesAttrs;
+    public int Level {get; private set; }
+    public long NeedExp {get; private set; }
+    public System.Collections.Generic.List<int> ClothesAttrs {get; private set; }
 
     public const int ID = -1569837022;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

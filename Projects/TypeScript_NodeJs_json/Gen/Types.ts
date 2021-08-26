@@ -3976,7 +3976,7 @@ export  class L10NDemo  {
         if (_json_.id == undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.text == undefined) { throw new Error() }
-        this.text = _json_.text
+        this.text = _json_.text['text']
     }
 
     readonly id: number
@@ -4448,7 +4448,7 @@ export  class DemoType2  {
         if (_json_.x14 == undefined) { throw new Error() }
         this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
         if (_json_.s1 == undefined) { throw new Error() }
-        this.s1 = _json_.s1
+        this.s1 = _json_.s1['text']
         if (_json_.v2 == undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
         if (_json_.v3 == undefined) { throw new Error() }
@@ -4713,7 +4713,7 @@ export  class DemoSingletonType  {
         if (_json_.id == undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.name == undefined) { throw new Error() }
-        this.name = _json_.name
+        this.name = _json_.name['text']
         if (_json_.date == undefined) { throw new Error() }
         this.date = test.DemoDynamic.constructorFrom(_json_.date)
     }
@@ -5049,7 +5049,7 @@ export  class TestNull  {
         if(_json_.x3 != undefined) { this.x3 = new test.DemoType1(_json_.x3) } else { this.x3 = undefined }
         if(_json_.x4 != undefined) { this.x4 = test.DemoDynamic.constructorFrom(_json_.x4) } else { this.x4 = undefined }
         if(_json_.s1 != undefined) { this.s1 = _json_.s1 } else { this.s1 = undefined }
-        if(_json_.s2 != undefined) { this.s2 = _json_.s2 } else { this.s2 = undefined }
+        if(_json_.s2 != undefined) { this.s2 = _json_.s2['text'] } else { this.s2 = undefined }
     }
 
     readonly id: number
@@ -5121,7 +5121,7 @@ export  class DemoPrimitiveTypesTable  {
         if (_json_.s1 == undefined) { throw new Error() }
         this.s1 = _json_.s1
         if (_json_.s2 == undefined) { throw new Error() }
-        this.s2 = _json_.s2
+        this.s2 = _json_.s2['text']
         if (_json_.v2 == undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
         if (_json_.v3 == undefined) { throw new Error() }

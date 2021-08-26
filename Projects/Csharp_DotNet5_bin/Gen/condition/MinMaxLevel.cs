@@ -22,19 +22,13 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         Max = _buf.ReadInt();
     }
 
-    public MinMaxLevel(int min, int max )  : base() 
-    {
-        this.Min = min;
-        this.Max = max;
-    }
-
     public static MinMaxLevel DeserializeMinMaxLevel(ByteBuf _buf)
     {
         return new condition.MinMaxLevel(_buf);
     }
 
-    public readonly int Min;
-    public readonly int Max;
+    public int Min {get; private set;}
+    public int Max {get; private set;}
 
     public const int ID = 907499647;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

@@ -21,5 +21,3 @@ namespace cfg.error
         RESTART = 1,
     }
 }
-
-

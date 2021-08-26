@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
+public sealed class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JsonElement _json) 
     {
@@ -34,18 +34,19 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new test.DateTimeRange(_json);
     }
 
-    public readonly int StartTime;
-    public readonly int EndTime;
+    public int StartTime {get; private set; }
+    public int EndTime {get; private set; }
 
     public const int ID = 495315430;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

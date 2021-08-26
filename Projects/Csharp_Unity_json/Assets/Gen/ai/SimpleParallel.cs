@@ -36,9 +36,9 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         return new ai.SimpleParallel(_json);
     }
 
-    public readonly ai.EFinishMode FinishMode;
-    public readonly ai.Task MainTask;
-    public readonly ai.FlowNode BackgroundNode;
+    public ai.EFinishMode FinishMode { get; private set; }
+    public ai.Task MainTask { get; private set; }
+    public ai.FlowNode BackgroundNode { get; private set; }
 
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;
@@ -48,10 +48,14 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        MainTask?.TranslateText(translator);
+        BackgroundNode?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

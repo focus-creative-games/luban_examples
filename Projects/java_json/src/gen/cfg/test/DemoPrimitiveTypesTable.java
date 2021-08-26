@@ -23,7 +23,7 @@ public final class DemoPrimitiveTypesTable {
         x6 = __json__.get("x6").getAsFloat();
         x7 = __json__.get("x7").getAsDouble();
         s1 = __json__.get("s1").getAsString();
-        s2 = __json__.get("s2").getAsString();
+        __json__.get("s2").getAsJsonObject().get("key").getAsString(); s2 = __json__.get("s2").getAsJsonObject().get("text").getAsString();
         { var _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
         { var _json0_ = __json__.get("v3").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  v3 = new bright.math.Vector3(__x, __y,__z); }
         { var _json0_ = __json__.get("v4").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  float __w; __w = _json0_.get("w").getAsFloat(); v4 = new bright.math.Vector4(__x, __y, __z, __w); }

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TbSingleton
+public sealed class TbSingleton
 {
 
      private readonly test.DemoSingletonType _data;
@@ -37,11 +37,13 @@ public sealed partial class TbSingleton
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        _data.TranslateText(translator);
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

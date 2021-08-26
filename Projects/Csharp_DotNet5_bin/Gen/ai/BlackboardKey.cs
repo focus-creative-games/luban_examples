@@ -25,35 +25,27 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
         TypeClassName = _buf.ReadString();
     }
 
-    public BlackboardKey(string name, string desc, bool is_static, ai.EKeyType type, string type_class_name ) 
-    {
-        this.Name = name;
-        this.Desc = desc;
-        this.IsStatic = is_static;
-        this.Type = type;
-        this.TypeClassName = type_class_name;
-    }
-
     public static BlackboardKey DeserializeBlackboardKey(ByteBuf _buf)
     {
         return new ai.BlackboardKey(_buf);
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly bool IsStatic;
-    public readonly ai.EKeyType Type;
-    public readonly string TypeClassName;
+    public string Name {get; private set;}
+    public string Desc {get; private set;}
+    public bool IsStatic {get; private set;}
+    public ai.EKeyType Type {get; private set;}
+    public string TypeClassName {get; private set;}
 
     public const int ID = -511559886;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

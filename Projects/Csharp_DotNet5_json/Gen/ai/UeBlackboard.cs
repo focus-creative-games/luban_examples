@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class UeBlackboard :  ai.Decorator 
+public sealed class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JsonElement _json)  : base(_json) 
     {
@@ -36,9 +36,9 @@ public sealed partial class UeBlackboard :  ai.Decorator
         return new ai.UeBlackboard(_json);
     }
 
-    public readonly ai.ENotifyObserverMode NotifyObserver;
-    public readonly string BlackboardKey;
-    public readonly ai.KeyQueryOperator KeyQuery;
+    public ai.ENotifyObserverMode NotifyObserver {get; private set; }
+    public string BlackboardKey {get; private set; }
+    public ai.KeyQueryOperator KeyQuery {get; private set; }
 
     public const int ID = -315297507;
     public override int GetTypeId() => ID;
@@ -47,10 +47,13 @@ public sealed partial class UeBlackboard :  ai.Decorator
     {
         base.Resolve(_tables);
         KeyQuery?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        KeyQuery?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

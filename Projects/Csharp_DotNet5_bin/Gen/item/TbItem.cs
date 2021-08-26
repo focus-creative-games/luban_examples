@@ -15,7 +15,7 @@ namespace cfg.item
 /// <summary>
 /// 道具表
 /// </summary>
-public sealed partial class TbItem
+public sealed class TbItem
 {
     private readonly Dictionary<int, item.Item> _dataMap;
     private readonly List<item.Item> _dataList;
@@ -47,11 +47,16 @@ public sealed partial class TbItem
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

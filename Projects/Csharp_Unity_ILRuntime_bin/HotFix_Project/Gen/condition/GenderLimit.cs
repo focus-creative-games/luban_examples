@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         Gender = (role.EGenderType)_buf.ReadInt();
     }
 
-    public GenderLimit(role.EGenderType gender )  : base() 
-    {
-        this.Gender = gender;
-    }
-
     public static GenderLimit DeserializeGenderLimit(ByteBuf _buf)
     {
         return new condition.GenderLimit(_buf);
     }
 
-    public readonly role.EGenderType Gender;
+    public role.EGenderType Gender {get; private set;}
 
     public const int ID = 103675143;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -54,4 +50,3 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
     }
 
 }
-

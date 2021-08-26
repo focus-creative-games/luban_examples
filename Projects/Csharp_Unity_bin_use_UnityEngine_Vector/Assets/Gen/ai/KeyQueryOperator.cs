@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -18,10 +17,6 @@ namespace cfg.ai
 public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
     public KeyQueryOperator(ByteBuf _buf) 
-    {
-    }
-
-    public KeyQueryOperator() 
     {
     }
 
@@ -40,10 +35,11 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -53,4 +49,3 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
     }
 
 }
-

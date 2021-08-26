@@ -20,10 +20,6 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     {
     }
 
-    public DailyLimitBase()  : base() 
-    {
-    }
-
     public static DailyLimitBase DeserializeDailyLimitBase(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -38,10 +34,12 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

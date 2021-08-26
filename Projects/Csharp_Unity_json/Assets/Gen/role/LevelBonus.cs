@@ -34,8 +34,8 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
         return new role.LevelBonus(_json);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos;
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos { get; private set; }
 
     public const int ID = -572269677;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in DistinctBonusInfos) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

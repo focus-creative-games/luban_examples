@@ -28,7 +28,7 @@ public final class DemoType2 {
         x12 = new cfg.test.DemoType1(_buf);
         x13 = cfg.test.DemoEnum.valueOf(_buf.readInt());
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
-        s1 = _buf.readString();
+        _buf.readString(); s1 = _buf.readString();
         v2 = _buf.readVector2();
         v3 = _buf.readVector3();
         v4 = _buf.readVector4();

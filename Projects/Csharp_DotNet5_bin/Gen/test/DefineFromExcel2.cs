@@ -36,23 +36,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
     }
 
-    public DefineFromExcel2(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
-    {
-        this.Id = id;
-        this.X1 = x1;
-        this.X5 = x5;
-        this.X6 = x6;
-        this.X8 = x8;
-        this.X10 = x10;
-        this.X13 = x13;
-        this.X14 = x14;
-        this.V2 = v2;
-        this.T1 = t1;
-        this.K1 = k1;
-        this.K8 = k8;
-        this.K9 = k9;
-    }
-
     public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
     {
         return new test.DefineFromExcel2(_buf);
@@ -61,23 +44,23 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// <summary>
     /// id的描述
     /// </summary>
-    public readonly int Id;
+    public int Id {get; private set;}
     /// <summary>
     /// 字段的描述
     /// </summary>
-    public readonly bool X1;
-    public readonly long X5;
-    public readonly float X6;
-    public readonly int X8;
+    public bool X1 {get; private set;}
+    public long X5 {get; private set;}
+    public float X6 {get; private set;}
+    public int X8 {get; private set;}
     public test.DemoPrimitiveTypesTable X8_Ref;
-    public readonly string X10;
-    public readonly test.ETestQuality X13;
-    public readonly test.DemoDynamic X14;
-    public readonly System.Numerics.Vector2 V2;
-    public readonly int T1;
-    public readonly int[] K1;
-    public readonly System.Collections.Generic.Dictionary<int, int> K8;
-    public readonly System.Collections.Generic.List<test.DemoE2> K9;
+    public string X10 {get; private set;}
+    public test.ETestQuality X13 {get; private set;}
+    public test.DemoDynamic X14 {get; private set;}
+    public System.Numerics.Vector2 V2 {get; private set;}
+    public int T1 {get; private set;}
+    public int[] K1 {get; private set;}
+    public System.Collections.Generic.Dictionary<int, int> K8 {get; private set;}
+    public System.Collections.Generic.List<test.DemoE2> K9 {get; private set;}
 
     public const int ID = 688816828;
     public override int GetTypeId() => ID;
@@ -87,10 +70,13 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         this.X8_Ref = (_tables["test.TbDemoPrimitive"] as test.TbDemoPrimitive).GetOrDefault(X8);
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X14?.TranslateText(translator);
+        foreach(var _e in K9) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

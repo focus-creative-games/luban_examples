@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -18,10 +17,6 @@ namespace cfg.blueprint
 public sealed partial class BlueprintMethod :  blueprint.Method 
 {
     public BlueprintMethod(ByteBuf _buf)  : base(_buf) 
-    {
-    }
-
-    public BlueprintMethod(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters )  : base(name,desc,is_static,return_type,parameters) 
     {
     }
 
@@ -37,10 +32,12 @@ public sealed partial class BlueprintMethod :  blueprint.Method
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -55,4 +52,3 @@ public sealed partial class BlueprintMethod :  blueprint.Method
     }
 
 }
-

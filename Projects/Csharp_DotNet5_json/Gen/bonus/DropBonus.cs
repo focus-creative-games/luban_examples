@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed partial class DropBonus :  bonus.Bonus 
+public sealed class DropBonus :  bonus.Bonus 
 {
     public DropBonus(JsonElement _json)  : base(_json) 
     {
@@ -32,8 +32,8 @@ public sealed partial class DropBonus :  bonus.Bonus
         return new bonus.DropBonus(_json);
     }
 
-    public readonly int Id;
-    public bonus.DropInfo Id_Ref;
+    public int Id {get; private set; }
+    public bonus.DropInfo Id_Ref {get; private set;}
 
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;
@@ -42,10 +42,12 @@ public sealed partial class DropBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

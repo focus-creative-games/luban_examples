@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,21 +23,14 @@ public sealed partial class InteractionItem :  item.ItemExtra
         HoldingStaticMeshMat = _buf.ReadString();
     }
 
-    public InteractionItem(int id, int? attack_num, string holding_static_mesh, string holding_static_mesh_mat )  : base(id) 
-    {
-        this.AttackNum = attack_num;
-        this.HoldingStaticMesh = holding_static_mesh;
-        this.HoldingStaticMeshMat = holding_static_mesh_mat;
-    }
-
     public static InteractionItem DeserializeInteractionItem(ByteBuf _buf)
     {
         return new item.InteractionItem(_buf);
     }
 
-    public readonly int? AttackNum;
-    public readonly string HoldingStaticMesh;
-    public readonly string HoldingStaticMeshMat;
+    public int? AttackNum {get; private set;}
+    public string HoldingStaticMesh {get; private set;}
+    public string HoldingStaticMeshMat {get; private set;}
 
     public const int ID = 640937802;
     public override int GetTypeId() => ID;
@@ -46,10 +38,12 @@ public sealed partial class InteractionItem :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -63,4 +57,3 @@ public sealed partial class InteractionItem :  item.ItemExtra
     }
 
 }
-

@@ -15,12 +15,12 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-public sealed partial class L10NDemo :  Bright.Config.BeanBase 
+public sealed class L10NDemo :  Bright.Config.BeanBase 
 {
     public L10NDemo(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        Text = _json.GetProperty("text").GetString();
+        Text_l10n_key = _json.GetProperty("text").GetProperty("key").GetString();Text = _json.GetProperty("text").GetProperty("text").GetString();
     }
 
     public L10NDemo(int id, string text ) 
@@ -34,18 +34,21 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
         return new l10n.L10NDemo(_json);
     }
 
-    public readonly int Id;
-    public readonly string Text;
+    public int Id {get; private set; }
+    public string Text {get; private set; }
+    public string Text_l10n_key {get;}
 
     public const int ID = -331195887;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Text = translator(Text_l10n_key, Text);
+    }
 
     public override string ToString()
     {

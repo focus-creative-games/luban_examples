@@ -6,14 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
 namespace cfg.tag
 {
    
-public sealed partial class TbTestTag
+public sealed class TbTestTag
 {
     private readonly Dictionary<int, tag.TestTag> _dataMap;
     private readonly List<tag.TestTag> _dataList;
@@ -45,11 +44,16 @@ public sealed partial class TbTestTag
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

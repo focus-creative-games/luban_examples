@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed partial class TbMultiRowTitle
+public sealed class TbMultiRowTitle
 {
     private readonly Dictionary<int, test.MultiRowTitle> _dataMap;
     private readonly List<test.MultiRowTitle> _dataList;
@@ -44,11 +44,16 @@ public sealed partial class TbMultiRowTitle
         {
             v.Resolve(_tables);
         }
-        OnResolveFinish(_tables);
     }
 
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var v in _dataList)
+        {
+            v.TranslateText(translator);
+        }
+    }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
 }
 
 }

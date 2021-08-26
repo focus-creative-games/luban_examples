@@ -23,31 +23,25 @@ public sealed partial class Field :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
     }
 
-    public Field(string name, string type, string desc ) 
-    {
-        this.Name = name;
-        this.Type = type;
-        this.Desc = desc;
-    }
-
     public static Field DeserializeField(ByteBuf _buf)
     {
         return new blueprint.Field(_buf);
     }
 
-    public readonly string Name;
-    public readonly string Type;
-    public readonly string Desc;
+    public string Name {get; private set;}
+    public string Type {get; private set;}
+    public string Desc {get; private set;}
 
     public const int ID = 1694158271;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

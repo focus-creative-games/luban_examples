@@ -34,18 +34,19 @@ public sealed partial class H2 :  Bright.Config.BeanBase
         return new test.H2(_json);
     }
 
-    public readonly int Z2;
-    public readonly int Z3;
+    public int Z2 { get; private set; }
+    public int Z3 { get; private set; }
 
     public const int ID = -1422503994;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

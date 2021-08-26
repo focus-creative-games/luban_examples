@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
+public sealed class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         return new error.ErrorStyleDlgOk(_json);
     }
 
-    public readonly string BtnName;
+    public string BtnName {get; private set; }
 
     public const int ID = -2010134516;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

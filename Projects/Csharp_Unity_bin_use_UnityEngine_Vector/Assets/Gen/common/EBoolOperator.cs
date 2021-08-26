@@ -15,5 +15,3 @@ namespace cfg.common
         OR = 1,
     }
 }
-
-

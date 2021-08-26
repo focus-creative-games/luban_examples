@@ -32,7 +32,7 @@ public sealed partial class TimeRange :  condition.Condition
         return new condition.TimeRange(_json);
     }
 
-    public readonly common.DateTimeRange DateTimeRange;
+    public common.DateTimeRange DateTimeRange { get; private set; }
 
     public const int ID = 1069033789;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class TimeRange :  condition.Condition
     {
         base.Resolve(_tables);
         DateTimeRange?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        DateTimeRange?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

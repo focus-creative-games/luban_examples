@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed partial class Item :  bonus.Bonus 
+public sealed class Item :  bonus.Bonus 
 {
     public Item(JsonElement _json)  : base(_json) 
     {
@@ -34,9 +34,9 @@ public sealed partial class Item :  bonus.Bonus
         return new bonus.Item(_json);
     }
 
-    public readonly int ItemId;
-    public item.Item ItemId_Ref;
-    public readonly int Amount;
+    public int ItemId {get; private set; }
+    public item.Item ItemId_Ref {get; private set;}
+    public int Amount {get; private set; }
 
     public const int ID = 1689011106;
     public override int GetTypeId() => ID;
@@ -45,10 +45,12 @@ public sealed partial class Item :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

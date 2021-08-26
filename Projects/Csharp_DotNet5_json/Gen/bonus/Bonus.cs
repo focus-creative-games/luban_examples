@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public abstract partial class Bonus :  Bright.Config.BeanBase 
+public abstract class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(JsonElement _json) 
     {
@@ -48,10 +48,11 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

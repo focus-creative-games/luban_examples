@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public abstract partial class Method :  Bright.Config.BeanBase 
+public abstract class Method :  Bright.Config.BeanBase 
 {
     public Method(JsonElement _json) 
     {
@@ -46,20 +46,22 @@ public abstract partial class Method :  Bright.Config.BeanBase
         }
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly bool IsStatic;
-    public readonly string ReturnType;
-    public readonly System.Collections.Generic.List<blueprint.ParamInfo> Parameters;
+    public string Name {get; private set; }
+    public string Desc {get; private set; }
+    public bool IsStatic {get; private set; }
+    public string ReturnType {get; private set; }
+    public System.Collections.Generic.List<blueprint.ParamInfo> Parameters {get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Parameters) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

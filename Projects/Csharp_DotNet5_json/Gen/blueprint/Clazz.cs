@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public abstract partial class Clazz :  Bright.Config.BeanBase 
+public abstract class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(JsonElement _json) 
     {
@@ -44,20 +44,23 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         }
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly System.Collections.Generic.List<blueprint.Clazz> Parents;
-    public readonly System.Collections.Generic.List<blueprint.Method> Methods;
+    public string Name {get; private set; }
+    public string Desc {get; private set; }
+    public System.Collections.Generic.List<blueprint.Clazz> Parents {get; private set; }
+    public System.Collections.Generic.List<blueprint.Method> Methods {get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parents) { _e?.Resolve(_tables); }
         foreach(var _e in Methods) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Parents) { _e?.TranslateText(translator); }
+        foreach(var _e in Methods) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

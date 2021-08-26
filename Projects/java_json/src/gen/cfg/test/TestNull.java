@@ -21,7 +21,7 @@ public final class TestNull {
         { if (__json__.has("x3") && !__json__.get("x3").isJsonNull()) { x3 = new cfg.test.DemoType1(__json__.get("x3").getAsJsonObject()); } else { x3 = null; } }
         { if (__json__.has("x4") && !__json__.get("x4").isJsonNull()) { x4 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x4").getAsJsonObject()); } else { x4 = null; } }
         { if (__json__.has("s1") && !__json__.get("s1").isJsonNull()) { s1 = __json__.get("s1").getAsString(); } else { s1 = null; } }
-        { if (__json__.has("s2") && !__json__.get("s2").isJsonNull()) { s2 = __json__.get("s2").getAsString(); } else { s2 = null; } }
+        { if (__json__.has("s2") && !__json__.get("s2").isJsonNull()) { __json__.get("s2").getAsJsonObject().get("key").getAsString(); s2 = __json__.get("s2").getAsJsonObject().get("text").getAsString(); } else { s2 = null; } }
     }
 
     public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 ) {

@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract partial class Node :  Bright.Config.BeanBase 
+public abstract class Node :  Bright.Config.BeanBase 
 {
     public Node(JsonElement _json) 
     {
@@ -60,16 +60,17 @@ public abstract partial class Node :  Bright.Config.BeanBase
         }
     }
 
-    public readonly int Id;
-    public readonly string NodeName;
+    public int Id {get; private set; }
+    public string NodeName {get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

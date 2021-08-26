@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public abstract partial class RoleCondition :  condition.Condition 
+public abstract class RoleCondition :  condition.Condition 
 {
     public RoleCondition(JsonElement _json)  : base(_json) 
     {
@@ -45,10 +45,12 @@ public abstract partial class RoleCondition :  condition.Condition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

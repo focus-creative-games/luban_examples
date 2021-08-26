@@ -21,17 +21,12 @@ public sealed partial class ChooseTarget :  ai.Service
         ResultTargetKey = _buf.ReadString();
     }
 
-    public ChooseTarget(int id, string node_name, string result_target_key )  : base(id,node_name) 
-    {
-        this.ResultTargetKey = result_target_key;
-    }
-
     public static ChooseTarget DeserializeChooseTarget(ByteBuf _buf)
     {
         return new ai.ChooseTarget(_buf);
     }
 
-    public readonly string ResultTargetKey;
+    public string ResultTargetKey {get; private set;}
 
     public const int ID = 1601247918;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class ChooseTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

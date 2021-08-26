@@ -21,17 +21,12 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         BlackboardKey = _buf.ReadString();
     }
 
-    public UeWaitBlackboardTime(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string blackboard_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
-    {
-        this.BlackboardKey = blackboard_key;
-    }
-
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(ByteBuf _buf)
     {
         return new ai.UeWaitBlackboardTime(_buf);
     }
 
-    public readonly string BlackboardKey;
+    public string BlackboardKey {get; private set;}
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;
@@ -39,10 +34,12 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

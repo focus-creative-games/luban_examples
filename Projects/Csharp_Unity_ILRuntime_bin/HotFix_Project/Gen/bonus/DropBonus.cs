@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,18 +21,13 @@ public sealed partial class DropBonus :  bonus.Bonus
         Id = _buf.ReadInt();
     }
 
-    public DropBonus(int id )  : base() 
-    {
-        this.Id = id;
-    }
-
     public static DropBonus DeserializeDropBonus(ByteBuf _buf)
     {
         return new bonus.DropBonus(_buf);
     }
 
-    public readonly int Id;
-    public bonus.DropInfo Id_Ref;
+    public int Id {get; private set;}
+    public bonus.DropInfo Id_Ref {get; private set;}
 
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;
@@ -42,10 +36,12 @@ public sealed partial class DropBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +52,3 @@ public sealed partial class DropBonus :  bonus.Bonus
     }
 
 }
-

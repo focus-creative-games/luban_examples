@@ -3908,7 +3908,7 @@ export  class L10NDemo  {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.text = _buf_.ReadString()
+         _buf_.ReadString(); this.text = _buf_.ReadString()
     }
 
     readonly id: number
@@ -4365,7 +4365,7 @@ export  class DemoType2  {
         this.x12 = new test.DemoType1(_buf_)
         this.x13 = _buf_.ReadInt()
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        this.s1 = _buf_.ReadString()
+         _buf_.ReadString(); this.s1 = _buf_.ReadString()
         this.v2 = Vector2.deserializeFrom(_buf_)
         this.v3 = Vector3.deserializeFrom(_buf_)
         this.v4 = Vector4.deserializeFrom(_buf_)
@@ -4620,7 +4620,7 @@ export  class DemoSingletonType  {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
+         _buf_.ReadString(); this.name = _buf_.ReadString()
         this.date = test.DemoDynamic.constructorFrom(_buf_)
     }
 
@@ -4950,7 +4950,7 @@ export  class TestNull  {
         if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = undefined }
         if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = undefined }
         if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString() } else { this.s1 = undefined }
-        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString() } else { this.s2 = undefined }
+        if(_buf_.ReadBool()) {  _buf_.ReadString(); this.s2 = _buf_.ReadString() } else { this.s2 = undefined }
     }
 
     readonly id: number
@@ -5017,7 +5017,7 @@ export  class DemoPrimitiveTypesTable  {
         this.x6 = _buf_.ReadFloat()
         this.x7 = _buf_.ReadDouble()
         this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
+         _buf_.ReadString(); this.s2 = _buf_.ReadString()
         this.v2 = Vector2.deserializeFrom(_buf_)
         this.v3 = Vector3.deserializeFrom(_buf_)
         this.v4 = Vector4.deserializeFrom(_buf_)

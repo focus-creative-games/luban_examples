@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public abstract partial class DemoD3 :  test.DemoDynamic 
+public abstract class DemoD3 :  test.DemoDynamic 
 {
     public DemoD3(JsonElement _json)  : base(_json) 
     {
@@ -36,16 +36,18 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         }
     }
 
-    public readonly int X3;
+    public int X3 {get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

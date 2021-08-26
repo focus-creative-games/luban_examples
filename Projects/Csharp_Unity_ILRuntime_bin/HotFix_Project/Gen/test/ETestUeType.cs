@@ -18,5 +18,3 @@ namespace cfg.test
         BLACK = 1,
     }
 }
-
-

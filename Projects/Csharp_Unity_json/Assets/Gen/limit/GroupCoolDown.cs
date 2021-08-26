@@ -34,8 +34,8 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
         return new limit.GroupCoolDown(_json);
     }
 
-    public readonly int GroupId;
-    public readonly int Duration;
+    public int GroupId { get; private set; }
+    public int Duration { get; private set; }
 
     public const int ID = 394328599;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class GroupCoolDown :  limit.LimitBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

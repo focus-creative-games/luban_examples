@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed partial class MoveToTarget :  ai.Task 
+public sealed class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(JsonElement _json)  : base(_json) 
     {
@@ -34,8 +34,8 @@ public sealed partial class MoveToTarget :  ai.Task
         return new ai.MoveToTarget(_json);
     }
 
-    public readonly string TargetActorKey;
-    public readonly float AcceptableRadius;
+    public string TargetActorKey {get; private set; }
+    public float AcceptableRadius {get; private set; }
 
     public const int ID = 514987779;
     public override int GetTypeId() => ID;
@@ -43,10 +43,12 @@ public sealed partial class MoveToTarget :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

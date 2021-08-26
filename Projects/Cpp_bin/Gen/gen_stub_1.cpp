@@ -461,7 +461,7 @@ namespace cfg
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!_buf.readString(text)) return false;
+        if(!_buf.readString(text)) return false; /* key */ if(!_buf.readString(text)) return false; /* text */
 
         return true;
     }
@@ -736,7 +736,7 @@ namespace cfg
         if(!test::DemoType1::deserializeDemoType1(_buf, x12)) return false;
         {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::DemoEnum(__enum_temp__); }
         if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
-        if(!_buf.readString(s1)) return false;
+        if(!_buf.readString(s1)) return false; /* key */ if(!_buf.readString(s1)) return false; /* text */
         if(!_buf.readVector2(v2)) return false;
         if(!_buf.readVector3(v3)) return false;
         if(!_buf.readVector4(v4)) return false;
@@ -1005,7 +1005,7 @@ namespace cfg
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(name)) return false; /* key */ if(!_buf.readString(name)) return false; /* text */
         if(!test::DemoDynamic::deserializeDemoDynamic(_buf, date)) return false;
 
         return true;
@@ -1248,7 +1248,7 @@ namespace cfg
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x3.reset(); if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false; } else { x3.reset(); } }
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x4.reset(); if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false; } else { x4.reset(); } }
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s1.reset(new ::bright::String()); if(!_buf.readString(*s1)) return false; } else { s1.reset(); } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2.reset(new ::bright::String()); if(!_buf.readString(*s2)) return false; } else { s2.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2.reset(new ::bright::String()); if(!_buf.readString(*s2)) return false; /* key */ if(!_buf.readString(*s2)) return false; /* text */ } else { s2.reset(); } }
 
         return true;
     }
@@ -1284,7 +1284,7 @@ namespace cfg
         if(!_buf.readFloat(x6)) return false;
         if(!_buf.readDouble(x7)) return false;
         if(!_buf.readString(s1)) return false;
-        if(!_buf.readString(s2)) return false;
+        if(!_buf.readString(s2)) return false; /* key */ if(!_buf.readString(s2)) return false; /* text */
         if(!_buf.readVector2(v2)) return false;
         if(!_buf.readVector3(v3)) return false;
         if(!_buf.readVector4(v4)) return false;

@@ -34,18 +34,19 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
         return new test.TestGlobal(_json);
     }
 
-    public readonly int UnlockEquip;
-    public readonly int UnlockHero;
+    public int UnlockEquip { get; private set; }
+    public int UnlockHero { get; private set; }
 
     public const int ID = -12548655;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

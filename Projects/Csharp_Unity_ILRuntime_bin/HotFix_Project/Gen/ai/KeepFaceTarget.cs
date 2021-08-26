@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,17 +21,12 @@ public sealed partial class KeepFaceTarget :  ai.Service
         TargetActorKey = _buf.ReadString();
     }
 
-    public KeepFaceTarget(int id, string node_name, string target_actor_key )  : base(id,node_name) 
-    {
-        this.TargetActorKey = target_actor_key;
-    }
-
     public static KeepFaceTarget DeserializeKeepFaceTarget(ByteBuf _buf)
     {
         return new ai.KeepFaceTarget(_buf);
     }
 
-    public readonly string TargetActorKey;
+    public string TargetActorKey {get; private set;}
 
     public const int ID = 1195270745;
     public override int GetTypeId() => ID;
@@ -40,10 +34,12 @@ public sealed partial class KeepFaceTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -56,4 +52,3 @@ public sealed partial class KeepFaceTarget :  ai.Service
     }
 
 }
-

@@ -25,25 +25,16 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X3[i] = _e;}}
     }
 
-    public MultiRowTitle(int id, string name, test.H1 x1, System.Collections.Generic.List<test.H2> x2, test.H2[] x3 ) 
-    {
-        this.Id = id;
-        this.Name = name;
-        this.X1 = x1;
-        this.X2 = x2;
-        this.X3 = x3;
-    }
-
     public static MultiRowTitle DeserializeMultiRowTitle(ByteBuf _buf)
     {
         return new test.MultiRowTitle(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
-    public readonly test.H1 X1;
-    public readonly System.Collections.Generic.List<test.H2> X2;
-    public readonly test.H2[] X3;
+    public int Id {get; private set;}
+    public string Name {get; private set;}
+    public test.H1 X1 {get; private set;}
+    public System.Collections.Generic.List<test.H2> X2 {get; private set;}
+    public test.H2[] X3 {get; private set;}
 
     public const int ID = 540002427;
     public override int GetTypeId() => ID;
@@ -53,10 +44,14 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         X1?.Resolve(_tables);
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X1?.TranslateText(translator);
+        foreach(var _e in X2) { _e?.TranslateText(translator); }
+        foreach(var _e in X3) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -20,13 +19,7 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
     public L10NDemo(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
-        Text = _buf.ReadString();
-    }
-
-    public L10NDemo(int id, string text ) 
-    {
-        this.Id = id;
-        this.Text = text;
+        Text_l10n_key = _buf.ReadString(); Text = _buf.ReadString();
     }
 
     public static L10NDemo DeserializeL10NDemo(ByteBuf _buf)
@@ -34,18 +27,21 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
         return new l10n.L10NDemo(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Text;
+    public int Id {get; private set;}
+    public string Text {get; private set;}
+    public string Text_l10n_key {get;}
 
     public const int ID = -331195887;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Text = translator(Text_l10n_key, Text);
+    }
 
     public override string ToString()
     {
@@ -57,4 +53,3 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
     }
 
 }
-

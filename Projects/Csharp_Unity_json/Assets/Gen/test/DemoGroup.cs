@@ -42,12 +42,12 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         return new test.DemoGroup(_json);
     }
 
-    public readonly int Id;
-    public readonly int X1;
-    public readonly int X2;
-    public readonly int X3;
-    public readonly int X4;
-    public readonly test.InnerGroup X5;
+    public int Id { get; private set; }
+    public int X1 { get; private set; }
+    public int X2 { get; private set; }
+    public int X3 { get; private set; }
+    public int X4 { get; private set; }
+    public test.InnerGroup X5 { get; private set; }
 
     public const int ID = -379263008;
     public override int GetTypeId() => ID;
@@ -55,10 +55,12 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         X5?.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X5?.TranslateText(translator);
+    }
 
     public override string ToString()
     {

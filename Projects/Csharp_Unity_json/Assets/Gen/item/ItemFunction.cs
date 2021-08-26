@@ -38,20 +38,21 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         return new item.ItemFunction(_json);
     }
 
-    public readonly item.EMinorType MinorType;
-    public readonly item.EItemFunctionType FuncType;
-    public readonly string Method;
-    public readonly bool CloseBagUi;
+    public item.EMinorType MinorType { get; private set; }
+    public item.EItemFunctionType FuncType { get; private set; }
+    public string Method { get; private set; }
+    public bool CloseBagUi { get; private set; }
 
     public const int ID = 1205824294;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

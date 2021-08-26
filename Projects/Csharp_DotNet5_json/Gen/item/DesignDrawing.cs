@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed partial class DesignDrawing :  item.ItemExtra 
+public sealed class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class DesignDrawing :  item.ItemExtra
         return new item.DesignDrawing(_json);
     }
 
-    public readonly System.Collections.Generic.List<int> LearnComponentId;
+    public System.Collections.Generic.List<int> LearnComponentId {get; private set; }
 
     public const int ID = -1679179579;
     public override int GetTypeId() => ID;
@@ -40,10 +40,12 @@ public sealed partial class DesignDrawing :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

@@ -29,5 +29,3 @@ namespace cfg.test
         D = 4,
     }
 }
-
-

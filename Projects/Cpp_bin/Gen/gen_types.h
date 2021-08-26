@@ -8733,7 +8733,7 @@ class Tables
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
 
-    bool load(::bright::Function<bool(ByteBuf&, const ::bright::String&)> loader)
+    bool load(::bright::Loader<ByteBuf> loader)
     {
         ::bright::HashMap<::bright::String, void*> __tables__;
 

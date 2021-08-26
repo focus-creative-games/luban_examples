@@ -11,6 +11,8 @@ namespace Csharp_Server_DotNetCore
         {
             var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes("../../../../GenerateDatas/bin/" + file + ".bin")));
 
+            tables.TranslateText((key, text) => text + "# translate");
+
             Console.WriteLine("== load succ ==");
         }
     }

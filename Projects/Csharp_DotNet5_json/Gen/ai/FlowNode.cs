@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract partial class FlowNode :  ai.Node 
+public abstract class FlowNode :  ai.Node 
 {
     public FlowNode(JsonElement _json)  : base(_json) 
     {
@@ -47,8 +47,8 @@ public abstract partial class FlowNode :  ai.Node
         }
     }
 
-    public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-    public readonly System.Collections.Generic.List<ai.Service> Services;
+    public System.Collections.Generic.List<ai.Decorator> Decorators {get; private set; }
+    public System.Collections.Generic.List<ai.Service> Services {get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -56,10 +56,14 @@ public abstract partial class FlowNode :  ai.Node
         base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Decorators) { _e?.TranslateText(translator); }
+        foreach(var _e in Services) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

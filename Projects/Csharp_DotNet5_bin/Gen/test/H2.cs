@@ -22,29 +22,24 @@ public sealed partial class H2 :  Bright.Config.BeanBase
         Z3 = _buf.ReadInt();
     }
 
-    public H2(int z2, int z3 ) 
-    {
-        this.Z2 = z2;
-        this.Z3 = z3;
-    }
-
     public static H2 DeserializeH2(ByteBuf _buf)
     {
         return new test.H2(_buf);
     }
 
-    public readonly int Z2;
-    public readonly int Z3;
+    public int Z2 {get; private set;}
+    public int Z3 {get; private set;}
 
     public const int ID = -1422503994;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

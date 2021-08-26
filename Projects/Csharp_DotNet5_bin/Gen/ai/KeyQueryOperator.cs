@@ -20,10 +20,6 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
     {
     }
 
-    public KeyQueryOperator() 
-    {
-    }
-
     public static KeyQueryOperator DeserializeKeyQueryOperator(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -39,10 +35,11 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

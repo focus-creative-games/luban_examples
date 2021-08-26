@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract partial class Service :  ai.Node 
+public abstract class Service :  ai.Node 
 {
     public Service(JsonElement _json)  : base(_json) 
     {
@@ -44,10 +44,12 @@ public abstract partial class Service :  ai.Node
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

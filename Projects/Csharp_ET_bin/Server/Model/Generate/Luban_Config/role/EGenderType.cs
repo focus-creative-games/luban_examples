@@ -21,5 +21,3 @@ namespace cfg.role
         FEMALE = 2,
     }
 }
-
-

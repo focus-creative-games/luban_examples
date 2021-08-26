@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -20,11 +19,6 @@ public abstract partial class Decorator :  ai.Node
     public Decorator(ByteBuf _buf)  : base(_buf) 
     {
         FlowAbortMode = (ai.EFlowAbortMode)_buf.ReadInt();
-    }
-
-    public Decorator(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name) 
-    {
-        this.FlowAbortMode = flow_abort_mode;
     }
 
     public static Decorator DeserializeDecorator(ByteBuf _buf)
@@ -42,16 +36,18 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
-    public readonly ai.EFlowAbortMode FlowAbortMode;
+    public ai.EFlowAbortMode FlowAbortMode {get; private set;}
 
 
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -64,4 +60,3 @@ public abstract partial class Decorator :  ai.Node
     }
 
 }
-

@@ -48,15 +48,15 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
         return new ai.UpdateDailyBehaviorProps(_json);
     }
 
-    public readonly string SatietyKey;
-    public readonly string EnergyKey;
-    public readonly string MoodKey;
-    public readonly string SatietyLowerThresholdKey;
-    public readonly string SatietyUpperThresholdKey;
-    public readonly string EnergyLowerThresholdKey;
-    public readonly string EnergyUpperThresholdKey;
-    public readonly string MoodLowerThresholdKey;
-    public readonly string MoodUpperThresholdKey;
+    public string SatietyKey { get; private set; }
+    public string EnergyKey { get; private set; }
+    public string MoodKey { get; private set; }
+    public string SatietyLowerThresholdKey { get; private set; }
+    public string SatietyUpperThresholdKey { get; private set; }
+    public string EnergyLowerThresholdKey { get; private set; }
+    public string EnergyUpperThresholdKey { get; private set; }
+    public string MoodLowerThresholdKey { get; private set; }
+    public string MoodUpperThresholdKey { get; private set; }
 
     public const int ID = -61887372;
     public override int GetTypeId() => ID;
@@ -64,10 +64,12 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {

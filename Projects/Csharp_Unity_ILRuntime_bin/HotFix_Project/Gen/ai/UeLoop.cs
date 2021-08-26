@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -24,21 +23,14 @@ public sealed partial class UeLoop :  ai.Decorator
         InfiniteLoopTimeoutTime = _buf.ReadFloat();
     }
 
-    public UeLoop(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, int num_loops, bool infinite_loop, float infinite_loop_timeout_time )  : base(id,node_name,flow_abort_mode) 
-    {
-        this.NumLoops = num_loops;
-        this.InfiniteLoop = infinite_loop;
-        this.InfiniteLoopTimeoutTime = infinite_loop_timeout_time;
-    }
-
     public static UeLoop DeserializeUeLoop(ByteBuf _buf)
     {
         return new ai.UeLoop(_buf);
     }
 
-    public readonly int NumLoops;
-    public readonly bool InfiniteLoop;
-    public readonly float InfiniteLoopTimeoutTime;
+    public int NumLoops {get; private set;}
+    public bool InfiniteLoop {get; private set;}
+    public float InfiniteLoopTimeoutTime {get; private set;}
 
     public const int ID = -513308166;
     public override int GetTypeId() => ID;
@@ -46,10 +38,12 @@ public sealed partial class UeLoop :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
 
     public override string ToString()
     {
@@ -65,4 +59,3 @@ public sealed partial class UeLoop :  ai.Decorator
     }
 
 }
-

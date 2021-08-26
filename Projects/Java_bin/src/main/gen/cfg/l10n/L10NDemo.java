@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class L10NDemo {
     public L10NDemo(ByteBuf _buf) { 
         id = _buf.readInt();
-        text = _buf.readString();
+        _buf.readString(); text = _buf.readString();
     }
 
     public L10NDemo(int id, String text ) {

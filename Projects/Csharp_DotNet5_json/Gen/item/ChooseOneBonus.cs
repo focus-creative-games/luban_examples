@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
+public sealed class ChooseOneBonus :  Bright.Config.BeanBase 
 {
     public ChooseOneBonus(JsonElement _json) 
     {
@@ -34,9 +34,9 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
         return new item.ChooseOneBonus(_json);
     }
 
-    public readonly int DropId;
-    public bonus.DropInfo DropId_Ref;
-    public readonly bool IsUnique;
+    public int DropId {get; private set; }
+    public bonus.DropInfo DropId_Ref {get; private set;}
+    public bool IsUnique {get; private set; }
 
     public const int ID = 228058347;
     public override int GetTypeId() => ID;
@@ -44,10 +44,11 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.DropId_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(DropId);
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

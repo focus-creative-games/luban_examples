@@ -21,27 +21,23 @@ public sealed partial class DemoType1 :  Bright.Config.BeanBase
         X1 = _buf.ReadInt();
     }
 
-    public DemoType1(int x1 ) 
-    {
-        this.X1 = x1;
-    }
-
     public static DemoType1 DeserializeDemoType1(ByteBuf _buf)
     {
         return new test.DemoType1(_buf);
     }
 
-    public readonly int X1;
+    public int X1 {get; private set;}
 
     public const int ID = -367048296;
     public override int GetTypeId() => ID;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {

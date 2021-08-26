@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class L10NDemo {
     public L10NDemo(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        text = __json__.get("text").getAsString();
+        __json__.get("text").getAsJsonObject().get("key").getAsString(); text = __json__.get("text").getAsJsonObject().get("text").getAsString();
     }
 
     public L10NDemo(int id, String text ) {

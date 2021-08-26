@@ -15,7 +15,7 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-public sealed partial class CostItems :  cost.Cost 
+public sealed class CostItems :  cost.Cost 
 {
     public CostItems(JsonElement _json)  : base(_json) 
     {
@@ -32,7 +32,7 @@ public sealed partial class CostItems :  cost.Cost
         return new cost.CostItems(_json);
     }
 
-    public readonly cost.CostItem[] ItemList;
+    public cost.CostItem[] ItemList {get; private set; }
 
     public const int ID = -77945102;
     public override int GetTypeId() => ID;
@@ -41,10 +41,13 @@ public sealed partial class CostItems :  cost.Cost
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in ItemList) { _e?.TranslateText(translator); }
+    }
 
     public override string ToString()
     {

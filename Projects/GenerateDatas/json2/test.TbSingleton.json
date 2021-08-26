@@ -1,6 +1,9 @@
 {
   "id": 5,
-  "name": "aabbcc",
+  "name": {
+    "key": "key_name",
+    "text": "aabbcc"
+  },
   "date": {
     "__type__": "DemoD5",
     "x1": 1,

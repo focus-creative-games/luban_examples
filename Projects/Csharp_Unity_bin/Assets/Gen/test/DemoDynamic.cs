@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 using Bright.Serialization;
 using System.Collections.Generic;
 
@@ -22,11 +21,6 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
         X1 = _buf.ReadInt();
     }
 
-    public DemoDynamic(int x1 ) 
-    {
-        this.X1 = x1;
-    }
-
     public static DemoDynamic DeserializeDemoDynamic(ByteBuf _buf)
     {
         switch (_buf.ReadInt())
@@ -38,15 +32,16 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
         }
     }
 
-    public readonly int X1;
+    public int X1 {get; private set;}
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
-        OnResolveFinish(_tables);
     }
 
-    partial void OnResolveFinish(Dictionary<string, object> _tables);
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
 
     public override string ToString()
     {
@@ -57,4 +52,3 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
     }
 
 }
-

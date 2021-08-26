@@ -57,5 +57,3 @@ namespace cfg.item
         MATERIAL = 11,
     }
 }
-
-
