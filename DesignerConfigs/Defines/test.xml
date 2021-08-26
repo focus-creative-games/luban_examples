@@ -57,10 +57,10 @@
 		<var name="x7" type="bigint"/>
 	</bean>
 	
-	<bean name="DemoType2" >
+	<bean name="DemoType2" attrs="d=5|a=3">
 		<var name="x4" type="int" convert="DemoEnum"/>
-		<var name="x1" type="bool"/>
-		<var name="x2" type="byte"/>
+		<var name="x1" type="bool|kind=cat|type=sss"  attrs="aa=10|bb=23"/>
+		<var name="x2" type="byte|kind=mouse|name=yyy" attrs="aa||dd=32"/>
 		<var name="x3" type="short" ref="test.TbFullTypes"/>
 		<var name="x5" type="long" convert="DemoEnum"/>
 		<var name="x6" type="float"/>
@@ -306,6 +306,10 @@
 	</bean>
 	<table name="TbTestMap" value="TestMap" input="test/test_map.xlsx"/>
  
+	<bean name="TestAttr" >
+		<var name="name" type="int"/>
+	</bean>
+	
 	<module name="login">
 		支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。
 		<bean name="RoleInfo">
