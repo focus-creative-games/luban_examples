@@ -34,8 +34,8 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         return new ai.BinaryOperator(_json);
     }
 
-    public ai.EOperator Oper {get; private set; }
-    public ai.KeyData Data {get; private set; }
+    public ai.EOperator Oper { get; private set; }
+    public ai.KeyData Data { get; private set; }
 
     public const int ID = -979891605;
     public override int GetTypeId() => ID;

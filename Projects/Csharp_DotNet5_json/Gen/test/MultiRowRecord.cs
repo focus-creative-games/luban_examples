@@ -46,14 +46,14 @@ public sealed class MultiRowRecord :  Bright.Config.BeanBase
         return new test.MultiRowRecord(_json);
     }
 
-    public int Id {get; private set; }
-    public string Name {get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType1> OneRows {get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType1> MultiRows1 {get; private set; }
-    public test.MultiRowType1[] MultiRows2 {get; private set; }
-    public System.Collections.Generic.HashSet<test.MultiRowType2> MultiRows3 {get; private set; }
-    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows4 {get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType3> MultiRows5 {get; private set; }
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+    public System.Collections.Generic.List<test.MultiRowType1> OneRows { get; private set; }
+    public System.Collections.Generic.List<test.MultiRowType1> MultiRows1 { get; private set; }
+    public test.MultiRowType1[] MultiRows2 { get; private set; }
+    public System.Collections.Generic.HashSet<test.MultiRowType2> MultiRows3 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows4 { get; private set; }
+    public System.Collections.Generic.List<test.MultiRowType3> MultiRows5 { get; private set; }
 
     public const int ID = -501249394;
     public override int GetTypeId() => ID;

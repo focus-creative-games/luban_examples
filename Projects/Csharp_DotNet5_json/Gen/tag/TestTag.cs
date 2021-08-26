@@ -34,8 +34,8 @@ public sealed class TestTag :  Bright.Config.BeanBase
         return new tag.TestTag(_json);
     }
 
-    public int Id {get; private set; }
-    public string Value {get; private set; }
+    public int Id { get; private set; }
+    public string Value { get; private set; }
 
     public const int ID = 1742933812;
     public override int GetTypeId() => ID;

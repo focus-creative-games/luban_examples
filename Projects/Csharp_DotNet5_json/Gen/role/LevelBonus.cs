@@ -34,8 +34,8 @@ public sealed class LevelBonus :  Bright.Config.BeanBase
         return new role.LevelBonus(_json);
     }
 
-    public int Id {get; private set; }
-    public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos {get; private set; }
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos { get; private set; }
 
     public const int ID = -572269677;
     public override int GetTypeId() => ID;

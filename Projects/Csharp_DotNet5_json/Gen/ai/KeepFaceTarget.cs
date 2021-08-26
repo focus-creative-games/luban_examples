@@ -32,7 +32,7 @@ public sealed class KeepFaceTarget :  ai.Service
         return new ai.KeepFaceTarget(_json);
     }
 
-    public string TargetActorKey {get; private set; }
+    public string TargetActorKey { get; private set; }
 
     public const int ID = 1195270745;
     public override int GetTypeId() => ID;

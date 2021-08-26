@@ -32,7 +32,7 @@ public sealed class MultiBonus :  bonus.Bonus
         return new bonus.MultiBonus(_json);
     }
 
-    public bonus.Bonus[] Bonuses {get; private set; }
+    public bonus.Bonus[] Bonuses { get; private set; }
 
     public const int ID = 1421907893;
     public override int GetTypeId() => ID;

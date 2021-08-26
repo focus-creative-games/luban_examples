@@ -44,16 +44,16 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
     /// <summary>
     /// 装备解锁等级_描述
     /// </summary>
-    public int UnlockEquip {get; private set; }
+    public int UnlockEquip { get; private set; }
     /// <summary>
     /// 英雄解锁等级
     /// </summary>
-    public int UnlockHero {get; private set; }
+    public int UnlockHero { get; private set; }
     /// <summary>
     /// 默认头像
     /// </summary>
-    public string DefaultAvatar {get; private set; }
-    public string DefaultItem {get; private set; }
+    public string DefaultAvatar { get; private set; }
+    public string DefaultItem { get; private set; }
 
     public const int ID = 528039504;
     public override int GetTypeId() => ID;

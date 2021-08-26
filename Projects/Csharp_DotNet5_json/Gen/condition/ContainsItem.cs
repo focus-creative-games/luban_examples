@@ -36,10 +36,10 @@ public sealed class ContainsItem :  condition.RoleCondition
         return new condition.ContainsItem(_json);
     }
 
-    public int ItemId {get; private set; }
-    public item.Item ItemId_Ref {get; private set;}
-    public int Num {get; private set; }
-    public bool Reverse {get; private set; }
+    public int ItemId { get; private set; }
+    public item.Item ItemId_Ref { get; private set; }
+    public int Num { get; private set; }
+    public bool Reverse { get; private set; }
 
     public const int ID = 1961145317;
     public override int GetTypeId() => ID;

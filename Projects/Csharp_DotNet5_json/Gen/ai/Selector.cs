@@ -32,7 +32,7 @@ public sealed class Selector :  ai.ComposeNode
         return new ai.Selector(_json);
     }
 
-    public System.Collections.Generic.List<ai.FlowNode> Children {get; private set; }
+    public System.Collections.Generic.List<ai.FlowNode> Children { get; private set; }
 
     public const int ID = -1946981627;
     public override int GetTypeId() => ID;

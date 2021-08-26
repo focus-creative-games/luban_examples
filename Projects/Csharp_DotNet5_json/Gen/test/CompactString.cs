@@ -36,9 +36,9 @@ public sealed class CompactString :  Bright.Config.BeanBase
         return new test.CompactString(_json);
     }
 
-    public int Id {get; private set; }
-    public string S2 {get; private set; }
-    public string S3 {get; private set; }
+    public int Id { get; private set; }
+    public string S2 { get; private set; }
+    public string S3 { get; private set; }
 
     public const int ID = 1968089240;
     public override int GetTypeId() => ID;

@@ -34,8 +34,8 @@ public sealed class MinMaxLevel :  condition.BoolRoleCondition
         return new condition.MinMaxLevel(_json);
     }
 
-    public int Min {get; private set; }
-    public int Max {get; private set; }
+    public int Min { get; private set; }
+    public int Max { get; private set; }
 
     public const int ID = 907499647;
     public override int GetTypeId() => ID;

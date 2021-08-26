@@ -32,7 +32,7 @@ public sealed class ProbabilityItems :  bonus.Bonus
         return new bonus.ProbabilityItems(_json);
     }
 
-    public bonus.ProbabilityItemInfo[] ItemList {get; private set; }
+    public bonus.ProbabilityItemInfo[] ItemList { get; private set; }
 
     public const int ID = 366387866;
     public override int GetTypeId() => ID;

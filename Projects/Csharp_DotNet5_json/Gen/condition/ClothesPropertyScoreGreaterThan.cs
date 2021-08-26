@@ -34,8 +34,8 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
         return new condition.ClothesPropertyScoreGreaterThan(_json);
     }
 
-    public item.EClothesPropertyType Prop {get; private set; }
-    public int Value {get; private set; }
+    public item.EClothesPropertyType Prop { get; private set; }
+    public int Value { get; private set; }
 
     public const int ID = 696630835;
     public override int GetTypeId() => ID;

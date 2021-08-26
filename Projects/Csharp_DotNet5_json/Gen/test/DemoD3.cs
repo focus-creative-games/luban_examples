@@ -36,7 +36,7 @@ public abstract class DemoD3 :  test.DemoDynamic
         }
     }
 
-    public int X3 {get; private set; }
+    public int X3 { get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)

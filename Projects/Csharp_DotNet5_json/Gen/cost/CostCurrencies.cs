@@ -32,7 +32,7 @@ public sealed class CostCurrencies :  cost.Cost
         return new cost.CostCurrencies(_json);
     }
 
-    public System.Collections.Generic.List<cost.CostCurrency> Currencies {get; private set; }
+    public System.Collections.Generic.List<cost.CostCurrency> Currencies { get; private set; }
 
     public const int ID = 103084157;
     public override int GetTypeId() => ID;

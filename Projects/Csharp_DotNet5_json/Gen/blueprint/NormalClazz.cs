@@ -34,8 +34,8 @@ public sealed class NormalClazz :  blueprint.Clazz
         return new blueprint.NormalClazz(_json);
     }
 
-    public bool IsAbstract {get; private set; }
-    public System.Collections.Generic.List<blueprint.Field> Fields {get; private set; }
+    public bool IsAbstract { get; private set; }
+    public System.Collections.Generic.List<blueprint.Field> Fields { get; private set; }
 
     public const int ID = -2073576778;
     public override int GetTypeId() => ID;

@@ -32,7 +32,7 @@ public sealed class Items :  bonus.Bonus
         return new bonus.Items(_json);
     }
 
-    public bonus.Item[] ItemList {get; private set; }
+    public bonus.Item[] ItemList { get; private set; }
 
     public const int ID = 819736849;
     public override int GetTypeId() => ID;

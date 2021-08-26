@@ -32,7 +32,7 @@ public sealed class UeWaitBlackboardTime :  ai.Task
         return new ai.UeWaitBlackboardTime(_json);
     }
 
-    public string BlackboardKey {get; private set; }
+    public string BlackboardKey { get; private set; }
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;

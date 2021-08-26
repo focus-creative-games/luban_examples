@@ -32,8 +32,8 @@ public sealed class CostOneItem :  cost.Cost
         return new cost.CostOneItem(_json);
     }
 
-    public int ItemId {get; private set; }
-    public item.Item ItemId_Ref {get; private set;}
+    public int ItemId { get; private set; }
+    public item.Item ItemId_Ref { get; private set; }
 
     public const int ID = -1033587381;
     public override int GetTypeId() => ID;

@@ -48,15 +48,15 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         return new ai.UpdateDailyBehaviorProps(_json);
     }
 
-    public string SatietyKey {get; private set; }
-    public string EnergyKey {get; private set; }
-    public string MoodKey {get; private set; }
-    public string SatietyLowerThresholdKey {get; private set; }
-    public string SatietyUpperThresholdKey {get; private set; }
-    public string EnergyLowerThresholdKey {get; private set; }
-    public string EnergyUpperThresholdKey {get; private set; }
-    public string MoodLowerThresholdKey {get; private set; }
-    public string MoodUpperThresholdKey {get; private set; }
+    public string SatietyKey { get; private set; }
+    public string EnergyKey { get; private set; }
+    public string MoodKey { get; private set; }
+    public string SatietyLowerThresholdKey { get; private set; }
+    public string SatietyUpperThresholdKey { get; private set; }
+    public string EnergyLowerThresholdKey { get; private set; }
+    public string EnergyUpperThresholdKey { get; private set; }
+    public string MoodLowerThresholdKey { get; private set; }
+    public string MoodUpperThresholdKey { get; private set; }
 
     public const int ID = -61887372;
     public override int GetTypeId() => ID;

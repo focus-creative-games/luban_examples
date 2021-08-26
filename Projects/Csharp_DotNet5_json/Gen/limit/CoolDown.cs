@@ -32,7 +32,7 @@ public sealed class CoolDown :  limit.LimitBase
         return new limit.CoolDown(_json);
     }
 
-    public int Duration {get; private set; }
+    public int Duration { get; private set; }
 
     public const int ID = -1366194050;
     public override int GetTypeId() => ID;

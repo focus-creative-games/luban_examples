@@ -42,7 +42,7 @@ public abstract class Task :  ai.FlowNode
         }
     }
 
-    public bool IgnoreRestartSelf {get; private set; }
+    public bool IgnoreRestartSelf { get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)

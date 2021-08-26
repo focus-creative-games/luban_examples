@@ -32,7 +32,7 @@ public sealed class DemoType1 :  Bright.Config.BeanBase
         return new test.DemoType1(_json);
     }
 
-    public int X1 {get; private set; }
+    public int X1 { get; private set; }
 
     public const int ID = -367048296;
     public override int GetTypeId() => ID;

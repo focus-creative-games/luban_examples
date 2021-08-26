@@ -34,8 +34,8 @@ public sealed class UeWait :  ai.Task
         return new ai.UeWait(_json);
     }
 
-    public float WaitTime {get; private set; }
-    public float RandomDeviation {get; private set; }
+    public float WaitTime { get; private set; }
+    public float RandomDeviation { get; private set; }
 
     public const int ID = -512994101;
     public override int GetTypeId() => ID;

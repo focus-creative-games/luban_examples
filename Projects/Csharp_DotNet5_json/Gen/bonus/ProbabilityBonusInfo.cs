@@ -34,8 +34,8 @@ public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase
         return new bonus.ProbabilityBonusInfo(_json);
     }
 
-    public bonus.Bonus Bonus {get; private set; }
-    public float Probability {get; private set; }
+    public bonus.Bonus Bonus { get; private set; }
+    public float Probability { get; private set; }
 
     public const int ID = 46960455;
     public override int GetTypeId() => ID;

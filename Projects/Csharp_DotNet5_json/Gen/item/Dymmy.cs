@@ -32,7 +32,7 @@ public sealed class Dymmy :  item.ItemExtra
         return new item.Dymmy(_json);
     }
 
-    public cost.Cost Cost {get; private set; }
+    public cost.Cost Cost { get; private set; }
 
     public const int ID = 896889705;
     public override int GetTypeId() => ID;

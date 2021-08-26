@@ -34,8 +34,8 @@ public sealed class ErrorStyleDlgOkCancel :  error.ErrorStyle
         return new error.ErrorStyleDlgOkCancel(_json);
     }
 
-    public string Btn1Name {get; private set; }
-    public string Btn2Name {get; private set; }
+    public string Btn1Name { get; private set; }
+    public string Btn2Name { get; private set; }
 
     public const int ID = 971221414;
     public override int GetTypeId() => ID;

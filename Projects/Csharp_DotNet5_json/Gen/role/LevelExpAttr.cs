@@ -36,9 +36,9 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
         return new role.LevelExpAttr(_json);
     }
 
-    public int Level {get; private set; }
-    public long NeedExp {get; private set; }
-    public System.Collections.Generic.List<int> ClothesAttrs {get; private set; }
+    public int Level { get; private set; }
+    public long NeedExp { get; private set; }
+    public System.Collections.Generic.List<int> ClothesAttrs { get; private set; }
 
     public const int ID = -1569837022;
     public override int GetTypeId() => ID;

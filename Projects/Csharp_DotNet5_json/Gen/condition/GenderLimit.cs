@@ -32,7 +32,7 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
         return new condition.GenderLimit(_json);
     }
 
-    public role.EGenderType Gender {get; private set; }
+    public role.EGenderType Gender { get; private set; }
 
     public const int ID = 103675143;
     public override int GetTypeId() => ID;

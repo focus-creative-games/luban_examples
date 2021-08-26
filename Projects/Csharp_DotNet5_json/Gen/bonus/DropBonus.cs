@@ -32,8 +32,8 @@ public sealed class DropBonus :  bonus.Bonus
         return new bonus.DropBonus(_json);
     }
 
-    public int Id {get; private set; }
-    public bonus.DropInfo Id_Ref {get; private set;}
+    public int Id { get; private set; }
+    public bonus.DropInfo Id_Ref { get; private set; }
 
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;

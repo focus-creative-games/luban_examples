@@ -34,8 +34,8 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
         return new test.TestGlobal(_json);
     }
 
-    public int UnlockEquip {get; private set; }
-    public int UnlockHero {get; private set; }
+    public int UnlockEquip { get; private set; }
+    public int UnlockHero { get; private set; }
 
     public const int ID = -12548655;
     public override int GetTypeId() => ID;

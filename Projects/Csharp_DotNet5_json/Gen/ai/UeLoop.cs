@@ -36,9 +36,9 @@ public sealed class UeLoop :  ai.Decorator
         return new ai.UeLoop(_json);
     }
 
-    public int NumLoops {get; private set; }
-    public bool InfiniteLoop {get; private set; }
-    public float InfiniteLoopTimeoutTime {get; private set; }
+    public int NumLoops { get; private set; }
+    public bool InfiniteLoop { get; private set; }
+    public float InfiniteLoopTimeoutTime { get; private set; }
 
     public const int ID = -513308166;
     public override int GetTypeId() => ID;

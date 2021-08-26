@@ -38,10 +38,10 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         return new bonus.DropInfo(_json);
     }
 
-    public int Id {get; private set; }
-    public string Desc {get; private set; }
-    public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems {get; private set; }
-    public bonus.Bonus Bonus {get; private set; }
+    public int Id { get; private set; }
+    public string Desc { get; private set; }
+    public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems { get; private set; }
+    public bonus.Bonus Bonus { get; private set; }
 
     public const int ID = -2014781108;
     public override int GetTypeId() => ID;

@@ -38,7 +38,7 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
         }
     }
 
-    public int X1 {get; private set; }
+    public int X1 { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)

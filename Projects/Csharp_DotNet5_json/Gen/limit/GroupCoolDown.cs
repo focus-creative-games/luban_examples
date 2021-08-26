@@ -34,8 +34,8 @@ public sealed class GroupCoolDown :  limit.LimitBase
         return new limit.GroupCoolDown(_json);
     }
 
-    public int GroupId {get; private set; }
-    public int Duration {get; private set; }
+    public int GroupId { get; private set; }
+    public int Duration { get; private set; }
 
     public const int ID = 394328599;
     public override int GetTypeId() => ID;

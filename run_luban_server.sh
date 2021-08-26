@@ -1,3 +1,2 @@
-#!/bin/zsh
-cd Tools/Luban.Server
-dotnet Luban.Server.dll
+#!/bin/bash
+dotnet Tools/Luban.Server/Luban.Server.dll

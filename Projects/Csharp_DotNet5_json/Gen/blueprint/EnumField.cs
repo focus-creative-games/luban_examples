@@ -34,8 +34,8 @@ public sealed class EnumField :  Bright.Config.BeanBase
         return new blueprint.EnumField(_json);
     }
 
-    public string Name {get; private set; }
-    public int Value {get; private set; }
+    public string Name { get; private set; }
+    public int Value { get; private set; }
 
     public const int ID = 1830049470;
     public override int GetTypeId() => ID;

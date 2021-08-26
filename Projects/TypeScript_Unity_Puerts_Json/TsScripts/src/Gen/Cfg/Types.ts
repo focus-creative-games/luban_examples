@@ -3251,6 +3251,8 @@ export  class Item  {
         this.majorType = _json_.major_type
         if (_json_.minor_type == undefined) { throw new Error() }
         this.minorType = _json_.minor_type
+        if (_json_.max_pile_num == undefined) { throw new Error() }
+        this.maxPileNum = _json_.max_pile_num
         if (_json_.quality == undefined) { throw new Error() }
         this.quality = _json_.quality
         if (_json_.icon == undefined) { throw new Error() }
@@ -3290,6 +3292,7 @@ export  class Item  {
     readonly name: string
     readonly majorType: item.EMajorType
     readonly minorType: item.EMinorType
+    readonly maxPileNum: number
     readonly quality: item.EItemQuality
     readonly icon: string
     readonly iconBackgroud: string
@@ -5335,6 +5338,8 @@ export  class DemoGroup  {
         this.x1 = _json_.x1
         if (_json_.x2 == undefined) { throw new Error() }
         this.x2 = _json_.x2
+        if (_json_.x3 == undefined) { throw new Error() }
+        this.x3 = _json_.x3
         if (_json_.x4 == undefined) { throw new Error() }
         this.x4 = _json_.x4
         if (_json_.x5 == undefined) { throw new Error() }
@@ -5344,6 +5349,7 @@ export  class DemoGroup  {
     readonly id: number
     readonly x1: number
     readonly x2: number
+    readonly x3: number
     readonly x4: number
     readonly x5: test.InnerGroup
 
@@ -5364,12 +5370,15 @@ export  class InnerGroup  {
         this.y1 = _json_.y1
         if (_json_.y2 == undefined) { throw new Error() }
         this.y2 = _json_.y2
+        if (_json_.y3 == undefined) { throw new Error() }
+        this.y3 = _json_.y3
         if (_json_.y4 == undefined) { throw new Error() }
         this.y4 = _json_.y4
     }
 
     readonly y1: number
     readonly y2: number
+    readonly y3: number
     readonly y4: number
 
     resolve(_tables: Map<string, any>) {
@@ -5380,6 +5389,66 @@ export  class InnerGroup  {
 
 export namespace test {
 export class TbDemoGroup_C{
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
+    getDataList(): test.DemoGroup[] { return this._dataList; }
+
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+export namespace test {
+export class TbDemoGroup_S{
+    private _dataMap: Map<number, test.DemoGroup>
+    private _dataList: test.DemoGroup[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.DemoGroup>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.DemoGroup
+            _v = new test.DemoGroup(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
+    getDataList(): test.DemoGroup[] { return this._dataList; }
+
+    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+export namespace test {
+export class TbDemoGroup_E{
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
     constructor(_json_: any) {
@@ -6106,6 +6175,10 @@ export class Tables {
     get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup;}
     private _TbDemoGroup_C: test.TbDemoGroup_C
     get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C;}
+    private _TbDemoGroup_S: test.TbDemoGroup_S
+    get TbDemoGroup_S(): test.TbDemoGroup_S  { return this._TbDemoGroup_S;}
+    private _TbDemoGroup_E: test.TbDemoGroup_E
+    get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E;}
     private _TbTestGlobal: test.TbTestGlobal
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal;}
     private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
@@ -6185,6 +6258,10 @@ export class Tables {
         tables.set('test.TbDemoGroup', this._TbDemoGroup)
         this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C'))
         tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C)
+        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S'))
+        tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S)
+        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E'))
+        tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
         this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal'))
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding'))
@@ -6234,6 +6311,8 @@ export class Tables {
         this._TbTestString.resolve(tables)
         this._TbDemoGroup.resolve(tables)
         this._TbDemoGroup_C.resolve(tables)
+        this._TbDemoGroup_S.resolve(tables)
+        this._TbDemoGroup_E.resolve(tables)
         this._TbTestGlobal.resolve(tables)
         this._TbDetectCsvEncoding.resolve(tables)
         this._TbDefineFromExcel.resolve(tables)

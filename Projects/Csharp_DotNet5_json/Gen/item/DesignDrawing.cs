@@ -32,7 +32,7 @@ public sealed class DesignDrawing :  item.ItemExtra
         return new item.DesignDrawing(_json);
     }
 
-    public System.Collections.Generic.List<int> LearnComponentId {get; private set; }
+    public System.Collections.Generic.List<int> LearnComponentId { get; private set; }
 
     public const int ID = -1679179579;
     public override int GetTypeId() => ID;

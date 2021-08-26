@@ -56,20 +56,20 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         return new test.DemoPrimitiveTypesTable(_json);
     }
 
-    public bool X1 {get; private set; }
-    public byte X2 {get; private set; }
-    public short X3 {get; private set; }
-    public int X4 {get; private set; }
-    public long X5 {get; private set; }
-    public float X6 {get; private set; }
-    public double X7 {get; private set; }
-    public string S1 {get; private set; }
-    public string S2 {get; private set; }
-    public string S2_l10n_key {get;}
-    public System.Numerics.Vector2 V2 {get; private set; }
-    public System.Numerics.Vector3 V3 {get; private set; }
-    public System.Numerics.Vector4 V4 {get; private set; }
-    public int T1 {get; private set; }
+    public bool X1 { get; private set; }
+    public byte X2 { get; private set; }
+    public short X3 { get; private set; }
+    public int X4 { get; private set; }
+    public long X5 { get; private set; }
+    public float X6 { get; private set; }
+    public double X7 { get; private set; }
+    public string S1 { get; private set; }
+    public string S2 { get; private set; }
+    public string S2_l10n_key { get; }
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public System.Numerics.Vector3 V3 { get; private set; }
+    public System.Numerics.Vector4 V4 { get; private set; }
+    public int T1 { get; private set; }
 
     public const int ID = -370934083;
     public override int GetTypeId() => ID;

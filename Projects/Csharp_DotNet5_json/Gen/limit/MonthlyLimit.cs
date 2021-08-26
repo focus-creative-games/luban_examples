@@ -32,7 +32,7 @@ public sealed class MonthlyLimit :  limit.LimitBase
         return new limit.MonthlyLimit(_json);
     }
 
-    public int Num {get; private set; }
+    public int Num { get; private set; }
 
     public const int ID = 2063279905;
     public override int GetTypeId() => ID;

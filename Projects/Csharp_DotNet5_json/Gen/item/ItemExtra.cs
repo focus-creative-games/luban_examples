@@ -40,7 +40,7 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
         }
     }
 
-    public int Id {get; private set; }
+    public int Id { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)

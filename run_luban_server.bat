@@ -1,2 +1,2 @@
-cd Tools\Luban.Server
-call Luban.Server.exe
+call Tools\Luban.Server\Luban.Server.exe
+pause

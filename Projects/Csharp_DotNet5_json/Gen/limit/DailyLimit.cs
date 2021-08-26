@@ -32,7 +32,7 @@ public sealed class DailyLimit :  limit.DailyLimitBase
         return new limit.DailyLimit(_json);
     }
 
-    public int Num {get; private set; }
+    public int Num { get; private set; }
 
     public const int ID = 303235413;
     public override int GetTypeId() => ID;

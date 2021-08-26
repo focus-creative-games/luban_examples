@@ -36,8 +36,8 @@ public sealed class TestIndex :  Bright.Config.BeanBase
         return new test.TestIndex(_json);
     }
 
-    public int Id {get; private set; }
-    public System.Collections.Generic.List<test.DemoType1> Eles {get; private set; }
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
     public readonly Dictionary<int, test.DemoType1> Eles_Index = new Dictionary<int, test.DemoType1>();
 
     public const int ID = 1941154020;

@@ -32,7 +32,7 @@ public sealed class DebugPrint :  ai.Task
         return new ai.DebugPrint(_json);
     }
 
-    public string Text {get; private set; }
+    public string Text { get; private set; }
 
     public const int ID = 1357409728;
     public override int GetTypeId() => ID;

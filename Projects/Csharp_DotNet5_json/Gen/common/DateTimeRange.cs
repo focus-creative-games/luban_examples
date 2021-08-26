@@ -34,8 +34,8 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
         return new common.DateTimeRange(_json);
     }
 
-    public int? StartTime {get; private set; }
-    public int? EndTime {get; private set; }
+    public int? StartTime { get; private set; }
+    public int? EndTime { get; private set; }
 
     public const int ID = 1642200959;
     public override int GetTypeId() => ID;

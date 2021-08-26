@@ -34,9 +34,9 @@ public sealed class Item :  bonus.Bonus
         return new bonus.Item(_json);
     }
 
-    public int ItemId {get; private set; }
-    public item.Item ItemId_Ref {get; private set;}
-    public int Amount {get; private set; }
+    public int ItemId { get; private set; }
+    public item.Item ItemId_Ref { get; private set; }
+    public int Amount { get; private set; }
 
     public const int ID = 1689011106;
     public override int GetTypeId() => ID;

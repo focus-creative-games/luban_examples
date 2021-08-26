@@ -54,18 +54,18 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         return new mail.GlobalMail(_json);
     }
 
-    public int Id {get; private set; }
-    public string Title {get; private set; }
-    public string Sender {get; private set; }
-    public string Content {get; private set; }
-    public System.Collections.Generic.List<int> Award {get; private set; }
-    public bool AllServer {get; private set; }
-    public System.Collections.Generic.List<int> ServerList {get; private set; }
-    public string Platform {get; private set; }
-    public string Channel {get; private set; }
-    public condition.MinMaxLevel MinMaxLevel {get; private set; }
-    public condition.TimeRange RegisterTime {get; private set; }
-    public condition.TimeRange MailTime {get; private set; }
+    public int Id { get; private set; }
+    public string Title { get; private set; }
+    public string Sender { get; private set; }
+    public string Content { get; private set; }
+    public System.Collections.Generic.List<int> Award { get; private set; }
+    public bool AllServer { get; private set; }
+    public System.Collections.Generic.List<int> ServerList { get; private set; }
+    public string Platform { get; private set; }
+    public string Channel { get; private set; }
+    public condition.MinMaxLevel MinMaxLevel { get; private set; }
+    public condition.TimeRange RegisterTime { get; private set; }
+    public condition.TimeRange MailTime { get; private set; }
 
     public const int ID = -287571791;
     public override int GetTypeId() => ID;

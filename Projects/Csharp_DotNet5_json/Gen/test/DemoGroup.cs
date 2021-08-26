@@ -42,12 +42,12 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         return new test.DemoGroup(_json);
     }
 
-    public int Id {get; private set; }
-    public int X1 {get; private set; }
-    public int X2 {get; private set; }
-    public int X3 {get; private set; }
-    public int X4 {get; private set; }
-    public test.InnerGroup X5 {get; private set; }
+    public int Id { get; private set; }
+    public int X1 { get; private set; }
+    public int X2 { get; private set; }
+    public int X3 { get; private set; }
+    public int X4 { get; private set; }
+    public test.InnerGroup X5 { get; private set; }
 
     public const int ID = -379263008;
     public override int GetTypeId() => ID;

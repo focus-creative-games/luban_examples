@@ -40,11 +40,11 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         return new mail.SystemMail(_json);
     }
 
-    public int Id {get; private set; }
-    public string Title {get; private set; }
-    public string Sender {get; private set; }
-    public string Content {get; private set; }
-    public System.Collections.Generic.List<int> Award {get; private set; }
+    public int Id { get; private set; }
+    public string Title { get; private set; }
+    public string Sender { get; private set; }
+    public string Content { get; private set; }
+    public System.Collections.Generic.List<int> Award { get; private set; }
 
     public const int ID = 1214073149;
     public override int GetTypeId() => ID;

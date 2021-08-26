@@ -34,8 +34,8 @@ public sealed class MultiRowType1 :  Bright.Config.BeanBase
         return new test.MultiRowType1(_json);
     }
 
-    public int Id {get; private set; }
-    public int X {get; private set; }
+    public int Id { get; private set; }
+    public int X { get; private set; }
 
     public const int ID = 540474970;
     public override int GetTypeId() => ID;

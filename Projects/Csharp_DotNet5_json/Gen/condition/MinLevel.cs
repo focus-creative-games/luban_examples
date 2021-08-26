@@ -32,7 +32,7 @@ public sealed class MinLevel :  condition.BoolRoleCondition
         return new condition.MinLevel(_json);
     }
 
-    public int Level {get; private set; }
+    public int Level { get; private set; }
 
     public const int ID = -1075273755;
     public override int GetTypeId() => ID;

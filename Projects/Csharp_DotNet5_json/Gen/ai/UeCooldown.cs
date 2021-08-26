@@ -32,7 +32,7 @@ public sealed class UeCooldown :  ai.Decorator
         return new ai.UeCooldown(_json);
     }
 
-    public float CooldownTime {get; private set; }
+    public float CooldownTime { get; private set; }
 
     public const int ID = -951439423;
     public override int GetTypeId() => ID;

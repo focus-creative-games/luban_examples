@@ -32,7 +32,7 @@ public sealed class UeSetDefaultFocus :  ai.Service
         return new ai.UeSetDefaultFocus(_json);
     }
 
-    public string KeyboardKey {get; private set; }
+    public string KeyboardKey { get; private set; }
 
     public const int ID = 1812449155;
     public override int GetTypeId() => ID;

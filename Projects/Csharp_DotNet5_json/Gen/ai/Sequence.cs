@@ -32,7 +32,7 @@ public sealed class Sequence :  ai.ComposeNode
         return new ai.Sequence(_json);
     }
 
-    public System.Collections.Generic.List<ai.FlowNode> Children {get; private set; }
+    public System.Collections.Generic.List<ai.FlowNode> Children { get; private set; }
 
     public const int ID = -1789006105;
     public override int GetTypeId() => ID;

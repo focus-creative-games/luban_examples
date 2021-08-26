@@ -36,9 +36,9 @@ public sealed class IsAtLocation :  ai.Decorator
         return new ai.IsAtLocation(_json);
     }
 
-    public float AcceptableRadius {get; private set; }
-    public string KeyboardKey {get; private set; }
-    public bool InverseCondition {get; private set; }
+    public float AcceptableRadius { get; private set; }
+    public string KeyboardKey { get; private set; }
+    public bool InverseCondition { get; private set; }
 
     public const int ID = 1255972344;
     public override int GetTypeId() => ID;

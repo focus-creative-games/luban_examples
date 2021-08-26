@@ -34,8 +34,8 @@ public sealed class MultiDayLimit :  limit.LimitBase
         return new limit.MultiDayLimit(_json);
     }
 
-    public int Day {get; private set; }
-    public int Num {get; private set; }
+    public int Day { get; private set; }
+    public int Num { get; private set; }
 
     public const int ID = -1753629499;
     public override int GetTypeId() => ID;

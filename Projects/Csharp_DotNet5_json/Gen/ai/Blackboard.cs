@@ -38,11 +38,11 @@ public sealed class Blackboard :  Bright.Config.BeanBase
         return new ai.Blackboard(_json);
     }
 
-    public string Name {get; private set; }
-    public string Desc {get; private set; }
-    public string ParentName {get; private set; }
-    public ai.Blackboard ParentName_Ref {get; private set;}
-    public System.Collections.Generic.List<ai.BlackboardKey> Keys {get; private set; }
+    public string Name { get; private set; }
+    public string Desc { get; private set; }
+    public string ParentName { get; private set; }
+    public ai.Blackboard ParentName_Ref { get; private set; }
+    public System.Collections.Generic.List<ai.BlackboardKey> Keys { get; private set; }
 
     public const int ID = 1576193005;
     public override int GetTypeId() => ID;

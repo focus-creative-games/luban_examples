@@ -32,7 +32,7 @@ public sealed class StringKeyData :  ai.KeyData
         return new ai.StringKeyData(_json);
     }
 
-    public string Value {get; private set; }
+    public string Value { get; private set; }
 
     public const int ID = -307888654;
     public override int GetTypeId() => ID;
