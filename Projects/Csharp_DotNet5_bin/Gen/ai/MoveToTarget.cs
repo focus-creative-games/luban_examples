@@ -27,8 +27,8 @@ public sealed partial class MoveToTarget :  ai.Task
         return new ai.MoveToTarget(_buf);
     }
 
-    public string TargetActorKey {get; private set;}
-    public float AcceptableRadius {get; private set;}
+    public string TargetActorKey { get; private set; }
+    public float AcceptableRadius { get; private set; }
 
     public const int ID = 514987779;
     public override int GetTypeId() => ID;

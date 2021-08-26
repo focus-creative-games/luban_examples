@@ -32,14 +32,14 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_buf);
     }
 
-    public int Id {get; private set;}
-    public int? X1 {get; private set;}
-    public test.DemoEnum? X2 {get; private set;}
-    public test.DemoType1 X3 {get; private set;}
-    public test.DemoDynamic X4 {get; private set;}
-    public string S1 {get; private set;}
-    public string S2 {get; private set;}
-    public string S2_l10n_key {get;}
+    public int Id { get; private set; }
+    public int? X1 { get; private set; }
+    public test.DemoEnum? X2 { get; private set; }
+    public test.DemoType1 X3 { get; private set; }
+    public test.DemoDynamic X4 { get; private set; }
+    public string S1 { get; private set; }
+    public string S2 { get; private set; }
+    public string S2_l10n_key { get; }
 
     public const int ID = 339868469;
     public override int GetTypeId() => ID;

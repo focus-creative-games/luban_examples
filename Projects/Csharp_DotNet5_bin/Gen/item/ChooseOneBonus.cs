@@ -27,9 +27,9 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
         return new item.ChooseOneBonus(_buf);
     }
 
-    public int DropId {get; private set;}
-    public bonus.DropInfo DropId_Ref;
-    public bool IsUnique {get; private set;}
+    public int DropId { get; private set; }
+    public bonus.DropInfo DropId_Ref { get; private set; }
+    public bool IsUnique { get; private set; }
 
     public const int ID = 228058347;
     public override int GetTypeId() => ID;

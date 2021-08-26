@@ -27,9 +27,9 @@ public sealed partial class CostItem :  cost.Cost
         return new cost.CostItem(_buf);
     }
 
-    public int ItemId {get; private set;}
-    public item.Item ItemId_Ref;
-    public int Amount {get; private set;}
+    public int ItemId { get; private set; }
+    public item.Item ItemId_Ref { get; private set; }
+    public int Amount { get; private set; }
 
     public const int ID = -1249440351;
     public override int GetTypeId() => ID;

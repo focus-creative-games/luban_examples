@@ -44,23 +44,23 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// <summary>
     /// id的描述
     /// </summary>
-    public int Id {get; private set;}
+    public int Id { get; private set; }
     /// <summary>
     /// 字段的描述
     /// </summary>
-    public bool X1 {get; private set;}
-    public long X5 {get; private set;}
-    public float X6 {get; private set;}
-    public int X8 {get; private set;}
-    public test.DemoPrimitiveTypesTable X8_Ref;
-    public string X10 {get; private set;}
-    public test.ETestQuality X13 {get; private set;}
-    public test.DemoDynamic X14 {get; private set;}
-    public System.Numerics.Vector2 V2 {get; private set;}
-    public int T1 {get; private set;}
-    public int[] K1 {get; private set;}
-    public System.Collections.Generic.Dictionary<int, int> K8 {get; private set;}
-    public System.Collections.Generic.List<test.DemoE2> K9 {get; private set;}
+    public bool X1 { get; private set; }
+    public long X5 { get; private set; }
+    public float X6 { get; private set; }
+    public int X8 { get; private set; }
+    public test.DemoPrimitiveTypesTable X8_Ref { get; private set; }
+    public string X10 { get; private set; }
+    public test.ETestQuality X13 { get; private set; }
+    public test.DemoDynamic X14 { get; private set; }
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public int T1 { get; private set; }
+    public int[] K1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
 
     public const int ID = 688816828;
     public override int GetTypeId() => ID;

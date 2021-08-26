@@ -26,7 +26,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         return new condition.MultiRoleCondition(_buf);
     }
 
-    public condition.RoleCondition[] Conditions {get; private set;}
+    public condition.RoleCondition[] Conditions { get; private set; }
 
     public const int ID = 934079583;
     public override int GetTypeId() => ID;

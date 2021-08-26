@@ -28,10 +28,10 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         return new test.DemoSingletonType(_buf);
     }
 
-    public int Id {get; private set;}
-    public string Name {get; private set;}
-    public string Name_l10n_key {get;}
-    public test.DemoDynamic Date {get; private set;}
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+    public string Name_l10n_key { get; }
+    public test.DemoDynamic Date { get; private set; }
 
     public const int ID = 539196998;
     public override int GetTypeId() => ID;

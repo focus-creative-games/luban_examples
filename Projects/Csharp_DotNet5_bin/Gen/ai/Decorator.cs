@@ -36,7 +36,7 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
-    public ai.EFlowAbortMode FlowAbortMode {get; private set;}
+    public ai.EFlowAbortMode FlowAbortMode { get; private set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)

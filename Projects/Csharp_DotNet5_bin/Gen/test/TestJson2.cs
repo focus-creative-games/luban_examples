@@ -30,11 +30,11 @@ public sealed partial class TestJson2 :  Bright.Config.BeanBase
         return new test.TestJson2(_buf);
     }
 
-    public int Id {get; private set;}
-    public System.Collections.Generic.Dictionary<int, int> M1 {get; private set;}
-    public System.Collections.Generic.Dictionary<long, int> M2 {get; private set;}
-    public System.Collections.Generic.Dictionary<string, int> M3 {get; private set;}
-    public System.Collections.Generic.Dictionary<string, test.DemoType1> M4 {get; private set;}
+    public int Id { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> M1 { get; private set; }
+    public System.Collections.Generic.Dictionary<long, int> M2 { get; private set; }
+    public System.Collections.Generic.Dictionary<string, int> M3 { get; private set; }
+    public System.Collections.Generic.Dictionary<string, test.DemoType1> M4 { get; private set; }
 
     public const int ID = 1942237276;
     public override int GetTypeId() => ID;

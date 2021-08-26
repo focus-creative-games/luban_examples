@@ -1,1 +1,2 @@
-call Tools\Luban.Server\Luban.Server.exe
+cd Tools\Luban.Server
+call Luban.Server.exe

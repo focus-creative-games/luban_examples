@@ -28,9 +28,9 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         return new ai.SimpleParallel(_buf);
     }
 
-    public ai.EFinishMode FinishMode {get; private set;}
-    public ai.Task MainTask {get; private set;}
-    public ai.FlowNode BackgroundNode {get; private set;}
+    public ai.EFinishMode FinishMode { get; private set; }
+    public ai.Task MainTask { get; private set; }
+    public ai.FlowNode BackgroundNode { get; private set; }
 
     public const int ID = -1952582529;
     public override int GetTypeId() => ID;

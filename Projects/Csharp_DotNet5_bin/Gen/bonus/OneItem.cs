@@ -26,8 +26,8 @@ public sealed partial class OneItem :  bonus.Bonus
         return new bonus.OneItem(_buf);
     }
 
-    public int ItemId {get; private set;}
-    public item.Item ItemId_Ref;
+    public int ItemId { get; private set; }
+    public item.Item ItemId_Ref { get; private set; }
 
     public const int ID = -1649658966;
     public override int GetTypeId() => ID;

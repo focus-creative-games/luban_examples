@@ -26,8 +26,8 @@ public sealed partial class DropBonus :  bonus.Bonus
         return new bonus.DropBonus(_buf);
     }
 
-    public int Id {get; private set;}
-    public bonus.DropInfo Id_Ref;
+    public int Id { get; private set; }
+    public bonus.DropInfo Id_Ref { get; private set; }
 
     public const int ID = 1959868225;
     public override int GetTypeId() => ID;

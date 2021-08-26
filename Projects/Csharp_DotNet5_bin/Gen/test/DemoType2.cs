@@ -50,33 +50,33 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         return new test.DemoType2(_buf);
     }
 
-    public int X4 {get; private set;}
-    public bool X1 {get; private set;}
-    public byte X2 {get; private set;}
-    public short X3 {get; private set;}
-    public test.DemoType2 X3_Ref;
-    public long X5 {get; private set;}
-    public float X6 {get; private set;}
-    public double X7 {get; private set;}
-    public short X80 {get; private set;}
-    public int X8 {get; private set;}
-    public long X9 {get; private set;}
-    public string X10 {get; private set;}
-    public test.DemoType1 X12 {get; private set;}
-    public test.DemoEnum X13 {get; private set;}
-    public test.DemoDynamic X14 {get; private set;}
-    public string S1 {get; private set;}
-    public string S1_l10n_key {get;}
-    public System.Numerics.Vector2 V2 {get; private set;}
-    public System.Numerics.Vector3 V3 {get; private set;}
-    public System.Numerics.Vector4 V4 {get; private set;}
-    public int T1 {get; private set;}
-    public int[] K1 {get; private set;}
-    public System.Collections.Generic.List<int> K2 {get; private set;}
-    public System.Collections.Generic.HashSet<int> K5 {get; private set;}
-    public System.Collections.Generic.Dictionary<int, int> K8 {get; private set;}
-    public System.Collections.Generic.List<test.DemoE2> K9 {get; private set;}
-    public test.DemoDynamic[] K15 {get; private set;}
+    public int X4 { get; private set; }
+    public bool X1 { get; private set; }
+    public byte X2 { get; private set; }
+    public short X3 { get; private set; }
+    public test.DemoType2 X3_Ref { get; private set; }
+    public long X5 { get; private set; }
+    public float X6 { get; private set; }
+    public double X7 { get; private set; }
+    public short X80 { get; private set; }
+    public int X8 { get; private set; }
+    public long X9 { get; private set; }
+    public string X10 { get; private set; }
+    public test.DemoType1 X12 { get; private set; }
+    public test.DemoEnum X13 { get; private set; }
+    public test.DemoDynamic X14 { get; private set; }
+    public string S1 { get; private set; }
+    public string S1_l10n_key { get; }
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public System.Numerics.Vector3 V3 { get; private set; }
+    public System.Numerics.Vector4 V4 { get; private set; }
+    public int T1 { get; private set; }
+    public int[] K1 { get; private set; }
+    public System.Collections.Generic.List<int> K2 { get; private set; }
+    public System.Collections.Generic.HashSet<int> K5 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
+    public test.DemoDynamic[] K15 { get; private set; }
 
     public const int ID = -367048295;
     public override int GetTypeId() => ID;

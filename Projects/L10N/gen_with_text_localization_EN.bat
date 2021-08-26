@@ -13,6 +13,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 --export_test_data ^
 --input_l10n_text_files l10n/cn/TextTable_CN.xlsx ^
 --l10n_text_field_name text_en ^
---output_l10n_not_converted_text_file NotLocalized_CN.txt
+--output_l10n_not_translated_text_file NotLocalized_CN.txt
 
 pause

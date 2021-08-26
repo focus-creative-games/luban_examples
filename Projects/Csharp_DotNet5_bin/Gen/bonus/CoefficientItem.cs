@@ -27,8 +27,8 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         return new bonus.CoefficientItem(_buf);
     }
 
-    public int BonusId {get; private set;}
-    public bonus.Items BonusList {get; private set;}
+    public int BonusId { get; private set; }
+    public bonus.Items BonusList { get; private set; }
 
     public const int ID = -229470727;
     public override int GetTypeId() => ID;

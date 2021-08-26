@@ -27,8 +27,8 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
         return new l10n.PatchDemo(_buf);
     }
 
-    public int Id {get; private set;}
-    public int Value {get; private set;}
+    public int Id { get; private set; }
+    public int Value { get; private set; }
 
     public const int ID = -1707294656;
     public override int GetTypeId() => ID;
