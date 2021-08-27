@@ -1,4 +1,5 @@
-return 
+
+return
 {
 [11] = {id=11,text={key='/demo/1',text='测试1'},},
 [12] = {id=12,text={key='/demo/2',text='测试2'},},

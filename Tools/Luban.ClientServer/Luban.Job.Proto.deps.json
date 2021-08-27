@@ -60,7 +60,6 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.Primitives/4.0.1": {
@@ -174,15 +173,11 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
-      "Scriban/2.1.4": {
-        "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
-          "System.Threading.Tasks.Extensions": "4.5.1"
-        },
+      "Scriban/4.0.1": {
         "runtime": {
-          "lib/netstandard2.0/Scriban.dll": {
-            "assemblyVersion": "2.1.4.0",
-            "fileVersion": "2.1.4.0"
+          "lib/net5.0/Scriban.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
@@ -764,7 +759,13 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.1": {},
+      "System.Threading.Tasks.Extensions/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Threading.Timer/4.0.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -788,7 +789,7 @@
           "System.Text.Encoding.Extensions": "4.3.0",
           "System.Text.RegularExpressions": "4.3.0",
           "System.Threading.Tasks": "4.3.0",
-          "System.Threading.Tasks.Extensions": "4.5.1"
+          "System.Threading.Tasks.Extensions": "4.3.0"
         }
       },
       "System.Xml.XDocument/4.3.0": {
@@ -854,7 +855,7 @@
         "dependencies": {
           "CommandLineParser": "2.8.0",
           "Luban.Server.Common": "1.0.0",
-          "Scriban": "2.1.4"
+          "Scriban": "4.0.1"
         },
         "runtime": {
           "Luban.Job.Common.dll": {}
@@ -903,13 +904,6 @@
       "sha512": "sha512-womVzq9Ykj05GZeker9Zw5wYMx+aYFq44VH/jGbpXr20UC7j5zx2MJAqN9BeYgACSnIrBIzez2Zk6k7MEkHsWA==",
       "path": "etcdnetcore/1.0.0",
       "hashPath": "etcdnetcore.1.0.0.nupkg.sha512"
-    },
-    "Microsoft.CSharp/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -1058,12 +1052,12 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
-    "Scriban/2.1.4": {
+    "Scriban/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-M672P2myFnBILInkcEGHTEszyDluLtjSeAXa6aMtOBrpnoSkrqNC1SSpN4tLl3UU8LYd07jRJGv5c1gWmXnLFw==",
-      "path": "scriban/2.1.4",
-      "hashPath": "scriban.2.1.4.nupkg.sha512"
+      "sha512": "sha512-oL4nytC2BkyN4CA1x8TthPTyR8PFSR3qrI6GVPPuf54Q1zrHsCJvGTsaZny/IGZkXW1Rr9T7PK6MLydEhQ8HpA==",
+      "path": "scriban/4.0.1",
+      "hashPath": "scriban.4.0.1.nupkg.sha512"
     },
     "System.AppContext/4.1.0": {
       "type": "package",
@@ -1443,12 +1437,12 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "System.Threading.Tasks.Extensions/4.5.1": {
+    "System.Threading.Tasks.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WSKUTtLhPR8gllzIWO2x6l4lmAIfbyMAiTlyXAis4QBDonXK4b4S6F8zGARX4/P8wH3DH+sLdhamCiHn+fTU1A==",
-      "path": "system.threading.tasks.extensions/4.5.1",
-      "hashPath": "system.threading.tasks.extensions.4.5.1.nupkg.sha512"
+      "sha512": "sha512-npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
+      "path": "system.threading.tasks.extensions/4.3.0",
+      "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
     },
     "System.Threading.Timer/4.0.1": {
       "type": "package",
