@@ -18,7 +18,6 @@ using ByteBuf = ::bright::serialization::ByteBuf;
 namespace cfg
 {
 
-
 namespace ai {
 enum class EExecutor
 {
@@ -26,8 +25,6 @@ enum class EExecutor
     SERVER = 1,
 };
 }
-
-
 namespace ai {
 enum class EKeyType
 {
@@ -43,8 +40,6 @@ enum class EKeyType
     OBJECT = 10,
 };
 }
-
-
 namespace ai {
 enum class EFlowAbortMode
 {
@@ -54,8 +49,6 @@ enum class EFlowAbortMode
     BOTH = 3,
 };
 }
-
-
 namespace ai {
 enum class EFinishMode
 {
@@ -63,8 +56,6 @@ enum class EFinishMode
     DELAYED = 1,
 };
 }
-
-
 namespace ai {
 enum class ENotifyObserverMode
 {
@@ -72,8 +63,6 @@ enum class ENotifyObserverMode
     ON_RESULT_CHANGE = 1,
 };
 }
-
-
 namespace ai {
 enum class EOperator
 {
@@ -87,8 +76,6 @@ enum class EOperator
     NOT_CONTAINS = 7,
 };
 }
-
-
 namespace common {
 enum class EBoolOperator
 {
@@ -96,8 +83,6 @@ enum class EBoolOperator
     OR = 1,
 };
 }
-
-
 namespace error {
 enum class EOperation
 {
@@ -111,8 +96,6 @@ enum class EOperation
     RESTART = 1,
 };
 }
-
-
 namespace error {
 enum class EErrorCode
 {
@@ -203,8 +186,6 @@ enum class EErrorCode
     SELFIE_HAD_REWARD = 1203,
 };
 }
-
-
 namespace item {
 /**
  * 道具品质
@@ -233,8 +214,6 @@ enum class EItemQuality
     GOLDEN = 4,
 };
 }
-
-
 namespace item {
 enum class ECurrencyType
 {
@@ -260,8 +239,6 @@ enum class ECurrencyType
     POWER_POINT = 5,
 };
 }
-
-
 namespace item {
 enum class EMajorType
 {
@@ -311,8 +288,6 @@ enum class EMajorType
     MATERIAL = 11,
 };
 }
-
-
 namespace item {
 enum class EMinorType
 {
@@ -514,8 +489,6 @@ enum class EMinorType
     DESIGN_DRAWING = 1102,
 };
 }
-
-
 namespace item {
 enum class EClothersStarQualityType
 {
@@ -561,8 +534,6 @@ enum class EClothersStarQualityType
     TEN = 10,
 };
 }
-
-
 namespace item {
 enum class EClothersTag
 {
@@ -576,8 +547,6 @@ enum class EClothersTag
     WU_ZHE = 2,
 };
 }
-
-
 namespace item {
 enum class EUseType
 {
@@ -591,8 +560,6 @@ enum class EUseType
     AUTO = 1,
 };
 }
-
-
 namespace item {
 enum class EClothesHidePartType
 {
@@ -630,8 +597,6 @@ enum class EClothesHidePartType
     LEG_LOWER = 7,
 };
 }
-
-
 namespace item {
 enum class EClothesPropertyType
 {
@@ -677,8 +642,6 @@ enum class EClothesPropertyType
     BAO_NUAN = 10,
 };
 }
-
-
 namespace item {
 enum class EItemFunctionType
 {
@@ -692,8 +655,6 @@ enum class EItemFunctionType
     USE_DESIGN_DRAWING = 1,
 };
 }
-
-
 namespace limit {
 enum class ENamespace
 {
@@ -702,8 +663,6 @@ enum class ENamespace
     STORE_GOODS_LIMIT_BUY = 3,
 };
 }
-
-
 namespace mail {
 enum class EMailType
 {
@@ -717,8 +676,6 @@ enum class EMailType
     SYSTEM = 1,
 };
 }
-
-
 namespace role {
 enum class EGenderType
 {
@@ -732,16 +689,12 @@ enum class EGenderType
     FEMALE = 2,
 };
 }
-
-
 namespace role {
 enum class EProfession
 {
     TEST_PROFESSION = 1,
 };
 }
-
-
 namespace test {
 enum class DemoEnum
 {
@@ -763,8 +716,14 @@ enum class DemoEnum
     D = 5,
 };
 }
-
-
+namespace test {
+enum class DemoFlag
+{
+    A = 1,
+    B = 2,
+    D = A|B,
+};
+}
 namespace test {
 enum class ETestUeType
 {
@@ -775,15 +734,11 @@ enum class ETestUeType
     BLACK = 1,
 };
 }
-
-
 namespace test {
 enum class ETestEmptyEnum
 {
 };
 }
-
-
 namespace test {
 enum class ETestEmptyEnum2
 {
@@ -792,8 +747,6 @@ enum class ETestEmptyEnum2
     X_257 = 257,
 };
 }
-
-
 namespace test {
 enum class ETestQuality
 {
@@ -815,8 +768,6 @@ enum class ETestQuality
     D = 4,
 };
 }
-
-
 namespace test {
 enum class ETestCurrency
 {
@@ -831,7 +782,6 @@ enum class ETestCurrency
 };
 }
 
-
 namespace role {
 /**
  * 
@@ -842,7 +792,6 @@ struct Consts
     static constexpr ::bright::int32 MAX_USER_ROLE_NUM = 10;
 };
 }
-
 
 
 namespace test {
@@ -857,7 +806,6 @@ struct DemoConst
     static constexpr ::bright::float64 x4 = 55.3;
 };
 }
-
 
 namespace ai { class Blackboard; } 
 namespace ai { class BlackboardKey; } 
@@ -1011,12 +959,10 @@ namespace test { class DefineFromExcel; }
 namespace test { class DefineFromExcelOne; } 
 namespace test { class TestJson2; } 
 namespace test { class TestIndex; } 
+namespace test { class TestMap; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
-
 namespace ai {
-
-
 
 
 
@@ -1057,12 +1003,7 @@ class Blackboard : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1104,12 +1045,7 @@ class BlackboardKey : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1152,12 +1088,7 @@ class BehaviorTree : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1190,12 +1121,7 @@ class Node : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1225,12 +1151,7 @@ class Service : public  ai::Node
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1265,12 +1186,7 @@ class UeSetDefaultFocus : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1303,12 +1219,7 @@ class ExecuteTimeStatistic : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1343,12 +1254,7 @@ class ChooseTarget : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1383,12 +1289,7 @@ class KeepFaceTarget : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1423,12 +1324,7 @@ class GetOwnerPlayer : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1479,12 +1375,7 @@ class UpdateDailyBehaviorProps : public  ai::Service
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1516,12 +1407,7 @@ class Decorator : public  ai::Node
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1560,12 +1446,7 @@ class UeLoop : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1600,12 +1481,7 @@ class UeCooldown : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1640,12 +1516,7 @@ class UeTimeLimit : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1684,12 +1555,7 @@ class UeBlackboard : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1714,12 +1580,7 @@ class KeyQueryOperator : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1747,12 +1608,7 @@ class IsSet : public  ai::KeyQueryOperator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1780,12 +1636,7 @@ class IsNotSet : public  ai::KeyQueryOperator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1822,12 +1673,7 @@ class BinaryOperator : public  ai::KeyQueryOperator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1852,12 +1698,7 @@ class KeyData : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1892,12 +1733,7 @@ class FloatKeyData : public  ai::KeyData
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1932,12 +1768,7 @@ class IntKeyData : public  ai::KeyData
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -1972,12 +1803,7 @@ class StringKeyData : public  ai::KeyData
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2012,12 +1838,7 @@ class BlackboardKeyData : public  ai::KeyData
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2050,12 +1871,7 @@ class UeForceSuccess : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2094,12 +1910,7 @@ class IsAtLocation : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2140,12 +1951,7 @@ class DistanceLessThan : public  ai::Decorator
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2179,12 +1985,7 @@ class FlowNode : public  ai::Node
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2214,12 +2015,7 @@ class ComposeNode : public  ai::FlowNode
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2254,12 +2050,7 @@ class Sequence : public  ai::ComposeNode
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2294,12 +2085,7 @@ class Selector : public  ai::ComposeNode
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2338,12 +2124,7 @@ class SimpleParallel : public  ai::ComposeNode
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2375,12 +2156,7 @@ class Task : public  ai::FlowNode
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2417,12 +2193,7 @@ class UeWait : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2457,12 +2228,7 @@ class UeWaitBlackboardTime : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2499,12 +2265,7 @@ class MoveToTarget : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2541,12 +2302,7 @@ class ChooseSkill : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2583,12 +2339,7 @@ class MoveToRandomLocation : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2625,12 +2376,7 @@ class MoveToLocation : public  ai::Task
 };
 
 }
-
-
-
 namespace ai {
-
-
 
 
 
@@ -2665,12 +2411,7 @@ class DebugPrint : public  ai::Task
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2707,12 +2448,7 @@ class Clazz : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2751,12 +2487,7 @@ class Method : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2794,12 +2525,7 @@ class ParamInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2832,12 +2558,7 @@ class AbstraceMethod : public  blueprint::Method
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2870,12 +2591,7 @@ class ExternalMethod : public  blueprint::Method
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2908,12 +2624,7 @@ class BlueprintMethod : public  blueprint::Method
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2946,12 +2657,7 @@ class Interface : public  blueprint::Clazz
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -2988,12 +2694,7 @@ class NormalClazz : public  blueprint::Clazz
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -3031,12 +2732,7 @@ class Field : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -3071,12 +2767,7 @@ class EnumClazz : public  blueprint::Clazz
 };
 
 }
-
-
-
 namespace blueprint {
-
-
 
 
 
@@ -3112,12 +2803,7 @@ class EnumField : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3157,12 +2843,7 @@ class DropInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3199,12 +2880,7 @@ class ShowItemInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3229,12 +2905,7 @@ class Bonus : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3270,12 +2941,7 @@ class OneItem : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3310,12 +2976,7 @@ class OneItems : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3353,12 +3014,7 @@ class Item : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3393,12 +3049,7 @@ class Items : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3435,12 +3086,7 @@ class CoefficientItem : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3475,12 +3121,7 @@ class WeightItems : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3519,12 +3160,7 @@ class WeightItemInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3559,12 +3195,7 @@ class ProbabilityItems : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3603,12 +3234,7 @@ class ProbabilityItemInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3643,12 +3269,7 @@ class MultiBonus : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3683,12 +3304,7 @@ class ProbabilityBonus : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3724,12 +3340,7 @@ class ProbabilityBonusInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3764,12 +3375,7 @@ class WeightBonus : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3805,12 +3411,7 @@ class WeightBonusInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace bonus {
-
-
 
 
 
@@ -3846,12 +3447,7 @@ class DropBonus : public  bonus::Bonus
 };
 
 }
-
-
-
 namespace common {
-
-
 
 
 
@@ -3929,12 +3525,7 @@ class GlobalConfig : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace common {
-
-
 
 
 
@@ -3970,12 +3561,7 @@ class Dummy : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4000,12 +3586,7 @@ class LimitBase : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4030,12 +3611,7 @@ class DailyLimitBase : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4070,12 +3646,7 @@ class DailyLimit : public  limit::DailyLimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4112,12 +3683,7 @@ class MultiDayLimit : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4152,12 +3718,7 @@ class WeeklyLimit : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4192,12 +3753,7 @@ class MonthlyLimit : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4232,12 +3788,7 @@ class CoolDown : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace limit {
-
-
 
 
 
@@ -4274,12 +3825,7 @@ class GroupCoolDown : public  limit::LimitBase
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4317,12 +3863,7 @@ class ErrorInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4347,12 +3888,7 @@ class ErrorStyle : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4380,12 +3916,7 @@ class ErrorStyleTip : public  error::ErrorStyle
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4422,12 +3953,7 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4462,12 +3988,7 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4504,12 +4025,7 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
 };
 
 }
-
-
-
 namespace error {
-
-
 
 
 
@@ -4545,12 +4061,7 @@ class CodeInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -4630,12 +4141,7 @@ class Item : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -4675,12 +4181,7 @@ class ItemFunction : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -4711,12 +4212,7 @@ class ItemExtra : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -4759,12 +4255,7 @@ class TreasureBox : public  item::ItemExtra
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -4789,12 +4280,7 @@ class Condition : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -4829,12 +4315,7 @@ class TimeRange : public  condition::Condition
 };
 
 }
-
-
-
 namespace common {
-
-
 
 
 
@@ -4870,12 +4351,7 @@ class DateTimeRange : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -4900,12 +4376,7 @@ class RoleCondition : public  condition::Condition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -4940,12 +4411,7 @@ class MultiRoleCondition : public  condition::RoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -4970,12 +4436,7 @@ class BoolRoleCondition : public  condition::RoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5010,12 +4471,7 @@ class GenderLimit : public  condition::BoolRoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5050,12 +4506,7 @@ class MinLevel : public  condition::BoolRoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5090,12 +4541,7 @@ class MaxLevel : public  condition::BoolRoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5132,12 +4578,7 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5174,12 +4615,7 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
 };
 
 }
-
-
-
 namespace condition {
-
-
 
 
 
@@ -5219,12 +4655,7 @@ class ContainsItem : public  condition::RoleCondition
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -5261,12 +4692,7 @@ class ChooseOneBonus : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -5305,12 +4731,7 @@ class InteractionItem : public  item::ItemExtra
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -5351,12 +4772,7 @@ class Clothes : public  item::ItemExtra
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -5391,12 +4807,7 @@ class DesignDrawing : public  item::ItemExtra
 };
 
 }
-
-
-
 namespace item {
-
-
 
 
 
@@ -5431,12 +4842,7 @@ class Dymmy : public  item::ItemExtra
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5461,12 +4867,7 @@ class Cost : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5503,12 +4904,7 @@ class CostCurrency : public  cost::Cost
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5543,12 +4939,7 @@ class CostCurrencies : public  cost::Cost
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5584,12 +4975,7 @@ class CostOneItem : public  cost::Cost
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5627,12 +5013,7 @@ class CostItem : public  cost::Cost
 };
 
 }
-
-
-
 namespace cost {
-
-
 
 
 
@@ -5667,12 +5048,7 @@ class CostItems : public  cost::Cost
 };
 
 }
-
-
-
 namespace l10n {
-
-
 
 
 
@@ -5708,12 +5084,7 @@ class L10NDemo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace l10n {
-
-
 
 
 
@@ -5749,12 +5120,7 @@ class PatchDemo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace mail {
-
-
 
 
 
@@ -5796,12 +5162,7 @@ class SystemMail : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace mail {
-
-
 
 
 
@@ -5857,12 +5218,7 @@ class GlobalMail : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace role {
-
-
 
 
 
@@ -5900,12 +5256,7 @@ class LevelExpAttr : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace role {
-
-
 
 
 
@@ -5941,12 +5292,7 @@ class LevelBonus : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace role {
-
-
 
 
 
@@ -5982,12 +5328,7 @@ class DistinctBonusInfos : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace role {
-
-
 
 
 
@@ -6023,12 +5364,7 @@ class BonusInfo : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace tag {
-
-
 
 
 
@@ -6064,12 +5400,7 @@ class TestTag : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6152,12 +5483,7 @@ class DemoType2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6191,12 +5517,7 @@ class DemoType1 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6227,12 +5548,7 @@ class DemoDynamic : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6267,12 +5583,7 @@ class DemoD2 : public  test::DemoDynamic
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6304,12 +5615,7 @@ class DemoD3 : public  test::DemoDynamic
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6344,12 +5650,7 @@ class DemoE1 : public  test::DemoD3
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6384,12 +5685,7 @@ class DemoD5 : public  test::DemoDynamic
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6425,12 +5721,7 @@ class DateTimeRange : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6466,12 +5757,7 @@ class DemoE2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6509,12 +5795,7 @@ class DemoSingletonType : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6562,12 +5843,7 @@ class MultiRowRecord : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6603,12 +5879,7 @@ class MultiRowType1 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6646,12 +5917,7 @@ class MultiRowType2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6687,12 +5953,7 @@ class MultiRowType3 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6734,12 +5995,7 @@ class MultiRowTitle : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6775,12 +6031,7 @@ class H1 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6816,12 +6067,7 @@ class H2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6867,12 +6113,7 @@ class TestNull : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6930,12 +6171,7 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -6975,12 +6211,7 @@ class TestString : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7018,12 +6249,7 @@ class CompactString : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7067,12 +6293,7 @@ class DemoGroup : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7112,12 +6333,7 @@ class InnerGroup : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7153,12 +6369,7 @@ class TestGlobal : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7194,12 +6405,7 @@ class DetectEncoding : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7267,12 +6473,7 @@ class DefineFromExcel : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7324,12 +6525,7 @@ class DefineFromExcelOne : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7371,12 +6567,7 @@ class TestJson2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7413,12 +6604,49 @@ class TestIndex : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
 
 
+
+class TestMap : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestMap(ByteBuf& _buf, ::bright::SharedPtr<TestMap>& _out);
+
+    TestMap()
+    { 
+
+    }
+
+    TestMap(::bright::int32 id, ::bright::HashMap<::bright::int32, ::bright::int32> x1, ::bright::HashMap<::bright::int64, ::bright::int32> x2, ::bright::HashMap<::bright::String, ::bright::int32> x3, ::bright::HashMap<test::DemoEnum, ::bright::int32> x4 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+    }
+    virtual ~TestMap() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::HashMap<::bright::int32, ::bright::int32> x1;
+    ::bright::HashMap<::bright::int64, ::bright::int32> x2;
+    ::bright::HashMap<::bright::String, ::bright::int32> x3;
+    ::bright::HashMap<test::DemoEnum, ::bright::int32> x4;
+
+    static constexpr int ID = -543227410;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
 
 
 
@@ -7486,12 +6714,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace test {
-
-
 
 
 
@@ -7546,9 +6769,6 @@ class TestExcelBean1 : public  bright::CfgBean
 };
 
 }
-
-
-
 namespace ai {
 
 
@@ -7598,8 +6818,6 @@ class TbBlackboard
 
 };
 }
-
-
 namespace ai {
 
 
@@ -7649,8 +6867,6 @@ class TbBehaviorTree
 
 };
 }
-
-
 namespace blueprint {
 
 
@@ -7700,8 +6916,6 @@ class TbClazz
 
 };
 }
-
-
 namespace bonus {
 
 
@@ -7751,8 +6965,6 @@ class TbDrop
 
 };
 }
-
-
 namespace common {
 
 
@@ -7804,8 +7016,6 @@ class TbGlobalConfig
     ::bright::int32& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
 };
 }
-
-
 namespace common {
 
 
@@ -7855,8 +7065,6 @@ class TbDummy
 
 };
 }
-
-
 namespace error {
 
 
@@ -7906,8 +7114,6 @@ class TbErrorInfo
 
 };
 }
-
-
 namespace error {
 
 
@@ -7957,8 +7163,6 @@ class TbCodeInfo
 
 };
 }
-
-
 namespace item {
 
 
@@ -8011,8 +7215,6 @@ class TbItem
 
 };
 }
-
-
 namespace item {
 
 
@@ -8062,8 +7264,6 @@ class TbItemFunc
 
 };
 }
-
-
 namespace item {
 
 
@@ -8113,8 +7313,6 @@ class TbItemExtra
 
 };
 }
-
-
 namespace l10n {
 
 
@@ -8164,8 +7362,6 @@ class TbL10NDemo
 
 };
 }
-
-
 namespace l10n {
 
 
@@ -8215,8 +7411,6 @@ class TbPatchDemo
 
 };
 }
-
-
 namespace mail {
 
 
@@ -8266,8 +7460,6 @@ class TbSystemMail
 
 };
 }
-
-
 namespace mail {
 
 
@@ -8317,8 +7509,6 @@ class TbGlobalMail
 
 };
 }
-
-
 namespace role {
 
 
@@ -8368,8 +7558,6 @@ class TbRoleLevelExpAttr
 
 };
 }
-
-
 namespace role {
 
 
@@ -8419,8 +7607,6 @@ class TbRoleLevelBonusCoefficient
 
 };
 }
-
-
 namespace tag {
 
 
@@ -8470,8 +7656,6 @@ class TbTestTag
 
 };
 }
-
-
 namespace test {
 
 
@@ -8521,8 +7705,6 @@ class TbFullTypes
 
 };
 }
-
-
 namespace test {
 
 
@@ -8553,8 +7735,6 @@ class TbSingleton
     ::bright::SharedPtr<test::DemoDynamic>& getDate() const { return _data->date; }
 };
 }
-
-
 namespace test {
 
 
@@ -8604,8 +7784,6 @@ class TbDataFromMisc
 
 };
 }
-
-
 namespace test {
 
 
@@ -8655,8 +7833,6 @@ class TbMultiRowRecord
 
 };
 }
-
-
 namespace test {
 
 
@@ -8706,8 +7882,6 @@ class TbMultiRowTitle
 
 };
 }
-
-
 namespace test {
 
 
@@ -8757,8 +7931,6 @@ class TbTestNull
 
 };
 }
-
-
 namespace test {
 
 
@@ -8808,8 +7980,6 @@ class TbDemoPrimitive
 
 };
 }
-
-
 namespace test {
 
 
@@ -8859,8 +8029,6 @@ class TbTestString
 
 };
 }
-
-
 namespace test {
 
 
@@ -8910,8 +8078,6 @@ class TbDemoGroup
 
 };
 }
-
-
 namespace test {
 
 
@@ -8961,8 +8127,6 @@ class TbDemoGroup_C
 
 };
 }
-
-
 namespace test {
 
 
@@ -9012,8 +8176,6 @@ class TbDemoGroup_S
 
 };
 }
-
-
 namespace test {
 
 
@@ -9063,8 +8225,6 @@ class TbDemoGroup_E
 
 };
 }
-
-
 namespace test {
 
 
@@ -9094,8 +8254,6 @@ class TbTestGlobal
     ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
 };
 }
-
-
 namespace test {
 
 
@@ -9145,8 +8303,6 @@ class TbDetectCsvEncoding
 
 };
 }
-
-
 namespace test {
 
 
@@ -9196,8 +8352,6 @@ class TbDefineFromExcel
 
 };
 }
-
-
 namespace test {
 
 
@@ -9238,8 +8392,6 @@ class TbDefineFromExcelOne
     ::bright::String& getDefaultItem() const { return _data->defaultItem; }
 };
 }
-
-
 namespace test {
 
 
@@ -9289,8 +8441,6 @@ class TbTestJson2
 
 };
 }
-
-
 namespace test {
 
 
@@ -9340,8 +8490,55 @@ class TbTestIndex
 
 };
 }
+namespace test {
 
 
+class TbTestMap
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestMap>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestMap>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestMap> _v;
+            if(!test::TestMap::deserializeTestMap(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestMap>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestMap>>& getDataList() const { return _dataList; }
+
+    test::TestMap* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestMap> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
 namespace test {
 
 
@@ -9391,8 +8588,6 @@ class TbDemoGroupDefineFromExcel
 
 };
 }
-
-
 namespace test {
 
 
@@ -9442,8 +8637,6 @@ class TbDefineFromExcel2
 
 };
 }
-
-
 namespace test {
 
 
@@ -9493,8 +8686,6 @@ class TbTestExcelBean
 
 };
 }
-
-
 class Tables
 {
     public:
@@ -9537,11 +8728,12 @@ class Tables
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
      test::TbTestJson2 TbTestJson2;
      test::TbTestIndex TbTestIndex;
+     test::TbTestMap TbTestMap;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
 
-    bool load(::bright::Function<bool(ByteBuf&, const ::bright::String&)> loader)
+    bool load(::bright::Loader<ByteBuf> loader)
     {
         ::bright::HashMap<::bright::String, void*> __tables__;
 
@@ -9654,6 +8846,9 @@ class Tables
         if (!loader(buf, "test.TbTestIndex")) return false;
         if (!TbTestIndex.load(buf)) return false;
         __tables__["test.TbTestIndex"] = &TbTestIndex;
+        if (!loader(buf, "test.TbTestMap")) return false;
+        if (!TbTestMap.load(buf)) return false;
+        __tables__["test.TbTestMap"] = &TbTestMap;
         if (!loader(buf, "test.TbDemoGroupDefineFromExcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
@@ -9700,13 +8895,12 @@ class Tables
         TbDefineFromExcelOne.resolve(__tables__); 
         TbTestJson2.resolve(__tables__); 
         TbTestIndex.resolve(__tables__); 
+        TbTestMap.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 
         return true;
     }
 };
-
-
 
 }

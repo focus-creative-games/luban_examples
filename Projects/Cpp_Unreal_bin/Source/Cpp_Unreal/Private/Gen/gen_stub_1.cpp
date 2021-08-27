@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 #include <algorithm>
 #include "gen_types.h"
 
@@ -462,7 +461,7 @@ namespace cfg
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!_buf.readString(text)) return false;
+        if(!_buf.readString(text)) return false; /* key */ if(!_buf.readString(text)) return false; /* text */
 
         return true;
     }
@@ -737,7 +736,7 @@ namespace cfg
         if(!test::DemoType1::deserializeDemoType1(_buf, x12)) return false;
         {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::DemoEnum(__enum_temp__); }
         if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
-        if(!_buf.readString(s1)) return false;
+        if(!_buf.readString(s1)) return false; /* key */ if(!_buf.readString(s1)) return false; /* text */
         if(!_buf.readVector2(v2)) return false;
         if(!_buf.readVector3(v3)) return false;
         if(!_buf.readVector4(v4)) return false;
@@ -1006,7 +1005,7 @@ namespace cfg
     {
 
         if(!_buf.readInt(id)) return false;
-        if(!_buf.readString(name)) return false;
+        if(!_buf.readString(name)) return false; /* key */ if(!_buf.readString(name)) return false; /* text */
         if(!test::DemoDynamic::deserializeDemoDynamic(_buf, date)) return false;
 
         return true;
@@ -1249,7 +1248,7 @@ namespace cfg
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x3.reset(); if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false; } else { x3.reset(); } }
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x4.reset(); if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false; } else { x4.reset(); } }
         { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s1.reset(new ::bright::String()); if(!_buf.readString(*s1)) return false; } else { s1.reset(); } }
-        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2.reset(new ::bright::String()); if(!_buf.readString(*s2)) return false; } else { s2.reset(); } }
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2.reset(new ::bright::String()); if(!_buf.readString(*s2)) return false; /* key */ if(!_buf.readString(*s2)) return false; /* text */ } else { s2.reset(); } }
 
         return true;
     }
@@ -1285,7 +1284,7 @@ namespace cfg
         if(!_buf.readFloat(x6)) return false;
         if(!_buf.readDouble(x7)) return false;
         if(!_buf.readString(s1)) return false;
-        if(!_buf.readString(s2)) return false;
+        if(!_buf.readString(s2)) return false; /* key */ if(!_buf.readString(s2)) return false; /* text */
         if(!_buf.readVector2(v2)) return false;
         if(!_buf.readVector3(v3)) return false;
         if(!_buf.readVector4(v4)) return false;
@@ -1617,6 +1616,36 @@ namespace cfg
     void test::TestIndex::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         for(auto _e : eles) { _e->resolve(_tables); }
+    }
+
+    bool test::TestMap::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x1[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int64 _k;  if(!_buf.readLong(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x2[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x3[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { test::DemoEnum _k;  {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _k = test::DemoEnum(__enum_temp__); } ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::TestMap::deserializeTestMap(ByteBuf& _buf, ::bright::SharedPtr<test::TestMap>& _out)
+    {
+        _out.reset(new test::TestMap());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestMap::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
     }
 
     bool test::DefineFromExcel2::deserialize(ByteBuf& _buf)

@@ -58,7 +58,7 @@
 	</bean>
 	
 	<bean name="DemoType2" tags="d=5|a=3">
-		<var name="x4" type="int" convert="DemoEnum"/>
+		<var name="x4" type="int" convert="DemoEnum" default="12345"/>
 		<var name="x1" type="bool|kind=cat|type=sss"  tags="aa=10|bb=23"/>
 		<var name="x2" type="byte|kind=mouse|name=yyy" tags="aa||dd=32"/>
 		<var name="x3" type="short" ref="test.TbFullTypes"/>
