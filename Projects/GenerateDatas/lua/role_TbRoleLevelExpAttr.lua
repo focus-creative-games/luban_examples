@@ -1,5 +1,4 @@
-
-return
+return 
 {
 [1] = {level=1,need_exp=0,clothes_attrs={0,0,0,0,0,0,0,0,0,0,},},
 [2] = {level=2,need_exp=100,clothes_attrs={1,1,1,1,1,0,0,0,0,0,},},
