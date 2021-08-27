@@ -2,17 +2,17 @@ using Bright.Serialization;
 using System.Collections.Generic;
 using System.Text.Json;
 
-{{~if (has_attr x 'd')~}}
+{{~if (has_tag x 'd')~}}
 ///
 	asdbasd 
 	asdf
 
 ///
 {{~end~}}
-{{~if (has_attr x 'a') }}
+{{~if (has_tag x 'a') }}
 	// has a
 {{~end~}}
-{{~if (get_attr x 'd') == '5'}}
+{{~if (get_tag x 'd') == '5'}}
 	// == 5
 {{~end~}}
 {{
@@ -74,10 +74,10 @@ public {{x.cs_class_modifier}} class {{name}} : {{if parent_def_type}} {{parent}
     /// {{field.comment}}
     /// </summary>
 {{~end~}}
-{{~if (has_attr field 'aa')~}}
-// ##### has attr aa={{get_attr field 'aa'}}
+{{~if (has_tag field 'aa')~}}
+// ##### has attr aa={{get_tag field 'aa'}}
 {{~end~}}
-{{~if (get_attr field.ctype 'kind') == 'cat' ~}}
+{{~if (get_tag field.ctype 'kind') == 'cat' ~}}
 // ====== cat ===== 
 {{~end~}}
     public {{cs_define_type field.ctype}} {{field.cs_style_name}} { get; private set; }
