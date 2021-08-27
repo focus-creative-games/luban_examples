@@ -26,7 +26,7 @@ public sealed partial class WeightItems :  bonus.Bonus
         return new bonus.WeightItems(_buf);
     }
 
-    public bonus.WeightItemInfo[] ItemList {get; private set;}
+    public bonus.WeightItemInfo[] ItemList { get; private set; }
 
     public const int ID = -356202311;
     public override int GetTypeId() => ID;

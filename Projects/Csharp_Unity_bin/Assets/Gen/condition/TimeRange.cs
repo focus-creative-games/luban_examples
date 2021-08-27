@@ -26,7 +26,7 @@ public sealed partial class TimeRange :  condition.Condition
         return new condition.TimeRange(_buf);
     }
 
-    public common.DateTimeRange DateTimeRange {get; private set;}
+    public common.DateTimeRange DateTimeRange { get; private set; }
 
     public const int ID = 1069033789;
     public override int GetTypeId() => ID;

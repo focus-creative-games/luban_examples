@@ -28,9 +28,9 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
         return new blueprint.ParamInfo(_buf);
     }
 
-    public string Name {get; private set;}
-    public string Type {get; private set;}
-    public bool IsRef {get; private set;}
+    public string Name { get; private set; }
+    public string Type { get; private set; }
+    public bool IsRef { get; private set; }
 
     public const int ID = -729799392;
     public override int GetTypeId() => ID;

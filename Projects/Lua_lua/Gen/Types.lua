@@ -1,5 +1,4 @@
 
-
 local setmetatable = setmetatable
 local pairs = pairs
 local ipairs = ipairs
@@ -322,6 +321,11 @@ local enums =
      ---@field public C int
      ---@field public D int
     ['test.DemoEnum'] = {   A=1,  B=2,  C=4,  D=5,  };
+    ---@class test.DemoFlag
+     ---@field public A int
+     ---@field public B int
+     ---@field public D int
+    ['test.DemoFlag'] = {   A=1,  B=2,  D=3,  };
     ---@class test.ETestUeType
      ---@field public WHITE int
      ---@field public BLACK int
@@ -2003,6 +2007,21 @@ beans['test.TestIndex'] =
     { name='eles', type='test.DemoType1[]'},
 }
 
+---@class test.TestMap 
+---@field public id int
+---@field public x1 table<int,int>
+---@field public x2 table<long,int>
+---@field public x3 table<string,int>
+---@field public x4 table<test.DemoEnum,int>
+beans['test.TestMap'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='table<int,int>'},
+    { name='x2', type='table<long,int>'},
+    { name='x3', type='table<string,int>'},
+    { name='x4', type='table<test.DemoEnum,int>'},
+}
+
 ---@class test.DefineFromExcel2 
 ---@field public id int
 ---@field public x1 bool
@@ -2122,6 +2141,8 @@ local tables =
 
     { name='TbTestIndex', file='test_TbTestIndex', mode='map', index='id', value_type='test.TestIndex' },
 
+    { name='TbTestMap', file='test_TbTestMap', mode='map', index='id', value_type='test.TestMap' },
+
     { name='TbDemoGroupDefineFromExcel', file='test_TbDemoGroupDefineFromExcel', mode='map', index='id', value_type='test.DemoGroup' },
 
     { name='TbDefineFromExcel2', file='test_TbDefineFromExcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
@@ -2131,4 +2152,3 @@ local tables =
 }
 
 return { consts = consts, enums = enums, beans = beans, tables = tables }
-

@@ -30,11 +30,11 @@ public sealed partial class TreasureBox :  item.ItemExtra
         return new item.TreasureBox(_buf);
     }
 
-    public int? KeyItemId {get; private set;}
-    public condition.MinLevel OpenLevel {get; private set;}
-    public bool UseOnObtain {get; private set;}
-    public System.Collections.Generic.List<int> DropIds {get; private set;}
-    public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList {get; private set;}
+    public int? KeyItemId { get; private set; }
+    public condition.MinLevel OpenLevel { get; private set; }
+    public bool UseOnObtain { get; private set; }
+    public System.Collections.Generic.List<int> DropIds { get; private set; }
+    public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
 
     public const int ID = 1494222369;
     public override int GetTypeId() => ID;

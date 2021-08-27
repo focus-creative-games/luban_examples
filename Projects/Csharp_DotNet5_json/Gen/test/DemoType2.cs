@@ -10,15 +10,6 @@ using Bright.Serialization;
 using System.Collections.Generic;
 using System.Text.Json;
 
-///
-	asdbasd 
-	asdf
-
-///
-
-	// has a
-
-	// == 5
 
 
 namespace cfg.test
@@ -90,10 +81,7 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
     }
 
     public int X4 { get; private set; }
-// ##### has attr aa=10
-// ====== cat ===== 
     public bool X1 { get; private set; }
-// ##### has attr aa=aa
     public byte X2 { get; private set; }
     public short X3 { get; private set; }
     public test.DemoType2 X3_Ref { get; private set; }

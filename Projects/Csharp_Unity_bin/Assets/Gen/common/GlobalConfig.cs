@@ -49,28 +49,28 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     /// <summary>
     /// 背包容量
     /// </summary>
-    public int BagCapacity {get; private set;}
-    public int BagCapacitySpecial {get; private set;}
-    public int BagTempExpendableCapacity {get; private set;}
-    public int BagTempToolCapacity {get; private set;}
-    public int BagInitCapacity {get; private set;}
-    public int QuickBagCapacity {get; private set;}
-    public int ClothBagCapacity {get; private set;}
-    public int ClothBagInitCapacity {get; private set;}
-    public int ClothBagCapacitySpecial {get; private set;}
-    public int? BagInitItemsDropId {get; private set;}
-    public bonus.DropInfo BagInitItemsDropId_Ref {get; private set;}
-    public int MailBoxCapacity {get; private set;}
-    public float DamageParamC {get; private set;}
-    public float DamageParamE {get; private set;}
-    public float DamageParamF {get; private set;}
-    public float DamageParamD {get; private set;}
-    public float RoleSpeed {get; private set;}
-    public float MonsterSpeed {get; private set;}
-    public int InitEnergy {get; private set;}
-    public int InitViality {get; private set;}
-    public int MaxViality {get; private set;}
-    public int PerVialityRecoveryTime {get; private set;}
+    public int BagCapacity { get; private set; }
+    public int BagCapacitySpecial { get; private set; }
+    public int BagTempExpendableCapacity { get; private set; }
+    public int BagTempToolCapacity { get; private set; }
+    public int BagInitCapacity { get; private set; }
+    public int QuickBagCapacity { get; private set; }
+    public int ClothBagCapacity { get; private set; }
+    public int ClothBagInitCapacity { get; private set; }
+    public int ClothBagCapacitySpecial { get; private set; }
+    public int? BagInitItemsDropId { get; private set; }
+    public bonus.DropInfo BagInitItemsDropId_Ref { get; private set; }
+    public int MailBoxCapacity { get; private set; }
+    public float DamageParamC { get; private set; }
+    public float DamageParamE { get; private set; }
+    public float DamageParamF { get; private set; }
+    public float DamageParamD { get; private set; }
+    public float RoleSpeed { get; private set; }
+    public float MonsterSpeed { get; private set; }
+    public int InitEnergy { get; private set; }
+    public int InitViality { get; private set; }
+    public int MaxViality { get; private set; }
+    public int PerVialityRecoveryTime { get; private set; }
 
     public const int ID = -848234488;
     public override int GetTypeId() => ID;

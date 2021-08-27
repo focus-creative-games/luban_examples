@@ -26,7 +26,7 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
         return new bonus.ProbabilityItems(_buf);
     }
 
-    public bonus.ProbabilityItemInfo[] ItemList {get; private set;}
+    public bonus.ProbabilityItemInfo[] ItemList { get; private set; }
 
     public const int ID = 366387866;
     public override int GetTypeId() => ID;

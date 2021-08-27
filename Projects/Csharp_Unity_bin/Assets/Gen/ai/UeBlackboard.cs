@@ -28,9 +28,9 @@ public sealed partial class UeBlackboard :  ai.Decorator
         return new ai.UeBlackboard(_buf);
     }
 
-    public ai.ENotifyObserverMode NotifyObserver {get; private set;}
-    public string BlackboardKey {get; private set;}
-    public ai.KeyQueryOperator KeyQuery {get; private set;}
+    public ai.ENotifyObserverMode NotifyObserver { get; private set; }
+    public string BlackboardKey { get; private set; }
+    public ai.KeyQueryOperator KeyQuery { get; private set; }
 
     public const int ID = -315297507;
     public override int GetTypeId() => ID;

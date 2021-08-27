@@ -27,8 +27,8 @@ public sealed partial class Dummy :  Bright.Config.BeanBase
         return new common.Dummy(_buf);
     }
 
-    public int Id {get; private set;}
-    public limit.LimitBase Limit {get; private set;}
+    public int Id { get; private set; }
+    public limit.LimitBase Limit { get; private set; }
 
     public const int ID = -985084219;
     public override int GetTypeId() => ID;

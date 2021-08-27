@@ -28,9 +28,9 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         return new error.ErrorInfo(_buf);
     }
 
-    public string Code {get; private set;}
-    public string Desc {get; private set;}
-    public error.ErrorStyle Style {get; private set;}
+    public string Code { get; private set; }
+    public string Desc { get; private set; }
+    public error.ErrorStyle Style { get; private set; }
 
     public const int ID = 1389347408;
     public override int GetTypeId() => ID;

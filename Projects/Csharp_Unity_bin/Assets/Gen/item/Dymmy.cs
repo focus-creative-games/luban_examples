@@ -26,7 +26,7 @@ public sealed partial class Dymmy :  item.ItemExtra
         return new item.Dymmy(_buf);
     }
 
-    public cost.Cost Cost {get; private set;}
+    public cost.Cost Cost { get; private set; }
 
     public const int ID = 896889705;
     public override int GetTypeId() => ID;
