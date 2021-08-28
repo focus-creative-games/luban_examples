@@ -1,13 +1,11 @@
 {
 {{~if table.is_map_table ~}}
 {{~for d in datas~}}
-"{{(get_field d table.index).value}}": {
+{{to_json_property_name (get_field d table.index)}}: {
 	{{~i = 0~}}
 	{{~for f in d.fields~}}
-		{{~if f ~}}
-		"{{d.impl_type.hierarchy_export_fields[i].name}}" : {{f.json_value}} {{if !for.last }},{{end}}
-		{{~end~}}
-		{{~i = i + 1~}}
+	"{{d.impl_type.hierarchy_export_fields[i].name}}" : {{to_json_literal f}}{{if !for.last }},{{end}}
+	{{~i = i + 1~}}
 	{{~end~}}
 }{{if !for.last }},{{end}}
 {{~end~}}
@@ -15,10 +13,8 @@
 	{{~ d = datas[0]~}}
 	{{~i = 0~}}
 	{{~for f in d.fields~}}
-		{{~if f ~}}
-		"{{d.impl_type.hierarchy_export_fields[i].name}}": {{f.value}} {{if !for.last}},{{end}}
-		{{~end~}}
-		{{i = i + 1}}
+	"{{d.impl_type.hierarchy_export_fields[i].name}}": {{to_json_literal f}}{{if !for.last}},{{end}}
+	{{i = i + 1}}
 	{{~end~}}
 {{~end~}}
 }

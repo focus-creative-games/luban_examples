@@ -1,5 +1,4 @@
 {
-{
 "EXAMPLE_FLASH": {"code":"EXAMPLE_FLASH","desc":"这是一个例子飘窗","style":{}} ,
 "EXAMPLE_MSGBOX": {"code":"EXAMPLE_MSGBOX","desc":"例子弹框，消息决定行为","style":{"btn_name":"要重启了","operation":1}} ,
 "EXAMPLE_DLG_OK": {"code":"EXAMPLE_DLG_OK","desc":"例子：单按钮提示，用户自己提供回调","style":{"btn_name":"联知道了"}} ,

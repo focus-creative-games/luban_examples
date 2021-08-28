@@ -7,7 +7,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_data_dir template_lua ^
- --gen_types data_template --template_name lua2 ^
+ --gen_types data_template --template_name lua ^
  -s all ^
 --export_test_data
 

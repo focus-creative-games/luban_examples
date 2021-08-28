@@ -1,10 +1,9 @@
-{
 {{~if table.is_map_table ~}}
 {
 {{~for d in datas~}}
-"{{(get_field d table.index).value}}": {{d.json_value}} {{if !for.last }},{{end}}
+{{to_json_property_name (get_field d table.index)}}: {{to_json_literal d}} {{if !for.last }},{{end}}
 {{~end~}}
 }
 {{~else~}}
-{{~datas[0].json_value~}}
+{{~ to_json_literal datas[0]~}}
 {{~end~}}

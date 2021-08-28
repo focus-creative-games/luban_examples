@@ -3,9 +3,9 @@ return
 {{~if table.is_map_table ~}}
 {
 {{~for d in datas~}}
-[{{(get_field d table.index).value}}] = {{d.lua_value}},
+[{{to_lua_literal (get_field d table.index)}}] = {{to_lua_literal d}},
 {{~end~}}
 }
 {{~else~}}
-	{{~ datas[0].lua_value ~}}
+{{~ to_lua_literal datas[0] ~}}
 {{~end~}}

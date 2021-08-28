@@ -1,6 +1,4 @@
 
-
--- common.TbDummy
-
-return {
+return
+{
 }

@@ -1,20 +1,4 @@
 
-{{~
-func to_text(x)
-	if x.is_map
-		ret 'map'
-	else if x.is_array
-		ret 'array'
-	else if x.is_list
-		ret 'list'
-	else if x.is_set
-		ret 'set'
-	else
-		ret x.lua_value
-	end
-end
-~}}
-
 -- {{table.full_name}}
 
 return {
@@ -24,10 +8,8 @@ return {
 	-- {{d.impl_type.full_name}}
 	{{~i = 0~}}
 	{{~for f in d.fields~}}
-		{{~if f ~}}
-		{{d.impl_type.hierarchy_export_fields[i].name}} = {{f.lua_value}},
-		{{~end~}}
-		{{~i = i + 1~}}
+	{{d.impl_type.hierarchy_export_fields[i].name}} = {{to_lua_literal f}},
+	{{~i = i + 1~}}
 	{{~end~}}
 },
 {{~end~}}
@@ -36,10 +18,8 @@ return {
 	// {{d.impl_type.full_name}}
 	{{~i = 0~}}
 	{{~for f in d.fields~}}
-		{{~if f ~}}
-		// {{d.impl_type.hierarchy_export_fields[i].name}} = {{f.value}}
-		{{~end~}}
-		{{i = i + 1}}
+	{{d.impl_type.hierarchy_export_fields[i].name}} = {{to_lua_literal f}},
+	{{i = i + 1}}
 	{{~end~}}
 {{~end~}}
 }
