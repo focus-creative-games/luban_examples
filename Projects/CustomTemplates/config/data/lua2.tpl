@@ -4,7 +4,7 @@
 return {
 {{~if table.is_map_table ~}}
 {{~for d in datas~}}
-[{{(get_field d table.index).value}}] = {
+[{{to_lua_literal (get_field d table.index)}}] = {
 	-- {{d.impl_type.full_name}}
 	{{~i = 0~}}
 	{{~for f in d.fields~}}
