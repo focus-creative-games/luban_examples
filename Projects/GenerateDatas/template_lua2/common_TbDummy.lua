@@ -1,5 +1,0 @@
-
--- common.TbDummy
-
-return {
-}
