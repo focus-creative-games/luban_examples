@@ -132,6 +132,8 @@
 		<var name="multi_rows3" type="set,MultiRowType2" multi_rows="1"/>
 		<var name="multi_rows4" type="map,int,MultiRowType2" multi_rows="1"/>
 		<var name="multi_rows5" type="list,MultiRowType3" multi_rows="1"/>
+		<var name="multi_rows6" type="map,int,MultiRowType2" multi_rows="1" orientation="c"/>
+		<var name="multi_rows7" type="map,int,int" orientation="c"/>
 	</bean>
 	
 	<table name="TbMultiRowRecord" value="MultiRowRecord" input="test/multi_rows_record.xlsx"/>
