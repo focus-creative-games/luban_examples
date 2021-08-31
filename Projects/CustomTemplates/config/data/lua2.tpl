@@ -4,13 +4,11 @@
 {{
 
 	func pretty_print(x, indent)
-		if !x || (is_simple_literal_data x)
+		if !x || (is_simple_literal_data2 x)
 			ret (to_lua_literal x)
 		else
 			type = x.type_name
 			case type
-				when 'text', 'vector2','vector3','vector4','datetime'
-					ret (to_lua_literal x)
 				when 'bean'
 					$arr = ['', '{']
 					$i = 0
