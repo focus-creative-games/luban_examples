@@ -8,7 +8,8 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  -d ${DEFINE_FILE} \
  --input_data_dir ${CONF_ROOT}/Datas \
  --output_code_dir Assets/Gen \
- --output_data_dir ../GenerateDatas/bin \
+ --output_data_dir ../GenerateDatas/bytes \
  --gen_types code_cs_bin,data_bin \
+ --data_file_extension bytes \
  -s all \
  --export_test_data

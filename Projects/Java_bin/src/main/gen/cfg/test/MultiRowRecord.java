@@ -22,9 +22,11 @@ public final class MultiRowRecord {
         {int n = Math.min(_buf.readSize(), _buf.size());multiRows3 = new java.util.HashSet<cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType2 _e;  _e = new cfg.test.MultiRowType2(_buf); multiRows3.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());multiRows4 = new java.util.HashMap<Integer, cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); cfg.test.MultiRowType2 _v;  _v = new cfg.test.MultiRowType2(_buf);     multiRows4.put(_k, _v);}}
         {int n = Math.min(_buf.readSize(), _buf.size());multiRows5 = new java.util.ArrayList<cfg.test.MultiRowType3>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType3 _e;  _e = new cfg.test.MultiRowType3(_buf); multiRows5.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows6 = new java.util.HashMap<Integer, cfg.test.MultiRowType2>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); cfg.test.MultiRowType2 _v;  _v = new cfg.test.MultiRowType2(_buf);     multiRows6.put(_k, _v);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());multiRows7 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     multiRows7.put(_k, _v);}}
     }
 
-    public MultiRowRecord(int id, String name, java.util.ArrayList<cfg.test.MultiRowType1> one_rows, java.util.ArrayList<cfg.test.MultiRowType1> multi_rows1, cfg.test.MultiRowType1[] multi_rows2, java.util.HashSet<cfg.test.MultiRowType2> multi_rows3, java.util.HashMap<Integer, cfg.test.MultiRowType2> multi_rows4, java.util.ArrayList<cfg.test.MultiRowType3> multi_rows5 ) {
+    public MultiRowRecord(int id, String name, java.util.ArrayList<cfg.test.MultiRowType1> one_rows, java.util.ArrayList<cfg.test.MultiRowType1> multi_rows1, cfg.test.MultiRowType1[] multi_rows2, java.util.HashSet<cfg.test.MultiRowType2> multi_rows3, java.util.HashMap<Integer, cfg.test.MultiRowType2> multi_rows4, java.util.ArrayList<cfg.test.MultiRowType3> multi_rows5, java.util.HashMap<Integer, cfg.test.MultiRowType2> multi_rows6, java.util.HashMap<Integer, Integer> multi_rows7 ) {
         this.id = id;
         this.name = name;
         this.oneRows = one_rows;
@@ -33,6 +35,8 @@ public final class MultiRowRecord {
         this.multiRows3 = multi_rows3;
         this.multiRows4 = multi_rows4;
         this.multiRows5 = multi_rows5;
+        this.multiRows6 = multi_rows6;
+        this.multiRows7 = multi_rows7;
     }
 
 
@@ -44,6 +48,8 @@ public final class MultiRowRecord {
     public final java.util.HashSet<cfg.test.MultiRowType2> multiRows3;
     public final java.util.HashMap<Integer, cfg.test.MultiRowType2> multiRows4;
     public final java.util.ArrayList<cfg.test.MultiRowType3> multiRows5;
+    public final java.util.HashMap<Integer, cfg.test.MultiRowType2> multiRows6;
+    public final java.util.HashMap<Integer, Integer> multiRows7;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
@@ -52,6 +58,7 @@ public final class MultiRowRecord {
         for(cfg.test.MultiRowType1 _e : multiRows2) { if (_e != null) _e.resolve(_tables); }
         for(cfg.test.MultiRowType2 _e : multiRows4.values()) { if (_e != null) _e.resolve(_tables); }
         for(cfg.test.MultiRowType3 _e : multiRows5) { if (_e != null) _e.resolve(_tables); }
+        for(cfg.test.MultiRowType2 _e : multiRows6.values()) { if (_e != null) _e.resolve(_tables); }
     }
 
     @Override
@@ -65,6 +72,8 @@ public final class MultiRowRecord {
         + "multiRows3:" + multiRows3 + ","
         + "multiRows4:" + multiRows4 + ","
         + "multiRows5:" + multiRows5 + ","
+        + "multiRows6:" + multiRows6 + ","
+        + "multiRows7:" + multiRows7 + ","
         + "}";
     }
 }
