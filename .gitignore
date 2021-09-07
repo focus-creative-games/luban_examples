@@ -300,3 +300,4 @@ gradle/
 /Benchmark/data_json
 /Benchmark/data_lua
 /Tools/build_luban_clientserver.bat
+/Projects/TypeScript_NodeJs_json/dist
