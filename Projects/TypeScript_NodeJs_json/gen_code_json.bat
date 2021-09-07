@@ -9,8 +9,8 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir Gen ^
  --output_data_dir ..\GenerateDatas\json ^
  --gen_types code_typescript_json,data_json ^
+ --embed_bright_types ^
  -s all ^
---export_test_data ^
---typescript_bright_require_path ../bright
+ --export_test_data
 
 pause

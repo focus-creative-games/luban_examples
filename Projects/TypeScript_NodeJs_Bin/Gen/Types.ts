@@ -813,7 +813,7 @@ export  class Blackboard  {
     readonly name: string
     readonly desc: string
     readonly parentName: string
-    parentName_Ref : ai.Blackboard = undefined!
+    parentName_Ref: ai.Blackboard = undefined!
     readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
@@ -901,7 +901,7 @@ export  class BehaviorTree  {
     readonly name: string
     readonly desc: string
     readonly blackboardId: string
-    blackboardId_Ref : ai.Blackboard = undefined!
+    blackboardId_Ref: ai.Blackboard = undefined!
     readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
@@ -2168,7 +2168,7 @@ export  class ShowItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
@@ -2222,7 +2222,7 @@ export  class OneItem  extends bonus.Bonus {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2265,7 +2265,7 @@ export  class Item  extends bonus.Bonus {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -2354,7 +2354,7 @@ export  class WeightItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly num: number
     readonly weight: number
 
@@ -2399,7 +2399,7 @@ export  class ProbabilityItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly num: number
     readonly probability: number
 
@@ -2527,7 +2527,7 @@ export  class DropBonus  extends bonus.Bonus {
     }
 
     readonly id: number
-    id_Ref : bonus.DropInfo = undefined!
+    id_Ref: bonus.DropInfo = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2562,7 +2562,7 @@ export class TbGlobalConfig {
      get clothBagCapacity(): number { return this._data.clothBagCapacity }
      get clothBagInitCapacity(): number { return this._data.clothBagInitCapacity }
      get clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial }
-     get bagInitItemsDropId(): number { return this._data.bagInitItemsDropId }
+     get bagInitItemsDropId(): number|undefined { return this._data.bagInitItemsDropId }
      get mailBoxCapacity(): number { return this._data.mailBoxCapacity }
      get damageParamC(): number { return this._data.damageParamC }
      get damageParamE(): number { return this._data.damageParamE }
@@ -2625,8 +2625,8 @@ export  class GlobalConfig  {
     readonly clothBagCapacity: number
     readonly clothBagInitCapacity: number
     readonly clothBagCapacitySpecial: number
-    readonly bagInitItemsDropId?: number
-    bagInitItemsDropId_Ref : bonus.DropInfo | undefined
+    readonly bagInitItemsDropId: number|undefined
+    bagInitItemsDropId_Ref: bonus.DropInfo|undefined
     readonly mailBoxCapacity: number
     readonly damageParamC: number
     readonly damageParamE: number
@@ -3181,9 +3181,9 @@ export  class Item  {
     readonly progressTimeWhenUse: number
     readonly showHintWhenUse: boolean
     readonly droppable: boolean
-    readonly price?: number
+    readonly price: number|undefined
     readonly useType: item.EUseType
-    readonly levelUpId?: number
+    readonly levelUpId: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3324,7 +3324,7 @@ export  class TreasureBox  extends item.ItemExtra {
         { this.chooseList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :item.ChooseOneBonus; _e = new item.ChooseOneBonus(_buf_); this.chooseList.push(_e) } }
     }
 
-    readonly keyItemId?: number
+    readonly keyItemId: number|undefined
     readonly openLevel: condition.MinLevel
     readonly useOnObtain: boolean
     readonly dropIds: number[]
@@ -3400,8 +3400,8 @@ export  class DateTimeRange  {
         if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt() } else { this.endTime = undefined }
     }
 
-    readonly startTime?: number
-    readonly endTime?: number
+    readonly startTime: number|undefined
+    readonly endTime: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3606,7 +3606,7 @@ export  class ContainsItem  extends condition.RoleCondition {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly num: number
     readonly reverse: boolean
 
@@ -3630,7 +3630,7 @@ export  class ChooseOneBonus  {
     }
 
     readonly dropId: number
-    dropId_Ref : bonus.DropInfo = undefined!
+    dropId_Ref: bonus.DropInfo = undefined!
     readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -3653,7 +3653,7 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _buf_.ReadString()
     }
 
-    readonly attackNum?: number
+    readonly attackNum: number|undefined
     readonly holdingStaticMesh: string
     readonly holdingStaticMeshMat: string
 
@@ -3812,7 +3812,7 @@ export  class CostOneItem  extends cost.Cost {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3835,7 +3835,7 @@ export  class CostItem  extends cost.Cost {
     }
 
     readonly itemId: number
-    itemId_Ref : item.Item = undefined!
+    itemId_Ref: item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -4382,7 +4382,7 @@ export  class DemoType2  {
     readonly x1: boolean
     readonly x2: number
     readonly x3: number
-    x3_Ref : test.DemoType2 = undefined!
+    x3_Ref: test.DemoType2 = undefined!
     readonly x5: number
     readonly x6: number
     readonly x7: number
@@ -4578,7 +4578,7 @@ export  class DemoE2  {
         this.y2 = _buf_.ReadBool()
     }
 
-    readonly y1?: number
+    readonly y1: number|undefined
     readonly y2: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -4716,6 +4716,8 @@ export  class MultiRowRecord  {
         { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_); this.multiRows3.add(_e);}}
         { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
         { this.multiRows5 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType3; _e = new test.MultiRowType3(_buf_); this.multiRows5.push(_e) } }
+        { this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows6.set(_k, _v);  } }
+        { this.multiRows7 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.multiRows7.set(_k, _v);  } }
     }
 
     readonly id: number
@@ -4726,6 +4728,8 @@ export  class MultiRowRecord  {
     readonly multiRows3: Set<test.MultiRowType2>
     readonly multiRows4: Map<number, test.MultiRowType2>
     readonly multiRows5: test.MultiRowType3[]
+    readonly multiRows6: Map<number, test.MultiRowType2>
+    readonly multiRows7: Map<number, number>
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
@@ -4733,6 +4737,7 @@ export  class MultiRowRecord  {
         for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
         for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
         for(let _e of this.multiRows5) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows6.values()) { if (_e != null) {_e.resolve(_tables);} }
     }
 }
 
@@ -4954,12 +4959,12 @@ export  class TestNull  {
     }
 
     readonly id: number
-    readonly x1?: number
-    readonly x2?: test.DemoEnum
-    readonly x3?: test.DemoType1
-    readonly x4?: test.DemoDynamic
-    readonly s1?: string
-    readonly s2?: string
+    readonly x1: number|undefined
+    readonly x2: test.DemoEnum|undefined
+    readonly x3: test.DemoType1|undefined
+    readonly x4: test.DemoDynamic|undefined
+    readonly s1: string|undefined
+    readonly s2: string|undefined
 
     resolve(_tables: Map<string, any>) {
         if (this.x3 != null) { this.x3.resolve(_tables);}
@@ -5476,7 +5481,6 @@ export  class DefineFromExcel  {
     readonly x5: number
     readonly x6: number
     readonly x8: number
-    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
     readonly x10: string
     readonly x13: test.ETestQuality
     readonly x14: test.DemoDynamic
@@ -5487,7 +5491,6 @@ export  class DefineFromExcel  {
     readonly k9: test.DemoE2[]
 
     resolve(_tables: Map<string, any>) {
-        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
     }
@@ -5841,7 +5844,6 @@ export  class DefineFromExcel2  {
     readonly x5: number
     readonly x6: number
     readonly x8: number
-    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
     readonly x10: string
     readonly x13: test.ETestQuality
     readonly x14: test.DemoDynamic
@@ -5852,7 +5854,6 @@ export  class DefineFromExcel2  {
     readonly k9: test.DemoE2[]
 
     resolve(_tables: Map<string, any>) {
-        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
     }
@@ -6023,85 +6024,85 @@ export class Tables {
 
     constructor(loader: ByteBufLoader) {
         let tables = new Map<string, any>()
-        this._TbBlackboard = new ai.TbBlackboard(loader('ai.TbBlackboard')) 
+        this._TbBlackboard = new ai.TbBlackboard(loader('ai_tbblackboard')) 
         tables.set('ai.TbBlackboard', this._TbBlackboard)
-        this._TbBehaviorTree = new ai.TbBehaviorTree(loader('ai.TbBehaviorTree')) 
+        this._TbBehaviorTree = new ai.TbBehaviorTree(loader('ai_tbbehaviortree')) 
         tables.set('ai.TbBehaviorTree', this._TbBehaviorTree)
-        this._TbClazz = new blueprint.TbClazz(loader('blueprint.TbClazz')) 
+        this._TbClazz = new blueprint.TbClazz(loader('blueprint_tbclazz')) 
         tables.set('blueprint.TbClazz', this._TbClazz)
-        this._TbDrop = new bonus.TbDrop(loader('bonus.TbDrop')) 
+        this._TbDrop = new bonus.TbDrop(loader('bonus_tbdrop')) 
         tables.set('bonus.TbDrop', this._TbDrop)
-        this._TbGlobalConfig = new common.TbGlobalConfig(loader('common.TbGlobalConfig')) 
+        this._TbGlobalConfig = new common.TbGlobalConfig(loader('common_tbglobalconfig')) 
         tables.set('common.TbGlobalConfig', this._TbGlobalConfig)
-        this._TbDummy = new common.TbDummy(loader('common.TbDummy')) 
+        this._TbDummy = new common.TbDummy(loader('common_tbdummy')) 
         tables.set('common.TbDummy', this._TbDummy)
-        this._TbErrorInfo = new error.TbErrorInfo(loader('error.TbErrorInfo')) 
+        this._TbErrorInfo = new error.TbErrorInfo(loader('error_tberrorinfo')) 
         tables.set('error.TbErrorInfo', this._TbErrorInfo)
-        this._TbCodeInfo = new error.TbCodeInfo(loader('error.TbCodeInfo')) 
+        this._TbCodeInfo = new error.TbCodeInfo(loader('error_tbcodeinfo')) 
         tables.set('error.TbCodeInfo', this._TbCodeInfo)
-        this._TbItem = new item.TbItem(loader('item.TbItem')) 
+        this._TbItem = new item.TbItem(loader('item_tbitem')) 
         tables.set('item.TbItem', this._TbItem)
-        this._TbItemFunc = new item.TbItemFunc(loader('item.TbItemFunc')) 
+        this._TbItemFunc = new item.TbItemFunc(loader('item_tbitemfunc')) 
         tables.set('item.TbItemFunc', this._TbItemFunc)
-        this._TbItemExtra = new item.TbItemExtra(loader('item.TbItemExtra')) 
+        this._TbItemExtra = new item.TbItemExtra(loader('item_tbitemextra')) 
         tables.set('item.TbItemExtra', this._TbItemExtra)
-        this._TbL10NDemo = new l10n.TbL10NDemo(loader('l10n.TbL10NDemo')) 
+        this._TbL10NDemo = new l10n.TbL10NDemo(loader('l10n_tbl10ndemo')) 
         tables.set('l10n.TbL10NDemo', this._TbL10NDemo)
-        this._TbPatchDemo = new l10n.TbPatchDemo(loader('l10n.TbPatchDemo')) 
+        this._TbPatchDemo = new l10n.TbPatchDemo(loader('l10n_tbpatchdemo')) 
         tables.set('l10n.TbPatchDemo', this._TbPatchDemo)
-        this._TbSystemMail = new mail.TbSystemMail(loader('mail.TbSystemMail')) 
+        this._TbSystemMail = new mail.TbSystemMail(loader('mail_tbsystemmail')) 
         tables.set('mail.TbSystemMail', this._TbSystemMail)
-        this._TbGlobalMail = new mail.TbGlobalMail(loader('mail.TbGlobalMail')) 
+        this._TbGlobalMail = new mail.TbGlobalMail(loader('mail_tbglobalmail')) 
         tables.set('mail.TbGlobalMail', this._TbGlobalMail)
-        this._TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr')) 
+        this._TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader('role_tbrolelevelexpattr')) 
         tables.set('role.TbRoleLevelExpAttr', this._TbRoleLevelExpAttr)
-        this._TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient')) 
+        this._TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader('role_tbrolelevelbonuscoefficient')) 
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
-        this._TbTestTag = new tag.TbTestTag(loader('tag.TbTestTag')) 
+        this._TbTestTag = new tag.TbTestTag(loader('tag_tbtesttag')) 
         tables.set('tag.TbTestTag', this._TbTestTag)
-        this._TbFullTypes = new test.TbFullTypes(loader('test.TbFullTypes')) 
+        this._TbFullTypes = new test.TbFullTypes(loader('test_tbfulltypes')) 
         tables.set('test.TbFullTypes', this._TbFullTypes)
-        this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton')) 
+        this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton')) 
         tables.set('test.TbSingleton', this._TbSingleton)
-        this._TbDataFromMisc = new test.TbDataFromMisc(loader('test.TbDataFromMisc')) 
+        this._TbDataFromMisc = new test.TbDataFromMisc(loader('test_tbdatafrommisc')) 
         tables.set('test.TbDataFromMisc', this._TbDataFromMisc)
-        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord')) 
+        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test_tbmultirowrecord')) 
         tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord)
-        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle')) 
+        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test_tbmultirowtitle')) 
         tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
-        this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull')) 
+        this._TbTestNull = new test.TbTestNull(loader('test_tbtestnull')) 
         tables.set('test.TbTestNull', this._TbTestNull)
-        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive')) 
+        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test_tbdemoprimitive')) 
         tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive)
-        this._TbTestString = new test.TbTestString(loader('test.TbTestString')) 
+        this._TbTestString = new test.TbTestString(loader('test_tbteststring')) 
         tables.set('test.TbTestString', this._TbTestString)
-        this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup')) 
+        this._TbDemoGroup = new test.TbDemoGroup(loader('test_tbdemogroup')) 
         tables.set('test.TbDemoGroup', this._TbDemoGroup)
-        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C')) 
+        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test_tbdemogroup_c')) 
         tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C)
-        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S')) 
+        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test_tbdemogroup_s')) 
         tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S)
-        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E')) 
+        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test_tbdemogroup_e')) 
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
-        this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal')) 
+        this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal')) 
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
-        this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding')) 
+        this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')) 
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
-        this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test.TbDefineFromExcel')) 
+        this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel')) 
         tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel)
-        this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne')) 
+        this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')) 
         tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne)
-        this._TbTestJson2 = new test.TbTestJson2(loader('test.TbTestJson2')) 
+        this._TbTestJson2 = new test.TbTestJson2(loader('test_tbtestjson2')) 
         tables.set('test.TbTestJson2', this._TbTestJson2)
-        this._TbTestIndex = new test.TbTestIndex(loader('test.TbTestIndex')) 
+        this._TbTestIndex = new test.TbTestIndex(loader('test_tbtestindex')) 
         tables.set('test.TbTestIndex', this._TbTestIndex)
-        this._TbTestMap = new test.TbTestMap(loader('test.TbTestMap')) 
+        this._TbTestMap = new test.TbTestMap(loader('test_tbtestmap')) 
         tables.set('test.TbTestMap', this._TbTestMap)
-        this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel')) 
+        this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')) 
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
-        this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test.TbDefineFromExcel2')) 
+        this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2')) 
         tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2)
-        this._TbTestExcelBean = new test.TbTestExcelBean(loader('test.TbTestExcelBean')) 
+        this._TbTestExcelBean = new test.TbTestExcelBean(loader('test_tbtestexcelbean')) 
         tables.set('test.TbTestExcelBean', this._TbTestExcelBean)
 
         this._TbBlackboard.resolve(tables) 
