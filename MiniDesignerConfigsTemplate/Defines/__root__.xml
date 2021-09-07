@@ -2,8 +2,8 @@
 
 	<topmodule name="cfg"/>
 
-	<branch name="cn"/>
-	<branch name="en"/>
+	<patch name="cn"/>
+	<patch name="en"/>
 
 	<group name="c" default="1"/> client
 	<group name="s" default="1"/> server

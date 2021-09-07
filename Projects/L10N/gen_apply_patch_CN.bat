@@ -11,7 +11,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --gen_types data_lua ^
  -s all ^
 --export_test_data ^
---branch cn ^
---branch_input_data_dir l10n/cn
+--patch cn ^
+--patch_input_data_dir l10n/cn
 
 pause

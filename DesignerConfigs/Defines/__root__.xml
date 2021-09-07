@@ -2,10 +2,10 @@
 
 	<topmodule name="cfg"/>
 
-	<branch name="cn"/>
-	<branch name="tw"/>
-	<branch name="en"/>
-	<branch name="jp"/>
+	<patch name="cn"/>
+	<patch name="tw"/>
+	<patch name="en"/>
+	<patch name="jp"/>
 
 	<group name="c" default="1"/> client
 	<group name="s" default="1"/> server
