@@ -2996,6 +2996,10 @@ class test_MultiRowRecord :
         for _ek, _ev in _json_['multi_rows4']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
         self.multi_rows5 = []
         for _ele in _json_['multi_rows5']: _e = test_MultiRowType3(_ele); self.multi_rows5.append(_e)
+        self.multi_rows6 = {}
+        for _ek, _ev in _json_['multi_rows6']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows6[_k] =_v
+        self.multi_rows7 = {}
+        for _ek, _ev in _json_['multi_rows7']: _k = _ek; _v = _ev; self.multi_rows7[_k] =_v
 
 
 
@@ -3649,43 +3653,43 @@ class Tables:
     #def TbTestExcelBean : return self._TbTestExcelBean
 
     def __init__(self, loader):
-        self.TbBlackboard = ai_TbBlackboard(loader('ai.TbBlackboard')); 
-        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai.TbBehaviorTree')); 
-        self.TbClazz = blueprint_TbClazz(loader('blueprint.TbClazz')); 
-        self.TbDrop = bonus_TbDrop(loader('bonus.TbDrop')); 
-        self.TbGlobalConfig = common_TbGlobalConfig(loader('common.TbGlobalConfig')); 
-        self.TbDummy = common_TbDummy(loader('common.TbDummy')); 
-        self.TbErrorInfo = error_TbErrorInfo(loader('error.TbErrorInfo')); 
-        self.TbCodeInfo = error_TbCodeInfo(loader('error.TbCodeInfo')); 
-        self.TbItem = item_TbItem(loader('item.TbItem')); 
-        self.TbItemFunc = item_TbItemFunc(loader('item.TbItemFunc')); 
-        self.TbItemExtra = item_TbItemExtra(loader('item.TbItemExtra')); 
-        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n.TbL10NDemo')); 
-        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n.TbPatchDemo')); 
-        self.TbSystemMail = mail_TbSystemMail(loader('mail.TbSystemMail')); 
-        self.TbGlobalMail = mail_TbGlobalMail(loader('mail.TbGlobalMail')); 
-        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr')); 
-        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient')); 
-        self.TbTestTag = tag_TbTestTag(loader('tag.TbTestTag')); 
-        self.TbFullTypes = test_TbFullTypes(loader('test.TbFullTypes')); 
-        self.TbSingleton = test_TbSingleton(loader('test.TbSingleton')); 
-        self.TbDataFromMisc = test_TbDataFromMisc(loader('test.TbDataFromMisc')); 
-        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test.TbMultiRowRecord')); 
-        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test.TbMultiRowTitle')); 
-        self.TbTestNull = test_TbTestNull(loader('test.TbTestNull')); 
-        self.TbDemoPrimitive = test_TbDemoPrimitive(loader('test.TbDemoPrimitive')); 
-        self.TbTestString = test_TbTestString(loader('test.TbTestString')); 
-        self.TbDemoGroup = test_TbDemoGroup(loader('test.TbDemoGroup')); 
-        self.TbDemoGroup_C = test_TbDemoGroup_C(loader('test.TbDemoGroup_C')); 
-        self.TbDemoGroup_S = test_TbDemoGroup_S(loader('test.TbDemoGroup_S')); 
-        self.TbDemoGroup_E = test_TbDemoGroup_E(loader('test.TbDemoGroup_E')); 
-        self.TbTestGlobal = test_TbTestGlobal(loader('test.TbTestGlobal')); 
-        self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding')); 
-        self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test.TbDefineFromExcel')); 
-        self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne')); 
-        self.TbTestJson2 = test_TbTestJson2(loader('test.TbTestJson2')); 
-        self.TbTestIndex = test_TbTestIndex(loader('test.TbTestIndex')); 
-        self.TbTestMap = test_TbTestMap(loader('test.TbTestMap')); 
-        self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel')); 
-        self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test.TbDefineFromExcel2')); 
-        self.TbTestExcelBean = test_TbTestExcelBean(loader('test.TbTestExcelBean')); 
+        self.TbBlackboard = ai_TbBlackboard(loader('ai_tbblackboard')); 
+        self.TbBehaviorTree = ai_TbBehaviorTree(loader('ai_tbbehaviortree')); 
+        self.TbClazz = blueprint_TbClazz(loader('blueprint_tbclazz')); 
+        self.TbDrop = bonus_TbDrop(loader('bonus_tbdrop')); 
+        self.TbGlobalConfig = common_TbGlobalConfig(loader('common_tbglobalconfig')); 
+        self.TbDummy = common_TbDummy(loader('common_tbdummy')); 
+        self.TbErrorInfo = error_TbErrorInfo(loader('error_tberrorinfo')); 
+        self.TbCodeInfo = error_TbCodeInfo(loader('error_tbcodeinfo')); 
+        self.TbItem = item_TbItem(loader('item_tbitem')); 
+        self.TbItemFunc = item_TbItemFunc(loader('item_tbitemfunc')); 
+        self.TbItemExtra = item_TbItemExtra(loader('item_tbitemextra')); 
+        self.TbL10NDemo = l10n_TbL10NDemo(loader('l10n_tbl10ndemo')); 
+        self.TbPatchDemo = l10n_TbPatchDemo(loader('l10n_tbpatchdemo')); 
+        self.TbSystemMail = mail_TbSystemMail(loader('mail_tbsystemmail')); 
+        self.TbGlobalMail = mail_TbGlobalMail(loader('mail_tbglobalmail')); 
+        self.TbRoleLevelExpAttr = role_TbRoleLevelExpAttr(loader('role_tbrolelevelexpattr')); 
+        self.TbRoleLevelBonusCoefficient = role_TbRoleLevelBonusCoefficient(loader('role_tbrolelevelbonuscoefficient')); 
+        self.TbTestTag = tag_TbTestTag(loader('tag_tbtesttag')); 
+        self.TbFullTypes = test_TbFullTypes(loader('test_tbfulltypes')); 
+        self.TbSingleton = test_TbSingleton(loader('test_tbsingleton')); 
+        self.TbDataFromMisc = test_TbDataFromMisc(loader('test_tbdatafrommisc')); 
+        self.TbMultiRowRecord = test_TbMultiRowRecord(loader('test_tbmultirowrecord')); 
+        self.TbMultiRowTitle = test_TbMultiRowTitle(loader('test_tbmultirowtitle')); 
+        self.TbTestNull = test_TbTestNull(loader('test_tbtestnull')); 
+        self.TbDemoPrimitive = test_TbDemoPrimitive(loader('test_tbdemoprimitive')); 
+        self.TbTestString = test_TbTestString(loader('test_tbteststring')); 
+        self.TbDemoGroup = test_TbDemoGroup(loader('test_tbdemogroup')); 
+        self.TbDemoGroup_C = test_TbDemoGroup_C(loader('test_tbdemogroup_c')); 
+        self.TbDemoGroup_S = test_TbDemoGroup_S(loader('test_tbdemogroup_s')); 
+        self.TbDemoGroup_E = test_TbDemoGroup_E(loader('test_tbdemogroup_e')); 
+        self.TbTestGlobal = test_TbTestGlobal(loader('test_tbtestglobal')); 
+        self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')); 
+        self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test_tbdefinefromexcel')); 
+        self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')); 
+        self.TbTestJson2 = test_TbTestJson2(loader('test_tbtestjson2')); 
+        self.TbTestIndex = test_TbTestIndex(loader('test_tbtestindex')); 
+        self.TbTestMap = test_TbTestMap(loader('test_tbtestmap')); 
+        self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')); 
+        self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test_tbdefinefromexcel2')); 
+        self.TbTestExcelBean = test_TbTestExcelBean(loader('test_tbtestexcelbean')); 

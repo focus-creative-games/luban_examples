@@ -14,6 +14,10 @@
 
     添加自定义单元测试的方法请直接参考项目内已有的代码。
 
+- MiniDesignerConfigsTemplate
+	
+	一个最简单的配置模板，用于快速创建一个新的配置项目
+
 - Projects 一些覆盖常见平台、引擎、语言的示例项目
 
 - Benchmark 性能测试项目
@@ -25,7 +29,7 @@
 
 Projects里的项目都已经过测试，已经包含了生成代码和数据，可以直接运行。
 
-默认Luban.Client使用云生成，需要启动Luban.Server。新上手用户，推荐使用Luban.ClientServer替代Luban.Client
+默认Luban.Client使用云生成，需要启动Luban.Server。新上手用户，**推荐使用Luban.ClientServer替代Luban.Client**
 
 将运行脚本中%LUBAN_CLIENT%变量的Luban.Client/Luban.Client 改为 Luban.ClientServer/Luban.ClientServer，同时删除 -h (--host ) 选项及其参数（如果指定了-h选项，则不启动内嵌Luban.Server，使用云生成）。
 
