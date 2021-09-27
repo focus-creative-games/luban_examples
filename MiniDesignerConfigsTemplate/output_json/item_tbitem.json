@@ -1,56 +1,74 @@
 [
   {
     "id": 10000,
-    "name": "道具1",
-    "desc": "吃了加血50",
-    "count": 1
+    "name": "发型",
+    "desc": "初始发型",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10001,
-    "name": "道具2",
-    "desc": "吃了加血51",
-    "count": 1
+    "name": "外套",
+    "desc": "初始外套",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10002,
-    "name": "道具3",
-    "desc": "吃了加血52",
-    "count": 1
+    "name": "上衣",
+    "desc": "初始上衣",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10003,
-    "name": "道具4",
-    "desc": "吃了加血53",
-    "count": 1
+    "name": "裙子",
+    "desc": "初始下装",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10004,
-    "name": "道具5",
-    "desc": "吃了加血54",
-    "count": 1
+    "name": "袜子",
+    "desc": "初始袜子",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10005,
-    "name": "道具6",
-    "desc": "吃了加血55",
-    "count": 1
+    "name": "鞋子",
+    "desc": "初始鞋子",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10006,
-    "name": "道具7",
-    "desc": "吃了加血56",
-    "count": 1
+    "name": "发饰",
+    "desc": "初始发饰",
+    "price": 100,
+    "batch_useable": false
   },
   {
     "id": 10007,
-    "name": "道具8",
-    "desc": "吃了加血57",
-    "count": 1
+    "name": "中秋节发饰",
+    "desc": "中秋节发饰",
+    "price": 200,
+    "expire_time": 1633881599,
+    "batch_useable": false
   },
   {
     "id": 10008,
-    "name": "道具9",
-    "desc": "吃了加血58",
-    "count": 1
+    "name": "中秋节鞋子",
+    "desc": "中秋节鞋子",
+    "price": 300,
+    "expire_time": 1633967999,
+    "batch_useable": false
+  },
+  {
+    "id": 10009,
+    "name": "礼包",
+    "desc": "中秋节礼包",
+    "price": 100,
+    "batch_useable": true
   }
 ]
