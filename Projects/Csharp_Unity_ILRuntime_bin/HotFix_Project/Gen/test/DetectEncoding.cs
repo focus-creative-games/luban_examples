@@ -27,8 +27,8 @@ public sealed partial class DetectEncoding :  Bright.Config.BeanBase
         return new test.DetectEncoding(_buf);
     }
 
-    public int Id {get; private set;}
-    public string Name {get; private set;}
+    public int Id { get; private set; }
+    public string Name { get; private set; }
 
     public const int ID = -1154609646;
     public override int GetTypeId() => ID;

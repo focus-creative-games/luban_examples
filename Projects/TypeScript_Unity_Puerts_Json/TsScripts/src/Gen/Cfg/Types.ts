@@ -10,8 +10,8 @@
 
 export class Vector2 {
     static deserializeFromJson(json: any): Vector2 {
-        let x = json['x']
-        let y = json['y']
+        let x = json.x
+        let y = json.y
         if (x == null || y == null) {
             throw new Error()
         }
@@ -28,9 +28,9 @@ export class Vector2 {
 
 export class Vector3 {
     static deserializeFromJson(json: any): Vector3 {
-        let x = json['x']
-        let y = json['y']
-        let z = json['z']
+        let x = json.x
+        let y = json.y
+        let z = json.z
         if (x == null || y == null || z == null) {
             throw new Error()
         }
@@ -50,10 +50,10 @@ export class Vector3 {
 
 export class Vector4 {
     static deserializeFromJson(json: any): Vector4 {
-        let x = json['x']
-        let y = json['y']
-        let z = json['z']
-        let w = json['w']
+        let x = json.x
+        let y = json.y
+        let z = json.z
+        let w = json.w
         if (x == null || y == null || z == null || w == null) {
             throw new Error()
         }
@@ -74,22 +74,6 @@ export class Vector4 {
 }
 
 export namespace cfg {
-export namespace role {
-export class Consts {
-    static MAX_NAME_LENGTH = 20;
-    static MAX_USER_ROLE_NUM = 10;
-}
-}
-
-export namespace test {
-export class DemoConst {
-    static x1 = 0;
-    static x2 = 3242;
-    static x3 = 444.3;
-    static x4 = 55.3;
-}
-}
-
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
@@ -857,16 +841,16 @@ export class TbBlackboard{
 
 
 export namespace ai {
-export  class Blackboard  {
+export class Blackboard {
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.parent_name == undefined) { throw new Error() }
+        if (_json_.parent_name === undefined) { throw new Error() }
         this.parentName = _json_.parent_name
-        if (_json_.keys == undefined) { throw new Error() }
+        if (_json_.keys === undefined) { throw new Error() }
         { this.keys = []; for(let _ele of _json_.keys) { let _e : ai.BlackboardKey; _e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
     }
 
@@ -887,18 +871,18 @@ export  class Blackboard  {
 
 
 export namespace ai {
-export  class BlackboardKey  {
+export class BlackboardKey {
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.is_static == undefined) { throw new Error() }
+        if (_json_.is_static === undefined) { throw new Error() }
         this.isStatic = _json_.is_static
-        if (_json_.type == undefined) { throw new Error() }
+        if (_json_.type === undefined) { throw new Error() }
         this.type = _json_.type
-        if (_json_.type_class_name == undefined) { throw new Error() }
+        if (_json_.type_class_name === undefined) { throw new Error() }
         this.typeClassName = _json_.type_class_name
     }
 
@@ -947,18 +931,18 @@ export class TbBehaviorTree{
 
 
 export namespace ai {
-export  class BehaviorTree  {
+export class BehaviorTree {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.blackboard_id == undefined) { throw new Error() }
+        if (_json_.blackboard_id === undefined) { throw new Error() }
         this.blackboardId = _json_.blackboard_id
-        if (_json_.root == undefined) { throw new Error() }
+        if (_json_.root === undefined) { throw new Error() }
         this.root = ai.ComposeNode.constructorFrom(_json_.root)
     }
 
@@ -980,8 +964,8 @@ export  class BehaviorTree  {
 
 
 export namespace ai {
-export  abstract  class Node  {
-    static constructorFrom(_json_: any): Node {
+export abstract class Node {
+    static constructorFrom(_json_: any): Node{
         switch (_json_.__type__) {
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_)
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_)
@@ -1011,9 +995,9 @@ export  abstract  class Node  {
     }
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.node_name == undefined) { throw new Error() }
+        if (_json_.node_name === undefined) { throw new Error() }
         this.nodeName = _json_.node_name
     }
 
@@ -1029,8 +1013,8 @@ export  abstract  class Node  {
 
 
 export namespace ai {
-export  abstract  class Service  extends ai.Node {
-    static constructorFrom(_json_: any): Service {
+export abstract class Service extends ai.Node {
+    static constructorFrom(_json_: any): Service{
         switch (_json_.__type__) {
             case 'UeSetDefaultFocus': return new ai.UeSetDefaultFocus(_json_)
             case 'ExecuteTimeStatistic': return new ai.ExecuteTimeStatistic(_json_)
@@ -1057,11 +1041,11 @@ export  abstract  class Service  extends ai.Node {
 
 
 export namespace ai {
-export  class UeSetDefaultFocus  extends ai.Service {
+export class UeSetDefaultFocus extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.keyboard_key == undefined) { throw new Error() }
+        if (_json_.keyboard_key === undefined) { throw new Error() }
         this.keyboardKey = _json_.keyboard_key
     }
 
@@ -1077,7 +1061,7 @@ export  class UeSetDefaultFocus  extends ai.Service {
 
 
 export namespace ai {
-export  class ExecuteTimeStatistic  extends ai.Service {
+export class ExecuteTimeStatistic extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
@@ -1094,11 +1078,11 @@ export  class ExecuteTimeStatistic  extends ai.Service {
 
 
 export namespace ai {
-export  class ChooseTarget  extends ai.Service {
+export class ChooseTarget extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.result_target_key == undefined) { throw new Error() }
+        if (_json_.result_target_key === undefined) { throw new Error() }
         this.resultTargetKey = _json_.result_target_key
     }
 
@@ -1114,11 +1098,11 @@ export  class ChooseTarget  extends ai.Service {
 
 
 export namespace ai {
-export  class KeepFaceTarget  extends ai.Service {
+export class KeepFaceTarget extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.target_actor_key == undefined) { throw new Error() }
+        if (_json_.target_actor_key === undefined) { throw new Error() }
         this.targetActorKey = _json_.target_actor_key
     }
 
@@ -1134,11 +1118,11 @@ export  class KeepFaceTarget  extends ai.Service {
 
 
 export namespace ai {
-export  class GetOwnerPlayer  extends ai.Service {
+export class GetOwnerPlayer extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.player_actor_key == undefined) { throw new Error() }
+        if (_json_.player_actor_key === undefined) { throw new Error() }
         this.playerActorKey = _json_.player_actor_key
     }
 
@@ -1154,27 +1138,27 @@ export  class GetOwnerPlayer  extends ai.Service {
 
 
 export namespace ai {
-export  class UpdateDailyBehaviorProps  extends ai.Service {
+export class UpdateDailyBehaviorProps extends ai.Service {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.satiety_key == undefined) { throw new Error() }
+        if (_json_.satiety_key === undefined) { throw new Error() }
         this.satietyKey = _json_.satiety_key
-        if (_json_.energy_key == undefined) { throw new Error() }
+        if (_json_.energy_key === undefined) { throw new Error() }
         this.energyKey = _json_.energy_key
-        if (_json_.mood_key == undefined) { throw new Error() }
+        if (_json_.mood_key === undefined) { throw new Error() }
         this.moodKey = _json_.mood_key
-        if (_json_.satiety_lower_threshold_key == undefined) { throw new Error() }
+        if (_json_.satiety_lower_threshold_key === undefined) { throw new Error() }
         this.satietyLowerThresholdKey = _json_.satiety_lower_threshold_key
-        if (_json_.satiety_upper_threshold_key == undefined) { throw new Error() }
+        if (_json_.satiety_upper_threshold_key === undefined) { throw new Error() }
         this.satietyUpperThresholdKey = _json_.satiety_upper_threshold_key
-        if (_json_.energy_lower_threshold_key == undefined) { throw new Error() }
+        if (_json_.energy_lower_threshold_key === undefined) { throw new Error() }
         this.energyLowerThresholdKey = _json_.energy_lower_threshold_key
-        if (_json_.energy_upper_threshold_key == undefined) { throw new Error() }
+        if (_json_.energy_upper_threshold_key === undefined) { throw new Error() }
         this.energyUpperThresholdKey = _json_.energy_upper_threshold_key
-        if (_json_.mood_lower_threshold_key == undefined) { throw new Error() }
+        if (_json_.mood_lower_threshold_key === undefined) { throw new Error() }
         this.moodLowerThresholdKey = _json_.mood_lower_threshold_key
-        if (_json_.mood_upper_threshold_key == undefined) { throw new Error() }
+        if (_json_.mood_upper_threshold_key === undefined) { throw new Error() }
         this.moodUpperThresholdKey = _json_.mood_upper_threshold_key
     }
 
@@ -1198,8 +1182,8 @@ export  class UpdateDailyBehaviorProps  extends ai.Service {
 
 
 export namespace ai {
-export  abstract  class Decorator  extends ai.Node {
-    static constructorFrom(_json_: any): Decorator {
+export abstract class Decorator extends ai.Node {
+    static constructorFrom(_json_: any): Decorator{
         switch (_json_.__type__) {
             case 'UeLoop': return new ai.UeLoop(_json_)
             case 'UeCooldown': return new ai.UeCooldown(_json_)
@@ -1214,7 +1198,7 @@ export  abstract  class Decorator  extends ai.Node {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.flow_abort_mode == undefined) { throw new Error() }
+        if (_json_.flow_abort_mode === undefined) { throw new Error() }
         this.flowAbortMode = _json_.flow_abort_mode
     }
 
@@ -1230,15 +1214,15 @@ export  abstract  class Decorator  extends ai.Node {
 
 
 export namespace ai {
-export  class UeLoop  extends ai.Decorator {
+export class UeLoop extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.num_loops == undefined) { throw new Error() }
+        if (_json_.num_loops === undefined) { throw new Error() }
         this.numLoops = _json_.num_loops
-        if (_json_.infinite_loop == undefined) { throw new Error() }
+        if (_json_.infinite_loop === undefined) { throw new Error() }
         this.infiniteLoop = _json_.infinite_loop
-        if (_json_.infinite_loop_timeout_time == undefined) { throw new Error() }
+        if (_json_.infinite_loop_timeout_time === undefined) { throw new Error() }
         this.infiniteLoopTimeoutTime = _json_.infinite_loop_timeout_time
     }
 
@@ -1256,11 +1240,11 @@ export  class UeLoop  extends ai.Decorator {
 
 
 export namespace ai {
-export  class UeCooldown  extends ai.Decorator {
+export class UeCooldown extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.cooldown_time == undefined) { throw new Error() }
+        if (_json_.cooldown_time === undefined) { throw new Error() }
         this.cooldownTime = _json_.cooldown_time
     }
 
@@ -1276,11 +1260,11 @@ export  class UeCooldown  extends ai.Decorator {
 
 
 export namespace ai {
-export  class UeTimeLimit  extends ai.Decorator {
+export class UeTimeLimit extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.limit_time == undefined) { throw new Error() }
+        if (_json_.limit_time === undefined) { throw new Error() }
         this.limitTime = _json_.limit_time
     }
 
@@ -1296,15 +1280,15 @@ export  class UeTimeLimit  extends ai.Decorator {
 
 
 export namespace ai {
-export  class UeBlackboard  extends ai.Decorator {
+export class UeBlackboard extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.notify_observer == undefined) { throw new Error() }
+        if (_json_.notify_observer === undefined) { throw new Error() }
         this.notifyObserver = _json_.notify_observer
-        if (_json_.blackboard_key == undefined) { throw new Error() }
+        if (_json_.blackboard_key === undefined) { throw new Error() }
         this.blackboardKey = _json_.blackboard_key
-        if (_json_.key_query == undefined) { throw new Error() }
+        if (_json_.key_query === undefined) { throw new Error() }
         this.keyQuery = ai.KeyQueryOperator.constructorFrom(_json_.key_query)
     }
 
@@ -1323,8 +1307,8 @@ export  class UeBlackboard  extends ai.Decorator {
 
 
 export namespace ai {
-export  abstract  class KeyQueryOperator  {
-    static constructorFrom(_json_: any): KeyQueryOperator {
+export abstract class KeyQueryOperator {
+    static constructorFrom(_json_: any): KeyQueryOperator{
         switch (_json_.__type__) {
             case 'IsSet': return new ai.IsSet(_json_)
             case 'IsNotSet': return new ai.IsNotSet(_json_)
@@ -1346,7 +1330,7 @@ export  abstract  class KeyQueryOperator  {
 
 
 export namespace ai {
-export  class IsSet  extends ai.KeyQueryOperator {
+export class IsSet extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
         super(_json_)
@@ -1363,7 +1347,7 @@ export  class IsSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-export  class IsNotSet  extends ai.KeyQueryOperator {
+export class IsNotSet extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
         super(_json_)
@@ -1380,13 +1364,13 @@ export  class IsNotSet  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-export  class BinaryOperator  extends ai.KeyQueryOperator {
+export class BinaryOperator extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.oper == undefined) { throw new Error() }
+        if (_json_.oper === undefined) { throw new Error() }
         this.oper = _json_.oper
-        if (_json_.data == undefined) { throw new Error() }
+        if (_json_.data === undefined) { throw new Error() }
         this.data = ai.KeyData.constructorFrom(_json_.data)
     }
 
@@ -1404,8 +1388,8 @@ export  class BinaryOperator  extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-export  abstract  class KeyData  {
-    static constructorFrom(_json_: any): KeyData {
+export abstract class KeyData {
+    static constructorFrom(_json_: any): KeyData{
         switch (_json_.__type__) {
             case 'FloatKeyData': return new ai.FloatKeyData(_json_)
             case 'IntKeyData': return new ai.IntKeyData(_json_)
@@ -1428,11 +1412,11 @@ export  abstract  class KeyData  {
 
 
 export namespace ai {
-export  class FloatKeyData  extends ai.KeyData {
+export class FloatKeyData extends ai.KeyData {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -1448,11 +1432,11 @@ export  class FloatKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-export  class IntKeyData  extends ai.KeyData {
+export class IntKeyData extends ai.KeyData {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -1468,11 +1452,11 @@ export  class IntKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-export  class StringKeyData  extends ai.KeyData {
+export class StringKeyData extends ai.KeyData {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -1488,11 +1472,11 @@ export  class StringKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-export  class BlackboardKeyData  extends ai.KeyData {
+export class BlackboardKeyData extends ai.KeyData {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -1508,7 +1492,7 @@ export  class BlackboardKeyData  extends ai.KeyData {
 
 
 export namespace ai {
-export  class UeForceSuccess  extends ai.Decorator {
+export class UeForceSuccess extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
@@ -1525,15 +1509,15 @@ export  class UeForceSuccess  extends ai.Decorator {
 
 
 export namespace ai {
-export  class IsAtLocation  extends ai.Decorator {
+export class IsAtLocation extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.acceptable_radius == undefined) { throw new Error() }
+        if (_json_.acceptable_radius === undefined) { throw new Error() }
         this.acceptableRadius = _json_.acceptable_radius
-        if (_json_.keyboard_key == undefined) { throw new Error() }
+        if (_json_.keyboard_key === undefined) { throw new Error() }
         this.keyboardKey = _json_.keyboard_key
-        if (_json_.inverse_condition == undefined) { throw new Error() }
+        if (_json_.inverse_condition === undefined) { throw new Error() }
         this.inverseCondition = _json_.inverse_condition
     }
 
@@ -1551,17 +1535,17 @@ export  class IsAtLocation  extends ai.Decorator {
 
 
 export namespace ai {
-export  class DistanceLessThan  extends ai.Decorator {
+export class DistanceLessThan extends ai.Decorator {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.actor1_key == undefined) { throw new Error() }
+        if (_json_.actor1_key === undefined) { throw new Error() }
         this.actor1Key = _json_.actor1_key
-        if (_json_.actor2_key == undefined) { throw new Error() }
+        if (_json_.actor2_key === undefined) { throw new Error() }
         this.actor2Key = _json_.actor2_key
-        if (_json_.distance == undefined) { throw new Error() }
+        if (_json_.distance === undefined) { throw new Error() }
         this.distance = _json_.distance
-        if (_json_.reverse_result == undefined) { throw new Error() }
+        if (_json_.reverse_result === undefined) { throw new Error() }
         this.reverseResult = _json_.reverse_result
     }
 
@@ -1580,8 +1564,8 @@ export  class DistanceLessThan  extends ai.Decorator {
 
 
 export namespace ai {
-export  abstract  class FlowNode  extends ai.Node {
-    static constructorFrom(_json_: any): FlowNode {
+export abstract class FlowNode extends ai.Node {
+    static constructorFrom(_json_: any): FlowNode{
         switch (_json_.__type__) {
             case 'Sequence': return new ai.Sequence(_json_)
             case 'Selector': return new ai.Selector(_json_)
@@ -1599,9 +1583,9 @@ export  abstract  class FlowNode  extends ai.Node {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.decorators == undefined) { throw new Error() }
+        if (_json_.decorators === undefined) { throw new Error() }
         { this.decorators = []; for(let _ele of _json_.decorators) { let _e : ai.Decorator; _e = ai.Decorator.constructorFrom(_ele); this.decorators.push(_e);}}
-        if (_json_.services == undefined) { throw new Error() }
+        if (_json_.services === undefined) { throw new Error() }
         { this.services = []; for(let _ele of _json_.services) { let _e : ai.Service; _e = ai.Service.constructorFrom(_ele); this.services.push(_e);}}
     }
 
@@ -1620,8 +1604,8 @@ export  abstract  class FlowNode  extends ai.Node {
 
 
 export namespace ai {
-export  abstract  class ComposeNode  extends ai.FlowNode {
-    static constructorFrom(_json_: any): ComposeNode {
+export abstract class ComposeNode extends ai.FlowNode {
+    static constructorFrom(_json_: any): ComposeNode{
         switch (_json_.__type__) {
             case 'Sequence': return new ai.Sequence(_json_)
             case 'Selector': return new ai.Selector(_json_)
@@ -1645,11 +1629,11 @@ export  abstract  class ComposeNode  extends ai.FlowNode {
 
 
 export namespace ai {
-export  class Sequence  extends ai.ComposeNode {
+export class Sequence extends ai.ComposeNode {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.children == undefined) { throw new Error() }
+        if (_json_.children === undefined) { throw new Error() }
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
@@ -1666,11 +1650,11 @@ export  class Sequence  extends ai.ComposeNode {
 
 
 export namespace ai {
-export  class Selector  extends ai.ComposeNode {
+export class Selector extends ai.ComposeNode {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.children == undefined) { throw new Error() }
+        if (_json_.children === undefined) { throw new Error() }
         { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
@@ -1687,15 +1671,15 @@ export  class Selector  extends ai.ComposeNode {
 
 
 export namespace ai {
-export  class SimpleParallel  extends ai.ComposeNode {
+export class SimpleParallel extends ai.ComposeNode {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.finish_mode == undefined) { throw new Error() }
+        if (_json_.finish_mode === undefined) { throw new Error() }
         this.finishMode = _json_.finish_mode
-        if (_json_.main_task == undefined) { throw new Error() }
+        if (_json_.main_task === undefined) { throw new Error() }
         this.mainTask = ai.Task.constructorFrom(_json_.main_task)
-        if (_json_.background_node == undefined) { throw new Error() }
+        if (_json_.background_node === undefined) { throw new Error() }
         this.backgroundNode = ai.FlowNode.constructorFrom(_json_.background_node)
     }
 
@@ -1715,8 +1699,8 @@ export  class SimpleParallel  extends ai.ComposeNode {
 
 
 export namespace ai {
-export  abstract  class Task  extends ai.FlowNode {
-    static constructorFrom(_json_: any): Task {
+export abstract class Task extends ai.FlowNode {
+    static constructorFrom(_json_: any): Task{
         switch (_json_.__type__) {
             case 'UeWait': return new ai.UeWait(_json_)
             case 'UeWaitBlackboardTime': return new ai.UeWaitBlackboardTime(_json_)
@@ -1731,7 +1715,7 @@ export  abstract  class Task  extends ai.FlowNode {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.ignore_restart_self == undefined) { throw new Error() }
+        if (_json_.ignore_restart_self === undefined) { throw new Error() }
         this.ignoreRestartSelf = _json_.ignore_restart_self
     }
 
@@ -1747,13 +1731,13 @@ export  abstract  class Task  extends ai.FlowNode {
 
 
 export namespace ai {
-export  class UeWait  extends ai.Task {
+export class UeWait extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.wait_time == undefined) { throw new Error() }
+        if (_json_.wait_time === undefined) { throw new Error() }
         this.waitTime = _json_.wait_time
-        if (_json_.random_deviation == undefined) { throw new Error() }
+        if (_json_.random_deviation === undefined) { throw new Error() }
         this.randomDeviation = _json_.random_deviation
     }
 
@@ -1770,11 +1754,11 @@ export  class UeWait  extends ai.Task {
 
 
 export namespace ai {
-export  class UeWaitBlackboardTime  extends ai.Task {
+export class UeWaitBlackboardTime extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.blackboard_key == undefined) { throw new Error() }
+        if (_json_.blackboard_key === undefined) { throw new Error() }
         this.blackboardKey = _json_.blackboard_key
     }
 
@@ -1790,13 +1774,13 @@ export  class UeWaitBlackboardTime  extends ai.Task {
 
 
 export namespace ai {
-export  class MoveToTarget  extends ai.Task {
+export class MoveToTarget extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.target_actor_key == undefined) { throw new Error() }
+        if (_json_.target_actor_key === undefined) { throw new Error() }
         this.targetActorKey = _json_.target_actor_key
-        if (_json_.acceptable_radius == undefined) { throw new Error() }
+        if (_json_.acceptable_radius === undefined) { throw new Error() }
         this.acceptableRadius = _json_.acceptable_radius
     }
 
@@ -1813,13 +1797,13 @@ export  class MoveToTarget  extends ai.Task {
 
 
 export namespace ai {
-export  class ChooseSkill  extends ai.Task {
+export class ChooseSkill extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.target_actor_key == undefined) { throw new Error() }
+        if (_json_.target_actor_key === undefined) { throw new Error() }
         this.targetActorKey = _json_.target_actor_key
-        if (_json_.result_skill_id_key == undefined) { throw new Error() }
+        if (_json_.result_skill_id_key === undefined) { throw new Error() }
         this.resultSkillIdKey = _json_.result_skill_id_key
     }
 
@@ -1836,13 +1820,13 @@ export  class ChooseSkill  extends ai.Task {
 
 
 export namespace ai {
-export  class MoveToRandomLocation  extends ai.Task {
+export class MoveToRandomLocation extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.origin_position_key == undefined) { throw new Error() }
+        if (_json_.origin_position_key === undefined) { throw new Error() }
         this.originPositionKey = _json_.origin_position_key
-        if (_json_.radius == undefined) { throw new Error() }
+        if (_json_.radius === undefined) { throw new Error() }
         this.radius = _json_.radius
     }
 
@@ -1859,13 +1843,13 @@ export  class MoveToRandomLocation  extends ai.Task {
 
 
 export namespace ai {
-export  class MoveToLocation  extends ai.Task {
+export class MoveToLocation extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.location == undefined) { throw new Error() }
+        if (_json_.location === undefined) { throw new Error() }
         this.location = Vector3.deserializeFromJson(_json_.location)
-        if (_json_.acceptable_radius == undefined) { throw new Error() }
+        if (_json_.acceptable_radius === undefined) { throw new Error() }
         this.acceptableRadius = _json_.acceptable_radius
     }
 
@@ -1882,11 +1866,11 @@ export  class MoveToLocation  extends ai.Task {
 
 
 export namespace ai {
-export  class DebugPrint  extends ai.Task {
+export class DebugPrint extends ai.Task {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.text == undefined) { throw new Error() }
+        if (_json_.text === undefined) { throw new Error() }
         this.text = _json_.text
     }
 
@@ -1932,8 +1916,8 @@ export class TbClazz{
 
 
 export namespace blueprint {
-export  abstract  class Clazz  {
-    static constructorFrom(_json_: any): Clazz {
+export abstract class Clazz {
+    static constructorFrom(_json_: any): Clazz{
         switch (_json_.__type__) {
             case 'Interface': return new blueprint.Interface(_json_)
             case 'NormalClazz': return new blueprint.NormalClazz(_json_)
@@ -1943,13 +1927,13 @@ export  abstract  class Clazz  {
     }
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.parents == undefined) { throw new Error() }
+        if (_json_.parents === undefined) { throw new Error() }
         { this.parents = []; for(let _ele of _json_.parents) { let _e : blueprint.Clazz; _e = blueprint.Clazz.constructorFrom(_ele); this.parents.push(_e);}}
-        if (_json_.methods == undefined) { throw new Error() }
+        if (_json_.methods === undefined) { throw new Error() }
         { this.methods = []; for(let _ele of _json_.methods) { let _e : blueprint.Method; _e = blueprint.Method.constructorFrom(_ele); this.methods.push(_e);}}
     }
 
@@ -1969,8 +1953,8 @@ export  abstract  class Clazz  {
 
 
 export namespace blueprint {
-export  abstract  class Method  {
-    static constructorFrom(_json_: any): Method {
+export abstract class Method {
+    static constructorFrom(_json_: any): Method{
         switch (_json_.__type__) {
             case 'AbstraceMethod': return new blueprint.AbstraceMethod(_json_)
             case 'ExternalMethod': return new blueprint.ExternalMethod(_json_)
@@ -1980,15 +1964,15 @@ export  abstract  class Method  {
     }
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.is_static == undefined) { throw new Error() }
+        if (_json_.is_static === undefined) { throw new Error() }
         this.isStatic = _json_.is_static
-        if (_json_.return_type == undefined) { throw new Error() }
+        if (_json_.return_type === undefined) { throw new Error() }
         this.returnType = _json_.return_type
-        if (_json_.parameters == undefined) { throw new Error() }
+        if (_json_.parameters === undefined) { throw new Error() }
         { this.parameters = []; for(let _ele of _json_.parameters) { let _e : blueprint.ParamInfo; _e = new blueprint.ParamInfo(_ele); this.parameters.push(_e);}}
     }
 
@@ -2008,14 +1992,14 @@ export  abstract  class Method  {
 
 
 export namespace blueprint {
-export  class ParamInfo  {
+export class ParamInfo {
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.type == undefined) { throw new Error() }
+        if (_json_.type === undefined) { throw new Error() }
         this.type = _json_.type
-        if (_json_.is_ref == undefined) { throw new Error() }
+        if (_json_.is_ref === undefined) { throw new Error() }
         this.isRef = _json_.is_ref
     }
 
@@ -2032,7 +2016,7 @@ export  class ParamInfo  {
 
 
 export namespace blueprint {
-export  class AbstraceMethod  extends blueprint.Method {
+export class AbstraceMethod extends blueprint.Method {
 
     constructor(_json_: any) {
         super(_json_)
@@ -2049,7 +2033,7 @@ export  class AbstraceMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-export  class ExternalMethod  extends blueprint.Method {
+export class ExternalMethod extends blueprint.Method {
 
     constructor(_json_: any) {
         super(_json_)
@@ -2066,7 +2050,7 @@ export  class ExternalMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-export  class BlueprintMethod  extends blueprint.Method {
+export class BlueprintMethod extends blueprint.Method {
 
     constructor(_json_: any) {
         super(_json_)
@@ -2083,7 +2067,7 @@ export  class BlueprintMethod  extends blueprint.Method {
 
 
 export namespace blueprint {
-export  class Interface  extends blueprint.Clazz {
+export class Interface extends blueprint.Clazz {
 
     constructor(_json_: any) {
         super(_json_)
@@ -2100,13 +2084,13 @@ export  class Interface  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-export  class NormalClazz  extends blueprint.Clazz {
+export class NormalClazz extends blueprint.Clazz {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.is_abstract == undefined) { throw new Error() }
+        if (_json_.is_abstract === undefined) { throw new Error() }
         this.isAbstract = _json_.is_abstract
-        if (_json_.fields == undefined) { throw new Error() }
+        if (_json_.fields === undefined) { throw new Error() }
         { this.fields = []; for(let _ele of _json_.fields) { let _e : blueprint.Field; _e = new blueprint.Field(_ele); this.fields.push(_e);}}
     }
 
@@ -2124,14 +2108,14 @@ export  class NormalClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-export  class Field  {
+export class Field {
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.type == undefined) { throw new Error() }
+        if (_json_.type === undefined) { throw new Error() }
         this.type = _json_.type
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
     }
 
@@ -2148,11 +2132,11 @@ export  class Field  {
 
 
 export namespace blueprint {
-export  class EnumClazz  extends blueprint.Clazz {
+export class EnumClazz extends blueprint.Clazz {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.enums == undefined) { throw new Error() }
+        if (_json_.enums === undefined) { throw new Error() }
         { this.enums = []; for(let _ele of _json_.enums) { let _e : blueprint.EnumField; _e = new blueprint.EnumField(_ele); this.enums.push(_e);}}
     }
 
@@ -2169,12 +2153,12 @@ export  class EnumClazz  extends blueprint.Clazz {
 
 
 export namespace blueprint {
-export  class EnumField  {
+export class EnumField {
 
     constructor(_json_: any) {
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -2220,16 +2204,16 @@ export class TbDrop{
 
 
 export namespace bonus {
-export  class DropInfo  {
+export class DropInfo {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.client_show_items == undefined) { throw new Error() }
+        if (_json_.client_show_items === undefined) { throw new Error() }
         { this.clientShowItems = []; for(let _ele of _json_.client_show_items) { let _e : bonus.ShowItemInfo; _e = new bonus.ShowItemInfo(_ele); this.clientShowItems.push(_e);}}
-        if (_json_.bonus == undefined) { throw new Error() }
+        if (_json_.bonus === undefined) { throw new Error() }
         this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
     }
 
@@ -2249,12 +2233,12 @@ export  class DropInfo  {
 
 
 export namespace bonus {
-export  class ShowItemInfo  {
+export class ShowItemInfo {
 
     constructor(_json_: any) {
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.item_num == undefined) { throw new Error() }
+        if (_json_.item_num === undefined) { throw new Error() }
         this.itemNum = _json_.item_num
     }
 
@@ -2272,8 +2256,8 @@ export  class ShowItemInfo  {
 
 
 export namespace bonus {
-export  abstract  class Bonus  {
-    static constructorFrom(_json_: any): Bonus {
+export abstract class Bonus {
+    static constructorFrom(_json_: any): Bonus{
         switch (_json_.__type__) {
             case 'OneItem': return new bonus.OneItem(_json_)
             case 'OneItems': return new bonus.OneItems(_json_)
@@ -2303,11 +2287,11 @@ export  abstract  class Bonus  {
 
 
 export namespace bonus {
-export  class OneItem  extends bonus.Bonus {
+export class OneItem extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
     }
 
@@ -2325,11 +2309,11 @@ export  class OneItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class OneItems  extends bonus.Bonus {
+export class OneItems extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.items == undefined) { throw new Error() }
+        if (_json_.items === undefined) { throw new Error() }
         this.items = _json_.items
     }
 
@@ -2345,13 +2329,13 @@ export  class OneItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class Item  extends bonus.Bonus {
+export class Item extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.amount == undefined) { throw new Error() }
+        if (_json_.amount === undefined) { throw new Error() }
         this.amount = _json_.amount
     }
 
@@ -2370,11 +2354,11 @@ export  class Item  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class Items  extends bonus.Bonus {
+export class Items extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_list == undefined) { throw new Error() }
+        if (_json_.item_list === undefined) { throw new Error() }
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.Item; _e = new bonus.Item(_ele); this.itemList.push(_e);}}
     }
 
@@ -2391,13 +2375,13 @@ export  class Items  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class CoefficientItem  extends bonus.Bonus {
+export class CoefficientItem extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.bonus_id == undefined) { throw new Error() }
+        if (_json_.bonus_id === undefined) { throw new Error() }
         this.bonusId = _json_.bonus_id
-        if (_json_.bonus_list == undefined) { throw new Error() }
+        if (_json_.bonus_list === undefined) { throw new Error() }
         this.bonusList = new bonus.Items(_json_.bonus_list)
     }
 
@@ -2415,11 +2399,11 @@ export  class CoefficientItem  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class WeightItems  extends bonus.Bonus {
+export class WeightItems extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_list == undefined) { throw new Error() }
+        if (_json_.item_list === undefined) { throw new Error() }
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.WeightItemInfo; _e = new bonus.WeightItemInfo(_ele); this.itemList.push(_e);}}
     }
 
@@ -2436,14 +2420,14 @@ export  class WeightItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class WeightItemInfo  {
+export class WeightItemInfo {
 
     constructor(_json_: any) {
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
-        if (_json_.weight == undefined) { throw new Error() }
+        if (_json_.weight === undefined) { throw new Error() }
         this.weight = _json_.weight
     }
 
@@ -2462,11 +2446,11 @@ export  class WeightItemInfo  {
 
 
 export namespace bonus {
-export  class ProbabilityItems  extends bonus.Bonus {
+export class ProbabilityItems extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_list == undefined) { throw new Error() }
+        if (_json_.item_list === undefined) { throw new Error() }
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :bonus.ProbabilityItemInfo; _e = new bonus.ProbabilityItemInfo(_ele); this.itemList.push(_e);}}
     }
 
@@ -2483,14 +2467,14 @@ export  class ProbabilityItems  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class ProbabilityItemInfo  {
+export class ProbabilityItemInfo {
 
     constructor(_json_: any) {
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
-        if (_json_.probability == undefined) { throw new Error() }
+        if (_json_.probability === undefined) { throw new Error() }
         this.probability = _json_.probability
     }
 
@@ -2509,11 +2493,11 @@ export  class ProbabilityItemInfo  {
 
 
 export namespace bonus {
-export  class MultiBonus  extends bonus.Bonus {
+export class MultiBonus extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.bonuses == undefined) { throw new Error() }
+        if (_json_.bonuses === undefined) { throw new Error() }
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.Bonus; _e = bonus.Bonus.constructorFrom(_ele); this.bonuses.push(_e);}}
     }
 
@@ -2530,11 +2514,11 @@ export  class MultiBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class ProbabilityBonus  extends bonus.Bonus {
+export class ProbabilityBonus extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.bonuses == undefined) { throw new Error() }
+        if (_json_.bonuses === undefined) { throw new Error() }
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.ProbabilityBonusInfo; _e = new bonus.ProbabilityBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
@@ -2551,12 +2535,12 @@ export  class ProbabilityBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class ProbabilityBonusInfo  {
+export class ProbabilityBonusInfo {
 
     constructor(_json_: any) {
-        if (_json_.bonus == undefined) { throw new Error() }
+        if (_json_.bonus === undefined) { throw new Error() }
         this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
-        if (_json_.probability == undefined) { throw new Error() }
+        if (_json_.probability === undefined) { throw new Error() }
         this.probability = _json_.probability
     }
 
@@ -2573,11 +2557,11 @@ export  class ProbabilityBonusInfo  {
 
 
 export namespace bonus {
-export  class WeightBonus  extends bonus.Bonus {
+export class WeightBonus extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.bonuses == undefined) { throw new Error() }
+        if (_json_.bonuses === undefined) { throw new Error() }
         { this.bonuses = []; for(let _ele of _json_.bonuses) { let _e :bonus.WeightBonusInfo; _e = new bonus.WeightBonusInfo(_ele); this.bonuses.push(_e);}}
     }
 
@@ -2594,12 +2578,12 @@ export  class WeightBonus  extends bonus.Bonus {
 
 
 export namespace bonus {
-export  class WeightBonusInfo  {
+export class WeightBonusInfo {
 
     constructor(_json_: any) {
-        if (_json_.bonus == undefined) { throw new Error() }
+        if (_json_.bonus === undefined) { throw new Error() }
         this.bonus = bonus.Bonus.constructorFrom(_json_.bonus)
-        if (_json_.weight == undefined) { throw new Error() }
+        if (_json_.weight === undefined) { throw new Error() }
         this.weight = _json_.weight
     }
 
@@ -2616,11 +2600,11 @@ export  class WeightBonusInfo  {
 
 
 export namespace bonus {
-export  class DropBonus  extends bonus.Bonus {
+export class DropBonus extends bonus.Bonus {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
     }
 
@@ -2658,7 +2642,7 @@ export class TbGlobalConfig{
      get  clothBagCapacity(): number { return this._data.clothBagCapacity; }
      get  clothBagInitCapacity(): number { return this._data.clothBagInitCapacity; }
      get  clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial; }
-     get  bagInitItemsDropId(): number { return this._data.bagInitItemsDropId; }
+     get  bagInitItemsDropId(): number|undefined { return this._data.bagInitItemsDropId; }
      get  mailBoxCapacity(): number { return this._data.mailBoxCapacity; }
      get  damageParamC(): number { return this._data.damageParamC; }
      get  damageParamE(): number { return this._data.damageParamE; }
@@ -2682,49 +2666,49 @@ export class TbGlobalConfig{
 
 
 export namespace common {
-export  class GlobalConfig  {
+export class GlobalConfig {
 
     constructor(_json_: any) {
-        if (_json_.bag_capacity == undefined) { throw new Error() }
+        if (_json_.bag_capacity === undefined) { throw new Error() }
         this.bagCapacity = _json_.bag_capacity
-        if (_json_.bag_capacity_special == undefined) { throw new Error() }
+        if (_json_.bag_capacity_special === undefined) { throw new Error() }
         this.bagCapacitySpecial = _json_.bag_capacity_special
-        if (_json_.bag_temp_expendable_capacity == undefined) { throw new Error() }
+        if (_json_.bag_temp_expendable_capacity === undefined) { throw new Error() }
         this.bagTempExpendableCapacity = _json_.bag_temp_expendable_capacity
-        if (_json_.bag_temp_tool_capacity == undefined) { throw new Error() }
+        if (_json_.bag_temp_tool_capacity === undefined) { throw new Error() }
         this.bagTempToolCapacity = _json_.bag_temp_tool_capacity
-        if (_json_.bag_init_capacity == undefined) { throw new Error() }
+        if (_json_.bag_init_capacity === undefined) { throw new Error() }
         this.bagInitCapacity = _json_.bag_init_capacity
-        if (_json_.quick_bag_capacity == undefined) { throw new Error() }
+        if (_json_.quick_bag_capacity === undefined) { throw new Error() }
         this.quickBagCapacity = _json_.quick_bag_capacity
-        if (_json_.cloth_bag_capacity == undefined) { throw new Error() }
+        if (_json_.cloth_bag_capacity === undefined) { throw new Error() }
         this.clothBagCapacity = _json_.cloth_bag_capacity
-        if (_json_.cloth_bag_init_capacity == undefined) { throw new Error() }
+        if (_json_.cloth_bag_init_capacity === undefined) { throw new Error() }
         this.clothBagInitCapacity = _json_.cloth_bag_init_capacity
-        if (_json_.cloth_bag_capacity_special == undefined) { throw new Error() }
+        if (_json_.cloth_bag_capacity_special === undefined) { throw new Error() }
         this.clothBagCapacitySpecial = _json_.cloth_bag_capacity_special
         if(_json_.bag_init_items_drop_id != undefined) { this.bagInitItemsDropId = _json_.bag_init_items_drop_id } else { this.bagInitItemsDropId = undefined }
-        if (_json_.mail_box_capacity == undefined) { throw new Error() }
+        if (_json_.mail_box_capacity === undefined) { throw new Error() }
         this.mailBoxCapacity = _json_.mail_box_capacity
-        if (_json_.damage_param_c == undefined) { throw new Error() }
+        if (_json_.damage_param_c === undefined) { throw new Error() }
         this.damageParamC = _json_.damage_param_c
-        if (_json_.damage_param_e == undefined) { throw new Error() }
+        if (_json_.damage_param_e === undefined) { throw new Error() }
         this.damageParamE = _json_.damage_param_e
-        if (_json_.damage_param_f == undefined) { throw new Error() }
+        if (_json_.damage_param_f === undefined) { throw new Error() }
         this.damageParamF = _json_.damage_param_f
-        if (_json_.damage_param_d == undefined) { throw new Error() }
+        if (_json_.damage_param_d === undefined) { throw new Error() }
         this.damageParamD = _json_.damage_param_d
-        if (_json_.role_speed == undefined) { throw new Error() }
+        if (_json_.role_speed === undefined) { throw new Error() }
         this.roleSpeed = _json_.role_speed
-        if (_json_.monster_speed == undefined) { throw new Error() }
+        if (_json_.monster_speed === undefined) { throw new Error() }
         this.monsterSpeed = _json_.monster_speed
-        if (_json_.init_energy == undefined) { throw new Error() }
+        if (_json_.init_energy === undefined) { throw new Error() }
         this.initEnergy = _json_.init_energy
-        if (_json_.init_viality == undefined) { throw new Error() }
+        if (_json_.init_viality === undefined) { throw new Error() }
         this.initViality = _json_.init_viality
-        if (_json_.max_viality == undefined) { throw new Error() }
+        if (_json_.max_viality === undefined) { throw new Error() }
         this.maxViality = _json_.max_viality
-        if (_json_.per_viality_recovery_time == undefined) { throw new Error() }
+        if (_json_.per_viality_recovery_time === undefined) { throw new Error() }
         this.perVialityRecoveryTime = _json_.per_viality_recovery_time
     }
 
@@ -2740,8 +2724,8 @@ export  class GlobalConfig  {
     readonly clothBagCapacity: number
     readonly clothBagInitCapacity: number
     readonly clothBagCapacitySpecial: number
-    readonly bagInitItemsDropId?: number
-    bagInitItemsDropId_Ref : bonus.DropInfo | undefined
+    readonly bagInitItemsDropId: number|undefined
+    bagInitItemsDropId_Ref : bonus.DropInfo
     readonly mailBoxCapacity: number
     readonly damageParamC: number
     readonly damageParamE: number
@@ -2794,12 +2778,12 @@ export class TbDummy{
 
 
 export namespace common {
-export  class Dummy  {
+export class Dummy {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.limit == undefined) { throw new Error() }
+        if (_json_.limit === undefined) { throw new Error() }
         this.limit = limit.LimitBase.constructorFrom(_json_.limit)
     }
 
@@ -2816,8 +2800,8 @@ export  class Dummy  {
 
 
 export namespace limit {
-export  abstract  class LimitBase  {
-    static constructorFrom(_json_: any): LimitBase {
+export abstract class LimitBase {
+    static constructorFrom(_json_: any): LimitBase{
         switch (_json_.__type__) {
             case 'DailyLimit': return new limit.DailyLimit(_json_)
             case 'MultiDayLimit': return new limit.MultiDayLimit(_json_)
@@ -2842,8 +2826,8 @@ export  abstract  class LimitBase  {
 
 
 export namespace limit {
-export  abstract  class DailyLimitBase  extends limit.LimitBase {
-    static constructorFrom(_json_: any): DailyLimitBase {
+export abstract class DailyLimitBase extends limit.LimitBase {
+    static constructorFrom(_json_: any): DailyLimitBase{
         switch (_json_.__type__) {
             case 'DailyLimit': return new limit.DailyLimit(_json_)
             default: throw new Error()
@@ -2865,11 +2849,11 @@ export  abstract  class DailyLimitBase  extends limit.LimitBase {
 
 
 export namespace limit {
-export  class DailyLimit  extends limit.DailyLimitBase {
+export class DailyLimit extends limit.DailyLimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
     }
 
@@ -2885,13 +2869,13 @@ export  class DailyLimit  extends limit.DailyLimitBase {
 
 
 export namespace limit {
-export  class MultiDayLimit  extends limit.LimitBase {
+export class MultiDayLimit extends limit.LimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.day == undefined) { throw new Error() }
+        if (_json_.day === undefined) { throw new Error() }
         this.day = _json_.day
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
     }
 
@@ -2908,11 +2892,11 @@ export  class MultiDayLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-export  class WeeklyLimit  extends limit.LimitBase {
+export class WeeklyLimit extends limit.LimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
     }
 
@@ -2928,11 +2912,11 @@ export  class WeeklyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-export  class MonthlyLimit  extends limit.LimitBase {
+export class MonthlyLimit extends limit.LimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
     }
 
@@ -2948,11 +2932,11 @@ export  class MonthlyLimit  extends limit.LimitBase {
 
 
 export namespace limit {
-export  class CoolDown  extends limit.LimitBase {
+export class CoolDown extends limit.LimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.duration == undefined) { throw new Error() }
+        if (_json_.duration === undefined) { throw new Error() }
         this.duration = _json_.duration
     }
 
@@ -2968,13 +2952,13 @@ export  class CoolDown  extends limit.LimitBase {
 
 
 export namespace limit {
-export  class GroupCoolDown  extends limit.LimitBase {
+export class GroupCoolDown extends limit.LimitBase {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.group_id == undefined) { throw new Error() }
+        if (_json_.group_id === undefined) { throw new Error() }
         this.groupId = _json_.group_id
-        if (_json_.duration == undefined) { throw new Error() }
+        if (_json_.duration === undefined) { throw new Error() }
         this.duration = _json_.duration
     }
 
@@ -3021,14 +3005,14 @@ export class TbErrorInfo{
 
 
 export namespace error {
-export  class ErrorInfo  {
+export class ErrorInfo {
 
     constructor(_json_: any) {
-        if (_json_.code == undefined) { throw new Error() }
+        if (_json_.code === undefined) { throw new Error() }
         this.code = _json_.code
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.style == undefined) { throw new Error() }
+        if (_json_.style === undefined) { throw new Error() }
         this.style = error.ErrorStyle.constructorFrom(_json_.style)
     }
 
@@ -3046,8 +3030,8 @@ export  class ErrorInfo  {
 
 
 export namespace error {
-export  abstract  class ErrorStyle  {
-    static constructorFrom(_json_: any): ErrorStyle {
+export abstract class ErrorStyle {
+    static constructorFrom(_json_: any): ErrorStyle{
         switch (_json_.__type__) {
             case 'ErrorStyleTip': return new error.ErrorStyleTip(_json_)
             case 'ErrorStyleMsgbox': return new error.ErrorStyleMsgbox(_json_)
@@ -3070,7 +3054,7 @@ export  abstract  class ErrorStyle  {
 
 
 export namespace error {
-export  class ErrorStyleTip  extends error.ErrorStyle {
+export class ErrorStyleTip extends error.ErrorStyle {
 
     constructor(_json_: any) {
         super(_json_)
@@ -3087,13 +3071,13 @@ export  class ErrorStyleTip  extends error.ErrorStyle {
 
 
 export namespace error {
-export  class ErrorStyleMsgbox  extends error.ErrorStyle {
+export class ErrorStyleMsgbox extends error.ErrorStyle {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.btn_name == undefined) { throw new Error() }
+        if (_json_.btn_name === undefined) { throw new Error() }
         this.btnName = _json_.btn_name
-        if (_json_.operation == undefined) { throw new Error() }
+        if (_json_.operation === undefined) { throw new Error() }
         this.operation = _json_.operation
     }
 
@@ -3110,11 +3094,11 @@ export  class ErrorStyleMsgbox  extends error.ErrorStyle {
 
 
 export namespace error {
-export  class ErrorStyleDlgOk  extends error.ErrorStyle {
+export class ErrorStyleDlgOk extends error.ErrorStyle {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.btn_name == undefined) { throw new Error() }
+        if (_json_.btn_name === undefined) { throw new Error() }
         this.btnName = _json_.btn_name
     }
 
@@ -3130,13 +3114,13 @@ export  class ErrorStyleDlgOk  extends error.ErrorStyle {
 
 
 export namespace error {
-export  class ErrorStyleDlgOkCancel  extends error.ErrorStyle {
+export class ErrorStyleDlgOkCancel extends error.ErrorStyle {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.btn1_name == undefined) { throw new Error() }
+        if (_json_.btn1_name === undefined) { throw new Error() }
         this.btn1Name = _json_.btn1_name
-        if (_json_.btn2_name == undefined) { throw new Error() }
+        if (_json_.btn2_name === undefined) { throw new Error() }
         this.btn2Name = _json_.btn2_name
     }
 
@@ -3183,12 +3167,12 @@ export class TbCodeInfo{
 
 
 export namespace error {
-export  class CodeInfo  {
+export class CodeInfo {
 
     constructor(_json_: any) {
-        if (_json_.code == undefined) { throw new Error() }
+        if (_json_.code === undefined) { throw new Error() }
         this.code = _json_.code
-        if (_json_.key == undefined) { throw new Error() }
+        if (_json_.key === undefined) { throw new Error() }
         this.key = _json_.key
     }
 
@@ -3240,47 +3224,47 @@ export namespace item {
 /**
  * 道具
  */
-export  class Item  {
+export class Item {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.major_type == undefined) { throw new Error() }
+        if (_json_.major_type === undefined) { throw new Error() }
         this.majorType = _json_.major_type
-        if (_json_.minor_type == undefined) { throw new Error() }
+        if (_json_.minor_type === undefined) { throw new Error() }
         this.minorType = _json_.minor_type
-        if (_json_.max_pile_num == undefined) { throw new Error() }
+        if (_json_.max_pile_num === undefined) { throw new Error() }
         this.maxPileNum = _json_.max_pile_num
-        if (_json_.quality == undefined) { throw new Error() }
+        if (_json_.quality === undefined) { throw new Error() }
         this.quality = _json_.quality
-        if (_json_.icon == undefined) { throw new Error() }
+        if (_json_.icon === undefined) { throw new Error() }
         this.icon = _json_.icon
-        if (_json_.icon_backgroud == undefined) { throw new Error() }
+        if (_json_.icon_backgroud === undefined) { throw new Error() }
         this.iconBackgroud = _json_.icon_backgroud
-        if (_json_.icon_mask == undefined) { throw new Error() }
+        if (_json_.icon_mask === undefined) { throw new Error() }
         this.iconMask = _json_.icon_mask
-        if (_json_.desc == undefined) { throw new Error() }
+        if (_json_.desc === undefined) { throw new Error() }
         this.desc = _json_.desc
-        if (_json_.show_order == undefined) { throw new Error() }
+        if (_json_.show_order === undefined) { throw new Error() }
         this.showOrder = _json_.show_order
-        if (_json_.quantifier == undefined) { throw new Error() }
+        if (_json_.quantifier === undefined) { throw new Error() }
         this.quantifier = _json_.quantifier
-        if (_json_.show_in_bag == undefined) { throw new Error() }
+        if (_json_.show_in_bag === undefined) { throw new Error() }
         this.showInBag = _json_.show_in_bag
-        if (_json_.min_show_level == undefined) { throw new Error() }
+        if (_json_.min_show_level === undefined) { throw new Error() }
         this.minShowLevel = _json_.min_show_level
-        if (_json_.batch_usable == undefined) { throw new Error() }
+        if (_json_.batch_usable === undefined) { throw new Error() }
         this.batchUsable = _json_.batch_usable
-        if (_json_.progress_time_when_use == undefined) { throw new Error() }
+        if (_json_.progress_time_when_use === undefined) { throw new Error() }
         this.progressTimeWhenUse = _json_.progress_time_when_use
-        if (_json_.show_hint_when_use == undefined) { throw new Error() }
+        if (_json_.show_hint_when_use === undefined) { throw new Error() }
         this.showHintWhenUse = _json_.show_hint_when_use
-        if (_json_.droppable == undefined) { throw new Error() }
+        if (_json_.droppable === undefined) { throw new Error() }
         this.droppable = _json_.droppable
         if(_json_.price != undefined) { this.price = _json_.price } else { this.price = undefined }
-        if (_json_.use_type == undefined) { throw new Error() }
+        if (_json_.use_type === undefined) { throw new Error() }
         this.useType = _json_.use_type
         if(_json_.level_up_id != undefined) { this.levelUpId = _json_.level_up_id } else { this.levelUpId = undefined }
     }
@@ -3306,9 +3290,9 @@ export  class Item  {
     readonly progressTimeWhenUse: number
     readonly showHintWhenUse: boolean
     readonly droppable: boolean
-    readonly price?: number
+    readonly price: number|undefined
     readonly useType: item.EUseType
-    readonly levelUpId?: number
+    readonly levelUpId: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3349,16 +3333,16 @@ export class TbItemFunc{
 
 
 export namespace item {
-export  class ItemFunction  {
+export class ItemFunction {
 
     constructor(_json_: any) {
-        if (_json_.minor_type == undefined) { throw new Error() }
+        if (_json_.minor_type === undefined) { throw new Error() }
         this.minorType = _json_.minor_type
-        if (_json_.func_type == undefined) { throw new Error() }
+        if (_json_.func_type === undefined) { throw new Error() }
         this.funcType = _json_.func_type
-        if (_json_.method == undefined) { throw new Error() }
+        if (_json_.method === undefined) { throw new Error() }
         this.method = _json_.method
-        if (_json_.close_bag_ui == undefined) { throw new Error() }
+        if (_json_.close_bag_ui === undefined) { throw new Error() }
         this.closeBagUi = _json_.close_bag_ui
     }
 
@@ -3406,8 +3390,8 @@ export class TbItemExtra{
 
 
 export namespace item {
-export  abstract  class ItemExtra  {
-    static constructorFrom(_json_: any): ItemExtra {
+export abstract class ItemExtra {
+    static constructorFrom(_json_: any): ItemExtra{
         switch (_json_.__type__) {
             case 'TreasureBox': return new item.TreasureBox(_json_)
             case 'InteractionItem': return new item.InteractionItem(_json_)
@@ -3419,7 +3403,7 @@ export  abstract  class ItemExtra  {
     }
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
     }
 
@@ -3434,22 +3418,22 @@ export  abstract  class ItemExtra  {
 
 
 export namespace item {
-export  class TreasureBox  extends item.ItemExtra {
+export class TreasureBox extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
         if(_json_.key_item_id != undefined) { this.keyItemId = _json_.key_item_id } else { this.keyItemId = undefined }
-        if (_json_.open_level == undefined) { throw new Error() }
+        if (_json_.open_level === undefined) { throw new Error() }
         this.openLevel = new condition.MinLevel(_json_.open_level)
-        if (_json_.use_on_obtain == undefined) { throw new Error() }
+        if (_json_.use_on_obtain === undefined) { throw new Error() }
         this.useOnObtain = _json_.use_on_obtain
-        if (_json_.drop_ids == undefined) { throw new Error() }
+        if (_json_.drop_ids === undefined) { throw new Error() }
         this.dropIds = _json_.drop_ids
-        if (_json_.choose_list == undefined) { throw new Error() }
+        if (_json_.choose_list === undefined) { throw new Error() }
         { this.chooseList = []; for(let _ele of _json_.choose_list) { let _e : item.ChooseOneBonus; _e = new item.ChooseOneBonus(_ele); this.chooseList.push(_e);}}
     }
 
-    readonly keyItemId?: number
+    readonly keyItemId: number|undefined
     readonly openLevel: condition.MinLevel
     readonly useOnObtain: boolean
     readonly dropIds: number[]
@@ -3467,8 +3451,8 @@ export  class TreasureBox  extends item.ItemExtra {
 
 
 export namespace condition {
-export  abstract  class Condition  {
-    static constructorFrom(_json_: any): Condition {
+export abstract class Condition {
+    static constructorFrom(_json_: any): Condition{
         switch (_json_.__type__) {
             case 'TimeRange': return new condition.TimeRange(_json_)
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_)
@@ -3495,11 +3479,11 @@ export  abstract  class Condition  {
 
 
 export namespace condition {
-export  class TimeRange  extends condition.Condition {
+export class TimeRange extends condition.Condition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.date_time_range == undefined) { throw new Error() }
+        if (_json_.date_time_range === undefined) { throw new Error() }
         this.dateTimeRange = new common.DateTimeRange(_json_.date_time_range)
     }
 
@@ -3516,15 +3500,15 @@ export  class TimeRange  extends condition.Condition {
 
 
 export namespace common {
-export  class DateTimeRange  {
+export class DateTimeRange {
 
     constructor(_json_: any) {
         if(_json_.start_time != undefined) { this.startTime = _json_.start_time } else { this.startTime = undefined }
         if(_json_.end_time != undefined) { this.endTime = _json_.end_time } else { this.endTime = undefined }
     }
 
-    readonly startTime?: number
-    readonly endTime?: number
+    readonly startTime: number|undefined
+    readonly endTime: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3535,8 +3519,8 @@ export  class DateTimeRange  {
 
 
 export namespace condition {
-export  abstract  class RoleCondition  extends condition.Condition {
-    static constructorFrom(_json_: any): RoleCondition {
+export abstract class RoleCondition extends condition.Condition {
+    static constructorFrom(_json_: any): RoleCondition{
         switch (_json_.__type__) {
             case 'MultiRoleCondition': return new condition.MultiRoleCondition(_json_)
             case 'GenderLimit': return new condition.GenderLimit(_json_)
@@ -3564,11 +3548,11 @@ export  abstract  class RoleCondition  extends condition.Condition {
 
 
 export namespace condition {
-export  class MultiRoleCondition  extends condition.RoleCondition {
+export class MultiRoleCondition extends condition.RoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.conditions == undefined) { throw new Error() }
+        if (_json_.conditions === undefined) { throw new Error() }
         { this.conditions = []; for(let _ele of _json_.conditions) { let _e :condition.RoleCondition; _e = condition.RoleCondition.constructorFrom(_ele); this.conditions.push(_e);}}
     }
 
@@ -3585,8 +3569,8 @@ export  class MultiRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
-    static constructorFrom(_json_: any): BoolRoleCondition {
+export abstract class BoolRoleCondition extends condition.RoleCondition {
+    static constructorFrom(_json_: any): BoolRoleCondition{
         switch (_json_.__type__) {
             case 'GenderLimit': return new condition.GenderLimit(_json_)
             case 'MinLevel': return new condition.MinLevel(_json_)
@@ -3612,11 +3596,11 @@ export  abstract  class BoolRoleCondition  extends condition.RoleCondition {
 
 
 export namespace condition {
-export  class GenderLimit  extends condition.BoolRoleCondition {
+export class GenderLimit extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.gender == undefined) { throw new Error() }
+        if (_json_.gender === undefined) { throw new Error() }
         this.gender = _json_.gender
     }
 
@@ -3632,11 +3616,11 @@ export  class GenderLimit  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-export  class MinLevel  extends condition.BoolRoleCondition {
+export class MinLevel extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.level == undefined) { throw new Error() }
+        if (_json_.level === undefined) { throw new Error() }
         this.level = _json_.level
     }
 
@@ -3652,11 +3636,11 @@ export  class MinLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-export  class MaxLevel  extends condition.BoolRoleCondition {
+export class MaxLevel extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.level == undefined) { throw new Error() }
+        if (_json_.level === undefined) { throw new Error() }
         this.level = _json_.level
     }
 
@@ -3672,13 +3656,13 @@ export  class MaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-export  class MinMaxLevel  extends condition.BoolRoleCondition {
+export class MinMaxLevel extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.min == undefined) { throw new Error() }
+        if (_json_.min === undefined) { throw new Error() }
         this.min = _json_.min
-        if (_json_.max == undefined) { throw new Error() }
+        if (_json_.max === undefined) { throw new Error() }
         this.max = _json_.max
     }
 
@@ -3695,13 +3679,13 @@ export  class MinMaxLevel  extends condition.BoolRoleCondition {
 
 
 export namespace condition {
-export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleCondition {
+export class ClothesPropertyScoreGreaterThan extends condition.BoolRoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.prop == undefined) { throw new Error() }
+        if (_json_.prop === undefined) { throw new Error() }
         this.prop = _json_.prop
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -3718,15 +3702,15 @@ export  class ClothesPropertyScoreGreaterThan  extends condition.BoolRoleConditi
 
 
 export namespace condition {
-export  class ContainsItem  extends condition.RoleCondition {
+export class ContainsItem extends condition.RoleCondition {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
-        if (_json_.reverse == undefined) { throw new Error() }
+        if (_json_.reverse === undefined) { throw new Error() }
         this.reverse = _json_.reverse
     }
 
@@ -3746,12 +3730,12 @@ export  class ContainsItem  extends condition.RoleCondition {
 
 
 export namespace item {
-export  class ChooseOneBonus  {
+export class ChooseOneBonus {
 
     constructor(_json_: any) {
-        if (_json_.drop_id == undefined) { throw new Error() }
+        if (_json_.drop_id === undefined) { throw new Error() }
         this.dropId = _json_.drop_id
-        if (_json_.is_unique == undefined) { throw new Error() }
+        if (_json_.is_unique === undefined) { throw new Error() }
         this.isUnique = _json_.is_unique
     }
 
@@ -3769,18 +3753,18 @@ export  class ChooseOneBonus  {
 
 
 export namespace item {
-export  class InteractionItem  extends item.ItemExtra {
+export class InteractionItem extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
         if(_json_.attack_num != undefined) { this.attackNum = _json_.attack_num } else { this.attackNum = undefined }
-        if (_json_.holding_static_mesh == undefined) { throw new Error() }
+        if (_json_.holding_static_mesh === undefined) { throw new Error() }
         this.holdingStaticMesh = _json_.holding_static_mesh
-        if (_json_.holding_static_mesh_mat == undefined) { throw new Error() }
+        if (_json_.holding_static_mesh_mat === undefined) { throw new Error() }
         this.holdingStaticMeshMat = _json_.holding_static_mesh_mat
     }
 
-    readonly attackNum?: number
+    readonly attackNum: number|undefined
     readonly holdingStaticMesh: string
     readonly holdingStaticMeshMat: string
 
@@ -3794,17 +3778,17 @@ export  class InteractionItem  extends item.ItemExtra {
 
 
 export namespace item {
-export  class Clothes  extends item.ItemExtra {
+export class Clothes extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.attack == undefined) { throw new Error() }
+        if (_json_.attack === undefined) { throw new Error() }
         this.attack = _json_.attack
-        if (_json_.hp == undefined) { throw new Error() }
+        if (_json_.hp === undefined) { throw new Error() }
         this.hp = _json_.hp
-        if (_json_.energy_limit == undefined) { throw new Error() }
+        if (_json_.energy_limit === undefined) { throw new Error() }
         this.energyLimit = _json_.energy_limit
-        if (_json_.energy_resume == undefined) { throw new Error() }
+        if (_json_.energy_resume === undefined) { throw new Error() }
         this.energyResume = _json_.energy_resume
     }
 
@@ -3823,11 +3807,11 @@ export  class Clothes  extends item.ItemExtra {
 
 
 export namespace item {
-export  class DesignDrawing  extends item.ItemExtra {
+export class DesignDrawing extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.learn_component_id == undefined) { throw new Error() }
+        if (_json_.learn_component_id === undefined) { throw new Error() }
         this.learnComponentId = _json_.learn_component_id
     }
 
@@ -3843,11 +3827,11 @@ export  class DesignDrawing  extends item.ItemExtra {
 
 
 export namespace item {
-export  class Dymmy  extends item.ItemExtra {
+export class Dymmy extends item.ItemExtra {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.cost == undefined) { throw new Error() }
+        if (_json_.cost === undefined) { throw new Error() }
         this.cost = cost.Cost.constructorFrom(_json_.cost)
     }
 
@@ -3864,8 +3848,8 @@ export  class Dymmy  extends item.ItemExtra {
 
 
 export namespace cost {
-export  abstract  class Cost  {
-    static constructorFrom(_json_: any): Cost {
+export abstract class Cost {
+    static constructorFrom(_json_: any): Cost{
         switch (_json_.__type__) {
             case 'CostCurrency': return new cost.CostCurrency(_json_)
             case 'CostCurrencies': return new cost.CostCurrencies(_json_)
@@ -3889,13 +3873,13 @@ export  abstract  class Cost  {
 
 
 export namespace cost {
-export  class CostCurrency  extends cost.Cost {
+export class CostCurrency extends cost.Cost {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.type == undefined) { throw new Error() }
+        if (_json_.type === undefined) { throw new Error() }
         this.type = _json_.type
-        if (_json_.num == undefined) { throw new Error() }
+        if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
     }
 
@@ -3912,11 +3896,11 @@ export  class CostCurrency  extends cost.Cost {
 
 
 export namespace cost {
-export  class CostCurrencies  extends cost.Cost {
+export class CostCurrencies extends cost.Cost {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.currencies == undefined) { throw new Error() }
+        if (_json_.currencies === undefined) { throw new Error() }
         { this.currencies = []; for(let _ele of _json_.currencies) { let _e : cost.CostCurrency; _e = new cost.CostCurrency(_ele); this.currencies.push(_e);}}
     }
 
@@ -3933,11 +3917,11 @@ export  class CostCurrencies  extends cost.Cost {
 
 
 export namespace cost {
-export  class CostOneItem  extends cost.Cost {
+export class CostOneItem extends cost.Cost {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
     }
 
@@ -3955,13 +3939,13 @@ export  class CostOneItem  extends cost.Cost {
 
 
 export namespace cost {
-export  class CostItem  extends cost.Cost {
+export class CostItem extends cost.Cost {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_id == undefined) { throw new Error() }
+        if (_json_.item_id === undefined) { throw new Error() }
         this.itemId = _json_.item_id
-        if (_json_.amount == undefined) { throw new Error() }
+        if (_json_.amount === undefined) { throw new Error() }
         this.amount = _json_.amount
     }
 
@@ -3980,11 +3964,11 @@ export  class CostItem  extends cost.Cost {
 
 
 export namespace cost {
-export  class CostItems  extends cost.Cost {
+export class CostItems extends cost.Cost {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.item_list == undefined) { throw new Error() }
+        if (_json_.item_list === undefined) { throw new Error() }
         { this.itemList = []; for(let _ele of _json_.item_list) { let _e :cost.CostItem; _e = new cost.CostItem(_ele); this.itemList.push(_e);}}
     }
 
@@ -4031,12 +4015,12 @@ export class TbL10NDemo{
 
 
 export namespace l10n {
-export  class L10NDemo  {
+export class L10NDemo {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.text == undefined) { throw new Error() }
+        if (_json_.text === undefined) { throw new Error() }
         this.text = _json_.text['text']
     }
 
@@ -4082,12 +4066,12 @@ export class TbPatchDemo{
 
 
 export namespace l10n {
-export  class PatchDemo  {
+export class PatchDemo {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -4133,18 +4117,18 @@ export class TbSystemMail{
 
 
 export namespace mail {
-export  class SystemMail  {
+export class SystemMail {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.title == undefined) { throw new Error() }
+        if (_json_.title === undefined) { throw new Error() }
         this.title = _json_.title
-        if (_json_.sender == undefined) { throw new Error() }
+        if (_json_.sender === undefined) { throw new Error() }
         this.sender = _json_.sender
-        if (_json_.content == undefined) { throw new Error() }
+        if (_json_.content === undefined) { throw new Error() }
         this.content = _json_.content
-        if (_json_.award == undefined) { throw new Error() }
+        if (_json_.award === undefined) { throw new Error() }
         this.award = _json_.award
     }
 
@@ -4193,32 +4177,32 @@ export class TbGlobalMail{
 
 
 export namespace mail {
-export  class GlobalMail  {
+export class GlobalMail {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.title == undefined) { throw new Error() }
+        if (_json_.title === undefined) { throw new Error() }
         this.title = _json_.title
-        if (_json_.sender == undefined) { throw new Error() }
+        if (_json_.sender === undefined) { throw new Error() }
         this.sender = _json_.sender
-        if (_json_.content == undefined) { throw new Error() }
+        if (_json_.content === undefined) { throw new Error() }
         this.content = _json_.content
-        if (_json_.award == undefined) { throw new Error() }
+        if (_json_.award === undefined) { throw new Error() }
         this.award = _json_.award
-        if (_json_.all_server == undefined) { throw new Error() }
+        if (_json_.all_server === undefined) { throw new Error() }
         this.allServer = _json_.all_server
-        if (_json_.server_list == undefined) { throw new Error() }
+        if (_json_.server_list === undefined) { throw new Error() }
         this.serverList = _json_.server_list
-        if (_json_.platform == undefined) { throw new Error() }
+        if (_json_.platform === undefined) { throw new Error() }
         this.platform = _json_.platform
-        if (_json_.channel == undefined) { throw new Error() }
+        if (_json_.channel === undefined) { throw new Error() }
         this.channel = _json_.channel
-        if (_json_.min_max_level == undefined) { throw new Error() }
+        if (_json_.min_max_level === undefined) { throw new Error() }
         this.minMaxLevel = new condition.MinMaxLevel(_json_.min_max_level)
-        if (_json_.register_time == undefined) { throw new Error() }
+        if (_json_.register_time === undefined) { throw new Error() }
         this.registerTime = new condition.TimeRange(_json_.register_time)
-        if (_json_.mail_time == undefined) { throw new Error() }
+        if (_json_.mail_time === undefined) { throw new Error() }
         this.mailTime = new condition.TimeRange(_json_.mail_time)
     }
 
@@ -4277,14 +4261,14 @@ export class TbRoleLevelExpAttr{
 
 
 export namespace role {
-export  class LevelExpAttr  {
+export class LevelExpAttr {
 
     constructor(_json_: any) {
-        if (_json_.level == undefined) { throw new Error() }
+        if (_json_.level === undefined) { throw new Error() }
         this.level = _json_.level
-        if (_json_.need_exp == undefined) { throw new Error() }
+        if (_json_.need_exp === undefined) { throw new Error() }
         this.needExp = _json_.need_exp
-        if (_json_.clothes_attrs == undefined) { throw new Error() }
+        if (_json_.clothes_attrs === undefined) { throw new Error() }
         this.clothesAttrs = _json_.clothes_attrs
     }
 
@@ -4331,12 +4315,12 @@ export class TbRoleLevelBonusCoefficient{
 
 
 export namespace role {
-export  class LevelBonus  {
+export class LevelBonus {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.distinct_bonus_infos == undefined) { throw new Error() }
+        if (_json_.distinct_bonus_infos === undefined) { throw new Error() }
         { this.distinctBonusInfos = []; for(let _ele of _json_.distinct_bonus_infos) { let _e : role.DistinctBonusInfos; _e = new role.DistinctBonusInfos(_ele); this.distinctBonusInfos.push(_e);}}
     }
 
@@ -4353,12 +4337,12 @@ export  class LevelBonus  {
 
 
 export namespace role {
-export  class DistinctBonusInfos  {
+export class DistinctBonusInfos {
 
     constructor(_json_: any) {
-        if (_json_.effective_level == undefined) { throw new Error() }
+        if (_json_.effective_level === undefined) { throw new Error() }
         this.effectiveLevel = _json_.effective_level
-        if (_json_.bonus_info == undefined) { throw new Error() }
+        if (_json_.bonus_info === undefined) { throw new Error() }
         { this.bonusInfo = []; for(let _ele of _json_.bonus_info) { let _e : role.BonusInfo; _e = new role.BonusInfo(_ele); this.bonusInfo.push(_e);}}
     }
 
@@ -4375,12 +4359,12 @@ export  class DistinctBonusInfos  {
 
 
 export namespace role {
-export  class BonusInfo  {
+export class BonusInfo {
 
     constructor(_json_: any) {
-        if (_json_.type == undefined) { throw new Error() }
+        if (_json_.type === undefined) { throw new Error() }
         this.type = _json_.type
-        if (_json_.coefficient == undefined) { throw new Error() }
+        if (_json_.coefficient === undefined) { throw new Error() }
         this.coefficient = _json_.coefficient
     }
 
@@ -4426,12 +4410,12 @@ export class TbTestTag{
 
 
 export namespace tag {
-export  class TestTag  {
+export class TestTag {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.value == undefined) { throw new Error() }
+        if (_json_.value === undefined) { throw new Error() }
         this.value = _json_.value
     }
 
@@ -4477,58 +4461,58 @@ export class TbFullTypes{
 
 
 export namespace test {
-export  class DemoType2  {
+export class DemoType2 {
 
     constructor(_json_: any) {
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = _json_.x2
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
-        if (_json_.x5 == undefined) { throw new Error() }
+        if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = _json_.x5
-        if (_json_.x6 == undefined) { throw new Error() }
+        if (_json_.x6 === undefined) { throw new Error() }
         this.x6 = _json_.x6
-        if (_json_.x7 == undefined) { throw new Error() }
+        if (_json_.x7 === undefined) { throw new Error() }
         this.x7 = _json_.x7
-        if (_json_.x8_0 == undefined) { throw new Error() }
+        if (_json_.x8_0 === undefined) { throw new Error() }
         this.x80 = _json_.x8_0
-        if (_json_.x8 == undefined) { throw new Error() }
+        if (_json_.x8 === undefined) { throw new Error() }
         this.x8 = _json_.x8
-        if (_json_.x9 == undefined) { throw new Error() }
+        if (_json_.x9 === undefined) { throw new Error() }
         this.x9 = _json_.x9
-        if (_json_.x10 == undefined) { throw new Error() }
+        if (_json_.x10 === undefined) { throw new Error() }
         this.x10 = _json_.x10
-        if (_json_.x12 == undefined) { throw new Error() }
+        if (_json_.x12 === undefined) { throw new Error() }
         this.x12 = new test.DemoType1(_json_.x12)
-        if (_json_.x13 == undefined) { throw new Error() }
+        if (_json_.x13 === undefined) { throw new Error() }
         this.x13 = _json_.x13
-        if (_json_.x14 == undefined) { throw new Error() }
+        if (_json_.x14 === undefined) { throw new Error() }
         this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
-        if (_json_.s1 == undefined) { throw new Error() }
+        if (_json_.s1 === undefined) { throw new Error() }
         this.s1 = _json_.s1['text']
-        if (_json_.v2 == undefined) { throw new Error() }
+        if (_json_.v2 === undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
-        if (_json_.v3 == undefined) { throw new Error() }
+        if (_json_.v3 === undefined) { throw new Error() }
         this.v3 = Vector3.deserializeFromJson(_json_.v3)
-        if (_json_.v4 == undefined) { throw new Error() }
+        if (_json_.v4 === undefined) { throw new Error() }
         this.v4 = Vector4.deserializeFromJson(_json_.v4)
-        if (_json_.t1 == undefined) { throw new Error() }
+        if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
-        if (_json_.k1 == undefined) { throw new Error() }
+        if (_json_.k1 === undefined) { throw new Error() }
         this.k1 = _json_.k1
-        if (_json_.k2 == undefined) { throw new Error() }
+        if (_json_.k2 === undefined) { throw new Error() }
         this.k2 = _json_.k2
-        if (_json_.k5 == undefined) { throw new Error() }
+        if (_json_.k5 === undefined) { throw new Error() }
         this.k5 = _json_.k5
-        if (_json_.k8 == undefined) { throw new Error() }
+        if (_json_.k8 === undefined) { throw new Error() }
         this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
-        if (_json_.k9 == undefined) { throw new Error() }
+        if (_json_.k9 === undefined) { throw new Error() }
         { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
-        if (_json_.k15 == undefined) { throw new Error() }
+        if (_json_.k15 === undefined) { throw new Error() }
         { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
     }
 
@@ -4573,10 +4557,10 @@ export  class DemoType2  {
 
 
 export namespace test {
-export  class DemoType1  {
+export class DemoType1 {
 
     constructor(_json_: any) {
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
     }
 
@@ -4591,8 +4575,8 @@ export  class DemoType1  {
 
 
 export namespace test {
-export  abstract  class DemoDynamic  {
-    static constructorFrom(_json_: any): DemoDynamic {
+export abstract class DemoDynamic {
+    static constructorFrom(_json_: any): DemoDynamic{
         switch (_json_.__type__) {
             case 'DemoD2': return new test.DemoD2(_json_)
             case 'DemoE1': return new test.DemoE1(_json_)
@@ -4602,7 +4586,7 @@ export  abstract  class DemoDynamic  {
     }
 
     constructor(_json_: any) {
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
     }
 
@@ -4617,11 +4601,11 @@ export  abstract  class DemoDynamic  {
 
 
 export namespace test {
-export  class DemoD2  extends test.DemoDynamic {
+export class DemoD2 extends test.DemoDynamic {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = _json_.x2
     }
 
@@ -4637,8 +4621,8 @@ export  class DemoD2  extends test.DemoDynamic {
 
 
 export namespace test {
-export  abstract  class DemoD3  extends test.DemoDynamic {
-    static constructorFrom(_json_: any): DemoD3 {
+export abstract class DemoD3 extends test.DemoDynamic {
+    static constructorFrom(_json_: any): DemoD3{
         switch (_json_.__type__) {
             case 'DemoE1': return new test.DemoE1(_json_)
             default: throw new Error()
@@ -4647,7 +4631,7 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
     }
 
@@ -4663,11 +4647,11 @@ export  abstract  class DemoD3  extends test.DemoDynamic {
 
 
 export namespace test {
-export  class DemoE1  extends test.DemoD3 {
+export class DemoE1 extends test.DemoD3 {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
     }
 
@@ -4683,11 +4667,11 @@ export  class DemoE1  extends test.DemoD3 {
 
 
 export namespace test {
-export  class DemoD5  extends test.DemoDynamic {
+export class DemoD5 extends test.DemoDynamic {
 
     constructor(_json_: any) {
         super(_json_)
-        if (_json_.time == undefined) { throw new Error() }
+        if (_json_.time === undefined) { throw new Error() }
         this.time = new test.DateTimeRange(_json_.time)
     }
 
@@ -4704,12 +4688,12 @@ export  class DemoD5  extends test.DemoDynamic {
 
 
 export namespace test {
-export  class DateTimeRange  {
+export class DateTimeRange {
 
     constructor(_json_: any) {
-        if (_json_.start_time == undefined) { throw new Error() }
+        if (_json_.start_time === undefined) { throw new Error() }
         this.startTime = _json_.start_time
-        if (_json_.end_time == undefined) { throw new Error() }
+        if (_json_.end_time === undefined) { throw new Error() }
         this.endTime = _json_.end_time
     }
 
@@ -4725,15 +4709,15 @@ export  class DateTimeRange  {
 
 
 export namespace test {
-export  class DemoE2  {
+export class DemoE2 {
 
     constructor(_json_: any) {
         if(_json_.y1 != undefined) { this.y1 = _json_.y1 } else { this.y1 = undefined }
-        if (_json_.y2 == undefined) { throw new Error() }
+        if (_json_.y2 === undefined) { throw new Error() }
         this.y2 = _json_.y2
     }
 
-    readonly y1?: number
+    readonly y1: number|undefined
     readonly y2: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -4768,14 +4752,14 @@ export class TbSingleton{
 
 
 export namespace test {
-export  class DemoSingletonType  {
+export class DemoSingletonType {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name['text']
-        if (_json_.date == undefined) { throw new Error() }
+        if (_json_.date === undefined) { throw new Error() }
         this.date = test.DemoDynamic.constructorFrom(_json_.date)
     }
 
@@ -4853,25 +4837,27 @@ export class TbMultiRowRecord{
 
 
 export namespace test {
-export  class MultiRowRecord  {
+export class MultiRowRecord {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.one_rows == undefined) { throw new Error() }
+        if (_json_.one_rows === undefined) { throw new Error() }
         { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
-        if (_json_.multi_rows1 == undefined) { throw new Error() }
+        if (_json_.multi_rows1 === undefined) { throw new Error() }
         { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
-        if (_json_.multi_rows2 == undefined) { throw new Error() }
+        if (_json_.multi_rows2 === undefined) { throw new Error() }
         { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
-        if (_json_.multi_rows3 == undefined) { throw new Error() }
-        { this.multiRows3 = new Set<test.MultiRowType2>(); for(var _ele of _json_.multi_rows3) { let _e:test.MultiRowType2; _e = new test.MultiRowType2(_ele); this.multiRows3.add(_e);}}
-        if (_json_.multi_rows4 == undefined) { throw new Error() }
+        if (_json_.multi_rows4 === undefined) { throw new Error() }
         this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
-        if (_json_.multi_rows5 == undefined) { throw new Error() }
+        if (_json_.multi_rows5 === undefined) { throw new Error() }
         { this.multiRows5 = []; for(let _ele of _json_.multi_rows5) { let _e : test.MultiRowType3; _e = new test.MultiRowType3(_ele); this.multiRows5.push(_e);}}
+        if (_json_.multi_rows6 === undefined) { throw new Error() }
+        this.multiRows6 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows6) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows6.set(_k, _v);  }
+        if (_json_.multi_rows7 === undefined) { throw new Error() }
+        this.multiRows7 = new Map<number, number>(); for(var _entry_ of _json_.multi_rows7) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.multiRows7.set(_k, _v);  }
     }
 
     readonly id: number
@@ -4879,9 +4865,10 @@ export  class MultiRowRecord  {
     readonly oneRows: test.MultiRowType1[]
     readonly multiRows1: test.MultiRowType1[]
     readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows3: Set<test.MultiRowType2>
     readonly multiRows4: Map<number, test.MultiRowType2>
     readonly multiRows5: test.MultiRowType3[]
+    readonly multiRows6: Map<number, test.MultiRowType2>
+    readonly multiRows7: Map<number, number>
 
     resolve(_tables: Map<string, any>) {
         for(let _e of this.oneRows) { if (_e != null ) {_e.resolve(_tables);} }
@@ -4889,6 +4876,7 @@ export  class MultiRowRecord  {
         for(let _e of this.multiRows2) { if (_e != null) { _e.resolve(_tables); } }
         for(let _e of this.multiRows4.values()) { if (_e != null) {_e.resolve(_tables);} }
         for(let _e of this.multiRows5) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.multiRows6.values()) { if (_e != null) {_e.resolve(_tables);} }
     }
 }
 
@@ -4897,12 +4885,12 @@ export  class MultiRowRecord  {
 
 
 export namespace test {
-export  class MultiRowType1  {
+export class MultiRowType1 {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x == undefined) { throw new Error() }
+        if (_json_.x === undefined) { throw new Error() }
         this.x = _json_.x
     }
 
@@ -4918,14 +4906,14 @@ export  class MultiRowType1  {
 
 
 export namespace test {
-export  class MultiRowType2  {
+export class MultiRowType2 {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x == undefined) { throw new Error() }
+        if (_json_.x === undefined) { throw new Error() }
         this.x = _json_.x
-        if (_json_.y == undefined) { throw new Error() }
+        if (_json_.y === undefined) { throw new Error() }
         this.y = _json_.y
     }
 
@@ -4942,12 +4930,12 @@ export  class MultiRowType2  {
 
 
 export namespace test {
-export  class MultiRowType3  {
+export class MultiRowType3 {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.items == undefined) { throw new Error() }
+        if (_json_.items === undefined) { throw new Error() }
         { this.items = []; for(let _ele of _json_.items) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.items.push(_e);}}
     }
 
@@ -4994,18 +4982,18 @@ export class TbMultiRowTitle{
 
 
 export namespace test {
-export  class MultiRowTitle  {
+export class MultiRowTitle {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = new test.H1(_json_.x1)
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
     }
 
@@ -5027,12 +5015,12 @@ export  class MultiRowTitle  {
 
 
 export namespace test {
-export  class H1  {
+export class H1 {
 
     constructor(_json_: any) {
-        if (_json_.y2 == undefined) { throw new Error() }
+        if (_json_.y2 === undefined) { throw new Error() }
         this.y2 = new test.H2(_json_.y2)
-        if (_json_.y3 == undefined) { throw new Error() }
+        if (_json_.y3 === undefined) { throw new Error() }
         this.y3 = _json_.y3
     }
 
@@ -5049,12 +5037,12 @@ export  class H1  {
 
 
 export namespace test {
-export  class H2  {
+export class H2 {
 
     constructor(_json_: any) {
-        if (_json_.z2 == undefined) { throw new Error() }
+        if (_json_.z2 === undefined) { throw new Error() }
         this.z2 = _json_.z2
-        if (_json_.z3 == undefined) { throw new Error() }
+        if (_json_.z3 === undefined) { throw new Error() }
         this.z3 = _json_.z3
     }
 
@@ -5100,10 +5088,10 @@ export class TbTestNull{
 
 
 export namespace test {
-export  class TestNull  {
+export class TestNull {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
         if(_json_.x1 != undefined) { this.x1 = _json_.x1 } else { this.x1 = undefined }
         if(_json_.x2 != undefined) { this.x2 = _json_.x2 } else { this.x2 = undefined }
@@ -5114,12 +5102,12 @@ export  class TestNull  {
     }
 
     readonly id: number
-    readonly x1?: number
-    readonly x2?: test.DemoEnum
-    readonly x3?: test.DemoType1
-    readonly x4?: test.DemoDynamic
-    readonly s1?: string
-    readonly s2?: string
+    readonly x1: number|undefined
+    readonly x2: test.DemoEnum|undefined
+    readonly x3: test.DemoType1|undefined
+    readonly x4: test.DemoDynamic|undefined
+    readonly s1: string|undefined
+    readonly s2: string|undefined
 
     resolve(_tables: Map<string, any>) {
         if (this.x3 != null) { this.x3.resolve(_tables);}
@@ -5162,34 +5150,34 @@ export class TbDemoPrimitive{
 
 
 export namespace test {
-export  class DemoPrimitiveTypesTable  {
+export class DemoPrimitiveTypesTable {
 
     constructor(_json_: any) {
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = _json_.x2
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
-        if (_json_.x5 == undefined) { throw new Error() }
+        if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = _json_.x5
-        if (_json_.x6 == undefined) { throw new Error() }
+        if (_json_.x6 === undefined) { throw new Error() }
         this.x6 = _json_.x6
-        if (_json_.x7 == undefined) { throw new Error() }
+        if (_json_.x7 === undefined) { throw new Error() }
         this.x7 = _json_.x7
-        if (_json_.s1 == undefined) { throw new Error() }
+        if (_json_.s1 === undefined) { throw new Error() }
         this.s1 = _json_.s1
-        if (_json_.s2 == undefined) { throw new Error() }
+        if (_json_.s2 === undefined) { throw new Error() }
         this.s2 = _json_.s2['text']
-        if (_json_.v2 == undefined) { throw new Error() }
+        if (_json_.v2 === undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
-        if (_json_.v3 == undefined) { throw new Error() }
+        if (_json_.v3 === undefined) { throw new Error() }
         this.v3 = Vector3.deserializeFromJson(_json_.v3)
-        if (_json_.v4 == undefined) { throw new Error() }
+        if (_json_.v4 === undefined) { throw new Error() }
         this.v4 = Vector4.deserializeFromJson(_json_.v4)
-        if (_json_.t1 == undefined) { throw new Error() }
+        if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
     }
 
@@ -5246,16 +5234,16 @@ export class TbTestString{
 
 
 export namespace test {
-export  class TestString  {
+export class TestString {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.s1 == undefined) { throw new Error() }
+        if (_json_.s1 === undefined) { throw new Error() }
         this.s1 = _json_.s1
-        if (_json_.cs1 == undefined) { throw new Error() }
+        if (_json_.cs1 === undefined) { throw new Error() }
         this.cs1 = new test.CompactString(_json_.cs1)
-        if (_json_.cs2 == undefined) { throw new Error() }
+        if (_json_.cs2 === undefined) { throw new Error() }
         this.cs2 = new test.CompactString(_json_.cs2)
     }
 
@@ -5275,14 +5263,14 @@ export  class TestString  {
 
 
 export namespace test {
-export  class CompactString  {
+export class CompactString {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.s2 == undefined) { throw new Error() }
+        if (_json_.s2 === undefined) { throw new Error() }
         this.s2 = _json_.s2
-        if (_json_.s3 == undefined) { throw new Error() }
+        if (_json_.s3 === undefined) { throw new Error() }
         this.s3 = _json_.s3
     }
 
@@ -5329,20 +5317,20 @@ export class TbDemoGroup{
 
 
 export namespace test {
-export  class DemoGroup  {
+export class DemoGroup {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = _json_.x2
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
-        if (_json_.x5 == undefined) { throw new Error() }
+        if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = new test.InnerGroup(_json_.x5)
     }
 
@@ -5363,16 +5351,16 @@ export  class DemoGroup  {
 
 
 export namespace test {
-export  class InnerGroup  {
+export class InnerGroup {
 
     constructor(_json_: any) {
-        if (_json_.y1 == undefined) { throw new Error() }
+        if (_json_.y1 === undefined) { throw new Error() }
         this.y1 = _json_.y1
-        if (_json_.y2 == undefined) { throw new Error() }
+        if (_json_.y2 === undefined) { throw new Error() }
         this.y2 = _json_.y2
-        if (_json_.y3 == undefined) { throw new Error() }
+        if (_json_.y3 === undefined) { throw new Error() }
         this.y3 = _json_.y3
-        if (_json_.y4 == undefined) { throw new Error() }
+        if (_json_.y4 === undefined) { throw new Error() }
         this.y4 = _json_.y4
     }
 
@@ -5502,12 +5490,12 @@ export class TbTestGlobal{
 
 
 export namespace test {
-export  class TestGlobal  {
+export class TestGlobal {
 
     constructor(_json_: any) {
-        if (_json_.unlock_equip == undefined) { throw new Error() }
+        if (_json_.unlock_equip === undefined) { throw new Error() }
         this.unlockEquip = _json_.unlock_equip
-        if (_json_.unlock_hero == undefined) { throw new Error() }
+        if (_json_.unlock_hero === undefined) { throw new Error() }
         this.unlockHero = _json_.unlock_hero
     }
 
@@ -5553,12 +5541,12 @@ export class TbDetectCsvEncoding{
 
 
 export namespace test {
-export  class DetectEncoding  {
+export class DetectEncoding {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.name == undefined) { throw new Error() }
+        if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
     }
 
@@ -5607,34 +5595,34 @@ export namespace test {
 /**
  * 
  */
-export  class DefineFromExcel  {
+export class DefineFromExcel {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x5 == undefined) { throw new Error() }
+        if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = _json_.x5
-        if (_json_.x6 == undefined) { throw new Error() }
+        if (_json_.x6 === undefined) { throw new Error() }
         this.x6 = _json_.x6
-        if (_json_.x8 == undefined) { throw new Error() }
+        if (_json_.x8 === undefined) { throw new Error() }
         this.x8 = _json_.x8
-        if (_json_.x10 == undefined) { throw new Error() }
+        if (_json_.x10 === undefined) { throw new Error() }
         this.x10 = _json_.x10
-        if (_json_.x13 == undefined) { throw new Error() }
+        if (_json_.x13 === undefined) { throw new Error() }
         this.x13 = _json_.x13
-        if (_json_.x14 == undefined) { throw new Error() }
+        if (_json_.x14 === undefined) { throw new Error() }
         this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
-        if (_json_.v2 == undefined) { throw new Error() }
+        if (_json_.v2 === undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
-        if (_json_.t1 == undefined) { throw new Error() }
+        if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
-        if (_json_.k1 == undefined) { throw new Error() }
+        if (_json_.k1 === undefined) { throw new Error() }
         this.k1 = _json_.k1
-        if (_json_.k8 == undefined) { throw new Error() }
+        if (_json_.k8 === undefined) { throw new Error() }
         this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
-        if (_json_.k9 == undefined) { throw new Error() }
+        if (_json_.k9 === undefined) { throw new Error() }
         { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
     }
 
@@ -5649,7 +5637,6 @@ export  class DefineFromExcel  {
     readonly x5: number
     readonly x6: number
     readonly x8: number
-    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
     readonly x10: string
     readonly x13: test.ETestQuality
     readonly x14: test.DemoDynamic
@@ -5660,7 +5647,6 @@ export  class DefineFromExcel  {
     readonly k9: test.DemoE2[]
 
     resolve(_tables: Map<string, any>) {
-        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
     }
@@ -5707,16 +5693,16 @@ export namespace test {
 /**
  * 
  */
-export  class DefineFromExcelOne  {
+export class DefineFromExcelOne {
 
     constructor(_json_: any) {
-        if (_json_.unlock_equip == undefined) { throw new Error() }
+        if (_json_.unlock_equip === undefined) { throw new Error() }
         this.unlockEquip = _json_.unlock_equip
-        if (_json_.unlock_hero == undefined) { throw new Error() }
+        if (_json_.unlock_hero === undefined) { throw new Error() }
         this.unlockHero = _json_.unlock_hero
-        if (_json_.default_avatar == undefined) { throw new Error() }
+        if (_json_.default_avatar === undefined) { throw new Error() }
         this.defaultAvatar = _json_.default_avatar
-        if (_json_.default_item == undefined) { throw new Error() }
+        if (_json_.default_item === undefined) { throw new Error() }
         this.defaultItem = _json_.default_item
     }
 
@@ -5773,18 +5759,18 @@ export class TbTestJson2{
 
 
 export namespace test {
-export  class TestJson2  {
+export class TestJson2 {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.m1 == undefined) { throw new Error() }
+        if (_json_.m1 === undefined) { throw new Error() }
         this.m1 = new Map<number, number>(); for(var _entry_ of _json_.m1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m1.set(_k, _v);  }
-        if (_json_.m2 == undefined) { throw new Error() }
+        if (_json_.m2 === undefined) { throw new Error() }
         this.m2 = new Map<number, number>(); for(var _entry_ of _json_.m2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m2.set(_k, _v);  }
-        if (_json_.m3 == undefined) { throw new Error() }
+        if (_json_.m3 === undefined) { throw new Error() }
         this.m3 = new Map<string, number>(); for(var _entry_ of _json_.m3) { let _k:string; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m3.set(_k, _v);  }
-        if (_json_.m4 == undefined) { throw new Error() }
+        if (_json_.m4 === undefined) { throw new Error() }
         this.m4 = new Map<string, test.DemoType1>(); for(var _entry_ of _json_.m4) { let _k:string; _k = _entry_[0];  let _v:test.DemoType1;  _v = new test.DemoType1(_entry_[1]); this.m4.set(_k, _v);  }
     }
 
@@ -5834,12 +5820,12 @@ export class TbTestIndex{
 
 
 export namespace test {
-export  class TestIndex  {
+export class TestIndex {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.eles == undefined) { throw new Error() }
+        if (_json_.eles === undefined) { throw new Error() }
         { this.eles = []; for(let _ele of _json_.eles) { let _e : test.DemoType1; _e = new test.DemoType1(_ele); this.eles.push(_e);}}
     }
 
@@ -5886,18 +5872,18 @@ export class TbTestMap{
 
 
 export namespace test {
-export  class TestMap  {
+export class TestMap {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = new Map<number, number>(); for(var _entry_ of _json_.x1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x1.set(_k, _v);  }
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = new Map<number, number>(); for(var _entry_ of _json_.x2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x2.set(_k, _v);  }
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = new Map<string, number>(); for(var _entry_ of _json_.x3) { let _k:string; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x3.set(_k, _v);  }
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = new Map<test.DemoEnum, number>(); for(var _entry_ of _json_.x4) { let _k:test.DemoEnum; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x4.set(_k, _v);  }
     }
 
@@ -5979,34 +5965,34 @@ export namespace test {
 /**
  * 
  */
-export  class DefineFromExcel2  {
+export class DefineFromExcel2 {
 
     constructor(_json_: any) {
-        if (_json_.id == undefined) { throw new Error() }
+        if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x5 == undefined) { throw new Error() }
+        if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = _json_.x5
-        if (_json_.x6 == undefined) { throw new Error() }
+        if (_json_.x6 === undefined) { throw new Error() }
         this.x6 = _json_.x6
-        if (_json_.x8 == undefined) { throw new Error() }
+        if (_json_.x8 === undefined) { throw new Error() }
         this.x8 = _json_.x8
-        if (_json_.x10 == undefined) { throw new Error() }
+        if (_json_.x10 === undefined) { throw new Error() }
         this.x10 = _json_.x10
-        if (_json_.x13 == undefined) { throw new Error() }
+        if (_json_.x13 === undefined) { throw new Error() }
         this.x13 = _json_.x13
-        if (_json_.x14 == undefined) { throw new Error() }
+        if (_json_.x14 === undefined) { throw new Error() }
         this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
-        if (_json_.v2 == undefined) { throw new Error() }
+        if (_json_.v2 === undefined) { throw new Error() }
         this.v2 = Vector2.deserializeFromJson(_json_.v2)
-        if (_json_.t1 == undefined) { throw new Error() }
+        if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
-        if (_json_.k1 == undefined) { throw new Error() }
+        if (_json_.k1 === undefined) { throw new Error() }
         this.k1 = _json_.k1
-        if (_json_.k8 == undefined) { throw new Error() }
+        if (_json_.k8 === undefined) { throw new Error() }
         this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
-        if (_json_.k9 == undefined) { throw new Error() }
+        if (_json_.k9 === undefined) { throw new Error() }
         { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
     }
 
@@ -6021,7 +6007,6 @@ export  class DefineFromExcel2  {
     readonly x5: number
     readonly x6: number
     readonly x8: number
-    x8_Ref : test.DemoPrimitiveTypesTable = undefined!
     readonly x10: string
     readonly x13: test.ETestQuality
     readonly x14: test.DemoDynamic
@@ -6032,7 +6017,6 @@ export  class DefineFromExcel2  {
     readonly k9: test.DemoE2[]
 
     resolve(_tables: Map<string, any>) {
-        this.x8_Ref = (_tables.get('test.TbDemoPrimitive') as test.TbDemoPrimitive).get(this.x8)!
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
     }
@@ -6076,16 +6060,16 @@ export namespace test {
 /**
  * 这是个测试excel结构
  */
-export  class TestExcelBean1  {
+export class TestExcelBean1 {
 
     constructor(_json_: any) {
-        if (_json_.x1 == undefined) { throw new Error() }
+        if (_json_.x1 === undefined) { throw new Error() }
         this.x1 = _json_.x1
-        if (_json_.x2 == undefined) { throw new Error() }
+        if (_json_.x2 === undefined) { throw new Error() }
         this.x2 = _json_.x2
-        if (_json_.x3 == undefined) { throw new Error() }
+        if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
-        if (_json_.x4 == undefined) { throw new Error() }
+        if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
     }
 
@@ -6202,85 +6186,85 @@ export class Tables {
 
     constructor(loader: JsonLoader) {
         let tables = new Map<string, any>()
-        this._TbBlackboard = new ai.TbBlackboard(loader('ai.TbBlackboard'))
+        this._TbBlackboard = new ai.TbBlackboard(loader('ai_tbblackboard'))
         tables.set('ai.TbBlackboard', this._TbBlackboard)
-        this._TbBehaviorTree = new ai.TbBehaviorTree(loader('ai.TbBehaviorTree'))
+        this._TbBehaviorTree = new ai.TbBehaviorTree(loader('ai_tbbehaviortree'))
         tables.set('ai.TbBehaviorTree', this._TbBehaviorTree)
-        this._TbClazz = new blueprint.TbClazz(loader('blueprint.TbClazz'))
+        this._TbClazz = new blueprint.TbClazz(loader('blueprint_tbclazz'))
         tables.set('blueprint.TbClazz', this._TbClazz)
-        this._TbDrop = new bonus.TbDrop(loader('bonus.TbDrop'))
+        this._TbDrop = new bonus.TbDrop(loader('bonus_tbdrop'))
         tables.set('bonus.TbDrop', this._TbDrop)
-        this._TbGlobalConfig = new common.TbGlobalConfig(loader('common.TbGlobalConfig'))
+        this._TbGlobalConfig = new common.TbGlobalConfig(loader('common_tbglobalconfig'))
         tables.set('common.TbGlobalConfig', this._TbGlobalConfig)
-        this._TbDummy = new common.TbDummy(loader('common.TbDummy'))
+        this._TbDummy = new common.TbDummy(loader('common_tbdummy'))
         tables.set('common.TbDummy', this._TbDummy)
-        this._TbErrorInfo = new error.TbErrorInfo(loader('error.TbErrorInfo'))
+        this._TbErrorInfo = new error.TbErrorInfo(loader('error_tberrorinfo'))
         tables.set('error.TbErrorInfo', this._TbErrorInfo)
-        this._TbCodeInfo = new error.TbCodeInfo(loader('error.TbCodeInfo'))
+        this._TbCodeInfo = new error.TbCodeInfo(loader('error_tbcodeinfo'))
         tables.set('error.TbCodeInfo', this._TbCodeInfo)
-        this._TbItem = new item.TbItem(loader('item.TbItem'))
+        this._TbItem = new item.TbItem(loader('item_tbitem'))
         tables.set('item.TbItem', this._TbItem)
-        this._TbItemFunc = new item.TbItemFunc(loader('item.TbItemFunc'))
+        this._TbItemFunc = new item.TbItemFunc(loader('item_tbitemfunc'))
         tables.set('item.TbItemFunc', this._TbItemFunc)
-        this._TbItemExtra = new item.TbItemExtra(loader('item.TbItemExtra'))
+        this._TbItemExtra = new item.TbItemExtra(loader('item_tbitemextra'))
         tables.set('item.TbItemExtra', this._TbItemExtra)
-        this._TbL10NDemo = new l10n.TbL10NDemo(loader('l10n.TbL10NDemo'))
+        this._TbL10NDemo = new l10n.TbL10NDemo(loader('l10n_tbl10ndemo'))
         tables.set('l10n.TbL10NDemo', this._TbL10NDemo)
-        this._TbPatchDemo = new l10n.TbPatchDemo(loader('l10n.TbPatchDemo'))
+        this._TbPatchDemo = new l10n.TbPatchDemo(loader('l10n_tbpatchdemo'))
         tables.set('l10n.TbPatchDemo', this._TbPatchDemo)
-        this._TbSystemMail = new mail.TbSystemMail(loader('mail.TbSystemMail'))
+        this._TbSystemMail = new mail.TbSystemMail(loader('mail_tbsystemmail'))
         tables.set('mail.TbSystemMail', this._TbSystemMail)
-        this._TbGlobalMail = new mail.TbGlobalMail(loader('mail.TbGlobalMail'))
+        this._TbGlobalMail = new mail.TbGlobalMail(loader('mail_tbglobalmail'))
         tables.set('mail.TbGlobalMail', this._TbGlobalMail)
-        this._TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader('role.TbRoleLevelExpAttr'))
+        this._TbRoleLevelExpAttr = new role.TbRoleLevelExpAttr(loader('role_tbrolelevelexpattr'))
         tables.set('role.TbRoleLevelExpAttr', this._TbRoleLevelExpAttr)
-        this._TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader('role.TbRoleLevelBonusCoefficient'))
+        this._TbRoleLevelBonusCoefficient = new role.TbRoleLevelBonusCoefficient(loader('role_tbrolelevelbonuscoefficient'))
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
-        this._TbTestTag = new tag.TbTestTag(loader('tag.TbTestTag'))
+        this._TbTestTag = new tag.TbTestTag(loader('tag_tbtesttag'))
         tables.set('tag.TbTestTag', this._TbTestTag)
-        this._TbFullTypes = new test.TbFullTypes(loader('test.TbFullTypes'))
+        this._TbFullTypes = new test.TbFullTypes(loader('test_tbfulltypes'))
         tables.set('test.TbFullTypes', this._TbFullTypes)
-        this._TbSingleton = new test.TbSingleton(loader('test.TbSingleton'))
+        this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton'))
         tables.set('test.TbSingleton', this._TbSingleton)
-        this._TbDataFromMisc = new test.TbDataFromMisc(loader('test.TbDataFromMisc'))
+        this._TbDataFromMisc = new test.TbDataFromMisc(loader('test_tbdatafrommisc'))
         tables.set('test.TbDataFromMisc', this._TbDataFromMisc)
-        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test.TbMultiRowRecord'))
+        this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test_tbmultirowrecord'))
         tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord)
-        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test.TbMultiRowTitle'))
+        this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test_tbmultirowtitle'))
         tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle)
-        this._TbTestNull = new test.TbTestNull(loader('test.TbTestNull'))
+        this._TbTestNull = new test.TbTestNull(loader('test_tbtestnull'))
         tables.set('test.TbTestNull', this._TbTestNull)
-        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test.TbDemoPrimitive'))
+        this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test_tbdemoprimitive'))
         tables.set('test.TbDemoPrimitive', this._TbDemoPrimitive)
-        this._TbTestString = new test.TbTestString(loader('test.TbTestString'))
+        this._TbTestString = new test.TbTestString(loader('test_tbteststring'))
         tables.set('test.TbTestString', this._TbTestString)
-        this._TbDemoGroup = new test.TbDemoGroup(loader('test.TbDemoGroup'))
+        this._TbDemoGroup = new test.TbDemoGroup(loader('test_tbdemogroup'))
         tables.set('test.TbDemoGroup', this._TbDemoGroup)
-        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test.TbDemoGroup_C'))
+        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test_tbdemogroup_c'))
         tables.set('test.TbDemoGroup_C', this._TbDemoGroup_C)
-        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test.TbDemoGroup_S'))
+        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test_tbdemogroup_s'))
         tables.set('test.TbDemoGroup_S', this._TbDemoGroup_S)
-        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test.TbDemoGroup_E'))
+        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test_tbdemogroup_e'))
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
-        this._TbTestGlobal = new test.TbTestGlobal(loader('test.TbTestGlobal'))
+        this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal'))
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
-        this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test.TbDetectCsvEncoding'))
+        this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding'))
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
-        this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test.TbDefineFromExcel'))
+        this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel'))
         tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel)
-        this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test.TbDefineFromExcelOne'))
+        this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test_tbdefinefromexcelone'))
         tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne)
-        this._TbTestJson2 = new test.TbTestJson2(loader('test.TbTestJson2'))
+        this._TbTestJson2 = new test.TbTestJson2(loader('test_tbtestjson2'))
         tables.set('test.TbTestJson2', this._TbTestJson2)
-        this._TbTestIndex = new test.TbTestIndex(loader('test.TbTestIndex'))
+        this._TbTestIndex = new test.TbTestIndex(loader('test_tbtestindex'))
         tables.set('test.TbTestIndex', this._TbTestIndex)
-        this._TbTestMap = new test.TbTestMap(loader('test.TbTestMap'))
+        this._TbTestMap = new test.TbTestMap(loader('test_tbtestmap'))
         tables.set('test.TbTestMap', this._TbTestMap)
-        this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test.TbDemoGroupDefineFromExcel'))
+        this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'))
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
-        this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test.TbDefineFromExcel2'))
+        this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'))
         tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2)
-        this._TbTestExcelBean = new test.TbTestExcelBean(loader('test.TbTestExcelBean'))
+        this._TbTestExcelBean = new test.TbTestExcelBean(loader('test_tbtestexcelbean'))
         tables.set('test.TbTestExcelBean', this._TbTestExcelBean)
 
         this._TbBlackboard.resolve(tables)

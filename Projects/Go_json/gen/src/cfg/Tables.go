@@ -59,241 +59,241 @@ func NewTables(loader JsonLoader) (*Tables, error) {
     var buf []map[string]interface{}
 
     tables := &Tables{}
-    if buf, err = loader("ai.TbBlackboard") ; err != nil {
+    if buf, err = loader("ai_tbblackboard") ; err != nil {
         return nil, err
     }
     if tables.TbBlackboard, err = NewAi_TbBlackboard(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("ai.TbBehaviorTree") ; err != nil {
+    if buf, err = loader("ai_tbbehaviortree") ; err != nil {
         return nil, err
     }
     if tables.TbBehaviorTree, err = NewAi_TbBehaviorTree(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("blueprint.TbClazz") ; err != nil {
+    if buf, err = loader("blueprint_tbclazz") ; err != nil {
         return nil, err
     }
     if tables.TbClazz, err = NewBlueprint_TbClazz(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("bonus.TbDrop") ; err != nil {
+    if buf, err = loader("bonus_tbdrop") ; err != nil {
         return nil, err
     }
     if tables.TbDrop, err = NewBonus_TbDrop(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("common.TbGlobalConfig") ; err != nil {
+    if buf, err = loader("common_tbglobalconfig") ; err != nil {
         return nil, err
     }
     if tables.TbGlobalConfig, err = NewCommon_TbGlobalConfig(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("common.TbDummy") ; err != nil {
+    if buf, err = loader("common_tbdummy") ; err != nil {
         return nil, err
     }
     if tables.TbDummy, err = NewCommon_TbDummy(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("error.TbErrorInfo") ; err != nil {
+    if buf, err = loader("error_tberrorinfo") ; err != nil {
         return nil, err
     }
     if tables.TbErrorInfo, err = NewError_TbErrorInfo(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("error.TbCodeInfo") ; err != nil {
+    if buf, err = loader("error_tbcodeinfo") ; err != nil {
         return nil, err
     }
     if tables.TbCodeInfo, err = NewError_TbCodeInfo(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("item.TbItem") ; err != nil {
+    if buf, err = loader("item_tbitem") ; err != nil {
         return nil, err
     }
     if tables.TbItem, err = NewItem_TbItem(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("item.TbItemFunc") ; err != nil {
+    if buf, err = loader("item_tbitemfunc") ; err != nil {
         return nil, err
     }
     if tables.TbItemFunc, err = NewItem_TbItemFunc(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("item.TbItemExtra") ; err != nil {
+    if buf, err = loader("item_tbitemextra") ; err != nil {
         return nil, err
     }
     if tables.TbItemExtra, err = NewItem_TbItemExtra(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("l10n.TbL10NDemo") ; err != nil {
+    if buf, err = loader("l10n_tbl10ndemo") ; err != nil {
         return nil, err
     }
     if tables.TbL10NDemo, err = NewL10n_TbL10NDemo(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("l10n.TbPatchDemo") ; err != nil {
+    if buf, err = loader("l10n_tbpatchdemo") ; err != nil {
         return nil, err
     }
     if tables.TbPatchDemo, err = NewL10n_TbPatchDemo(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("mail.TbSystemMail") ; err != nil {
+    if buf, err = loader("mail_tbsystemmail") ; err != nil {
         return nil, err
     }
     if tables.TbSystemMail, err = NewMail_TbSystemMail(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("mail.TbGlobalMail") ; err != nil {
+    if buf, err = loader("mail_tbglobalmail") ; err != nil {
         return nil, err
     }
     if tables.TbGlobalMail, err = NewMail_TbGlobalMail(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("role.TbRoleLevelExpAttr") ; err != nil {
+    if buf, err = loader("role_tbrolelevelexpattr") ; err != nil {
         return nil, err
     }
     if tables.TbRoleLevelExpAttr, err = NewRole_TbRoleLevelExpAttr(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("role.TbRoleLevelBonusCoefficient") ; err != nil {
+    if buf, err = loader("role_tbrolelevelbonuscoefficient") ; err != nil {
         return nil, err
     }
     if tables.TbRoleLevelBonusCoefficient, err = NewRole_TbRoleLevelBonusCoefficient(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("tag.TbTestTag") ; err != nil {
+    if buf, err = loader("tag_tbtesttag") ; err != nil {
         return nil, err
     }
     if tables.TbTestTag, err = NewTag_TbTestTag(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbFullTypes") ; err != nil {
+    if buf, err = loader("test_tbfulltypes") ; err != nil {
         return nil, err
     }
     if tables.TbFullTypes, err = NewTest_TbFullTypes(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbSingleton") ; err != nil {
+    if buf, err = loader("test_tbsingleton") ; err != nil {
         return nil, err
     }
     if tables.TbSingleton, err = NewTest_TbSingleton(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDataFromMisc") ; err != nil {
+    if buf, err = loader("test_tbdatafrommisc") ; err != nil {
         return nil, err
     }
     if tables.TbDataFromMisc, err = NewTest_TbDataFromMisc(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbMultiRowRecord") ; err != nil {
+    if buf, err = loader("test_tbmultirowrecord") ; err != nil {
         return nil, err
     }
     if tables.TbMultiRowRecord, err = NewTest_TbMultiRowRecord(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbMultiRowTitle") ; err != nil {
+    if buf, err = loader("test_tbmultirowtitle") ; err != nil {
         return nil, err
     }
     if tables.TbMultiRowTitle, err = NewTest_TbMultiRowTitle(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestNull") ; err != nil {
+    if buf, err = loader("test_tbtestnull") ; err != nil {
         return nil, err
     }
     if tables.TbTestNull, err = NewTest_TbTestNull(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoPrimitive") ; err != nil {
+    if buf, err = loader("test_tbdemoprimitive") ; err != nil {
         return nil, err
     }
     if tables.TbDemoPrimitive, err = NewTest_TbDemoPrimitive(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestString") ; err != nil {
+    if buf, err = loader("test_tbteststring") ; err != nil {
         return nil, err
     }
     if tables.TbTestString, err = NewTest_TbTestString(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoGroup") ; err != nil {
+    if buf, err = loader("test_tbdemogroup") ; err != nil {
         return nil, err
     }
     if tables.TbDemoGroup, err = NewTest_TbDemoGroup(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoGroup_C") ; err != nil {
+    if buf, err = loader("test_tbdemogroup_c") ; err != nil {
         return nil, err
     }
     if tables.TbDemoGroup_C, err = NewTest_TbDemoGroup_C(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoGroup_S") ; err != nil {
+    if buf, err = loader("test_tbdemogroup_s") ; err != nil {
         return nil, err
     }
     if tables.TbDemoGroup_S, err = NewTest_TbDemoGroup_S(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoGroup_E") ; err != nil {
+    if buf, err = loader("test_tbdemogroup_e") ; err != nil {
         return nil, err
     }
     if tables.TbDemoGroup_E, err = NewTest_TbDemoGroup_E(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestGlobal") ; err != nil {
+    if buf, err = loader("test_tbtestglobal") ; err != nil {
         return nil, err
     }
     if tables.TbTestGlobal, err = NewTest_TbTestGlobal(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDetectCsvEncoding") ; err != nil {
+    if buf, err = loader("test_tbdetectcsvencoding") ; err != nil {
         return nil, err
     }
     if tables.TbDetectCsvEncoding, err = NewTest_TbDetectCsvEncoding(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDefineFromExcel") ; err != nil {
+    if buf, err = loader("test_tbdefinefromexcel") ; err != nil {
         return nil, err
     }
     if tables.TbDefineFromExcel, err = NewTest_TbDefineFromExcel(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDefineFromExcelOne") ; err != nil {
+    if buf, err = loader("test_tbdefinefromexcelone") ; err != nil {
         return nil, err
     }
     if tables.TbDefineFromExcelOne, err = NewTest_TbDefineFromExcelOne(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestJson2") ; err != nil {
+    if buf, err = loader("test_tbtestjson2") ; err != nil {
         return nil, err
     }
     if tables.TbTestJson2, err = NewTest_TbTestJson2(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestIndex") ; err != nil {
+    if buf, err = loader("test_tbtestindex") ; err != nil {
         return nil, err
     }
     if tables.TbTestIndex, err = NewTest_TbTestIndex(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestMap") ; err != nil {
+    if buf, err = loader("test_tbtestmap") ; err != nil {
         return nil, err
     }
     if tables.TbTestMap, err = NewTest_TbTestMap(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDemoGroupDefineFromExcel") ; err != nil {
+    if buf, err = loader("test_tbdemogroupdefinefromexcel") ; err != nil {
         return nil, err
     }
     if tables.TbDemoGroupDefineFromExcel, err = NewTest_TbDemoGroupDefineFromExcel(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbDefineFromExcel2") ; err != nil {
+    if buf, err = loader("test_tbdefinefromexcel2") ; err != nil {
         return nil, err
     }
     if tables.TbDefineFromExcel2, err = NewTest_TbDefineFromExcel2(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test.TbTestExcelBean") ; err != nil {
+    if buf, err = loader("test_tbtestexcelbean") ; err != nil {
         return nil, err
     }
     if tables.TbTestExcelBean, err = NewTest_TbTestExcelBean(buf) ; err != nil {

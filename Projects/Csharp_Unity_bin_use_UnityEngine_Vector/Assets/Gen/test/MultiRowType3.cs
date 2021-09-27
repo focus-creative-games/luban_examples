@@ -27,8 +27,8 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
         return new test.MultiRowType3(_buf);
     }
 
-    public int Id {get; private set;}
-    public System.Collections.Generic.List<test.MultiRowType1> Items {get; private set;}
+    public int Id { get; private set; }
+    public System.Collections.Generic.List<test.MultiRowType1> Items { get; private set; }
 
     public const int ID = 540474972;
     public override int GetTypeId() => ID;

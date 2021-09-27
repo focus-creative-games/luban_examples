@@ -1,10 +1,5 @@
 ﻿<module name="role">
 
-	<const name="Consts">
-		<var name="MAX_NAME_LENGTH" type="int" value="20"/>
-		<var name="MAX_USER_ROLE_NUM" type="int" value="10"/>
-	</const>
-
 	<enum name="EGenderType">
 		<var name="MALE" alias="男" value="1"/>
 		<var name="FEMALE" alias="女" value="2"/>

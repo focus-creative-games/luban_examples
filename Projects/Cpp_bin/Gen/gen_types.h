@@ -781,32 +781,6 @@ enum class ETestCurrency
     GOLD = 2,
 };
 }
-
-namespace role {
-/**
- * 
- */
-struct Consts
-{
-    static constexpr ::bright::int32 MAX_NAME_LENGTH = 20;
-    static constexpr ::bright::int32 MAX_USER_ROLE_NUM = 10;
-};
-}
-
-
-namespace test {
-/**
- * 
- */
-struct DemoConst
-{
-    static constexpr ::bright::int32 x1 = 0;
-    static constexpr ::bright::int64 x2 = 3242L;
-    static constexpr ::bright::float32 x3 = 444.3f;
-    static constexpr ::bright::float64 x4 = 55.3;
-};
-}
-
 namespace ai { class Blackboard; } 
 namespace ai { class BlackboardKey; } 
 namespace ai { class BehaviorTree; } 
@@ -5810,7 +5784,7 @@ class MultiRowRecord : public  bright::CfgBean
 
     }
 
-    MultiRowRecord(::bright::int32 id, ::bright::String name, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> one_rows, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows1, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows2, ::bright::HashSet<::bright::SharedPtr<test::MultiRowType2>> multi_rows3, ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multi_rows4, ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multi_rows5 ) 
+    MultiRowRecord(::bright::int32 id, ::bright::String name, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> one_rows, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows1, ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multi_rows2, ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multi_rows4, ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multi_rows5, ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multi_rows6, ::bright::HashMap<::bright::int32, ::bright::int32> multi_rows7 ) 
     {
 
         this->id = id;
@@ -5818,9 +5792,10 @@ class MultiRowRecord : public  bright::CfgBean
         this->oneRows = one_rows;
         this->multiRows1 = multi_rows1;
         this->multiRows2 = multi_rows2;
-        this->multiRows3 = multi_rows3;
         this->multiRows4 = multi_rows4;
         this->multiRows5 = multi_rows5;
+        this->multiRows6 = multi_rows6;
+        this->multiRows7 = multi_rows7;
     }
     virtual ~MultiRowRecord() {}
 
@@ -5831,9 +5806,10 @@ class MultiRowRecord : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> oneRows;
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows1;
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> multiRows2;
-    ::bright::HashSet<::bright::SharedPtr<test::MultiRowType2>> multiRows3;
     ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multiRows4;
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType3>> multiRows5;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multiRows6;
+    ::bright::HashMap<::bright::int32, ::bright::int32> multiRows7;
 
     static constexpr int ID = -501249394;
 
@@ -6455,7 +6431,6 @@ class DefineFromExcel : public  bright::CfgBean
     ::bright::int64 x5;
     ::bright::float32 x6;
     ::bright::int32 x8;
-    ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
     ::bright::String x10;
     test::ETestQuality x13;
     ::bright::SharedPtr<test::DemoDynamic> x14;
@@ -6696,7 +6671,6 @@ class DefineFromExcel2 : public  bright::CfgBean
     ::bright::int64 x5;
     ::bright::float32 x6;
     ::bright::int32 x8;
-    ::bright::SharedPtr<test::DemoPrimitiveTypesTable> x8_Ref;
     ::bright::String x10;
     test::ETestQuality x13;
     ::bright::SharedPtr<test::DemoDynamic> x14;
@@ -8738,124 +8712,124 @@ class Tables
         ::bright::HashMap<::bright::String, void*> __tables__;
 
         ByteBuf buf;
-        if (!loader(buf, "ai.TbBlackboard")) return false;
+        if (!loader(buf, "ai_tbblackboard")) return false;
         if (!TbBlackboard.load(buf)) return false;
         __tables__["ai.TbBlackboard"] = &TbBlackboard;
-        if (!loader(buf, "ai.TbBehaviorTree")) return false;
+        if (!loader(buf, "ai_tbbehaviortree")) return false;
         if (!TbBehaviorTree.load(buf)) return false;
         __tables__["ai.TbBehaviorTree"] = &TbBehaviorTree;
-        if (!loader(buf, "blueprint.TbClazz")) return false;
+        if (!loader(buf, "blueprint_tbclazz")) return false;
         if (!TbClazz.load(buf)) return false;
         __tables__["blueprint.TbClazz"] = &TbClazz;
-        if (!loader(buf, "bonus.TbDrop")) return false;
+        if (!loader(buf, "bonus_tbdrop")) return false;
         if (!TbDrop.load(buf)) return false;
         __tables__["bonus.TbDrop"] = &TbDrop;
-        if (!loader(buf, "common.TbGlobalConfig")) return false;
+        if (!loader(buf, "common_tbglobalconfig")) return false;
         if (!TbGlobalConfig.load(buf)) return false;
         __tables__["common.TbGlobalConfig"] = &TbGlobalConfig;
-        if (!loader(buf, "common.TbDummy")) return false;
+        if (!loader(buf, "common_tbdummy")) return false;
         if (!TbDummy.load(buf)) return false;
         __tables__["common.TbDummy"] = &TbDummy;
-        if (!loader(buf, "error.TbErrorInfo")) return false;
+        if (!loader(buf, "error_tberrorinfo")) return false;
         if (!TbErrorInfo.load(buf)) return false;
         __tables__["error.TbErrorInfo"] = &TbErrorInfo;
-        if (!loader(buf, "error.TbCodeInfo")) return false;
+        if (!loader(buf, "error_tbcodeinfo")) return false;
         if (!TbCodeInfo.load(buf)) return false;
         __tables__["error.TbCodeInfo"] = &TbCodeInfo;
-        if (!loader(buf, "item.TbItem")) return false;
+        if (!loader(buf, "item_tbitem")) return false;
         if (!TbItem.load(buf)) return false;
         __tables__["item.TbItem"] = &TbItem;
-        if (!loader(buf, "item.TbItemFunc")) return false;
+        if (!loader(buf, "item_tbitemfunc")) return false;
         if (!TbItemFunc.load(buf)) return false;
         __tables__["item.TbItemFunc"] = &TbItemFunc;
-        if (!loader(buf, "item.TbItemExtra")) return false;
+        if (!loader(buf, "item_tbitemextra")) return false;
         if (!TbItemExtra.load(buf)) return false;
         __tables__["item.TbItemExtra"] = &TbItemExtra;
-        if (!loader(buf, "l10n.TbL10NDemo")) return false;
+        if (!loader(buf, "l10n_tbl10ndemo")) return false;
         if (!TbL10NDemo.load(buf)) return false;
         __tables__["l10n.TbL10NDemo"] = &TbL10NDemo;
-        if (!loader(buf, "l10n.TbPatchDemo")) return false;
+        if (!loader(buf, "l10n_tbpatchdemo")) return false;
         if (!TbPatchDemo.load(buf)) return false;
         __tables__["l10n.TbPatchDemo"] = &TbPatchDemo;
-        if (!loader(buf, "mail.TbSystemMail")) return false;
+        if (!loader(buf, "mail_tbsystemmail")) return false;
         if (!TbSystemMail.load(buf)) return false;
         __tables__["mail.TbSystemMail"] = &TbSystemMail;
-        if (!loader(buf, "mail.TbGlobalMail")) return false;
+        if (!loader(buf, "mail_tbglobalmail")) return false;
         if (!TbGlobalMail.load(buf)) return false;
         __tables__["mail.TbGlobalMail"] = &TbGlobalMail;
-        if (!loader(buf, "role.TbRoleLevelExpAttr")) return false;
+        if (!loader(buf, "role_tbrolelevelexpattr")) return false;
         if (!TbRoleLevelExpAttr.load(buf)) return false;
         __tables__["role.TbRoleLevelExpAttr"] = &TbRoleLevelExpAttr;
-        if (!loader(buf, "role.TbRoleLevelBonusCoefficient")) return false;
+        if (!loader(buf, "role_tbrolelevelbonuscoefficient")) return false;
         if (!TbRoleLevelBonusCoefficient.load(buf)) return false;
         __tables__["role.TbRoleLevelBonusCoefficient"] = &TbRoleLevelBonusCoefficient;
-        if (!loader(buf, "tag.TbTestTag")) return false;
+        if (!loader(buf, "tag_tbtesttag")) return false;
         if (!TbTestTag.load(buf)) return false;
         __tables__["tag.TbTestTag"] = &TbTestTag;
-        if (!loader(buf, "test.TbFullTypes")) return false;
+        if (!loader(buf, "test_tbfulltypes")) return false;
         if (!TbFullTypes.load(buf)) return false;
         __tables__["test.TbFullTypes"] = &TbFullTypes;
-        if (!loader(buf, "test.TbSingleton")) return false;
+        if (!loader(buf, "test_tbsingleton")) return false;
         if (!TbSingleton.load(buf)) return false;
         __tables__["test.TbSingleton"] = &TbSingleton;
-        if (!loader(buf, "test.TbDataFromMisc")) return false;
+        if (!loader(buf, "test_tbdatafrommisc")) return false;
         if (!TbDataFromMisc.load(buf)) return false;
         __tables__["test.TbDataFromMisc"] = &TbDataFromMisc;
-        if (!loader(buf, "test.TbMultiRowRecord")) return false;
+        if (!loader(buf, "test_tbmultirowrecord")) return false;
         if (!TbMultiRowRecord.load(buf)) return false;
         __tables__["test.TbMultiRowRecord"] = &TbMultiRowRecord;
-        if (!loader(buf, "test.TbMultiRowTitle")) return false;
+        if (!loader(buf, "test_tbmultirowtitle")) return false;
         if (!TbMultiRowTitle.load(buf)) return false;
         __tables__["test.TbMultiRowTitle"] = &TbMultiRowTitle;
-        if (!loader(buf, "test.TbTestNull")) return false;
+        if (!loader(buf, "test_tbtestnull")) return false;
         if (!TbTestNull.load(buf)) return false;
         __tables__["test.TbTestNull"] = &TbTestNull;
-        if (!loader(buf, "test.TbDemoPrimitive")) return false;
+        if (!loader(buf, "test_tbdemoprimitive")) return false;
         if (!TbDemoPrimitive.load(buf)) return false;
         __tables__["test.TbDemoPrimitive"] = &TbDemoPrimitive;
-        if (!loader(buf, "test.TbTestString")) return false;
+        if (!loader(buf, "test_tbteststring")) return false;
         if (!TbTestString.load(buf)) return false;
         __tables__["test.TbTestString"] = &TbTestString;
-        if (!loader(buf, "test.TbDemoGroup")) return false;
+        if (!loader(buf, "test_tbdemogroup")) return false;
         if (!TbDemoGroup.load(buf)) return false;
         __tables__["test.TbDemoGroup"] = &TbDemoGroup;
-        if (!loader(buf, "test.TbDemoGroup_C")) return false;
+        if (!loader(buf, "test_tbdemogroup_c")) return false;
         if (!TbDemoGroup_C.load(buf)) return false;
         __tables__["test.TbDemoGroup_C"] = &TbDemoGroup_C;
-        if (!loader(buf, "test.TbDemoGroup_S")) return false;
+        if (!loader(buf, "test_tbdemogroup_s")) return false;
         if (!TbDemoGroup_S.load(buf)) return false;
         __tables__["test.TbDemoGroup_S"] = &TbDemoGroup_S;
-        if (!loader(buf, "test.TbDemoGroup_E")) return false;
+        if (!loader(buf, "test_tbdemogroup_e")) return false;
         if (!TbDemoGroup_E.load(buf)) return false;
         __tables__["test.TbDemoGroup_E"] = &TbDemoGroup_E;
-        if (!loader(buf, "test.TbTestGlobal")) return false;
+        if (!loader(buf, "test_tbtestglobal")) return false;
         if (!TbTestGlobal.load(buf)) return false;
         __tables__["test.TbTestGlobal"] = &TbTestGlobal;
-        if (!loader(buf, "test.TbDetectCsvEncoding")) return false;
+        if (!loader(buf, "test_tbdetectcsvencoding")) return false;
         if (!TbDetectCsvEncoding.load(buf)) return false;
         __tables__["test.TbDetectCsvEncoding"] = &TbDetectCsvEncoding;
-        if (!loader(buf, "test.TbDefineFromExcel")) return false;
+        if (!loader(buf, "test_tbdefinefromexcel")) return false;
         if (!TbDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDefineFromExcel"] = &TbDefineFromExcel;
-        if (!loader(buf, "test.TbDefineFromExcelOne")) return false;
+        if (!loader(buf, "test_tbdefinefromexcelone")) return false;
         if (!TbDefineFromExcelOne.load(buf)) return false;
         __tables__["test.TbDefineFromExcelOne"] = &TbDefineFromExcelOne;
-        if (!loader(buf, "test.TbTestJson2")) return false;
+        if (!loader(buf, "test_tbtestjson2")) return false;
         if (!TbTestJson2.load(buf)) return false;
         __tables__["test.TbTestJson2"] = &TbTestJson2;
-        if (!loader(buf, "test.TbTestIndex")) return false;
+        if (!loader(buf, "test_tbtestindex")) return false;
         if (!TbTestIndex.load(buf)) return false;
         __tables__["test.TbTestIndex"] = &TbTestIndex;
-        if (!loader(buf, "test.TbTestMap")) return false;
+        if (!loader(buf, "test_tbtestmap")) return false;
         if (!TbTestMap.load(buf)) return false;
         __tables__["test.TbTestMap"] = &TbTestMap;
-        if (!loader(buf, "test.TbDemoGroupDefineFromExcel")) return false;
+        if (!loader(buf, "test_tbdemogroupdefinefromexcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
-        if (!loader(buf, "test.TbDefineFromExcel2")) return false;
+        if (!loader(buf, "test_tbdefinefromexcel2")) return false;
         if (!TbDefineFromExcel2.load(buf)) return false;
         __tables__["test.TbDefineFromExcel2"] = &TbDefineFromExcel2;
-        if (!loader(buf, "test.TbTestExcelBean")) return false;
+        if (!loader(buf, "test_tbtestexcelbean")) return false;
         if (!TbTestExcelBean.load(buf)) return false;
         __tables__["test.TbTestExcelBean"] = &TbTestExcelBean;
 

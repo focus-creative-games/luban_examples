@@ -24,19 +24,6 @@ local function get_map_size(m)
     end
     return n
 end
-local consts =
-{
-    ---@class role.Consts
-     ---@field public MAX_NAME_LENGTH int
-     ---@field public MAX_USER_ROLE_NUM int
-    ['role.Consts'] = {   MAX_NAME_LENGTH=20,  MAX_USER_ROLE_NUM=10,  };
-    ---@class test.DemoConst
-     ---@field public x1 int
-     ---@field public x2 long
-     ---@field public x3 float
-     ---@field public x4 double
-    ['test.DemoConst'] = {   x1=0,  x2=3242,  x3=444.3,  x4=55.3,  };
-}
 
 local enums =
 {
@@ -2927,9 +2914,10 @@ local function InitTypes(methods)
      ---@field public one_rows test.MultiRowType1[]
      ---@field public multi_rows1 test.MultiRowType1[]
      ---@field public multi_rows2 test.MultiRowType1[]
-     ---@field public multi_rows3 test.MultiRowType2[]
      ---@field public multi_rows4 table<int,test.MultiRowType2>
      ---@field public multi_rows5 test.MultiRowType3[]
+     ---@field public multi_rows6 table<int,test.MultiRowType2>
+     ---@field public multi_rows7 table<int,int>
         local class = SimpleClass()
         class._id = -501249394
         class._name = 'test.MultiRowRecord'
@@ -2941,9 +2929,10 @@ local function InitTypes(methods)
             one_rows = readList(bs, beans['test.MultiRowType1']._deserialize),
             multi_rows1 = readList(bs, beans['test.MultiRowType1']._deserialize),
             multi_rows2 = readArray(bs, beans['test.MultiRowType1']._deserialize),
-            multi_rows3 = readSet(bs, beans['test.MultiRowType2']._deserialize),
             multi_rows4 = readMap(bs, readInt, beans['test.MultiRowType2']._deserialize),
             multi_rows5 = readList(bs, beans['test.MultiRowType3']._deserialize),
+            multi_rows6 = readMap(bs, readInt, beans['test.MultiRowType2']._deserialize),
+            multi_rows7 = readMap(bs, readInt, readInt),
             }
             setmetatable(o, class)
             return o
@@ -3453,48 +3442,48 @@ local function InitTypes(methods)
 
     local tables =
     {
-    { name='TbBlackboard', file='ai.TbBlackboard', mode='map', index='name', value_type='ai.Blackboard' },
-    { name='TbBehaviorTree', file='ai.TbBehaviorTree', mode='map', index='id', value_type='ai.BehaviorTree' },
-    { name='TbClazz', file='blueprint.TbClazz', mode='map', index='name', value_type='blueprint.Clazz' },
-    { name='TbDrop', file='bonus.TbDrop', mode='map', index='id', value_type='bonus.DropInfo' },
-    { name='TbGlobalConfig', file='common.TbGlobalConfig', mode='one', value_type='common.GlobalConfig'},
-    { name='TbDummy', file='common.TbDummy', mode='map', index='id', value_type='common.Dummy' },
-    { name='TbErrorInfo', file='error.TbErrorInfo', mode='map', index='code', value_type='error.ErrorInfo' },
-    { name='TbCodeInfo', file='error.TbCodeInfo', mode='map', index='code', value_type='error.CodeInfo' },
-    { name='TbItem', file='item.TbItem', mode='map', index='id', value_type='item.Item' },
-    { name='TbItemFunc', file='item.TbItemFunc', mode='map', index='minor_type', value_type='item.ItemFunction' },
-    { name='TbItemExtra', file='item.TbItemExtra', mode='map', index='id', value_type='item.ItemExtra' },
-    { name='TbL10NDemo', file='l10n.TbL10NDemo', mode='map', index='id', value_type='l10n.L10NDemo' },
-    { name='TbPatchDemo', file='l10n.TbPatchDemo', mode='map', index='id', value_type='l10n.PatchDemo' },
-    { name='TbSystemMail', file='mail.TbSystemMail', mode='map', index='id', value_type='mail.SystemMail' },
-    { name='TbGlobalMail', file='mail.TbGlobalMail', mode='map', index='id', value_type='mail.GlobalMail' },
-    { name='TbRoleLevelExpAttr', file='role.TbRoleLevelExpAttr', mode='map', index='level', value_type='role.LevelExpAttr' },
-    { name='TbRoleLevelBonusCoefficient', file='role.TbRoleLevelBonusCoefficient', mode='map', index='id', value_type='role.LevelBonus' },
-    { name='TbTestTag', file='tag.TbTestTag', mode='map', index='id', value_type='tag.TestTag' },
-    { name='TbFullTypes', file='test.TbFullTypes', mode='map', index='x3', value_type='test.DemoType2' },
-    { name='TbSingleton', file='test.TbSingleton', mode='one', value_type='test.DemoSingletonType'},
-    { name='TbDataFromMisc', file='test.TbDataFromMisc', mode='map', index='x4', value_type='test.DemoType2' },
-    { name='TbMultiRowRecord', file='test.TbMultiRowRecord', mode='map', index='id', value_type='test.MultiRowRecord' },
-    { name='TbMultiRowTitle', file='test.TbMultiRowTitle', mode='map', index='id', value_type='test.MultiRowTitle' },
-    { name='TbTestNull', file='test.TbTestNull', mode='map', index='id', value_type='test.TestNull' },
-    { name='TbDemoPrimitive', file='test.TbDemoPrimitive', mode='map', index='x4', value_type='test.DemoPrimitiveTypesTable' },
-    { name='TbTestString', file='test.TbTestString', mode='map', index='id', value_type='test.TestString' },
-    { name='TbDemoGroup', file='test.TbDemoGroup', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_C', file='test.TbDemoGroup_C', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_S', file='test.TbDemoGroup_S', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_E', file='test.TbDemoGroup_E', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbTestGlobal', file='test.TbTestGlobal', mode='one', value_type='test.TestGlobal'},
-    { name='TbDetectCsvEncoding', file='test.TbDetectCsvEncoding', mode='map', index='id', value_type='test.DetectEncoding' },
-    { name='TbDefineFromExcel', file='test.TbDefineFromExcel', mode='map', index='id', value_type='test.DefineFromExcel' },
-    { name='TbDefineFromExcelOne', file='test.TbDefineFromExcelOne', mode='one', value_type='test.DefineFromExcelOne'},
-    { name='TbTestJson2', file='test.TbTestJson2', mode='map', index='id', value_type='test.TestJson2' },
-    { name='TbTestIndex', file='test.TbTestIndex', mode='map', index='id', value_type='test.TestIndex' },
-    { name='TbTestMap', file='test.TbTestMap', mode='map', index='id', value_type='test.TestMap' },
-    { name='TbDemoGroupDefineFromExcel', file='test.TbDemoGroupDefineFromExcel', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDefineFromExcel2', file='test.TbDefineFromExcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
-    { name='TbTestExcelBean', file='test.TbTestExcelBean', mode='map', index='x1', value_type='test.TestExcelBean1' },
+    { name='TbBlackboard', file='ai_tbblackboard', mode='map', index='name', value_type='ai.Blackboard' },
+    { name='TbBehaviorTree', file='ai_tbbehaviortree', mode='map', index='id', value_type='ai.BehaviorTree' },
+    { name='TbClazz', file='blueprint_tbclazz', mode='map', index='name', value_type='blueprint.Clazz' },
+    { name='TbDrop', file='bonus_tbdrop', mode='map', index='id', value_type='bonus.DropInfo' },
+    { name='TbGlobalConfig', file='common_tbglobalconfig', mode='one', value_type='common.GlobalConfig'},
+    { name='TbDummy', file='common_tbdummy', mode='map', index='id', value_type='common.Dummy' },
+    { name='TbErrorInfo', file='error_tberrorinfo', mode='map', index='code', value_type='error.ErrorInfo' },
+    { name='TbCodeInfo', file='error_tbcodeinfo', mode='map', index='code', value_type='error.CodeInfo' },
+    { name='TbItem', file='item_tbitem', mode='map', index='id', value_type='item.Item' },
+    { name='TbItemFunc', file='item_tbitemfunc', mode='map', index='minor_type', value_type='item.ItemFunction' },
+    { name='TbItemExtra', file='item_tbitemextra', mode='map', index='id', value_type='item.ItemExtra' },
+    { name='TbL10NDemo', file='l10n_tbl10ndemo', mode='map', index='id', value_type='l10n.L10NDemo' },
+    { name='TbPatchDemo', file='l10n_tbpatchdemo', mode='map', index='id', value_type='l10n.PatchDemo' },
+    { name='TbSystemMail', file='mail_tbsystemmail', mode='map', index='id', value_type='mail.SystemMail' },
+    { name='TbGlobalMail', file='mail_tbglobalmail', mode='map', index='id', value_type='mail.GlobalMail' },
+    { name='TbRoleLevelExpAttr', file='role_tbrolelevelexpattr', mode='map', index='level', value_type='role.LevelExpAttr' },
+    { name='TbRoleLevelBonusCoefficient', file='role_tbrolelevelbonuscoefficient', mode='map', index='id', value_type='role.LevelBonus' },
+    { name='TbTestTag', file='tag_tbtesttag', mode='map', index='id', value_type='tag.TestTag' },
+    { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x3', value_type='test.DemoType2' },
+    { name='TbSingleton', file='test_tbsingleton', mode='one', value_type='test.DemoSingletonType'},
+    { name='TbDataFromMisc', file='test_tbdatafrommisc', mode='map', index='x4', value_type='test.DemoType2' },
+    { name='TbMultiRowRecord', file='test_tbmultirowrecord', mode='map', index='id', value_type='test.MultiRowRecord' },
+    { name='TbMultiRowTitle', file='test_tbmultirowtitle', mode='map', index='id', value_type='test.MultiRowTitle' },
+    { name='TbTestNull', file='test_tbtestnull', mode='map', index='id', value_type='test.TestNull' },
+    { name='TbDemoPrimitive', file='test_tbdemoprimitive', mode='map', index='x4', value_type='test.DemoPrimitiveTypesTable' },
+    { name='TbTestString', file='test_tbteststring', mode='map', index='id', value_type='test.TestString' },
+    { name='TbDemoGroup', file='test_tbdemogroup', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_C', file='test_tbdemogroup_c', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_S', file='test_tbdemogroup_s', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_E', file='test_tbdemogroup_e', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
+    { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
+    { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
+    { name='TbDefineFromExcelOne', file='test_tbdefinefromexcelone', mode='one', value_type='test.DefineFromExcelOne'},
+    { name='TbTestJson2', file='test_tbtestjson2', mode='map', index='id', value_type='test.TestJson2' },
+    { name='TbTestIndex', file='test_tbtestindex', mode='map', index='id', value_type='test.TestIndex' },
+    { name='TbTestMap', file='test_tbtestmap', mode='map', index='id', value_type='test.TestMap' },
+    { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
+    { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },
     }
-    return { consts = consts, enums = enums, beans = beans, tables = tables }
+    return { enums = enums, beans = beans, tables = tables }
     end
 
 return { InitTypes = InitTypes }

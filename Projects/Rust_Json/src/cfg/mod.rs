@@ -66,28 +66,6 @@ impl Vector4 {
          })
     }
 }
-
-#[allow(non_snake_case)]
-pub mod Role_Consts {
-	#[allow(dead_code)]
-    pub const MAX_NAME_LENGTH: i32 = 20;
-	#[allow(dead_code)]
-    pub const MAX_USER_ROLE_NUM: i32 = 10;
-}
-
-
-#[allow(non_snake_case)]
-pub mod Test_DemoConst {
-	#[allow(dead_code)]
-    pub const X1: i32 = 0;
-	#[allow(dead_code)]
-    pub const X2: i64 = 3242;
-	#[allow(dead_code)]
-    pub const X3: f32 = 444.3;
-	#[allow(dead_code)]
-    pub const X4: f64 = 55.3;
-}
-
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
 pub enum Ai_EExecutor {

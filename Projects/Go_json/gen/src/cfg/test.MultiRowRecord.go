@@ -16,9 +16,10 @@ type Test_MultiRowRecord struct {
     OneRows []*Test_MultiRowType1
     MultiRows1 []*Test_MultiRowType1
     MultiRows2 []*Test_MultiRowType1
-    MultiRows3 []*Test_MultiRowType2
     MultiRows4 map[int32]*Test_MultiRowType2
     MultiRows5 []*Test_MultiRowType3
+    MultiRows6 map[int32]*Test_MultiRowType2
+    MultiRows7 map[int32]int32
 }
 
 func (Test_MultiRowRecord) GetTypeId() int {
@@ -71,20 +72,6 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 }
             }
 
-     {
-                var _arr_ []interface{}
-                var _ok_ bool
-                if _arr_, _ok_ = _buf["multi_rows3"].([]interface{}); !_ok_ { err = errors.New("multi_rows3 error"); return }
-
-                _v.MultiRows3 = make([]*Test_MultiRowType2, 0, len(_arr_))
-                
-                for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_MultiRowType2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_MultiRowType2(_x_); err != nil { return } }
-                    _v.MultiRows3 = append(_v.MultiRows3, _list_v_)
-                }
-            }
-
     {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -116,5 +103,39 @@ func NewTest_MultiRowRecord(_buf map[string]interface{}) (_v *Test_MultiRowRecor
                 }
             }
 
+    {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["multi_rows6"].([]interface{}); !_ok_ { err = errors.New("multi_rows6 error"); return }
+
+                _v.MultiRows6 = make(map[int32]*Test_MultiRowType2)
+                
+                for _, _e_ := range _arr_ {
+                    var _kv_ []interface{}
+                    if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("multi_rows6 error"); return }
+                    var _key_ int32
+                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
+                    var _value_ *Test_MultiRowType2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _kv_[1].(map[string]interface{}); !_ok_ { err = errors.New("_value_ error"); return }; if _value_, err = NewTest_MultiRowType2(_x_); err != nil { return } }
+                    _v.MultiRows6[_key_] = _value_
+                }
+                }
+    {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["multi_rows7"].([]interface{}); !_ok_ { err = errors.New("multi_rows7 error"); return }
+
+                _v.MultiRows7 = make(map[int32]int32)
+                
+                for _, _e_ := range _arr_ {
+                    var _kv_ []interface{}
+                    if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("multi_rows7 error"); return }
+                    var _key_ int32
+                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
+                    var _value_ int32
+                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
+                    _v.MultiRows7[_key_] = _value_
+                }
+                }
     return
 }

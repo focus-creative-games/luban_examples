@@ -26,7 +26,7 @@ public sealed partial class ChooseTarget :  ai.Service
         return new ai.ChooseTarget(_buf);
     }
 
-    public string ResultTargetKey {get; private set;}
+    public string ResultTargetKey { get; private set; }
 
     public const int ID = 1601247918;
     public override int GetTypeId() => ID;

@@ -26,7 +26,7 @@ public sealed partial class CoolDown :  limit.LimitBase
         return new limit.CoolDown(_buf);
     }
 
-    public int Duration {get; private set;}
+    public int Duration { get; private set; }
 
     public const int ID = -1366194050;
     public override int GetTypeId() => ID;

@@ -60,7 +60,6 @@ public final class DefineFromExcel2 {
     public final long x5;
     public final float x6;
     public final int x8;
-    public cfg.test.DemoPrimitiveTypesTable x8_Ref;
     public final String x10;
     public final cfg.test.ETestQuality x13;
     public final cfg.test.DemoDynamic x14;
@@ -72,7 +71,6 @@ public final class DefineFromExcel2 {
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
-        this.x8_Ref = ((cfg.test.TbDemoPrimitive)_tables.get("test.TbDemoPrimitive")).get(x8);
         if (x14 != null) {x14.resolve(_tables);}
         for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
     }

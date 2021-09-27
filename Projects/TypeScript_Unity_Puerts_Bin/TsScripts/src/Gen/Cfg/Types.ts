@@ -114,22 +114,6 @@ export abstract class BeanBase implements ISerializable {
 }
 
 export namespace cfg {
-export namespace role {
-export class Consts {
-    static MAX_NAME_LENGTH = 20;
-    static MAX_USER_ROLE_NUM = 10;
-}
-}
-
-export namespace test {
-export class DemoConst {
-    static x1 = 0;
-    static x2 = 3242;
-    static x3 = 444.3;
-    static x4 = 55.3;
-}
-}
-
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
@@ -912,7 +896,7 @@ export  class Blackboard  {
     readonly name: string
     readonly desc: string
     readonly parentName: string
-    parentName_Ref: ai.Blackboard = undefined!
+    parentName_Ref : ai.Blackboard = undefined!
     readonly keys: ai.BlackboardKey[]
 
     resolve(_tables: Map<string, any>) {
@@ -1000,7 +984,7 @@ export  class BehaviorTree  {
     readonly name: string
     readonly desc: string
     readonly blackboardId: string
-    blackboardId_Ref: ai.Blackboard = undefined!
+    blackboardId_Ref : ai.Blackboard = undefined!
     readonly root: ai.ComposeNode
 
     resolve(_tables: Map<string, any>) {
@@ -2267,7 +2251,7 @@ export  class ShowItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly itemNum: number
 
     resolve(_tables: Map<string, any>) {
@@ -2321,7 +2305,7 @@ export  class OneItem  extends bonus.Bonus {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2364,7 +2348,7 @@ export  class Item  extends bonus.Bonus {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -2453,7 +2437,7 @@ export  class WeightItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly num: number
     readonly weight: number
 
@@ -2498,7 +2482,7 @@ export  class ProbabilityItemInfo  {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly num: number
     readonly probability: number
 
@@ -2626,7 +2610,7 @@ export  class DropBonus  extends bonus.Bonus {
     }
 
     readonly id: number
-    id_Ref: bonus.DropInfo = undefined!
+    id_Ref : bonus.DropInfo = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -2724,8 +2708,8 @@ export  class GlobalConfig  {
     readonly clothBagCapacity: number
     readonly clothBagInitCapacity: number
     readonly clothBagCapacitySpecial: number
-    readonly bagInitItemsDropId?: number|undefined
-    bagInitItemsDropId_Ref: bonus.DropInfo|undefined
+    readonly bagInitItemsDropId: number|undefined
+    bagInitItemsDropId_Ref : bonus.DropInfo
     readonly mailBoxCapacity: number
     readonly damageParamC: number
     readonly damageParamE: number
@@ -3280,9 +3264,9 @@ export  class Item  {
     readonly progressTimeWhenUse: number
     readonly showHintWhenUse: boolean
     readonly droppable: boolean
-    readonly price?: number|undefined
+    readonly price: number|undefined
     readonly useType: item.EUseType
-    readonly levelUpId?: number|undefined
+    readonly levelUpId: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3423,7 +3407,7 @@ export  class TreasureBox  extends item.ItemExtra {
         { this.chooseList = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :item.ChooseOneBonus; _e = new item.ChooseOneBonus(_buf_); this.chooseList.push(_e) } }
     }
 
-    readonly keyItemId?: number|undefined
+    readonly keyItemId: number|undefined
     readonly openLevel: condition.MinLevel
     readonly useOnObtain: boolean
     readonly dropIds: number[]
@@ -3499,8 +3483,8 @@ export  class DateTimeRange  {
         if(_buf_.ReadBool()) { this.endTime = _buf_.ReadInt() } else { this.endTime = undefined }
     }
 
-    readonly startTime?: number|undefined
-    readonly endTime?: number|undefined
+    readonly startTime: number|undefined
+    readonly endTime: number|undefined
 
     resolve(_tables: Map<string, any>) {
     }
@@ -3705,7 +3689,7 @@ export  class ContainsItem  extends condition.RoleCondition {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly num: number
     readonly reverse: boolean
 
@@ -3729,7 +3713,7 @@ export  class ChooseOneBonus  {
     }
 
     readonly dropId: number
-    dropId_Ref: bonus.DropInfo = undefined!
+    dropId_Ref : bonus.DropInfo = undefined!
     readonly isUnique: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -3752,7 +3736,7 @@ export  class InteractionItem  extends item.ItemExtra {
         this.holdingStaticMeshMat = _buf_.ReadString()
     }
 
-    readonly attackNum?: number|undefined
+    readonly attackNum: number|undefined
     readonly holdingStaticMesh: string
     readonly holdingStaticMeshMat: string
 
@@ -3911,7 +3895,7 @@ export  class CostOneItem  extends cost.Cost {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
 
     resolve(_tables: Map<string, any>) {
         super.resolve(_tables)
@@ -3934,7 +3918,7 @@ export  class CostItem  extends cost.Cost {
     }
 
     readonly itemId: number
-    itemId_Ref: item.Item = undefined!
+    itemId_Ref : item.Item = undefined!
     readonly amount: number
 
     resolve(_tables: Map<string, any>) {
@@ -4481,7 +4465,7 @@ export  class DemoType2  {
     readonly x1: boolean
     readonly x2: number
     readonly x3: number
-    x3_Ref: test.DemoType2 = undefined!
+    x3_Ref : test.DemoType2 = undefined!
     readonly x5: number
     readonly x6: number
     readonly x7: number
@@ -4677,7 +4661,7 @@ export  class DemoE2  {
         this.y2 = _buf_.ReadBool()
     }
 
-    readonly y1?: number|undefined
+    readonly y1: number|undefined
     readonly y2: boolean
 
     resolve(_tables: Map<string, any>) {
@@ -4812,7 +4796,6 @@ export  class MultiRowRecord  {
         { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
         { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
-        { this.multiRows3 = new Set<test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:test.MultiRowType2;_e = new test.MultiRowType2(_buf_); this.multiRows3.add(_e);}}
         { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
         { this.multiRows5 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType3; _e = new test.MultiRowType3(_buf_); this.multiRows5.push(_e) } }
         { this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows6.set(_k, _v);  } }
@@ -4824,7 +4807,6 @@ export  class MultiRowRecord  {
     readonly oneRows: test.MultiRowType1[]
     readonly multiRows1: test.MultiRowType1[]
     readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows3: Set<test.MultiRowType2>
     readonly multiRows4: Map<number, test.MultiRowType2>
     readonly multiRows5: test.MultiRowType3[]
     readonly multiRows6: Map<number, test.MultiRowType2>
@@ -5058,12 +5040,12 @@ export  class TestNull  {
     }
 
     readonly id: number
-    readonly x1?: number|undefined
-    readonly x2?: test.DemoEnum|undefined
-    readonly x3?: test.DemoType1|undefined
-    readonly x4?: test.DemoDynamic|undefined
-    readonly s1?: string|undefined
-    readonly s2?: string|undefined
+    readonly x1: number|undefined
+    readonly x2: test.DemoEnum|undefined
+    readonly x3: test.DemoType1|undefined
+    readonly x4: test.DemoDynamic|undefined
+    readonly s1: string|undefined
+    readonly s2: string|undefined
 
     resolve(_tables: Map<string, any>) {
         if (this.x3 != null) { this.x3.resolve(_tables);}

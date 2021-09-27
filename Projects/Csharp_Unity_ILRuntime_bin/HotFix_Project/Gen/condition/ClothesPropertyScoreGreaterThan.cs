@@ -27,8 +27,8 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         return new condition.ClothesPropertyScoreGreaterThan(_buf);
     }
 
-    public item.EClothesPropertyType Prop {get; private set;}
-    public int Value {get; private set;}
+    public item.EClothesPropertyType Prop { get; private set; }
+    public int Value { get; private set; }
 
     public const int ID = 696630835;
     public override int GetTypeId() => ID;

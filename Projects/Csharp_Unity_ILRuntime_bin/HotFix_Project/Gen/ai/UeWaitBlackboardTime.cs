@@ -26,7 +26,7 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         return new ai.UeWaitBlackboardTime(_buf);
     }
 
-    public string BlackboardKey {get; private set;}
+    public string BlackboardKey { get; private set; }
 
     public const int ID = 1215378271;
     public override int GetTypeId() => ID;

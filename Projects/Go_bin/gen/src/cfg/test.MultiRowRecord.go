@@ -20,9 +20,10 @@ type Test_MultiRowRecord struct {
     OneRows []*Test_MultiRowType1
     MultiRows1 []*Test_MultiRowType1
     MultiRows2 []*Test_MultiRowType1
-    MultiRows3 []*Test_MultiRowType2
     MultiRows4 map[int32]*Test_MultiRowType2
     MultiRows5 []*Test_MultiRowType3
+    MultiRows6 map[int32]*Test_MultiRowType2
+    MultiRows7 map[int32]int32
 }
 
 func (Test_MultiRowRecord) GetTypeId() int {
@@ -66,17 +67,6 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 }
             }
 
-     {
-                _v.MultiRows3 = make([]*Test_MultiRowType2, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Test_MultiRowType2
-                    { if _e_, err = NewTest_MultiRowType2(_buf); err != nil { return } }
-                    _v.MultiRows3 = append(_v.MultiRows3, _e_)
-                }
-            }
-
     {
                 _v.MultiRows4 = make(map[int32]*Test_MultiRowType2)
                 var _n_ int
@@ -100,5 +90,29 @@ func NewTest_MultiRowRecord(_buf *serialization.ByteBuf) (_v *Test_MultiRowRecor
                 }
             }
 
+    {
+                _v.MultiRows6 = make(map[int32]*Test_MultiRowType2)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _key_ int32
+                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
+                    var _value_ *Test_MultiRowType2
+                    { if _value_, err = NewTest_MultiRowType2(_buf); err != nil { return } }
+                    _v.MultiRows6[_key_] = _value_
+                }
+                }
+    {
+                _v.MultiRows7 = make(map[int32]int32)
+                var _n_ int
+                if _n_, err = _buf.ReadSize(); err != nil {return}
+                for i := 0 ; i < _n_ ; i++ {
+                    var _key_ int32
+                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
+                    var _value_ int32
+                    { if _value_, err = _buf.ReadInt(); err != nil { return } }
+                    _v.MultiRows7[_key_] = _value_
+                }
+                }
     return
 }

@@ -26,7 +26,7 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         return new ai.UeTimeLimit(_buf);
     }
 
-    public float LimitTime {get; private set;}
+    public float LimitTime { get; private set; }
 
     public const int ID = 338469720;
     public override int GetTypeId() => ID;

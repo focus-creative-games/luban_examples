@@ -27,8 +27,8 @@ public sealed partial class ChooseSkill :  ai.Task
         return new ai.ChooseSkill(_buf);
     }
 
-    public string TargetActorKey {get; private set;}
-    public string ResultSkillIdKey {get; private set;}
+    public string TargetActorKey { get; private set; }
+    public string ResultSkillIdKey { get; private set; }
 
     public const int ID = -918812268;
     public override int GetTypeId() => ID;

@@ -27,8 +27,8 @@ public sealed partial class MoveToLocation :  ai.Task
         return new ai.MoveToLocation(_buf);
     }
 
-    public UnityEngine.Vector3 Location {get; private set;}
-    public float AcceptableRadius {get; private set;}
+    public UnityEngine.Vector3 Location { get; private set; }
+    public float AcceptableRadius { get; private set; }
 
     public const int ID = -969953113;
     public override int GetTypeId() => ID;

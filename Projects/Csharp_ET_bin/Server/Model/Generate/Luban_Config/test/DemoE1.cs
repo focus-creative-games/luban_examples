@@ -26,7 +26,7 @@ public sealed partial class DemoE1 :  test.DemoD3
         return new test.DemoE1(_buf);
     }
 
-    public int X4 {get; private set;}
+    public int X4 { get; private set; }
 
     public const int ID = -2138341717;
     public override int GetTypeId() => ID;

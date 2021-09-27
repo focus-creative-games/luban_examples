@@ -1038,9 +1038,10 @@ namespace cfg
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); oneRows.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::MultiRowType1> _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; oneRows.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); multiRows1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::MultiRowType1> _e;  if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows1.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));multiRows2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::MultiRowType1> _e;if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows2.push_back(_e);}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); multiRows3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::MultiRowType2> _e;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _e)) return false; multiRows3.insert(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); multiRows4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::SharedPtr<test::MultiRowType2> _v;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false;     multiRows4[_k] = _v;}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); multiRows5.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::MultiRowType3> _e;  if(!test::MultiRowType3::deserializeMultiRowType3(_buf, _e)) return false; multiRows5.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); multiRows6.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::SharedPtr<test::MultiRowType2> _v;  if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false;     multiRows6[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); multiRows7.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     multiRows7[_k] = _v;}}
 
         return true;
     }
@@ -1066,6 +1067,7 @@ namespace cfg
         for(auto _e : multiRows2) { _e->resolve(_tables); }
         for(auto _e : multiRows4) { _e.second->resolve(_tables); }
         for(auto _e : multiRows5) { _e->resolve(_tables); }
+        for(auto _e : multiRows6) { _e.second->resolve(_tables); }
     }
 
     bool test::MultiRowType1::deserialize(ByteBuf& _buf)
@@ -1521,7 +1523,6 @@ namespace cfg
 
     void test::DefineFromExcel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
-        this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
         x14->resolve(_tables);
         for(auto _e : k9) { _e->resolve(_tables); }
     }
@@ -1684,7 +1685,6 @@ namespace cfg
 
     void test::DefineFromExcel2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
-        this->x8_Ref = ((test::TbDemoPrimitive*)(_tables["test.TbDemoPrimitive"]))->get(x8);
         x14->resolve(_tables);
         for(auto _e : k9) { _e->resolve(_tables); }
     }

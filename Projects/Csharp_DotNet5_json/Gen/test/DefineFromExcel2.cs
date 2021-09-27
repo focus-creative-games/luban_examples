@@ -70,7 +70,6 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
     public long X5 { get; private set; }
     public float X6 { get; private set; }
     public int X8 { get; private set; }
-    public test.DemoPrimitiveTypesTable X8_Ref { get; private set; }
     public string X10 { get; private set; }
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
@@ -85,7 +84,6 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        this.X8_Ref = (_tables["test.TbDemoPrimitive"] as test.TbDemoPrimitive).GetOrDefault(X8);
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
     }

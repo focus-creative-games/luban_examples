@@ -29,10 +29,10 @@ public sealed partial class DistanceLessThan :  ai.Decorator
         return new ai.DistanceLessThan(_buf);
     }
 
-    public string Actor1Key {get; private set;}
-    public string Actor2Key {get; private set;}
-    public float Distance {get; private set;}
-    public bool ReverseResult {get; private set;}
+    public string Actor1Key { get; private set; }
+    public string Actor2Key { get; private set; }
+    public float Distance { get; private set; }
+    public bool ReverseResult { get; private set; }
 
     public const int ID = -1207170283;
     public override int GetTypeId() => ID;

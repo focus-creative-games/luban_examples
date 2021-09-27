@@ -26,7 +26,7 @@ public sealed partial class WeeklyLimit :  limit.LimitBase
         return new limit.WeeklyLimit(_buf);
     }
 
-    public int Num {get; private set;}
+    public int Num { get; private set; }
 
     public const int ID = -252187161;
     public override int GetTypeId() => ID;

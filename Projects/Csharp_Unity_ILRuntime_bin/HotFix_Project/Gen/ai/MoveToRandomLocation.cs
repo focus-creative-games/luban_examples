@@ -27,8 +27,8 @@ public sealed partial class MoveToRandomLocation :  ai.Task
         return new ai.MoveToRandomLocation(_buf);
     }
 
-    public string OriginPositionKey {get; private set;}
-    public float Radius {get; private set;}
+    public string OriginPositionKey { get; private set; }
+    public float Radius { get; private set; }
 
     public const int ID = -2140042998;
     public override int GetTypeId() => ID;

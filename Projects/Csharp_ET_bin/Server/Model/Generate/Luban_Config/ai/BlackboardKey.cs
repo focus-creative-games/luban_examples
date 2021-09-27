@@ -30,11 +30,11 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
         return new ai.BlackboardKey(_buf);
     }
 
-    public string Name {get; private set;}
-    public string Desc {get; private set;}
-    public bool IsStatic {get; private set;}
-    public ai.EKeyType Type {get; private set;}
-    public string TypeClassName {get; private set;}
+    public string Name { get; private set; }
+    public string Desc { get; private set; }
+    public bool IsStatic { get; private set; }
+    public ai.EKeyType Type { get; private set; }
+    public string TypeClassName { get; private set; }
 
     public const int ID = -511559886;
     public override int GetTypeId() => ID;

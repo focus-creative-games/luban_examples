@@ -30,11 +30,11 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         return new test.MultiRowTitle(_buf);
     }
 
-    public int Id {get; private set;}
-    public string Name {get; private set;}
-    public test.H1 X1 {get; private set;}
-    public System.Collections.Generic.List<test.H2> X2 {get; private set;}
-    public test.H2[] X3 {get; private set;}
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+    public test.H1 X1 { get; private set; }
+    public System.Collections.Generic.List<test.H2> X2 { get; private set; }
+    public test.H2[] X3 { get; private set; }
 
     public const int ID = 540002427;
     public override int GetTypeId() => ID;

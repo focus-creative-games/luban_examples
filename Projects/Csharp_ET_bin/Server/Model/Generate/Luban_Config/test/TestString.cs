@@ -29,10 +29,10 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         return new test.TestString(_buf);
     }
 
-    public int Id {get; private set;}
-    public string S1 {get; private set;}
-    public test.CompactString Cs1 {get; private set;}
-    public test.CompactString Cs2 {get; private set;}
+    public int Id { get; private set; }
+    public string S1 { get; private set; }
+    public test.CompactString Cs1 { get; private set; }
+    public test.CompactString Cs2 { get; private set; }
 
     public const int ID = 338485823;
     public override int GetTypeId() => ID;

@@ -26,7 +26,7 @@ public sealed partial class MonthlyLimit :  limit.LimitBase
         return new limit.MonthlyLimit(_buf);
     }
 
-    public int Num {get; private set;}
+    public int Num { get; private set; }
 
     public const int ID = 2063279905;
     public override int GetTypeId() => ID;

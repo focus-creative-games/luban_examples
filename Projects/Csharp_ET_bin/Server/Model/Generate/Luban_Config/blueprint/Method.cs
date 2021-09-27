@@ -36,11 +36,11 @@ public abstract partial class Method :  Bright.Config.BeanBase
         }
     }
 
-    public string Name {get; private set;}
-    public string Desc {get; private set;}
-    public bool IsStatic {get; private set;}
-    public string ReturnType {get; private set;}
-    public System.Collections.Generic.List<blueprint.ParamInfo> Parameters {get; private set;}
+    public string Name { get; private set; }
+    public string Desc { get; private set; }
+    public bool IsStatic { get; private set; }
+    public string ReturnType { get; private set; }
+    public System.Collections.Generic.List<blueprint.ParamInfo> Parameters { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)

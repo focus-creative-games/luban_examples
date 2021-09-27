@@ -1,12 +1,4 @@
 <module name="test">
-	<const name="DemoConst">
-		<var name="x1" type="int" value="0"/>
-		<var name="x2" type="long" value="3242"/>
-		<var name="x3" type="float" value="444.3"/>
-		<var name="x4" type="double" value="55.3"/>
-		<!--var name="x5" type="string" value="abcdefg"/-->
-	</const>
-	
 	<enum name="DemoEnum">
 		<var name="A" alias="aa" value="1"/>
 		<var name="B" alias="bb"/>

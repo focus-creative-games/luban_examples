@@ -74,22 +74,6 @@ export class Vector4 {
 }
 
 export namespace cfg {
-export namespace role {
-export class Consts {
-    static MAX_NAME_LENGTH = 20;
-    static MAX_USER_ROLE_NUM = 10;
-}
-}
-
-export namespace test {
-export class DemoConst {
-    static x1 = 0;
-    static x2 = 3242;
-    static x3 = 444.3;
-    static x4 = 55.3;
-}
-}
-
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
@@ -4866,8 +4850,6 @@ export class MultiRowRecord {
         { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
         if (_json_.multi_rows2 === undefined) { throw new Error() }
         { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
-        if (_json_.multi_rows3 === undefined) { throw new Error() }
-        { this.multiRows3 = new Set<test.MultiRowType2>(); for(var _ele of _json_.multi_rows3) { let _e:test.MultiRowType2; _e = new test.MultiRowType2(_ele); this.multiRows3.add(_e);}}
         if (_json_.multi_rows4 === undefined) { throw new Error() }
         this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
         if (_json_.multi_rows5 === undefined) { throw new Error() }
@@ -4883,7 +4865,6 @@ export class MultiRowRecord {
     readonly oneRows: test.MultiRowType1[]
     readonly multiRows1: test.MultiRowType1[]
     readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows3: Set<test.MultiRowType2>
     readonly multiRows4: Map<number, test.MultiRowType2>
     readonly multiRows5: test.MultiRowType3[]
     readonly multiRows6: Map<number, test.MultiRowType2>

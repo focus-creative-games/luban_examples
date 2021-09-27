@@ -30,12 +30,12 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         return new ai.BehaviorTree(_buf);
     }
 
-    public int Id {get; private set;}
-    public string Name {get; private set;}
-    public string Desc {get; private set;}
-    public string BlackboardId {get; private set;}
-    public ai.Blackboard BlackboardId_Ref {get; private set;}
-    public ai.ComposeNode Root {get; private set;}
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+    public string Desc { get; private set; }
+    public string BlackboardId { get; private set; }
+    public ai.Blackboard BlackboardId_Ref { get; private set; }
+    public ai.ComposeNode Root { get; private set; }
 
     public const int ID = 159552822;
     public override int GetTypeId() => ID;

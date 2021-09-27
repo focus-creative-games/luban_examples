@@ -26,7 +26,7 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         return new test.DemoD5(_buf);
     }
 
-    public test.DateTimeRange Time {get; private set;}
+    public test.DateTimeRange Time { get; private set; }
 
     public const int ID = -2138341744;
     public override int GetTypeId() => ID;

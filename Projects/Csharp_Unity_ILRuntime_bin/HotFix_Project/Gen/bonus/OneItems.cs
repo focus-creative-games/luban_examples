@@ -26,7 +26,7 @@ public sealed partial class OneItems :  bonus.Bonus
         return new bonus.OneItems(_buf);
     }
 
-    public int[] Items {get; private set;}
+    public int[] Items { get; private set; }
 
     public const int ID = 400179721;
     public override int GetTypeId() => ID;

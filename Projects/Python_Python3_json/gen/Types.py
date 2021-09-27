@@ -64,16 +64,6 @@ class Vector4:
         return Vector4(x, y, z, w)
 
 
-class role_Consts:
-    MAX_NAME_LENGTH = 20
-    MAX_USER_ROLE_NUM = 10
-
-class test_DemoConst:
-    x1 = 0
-    x2 = 3242
-    x3 = 444.3
-    x4 = 55.3
-
 class ai_EExecutor(Enum):
     CLIENT = 0
     SERVER = 1
@@ -2990,8 +2980,6 @@ class test_MultiRowRecord :
         for _ele in _json_['multi_rows1']: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
         self.multi_rows2 = []
         for _ele in _json_['multi_rows2']: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
-        self.multi_rows3 = set()
-        for _ele in _json_['multi_rows3']: _e = test_MultiRowType2(_ele); self.multi_rows3.add(_e)
         self.multi_rows4 = {}
         for _ek, _ev in _json_['multi_rows4']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
         self.multi_rows5 = []

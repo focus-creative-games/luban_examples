@@ -26,7 +26,7 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
         return new ai.BlackboardKeyData(_buf);
     }
 
-    public string Value {get; private set;}
+    public string Value { get; private set; }
 
     public const int ID = 1517269500;
     public override int GetTypeId() => ID;

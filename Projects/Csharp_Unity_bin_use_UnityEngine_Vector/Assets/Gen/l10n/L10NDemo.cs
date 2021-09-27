@@ -27,9 +27,9 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
         return new l10n.L10NDemo(_buf);
     }
 
-    public int Id {get; private set;}
-    public string Text {get; private set;}
-    public string Text_l10n_key {get;}
+    public int Id { get; private set; }
+    public string Text { get; private set; }
+    public string Text_l10n_key { get; }
 
     public const int ID = -331195887;
     public override int GetTypeId() => ID;

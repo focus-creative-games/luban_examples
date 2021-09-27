@@ -26,7 +26,7 @@ public sealed partial class EnumClazz :  blueprint.Clazz
         return new blueprint.EnumClazz(_buf);
     }
 
-    public System.Collections.Generic.List<blueprint.EnumField> Enums {get; private set;}
+    public System.Collections.Generic.List<blueprint.EnumField> Enums { get; private set; }
 
     public const int ID = 1827364892;
     public override int GetTypeId() => ID;
