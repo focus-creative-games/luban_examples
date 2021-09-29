@@ -15,4 +15,6 @@ fn main() {
     };
     
     println!("Hello, world!, {}", tables.tbglobalconfig.get_data().bag_capacity);
+    println!("item.{}", tables.tbitem.get(&1).unwrap().desc);
+    println!("behavior:{}", tables.tbblackboard.get(&"attack_or_patrol".to_string()).unwrap().desc);
 }

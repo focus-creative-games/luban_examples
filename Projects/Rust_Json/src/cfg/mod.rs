@@ -892,7 +892,7 @@ impl Ai_TbBlackboard{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Ai_TbBlackboard) -> &Vec<std::rc::Rc<Ai_Blackboard>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Ai_TbBlackboard, key: String) -> std::option::Option<&std::rc::Rc<Ai_Blackboard>> { self.data_map.get(&key) }
+    pub fn get(self:&Ai_TbBlackboard, key: &String) -> std::option::Option<&std::rc::Rc<Ai_Blackboard>> { self.data_map.get(key) }
 }
 
 
@@ -977,7 +977,7 @@ impl Ai_TbBehaviorTree{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Ai_TbBehaviorTree) -> &Vec<std::rc::Rc<Ai_BehaviorTree>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Ai_TbBehaviorTree, key: i32) -> std::option::Option<&std::rc::Rc<Ai_BehaviorTree>> { self.data_map.get(&key) }
+    pub fn get(self:&Ai_TbBehaviorTree, key: &i32) -> std::option::Option<&std::rc::Rc<Ai_BehaviorTree>> { self.data_map.get(key) }
 }
 
 
@@ -2070,7 +2070,7 @@ impl Blueprint_TbClazz{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Blueprint_TbClazz) -> &Vec<std::rc::Rc<Blueprint_Clazz>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Blueprint_TbClazz, key: String) -> std::option::Option<&std::rc::Rc<Blueprint_Clazz>> { self.data_map.get(&key) }
+    pub fn get(self:&Blueprint_TbClazz, key: &String) -> std::option::Option<&std::rc::Rc<Blueprint_Clazz>> { self.data_map.get(key) }
 }
 
 
@@ -2377,7 +2377,7 @@ impl Bonus_TbDrop{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Bonus_TbDrop) -> &Vec<std::rc::Rc<Bonus_DropInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Bonus_TbDrop, key: i32) -> std::option::Option<&std::rc::Rc<Bonus_DropInfo>> { self.data_map.get(&key) }
+    pub fn get(self:&Bonus_TbDrop, key: &i32) -> std::option::Option<&std::rc::Rc<Bonus_DropInfo>> { self.data_map.get(key) }
 }
 
 
@@ -2865,7 +2865,7 @@ impl Common_TbDummy{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Common_TbDummy) -> &Vec<std::rc::Rc<Common_Dummy>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Common_TbDummy, key: i32) -> std::option::Option<&std::rc::Rc<Common_Dummy>> { self.data_map.get(&key) }
+    pub fn get(self:&Common_TbDummy, key: &i32) -> std::option::Option<&std::rc::Rc<Common_Dummy>> { self.data_map.get(key) }
 }
 
 
@@ -3086,7 +3086,7 @@ impl Error_TbErrorInfo{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Error_TbErrorInfo) -> &Vec<std::rc::Rc<Error_ErrorInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Error_TbErrorInfo, key: String) -> std::option::Option<&std::rc::Rc<Error_ErrorInfo>> { self.data_map.get(&key) }
+    pub fn get(self:&Error_TbErrorInfo, key: &String) -> std::option::Option<&std::rc::Rc<Error_ErrorInfo>> { self.data_map.get(key) }
 }
 
 
@@ -3245,7 +3245,7 @@ impl Error_TbCodeInfo{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Error_TbCodeInfo) -> &Vec<std::rc::Rc<Error_CodeInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Error_TbCodeInfo, key: i32) -> std::option::Option<&std::rc::Rc<Error_CodeInfo>> { self.data_map.get(&key) }
+    pub fn get(self:&Error_TbCodeInfo, key: &i32) -> std::option::Option<&std::rc::Rc<Error_CodeInfo>> { self.data_map.get(key) }
 }
 
 
@@ -3303,7 +3303,7 @@ impl Item_TbItem{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Item_TbItem) -> &Vec<std::rc::Rc<Item_Item>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItem, key: i32) -> std::option::Option<&std::rc::Rc<Item_Item>> { self.data_map.get(&key) }
+    pub fn get(self:&Item_TbItem, key: &i32) -> std::option::Option<&std::rc::Rc<Item_Item>> { self.data_map.get(key) }
 }
 
 
@@ -3399,7 +3399,7 @@ impl Item_TbItemFunc{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Item_TbItemFunc) -> &Vec<std::rc::Rc<Item_ItemFunction>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItemFunc, key: i32) -> std::option::Option<&std::rc::Rc<Item_ItemFunction>> { self.data_map.get(&key) }
+    pub fn get(self:&Item_TbItemFunc, key: &i32) -> std::option::Option<&std::rc::Rc<Item_ItemFunction>> { self.data_map.get(key) }
 }
 
 
@@ -3464,7 +3464,7 @@ impl Item_TbItemExtra{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Item_TbItemExtra) -> &Vec<std::rc::Rc<Item_ItemExtra>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItemExtra, key: i32) -> std::option::Option<&std::rc::Rc<Item_ItemExtra>> { self.data_map.get(&key) }
+    pub fn get(self:&Item_TbItemExtra, key: &i32) -> std::option::Option<&std::rc::Rc<Item_ItemExtra>> { self.data_map.get(key) }
 }
 
 
@@ -4063,7 +4063,7 @@ impl L10n_TbL10NDemo{
     #[allow(dead_code)]
     pub fn get_data_list(self:&L10n_TbL10NDemo) -> &Vec<std::rc::Rc<L10n_L10NDemo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&L10n_TbL10NDemo, key: i32) -> std::option::Option<&std::rc::Rc<L10n_L10NDemo>> { self.data_map.get(&key) }
+    pub fn get(self:&L10n_TbL10NDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10n_L10NDemo>> { self.data_map.get(key) }
 }
 
 
@@ -4118,7 +4118,7 @@ impl L10n_TbPatchDemo{
     #[allow(dead_code)]
     pub fn get_data_list(self:&L10n_TbPatchDemo) -> &Vec<std::rc::Rc<L10n_PatchDemo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&L10n_TbPatchDemo, key: i32) -> std::option::Option<&std::rc::Rc<L10n_PatchDemo>> { self.data_map.get(&key) }
+    pub fn get(self:&L10n_TbPatchDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10n_PatchDemo>> { self.data_map.get(key) }
 }
 
 
@@ -4173,7 +4173,7 @@ impl Mail_TbSystemMail{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Mail_TbSystemMail) -> &Vec<std::rc::Rc<Mail_SystemMail>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Mail_TbSystemMail, key: i32) -> std::option::Option<&std::rc::Rc<Mail_SystemMail>> { self.data_map.get(&key) }
+    pub fn get(self:&Mail_TbSystemMail, key: &i32) -> std::option::Option<&std::rc::Rc<Mail_SystemMail>> { self.data_map.get(key) }
 }
 
 
@@ -4234,7 +4234,7 @@ impl Mail_TbGlobalMail{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Mail_TbGlobalMail) -> &Vec<std::rc::Rc<Mail_GlobalMail>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Mail_TbGlobalMail, key: i32) -> std::option::Option<&std::rc::Rc<Mail_GlobalMail>> { self.data_map.get(&key) }
+    pub fn get(self:&Mail_TbGlobalMail, key: &i32) -> std::option::Option<&std::rc::Rc<Mail_GlobalMail>> { self.data_map.get(key) }
 }
 
 
@@ -4309,7 +4309,7 @@ impl Role_TbRoleLevelExpAttr{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Role_TbRoleLevelExpAttr) -> &Vec<std::rc::Rc<Role_LevelExpAttr>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Role_TbRoleLevelExpAttr, key: i32) -> std::option::Option<&std::rc::Rc<Role_LevelExpAttr>> { self.data_map.get(&key) }
+    pub fn get(self:&Role_TbRoleLevelExpAttr, key: &i32) -> std::option::Option<&std::rc::Rc<Role_LevelExpAttr>> { self.data_map.get(key) }
 }
 
 
@@ -4366,7 +4366,7 @@ impl Role_TbRoleLevelBonusCoefficient{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Role_TbRoleLevelBonusCoefficient) -> &Vec<std::rc::Rc<Role_LevelBonus>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Role_TbRoleLevelBonusCoefficient, key: i32) -> std::option::Option<&std::rc::Rc<Role_LevelBonus>> { self.data_map.get(&key) }
+    pub fn get(self:&Role_TbRoleLevelBonusCoefficient, key: &i32) -> std::option::Option<&std::rc::Rc<Role_LevelBonus>> { self.data_map.get(key) }
 }
 
 
@@ -4461,7 +4461,7 @@ impl Tag_TbTestTag{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Tag_TbTestTag) -> &Vec<std::rc::Rc<Tag_TestTag>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Tag_TbTestTag, key: i32) -> std::option::Option<&std::rc::Rc<Tag_TestTag>> { self.data_map.get(&key) }
+    pub fn get(self:&Tag_TbTestTag, key: &i32) -> std::option::Option<&std::rc::Rc<Tag_TestTag>> { self.data_map.get(key) }
 }
 
 
@@ -4516,7 +4516,7 @@ impl Test_TbFullTypes{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbFullTypes) -> &Vec<std::rc::Rc<Test_DemoType2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbFullTypes, key: i16) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbFullTypes, key: &i16) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(key) }
 }
 
 
@@ -4830,7 +4830,7 @@ impl Test_TbDataFromMisc{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDataFromMisc) -> &Vec<std::rc::Rc<Test_DemoType2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDataFromMisc, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDataFromMisc, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(key) }
 }
 
 #[allow(non_camel_case_types)]
@@ -4865,7 +4865,7 @@ impl Test_TbMultiRowRecord{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbMultiRowRecord) -> &Vec<std::rc::Rc<Test_MultiRowRecord>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbMultiRowRecord, key: i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowRecord>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbMultiRowRecord, key: &i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowRecord>> { self.data_map.get(key) }
 }
 
 
@@ -4996,7 +4996,7 @@ impl Test_TbMultiRowTitle{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbMultiRowTitle) -> &Vec<std::rc::Rc<Test_MultiRowTitle>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbMultiRowTitle, key: i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowTitle>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbMultiRowTitle, key: &i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowTitle>> { self.data_map.get(key) }
 }
 
 
@@ -5097,7 +5097,7 @@ impl Test_TbTestNull{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestNull) -> &Vec<std::rc::Rc<Test_TestNull>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestNull, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestNull>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestNull, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestNull>> { self.data_map.get(key) }
 }
 
 
@@ -5162,7 +5162,7 @@ impl Test_TbDemoPrimitive{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoPrimitive) -> &Vec<std::rc::Rc<Test_DemoPrimitiveTypesTable>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoPrimitive, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoPrimitiveTypesTable>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoPrimitive, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoPrimitiveTypesTable>> { self.data_map.get(key) }
 }
 
 
@@ -5239,7 +5239,7 @@ impl Test_TbTestString{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestString) -> &Vec<std::rc::Rc<Test_TestString>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestString, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestString>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestString, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestString>> { self.data_map.get(key) }
 }
 
 
@@ -5320,7 +5320,7 @@ impl Test_TbDemoGroup{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoGroup) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoGroup, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
 }
 
 
@@ -5407,7 +5407,7 @@ impl Test_TbDemoGroup_C{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoGroup_C) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_C, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoGroup_C, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
 }
 
 #[allow(non_camel_case_types)]
@@ -5442,7 +5442,7 @@ impl Test_TbDemoGroup_S{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoGroup_S) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_S, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoGroup_S, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
 }
 
 #[allow(non_camel_case_types)]
@@ -5477,7 +5477,7 @@ impl Test_TbDemoGroup_E{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoGroup_E) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_E, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoGroup_E, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
 }
 
 #[allow(non_camel_case_types)]
@@ -5555,7 +5555,7 @@ impl Test_TbDetectCsvEncoding{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDetectCsvEncoding) -> &Vec<std::rc::Rc<Test_DetectEncoding>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDetectCsvEncoding, key: i32) -> std::option::Option<&std::rc::Rc<Test_DetectEncoding>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDetectCsvEncoding, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DetectEncoding>> { self.data_map.get(key) }
 }
 
 
@@ -5610,7 +5610,7 @@ impl Test_TbDefineFromExcel{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDefineFromExcel) -> &Vec<std::rc::Rc<Test_DefineFromExcel>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDefineFromExcel, key: i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel>> { self.data_map.get(key) }
 }
 
 
@@ -5740,7 +5740,7 @@ impl Test_TbTestJson2{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestJson2) -> &Vec<std::rc::Rc<Test_TestJson2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestJson2, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestJson2>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestJson2, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestJson2>> { self.data_map.get(key) }
 }
 
 
@@ -5801,7 +5801,7 @@ impl Test_TbTestIndex{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestIndex) -> &Vec<std::rc::Rc<Test_TestIndex>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestIndex, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestIndex>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestIndex, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestIndex>> { self.data_map.get(key) }
 }
 
 
@@ -5856,7 +5856,7 @@ impl Test_TbTestMap{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestMap) -> &Vec<std::rc::Rc<Test_TestMap>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestMap, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestMap>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestMap, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestMap>> { self.data_map.get(key) }
 }
 
 
@@ -5917,7 +5917,7 @@ impl Test_TbDemoGroupDefineFromExcel{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDemoGroupDefineFromExcel) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroupDefineFromExcel, key: i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDemoGroupDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
 }
 
 #[allow(non_camel_case_types)]
@@ -5952,7 +5952,7 @@ impl Test_TbDefineFromExcel2{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbDefineFromExcel2) -> &Vec<std::rc::Rc<Test_DefineFromExcel2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDefineFromExcel2, key: i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel2>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbDefineFromExcel2, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel2>> { self.data_map.get(key) }
 }
 
 
@@ -6032,7 +6032,7 @@ impl Test_TbTestExcelBean{
     #[allow(dead_code)]
     pub fn get_data_list(self:&Test_TbTestExcelBean) -> &Vec<std::rc::Rc<Test_TestExcelBean1>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestExcelBean, key: i32) -> std::option::Option<&std::rc::Rc<Test_TestExcelBean1>> { self.data_map.get(&key) }
+    pub fn get(self:&Test_TbTestExcelBean, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestExcelBean1>> { self.data_map.get(key) }
 }
 
 
