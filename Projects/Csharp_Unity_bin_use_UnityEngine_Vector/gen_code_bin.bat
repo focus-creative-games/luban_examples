@@ -10,7 +10,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_data_dir ..\GenerateDatas\bin ^
  --gen_types code_cs_bin,data_bin ^
  --use_unity_vector ^
- -s all ^
---export_test_data
+ -s all 
 
 pause

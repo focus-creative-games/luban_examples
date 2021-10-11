@@ -6,5 +6,4 @@ dotnet ${GEN_CLIENT} -j cfg --\
  --input_data_dir Datas \
  --output_data_dir output_json \
  --gen_types data_json \
- -s all \
- --export_test_data
+ -s all 

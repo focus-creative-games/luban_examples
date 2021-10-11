@@ -9,7 +9,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir Gen ^
  --output_data_dir ..\GenerateDatas\bin ^
  --gen_types code_typescript_bin,data_bin ^
- -s all ^
---export_test_data ^
+ -s all  ^
 --typescript_bright_require_path ../bright
 pause

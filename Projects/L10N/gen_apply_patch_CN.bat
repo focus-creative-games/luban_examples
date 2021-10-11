@@ -9,8 +9,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir Gen ^
  --output_data_dir config_data ^
  --gen_types data_lua ^
- -s all ^
---export_test_data ^
+ -s all  ^
 --patch cn ^
 --patch_input_data_dir l10n/cn
 

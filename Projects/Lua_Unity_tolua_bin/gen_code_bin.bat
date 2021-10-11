@@ -9,7 +9,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir Assets/Lua/Gen ^
  --output_data_dir ..\GenerateDatas\bin ^
  --gen_types code_lua_bin,data_bin ^
- -s all ^
---export_test_data
+ -s all 
 
 pause

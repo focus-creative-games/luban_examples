@@ -9,6 +9,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_data_dir bin ^
  --gen_types data_bin ^
  -s all ^
---export_test_data
+
 
 pause

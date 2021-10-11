@@ -9,8 +9,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir Gen ^
  --output_data_dir config_data ^
  --gen_types data_lua ^
- -s all ^
---export_test_data ^
+ -s all  ^
 --input_l10n_text_files l10n/cn/TextTable_CN.xlsx ^
 --l10n_text_field_name text_tw ^
 --output_l10n_not_translated_text_file NotLocalized_CN.txt

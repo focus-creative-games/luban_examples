@@ -11,5 +11,4 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  --input_data_dir ${CONF_ROOT}/Datas \
  --output_data_dir ../Projects/GenerateDatas/json \
  --gen_types data_bin \
- -s all \
- --export_test_data
+ -s all 

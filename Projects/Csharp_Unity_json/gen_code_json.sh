@@ -10,5 +10,4 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  --output_code_dir Assets/Gen \
  --output_data_dir ../GenerateDatas/json \
  --gen_types code_cs_unity_json,data_json \
- -s all \
- --export_test_data
+ -s all 

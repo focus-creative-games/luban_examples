@@ -10,5 +10,4 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  --output_code_dir HotFix_Project/Gen \
  --output_data_dir ../GenerateDatas/bin \
  --gen_types code_cs_bin,data_bin \
- -s all \
- --export_test_data
+ -s all 

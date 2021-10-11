@@ -9,7 +9,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_code_dir gen ^
  --output_data_dir ..\GenerateDatas\json ^
  --gen_types code_python3_json,data_json ^
- -s all ^
---export_test_data
+ -s all 
 
 pause

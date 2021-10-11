@@ -11,5 +11,4 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  --output_data_dir ../GenerateDatas/bytes \
  --gen_types code_cs_bin,data_bin \
  --data_file_extension bytes \
- -s all \
- --export_test_data
+ -s all 

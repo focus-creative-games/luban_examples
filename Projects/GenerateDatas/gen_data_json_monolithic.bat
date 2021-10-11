@@ -9,7 +9,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --gen_types data_json_monolithic ^
  --output_data_dir json_monolithic ^
  --output_data_json_monolithic_file json_monolithic/all.json ^
- -s all ^
---export_test_data
+ -s all
+
 
 pause

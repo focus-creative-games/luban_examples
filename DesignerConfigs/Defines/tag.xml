@@ -4,4 +4,10 @@
 		<var name="value" type="string"/>
 	</bean>
 	<table name="TbTestTag" value="TestTag" input="tag_datas"/>
+    
+    <!--bean name="TagSwitch">
+		<var name="unlock_equip" type="int"/>
+		<var name="unlock_hero" type="int"/>
+	</bean>
+	<table name="TbTagSwitch" value="TagSwitch" mode="one" input="test/tag_switch.xlsx"/-->
 </module>

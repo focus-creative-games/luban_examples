@@ -1,5 +1,5 @@
 return {
-	__tag__ = "随便",
+	__tag__ = "any",
 	id = 104,
-	value="导出",
+	value="any",
 }

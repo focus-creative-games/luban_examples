@@ -8,7 +8,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_data_dir template_json ^
  --gen_types data_template --template_name json ^
- -s all ^
---export_test_data
+ -s all
+
 
 pause

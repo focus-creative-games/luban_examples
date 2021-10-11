@@ -9,7 +9,7 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --output_data_dir bytes ^
  --gen_types data_bin ^
  --data_file_extension bytes ^
- -s all ^
---export_test_data
+ -s all
+
 
 pause

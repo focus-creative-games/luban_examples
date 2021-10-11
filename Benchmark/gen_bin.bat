@@ -7,6 +7,5 @@ set DEFINE_FILE=Defines\__root__.xml
  --input_data_dir Datas ^
  --output_data_dir data_bin ^
  --gen_types data_bin ^
- -s all ^
---export_test_data
+ -s all 
 pause
