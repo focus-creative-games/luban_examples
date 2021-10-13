@@ -4,7 +4,22 @@
 
 - Tools 
 
-    Luban.Client及Luban.Server程序，用于生成代码和数据。
+    - Luban.Client 默认客户端
+    - Luban.Server 服务端。
+    - Luban.Client&Server Client&Server一体程序。免去部属Luban.Server的麻烦
+
+- LubanAssistant Excel插件
+
+    在Tools/LubanAssistant目录。
+
+    让你可以将数据保存成json文件，但又同时能在excel里编辑。大型项目的利器。 双击LubanAssistant/LubanAssistant.vsto 即可安装
+
+- Excel2TextDiff
+    一个方便diff excel族(xls,xlsx,csv)文件的工具，在Tools/Excel2TextDiff目录。
+
+    将excel文件转为文本文件，然后再调用diff程序，极其方便直观地对比excel文件的变化。非常有用！
+
+    
 - DesignerConfigs 
 
     示例游戏配置。

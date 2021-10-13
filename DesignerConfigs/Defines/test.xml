@@ -299,6 +299,30 @@
 		<var name="x4" type="map,DemoEnum,int" sep=","/>
 	</bean>
 	<table name="TbTestMap" value="TestMap" input="test/test_map.xlsx"/>
+    
+    
+    <bean name="ExcelFromJson">
+		<var name="x4" type="int" />
+    	<var name="x1" type="bool"/>
+		<var name="x5" type="long" />
+		<var name="x6" type="float"/>
+		<var name="s1" type="string"/>
+		<var name="s2" type="text"/>
+		<var name="v2" type="vector2"/>
+		<var name="v3" type="vector3"/>
+		<var name="v4" type="vector4"/>
+		<var name="t1" type="datetime"/>
+        
+		<var name="x12" type="DemoType1"/>
+		<var name="x13" type="DemoEnum"/>
+		<var name="x14" type="DemoDynamic" sep=","/>多态数据结构
+
+		<var name="k1" type="array,int"/>
+		<var name="k8" type="map,int,int"/>
+		<var name="k9" type="list,DemoE2" sep=","/>
+		<var name="k15" type="array,DemoDynamic" sep=","/> 
+    </bean>
+    <table name="TbExcelFromJson" value="ExcelFromJson" input="test/excel_jsons"/>
  
 	<bean name="TestAttr" >
 		<var name="name" type="int"/>
