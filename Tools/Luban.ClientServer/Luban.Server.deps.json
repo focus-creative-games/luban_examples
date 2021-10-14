@@ -203,11 +203,11 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
-      "Scriban/4.0.1": {
+      "Scriban/4.1.0": {
         "runtime": {
           "lib/net5.0/Scriban.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.0.1.0"
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
           }
         }
       },
@@ -913,7 +913,7 @@
         "dependencies": {
           "CommandLineParser": "2.8.0",
           "Luban.Server.Common": "1.0.0",
-          "Scriban": "4.0.1"
+          "Scriban": "4.1.0"
         },
         "runtime": {
           "Luban.Job.Common.dll": {}
@@ -1147,12 +1147,12 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
-    "Scriban/4.0.1": {
+    "Scriban/4.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oL4nytC2BkyN4CA1x8TthPTyR8PFSR3qrI6GVPPuf54Q1zrHsCJvGTsaZny/IGZkXW1Rr9T7PK6MLydEhQ8HpA==",
-      "path": "scriban/4.0.1",
-      "hashPath": "scriban.4.0.1.nupkg.sha512"
+      "sha512": "sha512-rEjPy11TaTfCg3pcSC+VhTrlk5HRnAbEJg6nutNm0tqhtOHRsxv5lh0RXSp073irj7R8J7UsSgC9Kix+SIYvpQ==",
+      "path": "scriban/4.1.0",
+      "hashPath": "scriban.4.1.0.nupkg.sha512"
     },
     "System.AppContext/4.1.0": {
       "type": "package",
