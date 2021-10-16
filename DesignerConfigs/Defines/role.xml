@@ -26,7 +26,7 @@
 	</bean>
 	<bean name="LevelBonus">
 		<var name="id" type="int"/>
-		<var name="distinct_bonus_infos" type="list,DistinctBonusInfos" multi_rows="1"/>
+		<var name="distinct_bonus_infos" type="list,DistinctBonusInfos"/>
 	</bean>
 	<table name="TbRoleLevelBonusCoefficient" value="LevelBonus" input="等级奖励系数表@role/等级信息表.xlsx"/>
 </module>

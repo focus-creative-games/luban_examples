@@ -8,6 +8,6 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  -d ${DEFINE_FILE} \
  --input_data_dir ${CONF_ROOT}/Datas \
  --output_code_dir Gen \
- --output_data_dir config_data \
- --gen_types code_cs_bin,data_json \
+ --output_data_dir ..\GenerateDatas\json \
+ --gen_types code_cs_json,data_json \
  -s all 

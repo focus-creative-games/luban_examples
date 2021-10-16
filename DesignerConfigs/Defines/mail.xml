@@ -19,7 +19,7 @@
         <var name="title" type="string"/>
         <var name="sender" type="string"/>
         <var name="content" type="string"/>
-        <var name="award" type="list,int" sep=";," ref="bonus.TbDrop"/>
+        <var name="award" type="list,int" ref="bonus.TbDrop"/>
         <var name="all_server" type="bool"/>
         <var name="server_list" type="list,int"/>
         <var name="platform" type="string"/>

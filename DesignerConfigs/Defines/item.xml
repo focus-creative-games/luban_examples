@@ -194,13 +194,13 @@
 			<var name="use_on_obtain" type="bool"/>
 			<var name="drop_ids" type="list,int" ref="bonus.TbDrop"/>
 			<!--var name="open_daily_limit" type="condition.DayLimit"/-->
-			<var name="choose_list" type="list,ChooseOneBonus" sep=";,"/>
+			<var name="choose_list" type="list,ChooseOneBonus"/>
 		</bean>
 
 		<bean name="InteractionItem" alias="交互道具">
 			<var name="attack_num" type="int?"/>
-			<var name="holding_static_mesh" type="string" res="Item" path="ue?"/>
-			<var name="holding_static_mesh_mat" type="string" res="Item" path="ue?"/>
+			<var name="holding_static_mesh" type="string" path="ue?"/>
+			<var name="holding_static_mesh_mat" type="string" path="ue?"/>
 		</bean>
 		<bean name="Clothes" alias="服装">
 			<var name="attack" type="int"/>

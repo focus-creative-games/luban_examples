@@ -92,8 +92,8 @@
 	<bean name="DropInfo">
 		<var name="id" type="int"/>
 		<var name="desc" type="string"/>
-		<var name="client_show_items" type="list,ShowItemInfo" sep=";"/>
-		<var name="bonus" type="Bonus" sep=";"/>
+		<var name="client_show_items" type="list,ShowItemInfo"/>
+		<var name="bonus" type="Bonus"/>
 	</bean>
 	<table name="TbDrop" value="DropInfo" input="bonus/掉落表.xlsx"/>
 	

@@ -42,7 +42,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
     }
 
     /// <summary>
-    /// 装备解锁等级_描述
+    /// 装备解锁等级
     /// </summary>
     public int UnlockEquip { get; private set; }
     /// <summary>
