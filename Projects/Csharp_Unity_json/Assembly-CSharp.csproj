@@ -144,7 +144,6 @@
     <Compile Include="Assets\Gen\ai\EOperator.cs" />
     <Compile Include="Assets\Gen\ai\ChooseTarget.cs" />
     <Compile Include="Assets\Gen\item\TreasureBox.cs" />
-    <Compile Include="Assets\Gen\test\DemoConst.cs" />
     <Compile Include="Assets\Gen\test\TbDefineFromExcel2.cs" />
     <Compile Include="Assets\Gen\test\DemoE2.cs" />
     <Compile Include="Assets\Gen\common\TbDummy.cs" />
@@ -225,7 +224,6 @@
     <Compile Include="Assets\Gen\ai\EFlowAbortMode.cs" />
     <Compile Include="Assets\Gen\ai\IsNotSet.cs" />
     <Compile Include="Assets\Gen\item\ECurrencyType.cs" />
-    <Compile Include="Assets\Gen\role\Consts.cs" />
     <Compile Include="Assets\Gen\ai\TbBlackboard.cs" />
     <Compile Include="Assets\Gen\role\TbRoleLevelExpAttr.cs" />
     <Compile Include="Assets\Gen\bonus\DropBonus.cs" />

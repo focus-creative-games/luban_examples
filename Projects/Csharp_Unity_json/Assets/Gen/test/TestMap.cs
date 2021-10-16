@@ -41,6 +41,7 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
     }
 
     public int Id { get; private set; }
+    public test.TestIndex Id_Ref { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> X1 { get; private set; }
     public System.Collections.Generic.Dictionary<long, int> X2 { get; private set; }
     public System.Collections.Generic.Dictionary<string, int> X3 { get; private set; }
@@ -51,6 +52,7 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        this.Id_Ref = (_tables["test.TbTestIndex"] as test.TbTestIndex).GetOrDefault(Id);
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)

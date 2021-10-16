@@ -15,30 +15,30 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbTestJson2
+public sealed class TbExcelFromJson
 {
-    private readonly Dictionary<int, test.TestJson2> _dataMap;
-    private readonly List<test.TestJson2> _dataList;
+    private readonly Dictionary<int, test.ExcelFromJson> _dataMap;
+    private readonly List<test.ExcelFromJson> _dataList;
     
-    public TbTestJson2(JSONNode _json)
+    public TbExcelFromJson(JSONNode _json)
     {
-        _dataMap = new Dictionary<int, test.TestJson2>();
-        _dataList = new List<test.TestJson2>();
+        _dataMap = new Dictionary<int, test.ExcelFromJson>();
+        _dataList = new List<test.ExcelFromJson>();
         
         foreach(JSONNode _row in _json.Children)
         {
-            var _v = test.TestJson2.DeserializeTestJson2(_row);
+            var _v = test.ExcelFromJson.DeserializeExcelFromJson(_row);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.X4, _v);
         }
     }
 
-    public Dictionary<int, test.TestJson2> DataMap => _dataMap;
-    public List<test.TestJson2> DataList => _dataList;
+    public Dictionary<int, test.ExcelFromJson> DataMap => _dataMap;
+    public List<test.ExcelFromJson> DataList => _dataList;
 
-    public test.TestJson2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public test.TestJson2 Get(int key) => _dataMap[key];
-    public test.TestJson2 this[int key] => _dataMap[key];
+    public test.ExcelFromJson GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.ExcelFromJson Get(int key) => _dataMap[key];
+    public test.ExcelFromJson this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {
