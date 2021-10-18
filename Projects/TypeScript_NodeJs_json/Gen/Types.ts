@@ -73,7 +73,6 @@ export class Vector4 {
     }
 }
 
-export namespace cfg {
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
@@ -5627,11 +5626,11 @@ export class DefineFromExcel {
     }
 
     /**
-     * id的描述
+     * 这是id
      */
     readonly id: number
     /**
-     * 字段的描述
+     * 字段x1
      */
     readonly x1: boolean
     readonly x5: number
@@ -5666,7 +5665,7 @@ export class TbDefineFromExcelOne{
     getData(): test.DefineFromExcelOne { return this._data; }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
      get  unlockEquip(): number { return this._data.unlockEquip; }
     /**
@@ -5707,7 +5706,7 @@ export class DefineFromExcelOne {
     }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
     readonly unlockEquip: number
     /**
@@ -5721,67 +5720,6 @@ export class DefineFromExcelOne {
     readonly defaultItem: string
 
     resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-export namespace test {
-export class TbTestJson2{
-    private _dataMap: Map<number, test.TestJson2>
-    private _dataList: test.TestJson2[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, test.TestJson2>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: test.TestJson2
-            _v = new test.TestJson2(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.TestJson2> { return this._dataMap; }
-    getDataList(): test.TestJson2[] { return this._dataList; }
-
-    get(key: number): test.TestJson2 | undefined { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-
-export namespace test {
-export class TestJson2 {
-
-    constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.m1 === undefined) { throw new Error() }
-        this.m1 = new Map<number, number>(); for(var _entry_ of _json_.m1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m1.set(_k, _v);  }
-        if (_json_.m2 === undefined) { throw new Error() }
-        this.m2 = new Map<number, number>(); for(var _entry_ of _json_.m2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m2.set(_k, _v);  }
-        if (_json_.m3 === undefined) { throw new Error() }
-        this.m3 = new Map<string, number>(); for(var _entry_ of _json_.m3) { let _k:string; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.m3.set(_k, _v);  }
-        if (_json_.m4 === undefined) { throw new Error() }
-        this.m4 = new Map<string, test.DemoType1>(); for(var _entry_ of _json_.m4) { let _k:string; _k = _entry_[0];  let _v:test.DemoType1;  _v = new test.DemoType1(_entry_[1]); this.m4.set(_k, _v);  }
-    }
-
-    readonly id: number
-    readonly m1: Map<number, number>
-    readonly m2: Map<number, number>
-    readonly m3: Map<string, number>
-    readonly m4: Map<string, test.DemoType1>
-
-    resolve(_tables: Map<string, any>) {
-        for(let _e of this.m4.values()) { if (_e != null) {_e.resolve(_tables);} }
     }
 }
 
@@ -5888,12 +5826,114 @@ export class TestMap {
     }
 
     readonly id: number
+    id_Ref : test.TestIndex = undefined!
     readonly x1: Map<number, number>
     readonly x2: Map<number, number>
     readonly x3: Map<string, number>
     readonly x4: Map<test.DemoEnum, number>
 
     resolve(_tables: Map<string, any>) {
+        this.id_Ref = (_tables.get('test.TbTestIndex') as test.TbTestIndex).get(this.id)!
+    }
+}
+
+}
+
+export namespace test {
+export class TbExcelFromJson{
+    private _dataMap: Map<number, test.ExcelFromJson>
+    private _dataList: test.ExcelFromJson[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.ExcelFromJson>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.ExcelFromJson
+            _v = new test.ExcelFromJson(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.ExcelFromJson> { return this._dataMap; }
+    getDataList(): test.ExcelFromJson[] { return this._dataList; }
+
+    get(key: number): test.ExcelFromJson | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class ExcelFromJson {
+
+    constructor(_json_: any) {
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x5 === undefined) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 === undefined) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.s1 === undefined) { throw new Error() }
+        this.s1 = _json_.s1
+        if (_json_.s2 === undefined) { throw new Error() }
+        this.s2 = _json_.s2['text']
+        if (_json_.v2 === undefined) { throw new Error() }
+        this.v2 = Vector2.deserializeFromJson(_json_.v2)
+        if (_json_.v3 === undefined) { throw new Error() }
+        this.v3 = Vector3.deserializeFromJson(_json_.v3)
+        if (_json_.v4 === undefined) { throw new Error() }
+        this.v4 = Vector4.deserializeFromJson(_json_.v4)
+        if (_json_.t1 === undefined) { throw new Error() }
+        this.t1 = _json_.t1
+        if (_json_.x12 === undefined) { throw new Error() }
+        this.x12 = new test.DemoType1(_json_.x12)
+        if (_json_.x13 === undefined) { throw new Error() }
+        this.x13 = _json_.x13
+        if (_json_.x14 === undefined) { throw new Error() }
+        this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
+        if (_json_.k1 === undefined) { throw new Error() }
+        this.k1 = _json_.k1
+        if (_json_.k8 === undefined) { throw new Error() }
+        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
+        if (_json_.k9 === undefined) { throw new Error() }
+        { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
+        if (_json_.k15 === undefined) { throw new Error() }
+        { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly s1: string
+    readonly s2: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly k1: Int32Array
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x12 != null) { this.x12.resolve(_tables);}
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.k15) { if (_e != null) { _e.resolve(_tables); } }
     }
 }
 
@@ -5997,11 +6037,11 @@ export class DefineFromExcel2 {
     }
 
     /**
-     * id的描述
+     * 这是id
      */
     readonly id: number
     /**
-     * 字段的描述
+     * 字段x1
      */
     readonly x1: boolean
     readonly x5: number
@@ -6171,12 +6211,12 @@ export class Tables {
     get TbDefineFromExcel(): test.TbDefineFromExcel  { return this._TbDefineFromExcel;}
     private _TbDefineFromExcelOne: test.TbDefineFromExcelOne
     get TbDefineFromExcelOne(): test.TbDefineFromExcelOne  { return this._TbDefineFromExcelOne;}
-    private _TbTestJson2: test.TbTestJson2
-    get TbTestJson2(): test.TbTestJson2  { return this._TbTestJson2;}
     private _TbTestIndex: test.TbTestIndex
     get TbTestIndex(): test.TbTestIndex  { return this._TbTestIndex;}
     private _TbTestMap: test.TbTestMap
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap;}
+    private _TbExcelFromJson: test.TbExcelFromJson
+    get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson;}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
     get TbDemoGroupDefineFromExcel(): test.TbDemoGroupDefineFromExcel  { return this._TbDemoGroupDefineFromExcel;}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
@@ -6222,7 +6262,7 @@ export class Tables {
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
         this._TbTestTag = new tag.TbTestTag(loader('tag_tbtesttag'))
         tables.set('tag.TbTestTag', this._TbTestTag)
-        this._TbFullTypes = new test.TbFullTypes(loader('test_tbfulltypes'))
+        this._TbFullTypes = new test.TbFullTypes(loader('custom_tb_full_types'))
         tables.set('test.TbFullTypes', this._TbFullTypes)
         this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton'))
         tables.set('test.TbSingleton', this._TbSingleton)
@@ -6254,12 +6294,12 @@ export class Tables {
         tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel)
         this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test_tbdefinefromexcelone'))
         tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne)
-        this._TbTestJson2 = new test.TbTestJson2(loader('test_tbtestjson2'))
-        tables.set('test.TbTestJson2', this._TbTestJson2)
         this._TbTestIndex = new test.TbTestIndex(loader('test_tbtestindex'))
         tables.set('test.TbTestIndex', this._TbTestIndex)
         this._TbTestMap = new test.TbTestMap(loader('test_tbtestmap'))
         tables.set('test.TbTestMap', this._TbTestMap)
+        this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson'))
+        tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'))
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'))
@@ -6301,13 +6341,11 @@ export class Tables {
         this._TbDetectCsvEncoding.resolve(tables)
         this._TbDefineFromExcel.resolve(tables)
         this._TbDefineFromExcelOne.resolve(tables)
-        this._TbTestJson2.resolve(tables)
         this._TbTestIndex.resolve(tables)
         this._TbTestMap.resolve(tables)
+        this._TbExcelFromJson.resolve(tables)
         this._TbDemoGroupDefineFromExcel.resolve(tables)
         this._TbDefineFromExcel2.resolve(tables)
         this._TbTestExcelBean.resolve(tables)
     }
-}
-
 }
