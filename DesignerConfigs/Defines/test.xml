@@ -323,6 +323,25 @@
 		<var name="k15" type="array,DemoDynamic"/> 
     </bean>
     <table name="TbExcelFromJson" value="ExcelFromJson" input="test/excel_jsons"/>
+    
+    
+    <bean name="Test3">
+        <var name="x" type="int"/>
+        <var name="y" type="int"/>
+    </bean>
+    <bean name="TestRow">
+        <var name="x" type="int"/>
+        <var name="y" type="bool"/>
+        <var name="z" type="string"/>
+        <var name="a" type="Test3"/>
+        <var name="b" type="list,int"/>
+    </bean>
+    <bean name="ExcelFromJsonMultiRow">
+        <var name="id" type="int"/>
+        <var name="x" type="int"/>
+        <var name="items" type="list,TestRow"/>
+    </bean>
+    <table name="TbExcelFromJsonMultiRow" value="ExcelFromJsonMultiRow" input="test/excel_multi_row_jsons"/>
  
 	<bean name="TestAttr" >
 		<var name="name" type="int"/>
