@@ -46,7 +46,7 @@
 		<var name="x10" type="string" path="unity"/>
 		<var name="x12" type="DemoType1"/>
 		<var name="x13" type="DemoEnum"/>
-		<var name="x14" type="DemoDynamic" sep=","/>多态数据结构
+		<var name="x14" type="DemoDynamic"/>多态数据结构
 		
 		<var name="s1" type="text"/>
 		
@@ -60,8 +60,8 @@
 		<var name="k2" type="list,int"/>
 		<var name="k5" type="set,int"/>
 		<var name="k8" type="map,int,int"/>
-		<var name="k9" type="list,DemoE2" sep=","/>
-		<var name="k15" type="array,DemoDynamic" sep=","/> 
+		<var name="k9" type="list,DemoE2" />
+		<var name="k15" type="array,DemoDynamic"/> 
 	</bean>
 
 </module>
