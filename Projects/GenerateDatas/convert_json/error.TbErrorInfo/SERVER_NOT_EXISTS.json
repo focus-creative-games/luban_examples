@@ -1,0 +1,9 @@
+{
+  "code": "SERVER_NOT_EXISTS",
+  "desc": "该服务器不存在",
+  "style": {
+    "__type__": "ErrorStyleMsgbox",
+    "btn_name": "ok",
+    "operation": "重启"
+  }
+}

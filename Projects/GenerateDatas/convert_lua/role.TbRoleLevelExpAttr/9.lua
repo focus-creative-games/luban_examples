@@ -1,0 +1,16 @@
+return {
+    level = 9,
+    need_exp = 1100,
+    clothes_attrs = {
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+    },
+}

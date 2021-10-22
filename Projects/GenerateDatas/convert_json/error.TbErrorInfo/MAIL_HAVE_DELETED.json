@@ -1,0 +1,7 @@
+{
+  "code": "MAIL_HAVE_DELETED",
+  "desc": "邮件已删除",
+  "style": {
+    "__type__": "ErrorStyleTip"
+  }
+}
