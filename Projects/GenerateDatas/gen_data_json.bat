@@ -8,7 +8,6 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_data_dir json ^
  --gen_types data_json ^
- --output_compact_json ^
  -s all
 
 
