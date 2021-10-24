@@ -53,7 +53,7 @@
 		<var name="x4" type="int"/>
 		<var name="x1" type="bool|kind=cat|type=sss"  tags="aa=10|bb=23"/>
 		<var name="x2" type="byte|kind=mouse|name=yyy" tags="aa||dd=32"/>
-		<var name="x3" type="short" ref="test.TbFullTypes"/>
+		<var name="x3" type="short"/>
 		<var name="x5" type="long" />
 		<var name="x6" type="float"/>
 		<var name="x7" type="double"/>
@@ -74,15 +74,15 @@
 		
 		<var name="t1" type="datetime"/>
 
-		<var name="k1" type="array,int"/>
-		<var name="k2" type="list,int"/>
-		<var name="k5" type="set,int"/>
-		<var name="k8" type="map,int,int"/>
+		<var name="k1" type="array,(int#ref=test.TbFullTypes)"/>
+		<var name="k2" type="list,int#ref=test.TbFullTypes"/>
+		<var name="k5" type="set,(int#ref=test.TbFullTypes)"/>
+		<var name="k8" type="map,(int#ref=test.TbFullTypes),(int#ref=test.TbFullTypes)#test_tag=b"/>
 		<var name="k9" type="list,DemoE2"/>
 		<var name="k15" type="array,DemoDynamic"/> 
 	</bean>
 	
-	<table name="TbFullTypes" index="x3" value="DemoType2" input="test/full_type.xlsx"/> 最常见的普通 key-value表
+	<table name="TbFullTypes" index="x4" value="DemoType2" input="test/full_type.xlsx"/> 最常见的普通 key-value表
 	
 	<bean name="DateTimeRange" sep=";">
 		<var name="start_time" type="datetime"/>
