@@ -287,7 +287,7 @@
 	
 	<bean name="TestIndex">
 		<var name="id" type="int"/>
-		<var name="eles" type="list,DemoType1" index="x1"/>
+		<var name="eles" type="list,DemoType1#index=x1"/>
 	</bean>
 	<table name="TbTestIndex" value="TestIndex" input="test/test_index.xlsx"/>
  

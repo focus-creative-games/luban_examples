@@ -1,6 +1,6 @@
 set GEN_CLIENT=dotnet ..\Tools\Luban.ClientServer\Luban.ClientServer.dll
 
-%GEN_CLIENT% -j cfg --^
+%GEN_CLIENT% -h 127.0.0.1 -j cfg --^
  -d Defines\__root__.xml ^
  --input_data_dir Datas ^
  --output_data_dir output_json ^

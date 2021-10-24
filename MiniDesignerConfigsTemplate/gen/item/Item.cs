@@ -26,16 +26,18 @@ public sealed partial class Item :  Bright.Config.BeanBase
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["price"].IsNumber) { throw new SerializationException(); }  Price = _json["price"]; }
+        { if(!_json["upgrade_to_item_id"].IsNumber) { throw new SerializationException(); }  UpgradeToItemId = _json["upgrade_to_item_id"]; }
         { var _j = _json["expire_time"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  ExpireTime = _j; } } else { ExpireTime = null; } }
         { if(!_json["batch_useable"].IsBoolean) { throw new SerializationException(); }  BatchUseable = _json["batch_useable"]; }
     }
 
-    public Item(int id, string name, string desc, int price, int? expire_time, bool batch_useable ) 
+    public Item(int id, string name, string desc, int price, int upgrade_to_item_id, int? expire_time, bool batch_useable ) 
     {
         this.Id = id;
         this.Name = name;
         this.Desc = desc;
         this.Price = price;
+        this.UpgradeToItemId = upgrade_to_item_id;
         this.ExpireTime = expire_time;
         this.BatchUseable = batch_useable;
     }
@@ -46,11 +48,11 @@ public sealed partial class Item :  Bright.Config.BeanBase
     }
 
     /// <summary>
-    /// id的描述
+    /// 这是id
     /// </summary>
     public int Id { get; private set; }
     /// <summary>
-    /// 名字的描述
+    /// 名字
     /// </summary>
     public string Name { get; private set; }
     /// <summary>
@@ -58,9 +60,11 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// </summary>
     public string Desc { get; private set; }
     /// <summary>
-    /// 出售银币价格
+    /// 价格
     /// </summary>
     public int Price { get; private set; }
+    public int UpgradeToItemId { get; private set; }
+    public item.Item UpgradeToItemId_Ref { get; private set; }
     /// <summary>
     /// 过期时间
     /// </summary>
@@ -75,6 +79,7 @@ public sealed partial class Item :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        this.UpgradeToItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(UpgradeToItemId);
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -88,6 +93,7 @@ public sealed partial class Item :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "Price:" + Price + ","
+        + "UpgradeToItemId:" + UpgradeToItemId + ","
         + "ExpireTime:" + ExpireTime + ","
         + "BatchUseable:" + BatchUseable + ","
         + "}";
