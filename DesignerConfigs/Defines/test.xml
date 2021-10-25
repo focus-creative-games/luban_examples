@@ -50,7 +50,7 @@
 	</bean>
 	
 	<bean name="DemoType2" tags="d=5|a=3">
-		<var name="x4" type="int"/>
+		<var name="x4" type="int#range=[1,100]"/>
 		<var name="x1" type="bool|kind=cat|type=sss"  tags="aa=10|bb=23"/>
 		<var name="x2" type="byte|kind=mouse|name=yyy" tags="aa||dd=32"/>
 		<var name="x3" type="short"/>
