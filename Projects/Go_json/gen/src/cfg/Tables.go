@@ -46,9 +46,10 @@ type Tables struct {
     TbDetectCsvEncoding *Test_TbDetectCsvEncoding
     TbDefineFromExcel *Test_TbDefineFromExcel
     TbDefineFromExcelOne *Test_TbDefineFromExcelOne
-    TbTestJson2 *Test_TbTestJson2
     TbTestIndex *Test_TbTestIndex
     TbTestMap *Test_TbTestMap
+    TbExcelFromJson *Test_TbExcelFromJson
+    TbExcelFromJsonMultiRow *Test_TbExcelFromJsonMultiRow
     TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
     TbDefineFromExcel2 *Test_TbDefineFromExcel2
     TbTestExcelBean *Test_TbTestExcelBean
@@ -263,12 +264,6 @@ func NewTables(loader JsonLoader) (*Tables, error) {
     if tables.TbDefineFromExcelOne, err = NewTest_TbDefineFromExcelOne(buf) ; err != nil {
         return nil, err
     }
-    if buf, err = loader("test_tbtestjson2") ; err != nil {
-        return nil, err
-    }
-    if tables.TbTestJson2, err = NewTest_TbTestJson2(buf) ; err != nil {
-        return nil, err
-    }
     if buf, err = loader("test_tbtestindex") ; err != nil {
         return nil, err
     }
@@ -279,6 +274,18 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestMap, err = NewTest_TbTestMap(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbexcelfromjson") ; err != nil {
+        return nil, err
+    }
+    if tables.TbExcelFromJson, err = NewTest_TbExcelFromJson(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbexcelfromjsonmultirow") ; err != nil {
+        return nil, err
+    }
+    if tables.TbExcelFromJsonMultiRow, err = NewTest_TbExcelFromJsonMultiRow(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbdemogroupdefinefromexcel") ; err != nil {

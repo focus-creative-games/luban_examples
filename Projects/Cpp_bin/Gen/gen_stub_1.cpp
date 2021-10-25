@@ -767,7 +767,6 @@ namespace cfg
 
     void test::DemoType2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
-        this->x3_Ref = ((test::TbFullTypes*)(_tables["test.TbFullTypes"]))->get(x3);
         x12->resolve(_tables);
         x14->resolve(_tables);
         for(auto _e : k9) { _e->resolve(_tables); }
@@ -1556,37 +1555,6 @@ namespace cfg
     {
     }
 
-    bool test::TestJson2::deserialize(ByteBuf& _buf)
-    {
-
-        if(!_buf.readInt(id)) return false;
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m1[_k] = _v;}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int64 _k;  if(!_buf.readLong(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m2[_k] = _v;}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     m3[_k] = _v;}}
-        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); m4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::String _k;  if(!_buf.readString(_k)) return false; ::bright::SharedPtr<test::DemoType1> _v;  if(!test::DemoType1::deserializeDemoType1(_buf, _v)) return false;     m4[_k] = _v;}}
-
-        return true;
-    }
-
-    bool test::TestJson2::deserializeTestJson2(ByteBuf& _buf, ::bright::SharedPtr<test::TestJson2>& _out)
-    {
-        _out.reset(new test::TestJson2());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void test::TestJson2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto _e : m4) { _e.second->resolve(_tables); }
-    }
-
     bool test::TestIndex::deserialize(ByteBuf& _buf)
     {
 
@@ -1646,6 +1614,140 @@ namespace cfg
     }
 
     void test::TestMap::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        this->id_Ref = ((test::TbTestIndex*)(_tables["test.TbTestIndex"]))->get(id);
+    }
+
+    bool test::ExcelFromJson::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x4)) return false;
+        if (!_buf.readBool(x1)) return false;
+        if(!_buf.readLong(x5)) return false;
+        if(!_buf.readFloat(x6)) return false;
+        if(!_buf.readString(s1)) return false;
+        if(!_buf.readString(s2)) return false; /* key */ if(!_buf.readString(s2)) return false; /* text */
+        if(!_buf.readVector2(v2)) return false;
+        if(!_buf.readVector3(v3)) return false;
+        if(!_buf.readVector4(v4)) return false;
+        if(!_buf.readInt(t1)) return false;
+        if(!test::DemoType1::deserializeDemoType1(_buf, x12)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::DemoEnum(__enum_temp__); }
+        if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));k1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     k8[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); k9.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoE2> _e;  if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));k15.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::DemoDynamic> _e;if(!test::DemoDynamic::deserializeDemoDynamic(_buf, _e)) return false; k15.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::ExcelFromJson::deserializeExcelFromJson(ByteBuf& _buf, ::bright::SharedPtr<test::ExcelFromJson>& _out)
+    {
+        _out.reset(new test::ExcelFromJson());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::ExcelFromJson::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        x12->resolve(_tables);
+        x14->resolve(_tables);
+        for(auto _e : k9) { _e->resolve(_tables); }
+        for(auto _e : k15) { _e->resolve(_tables); }
+    }
+
+    bool test::ExcelFromJsonMultiRow::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(x)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); items.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::TestRow> _e;  if(!test::TestRow::deserializeTestRow(_buf, _e)) return false; items.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::ExcelFromJsonMultiRow::deserializeExcelFromJsonMultiRow(ByteBuf& _buf, ::bright::SharedPtr<test::ExcelFromJsonMultiRow>& _out)
+    {
+        _out.reset(new test::ExcelFromJsonMultiRow());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::ExcelFromJsonMultiRow::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto _e : items) { _e->resolve(_tables); }
+    }
+
+    bool test::TestRow::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x)) return false;
+        if (!_buf.readBool(y)) return false;
+        if(!_buf.readString(z)) return false;
+        if(!test::Test3::deserializeTest3(_buf, a)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); b.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; b.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::TestRow::deserializeTestRow(ByteBuf& _buf, ::bright::SharedPtr<test::TestRow>& _out)
+    {
+        _out.reset(new test::TestRow());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestRow::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        a->resolve(_tables);
+    }
+
+    bool test::Test3::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x)) return false;
+        if(!_buf.readInt(y)) return false;
+
+        return true;
+    }
+
+    bool test::Test3::deserializeTest3(ByteBuf& _buf, ::bright::SharedPtr<test::Test3>& _out)
+    {
+        _out.reset(new test::Test3());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::Test3::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 

@@ -54,11 +54,11 @@ public final class DefineFromExcel2 {
     }
 
     /**
-     * id的描述
+     * 这是id
      */
     public final int id;
     /**
-     * 字段的描述
+     * 字段x1
      */
     public final boolean x1;
     public final long x5;

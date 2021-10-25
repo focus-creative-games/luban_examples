@@ -4438,7 +4438,7 @@ export class TbFullTypes{
             let _v: test.DemoType2
             _v = new test.DemoType2(_json2_)
             this._dataList.push(_v)
-            this._dataMap.set(_v.x3, _v)
+            this._dataMap.set(_v.x4, _v)
         }
     }
 
@@ -4519,7 +4519,6 @@ export class DemoType2 {
     readonly x1: boolean
     readonly x2: number
     readonly x3: number
-    x3_Ref : test.DemoType2 = undefined!
     readonly x5: number
     readonly x6: number
     readonly x7: number
@@ -4543,7 +4542,6 @@ export class DemoType2 {
     readonly k15: test.DemoDynamic[]
 
     resolve(_tables: Map<string, any>) {
-        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)!
         if (this.x12 != null) { this.x12.resolve(_tables);}
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
@@ -5940,6 +5938,113 @@ export class ExcelFromJson {
 }
 
 export namespace test {
+export class TbExcelFromJsonMultiRow{
+    private _dataMap: Map<number, test.ExcelFromJsonMultiRow>
+    private _dataList: test.ExcelFromJsonMultiRow[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.ExcelFromJsonMultiRow>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.ExcelFromJsonMultiRow
+            _v = new test.ExcelFromJsonMultiRow(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.ExcelFromJsonMultiRow> { return this._dataMap; }
+    getDataList(): test.ExcelFromJsonMultiRow[] { return this._dataList; }
+
+    get(key: number): test.ExcelFromJsonMultiRow | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class ExcelFromJsonMultiRow {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.items === undefined) { throw new Error() }
+        { this.items = []; for(let _ele of _json_.items) { let _e : test.TestRow; _e = new test.TestRow(_ele); this.items.push(_e);}}
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly items: test.TestRow[]
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.items) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+export namespace test {
+export class TestRow {
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+        if (_json_.z === undefined) { throw new Error() }
+        this.z = _json_.z
+        if (_json_.a === undefined) { throw new Error() }
+        this.a = new test.Test3(_json_.a)
+        if (_json_.b === undefined) { throw new Error() }
+        this.b = _json_.b
+    }
+
+    readonly x: number
+    readonly y: boolean
+    readonly z: string
+    readonly a: test.Test3
+    readonly b: number[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.a != null) { this.a.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+export namespace test {
+export class Test3 {
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
 export class TbDemoGroupDefineFromExcel{
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
@@ -6217,6 +6322,8 @@ export class Tables {
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap;}
     private _TbExcelFromJson: test.TbExcelFromJson
     get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson;}
+    private _TbExcelFromJsonMultiRow: test.TbExcelFromJsonMultiRow
+    get TbExcelFromJsonMultiRow(): test.TbExcelFromJsonMultiRow  { return this._TbExcelFromJsonMultiRow;}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
     get TbDemoGroupDefineFromExcel(): test.TbDemoGroupDefineFromExcel  { return this._TbDemoGroupDefineFromExcel;}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
@@ -6262,7 +6369,7 @@ export class Tables {
         tables.set('role.TbRoleLevelBonusCoefficient', this._TbRoleLevelBonusCoefficient)
         this._TbTestTag = new tag.TbTestTag(loader('tag_tbtesttag'))
         tables.set('tag.TbTestTag', this._TbTestTag)
-        this._TbFullTypes = new test.TbFullTypes(loader('custom_tb_full_types'))
+        this._TbFullTypes = new test.TbFullTypes(loader('test_tbfulltypes'))
         tables.set('test.TbFullTypes', this._TbFullTypes)
         this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton'))
         tables.set('test.TbSingleton', this._TbSingleton)
@@ -6300,6 +6407,8 @@ export class Tables {
         tables.set('test.TbTestMap', this._TbTestMap)
         this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson'))
         tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
+        this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'))
+        tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'))
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'))
@@ -6344,6 +6453,7 @@ export class Tables {
         this._TbTestIndex.resolve(tables)
         this._TbTestMap.resolve(tables)
         this._TbExcelFromJson.resolve(tables)
+        this._TbExcelFromJsonMultiRow.resolve(tables)
         this._TbDemoGroupDefineFromExcel.resolve(tables)
         this._TbDefineFromExcel2.resolve(tables)
         this._TbTestExcelBean.resolve(tables)

@@ -35,6 +35,7 @@ public final class TestMap {
     }
 
     public final int id;
+    public cfg.test.TestIndex id_Ref;
     public final java.util.HashMap<Integer, Integer> x1;
     public final java.util.HashMap<Long, Integer> x2;
     public final java.util.HashMap<String, Integer> x3;
@@ -42,6 +43,7 @@ public final class TestMap {
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
+        this.id_Ref = ((cfg.test.TbTestIndex)_tables.get("test.TbTestIndex")).get(id);
     }
 
     @Override

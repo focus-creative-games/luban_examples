@@ -17,28 +17,28 @@ namespace cfg.test
 
 public sealed class TbFullTypes
 {
-    private readonly Dictionary<short, test.DemoType2> _dataMap;
+    private readonly Dictionary<int, test.DemoType2> _dataMap;
     private readonly List<test.DemoType2> _dataList;
     
     public TbFullTypes(JSONNode _json)
     {
-        _dataMap = new Dictionary<short, test.DemoType2>();
+        _dataMap = new Dictionary<int, test.DemoType2>();
         _dataList = new List<test.DemoType2>();
         
         foreach(JSONNode _row in _json.Children)
         {
             var _v = test.DemoType2.DeserializeDemoType2(_row);
             _dataList.Add(_v);
-            _dataMap.Add(_v.X3, _v);
+            _dataMap.Add(_v.X4, _v);
         }
     }
 
-    public Dictionary<short, test.DemoType2> DataMap => _dataMap;
+    public Dictionary<int, test.DemoType2> DataMap => _dataMap;
     public List<test.DemoType2> DataList => _dataList;
 
-    public test.DemoType2 GetOrDefault(short key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public test.DemoType2 Get(short key) => _dataMap[key];
-    public test.DemoType2 this[short key] => _dataMap[key];
+    public test.DemoType2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.DemoType2 Get(int key) => _dataMap[key];
+    public test.DemoType2 this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {

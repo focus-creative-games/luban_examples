@@ -60,11 +60,11 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
     }
 
     /// <summary>
-    /// id的描述
+    /// 这是id
     /// </summary>
     public int Id { get; private set; }
     /// <summary>
-    /// 字段的描述
+    /// 字段x1
     /// </summary>
     public bool X1 { get; private set; }
     public long X5 { get; private set; }

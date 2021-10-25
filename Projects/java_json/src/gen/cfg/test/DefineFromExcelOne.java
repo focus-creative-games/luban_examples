@@ -36,7 +36,7 @@ public final class DefineFromExcelOne {
     }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
     public final int unlockEquip;
     /**

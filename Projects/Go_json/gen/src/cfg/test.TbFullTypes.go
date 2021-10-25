@@ -9,25 +9,25 @@
 package cfg
 
 type Test_TbFullTypes struct {
-    _dataMap map[int16]*Test_DemoType2
+    _dataMap map[int32]*Test_DemoType2
     _dataList []*Test_DemoType2
 }
 
 func NewTest_TbFullTypes(_buf []map[string]interface{}) (*Test_TbFullTypes, error) {
 	_dataList := make([]*Test_DemoType2, 0, len(_buf))
-	dataMap := make(map[int16]*Test_DemoType2)
+	dataMap := make(map[int32]*Test_DemoType2)
 	for _, _ele_ := range _buf {
 		if _v, err2 := NewTest_DemoType2(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
-			dataMap[_v.X3] = _v
+			dataMap[_v.X4] = _v
 		}
 	}
 	return &Test_TbFullTypes{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbFullTypes) GetDataMap() map[int16]*Test_DemoType2 {
+func (table *Test_TbFullTypes) GetDataMap() map[int32]*Test_DemoType2 {
     return table._dataMap
 }
 
@@ -35,7 +35,7 @@ func (table *Test_TbFullTypes) GetDataList() []*Test_DemoType2 {
     return table._dataList
 }
 
-func (table *Test_TbFullTypes) Get(key int16) *Test_DemoType2 {
+func (table *Test_TbFullTypes) Get(key int32) *Test_DemoType2 {
     return table._dataMap[key]
 }
 

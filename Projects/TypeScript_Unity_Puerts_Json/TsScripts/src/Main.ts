@@ -1,4 +1,4 @@
-import {cfg} from 'Gen/Cfg/Types'
+import * as cfg from 'Gen/Cfg/Types'
 import {JsHelpers, UnityEngine} from 'csharp'
 
 let tables = new cfg.Tables(f => {

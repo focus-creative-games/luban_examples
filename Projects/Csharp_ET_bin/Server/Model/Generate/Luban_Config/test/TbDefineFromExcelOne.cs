@@ -26,7 +26,7 @@ public sealed class TbDefineFromExcelOne
 
 
     /// <summary>
-    /// 装备解锁等级_描述
+    /// 装备解锁等级
     /// </summary>
      public int UnlockEquip => _data.UnlockEquip;
     /// <summary>

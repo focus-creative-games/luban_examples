@@ -1971,21 +1971,6 @@ beans['test.DefineFromExcelOne'] =
     { name='default_item', type='string'},
 }
 
----@class test.TestJson2 
----@field public id int
----@field public m1 table<int,int>
----@field public m2 table<long,int>
----@field public m3 table<string,int>
----@field public m4 table<string,test.DemoType1>
-beans['test.TestJson2'] =
-{
-    { name='id', type='int'},
-    { name='m1', type='table<int,int>'},
-    { name='m2', type='table<long,int>'},
-    { name='m3', type='table<string,int>'},
-    { name='m4', type='table<string,test.DemoType1>'},
-}
-
 ---@class test.TestIndex 
 ---@field public id int
 ---@field public eles test.DemoType1[]
@@ -2008,6 +1993,80 @@ beans['test.TestMap'] =
     { name='x2', type='table<long,int>'},
     { name='x3', type='table<string,int>'},
     { name='x4', type='table<test.DemoEnum,int>'},
+}
+
+---@class test.ExcelFromJson 
+---@field public x4 int
+---@field public x1 bool
+---@field public x5 long
+---@field public x6 float
+---@field public s1 string
+---@field public s2 string
+---@field public v2 vector2
+---@field public v3 vector3
+---@field public v4 vector4
+---@field public t1 int
+---@field public x12 test.DemoType1
+---@field public x13 test.DemoEnum
+---@field public x14 test.DemoDynamic
+---@field public k1 int[]
+---@field public k8 table<int,int>
+---@field public k9 test.DemoE2[]
+---@field public k15 test.DemoDynamic[]
+beans['test.ExcelFromJson'] =
+{
+    { name='x4', type='int'},
+    { name='x1', type='bool'},
+    { name='x5', type='long'},
+    { name='x6', type='float'},
+    { name='s1', type='string'},
+    { name='s2', type='string'},
+    { name='v2', type='vector2'},
+    { name='v3', type='vector3'},
+    { name='v4', type='vector4'},
+    { name='t1', type='int'},
+    { name='x12', type='test.DemoType1'},
+    { name='x13', type='test.DemoEnum'},
+    { name='x14', type='test.DemoDynamic'},
+    { name='k1', type='int[]'},
+    { name='k8', type='table<int,int>'},
+    { name='k9', type='test.DemoE2[]'},
+    { name='k15', type='test.DemoDynamic[]'},
+}
+
+---@class test.ExcelFromJsonMultiRow 
+---@field public id int
+---@field public x int
+---@field public items test.TestRow[]
+beans['test.ExcelFromJsonMultiRow'] =
+{
+    { name='id', type='int'},
+    { name='x', type='int'},
+    { name='items', type='test.TestRow[]'},
+}
+
+---@class test.TestRow 
+---@field public x int
+---@field public y bool
+---@field public z string
+---@field public a test.Test3
+---@field public b int[]
+beans['test.TestRow'] =
+{
+    { name='x', type='int'},
+    { name='y', type='bool'},
+    { name='z', type='string'},
+    { name='a', type='test.Test3'},
+    { name='b', type='int[]'},
+}
+
+---@class test.Test3 
+---@field public x int
+---@field public y int
+beans['test.Test3'] =
+{
+    { name='x', type='int'},
+    { name='y', type='int'},
 }
 
 ---@class test.DefineFromExcel2 
@@ -2093,7 +2152,7 @@ local tables =
 
     { name='TbTestTag', file='tag_tbtesttag', mode='map', index='id', value_type='tag.TestTag' },
 
-    { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x3', value_type='test.DemoType2' },
+    { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x4', value_type='test.DemoType2' },
 
     { name='TbSingleton', file='test_tbsingleton', mode='one', value_type='test.DemoSingletonType'},
     
@@ -2125,11 +2184,13 @@ local tables =
 
     { name='TbDefineFromExcelOne', file='test_tbdefinefromexcelone', mode='one', value_type='test.DefineFromExcelOne'},
     
-    { name='TbTestJson2', file='test_tbtestjson2', mode='map', index='id', value_type='test.TestJson2' },
-
     { name='TbTestIndex', file='test_tbtestindex', mode='map', index='id', value_type='test.TestIndex' },
 
     { name='TbTestMap', file='test_tbtestmap', mode='map', index='id', value_type='test.TestMap' },
+
+    { name='TbExcelFromJson', file='test_tbexcelfromjson', mode='map', index='x4', value_type='test.ExcelFromJson' },
+
+    { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
 
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
 

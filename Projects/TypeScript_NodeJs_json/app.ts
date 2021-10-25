@@ -1,5 +1,5 @@
 
-import {cfg} from "./Gen/Types";
+import * as cfg from "./Gen/Types";
 
 var fs = require('fs');
 

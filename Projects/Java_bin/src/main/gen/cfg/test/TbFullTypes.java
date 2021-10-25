@@ -12,25 +12,25 @@ import bright.serialization.*;
 
 
 public final class TbFullTypes {
-    private final java.util.HashMap<Short, cfg.test.DemoType2> _dataMap;
+    private final java.util.HashMap<Integer, cfg.test.DemoType2> _dataMap;
     private final java.util.ArrayList<cfg.test.DemoType2> _dataList;
     
     public TbFullTypes(ByteBuf _buf) {
-        _dataMap = new java.util.HashMap<Short, cfg.test.DemoType2>();
+        _dataMap = new java.util.HashMap<Integer, cfg.test.DemoType2>();
         _dataList = new java.util.ArrayList<cfg.test.DemoType2>();
         
         for(int n = _buf.readSize() ; n > 0 ; --n) {
             cfg.test.DemoType2 _v;
             _v = new cfg.test.DemoType2(_buf);
             _dataList.add(_v);
-            _dataMap.put(_v.x3, _v);
+            _dataMap.put(_v.x4, _v);
         }
     }
 
-    public java.util.HashMap<Short, cfg.test.DemoType2> getDataMap() { return _dataMap; }
+    public java.util.HashMap<Integer, cfg.test.DemoType2> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.test.DemoType2> getDataList() { return _dataList; }
 
-    public cfg.test.DemoType2 get(short key) { return _dataMap.get(key); }
+    public cfg.test.DemoType2 get(int key) { return _dataMap.get(key); }
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
         for(cfg.test.DemoType2 v : _dataList) {

@@ -51,9 +51,10 @@ public sealed partial class Tables
     public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
     public test.TbDefineFromExcel TbDefineFromExcel {get; }
     public test.TbDefineFromExcelOne TbDefineFromExcelOne {get; }
-    public test.TbTestJson2 TbTestJson2 {get; }
     public test.TbTestIndex TbTestIndex {get; }
     public test.TbTestMap TbTestMap {get; }
+    public test.TbExcelFromJson TbExcelFromJson {get; }
+    public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -129,12 +130,14 @@ public sealed partial class Tables
         tables.Add("test.TbDefineFromExcel", TbDefineFromExcel);
         TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader("test_tbdefinefromexcelone")); 
         tables.Add("test.TbDefineFromExcelOne", TbDefineFromExcelOne);
-        TbTestJson2 = new test.TbTestJson2(loader("test_tbtestjson2")); 
-        tables.Add("test.TbTestJson2", TbTestJson2);
         TbTestIndex = new test.TbTestIndex(loader("test_tbtestindex")); 
         tables.Add("test.TbTestIndex", TbTestIndex);
         TbTestMap = new test.TbTestMap(loader("test_tbtestmap")); 
         tables.Add("test.TbTestMap", TbTestMap);
+        TbExcelFromJson = new test.TbExcelFromJson(loader("test_tbexcelfromjson")); 
+        tables.Add("test.TbExcelFromJson", TbExcelFromJson);
+        TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow")); 
+        tables.Add("test.TbExcelFromJsonMultiRow", TbExcelFromJsonMultiRow);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test_tbdemogroupdefinefromexcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2")); 
@@ -176,9 +179,10 @@ public sealed partial class Tables
         TbDetectCsvEncoding.Resolve(tables); 
         TbDefineFromExcel.Resolve(tables); 
         TbDefineFromExcelOne.Resolve(tables); 
-        TbTestJson2.Resolve(tables); 
         TbTestIndex.Resolve(tables); 
         TbTestMap.Resolve(tables); 
+        TbExcelFromJson.Resolve(tables); 
+        TbExcelFromJsonMultiRow.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
@@ -220,9 +224,10 @@ public sealed partial class Tables
         TbDetectCsvEncoding.TranslateText(translator); 
         TbDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcelOne.TranslateText(translator); 
-        TbTestJson2.TranslateText(translator); 
         TbTestIndex.TranslateText(translator); 
         TbTestMap.TranslateText(translator); 
+        TbExcelFromJson.TranslateText(translator); 
+        TbExcelFromJsonMultiRow.TranslateText(translator); 
         TbDemoGroupDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcel2.TranslateText(translator); 
         TbTestExcelBean.TranslateText(translator); 

@@ -87,12 +87,14 @@ public final class Tables
     public cfg.test.TbDefineFromExcel getTbDefineFromExcel() { return _TbDefineFromExcel; }
     private final cfg.test.TbDefineFromExcelOne _TbDefineFromExcelOne;
     public cfg.test.TbDefineFromExcelOne getTbDefineFromExcelOne() { return _TbDefineFromExcelOne; }
-    private final cfg.test.TbTestJson2 _TbTestJson2;
-    public cfg.test.TbTestJson2 getTbTestJson2() { return _TbTestJson2; }
     private final cfg.test.TbTestIndex _TbTestIndex;
     public cfg.test.TbTestIndex getTbTestIndex() { return _TbTestIndex; }
     private final cfg.test.TbTestMap _TbTestMap;
     public cfg.test.TbTestMap getTbTestMap() { return _TbTestMap; }
+    private final cfg.test.TbExcelFromJson _TbExcelFromJson;
+    public cfg.test.TbExcelFromJson getTbExcelFromJson() { return _TbExcelFromJson; }
+    private final cfg.test.TbExcelFromJsonMultiRow _TbExcelFromJsonMultiRow;
+    public cfg.test.TbExcelFromJsonMultiRow getTbExcelFromJsonMultiRow() { return _TbExcelFromJsonMultiRow; }
     private final cfg.test.TbDemoGroupDefineFromExcel _TbDemoGroupDefineFromExcel;
     public cfg.test.TbDemoGroupDefineFromExcel getTbDemoGroupDefineFromExcel() { return _TbDemoGroupDefineFromExcel; }
     private final cfg.test.TbDefineFromExcel2 _TbDefineFromExcel2;
@@ -170,12 +172,14 @@ public final class Tables
         tables.put("test.TbDefineFromExcel", _TbDefineFromExcel);
         _TbDefineFromExcelOne = new cfg.test.TbDefineFromExcelOne(loader.load("test_tbdefinefromexcelone")); 
         tables.put("test.TbDefineFromExcelOne", _TbDefineFromExcelOne);
-        _TbTestJson2 = new cfg.test.TbTestJson2(loader.load("test_tbtestjson2")); 
-        tables.put("test.TbTestJson2", _TbTestJson2);
         _TbTestIndex = new cfg.test.TbTestIndex(loader.load("test_tbtestindex")); 
         tables.put("test.TbTestIndex", _TbTestIndex);
         _TbTestMap = new cfg.test.TbTestMap(loader.load("test_tbtestmap")); 
         tables.put("test.TbTestMap", _TbTestMap);
+        _TbExcelFromJson = new cfg.test.TbExcelFromJson(loader.load("test_tbexcelfromjson")); 
+        tables.put("test.TbExcelFromJson", _TbExcelFromJson);
+        _TbExcelFromJsonMultiRow = new cfg.test.TbExcelFromJsonMultiRow(loader.load("test_tbexcelfromjsonmultirow")); 
+        tables.put("test.TbExcelFromJsonMultiRow", _TbExcelFromJsonMultiRow);
         _TbDemoGroupDefineFromExcel = new cfg.test.TbDemoGroupDefineFromExcel(loader.load("test_tbdemogroupdefinefromexcel")); 
         tables.put("test.TbDemoGroupDefineFromExcel", _TbDemoGroupDefineFromExcel);
         _TbDefineFromExcel2 = new cfg.test.TbDefineFromExcel2(loader.load("test_tbdefinefromexcel2")); 
@@ -217,9 +221,10 @@ public final class Tables
         _TbDetectCsvEncoding.resolve(tables); 
         _TbDefineFromExcel.resolve(tables); 
         _TbDefineFromExcelOne.resolve(tables); 
-        _TbTestJson2.resolve(tables); 
         _TbTestIndex.resolve(tables); 
         _TbTestMap.resolve(tables); 
+        _TbExcelFromJson.resolve(tables); 
+        _TbExcelFromJsonMultiRow.resolve(tables); 
         _TbDemoGroupDefineFromExcel.resolve(tables); 
         _TbDefineFromExcel2.resolve(tables); 
         _TbTestExcelBean.resolve(tables); 

@@ -3312,30 +3312,6 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
-    ---@class test.TestJson2 
-     ---@field public id int
-     ---@field public m1 table<int,int>
-     ---@field public m2 table<long,int>
-     ---@field public m3 table<string,int>
-     ---@field public m4 table<string,test.DemoType1>
-        local class = SimpleClass()
-        class._id = 1942237276
-        class._name = 'test.TestJson2'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            id = readInt(bs),
-            m1 = readMap(bs, readInt, readInt),
-            m2 = readMap(bs, readLong, readInt),
-            m3 = readMap(bs, readString, readInt),
-            m4 = readMap(bs, readString, beans['test.DemoType1']._deserialize),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
     ---@class test.TestIndex 
      ---@field public id int
      ---@field public eles test.DemoType1[]
@@ -3371,6 +3347,116 @@ local function InitTypes(methods)
             x2 = readMap(bs, readLong, readInt),
             x3 = readMap(bs, readString, readInt),
             x4 = readMap(bs, readInt, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.ExcelFromJson 
+     ---@field public x4 int
+     ---@field public x1 bool
+     ---@field public x5 long
+     ---@field public x6 float
+     ---@field public s1 string
+     ---@field public s2 string
+     ---@field public v2 vector2
+     ---@field public v3 vector3
+     ---@field public v4 vector4
+     ---@field public t1 int
+     ---@field public x12 test.DemoType1
+     ---@field public x13 test.DemoEnum
+     ---@field public x14 test.DemoDynamic
+     ---@field public k1 int[]
+     ---@field public k8 table<int,int>
+     ---@field public k9 test.DemoE2[]
+     ---@field public k15 test.DemoDynamic[]
+        local class = SimpleClass()
+        class._id = -1485706483
+        class._name = 'test.ExcelFromJson'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x4 = readInt(bs),
+            x1 = readBool(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            s1 = readString(bs),
+            s2 = readString(bs) and readString(bs),
+            v2 = readVector2(bs),
+            v3 = readVector3(bs),
+            v4 = readVector4(bs),
+            t1 = readInt(bs),
+            x12 = beans['test.DemoType1']._deserialize(bs),
+            x13 = readInt(bs),
+            x14 = beans['test.DemoDynamic']._deserialize(bs),
+            k1 = readArray(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            k15 = readArray(bs, beans['test.DemoDynamic']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.ExcelFromJsonMultiRow 
+     ---@field public id int
+     ---@field public x int
+     ---@field public items test.TestRow[]
+        local class = SimpleClass()
+        class._id = 715335694
+        class._name = 'test.ExcelFromJsonMultiRow'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x = readInt(bs),
+            items = readList(bs, beans['test.TestRow']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestRow 
+     ---@field public x int
+     ---@field public y bool
+     ---@field public z string
+     ---@field public a test.Test3
+     ---@field public b int[]
+        local class = SimpleClass()
+        class._id = -543222164
+        class._name = 'test.TestRow'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x = readInt(bs),
+            y = readBool(bs),
+            z = readString(bs),
+            a = beans['test.Test3']._deserialize(bs),
+            b = readList(bs, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.Test3 
+     ---@field public x int
+     ---@field public y int
+        local class = SimpleClass()
+        class._id = 638540133
+        class._name = 'test.Test3'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x = readInt(bs),
+            y = readInt(bs),
             }
             setmetatable(o, class)
             return o
@@ -3460,7 +3546,7 @@ local function InitTypes(methods)
     { name='TbRoleLevelExpAttr', file='role_tbrolelevelexpattr', mode='map', index='level', value_type='role.LevelExpAttr' },
     { name='TbRoleLevelBonusCoefficient', file='role_tbrolelevelbonuscoefficient', mode='map', index='id', value_type='role.LevelBonus' },
     { name='TbTestTag', file='tag_tbtesttag', mode='map', index='id', value_type='tag.TestTag' },
-    { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x3', value_type='test.DemoType2' },
+    { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbSingleton', file='test_tbsingleton', mode='one', value_type='test.DemoSingletonType'},
     { name='TbDataFromMisc', file='test_tbdatafrommisc', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbMultiRowRecord', file='test_tbmultirowrecord', mode='map', index='id', value_type='test.MultiRowRecord' },
@@ -3476,9 +3562,10 @@ local function InitTypes(methods)
     { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
     { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
     { name='TbDefineFromExcelOne', file='test_tbdefinefromexcelone', mode='one', value_type='test.DefineFromExcelOne'},
-    { name='TbTestJson2', file='test_tbtestjson2', mode='map', index='id', value_type='test.TestJson2' },
     { name='TbTestIndex', file='test_tbtestindex', mode='map', index='id', value_type='test.TestIndex' },
     { name='TbTestMap', file='test_tbtestmap', mode='map', index='id', value_type='test.TestMap' },
+    { name='TbExcelFromJson', file='test_tbexcelfromjson', mode='map', index='x4', value_type='test.ExcelFromJson' },
+    { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },

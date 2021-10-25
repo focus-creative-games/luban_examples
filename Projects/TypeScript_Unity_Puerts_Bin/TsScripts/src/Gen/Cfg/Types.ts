@@ -113,7 +113,6 @@ export abstract class BeanBase implements ISerializable {
     abstract deserialize(buf: Bright.Serialization.ByteBuf): void
 }
 
-export namespace cfg {
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
@@ -4408,7 +4407,7 @@ export class TbFullTypes {
             let _v: test.DemoType2
             _v = new test.DemoType2(_buf_)
             this._dataList.push(_v)
-            this._dataMap.set(_v.x3, _v)
+            this._dataMap.set(_v.x4, _v)
         }
     }
 
@@ -4465,7 +4464,6 @@ export  class DemoType2  {
     readonly x1: boolean
     readonly x2: number
     readonly x3: number
-    x3_Ref : test.DemoType2 = undefined!
     readonly x5: number
     readonly x6: number
     readonly x7: number
@@ -4489,7 +4487,6 @@ export  class DemoType2  {
     readonly k15: test.DemoDynamic[]
 
     resolve(_tables: Map<string, any>) {
-        this.x3_Ref = (_tables.get('test.TbFullTypes') as test.TbFullTypes).get(this.x3)!
         if (this.x12 != null) { this.x12.resolve(_tables);}
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
@@ -5552,11 +5549,11 @@ export  class DefineFromExcel  {
     }
 
     /**
-     * id的描述
+     * 这是id
      */
     readonly id: number
     /**
-     * 字段的描述
+     * 字段x1
      */
     readonly x1: boolean
     readonly x5: number
@@ -5593,7 +5590,7 @@ export class TbDefineFromExcelOne {
     getData(): test.DefineFromExcelOne { return this._data }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
      get unlockEquip(): number { return this._data.unlockEquip }
     /**
@@ -5631,7 +5628,7 @@ export  class DefineFromExcelOne  {
     }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
     readonly unlockEquip: number
     /**
@@ -5645,66 +5642,6 @@ export  class DefineFromExcelOne  {
     readonly defaultItem: string
 
     resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-export namespace test {
-export class TbTestJson2 {
-    private _dataMap: Map<number, test.TestJson2>
-    private _dataList: test.TestJson2[]
-    
-    constructor(_buf_: ByteBuf) {
-        this._dataMap = new Map<number, test.TestJson2>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: test.TestJson2
-            _v = new test.TestJson2(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.TestJson2> { return this._dataMap }
-    getDataList(): test.TestJson2[] { return this._dataList }
-
-    get(key: number): test.TestJson2 | undefined { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-
-
-export namespace test {
-export  class TestJson2  {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { this.m1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.m1.set(_k, _v);  } }
-        { this.m2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadLongAsNumber(); let _v:number; _v = _buf_.ReadInt(); this.m2.set(_k, _v);  } }
-        { this.m3 = new Map<string, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:string; _k = _buf_.ReadString(); let _v:number; _v = _buf_.ReadInt(); this.m3.set(_k, _v);  } }
-        { this.m4 = new Map<string, test.DemoType1>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:string; _k = _buf_.ReadString(); let _v:test.DemoType1; _v = new test.DemoType1(_buf_); this.m4.set(_k, _v);  } }
-    }
-
-    readonly id: number
-    readonly m1: Map<number, number>
-    readonly m2: Map<number, number>
-    readonly m3: Map<string, number>
-    readonly m4: Map<string, test.DemoType1>
-
-    resolve(_tables: Map<string, any>) {
-        for(let _e of this.m4.values()) { if (_e != null) {_e.resolve(_tables);} }
     }
 }
 
@@ -5812,10 +5749,202 @@ export  class TestMap  {
     }
 
     readonly id: number
+    id_Ref : test.TestIndex = undefined!
     readonly x1: Map<number, number>
     readonly x2: Map<number, number>
     readonly x3: Map<string, number>
     readonly x4: Map<test.DemoEnum, number>
+
+    resolve(_tables: Map<string, any>) {
+        this.id_Ref = (_tables.get('test.TbTestIndex') as test.TbTestIndex).get(this.id)!
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbExcelFromJson {
+    private _dataMap: Map<number, test.ExcelFromJson>
+    private _dataList: test.ExcelFromJson[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.ExcelFromJson>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.ExcelFromJson
+            _v = new test.ExcelFromJson(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.x4, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.ExcelFromJson> { return this._dataMap }
+    getDataList(): test.ExcelFromJson[] { return this._dataList }
+
+    get(key: number): test.ExcelFromJson | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class ExcelFromJson  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x4 = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.s1 = _buf_.ReadString()
+         _buf_.ReadString(); this.s2 = _buf_.ReadString()
+        this.v2 = Vector2.deserializeFrom(_buf_)
+        this.v3 = Vector3.deserializeFrom(_buf_)
+        this.v4 = Vector4.deserializeFrom(_buf_)
+        this.t1 = _buf_.ReadInt()
+        this.x12 = new test.DemoType1(_buf_)
+        this.x13 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
+        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
+        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly s1: string
+    readonly s2: string
+    readonly v2: Vector2
+    readonly v3: Vector3
+    readonly v4: Vector4
+    readonly t1: number
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly k1: Int32Array
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x12 != null) { this.x12.resolve(_tables);}
+        if (this.x14 != null) { this.x14.resolve(_tables);}
+        for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.k15) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbExcelFromJsonMultiRow {
+    private _dataMap: Map<number, test.ExcelFromJsonMultiRow>
+    private _dataList: test.ExcelFromJsonMultiRow[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.ExcelFromJsonMultiRow>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.ExcelFromJsonMultiRow
+            _v = new test.ExcelFromJsonMultiRow(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.ExcelFromJsonMultiRow> { return this._dataMap }
+    getDataList(): test.ExcelFromJsonMultiRow[] { return this._dataList }
+
+    get(key: number): test.ExcelFromJsonMultiRow | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class ExcelFromJsonMultiRow  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadInt()
+        { this.items = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.TestRow; _e = new test.TestRow(_buf_); this.items.push(_e) } }
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly items: test.TestRow[]
+
+    resolve(_tables: Map<string, any>) {
+        for(let _e of this.items) { if (_e != null ) {_e.resolve(_tables);} }
+    }
+}
+
+}
+
+
+
+
+export namespace test {
+export  class TestRow  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadBool()
+        this.z = _buf_.ReadString()
+        this.a = new test.Test3(_buf_)
+        { this.b = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b.push(_e) } }
+    }
+
+    readonly x: number
+    readonly y: boolean
+    readonly z: string
+    readonly a: test.Test3
+    readonly b: number[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.a != null) { this.a.resolve(_tables);}
+    }
+}
+
+}
+
+
+
+
+export namespace test {
+export  class Test3  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly x: number
+    readonly y: number
 
     resolve(_tables: Map<string, any>) {
     }
@@ -5915,11 +6044,11 @@ export  class DefineFromExcel2  {
     }
 
     /**
-     * id的描述
+     * 这是id
      */
     readonly id: number
     /**
-     * 字段的描述
+     * 字段x1
      */
     readonly x1: boolean
     readonly x5: number
@@ -6090,12 +6219,14 @@ export class Tables {
     get TbDefineFromExcel(): test.TbDefineFromExcel  { return this._TbDefineFromExcel}
     private _TbDefineFromExcelOne: test.TbDefineFromExcelOne
     get TbDefineFromExcelOne(): test.TbDefineFromExcelOne  { return this._TbDefineFromExcelOne}
-    private _TbTestJson2: test.TbTestJson2
-    get TbTestJson2(): test.TbTestJson2  { return this._TbTestJson2}
     private _TbTestIndex: test.TbTestIndex
     get TbTestIndex(): test.TbTestIndex  { return this._TbTestIndex}
     private _TbTestMap: test.TbTestMap
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap}
+    private _TbExcelFromJson: test.TbExcelFromJson
+    get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson}
+    private _TbExcelFromJsonMultiRow: test.TbExcelFromJsonMultiRow
+    get TbExcelFromJsonMultiRow(): test.TbExcelFromJsonMultiRow  { return this._TbExcelFromJsonMultiRow}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
     get TbDemoGroupDefineFromExcel(): test.TbDemoGroupDefineFromExcel  { return this._TbDemoGroupDefineFromExcel}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
@@ -6173,12 +6304,14 @@ export class Tables {
         tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel)
         this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')) 
         tables.set('test.TbDefineFromExcelOne', this._TbDefineFromExcelOne)
-        this._TbTestJson2 = new test.TbTestJson2(loader('test_tbtestjson2')) 
-        tables.set('test.TbTestJson2', this._TbTestJson2)
         this._TbTestIndex = new test.TbTestIndex(loader('test_tbtestindex')) 
         tables.set('test.TbTestIndex', this._TbTestIndex)
         this._TbTestMap = new test.TbTestMap(loader('test_tbtestmap')) 
         tables.set('test.TbTestMap', this._TbTestMap)
+        this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson')) 
+        tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
+        this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow')) 
+        tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')) 
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel)
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2')) 
@@ -6220,13 +6353,12 @@ export class Tables {
         this._TbDetectCsvEncoding.resolve(tables) 
         this._TbDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcelOne.resolve(tables) 
-        this._TbTestJson2.resolve(tables) 
         this._TbTestIndex.resolve(tables) 
         this._TbTestMap.resolve(tables) 
+        this._TbExcelFromJson.resolve(tables) 
+        this._TbExcelFromJsonMultiRow.resolve(tables) 
         this._TbDemoGroupDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcel2.resolve(tables) 
         this._TbTestExcelBean.resolve(tables) 
     }
-}
-
 }

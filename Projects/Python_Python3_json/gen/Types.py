@@ -2759,7 +2759,7 @@ class test_TbFullTypes:
         for _json2_ in _json_:
             _v = test_DemoType2(_json2_)
             self._dataList.append(_v)
-            self._dataMap[_v.x3] = _v
+            self._dataMap[_v.x4] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
@@ -3383,7 +3383,7 @@ class test_TbDefineFromExcelOne:
     def getData(self) : return self._data
 
     '''
-    装备解锁等级_描述
+    装备解锁等级
     '''
     def unlock_equip(self) : return self._data.unlock_equip
     '''
@@ -3406,41 +3406,6 @@ class test_DefineFromExcelOne :
         self.unlock_hero = _json_['unlock_hero']
         self.default_avatar = _json_['default_avatar']
         self.default_item = _json_['default_item']
-
-
-
-class test_TbTestJson2:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = test_TestJson2(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class test_TestJson2 :
-
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.m1 = {}
-        for _ek, _ev in _json_['m1']: _k = _ek; _v = _ev; self.m1[_k] =_v
-        self.m2 = {}
-        for _ek, _ev in _json_['m2']: _k = _ek; _v = _ev; self.m2[_k] =_v
-        self.m3 = {}
-        for _ek, _ev in _json_['m3']: _k = _ek; _v = _ev; self.m3[_k] =_v
-        self.m4 = {}
-        for _ek, _ev in _json_['m4']: _k = _ek; _v = test_DemoType1(_ev); self.m4[_k] =_v
 
 
 
@@ -3505,6 +3470,103 @@ class test_TestMap :
         for _ek, _ev in _json_['x3']: _k = _ek; _v = _ev; self.x3[_k] =_v
         self.x4 = {}
         for _ek, _ev in _json_['x4']: _k = test_DemoEnum(_ek); _v = _ev; self.x4[_k] =_v
+
+
+
+class test_TbExcelFromJson:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_ExcelFromJson(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.x4] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_ExcelFromJson :
+
+    def __init__(self, _json_):
+        self.x4 = _json_['x4']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.s1 = _json_['s1']
+        self.s2 = _json_['s2']['text']
+        self.v2 = Vector2.fromJson(_json_['v2'])
+        self.v3 = Vector3.fromJson(_json_['v3'])
+        self.v4 = Vector4.fromJson(_json_['v4'])
+        self.t1 = _json_['t1']
+        self.x12 = test_DemoType1(_json_['x12'])
+        self.x13 = test_DemoEnum(_json_['x13'])
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.k1 = _json_['k1']
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+        self.k15 = []
+        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
+
+
+
+class test_TbExcelFromJsonMultiRow:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_ExcelFromJsonMultiRow(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_ExcelFromJsonMultiRow :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+        self.items = []
+        for _ele in _json_['items']: _e = test_TestRow(_ele); self.items.append(_e)
+
+
+
+
+class test_TestRow :
+
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+        self.a = test_Test3(_json_['a'])
+        self.b = _json_['b']
+
+
+
+
+class test_Test3 :
+
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
 
 
 
@@ -3633,9 +3695,10 @@ class Tables:
     #def TbDetectCsvEncoding : return self._TbDetectCsvEncoding
     #def TbDefineFromExcel : return self._TbDefineFromExcel
     #def TbDefineFromExcelOne : return self._TbDefineFromExcelOne
-    #def TbTestJson2 : return self._TbTestJson2
     #def TbTestIndex : return self._TbTestIndex
     #def TbTestMap : return self._TbTestMap
+    #def TbExcelFromJson : return self._TbExcelFromJson
+    #def TbExcelFromJsonMultiRow : return self._TbExcelFromJsonMultiRow
     #def TbDemoGroupDefineFromExcel : return self._TbDemoGroupDefineFromExcel
     #def TbDefineFromExcel2 : return self._TbDefineFromExcel2
     #def TbTestExcelBean : return self._TbTestExcelBean
@@ -3675,9 +3738,10 @@ class Tables:
         self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')); 
         self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test_tbdefinefromexcel')); 
         self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')); 
-        self.TbTestJson2 = test_TbTestJson2(loader('test_tbtestjson2')); 
         self.TbTestIndex = test_TbTestIndex(loader('test_tbtestindex')); 
         self.TbTestMap = test_TbTestMap(loader('test_tbtestmap')); 
+        self.TbExcelFromJson = test_TbExcelFromJson(loader('test_tbexcelfromjson')); 
+        self.TbExcelFromJsonMultiRow = test_TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow')); 
         self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')); 
         self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test_tbdefinefromexcel2')); 
         self.TbTestExcelBean = test_TbTestExcelBean(loader('test_tbtestexcelbean')); 

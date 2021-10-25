@@ -78,7 +78,6 @@ public final class DemoType2 {
     public final boolean x1;
     public final byte x2;
     public final short x3;
-    public cfg.test.DemoType2 x3_Ref;
     public final long x5;
     public final float x6;
     public final double x7;
@@ -103,7 +102,6 @@ public final class DemoType2 {
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
-        this.x3_Ref = ((cfg.test.TbFullTypes)_tables.get("test.TbFullTypes")).get(x3);
         if (x12 != null) {x12.resolve(_tables);}
         if (x14 != null) {x14.resolve(_tables);}
         for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }

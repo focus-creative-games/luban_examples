@@ -931,9 +931,12 @@ namespace test { class TestGlobal; }
 namespace test { class DetectEncoding; } 
 namespace test { class DefineFromExcel; } 
 namespace test { class DefineFromExcelOne; } 
-namespace test { class TestJson2; } 
 namespace test { class TestIndex; } 
 namespace test { class TestMap; } 
+namespace test { class ExcelFromJson; } 
+namespace test { class ExcelFromJsonMultiRow; } 
+namespace test { class TestRow; } 
+namespace test { class Test3; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
 namespace ai {
@@ -5426,7 +5429,6 @@ class DemoType2 : public  bright::CfgBean
     bool x1;
     ::bright::byte x2;
     ::bright::int16 x3;
-    ::bright::SharedPtr<test::DemoType2> x3_Ref;
     ::bright::int64 x5;
     ::bright::float32 x6;
     ::bright::float64 x7;
@@ -6421,11 +6423,11 @@ class DefineFromExcel : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     * id的描述
+     * 这是id
      */
     ::bright::int32 id;
     /**
-     * 字段的描述
+     * 字段x1
      */
     bool x1;
     ::bright::int64 x5;
@@ -6479,7 +6481,7 @@ class DefineFromExcelOne : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
     ::bright::int32 unlockEquip;
     /**
@@ -6493,48 +6495,6 @@ class DefineFromExcelOne : public  bright::CfgBean
     ::bright::String defaultItem;
 
     static constexpr int ID = 528039504;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace test {
-
-
-
-class TestJson2 : public  bright::CfgBean 
-{
-    public:
-
-    static bool deserializeTestJson2(ByteBuf& _buf, ::bright::SharedPtr<TestJson2>& _out);
-
-    TestJson2()
-    { 
-
-    }
-
-    TestJson2(::bright::int32 id, ::bright::HashMap<::bright::int32, ::bright::int32> m1, ::bright::HashMap<::bright::int64, ::bright::int32> m2, ::bright::HashMap<::bright::String, ::bright::int32> m3, ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::DemoType1>> m4 ) 
-    {
-
-        this->id = id;
-        this->m1 = m1;
-        this->m2 = m2;
-        this->m3 = m3;
-        this->m4 = m4;
-    }
-    virtual ~TestJson2() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 id;
-    ::bright::HashMap<::bright::int32, ::bright::int32> m1;
-    ::bright::HashMap<::bright::int64, ::bright::int32> m2;
-    ::bright::HashMap<::bright::String, ::bright::int32> m3;
-    ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::DemoType1>> m4;
-
-    static constexpr int ID = 1942237276;
 
     int getTypeId() const { return ID; }
 
@@ -6608,12 +6568,195 @@ class TestMap : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     ::bright::int32 id;
+    ::bright::SharedPtr<test::TestIndex> id_Ref;
     ::bright::HashMap<::bright::int32, ::bright::int32> x1;
     ::bright::HashMap<::bright::int64, ::bright::int32> x2;
     ::bright::HashMap<::bright::String, ::bright::int32> x3;
     ::bright::HashMap<test::DemoEnum, ::bright::int32> x4;
 
     static constexpr int ID = -543227410;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class ExcelFromJson : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeExcelFromJson(ByteBuf& _buf, ::bright::SharedPtr<ExcelFromJson>& _out);
+
+    ExcelFromJson()
+    { 
+
+    }
+
+    ExcelFromJson(::bright::int32 x4, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::String s1, ::bright::String s2, ::bright::Vector2 v2, ::bright::Vector3 v3, ::bright::Vector4 v4, ::bright::datetime t1, ::bright::SharedPtr<test::DemoType1> x12, test::DemoEnum x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::Vector<::bright::int32> k1, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15 ) 
+    {
+
+        this->x4 = x4;
+        this->x1 = x1;
+        this->x5 = x5;
+        this->x6 = x6;
+        this->s1 = s1;
+        this->s2 = s2;
+        this->v2 = v2;
+        this->v3 = v3;
+        this->v4 = v4;
+        this->t1 = t1;
+        this->x12 = x12;
+        this->x13 = x13;
+        this->x14 = x14;
+        this->k1 = k1;
+        this->k8 = k8;
+        this->k9 = k9;
+        this->k15 = k15;
+    }
+    virtual ~ExcelFromJson() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x4;
+    bool x1;
+    ::bright::int64 x5;
+    ::bright::float32 x6;
+    ::bright::String s1;
+    ::bright::String s2;
+    ::bright::Vector2 v2;
+    ::bright::Vector3 v3;
+    ::bright::Vector4 v4;
+    ::bright::datetime t1;
+    ::bright::SharedPtr<test::DemoType1> x12;
+    test::DemoEnum x13;
+    ::bright::SharedPtr<test::DemoDynamic> x14;
+    ::bright::Vector<::bright::int32> k1;
+    ::bright::HashMap<::bright::int32, ::bright::int32> k8;
+    ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
+    ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
+
+    static constexpr int ID = -1485706483;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class ExcelFromJsonMultiRow : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeExcelFromJsonMultiRow(ByteBuf& _buf, ::bright::SharedPtr<ExcelFromJsonMultiRow>& _out);
+
+    ExcelFromJsonMultiRow()
+    { 
+
+    }
+
+    ExcelFromJsonMultiRow(::bright::int32 id, ::bright::int32 x, ::bright::Vector<::bright::SharedPtr<test::TestRow>> items ) 
+    {
+
+        this->id = id;
+        this->x = x;
+        this->items = items;
+    }
+    virtual ~ExcelFromJsonMultiRow() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::int32 x;
+    ::bright::Vector<::bright::SharedPtr<test::TestRow>> items;
+
+    static constexpr int ID = 715335694;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestRow : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestRow(ByteBuf& _buf, ::bright::SharedPtr<TestRow>& _out);
+
+    TestRow()
+    { 
+
+    }
+
+    TestRow(::bright::int32 x, bool y, ::bright::String z, ::bright::SharedPtr<test::Test3> a, ::bright::Vector<::bright::int32> b ) 
+    {
+
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        this->a = a;
+        this->b = b;
+    }
+    virtual ~TestRow() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x;
+    bool y;
+    ::bright::String z;
+    ::bright::SharedPtr<test::Test3> a;
+    ::bright::Vector<::bright::int32> b;
+
+    static constexpr int ID = -543222164;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class Test3 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTest3(ByteBuf& _buf, ::bright::SharedPtr<Test3>& _out);
+
+    Test3()
+    { 
+
+    }
+
+    Test3(::bright::int32 x, ::bright::int32 y ) 
+    {
+
+        this->x = x;
+        this->y = y;
+    }
+    virtual ~Test3() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x;
+    ::bright::int32 y;
+
+    static constexpr int ID = 638540133;
 
     int getTypeId() const { return ID; }
 
@@ -6661,11 +6804,11 @@ class DefineFromExcel2 : public  bright::CfgBean
     bool deserialize(ByteBuf& _buf);
 
     /**
-     * id的描述
+     * 这是id
      */
     ::bright::int32 id;
     /**
-     * 字段的描述
+     * 字段x1
      */
     bool x1;
     ::bright::int64 x5;
@@ -7636,7 +7779,7 @@ namespace test {
 class TbFullTypes
 {
     private:
-    ::bright::HashMap<::bright::int16, ::bright::SharedPtr<test::DemoType2>> _dataMap;
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>> _dataMap;
     ::bright::Vector<::bright::SharedPtr<test::DemoType2>> _dataList;
     
     public:
@@ -7649,21 +7792,21 @@ class TbFullTypes
             ::bright::SharedPtr<test::DemoType2> _v;
             if(!test::DemoType2::deserializeDemoType2(_buf, _v)) return false;
             _dataList.push_back(_v);
-            _dataMap[_v->x3] = _v;
+            _dataMap[_v->x4] = _v;
         }
         return true;
     }
 
-    const ::bright::HashMap<::bright::int16, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType2>>& getDataMap() const { return _dataMap; }
     const ::bright::Vector<::bright::SharedPtr<test::DemoType2>>& getDataList() const { return _dataList; }
 
-    test::DemoType2* getRaw(::bright::int16 key)
+    test::DemoType2* getRaw(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    ::bright::SharedPtr<test::DemoType2> get(::bright::int16 key)
+    ::bright::SharedPtr<test::DemoType2> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -8352,7 +8495,7 @@ class TbDefineFromExcelOne
     }
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
     ::bright::int32& getUnlockEquip() const { return _data->unlockEquip; }
     /**
@@ -8364,55 +8507,6 @@ class TbDefineFromExcelOne
      */
     ::bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
     ::bright::String& getDefaultItem() const { return _data->defaultItem; }
-};
-}
-namespace test {
-
-
-class TbTestJson2
-{
-    private:
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestJson2>> _dataMap;
-    ::bright::Vector<::bright::SharedPtr<test::TestJson2>> _dataList;
-    
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::TestJson2> _v;
-            if(!test::TestJson2::deserializeTestJson2(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
-        }
-        return true;
-    }
-
-    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestJson2>>& getDataMap() const { return _dataMap; }
-    const ::bright::Vector<::bright::SharedPtr<test::TestJson2>>& getDataList() const { return _dataList; }
-
-    test::TestJson2* getRaw(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::bright::SharedPtr<test::TestJson2> get(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
-        {
-            v->resolve(_tables);
-        }
-    }
-
 };
 }
 namespace test {
@@ -8498,6 +8592,104 @@ class TbTestMap
     }
 
     ::bright::SharedPtr<test::TestMap> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbExcelFromJson
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::ExcelFromJson>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::ExcelFromJson>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::ExcelFromJson> _v;
+            if(!test::ExcelFromJson::deserializeExcelFromJson(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->x4] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::ExcelFromJson>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::ExcelFromJson>>& getDataList() const { return _dataList; }
+
+    test::ExcelFromJson* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::ExcelFromJson> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbExcelFromJsonMultiRow
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::ExcelFromJsonMultiRow>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::ExcelFromJsonMultiRow>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::ExcelFromJsonMultiRow> _v;
+            if(!test::ExcelFromJsonMultiRow::deserializeExcelFromJsonMultiRow(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::ExcelFromJsonMultiRow>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::ExcelFromJsonMultiRow>>& getDataList() const { return _dataList; }
+
+    test::ExcelFromJsonMultiRow* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::ExcelFromJsonMultiRow> get(::bright::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -8700,9 +8892,10 @@ class Tables
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
      test::TbDefineFromExcel TbDefineFromExcel;
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
-     test::TbTestJson2 TbTestJson2;
      test::TbTestIndex TbTestIndex;
      test::TbTestMap TbTestMap;
+     test::TbExcelFromJson TbExcelFromJson;
+     test::TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
@@ -8814,15 +9007,18 @@ class Tables
         if (!loader(buf, "test_tbdefinefromexcelone")) return false;
         if (!TbDefineFromExcelOne.load(buf)) return false;
         __tables__["test.TbDefineFromExcelOne"] = &TbDefineFromExcelOne;
-        if (!loader(buf, "test_tbtestjson2")) return false;
-        if (!TbTestJson2.load(buf)) return false;
-        __tables__["test.TbTestJson2"] = &TbTestJson2;
         if (!loader(buf, "test_tbtestindex")) return false;
         if (!TbTestIndex.load(buf)) return false;
         __tables__["test.TbTestIndex"] = &TbTestIndex;
         if (!loader(buf, "test_tbtestmap")) return false;
         if (!TbTestMap.load(buf)) return false;
         __tables__["test.TbTestMap"] = &TbTestMap;
+        if (!loader(buf, "test_tbexcelfromjson")) return false;
+        if (!TbExcelFromJson.load(buf)) return false;
+        __tables__["test.TbExcelFromJson"] = &TbExcelFromJson;
+        if (!loader(buf, "test_tbexcelfromjsonmultirow")) return false;
+        if (!TbExcelFromJsonMultiRow.load(buf)) return false;
+        __tables__["test.TbExcelFromJsonMultiRow"] = &TbExcelFromJsonMultiRow;
         if (!loader(buf, "test_tbdemogroupdefinefromexcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
@@ -8867,9 +9063,10 @@ class Tables
         TbDetectCsvEncoding.resolve(__tables__); 
         TbDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcelOne.resolve(__tables__); 
-        TbTestJson2.resolve(__tables__); 
         TbTestIndex.resolve(__tables__); 
         TbTestMap.resolve(__tables__); 
+        TbExcelFromJson.resolve(__tables__); 
+        TbExcelFromJsonMultiRow.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 

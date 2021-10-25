@@ -24,7 +24,7 @@ public final class TbDefineFromExcelOne {
 
 
     /**
-     * 装备解锁等级_描述
+     * 装备解锁等级
      */
      public int getUnlockEquip() { return _data.unlockEquip; }
     /**

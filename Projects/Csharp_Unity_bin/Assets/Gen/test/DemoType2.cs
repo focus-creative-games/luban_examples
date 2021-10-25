@@ -54,7 +54,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public bool X1 { get; private set; }
     public byte X2 { get; private set; }
     public short X3 { get; private set; }
-    public test.DemoType2 X3_Ref { get; private set; }
     public long X5 { get; private set; }
     public float X6 { get; private set; }
     public double X7 { get; private set; }
@@ -83,7 +82,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        this.X3_Ref = (_tables["test.TbFullTypes"] as test.TbFullTypes).GetOrDefault(X3);
         X12?.Resolve(_tables);
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
