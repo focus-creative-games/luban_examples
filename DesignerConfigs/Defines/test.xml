@@ -74,10 +74,10 @@
 		
 		<var name="t1" type="datetime"/>
 
-		<var name="k1" type="array,(int#ref=test.TbFullTypes)"/>
-		<var name="k2" type="list,int#ref=test.TbFullTypes"/>
-		<var name="k5" type="set,(int#ref=test.TbFullTypes)"/>
-		<var name="k8" type="map,(int#ref=test.TbFullTypes),(int#ref=test.TbFullTypes)#test_tag=b"/>
+		<var name="k1" type="array,int"/>
+		<var name="k2" type="list,int"/>
+		<var name="k5" type="set,int"/>
+		<var name="k8" type="map,int#ref=test.TbFullTypes,int#ref=test.TbFullTypes"/>
 		<var name="k9" type="list,DemoE2"/>
 		<var name="k15" type="array,DemoDynamic"/> 
 	</bean>
@@ -262,6 +262,26 @@
 	</bean>
 	<table name="TbTestGlobal" value="TestGlobal" mode="one" input="test/global.xlsx"/>
 	
+    <bean name="TestBeRef">
+        <var name="id" type="int"/>
+        <var name="count" type="int"/>
+    </bean>
+    <table name="TbTestBeRef" value="TestBeRef" input="be_ref@test/test_ref.xlsx"/>
+    <bean name="TestRef">
+        <var name="id" type="int"/>
+        <var name="x1" type="int" ref="test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
+        <var name="x2" type="int#ref=test.TbTestBeRef"/>
+        <var name="a1" type="array,int" ref="test.TbTestBeRef"/>
+        <var name="a2" type="array,int#ref=test.TbTestBeRef"/>
+        <var name="b1" type="list,int" ref="test.TbTestBeRef"/>
+        <var name="b2" type="list,int#ref=test.TbTestBeRef"/>
+        <var name="c1" type="set,int" ref="test.TbTestBeRef"/>
+        <var name="c2" type="set,int#ref=test.TbTestBeRef"/>
+        <var name="d1" type="(map#aaa=5),int#ref=test.TbTestBeRef,int#ref=test.TbTestBeRef"/>
+    </bean>
+    
+    <table name="TbTestRef" value="TestRef" input="ref@test/test_ref.xlsx"/>
+    
 	
 	<bean name="DetectEncoding">
 		<var name="id" type="int"/>
