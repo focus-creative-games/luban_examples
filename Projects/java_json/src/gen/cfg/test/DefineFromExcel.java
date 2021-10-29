@@ -13,9 +13,6 @@ import com.google.gson.JsonObject;
 
 
 
-/**
- * 
- */
 public final class DefineFromExcel {
     public DefineFromExcel(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
@@ -61,8 +58,17 @@ public final class DefineFromExcel {
      * 字段x1
      */
     public final boolean x1;
+    /**
+     * 测试换行<br/>的话<br/>xxxx 
+     */
     public final long x5;
+    /**
+     * 测试 <x>
+     */
     public final float x6;
+    /**
+     * 测试 / & ;
+     */
     public final int x8;
     public final String x10;
     public final cfg.test.ETestQuality x13;

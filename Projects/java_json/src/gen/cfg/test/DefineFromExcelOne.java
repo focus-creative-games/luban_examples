@@ -13,9 +13,6 @@ import com.google.gson.JsonObject;
 
 
 
-/**
- * 
- */
 public final class DefineFromExcelOne {
     public DefineFromExcelOne(JsonObject __json__) { 
         unlockEquip = __json__.get("unlock_equip").getAsInt();
@@ -43,9 +40,6 @@ public final class DefineFromExcelOne {
      * 英雄解锁等级
      */
     public final int unlockHero;
-    /**
-     * 默认头像
-     */
     public final String defaultAvatar;
     public final String defaultItem;
 

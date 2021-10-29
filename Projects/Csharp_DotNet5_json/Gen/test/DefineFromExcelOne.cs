@@ -15,9 +15,6 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
 public sealed class DefineFromExcelOne :  Bright.Config.BeanBase 
 {
     public DefineFromExcelOne(JsonElement _json) 
