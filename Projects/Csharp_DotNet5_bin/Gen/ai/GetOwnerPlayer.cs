@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class GetOwnerPlayer :  ai.Service 
+public sealed class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(ByteBuf _buf)  : base(_buf) 
     {

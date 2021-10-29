@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
+public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
 {
     public ExcelFromJsonMultiRow(ByteBuf _buf) 
     {

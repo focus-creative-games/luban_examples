@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class Decorator :  ai.Node 
+public abstract class Decorator :  ai.Node 
 {
     public Decorator(ByteBuf _buf)  : base(_buf) 
     {

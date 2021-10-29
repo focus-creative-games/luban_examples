@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class MultiRoleCondition :  condition.RoleCondition 
+public sealed class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(ByteBuf _buf)  : base(_buf) 
     {

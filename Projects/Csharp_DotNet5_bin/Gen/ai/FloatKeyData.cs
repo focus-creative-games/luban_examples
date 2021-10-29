@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class FloatKeyData :  ai.KeyData 
+public sealed class FloatKeyData :  ai.KeyData 
 {
     public FloatKeyData(ByteBuf _buf)  : base(_buf) 
     {

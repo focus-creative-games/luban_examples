@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
+public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(ByteBuf _buf)  : base(_buf) 
     {

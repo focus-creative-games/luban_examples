@@ -12,7 +12,7 @@ using System.Text.Json;
 namespace cfg
 {
    
-public sealed partial class Tables
+public sealed class Tables
 {
     public ai.TbBlackboard TbBlackboard {get; }
     public ai.TbBehaviorTree TbBehaviorTree {get; }
@@ -60,6 +60,7 @@ public sealed partial class Tables
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
+    public test.TbTestDesc TbTestDesc {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
@@ -150,6 +151,8 @@ public sealed partial class Tables
         tables.Add("test.TbDefineFromExcel2", TbDefineFromExcel2);
         TbTestExcelBean = new test.TbTestExcelBean(loader("test_tbtestexcelbean")); 
         tables.Add("test.TbTestExcelBean", TbTestExcelBean);
+        TbTestDesc = new test.TbTestDesc(loader("test_tbtestdesc")); 
+        tables.Add("test.TbTestDesc", TbTestDesc);
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -194,6 +197,7 @@ public sealed partial class Tables
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
+        TbTestDesc.Resolve(tables); 
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -241,6 +245,7 @@ public sealed partial class Tables
         TbDemoGroupDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcel2.TranslateText(translator); 
         TbTestExcelBean.TranslateText(translator); 
+        TbTestDesc.TranslateText(translator); 
     }
 }
 

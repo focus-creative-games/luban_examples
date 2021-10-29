@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public abstract partial class Condition :  Bright.Config.BeanBase 
+public abstract class Condition :  Bright.Config.BeanBase 
 {
     public Condition(ByteBuf _buf) 
     {

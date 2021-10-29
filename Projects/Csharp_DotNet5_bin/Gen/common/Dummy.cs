@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-public sealed partial class Dummy :  Bright.Config.BeanBase 
+public sealed class Dummy :  Bright.Config.BeanBase 
 {
     public Dummy(ByteBuf _buf) 
     {

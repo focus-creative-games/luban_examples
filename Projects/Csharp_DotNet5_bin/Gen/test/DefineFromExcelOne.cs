@@ -14,10 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
-public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase 
+public sealed class DefineFromExcelOne :  Bright.Config.BeanBase 
 {
     public DefineFromExcelOne(ByteBuf _buf) 
     {
@@ -40,9 +37,6 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     /// 英雄解锁等级
     /// </summary>
     public int UnlockHero { get; private set; }
-    /// <summary>
-    /// 默认头像
-    /// </summary>
     public string DefaultAvatar { get; private set; }
     public string DefaultItem { get; private set; }
 

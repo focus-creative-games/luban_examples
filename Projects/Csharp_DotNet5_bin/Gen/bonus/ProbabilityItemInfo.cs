@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase 
+public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityItemInfo(ByteBuf _buf) 
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.limit
 {
 
-public sealed partial class MonthlyLimit :  limit.LimitBase 
+public sealed class MonthlyLimit :  limit.LimitBase 
 {
     public MonthlyLimit(ByteBuf _buf)  : base(_buf) 
     {

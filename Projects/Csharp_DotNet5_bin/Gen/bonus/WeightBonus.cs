@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class WeightBonus :  bonus.Bonus 
+public sealed class WeightBonus :  bonus.Bonus 
 {
     public WeightBonus(ByteBuf _buf)  : base(_buf) 
     {

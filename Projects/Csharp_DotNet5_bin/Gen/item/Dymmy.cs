@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed partial class Dymmy :  item.ItemExtra 
+public sealed class Dymmy :  item.ItemExtra 
 {
     public Dymmy(ByteBuf _buf)  : base(_buf) 
     {

@@ -64,17 +64,8 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
     /// 字段x1
     /// </summary>
     public bool X1 { get; private set; }
-    /// <summary>
-    /// 测试换行<br/>的话<br/>xxxx 
-    /// </summary>
     public long X5 { get; private set; }
-    /// <summary>
-    /// 测试 <x>
-    /// </summary>
     public float X6 { get; private set; }
-    /// <summary>
-    /// 测试 / & ;
-    /// </summary>
     public int X8 { get; private set; }
     public string X10 { get; private set; }
     public test.ETestQuality X13 { get; private set; }

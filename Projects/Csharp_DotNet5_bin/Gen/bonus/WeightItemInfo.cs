@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class WeightItemInfo :  Bright.Config.BeanBase 
+public sealed class WeightItemInfo :  Bright.Config.BeanBase 
 {
     public WeightItemInfo(ByteBuf _buf) 
     {

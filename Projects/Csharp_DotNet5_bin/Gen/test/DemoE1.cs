@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DemoE1 :  test.DemoD3 
+public sealed class DemoE1 :  test.DemoD3 
 {
     public DemoE1(ByteBuf _buf)  : base(_buf) 
     {

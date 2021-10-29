@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class MoveToRandomLocation :  ai.Task 
+public sealed class MoveToRandomLocation :  ai.Task 
 {
     public MoveToRandomLocation(ByteBuf _buf)  : base(_buf) 
     {

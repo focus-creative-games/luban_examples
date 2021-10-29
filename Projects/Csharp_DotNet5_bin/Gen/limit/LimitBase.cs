@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.limit
 {
 
-public abstract partial class LimitBase :  Bright.Config.BeanBase 
+public abstract class LimitBase :  Bright.Config.BeanBase 
 {
     public LimitBase(ByteBuf _buf) 
     {

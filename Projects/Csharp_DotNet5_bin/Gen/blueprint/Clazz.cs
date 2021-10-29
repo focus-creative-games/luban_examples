@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public abstract partial class Clazz :  Bright.Config.BeanBase 
+public abstract class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(ByteBuf _buf) 
     {

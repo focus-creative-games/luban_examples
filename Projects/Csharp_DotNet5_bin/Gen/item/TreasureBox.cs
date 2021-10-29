@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed partial class TreasureBox :  item.ItemExtra 
+public sealed class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(ByteBuf _buf)  : base(_buf) 
     {

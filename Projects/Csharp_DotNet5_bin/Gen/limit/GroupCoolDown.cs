@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.limit
 {
 
-public sealed partial class GroupCoolDown :  limit.LimitBase 
+public sealed class GroupCoolDown :  limit.LimitBase 
 {
     public GroupCoolDown(ByteBuf _buf)  : base(_buf) 
     {
