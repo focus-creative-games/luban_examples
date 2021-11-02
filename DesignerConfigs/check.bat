@@ -5,10 +5,10 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 
 set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 
-%GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
+%GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --generateonly --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir ../Projects/GenerateDatas/json ^
+ --output_data_dir dummy ^
  --gen_types data_json ^
  -s all
 pause
