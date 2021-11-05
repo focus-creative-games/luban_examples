@@ -6,8 +6,9 @@ set DEFINE_FILE=%CONF_ROOT%\Defines\__root__.xml
 %GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
  -d %DEFINE_FILE%^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir convert_json ^
- --gen_types convert_json ^
+ --input_convert_data_dir convert_json ^
+ --output_data_dir conver_json_to_xlsx ^
+ --gen_types convert_xlsx ^
  -s all
 
 

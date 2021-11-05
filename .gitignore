@@ -304,3 +304,7 @@ gradle/
 /Projects/Rust_Json/target
 /Projects/GenerateDatas/convert_xlsx
 /MiniDesignerConfigsTemplate/output_json
+/Projects/GenerateDatas/conver_json_to_xlsx
+/Projects/GenerateDatas/conver_xlsx_to_json
+/Tools/build_excel2textdiff.bat
+/Tools/build_luban_assistant.bat

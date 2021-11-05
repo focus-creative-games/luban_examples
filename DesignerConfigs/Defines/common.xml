@@ -65,10 +65,4 @@
 	
 	<table name="TbGlobalConfig" value="GlobalConfig" mode="one" input="common/全局常量配置表.xlsx"/>
 	
-	
-	<bean name="Dummy"> 此表只用来引用一些bean
-		<var name="id" type="int"/>
-		<var name="limit" type="limit.LimitBase"/>
-	</bean>
-	<table name="TbDummy" value="Dummy" input="common/dummy.xlsx"/>
 </module>
