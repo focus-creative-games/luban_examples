@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class TestIndex {
     public TestIndex(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        { var _json0_ = __json__.get("eles").getAsJsonArray(); eles = new java.util.ArrayList<cfg.test.DemoType1>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoType1 __v;  __v = new cfg.test.DemoType1(__e.getAsJsonObject());  eles.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("eles").getAsJsonArray(); eles = new java.util.ArrayList<cfg.test.DemoType1>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoType1 __v;  __v = new cfg.test.DemoType1(__e.getAsJsonObject());  eles.add(__v); }   }
     }
 
     public TestIndex(int id, java.util.ArrayList<cfg.test.DemoType1> eles ) {

@@ -18,7 +18,7 @@ public final class SystemMail {
         title = _buf.readString();
         sender = _buf.readString();
         content = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());award = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); award.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());award = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); award.add(_e);}}
     }
 
     public SystemMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award ) {

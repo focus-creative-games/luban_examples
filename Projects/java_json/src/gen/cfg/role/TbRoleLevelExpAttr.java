@@ -19,7 +19,7 @@ public final class TbRoleLevelExpAttr {
         _dataMap = new java.util.HashMap<Integer, cfg.role.LevelExpAttr>();
         _dataList = new java.util.ArrayList<cfg.role.LevelExpAttr>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.role.LevelExpAttr _v;
             _v = new cfg.role.LevelExpAttr(_e_.getAsJsonObject());
             _dataList.add(_v);

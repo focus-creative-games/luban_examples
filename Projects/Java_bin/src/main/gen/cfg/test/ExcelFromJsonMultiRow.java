@@ -16,7 +16,7 @@ public final class ExcelFromJsonMultiRow {
     public ExcelFromJsonMultiRow(ByteBuf _buf) { 
         id = _buf.readInt();
         x = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.TestRow>(n);for(var i = 0 ; i < n ; i++) { cfg.test.TestRow _e;  _e = new cfg.test.TestRow(_buf); items.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.TestRow>(n);for(int i = 0 ; i < n ; i++) { cfg.test.TestRow _e;  _e = new cfg.test.TestRow(_buf); items.add(_e);}}
     }
 
     public ExcelFromJsonMultiRow(int id, int x, java.util.ArrayList<cfg.test.TestRow> items ) {

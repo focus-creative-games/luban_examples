@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class LevelBonus {
     public LevelBonus(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(n);for(var i = 0 ; i < n ; i++) { cfg.role.DistinctBonusInfos _e;  _e = new cfg.role.DistinctBonusInfos(_buf); distinctBonusInfos.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(n);for(int i = 0 ; i < n ; i++) { cfg.role.DistinctBonusInfos _e;  _e = new cfg.role.DistinctBonusInfos(_buf); distinctBonusInfos.add(_e);}}
     }
 
     public LevelBonus(int id, java.util.ArrayList<cfg.role.DistinctBonusInfos> distinct_bonus_infos ) {

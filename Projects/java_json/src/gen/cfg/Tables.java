@@ -26,8 +26,6 @@ public final class Tables
     public cfg.bonus.TbDrop getTbDrop() { return _TbDrop; }
     private final cfg.common.TbGlobalConfig _TbGlobalConfig;
     public cfg.common.TbGlobalConfig getTbGlobalConfig() { return _TbGlobalConfig; }
-    private final cfg.common.TbDummy _TbDummy;
-    public cfg.common.TbDummy getTbDummy() { return _TbDummy; }
     private final cfg.error.TbErrorInfo _TbErrorInfo;
     public cfg.error.TbErrorInfo getTbErrorInfo() { return _TbErrorInfo; }
     private final cfg.error.TbCodeInfo _TbCodeInfo;
@@ -105,9 +103,11 @@ public final class Tables
     public cfg.test.TbDefineFromExcel2 getTbDefineFromExcel2() { return _TbDefineFromExcel2; }
     private final cfg.test.TbTestExcelBean _TbTestExcelBean;
     public cfg.test.TbTestExcelBean getTbTestExcelBean() { return _TbTestExcelBean; }
+    private final cfg.test.TbTestDesc _TbTestDesc;
+    public cfg.test.TbTestDesc getTbTestDesc() { return _TbTestDesc; }
 
     public Tables(IJsonLoader loader) throws java.io.IOException {
-        var tables = new java.util.HashMap<String, Object>();
+        java.util.HashMap<String, Object> tables = new java.util.HashMap<>();
         _TbBlackboard = new cfg.ai.TbBlackboard(loader.load("ai_tbblackboard")); 
         tables.put("ai.TbBlackboard", _TbBlackboard);
         _TbBehaviorTree = new cfg.ai.TbBehaviorTree(loader.load("ai_tbbehaviortree")); 
@@ -118,8 +118,6 @@ public final class Tables
         tables.put("bonus.TbDrop", _TbDrop);
         _TbGlobalConfig = new cfg.common.TbGlobalConfig(loader.load("common_tbglobalconfig")); 
         tables.put("common.TbGlobalConfig", _TbGlobalConfig);
-        _TbDummy = new cfg.common.TbDummy(loader.load("common_tbdummy")); 
-        tables.put("common.TbDummy", _TbDummy);
         _TbErrorInfo = new cfg.error.TbErrorInfo(loader.load("error_tberrorinfo")); 
         tables.put("error.TbErrorInfo", _TbErrorInfo);
         _TbCodeInfo = new cfg.error.TbCodeInfo(loader.load("error_tbcodeinfo")); 
@@ -194,13 +192,14 @@ public final class Tables
         tables.put("test.TbDefineFromExcel2", _TbDefineFromExcel2);
         _TbTestExcelBean = new cfg.test.TbTestExcelBean(loader.load("test_tbtestexcelbean")); 
         tables.put("test.TbTestExcelBean", _TbTestExcelBean);
+        _TbTestDesc = new cfg.test.TbTestDesc(loader.load("test_tbtestdesc")); 
+        tables.put("test.TbTestDesc", _TbTestDesc);
 
         _TbBlackboard.resolve(tables); 
         _TbBehaviorTree.resolve(tables); 
         _TbClazz.resolve(tables); 
         _TbDrop.resolve(tables); 
         _TbGlobalConfig.resolve(tables); 
-        _TbDummy.resolve(tables); 
         _TbErrorInfo.resolve(tables); 
         _TbCodeInfo.resolve(tables); 
         _TbItem.resolve(tables); 
@@ -238,5 +237,6 @@ public final class Tables
         _TbDemoGroupDefineFromExcel.resolve(tables); 
         _TbDefineFromExcel2.resolve(tables); 
         _TbTestExcelBean.resolve(tables); 
+        _TbTestDesc.resolve(tables); 
     }
 }

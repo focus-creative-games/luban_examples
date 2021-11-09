@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class WeightItems extends cfg.bonus.Bonus {
     public WeightItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.WeightItemInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.WeightItemInfo _e;_e = new cfg.bonus.WeightItemInfo(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.WeightItemInfo[n];for(int i = 0 ; i < n ; i++) { cfg.bonus.WeightItemInfo _e;_e = new cfg.bonus.WeightItemInfo(_buf); itemList[i] = _e;}}
     }
 
     public WeightItems(cfg.bonus.WeightItemInfo[] item_list ) {

@@ -19,7 +19,7 @@ public final class TbTestIndex {
         _dataMap = new java.util.HashMap<Integer, cfg.test.TestIndex>();
         _dataList = new java.util.ArrayList<cfg.test.TestIndex>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.TestIndex _v;
             _v = new cfg.test.TestIndex(_e_.getAsJsonObject());
             _dataList.add(_v);

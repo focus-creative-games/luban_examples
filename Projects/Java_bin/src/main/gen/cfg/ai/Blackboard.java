@@ -17,7 +17,7 @@ public final class Blackboard {
         name = _buf.readString();
         desc = _buf.readString();
         parentName = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.BlackboardKey _e;  _e = new cfg.ai.BlackboardKey(_buf); keys.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.BlackboardKey _e;  _e = new cfg.ai.BlackboardKey(_buf); keys.add(_e);}}
     }
 
     public Blackboard(String name, String desc, String parent_name, java.util.ArrayList<cfg.ai.BlackboardKey> keys ) {

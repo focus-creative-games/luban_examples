@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class OneItems extends cfg.bonus.Bonus {
     public OneItems(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("items").getAsJsonArray(); int _n = _json0_.size(); items = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  items[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); int _n = _json0_.size(); items = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  items[_index++] = __v; }   }
     }
 
     public OneItems(int[] items ) {

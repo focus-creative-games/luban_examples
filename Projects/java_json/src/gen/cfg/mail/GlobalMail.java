@@ -19,9 +19,9 @@ public final class GlobalMail {
         title = __json__.get("title").getAsString();
         sender = __json__.get("sender").getAsString();
         content = __json__.get("content").getAsString();
-        { var _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  award.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  award.add(__v); }   }
         allServer = __json__.get("all_server").getAsBoolean();
-        { var _json0_ = __json__.get("server_list").getAsJsonArray(); serverList = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  serverList.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("server_list").getAsJsonArray(); serverList = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  serverList.add(__v); }   }
         platform = __json__.get("platform").getAsString();
         channel = __json__.get("channel").getAsString();
         minMaxLevel = new cfg.condition.MinMaxLevel(__json__.get("min_max_level").getAsJsonObject());

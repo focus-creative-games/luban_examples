@@ -19,7 +19,7 @@ public final class TbPatchDemo {
         _dataMap = new java.util.HashMap<Integer, cfg.l10n.PatchDemo>();
         _dataList = new java.util.ArrayList<cfg.l10n.PatchDemo>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.l10n.PatchDemo _v;
             _v = new cfg.l10n.PatchDemo(_e_.getAsJsonObject());
             _dataList.add(_v);

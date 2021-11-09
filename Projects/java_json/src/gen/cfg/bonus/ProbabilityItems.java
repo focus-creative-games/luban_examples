@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class ProbabilityItems extends cfg.bonus.Bonus {
     public ProbabilityItems(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("item_list").getAsJsonArray(); int _n = _json0_.size(); itemList = new cfg.bonus.ProbabilityItemInfo[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.bonus.ProbabilityItemInfo __v;  __v = new cfg.bonus.ProbabilityItemInfo(__e.getAsJsonObject());  itemList[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("item_list").getAsJsonArray(); int _n = _json0_.size(); itemList = new cfg.bonus.ProbabilityItemInfo[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.bonus.ProbabilityItemInfo __v;  __v = new cfg.bonus.ProbabilityItemInfo(__e.getAsJsonObject());  itemList[_index++] = __v; }   }
     }
 
     public ProbabilityItems(cfg.bonus.ProbabilityItemInfo[] item_list ) {

@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class DesignDrawing extends cfg.item.ItemExtra {
     public DesignDrawing(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("learn_component_id").getAsJsonArray(); learnComponentId = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  learnComponentId.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("learn_component_id").getAsJsonArray(); learnComponentId = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  learnComponentId.add(__v); }   }
     }
 
     public DesignDrawing(int id, java.util.ArrayList<Integer> learn_component_id ) {

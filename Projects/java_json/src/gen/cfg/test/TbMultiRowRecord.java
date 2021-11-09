@@ -19,7 +19,7 @@ public final class TbMultiRowRecord {
         _dataMap = new java.util.HashMap<Integer, cfg.test.MultiRowRecord>();
         _dataList = new java.util.ArrayList<cfg.test.MultiRowRecord>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.MultiRowRecord _v;
             _v = new cfg.test.MultiRowRecord(_e_.getAsJsonObject());
             _dataList.add(_v);

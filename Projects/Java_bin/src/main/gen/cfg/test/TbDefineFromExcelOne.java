@@ -31,9 +31,6 @@ public final class TbDefineFromExcelOne {
      * 英雄解锁等级
      */
      public int getUnlockHero() { return _data.unlockHero; }
-    /**
-     * 默认头像
-     */
      public String getDefaultAvatar() { return _data.defaultAvatar; }
      public String getDefaultItem() { return _data.defaultItem; }
 

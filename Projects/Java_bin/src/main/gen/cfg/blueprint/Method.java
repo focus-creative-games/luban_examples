@@ -18,7 +18,7 @@ public abstract class Method {
         desc = _buf.readString();
         isStatic = _buf.readBool();
         returnType = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.ParamInfo _e;  _e = new cfg.blueprint.ParamInfo(_buf); parameters.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(n);for(int i = 0 ; i < n ; i++) { cfg.blueprint.ParamInfo _e;  _e = new cfg.blueprint.ParamInfo(_buf); parameters.add(_e);}}
     }
 
     public Method(String name, String desc, boolean is_static, String return_type, java.util.ArrayList<cfg.blueprint.ParamInfo> parameters ) {

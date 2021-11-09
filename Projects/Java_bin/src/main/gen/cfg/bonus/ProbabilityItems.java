@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class ProbabilityItems extends cfg.bonus.Bonus {
     public ProbabilityItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.ProbabilityItemInfo[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityItemInfo _e;_e = new cfg.bonus.ProbabilityItemInfo(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.ProbabilityItemInfo[n];for(int i = 0 ; i < n ; i++) { cfg.bonus.ProbabilityItemInfo _e;_e = new cfg.bonus.ProbabilityItemInfo(_buf); itemList[i] = _e;}}
     }
 
     public ProbabilityItems(cfg.bonus.ProbabilityItemInfo[] item_list ) {

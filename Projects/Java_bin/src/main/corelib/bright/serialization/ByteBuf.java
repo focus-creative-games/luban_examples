@@ -48,7 +48,7 @@ public class ByteBuf {
 
     private final static ThreadLocal<Stack<ByteBuf>> pool = ThreadLocal.withInitial(Stack::new);
     public static ByteBuf alloc() {
-        var p = pool.get();
+        Stack<ByteBuf> p = pool.get();
         if(!p.empty()) {
             return p.pop();
         } else {
@@ -704,7 +704,7 @@ public class ByteBuf {
         if(value.isEmpty()) {
             return new ByteBuf();
         }
-        var ss = value.split(",");
+        String[] ss = value.split(",");
         byte[] data = new byte[ss.length];
         for (int i = 0; i < data.length; i++) {
             data[i] = (byte)Integer.parseInt(ss[i]);

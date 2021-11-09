@@ -15,8 +15,8 @@ import bright.serialization.*;
 public abstract class FlowNode extends cfg.ai.Node {
     public FlowNode(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());decorators = new java.util.ArrayList<cfg.ai.Decorator>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.Decorator _e;  _e = cfg.ai.Decorator.deserializeDecorator(_buf); decorators.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());services = new java.util.ArrayList<cfg.ai.Service>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.Service _e;  _e = cfg.ai.Service.deserializeService(_buf); services.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());decorators = new java.util.ArrayList<cfg.ai.Decorator>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.Decorator _e;  _e = cfg.ai.Decorator.deserializeDecorator(_buf); decorators.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());services = new java.util.ArrayList<cfg.ai.Service>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.Service _e;  _e = cfg.ai.Service.deserializeService(_buf); services.add(_e);}}
     }
 
     public FlowNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services ) {

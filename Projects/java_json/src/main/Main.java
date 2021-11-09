@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        var tables = new cfg.Tables(file -> JsonParser.parseString(
+        cfg.Tables tables = new cfg.Tables(file -> JsonParser.parseString(
                 Files.readString(Paths.get("../GenerateDatas/json", file + ".json"))));
         System.out.println("== run == " + tables.getTbGlobalConfig().getBagCapacity());
     }

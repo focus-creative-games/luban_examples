@@ -19,7 +19,7 @@ public final class TbMultiRowTitle {
         _dataMap = new java.util.HashMap<Integer, cfg.test.MultiRowTitle>();
         _dataList = new java.util.ArrayList<cfg.test.MultiRowTitle>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.MultiRowTitle _v;
             _v = new cfg.test.MultiRowTitle(_e_.getAsJsonObject());
             _dataList.add(_v);

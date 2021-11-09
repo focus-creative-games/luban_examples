@@ -19,7 +19,7 @@ public final class SystemMail {
         title = __json__.get("title").getAsString();
         sender = __json__.get("sender").getAsString();
         content = __json__.get("content").getAsString();
-        { var _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  award.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  award.add(__v); }   }
     }
 
     public SystemMail(int id, String title, String sender, String content, java.util.ArrayList<Integer> award ) {

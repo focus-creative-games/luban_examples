@@ -23,11 +23,11 @@ public final class DefineFromExcel {
         x10 = __json__.get("x10").getAsString();
         x13 = cfg.test.ETestQuality.valueOf(__json__.get("x13").getAsInt());
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x14").getAsJsonObject());
-        { var _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
+        { com.google.gson.JsonObject _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
         t1 = __json__.get("t1").getAsInt();
-        { var _json0_ = __json__.get("k1").getAsJsonArray(); int _n = _json0_.size(); k1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k1[_index++] = __v; }   }
-        { var _json0_ = __json__.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  k8.put(__k, __v); }   }
-        { var _json0_ = __json__.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoE2 __v;  __v = new cfg.test.DemoE2(__e.getAsJsonObject());  k9.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k1").getAsJsonArray(); int _n = _json0_.size(); k1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k1[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  k8.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoE2 __v;  __v = new cfg.test.DemoE2(__e.getAsJsonObject());  k9.add(__v); }   }
     }
 
     public DefineFromExcel(int id, boolean x1, long x5, float x6, int x8, String x10, cfg.test.ETestQuality x13, cfg.test.DemoDynamic x14, bright.math.Vector2 v2, int t1, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 ) {
@@ -58,17 +58,8 @@ public final class DefineFromExcel {
      * 字段x1
      */
     public final boolean x1;
-    /**
-     * 测试换行<br/>的话<br/>xxxx 
-     */
     public final long x5;
-    /**
-     * 测试 <x>
-     */
     public final float x6;
-    /**
-     * 测试 / & ;
-     */
     public final int x8;
     public final String x10;
     public final cfg.test.ETestQuality x13;

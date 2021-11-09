@@ -22,7 +22,7 @@ public final class TbItem {
         _dataMap = new java.util.HashMap<Integer, cfg.item.Item>();
         _dataList = new java.util.ArrayList<cfg.item.Item>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.item.Item _v;
             _v = new cfg.item.Item(_e_.getAsJsonObject());
             _dataList.add(_v);

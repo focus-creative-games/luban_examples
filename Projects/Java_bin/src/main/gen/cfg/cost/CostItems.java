@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class CostItems extends cfg.cost.Cost {
     public CostItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.cost.CostItem[n];for(var i = 0 ; i < n ; i++) { cfg.cost.CostItem _e;_e = new cfg.cost.CostItem(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.cost.CostItem[n];for(int i = 0 ; i < n ; i++) { cfg.cost.CostItem _e;_e = new cfg.cost.CostItem(_buf); itemList[i] = _e;}}
     }
 
     public CostItems(cfg.cost.CostItem[] item_list ) {

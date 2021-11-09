@@ -19,7 +19,7 @@ public final class TbDemoGroup_S {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DemoGroup>();
         _dataList = new java.util.ArrayList<cfg.test.DemoGroup>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.DemoGroup _v;
             _v = new cfg.test.DemoGroup(_e_.getAsJsonObject());
             _dataList.add(_v);

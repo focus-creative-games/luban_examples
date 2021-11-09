@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class OneItems extends cfg.bonus.Bonus {
     public OneItems(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); items[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());items = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); items[i] = _e;}}
     }
 
     public OneItems(int[] items ) {

@@ -19,8 +19,8 @@ public final class TreasureBox extends cfg.item.ItemExtra {
         { if (__json__.has("key_item_id") && !__json__.get("key_item_id").isJsonNull()) { keyItemId = __json__.get("key_item_id").getAsInt(); } else { keyItemId = null; } }
         openLevel = new cfg.condition.MinLevel(__json__.get("open_level").getAsJsonObject());
         useOnObtain = __json__.get("use_on_obtain").getAsBoolean();
-        { var _json0_ = __json__.get("drop_ids").getAsJsonArray(); dropIds = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  dropIds.add(__v); }   }
-        { var _json0_ = __json__.get("choose_list").getAsJsonArray(); chooseList = new java.util.ArrayList<cfg.item.ChooseOneBonus>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.item.ChooseOneBonus __v;  __v = new cfg.item.ChooseOneBonus(__e.getAsJsonObject());  chooseList.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("drop_ids").getAsJsonArray(); dropIds = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  dropIds.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("choose_list").getAsJsonArray(); chooseList = new java.util.ArrayList<cfg.item.ChooseOneBonus>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.item.ChooseOneBonus __v;  __v = new cfg.item.ChooseOneBonus(__e.getAsJsonObject());  chooseList.add(__v); }   }
     }
 
     public TreasureBox(int id, Integer key_item_id, cfg.condition.MinLevel open_level, boolean use_on_obtain, java.util.ArrayList<Integer> drop_ids, java.util.ArrayList<cfg.item.ChooseOneBonus> choose_list ) {

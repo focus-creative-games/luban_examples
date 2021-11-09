@@ -17,7 +17,7 @@ public final class NormalClazz extends cfg.blueprint.Clazz {
     public NormalClazz(JsonObject __json__) { 
         super(__json__);
         isAbstract = __json__.get("is_abstract").getAsBoolean();
-        { var _json0_ = __json__.get("fields").getAsJsonArray(); fields = new java.util.ArrayList<cfg.blueprint.Field>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Field __v;  __v = new cfg.blueprint.Field(__e.getAsJsonObject());  fields.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("fields").getAsJsonArray(); fields = new java.util.ArrayList<cfg.blueprint.Field>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Field __v;  __v = new cfg.blueprint.Field(__e.getAsJsonObject());  fields.add(__v); }   }
     }
 
     public NormalClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, boolean is_abstract, java.util.ArrayList<cfg.blueprint.Field> fields ) {

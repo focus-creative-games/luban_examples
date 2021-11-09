@@ -19,7 +19,7 @@ public final class TbCodeInfo {
         _dataMap = new java.util.HashMap<cfg.error.EErrorCode, cfg.error.CodeInfo>();
         _dataList = new java.util.ArrayList<cfg.error.CodeInfo>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.error.CodeInfo _v;
             _v = new cfg.error.CodeInfo(_e_.getAsJsonObject());
             _dataList.add(_v);

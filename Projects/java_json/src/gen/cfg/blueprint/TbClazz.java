@@ -19,7 +19,7 @@ public final class TbClazz {
         _dataMap = new java.util.HashMap<String, cfg.blueprint.Clazz>();
         _dataList = new java.util.ArrayList<cfg.blueprint.Clazz>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.blueprint.Clazz _v;
             _v = cfg.blueprint.Clazz.deserializeClazz(_e_.getAsJsonObject());
             _dataList.add(_v);

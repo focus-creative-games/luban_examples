@@ -19,7 +19,7 @@ public final class TbTestString {
         _dataMap = new java.util.HashMap<Integer, cfg.test.TestString>();
         _dataList = new java.util.ArrayList<cfg.test.TestString>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.TestString _v;
             _v = new cfg.test.TestString(_e_.getAsJsonObject());
             _dataList.add(_v);

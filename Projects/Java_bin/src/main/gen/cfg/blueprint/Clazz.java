@@ -16,8 +16,8 @@ public abstract class Clazz {
     public Clazz(ByteBuf _buf) { 
         name = _buf.readString();
         desc = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());parents = new java.util.ArrayList<cfg.blueprint.Clazz>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.Clazz _e;  _e = cfg.blueprint.Clazz.deserializeClazz(_buf); parents.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());methods = new java.util.ArrayList<cfg.blueprint.Method>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.Method _e;  _e = cfg.blueprint.Method.deserializeMethod(_buf); methods.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());parents = new java.util.ArrayList<cfg.blueprint.Clazz>(n);for(int i = 0 ; i < n ; i++) { cfg.blueprint.Clazz _e;  _e = cfg.blueprint.Clazz.deserializeClazz(_buf); parents.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());methods = new java.util.ArrayList<cfg.blueprint.Method>(n);for(int i = 0 ; i < n ; i++) { cfg.blueprint.Method _e;  _e = cfg.blueprint.Method.deserializeMethod(_buf); methods.add(_e);}}
     }
 
     public Clazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods ) {

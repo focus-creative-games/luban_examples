@@ -19,7 +19,7 @@ public final class TbExcelFromJson {
         _dataMap = new java.util.HashMap<Integer, cfg.test.ExcelFromJson>();
         _dataList = new java.util.ArrayList<cfg.test.ExcelFromJson>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.ExcelFromJson _v;
             _v = new cfg.test.ExcelFromJson(_e_.getAsJsonObject());
             _dataList.add(_v);

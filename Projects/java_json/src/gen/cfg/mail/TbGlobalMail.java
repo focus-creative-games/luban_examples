@@ -19,7 +19,7 @@ public final class TbGlobalMail {
         _dataMap = new java.util.HashMap<Integer, cfg.mail.GlobalMail>();
         _dataList = new java.util.ArrayList<cfg.mail.GlobalMail>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.mail.GlobalMail _v;
             _v = new cfg.mail.GlobalMail(_e_.getAsJsonObject());
             _dataList.add(_v);

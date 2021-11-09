@@ -18,7 +18,7 @@ public final class TestRow {
         y = _buf.readBool();
         z = _buf.readString();
         a = new cfg.test.Test3(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());b = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); b.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());b = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); b.add(_e);}}
     }
 
     public TestRow(int x, boolean y, String z, cfg.test.Test3 a, java.util.ArrayList<Integer> b ) {

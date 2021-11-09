@@ -19,7 +19,7 @@ public final class TbTestBeRef {
         _dataMap = new java.util.HashMap<Integer, cfg.test.TestBeRef>();
         _dataList = new java.util.ArrayList<cfg.test.TestBeRef>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.TestBeRef _v;
             _v = new cfg.test.TestBeRef(_e_.getAsJsonObject());
             _dataList.add(_v);

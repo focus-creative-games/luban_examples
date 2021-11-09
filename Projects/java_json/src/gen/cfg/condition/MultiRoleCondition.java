@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class MultiRoleCondition extends cfg.condition.RoleCondition {
     public MultiRoleCondition(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("conditions").getAsJsonArray(); int _n = _json0_.size(); conditions = new cfg.condition.RoleCondition[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.condition.RoleCondition __v;  __v = cfg.condition.RoleCondition.deserializeRoleCondition(__e.getAsJsonObject());  conditions[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("conditions").getAsJsonArray(); int _n = _json0_.size(); conditions = new cfg.condition.RoleCondition[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.condition.RoleCondition __v;  __v = cfg.condition.RoleCondition.deserializeRoleCondition(__e.getAsJsonObject());  conditions[_index++] = __v; }   }
     }
 
     public MultiRoleCondition(cfg.condition.RoleCondition[] conditions ) {

@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class MultiRoleCondition extends cfg.condition.RoleCondition {
     public MultiRoleCondition(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());conditions = new cfg.condition.RoleCondition[n];for(var i = 0 ; i < n ; i++) { cfg.condition.RoleCondition _e;_e = cfg.condition.RoleCondition.deserializeRoleCondition(_buf); conditions[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());conditions = new cfg.condition.RoleCondition[n];for(int i = 0 ; i < n ; i++) { cfg.condition.RoleCondition _e;_e = cfg.condition.RoleCondition.deserializeRoleCondition(_buf); conditions[i] = _e;}}
     }
 
     public MultiRoleCondition(cfg.condition.RoleCondition[] conditions ) {

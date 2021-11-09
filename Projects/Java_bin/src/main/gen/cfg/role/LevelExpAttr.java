@@ -16,7 +16,7 @@ public final class LevelExpAttr {
     public LevelExpAttr(ByteBuf _buf) { 
         level = _buf.readInt();
         needExp = _buf.readLong();
-        {int n = Math.min(_buf.readSize(), _buf.size());clothesAttrs = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); clothesAttrs.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());clothesAttrs = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); clothesAttrs.add(_e);}}
     }
 
     public LevelExpAttr(int level, long need_exp, java.util.ArrayList<Integer> clothes_attrs ) {

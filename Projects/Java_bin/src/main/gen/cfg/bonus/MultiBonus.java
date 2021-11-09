@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class MultiBonus extends cfg.bonus.Bonus {
     public MultiBonus(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.Bonus[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.Bonus _e;_e = cfg.bonus.Bonus.deserializeBonus(_buf); bonuses[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());bonuses = new cfg.bonus.Bonus[n];for(int i = 0 ; i < n ; i++) { cfg.bonus.Bonus _e;_e = cfg.bonus.Bonus.deserializeBonus(_buf); bonuses[i] = _e;}}
     }
 
     public MultiBonus(cfg.bonus.Bonus[] bonuses ) {

@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class CostCurrencies extends cfg.cost.Cost {
     public CostCurrencies(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());currencies = new java.util.ArrayList<cfg.cost.CostCurrency>(n);for(var i = 0 ; i < n ; i++) { cfg.cost.CostCurrency _e;  _e = new cfg.cost.CostCurrency(_buf); currencies.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());currencies = new java.util.ArrayList<cfg.cost.CostCurrency>(n);for(int i = 0 ; i < n ; i++) { cfg.cost.CostCurrency _e;  _e = new cfg.cost.CostCurrency(_buf); currencies.add(_e);}}
     }
 
     public CostCurrencies(java.util.ArrayList<cfg.cost.CostCurrency> currencies ) {

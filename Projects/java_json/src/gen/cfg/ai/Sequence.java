@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class Sequence extends cfg.ai.ComposeNode {
     public Sequence(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("children").getAsJsonArray(); children = new java.util.ArrayList<cfg.ai.FlowNode>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.FlowNode __v;  __v = cfg.ai.FlowNode.deserializeFlowNode(__e.getAsJsonObject());  children.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("children").getAsJsonArray(); children = new java.util.ArrayList<cfg.ai.FlowNode>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.FlowNode __v;  __v = cfg.ai.FlowNode.deserializeFlowNode(__e.getAsJsonObject());  children.add(__v); }   }
     }
 
     public Sequence(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, java.util.ArrayList<cfg.ai.FlowNode> children ) {

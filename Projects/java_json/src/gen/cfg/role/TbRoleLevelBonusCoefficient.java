@@ -19,7 +19,7 @@ public final class TbRoleLevelBonusCoefficient {
         _dataMap = new java.util.HashMap<Integer, cfg.role.LevelBonus>();
         _dataList = new java.util.ArrayList<cfg.role.LevelBonus>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.role.LevelBonus _v;
             _v = new cfg.role.LevelBonus(_e_.getAsJsonObject());
             _dataList.add(_v);

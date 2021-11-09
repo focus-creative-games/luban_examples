@@ -16,7 +16,7 @@ public final class NormalClazz extends cfg.blueprint.Clazz {
     public NormalClazz(ByteBuf _buf) { 
         super(_buf);
         isAbstract = _buf.readBool();
-        {int n = Math.min(_buf.readSize(), _buf.size());fields = new java.util.ArrayList<cfg.blueprint.Field>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.Field _e;  _e = new cfg.blueprint.Field(_buf); fields.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());fields = new java.util.ArrayList<cfg.blueprint.Field>(n);for(int i = 0 ; i < n ; i++) { cfg.blueprint.Field _e;  _e = new cfg.blueprint.Field(_buf); fields.add(_e);}}
     }
 
     public NormalClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, boolean is_abstract, java.util.ArrayList<cfg.blueprint.Field> fields ) {

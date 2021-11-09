@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class EnumClazz extends cfg.blueprint.Clazz {
     public EnumClazz(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());enums = new java.util.ArrayList<cfg.blueprint.EnumField>(n);for(var i = 0 ; i < n ; i++) { cfg.blueprint.EnumField _e;  _e = new cfg.blueprint.EnumField(_buf); enums.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());enums = new java.util.ArrayList<cfg.blueprint.EnumField>(n);for(int i = 0 ; i < n ; i++) { cfg.blueprint.EnumField _e;  _e = new cfg.blueprint.EnumField(_buf); enums.add(_e);}}
     }
 
     public EnumClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, java.util.ArrayList<cfg.blueprint.EnumField> enums ) {

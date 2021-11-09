@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class DistinctBonusInfos {
     public DistinctBonusInfos(ByteBuf _buf) { 
         effectiveLevel = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());bonusInfo = new java.util.ArrayList<cfg.role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.role.BonusInfo _e;  _e = new cfg.role.BonusInfo(_buf); bonusInfo.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());bonusInfo = new java.util.ArrayList<cfg.role.BonusInfo>(n);for(int i = 0 ; i < n ; i++) { cfg.role.BonusInfo _e;  _e = new cfg.role.BonusInfo(_buf); bonusInfo.add(_e);}}
     }
 
     public DistinctBonusInfos(int effective_level, java.util.ArrayList<cfg.role.BonusInfo> bonus_info ) {

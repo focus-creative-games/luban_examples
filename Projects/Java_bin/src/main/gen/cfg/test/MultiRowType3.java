@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class MultiRowType3 {
     public MultiRowType3(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = new cfg.test.MultiRowType1(_buf); items.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(int i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = new cfg.test.MultiRowType1(_buf); items.add(_e);}}
     }
 
     public MultiRowType3(int id, java.util.ArrayList<cfg.test.MultiRowType1> items ) {

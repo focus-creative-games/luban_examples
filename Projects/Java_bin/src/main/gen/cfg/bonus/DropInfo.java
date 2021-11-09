@@ -16,7 +16,7 @@ public final class DropInfo {
     public DropInfo(ByteBuf _buf) { 
         id = _buf.readInt();
         desc = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(n);for(var i = 0 ; i < n ; i++) { cfg.bonus.ShowItemInfo _e;  _e = new cfg.bonus.ShowItemInfo(_buf); clientShowItems.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(n);for(int i = 0 ; i < n ; i++) { cfg.bonus.ShowItemInfo _e;  _e = new cfg.bonus.ShowItemInfo(_buf); clientShowItems.add(_e);}}
         bonus = cfg.bonus.Bonus.deserializeBonus(_buf);
     }
 

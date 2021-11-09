@@ -17,7 +17,7 @@ public final class LevelExpAttr {
     public LevelExpAttr(JsonObject __json__) { 
         level = __json__.get("level").getAsInt();
         needExp = __json__.get("need_exp").getAsLong();
-        { var _json0_ = __json__.get("clothes_attrs").getAsJsonArray(); clothesAttrs = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  clothesAttrs.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("clothes_attrs").getAsJsonArray(); clothesAttrs = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  clothesAttrs.add(__v); }   }
     }
 
     public LevelExpAttr(int level, long need_exp, java.util.ArrayList<Integer> clothes_attrs ) {

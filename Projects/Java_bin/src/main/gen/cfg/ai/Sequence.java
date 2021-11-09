@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class Sequence extends cfg.ai.ComposeNode {
     public Sequence(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());children = new java.util.ArrayList<cfg.ai.FlowNode>(n);for(var i = 0 ; i < n ; i++) { cfg.ai.FlowNode _e;  _e = cfg.ai.FlowNode.deserializeFlowNode(_buf); children.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());children = new java.util.ArrayList<cfg.ai.FlowNode>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.FlowNode _e;  _e = cfg.ai.FlowNode.deserializeFlowNode(_buf); children.add(_e);}}
     }
 
     public Sequence(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, java.util.ArrayList<cfg.ai.FlowNode> children ) {

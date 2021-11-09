@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class MoveToLocation extends cfg.ai.Task {
     public MoveToLocation(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("location").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  location = new bright.math.Vector3(__x, __y,__z); }
+        { com.google.gson.JsonObject _json0_ = __json__.get("location").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  location = new bright.math.Vector3(__x, __y,__z); }
         acceptableRadius = __json__.get("acceptable_radius").getAsFloat();
     }
 

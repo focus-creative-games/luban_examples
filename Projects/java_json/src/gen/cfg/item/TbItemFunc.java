@@ -19,7 +19,7 @@ public final class TbItemFunc {
         _dataMap = new java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction>();
         _dataList = new java.util.ArrayList<cfg.item.ItemFunction>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.item.ItemFunction _v;
             _v = new cfg.item.ItemFunction(_e_.getAsJsonObject());
             _dataList.add(_v);

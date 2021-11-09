@@ -19,7 +19,7 @@ public final class TbDefineFromExcel2 {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DefineFromExcel2>();
         _dataList = new java.util.ArrayList<cfg.test.DefineFromExcel2>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.DefineFromExcel2 _v;
             _v = new cfg.test.DefineFromExcel2(_e_.getAsJsonObject());
             _dataList.add(_v);

@@ -17,8 +17,8 @@ public abstract class Clazz {
     public Clazz(JsonObject __json__) { 
         name = __json__.get("name").getAsString();
         desc = __json__.get("desc").getAsString();
-        { var _json0_ = __json__.get("parents").getAsJsonArray(); parents = new java.util.ArrayList<cfg.blueprint.Clazz>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Clazz __v;  __v = cfg.blueprint.Clazz.deserializeClazz(__e.getAsJsonObject());  parents.add(__v); }   }
-        { var _json0_ = __json__.get("methods").getAsJsonArray(); methods = new java.util.ArrayList<cfg.blueprint.Method>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Method __v;  __v = cfg.blueprint.Method.deserializeMethod(__e.getAsJsonObject());  methods.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("parents").getAsJsonArray(); parents = new java.util.ArrayList<cfg.blueprint.Clazz>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Clazz __v;  __v = cfg.blueprint.Clazz.deserializeClazz(__e.getAsJsonObject());  parents.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("methods").getAsJsonArray(); methods = new java.util.ArrayList<cfg.blueprint.Method>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.Method __v;  __v = cfg.blueprint.Method.deserializeMethod(__e.getAsJsonObject());  methods.add(__v); }   }
     }
 
     public Clazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods ) {

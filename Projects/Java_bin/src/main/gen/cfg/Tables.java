@@ -26,8 +26,6 @@ public final class Tables
     public cfg.bonus.TbDrop getTbDrop() { return _TbDrop; }
     private final cfg.common.TbGlobalConfig _TbGlobalConfig;
     public cfg.common.TbGlobalConfig getTbGlobalConfig() { return _TbGlobalConfig; }
-    private final cfg.common.TbDummy _TbDummy;
-    public cfg.common.TbDummy getTbDummy() { return _TbDummy; }
     private final cfg.error.TbErrorInfo _TbErrorInfo;
     public cfg.error.TbErrorInfo getTbErrorInfo() { return _TbErrorInfo; }
     private final cfg.error.TbCodeInfo _TbCodeInfo;
@@ -81,6 +79,10 @@ public final class Tables
     public cfg.test.TbDemoGroup_E getTbDemoGroup_E() { return _TbDemoGroup_E; }
     private final cfg.test.TbTestGlobal _TbTestGlobal;
     public cfg.test.TbTestGlobal getTbTestGlobal() { return _TbTestGlobal; }
+    private final cfg.test.TbTestBeRef _TbTestBeRef;
+    public cfg.test.TbTestBeRef getTbTestBeRef() { return _TbTestBeRef; }
+    private final cfg.test.TbTestRef _TbTestRef;
+    public cfg.test.TbTestRef getTbTestRef() { return _TbTestRef; }
     private final cfg.test.TbDetectCsvEncoding _TbDetectCsvEncoding;
     public cfg.test.TbDetectCsvEncoding getTbDetectCsvEncoding() { return _TbDetectCsvEncoding; }
     private final cfg.test.TbDefineFromExcel _TbDefineFromExcel;
@@ -101,9 +103,11 @@ public final class Tables
     public cfg.test.TbDefineFromExcel2 getTbDefineFromExcel2() { return _TbDefineFromExcel2; }
     private final cfg.test.TbTestExcelBean _TbTestExcelBean;
     public cfg.test.TbTestExcelBean getTbTestExcelBean() { return _TbTestExcelBean; }
+    private final cfg.test.TbTestDesc _TbTestDesc;
+    public cfg.test.TbTestDesc getTbTestDesc() { return _TbTestDesc; }
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
-        var tables = new java.util.HashMap<String, Object>();
+        java.util.HashMap<String, Object> tables = new java.util.HashMap<String, Object>();
         _TbBlackboard = new cfg.ai.TbBlackboard(loader.load("ai_tbblackboard")); 
         tables.put("ai.TbBlackboard", _TbBlackboard);
         _TbBehaviorTree = new cfg.ai.TbBehaviorTree(loader.load("ai_tbbehaviortree")); 
@@ -114,8 +118,6 @@ public final class Tables
         tables.put("bonus.TbDrop", _TbDrop);
         _TbGlobalConfig = new cfg.common.TbGlobalConfig(loader.load("common_tbglobalconfig")); 
         tables.put("common.TbGlobalConfig", _TbGlobalConfig);
-        _TbDummy = new cfg.common.TbDummy(loader.load("common_tbdummy")); 
-        tables.put("common.TbDummy", _TbDummy);
         _TbErrorInfo = new cfg.error.TbErrorInfo(loader.load("error_tberrorinfo")); 
         tables.put("error.TbErrorInfo", _TbErrorInfo);
         _TbCodeInfo = new cfg.error.TbCodeInfo(loader.load("error_tbcodeinfo")); 
@@ -166,6 +168,10 @@ public final class Tables
         tables.put("test.TbDemoGroup_E", _TbDemoGroup_E);
         _TbTestGlobal = new cfg.test.TbTestGlobal(loader.load("test_tbtestglobal")); 
         tables.put("test.TbTestGlobal", _TbTestGlobal);
+        _TbTestBeRef = new cfg.test.TbTestBeRef(loader.load("test_tbtestberef")); 
+        tables.put("test.TbTestBeRef", _TbTestBeRef);
+        _TbTestRef = new cfg.test.TbTestRef(loader.load("test_tbtestref")); 
+        tables.put("test.TbTestRef", _TbTestRef);
         _TbDetectCsvEncoding = new cfg.test.TbDetectCsvEncoding(loader.load("test_tbdetectcsvencoding")); 
         tables.put("test.TbDetectCsvEncoding", _TbDetectCsvEncoding);
         _TbDefineFromExcel = new cfg.test.TbDefineFromExcel(loader.load("test_tbdefinefromexcel")); 
@@ -186,13 +192,14 @@ public final class Tables
         tables.put("test.TbDefineFromExcel2", _TbDefineFromExcel2);
         _TbTestExcelBean = new cfg.test.TbTestExcelBean(loader.load("test_tbtestexcelbean")); 
         tables.put("test.TbTestExcelBean", _TbTestExcelBean);
+        _TbTestDesc = new cfg.test.TbTestDesc(loader.load("test_tbtestdesc")); 
+        tables.put("test.TbTestDesc", _TbTestDesc);
 
         _TbBlackboard.resolve(tables); 
         _TbBehaviorTree.resolve(tables); 
         _TbClazz.resolve(tables); 
         _TbDrop.resolve(tables); 
         _TbGlobalConfig.resolve(tables); 
-        _TbDummy.resolve(tables); 
         _TbErrorInfo.resolve(tables); 
         _TbCodeInfo.resolve(tables); 
         _TbItem.resolve(tables); 
@@ -218,6 +225,8 @@ public final class Tables
         _TbDemoGroup_S.resolve(tables); 
         _TbDemoGroup_E.resolve(tables); 
         _TbTestGlobal.resolve(tables); 
+        _TbTestBeRef.resolve(tables); 
+        _TbTestRef.resolve(tables); 
         _TbDetectCsvEncoding.resolve(tables); 
         _TbDefineFromExcel.resolve(tables); 
         _TbDefineFromExcelOne.resolve(tables); 
@@ -228,5 +237,6 @@ public final class Tables
         _TbDemoGroupDefineFromExcel.resolve(tables); 
         _TbDefineFromExcel2.resolve(tables); 
         _TbTestExcelBean.resolve(tables); 
+        _TbTestDesc.resolve(tables); 
     }
 }

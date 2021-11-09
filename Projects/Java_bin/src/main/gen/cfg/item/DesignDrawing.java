@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class DesignDrawing extends cfg.item.ItemExtra {
     public DesignDrawing(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());learnComponentId = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); learnComponentId.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());learnComponentId = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); learnComponentId.add(_e);}}
     }
 
     public DesignDrawing(int id, java.util.ArrayList<Integer> learn_component_id ) {

@@ -18,7 +18,7 @@ public final class Blackboard {
         name = __json__.get("name").getAsString();
         desc = __json__.get("desc").getAsString();
         parentName = __json__.get("parent_name").getAsString();
-        { var _json0_ = __json__.get("keys").getAsJsonArray(); keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.BlackboardKey __v;  __v = new cfg.ai.BlackboardKey(__e.getAsJsonObject());  keys.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("keys").getAsJsonArray(); keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.BlackboardKey __v;  __v = new cfg.ai.BlackboardKey(__e.getAsJsonObject());  keys.add(__v); }   }
     }
 
     public Blackboard(String name, String desc, String parent_name, java.util.ArrayList<cfg.ai.BlackboardKey> keys ) {

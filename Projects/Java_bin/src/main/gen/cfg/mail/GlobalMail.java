@@ -18,9 +18,9 @@ public final class GlobalMail {
         title = _buf.readString();
         sender = _buf.readString();
         content = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());award = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); award.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());award = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); award.add(_e);}}
         allServer = _buf.readBool();
-        {int n = Math.min(_buf.readSize(), _buf.size());serverList = new java.util.ArrayList<Integer>(n);for(var i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); serverList.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());serverList = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); serverList.add(_e);}}
         platform = _buf.readString();
         channel = _buf.readString();
         minMaxLevel = new cfg.condition.MinMaxLevel(_buf);

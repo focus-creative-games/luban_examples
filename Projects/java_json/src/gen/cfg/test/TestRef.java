@@ -18,13 +18,13 @@ public final class TestRef {
         id = __json__.get("id").getAsInt();
         x1 = __json__.get("x1").getAsInt();
         x2 = __json__.get("x2").getAsInt();
-        { var _json0_ = __json__.get("a1").getAsJsonArray(); int _n = _json0_.size(); a1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a1[_index++] = __v; }   }
-        { var _json0_ = __json__.get("a2").getAsJsonArray(); int _n = _json0_.size(); a2 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a2[_index++] = __v; }   }
-        { var _json0_ = __json__.get("b1").getAsJsonArray(); b1 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  b1.add(__v); }   }
-        { var _json0_ = __json__.get("b2").getAsJsonArray(); b2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  b2.add(__v); }   }
-        { var _json0_ = __json__.get("c1").getAsJsonArray(); c1 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c1.add(__v); }   }
-        { var _json0_ = __json__.get("c2").getAsJsonArray(); c2 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c2.add(__v); }   }
-        { var _json0_ = __json__.get("d1").getAsJsonArray(); d1 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  d1.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("a1").getAsJsonArray(); int _n = _json0_.size(); a1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a1[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("a2").getAsJsonArray(); int _n = _json0_.size(); a2 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a2[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("b1").getAsJsonArray(); b1 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  b1.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("b2").getAsJsonArray(); b2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  b2.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("c1").getAsJsonArray(); c1 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c1.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("c2").getAsJsonArray(); c2 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c2.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("d1").getAsJsonArray(); d1 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  d1.put(__k, __v); }   }
     }
 
     public TestRef(int id, int x1, int x2, int[] a1, int[] a2, java.util.ArrayList<Integer> b1, java.util.ArrayList<Integer> b2, java.util.HashSet<Integer> c1, java.util.HashSet<Integer> c2, java.util.HashMap<Integer, Integer> d1 ) {

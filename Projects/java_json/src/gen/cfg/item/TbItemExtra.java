@@ -19,7 +19,7 @@ public final class TbItemExtra {
         _dataMap = new java.util.HashMap<Integer, cfg.item.ItemExtra>();
         _dataList = new java.util.ArrayList<cfg.item.ItemExtra>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.item.ItemExtra _v;
             _v = cfg.item.ItemExtra.deserializeItemExtra(_e_.getAsJsonObject());
             _dataList.add(_v);

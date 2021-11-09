@@ -19,7 +19,7 @@ public final class TbDrop {
         _dataMap = new java.util.HashMap<Integer, cfg.bonus.DropInfo>();
         _dataList = new java.util.ArrayList<cfg.bonus.DropInfo>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.bonus.DropInfo _v;
             _v = new cfg.bonus.DropInfo(_e_.getAsJsonObject());
             _dataList.add(_v);

@@ -17,8 +17,8 @@ public final class MultiRowTitle {
         id = _buf.readInt();
         name = _buf.readString();
         x1 = new cfg.test.H1(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(n);for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;  _e = new cfg.test.H2(_buf); x2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[n];for(var i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = new cfg.test.H2(_buf); x3[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(n);for(int i = 0 ; i < n ; i++) { cfg.test.H2 _e;  _e = new cfg.test.H2(_buf); x2.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[n];for(int i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = new cfg.test.H2(_buf); x3[i] = _e;}}
     }
 
     public MultiRowTitle(int id, String name, cfg.test.H1 x1, java.util.ArrayList<cfg.test.H2> x2, cfg.test.H2[] x3 ) {

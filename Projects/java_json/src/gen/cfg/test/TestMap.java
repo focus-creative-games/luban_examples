@@ -16,10 +16,10 @@ import com.google.gson.JsonObject;
 public final class TestMap {
     public TestMap(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        { var _json0_ = __json__.get("x1").getAsJsonArray(); x1 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x1.put(__k, __v); }   }
-        { var _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.HashMap<Long, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { long __k;  __k = __e.getAsJsonArray().get(0).getAsLong(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x2.put(__k, __v); }   }
-        { var _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.HashMap<String, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { String __k;  __k = __e.getAsJsonArray().get(0).getAsString(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x3.put(__k, __v); }   }
-        { var _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.HashMap<cfg.test.DemoEnum, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoEnum __k;  __k = cfg.test.DemoEnum.valueOf(__e.getAsJsonArray().get(0).getAsInt()); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x4.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x1").getAsJsonArray(); x1 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x1.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.HashMap<Long, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { long __k;  __k = __e.getAsJsonArray().get(0).getAsLong(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x2.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.HashMap<String, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { String __k;  __k = __e.getAsJsonArray().get(0).getAsString(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x3.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.HashMap<cfg.test.DemoEnum, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoEnum __k;  __k = cfg.test.DemoEnum.valueOf(__e.getAsJsonArray().get(0).getAsInt()); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x4.put(__k, __v); }   }
     }
 
     public TestMap(int id, java.util.HashMap<Integer, Integer> x1, java.util.HashMap<Long, Integer> x2, java.util.HashMap<String, Integer> x3, java.util.HashMap<cfg.test.DemoEnum, Integer> x4 ) {

@@ -15,7 +15,7 @@ import bright.serialization.*;
 public final class Items extends cfg.bonus.Bonus {
     public Items(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.Item[n];for(var i = 0 ; i < n ; i++) { cfg.bonus.Item _e;_e = new cfg.bonus.Item(_buf); itemList[i] = _e;}}
+        {int n = Math.min(_buf.readSize(), _buf.size());itemList = new cfg.bonus.Item[n];for(int i = 0 ; i < n ; i++) { cfg.bonus.Item _e;_e = new cfg.bonus.Item(_buf); itemList[i] = _e;}}
     }
 
     public Items(cfg.bonus.Item[] item_list ) {

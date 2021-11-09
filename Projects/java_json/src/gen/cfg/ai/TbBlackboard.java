@@ -19,7 +19,7 @@ public final class TbBlackboard {
         _dataMap = new java.util.HashMap<String, cfg.ai.Blackboard>();
         _dataList = new java.util.ArrayList<cfg.ai.Blackboard>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.ai.Blackboard _v;
             _v = new cfg.ai.Blackboard(_e_.getAsJsonObject());
             _dataList.add(_v);

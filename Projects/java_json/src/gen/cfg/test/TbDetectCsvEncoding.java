@@ -19,7 +19,7 @@ public final class TbDetectCsvEncoding {
         _dataMap = new java.util.HashMap<Integer, cfg.test.DetectEncoding>();
         _dataList = new java.util.ArrayList<cfg.test.DetectEncoding>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.DetectEncoding _v;
             _v = new cfg.test.DetectEncoding(_e_.getAsJsonObject());
             _dataList.add(_v);

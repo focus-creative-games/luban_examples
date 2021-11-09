@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class LevelBonus {
     public LevelBonus(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        { var _json0_ = __json__.get("distinct_bonus_infos").getAsJsonArray(); distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.role.DistinctBonusInfos __v;  __v = new cfg.role.DistinctBonusInfos(__e.getAsJsonObject());  distinctBonusInfos.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("distinct_bonus_infos").getAsJsonArray(); distinctBonusInfos = new java.util.ArrayList<cfg.role.DistinctBonusInfos>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.role.DistinctBonusInfos __v;  __v = new cfg.role.DistinctBonusInfos(__e.getAsJsonObject());  distinctBonusInfos.add(__v); }   }
     }
 
     public LevelBonus(int id, java.util.ArrayList<cfg.role.DistinctBonusInfos> distinct_bonus_infos ) {

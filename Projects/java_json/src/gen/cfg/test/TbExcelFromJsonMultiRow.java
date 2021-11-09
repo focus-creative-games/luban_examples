@@ -19,7 +19,7 @@ public final class TbExcelFromJsonMultiRow {
         _dataMap = new java.util.HashMap<Integer, cfg.test.ExcelFromJsonMultiRow>();
         _dataList = new java.util.ArrayList<cfg.test.ExcelFromJsonMultiRow>();
         
-        for(var _e_ : __json__.getAsJsonArray()) {
+        for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
             cfg.test.ExcelFromJsonMultiRow _v;
             _v = new cfg.test.ExcelFromJsonMultiRow(_e_.getAsJsonObject());
             _dataList.add(_v);

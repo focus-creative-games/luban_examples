@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class CostCurrencies extends cfg.cost.Cost {
     public CostCurrencies(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("currencies").getAsJsonArray(); currencies = new java.util.ArrayList<cfg.cost.CostCurrency>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.cost.CostCurrency __v;  __v = new cfg.cost.CostCurrency(__e.getAsJsonObject());  currencies.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("currencies").getAsJsonArray(); currencies = new java.util.ArrayList<cfg.cost.CostCurrency>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.cost.CostCurrency __v;  __v = new cfg.cost.CostCurrency(__e.getAsJsonObject());  currencies.add(__v); }   }
     }
 
     public CostCurrencies(java.util.ArrayList<cfg.cost.CostCurrency> currencies ) {

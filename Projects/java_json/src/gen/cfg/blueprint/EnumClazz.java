@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 public final class EnumClazz extends cfg.blueprint.Clazz {
     public EnumClazz(JsonObject __json__) { 
         super(__json__);
-        { var _json0_ = __json__.get("enums").getAsJsonArray(); enums = new java.util.ArrayList<cfg.blueprint.EnumField>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.EnumField __v;  __v = new cfg.blueprint.EnumField(__e.getAsJsonObject());  enums.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("enums").getAsJsonArray(); enums = new java.util.ArrayList<cfg.blueprint.EnumField>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.EnumField __v;  __v = new cfg.blueprint.EnumField(__e.getAsJsonObject());  enums.add(__v); }   }
     }
 
     public EnumClazz(String name, String desc, java.util.ArrayList<cfg.blueprint.Clazz> parents, java.util.ArrayList<cfg.blueprint.Method> methods, java.util.ArrayList<cfg.blueprint.EnumField> enums ) {

@@ -6,37 +6,36 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-package cfg.common;
+package cfg.test;
 
 import bright.serialization.*;
 
 
 
-public final class Dummy {
-    public Dummy(ByteBuf _buf) { 
+public final class TestBeRef {
+    public TestBeRef(ByteBuf _buf) { 
         id = _buf.readInt();
-        limit = cfg.limit.LimitBase.deserializeLimitBase(_buf);
+        count = _buf.readInt();
     }
 
-    public Dummy(int id, cfg.limit.LimitBase limit ) {
+    public TestBeRef(int id, int count ) {
         this.id = id;
-        this.limit = limit;
+        this.count = count;
     }
 
 
     public final int id;
-    public final cfg.limit.LimitBase limit;
+    public final int count;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
-        if (limit != null) {limit.resolve(_tables);}
     }
 
     @Override
     public String toString() {
         return "{ "
         + "id:" + id + ","
-        + "limit:" + limit + ","
+        + "count:" + count + ","
         + "}";
     }
 }
