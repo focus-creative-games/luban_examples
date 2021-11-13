@@ -57,7 +57,7 @@ Projects里的项目都已经过测试，已经包含了生成代码和数据，
 
 默认Luban.Client使用云生成，需要启动Luban.Server。新上手用户，**推荐使用Luban.ClientServer替代Luban.Client**
 
-将运行脚本中%LUBAN_CLIENT%变量的Luban.Client/Luban.Client 改为 Luban.ClientServer/Luban.ClientServer，同时删除 -h (--host ) 选项及其参数（如果指定了-h选项，则不启动内嵌Luban.Server，使用云生成）。
+将运行脚本中%LUBAN_CLIENT%变量的Luban.Client/Luban.Client 改为 Luban.ClientServer/Luban.ClientServer，同时删除 -h (--host ) 选项及其参数。
 
 Luban.ClientServer是Luban.Client的功能超集，可以完全替代Luban.Client。
 
