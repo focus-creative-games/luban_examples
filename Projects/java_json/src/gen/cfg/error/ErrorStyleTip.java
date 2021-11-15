@@ -27,10 +27,10 @@ public final class ErrorStyleTip extends cfg.error.ErrorStyle {
     }
 
 
-    public static final int ID = 1915239884;
+    public static final int __ID__ = 1915239884;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

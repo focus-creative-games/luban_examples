@@ -33,10 +33,10 @@ public final class ClothesPropertyScoreGreaterThan extends cfg.condition.BoolRol
     public final cfg.item.EClothesPropertyType prop;
     public final int value;
 
-    public static final int ID = 696630835;
+    public static final int __ID__ = 696630835;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

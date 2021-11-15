@@ -33,8 +33,8 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
     public int Num { get; private set; }
     public float Probability { get; private set; }
 
-    public const int ID = 1547874631;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1547874631;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

@@ -2630,235 +2630,6 @@ export  class GlobalConfig  {
 }
 
 
-export namespace common {
-export class TbDummy {
-    private _dataMap: Map<number, common.Dummy>
-    private _dataList: common.Dummy[]
-    
-    constructor(_buf_: ByteBuf) {
-        this._dataMap = new Map<number, common.Dummy>()
-        this._dataList = []
-        
-        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
-            let _v: common.Dummy
-            _v = new common.Dummy(_buf_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, common.Dummy> { return this._dataMap }
-    getDataList(): common.Dummy[] { return this._dataList }
-
-    get(key: number): common.Dummy | undefined { return this._dataMap.get(key) }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-
-
-export namespace common {
-export  class Dummy  {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.limit = limit.LimitBase.constructorFrom(_buf_)
-    }
-
-    readonly id: number
-    readonly limit: limit.LimitBase
-
-    resolve(_tables: Map<string, any>) {
-        if (this.limit != null) { this.limit.resolve(_tables);}
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  abstract  class LimitBase  {
-    static constructorFrom(_buf_: ByteBuf): LimitBase {
-        switch (_buf_.ReadInt()) {
-            case 303235413: return new limit.DailyLimit(_buf_)
-            case -1753629499: return new limit.MultiDayLimit(_buf_)
-            case -252187161: return new limit.WeeklyLimit(_buf_)
-            case 2063279905: return new limit.MonthlyLimit(_buf_)
-            case -1366194050: return new limit.CoolDown(_buf_)
-            case 394328599: return new limit.GroupCoolDown(_buf_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_buf_: ByteBuf) {
-    }
-
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  abstract  class DailyLimitBase  extends limit.LimitBase {
-    static constructorFrom(_buf_: ByteBuf): DailyLimitBase {
-        switch (_buf_.ReadInt()) {
-            case 303235413: return new limit.DailyLimit(_buf_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-    }
-
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class DailyLimit  extends limit.DailyLimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.num = _buf_.ReadInt()
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class MultiDayLimit  extends limit.LimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.day = _buf_.ReadInt()
-        this.num = _buf_.ReadInt()
-    }
-
-    readonly day: number
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class WeeklyLimit  extends limit.LimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.num = _buf_.ReadInt()
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class MonthlyLimit  extends limit.LimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.num = _buf_.ReadInt()
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class CoolDown  extends limit.LimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.duration = _buf_.ReadInt()
-    }
-
-    readonly duration: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-
-export namespace limit {
-export  class GroupCoolDown  extends limit.LimitBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.groupId = _buf_.ReadInt()
-        this.duration = _buf_.ReadInt()
-    }
-
-    readonly groupId: number
-    readonly duration: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
 export namespace error {
 export class TbErrorInfo {
     private _dataMap: Map<string, error.ErrorInfo>
@@ -5340,6 +5111,132 @@ export  class TestGlobal  {
 
 
 export namespace test {
+export class TbTestBeRef {
+    private _dataMap: Map<number, test.TestBeRef>
+    private _dataList: test.TestBeRef[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestBeRef>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestBeRef
+            _v = new test.TestBeRef(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestBeRef> { return this._dataMap }
+    getDataList(): test.TestBeRef[] { return this._dataList }
+
+    get(key: number): test.TestBeRef | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class TestBeRef  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.count = _buf_.ReadInt()
+    }
+
+    readonly id: number
+    readonly count: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbTestRef {
+    private _dataMap: Map<number, test.TestRef>
+    private _dataList: test.TestRef[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestRef>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestRef
+            _v = new test.TestRef(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestRef> { return this._dataMap }
+    getDataList(): test.TestRef[] { return this._dataList }
+
+    get(key: number): test.TestRef | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class TestRef  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a1[i] = _e } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a2 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a2[i] = _e } }
+        { this.b1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b1.push(_e) } }
+        { this.b2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b2.push(_e) } }
+        { this.c1 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c1.add(_e);}}
+        { this.c2 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c2.add(_e);}}
+        { this.d1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d1.set(_k, _v);  } }
+    }
+
+    readonly id: number
+    readonly x1: number
+    x1_Ref : test.TestBeRef = undefined!
+    readonly x2: number
+    x2_Ref : test.TestBeRef = undefined!
+    readonly a1: Int32Array
+    readonly a2: Int32Array
+    readonly b1: number[]
+    readonly b2: number[]
+    readonly c1: Set<number>
+    readonly c2: Set<number>
+    readonly d1: Map<number, number>
+
+    resolve(_tables: Map<string, any>) {
+        this.x1_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x1)!
+        this.x2_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x2)!
+    }
+}
+
+}
+
+
+export namespace test {
 export class TbDetectCsvEncoding {
     private _dataMap: Map<number, test.DetectEncoding>
     private _dataList: test.DetectEncoding[]
@@ -5428,9 +5325,6 @@ export class TbDefineFromExcel {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DefineFromExcel  {
 
     constructor(_buf_: ByteBuf) {
@@ -5498,9 +5392,6 @@ export class TbDefineFromExcelOne {
      * 英雄解锁等级
      */
      get unlockHero(): number { return this._data.unlockHero }
-    /**
-     * 默认头像
-     */
      get defaultAvatar(): string { return this._data.defaultAvatar }
      get defaultItem(): string { return this._data.defaultItem }
 
@@ -5516,9 +5407,6 @@ export class TbDefineFromExcelOne {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DefineFromExcelOne  {
 
     constructor(_buf_: ByteBuf) {
@@ -5536,9 +5424,6 @@ export  class DefineFromExcelOne  {
      * 英雄解锁等级
      */
     readonly unlockHero: number
-    /**
-     * 默认头像
-     */
     readonly defaultAvatar: string
     readonly defaultItem: string
 
@@ -5752,6 +5637,156 @@ export  class ExcelFromJson  {
 
 
 export namespace test {
+export class TbCompositeJsonTable1 {
+    private _dataMap: Map<number, test.CompositeJsonTable1>
+    private _dataList: test.CompositeJsonTable1[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.CompositeJsonTable1>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.CompositeJsonTable1
+            _v = new test.CompositeJsonTable1(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable1> { return this._dataMap }
+    getDataList(): test.CompositeJsonTable1[] { return this._dataList }
+
+    get(key: number): test.CompositeJsonTable1 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable1  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly x: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbCompositeJsonTable2 {
+    private _dataMap: Map<number, test.CompositeJsonTable2>
+    private _dataList: test.CompositeJsonTable2[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.CompositeJsonTable2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.CompositeJsonTable2
+            _v = new test.CompositeJsonTable2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable2> { return this._dataMap }
+    getDataList(): test.CompositeJsonTable2[] { return this._dataList }
+
+    get(key: number): test.CompositeJsonTable2 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly id: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbCompositeJsonTable3 {
+
+     private _data: test.CompositeJsonTable3
+
+    constructor(_buf_: ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.CompositeJsonTable3(_buf_)
+    }
+
+    getData(): test.CompositeJsonTable3 { return this._data }
+
+     get a(): number { return this._data.a }
+     get b(): number { return this._data.b }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable3  {
+
+    constructor(_buf_: ByteBuf) {
+        this.a = _buf_.ReadInt()
+        this.b = _buf_.ReadInt()
+    }
+
+    readonly a: number
+    readonly b: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
 export class TbExcelFromJsonMultiRow {
     private _dataMap: Map<number, test.ExcelFromJsonMultiRow>
     private _dataList: test.ExcelFromJsonMultiRow[]
@@ -5923,9 +5958,6 @@ export class TbDefineFromExcel2 {
 
 
 export namespace test {
-/**
- * 
- */
 export  class DefineFromExcel2  {
 
     constructor(_buf_: ByteBuf) {
@@ -6045,6 +6077,84 @@ export  class TestExcelBean1  {
 }
 
 
+export namespace test {
+export class TbTestDesc {
+    private _dataMap: Map<number, test.TestDesc>
+    private _dataList: test.TestDesc[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestDesc>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestDesc
+            _v = new test.TestDesc(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestDesc> { return this._dataMap }
+    getDataList(): test.TestDesc[] { return this._dataList }
+
+    get(key: number): test.TestDesc | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class TestDesc  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.a1 = _buf_.ReadInt()
+        this.a2 = _buf_.ReadInt()
+        this.x1 = new test.H1(_buf_)
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2; _e = new test.H2(_buf_); this.x2.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
+    }
+
+    readonly id: number
+    /**
+     * 禁止
+     */
+    readonly name: string
+    /**
+     * 测试换行<br/>第2行<br/>第3层
+     */
+    readonly a1: number
+    /**
+     * 测试转义 &lt; &amp; % / # &gt;
+     */
+    readonly a2: number
+    readonly x1: test.H1
+    /**
+     * 这是x2
+     */
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
 
 type ByteBufLoader = (file: string) => ByteBuf
 
@@ -6059,8 +6169,6 @@ export class Tables {
     get TbDrop(): bonus.TbDrop  { return this._TbDrop}
     private _TbGlobalConfig: common.TbGlobalConfig
     get TbGlobalConfig(): common.TbGlobalConfig  { return this._TbGlobalConfig}
-    private _TbDummy: common.TbDummy
-    get TbDummy(): common.TbDummy  { return this._TbDummy}
     private _TbErrorInfo: error.TbErrorInfo
     get TbErrorInfo(): error.TbErrorInfo  { return this._TbErrorInfo}
     private _TbCodeInfo: error.TbCodeInfo
@@ -6114,6 +6222,10 @@ export class Tables {
     get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E}
     private _TbTestGlobal: test.TbTestGlobal
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal}
+    private _TbTestBeRef: test.TbTestBeRef
+    get TbTestBeRef(): test.TbTestBeRef  { return this._TbTestBeRef}
+    private _TbTestRef: test.TbTestRef
+    get TbTestRef(): test.TbTestRef  { return this._TbTestRef}
     private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
     get TbDetectCsvEncoding(): test.TbDetectCsvEncoding  { return this._TbDetectCsvEncoding}
     private _TbDefineFromExcel: test.TbDefineFromExcel
@@ -6126,6 +6238,12 @@ export class Tables {
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap}
     private _TbExcelFromJson: test.TbExcelFromJson
     get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson}
+    private _TbCompositeJsonTable1: test.TbCompositeJsonTable1
+    get TbCompositeJsonTable1(): test.TbCompositeJsonTable1  { return this._TbCompositeJsonTable1}
+    private _TbCompositeJsonTable2: test.TbCompositeJsonTable2
+    get TbCompositeJsonTable2(): test.TbCompositeJsonTable2  { return this._TbCompositeJsonTable2}
+    private _TbCompositeJsonTable3: test.TbCompositeJsonTable3
+    get TbCompositeJsonTable3(): test.TbCompositeJsonTable3  { return this._TbCompositeJsonTable3}
     private _TbExcelFromJsonMultiRow: test.TbExcelFromJsonMultiRow
     get TbExcelFromJsonMultiRow(): test.TbExcelFromJsonMultiRow  { return this._TbExcelFromJsonMultiRow}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
@@ -6134,6 +6252,8 @@ export class Tables {
     get TbDefineFromExcel2(): test.TbDefineFromExcel2  { return this._TbDefineFromExcel2}
     private _TbTestExcelBean: test.TbTestExcelBean
     get TbTestExcelBean(): test.TbTestExcelBean  { return this._TbTestExcelBean}
+    private _TbTestDesc: test.TbTestDesc
+    get TbTestDesc(): test.TbTestDesc  { return this._TbTestDesc}
 
     constructor(loader: ByteBufLoader) {
         let tables = new Map<string, any>()
@@ -6147,8 +6267,6 @@ export class Tables {
         tables.set('bonus.TbDrop', this._TbDrop)
         this._TbGlobalConfig = new common.TbGlobalConfig(loader('common_tbglobalconfig')) 
         tables.set('common.TbGlobalConfig', this._TbGlobalConfig)
-        this._TbDummy = new common.TbDummy(loader('common_tbdummy')) 
-        tables.set('common.TbDummy', this._TbDummy)
         this._TbErrorInfo = new error.TbErrorInfo(loader('error_tberrorinfo')) 
         tables.set('error.TbErrorInfo', this._TbErrorInfo)
         this._TbCodeInfo = new error.TbCodeInfo(loader('error_tbcodeinfo')) 
@@ -6199,6 +6317,10 @@ export class Tables {
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
         this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal')) 
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
+        this._TbTestBeRef = new test.TbTestBeRef(loader('test_tbtestberef')) 
+        tables.set('test.TbTestBeRef', this._TbTestBeRef)
+        this._TbTestRef = new test.TbTestRef(loader('test_tbtestref')) 
+        tables.set('test.TbTestRef', this._TbTestRef)
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')) 
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
         this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel')) 
@@ -6211,6 +6333,12 @@ export class Tables {
         tables.set('test.TbTestMap', this._TbTestMap)
         this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson')) 
         tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
+        this._TbCompositeJsonTable1 = new test.TbCompositeJsonTable1(loader('test_tbcompositejsontable1')) 
+        tables.set('test.TbCompositeJsonTable1', this._TbCompositeJsonTable1)
+        this._TbCompositeJsonTable2 = new test.TbCompositeJsonTable2(loader('test_tbcompositejsontable2')) 
+        tables.set('test.TbCompositeJsonTable2', this._TbCompositeJsonTable2)
+        this._TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader('test_tbcompositejsontable3')) 
+        tables.set('test.TbCompositeJsonTable3', this._TbCompositeJsonTable3)
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow')) 
         tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')) 
@@ -6219,13 +6347,14 @@ export class Tables {
         tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2)
         this._TbTestExcelBean = new test.TbTestExcelBean(loader('test_tbtestexcelbean')) 
         tables.set('test.TbTestExcelBean', this._TbTestExcelBean)
+        this._TbTestDesc = new test.TbTestDesc(loader('test_tbtestdesc')) 
+        tables.set('test.TbTestDesc', this._TbTestDesc)
 
         this._TbBlackboard.resolve(tables) 
         this._TbBehaviorTree.resolve(tables) 
         this._TbClazz.resolve(tables) 
         this._TbDrop.resolve(tables) 
         this._TbGlobalConfig.resolve(tables) 
-        this._TbDummy.resolve(tables) 
         this._TbErrorInfo.resolve(tables) 
         this._TbCodeInfo.resolve(tables) 
         this._TbItem.resolve(tables) 
@@ -6251,15 +6380,21 @@ export class Tables {
         this._TbDemoGroup_S.resolve(tables) 
         this._TbDemoGroup_E.resolve(tables) 
         this._TbTestGlobal.resolve(tables) 
+        this._TbTestBeRef.resolve(tables) 
+        this._TbTestRef.resolve(tables) 
         this._TbDetectCsvEncoding.resolve(tables) 
         this._TbDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcelOne.resolve(tables) 
         this._TbTestIndex.resolve(tables) 
         this._TbTestMap.resolve(tables) 
         this._TbExcelFromJson.resolve(tables) 
+        this._TbCompositeJsonTable1.resolve(tables) 
+        this._TbCompositeJsonTable2.resolve(tables) 
+        this._TbCompositeJsonTable3.resolve(tables) 
         this._TbExcelFromJsonMultiRow.resolve(tables) 
         this._TbDemoGroupDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcel2.resolve(tables) 
         this._TbTestExcelBean.resolve(tables) 
+        this._TbTestDesc.resolve(tables) 
     }
 }

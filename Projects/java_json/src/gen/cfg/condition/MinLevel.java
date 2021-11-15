@@ -30,10 +30,10 @@ public final class MinLevel extends cfg.condition.BoolRoleCondition {
 
     public final int level;
 
-    public static final int ID = -1075273755;
+    public static final int __ID__ = -1075273755;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

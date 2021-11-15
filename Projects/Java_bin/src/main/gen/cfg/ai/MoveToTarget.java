@@ -29,10 +29,10 @@ public final class MoveToTarget extends cfg.ai.Task {
     public final String targetActorKey;
     public final float acceptableRadius;
 
-    public static final int ID = 514987779;
+    public static final int __ID__ = 514987779;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

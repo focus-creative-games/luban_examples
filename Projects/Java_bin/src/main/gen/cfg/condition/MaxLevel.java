@@ -26,10 +26,10 @@ public final class MaxLevel extends cfg.condition.BoolRoleCondition {
 
     public final int level;
 
-    public static final int ID = 700922899;
+    public static final int __ID__ = 700922899;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

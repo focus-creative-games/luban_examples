@@ -36,8 +36,8 @@ public sealed class SystemMail :  Bright.Config.BeanBase
     public string Content { get; private set; }
     public System.Collections.Generic.List<int> Award { get; private set; }
 
-    public const int ID = 1214073149;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1214073149;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

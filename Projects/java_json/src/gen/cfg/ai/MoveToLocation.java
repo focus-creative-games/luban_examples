@@ -33,10 +33,10 @@ public final class MoveToLocation extends cfg.ai.Task {
     public final bright.math.Vector3 location;
     public final float acceptableRadius;
 
-    public static final int ID = -969953113;
+    public static final int __ID__ = -969953113;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

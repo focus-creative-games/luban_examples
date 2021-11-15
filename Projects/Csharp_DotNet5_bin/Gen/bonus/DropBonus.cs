@@ -29,8 +29,8 @@ public sealed class DropBonus :  bonus.Bonus
     public int Id { get; private set; }
     public bonus.DropInfo Id_Ref { get; private set; }
 
-    public const int ID = 1959868225;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1959868225;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

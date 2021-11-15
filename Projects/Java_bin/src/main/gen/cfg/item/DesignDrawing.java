@@ -26,10 +26,10 @@ public final class DesignDrawing extends cfg.item.ItemExtra {
 
     public final java.util.ArrayList<Integer> learnComponentId;
 
-    public static final int ID = -1679179579;
+    public static final int __ID__ = -1679179579;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

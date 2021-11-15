@@ -531,9 +531,9 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case test::DemoD2::ID: { _out.reset(new test::DemoD2()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case test::DemoE1::ID: { _out.reset(new test::DemoE1()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case test::DemoD5::ID: { _out.reset(new test::DemoD5()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case test::DemoD2::__ID__: { _out.reset(new test::DemoD2()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case test::DemoE1::__ID__: { _out.reset(new test::DemoE1()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case test::DemoD5::__ID__: { _out.reset(new test::DemoD5()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -591,7 +591,7 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case test::DemoE1::ID: { _out.reset(new test::DemoE1()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case test::DemoE1::__ID__: { _out.reset(new test::DemoE1()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1440,6 +1440,87 @@ namespace cfg
         x14->resolve(_tables);
         for(auto _e : k9) { _e->resolve(_tables); }
         for(auto _e : k15) { _e->resolve(_tables); }
+    }
+
+    bool test::CompositeJsonTable1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readString(x)) return false;
+
+        return true;
+    }
+
+    bool test::CompositeJsonTable1::deserializeCompositeJsonTable1(ByteBuf& _buf, ::bright::SharedPtr<test::CompositeJsonTable1>& _out)
+    {
+        _out.reset(new test::CompositeJsonTable1());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::CompositeJsonTable1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::CompositeJsonTable2::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readInt(y)) return false;
+
+        return true;
+    }
+
+    bool test::CompositeJsonTable2::deserializeCompositeJsonTable2(ByteBuf& _buf, ::bright::SharedPtr<test::CompositeJsonTable2>& _out)
+    {
+        _out.reset(new test::CompositeJsonTable2());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::CompositeJsonTable2::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::CompositeJsonTable3::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(a)) return false;
+        if(!_buf.readInt(b)) return false;
+
+        return true;
+    }
+
+    bool test::CompositeJsonTable3::deserializeCompositeJsonTable3(ByteBuf& _buf, ::bright::SharedPtr<test::CompositeJsonTable3>& _out)
+    {
+        _out.reset(new test::CompositeJsonTable3());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::CompositeJsonTable3::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
     }
 
     bool test::ExcelFromJsonMultiRow::deserialize(ByteBuf& _buf)

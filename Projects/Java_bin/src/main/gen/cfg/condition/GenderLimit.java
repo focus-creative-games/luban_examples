@@ -26,10 +26,10 @@ public final class GenderLimit extends cfg.condition.BoolRoleCondition {
 
     public final cfg.role.EGenderType gender;
 
-    public static final int ID = 103675143;
+    public static final int __ID__ = 103675143;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

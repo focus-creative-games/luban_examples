@@ -29,10 +29,10 @@ public final class CostCurrency extends cfg.cost.Cost {
     public final cfg.item.ECurrencyType type;
     public final int num;
 
-    public static final int ID = 911838111;
+    public static final int __ID__ = 911838111;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

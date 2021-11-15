@@ -30,8 +30,8 @@ public sealed class DistinctBonusInfos :  Bright.Config.BeanBase
     public int EffectiveLevel { get; private set; }
     public System.Collections.Generic.List<role.BonusInfo> BonusInfo { get; private set; }
 
-    public const int ID = -854361766;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -854361766;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

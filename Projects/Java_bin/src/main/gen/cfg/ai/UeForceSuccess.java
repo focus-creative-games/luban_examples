@@ -23,10 +23,10 @@ public final class UeForceSuccess extends cfg.ai.Decorator {
 
 
 
-    public static final int ID = 195054574;
+    public static final int __ID__ = 195054574;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

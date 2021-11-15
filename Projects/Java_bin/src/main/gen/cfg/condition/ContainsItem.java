@@ -33,10 +33,10 @@ public final class ContainsItem extends cfg.condition.RoleCondition {
     public final int num;
     public final boolean reverse;
 
-    public static final int ID = 1961145317;
+    public static final int __ID__ = 1961145317;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

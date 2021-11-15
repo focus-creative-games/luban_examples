@@ -34,10 +34,10 @@ public final class Item extends cfg.bonus.Bonus {
     public cfg.item.Item itemId_Ref;
     public final int amount;
 
-    public static final int ID = 1689011106;
+    public static final int __ID__ = 1689011106;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

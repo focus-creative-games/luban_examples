@@ -21,10 +21,10 @@ public abstract class KeyData {
 
     public static KeyData deserializeKeyData(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.FloatKeyData.ID: return new cfg.ai.FloatKeyData(_buf);
-            case cfg.ai.IntKeyData.ID: return new cfg.ai.IntKeyData(_buf);
-            case cfg.ai.StringKeyData.ID: return new cfg.ai.StringKeyData(_buf);
-            case cfg.ai.BlackboardKeyData.ID: return new cfg.ai.BlackboardKeyData(_buf);
+            case cfg.ai.FloatKeyData.__ID__: return new cfg.ai.FloatKeyData(_buf);
+            case cfg.ai.IntKeyData.__ID__: return new cfg.ai.IntKeyData(_buf);
+            case cfg.ai.StringKeyData.__ID__: return new cfg.ai.StringKeyData(_buf);
+            case cfg.ai.BlackboardKeyData.__ID__: return new cfg.ai.BlackboardKeyData(_buf);
             default: throw new SerializationException();
         }
     }

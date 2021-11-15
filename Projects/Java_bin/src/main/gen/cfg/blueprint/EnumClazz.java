@@ -26,10 +26,10 @@ public final class EnumClazz extends cfg.blueprint.Clazz {
 
     public final java.util.ArrayList<cfg.blueprint.EnumField> enums;
 
-    public static final int ID = 1827364892;
+    public static final int __ID__ = 1827364892;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

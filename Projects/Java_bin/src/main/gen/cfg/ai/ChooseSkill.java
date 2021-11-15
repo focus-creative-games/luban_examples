@@ -29,10 +29,10 @@ public final class ChooseSkill extends cfg.ai.Task {
     public final String targetActorKey;
     public final String resultSkillIdKey;
 
-    public static final int ID = -918812268;
+    public static final int __ID__ = -918812268;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

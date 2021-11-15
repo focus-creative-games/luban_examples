@@ -30,8 +30,8 @@ public sealed class MoveToRandomLocation :  ai.Task
     public string OriginPositionKey { get; private set; }
     public float Radius { get; private set; }
 
-    public const int ID = -2140042998;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -2140042998;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

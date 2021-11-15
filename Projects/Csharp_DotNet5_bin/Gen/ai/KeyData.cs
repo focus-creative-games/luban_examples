@@ -24,10 +24,10 @@ public abstract class KeyData :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case ai.FloatKeyData.ID: return new ai.FloatKeyData(_buf);
-            case ai.IntKeyData.ID: return new ai.IntKeyData(_buf);
-            case ai.StringKeyData.ID: return new ai.StringKeyData(_buf);
-            case ai.BlackboardKeyData.ID: return new ai.BlackboardKeyData(_buf);
+            case ai.FloatKeyData.__ID__: return new ai.FloatKeyData(_buf);
+            case ai.IntKeyData.__ID__: return new ai.IntKeyData(_buf);
+            case ai.StringKeyData.__ID__: return new ai.StringKeyData(_buf);
+            case ai.BlackboardKeyData.__ID__: return new ai.BlackboardKeyData(_buf);
             default: throw new SerializationException();
         }
     }

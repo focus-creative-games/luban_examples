@@ -33,10 +33,10 @@ public final class NormalClazz extends cfg.blueprint.Clazz {
     public final boolean isAbstract;
     public final java.util.ArrayList<cfg.blueprint.Field> fields;
 
-    public static final int ID = -2073576778;
+    public static final int __ID__ = -2073576778;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

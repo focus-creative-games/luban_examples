@@ -31,10 +31,10 @@ public final class DropBonus extends cfg.bonus.Bonus {
     public final int id;
     public cfg.bonus.DropInfo id_Ref;
 
-    public static final int ID = 1959868225;
+    public static final int __ID__ = 1959868225;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

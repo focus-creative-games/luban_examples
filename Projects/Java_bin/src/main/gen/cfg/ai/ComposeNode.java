@@ -23,9 +23,9 @@ public abstract class ComposeNode extends cfg.ai.FlowNode {
 
     public static ComposeNode deserializeComposeNode(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.Sequence.ID: return new cfg.ai.Sequence(_buf);
-            case cfg.ai.Selector.ID: return new cfg.ai.Selector(_buf);
-            case cfg.ai.SimpleParallel.ID: return new cfg.ai.SimpleParallel(_buf);
+            case cfg.ai.Sequence.__ID__: return new cfg.ai.Sequence(_buf);
+            case cfg.ai.Selector.__ID__: return new cfg.ai.Selector(_buf);
+            case cfg.ai.SimpleParallel.__ID__: return new cfg.ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
     }

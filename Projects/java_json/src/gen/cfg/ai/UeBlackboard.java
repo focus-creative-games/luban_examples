@@ -36,10 +36,10 @@ public final class UeBlackboard extends cfg.ai.Decorator {
     public final String blackboardKey;
     public final cfg.ai.KeyQueryOperator keyQuery;
 
-    public static final int ID = -315297507;
+    public static final int __ID__ = -315297507;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

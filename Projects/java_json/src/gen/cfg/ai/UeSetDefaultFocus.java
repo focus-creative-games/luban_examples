@@ -30,10 +30,10 @@ public final class UeSetDefaultFocus extends cfg.ai.Service {
 
     public final String keyboardKey;
 
-    public static final int ID = 1812449155;
+    public static final int __ID__ = 1812449155;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

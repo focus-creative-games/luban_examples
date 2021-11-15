@@ -29,10 +29,10 @@ public final class ErrorStyleMsgbox extends cfg.error.ErrorStyle {
     public final String btnName;
     public final cfg.error.EOperation operation;
 
-    public static final int ID = -1920482343;
+    public static final int __ID__ = -1920482343;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

@@ -30,10 +30,10 @@ public final class KeepFaceTarget extends cfg.ai.Service {
 
     public final String targetActorKey;
 
-    public static final int ID = 1195270745;
+    public static final int __ID__ = 1195270745;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

@@ -26,10 +26,10 @@ public final class Items extends cfg.bonus.Bonus {
 
     public final cfg.bonus.Item[] itemList;
 
-    public static final int ID = 819736849;
+    public static final int __ID__ = 819736849;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

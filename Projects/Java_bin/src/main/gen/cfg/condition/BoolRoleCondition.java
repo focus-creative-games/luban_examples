@@ -23,11 +23,11 @@ public abstract class BoolRoleCondition extends cfg.condition.RoleCondition {
 
     public static BoolRoleCondition deserializeBoolRoleCondition(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
-            case cfg.condition.MinLevel.ID: return new cfg.condition.MinLevel(_buf);
-            case cfg.condition.MaxLevel.ID: return new cfg.condition.MaxLevel(_buf);
-            case cfg.condition.MinMaxLevel.ID: return new cfg.condition.MinMaxLevel(_buf);
-            case cfg.condition.ClothesPropertyScoreGreaterThan.ID: return new cfg.condition.ClothesPropertyScoreGreaterThan(_buf);
+            case cfg.condition.GenderLimit.__ID__: return new cfg.condition.GenderLimit(_buf);
+            case cfg.condition.MinLevel.__ID__: return new cfg.condition.MinLevel(_buf);
+            case cfg.condition.MaxLevel.__ID__: return new cfg.condition.MaxLevel(_buf);
+            case cfg.condition.MinMaxLevel.__ID__: return new cfg.condition.MinMaxLevel(_buf);
+            case cfg.condition.ClothesPropertyScoreGreaterThan.__ID__: return new cfg.condition.ClothesPropertyScoreGreaterThan(_buf);
             default: throw new SerializationException();
         }
     }

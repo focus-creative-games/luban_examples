@@ -33,8 +33,8 @@ public sealed class WeightItemInfo :  Bright.Config.BeanBase
     public int Num { get; private set; }
     public int Weight { get; private set; }
 
-    public const int ID = 1239999176;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1239999176;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

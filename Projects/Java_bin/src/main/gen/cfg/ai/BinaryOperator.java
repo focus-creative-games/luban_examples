@@ -29,10 +29,10 @@ public final class BinaryOperator extends cfg.ai.KeyQueryOperator {
     public final cfg.ai.EOperator oper;
     public final cfg.ai.KeyData data;
 
-    public static final int ID = -979891605;
+    public static final int __ID__ = -979891605;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

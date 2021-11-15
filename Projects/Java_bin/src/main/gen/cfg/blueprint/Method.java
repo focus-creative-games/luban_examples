@@ -31,9 +31,9 @@ public abstract class Method {
 
     public static Method deserializeMethod(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.blueprint.AbstraceMethod.ID: return new cfg.blueprint.AbstraceMethod(_buf);
-            case cfg.blueprint.ExternalMethod.ID: return new cfg.blueprint.ExternalMethod(_buf);
-            case cfg.blueprint.BlueprintMethod.ID: return new cfg.blueprint.BlueprintMethod(_buf);
+            case cfg.blueprint.AbstraceMethod.__ID__: return new cfg.blueprint.AbstraceMethod(_buf);
+            case cfg.blueprint.ExternalMethod.__ID__: return new cfg.blueprint.ExternalMethod(_buf);
+            case cfg.blueprint.BlueprintMethod.__ID__: return new cfg.blueprint.BlueprintMethod(_buf);
             default: throw new SerializationException();
         }
     }

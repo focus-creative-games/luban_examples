@@ -24,9 +24,9 @@ public abstract class KeyQueryOperator :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case ai.IsSet.ID: return new ai.IsSet(_buf);
-            case ai.IsNotSet.ID: return new ai.IsNotSet(_buf);
-            case ai.BinaryOperator.ID: return new ai.BinaryOperator(_buf);
+            case ai.IsSet.__ID__: return new ai.IsSet(_buf);
+            case ai.IsNotSet.__ID__: return new ai.IsNotSet(_buf);
+            case ai.BinaryOperator.__ID__: return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
     }

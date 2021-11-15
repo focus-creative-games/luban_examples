@@ -23,9 +23,9 @@ public abstract class DemoDynamic {
 
     public static DemoDynamic deserializeDemoDynamic(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.test.DemoD2.ID: return new cfg.test.DemoD2(_buf);
-            case cfg.test.DemoE1.ID: return new cfg.test.DemoE1(_buf);
-            case cfg.test.DemoD5.ID: return new cfg.test.DemoD5(_buf);
+            case cfg.test.DemoD2.__ID__: return new cfg.test.DemoD2(_buf);
+            case cfg.test.DemoE1.__ID__: return new cfg.test.DemoE1(_buf);
+            case cfg.test.DemoD5.__ID__: return new cfg.test.DemoD5(_buf);
             default: throw new SerializationException();
         }
     }

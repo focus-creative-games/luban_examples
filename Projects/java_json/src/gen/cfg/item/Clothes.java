@@ -39,10 +39,10 @@ public final class Clothes extends cfg.item.ItemExtra {
     public final int energyLimit;
     public final int energyResume;
 
-    public static final int ID = 1659907149;
+    public static final int __ID__ = 1659907149;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

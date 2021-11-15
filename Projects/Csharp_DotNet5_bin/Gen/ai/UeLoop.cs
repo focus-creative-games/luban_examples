@@ -32,8 +32,8 @@ public sealed class UeLoop :  ai.Decorator
     public bool InfiniteLoop { get; private set; }
     public float InfiniteLoopTimeoutTime { get; private set; }
 
-    public const int ID = -513308166;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -513308166;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

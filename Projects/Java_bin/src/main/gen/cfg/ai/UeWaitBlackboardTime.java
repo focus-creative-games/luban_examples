@@ -26,10 +26,10 @@ public final class UeWaitBlackboardTime extends cfg.ai.Task {
 
     public final String blackboardKey;
 
-    public static final int ID = 1215378271;
+    public static final int __ID__ = 1215378271;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

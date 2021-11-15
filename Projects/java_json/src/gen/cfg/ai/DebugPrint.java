@@ -30,10 +30,10 @@ public final class DebugPrint extends cfg.ai.Task {
 
     public final String text;
 
-    public static final int ID = 1357409728;
+    public static final int __ID__ = 1357409728;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

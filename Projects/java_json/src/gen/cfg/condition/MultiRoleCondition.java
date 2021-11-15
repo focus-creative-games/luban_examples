@@ -30,10 +30,10 @@ public final class MultiRoleCondition extends cfg.condition.RoleCondition {
 
     public final cfg.condition.RoleCondition[] conditions;
 
-    public static final int ID = 934079583;
+    public static final int __ID__ = 934079583;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

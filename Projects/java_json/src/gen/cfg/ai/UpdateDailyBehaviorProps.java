@@ -54,10 +54,10 @@ public final class UpdateDailyBehaviorProps extends cfg.ai.Service {
     public final String moodLowerThresholdKey;
     public final String moodUpperThresholdKey;
 
-    public static final int ID = -61887372;
+    public static final int __ID__ = -61887372;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

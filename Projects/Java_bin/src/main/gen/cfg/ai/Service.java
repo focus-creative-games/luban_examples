@@ -23,12 +23,12 @@ public abstract class Service extends cfg.ai.Node {
 
     public static Service deserializeService(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.UeSetDefaultFocus.ID: return new cfg.ai.UeSetDefaultFocus(_buf);
-            case cfg.ai.ExecuteTimeStatistic.ID: return new cfg.ai.ExecuteTimeStatistic(_buf);
-            case cfg.ai.ChooseTarget.ID: return new cfg.ai.ChooseTarget(_buf);
-            case cfg.ai.KeepFaceTarget.ID: return new cfg.ai.KeepFaceTarget(_buf);
-            case cfg.ai.GetOwnerPlayer.ID: return new cfg.ai.GetOwnerPlayer(_buf);
-            case cfg.ai.UpdateDailyBehaviorProps.ID: return new cfg.ai.UpdateDailyBehaviorProps(_buf);
+            case cfg.ai.UeSetDefaultFocus.__ID__: return new cfg.ai.UeSetDefaultFocus(_buf);
+            case cfg.ai.ExecuteTimeStatistic.__ID__: return new cfg.ai.ExecuteTimeStatistic(_buf);
+            case cfg.ai.ChooseTarget.__ID__: return new cfg.ai.ChooseTarget(_buf);
+            case cfg.ai.KeepFaceTarget.__ID__: return new cfg.ai.KeepFaceTarget(_buf);
+            case cfg.ai.GetOwnerPlayer.__ID__: return new cfg.ai.GetOwnerPlayer(_buf);
+            case cfg.ai.UpdateDailyBehaviorProps.__ID__: return new cfg.ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
     }

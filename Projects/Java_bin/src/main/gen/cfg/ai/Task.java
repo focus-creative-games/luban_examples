@@ -25,13 +25,13 @@ public abstract class Task extends cfg.ai.FlowNode {
 
     public static Task deserializeTask(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.UeWait.ID: return new cfg.ai.UeWait(_buf);
-            case cfg.ai.UeWaitBlackboardTime.ID: return new cfg.ai.UeWaitBlackboardTime(_buf);
-            case cfg.ai.MoveToTarget.ID: return new cfg.ai.MoveToTarget(_buf);
-            case cfg.ai.ChooseSkill.ID: return new cfg.ai.ChooseSkill(_buf);
-            case cfg.ai.MoveToRandomLocation.ID: return new cfg.ai.MoveToRandomLocation(_buf);
-            case cfg.ai.MoveToLocation.ID: return new cfg.ai.MoveToLocation(_buf);
-            case cfg.ai.DebugPrint.ID: return new cfg.ai.DebugPrint(_buf);
+            case cfg.ai.UeWait.__ID__: return new cfg.ai.UeWait(_buf);
+            case cfg.ai.UeWaitBlackboardTime.__ID__: return new cfg.ai.UeWaitBlackboardTime(_buf);
+            case cfg.ai.MoveToTarget.__ID__: return new cfg.ai.MoveToTarget(_buf);
+            case cfg.ai.ChooseSkill.__ID__: return new cfg.ai.ChooseSkill(_buf);
+            case cfg.ai.MoveToRandomLocation.__ID__: return new cfg.ai.MoveToRandomLocation(_buf);
+            case cfg.ai.MoveToLocation.__ID__: return new cfg.ai.MoveToLocation(_buf);
+            case cfg.ai.DebugPrint.__ID__: return new cfg.ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
     }

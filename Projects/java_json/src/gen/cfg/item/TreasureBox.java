@@ -42,10 +42,10 @@ public final class TreasureBox extends cfg.item.ItemExtra {
     public final java.util.ArrayList<Integer> dropIds;
     public final java.util.ArrayList<cfg.item.ChooseOneBonus> chooseList;
 
-    public static final int ID = 1494222369;
+    public static final int __ID__ = 1494222369;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

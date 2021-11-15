@@ -23,10 +23,10 @@ public final class IsSet extends cfg.ai.KeyQueryOperator {
 
 
 
-    public static final int ID = 1635350898;
+    public static final int __ID__ = 1635350898;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

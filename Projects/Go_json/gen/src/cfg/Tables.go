@@ -50,6 +50,9 @@ type Tables struct {
     TbTestIndex *Test_TbTestIndex
     TbTestMap *Test_TbTestMap
     TbExcelFromJson *Test_TbExcelFromJson
+    TbCompositeJsonTable1 *Test_TbCompositeJsonTable1
+    TbCompositeJsonTable2 *Test_TbCompositeJsonTable2
+    TbCompositeJsonTable3 *Test_TbCompositeJsonTable3
     TbExcelFromJsonMultiRow *Test_TbExcelFromJsonMultiRow
     TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
     TbDefineFromExcel2 *Test_TbDefineFromExcel2
@@ -288,6 +291,24 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbExcelFromJson, err = NewTest_TbExcelFromJson(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbcompositejsontable1") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable1, err = NewTest_TbCompositeJsonTable1(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbcompositejsontable2") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable2, err = NewTest_TbCompositeJsonTable2(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbcompositejsontable3") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable3, err = NewTest_TbCompositeJsonTable3(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbexcelfromjsonmultirow") ; err != nil {

@@ -27,10 +27,10 @@ public final class Interface extends cfg.blueprint.Clazz {
     }
 
 
-    public static final int ID = 2114170750;
+    public static final int __ID__ = 2114170750;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

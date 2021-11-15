@@ -26,10 +26,10 @@ public final class StringKeyData extends cfg.ai.KeyData {
 
     public final String value;
 
-    public static final int ID = -307888654;
+    public static final int __ID__ = -307888654;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

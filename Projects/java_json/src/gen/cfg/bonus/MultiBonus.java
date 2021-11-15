@@ -30,10 +30,10 @@ public final class MultiBonus extends cfg.bonus.Bonus {
 
     public final cfg.bonus.Bonus[] bonuses;
 
-    public static final int ID = 1421907893;
+    public static final int __ID__ = 1421907893;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

@@ -26,10 +26,10 @@ public final class ErrorStyleDlgOk extends cfg.error.ErrorStyle {
 
     public final String btnName;
 
-    public static final int ID = -2010134516;
+    public static final int __ID__ = -2010134516;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

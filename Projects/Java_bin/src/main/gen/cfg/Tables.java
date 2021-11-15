@@ -95,6 +95,12 @@ public final class Tables
     public cfg.test.TbTestMap getTbTestMap() { return _TbTestMap; }
     private final cfg.test.TbExcelFromJson _TbExcelFromJson;
     public cfg.test.TbExcelFromJson getTbExcelFromJson() { return _TbExcelFromJson; }
+    private final cfg.test.TbCompositeJsonTable1 _TbCompositeJsonTable1;
+    public cfg.test.TbCompositeJsonTable1 getTbCompositeJsonTable1() { return _TbCompositeJsonTable1; }
+    private final cfg.test.TbCompositeJsonTable2 _TbCompositeJsonTable2;
+    public cfg.test.TbCompositeJsonTable2 getTbCompositeJsonTable2() { return _TbCompositeJsonTable2; }
+    private final cfg.test.TbCompositeJsonTable3 _TbCompositeJsonTable3;
+    public cfg.test.TbCompositeJsonTable3 getTbCompositeJsonTable3() { return _TbCompositeJsonTable3; }
     private final cfg.test.TbExcelFromJsonMultiRow _TbExcelFromJsonMultiRow;
     public cfg.test.TbExcelFromJsonMultiRow getTbExcelFromJsonMultiRow() { return _TbExcelFromJsonMultiRow; }
     private final cfg.test.TbDemoGroupDefineFromExcel _TbDemoGroupDefineFromExcel;
@@ -107,7 +113,7 @@ public final class Tables
     public cfg.test.TbTestDesc getTbTestDesc() { return _TbTestDesc; }
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
-        java.util.HashMap<String, Object> tables = new java.util.HashMap<String, Object>();
+        java.util.HashMap<String, Object> tables = new java.util.HashMap<>();
         _TbBlackboard = new cfg.ai.TbBlackboard(loader.load("ai_tbblackboard")); 
         tables.put("ai.TbBlackboard", _TbBlackboard);
         _TbBehaviorTree = new cfg.ai.TbBehaviorTree(loader.load("ai_tbbehaviortree")); 
@@ -184,6 +190,12 @@ public final class Tables
         tables.put("test.TbTestMap", _TbTestMap);
         _TbExcelFromJson = new cfg.test.TbExcelFromJson(loader.load("test_tbexcelfromjson")); 
         tables.put("test.TbExcelFromJson", _TbExcelFromJson);
+        _TbCompositeJsonTable1 = new cfg.test.TbCompositeJsonTable1(loader.load("test_tbcompositejsontable1")); 
+        tables.put("test.TbCompositeJsonTable1", _TbCompositeJsonTable1);
+        _TbCompositeJsonTable2 = new cfg.test.TbCompositeJsonTable2(loader.load("test_tbcompositejsontable2")); 
+        tables.put("test.TbCompositeJsonTable2", _TbCompositeJsonTable2);
+        _TbCompositeJsonTable3 = new cfg.test.TbCompositeJsonTable3(loader.load("test_tbcompositejsontable3")); 
+        tables.put("test.TbCompositeJsonTable3", _TbCompositeJsonTable3);
         _TbExcelFromJsonMultiRow = new cfg.test.TbExcelFromJsonMultiRow(loader.load("test_tbexcelfromjsonmultirow")); 
         tables.put("test.TbExcelFromJsonMultiRow", _TbExcelFromJsonMultiRow);
         _TbDemoGroupDefineFromExcel = new cfg.test.TbDemoGroupDefineFromExcel(loader.load("test_tbdemogroupdefinefromexcel")); 
@@ -233,6 +245,9 @@ public final class Tables
         _TbTestIndex.resolve(tables); 
         _TbTestMap.resolve(tables); 
         _TbExcelFromJson.resolve(tables); 
+        _TbCompositeJsonTable1.resolve(tables); 
+        _TbCompositeJsonTable2.resolve(tables); 
+        _TbCompositeJsonTable3.resolve(tables); 
         _TbExcelFromJsonMultiRow.resolve(tables); 
         _TbDemoGroupDefineFromExcel.resolve(tables); 
         _TbDefineFromExcel2.resolve(tables); 

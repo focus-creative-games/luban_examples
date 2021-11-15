@@ -33,10 +33,10 @@ public final class MoveToRandomLocation extends cfg.ai.Task {
     public final String originPositionKey;
     public final float radius;
 
-    public static final int ID = -2140042998;
+    public static final int __ID__ = -2140042998;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

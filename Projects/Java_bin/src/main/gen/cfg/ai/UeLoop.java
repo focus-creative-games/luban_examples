@@ -32,10 +32,10 @@ public final class UeLoop extends cfg.ai.Decorator {
     public final boolean infiniteLoop;
     public final float infiniteLoopTimeoutTime;
 
-    public static final int ID = -513308166;
+    public static final int __ID__ = -513308166;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

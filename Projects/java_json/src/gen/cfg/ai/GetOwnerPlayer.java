@@ -30,10 +30,10 @@ public final class GetOwnerPlayer extends cfg.ai.Service {
 
     public final String playerActorKey;
 
-    public static final int ID = -999247644;
+    public static final int __ID__ = -999247644;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

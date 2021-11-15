@@ -30,10 +30,10 @@ public final class WeightBonus extends cfg.bonus.Bonus {
 
     public final cfg.bonus.WeightBonusInfo[] bonuses;
 
-    public static final int ID = -362807016;
+    public static final int __ID__ = -362807016;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

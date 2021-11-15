@@ -34,8 +34,8 @@ public sealed class DistanceLessThan :  ai.Decorator
     public float Distance { get; private set; }
     public bool ReverseResult { get; private set; }
 
-    public const int ID = -1207170283;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1207170283;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

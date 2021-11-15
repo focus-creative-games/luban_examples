@@ -26,10 +26,10 @@ public final class ChooseTarget extends cfg.ai.Service {
 
     public final String resultTargetKey;
 
-    public static final int ID = 1601247918;
+    public static final int __ID__ = 1601247918;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

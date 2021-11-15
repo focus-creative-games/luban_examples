@@ -25,7 +25,7 @@ public abstract class DemoD3 extends cfg.test.DemoDynamic {
 
     public static DemoD3 deserializeDemoD3(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.test.DemoE1.ID: return new cfg.test.DemoE1(_buf);
+            case cfg.test.DemoE1.__ID__: return new cfg.test.DemoE1(_buf);
             default: throw new SerializationException();
         }
     }

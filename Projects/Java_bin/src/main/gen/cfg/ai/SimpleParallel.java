@@ -32,10 +32,10 @@ public final class SimpleParallel extends cfg.ai.ComposeNode {
     public final cfg.ai.Task mainTask;
     public final cfg.ai.FlowNode backgroundNode;
 
-    public static final int ID = -1952582529;
+    public static final int __ID__ = -1952582529;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

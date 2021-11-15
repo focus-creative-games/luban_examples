@@ -29,9 +29,9 @@ public abstract class Clazz {
 
     public static Clazz deserializeClazz(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.blueprint.Interface.ID: return new cfg.blueprint.Interface(_buf);
-            case cfg.blueprint.NormalClazz.ID: return new cfg.blueprint.NormalClazz(_buf);
-            case cfg.blueprint.EnumClazz.ID: return new cfg.blueprint.EnumClazz(_buf);
+            case cfg.blueprint.Interface.__ID__: return new cfg.blueprint.Interface(_buf);
+            case cfg.blueprint.NormalClazz.__ID__: return new cfg.blueprint.NormalClazz(_buf);
+            case cfg.blueprint.EnumClazz.__ID__: return new cfg.blueprint.EnumClazz(_buf);
             default: throw new SerializationException();
         }
     }

@@ -26,10 +26,10 @@ public final class DemoD2 extends cfg.test.DemoDynamic {
 
     public final int x2;
 
-    public static final int ID = -2138341747;
+    public static final int __ID__ = -2138341747;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

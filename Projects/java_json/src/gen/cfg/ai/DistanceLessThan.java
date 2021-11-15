@@ -39,10 +39,10 @@ public final class DistanceLessThan extends cfg.ai.Decorator {
     public final float distance;
     public final boolean reverseResult;
 
-    public static final int ID = -1207170283;
+    public static final int __ID__ = -1207170283;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

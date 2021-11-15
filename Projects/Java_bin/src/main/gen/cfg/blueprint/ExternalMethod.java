@@ -23,10 +23,10 @@ public final class ExternalMethod extends cfg.blueprint.Method {
 
 
 
-    public static final int ID = 1739079015;
+    public static final int __ID__ = 1739079015;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

@@ -21,9 +21,9 @@ public abstract class KeyQueryOperator {
 
     public static KeyQueryOperator deserializeKeyQueryOperator(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.IsSet.ID: return new cfg.ai.IsSet(_buf);
-            case cfg.ai.IsNotSet.ID: return new cfg.ai.IsNotSet(_buf);
-            case cfg.ai.BinaryOperator.ID: return new cfg.ai.BinaryOperator(_buf);
+            case cfg.ai.IsSet.__ID__: return new cfg.ai.IsSet(_buf);
+            case cfg.ai.IsNotSet.__ID__: return new cfg.ai.IsNotSet(_buf);
+            case cfg.ai.BinaryOperator.__ID__: return new cfg.ai.BinaryOperator(_buf);
             default: throw new SerializationException();
         }
     }

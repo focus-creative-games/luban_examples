@@ -24,13 +24,13 @@ public abstract class RoleCondition :  condition.Condition
     {
         switch (_buf.ReadInt())
         {
-            case condition.MultiRoleCondition.ID: return new condition.MultiRoleCondition(_buf);
-            case condition.GenderLimit.ID: return new condition.GenderLimit(_buf);
-            case condition.MinLevel.ID: return new condition.MinLevel(_buf);
-            case condition.MaxLevel.ID: return new condition.MaxLevel(_buf);
-            case condition.MinMaxLevel.ID: return new condition.MinMaxLevel(_buf);
-            case condition.ClothesPropertyScoreGreaterThan.ID: return new condition.ClothesPropertyScoreGreaterThan(_buf);
-            case condition.ContainsItem.ID: return new condition.ContainsItem(_buf);
+            case condition.MultiRoleCondition.__ID__: return new condition.MultiRoleCondition(_buf);
+            case condition.GenderLimit.__ID__: return new condition.GenderLimit(_buf);
+            case condition.MinLevel.__ID__: return new condition.MinLevel(_buf);
+            case condition.MaxLevel.__ID__: return new condition.MaxLevel(_buf);
+            case condition.MinMaxLevel.__ID__: return new condition.MinMaxLevel(_buf);
+            case condition.ClothesPropertyScoreGreaterThan.__ID__: return new condition.ClothesPropertyScoreGreaterThan(_buf);
+            case condition.ContainsItem.__ID__: return new condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
     }

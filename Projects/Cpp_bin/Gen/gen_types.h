@@ -927,6 +927,9 @@ namespace test { class DefineFromExcelOne; }
 namespace test { class TestIndex; } 
 namespace test { class TestMap; } 
 namespace test { class ExcelFromJson; } 
+namespace test { class CompositeJsonTable1; } 
+namespace test { class CompositeJsonTable2; } 
+namespace test { class CompositeJsonTable3; } 
 namespace test { class ExcelFromJsonMultiRow; } 
 namespace test { class TestRow; } 
 namespace test { class Test3; } 
@@ -966,9 +969,9 @@ class Blackboard : public  bright::CfgBean
     ::bright::SharedPtr<ai::Blackboard> parentName_Ref;
     ::bright::Vector<::bright::SharedPtr<ai::BlackboardKey>> keys;
 
-    static constexpr int ID = 1576193005;
+    static constexpr int __ID__ = 1576193005;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1008,9 +1011,9 @@ class BlackboardKey : public  bright::CfgBean
     ai::EKeyType type;
     ::bright::String typeClassName;
 
-    static constexpr int ID = -511559886;
+    static constexpr int __ID__ = -511559886;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1051,9 +1054,9 @@ class BehaviorTree : public  bright::CfgBean
     ::bright::SharedPtr<ai::Blackboard> blackboardId_Ref;
     ::bright::SharedPtr<ai::ComposeNode> root;
 
-    static constexpr int ID = 159552822;
+    static constexpr int __ID__ = 159552822;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1149,9 +1152,9 @@ class UeSetDefaultFocus : public  ai::Service
 
     ::bright::String keyboardKey;
 
-    static constexpr int ID = 1812449155;
+    static constexpr int __ID__ = 1812449155;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1182,9 +1185,9 @@ class ExecuteTimeStatistic : public  ai::Service
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 990693812;
+    static constexpr int __ID__ = 990693812;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1217,9 +1220,9 @@ class ChooseTarget : public  ai::Service
 
     ::bright::String resultTargetKey;
 
-    static constexpr int ID = 1601247918;
+    static constexpr int __ID__ = 1601247918;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1252,9 +1255,9 @@ class KeepFaceTarget : public  ai::Service
 
     ::bright::String targetActorKey;
 
-    static constexpr int ID = 1195270745;
+    static constexpr int __ID__ = 1195270745;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1287,9 +1290,9 @@ class GetOwnerPlayer : public  ai::Service
 
     ::bright::String playerActorKey;
 
-    static constexpr int ID = -999247644;
+    static constexpr int __ID__ = -999247644;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1338,9 +1341,9 @@ class UpdateDailyBehaviorProps : public  ai::Service
     ::bright::String moodLowerThresholdKey;
     ::bright::String moodUpperThresholdKey;
 
-    static constexpr int ID = -61887372;
+    static constexpr int __ID__ = -61887372;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1409,9 +1412,9 @@ class UeLoop : public  ai::Decorator
     bool infiniteLoop;
     ::bright::float32 infiniteLoopTimeoutTime;
 
-    static constexpr int ID = -513308166;
+    static constexpr int __ID__ = -513308166;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1444,9 +1447,9 @@ class UeCooldown : public  ai::Decorator
 
     ::bright::float32 cooldownTime;
 
-    static constexpr int ID = -951439423;
+    static constexpr int __ID__ = -951439423;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1479,9 +1482,9 @@ class UeTimeLimit : public  ai::Decorator
 
     ::bright::float32 limitTime;
 
-    static constexpr int ID = 338469720;
+    static constexpr int __ID__ = 338469720;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1518,9 +1521,9 @@ class UeBlackboard : public  ai::Decorator
     ::bright::String blackboardKey;
     ::bright::SharedPtr<ai::KeyQueryOperator> keyQuery;
 
-    static constexpr int ID = -315297507;
+    static constexpr int __ID__ = -315297507;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1571,9 +1574,9 @@ class IsSet : public  ai::KeyQueryOperator
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 1635350898;
+    static constexpr int __ID__ = 1635350898;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1599,9 +1602,9 @@ class IsNotSet : public  ai::KeyQueryOperator
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 790736255;
+    static constexpr int __ID__ = 790736255;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1636,9 +1639,9 @@ class BinaryOperator : public  ai::KeyQueryOperator
     ai::EOperator oper;
     ::bright::SharedPtr<ai::KeyData> data;
 
-    static constexpr int ID = -979891605;
+    static constexpr int __ID__ = -979891605;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1696,9 +1699,9 @@ class FloatKeyData : public  ai::KeyData
 
     ::bright::float32 value;
 
-    static constexpr int ID = -719747885;
+    static constexpr int __ID__ = -719747885;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1731,9 +1734,9 @@ class IntKeyData : public  ai::KeyData
 
     ::bright::int32 value;
 
-    static constexpr int ID = -342751904;
+    static constexpr int __ID__ = -342751904;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1766,9 +1769,9 @@ class StringKeyData : public  ai::KeyData
 
     ::bright::String value;
 
-    static constexpr int ID = -307888654;
+    static constexpr int __ID__ = -307888654;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1801,9 +1804,9 @@ class BlackboardKeyData : public  ai::KeyData
 
     ::bright::String value;
 
-    static constexpr int ID = 1517269500;
+    static constexpr int __ID__ = 1517269500;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1834,9 +1837,9 @@ class UeForceSuccess : public  ai::Decorator
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 195054574;
+    static constexpr int __ID__ = 195054574;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1873,9 +1876,9 @@ class IsAtLocation : public  ai::Decorator
     ::bright::String keyboardKey;
     bool inverseCondition;
 
-    static constexpr int ID = 1255972344;
+    static constexpr int __ID__ = 1255972344;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -1914,9 +1917,9 @@ class DistanceLessThan : public  ai::Decorator
     ::bright::float32 distance;
     bool reverseResult;
 
-    static constexpr int ID = -1207170283;
+    static constexpr int __ID__ = -1207170283;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2013,9 +2016,9 @@ class Sequence : public  ai::ComposeNode
 
     ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
-    static constexpr int ID = -1789006105;
+    static constexpr int __ID__ = -1789006105;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2048,9 +2051,9 @@ class Selector : public  ai::ComposeNode
 
     ::bright::Vector<::bright::SharedPtr<ai::FlowNode>> children;
 
-    static constexpr int ID = -1946981627;
+    static constexpr int __ID__ = -1946981627;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2087,9 +2090,9 @@ class SimpleParallel : public  ai::ComposeNode
     ::bright::SharedPtr<ai::Task> mainTask;
     ::bright::SharedPtr<ai::FlowNode> backgroundNode;
 
-    static constexpr int ID = -1952582529;
+    static constexpr int __ID__ = -1952582529;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2156,9 +2159,9 @@ class UeWait : public  ai::Task
     ::bright::float32 waitTime;
     ::bright::float32 randomDeviation;
 
-    static constexpr int ID = -512994101;
+    static constexpr int __ID__ = -512994101;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2191,9 +2194,9 @@ class UeWaitBlackboardTime : public  ai::Task
 
     ::bright::String blackboardKey;
 
-    static constexpr int ID = 1215378271;
+    static constexpr int __ID__ = 1215378271;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2228,9 +2231,9 @@ class MoveToTarget : public  ai::Task
     ::bright::String targetActorKey;
     ::bright::float32 acceptableRadius;
 
-    static constexpr int ID = 514987779;
+    static constexpr int __ID__ = 514987779;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2265,9 +2268,9 @@ class ChooseSkill : public  ai::Task
     ::bright::String targetActorKey;
     ::bright::String resultSkillIdKey;
 
-    static constexpr int ID = -918812268;
+    static constexpr int __ID__ = -918812268;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2302,9 +2305,9 @@ class MoveToRandomLocation : public  ai::Task
     ::bright::String originPositionKey;
     ::bright::float32 radius;
 
-    static constexpr int ID = -2140042998;
+    static constexpr int __ID__ = -2140042998;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2339,9 +2342,9 @@ class MoveToLocation : public  ai::Task
     ::bright::Vector3 location;
     ::bright::float32 acceptableRadius;
 
-    static constexpr int ID = -969953113;
+    static constexpr int __ID__ = -969953113;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2374,9 +2377,9 @@ class DebugPrint : public  ai::Task
 
     ::bright::String text;
 
-    static constexpr int ID = 1357409728;
+    static constexpr int __ID__ = 1357409728;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2488,9 +2491,9 @@ class ParamInfo : public  bright::CfgBean
     ::bright::String type;
     bool isRef;
 
-    static constexpr int ID = -729799392;
+    static constexpr int __ID__ = -729799392;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2521,9 +2524,9 @@ class AbstraceMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = -392137809;
+    static constexpr int __ID__ = -392137809;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2554,9 +2557,9 @@ class ExternalMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 1739079015;
+    static constexpr int __ID__ = 1739079015;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2587,9 +2590,9 @@ class BlueprintMethod : public  blueprint::Method
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = -696408103;
+    static constexpr int __ID__ = -696408103;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2620,9 +2623,9 @@ class Interface : public  blueprint::Clazz
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 2114170750;
+    static constexpr int __ID__ = 2114170750;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2657,9 +2660,9 @@ class NormalClazz : public  blueprint::Clazz
     bool isAbstract;
     ::bright::Vector<::bright::SharedPtr<blueprint::Field>> fields;
 
-    static constexpr int ID = -2073576778;
+    static constexpr int __ID__ = -2073576778;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2695,9 +2698,9 @@ class Field : public  bright::CfgBean
     ::bright::String type;
     ::bright::String desc;
 
-    static constexpr int ID = 1694158271;
+    static constexpr int __ID__ = 1694158271;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2730,9 +2733,9 @@ class EnumClazz : public  blueprint::Clazz
 
     ::bright::Vector<::bright::SharedPtr<blueprint::EnumField>> enums;
 
-    static constexpr int ID = 1827364892;
+    static constexpr int __ID__ = 1827364892;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2766,9 +2769,9 @@ class EnumField : public  bright::CfgBean
     ::bright::String name;
     ::bright::int32 value;
 
-    static constexpr int ID = 1830049470;
+    static constexpr int __ID__ = 1830049470;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2806,9 +2809,9 @@ class DropInfo : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<bonus::ShowItemInfo>> clientShowItems;
     ::bright::SharedPtr<bonus::Bonus> bonus;
 
-    static constexpr int ID = -2014781108;
+    static constexpr int __ID__ = -2014781108;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2843,9 +2846,9 @@ class ShowItemInfo : public  bright::CfgBean
     ::bright::SharedPtr<item::Item> itemId_Ref;
     ::bright::int64 itemNum;
 
-    static constexpr int ID = -1496363507;
+    static constexpr int __ID__ = -1496363507;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2904,9 +2907,9 @@ class OneItem : public  bonus::Bonus
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
 
-    static constexpr int ID = -1649658966;
+    static constexpr int __ID__ = -1649658966;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2939,9 +2942,9 @@ class OneItems : public  bonus::Bonus
 
     ::bright::Vector<::bright::int32> items;
 
-    static constexpr int ID = 400179721;
+    static constexpr int __ID__ = 400179721;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -2977,9 +2980,9 @@ class Item : public  bonus::Bonus
     ::bright::SharedPtr<item::Item> itemId_Ref;
     ::bright::int32 amount;
 
-    static constexpr int ID = 1689011106;
+    static constexpr int __ID__ = 1689011106;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3012,9 +3015,9 @@ class Items : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::Item>> itemList;
 
-    static constexpr int ID = 819736849;
+    static constexpr int __ID__ = 819736849;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3049,9 +3052,9 @@ class CoefficientItem : public  bonus::Bonus
     ::bright::int32 bonusId;
     ::bright::SharedPtr<bonus::Items> bonusList;
 
-    static constexpr int ID = -229470727;
+    static constexpr int __ID__ = -229470727;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3084,9 +3087,9 @@ class WeightItems : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::WeightItemInfo>> itemList;
 
-    static constexpr int ID = -356202311;
+    static constexpr int __ID__ = -356202311;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3123,9 +3126,9 @@ class WeightItemInfo : public  bright::CfgBean
     ::bright::int32 num;
     ::bright::int32 weight;
 
-    static constexpr int ID = 1239999176;
+    static constexpr int __ID__ = 1239999176;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3158,9 +3161,9 @@ class ProbabilityItems : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityItemInfo>> itemList;
 
-    static constexpr int ID = 366387866;
+    static constexpr int __ID__ = 366387866;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3197,9 +3200,9 @@ class ProbabilityItemInfo : public  bright::CfgBean
     ::bright::int32 num;
     ::bright::float32 probability;
 
-    static constexpr int ID = 1547874631;
+    static constexpr int __ID__ = 1547874631;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3232,9 +3235,9 @@ class MultiBonus : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::Bonus>> bonuses;
 
-    static constexpr int ID = 1421907893;
+    static constexpr int __ID__ = 1421907893;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3267,9 +3270,9 @@ class ProbabilityBonus : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::ProbabilityBonusInfo>> bonuses;
 
-    static constexpr int ID = 359783161;
+    static constexpr int __ID__ = 359783161;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3303,9 +3306,9 @@ class ProbabilityBonusInfo : public  bright::CfgBean
     ::bright::SharedPtr<bonus::Bonus> bonus;
     ::bright::float32 probability;
 
-    static constexpr int ID = 46960455;
+    static constexpr int __ID__ = 46960455;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3338,9 +3341,9 @@ class WeightBonus : public  bonus::Bonus
 
     ::bright::Vector<::bright::SharedPtr<bonus::WeightBonusInfo>> bonuses;
 
-    static constexpr int ID = -362807016;
+    static constexpr int __ID__ = -362807016;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3374,9 +3377,9 @@ class WeightBonusInfo : public  bright::CfgBean
     ::bright::SharedPtr<bonus::Bonus> bonus;
     ::bright::int32 weight;
 
-    static constexpr int ID = -907244058;
+    static constexpr int __ID__ = -907244058;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3410,9 +3413,9 @@ class DropBonus : public  bonus::Bonus
     ::bright::int32 id;
     ::bright::SharedPtr<bonus::DropInfo> id_Ref;
 
-    static constexpr int ID = 1959868225;
+    static constexpr int __ID__ = 1959868225;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3488,9 +3491,9 @@ class GlobalConfig : public  bright::CfgBean
     ::bright::int32 maxViality;
     ::bright::int32 perVialityRecoveryTime;
 
-    static constexpr int ID = -848234488;
+    static constexpr int __ID__ = -848234488;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3526,9 +3529,9 @@ class ErrorInfo : public  bright::CfgBean
     ::bright::String desc;
     ::bright::SharedPtr<error::ErrorStyle> style;
 
-    static constexpr int ID = 1389347408;
+    static constexpr int __ID__ = 1389347408;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3579,9 +3582,9 @@ class ErrorStyleTip : public  error::ErrorStyle
     bool deserialize(ByteBuf& _buf);
 
 
-    static constexpr int ID = 1915239884;
+    static constexpr int __ID__ = 1915239884;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3616,9 +3619,9 @@ class ErrorStyleMsgbox : public  error::ErrorStyle
     ::bright::String btnName;
     error::EOperation operation;
 
-    static constexpr int ID = -1920482343;
+    static constexpr int __ID__ = -1920482343;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3651,9 +3654,9 @@ class ErrorStyleDlgOk : public  error::ErrorStyle
 
     ::bright::String btnName;
 
-    static constexpr int ID = -2010134516;
+    static constexpr int __ID__ = -2010134516;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3688,9 +3691,9 @@ class ErrorStyleDlgOkCancel : public  error::ErrorStyle
     ::bright::String btn1Name;
     ::bright::String btn2Name;
 
-    static constexpr int ID = 971221414;
+    static constexpr int __ID__ = 971221414;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3724,9 +3727,9 @@ class CodeInfo : public  bright::CfgBean
     error::EErrorCode code;
     ::bright::String key;
 
-    static constexpr int ID = -1942481535;
+    static constexpr int __ID__ = -1942481535;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3804,9 +3807,9 @@ class Item : public  bright::CfgBean
     item::EUseType useType;
     ::bright::SharedPtr<::bright::int32> levelUpId;
 
-    static constexpr int ID = 2107285806;
+    static constexpr int __ID__ = 2107285806;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3844,9 +3847,9 @@ class ItemFunction : public  bright::CfgBean
     ::bright::String method;
     bool closeBagUi;
 
-    static constexpr int ID = 1205824294;
+    static constexpr int __ID__ = 1205824294;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3918,9 +3921,9 @@ class TreasureBox : public  item::ItemExtra
     ::bright::Vector<::bright::int32> dropIds;
     ::bright::Vector<::bright::SharedPtr<item::ChooseOneBonus>> chooseList;
 
-    static constexpr int ID = 1494222369;
+    static constexpr int __ID__ = 1494222369;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -3978,9 +3981,9 @@ class TimeRange : public  condition::Condition
 
     ::bright::SharedPtr<common::DateTimeRange> dateTimeRange;
 
-    static constexpr int ID = 1069033789;
+    static constexpr int __ID__ = 1069033789;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4014,9 +4017,9 @@ class DateTimeRange : public  bright::CfgBean
     ::bright::SharedPtr<::bright::datetime> startTime;
     ::bright::SharedPtr<::bright::datetime> endTime;
 
-    static constexpr int ID = 1642200959;
+    static constexpr int __ID__ = 1642200959;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4074,9 +4077,9 @@ class MultiRoleCondition : public  condition::RoleCondition
 
     ::bright::Vector<::bright::SharedPtr<condition::RoleCondition>> conditions;
 
-    static constexpr int ID = 934079583;
+    static constexpr int __ID__ = 934079583;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4134,9 +4137,9 @@ class GenderLimit : public  condition::BoolRoleCondition
 
     role::EGenderType gender;
 
-    static constexpr int ID = 103675143;
+    static constexpr int __ID__ = 103675143;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4169,9 +4172,9 @@ class MinLevel : public  condition::BoolRoleCondition
 
     ::bright::int32 level;
 
-    static constexpr int ID = -1075273755;
+    static constexpr int __ID__ = -1075273755;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4204,9 +4207,9 @@ class MaxLevel : public  condition::BoolRoleCondition
 
     ::bright::int32 level;
 
-    static constexpr int ID = 700922899;
+    static constexpr int __ID__ = 700922899;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4241,9 +4244,9 @@ class MinMaxLevel : public  condition::BoolRoleCondition
     ::bright::int32 min;
     ::bright::int32 max;
 
-    static constexpr int ID = 907499647;
+    static constexpr int __ID__ = 907499647;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4278,9 +4281,9 @@ class ClothesPropertyScoreGreaterThan : public  condition::BoolRoleCondition
     item::EClothesPropertyType prop;
     ::bright::int32 value;
 
-    static constexpr int ID = 696630835;
+    static constexpr int __ID__ = 696630835;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4318,9 +4321,9 @@ class ContainsItem : public  condition::RoleCondition
     ::bright::int32 num;
     bool reverse;
 
-    static constexpr int ID = 1961145317;
+    static constexpr int __ID__ = 1961145317;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4355,9 +4358,9 @@ class ChooseOneBonus : public  bright::CfgBean
     ::bright::SharedPtr<bonus::DropInfo> dropId_Ref;
     bool isUnique;
 
-    static constexpr int ID = 228058347;
+    static constexpr int __ID__ = 228058347;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4394,9 +4397,9 @@ class InteractionItem : public  item::ItemExtra
     ::bright::String holdingStaticMesh;
     ::bright::String holdingStaticMeshMat;
 
-    static constexpr int ID = 640937802;
+    static constexpr int __ID__ = 640937802;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4435,9 +4438,9 @@ class Clothes : public  item::ItemExtra
     ::bright::int32 energyLimit;
     ::bright::int32 energyResume;
 
-    static constexpr int ID = 1659907149;
+    static constexpr int __ID__ = 1659907149;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4470,9 +4473,9 @@ class DesignDrawing : public  item::ItemExtra
 
     ::bright::Vector<::bright::int32> learnComponentId;
 
-    static constexpr int ID = -1679179579;
+    static constexpr int __ID__ = -1679179579;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4505,9 +4508,9 @@ class Dymmy : public  item::ItemExtra
 
     ::bright::SharedPtr<cost::Cost> cost;
 
-    static constexpr int ID = 896889705;
+    static constexpr int __ID__ = 896889705;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4567,9 +4570,9 @@ class CostCurrency : public  cost::Cost
     item::ECurrencyType type;
     ::bright::int32 num;
 
-    static constexpr int ID = 911838111;
+    static constexpr int __ID__ = 911838111;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4602,9 +4605,9 @@ class CostCurrencies : public  cost::Cost
 
     ::bright::Vector<::bright::SharedPtr<cost::CostCurrency>> currencies;
 
-    static constexpr int ID = 103084157;
+    static constexpr int __ID__ = 103084157;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4638,9 +4641,9 @@ class CostOneItem : public  cost::Cost
     ::bright::int32 itemId;
     ::bright::SharedPtr<item::Item> itemId_Ref;
 
-    static constexpr int ID = -1033587381;
+    static constexpr int __ID__ = -1033587381;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4676,9 +4679,9 @@ class CostItem : public  cost::Cost
     ::bright::SharedPtr<item::Item> itemId_Ref;
     ::bright::int32 amount;
 
-    static constexpr int ID = -1249440351;
+    static constexpr int __ID__ = -1249440351;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4711,9 +4714,9 @@ class CostItems : public  cost::Cost
 
     ::bright::Vector<::bright::SharedPtr<cost::CostItem>> itemList;
 
-    static constexpr int ID = -77945102;
+    static constexpr int __ID__ = -77945102;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4747,9 +4750,9 @@ class L10NDemo : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::String text;
 
-    static constexpr int ID = -331195887;
+    static constexpr int __ID__ = -331195887;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4783,9 +4786,9 @@ class PatchDemo : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::int32 value;
 
-    static constexpr int ID = -1707294656;
+    static constexpr int __ID__ = -1707294656;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4825,9 +4828,9 @@ class SystemMail : public  bright::CfgBean
     ::bright::String content;
     ::bright::Vector<::bright::int32> award;
 
-    static constexpr int ID = 1214073149;
+    static constexpr int __ID__ = 1214073149;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4881,9 +4884,9 @@ class GlobalMail : public  bright::CfgBean
     ::bright::SharedPtr<condition::TimeRange> registerTime;
     ::bright::SharedPtr<condition::TimeRange> mailTime;
 
-    static constexpr int ID = -287571791;
+    static constexpr int __ID__ = -287571791;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4919,9 +4922,9 @@ class LevelExpAttr : public  bright::CfgBean
     ::bright::int64 needExp;
     ::bright::Vector<::bright::int32> clothesAttrs;
 
-    static constexpr int ID = -1569837022;
+    static constexpr int __ID__ = -1569837022;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4955,9 +4958,9 @@ class LevelBonus : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::Vector<::bright::SharedPtr<role::DistinctBonusInfos>> distinctBonusInfos;
 
-    static constexpr int ID = -572269677;
+    static constexpr int __ID__ = -572269677;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -4991,9 +4994,9 @@ class DistinctBonusInfos : public  bright::CfgBean
     ::bright::int32 effectiveLevel;
     ::bright::Vector<::bright::SharedPtr<role::BonusInfo>> bonusInfo;
 
-    static constexpr int ID = -854361766;
+    static constexpr int __ID__ = -854361766;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5027,9 +5030,9 @@ class BonusInfo : public  bright::CfgBean
     item::ECurrencyType type;
     ::bright::float32 coefficient;
 
-    static constexpr int ID = -1354421803;
+    static constexpr int __ID__ = -1354421803;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5063,9 +5066,9 @@ class TestTag : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::String value;
 
-    static constexpr int ID = 1742933812;
+    static constexpr int __ID__ = 1742933812;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5145,9 +5148,9 @@ class DemoType2 : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
     ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
 
-    static constexpr int ID = -367048295;
+    static constexpr int __ID__ = -367048295;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5179,9 +5182,9 @@ class DemoType1 : public  bright::CfgBean
 
     ::bright::int32 x1;
 
-    static constexpr int ID = -367048296;
+    static constexpr int __ID__ = -367048296;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5245,9 +5248,9 @@ class DemoD2 : public  test::DemoDynamic
 
     ::bright::int32 x2;
 
-    static constexpr int ID = -2138341747;
+    static constexpr int __ID__ = -2138341747;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5312,9 +5315,9 @@ class DemoE1 : public  test::DemoD3
 
     ::bright::int32 x4;
 
-    static constexpr int ID = -2138341717;
+    static constexpr int __ID__ = -2138341717;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5347,9 +5350,9 @@ class DemoD5 : public  test::DemoDynamic
 
     ::bright::SharedPtr<test::DateTimeRange> time;
 
-    static constexpr int ID = -2138341744;
+    static constexpr int __ID__ = -2138341744;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5383,9 +5386,9 @@ class DateTimeRange : public  bright::CfgBean
     ::bright::datetime startTime;
     ::bright::datetime endTime;
 
-    static constexpr int ID = 495315430;
+    static constexpr int __ID__ = 495315430;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5419,9 +5422,9 @@ class DemoE2 : public  bright::CfgBean
     ::bright::SharedPtr<::bright::int32> y1;
     bool y2;
 
-    static constexpr int ID = -2138341716;
+    static constexpr int __ID__ = -2138341716;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5457,9 +5460,9 @@ class DemoSingletonType : public  bright::CfgBean
     ::bright::String name;
     ::bright::SharedPtr<test::DemoDynamic> date;
 
-    static constexpr int ID = 539196998;
+    static constexpr int __ID__ = 539196998;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5507,9 +5510,9 @@ class MultiRowRecord : public  bright::CfgBean
     ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiRowType2>> multiRows6;
     ::bright::HashMap<::bright::int32, ::bright::int32> multiRows7;
 
-    static constexpr int ID = -501249394;
+    static constexpr int __ID__ = -501249394;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5543,9 +5546,9 @@ class MultiRowType1 : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::int32 x;
 
-    static constexpr int ID = 540474970;
+    static constexpr int __ID__ = 540474970;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5581,9 +5584,9 @@ class MultiRowType2 : public  bright::CfgBean
     ::bright::int32 x;
     ::bright::float32 y;
 
-    static constexpr int ID = 540474971;
+    static constexpr int __ID__ = 540474971;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5617,9 +5620,9 @@ class MultiRowType3 : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::Vector<::bright::SharedPtr<test::MultiRowType1>> items;
 
-    static constexpr int ID = 540474972;
+    static constexpr int __ID__ = 540474972;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5659,9 +5662,9 @@ class MultiRowTitle : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
 
-    static constexpr int ID = 540002427;
+    static constexpr int __ID__ = 540002427;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5695,9 +5698,9 @@ class H1 : public  bright::CfgBean
     ::bright::SharedPtr<test::H2> y2;
     ::bright::int32 y3;
 
-    static constexpr int ID = -1422503995;
+    static constexpr int __ID__ = -1422503995;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5731,9 +5734,9 @@ class H2 : public  bright::CfgBean
     ::bright::int32 z2;
     ::bright::int32 z3;
 
-    static constexpr int ID = -1422503994;
+    static constexpr int __ID__ = -1422503994;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5777,9 +5780,9 @@ class TestNull : public  bright::CfgBean
     ::bright::SharedPtr<::bright::String> s1;
     ::bright::SharedPtr<::bright::String> s2;
 
-    static constexpr int ID = 339868469;
+    static constexpr int __ID__ = 339868469;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5835,9 +5838,9 @@ class DemoPrimitiveTypesTable : public  bright::CfgBean
     ::bright::Vector4 v4;
     ::bright::datetime t1;
 
-    static constexpr int ID = -370934083;
+    static constexpr int __ID__ = -370934083;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5875,9 +5878,9 @@ class TestString : public  bright::CfgBean
     ::bright::SharedPtr<test::CompactString> cs1;
     ::bright::SharedPtr<test::CompactString> cs2;
 
-    static constexpr int ID = 338485823;
+    static constexpr int __ID__ = 338485823;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5913,9 +5916,9 @@ class CompactString : public  bright::CfgBean
     ::bright::String s2;
     ::bright::String s3;
 
-    static constexpr int ID = 1968089240;
+    static constexpr int __ID__ = 1968089240;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5957,9 +5960,9 @@ class DemoGroup : public  bright::CfgBean
     ::bright::int32 x4;
     ::bright::SharedPtr<test::InnerGroup> x5;
 
-    static constexpr int ID = -379263008;
+    static constexpr int __ID__ = -379263008;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -5997,9 +6000,9 @@ class InnerGroup : public  bright::CfgBean
     ::bright::int32 y3;
     ::bright::int32 y4;
 
-    static constexpr int ID = -587873083;
+    static constexpr int __ID__ = -587873083;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6033,9 +6036,9 @@ class TestGlobal : public  bright::CfgBean
     ::bright::int32 unlockEquip;
     ::bright::int32 unlockHero;
 
-    static constexpr int ID = -12548655;
+    static constexpr int __ID__ = -12548655;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6069,9 +6072,9 @@ class TestBeRef : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::int32 count;
 
-    static constexpr int ID = 1934403938;
+    static constexpr int __ID__ = 1934403938;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6123,9 +6126,9 @@ class TestRef : public  bright::CfgBean
     ::bright::HashSet<::bright::int32> c2;
     ::bright::HashMap<::bright::int32, ::bright::int32> d1;
 
-    static constexpr int ID = -543222491;
+    static constexpr int __ID__ = -543222491;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6159,9 +6162,9 @@ class DetectEncoding : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::String name;
 
-    static constexpr int ID = -1154609646;
+    static constexpr int __ID__ = -1154609646;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6223,9 +6226,9 @@ class DefineFromExcel : public  bright::CfgBean
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
-    static constexpr int ID = 2100429878;
+    static constexpr int __ID__ = 2100429878;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6269,9 +6272,9 @@ class DefineFromExcelOne : public  bright::CfgBean
     ::bright::String defaultAvatar;
     ::bright::String defaultItem;
 
-    static constexpr int ID = 528039504;
+    static constexpr int __ID__ = 528039504;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6305,9 +6308,9 @@ class TestIndex : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::Vector<::bright::SharedPtr<test::DemoType1>> eles;
 
-    static constexpr int ID = 1941154020;
+    static constexpr int __ID__ = 1941154020;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6348,9 +6351,9 @@ class TestMap : public  bright::CfgBean
     ::bright::HashMap<::bright::String, ::bright::int32> x3;
     ::bright::HashMap<test::DemoEnum, ::bright::int32> x4;
 
-    static constexpr int ID = -543227410;
+    static constexpr int __ID__ = -543227410;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6414,9 +6417,117 @@ class ExcelFromJson : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
     ::bright::Vector<::bright::SharedPtr<test::DemoDynamic>> k15;
 
-    static constexpr int ID = -1485706483;
+    static constexpr int __ID__ = -1485706483;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class CompositeJsonTable1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeCompositeJsonTable1(ByteBuf& _buf, ::bright::SharedPtr<CompositeJsonTable1>& _out);
+
+    CompositeJsonTable1()
+    { 
+
+    }
+
+    CompositeJsonTable1(::bright::int32 id, ::bright::String x ) 
+    {
+
+        this->id = id;
+        this->x = x;
+    }
+    virtual ~CompositeJsonTable1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::String x;
+
+    static constexpr int __ID__ = 1566207894;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class CompositeJsonTable2 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeCompositeJsonTable2(ByteBuf& _buf, ::bright::SharedPtr<CompositeJsonTable2>& _out);
+
+    CompositeJsonTable2()
+    { 
+
+    }
+
+    CompositeJsonTable2(::bright::int32 id, ::bright::int32 y ) 
+    {
+
+        this->id = id;
+        this->y = y;
+    }
+    virtual ~CompositeJsonTable2() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::int32 y;
+
+    static constexpr int __ID__ = 1566207895;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class CompositeJsonTable3 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeCompositeJsonTable3(ByteBuf& _buf, ::bright::SharedPtr<CompositeJsonTable3>& _out);
+
+    CompositeJsonTable3()
+    { 
+
+    }
+
+    CompositeJsonTable3(::bright::int32 a, ::bright::int32 b ) 
+    {
+
+        this->a = a;
+        this->b = b;
+    }
+    virtual ~CompositeJsonTable3() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 a;
+    ::bright::int32 b;
+
+    static constexpr int __ID__ = 1566207896;
+
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6452,9 +6563,9 @@ class ExcelFromJsonMultiRow : public  bright::CfgBean
     ::bright::int32 x;
     ::bright::Vector<::bright::SharedPtr<test::TestRow>> items;
 
-    static constexpr int ID = 715335694;
+    static constexpr int __ID__ = 715335694;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6494,9 +6605,9 @@ class TestRow : public  bright::CfgBean
     ::bright::SharedPtr<test::Test3> a;
     ::bright::Vector<::bright::int32> b;
 
-    static constexpr int ID = -543222164;
+    static constexpr int __ID__ = -543222164;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6530,9 +6641,9 @@ class Test3 : public  bright::CfgBean
     ::bright::int32 x;
     ::bright::int32 y;
 
-    static constexpr int ID = 638540133;
+    static constexpr int __ID__ = 638540133;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6594,9 +6705,9 @@ class DefineFromExcel2 : public  bright::CfgBean
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
 
-    static constexpr int ID = 688816828;
+    static constexpr int __ID__ = 688816828;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6649,9 +6760,9 @@ class TestExcelBean1 : public  bright::CfgBean
      */
     ::bright::float32 x4;
 
-    static constexpr int ID = -1738345160;
+    static constexpr int __ID__ = -1738345160;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -6707,9 +6818,9 @@ class TestDesc : public  bright::CfgBean
     ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
 
-    static constexpr int ID = 339555391;
+    static constexpr int __ID__ = 339555391;
 
-    int getTypeId() const { return ID; }
+    int getTypeId() const { return __ID__; }
 
     virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
 };
@@ -8534,6 +8645,133 @@ class TbExcelFromJson
 namespace test {
 
 
+class TbCompositeJsonTable1
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::CompositeJsonTable1>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::CompositeJsonTable1>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::CompositeJsonTable1> _v;
+            if(!test::CompositeJsonTable1::deserializeCompositeJsonTable1(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::CompositeJsonTable1>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::CompositeJsonTable1>>& getDataList() const { return _dataList; }
+
+    test::CompositeJsonTable1* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::CompositeJsonTable1> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbCompositeJsonTable2
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::CompositeJsonTable2>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::CompositeJsonTable2>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::CompositeJsonTable2> _v;
+            if(!test::CompositeJsonTable2::deserializeCompositeJsonTable2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::CompositeJsonTable2>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::CompositeJsonTable2>>& getDataList() const { return _dataList; }
+
+    test::CompositeJsonTable2* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::CompositeJsonTable2> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbCompositeJsonTable3
+{
+     private:
+    ::bright::SharedPtr<test::CompositeJsonTable3> _data;
+
+    public:
+    ::bright::SharedPtr<test::CompositeJsonTable3> data() const { return _data; }
+
+    bool load(ByteBuf& _buf)
+    {
+        int n;
+        if (!_buf.readSize(n)) return false;
+        if (n != 1) return false;
+        if(!test::CompositeJsonTable3::deserializeCompositeJsonTable3(_buf, _data)) return false;
+        return true;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        _data->resolve(_tables);
+    }
+
+    ::bright::int32& getA() const { return _data->a; }
+    ::bright::int32& getB() const { return _data->b; }
+};
+}
+namespace test {
+
+
 class TbExcelFromJsonMultiRow
 {
     private:
@@ -8820,6 +9058,9 @@ class Tables
      test::TbTestIndex TbTestIndex;
      test::TbTestMap TbTestMap;
      test::TbExcelFromJson TbExcelFromJson;
+     test::TbCompositeJsonTable1 TbCompositeJsonTable1;
+     test::TbCompositeJsonTable2 TbCompositeJsonTable2;
+     test::TbCompositeJsonTable3 TbCompositeJsonTable3;
      test::TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
@@ -8945,6 +9186,15 @@ class Tables
         if (!loader(buf, "test_tbexcelfromjson")) return false;
         if (!TbExcelFromJson.load(buf)) return false;
         __tables__["test.TbExcelFromJson"] = &TbExcelFromJson;
+        if (!loader(buf, "test_tbcompositejsontable1")) return false;
+        if (!TbCompositeJsonTable1.load(buf)) return false;
+        __tables__["test.TbCompositeJsonTable1"] = &TbCompositeJsonTable1;
+        if (!loader(buf, "test_tbcompositejsontable2")) return false;
+        if (!TbCompositeJsonTable2.load(buf)) return false;
+        __tables__["test.TbCompositeJsonTable2"] = &TbCompositeJsonTable2;
+        if (!loader(buf, "test_tbcompositejsontable3")) return false;
+        if (!TbCompositeJsonTable3.load(buf)) return false;
+        __tables__["test.TbCompositeJsonTable3"] = &TbCompositeJsonTable3;
         if (!loader(buf, "test_tbexcelfromjsonmultirow")) return false;
         if (!TbExcelFromJsonMultiRow.load(buf)) return false;
         __tables__["test.TbExcelFromJsonMultiRow"] = &TbExcelFromJsonMultiRow;
@@ -8999,6 +9249,9 @@ class Tables
         TbTestIndex.resolve(__tables__); 
         TbTestMap.resolve(__tables__); 
         TbExcelFromJson.resolve(__tables__); 
+        TbCompositeJsonTable1.resolve(__tables__); 
+        TbCompositeJsonTable2.resolve(__tables__); 
+        TbCompositeJsonTable3.resolve(__tables__); 
         TbExcelFromJsonMultiRow.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 

@@ -33,10 +33,10 @@ public final class ErrorStyleDlgOkCancel extends cfg.error.ErrorStyle {
     public final String btn1Name;
     public final String btn2Name;
 
-    public static final int ID = 971221414;
+    public static final int __ID__ = 971221414;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

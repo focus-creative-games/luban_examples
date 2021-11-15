@@ -30,10 +30,10 @@ public final class ProbabilityItems extends cfg.bonus.Bonus {
 
     public final cfg.bonus.ProbabilityItemInfo[] itemList;
 
-    public static final int ID = 366387866;
+    public static final int __ID__ = 366387866;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

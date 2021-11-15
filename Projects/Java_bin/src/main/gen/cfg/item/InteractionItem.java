@@ -32,10 +32,10 @@ public final class InteractionItem extends cfg.item.ItemExtra {
     public final String holdingStaticMesh;
     public final String holdingStaticMeshMat;
 
-    public static final int ID = 640937802;
+    public static final int __ID__ = 640937802;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

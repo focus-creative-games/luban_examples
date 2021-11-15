@@ -30,8 +30,8 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
     public item.EClothesPropertyType Prop { get; private set; }
     public int Value { get; private set; }
 
-    public const int ID = 696630835;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 696630835;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

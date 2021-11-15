@@ -21,10 +21,10 @@ public abstract class ErrorStyle {
 
     public static ErrorStyle deserializeErrorStyle(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.error.ErrorStyleTip.ID: return new cfg.error.ErrorStyleTip(_buf);
-            case cfg.error.ErrorStyleMsgbox.ID: return new cfg.error.ErrorStyleMsgbox(_buf);
-            case cfg.error.ErrorStyleDlgOk.ID: return new cfg.error.ErrorStyleDlgOk(_buf);
-            case cfg.error.ErrorStyleDlgOkCancel.ID: return new cfg.error.ErrorStyleDlgOkCancel(_buf);
+            case cfg.error.ErrorStyleTip.__ID__: return new cfg.error.ErrorStyleTip(_buf);
+            case cfg.error.ErrorStyleMsgbox.__ID__: return new cfg.error.ErrorStyleMsgbox(_buf);
+            case cfg.error.ErrorStyleDlgOk.__ID__: return new cfg.error.ErrorStyleDlgOk(_buf);
+            case cfg.error.ErrorStyleDlgOkCancel.__ID__: return new cfg.error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
     }

@@ -21,14 +21,14 @@ public abstract class Condition {
 
     public static Condition deserializeCondition(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.condition.TimeRange.ID: return new cfg.condition.TimeRange(_buf);
-            case cfg.condition.MultiRoleCondition.ID: return new cfg.condition.MultiRoleCondition(_buf);
-            case cfg.condition.GenderLimit.ID: return new cfg.condition.GenderLimit(_buf);
-            case cfg.condition.MinLevel.ID: return new cfg.condition.MinLevel(_buf);
-            case cfg.condition.MaxLevel.ID: return new cfg.condition.MaxLevel(_buf);
-            case cfg.condition.MinMaxLevel.ID: return new cfg.condition.MinMaxLevel(_buf);
-            case cfg.condition.ClothesPropertyScoreGreaterThan.ID: return new cfg.condition.ClothesPropertyScoreGreaterThan(_buf);
-            case cfg.condition.ContainsItem.ID: return new cfg.condition.ContainsItem(_buf);
+            case cfg.condition.TimeRange.__ID__: return new cfg.condition.TimeRange(_buf);
+            case cfg.condition.MultiRoleCondition.__ID__: return new cfg.condition.MultiRoleCondition(_buf);
+            case cfg.condition.GenderLimit.__ID__: return new cfg.condition.GenderLimit(_buf);
+            case cfg.condition.MinLevel.__ID__: return new cfg.condition.MinLevel(_buf);
+            case cfg.condition.MaxLevel.__ID__: return new cfg.condition.MaxLevel(_buf);
+            case cfg.condition.MinMaxLevel.__ID__: return new cfg.condition.MinMaxLevel(_buf);
+            case cfg.condition.ClothesPropertyScoreGreaterThan.__ID__: return new cfg.condition.ClothesPropertyScoreGreaterThan(_buf);
+            case cfg.condition.ContainsItem.__ID__: return new cfg.condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
     }

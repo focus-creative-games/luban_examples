@@ -25,7 +25,7 @@ public abstract class DemoD3 :  test.DemoDynamic
     {
         switch (_buf.ReadInt())
         {
-            case test.DemoE1.ID: return new test.DemoE1(_buf);
+            case test.DemoE1.__ID__: return new test.DemoE1(_buf);
             default: throw new SerializationException();
         }
     }

@@ -26,10 +26,10 @@ public final class Selector extends cfg.ai.ComposeNode {
 
     public final java.util.ArrayList<cfg.ai.FlowNode> children;
 
-    public static final int ID = -1946981627;
+    public static final int __ID__ = -1946981627;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

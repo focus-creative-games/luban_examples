@@ -36,8 +36,8 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
     public ai.EKeyType Type { get; private set; }
     public string TypeClassName { get; private set; }
 
-    public const int ID = -511559886;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -511559886;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

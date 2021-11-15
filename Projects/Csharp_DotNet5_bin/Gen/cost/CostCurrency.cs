@@ -30,8 +30,8 @@ public sealed class CostCurrency :  cost.Cost
     public item.ECurrencyType Type { get; private set; }
     public int Num { get; private set; }
 
-    public const int ID = 911838111;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 911838111;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

@@ -26,10 +26,10 @@ public final class UeTimeLimit extends cfg.ai.Decorator {
 
     public final float limitTime;
 
-    public static final int ID = 338469720;
+    public static final int __ID__ = 338469720;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

@@ -26,10 +26,10 @@ public final class Dymmy extends cfg.item.ItemExtra {
 
     public final cfg.cost.Cost cost;
 
-    public static final int ID = 896889705;
+    public static final int __ID__ = 896889705;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

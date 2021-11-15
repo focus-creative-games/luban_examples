@@ -23,11 +23,11 @@ public abstract class ItemExtra {
 
     public static ItemExtra deserializeItemExtra(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.item.TreasureBox.ID: return new cfg.item.TreasureBox(_buf);
-            case cfg.item.InteractionItem.ID: return new cfg.item.InteractionItem(_buf);
-            case cfg.item.Clothes.ID: return new cfg.item.Clothes(_buf);
-            case cfg.item.DesignDrawing.ID: return new cfg.item.DesignDrawing(_buf);
-            case cfg.item.Dymmy.ID: return new cfg.item.Dymmy(_buf);
+            case cfg.item.TreasureBox.__ID__: return new cfg.item.TreasureBox(_buf);
+            case cfg.item.InteractionItem.__ID__: return new cfg.item.InteractionItem(_buf);
+            case cfg.item.Clothes.__ID__: return new cfg.item.Clothes(_buf);
+            case cfg.item.DesignDrawing.__ID__: return new cfg.item.DesignDrawing(_buf);
+            case cfg.item.Dymmy.__ID__: return new cfg.item.Dymmy(_buf);
             default: throw new SerializationException();
         }
     }

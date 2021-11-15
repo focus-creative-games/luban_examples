@@ -30,10 +30,10 @@ public final class DemoD5 extends cfg.test.DemoDynamic {
 
     public final cfg.test.DateTimeRange time;
 
-    public static final int ID = -2138341744;
+    public static final int __ID__ = -2138341744;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {

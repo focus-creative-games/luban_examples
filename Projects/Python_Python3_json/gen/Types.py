@@ -3443,6 +3443,84 @@ class test_ExcelFromJson :
 
 
 
+class test_TbCompositeJsonTable1:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_CompositeJsonTable1(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_CompositeJsonTable1 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+
+
+
+class test_TbCompositeJsonTable2:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_CompositeJsonTable2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_CompositeJsonTable2 :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.y = _json_['y']
+
+
+
+class test_TbCompositeJsonTable3:
+
+    def __init__(self, _json_):
+        if (len(_json_) != 1): raise Exception('table mode=one, but size != 1')
+        self._data = test_CompositeJsonTable3(_json_[0])
+
+    def getData(self) : return self._data
+
+    def a(self) : return self._data.a
+    def b(self) : return self._data.b
+
+
+
+
+class test_CompositeJsonTable3 :
+
+    def __init__(self, _json_):
+        self.a = _json_['a']
+        self.b = _json_['b']
+
+
+
 class test_TbExcelFromJsonMultiRow:
 
     def __init__(self, _json_ ):
@@ -3658,6 +3736,9 @@ class Tables:
     #def TbTestIndex : return self._TbTestIndex
     #def TbTestMap : return self._TbTestMap
     #def TbExcelFromJson : return self._TbExcelFromJson
+    #def TbCompositeJsonTable1 : return self._TbCompositeJsonTable1
+    #def TbCompositeJsonTable2 : return self._TbCompositeJsonTable2
+    #def TbCompositeJsonTable3 : return self._TbCompositeJsonTable3
     #def TbExcelFromJsonMultiRow : return self._TbExcelFromJsonMultiRow
     #def TbDemoGroupDefineFromExcel : return self._TbDemoGroupDefineFromExcel
     #def TbDefineFromExcel2 : return self._TbDefineFromExcel2
@@ -3703,6 +3784,9 @@ class Tables:
         self.TbTestIndex = test_TbTestIndex(loader('test_tbtestindex')); 
         self.TbTestMap = test_TbTestMap(loader('test_tbtestmap')); 
         self.TbExcelFromJson = test_TbExcelFromJson(loader('test_tbexcelfromjson')); 
+        self.TbCompositeJsonTable1 = test_TbCompositeJsonTable1(loader('test_tbcompositejsontable1')); 
+        self.TbCompositeJsonTable2 = test_TbCompositeJsonTable2(loader('test_tbcompositejsontable2')); 
+        self.TbCompositeJsonTable3 = test_TbCompositeJsonTable3(loader('test_tbcompositejsontable3')); 
         self.TbExcelFromJsonMultiRow = test_TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow')); 
         self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')); 
         self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test_tbdefinefromexcel2')); 

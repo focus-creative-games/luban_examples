@@ -21,17 +21,17 @@ public abstract class Bonus {
 
     public static Bonus deserializeBonus(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.bonus.OneItem.ID: return new cfg.bonus.OneItem(_buf);
-            case cfg.bonus.OneItems.ID: return new cfg.bonus.OneItems(_buf);
-            case cfg.bonus.Item.ID: return new cfg.bonus.Item(_buf);
-            case cfg.bonus.Items.ID: return new cfg.bonus.Items(_buf);
-            case cfg.bonus.CoefficientItem.ID: return new cfg.bonus.CoefficientItem(_buf);
-            case cfg.bonus.WeightItems.ID: return new cfg.bonus.WeightItems(_buf);
-            case cfg.bonus.ProbabilityItems.ID: return new cfg.bonus.ProbabilityItems(_buf);
-            case cfg.bonus.MultiBonus.ID: return new cfg.bonus.MultiBonus(_buf);
-            case cfg.bonus.ProbabilityBonus.ID: return new cfg.bonus.ProbabilityBonus(_buf);
-            case cfg.bonus.WeightBonus.ID: return new cfg.bonus.WeightBonus(_buf);
-            case cfg.bonus.DropBonus.ID: return new cfg.bonus.DropBonus(_buf);
+            case cfg.bonus.OneItem.__ID__: return new cfg.bonus.OneItem(_buf);
+            case cfg.bonus.OneItems.__ID__: return new cfg.bonus.OneItems(_buf);
+            case cfg.bonus.Item.__ID__: return new cfg.bonus.Item(_buf);
+            case cfg.bonus.Items.__ID__: return new cfg.bonus.Items(_buf);
+            case cfg.bonus.CoefficientItem.__ID__: return new cfg.bonus.CoefficientItem(_buf);
+            case cfg.bonus.WeightItems.__ID__: return new cfg.bonus.WeightItems(_buf);
+            case cfg.bonus.ProbabilityItems.__ID__: return new cfg.bonus.ProbabilityItems(_buf);
+            case cfg.bonus.MultiBonus.__ID__: return new cfg.bonus.MultiBonus(_buf);
+            case cfg.bonus.ProbabilityBonus.__ID__: return new cfg.bonus.ProbabilityBonus(_buf);
+            case cfg.bonus.WeightBonus.__ID__: return new cfg.bonus.WeightBonus(_buf);
+            case cfg.bonus.DropBonus.__ID__: return new cfg.bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
     }

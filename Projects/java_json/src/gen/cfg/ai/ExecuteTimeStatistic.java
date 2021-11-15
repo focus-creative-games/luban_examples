@@ -27,10 +27,10 @@ public final class ExecuteTimeStatistic extends cfg.ai.Service {
     }
 
 
-    public static final int ID = 990693812;
+    public static final int __ID__ = 990693812;
 
     @Override
-    public int getTypeId() { return ID; }
+    public int getTypeId() { return __ID__; }
 
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {
