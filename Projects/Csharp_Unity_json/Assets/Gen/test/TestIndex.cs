@@ -15,20 +15,18 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TestIndex :  Bright.Config.BeanBase 
+public sealed class TestIndex :  Bright.Config.BeanBase 
 {
     public TestIndex(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { var _json1 = _json["eles"]; if(!_json1.IsArray) { throw new SerializationException(); } Eles = new System.Collections.Generic.List<test.DemoType1>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.DemoType1 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoType1.DeserializeDemoType1(__e); }  Eles.Add(__v); }   }
-        foreach(var _v in Eles) { Eles_Index.Add(_v.X1, _v); }
     }
 
     public TestIndex(int id, System.Collections.Generic.List<test.DemoType1> eles ) 
     {
         this.Id = id;
         this.Eles = eles;
-        foreach(var _v in Eles) { Eles_Index.Add(_v.X1, _v); }
     }
 
     public static TestIndex DeserializeTestIndex(JSONNode _json)
@@ -38,7 +36,6 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
 
     public int Id { get; private set; }
     public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
-    public readonly Dictionary<int, test.DemoType1> Eles_Index = new Dictionary<int, test.DemoType1>();
 
     public const int ID = 1941154020;
     public override int GetTypeId() => ID;

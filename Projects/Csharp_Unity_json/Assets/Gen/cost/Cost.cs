@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-public abstract partial class Cost :  Bright.Config.BeanBase 
+public abstract class Cost :  Bright.Config.BeanBase 
 {
     public Cost(JSONNode _json) 
     {

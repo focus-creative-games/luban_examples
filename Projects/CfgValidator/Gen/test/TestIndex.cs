@@ -21,14 +21,12 @@ public sealed class TestIndex :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         { var _json0 = _json.GetProperty("eles"); Eles = new System.Collections.Generic.List<test.DemoType1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoType1 __v;  __v =  test.DemoType1.DeserializeDemoType1(__e);  Eles.Add(__v); }   }
-        foreach(var _v in Eles) { Eles_Index.Add(_v.X1, _v); }
     }
 
     public TestIndex(int id, System.Collections.Generic.List<test.DemoType1> eles ) 
     {
         this.Id = id;
         this.Eles = eles;
-        foreach(var _v in Eles) { Eles_Index.Add(_v.X1, _v); }
     }
 
     public static TestIndex DeserializeTestIndex(JsonElement _json)
@@ -38,7 +36,6 @@ public sealed class TestIndex :  Bright.Config.BeanBase
 
     public int Id { get; private set; }
     public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
-    public readonly Dictionary<int, test.DemoType1> Eles_Index = new Dictionary<int, test.DemoType1>();
 
     public const int ID = 1941154020;
     public override int GetTypeId() => ID;

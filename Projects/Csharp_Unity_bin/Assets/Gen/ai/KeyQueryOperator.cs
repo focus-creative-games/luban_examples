@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
+public abstract class KeyQueryOperator :  Bright.Config.BeanBase 
 {
     public KeyQueryOperator(ByteBuf _buf) 
     {

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class ChooseSkill :  ai.Task 
+public sealed class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(JSONNode _json)  : base(_json) 
     {

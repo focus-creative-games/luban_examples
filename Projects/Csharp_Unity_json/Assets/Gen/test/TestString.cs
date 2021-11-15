@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class TestString :  Bright.Config.BeanBase 
+public sealed class TestString :  Bright.Config.BeanBase 
 {
     public TestString(JSONNode _json) 
     {

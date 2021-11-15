@@ -2261,276 +2261,6 @@ namespace cfg
         this->bagInitItemsDropId_Ref = this->bagInitItemsDropId != nullptr ? ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(*(this->bagInitItemsDropId)) : nullptr;
     }
 
-    bool common::Dummy::deserialize(ByteBuf& _buf)
-    {
-
-        if(!_buf.readInt(id)) return false;
-        if(!limit::LimitBase::deserializeLimitBase(_buf, limit)) return false;
-
-        return true;
-    }
-
-    bool common::Dummy::deserializeDummy(ByteBuf& _buf, ::bright::SharedPtr<common::Dummy>& _out)
-    {
-        _out.reset(new common::Dummy());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void common::Dummy::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        limit->resolve(_tables);
-    }
-
-    bool limit::LimitBase::deserialize(ByteBuf& _buf)
-    {
-
-
-        return true;
-    }
-
-    bool limit::LimitBase::deserializeLimitBase(ByteBuf& _buf, ::bright::SharedPtr<limit::LimitBase>& _out)
-    {
-        int id;
-        if (!_buf.readInt(id)) return false;
-        switch (id)
-        {
-            case limit::DailyLimit::ID: { _out.reset(new limit::DailyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case limit::MultiDayLimit::ID: { _out.reset(new limit::MultiDayLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case limit::WeeklyLimit::ID: { _out.reset(new limit::WeeklyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case limit::MonthlyLimit::ID: { _out.reset(new limit::MonthlyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case limit::CoolDown::ID: { _out.reset(new limit::CoolDown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case limit::GroupCoolDown::ID: { _out.reset(new limit::GroupCoolDown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            default: { _out = nullptr; return false;}
-        }
-    }
-
-    void limit::LimitBase::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-    }
-
-    bool limit::DailyLimitBase::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-
-        return true;
-    }
-
-    bool limit::DailyLimitBase::deserializeDailyLimitBase(ByteBuf& _buf, ::bright::SharedPtr<limit::DailyLimitBase>& _out)
-    {
-        int id;
-        if (!_buf.readInt(id)) return false;
-        switch (id)
-        {
-            case limit::DailyLimit::ID: { _out.reset(new limit::DailyLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            default: { _out = nullptr; return false;}
-        }
-    }
-
-    void limit::DailyLimitBase::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
-    bool limit::DailyLimit::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::DailyLimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(num)) return false;
-
-        return true;
-    }
-
-    bool limit::DailyLimit::deserializeDailyLimit(ByteBuf& _buf, ::bright::SharedPtr<limit::DailyLimit>& _out)
-    {
-        _out.reset(new limit::DailyLimit());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::DailyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        DailyLimitBase::resolve(_tables);
-    }
-
-    bool limit::MultiDayLimit::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(day)) return false;
-        if(!_buf.readInt(num)) return false;
-
-        return true;
-    }
-
-    bool limit::MultiDayLimit::deserializeMultiDayLimit(ByteBuf& _buf, ::bright::SharedPtr<limit::MultiDayLimit>& _out)
-    {
-        _out.reset(new limit::MultiDayLimit());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::MultiDayLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
-    bool limit::WeeklyLimit::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(num)) return false;
-
-        return true;
-    }
-
-    bool limit::WeeklyLimit::deserializeWeeklyLimit(ByteBuf& _buf, ::bright::SharedPtr<limit::WeeklyLimit>& _out)
-    {
-        _out.reset(new limit::WeeklyLimit());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::WeeklyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
-    bool limit::MonthlyLimit::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(num)) return false;
-
-        return true;
-    }
-
-    bool limit::MonthlyLimit::deserializeMonthlyLimit(ByteBuf& _buf, ::bright::SharedPtr<limit::MonthlyLimit>& _out)
-    {
-        _out.reset(new limit::MonthlyLimit());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::MonthlyLimit::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
-    bool limit::CoolDown::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(duration)) return false;
-
-        return true;
-    }
-
-    bool limit::CoolDown::deserializeCoolDown(ByteBuf& _buf, ::bright::SharedPtr<limit::CoolDown>& _out)
-    {
-        _out.reset(new limit::CoolDown());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::CoolDown::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
-    bool limit::GroupCoolDown::deserialize(ByteBuf& _buf)
-    {
-        if (!limit::LimitBase::deserialize(_buf))
-        {
-            return false;
-        }
-
-        if(!_buf.readInt(groupId)) return false;
-        if(!_buf.readInt(duration)) return false;
-
-        return true;
-    }
-
-    bool limit::GroupCoolDown::deserializeGroupCoolDown(ByteBuf& _buf, ::bright::SharedPtr<limit::GroupCoolDown>& _out)
-    {
-        _out.reset(new limit::GroupCoolDown());
-        if (_out->deserialize(_buf))
-        {
-            return true;
-        }
-        else
-        { 
-            _out.reset();
-            return false;
-        }
-    }
-
-    void limit::GroupCoolDown::resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        LimitBase::resolve(_tables);
-    }
-
     bool error::ErrorInfo::deserialize(ByteBuf& _buf)
     {
 
@@ -3151,5 +2881,287 @@ namespace cfg
     void condition::MaxLevel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         BoolRoleCondition::resolve(_tables);
+    }
+
+    bool condition::MinMaxLevel::deserialize(ByteBuf& _buf)
+    {
+        if (!condition::BoolRoleCondition::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(min)) return false;
+        if(!_buf.readInt(max)) return false;
+
+        return true;
+    }
+
+    bool condition::MinMaxLevel::deserializeMinMaxLevel(ByteBuf& _buf, ::bright::SharedPtr<condition::MinMaxLevel>& _out)
+    {
+        _out.reset(new condition::MinMaxLevel());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void condition::MinMaxLevel::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
+    bool condition::ClothesPropertyScoreGreaterThan::deserialize(ByteBuf& _buf)
+    {
+        if (!condition::BoolRoleCondition::deserialize(_buf))
+        {
+            return false;
+        }
+
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; prop = item::EClothesPropertyType(__enum_temp__); }
+        if(!_buf.readInt(value)) return false;
+
+        return true;
+    }
+
+    bool condition::ClothesPropertyScoreGreaterThan::deserializeClothesPropertyScoreGreaterThan(ByteBuf& _buf, ::bright::SharedPtr<condition::ClothesPropertyScoreGreaterThan>& _out)
+    {
+        _out.reset(new condition::ClothesPropertyScoreGreaterThan());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void condition::ClothesPropertyScoreGreaterThan::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        BoolRoleCondition::resolve(_tables);
+    }
+
+    bool condition::ContainsItem::deserialize(ByteBuf& _buf)
+    {
+        if (!condition::RoleCondition::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(itemId)) return false;
+        if(!_buf.readInt(num)) return false;
+        if (!_buf.readBool(reverse)) return false;
+
+        return true;
+    }
+
+    bool condition::ContainsItem::deserializeContainsItem(ByteBuf& _buf, ::bright::SharedPtr<condition::ContainsItem>& _out)
+    {
+        _out.reset(new condition::ContainsItem());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void condition::ContainsItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        RoleCondition::resolve(_tables);
+        this->itemId_Ref = ((item::TbItem*)(_tables["item.TbItem"]))->get(itemId);
+    }
+
+    bool item::ChooseOneBonus::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(dropId)) return false;
+        if (!_buf.readBool(isUnique)) return false;
+
+        return true;
+    }
+
+    bool item::ChooseOneBonus::deserializeChooseOneBonus(ByteBuf& _buf, ::bright::SharedPtr<item::ChooseOneBonus>& _out)
+    {
+        _out.reset(new item::ChooseOneBonus());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void item::ChooseOneBonus::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        this->dropId_Ref = ((bonus::TbDrop*)(_tables["bonus.TbDrop"]))->get(dropId);
+    }
+
+    bool item::InteractionItem::deserialize(ByteBuf& _buf)
+    {
+        if (!item::ItemExtra::deserialize(_buf))
+        {
+            return false;
+        }
+
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { attackNum.reset(new ::bright::int32()); if(!_buf.readInt(*attackNum)) return false; } else { attackNum.reset(); } }
+        if(!_buf.readString(holdingStaticMesh)) return false;
+        if(!_buf.readString(holdingStaticMeshMat)) return false;
+
+        return true;
+    }
+
+    bool item::InteractionItem::deserializeInteractionItem(ByteBuf& _buf, ::bright::SharedPtr<item::InteractionItem>& _out)
+    {
+        _out.reset(new item::InteractionItem());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void item::InteractionItem::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
+    bool item::Clothes::deserialize(ByteBuf& _buf)
+    {
+        if (!item::ItemExtra::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!_buf.readInt(attack)) return false;
+        if(!_buf.readLong(hp)) return false;
+        if(!_buf.readInt(energyLimit)) return false;
+        if(!_buf.readInt(energyResume)) return false;
+
+        return true;
+    }
+
+    bool item::Clothes::deserializeClothes(ByteBuf& _buf, ::bright::SharedPtr<item::Clothes>& _out)
+    {
+        _out.reset(new item::Clothes());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void item::Clothes::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
+    bool item::DesignDrawing::deserialize(ByteBuf& _buf)
+    {
+        if (!item::ItemExtra::deserialize(_buf))
+        {
+            return false;
+        }
+
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); learnComponentId.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; learnComponentId.push_back(_e);}}
+
+        return true;
+    }
+
+    bool item::DesignDrawing::deserializeDesignDrawing(ByteBuf& _buf, ::bright::SharedPtr<item::DesignDrawing>& _out)
+    {
+        _out.reset(new item::DesignDrawing());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void item::DesignDrawing::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+    }
+
+    bool item::Dymmy::deserialize(ByteBuf& _buf)
+    {
+        if (!item::ItemExtra::deserialize(_buf))
+        {
+            return false;
+        }
+
+        if(!cost::Cost::deserializeCost(_buf, cost)) return false;
+
+        return true;
+    }
+
+    bool item::Dymmy::deserializeDymmy(ByteBuf& _buf, ::bright::SharedPtr<item::Dymmy>& _out)
+    {
+        _out.reset(new item::Dymmy());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void item::Dymmy::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        ItemExtra::resolve(_tables);
+        cost->resolve(_tables);
+    }
+
+    bool cost::Cost::deserialize(ByteBuf& _buf)
+    {
+
+
+        return true;
+    }
+
+    bool cost::Cost::deserializeCost(ByteBuf& _buf, ::bright::SharedPtr<cost::Cost>& _out)
+    {
+        int id;
+        if (!_buf.readInt(id)) return false;
+        switch (id)
+        {
+            case cost::CostCurrency::ID: { _out.reset(new cost::CostCurrency()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostCurrencies::ID: { _out.reset(new cost::CostCurrencies()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostOneItem::ID: { _out.reset(new cost::CostOneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostItem::ID: { _out.reset(new cost::CostItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostItems::ID: { _out.reset(new cost::CostItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            default: { _out = nullptr; return false;}
+        }
+    }
+
+    void cost::Cost::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
     }
 }

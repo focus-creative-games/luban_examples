@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract partial class KeyData :  Bright.Config.BeanBase 
+public abstract class KeyData :  Bright.Config.BeanBase 
 {
     public KeyData(JSONNode _json) 
     {

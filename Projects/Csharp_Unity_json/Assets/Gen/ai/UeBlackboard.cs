@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeBlackboard :  ai.Decorator 
+public sealed class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JSONNode _json)  : base(_json) 
     {

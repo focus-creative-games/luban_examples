@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.l10n
 {
 
-public sealed partial class PatchDemo :  Bright.Config.BeanBase 
+public sealed class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(JSONNode _json) 
     {

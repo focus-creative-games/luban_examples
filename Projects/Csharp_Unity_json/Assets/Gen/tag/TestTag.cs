@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.tag
 {
 
-public sealed partial class TestTag :  Bright.Config.BeanBase 
+public sealed class TestTag :  Bright.Config.BeanBase 
 {
     public TestTag(JSONNode _json) 
     {

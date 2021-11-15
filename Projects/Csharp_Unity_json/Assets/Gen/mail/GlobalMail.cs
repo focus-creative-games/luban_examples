@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.mail
 {
 
-public sealed partial class GlobalMail :  Bright.Config.BeanBase 
+public sealed class GlobalMail :  Bright.Config.BeanBase 
 {
     public GlobalMail(JSONNode _json) 
     {

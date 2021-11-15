@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class OneItems :  bonus.Bonus 
+public sealed class OneItems :  bonus.Bonus 
 {
     public OneItems(JSONNode _json)  : base(_json) 
     {

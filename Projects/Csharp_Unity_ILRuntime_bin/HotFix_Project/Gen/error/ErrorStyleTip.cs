@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed partial class ErrorStyleTip :  error.ErrorStyle 
+public sealed class ErrorStyleTip :  error.ErrorStyle 
 {
     public ErrorStyleTip(ByteBuf _buf)  : base(_buf) 
     {

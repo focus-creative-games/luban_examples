@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class MoveToTarget :  ai.Task 
+public sealed class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(JSONNode _json)  : base(_json) 
     {

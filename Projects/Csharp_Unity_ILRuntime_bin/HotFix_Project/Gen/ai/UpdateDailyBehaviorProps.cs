@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
+public sealed class UpdateDailyBehaviorProps :  ai.Service 
 {
     public UpdateDailyBehaviorProps(ByteBuf _buf)  : base(_buf) 
     {

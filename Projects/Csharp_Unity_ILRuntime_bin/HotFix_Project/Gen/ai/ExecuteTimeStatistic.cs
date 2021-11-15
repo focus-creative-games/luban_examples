@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class ExecuteTimeStatistic :  ai.Service 
+public sealed class ExecuteTimeStatistic :  ai.Service 
 {
     public ExecuteTimeStatistic(ByteBuf _buf)  : base(_buf) 
     {

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class InnerGroup :  Bright.Config.BeanBase 
+public sealed class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(JSONNode _json) 
     {

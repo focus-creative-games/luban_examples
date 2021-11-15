@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class H2 :  Bright.Config.BeanBase 
+public sealed class H2 :  Bright.Config.BeanBase 
 {
     public H2(ByteBuf _buf) 
     {

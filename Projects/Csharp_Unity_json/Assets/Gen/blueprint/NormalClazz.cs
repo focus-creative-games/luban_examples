@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class NormalClazz :  blueprint.Clazz 
+public sealed class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(JSONNode _json)  : base(_json) 
     {

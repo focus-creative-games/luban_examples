@@ -18,7 +18,7 @@ namespace cfg.test
 /// <summary>
 /// 这是个测试excel结构
 /// </summary>
-public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase 
+public sealed class TestExcelBean1 :  Bright.Config.BeanBase 
 {
     public TestExcelBean1(JSONNode _json) 
     {

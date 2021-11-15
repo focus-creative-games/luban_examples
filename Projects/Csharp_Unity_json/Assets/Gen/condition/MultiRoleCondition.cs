@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed partial class MultiRoleCondition :  condition.RoleCondition 
+public sealed class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(JSONNode _json)  : base(_json) 
     {

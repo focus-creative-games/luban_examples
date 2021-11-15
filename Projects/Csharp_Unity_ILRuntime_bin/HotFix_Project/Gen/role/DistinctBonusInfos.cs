@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
+public sealed class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(ByteBuf _buf) 
     {

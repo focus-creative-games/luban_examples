@@ -852,15 +852,6 @@ namespace bonus { class WeightBonus; }
 namespace bonus { class WeightBonusInfo; } 
 namespace bonus { class DropBonus; } 
 namespace common { class GlobalConfig; } 
-namespace common { class Dummy; } 
-namespace limit { class LimitBase; } 
-namespace limit { class DailyLimitBase; } 
-namespace limit { class DailyLimit; } 
-namespace limit { class MultiDayLimit; } 
-namespace limit { class WeeklyLimit; } 
-namespace limit { class MonthlyLimit; } 
-namespace limit { class CoolDown; } 
-namespace limit { class GroupCoolDown; } 
 namespace error { class ErrorInfo; } 
 namespace error { class ErrorStyle; } 
 namespace error { class ErrorStyleTip; } 
@@ -928,6 +919,8 @@ namespace test { class CompactString; }
 namespace test { class DemoGroup; } 
 namespace test { class InnerGroup; } 
 namespace test { class TestGlobal; } 
+namespace test { class TestBeRef; } 
+namespace test { class TestRef; } 
 namespace test { class DetectEncoding; } 
 namespace test { class DefineFromExcel; } 
 namespace test { class DefineFromExcelOne; } 
@@ -939,6 +932,7 @@ namespace test { class TestRow; }
 namespace test { class Test3; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
+namespace test { class TestDesc; } 
 namespace ai {
 
 
@@ -3502,306 +3496,6 @@ class GlobalConfig : public  bright::CfgBean
 };
 
 }
-namespace common {
-
-
-
-class Dummy : public  bright::CfgBean 
-{
-    public:
-
-    static bool deserializeDummy(ByteBuf& _buf, ::bright::SharedPtr<Dummy>& _out);
-
-    Dummy()
-    { 
-
-    }
-
-    Dummy(::bright::int32 id, ::bright::SharedPtr<limit::LimitBase> limit ) 
-    {
-
-        this->id = id;
-        this->limit = limit;
-    }
-    virtual ~Dummy() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 id;
-    ::bright::SharedPtr<limit::LimitBase> limit;
-
-    static constexpr int ID = -985084219;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class LimitBase : public  bright::CfgBean 
-{
-    public:
-
-    static bool deserializeLimitBase(ByteBuf& _buf, ::bright::SharedPtr<LimitBase>& _out);
-
-    LimitBase()
-    { 
-
-    }
-
-    virtual ~LimitBase() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class DailyLimitBase : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeDailyLimitBase(ByteBuf& _buf, ::bright::SharedPtr<DailyLimitBase>& _out);
-
-    DailyLimitBase()
-    { 
-
-    }
-
-    virtual ~DailyLimitBase() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class DailyLimit : public  limit::DailyLimitBase 
-{
-    public:
-
-    static bool deserializeDailyLimit(ByteBuf& _buf, ::bright::SharedPtr<DailyLimit>& _out);
-
-    DailyLimit()
-    { 
-
-    }
-
-    DailyLimit(::bright::int32 num ) 
-            : limit::DailyLimitBase()
-    {
-
-        this->num = num;
-    }
-    virtual ~DailyLimit() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 num;
-
-    static constexpr int ID = 303235413;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class MultiDayLimit : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeMultiDayLimit(ByteBuf& _buf, ::bright::SharedPtr<MultiDayLimit>& _out);
-
-    MultiDayLimit()
-    { 
-
-    }
-
-    MultiDayLimit(::bright::int32 day, ::bright::int32 num ) 
-            : limit::LimitBase()
-    {
-
-        this->day = day;
-        this->num = num;
-    }
-    virtual ~MultiDayLimit() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 day;
-    ::bright::int32 num;
-
-    static constexpr int ID = -1753629499;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class WeeklyLimit : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeWeeklyLimit(ByteBuf& _buf, ::bright::SharedPtr<WeeklyLimit>& _out);
-
-    WeeklyLimit()
-    { 
-
-    }
-
-    WeeklyLimit(::bright::int32 num ) 
-            : limit::LimitBase()
-    {
-
-        this->num = num;
-    }
-    virtual ~WeeklyLimit() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 num;
-
-    static constexpr int ID = -252187161;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class MonthlyLimit : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeMonthlyLimit(ByteBuf& _buf, ::bright::SharedPtr<MonthlyLimit>& _out);
-
-    MonthlyLimit()
-    { 
-
-    }
-
-    MonthlyLimit(::bright::int32 num ) 
-            : limit::LimitBase()
-    {
-
-        this->num = num;
-    }
-    virtual ~MonthlyLimit() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 num;
-
-    static constexpr int ID = 2063279905;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class CoolDown : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeCoolDown(ByteBuf& _buf, ::bright::SharedPtr<CoolDown>& _out);
-
-    CoolDown()
-    { 
-
-    }
-
-    CoolDown(::bright::int32 duration ) 
-            : limit::LimitBase()
-    {
-
-        this->duration = duration;
-    }
-    virtual ~CoolDown() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 duration;
-
-    static constexpr int ID = -1366194050;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
-namespace limit {
-
-
-
-class GroupCoolDown : public  limit::LimitBase 
-{
-    public:
-
-    static bool deserializeGroupCoolDown(ByteBuf& _buf, ::bright::SharedPtr<GroupCoolDown>& _out);
-
-    GroupCoolDown()
-    { 
-
-    }
-
-    GroupCoolDown(::bright::int32 group_id, ::bright::int32 duration ) 
-            : limit::LimitBase()
-    {
-
-        this->groupId = group_id;
-        this->duration = duration;
-    }
-    virtual ~GroupCoolDown() {}
-
-    bool deserialize(ByteBuf& _buf);
-
-    ::bright::int32 groupId;
-    ::bright::int32 duration;
-
-    static constexpr int ID = 394328599;
-
-    int getTypeId() const { return ID; }
-
-    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
-};
-
-}
 namespace error {
 
 
@@ -6351,6 +6045,96 @@ namespace test {
 
 
 
+class TestBeRef : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestBeRef(ByteBuf& _buf, ::bright::SharedPtr<TestBeRef>& _out);
+
+    TestBeRef()
+    { 
+
+    }
+
+    TestBeRef(::bright::int32 id, ::bright::int32 count ) 
+    {
+
+        this->id = id;
+        this->count = count;
+    }
+    virtual ~TestBeRef() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::int32 count;
+
+    static constexpr int ID = 1934403938;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestRef : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestRef(ByteBuf& _buf, ::bright::SharedPtr<TestRef>& _out);
+
+    TestRef()
+    { 
+
+    }
+
+    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->a1 = a1;
+        this->a2 = a2;
+        this->b1 = b1;
+        this->b2 = b2;
+        this->c1 = c1;
+        this->c2 = c2;
+        this->d1 = d1;
+    }
+    virtual ~TestRef() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::int32 x1;
+    ::bright::SharedPtr<test::TestBeRef> x1_Ref;
+    ::bright::int32 x2;
+    ::bright::SharedPtr<test::TestBeRef> x2_Ref;
+    ::bright::Vector<::bright::int32> a1;
+    ::bright::Vector<::bright::int32> a2;
+    ::bright::Vector<::bright::int32> b1;
+    ::bright::Vector<::bright::int32> b2;
+    ::bright::HashSet<::bright::int32> c1;
+    ::bright::HashSet<::bright::int32> c2;
+    ::bright::HashMap<::bright::int32, ::bright::int32> d1;
+
+    static constexpr int ID = -543222491;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
 class DetectEncoding : public  bright::CfgBean 
 {
     public:
@@ -6387,9 +6171,6 @@ namespace test {
 
 
 
-/**
- * 
- */
 class DefineFromExcel : public  bright::CfgBean 
 {
     public:
@@ -6454,9 +6235,6 @@ namespace test {
 
 
 
-/**
- * 
- */
 class DefineFromExcelOne : public  bright::CfgBean 
 {
     public:
@@ -6488,9 +6266,6 @@ class DefineFromExcelOne : public  bright::CfgBean
      * 英雄解锁等级
      */
     ::bright::int32 unlockHero;
-    /**
-     * 默认头像
-     */
     ::bright::String defaultAvatar;
     ::bright::String defaultItem;
 
@@ -6529,7 +6304,6 @@ class TestIndex : public  bright::CfgBean
 
     ::bright::int32 id;
     ::bright::Vector<::bright::SharedPtr<test::DemoType1>> eles;
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::DemoType1>> eles_Index;
 
     static constexpr int ID = 1941154020;
 
@@ -6768,9 +6542,6 @@ namespace test {
 
 
 
-/**
- * 
- */
 class DefineFromExcel2 : public  bright::CfgBean 
 {
     public:
@@ -6879,6 +6650,64 @@ class TestExcelBean1 : public  bright::CfgBean
     ::bright::float32 x4;
 
     static constexpr int ID = -1738345160;
+
+    int getTypeId() const { return ID; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestDesc : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestDesc(ByteBuf& _buf, ::bright::SharedPtr<TestDesc>& _out);
+
+    TestDesc()
+    { 
+
+    }
+
+    TestDesc(::bright::int32 id, ::bright::String name, ::bright::int32 a1, ::bright::int32 a2, ::bright::SharedPtr<test::H1> x1, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3 ) 
+    {
+
+        this->id = id;
+        this->name = name;
+        this->a1 = a1;
+        this->a2 = a2;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+    }
+    virtual ~TestDesc() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    /**
+     * 禁止
+     */
+    ::bright::String name;
+    /**
+     * 测试换行<br/>第2行<br/>第3层
+     */
+    ::bright::int32 a1;
+    /**
+     * 测试转义 &lt; &amp; % / # &gt;
+     */
+    ::bright::int32 a2;
+    ::bright::SharedPtr<test::H1> x1;
+    /**
+     * 这是x2
+     */
+    ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
+    ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
+
+    static constexpr int ID = 339555391;
 
     int getTypeId() const { return ID; }
 
@@ -7131,55 +6960,6 @@ class TbGlobalConfig
     ::bright::int32& getInitViality() const { return _data->initViality; }
     ::bright::int32& getMaxViality() const { return _data->maxViality; }
     ::bright::int32& getPerVialityRecoveryTime() const { return _data->perVialityRecoveryTime; }
-};
-}
-namespace common {
-
-
-class TbDummy
-{
-    private:
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<common::Dummy>> _dataMap;
-    ::bright::Vector<::bright::SharedPtr<common::Dummy>> _dataList;
-    
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<common::Dummy> _v;
-            if(!common::Dummy::deserializeDummy(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
-        }
-        return true;
-    }
-
-    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<common::Dummy>>& getDataMap() const { return _dataMap; }
-    const ::bright::Vector<::bright::SharedPtr<common::Dummy>>& getDataList() const { return _dataList; }
-
-    common::Dummy* getRaw(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::bright::SharedPtr<common::Dummy> get(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
-        {
-            v->resolve(_tables);
-        }
-    }
-
 };
 }
 namespace error {
@@ -8374,6 +8154,104 @@ class TbTestGlobal
 namespace test {
 
 
+class TbTestBeRef
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestBeRef>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestBeRef>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestBeRef> _v;
+            if(!test::TestBeRef::deserializeTestBeRef(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestBeRef>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestBeRef>>& getDataList() const { return _dataList; }
+
+    test::TestBeRef* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestBeRef> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbTestRef
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestRef>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestRef>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestRef> _v;
+            if(!test::TestRef::deserializeTestRef(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestRef>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestRef>>& getDataList() const { return _dataList; }
+
+    test::TestRef* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestRef> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
 class TbDetectCsvEncoding
 {
     private:
@@ -8502,9 +8380,6 @@ class TbDefineFromExcelOne
      * 英雄解锁等级
      */
     ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
-    /**
-     * 默认头像
-     */
     ::bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
     ::bright::String& getDefaultItem() const { return _data->defaultItem; }
 };
@@ -8852,6 +8727,55 @@ class TbTestExcelBean
 
 };
 }
+namespace test {
+
+
+class TbTestDesc
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestDesc>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestDesc> _v;
+            if(!test::TestDesc::deserializeTestDesc(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestDesc>>& getDataList() const { return _dataList; }
+
+    test::TestDesc* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestDesc> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
 class Tables
 {
     public:
@@ -8860,7 +8784,6 @@ class Tables
      blueprint::TbClazz TbClazz;
      bonus::TbDrop TbDrop;
      common::TbGlobalConfig TbGlobalConfig;
-     common::TbDummy TbDummy;
      error::TbErrorInfo TbErrorInfo;
      error::TbCodeInfo TbCodeInfo;
     /**
@@ -8889,6 +8812,8 @@ class Tables
      test::TbDemoGroup_S TbDemoGroup_S;
      test::TbDemoGroup_E TbDemoGroup_E;
      test::TbTestGlobal TbTestGlobal;
+     test::TbTestBeRef TbTestBeRef;
+     test::TbTestRef TbTestRef;
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
      test::TbDefineFromExcel TbDefineFromExcel;
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
@@ -8899,6 +8824,7 @@ class Tables
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
+     test::TbTestDesc TbTestDesc;
 
     bool load(::bright::Loader<ByteBuf> loader)
     {
@@ -8920,9 +8846,6 @@ class Tables
         if (!loader(buf, "common_tbglobalconfig")) return false;
         if (!TbGlobalConfig.load(buf)) return false;
         __tables__["common.TbGlobalConfig"] = &TbGlobalConfig;
-        if (!loader(buf, "common_tbdummy")) return false;
-        if (!TbDummy.load(buf)) return false;
-        __tables__["common.TbDummy"] = &TbDummy;
         if (!loader(buf, "error_tberrorinfo")) return false;
         if (!TbErrorInfo.load(buf)) return false;
         __tables__["error.TbErrorInfo"] = &TbErrorInfo;
@@ -8998,6 +8921,12 @@ class Tables
         if (!loader(buf, "test_tbtestglobal")) return false;
         if (!TbTestGlobal.load(buf)) return false;
         __tables__["test.TbTestGlobal"] = &TbTestGlobal;
+        if (!loader(buf, "test_tbtestberef")) return false;
+        if (!TbTestBeRef.load(buf)) return false;
+        __tables__["test.TbTestBeRef"] = &TbTestBeRef;
+        if (!loader(buf, "test_tbtestref")) return false;
+        if (!TbTestRef.load(buf)) return false;
+        __tables__["test.TbTestRef"] = &TbTestRef;
         if (!loader(buf, "test_tbdetectcsvencoding")) return false;
         if (!TbDetectCsvEncoding.load(buf)) return false;
         __tables__["test.TbDetectCsvEncoding"] = &TbDetectCsvEncoding;
@@ -9028,13 +8957,15 @@ class Tables
         if (!loader(buf, "test_tbtestexcelbean")) return false;
         if (!TbTestExcelBean.load(buf)) return false;
         __tables__["test.TbTestExcelBean"] = &TbTestExcelBean;
+        if (!loader(buf, "test_tbtestdesc")) return false;
+        if (!TbTestDesc.load(buf)) return false;
+        __tables__["test.TbTestDesc"] = &TbTestDesc;
 
         TbBlackboard.resolve(__tables__); 
         TbBehaviorTree.resolve(__tables__); 
         TbClazz.resolve(__tables__); 
         TbDrop.resolve(__tables__); 
         TbGlobalConfig.resolve(__tables__); 
-        TbDummy.resolve(__tables__); 
         TbErrorInfo.resolve(__tables__); 
         TbCodeInfo.resolve(__tables__); 
         TbItem.resolve(__tables__); 
@@ -9060,6 +8991,8 @@ class Tables
         TbDemoGroup_S.resolve(__tables__); 
         TbDemoGroup_E.resolve(__tables__); 
         TbTestGlobal.resolve(__tables__); 
+        TbTestBeRef.resolve(__tables__); 
+        TbTestRef.resolve(__tables__); 
         TbDetectCsvEncoding.resolve(__tables__); 
         TbDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcelOne.resolve(__tables__); 
@@ -9070,6 +9003,7 @@ class Tables
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 
+        TbTestDesc.resolve(__tables__); 
         return true;
     }
 };

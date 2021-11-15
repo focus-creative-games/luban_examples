@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeCooldown :  ai.Decorator 
+public sealed class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(JSONNode _json)  : base(_json) 
     {

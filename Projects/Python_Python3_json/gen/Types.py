@@ -1818,144 +1818,6 @@ class common_GlobalConfig :
 
 
 
-class common_TbDummy:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = common_Dummy(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-
-
-
-
-class common_Dummy :
-
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.limit = limit_LimitBase.fromJson(_json_['limit'])
-
-
-
-
-class limit_LimitBase (metaclass=abc.ABCMeta):
-    _childrenTypes = None
-
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = limit_LimitBase._childrenTypes
-        if not childrenTypes:
-            childrenTypes = limit_LimitBase._childrenTypes = {
-            'DailyLimit': limit_DailyLimit,
-            'MultiDayLimit': limit_MultiDayLimit,
-            'WeeklyLimit': limit_WeeklyLimit,
-            'MonthlyLimit': limit_MonthlyLimit,
-            'CoolDown': limit_CoolDown,
-            'GroupCoolDown': limit_GroupCoolDown,
-    }
-        type = _json_['__type__']
-        child = limit_LimitBase._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-
-    def __init__(self, _json_):
-
-        pass
-
-
-
-
-class limit_DailyLimitBase (limit_LimitBase):
-    _childrenTypes = None
-
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = limit_DailyLimitBase._childrenTypes
-        if not childrenTypes:
-            childrenTypes = limit_DailyLimitBase._childrenTypes = {
-            'DailyLimit': limit_DailyLimit,
-    }
-        type = _json_['__type__']
-        child = limit_DailyLimitBase._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-
-        pass
-
-
-
-
-class limit_DailyLimit (limit_DailyLimitBase):
-
-    def __init__(self, _json_):
-        limit_DailyLimitBase.__init__(self, _json_)
-        self.num = _json_['num']
-
-
-
-
-class limit_MultiDayLimit (limit_LimitBase):
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-        self.day = _json_['day']
-        self.num = _json_['num']
-
-
-
-
-class limit_WeeklyLimit (limit_LimitBase):
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-        self.num = _json_['num']
-
-
-
-
-class limit_MonthlyLimit (limit_LimitBase):
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-        self.num = _json_['num']
-
-
-
-
-class limit_CoolDown (limit_LimitBase):
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-        self.duration = _json_['duration']
-
-
-
-
-class limit_GroupCoolDown (limit_LimitBase):
-
-    def __init__(self, _json_):
-        limit_LimitBase.__init__(self, _json_)
-        self.group_id = _json_['group_id']
-        self.duration = _json_['duration']
-
-
-
 class error_TbErrorInfo:
 
     def __init__(self, _json_ ):
@@ -3305,6 +3167,71 @@ class test_TestGlobal :
 
 
 
+class test_TbTestBeRef:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestBeRef(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestBeRef :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.count = _json_['count']
+
+
+
+class test_TbTestRef:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestRef(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestRef :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.a1 = _json_['a1']
+        self.a2 = _json_['a2']
+        self.b1 = _json_['b1']
+        self.b2 = _json_['b2']
+        self.c1 = _json_['c1']
+        self.c2 = _json_['c2']
+        self.d1 = {}
+        for _ek, _ev in _json_['d1']: _k = _ek; _v = _ev; self.d1[_k] =_v
+
+
+
 class test_TbDetectCsvEncoding:
 
     def __init__(self, _json_ ):
@@ -3390,9 +3317,6 @@ class test_TbDefineFromExcelOne:
     英雄解锁等级
     '''
     def unlock_hero(self) : return self._data.unlock_hero
-    '''
-    默认头像
-    '''
     def default_avatar(self) : return self._data.default_avatar
     def default_item(self) : return self._data.default_item
 
@@ -3660,13 +3584,47 @@ class test_TestExcelBean1 :
 
 
 
+class test_TbTestDesc:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestDesc(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestDesc :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.a1 = _json_['a1']
+        self.a2 = _json_['a2']
+        self.x1 = test_H1(_json_['x1'])
+        self.x2 = []
+        for _ele in _json_['x2']: _e = test_H2(_ele); self.x2.append(_e)
+        self.x3 = []
+        for _ele in _json_['x3']: _e = test_H2(_ele); self.x3.append(_e)
+
+
+
 class Tables:
     #def TbBlackboard : return self._TbBlackboard
     #def TbBehaviorTree : return self._TbBehaviorTree
     #def TbClazz : return self._TbClazz
     #def TbDrop : return self._TbDrop
     #def TbGlobalConfig : return self._TbGlobalConfig
-    #def TbDummy : return self._TbDummy
     #def TbErrorInfo : return self._TbErrorInfo
     #def TbCodeInfo : return self._TbCodeInfo
     #def TbItem : return self._TbItem
@@ -3692,6 +3650,8 @@ class Tables:
     #def TbDemoGroup_S : return self._TbDemoGroup_S
     #def TbDemoGroup_E : return self._TbDemoGroup_E
     #def TbTestGlobal : return self._TbTestGlobal
+    #def TbTestBeRef : return self._TbTestBeRef
+    #def TbTestRef : return self._TbTestRef
     #def TbDetectCsvEncoding : return self._TbDetectCsvEncoding
     #def TbDefineFromExcel : return self._TbDefineFromExcel
     #def TbDefineFromExcelOne : return self._TbDefineFromExcelOne
@@ -3702,6 +3662,7 @@ class Tables:
     #def TbDemoGroupDefineFromExcel : return self._TbDemoGroupDefineFromExcel
     #def TbDefineFromExcel2 : return self._TbDefineFromExcel2
     #def TbTestExcelBean : return self._TbTestExcelBean
+    #def TbTestDesc : return self._TbTestDesc
 
     def __init__(self, loader):
         self.TbBlackboard = ai_TbBlackboard(loader('ai_tbblackboard')); 
@@ -3709,7 +3670,6 @@ class Tables:
         self.TbClazz = blueprint_TbClazz(loader('blueprint_tbclazz')); 
         self.TbDrop = bonus_TbDrop(loader('bonus_tbdrop')); 
         self.TbGlobalConfig = common_TbGlobalConfig(loader('common_tbglobalconfig')); 
-        self.TbDummy = common_TbDummy(loader('common_tbdummy')); 
         self.TbErrorInfo = error_TbErrorInfo(loader('error_tberrorinfo')); 
         self.TbCodeInfo = error_TbCodeInfo(loader('error_tbcodeinfo')); 
         self.TbItem = item_TbItem(loader('item_tbitem')); 
@@ -3735,6 +3695,8 @@ class Tables:
         self.TbDemoGroup_S = test_TbDemoGroup_S(loader('test_tbdemogroup_s')); 
         self.TbDemoGroup_E = test_TbDemoGroup_E(loader('test_tbdemogroup_e')); 
         self.TbTestGlobal = test_TbTestGlobal(loader('test_tbtestglobal')); 
+        self.TbTestBeRef = test_TbTestBeRef(loader('test_tbtestberef')); 
+        self.TbTestRef = test_TbTestRef(loader('test_tbtestref')); 
         self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')); 
         self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test_tbdefinefromexcel')); 
         self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')); 
@@ -3745,3 +3707,4 @@ class Tables:
         self.TbDemoGroupDefineFromExcel = test_TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')); 
         self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test_tbdefinefromexcel2')); 
         self.TbTestExcelBean = test_TbTestExcelBean(loader('test_tbtestexcelbean')); 
+        self.TbTestDesc = test_TbTestDesc(loader('test_tbtestdesc')); 

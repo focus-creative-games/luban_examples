@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeLoop :  ai.Decorator 
+public sealed class UeLoop :  ai.Decorator 
 {
     public UeLoop(JSONNode _json)  : base(_json) 
     {

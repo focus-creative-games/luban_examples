@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
+public sealed class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(JSONNode _json) 
     {

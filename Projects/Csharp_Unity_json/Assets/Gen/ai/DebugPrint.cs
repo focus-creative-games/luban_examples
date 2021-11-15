@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class DebugPrint :  ai.Task 
+public sealed class DebugPrint :  ai.Task 
 {
     public DebugPrint(JSONNode _json)  : base(_json) 
     {

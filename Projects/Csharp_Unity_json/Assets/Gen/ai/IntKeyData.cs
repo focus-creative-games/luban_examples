@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class IntKeyData :  ai.KeyData 
+public sealed class IntKeyData :  ai.KeyData 
 {
     public IntKeyData(JSONNode _json)  : base(_json) 
     {

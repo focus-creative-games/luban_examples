@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class MoveToRandomLocation :  ai.Task 
+public sealed class MoveToRandomLocation :  ai.Task 
 {
     public MoveToRandomLocation(JSONNode _json)  : base(_json) 
     {

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public abstract partial class Bonus :  Bright.Config.BeanBase 
+public abstract class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(JSONNode _json) 
     {

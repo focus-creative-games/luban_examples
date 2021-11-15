@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class TimeRange :  condition.Condition 
+public sealed class TimeRange :  condition.Condition 
 {
     public TimeRange(ByteBuf _buf)  : base(_buf) 
     {

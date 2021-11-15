@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed partial class EnumClazz :  blueprint.Clazz 
+public sealed class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(ByteBuf _buf)  : base(_buf) 
     {

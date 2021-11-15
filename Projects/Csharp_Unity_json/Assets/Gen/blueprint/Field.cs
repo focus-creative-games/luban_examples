@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class Field :  Bright.Config.BeanBase 
+public sealed class Field :  Bright.Config.BeanBase 
 {
     public Field(JSONNode _json) 
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class TestMap :  Bright.Config.BeanBase 
+public sealed class TestMap :  Bright.Config.BeanBase 
 {
     public TestMap(ByteBuf _buf) 
     {

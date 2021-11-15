@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
+public sealed class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(JSONNode _json) 
     {

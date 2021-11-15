@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class Node :  Bright.Config.BeanBase 
+public abstract class Node :  Bright.Config.BeanBase 
 {
     public Node(ByteBuf _buf) 
     {

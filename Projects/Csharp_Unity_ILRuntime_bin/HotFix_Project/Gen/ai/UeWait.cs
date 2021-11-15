@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class UeWait :  ai.Task 
+public sealed class UeWait :  ai.Task 
 {
     public UeWait(ByteBuf _buf)  : base(_buf) 
     {

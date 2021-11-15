@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class GetOwnerPlayer :  ai.Service 
+public sealed class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(JSONNode _json)  : base(_json) 
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
+public abstract class ErrorStyle :  Bright.Config.BeanBase 
 {
     public ErrorStyle(ByteBuf _buf) 
     {

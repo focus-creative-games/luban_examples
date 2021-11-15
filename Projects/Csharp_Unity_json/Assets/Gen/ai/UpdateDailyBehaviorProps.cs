@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
+public sealed class UpdateDailyBehaviorProps :  ai.Service 
 {
     public UpdateDailyBehaviorProps(JSONNode _json)  : base(_json) 
     {

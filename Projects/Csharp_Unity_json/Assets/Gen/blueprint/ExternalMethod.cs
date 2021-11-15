@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class ExternalMethod :  blueprint.Method 
+public sealed class ExternalMethod :  blueprint.Method 
 {
     public ExternalMethod(JSONNode _json)  : base(_json) 
     {

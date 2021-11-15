@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed partial class EnumField :  Bright.Config.BeanBase 
+public sealed class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(ByteBuf _buf) 
     {

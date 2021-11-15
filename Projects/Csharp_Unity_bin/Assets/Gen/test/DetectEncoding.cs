@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
+public sealed class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(ByteBuf _buf) 
     {

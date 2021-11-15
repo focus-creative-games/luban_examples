@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class BehaviorTree :  Bright.Config.BeanBase 
+public sealed class BehaviorTree :  Bright.Config.BeanBase 
 {
     public BehaviorTree(JSONNode _json) 
     {

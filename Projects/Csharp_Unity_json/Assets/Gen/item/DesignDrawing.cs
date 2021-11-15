@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class DesignDrawing :  item.ItemExtra 
+public sealed class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(JSONNode _json)  : base(_json) 
     {

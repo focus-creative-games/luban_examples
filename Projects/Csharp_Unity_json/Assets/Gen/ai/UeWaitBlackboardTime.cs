@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeWaitBlackboardTime :  ai.Task 
+public sealed class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(JSONNode _json)  : base(_json) 
     {

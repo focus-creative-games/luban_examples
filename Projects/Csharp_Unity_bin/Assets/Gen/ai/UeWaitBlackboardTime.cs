@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class UeWaitBlackboardTime :  ai.Task 
+public sealed class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(ByteBuf _buf)  : base(_buf) 
     {

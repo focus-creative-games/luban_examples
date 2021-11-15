@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.common
 {
 
-public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
+public sealed class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(JSONNode _json) 
     {

@@ -14,10 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
-public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase 
+public sealed class DefineFromExcel2 :  Bright.Config.BeanBase 
 {
     public DefineFromExcel2(ByteBuf _buf) 
     {

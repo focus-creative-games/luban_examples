@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract partial class Decorator :  ai.Node 
+public abstract class Decorator :  ai.Node 
 {
     public Decorator(JSONNode _json)  : base(_json) 
     {

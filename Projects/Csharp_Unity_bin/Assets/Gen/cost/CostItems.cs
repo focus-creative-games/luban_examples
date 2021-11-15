@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public sealed partial class CostItems :  cost.Cost 
+public sealed class CostItems :  cost.Cost 
 {
     public CostItems(ByteBuf _buf)  : base(_buf) 
     {

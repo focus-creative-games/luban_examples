@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-public sealed partial class CostCurrencies :  cost.Cost 
+public sealed class CostCurrencies :  cost.Cost 
 {
     public CostCurrencies(JSONNode _json)  : base(_json) 
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public abstract partial class Cost :  Bright.Config.BeanBase 
+public abstract class Cost :  Bright.Config.BeanBase 
 {
     public Cost(ByteBuf _buf) 
     {

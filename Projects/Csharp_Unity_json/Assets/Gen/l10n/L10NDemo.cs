@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.l10n
 {
 
-public sealed partial class L10NDemo :  Bright.Config.BeanBase 
+public sealed class L10NDemo :  Bright.Config.BeanBase 
 {
     public L10NDemo(JSONNode _json) 
     {

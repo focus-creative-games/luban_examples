@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public abstract partial class Bonus :  Bright.Config.BeanBase 
+public abstract class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(ByteBuf _buf) 
     {

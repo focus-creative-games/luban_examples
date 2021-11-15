@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class GenderLimit :  condition.BoolRoleCondition 
+public sealed class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(ByteBuf _buf)  : base(_buf) 
     {

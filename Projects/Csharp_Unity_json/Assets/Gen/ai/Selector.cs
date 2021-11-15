@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class Selector :  ai.ComposeNode 
+public sealed class Selector :  ai.ComposeNode 
 {
     public Selector(JSONNode _json)  : base(_json) 
     {

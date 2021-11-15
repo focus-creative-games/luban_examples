@@ -18,7 +18,7 @@ namespace cfg.item
 /// <summary>
 /// 道具
 /// </summary>
-public sealed partial class Item :  Bright.Config.BeanBase 
+public sealed class Item :  Bright.Config.BeanBase 
 {
     public Item(JSONNode _json) 
     {

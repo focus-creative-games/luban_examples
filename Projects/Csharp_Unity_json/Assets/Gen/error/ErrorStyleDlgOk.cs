@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
+public sealed class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(JSONNode _json)  : base(_json) 
     {

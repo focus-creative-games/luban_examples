@@ -19,7 +19,6 @@ public sealed class Tables
     public blueprint.TbClazz TbClazz {get; }
     public bonus.TbDrop TbDrop {get; }
     public common.TbGlobalConfig TbGlobalConfig {get; }
-    public common.TbDummy TbDummy {get; }
     public error.TbErrorInfo TbErrorInfo {get; }
     public error.TbCodeInfo TbCodeInfo {get; }
     /// <summary>
@@ -75,8 +74,6 @@ public sealed class Tables
         tables.Add("bonus.TbDrop", TbDrop);
         TbGlobalConfig = new common.TbGlobalConfig(loader("common_tbglobalconfig")); 
         tables.Add("common.TbGlobalConfig", TbGlobalConfig);
-        TbDummy = new common.TbDummy(loader("common_tbdummy")); 
-        tables.Add("common.TbDummy", TbDummy);
         TbErrorInfo = new error.TbErrorInfo(loader("error_tberrorinfo")); 
         tables.Add("error.TbErrorInfo", TbErrorInfo);
         TbCodeInfo = new error.TbCodeInfo(loader("error_tbcodeinfo")); 
@@ -159,7 +156,6 @@ public sealed class Tables
         TbClazz.Resolve(tables); 
         TbDrop.Resolve(tables); 
         TbGlobalConfig.Resolve(tables); 
-        TbDummy.Resolve(tables); 
         TbErrorInfo.Resolve(tables); 
         TbCodeInfo.Resolve(tables); 
         TbItem.Resolve(tables); 
@@ -207,7 +203,6 @@ public sealed class Tables
         TbClazz.TranslateText(translator); 
         TbDrop.TranslateText(translator); 
         TbGlobalConfig.TranslateText(translator); 
-        TbDummy.TranslateText(translator); 
         TbErrorInfo.TranslateText(translator); 
         TbCodeInfo.TranslateText(translator); 
         TbItem.TranslateText(translator); 

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeTimeLimit :  ai.Decorator 
+public sealed class UeTimeLimit :  ai.Decorator 
 {
     public UeTimeLimit(JSONNode _json)  : base(_json) 
     {

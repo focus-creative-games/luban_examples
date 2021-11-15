@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class Blackboard :  Bright.Config.BeanBase 
+public sealed class Blackboard :  Bright.Config.BeanBase 
 {
     public Blackboard(JSONNode _json) 
     {

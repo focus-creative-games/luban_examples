@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class MultiRowType1 :  Bright.Config.BeanBase 
+public sealed class MultiRowType1 :  Bright.Config.BeanBase 
 {
     public MultiRowType1(ByteBuf _buf) 
     {

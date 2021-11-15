@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public abstract partial class ItemExtra :  Bright.Config.BeanBase 
+public abstract class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(ByteBuf _buf) 
     {

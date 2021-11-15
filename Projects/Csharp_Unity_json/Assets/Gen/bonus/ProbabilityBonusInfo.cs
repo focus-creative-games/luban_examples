@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase 
+public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityBonusInfo(JSONNode _json) 
     {

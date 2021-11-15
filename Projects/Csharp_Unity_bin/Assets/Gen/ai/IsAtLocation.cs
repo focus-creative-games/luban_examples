@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class IsAtLocation :  ai.Decorator 
+public sealed class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(ByteBuf _buf)  : base(_buf) 
     {

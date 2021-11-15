@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class SimpleParallel :  ai.ComposeNode 
+public sealed class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(JSONNode _json)  : base(_json) 
     {

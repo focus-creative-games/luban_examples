@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class InnerGroup :  Bright.Config.BeanBase 
+public sealed class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(ByteBuf _buf) 
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class Blackboard :  Bright.Config.BeanBase 
+public sealed class Blackboard :  Bright.Config.BeanBase 
 {
     public Blackboard(ByteBuf _buf) 
     {

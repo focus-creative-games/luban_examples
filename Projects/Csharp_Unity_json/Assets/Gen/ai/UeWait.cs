@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeWait :  ai.Task 
+public sealed class UeWait :  ai.Task 
 {
     public UeWait(JSONNode _json)  : base(_json) 
     {

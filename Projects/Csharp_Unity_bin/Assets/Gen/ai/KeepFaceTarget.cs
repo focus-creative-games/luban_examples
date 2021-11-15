@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class KeepFaceTarget :  ai.Service 
+public sealed class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(ByteBuf _buf)  : base(_buf) 
     {

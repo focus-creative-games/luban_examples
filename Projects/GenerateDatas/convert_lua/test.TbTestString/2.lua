@@ -1,6 +1,6 @@
 return {
     id = 2,
-    s1 = "",
+    s1 = "adsf\"",
     cs1 = {
         id = 2,
         s2 = "",

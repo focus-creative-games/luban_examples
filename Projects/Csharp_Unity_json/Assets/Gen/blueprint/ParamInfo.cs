@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class ParamInfo :  Bright.Config.BeanBase 
+public sealed class ParamInfo :  Bright.Config.BeanBase 
 {
     public ParamInfo(JSONNode _json) 
     {

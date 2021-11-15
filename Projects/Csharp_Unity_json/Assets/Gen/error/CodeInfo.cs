@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public sealed partial class CodeInfo :  Bright.Config.BeanBase 
+public sealed class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(JSONNode _json) 
     {

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class Clothes :  item.ItemExtra 
+public sealed class Clothes :  item.ItemExtra 
 {
     public Clothes(JSONNode _json)  : base(_json) 
     {

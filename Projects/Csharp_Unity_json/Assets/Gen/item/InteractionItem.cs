@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class InteractionItem :  item.ItemExtra 
+public sealed class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(JSONNode _json)  : base(_json) 
     {

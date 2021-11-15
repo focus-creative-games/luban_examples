@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class UeSetDefaultFocus :  ai.Service 
+public sealed class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(JSONNode _json)  : base(_json) 
     {

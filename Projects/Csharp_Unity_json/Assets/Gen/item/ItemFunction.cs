@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class ItemFunction :  Bright.Config.BeanBase 
+public sealed class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(JSONNode _json) 
     {

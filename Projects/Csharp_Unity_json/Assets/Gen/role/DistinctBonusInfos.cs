@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
+public sealed class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(JSONNode _json) 
     {

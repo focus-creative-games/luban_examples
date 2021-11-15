@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
+public sealed class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
     {

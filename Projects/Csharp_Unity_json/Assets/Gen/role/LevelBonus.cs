@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed partial class LevelBonus :  Bright.Config.BeanBase 
+public sealed class LevelBonus :  Bright.Config.BeanBase 
 {
     public LevelBonus(JSONNode _json) 
     {

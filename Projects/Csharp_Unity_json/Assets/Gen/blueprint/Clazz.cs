@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public abstract partial class Clazz :  Bright.Config.BeanBase 
+public abstract class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(JSONNode _json) 
     {

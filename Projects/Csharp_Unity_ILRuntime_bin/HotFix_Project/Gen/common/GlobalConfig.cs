@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
+public sealed class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(ByteBuf _buf) 
     {

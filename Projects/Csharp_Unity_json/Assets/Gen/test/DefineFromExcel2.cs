@@ -15,10 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-/// <summary>
-/// 
-/// </summary>
-public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase 
+public sealed class DefineFromExcel2 :  Bright.Config.BeanBase 
 {
     public DefineFromExcel2(JSONNode _json) 
     {

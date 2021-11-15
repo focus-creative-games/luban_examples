@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class TreasureBox :  item.ItemExtra 
+public sealed class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(JSONNode _json)  : base(_json) 
     {

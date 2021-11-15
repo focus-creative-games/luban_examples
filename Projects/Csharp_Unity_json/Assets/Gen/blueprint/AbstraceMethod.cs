@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class AbstraceMethod :  blueprint.Method 
+public sealed class AbstraceMethod :  blueprint.Method 
 {
     public AbstraceMethod(JSONNode _json)  : base(_json) 
     {

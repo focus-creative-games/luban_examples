@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class ChooseTarget :  ai.Service 
+public sealed class ChooseTarget :  ai.Service 
 {
     public ChooseTarget(JSONNode _json)  : base(_json) 
     {

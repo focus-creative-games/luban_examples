@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed partial class MaxLevel :  condition.BoolRoleCondition 
+public sealed class MaxLevel :  condition.BoolRoleCondition 
 {
     public MaxLevel(JSONNode _json)  : base(_json) 
     {

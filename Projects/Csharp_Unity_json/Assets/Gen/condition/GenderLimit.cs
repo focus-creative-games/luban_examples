@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed partial class GenderLimit :  condition.BoolRoleCondition 
+public sealed class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(JSONNode _json)  : base(_json) 
     {

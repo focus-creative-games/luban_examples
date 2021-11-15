@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class WeightBonus :  bonus.Bonus 
+public sealed class WeightBonus :  bonus.Bonus 
 {
     public WeightBonus(JSONNode _json)  : base(_json) 
     {

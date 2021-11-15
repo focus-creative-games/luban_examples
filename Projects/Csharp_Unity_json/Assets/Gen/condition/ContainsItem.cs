@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed partial class ContainsItem :  condition.RoleCondition 
+public sealed class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(JSONNode _json)  : base(_json) 
     {

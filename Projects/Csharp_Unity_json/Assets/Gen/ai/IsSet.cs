@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class IsSet :  ai.KeyQueryOperator 
+public sealed class IsSet :  ai.KeyQueryOperator 
 {
     public IsSet(JSONNode _json)  : base(_json) 
     {

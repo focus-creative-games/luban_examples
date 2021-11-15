@@ -17,7 +17,6 @@ type Tables struct {
     TbClazz *Blueprint_TbClazz
     TbDrop *Bonus_TbDrop
     TbGlobalConfig *Common_TbGlobalConfig
-    TbDummy *Common_TbDummy
     TbErrorInfo *Error_TbErrorInfo
     TbCodeInfo *Error_TbCodeInfo
     TbItem *Item_TbItem
@@ -43,6 +42,8 @@ type Tables struct {
     TbDemoGroup_S *Test_TbDemoGroup_S
     TbDemoGroup_E *Test_TbDemoGroup_E
     TbTestGlobal *Test_TbTestGlobal
+    TbTestBeRef *Test_TbTestBeRef
+    TbTestRef *Test_TbTestRef
     TbDetectCsvEncoding *Test_TbDetectCsvEncoding
     TbDefineFromExcel *Test_TbDefineFromExcel
     TbDefineFromExcelOne *Test_TbDefineFromExcelOne
@@ -53,6 +54,7 @@ type Tables struct {
     TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
     TbDefineFromExcel2 *Test_TbDefineFromExcel2
     TbTestExcelBean *Test_TbTestExcelBean
+    TbTestDesc *Test_TbTestDesc
 }
 
 func NewTables(loader JsonLoader) (*Tables, error) {
@@ -88,12 +90,6 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbGlobalConfig, err = NewCommon_TbGlobalConfig(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("common_tbdummy") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDummy, err = NewCommon_TbDummy(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("error_tberrorinfo") ; err != nil {
@@ -246,6 +242,18 @@ func NewTables(loader JsonLoader) (*Tables, error) {
     if tables.TbTestGlobal, err = NewTest_TbTestGlobal(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("test_tbtestberef") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestBeRef, err = NewTest_TbTestBeRef(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestref") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestRef, err = NewTest_TbTestRef(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("test_tbdetectcsvencoding") ; err != nil {
         return nil, err
     }
@@ -304,6 +312,12 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestExcelBean, err = NewTest_TbTestExcelBean(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestdesc") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestDesc, err = NewTest_TbTestDesc(buf) ; err != nil {
         return nil, err
     }
     return tables, nil

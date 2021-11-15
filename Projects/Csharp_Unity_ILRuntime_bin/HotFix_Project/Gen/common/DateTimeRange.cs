@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
+public sealed class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(ByteBuf _buf) 
     {

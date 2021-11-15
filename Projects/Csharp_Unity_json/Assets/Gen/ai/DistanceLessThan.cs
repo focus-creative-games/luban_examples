@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class DistanceLessThan :  ai.Decorator 
+public sealed class DistanceLessThan :  ai.Decorator 
 {
     public DistanceLessThan(JSONNode _json)  : base(_json) 
     {

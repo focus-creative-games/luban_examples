@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class ProbabilityBonus :  bonus.Bonus 
+public sealed class ProbabilityBonus :  bonus.Bonus 
 {
     public ProbabilityBonus(JSONNode _json)  : base(_json) 
     {

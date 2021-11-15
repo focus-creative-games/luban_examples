@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
+public sealed class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(ByteBuf _buf)  : base(_buf) 
     {

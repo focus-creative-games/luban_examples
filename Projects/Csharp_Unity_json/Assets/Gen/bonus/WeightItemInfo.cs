@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed partial class WeightItemInfo :  Bright.Config.BeanBase 
+public sealed class WeightItemInfo :  Bright.Config.BeanBase 
 {
     public WeightItemInfo(JSONNode _json) 
     {

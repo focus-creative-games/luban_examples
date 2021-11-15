@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed partial class LevelBonus :  Bright.Config.BeanBase 
+public sealed class LevelBonus :  Bright.Config.BeanBase 
 {
     public LevelBonus(ByteBuf _buf) 
     {

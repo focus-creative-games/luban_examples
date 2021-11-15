@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class IsAtLocation :  ai.Decorator 
+public sealed class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(JSONNode _json)  : base(_json) 
     {

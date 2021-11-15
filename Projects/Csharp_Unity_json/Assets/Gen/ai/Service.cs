@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract partial class Service :  ai.Node 
+public abstract class Service :  ai.Node 
 {
     public Service(JSONNode _json)  : base(_json) 
     {

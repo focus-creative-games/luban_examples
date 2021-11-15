@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
+public sealed class ChooseOneBonus :  Bright.Config.BeanBase 
 {
     public ChooseOneBonus(JSONNode _json) 
     {

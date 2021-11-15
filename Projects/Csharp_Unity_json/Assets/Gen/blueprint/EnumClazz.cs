@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed partial class EnumClazz :  blueprint.Clazz 
+public sealed class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(JSONNode _json)  : base(_json) 
     {

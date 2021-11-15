@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed partial class DesignDrawing :  item.ItemExtra 
+public sealed class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(ByteBuf _buf)  : base(_buf) 
     {

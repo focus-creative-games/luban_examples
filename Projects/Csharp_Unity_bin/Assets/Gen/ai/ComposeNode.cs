@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class ComposeNode :  ai.FlowNode 
+public abstract class ComposeNode :  ai.FlowNode 
 {
     public ComposeNode(ByteBuf _buf)  : base(_buf) 
     {

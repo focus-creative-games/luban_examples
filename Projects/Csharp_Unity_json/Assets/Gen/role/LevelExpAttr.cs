@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
+public sealed class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(JSONNode _json) 
     {

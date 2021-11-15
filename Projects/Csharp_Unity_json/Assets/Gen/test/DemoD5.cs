@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed partial class DemoD5 :  test.DemoDynamic 
+public sealed class DemoD5 :  test.DemoDynamic 
 {
     public DemoD5(JSONNode _json)  : base(_json) 
     {

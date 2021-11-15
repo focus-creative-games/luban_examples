@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed partial class MinLevel :  condition.BoolRoleCondition 
+public sealed class MinLevel :  condition.BoolRoleCondition 
 {
     public MinLevel(JSONNode _json)  : base(_json) 
     {

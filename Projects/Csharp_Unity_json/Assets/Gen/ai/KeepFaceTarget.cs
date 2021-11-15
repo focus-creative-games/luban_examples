@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed partial class KeepFaceTarget :  ai.Service 
+public sealed class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(JSONNode _json)  : base(_json) 
     {

@@ -15,7 +15,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract partial class ComposeNode :  ai.FlowNode 
+public abstract class ComposeNode :  ai.FlowNode 
 {
     public ComposeNode(JSONNode _json)  : base(_json) 
     {

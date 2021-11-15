@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class BlackboardKeyData :  ai.KeyData 
+public sealed class BlackboardKeyData :  ai.KeyData 
 {
     public BlackboardKeyData(ByteBuf _buf)  : base(_buf) 
     {
