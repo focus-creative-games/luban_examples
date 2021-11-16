@@ -9,7 +9,6 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_data_dir json ^
  --gen_types data_json ^
- -t "Asia/Shanghai" ^
  -s all
 
 
