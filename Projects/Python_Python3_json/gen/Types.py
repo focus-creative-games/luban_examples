@@ -7,10 +7,8 @@
   </auto-generated>
 '''
 
-
 from enum import Enum
 import abc
-
 
 class Vector2:
     def __init__(self, x, y):

@@ -2834,227 +2834,6 @@ impl Common_GlobalConfig {
 
 
 #[allow(non_camel_case_types)]
-pub struct Common_TbDummy {
-    data_list: Vec<std::rc::Rc<Common_Dummy>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Common_Dummy>>,
-}
-
-impl Common_TbDummy{
-    pub fn new(__js: &json::JsonValue) -> Result<Common_TbDummy, LoadError> {
-        if !__js.is_array() {
-            return Err(LoadError{});
-        }
-        let mut t = Common_TbDummy {
-            data_list : Vec::new(),
-            data_map: std::collections::HashMap::new(),
-        };
-        
-        for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Common_Dummy::new(__e) {
-                Ok(x) => x,
-                Err(err) => return Err(err),
-            });
-            let __v2 = std::rc::Rc::clone(&__v);
-            t.data_list.push(__v);
-            t.data_map.insert(__v2.id.clone(), __v2);
-        }
-        Ok(t)
-    }
-    #[allow(dead_code)]
-    pub fn get_data_map(self:&Common_TbDummy) -> &std::collections::HashMap<i32, std::rc::Rc<Common_Dummy>> { &self.data_map }
-    #[allow(dead_code)]
-    pub fn get_data_list(self:&Common_TbDummy) -> &Vec<std::rc::Rc<Common_Dummy>> { &self.data_list }
-    #[allow(dead_code)]
-    pub fn get(self:&Common_TbDummy, key: &i32) -> std::option::Option<&std::rc::Rc<Common_Dummy>> { self.data_map.get(key) }
-}
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Common_Dummy {
-pub id: i32,
-pub limit: Limit_LimitBase,
-}
-
-impl Common_Dummy {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Common_Dummy, LoadError> {
-        let __b = Common_Dummy {
-            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            limit: Limit_LimitBase::new(&__js["limit"])?,
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub enum Limit_LimitBase {
-  DailyLimit(Box<Limit_DailyLimit>),
-  MultiDayLimit(Box<Limit_MultiDayLimit>),
-  WeeklyLimit(Box<Limit_WeeklyLimit>),
-  MonthlyLimit(Box<Limit_MonthlyLimit>),
-  CoolDown(Box<Limit_CoolDown>),
-  GroupCoolDown(Box<Limit_GroupCoolDown>),
-}
-
-impl Limit_LimitBase {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_LimitBase, LoadError> {
-        let __b = match __js["__type__"].as_str() {
-            Some(type_name) => match type_name {
-                "DailyLimit" => Limit_LimitBase::DailyLimit(Box::new(Limit_DailyLimit::new(&__js)?)),
-                "MultiDayLimit" => Limit_LimitBase::MultiDayLimit(Box::new(Limit_MultiDayLimit::new(&__js)?)),
-                "WeeklyLimit" => Limit_LimitBase::WeeklyLimit(Box::new(Limit_WeeklyLimit::new(&__js)?)),
-                "MonthlyLimit" => Limit_LimitBase::MonthlyLimit(Box::new(Limit_MonthlyLimit::new(&__js)?)),
-                "CoolDown" => Limit_LimitBase::CoolDown(Box::new(Limit_CoolDown::new(&__js)?)),
-                "GroupCoolDown" => Limit_LimitBase::GroupCoolDown(Box::new(Limit_GroupCoolDown::new(&__js)?)),
-                _ => return Err(LoadError{})
-                },
-            None => return Err(LoadError{})
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub enum Limit_DailyLimitBase {
-  DailyLimit(Box<Limit_DailyLimit>),
-}
-
-impl Limit_DailyLimitBase {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_DailyLimitBase, LoadError> {
-        let __b = match __js["__type__"].as_str() {
-            Some(type_name) => match type_name {
-                "DailyLimit" => Limit_DailyLimitBase::DailyLimit(Box::new(Limit_DailyLimit::new(&__js)?)),
-                _ => return Err(LoadError{})
-                },
-            None => return Err(LoadError{})
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_DailyLimit {
-pub num: i32,
-}
-
-impl Limit_DailyLimit {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_DailyLimit, LoadError> {
-        let __b = Limit_DailyLimit {
-            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_MultiDayLimit {
-pub day: i32,
-pub num: i32,
-}
-
-impl Limit_MultiDayLimit {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_MultiDayLimit, LoadError> {
-        let __b = Limit_MultiDayLimit {
-            day: match __js["day"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_WeeklyLimit {
-pub num: i32,
-}
-
-impl Limit_WeeklyLimit {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_WeeklyLimit, LoadError> {
-        let __b = Limit_WeeklyLimit {
-            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_MonthlyLimit {
-pub num: i32,
-}
-
-impl Limit_MonthlyLimit {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_MonthlyLimit, LoadError> {
-        let __b = Limit_MonthlyLimit {
-            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_CoolDown {
-pub duration: i32,
-}
-
-impl Limit_CoolDown {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_CoolDown, LoadError> {
-        let __b = Limit_CoolDown {
-            duration: match __js["duration"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-
-
-#[allow(non_camel_case_types)]
-pub struct Limit_GroupCoolDown {
-pub group_id: i32,
-pub duration: i32,
-}
-
-impl Limit_GroupCoolDown {
-    #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Limit_GroupCoolDown, LoadError> {
-        let __b = Limit_GroupCoolDown {
-            group_id: match __js["group_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            duration: match __js["duration"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-        };
-        Ok(__b)
-    }
-}
-
-
-#[allow(non_camel_case_types)]
 pub struct Error_TbErrorInfo {
     data_list: Vec<std::rc::Rc<Error_ErrorInfo>>,
     data_map: std::collections::HashMap<String, std::rc::Rc<Error_ErrorInfo>>,
@@ -5524,6 +5303,132 @@ impl Test_TestGlobal {
 
 
 #[allow(non_camel_case_types)]
+pub struct Test_TbTestBeRef {
+    data_list: Vec<std::rc::Rc<Test_TestBeRef>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestBeRef>>,
+}
+
+impl Test_TbTestBeRef{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestBeRef, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = Test_TbTestBeRef {
+            data_list : Vec::new(),
+            data_map: std::collections::HashMap::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match Test_TestBeRef::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+            t.data_map.insert(__v2.id.clone(), __v2);
+        }
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data_map(self:&Test_TbTestBeRef) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestBeRef>> { &self.data_map }
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&Test_TbTestBeRef) -> &Vec<std::rc::Rc<Test_TestBeRef>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&Test_TbTestBeRef, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestBeRef>> { self.data_map.get(key) }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TestBeRef {
+pub id: i32,
+pub count: i32,
+}
+
+impl Test_TestBeRef {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TestBeRef, LoadError> {
+        let __b = Test_TestBeRef {
+            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            count: match __js["count"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TbTestRef {
+    data_list: Vec<std::rc::Rc<Test_TestRef>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestRef>>,
+}
+
+impl Test_TbTestRef{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestRef, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = Test_TbTestRef {
+            data_list : Vec::new(),
+            data_map: std::collections::HashMap::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match Test_TestRef::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+            t.data_map.insert(__v2.id.clone(), __v2);
+        }
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data_map(self:&Test_TbTestRef) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestRef>> { &self.data_map }
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&Test_TbTestRef) -> &Vec<std::rc::Rc<Test_TestRef>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&Test_TbTestRef, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestRef>> { self.data_map.get(key) }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TestRef {
+pub id: i32,
+pub x1: i32,
+pub x2: i32,
+pub a1: Vec<i32>,
+pub a2: Vec<i32>,
+pub b1: Vec<i32>,
+pub b2: Vec<i32>,
+pub c1: std::collections::HashSet<i32>,
+pub c2: std::collections::HashSet<i32>,
+pub d1: std::collections::HashMap<i32, i32>,
+}
+
+impl Test_TestRef {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TestRef, LoadError> {
+        let __b = Test_TestRef {
+            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x2: match __js["x2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            a1: { if !__js["a1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["a1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            a2: { if !__js["a2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["a2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            b1: { if !__js["b1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["b1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            b2: { if !__js["b2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["b2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            c1: { if !__js["c1"].is_array() { return Err(LoadError{}); } let mut __set__ = std::collections::HashSet::new(); for __e in __js["c1"].members() { __set__.insert(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __set__},
+            c2: { if !__js["c2"].is_array() { return Err(LoadError{}); } let mut __set__ = std::collections::HashSet::new(); for __e in __js["c2"].members() { __set__.insert(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __set__},
+            d1: { if !__js["d1"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["d1"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
 pub struct Test_TbDetectCsvEncoding {
     data_list: Vec<std::rc::Rc<Test_DetectEncoding>>,
     data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DetectEncoding>>,
@@ -5615,9 +5520,6 @@ impl Test_TbDefineFromExcel{
 
 
 
-/**
- * 
- */
 #[allow(non_camel_case_types)]
 pub struct Test_DefineFromExcel {
 pub id: i32,
@@ -5683,9 +5585,6 @@ impl Test_TbDefineFromExcelOne{
 
 
 
-/**
- * 
- */
 #[allow(non_camel_case_types)]
 pub struct Test_DefineFromExcelOne {
 pub unlock_equip: i32,
@@ -5910,6 +5809,159 @@ impl Test_ExcelFromJson {
 
 
 #[allow(non_camel_case_types)]
+pub struct Test_TbCompositeJsonTable1 {
+    data_list: Vec<std::rc::Rc<Test_CompositeJsonTable1>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable1>>,
+}
+
+impl Test_TbCompositeJsonTable1{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable1, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = Test_TbCompositeJsonTable1 {
+            data_list : Vec::new(),
+            data_map: std::collections::HashMap::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match Test_CompositeJsonTable1::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+            t.data_map.insert(__v2.id.clone(), __v2);
+        }
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data_map(self:&Test_TbCompositeJsonTable1) -> &std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable1>> { &self.data_map }
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&Test_TbCompositeJsonTable1) -> &Vec<std::rc::Rc<Test_CompositeJsonTable1>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&Test_TbCompositeJsonTable1, key: &i32) -> std::option::Option<&std::rc::Rc<Test_CompositeJsonTable1>> { self.data_map.get(key) }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_CompositeJsonTable1 {
+pub id: i32,
+pub x: String,
+}
+
+impl Test_CompositeJsonTable1 {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable1, LoadError> {
+        let __b = Test_CompositeJsonTable1 {
+            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x: match __js["x"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TbCompositeJsonTable2 {
+    data_list: Vec<std::rc::Rc<Test_CompositeJsonTable2>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable2>>,
+}
+
+impl Test_TbCompositeJsonTable2{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable2, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = Test_TbCompositeJsonTable2 {
+            data_list : Vec::new(),
+            data_map: std::collections::HashMap::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match Test_CompositeJsonTable2::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+            t.data_map.insert(__v2.id.clone(), __v2);
+        }
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data_map(self:&Test_TbCompositeJsonTable2) -> &std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable2>> { &self.data_map }
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&Test_TbCompositeJsonTable2) -> &Vec<std::rc::Rc<Test_CompositeJsonTable2>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&Test_TbCompositeJsonTable2, key: &i32) -> std::option::Option<&std::rc::Rc<Test_CompositeJsonTable2>> { self.data_map.get(key) }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_CompositeJsonTable2 {
+pub id: i32,
+pub y: i32,
+}
+
+impl Test_CompositeJsonTable2 {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable2, LoadError> {
+        let __b = Test_CompositeJsonTable2 {
+            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            y: match __js["y"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TbCompositeJsonTable3 {
+    data: Test_CompositeJsonTable3,
+}
+
+impl Test_TbCompositeJsonTable3{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable3, LoadError> {
+        if !__js.is_array() || __js.len() != 1 {
+            return Err(LoadError{});
+        }
+        let __v = match Test_CompositeJsonTable3::new(&__js[0]) {
+            Ok(x) => x,
+            Err(err) => return Err(err),
+        };
+        let t = Test_TbCompositeJsonTable3 {
+            data: __v,
+        };
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data(self:&Test_TbCompositeJsonTable3) -> &Test_CompositeJsonTable3 { &self.data }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_CompositeJsonTable3 {
+pub a: i32,
+pub b: i32,
+}
+
+impl Test_CompositeJsonTable3 {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable3, LoadError> {
+        let __b = Test_CompositeJsonTable3 {
+            a: match __js["a"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            b: match __js["b"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
 pub struct Test_TbExcelFromJsonMultiRow {
     data_list: Vec<std::rc::Rc<Test_ExcelFromJsonMultiRow>>,
     data_map: std::collections::HashMap<i32, std::rc::Rc<Test_ExcelFromJsonMultiRow>>,
@@ -6084,9 +6136,6 @@ impl Test_TbDefineFromExcel2{
 
 
 
-/**
- * 
- */
 #[allow(non_camel_case_types)]
 pub struct Test_DefineFromExcel2 {
 pub id: i32,
@@ -6189,6 +6238,71 @@ impl Test_TestExcelBean1 {
 }
 
 
+#[allow(non_camel_case_types)]
+pub struct Test_TbTestDesc {
+    data_list: Vec<std::rc::Rc<Test_TestDesc>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestDesc>>,
+}
+
+impl Test_TbTestDesc{
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestDesc, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = Test_TbTestDesc {
+            data_list : Vec::new(),
+            data_map: std::collections::HashMap::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match Test_TestDesc::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+            t.data_map.insert(__v2.id.clone(), __v2);
+        }
+        Ok(t)
+    }
+    #[allow(dead_code)]
+    pub fn get_data_map(self:&Test_TbTestDesc) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestDesc>> { &self.data_map }
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&Test_TbTestDesc) -> &Vec<std::rc::Rc<Test_TestDesc>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&Test_TbTestDesc, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestDesc>> { self.data_map.get(key) }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct Test_TestDesc {
+pub id: i32,
+pub name: String,
+pub a1: i32,
+pub a2: i32,
+pub x1: Test_H1,
+pub x2: Vec<Test_H2>,
+pub x3: Vec<Test_H2>,
+}
+
+impl Test_TestDesc {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<Test_TestDesc, LoadError> {
+        let __b = Test_TestDesc {
+            id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+            a1: match __js["a1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            a2: match __js["a2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x1: Test_H1::new(&__js["x1"])?,
+            x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
+            x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
+        };
+        Ok(__b)
+    }
+}
+
+
 
 type JsonLoader = fn(&str) -> Result<json::JsonValue, LoadError>;
 
@@ -6204,8 +6318,6 @@ pub struct Tables {
     pub tbdrop: Bonus_TbDrop,
 
     pub tbglobalconfig: Common_TbGlobalConfig,
-
-    pub tbdummy: Common_TbDummy,
 
     pub tberrorinfo: Error_TbErrorInfo,
 
@@ -6260,6 +6372,10 @@ pub struct Tables {
 
     pub tbtestglobal: Test_TbTestGlobal,
 
+    pub tbtestberef: Test_TbTestBeRef,
+
+    pub tbtestref: Test_TbTestRef,
+
     pub tbdetectcsvencoding: Test_TbDetectCsvEncoding,
 
     pub tbdefinefromexcel: Test_TbDefineFromExcel,
@@ -6272,6 +6388,12 @@ pub struct Tables {
 
     pub tbexcelfromjson: Test_TbExcelFromJson,
 
+    pub tbcompositejsontable1: Test_TbCompositeJsonTable1,
+
+    pub tbcompositejsontable2: Test_TbCompositeJsonTable2,
+
+    pub tbcompositejsontable3: Test_TbCompositeJsonTable3,
+
     pub tbexcelfromjsonmultirow: Test_TbExcelFromJsonMultiRow,
 
     pub tbdemogroupdefinefromexcel: Test_TbDemoGroupDefineFromExcel,
@@ -6279,6 +6401,8 @@ pub struct Tables {
     pub tbdefinefromexcel2: Test_TbDefineFromExcel2,
 
     pub tbtestexcelbean: Test_TbTestExcelBean,
+
+    pub tbtestdesc: Test_TbTestDesc,
 }
 
 impl Tables {
@@ -6290,7 +6414,6 @@ impl Tables {
             tbclazz: Blueprint_TbClazz::new(&loader("blueprint_tbclazz")?)?,
             tbdrop: Bonus_TbDrop::new(&loader("bonus_tbdrop")?)?,
             tbglobalconfig: Common_TbGlobalConfig::new(&loader("common_tbglobalconfig")?)?,
-            tbdummy: Common_TbDummy::new(&loader("common_tbdummy")?)?,
             tberrorinfo: Error_TbErrorInfo::new(&loader("error_tberrorinfo")?)?,
             tbcodeinfo: Error_TbCodeInfo::new(&loader("error_tbcodeinfo")?)?,
             tbitem: Item_TbItem::new(&loader("item_tbitem")?)?,
@@ -6316,16 +6439,22 @@ impl Tables {
             tbdemogroup_s: Test_TbDemoGroup_S::new(&loader("test_tbdemogroup_s")?)?,
             tbdemogroup_e: Test_TbDemoGroup_E::new(&loader("test_tbdemogroup_e")?)?,
             tbtestglobal: Test_TbTestGlobal::new(&loader("test_tbtestglobal")?)?,
+            tbtestberef: Test_TbTestBeRef::new(&loader("test_tbtestberef")?)?,
+            tbtestref: Test_TbTestRef::new(&loader("test_tbtestref")?)?,
             tbdetectcsvencoding: Test_TbDetectCsvEncoding::new(&loader("test_tbdetectcsvencoding")?)?,
             tbdefinefromexcel: Test_TbDefineFromExcel::new(&loader("test_tbdefinefromexcel")?)?,
             tbdefinefromexcelone: Test_TbDefineFromExcelOne::new(&loader("test_tbdefinefromexcelone")?)?,
             tbtestindex: Test_TbTestIndex::new(&loader("test_tbtestindex")?)?,
             tbtestmap: Test_TbTestMap::new(&loader("test_tbtestmap")?)?,
             tbexcelfromjson: Test_TbExcelFromJson::new(&loader("test_tbexcelfromjson")?)?,
+            tbcompositejsontable1: Test_TbCompositeJsonTable1::new(&loader("test_tbcompositejsontable1")?)?,
+            tbcompositejsontable2: Test_TbCompositeJsonTable2::new(&loader("test_tbcompositejsontable2")?)?,
+            tbcompositejsontable3: Test_TbCompositeJsonTable3::new(&loader("test_tbcompositejsontable3")?)?,
             tbexcelfromjsonmultirow: Test_TbExcelFromJsonMultiRow::new(&loader("test_tbexcelfromjsonmultirow")?)?,
             tbdemogroupdefinefromexcel: Test_TbDemoGroupDefineFromExcel::new(&loader("test_tbdemogroupdefinefromexcel")?)?,
             tbdefinefromexcel2: Test_TbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")?)?,
             tbtestexcelbean: Test_TbTestExcelBean::new(&loader("test_tbtestexcelbean")?)?,
+            tbtestdesc: Test_TbTestDesc::new(&loader("test_tbtestdesc")?)?,
         };
         return Ok(tables);
     }
