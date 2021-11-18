@@ -8,29 +8,29 @@
     - Luban.Server 服务端。
     - Luban.Client&Server Client&Server一体程序。免去部属Luban.Server的麻烦
 
-- [LubanAssistant Excel](https://github.com/focus-creative-games/luban/tree/main/src/LubanAssistant) 插件
+    - [LubanAssistant](https://github.com/focus-creative-games/luban/tree/main/src/LubanAssistant) Excel插件
 
-    在Tools/LubanAssistant目录。
+        在Tools/LubanAssistant目录。
 
-    让你可以将数据保存成json文件，但又同时能在excel里编辑。大型项目的利器。 双击LubanAssistant/LubanAssistant.vsto 即可安装。
+        让你可以将数据保存成json文件，但又同时能在excel里编辑。大型项目的利器。 双击LubanAssistant/LubanAssistant.vsto 即可安装。
 
-    目前功能较简略，后续会持续改进。
+        目前功能较简略，后续会持续改进。
 
-    
-    ![Excel2TextDiff](docs/images/e_10.jpg)
+        
+        ![Excel2TextDiff](docs/images/e_10.jpg)
 
-- [Excel2TextDiff](https://github.com/focus-creative-games/Excel2TextDiff) 工具
+    - [Excel2TextDiff](https://github.com/focus-creative-games/Excel2TextDiff) 工具
 
-    一个方便diff excel族(xls,xlsx,csv)文件的工具，在Tools/Excel2TextDiff目录。
-    将excel文件转为文本文件，然后再调用diff程序，极其方便直观地对比excel文件的变化。非常有用！
+        一个方便diff excel族(xls,xlsx,csv)文件的工具，在Tools/Excel2TextDiff目录。
+        将excel文件转为文本文件，然后再调用diff程序，极其方便直观地对比excel文件的变化。非常有用！
 
-配置方式如图
+         配置方式如图
 
-![Excel2TextDiff](docs/images/a_1.jpg)
-    
-使用效果如图
-    
-![pipeline](docs/images/d_70.jpg)
+        ![Excel2TextDiff](docs/images/a_1.jpg)
+        
+        使用效果如图
+        
+        ![pipeline](docs/images/d_70.jpg)
 - DesignerConfigs 
 
     示例游戏配置。
