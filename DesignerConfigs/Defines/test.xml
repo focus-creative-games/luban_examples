@@ -290,6 +290,15 @@
         <var name="x4" type="(map#size=2),int,int"/>
     </bean>
     <table name="TbTestSize" value="TestSize" input="test/test_size.xlsx"/>
+    
+    <bean name="TestSet">
+        <var name="id" type="int"/>
+        <var name="x1" type="list,int#set=1,2,3,4,5"/>
+        <var name="x2" type="list,long#set=2,3,4,5"/>
+        <var name="x3" type="list,string#set=ab,cd"/>
+        <var name="x4" type="list,DemoEnum#set=A,B"/>
+    </bean>
+    <table name="TbTestSet" value="TestSet" input="test/test_set.xlsx"/>
 	
 	<bean name="DetectEncoding">
 		<var name="id" type="int"/>
