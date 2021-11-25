@@ -34,8 +34,8 @@ public sealed class KeepFaceTarget :  ai.Service
 
     public string TargetActorKey { get; private set; }
 
-    public const int ID = 1195270745;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1195270745;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

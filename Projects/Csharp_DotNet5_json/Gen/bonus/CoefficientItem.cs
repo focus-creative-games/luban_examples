@@ -37,8 +37,8 @@ public sealed class CoefficientItem :  bonus.Bonus
     public int BonusId { get; private set; }
     public bonus.Items BonusList { get; private set; }
 
-    public const int ID = -229470727;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -229470727;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

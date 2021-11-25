@@ -37,8 +37,8 @@ public sealed class H1 :  Bright.Config.BeanBase
     public test.H2 Y2 { get; private set; }
     public int Y3 { get; private set; }
 
-    public const int ID = -1422503995;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1422503995;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

@@ -270,14 +270,16 @@
     <bean name="TestRef">
         <var name="id" type="int"/>
         <var name="x1" type="int" ref="test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
+        <var name="x1_2" type="int" ref="test.TbTestBeRef,test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
         <var name="x2" type="int#ref=test.TbTestBeRef"/>
         <var name="a1" type="array,int" ref="test.TbTestBeRef"/>
-        <var name="a2" type="array,int#ref=test.TbTestBeRef"/>
+        <var name="a2" type="array,int#ref=(test.TbTestBeRef)"/>
         <var name="b1" type="list,int" ref="test.TbTestBeRef"/>
         <var name="b2" type="list,int#ref=test.TbTestBeRef"/>
         <var name="c1" type="set,int" ref="test.TbTestBeRef"/>
         <var name="c2" type="set,int#ref=test.TbTestBeRef"/>
         <var name="d1" type="(map#aaa=5),int#ref=test.TbTestBeRef,int#ref=test.TbTestBeRef"/>
+        <var name="d2" type="map#aaa=5;int#ref=test.TbTestBeRef;int#ref=test.TbTestBeRef"/>
     </bean>
     
     <table name="TbTestRef" value="TestRef" input="ref@test/test_ref.xlsx"/>

@@ -12,33 +12,33 @@ using System.Text.Json;
 
 
 
-namespace cfg.common
+namespace cfg.test
 {
 
-public sealed class TbDummy
+public sealed class TbCompositeJsonTable2
 {
-    private readonly Dictionary<int, common.Dummy> _dataMap;
-    private readonly List<common.Dummy> _dataList;
+    private readonly Dictionary<int, test.CompositeJsonTable2> _dataMap;
+    private readonly List<test.CompositeJsonTable2> _dataList;
     
-    public TbDummy(JsonElement _json)
+    public TbCompositeJsonTable2(JsonElement _json)
     {
-        _dataMap = new Dictionary<int, common.Dummy>();
-        _dataList = new List<common.Dummy>();
+        _dataMap = new Dictionary<int, test.CompositeJsonTable2>();
+        _dataList = new List<test.CompositeJsonTable2>();
         
         foreach(JsonElement _row in _json.EnumerateArray())
         {
-            var _v = common.Dummy.DeserializeDummy(_row);
+            var _v = test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_row);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public Dictionary<int, common.Dummy> DataMap => _dataMap;
-    public List<common.Dummy> DataList => _dataList;
+    public Dictionary<int, test.CompositeJsonTable2> DataMap => _dataMap;
+    public List<test.CompositeJsonTable2> DataList => _dataList;
 
-    public common.Dummy GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public common.Dummy Get(int key) => _dataMap[key];
-    public common.Dummy this[int key] => _dataMap[key];
+    public test.CompositeJsonTable2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.CompositeJsonTable2 Get(int key) => _dataMap[key];
+    public test.CompositeJsonTable2 this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {

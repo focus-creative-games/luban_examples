@@ -35,8 +35,8 @@ public sealed class OneItem :  bonus.Bonus
     public int ItemId { get; private set; }
     public item.Item ItemId_Ref { get; private set; }
 
-    public const int ID = -1649658966;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1649658966;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

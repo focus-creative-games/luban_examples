@@ -34,8 +34,8 @@ public sealed class UeTimeLimit :  ai.Decorator
 
     public float LimitTime { get; private set; }
 
-    public const int ID = 338469720;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 338469720;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

@@ -9,10 +9,10 @@ namespace Csharp_Server_DotNetCore
     {
         static void Main(string[] args)
         {
-            var tables = new cfg.Tables(LoadJson);
+            //var tables = new cfg.Tables(LoadJson);
 
-            tables.TranslateText((key, text) => text + "# translate");
-
+            //tables.TranslateText((key, text) => text + "# translate");
+            Benchmark.Run("../../../../GenerateDatas/json");
             Console.WriteLine("== load succ ==");
         }
 

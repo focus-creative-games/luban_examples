@@ -9,10 +9,10 @@ namespace Csharp_Server_DotNetCore
     {
         static void Main(string[] args)
         {
-            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes("../../../../GenerateDatas/bin/" + file + ".bin")));
+            //var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes("../../../../GenerateDatas/bin/" + file + ".bin")));
 
-            tables.TranslateText((key, text) => text + "# translate");
-
+            //tables.TranslateText((key, text) => text + "# translate");
+            Benchmark.Run("../../../../GenerateDatas/bin");
             Console.WriteLine("== load succ ==");
         }
     }

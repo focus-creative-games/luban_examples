@@ -34,8 +34,8 @@ public sealed class IntKeyData :  ai.KeyData
 
     public int Value { get; private set; }
 
-    public const int ID = -342751904;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -342751904;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

@@ -12,49 +12,47 @@ using System.Text.Json;
 
 
 
-namespace cfg.common
+namespace cfg.test
 {
 
-public sealed class Dummy :  Bright.Config.BeanBase 
+public sealed class CompositeJsonTable2 :  Bright.Config.BeanBase 
 {
-    public Dummy(JsonElement _json) 
+    public CompositeJsonTable2(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        Limit =  limit.LimitBase.DeserializeLimitBase(_json.GetProperty("limit"));
+        Y = _json.GetProperty("y").GetInt32();
     }
 
-    public Dummy(int id, limit.LimitBase limit ) 
+    public CompositeJsonTable2(int id, int y ) 
     {
         this.Id = id;
-        this.Limit = limit;
+        this.Y = y;
     }
 
-    public static Dummy DeserializeDummy(JsonElement _json)
+    public static CompositeJsonTable2 DeserializeCompositeJsonTable2(JsonElement _json)
     {
-        return new common.Dummy(_json);
+        return new test.CompositeJsonTable2(_json);
     }
 
     public int Id { get; private set; }
-    public limit.LimitBase Limit { get; private set; }
+    public int Y { get; private set; }
 
-    public const int ID = -985084219;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1566207895;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        Limit?.Resolve(_tables);
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
     {
-        Limit?.TranslateText(translator);
     }
 
     public override string ToString()
     {
         return "{ "
         + "Id:" + Id + ","
-        + "Limit:" + Limit + ","
+        + "Y:" + Y + ","
         + "}";
     }
     }

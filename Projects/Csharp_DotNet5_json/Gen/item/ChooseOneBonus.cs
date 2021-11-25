@@ -38,8 +38,8 @@ public sealed class ChooseOneBonus :  Bright.Config.BeanBase
     public bonus.DropInfo DropId_Ref { get; private set; }
     public bool IsUnique { get; private set; }
 
-    public const int ID = 228058347;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 228058347;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

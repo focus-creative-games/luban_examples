@@ -43,8 +43,8 @@ public sealed class Clothes :  item.ItemExtra
     public int EnergyLimit { get; private set; }
     public int EnergyResume { get; private set; }
 
-    public const int ID = 1659907149;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1659907149;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

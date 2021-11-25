@@ -63,8 +63,8 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
 
-    public const int ID = -543222491;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -543222491;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
