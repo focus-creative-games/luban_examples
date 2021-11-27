@@ -1865,6 +1865,7 @@ beans['test.TestBeRef'] =
 ---@class test.TestRef 
 ---@field public id int
 ---@field public x1 int
+---@field public x1_2 int
 ---@field public x2 int
 ---@field public a1 int[]
 ---@field public a2 int[]
@@ -1873,10 +1874,12 @@ beans['test.TestBeRef'] =
 ---@field public c1 int[]
 ---@field public c2 int[]
 ---@field public d1 table<int,int>
+---@field public d2 table<int,int>
 beans['test.TestRef'] =
 {
     { name='id', type='int'},
     { name='x1', type='int'},
+    { name='x1_2', type='int'},
     { name='x2', type='int'},
     { name='a1', type='int[]'},
     { name='a2', type='int[]'},
@@ -1885,6 +1888,37 @@ beans['test.TestRef'] =
     { name='c1', type='int[]'},
     { name='c2', type='int[]'},
     { name='d1', type='table<int,int>'},
+    { name='d2', type='table<int,int>'},
+}
+
+---@class test.TestSize 
+---@field public id int
+---@field public x1 int[]
+---@field public x2 int[]
+---@field public x3 int[]
+---@field public x4 table<int,int>
+beans['test.TestSize'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='int[]'},
+    { name='x2', type='int[]'},
+    { name='x3', type='int[]'},
+    { name='x4', type='table<int,int>'},
+}
+
+---@class test.TestSet 
+---@field public id int
+---@field public x1 int[]
+---@field public x2 long[]
+---@field public x3 string[]
+---@field public x4 test.DemoEnum[]
+beans['test.TestSet'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='int[]'},
+    { name='x2', type='long[]'},
+    { name='x3', type='string[]'},
+    { name='x4', type='test.DemoEnum[]'},
 }
 
 ---@class test.DetectEncoding 
@@ -2001,6 +2035,33 @@ beans['test.ExcelFromJson'] =
     { name='k8', type='table<int,int>'},
     { name='k9', type='test.DemoE2[]'},
     { name='k15', type='test.DemoDynamic[]'},
+}
+
+---@class test.CompositeJsonTable1 
+---@field public id int
+---@field public x string
+beans['test.CompositeJsonTable1'] =
+{
+    { name='id', type='int'},
+    { name='x', type='string'},
+}
+
+---@class test.CompositeJsonTable2 
+---@field public id int
+---@field public y int
+beans['test.CompositeJsonTable2'] =
+{
+    { name='id', type='int'},
+    { name='y', type='int'},
+}
+
+---@class test.CompositeJsonTable3 
+---@field public a int
+---@field public b int
+beans['test.CompositeJsonTable3'] =
+{
+    { name='a', type='int'},
+    { name='b', type='int'},
 }
 
 ---@class test.ExcelFromJsonMultiRow 
@@ -2168,6 +2229,10 @@ local tables =
 
     { name='TbTestRef', file='test_tbtestref', mode='map', index='id', value_type='test.TestRef' },
 
+    { name='TbTestSize', file='test_tbtestsize', mode='map', index='id', value_type='test.TestSize' },
+
+    { name='TbTestSet', file='test_tbtestset', mode='map', index='id', value_type='test.TestSet' },
+
     { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
 
     { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
@@ -2180,6 +2245,12 @@ local tables =
 
     { name='TbExcelFromJson', file='test_tbexcelfromjson', mode='map', index='x4', value_type='test.ExcelFromJson' },
 
+    { name='TbCompositeJsonTable1', file='test_tbcompositejsontable1', mode='map', index='id', value_type='test.CompositeJsonTable1' },
+
+    { name='TbCompositeJsonTable2', file='test_tbcompositejsontable2', mode='map', index='id', value_type='test.CompositeJsonTable2' },
+
+    { name='TbCompositeJsonTable3', file='test_tbcompositejsontable3', mode='one', value_type='test.CompositeJsonTable3'},
+    
     { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
 
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },

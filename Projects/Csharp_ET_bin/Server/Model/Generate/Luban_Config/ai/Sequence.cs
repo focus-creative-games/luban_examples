@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class Sequence :  ai.ComposeNode 
+public sealed class Sequence :  ai.ComposeNode 
 {
     public Sequence(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class Sequence :  ai.ComposeNode
 
     public System.Collections.Generic.List<ai.FlowNode> Children { get; private set; }
 
-    public const int ID = -1789006105;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1789006105;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

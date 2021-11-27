@@ -30,8 +30,8 @@ public sealed class NormalClazz :  blueprint.Clazz
     public bool IsAbstract { get; private set; }
     public System.Collections.Generic.List<blueprint.Field> Fields { get; private set; }
 
-    public const int ID = -2073576778;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -2073576778;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

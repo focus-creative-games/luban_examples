@@ -24,11 +24,11 @@ public abstract class Cost :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case cost.CostCurrency.ID: return new cost.CostCurrency(_buf);
-            case cost.CostCurrencies.ID: return new cost.CostCurrencies(_buf);
-            case cost.CostOneItem.ID: return new cost.CostOneItem(_buf);
-            case cost.CostItem.ID: return new cost.CostItem(_buf);
-            case cost.CostItems.ID: return new cost.CostItems(_buf);
+            case cost.CostCurrency.__ID__: return new cost.CostCurrency(_buf);
+            case cost.CostCurrencies.__ID__: return new cost.CostCurrencies(_buf);
+            case cost.CostOneItem.__ID__: return new cost.CostOneItem(_buf);
+            case cost.CostItem.__ID__: return new cost.CostItem(_buf);
+            case cost.CostItems.__ID__: return new cost.CostItems(_buf);
             default: throw new SerializationException();
         }
     }

@@ -49,8 +49,8 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
     public int X4 { get; private set; }
     public test.InnerGroup X5 { get; private set; }
 
-    public const int ID = -379263008;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -379263008;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

@@ -17,6 +17,7 @@ public final class TestRef {
     public TestRef(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         x1 = __json__.get("x1").getAsInt();
+        x12 = __json__.get("x1_2").getAsInt();
         x2 = __json__.get("x2").getAsInt();
         { com.google.gson.JsonArray _json0_ = __json__.get("a1").getAsJsonArray(); int _n = _json0_.size(); a1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a1[_index++] = __v; }   }
         { com.google.gson.JsonArray _json0_ = __json__.get("a2").getAsJsonArray(); int _n = _json0_.size(); a2 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  a2[_index++] = __v; }   }
@@ -25,11 +26,13 @@ public final class TestRef {
         { com.google.gson.JsonArray _json0_ = __json__.get("c1").getAsJsonArray(); c1 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c1.add(__v); }   }
         { com.google.gson.JsonArray _json0_ = __json__.get("c2").getAsJsonArray(); c2 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  c2.add(__v); }   }
         { com.google.gson.JsonArray _json0_ = __json__.get("d1").getAsJsonArray(); d1 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  d1.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("d2").getAsJsonArray(); d2 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  d2.put(__k, __v); }   }
     }
 
-    public TestRef(int id, int x1, int x2, int[] a1, int[] a2, java.util.ArrayList<Integer> b1, java.util.ArrayList<Integer> b2, java.util.HashSet<Integer> c1, java.util.HashSet<Integer> c2, java.util.HashMap<Integer, Integer> d1 ) {
+    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, java.util.ArrayList<Integer> b1, java.util.ArrayList<Integer> b2, java.util.HashSet<Integer> c1, java.util.HashSet<Integer> c2, java.util.HashMap<Integer, Integer> d1, java.util.HashMap<Integer, Integer> d2 ) {
         this.id = id;
         this.x1 = x1;
+        this.x12 = x1_2;
         this.x2 = x2;
         this.a1 = a1;
         this.a2 = a2;
@@ -38,6 +41,7 @@ public final class TestRef {
         this.c1 = c1;
         this.c2 = c2;
         this.d1 = d1;
+        this.d2 = d2;
     }
 
     public static TestRef deserializeTestRef(JsonObject __json__) {
@@ -47,6 +51,7 @@ public final class TestRef {
     public final int id;
     public final int x1;
     public cfg.test.TestBeRef x1_Ref;
+    public final int x12;
     public final int x2;
     public cfg.test.TestBeRef x2_Ref;
     public final int[] a1;
@@ -56,6 +61,7 @@ public final class TestRef {
     public final java.util.HashSet<Integer> c1;
     public final java.util.HashSet<Integer> c2;
     public final java.util.HashMap<Integer, Integer> d1;
+    public final java.util.HashMap<Integer, Integer> d2;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
@@ -68,6 +74,7 @@ public final class TestRef {
         return "{ "
         + "id:" + id + ","
         + "x1:" + x1 + ","
+        + "x12:" + x12 + ","
         + "x2:" + x2 + ","
         + "a1:" + a1 + ","
         + "a2:" + a2 + ","
@@ -76,6 +83,7 @@ public final class TestRef {
         + "c1:" + c1 + ","
         + "c2:" + c2 + ","
         + "d1:" + d1 + ","
+        + "d2:" + d2 + ","
         + "}";
     }
 }

@@ -921,6 +921,8 @@ namespace test { class InnerGroup; }
 namespace test { class TestGlobal; } 
 namespace test { class TestBeRef; } 
 namespace test { class TestRef; } 
+namespace test { class TestSize; } 
+namespace test { class TestSet; } 
 namespace test { class DetectEncoding; } 
 namespace test { class DefineFromExcel; } 
 namespace test { class DefineFromExcelOne; } 
@@ -6095,11 +6097,12 @@ class TestRef : public  bright::CfgBean
 
     }
 
-    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1 ) 
+    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2 ) 
     {
 
         this->id = id;
         this->x1 = x1;
+        this->x12 = x1_2;
         this->x2 = x2;
         this->a1 = a1;
         this->a2 = a2;
@@ -6108,6 +6111,7 @@ class TestRef : public  bright::CfgBean
         this->c1 = c1;
         this->c2 = c2;
         this->d1 = d1;
+        this->d2 = d2;
     }
     virtual ~TestRef() {}
 
@@ -6116,6 +6120,7 @@ class TestRef : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::int32 x1;
     ::bright::SharedPtr<test::TestBeRef> x1_Ref;
+    ::bright::int32 x12;
     ::bright::int32 x2;
     ::bright::SharedPtr<test::TestBeRef> x2_Ref;
     ::bright::Vector<::bright::int32> a1;
@@ -6125,8 +6130,93 @@ class TestRef : public  bright::CfgBean
     ::bright::HashSet<::bright::int32> c1;
     ::bright::HashSet<::bright::int32> c2;
     ::bright::HashMap<::bright::int32, ::bright::int32> d1;
+    ::bright::HashMap<::bright::int32, ::bright::int32> d2;
 
     static constexpr int __ID__ = -543222491;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestSize : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestSize(ByteBuf& _buf, ::bright::SharedPtr<TestSize>& _out);
+
+    TestSize()
+    { 
+
+    }
+
+    TestSize(::bright::int32 id, ::bright::Vector<::bright::int32> x1, ::bright::Vector<::bright::int32> x2, ::bright::HashSet<::bright::int32> x3, ::bright::HashMap<::bright::int32, ::bright::int32> x4 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+    }
+    virtual ~TestSize() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::Vector<::bright::int32> x1;
+    ::bright::Vector<::bright::int32> x2;
+    ::bright::HashSet<::bright::int32> x3;
+    ::bright::HashMap<::bright::int32, ::bright::int32> x4;
+
+    static constexpr int __ID__ = 340006319;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestSet : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestSet(ByteBuf& _buf, ::bright::SharedPtr<TestSet>& _out);
+
+    TestSet()
+    { 
+
+    }
+
+    TestSet(::bright::int32 id, ::bright::Vector<::bright::int32> x1, ::bright::Vector<::bright::int64> x2, ::bright::Vector<::bright::String> x3, ::bright::Vector<test::DemoEnum> x4 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+    }
+    virtual ~TestSet() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::Vector<::bright::int32> x1;
+    ::bright::Vector<::bright::int64> x2;
+    ::bright::Vector<::bright::String> x3;
+    ::bright::Vector<test::DemoEnum> x4;
+
+    static constexpr int __ID__ = -543221516;
 
     int getTypeId() const { return __ID__; }
 
@@ -8363,6 +8453,104 @@ class TbTestRef
 namespace test {
 
 
+class TbTestSize
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSize>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestSize>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestSize> _v;
+            if(!test::TestSize::deserializeTestSize(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSize>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestSize>>& getDataList() const { return _dataList; }
+
+    test::TestSize* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestSize> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbTestSet
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSet>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestSet>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestSet> _v;
+            if(!test::TestSet::deserializeTestSet(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSet>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestSet>>& getDataList() const { return _dataList; }
+
+    test::TestSet* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestSet> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
 class TbDetectCsvEncoding
 {
     private:
@@ -9052,6 +9240,8 @@ class Tables
      test::TbTestGlobal TbTestGlobal;
      test::TbTestBeRef TbTestBeRef;
      test::TbTestRef TbTestRef;
+     test::TbTestSize TbTestSize;
+     test::TbTestSet TbTestSet;
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
      test::TbDefineFromExcel TbDefineFromExcel;
      test::TbDefineFromExcelOne TbDefineFromExcelOne;
@@ -9168,6 +9358,12 @@ class Tables
         if (!loader(buf, "test_tbtestref")) return false;
         if (!TbTestRef.load(buf)) return false;
         __tables__["test.TbTestRef"] = &TbTestRef;
+        if (!loader(buf, "test_tbtestsize")) return false;
+        if (!TbTestSize.load(buf)) return false;
+        __tables__["test.TbTestSize"] = &TbTestSize;
+        if (!loader(buf, "test_tbtestset")) return false;
+        if (!TbTestSet.load(buf)) return false;
+        __tables__["test.TbTestSet"] = &TbTestSet;
         if (!loader(buf, "test_tbdetectcsvencoding")) return false;
         if (!TbDetectCsvEncoding.load(buf)) return false;
         __tables__["test.TbDetectCsvEncoding"] = &TbDetectCsvEncoding;
@@ -9243,6 +9439,8 @@ class Tables
         TbTestGlobal.resolve(__tables__); 
         TbTestBeRef.resolve(__tables__); 
         TbTestRef.resolve(__tables__); 
+        TbTestSize.resolve(__tables__); 
+        TbTestSet.resolve(__tables__); 
         TbDetectCsvEncoding.resolve(__tables__); 
         TbDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcelOne.resolve(__tables__); 

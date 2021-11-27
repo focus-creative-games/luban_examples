@@ -1,5 +1,10 @@
+{{~
+    name = x.name
+    namespace = x.namespace
+    tables = x.tables
+~}}
 
-package {{package}}
+package {{namespace}}
 
 type JsonLoader func(string) ([]map[string]interface{}, error)
 

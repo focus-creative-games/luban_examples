@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class IsNotSet :  ai.KeyQueryOperator 
+public sealed class IsNotSet :  ai.KeyQueryOperator 
 {
     public IsNotSet(ByteBuf _buf)  : base(_buf) 
     {
@@ -26,8 +26,8 @@ public sealed partial class IsNotSet :  ai.KeyQueryOperator
     }
 
 
-    public const int ID = 790736255;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 790736255;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

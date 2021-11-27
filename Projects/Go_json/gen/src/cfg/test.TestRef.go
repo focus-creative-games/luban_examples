@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "errors"
@@ -13,6 +14,7 @@ import "errors"
 type Test_TestRef struct {
     Id int32
     X1 int32
+    X12 int32
     X2 int32
     A1 []int32
     A2 []int32
@@ -21,6 +23,7 @@ type Test_TestRef struct {
     C1 []int32
     C2 []int32
     D1 map[int32]int32
+    D2 map[int32]int32
 }
 
 func (Test_TestRef) GetTypeId() int {
@@ -31,6 +34,7 @@ func NewTest_TestRef(_buf map[string]interface{}) (_v *Test_TestRef, err error) 
     _v = &Test_TestRef{}
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1_2"].(float64); !_ok_ { err = errors.New("x1_2 error"); return }; _v.X12 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int32(_tempNum_) }
      {
                 var _arr_ []interface{}
@@ -131,6 +135,23 @@ func NewTest_TestRef(_buf map[string]interface{}) (_v *Test_TestRef, err error) 
                     var _value_ int32
                     { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
                     _v.D1[_key_] = _value_
+                }
+                }
+    {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["d2"].([]interface{}); !_ok_ { err = errors.New("d2 error"); return }
+
+                _v.D2 = make(map[int32]int32)
+                
+                for _, _e_ := range _arr_ {
+                    var _kv_ []interface{}
+                    if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("d2 error"); return }
+                    var _key_ int32
+                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
+                    var _value_ int32
+                    { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
+                    _v.D2[_key_] = _value_
                 }
                 }
     return

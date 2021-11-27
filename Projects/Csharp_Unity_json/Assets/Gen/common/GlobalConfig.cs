@@ -98,8 +98,8 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
     public int MaxViality { get; private set; }
     public int PerVialityRecoveryTime { get; private set; }
 
-    public const int ID = -848234488;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -848234488;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

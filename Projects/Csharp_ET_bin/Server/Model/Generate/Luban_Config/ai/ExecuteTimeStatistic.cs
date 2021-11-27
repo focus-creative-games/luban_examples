@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class ExecuteTimeStatistic :  ai.Service 
+public sealed class ExecuteTimeStatistic :  ai.Service 
 {
     public ExecuteTimeStatistic(ByteBuf _buf)  : base(_buf) 
     {
@@ -26,8 +26,8 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
     }
 
 
-    public const int ID = 990693812;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 990693812;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

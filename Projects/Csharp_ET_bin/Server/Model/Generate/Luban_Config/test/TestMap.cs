@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class TestMap :  Bright.Config.BeanBase 
+public sealed class TestMap :  Bright.Config.BeanBase 
 {
     public TestMap(ByteBuf _buf) 
     {
@@ -37,8 +37,8 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
     public System.Collections.Generic.Dictionary<string, int> X3 { get; private set; }
     public System.Collections.Generic.Dictionary<test.DemoEnum, int> X4 { get; private set; }
 
-    public const int ID = -543227410;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -543227410;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

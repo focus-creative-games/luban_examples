@@ -34,8 +34,8 @@ public sealed class DemoE1 :  test.DemoD3
 
     public int X4 { get; private set; }
 
-    public const int ID = -2138341717;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -2138341717;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class FloatKeyData :  ai.KeyData 
+public sealed class FloatKeyData :  ai.KeyData 
 {
     public FloatKeyData(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class FloatKeyData :  ai.KeyData
 
     public float Value { get; private set; }
 
-    public const int ID = -719747885;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -719747885;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

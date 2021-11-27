@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class TimeRange :  condition.Condition 
+public sealed class TimeRange :  condition.Condition 
 {
     public TimeRange(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class TimeRange :  condition.Condition
 
     public common.DateTimeRange DateTimeRange { get; private set; }
 
-    public const int ID = 1069033789;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1069033789;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

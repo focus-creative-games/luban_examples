@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
+public sealed class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(ByteBuf _buf) 
     {
@@ -31,8 +31,8 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
     public item.Item ItemId_Ref { get; private set; }
     public long ItemNum { get; private set; }
 
-    public const int ID = -1496363507;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1496363507;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

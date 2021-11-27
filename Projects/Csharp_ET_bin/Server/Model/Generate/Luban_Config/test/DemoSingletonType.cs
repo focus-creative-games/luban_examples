@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
+public sealed class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(ByteBuf _buf) 
     {
@@ -33,8 +33,8 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     public string Name_l10n_key { get; }
     public test.DemoDynamic Date { get; private set; }
 
-    public const int ID = 539196998;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 539196998;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

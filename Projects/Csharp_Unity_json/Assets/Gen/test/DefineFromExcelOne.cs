@@ -49,8 +49,8 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
     public string DefaultAvatar { get; private set; }
     public string DefaultItem { get; private set; }
 
-    public const int ID = 528039504;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 528039504;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

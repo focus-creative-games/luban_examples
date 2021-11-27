@@ -28,8 +28,8 @@ public sealed class ChooseTarget :  ai.Service
 
     public string ResultTargetKey { get; private set; }
 
-    public const int ID = 1601247918;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1601247918;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

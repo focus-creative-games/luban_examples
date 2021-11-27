@@ -31,8 +31,8 @@ public sealed class UeForceSuccess :  ai.Decorator
     }
 
 
-    public const int ID = 195054574;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 195054574;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

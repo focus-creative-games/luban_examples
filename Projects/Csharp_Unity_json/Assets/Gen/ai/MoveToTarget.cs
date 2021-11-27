@@ -37,8 +37,8 @@ public sealed class MoveToTarget :  ai.Task
     public string TargetActorKey { get; private set; }
     public float AcceptableRadius { get; private set; }
 
-    public const int ID = 514987779;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 514987779;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

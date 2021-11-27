@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
+public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(ByteBuf _buf)  : base(_buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
     public item.EClothesPropertyType Prop { get; private set; }
     public int Value { get; private set; }
 
-    public const int ID = 696630835;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 696630835;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

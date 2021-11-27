@@ -1,4 +1,4 @@
-{{-
+{{~
     go_full_name = x.go_full_name
     key_type = x.key_ttype
     key_type1 =  x.key_ttype1
@@ -7,9 +7,9 @@
     index_field = x.index_field
     index_field1 = x.index_field1
     index_field2 = x.index_field2
--}}
+~}}
 
-package {{package}}
+package {{x.top_module}}
 
 {{~if x.is_map_table~}}
 type {{go_full_name}} struct {

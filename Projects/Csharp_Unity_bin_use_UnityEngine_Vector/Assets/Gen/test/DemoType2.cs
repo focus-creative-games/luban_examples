@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DemoType2 :  Bright.Config.BeanBase 
+public sealed class DemoType2 :  Bright.Config.BeanBase 
 {
     public DemoType2(ByteBuf _buf) 
     {
@@ -54,7 +54,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public bool X1 { get; private set; }
     public byte X2 { get; private set; }
     public short X3 { get; private set; }
-    public test.DemoType2 X3_Ref { get; private set; }
     public long X5 { get; private set; }
     public float X6 { get; private set; }
     public double X7 { get; private set; }
@@ -78,12 +77,11 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
     public test.DemoDynamic[] K15 { get; private set; }
 
-    public const int ID = -367048295;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -367048295;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        this.X3_Ref = (_tables["test.TbFullTypes"] as test.TbFullTypes).GetOrDefault(X3);
         X12?.Resolve(_tables);
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }

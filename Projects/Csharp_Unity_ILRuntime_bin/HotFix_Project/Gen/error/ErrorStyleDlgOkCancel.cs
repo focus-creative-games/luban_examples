@@ -30,8 +30,8 @@ public sealed class ErrorStyleDlgOkCancel :  error.ErrorStyle
     public string Btn1Name { get; private set; }
     public string Btn2Name { get; private set; }
 
-    public const int ID = 971221414;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 971221414;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

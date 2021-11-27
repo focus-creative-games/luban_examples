@@ -37,8 +37,8 @@ public sealed class MinMaxLevel :  condition.BoolRoleCondition
     public int Min { get; private set; }
     public int Max { get; private set; }
 
-    public const int ID = 907499647;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 907499647;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

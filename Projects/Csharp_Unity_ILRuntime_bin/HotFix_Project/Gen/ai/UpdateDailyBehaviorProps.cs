@@ -44,8 +44,8 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
     public string MoodLowerThresholdKey { get; private set; }
     public string MoodUpperThresholdKey { get; private set; }
 
-    public const int ID = -61887372;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -61887372;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

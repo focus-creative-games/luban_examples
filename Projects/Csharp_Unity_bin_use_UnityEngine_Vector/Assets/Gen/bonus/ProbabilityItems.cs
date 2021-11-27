@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class ProbabilityItems :  bonus.Bonus 
+public sealed class ProbabilityItems :  bonus.Bonus 
 {
     public ProbabilityItems(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
 
     public bonus.ProbabilityItemInfo[] ItemList { get; private set; }
 
-    public const int ID = 366387866;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 366387866;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

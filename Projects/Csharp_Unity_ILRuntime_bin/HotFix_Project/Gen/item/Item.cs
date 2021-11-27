@@ -74,8 +74,8 @@ public sealed class Item :  Bright.Config.BeanBase
     public item.EUseType UseType { get; private set; }
     public int? LevelUpId { get; private set; }
 
-    public const int ID = 2107285806;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 2107285806;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

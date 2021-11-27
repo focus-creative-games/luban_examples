@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed partial class CodeInfo :  Bright.Config.BeanBase 
+public sealed class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(ByteBuf _buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
     public error.EErrorCode Code { get; private set; }
     public string Key { get; private set; }
 
-    public const int ID = -1942481535;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1942481535;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

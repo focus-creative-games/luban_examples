@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
+public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(ByteBuf _buf) 
     {
@@ -53,8 +53,8 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     public System.Numerics.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
 
-    public const int ID = -370934083;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -370934083;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

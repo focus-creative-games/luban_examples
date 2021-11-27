@@ -1,0 +1,17 @@
+<module>
+	<topmodule name="proto"/>
+	
+    <import name="."/>
+	
+	<service name="client">
+		<prefix value="proto"/>
+	</service>
+    
+    <service name="server">
+		<prefix value="proto"/>
+    </service>
+    
+    <service name="all">
+
+    </service>
+</module>

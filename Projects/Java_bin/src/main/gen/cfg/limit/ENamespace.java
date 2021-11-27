@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg.limit;
 public enum ENamespace {
     ITEM_DAILY_OBTAIN(1),

@@ -38,8 +38,8 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
     public string Text { get; private set; }
     public string Text_l10n_key { get; }
 
-    public const int ID = -331195887;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -331195887;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

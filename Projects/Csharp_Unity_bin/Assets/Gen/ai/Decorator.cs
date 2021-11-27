@@ -25,13 +25,13 @@ public abstract class Decorator :  ai.Node
     {
         switch (_buf.ReadInt())
         {
-            case ai.UeLoop.ID: return new ai.UeLoop(_buf);
-            case ai.UeCooldown.ID: return new ai.UeCooldown(_buf);
-            case ai.UeTimeLimit.ID: return new ai.UeTimeLimit(_buf);
-            case ai.UeBlackboard.ID: return new ai.UeBlackboard(_buf);
-            case ai.UeForceSuccess.ID: return new ai.UeForceSuccess(_buf);
-            case ai.IsAtLocation.ID: return new ai.IsAtLocation(_buf);
-            case ai.DistanceLessThan.ID: return new ai.DistanceLessThan(_buf);
+            case ai.UeLoop.__ID__: return new ai.UeLoop(_buf);
+            case ai.UeCooldown.__ID__: return new ai.UeCooldown(_buf);
+            case ai.UeTimeLimit.__ID__: return new ai.UeTimeLimit(_buf);
+            case ai.UeBlackboard.__ID__: return new ai.UeBlackboard(_buf);
+            case ai.UeForceSuccess.__ID__: return new ai.UeForceSuccess(_buf);
+            case ai.IsAtLocation.__ID__: return new ai.IsAtLocation(_buf);
+            case ai.DistanceLessThan.__ID__: return new ai.DistanceLessThan(_buf);
             default: throw new SerializationException();
         }
     }

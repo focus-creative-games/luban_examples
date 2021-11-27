@@ -77,8 +77,8 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
     public test.DemoDynamic[] K15 { get; private set; }
 
-    public const int ID = -367048295;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -367048295;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

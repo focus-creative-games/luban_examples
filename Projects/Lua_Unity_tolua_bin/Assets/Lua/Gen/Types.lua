@@ -1748,148 +1748,6 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
-    ---@class common.Dummy 
-     ---@field public id int
-     ---@field public limit limit.LimitBase
-        local class = SimpleClass()
-        class._id = -985084219
-        class._name = 'common.Dummy'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            id = readInt(bs),
-            limit = beans['limit.LimitBase']._deserialize(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.LimitBase 
-        local class = SimpleClass()
-        class._id = 2120549017
-        class._name = 'limit.LimitBase'
-        local id2name = {  [303235413] = 'limit.DailyLimit',  [-1753629499] = 'limit.MultiDayLimit',  [-252187161] = 'limit.WeeklyLimit',  [2063279905] = 'limit.MonthlyLimit',  [-1366194050] = 'limit.CoolDown',  [394328599] = 'limit.GroupCoolDown',  }
-        class._deserialize = function(bs)
-            local id = readInt(bs)
-            return beans[id2name[id]]._deserialize(bs)
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.DailyLimitBase :limit.LimitBase 
-        local class = SimpleClass()
-        class._id = -478688826
-        class._name = 'limit.DailyLimitBase'
-        local id2name = {  [303235413] = 'limit.DailyLimit',  }
-        class._deserialize = function(bs)
-            local id = readInt(bs)
-            return beans[id2name[id]]._deserialize(bs)
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.DailyLimit :limit.DailyLimitBase 
-     ---@field public num int
-        local class = SimpleClass()
-        class._id = 303235413
-        class._name = 'limit.DailyLimit'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            num = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.MultiDayLimit :limit.LimitBase 
-     ---@field public day int
-     ---@field public num int
-        local class = SimpleClass()
-        class._id = -1753629499
-        class._name = 'limit.MultiDayLimit'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            day = readInt(bs),
-            num = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.WeeklyLimit :limit.LimitBase 
-     ---@field public num int
-        local class = SimpleClass()
-        class._id = -252187161
-        class._name = 'limit.WeeklyLimit'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            num = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.MonthlyLimit :limit.LimitBase 
-     ---@field public num int
-        local class = SimpleClass()
-        class._id = 2063279905
-        class._name = 'limit.MonthlyLimit'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            num = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.CoolDown :limit.LimitBase 
-     ---@field public duration int
-        local class = SimpleClass()
-        class._id = -1366194050
-        class._name = 'limit.CoolDown'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            duration = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
-    ---@class limit.GroupCoolDown :limit.LimitBase 
-     ---@field public group_id int
-     ---@field public duration int
-        local class = SimpleClass()
-        class._id = 394328599
-        class._name = 'limit.GroupCoolDown'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            group_id = readInt(bs),
-            duration = readInt(bs),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class._name] = class
-    end
-    do
     ---@class error.ErrorInfo 
      ---@field public code string
      ---@field public desc string
@@ -3232,6 +3090,110 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
+    ---@class test.TestBeRef 
+     ---@field public id int
+     ---@field public count int
+        local class = SimpleClass()
+        class._id = 1934403938
+        class._name = 'test.TestBeRef'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            count = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestRef 
+     ---@field public id int
+     ---@field public x1 int
+     ---@field public x1_2 int
+     ---@field public x2 int
+     ---@field public a1 int[]
+     ---@field public a2 int[]
+     ---@field public b1 int[]
+     ---@field public b2 int[]
+     ---@field public c1 int[]
+     ---@field public c2 int[]
+     ---@field public d1 table<int,int>
+     ---@field public d2 table<int,int>
+        local class = SimpleClass()
+        class._id = -543222491
+        class._name = 'test.TestRef'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readInt(bs),
+            x1_2 = readInt(bs),
+            x2 = readInt(bs),
+            a1 = readArray(bs, readInt),
+            a2 = readArray(bs, readInt),
+            b1 = readList(bs, readInt),
+            b2 = readList(bs, readInt),
+            c1 = readSet(bs, readInt),
+            c2 = readSet(bs, readInt),
+            d1 = readMap(bs, readInt, readInt),
+            d2 = readMap(bs, readInt, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestSize 
+     ---@field public id int
+     ---@field public x1 int[]
+     ---@field public x2 int[]
+     ---@field public x3 int[]
+     ---@field public x4 table<int,int>
+        local class = SimpleClass()
+        class._id = 340006319
+        class._name = 'test.TestSize'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readArray(bs, readInt),
+            x2 = readList(bs, readInt),
+            x3 = readSet(bs, readInt),
+            x4 = readMap(bs, readInt, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.TestSet 
+     ---@field public id int
+     ---@field public x1 int[]
+     ---@field public x2 long[]
+     ---@field public x3 string[]
+     ---@field public x4 test.DemoEnum[]
+        local class = SimpleClass()
+        class._id = -543221516
+        class._name = 'test.TestSet'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readList(bs, readInt),
+            x2 = readList(bs, readLong),
+            x3 = readList(bs, readString),
+            x4 = readList(bs, readInt),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
     ---@class test.DetectEncoding 
      ---@field public id int
      ---@field public name string
@@ -3402,6 +3364,60 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
+    ---@class test.CompositeJsonTable1 
+     ---@field public id int
+     ---@field public x string
+        local class = SimpleClass()
+        class._id = 1566207894
+        class._name = 'test.CompositeJsonTable1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.CompositeJsonTable2 
+     ---@field public id int
+     ---@field public y int
+        local class = SimpleClass()
+        class._id = 1566207895
+        class._name = 'test.CompositeJsonTable2'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            y = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.CompositeJsonTable3 
+     ---@field public a int
+     ---@field public b int
+        local class = SimpleClass()
+        class._id = 1566207896
+        class._name = 'test.CompositeJsonTable3'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            a = readInt(bs),
+            b = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
     ---@class test.ExcelFromJsonMultiRow 
      ---@field public id int
      ---@field public x int
@@ -3525,6 +3541,34 @@ local function InitTypes(methods)
         end
         beans[class._name] = class
     end
+    do
+    ---@class test.TestDesc 
+     ---@field public id int
+     ---@field public name string
+     ---@field public a1 int
+     ---@field public a2 int
+     ---@field public x1 test.H1
+     ---@field public x2 test.H2[]
+     ---@field public x3 test.H2[]
+        local class = SimpleClass()
+        class._id = 339555391
+        class._name = 'test.TestDesc'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            a1 = readInt(bs),
+            a2 = readInt(bs),
+            x1 = beans['test.H1']._deserialize(bs),
+            x2 = readList(bs, beans['test.H2']._deserialize),
+            x3 = readArray(bs, beans['test.H2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
 
     local tables =
     {
@@ -3533,7 +3577,6 @@ local function InitTypes(methods)
     { name='TbClazz', file='blueprint_tbclazz', mode='map', index='name', value_type='blueprint.Clazz' },
     { name='TbDrop', file='bonus_tbdrop', mode='map', index='id', value_type='bonus.DropInfo' },
     { name='TbGlobalConfig', file='common_tbglobalconfig', mode='one', value_type='common.GlobalConfig'},
-    { name='TbDummy', file='common_tbdummy', mode='map', index='id', value_type='common.Dummy' },
     { name='TbErrorInfo', file='error_tberrorinfo', mode='map', index='code', value_type='error.ErrorInfo' },
     { name='TbCodeInfo', file='error_tbcodeinfo', mode='map', index='code', value_type='error.CodeInfo' },
     { name='TbItem', file='item_tbitem', mode='map', index='id', value_type='item.Item' },
@@ -3559,16 +3602,24 @@ local function InitTypes(methods)
     { name='TbDemoGroup_S', file='test_tbdemogroup_s', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDemoGroup_E', file='test_tbdemogroup_e', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
+    { name='TbTestBeRef', file='test_tbtestberef', mode='map', index='id', value_type='test.TestBeRef' },
+    { name='TbTestRef', file='test_tbtestref', mode='map', index='id', value_type='test.TestRef' },
+    { name='TbTestSize', file='test_tbtestsize', mode='map', index='id', value_type='test.TestSize' },
+    { name='TbTestSet', file='test_tbtestset', mode='map', index='id', value_type='test.TestSet' },
     { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
     { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
     { name='TbDefineFromExcelOne', file='test_tbdefinefromexcelone', mode='one', value_type='test.DefineFromExcelOne'},
     { name='TbTestIndex', file='test_tbtestindex', mode='map', index='id', value_type='test.TestIndex' },
     { name='TbTestMap', file='test_tbtestmap', mode='map', index='id', value_type='test.TestMap' },
     { name='TbExcelFromJson', file='test_tbexcelfromjson', mode='map', index='x4', value_type='test.ExcelFromJson' },
+    { name='TbCompositeJsonTable1', file='test_tbcompositejsontable1', mode='map', index='id', value_type='test.CompositeJsonTable1' },
+    { name='TbCompositeJsonTable2', file='test_tbcompositejsontable2', mode='map', index='id', value_type='test.CompositeJsonTable2' },
+    { name='TbCompositeJsonTable3', file='test_tbcompositejsontable3', mode='one', value_type='test.CompositeJsonTable3'},
     { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },
+    { name='TbTestDesc', file='test_tbtestdesc', mode='map', index='id', value_type='test.TestDesc' },
     }
     return { enums = enums, beans = beans, tables = tables }
     end

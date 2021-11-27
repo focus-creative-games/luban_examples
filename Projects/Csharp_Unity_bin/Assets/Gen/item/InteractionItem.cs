@@ -32,8 +32,8 @@ public sealed class InteractionItem :  item.ItemExtra
     public string HoldingStaticMesh { get; private set; }
     public string HoldingStaticMeshMat { get; private set; }
 
-    public const int ID = 640937802;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 640937802;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

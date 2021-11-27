@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class GetOwnerPlayer :  ai.Service 
+public sealed class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class GetOwnerPlayer :  ai.Service
 
     public string PlayerActorKey { get; private set; }
 
-    public const int ID = -999247644;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -999247644;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

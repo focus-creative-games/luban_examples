@@ -29,9 +29,9 @@ public abstract class Method :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case blueprint.AbstraceMethod.ID: return new blueprint.AbstraceMethod(_buf);
-            case blueprint.ExternalMethod.ID: return new blueprint.ExternalMethod(_buf);
-            case blueprint.BlueprintMethod.ID: return new blueprint.BlueprintMethod(_buf);
+            case blueprint.AbstraceMethod.__ID__: return new blueprint.AbstraceMethod(_buf);
+            case blueprint.ExternalMethod.__ID__: return new blueprint.ExternalMethod(_buf);
+            case blueprint.BlueprintMethod.__ID__: return new blueprint.BlueprintMethod(_buf);
             default: throw new SerializationException();
         }
     }

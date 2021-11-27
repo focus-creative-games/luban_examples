@@ -20,6 +20,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     {
         Id = _buf.ReadInt();
         X1 = _buf.ReadInt();
+        X12 = _buf.ReadInt();
         X2 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);A1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); A1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);A2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); A2[i] = _e;}}
@@ -28,6 +29,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);C1 = new System.Collections.Generic.HashSet<int>(/*n * 3 / 2*/);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); C1.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);C2 = new System.Collections.Generic.HashSet<int>(/*n * 3 / 2*/);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); C2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);D1 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     D1.Add(_k, _v);}}
+        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);D2 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     D2.Add(_k, _v);}}
     }
 
     public static TestRef DeserializeTestRef(ByteBuf _buf)
@@ -38,6 +40,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public int X1 { get; private set; }
     public test.TestBeRef X1_Ref { get; private set; }
+    public int X12 { get; private set; }
     public int X2 { get; private set; }
     public test.TestBeRef X2_Ref { get; private set; }
     public int[] A1 { get; private set; }
@@ -47,9 +50,10 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C1 { get; private set; }
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
 
-    public const int ID = -543222491;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -543222491;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
@@ -66,6 +70,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         return "{ "
         + "Id:" + Id + ","
         + "X1:" + X1 + ","
+        + "X12:" + X12 + ","
         + "X2:" + X2 + ","
         + "A1:" + Bright.Common.StringUtil.CollectionToString(A1) + ","
         + "A2:" + Bright.Common.StringUtil.CollectionToString(A2) + ","
@@ -74,6 +79,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "C1:" + Bright.Common.StringUtil.CollectionToString(C1) + ","
         + "C2:" + Bright.Common.StringUtil.CollectionToString(C2) + ","
         + "D1:" + Bright.Common.StringUtil.CollectionToString(D1) + ","
+        + "D2:" + Bright.Common.StringUtil.CollectionToString(D2) + ","
         + "}";
     }
     }

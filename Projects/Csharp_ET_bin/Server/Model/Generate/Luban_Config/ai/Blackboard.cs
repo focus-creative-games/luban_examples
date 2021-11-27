@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class Blackboard :  Bright.Config.BeanBase 
+public sealed class Blackboard :  Bright.Config.BeanBase 
 {
     public Blackboard(ByteBuf _buf) 
     {
@@ -35,8 +35,8 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
     public ai.Blackboard ParentName_Ref { get; private set; }
     public System.Collections.Generic.List<ai.BlackboardKey> Keys { get; private set; }
 
-    public const int ID = 1576193005;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1576193005;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

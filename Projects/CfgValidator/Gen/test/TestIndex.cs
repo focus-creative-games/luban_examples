@@ -37,8 +37,8 @@ public sealed class TestIndex :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
 
-    public const int ID = 1941154020;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1941154020;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

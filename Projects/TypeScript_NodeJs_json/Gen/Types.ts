@@ -73,12 +73,14 @@ export class Vector4 {
     }
 }
 
+
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
     SERVER = 1,
 }
 }
+
 export namespace ai {
 export enum EKeyType {
     BOOL = 1,
@@ -93,6 +95,7 @@ export enum EKeyType {
     OBJECT = 10,
 }
 }
+
 export namespace ai {
 export enum EFlowAbortMode {
     NONE = 0,
@@ -101,18 +104,21 @@ export enum EFlowAbortMode {
     BOTH = 3,
 }
 }
+
 export namespace ai {
 export enum EFinishMode {
     IMMEDIATE = 0,
     DELAYED = 1,
 }
 }
+
 export namespace ai {
 export enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
 }
 }
+
 export namespace ai {
 export enum EOperator {
     IS_EQUAL_TO = 0,
@@ -125,12 +131,14 @@ export enum EOperator {
     NOT_CONTAINS = 7,
 }
 }
+
 export namespace common {
 export enum EBoolOperator {
     AND = 0,
     OR = 1,
 }
 }
+
 export namespace error {
 export enum EOperation {
     /**
@@ -143,6 +151,7 @@ export enum EOperation {
     RESTART = 1,
 }
 }
+
 export namespace error {
 export enum EErrorCode {
     OK = 0,
@@ -232,6 +241,7 @@ export enum EErrorCode {
     SELFIE_HAD_REWARD = 1203,
 }
 }
+
 export namespace item {
 /**
  * 道具品质
@@ -259,6 +269,7 @@ export enum EItemQuality {
     GOLDEN = 4,
 }
 }
+
 export namespace item {
 export enum ECurrencyType {
     /**
@@ -283,6 +294,7 @@ export enum ECurrencyType {
     POWER_POINT = 5,
 }
 }
+
 export namespace item {
 export enum EMajorType {
     /**
@@ -331,6 +343,7 @@ export enum EMajorType {
     MATERIAL = 11,
 }
 }
+
 export namespace item {
 export enum EMinorType {
     /**
@@ -531,6 +544,7 @@ export enum EMinorType {
     DESIGN_DRAWING = 1102,
 }
 }
+
 export namespace item {
 export enum EClothersStarQualityType {
     /**
@@ -575,6 +589,7 @@ export enum EClothersStarQualityType {
     TEN = 10,
 }
 }
+
 export namespace item {
 export enum EClothersTag {
     /**
@@ -587,6 +602,7 @@ export enum EClothersTag {
     WU_ZHE = 2,
 }
 }
+
 export namespace item {
 export enum EUseType {
     /**
@@ -599,6 +615,7 @@ export enum EUseType {
     AUTO = 1,
 }
 }
+
 export namespace item {
 export enum EClothesHidePartType {
     /**
@@ -635,6 +652,7 @@ export enum EClothesHidePartType {
     LEG_LOWER = 7,
 }
 }
+
 export namespace item {
 export enum EClothesPropertyType {
     /**
@@ -679,6 +697,7 @@ export enum EClothesPropertyType {
     BAO_NUAN = 10,
 }
 }
+
 export namespace item {
 export enum EItemFunctionType {
     /**
@@ -691,6 +710,7 @@ export enum EItemFunctionType {
     USE_DESIGN_DRAWING = 1,
 }
 }
+
 export namespace limit {
 export enum ENamespace {
     ITEM_DAILY_OBTAIN = 1,
@@ -698,6 +718,7 @@ export enum ENamespace {
     STORE_GOODS_LIMIT_BUY = 3,
 }
 }
+
 export namespace mail {
 export enum EMailType {
     /**
@@ -710,6 +731,7 @@ export enum EMailType {
     SYSTEM = 1,
 }
 }
+
 export namespace role {
 export enum EGenderType {
     /**
@@ -722,11 +744,13 @@ export enum EGenderType {
     FEMALE = 2,
 }
 }
+
 export namespace role {
 export enum EProfession {
     TEST_PROFESSION = 1,
 }
 }
+
 export namespace test {
 export enum DemoEnum {
     /**
@@ -747,6 +771,7 @@ export enum DemoEnum {
     D = 5,
 }
 }
+
 export namespace test {
 export enum DemoFlag {
     A = 1,
@@ -754,6 +779,7 @@ export enum DemoFlag {
     D = A|B,
 }
 }
+
 export namespace test {
 export enum ETestUeType {
     /**
@@ -763,10 +789,12 @@ export enum ETestUeType {
     BLACK = 1,
 }
 }
+
 export namespace test {
 export enum ETestEmptyEnum {
 }
 }
+
 export namespace test {
 export enum ETestEmptyEnum2 {
     SMALL_THAN_256 = 255,
@@ -774,6 +802,7 @@ export enum ETestEmptyEnum2 {
     X_257 = 257,
 }
 }
+
 export namespace test {
 export enum ETestQuality {
     /**
@@ -794,6 +823,7 @@ export enum ETestQuality {
     D = 4,
 }
 }
+
 export namespace test {
 export enum ETestCurrency {
     /**
@@ -2739,233 +2769,6 @@ export class GlobalConfig {
 
     resolve(_tables: Map<string, any>) {
         this.bagInitItemsDropId_Ref = this.bagInitItemsDropId != undefined ? (_tables.get('bonus.TbDrop') as  bonus.TbDrop).get(this.bagInitItemsDropId) : undefined
-    }
-}
-
-}
-
-export namespace common {
-export class TbDummy{
-    private _dataMap: Map<number, common.Dummy>
-    private _dataList: common.Dummy[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, common.Dummy>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: common.Dummy
-            _v = new common.Dummy(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, common.Dummy> { return this._dataMap; }
-    getDataList(): common.Dummy[] { return this._dataList; }
-
-    get(key: number): common.Dummy | undefined { return this._dataMap.get(key); }
-
-    resolve(_tables: Map<string, any>) {
-        for(var v of this._dataList) {
-            v.resolve(_tables)
-        }
-    }
-
-
-}
-}
-
-
-
-export namespace common {
-export class Dummy {
-
-    constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.limit === undefined) { throw new Error() }
-        this.limit = limit.LimitBase.constructorFrom(_json_.limit)
-    }
-
-    readonly id: number
-    readonly limit: limit.LimitBase
-
-    resolve(_tables: Map<string, any>) {
-        if (this.limit != null) { this.limit.resolve(_tables);}
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export abstract class LimitBase {
-    static constructorFrom(_json_: any): LimitBase{
-        switch (_json_.__type__) {
-            case 'DailyLimit': return new limit.DailyLimit(_json_)
-            case 'MultiDayLimit': return new limit.MultiDayLimit(_json_)
-            case 'WeeklyLimit': return new limit.WeeklyLimit(_json_)
-            case 'MonthlyLimit': return new limit.MonthlyLimit(_json_)
-            case 'CoolDown': return new limit.CoolDown(_json_)
-            case 'GroupCoolDown': return new limit.GroupCoolDown(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-    }
-
-
-    resolve(_tables: Map<string, any>) {
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export abstract class DailyLimitBase extends limit.LimitBase {
-    static constructorFrom(_json_: any): DailyLimitBase{
-        switch (_json_.__type__) {
-            case 'DailyLimit': return new limit.DailyLimit(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-        super(_json_)
-    }
-
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class DailyLimit extends limit.DailyLimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.num === undefined) { throw new Error() }
-        this.num = _json_.num
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class MultiDayLimit extends limit.LimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.day === undefined) { throw new Error() }
-        this.day = _json_.day
-        if (_json_.num === undefined) { throw new Error() }
-        this.num = _json_.num
-    }
-
-    readonly day: number
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class WeeklyLimit extends limit.LimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.num === undefined) { throw new Error() }
-        this.num = _json_.num
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class MonthlyLimit extends limit.LimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.num === undefined) { throw new Error() }
-        this.num = _json_.num
-    }
-
-    readonly num: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class CoolDown extends limit.LimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.duration === undefined) { throw new Error() }
-        this.duration = _json_.duration
-    }
-
-    readonly duration: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
-    }
-}
-
-}
-
-
-
-export namespace limit {
-export class GroupCoolDown extends limit.LimitBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.group_id === undefined) { throw new Error() }
-        this.groupId = _json_.group_id
-        if (_json_.duration === undefined) { throw new Error() }
-        this.duration = _json_.duration
-    }
-
-    readonly groupId: number
-    readonly duration: number
-
-    resolve(_tables: Map<string, any>) {
-        super.resolve(_tables)
     }
 }
 
@@ -5506,6 +5309,262 @@ export class TestGlobal {
 }
 
 export namespace test {
+export class TbTestBeRef{
+    private _dataMap: Map<number, test.TestBeRef>
+    private _dataList: test.TestBeRef[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestBeRef>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestBeRef
+            _v = new test.TestBeRef(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestBeRef> { return this._dataMap; }
+    getDataList(): test.TestBeRef[] { return this._dataList; }
+
+    get(key: number): test.TestBeRef | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class TestBeRef {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.count === undefined) { throw new Error() }
+        this.count = _json_.count
+    }
+
+    readonly id: number
+    readonly count: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
+export class TbTestRef{
+    private _dataMap: Map<number, test.TestRef>
+    private _dataList: test.TestRef[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestRef>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestRef
+            _v = new test.TestRef(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestRef> { return this._dataMap; }
+    getDataList(): test.TestRef[] { return this._dataList; }
+
+    get(key: number): test.TestRef | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class TestRef {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x1_2 === undefined) { throw new Error() }
+        this.x12 = _json_.x1_2
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.a1 === undefined) { throw new Error() }
+        this.a1 = _json_.a1
+        if (_json_.a2 === undefined) { throw new Error() }
+        this.a2 = _json_.a2
+        if (_json_.b1 === undefined) { throw new Error() }
+        this.b1 = _json_.b1
+        if (_json_.b2 === undefined) { throw new Error() }
+        this.b2 = _json_.b2
+        if (_json_.c1 === undefined) { throw new Error() }
+        this.c1 = _json_.c1
+        if (_json_.c2 === undefined) { throw new Error() }
+        this.c2 = _json_.c2
+        if (_json_.d1 === undefined) { throw new Error() }
+        this.d1 = new Map<number, number>(); for(var _entry_ of _json_.d1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.d1.set(_k, _v);  }
+        if (_json_.d2 === undefined) { throw new Error() }
+        this.d2 = new Map<number, number>(); for(var _entry_ of _json_.d2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.d2.set(_k, _v);  }
+    }
+
+    readonly id: number
+    readonly x1: number
+    x1_Ref : test.TestBeRef = undefined!
+    readonly x12: number
+    readonly x2: number
+    x2_Ref : test.TestBeRef = undefined!
+    readonly a1: Int32Array
+    readonly a2: Int32Array
+    readonly b1: number[]
+    readonly b2: number[]
+    readonly c1: Set<number>
+    readonly c2: Set<number>
+    readonly d1: Map<number, number>
+    readonly d2: Map<number, number>
+
+    resolve(_tables: Map<string, any>) {
+        this.x1_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x1)!
+        this.x2_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x2)!
+    }
+}
+
+}
+
+export namespace test {
+export class TbTestSize{
+    private _dataMap: Map<number, test.TestSize>
+    private _dataList: test.TestSize[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestSize>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestSize
+            _v = new test.TestSize(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestSize> { return this._dataMap; }
+    getDataList(): test.TestSize[] { return this._dataList; }
+
+    get(key: number): test.TestSize | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class TestSize {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = new Map<number, number>(); for(var _entry_ of _json_.x4) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x4.set(_k, _v);  }
+    }
+
+    readonly id: number
+    readonly x1: Int32Array
+    readonly x2: number[]
+    readonly x3: Set<number>
+    readonly x4: Map<number, number>
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
+export class TbTestSet{
+    private _dataMap: Map<number, test.TestSet>
+    private _dataList: test.TestSet[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestSet>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestSet
+            _v = new test.TestSet(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestSet> { return this._dataMap; }
+    getDataList(): test.TestSet[] { return this._dataList; }
+
+    get(key: number): test.TestSet | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class TestSet {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        { this.x4 = []; for(let _ele of _json_.x4) { let _e : test.DemoEnum; _e = _ele; this.x4.push(_e);}}
+    }
+
+    readonly id: number
+    readonly x1: number[]
+    readonly x2: number[]
+    readonly x3: string[]
+    readonly x4: test.DemoEnum[]
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
 export class TbDetectCsvEncoding{
     private _dataMap: Map<number, test.DetectEncoding>
     private _dataList: test.DetectEncoding[]
@@ -5589,9 +5648,6 @@ export class TbDefineFromExcel{
 
 
 export namespace test {
-/**
- * 
- */
 export class DefineFromExcel {
 
     constructor(_json_: any) {
@@ -5670,9 +5726,6 @@ export class TbDefineFromExcelOne{
      * 英雄解锁等级
      */
      get  unlockHero(): number { return this._data.unlockHero; }
-    /**
-     * 默认头像
-     */
      get  defaultAvatar(): string { return this._data.defaultAvatar; }
      get  defaultItem(): string { return this._data.defaultItem; }
 
@@ -5687,9 +5740,6 @@ export class TbDefineFromExcelOne{
 
 
 export namespace test {
-/**
- * 
- */
 export class DefineFromExcelOne {
 
     constructor(_json_: any) {
@@ -5711,9 +5761,6 @@ export class DefineFromExcelOne {
      * 英雄解锁等级
      */
     readonly unlockHero: number
-    /**
-     * 默认头像
-     */
     readonly defaultAvatar: string
     readonly defaultItem: string
 
@@ -5938,6 +5985,151 @@ export class ExcelFromJson {
 }
 
 export namespace test {
+export class TbCompositeJsonTable1{
+    private _dataMap: Map<number, test.CompositeJsonTable1>
+    private _dataList: test.CompositeJsonTable1[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.CompositeJsonTable1>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.CompositeJsonTable1
+            _v = new test.CompositeJsonTable1(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable1> { return this._dataMap; }
+    getDataList(): test.CompositeJsonTable1[] { return this._dataList; }
+
+    get(key: number): test.CompositeJsonTable1 | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class CompositeJsonTable1 {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+    }
+
+    readonly id: number
+    readonly x: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
+export class TbCompositeJsonTable2{
+    private _dataMap: Map<number, test.CompositeJsonTable2>
+    private _dataList: test.CompositeJsonTable2[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.CompositeJsonTable2>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.CompositeJsonTable2
+            _v = new test.CompositeJsonTable2(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable2> { return this._dataMap; }
+    getDataList(): test.CompositeJsonTable2[] { return this._dataList; }
+
+    get(key: number): test.CompositeJsonTable2 | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class CompositeJsonTable2 {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly id: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
+export class TbCompositeJsonTable3{
+
+     private _data: test.CompositeJsonTable3
+    constructor(_json_: any) {
+        if (_json_.length != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.CompositeJsonTable3(_json_[0])
+    }
+
+    getData(): test.CompositeJsonTable3 { return this._data; }
+
+     get  a(): number { return this._data.a; }
+     get  b(): number { return this._data.b; }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+export namespace test {
+export class CompositeJsonTable3 {
+
+    constructor(_json_: any) {
+        if (_json_.a === undefined) { throw new Error() }
+        this.a = _json_.a
+        if (_json_.b === undefined) { throw new Error() }
+        this.b = _json_.b
+    }
+
+    readonly a: number
+    readonly b: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+export namespace test {
 export class TbExcelFromJsonMultiRow{
     private _dataMap: Map<number, test.ExcelFromJsonMultiRow>
     private _dataList: test.ExcelFromJsonMultiRow[]
@@ -6107,9 +6299,6 @@ export class TbDefineFromExcel2{
 
 
 export namespace test {
-/**
- * 
- */
 export class DefineFromExcel2 {
 
     constructor(_json_: any) {
@@ -6241,6 +6430,87 @@ export class TestExcelBean1 {
 
 }
 
+export namespace test {
+export class TbTestDesc{
+    private _dataMap: Map<number, test.TestDesc>
+    private _dataList: test.TestDesc[]
+    constructor(_json_: any) {
+        this._dataMap = new Map<number, test.TestDesc>()
+        this._dataList = []
+        for(var _json2_ of _json_) {
+            let _v: test.TestDesc
+            _v = new test.TestDesc(_json2_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestDesc> { return this._dataMap; }
+    getDataList(): test.TestDesc[] { return this._dataList; }
+
+    get(key: number): test.TestDesc | undefined { return this._dataMap.get(key); }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+export namespace test {
+export class TestDesc {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name === undefined) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.a1 === undefined) { throw new Error() }
+        this.a1 = _json_.a1
+        if (_json_.a2 === undefined) { throw new Error() }
+        this.a2 = _json_.a2
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = new test.H1(_json_.x1)
+        if (_json_.x2 === undefined) { throw new Error() }
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
+        if (_json_.x3 === undefined) { throw new Error() }
+        { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
+    }
+
+    readonly id: number
+    /**
+     * 禁止
+     */
+    readonly name: string
+    /**
+     * 测试换行<br/>第2行<br/>第3层
+     */
+    readonly a1: number
+    /**
+     * 测试转义 &lt; &amp; % / # &gt;
+     */
+    readonly a2: number
+    readonly x1: test.H1
+    /**
+     * 这是x2
+     */
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+
+    resolve(_tables: Map<string, any>) {
+        if (this.x1 != null) { this.x1.resolve(_tables);}
+        for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
+        for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
 
 type JsonLoader = (file: string) => any
 
@@ -6255,8 +6525,6 @@ export class Tables {
     get TbDrop(): bonus.TbDrop  { return this._TbDrop;}
     private _TbGlobalConfig: common.TbGlobalConfig
     get TbGlobalConfig(): common.TbGlobalConfig  { return this._TbGlobalConfig;}
-    private _TbDummy: common.TbDummy
-    get TbDummy(): common.TbDummy  { return this._TbDummy;}
     private _TbErrorInfo: error.TbErrorInfo
     get TbErrorInfo(): error.TbErrorInfo  { return this._TbErrorInfo;}
     private _TbCodeInfo: error.TbCodeInfo
@@ -6310,6 +6578,14 @@ export class Tables {
     get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E;}
     private _TbTestGlobal: test.TbTestGlobal
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal;}
+    private _TbTestBeRef: test.TbTestBeRef
+    get TbTestBeRef(): test.TbTestBeRef  { return this._TbTestBeRef;}
+    private _TbTestRef: test.TbTestRef
+    get TbTestRef(): test.TbTestRef  { return this._TbTestRef;}
+    private _TbTestSize: test.TbTestSize
+    get TbTestSize(): test.TbTestSize  { return this._TbTestSize;}
+    private _TbTestSet: test.TbTestSet
+    get TbTestSet(): test.TbTestSet  { return this._TbTestSet;}
     private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
     get TbDetectCsvEncoding(): test.TbDetectCsvEncoding  { return this._TbDetectCsvEncoding;}
     private _TbDefineFromExcel: test.TbDefineFromExcel
@@ -6322,6 +6598,12 @@ export class Tables {
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap;}
     private _TbExcelFromJson: test.TbExcelFromJson
     get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson;}
+    private _TbCompositeJsonTable1: test.TbCompositeJsonTable1
+    get TbCompositeJsonTable1(): test.TbCompositeJsonTable1  { return this._TbCompositeJsonTable1;}
+    private _TbCompositeJsonTable2: test.TbCompositeJsonTable2
+    get TbCompositeJsonTable2(): test.TbCompositeJsonTable2  { return this._TbCompositeJsonTable2;}
+    private _TbCompositeJsonTable3: test.TbCompositeJsonTable3
+    get TbCompositeJsonTable3(): test.TbCompositeJsonTable3  { return this._TbCompositeJsonTable3;}
     private _TbExcelFromJsonMultiRow: test.TbExcelFromJsonMultiRow
     get TbExcelFromJsonMultiRow(): test.TbExcelFromJsonMultiRow  { return this._TbExcelFromJsonMultiRow;}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
@@ -6330,6 +6612,8 @@ export class Tables {
     get TbDefineFromExcel2(): test.TbDefineFromExcel2  { return this._TbDefineFromExcel2;}
     private _TbTestExcelBean: test.TbTestExcelBean
     get TbTestExcelBean(): test.TbTestExcelBean  { return this._TbTestExcelBean;}
+    private _TbTestDesc: test.TbTestDesc
+    get TbTestDesc(): test.TbTestDesc  { return this._TbTestDesc;}
 
     constructor(loader: JsonLoader) {
         let tables = new Map<string, any>()
@@ -6343,8 +6627,6 @@ export class Tables {
         tables.set('bonus.TbDrop', this._TbDrop)
         this._TbGlobalConfig = new common.TbGlobalConfig(loader('common_tbglobalconfig'))
         tables.set('common.TbGlobalConfig', this._TbGlobalConfig)
-        this._TbDummy = new common.TbDummy(loader('common_tbdummy'))
-        tables.set('common.TbDummy', this._TbDummy)
         this._TbErrorInfo = new error.TbErrorInfo(loader('error_tberrorinfo'))
         tables.set('error.TbErrorInfo', this._TbErrorInfo)
         this._TbCodeInfo = new error.TbCodeInfo(loader('error_tbcodeinfo'))
@@ -6395,6 +6677,14 @@ export class Tables {
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E)
         this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal'))
         tables.set('test.TbTestGlobal', this._TbTestGlobal)
+        this._TbTestBeRef = new test.TbTestBeRef(loader('test_tbtestberef'))
+        tables.set('test.TbTestBeRef', this._TbTestBeRef)
+        this._TbTestRef = new test.TbTestRef(loader('test_tbtestref'))
+        tables.set('test.TbTestRef', this._TbTestRef)
+        this._TbTestSize = new test.TbTestSize(loader('test_tbtestsize'))
+        tables.set('test.TbTestSize', this._TbTestSize)
+        this._TbTestSet = new test.TbTestSet(loader('test_tbtestset'))
+        tables.set('test.TbTestSet', this._TbTestSet)
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding'))
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
         this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel'))
@@ -6407,6 +6697,12 @@ export class Tables {
         tables.set('test.TbTestMap', this._TbTestMap)
         this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson'))
         tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
+        this._TbCompositeJsonTable1 = new test.TbCompositeJsonTable1(loader('test_tbcompositejsontable1'))
+        tables.set('test.TbCompositeJsonTable1', this._TbCompositeJsonTable1)
+        this._TbCompositeJsonTable2 = new test.TbCompositeJsonTable2(loader('test_tbcompositejsontable2'))
+        tables.set('test.TbCompositeJsonTable2', this._TbCompositeJsonTable2)
+        this._TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader('test_tbcompositejsontable3'))
+        tables.set('test.TbCompositeJsonTable3', this._TbCompositeJsonTable3)
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'))
         tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'))
@@ -6415,13 +6711,14 @@ export class Tables {
         tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2)
         this._TbTestExcelBean = new test.TbTestExcelBean(loader('test_tbtestexcelbean'))
         tables.set('test.TbTestExcelBean', this._TbTestExcelBean)
+        this._TbTestDesc = new test.TbTestDesc(loader('test_tbtestdesc'))
+        tables.set('test.TbTestDesc', this._TbTestDesc)
 
         this._TbBlackboard.resolve(tables)
         this._TbBehaviorTree.resolve(tables)
         this._TbClazz.resolve(tables)
         this._TbDrop.resolve(tables)
         this._TbGlobalConfig.resolve(tables)
-        this._TbDummy.resolve(tables)
         this._TbErrorInfo.resolve(tables)
         this._TbCodeInfo.resolve(tables)
         this._TbItem.resolve(tables)
@@ -6447,15 +6744,23 @@ export class Tables {
         this._TbDemoGroup_S.resolve(tables)
         this._TbDemoGroup_E.resolve(tables)
         this._TbTestGlobal.resolve(tables)
+        this._TbTestBeRef.resolve(tables)
+        this._TbTestRef.resolve(tables)
+        this._TbTestSize.resolve(tables)
+        this._TbTestSet.resolve(tables)
         this._TbDetectCsvEncoding.resolve(tables)
         this._TbDefineFromExcel.resolve(tables)
         this._TbDefineFromExcelOne.resolve(tables)
         this._TbTestIndex.resolve(tables)
         this._TbTestMap.resolve(tables)
         this._TbExcelFromJson.resolve(tables)
+        this._TbCompositeJsonTable1.resolve(tables)
+        this._TbCompositeJsonTable2.resolve(tables)
+        this._TbCompositeJsonTable3.resolve(tables)
         this._TbExcelFromJsonMultiRow.resolve(tables)
         this._TbDemoGroupDefineFromExcel.resolve(tables)
         this._TbDefineFromExcel2.resolve(tables)
         this._TbTestExcelBean.resolve(tables)
+        this._TbTestDesc.resolve(tables)
     }
 }

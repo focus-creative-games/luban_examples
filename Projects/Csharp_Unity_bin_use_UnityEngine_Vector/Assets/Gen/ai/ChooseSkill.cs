@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class ChooseSkill :  ai.Task 
+public sealed class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(ByteBuf _buf)  : base(_buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class ChooseSkill :  ai.Task
     public string TargetActorKey { get; private set; }
     public string ResultSkillIdKey { get; private set; }
 
-    public const int ID = -918812268;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -918812268;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

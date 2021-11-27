@@ -31,8 +31,8 @@ public sealed class AbstraceMethod :  blueprint.Method
     }
 
 
-    public const int ID = -392137809;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -392137809;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

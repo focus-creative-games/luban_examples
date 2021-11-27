@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
+public sealed class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(ByteBuf _buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
     public int? StartTime { get; private set; }
     public int? EndTime { get; private set; }
 
-    public const int ID = 1642200959;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1642200959;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class ComposeNode :  ai.FlowNode 
+public abstract class ComposeNode :  ai.FlowNode 
 {
     public ComposeNode(ByteBuf _buf)  : base(_buf) 
     {
@@ -24,9 +24,9 @@ public abstract partial class ComposeNode :  ai.FlowNode
     {
         switch (_buf.ReadInt())
         {
-            case ai.Sequence.ID: return new ai.Sequence(_buf);
-            case ai.Selector.ID: return new ai.Selector(_buf);
-            case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
+            case ai.Sequence.__ID__: return new ai.Sequence(_buf);
+            case ai.Selector.__ID__: return new ai.Selector(_buf);
+            case ai.SimpleParallel.__ID__: return new ai.SimpleParallel(_buf);
             default: throw new SerializationException();
         }
     }

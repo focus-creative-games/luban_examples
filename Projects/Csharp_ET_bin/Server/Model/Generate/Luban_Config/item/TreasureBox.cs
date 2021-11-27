@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed partial class TreasureBox :  item.ItemExtra 
+public sealed class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(ByteBuf _buf)  : base(_buf) 
     {
@@ -36,8 +36,8 @@ public sealed partial class TreasureBox :  item.ItemExtra
     public System.Collections.Generic.List<int> DropIds { get; private set; }
     public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
 
-    public const int ID = 1494222369;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1494222369;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

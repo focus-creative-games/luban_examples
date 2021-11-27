@@ -26,8 +26,8 @@ public sealed class IsNotSet :  ai.KeyQueryOperator
     }
 
 
-    public const int ID = 790736255;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 790736255;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

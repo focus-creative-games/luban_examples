@@ -24,12 +24,12 @@ public abstract class Service :  ai.Node
     {
         switch (_buf.ReadInt())
         {
-            case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
-            case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
-            case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
-            case ai.KeepFaceTarget.ID: return new ai.KeepFaceTarget(_buf);
-            case ai.GetOwnerPlayer.ID: return new ai.GetOwnerPlayer(_buf);
-            case ai.UpdateDailyBehaviorProps.ID: return new ai.UpdateDailyBehaviorProps(_buf);
+            case ai.UeSetDefaultFocus.__ID__: return new ai.UeSetDefaultFocus(_buf);
+            case ai.ExecuteTimeStatistic.__ID__: return new ai.ExecuteTimeStatistic(_buf);
+            case ai.ChooseTarget.__ID__: return new ai.ChooseTarget(_buf);
+            case ai.KeepFaceTarget.__ID__: return new ai.KeepFaceTarget(_buf);
+            case ai.GetOwnerPlayer.__ID__: return new ai.GetOwnerPlayer(_buf);
+            case ai.UpdateDailyBehaviorProps.__ID__: return new ai.UpdateDailyBehaviorProps(_buf);
             default: throw new SerializationException();
         }
     }

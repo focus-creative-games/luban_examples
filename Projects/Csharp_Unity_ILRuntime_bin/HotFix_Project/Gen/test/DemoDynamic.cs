@@ -25,9 +25,9 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case test.DemoD2.ID: return new test.DemoD2(_buf);
-            case test.DemoE1.ID: return new test.DemoE1(_buf);
-            case test.DemoD5.ID: return new test.DemoD5(_buf);
+            case test.DemoD2.__ID__: return new test.DemoD2(_buf);
+            case test.DemoE1.__ID__: return new test.DemoE1(_buf);
+            case test.DemoD5.__ID__: return new test.DemoD5(_buf);
             default: throw new SerializationException();
         }
     }

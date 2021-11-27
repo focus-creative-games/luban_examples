@@ -26,8 +26,8 @@ public sealed class ExternalMethod :  blueprint.Method
     }
 
 
-    public const int ID = 1739079015;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1739079015;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

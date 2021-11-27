@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class DemoD2 :  test.DemoDynamic 
+public sealed class DemoD2 :  test.DemoDynamic 
 {
     public DemoD2(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class DemoD2 :  test.DemoDynamic
 
     public int X2 { get; private set; }
 
-    public const int ID = -2138341747;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -2138341747;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

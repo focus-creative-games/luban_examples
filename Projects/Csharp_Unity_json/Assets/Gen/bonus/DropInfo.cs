@@ -43,8 +43,8 @@ public sealed class DropInfo :  Bright.Config.BeanBase
     public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems { get; private set; }
     public bonus.Bonus Bonus { get; private set; }
 
-    public const int ID = -2014781108;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -2014781108;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

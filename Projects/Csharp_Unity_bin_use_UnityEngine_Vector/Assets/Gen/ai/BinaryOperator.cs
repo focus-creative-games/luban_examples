@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
+public sealed class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public ai.EOperator Oper { get; private set; }
     public ai.KeyData Data { get; private set; }
 
-    public const int ID = -979891605;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -979891605;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

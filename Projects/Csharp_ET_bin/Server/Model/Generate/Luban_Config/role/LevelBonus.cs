@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed partial class LevelBonus :  Bright.Config.BeanBase 
+public sealed class LevelBonus :  Bright.Config.BeanBase 
 {
     public LevelBonus(ByteBuf _buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos { get; private set; }
 
-    public const int ID = -572269677;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -572269677;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

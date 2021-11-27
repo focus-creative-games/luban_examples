@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public abstract partial class ItemExtra :  Bright.Config.BeanBase 
+public abstract class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(ByteBuf _buf) 
     {
@@ -25,11 +25,11 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case item.TreasureBox.ID: return new item.TreasureBox(_buf);
-            case item.InteractionItem.ID: return new item.InteractionItem(_buf);
-            case item.Clothes.ID: return new item.Clothes(_buf);
-            case item.DesignDrawing.ID: return new item.DesignDrawing(_buf);
-            case item.Dymmy.ID: return new item.Dymmy(_buf);
+            case item.TreasureBox.__ID__: return new item.TreasureBox(_buf);
+            case item.InteractionItem.__ID__: return new item.InteractionItem(_buf);
+            case item.Clothes.__ID__: return new item.Clothes(_buf);
+            case item.DesignDrawing.__ID__: return new item.DesignDrawing(_buf);
+            case item.Dymmy.__ID__: return new item.Dymmy(_buf);
             default: throw new SerializationException();
         }
     }

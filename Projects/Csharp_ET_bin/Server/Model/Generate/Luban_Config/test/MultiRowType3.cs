@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class MultiRowType3 :  Bright.Config.BeanBase 
+public sealed class MultiRowType3 :  Bright.Config.BeanBase 
 {
     public MultiRowType3(ByteBuf _buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public System.Collections.Generic.List<test.MultiRowType1> Items { get; private set; }
 
-    public const int ID = 540474972;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 540474972;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

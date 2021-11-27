@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg.ai;
 public enum ENotifyObserverMode {
     ON_VALUE_CHANGE(0),

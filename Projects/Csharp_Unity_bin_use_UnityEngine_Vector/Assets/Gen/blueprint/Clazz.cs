@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public abstract partial class Clazz :  Bright.Config.BeanBase 
+public abstract class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(ByteBuf _buf) 
     {
@@ -28,9 +28,9 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case blueprint.Interface.ID: return new blueprint.Interface(_buf);
-            case blueprint.NormalClazz.ID: return new blueprint.NormalClazz(_buf);
-            case blueprint.EnumClazz.ID: return new blueprint.EnumClazz(_buf);
+            case blueprint.Interface.__ID__: return new blueprint.Interface(_buf);
+            case blueprint.NormalClazz.__ID__: return new blueprint.NormalClazz(_buf);
+            case blueprint.EnumClazz.__ID__: return new blueprint.EnumClazz(_buf);
             default: throw new SerializationException();
         }
     }

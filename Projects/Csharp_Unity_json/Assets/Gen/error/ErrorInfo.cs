@@ -40,8 +40,8 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
     public string Desc { get; private set; }
     public error.ErrorStyle Style { get; private set; }
 
-    public const int ID = 1389347408;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1389347408;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

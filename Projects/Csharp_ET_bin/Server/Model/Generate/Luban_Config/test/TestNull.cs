@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class TestNull :  Bright.Config.BeanBase 
+public sealed class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(ByteBuf _buf) 
     {
@@ -41,8 +41,8 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
     public string S2 { get; private set; }
     public string S2_l10n_key { get; }
 
-    public const int ID = 339868469;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 339868469;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

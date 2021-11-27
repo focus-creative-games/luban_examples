@@ -6,6 +6,8 @@ return
 [100] = {id=100,value="导出",},
 [1] = {id=1,value="导出",},
 [2] = {id=2,value="导出",},
+[6] = {id=6,value="导出",},
+[7] = {id=7,value="导出",},
 [9] = {id=9,value="测试",},
 [10] = {id=10,value="测试",},
 [11] = {id=11,value="any",},

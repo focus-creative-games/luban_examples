@@ -37,8 +37,8 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
     public int UnlockEquip { get; private set; }
     public int UnlockHero { get; private set; }
 
-    public const int ID = -12548655;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -12548655;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

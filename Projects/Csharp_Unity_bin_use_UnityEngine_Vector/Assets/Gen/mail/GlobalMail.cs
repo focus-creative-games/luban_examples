@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.mail
 {
 
-public sealed partial class GlobalMail :  Bright.Config.BeanBase 
+public sealed class GlobalMail :  Bright.Config.BeanBase 
 {
     public GlobalMail(ByteBuf _buf) 
     {
@@ -50,8 +50,8 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     public condition.TimeRange RegisterTime { get; private set; }
     public condition.TimeRange MailTime { get; private set; }
 
-    public const int ID = -287571791;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -287571791;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

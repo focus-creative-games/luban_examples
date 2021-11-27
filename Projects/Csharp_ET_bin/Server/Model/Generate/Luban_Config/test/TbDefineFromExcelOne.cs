@@ -33,9 +33,6 @@ public sealed class TbDefineFromExcelOne
     /// 英雄解锁等级
     /// </summary>
      public int UnlockHero => _data.UnlockHero;
-    /// <summary>
-    /// 默认头像
-    /// </summary>
      public string DefaultAvatar => _data.DefaultAvatar;
      public string DefaultItem => _data.DefaultItem;
 

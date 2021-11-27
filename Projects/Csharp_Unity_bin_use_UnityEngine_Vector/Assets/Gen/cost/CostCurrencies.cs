@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public sealed partial class CostCurrencies :  cost.Cost 
+public sealed class CostCurrencies :  cost.Cost 
 {
     public CostCurrencies(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public System.Collections.Generic.List<cost.CostCurrency> Currencies { get; private set; }
 
-    public const int ID = 103084157;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 103084157;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

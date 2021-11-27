@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
+public abstract class ErrorStyle :  Bright.Config.BeanBase 
 {
     public ErrorStyle(ByteBuf _buf) 
     {
@@ -24,10 +24,10 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case error.ErrorStyleTip.ID: return new error.ErrorStyleTip(_buf);
-            case error.ErrorStyleMsgbox.ID: return new error.ErrorStyleMsgbox(_buf);
-            case error.ErrorStyleDlgOk.ID: return new error.ErrorStyleDlgOk(_buf);
-            case error.ErrorStyleDlgOkCancel.ID: return new error.ErrorStyleDlgOkCancel(_buf);
+            case error.ErrorStyleTip.__ID__: return new error.ErrorStyleTip(_buf);
+            case error.ErrorStyleMsgbox.__ID__: return new error.ErrorStyleMsgbox(_buf);
+            case error.ErrorStyleDlgOk.__ID__: return new error.ErrorStyleDlgOk(_buf);
+            case error.ErrorStyleDlgOkCancel.__ID__: return new error.ErrorStyleDlgOkCancel(_buf);
             default: throw new SerializationException();
         }
     }

@@ -28,8 +28,8 @@ public sealed class DebugPrint :  ai.Task
 
     public string Text { get; private set; }
 
-    public const int ID = 1357409728;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1357409728;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

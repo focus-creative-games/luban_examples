@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class UeSetDefaultFocus :  ai.Service 
+public sealed class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
 
     public string KeyboardKey { get; private set; }
 
-    public const int ID = 1812449155;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1812449155;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

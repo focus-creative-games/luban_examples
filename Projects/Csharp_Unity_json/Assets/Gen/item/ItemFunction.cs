@@ -43,8 +43,8 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
     public string Method { get; private set; }
     public bool CloseBagUi { get; private set; }
 
-    public const int ID = 1205824294;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1205824294;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

@@ -31,8 +31,8 @@ public sealed class CostItem :  cost.Cost
     public item.Item ItemId_Ref { get; private set; }
     public int Amount { get; private set; }
 
-    public const int ID = -1249440351;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1249440351;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

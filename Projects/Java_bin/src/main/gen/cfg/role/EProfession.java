@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg.role;
 public enum EProfession {
     TEST_PROFESSION(1),

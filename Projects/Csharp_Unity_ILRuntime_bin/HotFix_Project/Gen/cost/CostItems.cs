@@ -28,8 +28,8 @@ public sealed class CostItems :  cost.Cost
 
     public cost.CostItem[] ItemList { get; private set; }
 
-    public const int ID = -77945102;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -77945102;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

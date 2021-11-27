@@ -21,6 +21,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["x1"].IsNumber) { throw new SerializationException(); }  X1 = _json["x1"]; }
+        { if(!_json["x1_2"].IsNumber) { throw new SerializationException(); }  X12 = _json["x1_2"]; }
         { if(!_json["x2"].IsNumber) { throw new SerializationException(); }  X2 = _json["x2"]; }
         { var _json1 = _json["a1"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; A1 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  A1[_index++] = __v; }   }
         { var _json1 = _json["a2"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; A2 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  A2[_index++] = __v; }   }
@@ -29,12 +30,14 @@ public sealed class TestRef :  Bright.Config.BeanBase
         { var _json1 = _json["c1"]; if(!_json1.IsArray) { throw new SerializationException(); } C1 = new System.Collections.Generic.HashSet<int>(/*_json1.Count*/); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  C1.Add(__v); }   }
         { var _json1 = _json["c2"]; if(!_json1.IsArray) { throw new SerializationException(); } C2 = new System.Collections.Generic.HashSet<int>(/*_json1.Count*/); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  C2.Add(__v); }   }
         { var _json1 = _json["d1"]; if(!_json1.IsArray) { throw new SerializationException(); } D1 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  D1.Add(__k, __v); }   }
+        { var _json1 = _json["d2"]; if(!_json1.IsArray) { throw new SerializationException(); } D2 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  D2.Add(__k, __v); }   }
     }
 
-    public TestRef(int id, int x1, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1 ) 
+    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2 ) 
     {
         this.Id = id;
         this.X1 = x1;
+        this.X12 = x1_2;
         this.X2 = x2;
         this.A1 = a1;
         this.A2 = a2;
@@ -43,6 +46,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         this.C1 = c1;
         this.C2 = c2;
         this.D1 = d1;
+        this.D2 = d2;
     }
 
     public static TestRef DeserializeTestRef(JSONNode _json)
@@ -53,6 +57,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public int X1 { get; private set; }
     public test.TestBeRef X1_Ref { get; private set; }
+    public int X12 { get; private set; }
     public int X2 { get; private set; }
     public test.TestBeRef X2_Ref { get; private set; }
     public int[] A1 { get; private set; }
@@ -62,9 +67,10 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C1 { get; private set; }
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
 
-    public const int ID = -543222491;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -543222491;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
@@ -81,6 +87,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         return "{ "
         + "Id:" + Id + ","
         + "X1:" + X1 + ","
+        + "X12:" + X12 + ","
         + "X2:" + X2 + ","
         + "A1:" + Bright.Common.StringUtil.CollectionToString(A1) + ","
         + "A2:" + Bright.Common.StringUtil.CollectionToString(A2) + ","
@@ -89,6 +96,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "C1:" + Bright.Common.StringUtil.CollectionToString(C1) + ","
         + "C2:" + Bright.Common.StringUtil.CollectionToString(C2) + ","
         + "D1:" + Bright.Common.StringUtil.CollectionToString(D1) + ","
+        + "D2:" + Bright.Common.StringUtil.CollectionToString(D2) + ","
         + "}";
     }
     }

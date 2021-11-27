@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
+public sealed class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(ByteBuf _buf) 
     {
@@ -32,8 +32,8 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     public long NeedExp { get; private set; }
     public System.Collections.Generic.List<int> ClothesAttrs { get; private set; }
 
-    public const int ID = -1569837022;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1569837022;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

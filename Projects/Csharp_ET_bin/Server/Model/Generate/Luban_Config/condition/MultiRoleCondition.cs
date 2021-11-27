@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class MultiRoleCondition :  condition.RoleCondition 
+public sealed class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public condition.RoleCondition[] Conditions { get; private set; }
 
-    public const int ID = 934079583;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 934079583;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

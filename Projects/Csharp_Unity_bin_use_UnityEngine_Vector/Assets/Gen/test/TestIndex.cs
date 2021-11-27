@@ -14,16 +14,12 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed partial class TestIndex :  Bright.Config.BeanBase 
+public sealed class TestIndex :  Bright.Config.BeanBase 
 {
     public TestIndex(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Eles = new System.Collections.Generic.List<test.DemoType1>(n);for(var i = 0 ; i < n ; i++) { test.DemoType1 _e;  _e = test.DemoType1.DeserializeDemoType1(_buf); Eles.Add(_e);}}
-        foreach(var _v in Eles)
-        { 
-            Eles_Index.Add(_v.X1, _v);
-        }
     }
 
     public static TestIndex DeserializeTestIndex(ByteBuf _buf)
@@ -33,10 +29,9 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
 
     public int Id { get; private set; }
     public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
-    public readonly Dictionary<int, test.DemoType1> Eles_Index = new Dictionary<int, test.DemoType1>();
 
-    public const int ID = 1941154020;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1941154020;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

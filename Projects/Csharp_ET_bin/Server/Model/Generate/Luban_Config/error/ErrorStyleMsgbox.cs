@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
+public sealed class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(ByteBuf _buf)  : base(_buf) 
     {
@@ -30,8 +30,8 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
     public string BtnName { get; private set; }
     public error.EOperation Operation { get; private set; }
 
-    public const int ID = -1920482343;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1920482343;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

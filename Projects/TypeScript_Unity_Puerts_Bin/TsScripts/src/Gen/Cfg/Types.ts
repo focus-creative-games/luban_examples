@@ -113,12 +113,14 @@ export abstract class BeanBase implements ISerializable {
     abstract deserialize(buf: Bright.Serialization.ByteBuf): void
 }
 
+
 export namespace ai {
 export enum EExecutor {
     CLIENT = 0,
     SERVER = 1,
 }
 }
+
 export namespace ai {
 export enum EKeyType {
     BOOL = 1,
@@ -133,6 +135,7 @@ export enum EKeyType {
     OBJECT = 10,
 }
 }
+
 export namespace ai {
 export enum EFlowAbortMode {
     NONE = 0,
@@ -141,18 +144,21 @@ export enum EFlowAbortMode {
     BOTH = 3,
 }
 }
+
 export namespace ai {
 export enum EFinishMode {
     IMMEDIATE = 0,
     DELAYED = 1,
 }
 }
+
 export namespace ai {
 export enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
 }
 }
+
 export namespace ai {
 export enum EOperator {
     IS_EQUAL_TO = 0,
@@ -165,12 +171,14 @@ export enum EOperator {
     NOT_CONTAINS = 7,
 }
 }
+
 export namespace common {
 export enum EBoolOperator {
     AND = 0,
     OR = 1,
 }
 }
+
 export namespace error {
 export enum EOperation {
     /**
@@ -183,6 +191,7 @@ export enum EOperation {
     RESTART = 1,
 }
 }
+
 export namespace error {
 export enum EErrorCode {
     OK = 0,
@@ -272,6 +281,7 @@ export enum EErrorCode {
     SELFIE_HAD_REWARD = 1203,
 }
 }
+
 export namespace item {
 /**
  * 道具品质
@@ -299,6 +309,7 @@ export enum EItemQuality {
     GOLDEN = 4,
 }
 }
+
 export namespace item {
 export enum ECurrencyType {
     /**
@@ -323,6 +334,7 @@ export enum ECurrencyType {
     POWER_POINT = 5,
 }
 }
+
 export namespace item {
 export enum EMajorType {
     /**
@@ -371,6 +383,7 @@ export enum EMajorType {
     MATERIAL = 11,
 }
 }
+
 export namespace item {
 export enum EMinorType {
     /**
@@ -571,6 +584,7 @@ export enum EMinorType {
     DESIGN_DRAWING = 1102,
 }
 }
+
 export namespace item {
 export enum EClothersStarQualityType {
     /**
@@ -615,6 +629,7 @@ export enum EClothersStarQualityType {
     TEN = 10,
 }
 }
+
 export namespace item {
 export enum EClothersTag {
     /**
@@ -627,6 +642,7 @@ export enum EClothersTag {
     WU_ZHE = 2,
 }
 }
+
 export namespace item {
 export enum EUseType {
     /**
@@ -639,6 +655,7 @@ export enum EUseType {
     AUTO = 1,
 }
 }
+
 export namespace item {
 export enum EClothesHidePartType {
     /**
@@ -675,6 +692,7 @@ export enum EClothesHidePartType {
     LEG_LOWER = 7,
 }
 }
+
 export namespace item {
 export enum EClothesPropertyType {
     /**
@@ -719,6 +737,7 @@ export enum EClothesPropertyType {
     BAO_NUAN = 10,
 }
 }
+
 export namespace item {
 export enum EItemFunctionType {
     /**
@@ -731,6 +750,7 @@ export enum EItemFunctionType {
     USE_DESIGN_DRAWING = 1,
 }
 }
+
 export namespace limit {
 export enum ENamespace {
     ITEM_DAILY_OBTAIN = 1,
@@ -738,6 +758,7 @@ export enum ENamespace {
     STORE_GOODS_LIMIT_BUY = 3,
 }
 }
+
 export namespace mail {
 export enum EMailType {
     /**
@@ -750,6 +771,7 @@ export enum EMailType {
     SYSTEM = 1,
 }
 }
+
 export namespace role {
 export enum EGenderType {
     /**
@@ -762,11 +784,13 @@ export enum EGenderType {
     FEMALE = 2,
 }
 }
+
 export namespace role {
 export enum EProfession {
     TEST_PROFESSION = 1,
 }
 }
+
 export namespace test {
 export enum DemoEnum {
     /**
@@ -787,6 +811,7 @@ export enum DemoEnum {
     D = 5,
 }
 }
+
 export namespace test {
 export enum DemoFlag {
     A = 1,
@@ -794,6 +819,7 @@ export enum DemoFlag {
     D = A|B,
 }
 }
+
 export namespace test {
 export enum ETestUeType {
     /**
@@ -803,10 +829,12 @@ export enum ETestUeType {
     BLACK = 1,
 }
 }
+
 export namespace test {
 export enum ETestEmptyEnum {
 }
 }
+
 export namespace test {
 export enum ETestEmptyEnum2 {
     SMALL_THAN_256 = 255,
@@ -814,6 +842,7 @@ export enum ETestEmptyEnum2 {
     X_257 = 257,
 }
 }
+
 export namespace test {
 export enum ETestQuality {
     /**
@@ -834,6 +863,7 @@ export enum ETestQuality {
     D = 4,
 }
 }
+
 export namespace test {
 export enum ETestCurrency {
     /**
@@ -5303,6 +5333,7 @@ export  class TestRef  {
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
         this.x1 = _buf_.ReadInt()
+        this.x12 = _buf_.ReadInt()
         this.x2 = _buf_.ReadInt()
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a1[i] = _e } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a2 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a2[i] = _e } }
@@ -5311,11 +5342,13 @@ export  class TestRef  {
         { this.c1 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c1.add(_e);}}
         { this.c2 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c2.add(_e);}}
         { this.d1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d1.set(_k, _v);  } }
+        { this.d2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d2.set(_k, _v);  } }
     }
 
     readonly id: number
     readonly x1: number
     x1_Ref : test.TestBeRef = undefined!
+    readonly x12: number
     readonly x2: number
     x2_Ref : test.TestBeRef = undefined!
     readonly a1: Int32Array
@@ -5325,10 +5358,129 @@ export  class TestRef  {
     readonly c1: Set<number>
     readonly c2: Set<number>
     readonly d1: Map<number, number>
+    readonly d2: Map<number, number>
 
     resolve(_tables: Map<string, any>) {
         this.x1_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x1)!
         this.x2_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x2)!
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbTestSize {
+    private _dataMap: Map<number, test.TestSize>
+    private _dataList: test.TestSize[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestSize>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestSize
+            _v = new test.TestSize(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestSize> { return this._dataMap }
+    getDataList(): test.TestSize[] { return this._dataList }
+
+    get(key: number): test.TestSize | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class TestSize  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = new Int32Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.x1[i] = _e } }
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.x2.push(_e) } }
+        { this.x3 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.x3.add(_e);}}
+        { this.x4 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.x4.set(_k, _v);  } }
+    }
+
+    readonly id: number
+    readonly x1: Int32Array
+    readonly x2: number[]
+    readonly x3: Set<number>
+    readonly x4: Map<number, number>
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbTestSet {
+    private _dataMap: Map<number, test.TestSet>
+    private _dataList: test.TestSet[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestSet>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.TestSet
+            _v = new test.TestSet(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestSet> { return this._dataMap }
+    getDataList(): test.TestSet[] { return this._dataList }
+
+    get(key: number): test.TestSet | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class TestSet  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { this.x1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.x1.push(_e) } }
+        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadLongAsNumber(); this.x2.push(_e) } }
+        { this.x3 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :string; _e = _buf_.ReadString(); this.x3.push(_e) } }
+        { this.x4 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoEnum; _e = _buf_.ReadInt(); this.x4.push(_e) } }
+    }
+
+    readonly id: number
+    readonly x1: number[]
+    readonly x2: number[]
+    readonly x3: string[]
+    readonly x4: test.DemoEnum[]
+
+    resolve(_tables: Map<string, any>) {
     }
 }
 
@@ -5729,6 +5881,156 @@ export  class ExcelFromJson  {
         if (this.x14 != null) { this.x14.resolve(_tables);}
         for(let _e of this.k9) { if (_e != null ) {_e.resolve(_tables);} }
         for(let _e of this.k15) { if (_e != null) { _e.resolve(_tables); } }
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbCompositeJsonTable1 {
+    private _dataMap: Map<number, test.CompositeJsonTable1>
+    private _dataList: test.CompositeJsonTable1[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.CompositeJsonTable1>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.CompositeJsonTable1
+            _v = new test.CompositeJsonTable1(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable1> { return this._dataMap }
+    getDataList(): test.CompositeJsonTable1[] { return this._dataList }
+
+    get(key: number): test.CompositeJsonTable1 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable1  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly x: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbCompositeJsonTable2 {
+    private _dataMap: Map<number, test.CompositeJsonTable2>
+    private _dataList: test.CompositeJsonTable2[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.CompositeJsonTable2>()
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.CompositeJsonTable2
+            _v = new test.CompositeJsonTable2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.CompositeJsonTable2> { return this._dataMap }
+    getDataList(): test.CompositeJsonTable2[] { return this._dataList }
+
+    get(key: number): test.CompositeJsonTable2 | undefined { return this._dataMap.get(key) }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable2  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly id: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbCompositeJsonTable3 {
+
+     private _data: test.CompositeJsonTable3
+
+    constructor(_buf_: ByteBuf) {
+        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        this._data = new test.CompositeJsonTable3(_buf_)
+    }
+
+    getData(): test.CompositeJsonTable3 { return this._data }
+
+     get a(): number { return this._data.a }
+     get b(): number { return this._data.b }
+
+    resolve(_tables: Map<string, any>) {
+        this._data.resolve(_tables)
+    }
+
+    
+}
+}
+
+
+
+
+export namespace test {
+export  class CompositeJsonTable3  {
+
+    constructor(_buf_: ByteBuf) {
+        this.a = _buf_.ReadInt()
+        this.b = _buf_.ReadInt()
+    }
+
+    readonly a: number
+    readonly b: number
+
+    resolve(_tables: Map<string, any>) {
     }
 }
 
@@ -6175,6 +6477,10 @@ export class Tables {
     get TbTestBeRef(): test.TbTestBeRef  { return this._TbTestBeRef}
     private _TbTestRef: test.TbTestRef
     get TbTestRef(): test.TbTestRef  { return this._TbTestRef}
+    private _TbTestSize: test.TbTestSize
+    get TbTestSize(): test.TbTestSize  { return this._TbTestSize}
+    private _TbTestSet: test.TbTestSet
+    get TbTestSet(): test.TbTestSet  { return this._TbTestSet}
     private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
     get TbDetectCsvEncoding(): test.TbDetectCsvEncoding  { return this._TbDetectCsvEncoding}
     private _TbDefineFromExcel: test.TbDefineFromExcel
@@ -6187,6 +6493,12 @@ export class Tables {
     get TbTestMap(): test.TbTestMap  { return this._TbTestMap}
     private _TbExcelFromJson: test.TbExcelFromJson
     get TbExcelFromJson(): test.TbExcelFromJson  { return this._TbExcelFromJson}
+    private _TbCompositeJsonTable1: test.TbCompositeJsonTable1
+    get TbCompositeJsonTable1(): test.TbCompositeJsonTable1  { return this._TbCompositeJsonTable1}
+    private _TbCompositeJsonTable2: test.TbCompositeJsonTable2
+    get TbCompositeJsonTable2(): test.TbCompositeJsonTable2  { return this._TbCompositeJsonTable2}
+    private _TbCompositeJsonTable3: test.TbCompositeJsonTable3
+    get TbCompositeJsonTable3(): test.TbCompositeJsonTable3  { return this._TbCompositeJsonTable3}
     private _TbExcelFromJsonMultiRow: test.TbExcelFromJsonMultiRow
     get TbExcelFromJsonMultiRow(): test.TbExcelFromJsonMultiRow  { return this._TbExcelFromJsonMultiRow}
     private _TbDemoGroupDefineFromExcel: test.TbDemoGroupDefineFromExcel
@@ -6264,6 +6576,10 @@ export class Tables {
         tables.set('test.TbTestBeRef', this._TbTestBeRef)
         this._TbTestRef = new test.TbTestRef(loader('test_tbtestref')) 
         tables.set('test.TbTestRef', this._TbTestRef)
+        this._TbTestSize = new test.TbTestSize(loader('test_tbtestsize')) 
+        tables.set('test.TbTestSize', this._TbTestSize)
+        this._TbTestSet = new test.TbTestSet(loader('test_tbtestset')) 
+        tables.set('test.TbTestSet', this._TbTestSet)
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')) 
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding)
         this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel')) 
@@ -6276,6 +6592,12 @@ export class Tables {
         tables.set('test.TbTestMap', this._TbTestMap)
         this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson')) 
         tables.set('test.TbExcelFromJson', this._TbExcelFromJson)
+        this._TbCompositeJsonTable1 = new test.TbCompositeJsonTable1(loader('test_tbcompositejsontable1')) 
+        tables.set('test.TbCompositeJsonTable1', this._TbCompositeJsonTable1)
+        this._TbCompositeJsonTable2 = new test.TbCompositeJsonTable2(loader('test_tbcompositejsontable2')) 
+        tables.set('test.TbCompositeJsonTable2', this._TbCompositeJsonTable2)
+        this._TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader('test_tbcompositejsontable3')) 
+        tables.set('test.TbCompositeJsonTable3', this._TbCompositeJsonTable3)
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow')) 
         tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow)
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel')) 
@@ -6319,12 +6641,17 @@ export class Tables {
         this._TbTestGlobal.resolve(tables) 
         this._TbTestBeRef.resolve(tables) 
         this._TbTestRef.resolve(tables) 
+        this._TbTestSize.resolve(tables) 
+        this._TbTestSet.resolve(tables) 
         this._TbDetectCsvEncoding.resolve(tables) 
         this._TbDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcelOne.resolve(tables) 
         this._TbTestIndex.resolve(tables) 
         this._TbTestMap.resolve(tables) 
         this._TbExcelFromJson.resolve(tables) 
+        this._TbCompositeJsonTable1.resolve(tables) 
+        this._TbCompositeJsonTable2.resolve(tables) 
+        this._TbCompositeJsonTable3.resolve(tables) 
         this._TbExcelFromJsonMultiRow.resolve(tables) 
         this._TbDemoGroupDefineFromExcel.resolve(tables) 
         this._TbDefineFromExcel2.resolve(tables) 

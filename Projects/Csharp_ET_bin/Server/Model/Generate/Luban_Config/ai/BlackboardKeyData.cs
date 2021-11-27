@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class BlackboardKeyData :  ai.KeyData 
+public sealed class BlackboardKeyData :  ai.KeyData 
 {
     public BlackboardKeyData(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
 
     public string Value { get; private set; }
 
-    public const int ID = 1517269500;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1517269500;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

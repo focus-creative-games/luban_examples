@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed partial class ContainsItem :  condition.RoleCondition 
+public sealed class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(ByteBuf _buf)  : base(_buf) 
     {
@@ -33,8 +33,8 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     public int Num { get; private set; }
     public bool Reverse { get; private set; }
 
-    public const int ID = 1961145317;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1961145317;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

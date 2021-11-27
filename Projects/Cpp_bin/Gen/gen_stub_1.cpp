@@ -1209,6 +1209,7 @@ namespace cfg
 
         if(!_buf.readInt(id)) return false;
         if(!_buf.readInt(x1)) return false;
+        if(!_buf.readInt(x12)) return false;
         if(!_buf.readInt(x2)) return false;
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));a1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; a1.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));a2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; a2.push_back(_e);}}
@@ -1217,6 +1218,7 @@ namespace cfg
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); c1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; c1.insert(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); c2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; c2.insert(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); d1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     d1[_k] = _v;}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); d2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     d2[_k] = _v;}}
 
         return true;
     }
@@ -1239,6 +1241,66 @@ namespace cfg
     {
         this->x1_Ref = ((test::TbTestBeRef*)(_tables["test.TbTestBeRef"]))->get(x1);
         this->x2_Ref = ((test::TbTestBeRef*)(_tables["test.TbTestBeRef"]))->get(x2);
+    }
+
+    bool test::TestSize::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));x1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; x1.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; x2.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; x3.insert(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); x4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     x4[_k] = _v;}}
+
+        return true;
+    }
+
+    bool test::TestSize::deserializeTestSize(ByteBuf& _buf, ::bright::SharedPtr<test::TestSize>& _out)
+    {
+        _out.reset(new test::TestSize());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestSize::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::TestSet::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; x1.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int64 _e;  if(!_buf.readLong(_e)) return false; x2.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x3.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::String _e;  if(!_buf.readString(_e)) return false; x3.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoEnum _e;  {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _e = test::DemoEnum(__enum_temp__); } x4.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::TestSet::deserializeTestSet(ByteBuf& _buf, ::bright::SharedPtr<test::TestSet>& _out)
+    {
+        _out.reset(new test::TestSet());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestSet::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
     }
 
     bool test::DetectEncoding::deserialize(ByteBuf& _buf)

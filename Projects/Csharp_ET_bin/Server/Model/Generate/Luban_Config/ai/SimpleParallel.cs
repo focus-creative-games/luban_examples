@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class SimpleParallel :  ai.ComposeNode 
+public sealed class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 
     {
@@ -32,8 +32,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     public ai.Task MainTask { get; private set; }
     public ai.FlowNode BackgroundNode { get; private set; }
 
-    public const int ID = -1952582529;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1952582529;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

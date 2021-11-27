@@ -25,13 +25,13 @@ public abstract class Task :  ai.FlowNode
     {
         switch (_buf.ReadInt())
         {
-            case ai.UeWait.ID: return new ai.UeWait(_buf);
-            case ai.UeWaitBlackboardTime.ID: return new ai.UeWaitBlackboardTime(_buf);
-            case ai.MoveToTarget.ID: return new ai.MoveToTarget(_buf);
-            case ai.ChooseSkill.ID: return new ai.ChooseSkill(_buf);
-            case ai.MoveToRandomLocation.ID: return new ai.MoveToRandomLocation(_buf);
-            case ai.MoveToLocation.ID: return new ai.MoveToLocation(_buf);
-            case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
+            case ai.UeWait.__ID__: return new ai.UeWait(_buf);
+            case ai.UeWaitBlackboardTime.__ID__: return new ai.UeWaitBlackboardTime(_buf);
+            case ai.MoveToTarget.__ID__: return new ai.MoveToTarget(_buf);
+            case ai.ChooseSkill.__ID__: return new ai.ChooseSkill(_buf);
+            case ai.MoveToRandomLocation.__ID__: return new ai.MoveToRandomLocation(_buf);
+            case ai.MoveToLocation.__ID__: return new ai.MoveToLocation(_buf);
+            case ai.DebugPrint.__ID__: return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
     }

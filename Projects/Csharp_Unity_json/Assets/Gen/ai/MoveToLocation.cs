@@ -37,8 +37,8 @@ public sealed class MoveToLocation :  ai.Task
     public System.Numerics.Vector3 Location { get; private set; }
     public float AcceptableRadius { get; private set; }
 
-    public const int ID = -969953113;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -969953113;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

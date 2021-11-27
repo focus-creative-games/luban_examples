@@ -83,6 +83,10 @@ public final class Tables
     public cfg.test.TbTestBeRef getTbTestBeRef() { return _TbTestBeRef; }
     private final cfg.test.TbTestRef _TbTestRef;
     public cfg.test.TbTestRef getTbTestRef() { return _TbTestRef; }
+    private final cfg.test.TbTestSize _TbTestSize;
+    public cfg.test.TbTestSize getTbTestSize() { return _TbTestSize; }
+    private final cfg.test.TbTestSet _TbTestSet;
+    public cfg.test.TbTestSet getTbTestSet() { return _TbTestSet; }
     private final cfg.test.TbDetectCsvEncoding _TbDetectCsvEncoding;
     public cfg.test.TbDetectCsvEncoding getTbDetectCsvEncoding() { return _TbDetectCsvEncoding; }
     private final cfg.test.TbDefineFromExcel _TbDefineFromExcel;
@@ -178,6 +182,10 @@ public final class Tables
         tables.put("test.TbTestBeRef", _TbTestBeRef);
         _TbTestRef = new cfg.test.TbTestRef(loader.load("test_tbtestref")); 
         tables.put("test.TbTestRef", _TbTestRef);
+        _TbTestSize = new cfg.test.TbTestSize(loader.load("test_tbtestsize")); 
+        tables.put("test.TbTestSize", _TbTestSize);
+        _TbTestSet = new cfg.test.TbTestSet(loader.load("test_tbtestset")); 
+        tables.put("test.TbTestSet", _TbTestSet);
         _TbDetectCsvEncoding = new cfg.test.TbDetectCsvEncoding(loader.load("test_tbdetectcsvencoding")); 
         tables.put("test.TbDetectCsvEncoding", _TbDetectCsvEncoding);
         _TbDefineFromExcel = new cfg.test.TbDefineFromExcel(loader.load("test_tbdefinefromexcel")); 
@@ -239,6 +247,8 @@ public final class Tables
         _TbTestGlobal.resolve(tables); 
         _TbTestBeRef.resolve(tables); 
         _TbTestRef.resolve(tables); 
+        _TbTestSize.resolve(tables); 
+        _TbTestSet.resolve(tables); 
         _TbDetectCsvEncoding.resolve(tables); 
         _TbDefineFromExcel.resolve(tables); 
         _TbDefineFromExcelOne.resolve(tables); 

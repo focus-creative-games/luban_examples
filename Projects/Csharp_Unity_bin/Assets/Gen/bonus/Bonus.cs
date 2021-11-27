@@ -24,17 +24,17 @@ public abstract class Bonus :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case bonus.OneItem.ID: return new bonus.OneItem(_buf);
-            case bonus.OneItems.ID: return new bonus.OneItems(_buf);
-            case bonus.Item.ID: return new bonus.Item(_buf);
-            case bonus.Items.ID: return new bonus.Items(_buf);
-            case bonus.CoefficientItem.ID: return new bonus.CoefficientItem(_buf);
-            case bonus.WeightItems.ID: return new bonus.WeightItems(_buf);
-            case bonus.ProbabilityItems.ID: return new bonus.ProbabilityItems(_buf);
-            case bonus.MultiBonus.ID: return new bonus.MultiBonus(_buf);
-            case bonus.ProbabilityBonus.ID: return new bonus.ProbabilityBonus(_buf);
-            case bonus.WeightBonus.ID: return new bonus.WeightBonus(_buf);
-            case bonus.DropBonus.ID: return new bonus.DropBonus(_buf);
+            case bonus.OneItem.__ID__: return new bonus.OneItem(_buf);
+            case bonus.OneItems.__ID__: return new bonus.OneItems(_buf);
+            case bonus.Item.__ID__: return new bonus.Item(_buf);
+            case bonus.Items.__ID__: return new bonus.Items(_buf);
+            case bonus.CoefficientItem.__ID__: return new bonus.CoefficientItem(_buf);
+            case bonus.WeightItems.__ID__: return new bonus.WeightItems(_buf);
+            case bonus.ProbabilityItems.__ID__: return new bonus.ProbabilityItems(_buf);
+            case bonus.MultiBonus.__ID__: return new bonus.MultiBonus(_buf);
+            case bonus.ProbabilityBonus.__ID__: return new bonus.ProbabilityBonus(_buf);
+            case bonus.WeightBonus.__ID__: return new bonus.WeightBonus(_buf);
+            case bonus.DropBonus.__ID__: return new bonus.DropBonus(_buf);
             default: throw new SerializationException();
         }
     }

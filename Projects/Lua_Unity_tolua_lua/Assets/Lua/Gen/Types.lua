@@ -1094,71 +1094,6 @@ beans['common.GlobalConfig'] =
     { name='per_viality_recovery_time', type='int'},
 }
 
----@class common.Dummy 
----@field public id int
----@field public limit limit.LimitBase
-beans['common.Dummy'] =
-{
-    { name='id', type='int'},
-    { name='limit', type='limit.LimitBase'},
-}
-
----@class limit.LimitBase 
-beans['limit.LimitBase'] =
-{
-}
-
----@class limit.DailyLimitBase :limit.LimitBase 
-beans['limit.DailyLimitBase'] =
-{
-}
-
----@class limit.DailyLimit :limit.DailyLimitBase 
----@field public num int
-beans['limit.DailyLimit'] =
-{
-    { name='num', type='int'},
-}
-
----@class limit.MultiDayLimit :limit.LimitBase 
----@field public day int
----@field public num int
-beans['limit.MultiDayLimit'] =
-{
-    { name='day', type='int'},
-    { name='num', type='int'},
-}
-
----@class limit.WeeklyLimit :limit.LimitBase 
----@field public num int
-beans['limit.WeeklyLimit'] =
-{
-    { name='num', type='int'},
-}
-
----@class limit.MonthlyLimit :limit.LimitBase 
----@field public num int
-beans['limit.MonthlyLimit'] =
-{
-    { name='num', type='int'},
-}
-
----@class limit.CoolDown :limit.LimitBase 
----@field public duration int
-beans['limit.CoolDown'] =
-{
-    { name='duration', type='int'},
-}
-
----@class limit.GroupCoolDown :limit.LimitBase 
----@field public group_id int
----@field public duration int
-beans['limit.GroupCoolDown'] =
-{
-    { name='group_id', type='int'},
-    { name='duration', type='int'},
-}
-
 ---@class error.ErrorInfo 
 ---@field public code string
 ---@field public desc string
@@ -1918,6 +1853,74 @@ beans['test.TestGlobal'] =
     { name='unlock_hero', type='int'},
 }
 
+---@class test.TestBeRef 
+---@field public id int
+---@field public count int
+beans['test.TestBeRef'] =
+{
+    { name='id', type='int'},
+    { name='count', type='int'},
+}
+
+---@class test.TestRef 
+---@field public id int
+---@field public x1 int
+---@field public x1_2 int
+---@field public x2 int
+---@field public a1 int[]
+---@field public a2 int[]
+---@field public b1 int[]
+---@field public b2 int[]
+---@field public c1 int[]
+---@field public c2 int[]
+---@field public d1 table<int,int>
+---@field public d2 table<int,int>
+beans['test.TestRef'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='int'},
+    { name='x1_2', type='int'},
+    { name='x2', type='int'},
+    { name='a1', type='int[]'},
+    { name='a2', type='int[]'},
+    { name='b1', type='int[]'},
+    { name='b2', type='int[]'},
+    { name='c1', type='int[]'},
+    { name='c2', type='int[]'},
+    { name='d1', type='table<int,int>'},
+    { name='d2', type='table<int,int>'},
+}
+
+---@class test.TestSize 
+---@field public id int
+---@field public x1 int[]
+---@field public x2 int[]
+---@field public x3 int[]
+---@field public x4 table<int,int>
+beans['test.TestSize'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='int[]'},
+    { name='x2', type='int[]'},
+    { name='x3', type='int[]'},
+    { name='x4', type='table<int,int>'},
+}
+
+---@class test.TestSet 
+---@field public id int
+---@field public x1 int[]
+---@field public x2 long[]
+---@field public x3 string[]
+---@field public x4 test.DemoEnum[]
+beans['test.TestSet'] =
+{
+    { name='id', type='int'},
+    { name='x1', type='int[]'},
+    { name='x2', type='long[]'},
+    { name='x3', type='string[]'},
+    { name='x4', type='test.DemoEnum[]'},
+}
+
 ---@class test.DetectEncoding 
 ---@field public id int
 ---@field public name string
@@ -2034,6 +2037,33 @@ beans['test.ExcelFromJson'] =
     { name='k15', type='test.DemoDynamic[]'},
 }
 
+---@class test.CompositeJsonTable1 
+---@field public id int
+---@field public x string
+beans['test.CompositeJsonTable1'] =
+{
+    { name='id', type='int'},
+    { name='x', type='string'},
+}
+
+---@class test.CompositeJsonTable2 
+---@field public id int
+---@field public y int
+beans['test.CompositeJsonTable2'] =
+{
+    { name='id', type='int'},
+    { name='y', type='int'},
+}
+
+---@class test.CompositeJsonTable3 
+---@field public a int
+---@field public b int
+beans['test.CompositeJsonTable3'] =
+{
+    { name='a', type='int'},
+    { name='b', type='int'},
+}
+
 ---@class test.ExcelFromJsonMultiRow 
 ---@field public id int
 ---@field public x int
@@ -2113,6 +2143,25 @@ beans['test.TestExcelBean1'] =
     { name='x4', type='float'},
 }
 
+---@class test.TestDesc 
+---@field public id int
+---@field public name string
+---@field public a1 int
+---@field public a2 int
+---@field public x1 test.H1
+---@field public x2 test.H2[]
+---@field public x3 test.H2[]
+beans['test.TestDesc'] =
+{
+    { name='id', type='int'},
+    { name='name', type='string'},
+    { name='a1', type='int'},
+    { name='a2', type='int'},
+    { name='x1', type='test.H1'},
+    { name='x2', type='test.H2[]'},
+    { name='x3', type='test.H2[]'},
+}
+
 
 local tables =
 {
@@ -2126,8 +2175,6 @@ local tables =
 
     { name='TbGlobalConfig', file='common_tbglobalconfig', mode='one', value_type='common.GlobalConfig'},
     
-    { name='TbDummy', file='common_tbdummy', mode='map', index='id', value_type='common.Dummy' },
-
     { name='TbErrorInfo', file='error_tberrorinfo', mode='map', index='code', value_type='error.ErrorInfo' },
 
     { name='TbCodeInfo', file='error_tbcodeinfo', mode='map', index='code', value_type='error.CodeInfo' },
@@ -2178,6 +2225,14 @@ local tables =
 
     { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
     
+    { name='TbTestBeRef', file='test_tbtestberef', mode='map', index='id', value_type='test.TestBeRef' },
+
+    { name='TbTestRef', file='test_tbtestref', mode='map', index='id', value_type='test.TestRef' },
+
+    { name='TbTestSize', file='test_tbtestsize', mode='map', index='id', value_type='test.TestSize' },
+
+    { name='TbTestSet', file='test_tbtestset', mode='map', index='id', value_type='test.TestSet' },
+
     { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
 
     { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
@@ -2190,6 +2245,12 @@ local tables =
 
     { name='TbExcelFromJson', file='test_tbexcelfromjson', mode='map', index='x4', value_type='test.ExcelFromJson' },
 
+    { name='TbCompositeJsonTable1', file='test_tbcompositejsontable1', mode='map', index='id', value_type='test.CompositeJsonTable1' },
+
+    { name='TbCompositeJsonTable2', file='test_tbcompositejsontable2', mode='map', index='id', value_type='test.CompositeJsonTable2' },
+
+    { name='TbCompositeJsonTable3', file='test_tbcompositejsontable3', mode='one', value_type='test.CompositeJsonTable3'},
+    
     { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
 
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
@@ -2197,6 +2258,8 @@ local tables =
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
 
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },
+
+    { name='TbTestDesc', file='test_tbtestdesc', mode='map', index='id', value_type='test.TestDesc' },
 
 }
 

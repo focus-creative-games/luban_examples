@@ -34,8 +34,8 @@ public sealed class DesignDrawing :  item.ItemExtra
 
     public System.Collections.Generic.List<int> LearnComponentId { get; private set; }
 
-    public const int ID = -1679179579;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1679179579;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

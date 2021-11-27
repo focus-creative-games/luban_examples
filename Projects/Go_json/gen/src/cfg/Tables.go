@@ -44,6 +44,8 @@ type Tables struct {
     TbTestGlobal *Test_TbTestGlobal
     TbTestBeRef *Test_TbTestBeRef
     TbTestRef *Test_TbTestRef
+    TbTestSize *Test_TbTestSize
+    TbTestSet *Test_TbTestSet
     TbDetectCsvEncoding *Test_TbDetectCsvEncoding
     TbDefineFromExcel *Test_TbDefineFromExcel
     TbDefineFromExcelOne *Test_TbDefineFromExcelOne
@@ -255,6 +257,18 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestRef, err = NewTest_TbTestRef(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestsize") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestSize, err = NewTest_TbTestSize(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestset") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestSet, err = NewTest_TbTestSet(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbdetectcsvencoding") ; err != nil {

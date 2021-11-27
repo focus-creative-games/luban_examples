@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg.test;
 public enum ETestEmptyEnum2 {
     SMALL_THAN_256(255),

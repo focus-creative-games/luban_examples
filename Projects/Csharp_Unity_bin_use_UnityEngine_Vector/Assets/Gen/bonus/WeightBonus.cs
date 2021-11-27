@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed partial class WeightBonus :  bonus.Bonus 
+public sealed class WeightBonus :  bonus.Bonus 
 {
     public WeightBonus(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class WeightBonus :  bonus.Bonus
 
     public bonus.WeightBonusInfo[] Bonuses { get; private set; }
 
-    public const int ID = -362807016;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -362807016;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 package cfg
 
 import "bright/serialization"
@@ -19,7 +18,6 @@ type Tables struct {
     TbClazz *Blueprint_TbClazz
     TbDrop *Bonus_TbDrop
     TbGlobalConfig *Common_TbGlobalConfig
-    TbDummy *Common_TbDummy
     TbErrorInfo *Error_TbErrorInfo
     TbCodeInfo *Error_TbCodeInfo
     TbItem *Item_TbItem
@@ -45,16 +43,24 @@ type Tables struct {
     TbDemoGroup_S *Test_TbDemoGroup_S
     TbDemoGroup_E *Test_TbDemoGroup_E
     TbTestGlobal *Test_TbTestGlobal
+    TbTestBeRef *Test_TbTestBeRef
+    TbTestRef *Test_TbTestRef
+    TbTestSize *Test_TbTestSize
+    TbTestSet *Test_TbTestSet
     TbDetectCsvEncoding *Test_TbDetectCsvEncoding
     TbDefineFromExcel *Test_TbDefineFromExcel
     TbDefineFromExcelOne *Test_TbDefineFromExcelOne
     TbTestIndex *Test_TbTestIndex
     TbTestMap *Test_TbTestMap
     TbExcelFromJson *Test_TbExcelFromJson
+    TbCompositeJsonTable1 *Test_TbCompositeJsonTable1
+    TbCompositeJsonTable2 *Test_TbCompositeJsonTable2
+    TbCompositeJsonTable3 *Test_TbCompositeJsonTable3
     TbExcelFromJsonMultiRow *Test_TbExcelFromJsonMultiRow
     TbDemoGroupDefineFromExcel *Test_TbDemoGroupDefineFromExcel
     TbDefineFromExcel2 *Test_TbDefineFromExcel2
     TbTestExcelBean *Test_TbTestExcelBean
+    TbTestDesc *Test_TbTestDesc
 }
 
 func NewTables(loader ByteBufLoader) (*Tables, error) {
@@ -90,12 +96,6 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbGlobalConfig, err = NewCommon_TbGlobalConfig(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("common_tbdummy") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDummy, err = NewCommon_TbDummy(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("error_tberrorinfo") ; err != nil {
@@ -248,6 +248,30 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     if tables.TbTestGlobal, err = NewTest_TbTestGlobal(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("test_tbtestberef") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestBeRef, err = NewTest_TbTestBeRef(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestref") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestRef, err = NewTest_TbTestRef(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestsize") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestSize, err = NewTest_TbTestSize(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestset") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestSet, err = NewTest_TbTestSet(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("test_tbdetectcsvencoding") ; err != nil {
         return nil, err
     }
@@ -284,6 +308,24 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
     if tables.TbExcelFromJson, err = NewTest_TbExcelFromJson(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("test_tbcompositejsontable1") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable1, err = NewTest_TbCompositeJsonTable1(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbcompositejsontable2") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable2, err = NewTest_TbCompositeJsonTable2(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbcompositejsontable3") ; err != nil {
+        return nil, err
+    }
+    if tables.TbCompositeJsonTable3, err = NewTest_TbCompositeJsonTable3(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("test_tbexcelfromjsonmultirow") ; err != nil {
         return nil, err
     }
@@ -306,6 +348,12 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestExcelBean, err = NewTest_TbTestExcelBean(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbtestdesc") ; err != nil {
+        return nil, err
+    }
+    if tables.TbTestDesc, err = NewTest_TbTestDesc(buf) ; err != nil {
         return nil, err
     }
     return tables, nil

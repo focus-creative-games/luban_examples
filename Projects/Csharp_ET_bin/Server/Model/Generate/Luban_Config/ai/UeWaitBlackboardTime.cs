@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class UeWaitBlackboardTime :  ai.Task 
+public sealed class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public string BlackboardKey { get; private set; }
 
-    public const int ID = 1215378271;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 1215378271;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

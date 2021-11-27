@@ -30,8 +30,8 @@ public sealed class UeWait :  ai.Task
     public float WaitTime { get; private set; }
     public float RandomDeviation { get; private set; }
 
-    public const int ID = -512994101;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -512994101;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

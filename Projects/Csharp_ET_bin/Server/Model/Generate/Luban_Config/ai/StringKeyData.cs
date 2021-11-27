@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed partial class StringKeyData :  ai.KeyData 
+public sealed class StringKeyData :  ai.KeyData 
 {
     public StringKeyData(ByteBuf _buf)  : base(_buf) 
     {
@@ -28,8 +28,8 @@ public sealed partial class StringKeyData :  ai.KeyData
 
     public string Value { get; private set; }
 
-    public const int ID = -307888654;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -307888654;
+    public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
     {

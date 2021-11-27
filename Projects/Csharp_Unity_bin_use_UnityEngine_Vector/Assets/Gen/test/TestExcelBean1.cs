@@ -17,7 +17,7 @@ namespace cfg.test
 /// <summary>
 /// 这是个测试excel结构
 /// </summary>
-public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase 
+public sealed class TestExcelBean1 :  Bright.Config.BeanBase 
 {
     public TestExcelBean1(ByteBuf _buf) 
     {
@@ -49,8 +49,8 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
     /// </summary>
     public float X4 { get; private set; }
 
-    public const int ID = -1738345160;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1738345160;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

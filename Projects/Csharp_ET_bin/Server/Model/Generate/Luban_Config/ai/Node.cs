@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract partial class Node :  Bright.Config.BeanBase 
+public abstract class Node :  Bright.Config.BeanBase 
 {
     public Node(ByteBuf _buf) 
     {
@@ -26,29 +26,29 @@ public abstract partial class Node :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case ai.UeSetDefaultFocus.ID: return new ai.UeSetDefaultFocus(_buf);
-            case ai.ExecuteTimeStatistic.ID: return new ai.ExecuteTimeStatistic(_buf);
-            case ai.ChooseTarget.ID: return new ai.ChooseTarget(_buf);
-            case ai.KeepFaceTarget.ID: return new ai.KeepFaceTarget(_buf);
-            case ai.GetOwnerPlayer.ID: return new ai.GetOwnerPlayer(_buf);
-            case ai.UpdateDailyBehaviorProps.ID: return new ai.UpdateDailyBehaviorProps(_buf);
-            case ai.UeLoop.ID: return new ai.UeLoop(_buf);
-            case ai.UeCooldown.ID: return new ai.UeCooldown(_buf);
-            case ai.UeTimeLimit.ID: return new ai.UeTimeLimit(_buf);
-            case ai.UeBlackboard.ID: return new ai.UeBlackboard(_buf);
-            case ai.UeForceSuccess.ID: return new ai.UeForceSuccess(_buf);
-            case ai.IsAtLocation.ID: return new ai.IsAtLocation(_buf);
-            case ai.DistanceLessThan.ID: return new ai.DistanceLessThan(_buf);
-            case ai.Sequence.ID: return new ai.Sequence(_buf);
-            case ai.Selector.ID: return new ai.Selector(_buf);
-            case ai.SimpleParallel.ID: return new ai.SimpleParallel(_buf);
-            case ai.UeWait.ID: return new ai.UeWait(_buf);
-            case ai.UeWaitBlackboardTime.ID: return new ai.UeWaitBlackboardTime(_buf);
-            case ai.MoveToTarget.ID: return new ai.MoveToTarget(_buf);
-            case ai.ChooseSkill.ID: return new ai.ChooseSkill(_buf);
-            case ai.MoveToRandomLocation.ID: return new ai.MoveToRandomLocation(_buf);
-            case ai.MoveToLocation.ID: return new ai.MoveToLocation(_buf);
-            case ai.DebugPrint.ID: return new ai.DebugPrint(_buf);
+            case ai.UeSetDefaultFocus.__ID__: return new ai.UeSetDefaultFocus(_buf);
+            case ai.ExecuteTimeStatistic.__ID__: return new ai.ExecuteTimeStatistic(_buf);
+            case ai.ChooseTarget.__ID__: return new ai.ChooseTarget(_buf);
+            case ai.KeepFaceTarget.__ID__: return new ai.KeepFaceTarget(_buf);
+            case ai.GetOwnerPlayer.__ID__: return new ai.GetOwnerPlayer(_buf);
+            case ai.UpdateDailyBehaviorProps.__ID__: return new ai.UpdateDailyBehaviorProps(_buf);
+            case ai.UeLoop.__ID__: return new ai.UeLoop(_buf);
+            case ai.UeCooldown.__ID__: return new ai.UeCooldown(_buf);
+            case ai.UeTimeLimit.__ID__: return new ai.UeTimeLimit(_buf);
+            case ai.UeBlackboard.__ID__: return new ai.UeBlackboard(_buf);
+            case ai.UeForceSuccess.__ID__: return new ai.UeForceSuccess(_buf);
+            case ai.IsAtLocation.__ID__: return new ai.IsAtLocation(_buf);
+            case ai.DistanceLessThan.__ID__: return new ai.DistanceLessThan(_buf);
+            case ai.Sequence.__ID__: return new ai.Sequence(_buf);
+            case ai.Selector.__ID__: return new ai.Selector(_buf);
+            case ai.SimpleParallel.__ID__: return new ai.SimpleParallel(_buf);
+            case ai.UeWait.__ID__: return new ai.UeWait(_buf);
+            case ai.UeWaitBlackboardTime.__ID__: return new ai.UeWaitBlackboardTime(_buf);
+            case ai.MoveToTarget.__ID__: return new ai.MoveToTarget(_buf);
+            case ai.ChooseSkill.__ID__: return new ai.ChooseSkill(_buf);
+            case ai.MoveToRandomLocation.__ID__: return new ai.MoveToRandomLocation(_buf);
+            case ai.MoveToLocation.__ID__: return new ai.MoveToLocation(_buf);
+            case ai.DebugPrint.__ID__: return new ai.DebugPrint(_buf);
             default: throw new SerializationException();
         }
     }

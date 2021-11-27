@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public abstract partial class Condition :  Bright.Config.BeanBase 
+public abstract class Condition :  Bright.Config.BeanBase 
 {
     public Condition(ByteBuf _buf) 
     {
@@ -24,14 +24,14 @@ public abstract partial class Condition :  Bright.Config.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case condition.TimeRange.ID: return new condition.TimeRange(_buf);
-            case condition.MultiRoleCondition.ID: return new condition.MultiRoleCondition(_buf);
-            case condition.GenderLimit.ID: return new condition.GenderLimit(_buf);
-            case condition.MinLevel.ID: return new condition.MinLevel(_buf);
-            case condition.MaxLevel.ID: return new condition.MaxLevel(_buf);
-            case condition.MinMaxLevel.ID: return new condition.MinMaxLevel(_buf);
-            case condition.ClothesPropertyScoreGreaterThan.ID: return new condition.ClothesPropertyScoreGreaterThan(_buf);
-            case condition.ContainsItem.ID: return new condition.ContainsItem(_buf);
+            case condition.TimeRange.__ID__: return new condition.TimeRange(_buf);
+            case condition.MultiRoleCondition.__ID__: return new condition.MultiRoleCondition(_buf);
+            case condition.GenderLimit.__ID__: return new condition.GenderLimit(_buf);
+            case condition.MinLevel.__ID__: return new condition.MinLevel(_buf);
+            case condition.MaxLevel.__ID__: return new condition.MaxLevel(_buf);
+            case condition.MinMaxLevel.__ID__: return new condition.MinMaxLevel(_buf);
+            case condition.ClothesPropertyScoreGreaterThan.__ID__: return new condition.ClothesPropertyScoreGreaterThan(_buf);
+            case condition.ContainsItem.__ID__: return new condition.ContainsItem(_buf);
             default: throw new SerializationException();
         }
     }

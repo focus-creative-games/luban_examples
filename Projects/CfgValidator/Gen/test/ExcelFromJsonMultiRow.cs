@@ -40,8 +40,8 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
     public int X { get; private set; }
     public System.Collections.Generic.List<test.TestRow> Items { get; private set; }
 
-    public const int ID = 715335694;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = 715335694;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

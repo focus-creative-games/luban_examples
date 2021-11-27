@@ -37,8 +37,8 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
     public item.ECurrencyType Type { get; private set; }
     public float Coefficient { get; private set; }
 
-    public const int ID = -1354421803;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1354421803;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {

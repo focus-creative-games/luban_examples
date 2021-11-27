@@ -62,9 +62,11 @@ class Vector4:
         return Vector4(x, y, z, w)
 
 
+
 class ai_EExecutor(Enum):
     CLIENT = 0
     SERVER = 1
+
 
 class ai_EKeyType(Enum):
     BOOL = 1
@@ -78,19 +80,23 @@ class ai_EKeyType(Enum):
     ENUM = 9
     OBJECT = 10
 
+
 class ai_EFlowAbortMode(Enum):
     NONE = 0
     LOWER_PRIORITY = 1
     SELF = 2
     BOTH = 3
 
+
 class ai_EFinishMode(Enum):
     IMMEDIATE = 0
     DELAYED = 1
 
+
 class ai_ENotifyObserverMode(Enum):
     ON_VALUE_CHANGE = 0
     ON_RESULT_CHANGE = 1
+
 
 class ai_EOperator(Enum):
     IS_EQUAL_TO = 0
@@ -102,9 +108,11 @@ class ai_EOperator(Enum):
     CONTAINS = 6
     NOT_CONTAINS = 7
 
+
 class common_EBoolOperator(Enum):
     AND = 0
     OR = 1
+
 
 class error_EOperation(Enum):
     '''
@@ -115,6 +123,7 @@ class error_EOperation(Enum):
     重启
     '''
     RESTART = 1
+
 
 class error_EErrorCode(Enum):
     OK = 0
@@ -203,6 +212,7 @@ class error_EErrorCode(Enum):
     SELFIE_LACK_STARTS = 1202
     SELFIE_HAD_REWARD = 1203
 
+
 '''
 道具品质
 '''
@@ -228,6 +238,7 @@ class item_EItemQuality(Enum):
     '''
     GOLDEN = 4
 
+
 class item_ECurrencyType(Enum):
     '''
     钻石
@@ -249,6 +260,7 @@ class item_ECurrencyType(Enum):
     能量点
     '''
     POWER_POINT = 5
+
 
 class item_EMajorType(Enum):
     '''
@@ -295,6 +307,7 @@ class item_EMajorType(Enum):
     制作材料
     '''
     MATERIAL = 11
+
 
 class item_EMinorType(Enum):
     '''
@@ -494,6 +507,7 @@ class item_EMinorType(Enum):
     '''
     DESIGN_DRAWING = 1102
 
+
 class item_EClothersStarQualityType(Enum):
     '''
     一星
@@ -536,6 +550,7 @@ class item_EClothersStarQualityType(Enum):
     '''
     TEN = 10
 
+
 class item_EClothersTag(Enum):
     '''
     防晒
@@ -546,6 +561,7 @@ class item_EClothersTag(Enum):
     '''
     WU_ZHE = 2
 
+
 class item_EUseType(Enum):
     '''
     手动
@@ -555,6 +571,7 @@ class item_EUseType(Enum):
     自动
     '''
     AUTO = 1
+
 
 class item_EClothesHidePartType(Enum):
     '''
@@ -589,6 +606,7 @@ class item_EClothesHidePartType(Enum):
     腿下
     '''
     LEG_LOWER = 7
+
 
 class item_EClothesPropertyType(Enum):
     '''
@@ -632,6 +650,7 @@ class item_EClothesPropertyType(Enum):
     '''
     BAO_NUAN = 10
 
+
 class item_EItemFunctionType(Enum):
     '''
     更换手持物
@@ -642,10 +661,12 @@ class item_EItemFunctionType(Enum):
     '''
     USE_DESIGN_DRAWING = 1
 
+
 class limit_ENamespace(Enum):
     ITEM_DAILY_OBTAIN = 1
     TREASURE_DAILY_USE = 2
     STORE_GOODS_LIMIT_BUY = 3
+
 
 class mail_EMailType(Enum):
     '''
@@ -657,6 +678,7 @@ class mail_EMailType(Enum):
     '''
     SYSTEM = 1
 
+
 class role_EGenderType(Enum):
     '''
     男
@@ -667,8 +689,10 @@ class role_EGenderType(Enum):
     '''
     FEMALE = 2
 
+
 class role_EProfession(Enum):
     TEST_PROFESSION = 1
+
 
 class test_DemoEnum(Enum):
     '''
@@ -688,10 +712,12 @@ class test_DemoEnum(Enum):
     '''
     D = 5
 
+
 class test_DemoFlag(Enum):
     A = 1
     B = 2
     D = A|B
+
 
 class test_ETestUeType(Enum):
     '''
@@ -700,13 +726,16 @@ class test_ETestUeType(Enum):
     WHITE = 0
     BLACK = 1
 
+
 class test_ETestEmptyEnum(Enum):
     pass
+
 
 class test_ETestEmptyEnum2(Enum):
     SMALL_THAN_256 = 255
     X_256 = 256
     X_257 = 257
+
 
 class test_ETestQuality(Enum):
     '''
@@ -725,6 +754,7 @@ class test_ETestQuality(Enum):
     最差品质
     '''
     D = 4
+
 
 class test_ETestCurrency(Enum):
     '''
@@ -3218,6 +3248,7 @@ class test_TestRef :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.x1 = _json_['x1']
+        self.x1_2 = _json_['x1_2']
         self.x2 = _json_['x2']
         self.a1 = _json_['a1']
         self.a2 = _json_['a2']
@@ -3227,6 +3258,72 @@ class test_TestRef :
         self.c2 = _json_['c2']
         self.d1 = {}
         for _ek, _ev in _json_['d1']: _k = _ek; _v = _ev; self.d1[_k] =_v
+        self.d2 = {}
+        for _ek, _ev in _json_['d2']: _k = _ek; _v = _ev; self.d2[_k] =_v
+
+
+
+class test_TbTestSize:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestSize(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestSize :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = {}
+        for _ek, _ev in _json_['x4']: _k = _ek; _v = _ev; self.x4[_k] =_v
+
+
+
+class test_TbTestSet:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_TestSet(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+
+
+
+
+class test_TestSet :
+
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = []
+        for _ele in _json_['x4']: _e = test_DemoEnum(_ele); self.x4.append(_e)
 
 
 
@@ -3728,6 +3825,8 @@ class Tables:
     #def TbTestGlobal : return self._TbTestGlobal
     #def TbTestBeRef : return self._TbTestBeRef
     #def TbTestRef : return self._TbTestRef
+    #def TbTestSize : return self._TbTestSize
+    #def TbTestSet : return self._TbTestSet
     #def TbDetectCsvEncoding : return self._TbDetectCsvEncoding
     #def TbDefineFromExcel : return self._TbDefineFromExcel
     #def TbDefineFromExcelOne : return self._TbDefineFromExcelOne
@@ -3776,6 +3875,8 @@ class Tables:
         self.TbTestGlobal = test_TbTestGlobal(loader('test_tbtestglobal')); 
         self.TbTestBeRef = test_TbTestBeRef(loader('test_tbtestberef')); 
         self.TbTestRef = test_TbTestRef(loader('test_tbtestref')); 
+        self.TbTestSize = test_TbTestSize(loader('test_tbtestsize')); 
+        self.TbTestSet = test_TbTestSet(loader('test_tbtestset')); 
         self.TbDetectCsvEncoding = test_TbDetectCsvEncoding(loader('test_tbdetectcsvencoding')); 
         self.TbDefineFromExcel = test_TbDefineFromExcel(loader('test_tbdefinefromexcel')); 
         self.TbDefineFromExcelOne = test_TbDefineFromExcelOne(loader('test_tbdefinefromexcelone')); 

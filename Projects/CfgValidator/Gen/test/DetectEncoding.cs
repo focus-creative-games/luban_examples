@@ -37,8 +37,8 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public string Name { get; private set; }
 
-    public const int ID = -1154609646;
-    public override int GetTypeId() => ID;
+    public const int __ID__ = -1154609646;
+    public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
