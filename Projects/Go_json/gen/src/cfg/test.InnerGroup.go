@@ -11,22 +11,32 @@ package cfg
 
 import "errors"
 
-type Test_InnerGroup struct {
+type TestInnerGroup struct {
     Y1 int32
     Y2 int32
     Y3 int32
     Y4 int32
 }
 
-func (Test_InnerGroup) GetTypeId() int {
+const TypeId_TestInnerGroup = -587873083
+
+func (*TestInnerGroup) GetTypeId() int32 {
     return -587873083
 }
 
-func NewTest_InnerGroup(_buf map[string]interface{}) (_v *Test_InnerGroup, err error) {
-    _v = &Test_InnerGroup{}
+func (_v *TestInnerGroup)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y1"].(float64); !_ok_ { err = errors.New("y1 error"); return }; _v.Y1 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y2"].(float64); !_ok_ { err = errors.New("y2 error"); return }; _v.Y2 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y3"].(float64); !_ok_ { err = errors.New("y3 error"); return }; _v.Y3 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y4"].(float64); !_ok_ { err = errors.New("y4 error"); return }; _v.Y4 = int32(_tempNum_) }
     return
+}
+
+func DeserializeTestInnerGroup(_buf map[string]interface{}) (*TestInnerGroup, error) {
+    v := &TestInnerGroup{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

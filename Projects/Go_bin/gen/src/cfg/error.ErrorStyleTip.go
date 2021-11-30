@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,18 +15,28 @@ import (
 
 
 
-type Error_ErrorStyleTip struct {
-    Error_ErrorStyle
+type ErrorErrorStyleTip struct {
 }
 
-func (Error_ErrorStyleTip) GetTypeId() int {
+const TypeId_ErrorErrorStyleTip = 1915239884
+
+func (*ErrorErrorStyleTip) GetTypeId() int32 {
     return 1915239884
 }
 
-func NewError_ErrorStyleTip(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleTip, err error) {
-    _v = &Error_ErrorStyleTip{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
+func (_v *ErrorErrorStyleTip)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ErrorErrorStyleTip)Deserialize(_buf *serialization.ByteBuf) (err error) {
     return
+}
+
+func DeserializeErrorErrorStyleTip(_buf *serialization.ByteBuf) (*ErrorErrorStyleTip, error) {
+    v := &ErrorErrorStyleTip{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -6,38 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_MultiBonus struct {
-    Bonus_Bonus
+type BonusMultiBonus struct {
     Bonuses []interface{}
 }
 
-func (Bonus_MultiBonus) GetTypeId() int {
+const TypeId_BonusMultiBonus = 1421907893
+
+func (*BonusMultiBonus) GetTypeId() int32 {
     return 1421907893
 }
 
-func NewBonus_MultiBonus(_buf *serialization.ByteBuf) (_v *Bonus_MultiBonus, err error) {
-    _v = &Bonus_MultiBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
-     {
-                _v.Bonuses = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewBonus_Bonus(_buf); err != nil { return } }
-                    _v.Bonuses = append(_v.Bonuses, _e_)
-                }
-            }
+func (_v *BonusMultiBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *BonusMultiBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    {_v.Bonuses = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Bonuses error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBonusBonus(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Bonuses = append(_v.Bonuses, _e_) } }
     return
+}
+
+func DeserializeBonusMultiBonus(_buf *serialization.ByteBuf) (*BonusMultiBonus, error) {
+    v := &BonusMultiBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

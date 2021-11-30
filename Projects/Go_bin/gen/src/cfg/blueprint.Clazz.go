@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,54 +15,42 @@ import (
 
 import "errors"
 
-type Blueprint_Clazz struct {
+type BlueprintClazz struct {
     Name string
     Desc string
     Parents []interface{}
     Methods []interface{}
 }
 
+const TypeId_BlueprintClazz = 1691473693
 
-func NewBlueprint_Clazz(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case 2114170750: return NewBlueprint_Interface(_buf)
-        case -2073576778: return NewBlueprint_NormalClazz(_buf)
-        case 1827364892: return NewBlueprint_EnumClazz(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*BlueprintClazz) GetTypeId() int32 {
+    return 1691473693
+}
+
+func (_v *BlueprintClazz)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintClazz)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    {_v.Parents = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Parents error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintClazz(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Parents = append(_v.Parents, _e_) } }
+    {_v.Methods = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Methods error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintMethod(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Methods = append(_v.Methods, _e_) } }
     return
 }
 
-func NewBlueprint_Clazz_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Clazz, err error) {
-    _v = &Blueprint_Clazz{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
-     {
-                _v.Parents = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewBlueprint_Clazz(_buf); err != nil { return } }
-                    _v.Parents = append(_v.Parents, _e_)
-                }
-            }
-
-     {
-                _v.Methods = make([]interface{}, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ interface{}
-                    { if _e_, err = NewBlueprint_Method(_buf); err != nil { return } }
-                    _v.Methods = append(_v.Methods, _e_)
-                }
-            }
-
-    return
+func DeserializeBlueprintClazz(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case 2114170750: _v := &BlueprintInterface{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.Interface") } else { return _v, nil }
+        case -2073576778: _v := &BlueprintNormalClazz{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.NormalClazz") } else { return _v, nil }
+        case 1827364892: _v := &BlueprintEnumClazz{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.EnumClazz") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

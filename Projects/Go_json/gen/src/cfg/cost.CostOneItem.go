@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Cost_CostOneItem struct {
-    Cost_Cost
+type CostCostOneItem struct {
     ItemId int32
 }
 
-func (Cost_CostOneItem) GetTypeId() int {
+const TypeId_CostCostOneItem = -1033587381
+
+func (*CostCostOneItem) GetTypeId() int32 {
     return -1033587381
 }
 
-func NewCost_CostOneItem(_buf map[string]interface{}) (_v *Cost_CostOneItem, err error) {
-    _v = &Cost_CostOneItem{}
-    var _p *Cost_Cost
-     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
-    _v.Cost_Cost = *_p
+func (_v *CostCostOneItem)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["item_id"].(float64); !_ok_ { err = errors.New("item_id error"); return }; _v.ItemId = int32(_tempNum_) }
     return
+}
+
+func DeserializeCostCostOneItem(_buf map[string]interface{}) (*CostCostOneItem, error) {
+    v := &CostCostOneItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -12,23 +12,23 @@ package cfg
 
 import "errors"
 
-type Common_TbGlobalConfig struct {
-    _data *Common_GlobalConfig
+type CommonTbGlobalConfig struct {
+    _data *CommonGlobalConfig
 }
 
-func NewCommon_TbGlobalConfig(_buf []map[string]interface{}) (*Common_TbGlobalConfig, error) {
+func NewCommonTbGlobalConfig(_buf []map[string]interface{}) (*CommonTbGlobalConfig, error) {
 	if len(_buf) != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewCommon_GlobalConfig(_buf[0]); err2 != nil {
+		if _v, err2 := DeserializeCommonGlobalConfig(_buf[0]); err2 != nil {
 			return nil, err2
 		} else {
-		    return &Common_TbGlobalConfig{_data:_v}, nil
+		    return &CommonTbGlobalConfig{_data:_v}, nil
 		}
 	}
 }
 
-func (table *Common_TbGlobalConfig) Get() *Common_GlobalConfig {
+func (table *CommonTbGlobalConfig) Get() *CommonGlobalConfig {
     return table._data
 }
 

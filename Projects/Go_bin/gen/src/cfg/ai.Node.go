@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,50 +15,58 @@ import (
 
 import "errors"
 
-type Ai_Node struct {
+type AiNode struct {
     Id int32
     NodeName string
 }
 
+const TypeId_AiNode = -1055479768
 
-func NewAi_Node(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case 1812449155: return NewAi_UeSetDefaultFocus(_buf)
-        case 990693812: return NewAi_ExecuteTimeStatistic(_buf)
-        case 1601247918: return NewAi_ChooseTarget(_buf)
-        case 1195270745: return NewAi_KeepFaceTarget(_buf)
-        case -999247644: return NewAi_GetOwnerPlayer(_buf)
-        case -61887372: return NewAi_UpdateDailyBehaviorProps(_buf)
-        case -513308166: return NewAi_UeLoop(_buf)
-        case -951439423: return NewAi_UeCooldown(_buf)
-        case 338469720: return NewAi_UeTimeLimit(_buf)
-        case -315297507: return NewAi_UeBlackboard(_buf)
-        case 195054574: return NewAi_UeForceSuccess(_buf)
-        case 1255972344: return NewAi_IsAtLocation(_buf)
-        case -1207170283: return NewAi_DistanceLessThan(_buf)
-        case -1789006105: return NewAi_Sequence(_buf)
-        case -1946981627: return NewAi_Selector(_buf)
-        case -1952582529: return NewAi_SimpleParallel(_buf)
-        case -512994101: return NewAi_UeWait(_buf)
-        case 1215378271: return NewAi_UeWaitBlackboardTime(_buf)
-        case 514987779: return NewAi_MoveToTarget(_buf)
-        case -918812268: return NewAi_ChooseSkill(_buf)
-        case -2140042998: return NewAi_MoveToRandomLocation(_buf)
-        case -969953113: return NewAi_MoveToLocation(_buf)
-        case 1357409728: return NewAi_DebugPrint(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*AiNode) GetTypeId() int32 {
+    return -1055479768
+}
+
+func (_v *AiNode)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiNode)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
     return
 }
 
-func NewAi_Node_Body(_buf *serialization.ByteBuf) (_v *Ai_Node, err error) {
-    _v = &Ai_Node{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.NodeName, err = _buf.ReadString(); err != nil { return } }
-    return
+func DeserializeAiNode(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case 1812449155: _v := &AiUeSetDefaultFocus{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeSetDefaultFocus") } else { return _v, nil }
+        case 990693812: _v := &AiExecuteTimeStatistic{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ExecuteTimeStatistic") } else { return _v, nil }
+        case 1601247918: _v := &AiChooseTarget{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseTarget") } else { return _v, nil }
+        case 1195270745: _v := &AiKeepFaceTarget{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.KeepFaceTarget") } else { return _v, nil }
+        case -999247644: _v := &AiGetOwnerPlayer{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.GetOwnerPlayer") } else { return _v, nil }
+        case -61887372: _v := &AiUpdateDailyBehaviorProps{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UpdateDailyBehaviorProps") } else { return _v, nil }
+        case -513308166: _v := &AiUeLoop{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeLoop") } else { return _v, nil }
+        case -951439423: _v := &AiUeCooldown{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeCooldown") } else { return _v, nil }
+        case 338469720: _v := &AiUeTimeLimit{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeTimeLimit") } else { return _v, nil }
+        case -315297507: _v := &AiUeBlackboard{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeBlackboard") } else { return _v, nil }
+        case 195054574: _v := &AiUeForceSuccess{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeForceSuccess") } else { return _v, nil }
+        case 1255972344: _v := &AiIsAtLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsAtLocation") } else { return _v, nil }
+        case -1207170283: _v := &AiDistanceLessThan{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DistanceLessThan") } else { return _v, nil }
+        case -1789006105: _v := &AiSequence{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Sequence") } else { return _v, nil }
+        case -1946981627: _v := &AiSelector{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Selector") } else { return _v, nil }
+        case -1952582529: _v := &AiSimpleParallel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.SimpleParallel") } else { return _v, nil }
+        case -512994101: _v := &AiUeWait{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWait") } else { return _v, nil }
+        case 1215378271: _v := &AiUeWaitBlackboardTime{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWaitBlackboardTime") } else { return _v, nil }
+        case 514987779: _v := &AiMoveToTarget{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToTarget") } else { return _v, nil }
+        case -918812268: _v := &AiChooseSkill{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseSkill") } else { return _v, nil }
+        case -2140042998: _v := &AiMoveToRandomLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToRandomLocation") } else { return _v, nil }
+        case -969953113: _v := &AiMoveToLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToLocation") } else { return _v, nil }
+        case 1357409728: _v := &AiDebugPrint{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DebugPrint") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

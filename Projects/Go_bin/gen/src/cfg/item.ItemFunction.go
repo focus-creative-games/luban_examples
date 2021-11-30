@@ -6,30 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_ItemFunction struct {
+type ItemItemFunction struct {
     MinorType int32
     FuncType int32
     Method string
     CloseBagUi bool
 }
 
-func (Item_ItemFunction) GetTypeId() int {
+const TypeId_ItemItemFunction = 1205824294
+
+func (*ItemItemFunction) GetTypeId() int32 {
     return 1205824294
 }
 
-func NewItem_ItemFunction(_buf *serialization.ByteBuf) (_v *Item_ItemFunction, err error) {
-    _v = &Item_ItemFunction{}
-    { if _v.MinorType, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.FuncType, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Method, err = _buf.ReadString(); err != nil { return } }
-    { if _v.CloseBagUi, err = _buf.ReadBool(); err != nil { return } }
+func (_v *ItemItemFunction)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemItemFunction)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.MinorType, err = _buf.ReadInt(); err != nil { err = errors.New("_v.MinorType error"); return } }
+    { if _v.FuncType, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FuncType error"); return } }
+    { if _v.Method, err = _buf.ReadString(); err != nil { err = errors.New("_v.Method error"); return } }
+    { if _v.CloseBagUi, err = _buf.ReadBool(); err != nil { err = errors.New("_v.CloseBagUi error"); err = errors.New("_v.CloseBagUi error"); return } }
     return
+}
+
+func DeserializeItemItemFunction(_buf *serialization.ByteBuf) (*ItemItemFunction, error) {
+    v := &ItemItemFunction{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

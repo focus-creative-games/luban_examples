@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Test_ETestUeType_WHITE = 0
-    Test_ETestUeType_BLACK = 1
+    TestETestUeType_WHITE = 0
+    TestETestUeType_BLACK = 1
 )

@@ -11,30 +11,63 @@ package cfg
 
 import "errors"
 
-type Ai_ComposeNode struct {
-    Ai_FlowNode
+type AiComposeNode struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
 }
 
+const TypeId_AiComposeNode = -70129202
 
-func NewAi_ComposeNode(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*AiComposeNode) GetTypeId() int32 {
+    return -70129202
+}
+
+func (_v *AiComposeNode)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
+    return
+}
+
+func DeserializeAiComposeNode(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "Sequence": return NewAi_Sequence(_buf);
-        case "Selector": return NewAi_Selector(_buf);
-        case "SimpleParallel": return NewAi_SimpleParallel(_buf);
+        case "Sequence": _v := &AiSequence{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Sequence") } else { return _v, nil }
+        case "Selector": _v := &AiSelector{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Selector") } else { return _v, nil }
+        case "SimpleParallel": _v := &AiSimpleParallel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.SimpleParallel") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_ComposeNode_Body(_buf map[string]interface{}) (_v *Ai_ComposeNode, err error) {
-    _v = &Ai_ComposeNode{}
-    var _p *Ai_FlowNode
-     if _p, err = NewAi_FlowNode_Body(_buf) ; err != nil { return }
-    _v.Ai_FlowNode = *_p
-    return
 }

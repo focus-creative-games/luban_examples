@@ -11,24 +11,30 @@ package cfg
 
 import "errors"
 
-type Condition_ContainsItem struct {
-    Condition_RoleCondition
+type ConditionContainsItem struct {
     ItemId int32
     Num int32
     Reverse bool
 }
 
-func (Condition_ContainsItem) GetTypeId() int {
+const TypeId_ConditionContainsItem = 1961145317
+
+func (*ConditionContainsItem) GetTypeId() int32 {
     return 1961145317
 }
 
-func NewCondition_ContainsItem(_buf map[string]interface{}) (_v *Condition_ContainsItem, err error) {
-    _v = &Condition_ContainsItem{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
+func (_v *ConditionContainsItem)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["item_id"].(float64); !_ok_ { err = errors.New("item_id error"); return }; _v.ItemId = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }
     { var _ok_ bool; if _v.Reverse, _ok_ = _buf["reverse"].(bool); !_ok_ { err = errors.New("reverse error"); return } }
     return
+}
+
+func DeserializeConditionContainsItem(_buf map[string]interface{}) (*ConditionContainsItem, error) {
+    v := &ConditionContainsItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

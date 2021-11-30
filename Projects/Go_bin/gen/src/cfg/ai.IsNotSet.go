@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,18 +15,28 @@ import (
 
 
 
-type Ai_IsNotSet struct {
-    Ai_KeyQueryOperator
+type AiIsNotSet struct {
 }
 
-func (Ai_IsNotSet) GetTypeId() int {
+const TypeId_AiIsNotSet = 790736255
+
+func (*AiIsNotSet) GetTypeId() int32 {
     return 790736255
 }
 
-func NewAi_IsNotSet(_buf *serialization.ByteBuf) (_v *Ai_IsNotSet, err error) {
-    _v = &Ai_IsNotSet{}
-    var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyQueryOperator = *_p
+func (_v *AiIsNotSet)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiIsNotSet)Deserialize(_buf *serialization.ByteBuf) (err error) {
     return
+}
+
+func DeserializeAiIsNotSet(_buf *serialization.ByteBuf) (*AiIsNotSet, error) {
+    v := &AiIsNotSet{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

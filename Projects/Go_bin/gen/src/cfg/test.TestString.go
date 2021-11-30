@@ -6,30 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_TestString struct {
+type TestTestString struct {
     Id int32
     S1 string
-    Cs1 *Test_CompactString
-    Cs2 *Test_CompactString
+    Cs1 *TestCompactString
+    Cs2 *TestCompactString
 }
 
-func (Test_TestString) GetTypeId() int {
+const TypeId_TestTestString = 338485823
+
+func (*TestTestString) GetTypeId() int32 {
     return 338485823
 }
 
-func NewTest_TestString(_buf *serialization.ByteBuf) (_v *Test_TestString, err error) {
-    _v = &Test_TestString{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.S1, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Cs1, err = NewTest_CompactString(_buf); err != nil { return } }
-    { if _v.Cs2, err = NewTest_CompactString(_buf); err != nil { return } }
+func (_v *TestTestString)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestTestString)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.S1, err = _buf.ReadString(); err != nil { err = errors.New("_v.S1 error"); return } }
+    { if _v.Cs1, err = DeserializeTestCompactString(_buf); err != nil { err = errors.New("_v.Cs1 error"); return } }
+    { if _v.Cs2, err = DeserializeTestCompactString(_buf); err != nil { err = errors.New("_v.Cs2 error"); return } }
     return
+}
+
+func DeserializeTestTestString(_buf *serialization.ByteBuf) (*TestTestString, error) {
+    v := &TestTestString{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

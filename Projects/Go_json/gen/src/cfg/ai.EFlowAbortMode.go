@@ -10,8 +10,8 @@
 package cfg
 
 const (
-    Ai_EFlowAbortMode_NONE = 0
-    Ai_EFlowAbortMode_LOWER_PRIORITY = 1
-    Ai_EFlowAbortMode_SELF = 2
-    Ai_EFlowAbortMode_BOTH = 3
+    AiEFlowAbortMode_NONE = 0
+    AiEFlowAbortMode_LOWER_PRIORITY = 1
+    AiEFlowAbortMode_SELF = 2
+    AiEFlowAbortMode_BOTH = 3
 )

@@ -11,31 +11,34 @@ package cfg
 
 import "errors"
 
-type Condition_Condition struct {
+type ConditionCondition struct {
 }
 
+const TypeId_ConditionCondition = 183625704
 
-func NewCondition_Condition(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*ConditionCondition) GetTypeId() int32 {
+    return 183625704
+}
+
+func (_v *ConditionCondition)Deserialize(_buf map[string]interface{}) (err error) {
+    return
+}
+
+func DeserializeConditionCondition(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "TimeRange": return NewCondition_TimeRange(_buf);
-        case "MultiRoleCondition": return NewCondition_MultiRoleCondition(_buf);
-        case "GenderLimit": return NewCondition_GenderLimit(_buf);
-        case "MinLevel": return NewCondition_MinLevel(_buf);
-        case "MaxLevel": return NewCondition_MaxLevel(_buf);
-        case "MinMaxLevel": return NewCondition_MinMaxLevel(_buf);
-        case "ClothesPropertyScoreGreaterThan": return NewCondition_ClothesPropertyScoreGreaterThan(_buf);
-        case "ContainsItem": return NewCondition_ContainsItem(_buf);
+        case "TimeRange": _v := &ConditionTimeRange{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.TimeRange") } else { return _v, nil }
+        case "MultiRoleCondition": _v := &ConditionMultiRoleCondition{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MultiRoleCondition") } else { return _v, nil }
+        case "GenderLimit": _v := &ConditionGenderLimit{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.GenderLimit") } else { return _v, nil }
+        case "MinLevel": _v := &ConditionMinLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinLevel") } else { return _v, nil }
+        case "MaxLevel": _v := &ConditionMaxLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MaxLevel") } else { return _v, nil }
+        case "MinMaxLevel": _v := &ConditionMinMaxLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinMaxLevel") } else { return _v, nil }
+        case "ClothesPropertyScoreGreaterThan": _v := &ConditionClothesPropertyScoreGreaterThan{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ClothesPropertyScoreGreaterThan") } else { return _v, nil }
+        case "ContainsItem": _v := &ConditionContainsItem{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ContainsItem") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewCondition_Condition_Body(_buf map[string]interface{}) (_v *Condition_Condition, err error) {
-    _v = &Condition_Condition{}
-    return
 }

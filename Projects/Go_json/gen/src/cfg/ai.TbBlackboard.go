@@ -9,34 +9,34 @@
 
 package cfg
 
-type Ai_TbBlackboard struct {
-    _dataMap map[string]*Ai_Blackboard
-    _dataList []*Ai_Blackboard
+type AiTbBlackboard struct {
+    _dataMap map[string]*AiBlackboard
+    _dataList []*AiBlackboard
 }
 
-func NewAi_TbBlackboard(_buf []map[string]interface{}) (*Ai_TbBlackboard, error) {
-	_dataList := make([]*Ai_Blackboard, 0, len(_buf))
-	dataMap := make(map[string]*Ai_Blackboard)
+func NewAiTbBlackboard(_buf []map[string]interface{}) (*AiTbBlackboard, error) {
+	_dataList := make([]*AiBlackboard, 0, len(_buf))
+	dataMap := make(map[string]*AiBlackboard)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewAi_Blackboard(_ele_); err2 != nil {
+		if _v, err2 := DeserializeAiBlackboard(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Name] = _v
 		}
 	}
-	return &Ai_TbBlackboard{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &AiTbBlackboard{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Ai_TbBlackboard) GetDataMap() map[string]*Ai_Blackboard {
+func (table *AiTbBlackboard) GetDataMap() map[string]*AiBlackboard {
     return table._dataMap
 }
 
-func (table *Ai_TbBlackboard) GetDataList() []*Ai_Blackboard {
+func (table *AiTbBlackboard) GetDataList() []*AiBlackboard {
     return table._dataList
 }
 
-func (table *Ai_TbBlackboard) Get(key string) *Ai_Blackboard {
+func (table *AiTbBlackboard) Get(key string) *AiBlackboard {
     return table._dataMap[key]
 }
 

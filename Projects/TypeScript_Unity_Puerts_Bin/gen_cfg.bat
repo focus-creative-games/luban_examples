@@ -11,7 +11,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_data_dir ..\GenerateDatas\bin ^
  --gen_types code_typescript_bin,data_bin ^
  -s all  ^
---use_puerts_bytebuf ^
---embed_bright_types
+--typescript:use_puerts_bytebuf ^
+--typescript:embed_bright_types
 
 pause

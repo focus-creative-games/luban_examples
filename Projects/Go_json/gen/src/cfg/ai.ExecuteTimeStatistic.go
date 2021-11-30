@@ -9,20 +9,30 @@
 
 package cfg
 
+import "errors"
 
-
-type Ai_ExecuteTimeStatistic struct {
-    Ai_Service
+type AiExecuteTimeStatistic struct {
+    Id int32
+    NodeName string
 }
 
-func (Ai_ExecuteTimeStatistic) GetTypeId() int {
+const TypeId_AiExecuteTimeStatistic = 990693812
+
+func (*AiExecuteTimeStatistic) GetTypeId() int32 {
     return 990693812
 }
 
-func NewAi_ExecuteTimeStatistic(_buf map[string]interface{}) (_v *Ai_ExecuteTimeStatistic, err error) {
-    _v = &Ai_ExecuteTimeStatistic{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
+func (_v *AiExecuteTimeStatistic)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     return
+}
+
+func DeserializeAiExecuteTimeStatistic(_buf map[string]interface{}) (*AiExecuteTimeStatistic, error) {
+    v := &AiExecuteTimeStatistic{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

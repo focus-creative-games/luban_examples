@@ -11,5 +11,5 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_data_dir ..\GenerateDatas\bin ^
  --gen_types code_typescript_bin,data_bin ^
  -s all  ^
---typescript_bright_require_path ../bright
+--typescript:bright_require_path ../bright
 pause

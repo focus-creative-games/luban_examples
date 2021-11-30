@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbExcelFromJson struct {
-    _dataMap map[int32]*Test_ExcelFromJson
-    _dataList []*Test_ExcelFromJson
+type TestTbExcelFromJson struct {
+    _dataMap map[int32]*TestExcelFromJson
+    _dataList []*TestExcelFromJson
 }
 
-func NewTest_TbExcelFromJson(_buf *serialization.ByteBuf) (*Test_TbExcelFromJson, error) {
+func NewTestTbExcelFromJson(_buf *serialization.ByteBuf) (*TestTbExcelFromJson, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_ExcelFromJson, 0, size)
-		dataMap := make(map[int32]*Test_ExcelFromJson)
+		_dataList := make([]*TestExcelFromJson, 0, size)
+		dataMap := make(map[int32]*TestExcelFromJson)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_ExcelFromJson(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestExcelFromJson(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.X4] = _v
 			}
 		}
-		return &Test_TbExcelFromJson{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbExcelFromJson{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbExcelFromJson) GetDataMap() map[int32]*Test_ExcelFromJson {
+func (table *TestTbExcelFromJson) GetDataMap() map[int32]*TestExcelFromJson {
     return table._dataMap
 }
 
-func (table *Test_TbExcelFromJson) GetDataList() []*Test_ExcelFromJson {
+func (table *TestTbExcelFromJson) GetDataList() []*TestExcelFromJson {
     return table._dataList
 }
 
-func (table *Test_TbExcelFromJson) Get(key int32) *Test_ExcelFromJson {
+func (table *TestTbExcelFromJson) Get(key int32) *TestExcelFromJson {
     return table._dataMap[key]
 }
 

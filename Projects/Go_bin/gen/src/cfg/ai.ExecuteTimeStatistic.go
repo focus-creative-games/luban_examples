@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_ExecuteTimeStatistic struct {
-    Ai_Service
+type AiExecuteTimeStatistic struct {
+    Id int32
+    NodeName string
 }
 
-func (Ai_ExecuteTimeStatistic) GetTypeId() int {
+const TypeId_AiExecuteTimeStatistic = 990693812
+
+func (*AiExecuteTimeStatistic) GetTypeId() int32 {
     return 990693812
 }
 
-func NewAi_ExecuteTimeStatistic(_buf *serialization.ByteBuf) (_v *Ai_ExecuteTimeStatistic, err error) {
-    _v = &Ai_ExecuteTimeStatistic{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
+func (_v *AiExecuteTimeStatistic)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiExecuteTimeStatistic)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
     return
+}
+
+func DeserializeAiExecuteTimeStatistic(_buf *serialization.ByteBuf) (*AiExecuteTimeStatistic, error) {
+    v := &AiExecuteTimeStatistic{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

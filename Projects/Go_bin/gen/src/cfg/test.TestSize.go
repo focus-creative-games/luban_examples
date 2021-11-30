@@ -6,15 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_TestSize struct {
+type TestTestSize struct {
     Id int32
     X1 []int32
     X2 []int32
@@ -22,57 +23,30 @@ type Test_TestSize struct {
     X4 map[int32]int32
 }
 
-func (Test_TestSize) GetTypeId() int {
+const TypeId_TestTestSize = 340006319
+
+func (*TestTestSize) GetTypeId() int32 {
     return 340006319
 }
 
-func NewTest_TestSize(_buf *serialization.ByteBuf) (_v *Test_TestSize, err error) {
-    _v = &Test_TestSize{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.X1 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.X1 = append(_v.X1, _e_)
-                }
-            }
+func (_v *TestTestSize)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
-     {
-                _v.X2 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.X2 = append(_v.X2, _e_)
-                }
-            }
-
-     {
-                _v.X3 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.X3 = append(_v.X3, _e_)
-                }
-            }
-
-    {
-                _v.X4 = make(map[int32]int32)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _key_ int32
-                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
-                    var _value_ int32
-                    { if _value_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.X4[_key_] = _value_
-                }
-                }
+func (_v *TestTestSize)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    {_v.X1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.X1 = append(_v.X1, _e_) } }
+    {_v.X2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.X2 = append(_v.X2, _e_) } }
+    {_v.X3 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X3 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.X3 = append(_v.X3, _e_) } }
+    { _v.X4 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X4 error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("_key_ error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("_value_ error"); return } }; _v.X4[_key_] = _value_} }
     return
+}
+
+func DeserializeTestTestSize(_buf *serialization.ByteBuf) (*TestTestSize, error) {
+    v := &TestTestSize{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

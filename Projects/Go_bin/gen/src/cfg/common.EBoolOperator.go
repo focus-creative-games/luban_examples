@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Common_EBoolOperator_AND = 0
-    Common_EBoolOperator_OR = 1
+    CommonEBoolOperator_AND = 0
+    CommonEBoolOperator_OR = 1
 )

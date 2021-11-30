@@ -6,38 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_ExcelFromJsonMultiRow struct {
+type TestExcelFromJsonMultiRow struct {
     Id int32
     X int32
-    Items []*Test_TestRow
+    Items []*TestTestRow
 }
 
-func (Test_ExcelFromJsonMultiRow) GetTypeId() int {
+const TypeId_TestExcelFromJsonMultiRow = 715335694
+
+func (*TestExcelFromJsonMultiRow) GetTypeId() int32 {
     return 715335694
 }
 
-func NewTest_ExcelFromJsonMultiRow(_buf *serialization.ByteBuf) (_v *Test_ExcelFromJsonMultiRow, err error) {
-    _v = &Test_ExcelFromJsonMultiRow{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.Items = make([]*Test_TestRow, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Test_TestRow
-                    { if _e_, err = NewTest_TestRow(_buf); err != nil { return } }
-                    _v.Items = append(_v.Items, _e_)
-                }
-            }
+func (_v *TestExcelFromJsonMultiRow)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *TestExcelFromJsonMultiRow)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.X, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X error"); return } }
+    {_v.Items = make([]*TestTestRow, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Items error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestTestRow; { if _e_, err = DeserializeTestTestRow(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Items = append(_v.Items, _e_) } }
     return
+}
+
+func DeserializeTestExcelFromJsonMultiRow(_buf *serialization.ByteBuf) (*TestExcelFromJsonMultiRow, error) {
+    v := &TestExcelFromJsonMultiRow{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

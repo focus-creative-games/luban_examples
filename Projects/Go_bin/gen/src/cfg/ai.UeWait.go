@@ -6,30 +6,51 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_UeWait struct {
-    Ai_Task
+type AiUeWait struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
+    IgnoreRestartSelf bool
     WaitTime float32
     RandomDeviation float32
 }
 
-func (Ai_UeWait) GetTypeId() int {
+const TypeId_AiUeWait = -512994101
+
+func (*AiUeWait) GetTypeId() int32 {
     return -512994101
 }
 
-func NewAi_UeWait(_buf *serialization.ByteBuf) (_v *Ai_UeWait, err error) {
-    _v = &Ai_UeWait{}
-    var _p *Ai_Task
-     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
-    _v.Ai_Task = *_p
-    { if _v.WaitTime, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.RandomDeviation, err = _buf.ReadFloat(); err != nil { return } }
+func (_v *AiUeWait)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiUeWait)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    {_v.Decorators = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Decorators error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeAiDecorator(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Decorators = append(_v.Decorators, _e_) } }
+    {_v.Services = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Services error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeAiService(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Services = append(_v.Services, _e_) } }
+    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { err = errors.New("_v.IgnoreRestartSelf error"); err = errors.New("_v.IgnoreRestartSelf error"); return } }
+    { if _v.WaitTime, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.WaitTime error"); return } }
+    { if _v.RandomDeviation, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.RandomDeviation error"); return } }
     return
+}
+
+func DeserializeAiUeWait(_buf *serialization.ByteBuf) (*AiUeWait, error) {
+    v := &AiUeWait{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

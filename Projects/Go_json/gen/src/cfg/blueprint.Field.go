@@ -11,20 +11,30 @@ package cfg
 
 import "errors"
 
-type Blueprint_Field struct {
+type BlueprintField struct {
     Name string
     Type string
     Desc string
 }
 
-func (Blueprint_Field) GetTypeId() int {
+const TypeId_BlueprintField = 1694158271
+
+func (*BlueprintField) GetTypeId() int32 {
     return 1694158271
 }
 
-func NewBlueprint_Field(_buf map[string]interface{}) (_v *Blueprint_Field, err error) {
-    _v = &Blueprint_Field{}
+func (_v *BlueprintField)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     { var _ok_ bool; if _v.Type, _ok_ = _buf["type"].(string); !_ok_ { err = errors.New("type error"); return } }
     { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
     return
+}
+
+func DeserializeBlueprintField(_buf map[string]interface{}) (*BlueprintField, error) {
+    v := &BlueprintField{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

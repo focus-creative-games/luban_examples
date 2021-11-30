@@ -9,20 +9,32 @@
 
 package cfg
 
+import "errors"
 
-
-type Ai_UeForceSuccess struct {
-    Ai_Decorator
+type AiUeForceSuccess struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
 }
 
-func (Ai_UeForceSuccess) GetTypeId() int {
+const TypeId_AiUeForceSuccess = 195054574
+
+func (*AiUeForceSuccess) GetTypeId() int32 {
     return 195054574
 }
 
-func NewAi_UeForceSuccess(_buf map[string]interface{}) (_v *Ai_UeForceSuccess, err error) {
-    _v = &Ai_UeForceSuccess{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
+func (_v *AiUeForceSuccess)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
     return
+}
+
+func DeserializeAiUeForceSuccess(_buf map[string]interface{}) (*AiUeForceSuccess, error) {
+    v := &AiUeForceSuccess{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

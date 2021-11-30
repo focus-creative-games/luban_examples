@@ -6,38 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_WeightItems struct {
-    Bonus_Bonus
-    ItemList []*Bonus_WeightItemInfo
+type BonusWeightItems struct {
+    ItemList []*BonusWeightItemInfo
 }
 
-func (Bonus_WeightItems) GetTypeId() int {
+const TypeId_BonusWeightItems = -356202311
+
+func (*BonusWeightItems) GetTypeId() int32 {
     return -356202311
 }
 
-func NewBonus_WeightItems(_buf *serialization.ByteBuf) (_v *Bonus_WeightItems, err error) {
-    _v = &Bonus_WeightItems{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
-     {
-                _v.ItemList = make([]*Bonus_WeightItemInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Bonus_WeightItemInfo
-                    { if _e_, err = NewBonus_WeightItemInfo(_buf); err != nil { return } }
-                    _v.ItemList = append(_v.ItemList, _e_)
-                }
-            }
+func (_v *BonusWeightItems)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *BonusWeightItems)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    {_v.ItemList = make([]*BonusWeightItemInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.ItemList error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BonusWeightItemInfo; { if _e_, err = DeserializeBonusWeightItemInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.ItemList = append(_v.ItemList, _e_) } }
     return
+}
+
+func DeserializeBonusWeightItems(_buf *serialization.ByteBuf) (*BonusWeightItems, error) {
+    v := &BonusWeightItems{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

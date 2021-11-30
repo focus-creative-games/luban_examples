@@ -9,34 +9,34 @@
 
 package cfg
 
-type Test_TbCompositeJsonTable2 struct {
-    _dataMap map[int32]*Test_CompositeJsonTable2
-    _dataList []*Test_CompositeJsonTable2
+type TestTbCompositeJsonTable2 struct {
+    _dataMap map[int32]*TestCompositeJsonTable2
+    _dataList []*TestCompositeJsonTable2
 }
 
-func NewTest_TbCompositeJsonTable2(_buf []map[string]interface{}) (*Test_TbCompositeJsonTable2, error) {
-	_dataList := make([]*Test_CompositeJsonTable2, 0, len(_buf))
-	dataMap := make(map[int32]*Test_CompositeJsonTable2)
+func NewTestTbCompositeJsonTable2(_buf []map[string]interface{}) (*TestTbCompositeJsonTable2, error) {
+	_dataList := make([]*TestCompositeJsonTable2, 0, len(_buf))
+	dataMap := make(map[int32]*TestCompositeJsonTable2)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewTest_CompositeJsonTable2(_ele_); err2 != nil {
+		if _v, err2 := DeserializeTestCompositeJsonTable2(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Test_TbCompositeJsonTable2{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &TestTbCompositeJsonTable2{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbCompositeJsonTable2) GetDataMap() map[int32]*Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) GetDataMap() map[int32]*TestCompositeJsonTable2 {
     return table._dataMap
 }
 
-func (table *Test_TbCompositeJsonTable2) GetDataList() []*Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) GetDataList() []*TestCompositeJsonTable2 {
     return table._dataList
 }
 
-func (table *Test_TbCompositeJsonTable2) Get(key int32) *Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) Get(key int32) *TestCompositeJsonTable2 {
     return table._dataMap[key]
 }
 

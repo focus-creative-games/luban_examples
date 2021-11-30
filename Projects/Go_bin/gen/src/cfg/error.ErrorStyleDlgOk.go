@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Error_ErrorStyleDlgOk struct {
-    Error_ErrorStyle
+type ErrorErrorStyleDlgOk struct {
     BtnName string
 }
 
-func (Error_ErrorStyleDlgOk) GetTypeId() int {
+const TypeId_ErrorErrorStyleDlgOk = -2010134516
+
+func (*ErrorErrorStyleDlgOk) GetTypeId() int32 {
     return -2010134516
 }
 
-func NewError_ErrorStyleDlgOk(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleDlgOk, err error) {
-    _v = &Error_ErrorStyleDlgOk{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
-    { if _v.BtnName, err = _buf.ReadString(); err != nil { return } }
+func (_v *ErrorErrorStyleDlgOk)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ErrorErrorStyleDlgOk)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.BtnName, err = _buf.ReadString(); err != nil { err = errors.New("_v.BtnName error"); return } }
     return
+}
+
+func DeserializeErrorErrorStyleDlgOk(_buf *serialization.ByteBuf) (*ErrorErrorStyleDlgOk, error) {
+    v := &ErrorErrorStyleDlgOk{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -10,14 +10,14 @@
 package cfg
 
 const (
-    Item_EClothesPropertyType_JIAN_YUE = 1
-    Item_EClothesPropertyType_HUA_LI = 2
-    Item_EClothesPropertyType_KE_AI = 3
-    Item_EClothesPropertyType_CHENG_SHU = 4
-    Item_EClothesPropertyType_HUO_PO = 5
-    Item_EClothesPropertyType_YOU_YA = 6
-    Item_EClothesPropertyType_QING_CHUN = 7
-    Item_EClothesPropertyType_XING_GAN = 8
-    Item_EClothesPropertyType_QING_LIANG = 9
-    Item_EClothesPropertyType_BAO_NUAN = 10
+    ItemEClothesPropertyType_JIAN_YUE = 1
+    ItemEClothesPropertyType_HUA_LI = 2
+    ItemEClothesPropertyType_KE_AI = 3
+    ItemEClothesPropertyType_CHENG_SHU = 4
+    ItemEClothesPropertyType_HUO_PO = 5
+    ItemEClothesPropertyType_YOU_YA = 6
+    ItemEClothesPropertyType_QING_CHUN = 7
+    ItemEClothesPropertyType_XING_GAN = 8
+    ItemEClothesPropertyType_QING_LIANG = 9
+    ItemEClothesPropertyType_BAO_NUAN = 10
 )

@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbCompositeJsonTable2 struct {
-    _dataMap map[int32]*Test_CompositeJsonTable2
-    _dataList []*Test_CompositeJsonTable2
+type TestTbCompositeJsonTable2 struct {
+    _dataMap map[int32]*TestCompositeJsonTable2
+    _dataList []*TestCompositeJsonTable2
 }
 
-func NewTest_TbCompositeJsonTable2(_buf *serialization.ByteBuf) (*Test_TbCompositeJsonTable2, error) {
+func NewTestTbCompositeJsonTable2(_buf *serialization.ByteBuf) (*TestTbCompositeJsonTable2, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_CompositeJsonTable2, 0, size)
-		dataMap := make(map[int32]*Test_CompositeJsonTable2)
+		_dataList := make([]*TestCompositeJsonTable2, 0, size)
+		dataMap := make(map[int32]*TestCompositeJsonTable2)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_CompositeJsonTable2(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestCompositeJsonTable2(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Id] = _v
 			}
 		}
-		return &Test_TbCompositeJsonTable2{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbCompositeJsonTable2{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbCompositeJsonTable2) GetDataMap() map[int32]*Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) GetDataMap() map[int32]*TestCompositeJsonTable2 {
     return table._dataMap
 }
 
-func (table *Test_TbCompositeJsonTable2) GetDataList() []*Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) GetDataList() []*TestCompositeJsonTable2 {
     return table._dataList
 }
 
-func (table *Test_TbCompositeJsonTable2) Get(key int32) *Test_CompositeJsonTable2 {
+func (table *TestTbCompositeJsonTable2) Get(key int32) *TestCompositeJsonTable2 {
     return table._dataMap[key]
 }
 

@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
@@ -13,25 +14,25 @@ import "bright/serialization"
 
 import "errors"
 
-type Test_TbDefineFromExcelOne struct {
-    _data *Test_DefineFromExcelOne
+type TestTbDefineFromExcelOne struct {
+    _data *TestDefineFromExcelOne
 }
 
-func NewTest_TbDefineFromExcelOne(_buf *serialization.ByteBuf) (*Test_TbDefineFromExcelOne, error) {
+func NewTestTbDefineFromExcelOne(_buf *serialization.ByteBuf) (*TestTbDefineFromExcelOne, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
     } else if size != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewTest_DefineFromExcelOne(_buf); err2 != nil {
+		if _v, err2 := DeserializeTestDefineFromExcelOne(_buf); err2 != nil {
 			return nil, err2
 		} else {
-		    return &Test_TbDefineFromExcelOne{_data:_v}, nil
+		    return &TestTbDefineFromExcelOne{_data:_v}, nil
 		}
 	}
 }
 
-func (table *Test_TbDefineFromExcelOne) Get() *Test_DefineFromExcelOne {
+func (table *TestTbDefineFromExcelOne) Get() *TestDefineFromExcelOne {
     return table._data
 }
 

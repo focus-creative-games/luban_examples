@@ -10,9 +10,9 @@
 package cfg
 
 const (
-    Item_ECurrencyType_DIAMOND = 1
-    Item_ECurrencyType_GOLD = 2
-    Item_ECurrencyType_SILVER = 3
-    Item_ECurrencyType_EXP = 4
-    Item_ECurrencyType_POWER_POINT = 5
+    ItemECurrencyType_DIAMOND = 1
+    ItemECurrencyType_GOLD = 2
+    ItemECurrencyType_SILVER = 3
+    ItemECurrencyType_EXP = 4
+    ItemECurrencyType_POWER_POINT = 5
 )

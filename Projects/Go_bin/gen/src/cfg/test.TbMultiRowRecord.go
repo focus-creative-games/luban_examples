@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbMultiRowRecord struct {
-    _dataMap map[int32]*Test_MultiRowRecord
-    _dataList []*Test_MultiRowRecord
+type TestTbMultiRowRecord struct {
+    _dataMap map[int32]*TestMultiRowRecord
+    _dataList []*TestMultiRowRecord
 }
 
-func NewTest_TbMultiRowRecord(_buf *serialization.ByteBuf) (*Test_TbMultiRowRecord, error) {
+func NewTestTbMultiRowRecord(_buf *serialization.ByteBuf) (*TestTbMultiRowRecord, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_MultiRowRecord, 0, size)
-		dataMap := make(map[int32]*Test_MultiRowRecord)
+		_dataList := make([]*TestMultiRowRecord, 0, size)
+		dataMap := make(map[int32]*TestMultiRowRecord)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_MultiRowRecord(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestMultiRowRecord(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Id] = _v
 			}
 		}
-		return &Test_TbMultiRowRecord{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbMultiRowRecord{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbMultiRowRecord) GetDataMap() map[int32]*Test_MultiRowRecord {
+func (table *TestTbMultiRowRecord) GetDataMap() map[int32]*TestMultiRowRecord {
     return table._dataMap
 }
 
-func (table *Test_TbMultiRowRecord) GetDataList() []*Test_MultiRowRecord {
+func (table *TestTbMultiRowRecord) GetDataList() []*TestMultiRowRecord {
     return table._dataList
 }
 
-func (table *Test_TbMultiRowRecord) Get(key int32) *Test_MultiRowRecord {
+func (table *TestTbMultiRowRecord) Get(key int32) *TestMultiRowRecord {
     return table._dataMap[key]
 }
 

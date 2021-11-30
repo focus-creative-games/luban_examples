@@ -6,32 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_ContainsItem struct {
-    Condition_RoleCondition
+type ConditionContainsItem struct {
     ItemId int32
     Num int32
     Reverse bool
 }
 
-func (Condition_ContainsItem) GetTypeId() int {
+const TypeId_ConditionContainsItem = 1961145317
+
+func (*ConditionContainsItem) GetTypeId() int32 {
     return 1961145317
 }
 
-func NewCondition_ContainsItem(_buf *serialization.ByteBuf) (_v *Condition_ContainsItem, err error) {
-    _v = &Condition_ContainsItem{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
-    { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Reverse, err = _buf.ReadBool(); err != nil { return } }
+func (_v *ConditionContainsItem)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionContainsItem)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.ItemId, err = _buf.ReadInt(); err != nil { err = errors.New("_v.ItemId error"); return } }
+    { if _v.Num, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Num error"); return } }
+    { if _v.Reverse, err = _buf.ReadBool(); err != nil { err = errors.New("_v.Reverse error"); err = errors.New("_v.Reverse error"); return } }
     return
+}
+
+func DeserializeConditionContainsItem(_buf *serialization.ByteBuf) (*ConditionContainsItem, error) {
+    v := &ConditionContainsItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

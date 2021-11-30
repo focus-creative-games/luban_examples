@@ -11,8 +11,8 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_data_dir config_data ^
  --gen_types data_lua ^
  -s all  ^
---input_l10n_text_files l10n/cn/TextTable_CN.xlsx ^
---l10n_text_field_name text_tw ^
---output_l10n_not_translated_text_file NotLocalized_CN.txt
+--l10n:input_text_files l10n/cn/TextTable_CN.xlsx ^
+--l10n:text_field_name text_tw ^
+--l10n:output_not_translated_text_file NotLocalized_CN.txt
 
 pause

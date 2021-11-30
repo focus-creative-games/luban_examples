@@ -6,28 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_UeSetDefaultFocus struct {
-    Ai_Service
+type AiUeSetDefaultFocus struct {
+    Id int32
+    NodeName string
     KeyboardKey string
 }
 
-func (Ai_UeSetDefaultFocus) GetTypeId() int {
+const TypeId_AiUeSetDefaultFocus = 1812449155
+
+func (*AiUeSetDefaultFocus) GetTypeId() int32 {
     return 1812449155
 }
 
-func NewAi_UeSetDefaultFocus(_buf *serialization.ByteBuf) (_v *Ai_UeSetDefaultFocus, err error) {
-    _v = &Ai_UeSetDefaultFocus{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
-    { if _v.KeyboardKey, err = _buf.ReadString(); err != nil { return } }
+func (_v *AiUeSetDefaultFocus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiUeSetDefaultFocus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.KeyboardKey, err = _buf.ReadString(); err != nil { err = errors.New("_v.KeyboardKey error"); return } }
     return
+}
+
+func DeserializeAiUeSetDefaultFocus(_buf *serialization.ByteBuf) (*AiUeSetDefaultFocus, error) {
+    v := &AiUeSetDefaultFocus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

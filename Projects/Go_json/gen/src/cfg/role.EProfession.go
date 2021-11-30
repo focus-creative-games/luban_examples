@@ -10,5 +10,5 @@
 package cfg
 
 const (
-    Role_EProfession_TEST_PROFESSION = 1
+    RoleEProfession_TEST_PROFESSION = 1
 )

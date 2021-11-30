@@ -9,6 +9,7 @@
       "Luban.Job.Common/1.0.0": {
         "dependencies": {
           "CommandLineParser": "2.8.0",
+          "Google.Protobuf": "3.19.1",
           "Luban.Server.Common": "1.0.0",
           "Scriban": "4.1.0"
         },
@@ -59,6 +60,14 @@
           "lib/netstandard1.6/EtcdNetCore.dll": {
             "assemblyVersion": "1.1.4.2",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Google.Protobuf/3.19.1": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.19.1.0",
+            "fileVersion": "3.19.1.0"
           }
         }
       },
@@ -847,7 +856,8 @@
       },
       "Luban.Common/1.0.0": {
         "dependencies": {
-          "Bright.Net": "1.1.0.41"
+          "Bright.Net": "1.1.0.41",
+          "CommandLineParser": "2.8.0"
         },
         "runtime": {
           "Luban.Common.dll": {}
@@ -896,6 +906,13 @@
       "sha512": "sha512-womVzq9Ykj05GZeker9Zw5wYMx+aYFq44VH/jGbpXr20UC7j5zx2MJAqN9BeYgACSnIrBIzez2Zk6k7MEkHsWA==",
       "path": "etcdnetcore/1.0.0",
       "hashPath": "etcdnetcore.1.0.0.nupkg.sha512"
+    },
+    "Google.Protobuf/3.19.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M6yun2BPdHkBjD3V14muZSt72azWHRJEx88ME2TyyH2+/ww6R3hIptjBFQQtO6pmkfLXW/NGQ4hADWSa9AmK2A==",
+      "path": "google.protobuf/3.19.1",
+      "hashPath": "google.protobuf.3.19.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",

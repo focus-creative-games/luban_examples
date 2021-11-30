@@ -6,34 +6,49 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_DemoGroup struct {
+type TestDemoGroup struct {
     Id int32
     X1 int32
     X2 int32
     X3 int32
     X4 int32
-    X5 *Test_InnerGroup
+    X5 *TestInnerGroup
 }
 
-func (Test_DemoGroup) GetTypeId() int {
+const TypeId_TestDemoGroup = -379263008
+
+func (*TestDemoGroup) GetTypeId() int32 {
     return -379263008
 }
 
-func NewTest_DemoGroup(_buf *serialization.ByteBuf) (_v *Test_DemoGroup, err error) {
-    _v = &Test_DemoGroup{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X1, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X2, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X3, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X4, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X5, err = NewTest_InnerGroup(_buf); err != nil { return } }
+func (_v *TestDemoGroup)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestDemoGroup)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.X1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X1 error"); return } }
+    { if _v.X2, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X2 error"); return } }
+    { if _v.X3, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X3 error"); return } }
+    { if _v.X4, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X4 error"); return } }
+    { if _v.X5, err = DeserializeTestInnerGroup(_buf); err != nil { err = errors.New("_v.X5 error"); return } }
     return
+}
+
+func DeserializeTestDemoGroup(_buf *serialization.ByteBuf) (*TestDemoGroup, error) {
+    v := &TestDemoGroup{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

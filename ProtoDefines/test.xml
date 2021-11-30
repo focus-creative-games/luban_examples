@@ -1,5 +1,10 @@
 <module name="test">
 
+<enum name="EnumType">
+    <var name="A" value="1"/>
+    <var name="B" value="3"/>
+</enum>
+
 <bean name="Simple">
     <var name="x" type="int"/>
     <var name="y" type="int"/>
@@ -35,6 +40,9 @@
     <var name="a1" type="string"/>
     <var name="a2" type="bytes"/>
     
+    <var name="a3" type="Simple"/>
+    <var name="a4" type="Dyn"/>
+    
     <var name="b1" type="array,int"/>
     <var name="b2" type="array,Simple"/>
     <var name="b3" type="array,Dyn"/>
@@ -48,6 +56,12 @@
     <var name="e1" type="map,int,int"/>
     <var name="e2" type="map,int,Simple"/>
     <var name="e3" type="map,int,Dyn"/>
+    
+    
+    <var name="f1" type="int?"/>
+    <var name="f2" type="string?"/>
+    <var name="f3" type="Simple?"/>
+    <var name="f4" type="Dyn?"/>
 </bean>
 
 <proto name="TestProto1">

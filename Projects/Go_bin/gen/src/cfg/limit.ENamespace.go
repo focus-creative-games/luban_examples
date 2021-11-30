@@ -10,7 +10,7 @@
 package cfg
 
 const (
-    Limit_ENamespace_ITEM_DAILY_OBTAIN = 1
-    Limit_ENamespace_TREASURE_DAILY_USE = 2
-    Limit_ENamespace_STORE_GOODS_LIMIT_BUY = 3
+    LimitENamespace_ITEM_DAILY_OBTAIN = 1
+    LimitENamespace_TREASURE_DAILY_USE = 2
+    LimitENamespace_STORE_GOODS_LIMIT_BUY = 3
 )

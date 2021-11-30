@@ -6,28 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_UeCooldown struct {
-    Ai_Decorator
+type AiUeCooldown struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
     CooldownTime float32
 }
 
-func (Ai_UeCooldown) GetTypeId() int {
+const TypeId_AiUeCooldown = -951439423
+
+func (*AiUeCooldown) GetTypeId() int32 {
     return -951439423
 }
 
-func NewAi_UeCooldown(_buf *serialization.ByteBuf) (_v *Ai_UeCooldown, err error) {
-    _v = &Ai_UeCooldown{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
-    { if _v.CooldownTime, err = _buf.ReadFloat(); err != nil { return } }
+func (_v *AiUeCooldown)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiUeCooldown)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FlowAbortMode error"); return } }
+    { if _v.CooldownTime, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.CooldownTime error"); return } }
     return
+}
+
+func DeserializeAiUeCooldown(_buf *serialization.ByteBuf) (*AiUeCooldown, error) {
+    v := &AiUeCooldown{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -10,8 +10,8 @@
 package cfg
 
 const (
-    Test_DemoEnum_A = 1
-    Test_DemoEnum_B = 2
-    Test_DemoEnum_C = 4
-    Test_DemoEnum_D = 5
+    TestDemoEnum_A = 1
+    TestDemoEnum_B = 2
+    TestDemoEnum_C = 4
+    TestDemoEnum_D = 5
 )

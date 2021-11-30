@@ -6,26 +6,47 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Blueprint_AbstraceMethod struct {
-    Blueprint_Method
+type BlueprintAbstraceMethod struct {
+    Name string
+    Desc string
+    IsStatic bool
+    ReturnType string
+    Parameters []*BlueprintParamInfo
 }
 
-func (Blueprint_AbstraceMethod) GetTypeId() int {
+const TypeId_BlueprintAbstraceMethod = -392137809
+
+func (*BlueprintAbstraceMethod) GetTypeId() int32 {
     return -392137809
 }
 
-func NewBlueprint_AbstraceMethod(_buf *serialization.ByteBuf) (_v *Blueprint_AbstraceMethod, err error) {
-    _v = &Blueprint_AbstraceMethod{}
-    var _p *Blueprint_Method
-     if _p, err = NewBlueprint_Method_Body(_buf) ; err != nil { return }
-    _v.Blueprint_Method = *_p
+func (_v *BlueprintAbstraceMethod)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintAbstraceMethod)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { err = errors.New("_v.IsStatic error"); err = errors.New("_v.IsStatic error"); return } }
+    { if _v.ReturnType, err = _buf.ReadString(); err != nil { err = errors.New("_v.ReturnType error"); return } }
+    {_v.Parameters = make([]*BlueprintParamInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Parameters error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BlueprintParamInfo; { if _e_, err = DeserializeBlueprintParamInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Parameters = append(_v.Parameters, _e_) } }
     return
+}
+
+func DeserializeBlueprintAbstraceMethod(_buf *serialization.ByteBuf) (*BlueprintAbstraceMethod, error) {
+    v := &BlueprintAbstraceMethod{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_DemoE2 struct {
+type TestDemoE2 struct {
     Y1 *int32
     Y2 bool
 }
 
-func (Test_DemoE2) GetTypeId() int {
+const TypeId_TestDemoE2 = -2138341716
+
+func (*TestDemoE2) GetTypeId() int32 {
     return -2138341716
 }
 
-func NewTest_DemoE2(_buf *serialization.ByteBuf) (_v *Test_DemoE2, err error) {
-    _v = &Test_DemoE2{}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.Y1 = &__x__ }}
-    { if _v.Y2, err = _buf.ReadBool(); err != nil { return } }
+func (_v *TestDemoE2)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestDemoE2)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.Y1 = &__x__ }}
+    { if _v.Y2, err = _buf.ReadBool(); err != nil { err = errors.New("_v.Y2 error"); err = errors.New("_v.Y2 error"); return } }
     return
+}
+
+func DeserializeTestDemoE2(_buf *serialization.ByteBuf) (*TestDemoE2, error) {
+    v := &TestDemoE2{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

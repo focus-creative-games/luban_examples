@@ -6,30 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_InnerGroup struct {
+type TestInnerGroup struct {
     Y1 int32
     Y2 int32
     Y3 int32
     Y4 int32
 }
 
-func (Test_InnerGroup) GetTypeId() int {
+const TypeId_TestInnerGroup = -587873083
+
+func (*TestInnerGroup) GetTypeId() int32 {
     return -587873083
 }
 
-func NewTest_InnerGroup(_buf *serialization.ByteBuf) (_v *Test_InnerGroup, err error) {
-    _v = &Test_InnerGroup{}
-    { if _v.Y1, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Y2, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Y3, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Y4, err = _buf.ReadInt(); err != nil { return } }
+func (_v *TestInnerGroup)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestInnerGroup)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Y1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Y1 error"); return } }
+    { if _v.Y2, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Y2 error"); return } }
+    { if _v.Y3, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Y3 error"); return } }
+    { if _v.Y4, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Y4 error"); return } }
     return
+}
+
+func DeserializeTestInnerGroup(_buf *serialization.ByteBuf) (*TestInnerGroup, error) {
+    v := &TestInnerGroup{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -11,26 +11,25 @@ package cfg
 
 import "errors"
 
-type Item_TreasureBox struct {
-    Item_ItemExtra
+type ItemTreasureBox struct {
+    Id int32
     KeyItemId *int32
-    OpenLevel *Condition_MinLevel
+    OpenLevel *ConditionMinLevel
     UseOnObtain bool
     DropIds []int32
-    ChooseList []*Item_ChooseOneBonus
+    ChooseList []*ItemChooseOneBonus
 }
 
-func (Item_TreasureBox) GetTypeId() int {
+const TypeId_ItemTreasureBox = 1494222369
+
+func (*ItemTreasureBox) GetTypeId() int32 {
     return 1494222369
 }
 
-func NewItem_TreasureBox(_buf map[string]interface{}) (_v *Item_TreasureBox, err error) {
-    _v = &Item_TreasureBox{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
+func (_v *ItemTreasureBox)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; var __json_key_item_id__ interface{}; if __json_key_item_id__, _ok_ = _buf["key_item_id"]; !_ok_ || __json_key_item_id__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_key_item_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.KeyItemId = &__x__ }}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["open_level"].(map[string]interface{}); !_ok_ { err = errors.New("open_level error"); return }; if _v.OpenLevel, err = NewCondition_MinLevel(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["open_level"].(map[string]interface{}); !_ok_ { err = errors.New("open_level error"); return }; if _v.OpenLevel, err = DeserializeConditionMinLevel(_x_); err != nil { return } }
     { var _ok_ bool; if _v.UseOnObtain, _ok_ = _buf["use_on_obtain"].(bool); !_ok_ { err = errors.New("use_on_obtain error"); return } }
      {
                 var _arr_ []interface{}
@@ -51,14 +50,23 @@ func NewItem_TreasureBox(_buf map[string]interface{}) (_v *Item_TreasureBox, err
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["choose_list"].([]interface{}); !_ok_ { err = errors.New("choose_list error"); return }
 
-                _v.ChooseList = make([]*Item_ChooseOneBonus, 0, len(_arr_))
+                _v.ChooseList = make([]*ItemChooseOneBonus, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Item_ChooseOneBonus
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewItem_ChooseOneBonus(_x_); err != nil { return } }
+                    var _list_v_ *ItemChooseOneBonus
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeItemChooseOneBonus(_x_); err != nil { return } }
                     _v.ChooseList = append(_v.ChooseList, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeItemTreasureBox(_buf map[string]interface{}) (*ItemTreasureBox, error) {
+    v := &ItemTreasureBox{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

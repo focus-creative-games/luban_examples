@@ -6,16 +6,17 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Item_TbItemExtra struct {
+type ItemTbItemExtra struct {
     _dataMap map[int32]interface{}
     _dataList []interface{}
 }
 
-func NewItem_TbItemExtra(_buf *serialization.ByteBuf) (*Item_TbItemExtra, error) {
+func NewItemTbItemExtra(_buf *serialization.ByteBuf) (*ItemTbItemExtra, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
@@ -23,45 +24,45 @@ func NewItem_TbItemExtra(_buf *serialization.ByteBuf) (*Item_TbItemExtra, error)
 		dataMap := make(map[int32]interface{})
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewItem_ItemExtra(_buf); err2 != nil {
+			if _v, err2 := DeserializeItemItemExtra(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
-                if __v, __is := _v.(*Item_TreasureBox) ; __is {
+                if __v, __is := _v.(*ItemTreasureBox) ; __is {
                     dataMap[__v.Id] = _v
                     continue
                 }
-                if __v, __is := _v.(*Item_InteractionItem) ; __is {
+                if __v, __is := _v.(*ItemInteractionItem) ; __is {
                     dataMap[__v.Id] = _v
                     continue
                 }
-                if __v, __is := _v.(*Item_Clothes) ; __is {
+                if __v, __is := _v.(*ItemClothes) ; __is {
                     dataMap[__v.Id] = _v
                     continue
                 }
-                if __v, __is := _v.(*Item_DesignDrawing) ; __is {
+                if __v, __is := _v.(*ItemDesignDrawing) ; __is {
                     dataMap[__v.Id] = _v
                     continue
                 }
-                if __v, __is := _v.(*Item_Dymmy) ; __is {
+                if __v, __is := _v.(*ItemDymmy) ; __is {
                     dataMap[__v.Id] = _v
                     continue
                 }
 			}
 		}
-		return &Item_TbItemExtra{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &ItemTbItemExtra{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Item_TbItemExtra) GetDataMap() map[int32]interface{} {
+func (table *ItemTbItemExtra) GetDataMap() map[int32]interface{} {
     return table._dataMap
 }
 
-func (table *Item_TbItemExtra) GetDataList() []interface{} {
+func (table *ItemTbItemExtra) GetDataList() []interface{} {
     return table._dataList
 }
 
-func (table *Item_TbItemExtra) Get(key int32) interface{} {
+func (table *ItemTbItemExtra) Get(key int32) interface{} {
     return table._dataMap[key]
 }
 

@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,31 +15,39 @@ import (
 
 import "errors"
 
-type Condition_Condition struct {
+type ConditionCondition struct {
 }
 
+const TypeId_ConditionCondition = 183625704
 
-func NewCondition_Condition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*ConditionCondition) GetTypeId() int32 {
+    return 183625704
+}
+
+func (_v *ConditionCondition)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionCondition)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeConditionCondition(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case 1069033789: return NewCondition_TimeRange(_buf)
-        case 934079583: return NewCondition_MultiRoleCondition(_buf)
-        case 103675143: return NewCondition_GenderLimit(_buf)
-        case -1075273755: return NewCondition_MinLevel(_buf)
-        case 700922899: return NewCondition_MaxLevel(_buf)
-        case 907499647: return NewCondition_MinMaxLevel(_buf)
-        case 696630835: return NewCondition_ClothesPropertyScoreGreaterThan(_buf)
-        case 1961145317: return NewCondition_ContainsItem(_buf)
+        case 1069033789: _v := &ConditionTimeRange{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.TimeRange") } else { return _v, nil }
+        case 934079583: _v := &ConditionMultiRoleCondition{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MultiRoleCondition") } else { return _v, nil }
+        case 103675143: _v := &ConditionGenderLimit{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.GenderLimit") } else { return _v, nil }
+        case -1075273755: _v := &ConditionMinLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinLevel") } else { return _v, nil }
+        case 700922899: _v := &ConditionMaxLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MaxLevel") } else { return _v, nil }
+        case 907499647: _v := &ConditionMinMaxLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinMaxLevel") } else { return _v, nil }
+        case 696630835: _v := &ConditionClothesPropertyScoreGreaterThan{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ClothesPropertyScoreGreaterThan") } else { return _v, nil }
+        case 1961145317: _v := &ConditionContainsItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ContainsItem") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewCondition_Condition_Body(_buf *serialization.ByteBuf) (_v *Condition_Condition, err error) {
-    _v = &Condition_Condition{}
-    return
 }
 

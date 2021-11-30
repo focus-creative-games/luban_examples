@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Common_DateTimeRange struct {
+type CommonDateTimeRange struct {
     StartTime *int32
     EndTime *int32
 }
 
-func (Common_DateTimeRange) GetTypeId() int {
+const TypeId_CommonDateTimeRange = 1642200959
+
+func (*CommonDateTimeRange) GetTypeId() int32 {
     return 1642200959
 }
 
-func NewCommon_DateTimeRange(_buf map[string]interface{}) (_v *Common_DateTimeRange, err error) {
-    _v = &Common_DateTimeRange{}
+func (_v *CommonDateTimeRange)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var __json_start_time__ interface{}; if __json_start_time__, _ok_ = _buf["start_time"]; !_ok_ || __json_start_time__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_start_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.StartTime = &__x__ }}
     { var _ok_ bool; var __json_end_time__ interface{}; if __json_end_time__, _ok_ = _buf["end_time"]; !_ok_ || __json_end_time__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_end_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.EndTime = &__x__ }}
     return
+}
+
+func DeserializeCommonDateTimeRange(_buf map[string]interface{}) (*CommonDateTimeRange, error) {
+    v := &CommonDateTimeRange{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

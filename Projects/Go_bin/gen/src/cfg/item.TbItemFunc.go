@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Item_TbItemFunc struct {
-    _dataMap map[int32]*Item_ItemFunction
-    _dataList []*Item_ItemFunction
+type ItemTbItemFunc struct {
+    _dataMap map[int32]*ItemItemFunction
+    _dataList []*ItemItemFunction
 }
 
-func NewItem_TbItemFunc(_buf *serialization.ByteBuf) (*Item_TbItemFunc, error) {
+func NewItemTbItemFunc(_buf *serialization.ByteBuf) (*ItemTbItemFunc, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Item_ItemFunction, 0, size)
-		dataMap := make(map[int32]*Item_ItemFunction)
+		_dataList := make([]*ItemItemFunction, 0, size)
+		dataMap := make(map[int32]*ItemItemFunction)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewItem_ItemFunction(_buf); err2 != nil {
+			if _v, err2 := DeserializeItemItemFunction(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.MinorType] = _v
 			}
 		}
-		return &Item_TbItemFunc{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &ItemTbItemFunc{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Item_TbItemFunc) GetDataMap() map[int32]*Item_ItemFunction {
+func (table *ItemTbItemFunc) GetDataMap() map[int32]*ItemItemFunction {
     return table._dataMap
 }
 
-func (table *Item_TbItemFunc) GetDataList() []*Item_ItemFunction {
+func (table *ItemTbItemFunc) GetDataList() []*ItemItemFunction {
     return table._dataList
 }
 
-func (table *Item_TbItemFunc) Get(key int32) *Item_ItemFunction {
+func (table *ItemTbItemFunc) Get(key int32) *ItemItemFunction {
     return table._dataMap[key]
 }
 

@@ -11,20 +11,30 @@ package cfg
 
 import "errors"
 
-type Test_CompactString struct {
+type TestCompactString struct {
     Id int32
     S2 string
     S3 string
 }
 
-func (Test_CompactString) GetTypeId() int {
+const TypeId_TestCompactString = 1968089240
+
+func (*TestCompactString) GetTypeId() int32 {
     return 1968089240
 }
 
-func NewTest_CompactString(_buf map[string]interface{}) (_v *Test_CompactString, err error) {
-    _v = &Test_CompactString{}
+func (_v *TestCompactString)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.S2, _ok_ = _buf["s2"].(string); !_ok_ { err = errors.New("s2 error"); return } }
     { var _ok_ bool; if _v.S3, _ok_ = _buf["s3"].(string); !_ok_ { err = errors.New("s3 error"); return } }
     return
+}
+
+func DeserializeTestCompactString(_buf map[string]interface{}) (*TestCompactString, error) {
+    v := &TestCompactString{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

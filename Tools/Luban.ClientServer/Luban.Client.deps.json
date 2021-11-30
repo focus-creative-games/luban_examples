@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "Luban.Client/1.0.0": {
         "dependencies": {
-          "CommandLineParser": "2.8.0",
           "Luban.Common": "1.0.0"
         },
         "runtime": {
@@ -838,7 +837,8 @@
       },
       "Luban.Common/1.0.0": {
         "dependencies": {
-          "Bright.Net": "1.1.0.41"
+          "Bright.Net": "1.1.0.41",
+          "CommandLineParser": "2.8.0"
         },
         "runtime": {
           "Luban.Common.dll": {}

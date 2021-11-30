@@ -6,30 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_ClothesPropertyScoreGreaterThan struct {
-    Condition_BoolRoleCondition
+type ConditionClothesPropertyScoreGreaterThan struct {
     Prop int32
     Value int32
 }
 
-func (Condition_ClothesPropertyScoreGreaterThan) GetTypeId() int {
+const TypeId_ConditionClothesPropertyScoreGreaterThan = 696630835
+
+func (*ConditionClothesPropertyScoreGreaterThan) GetTypeId() int32 {
     return 696630835
 }
 
-func NewCondition_ClothesPropertyScoreGreaterThan(_buf *serialization.ByteBuf) (_v *Condition_ClothesPropertyScoreGreaterThan, err error) {
-    _v = &Condition_ClothesPropertyScoreGreaterThan{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
-    { if _v.Prop, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ConditionClothesPropertyScoreGreaterThan)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionClothesPropertyScoreGreaterThan)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Prop, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Prop error"); return } }
+    { if _v.Value, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Value error"); return } }
     return
+}
+
+func DeserializeConditionClothesPropertyScoreGreaterThan(_buf *serialization.ByteBuf) (*ConditionClothesPropertyScoreGreaterThan, error) {
+    v := &ConditionClothesPropertyScoreGreaterThan{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

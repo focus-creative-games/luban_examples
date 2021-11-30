@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Luban.Common/1.0.0": {
         "dependencies": {
-          "Bright.Net": "1.1.0.41"
+          "Bright.Net": "1.1.0.41",
+          "CommandLineParser": "2.8.0"
         },
         "runtime": {
           "Luban.Common.dll": {}
@@ -34,6 +35,14 @@
           "lib/netcoreapp3.1/Bright.Net.dll": {
             "assemblyVersion": "1.1.0.41",
             "fileVersion": "1.1.0.41"
+          }
+        }
+      },
+      "CommandLineParser/2.8.0": {
+        "runtime": {
+          "lib/netstandard2.0/CommandLine.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.0"
           }
         }
       },
@@ -848,6 +857,13 @@
       "sha512": "sha512-mpXxucYOpoZU2RlWBP4KtUTR3IAAZTypntkqiJrK8FSfzghXOFhgdHvPpCX0u4ZbWcNki4cA5+GnrIRj7koxeQ==",
       "path": "bright.net/1.1.0.41",
       "hashPath": "bright.net.1.1.0.41.nupkg.sha512"
+    },
+    "CommandLineParser/2.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eco2HlKQBY4Joz9odHigzGpVzv6pjsXnY5lziioMveQxr+i2Z7xYcIOMeZTgYiqnMtMAbXMXsVhrNfWO5vJS8Q==",
+      "path": "commandlineparser/2.8.0",
+      "hashPath": "commandlineparser.2.8.0.nupkg.sha512"
     },
     "EtcdNetCore/1.0.0": {
       "type": "package",

@@ -11,20 +11,51 @@ package cfg
 
 import "errors"
 
-type Ai_Selector struct {
-    Ai_ComposeNode
+type AiSelector struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
     Children []interface{}
 }
 
-func (Ai_Selector) GetTypeId() int {
+const TypeId_AiSelector = -1946981627
+
+func (*AiSelector) GetTypeId() int32 {
     return -1946981627
 }
 
-func NewAi_Selector(_buf map[string]interface{}) (_v *Ai_Selector, err error) {
-    _v = &Ai_Selector{}
-    var _p *Ai_ComposeNode
-     if _p, err = NewAi_ComposeNode_Body(_buf) ; err != nil { return }
-    _v.Ai_ComposeNode = *_p
+func (_v *AiSelector)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -34,10 +65,19 @@ func NewAi_Selector(_buf map[string]interface{}) (_v *Ai_Selector, err error) {
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_FlowNode(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiFlowNode(_x_); err != nil { return } }
                     _v.Children = append(_v.Children, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeAiSelector(_buf map[string]interface{}) (*AiSelector, error) {
+    v := &AiSelector{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

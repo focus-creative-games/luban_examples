@@ -11,20 +11,32 @@ package cfg
 
 import "errors"
 
-type Ai_UeTimeLimit struct {
-    Ai_Decorator
+type AiUeTimeLimit struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
     LimitTime float32
 }
 
-func (Ai_UeTimeLimit) GetTypeId() int {
+const TypeId_AiUeTimeLimit = 338469720
+
+func (*AiUeTimeLimit) GetTypeId() int32 {
     return 338469720
 }
 
-func NewAi_UeTimeLimit(_buf map[string]interface{}) (_v *Ai_UeTimeLimit, err error) {
-    _v = &Ai_UeTimeLimit{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
+func (_v *AiUeTimeLimit)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["limit_time"].(float64); !_ok_ { err = errors.New("limit_time error"); return }; _v.LimitTime = float32(_tempNum_) }
     return
+}
+
+func DeserializeAiUeTimeLimit(_buf map[string]interface{}) (*AiUeTimeLimit, error) {
+    v := &AiUeTimeLimit{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

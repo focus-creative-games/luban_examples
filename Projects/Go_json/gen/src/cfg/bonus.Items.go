@@ -11,33 +11,39 @@ package cfg
 
 import "errors"
 
-type Bonus_Items struct {
-    Bonus_Bonus
-    ItemList []*Bonus_Item
+type BonusItems struct {
+    ItemList []*BonusItem
 }
 
-func (Bonus_Items) GetTypeId() int {
+const TypeId_BonusItems = 819736849
+
+func (*BonusItems) GetTypeId() int32 {
     return 819736849
 }
 
-func NewBonus_Items(_buf map[string]interface{}) (_v *Bonus_Items, err error) {
-    _v = &Bonus_Items{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
+func (_v *BonusItems)Deserialize(_buf map[string]interface{}) (err error) {
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["item_list"].([]interface{}); !_ok_ { err = errors.New("item_list error"); return }
 
-                _v.ItemList = make([]*Bonus_Item, 0, len(_arr_))
+                _v.ItemList = make([]*BonusItem, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Bonus_Item
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_Item(_x_); err != nil { return } }
+                    var _list_v_ *BonusItem
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBonusItem(_x_); err != nil { return } }
                     _v.ItemList = append(_v.ItemList, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeBonusItems(_buf map[string]interface{}) (*BonusItems, error) {
+    v := &BonusItems{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

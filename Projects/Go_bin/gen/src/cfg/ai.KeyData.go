@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,27 +15,35 @@ import (
 
 import "errors"
 
-type Ai_KeyData struct {
+type AiKeyData struct {
 }
 
+const TypeId_AiKeyData = 1022478019
 
-func NewAi_KeyData(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*AiKeyData) GetTypeId() int32 {
+    return 1022478019
+}
+
+func (_v *AiKeyData)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiKeyData)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeAiKeyData(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case -719747885: return NewAi_FloatKeyData(_buf)
-        case -342751904: return NewAi_IntKeyData(_buf)
-        case -307888654: return NewAi_StringKeyData(_buf)
-        case 1517269500: return NewAi_BlackboardKeyData(_buf)
+        case -719747885: _v := &AiFloatKeyData{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.FloatKeyData") } else { return _v, nil }
+        case -342751904: _v := &AiIntKeyData{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IntKeyData") } else { return _v, nil }
+        case -307888654: _v := &AiStringKeyData{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.StringKeyData") } else { return _v, nil }
+        case 1517269500: _v := &AiBlackboardKeyData{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.BlackboardKeyData") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_KeyData_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyData, err error) {
-    _v = &Ai_KeyData{}
-    return
 }
 

@@ -12,23 +12,23 @@ package cfg
 
 import "errors"
 
-type Test_TbTestGlobal struct {
-    _data *Test_TestGlobal
+type TestTbTestGlobal struct {
+    _data *TestTestGlobal
 }
 
-func NewTest_TbTestGlobal(_buf []map[string]interface{}) (*Test_TbTestGlobal, error) {
+func NewTestTbTestGlobal(_buf []map[string]interface{}) (*TestTbTestGlobal, error) {
 	if len(_buf) != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewTest_TestGlobal(_buf[0]); err2 != nil {
+		if _v, err2 := DeserializeTestTestGlobal(_buf[0]); err2 != nil {
 			return nil, err2
 		} else {
-		    return &Test_TbTestGlobal{_data:_v}, nil
+		    return &TestTbTestGlobal{_data:_v}, nil
 		}
 	}
 }
 
-func (table *Test_TbTestGlobal) Get() *Test_TestGlobal {
+func (table *TestTbTestGlobal) Get() *TestTestGlobal {
     return table._data
 }
 

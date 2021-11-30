@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,26 +15,34 @@ import (
 
 import "errors"
 
-type Ai_KeyQueryOperator struct {
+type AiKeyQueryOperator struct {
 }
 
+const TypeId_AiKeyQueryOperator = -738364781
 
-func NewAi_KeyQueryOperator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*AiKeyQueryOperator) GetTypeId() int32 {
+    return -738364781
+}
+
+func (_v *AiKeyQueryOperator)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiKeyQueryOperator)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeAiKeyQueryOperator(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case 1635350898: return NewAi_IsSet(_buf)
-        case 790736255: return NewAi_IsNotSet(_buf)
-        case -979891605: return NewAi_BinaryOperator(_buf)
+        case 1635350898: _v := &AiIsSet{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsSet") } else { return _v, nil }
+        case 790736255: _v := &AiIsNotSet{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsNotSet") } else { return _v, nil }
+        case -979891605: _v := &AiBinaryOperator{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.BinaryOperator") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_KeyQueryOperator_Body(_buf *serialization.ByteBuf) (_v *Ai_KeyQueryOperator, err error) {
-    _v = &Ai_KeyQueryOperator{}
-    return
 }
 

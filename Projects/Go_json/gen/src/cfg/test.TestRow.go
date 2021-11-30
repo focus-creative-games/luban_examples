@@ -11,24 +11,25 @@ package cfg
 
 import "errors"
 
-type Test_TestRow struct {
+type TestTestRow struct {
     X int32
     Y bool
     Z string
-    A *Test_Test3
+    A *TestTest3
     B []int32
 }
 
-func (Test_TestRow) GetTypeId() int {
+const TypeId_TestTestRow = -543222164
+
+func (*TestTestRow) GetTypeId() int32 {
     return -543222164
 }
 
-func NewTest_TestRow(_buf map[string]interface{}) (_v *Test_TestRow, err error) {
-    _v = &Test_TestRow{}
+func (_v *TestTestRow)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x"].(float64); !_ok_ { err = errors.New("x error"); return }; _v.X = int32(_tempNum_) }
     { var _ok_ bool; if _v.Y, _ok_ = _buf["y"].(bool); !_ok_ { err = errors.New("y error"); return } }
     { var _ok_ bool; if _v.Z, _ok_ = _buf["z"].(string); !_ok_ { err = errors.New("z error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["a"].(map[string]interface{}); !_ok_ { err = errors.New("a error"); return }; if _v.A, err = NewTest_Test3(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["a"].(map[string]interface{}); !_ok_ { err = errors.New("a error"); return }; if _v.A, err = DeserializeTestTest3(_x_); err != nil { return } }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -44,4 +45,13 @@ func NewTest_TestRow(_buf map[string]interface{}) (_v *Test_TestRow, err error) 
             }
 
     return
+}
+
+func DeserializeTestTestRow(_buf map[string]interface{}) (*TestTestRow, error) {
+    v := &TestTestRow{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

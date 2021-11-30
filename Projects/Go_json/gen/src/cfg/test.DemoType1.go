@@ -11,16 +11,26 @@ package cfg
 
 import "errors"
 
-type Test_DemoType1 struct {
+type TestDemoType1 struct {
     X1 int32
 }
 
-func (Test_DemoType1) GetTypeId() int {
+const TypeId_TestDemoType1 = -367048296
+
+func (*TestDemoType1) GetTypeId() int32 {
     return -367048296
 }
 
-func NewTest_DemoType1(_buf map[string]interface{}) (_v *Test_DemoType1, err error) {
-    _v = &Test_DemoType1{}
+func (_v *TestDemoType1)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
     return
+}
+
+func DeserializeTestDemoType1(_buf map[string]interface{}) (*TestDemoType1, error) {
+    v := &TestDemoType1{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

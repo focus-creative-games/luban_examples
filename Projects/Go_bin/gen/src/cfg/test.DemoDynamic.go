@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,28 +15,36 @@ import (
 
 import "errors"
 
-type Test_DemoDynamic struct {
+type TestDemoDynamic struct {
     X1 int32
 }
 
+const TypeId_TestDemoDynamic = -1863156384
 
-func NewTest_DemoDynamic(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case -2138341747: return NewTest_DemoD2(_buf)
-        case -2138341717: return NewTest_DemoE1(_buf)
-        case -2138341744: return NewTest_DemoD5(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*TestDemoDynamic) GetTypeId() int32 {
+    return -1863156384
+}
+
+func (_v *TestDemoDynamic)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestDemoDynamic)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.X1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X1 error"); return } }
     return
 }
 
-func NewTest_DemoDynamic_Body(_buf *serialization.ByteBuf) (_v *Test_DemoDynamic, err error) {
-    _v = &Test_DemoDynamic{}
-    { if _v.X1, err = _buf.ReadInt(); err != nil { return } }
-    return
+func DeserializeTestDemoDynamic(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case -2138341747: _v := &TestDemoD2{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("test.DemoD2") } else { return _v, nil }
+        case -2138341717: _v := &TestDemoE1{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("test.DemoE1") } else { return _v, nil }
+        case -2138341744: _v := &TestDemoD5{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("test.DemoD5") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

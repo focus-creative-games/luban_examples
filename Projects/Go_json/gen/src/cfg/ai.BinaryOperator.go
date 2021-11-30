@@ -11,22 +11,28 @@ package cfg
 
 import "errors"
 
-type Ai_BinaryOperator struct {
-    Ai_KeyQueryOperator
+type AiBinaryOperator struct {
     Oper int32
     Data interface{}
 }
 
-func (Ai_BinaryOperator) GetTypeId() int {
+const TypeId_AiBinaryOperator = -979891605
+
+func (*AiBinaryOperator) GetTypeId() int32 {
     return -979891605
 }
 
-func NewAi_BinaryOperator(_buf map[string]interface{}) (_v *Ai_BinaryOperator, err error) {
-    _v = &Ai_BinaryOperator{}
-    var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyQueryOperator = *_p
+func (_v *AiBinaryOperator)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["oper"].(float64); !_ok_ { err = errors.New("oper error"); return }; _v.Oper = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = NewAi_KeyData(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = DeserializeAiKeyData(_x_); err != nil { return } }
     return
+}
+
+func DeserializeAiBinaryOperator(_buf map[string]interface{}) (*AiBinaryOperator, error) {
+    v := &AiBinaryOperator{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Bonus_ProbabilityBonusInfo struct {
+type BonusProbabilityBonusInfo struct {
     Bonus interface{}
     Probability float32
 }
 
-func (Bonus_ProbabilityBonusInfo) GetTypeId() int {
+const TypeId_BonusProbabilityBonusInfo = 46960455
+
+func (*BonusProbabilityBonusInfo) GetTypeId() int32 {
     return 46960455
 }
 
-func NewBonus_ProbabilityBonusInfo(_buf map[string]interface{}) (_v *Bonus_ProbabilityBonusInfo, err error) {
-    _v = &Bonus_ProbabilityBonusInfo{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewBonus_Bonus(_x_); err != nil { return } }
+func (_v *BonusProbabilityBonusInfo)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = DeserializeBonusBonus(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["probability"].(float64); !_ok_ { err = errors.New("probability error"); return }; _v.Probability = float32(_tempNum_) }
     return
+}
+
+func DeserializeBonusProbabilityBonusInfo(_buf map[string]interface{}) (*BonusProbabilityBonusInfo, error) {
+    v := &BonusProbabilityBonusInfo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

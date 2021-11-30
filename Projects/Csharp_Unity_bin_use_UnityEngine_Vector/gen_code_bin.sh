@@ -10,7 +10,7 @@ dotnet ${GEN_CLIENT} -h ${LUBAN_SERVER_IP} -j cfg --\
  --output_code_dir Assets/Gen \
  --output_data_dir ../GenerateDatas/bin \
  --gen_types code_cs_bin,data_bin \
- --use_unity_vector \
+ --cs:use_unity_vector \
  -s all 
 
 

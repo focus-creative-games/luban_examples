@@ -11,18 +11,19 @@ package cfg
 
 import "errors"
 
-type Role_LevelExpAttr struct {
+type RoleLevelExpAttr struct {
     Level int32
     NeedExp int64
     ClothesAttrs []int32
 }
 
-func (Role_LevelExpAttr) GetTypeId() int {
+const TypeId_RoleLevelExpAttr = -1569837022
+
+func (*RoleLevelExpAttr) GetTypeId() int32 {
     return -1569837022
 }
 
-func NewRole_LevelExpAttr(_buf map[string]interface{}) (_v *Role_LevelExpAttr, err error) {
-    _v = &Role_LevelExpAttr{}
+func (_v *RoleLevelExpAttr)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["level"].(float64); !_ok_ { err = errors.New("level error"); return }; _v.Level = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["need_exp"].(float64); !_ok_ { err = errors.New("need_exp error"); return }; _v.NeedExp = int64(_tempNum_) }
      {
@@ -40,4 +41,13 @@ func NewRole_LevelExpAttr(_buf map[string]interface{}) (_v *Role_LevelExpAttr, e
             }
 
     return
+}
+
+func DeserializeRoleLevelExpAttr(_buf map[string]interface{}) (*RoleLevelExpAttr, error) {
+    v := &RoleLevelExpAttr{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

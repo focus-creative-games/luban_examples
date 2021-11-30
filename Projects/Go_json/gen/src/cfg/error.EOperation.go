@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Error_EOperation_LOGOUT = 0
-    Error_EOperation_RESTART = 1
+    ErrorEOperation_LOGOUT = 0
+    ErrorEOperation_RESTART = 1
 )

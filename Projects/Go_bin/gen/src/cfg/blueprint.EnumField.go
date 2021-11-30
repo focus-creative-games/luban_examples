@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Blueprint_EnumField struct {
+type BlueprintEnumField struct {
     Name string
     Value int32
 }
 
-func (Blueprint_EnumField) GetTypeId() int {
+const TypeId_BlueprintEnumField = 1830049470
+
+func (*BlueprintEnumField) GetTypeId() int32 {
     return 1830049470
 }
 
-func NewBlueprint_EnumField(_buf *serialization.ByteBuf) (_v *Blueprint_EnumField, err error) {
-    _v = &Blueprint_EnumField{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
+func (_v *BlueprintEnumField)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintEnumField)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Value, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Value error"); return } }
     return
+}
+
+func DeserializeBlueprintEnumField(_buf *serialization.ByteBuf) (*BlueprintEnumField, error) {
+    v := &BlueprintEnumField{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

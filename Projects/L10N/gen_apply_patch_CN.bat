@@ -11,7 +11,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_data_dir config_data ^
  --gen_types data_lua ^
  -s all  ^
---patch cn ^
---patch_input_data_dir l10n/cn
+--l10n:patch cn ^
+--l10n:patch_input_data_dir l10n/cn
 
 pause

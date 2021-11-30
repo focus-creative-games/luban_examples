@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_MinLevel struct {
-    Condition_BoolRoleCondition
+type ConditionMinLevel struct {
     Level int32
 }
 
-func (Condition_MinLevel) GetTypeId() int {
+const TypeId_ConditionMinLevel = -1075273755
+
+func (*ConditionMinLevel) GetTypeId() int32 {
     return -1075273755
 }
 
-func NewCondition_MinLevel(_buf *serialization.ByteBuf) (_v *Condition_MinLevel, err error) {
-    _v = &Condition_MinLevel{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
-    { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ConditionMinLevel)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionMinLevel)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Level, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Level error"); return } }
     return
+}
+
+func DeserializeConditionMinLevel(_buf *serialization.ByteBuf) (*ConditionMinLevel, error) {
+    v := &ConditionMinLevel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

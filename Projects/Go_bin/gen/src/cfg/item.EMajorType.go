@@ -10,15 +10,15 @@
 package cfg
 
 const (
-    Item_EMajorType_CURRENCY = 1
-    Item_EMajorType_CLOTH = 2
-    Item_EMajorType_QUEST = 3
-    Item_EMajorType_CONSUMABLES = 4
-    Item_EMajorType_TREASURE_BOX = 5
-    Item_EMajorType_ACHIEVEMENT_AND_TITLE = 6
-    Item_EMajorType_HEAD_FRAME = 7
-    Item_EMajorType_VOICE = 8
-    Item_EMajorType_ACTION = 9
-    Item_EMajorType_EXPANSION = 10
-    Item_EMajorType_MATERIAL = 11
+    ItemEMajorType_CURRENCY = 1
+    ItemEMajorType_CLOTH = 2
+    ItemEMajorType_QUEST = 3
+    ItemEMajorType_CONSUMABLES = 4
+    ItemEMajorType_TREASURE_BOX = 5
+    ItemEMajorType_ACHIEVEMENT_AND_TITLE = 6
+    ItemEMajorType_HEAD_FRAME = 7
+    ItemEMajorType_VOICE = 8
+    ItemEMajorType_ACTION = 9
+    ItemEMajorType_EXPANSION = 10
+    ItemEMajorType_MATERIAL = 11
 )

@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,46 +15,44 @@ import (
 
 import "errors"
 
-type Blueprint_Method struct {
+type BlueprintMethod struct {
     Name string
     Desc string
     IsStatic bool
     ReturnType string
-    Parameters []*Blueprint_ParamInfo
+    Parameters []*BlueprintParamInfo
 }
 
+const TypeId_BlueprintMethod = 1176452284
 
-func NewBlueprint_Method(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*BlueprintMethod) GetTypeId() int32 {
+    return 1176452284
+}
+
+func (_v *BlueprintMethod)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintMethod)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { err = errors.New("_v.IsStatic error"); err = errors.New("_v.IsStatic error"); return } }
+    { if _v.ReturnType, err = _buf.ReadString(); err != nil { err = errors.New("_v.ReturnType error"); return } }
+    {_v.Parameters = make([]*BlueprintParamInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Parameters error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BlueprintParamInfo; { if _e_, err = DeserializeBlueprintParamInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Parameters = append(_v.Parameters, _e_) } }
+    return
+}
+
+func DeserializeBlueprintMethod(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case -392137809: return NewBlueprint_AbstraceMethod(_buf)
-        case 1739079015: return NewBlueprint_ExternalMethod(_buf)
-        case -696408103: return NewBlueprint_BlueprintMethod(_buf)
+        case -392137809: _v := &BlueprintAbstraceMethod{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.AbstraceMethod") } else { return _v, nil }
+        case 1739079015: _v := &BlueprintExternalMethod{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.ExternalMethod") } else { return _v, nil }
+        case -696408103: _v := &BlueprintBlueprintMethod{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("blueprint.BlueprintMethod") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewBlueprint_Method_Body(_buf *serialization.ByteBuf) (_v *Blueprint_Method, err error) {
-    _v = &Blueprint_Method{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
-    { if _v.IsStatic, err = _buf.ReadBool(); err != nil { return } }
-    { if _v.ReturnType, err = _buf.ReadString(); err != nil { return } }
-     {
-                _v.Parameters = make([]*Blueprint_ParamInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Blueprint_ParamInfo
-                    { if _e_, err = NewBlueprint_ParamInfo(_buf); err != nil { return } }
-                    _v.Parameters = append(_v.Parameters, _e_)
-                }
-            }
-
-    return
 }
 

@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Common_DateTimeRange struct {
+type CommonDateTimeRange struct {
     StartTime *int32
     EndTime *int32
 }
 
-func (Common_DateTimeRange) GetTypeId() int {
+const TypeId_CommonDateTimeRange = 1642200959
+
+func (*CommonDateTimeRange) GetTypeId() int32 {
     return 1642200959
 }
 
-func NewCommon_DateTimeRange(_buf *serialization.ByteBuf) (_v *Common_DateTimeRange, err error) {
-    _v = &Common_DateTimeRange{}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.StartTime = &__x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.EndTime = &__x__ }}
+func (_v *CommonDateTimeRange)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *CommonDateTimeRange)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.StartTime = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.EndTime = &__x__ }}
     return
+}
+
+func DeserializeCommonDateTimeRange(_buf *serialization.ByteBuf) (*CommonDateTimeRange, error) {
+    v := &CommonDateTimeRange{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

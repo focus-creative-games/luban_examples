@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Ai_IntKeyData struct {
-    Ai_KeyData
+type AiIntKeyData struct {
     Value int32
 }
 
-func (Ai_IntKeyData) GetTypeId() int {
+const TypeId_AiIntKeyData = -342751904
+
+func (*AiIntKeyData) GetTypeId() int32 {
     return -342751904
 }
 
-func NewAi_IntKeyData(_buf map[string]interface{}) (_v *Ai_IntKeyData, err error) {
-    _v = &Ai_IntKeyData{}
-    var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyData = *_p
+func (_v *AiIntKeyData)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["value"].(float64); !_ok_ { err = errors.New("value error"); return }; _v.Value = int32(_tempNum_) }
     return
+}
+
+func DeserializeAiIntKeyData(_buf map[string]interface{}) (*AiIntKeyData, error) {
+    v := &AiIntKeyData{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

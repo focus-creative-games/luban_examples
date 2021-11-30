@@ -8,6 +8,7 @@ set PROTO_ROOT=%WORKSPACE%\ProtoDefines
  -d %PROTO_ROOT%\__root__.xml ^
  --output_code_dir Assets/Gen ^
  --gen_type cs ^
+ --cs:use_unity_vector ^
  -s all 
 
 pause

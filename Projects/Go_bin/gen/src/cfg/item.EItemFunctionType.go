@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Item_EItemFunctionType_REPLACE_HANDHELD = 0
-    Item_EItemFunctionType_USE_DESIGN_DRAWING = 1
+    ItemEItemFunctionType_REPLACE_HANDHELD = 0
+    ItemEItemFunctionType_USE_DESIGN_DRAWING = 1
 )

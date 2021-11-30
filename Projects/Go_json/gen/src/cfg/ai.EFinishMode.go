@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Ai_EFinishMode_IMMEDIATE = 0
-    Ai_EFinishMode_DELAYED = 1
+    AiEFinishMode_IMMEDIATE = 0
+    AiEFinishMode_DELAYED = 1
 )

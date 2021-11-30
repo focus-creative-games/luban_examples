@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Tag_TestTag struct {
+type TagTestTag struct {
     Id int32
     Value string
 }
 
-func (Tag_TestTag) GetTypeId() int {
+const TypeId_TagTestTag = 1742933812
+
+func (*TagTestTag) GetTypeId() int32 {
     return 1742933812
 }
 
-func NewTag_TestTag(_buf map[string]interface{}) (_v *Tag_TestTag, err error) {
-    _v = &Tag_TestTag{}
+func (_v *TagTestTag)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
     return
+}
+
+func DeserializeTagTestTag(_buf map[string]interface{}) (*TagTestTag, error) {
+    v := &TagTestTag{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

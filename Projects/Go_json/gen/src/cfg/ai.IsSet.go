@@ -11,18 +11,24 @@ package cfg
 
 
 
-type Ai_IsSet struct {
-    Ai_KeyQueryOperator
+type AiIsSet struct {
 }
 
-func (Ai_IsSet) GetTypeId() int {
+const TypeId_AiIsSet = 1635350898
+
+func (*AiIsSet) GetTypeId() int32 {
     return 1635350898
 }
 
-func NewAi_IsSet(_buf map[string]interface{}) (_v *Ai_IsSet, err error) {
-    _v = &Ai_IsSet{}
-    var _p *Ai_KeyQueryOperator
-     if _p, err = NewAi_KeyQueryOperator_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyQueryOperator = *_p
+func (_v *AiIsSet)Deserialize(_buf map[string]interface{}) (err error) {
     return
+}
+
+func DeserializeAiIsSet(_buf map[string]interface{}) (*AiIsSet, error) {
+    v := &AiIsSet{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

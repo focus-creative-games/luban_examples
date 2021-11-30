@@ -11,20 +11,28 @@ package cfg
 
 import "errors"
 
-type Item_Dymmy struct {
-    Item_ItemExtra
+type ItemDymmy struct {
+    Id int32
     Cost interface{}
 }
 
-func (Item_Dymmy) GetTypeId() int {
+const TypeId_ItemDymmy = 896889705
+
+func (*ItemDymmy) GetTypeId() int32 {
     return 896889705
 }
 
-func NewItem_Dymmy(_buf map[string]interface{}) (_v *Item_Dymmy, err error) {
-    _v = &Item_Dymmy{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cost"].(map[string]interface{}); !_ok_ { err = errors.New("cost error"); return }; if _v.Cost, err = NewCost_Cost(_x_); err != nil { return } }
+func (_v *ItemDymmy)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cost"].(map[string]interface{}); !_ok_ { err = errors.New("cost error"); return }; if _v.Cost, err = DeserializeCostCost(_x_); err != nil { return } }
     return
+}
+
+func DeserializeItemDymmy(_buf map[string]interface{}) (*ItemDymmy, error) {
+    v := &ItemDymmy{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

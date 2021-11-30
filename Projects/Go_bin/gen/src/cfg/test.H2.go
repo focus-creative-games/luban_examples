@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_H2 struct {
+type TestH2 struct {
     Z2 int32
     Z3 int32
 }
 
-func (Test_H2) GetTypeId() int {
+const TypeId_TestH2 = -1422503994
+
+func (*TestH2) GetTypeId() int32 {
     return -1422503994
 }
 
-func NewTest_H2(_buf *serialization.ByteBuf) (_v *Test_H2, err error) {
-    _v = &Test_H2{}
-    { if _v.Z2, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Z3, err = _buf.ReadInt(); err != nil { return } }
+func (_v *TestH2)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestH2)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Z2, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Z2 error"); return } }
+    { if _v.Z3, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Z3 error"); return } }
     return
+}
+
+func DeserializeTestH2(_buf *serialization.ByteBuf) (*TestH2, error) {
+    v := &TestH2{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

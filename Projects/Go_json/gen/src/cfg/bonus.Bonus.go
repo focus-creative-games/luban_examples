@@ -11,34 +11,37 @@ package cfg
 
 import "errors"
 
-type Bonus_Bonus struct {
+type BonusBonus struct {
 }
 
+const TypeId_BonusBonus = 813132144
 
-func NewBonus_Bonus(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*BonusBonus) GetTypeId() int32 {
+    return 813132144
+}
+
+func (_v *BonusBonus)Deserialize(_buf map[string]interface{}) (err error) {
+    return
+}
+
+func DeserializeBonusBonus(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "OneItem": return NewBonus_OneItem(_buf);
-        case "OneItems": return NewBonus_OneItems(_buf);
-        case "Item": return NewBonus_Item(_buf);
-        case "Items": return NewBonus_Items(_buf);
-        case "CoefficientItem": return NewBonus_CoefficientItem(_buf);
-        case "WeightItems": return NewBonus_WeightItems(_buf);
-        case "ProbabilityItems": return NewBonus_ProbabilityItems(_buf);
-        case "MultiBonus": return NewBonus_MultiBonus(_buf);
-        case "ProbabilityBonus": return NewBonus_ProbabilityBonus(_buf);
-        case "WeightBonus": return NewBonus_WeightBonus(_buf);
-        case "DropBonus": return NewBonus_DropBonus(_buf);
+        case "OneItem": _v := &BonusOneItem{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.OneItem") } else { return _v, nil }
+        case "OneItems": _v := &BonusOneItems{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.OneItems") } else { return _v, nil }
+        case "Item": _v := &BonusItem{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.Item") } else { return _v, nil }
+        case "Items": _v := &BonusItems{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.Items") } else { return _v, nil }
+        case "CoefficientItem": _v := &BonusCoefficientItem{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.CoefficientItem") } else { return _v, nil }
+        case "WeightItems": _v := &BonusWeightItems{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.WeightItems") } else { return _v, nil }
+        case "ProbabilityItems": _v := &BonusProbabilityItems{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.ProbabilityItems") } else { return _v, nil }
+        case "MultiBonus": _v := &BonusMultiBonus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.MultiBonus") } else { return _v, nil }
+        case "ProbabilityBonus": _v := &BonusProbabilityBonus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.ProbabilityBonus") } else { return _v, nil }
+        case "WeightBonus": _v := &BonusWeightBonus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.WeightBonus") } else { return _v, nil }
+        case "DropBonus": _v := &BonusDropBonus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.DropBonus") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewBonus_Bonus_Body(_buf map[string]interface{}) (_v *Bonus_Bonus, err error) {
-    _v = &Bonus_Bonus{}
-    return
 }

@@ -11,50 +11,53 @@ package cfg
 
 import "errors"
 
-type Ai_Node struct {
+type AiNode struct {
     Id int32
     NodeName string
 }
 
+const TypeId_AiNode = -1055479768
 
-func NewAi_Node(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*AiNode) GetTypeId() int32 {
+    return -1055479768
+}
+
+func (_v *AiNode)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+    return
+}
+
+func DeserializeAiNode(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "UeSetDefaultFocus": return NewAi_UeSetDefaultFocus(_buf);
-        case "ExecuteTimeStatistic": return NewAi_ExecuteTimeStatistic(_buf);
-        case "ChooseTarget": return NewAi_ChooseTarget(_buf);
-        case "KeepFaceTarget": return NewAi_KeepFaceTarget(_buf);
-        case "GetOwnerPlayer": return NewAi_GetOwnerPlayer(_buf);
-        case "UpdateDailyBehaviorProps": return NewAi_UpdateDailyBehaviorProps(_buf);
-        case "UeLoop": return NewAi_UeLoop(_buf);
-        case "UeCooldown": return NewAi_UeCooldown(_buf);
-        case "UeTimeLimit": return NewAi_UeTimeLimit(_buf);
-        case "UeBlackboard": return NewAi_UeBlackboard(_buf);
-        case "UeForceSuccess": return NewAi_UeForceSuccess(_buf);
-        case "IsAtLocation": return NewAi_IsAtLocation(_buf);
-        case "DistanceLessThan": return NewAi_DistanceLessThan(_buf);
-        case "Sequence": return NewAi_Sequence(_buf);
-        case "Selector": return NewAi_Selector(_buf);
-        case "SimpleParallel": return NewAi_SimpleParallel(_buf);
-        case "UeWait": return NewAi_UeWait(_buf);
-        case "UeWaitBlackboardTime": return NewAi_UeWaitBlackboardTime(_buf);
-        case "MoveToTarget": return NewAi_MoveToTarget(_buf);
-        case "ChooseSkill": return NewAi_ChooseSkill(_buf);
-        case "MoveToRandomLocation": return NewAi_MoveToRandomLocation(_buf);
-        case "MoveToLocation": return NewAi_MoveToLocation(_buf);
-        case "DebugPrint": return NewAi_DebugPrint(_buf);
+        case "UeSetDefaultFocus": _v := &AiUeSetDefaultFocus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeSetDefaultFocus") } else { return _v, nil }
+        case "ExecuteTimeStatistic": _v := &AiExecuteTimeStatistic{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ExecuteTimeStatistic") } else { return _v, nil }
+        case "ChooseTarget": _v := &AiChooseTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseTarget") } else { return _v, nil }
+        case "KeepFaceTarget": _v := &AiKeepFaceTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.KeepFaceTarget") } else { return _v, nil }
+        case "GetOwnerPlayer": _v := &AiGetOwnerPlayer{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.GetOwnerPlayer") } else { return _v, nil }
+        case "UpdateDailyBehaviorProps": _v := &AiUpdateDailyBehaviorProps{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UpdateDailyBehaviorProps") } else { return _v, nil }
+        case "UeLoop": _v := &AiUeLoop{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeLoop") } else { return _v, nil }
+        case "UeCooldown": _v := &AiUeCooldown{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeCooldown") } else { return _v, nil }
+        case "UeTimeLimit": _v := &AiUeTimeLimit{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeTimeLimit") } else { return _v, nil }
+        case "UeBlackboard": _v := &AiUeBlackboard{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeBlackboard") } else { return _v, nil }
+        case "UeForceSuccess": _v := &AiUeForceSuccess{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeForceSuccess") } else { return _v, nil }
+        case "IsAtLocation": _v := &AiIsAtLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsAtLocation") } else { return _v, nil }
+        case "DistanceLessThan": _v := &AiDistanceLessThan{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DistanceLessThan") } else { return _v, nil }
+        case "Sequence": _v := &AiSequence{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Sequence") } else { return _v, nil }
+        case "Selector": _v := &AiSelector{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Selector") } else { return _v, nil }
+        case "SimpleParallel": _v := &AiSimpleParallel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.SimpleParallel") } else { return _v, nil }
+        case "UeWait": _v := &AiUeWait{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWait") } else { return _v, nil }
+        case "UeWaitBlackboardTime": _v := &AiUeWaitBlackboardTime{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWaitBlackboardTime") } else { return _v, nil }
+        case "MoveToTarget": _v := &AiMoveToTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToTarget") } else { return _v, nil }
+        case "ChooseSkill": _v := &AiChooseSkill{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseSkill") } else { return _v, nil }
+        case "MoveToRandomLocation": _v := &AiMoveToRandomLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToRandomLocation") } else { return _v, nil }
+        case "MoveToLocation": _v := &AiMoveToLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToLocation") } else { return _v, nil }
+        case "DebugPrint": _v := &AiDebugPrint{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DebugPrint") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_Node_Body(_buf map[string]interface{}) (_v *Ai_Node, err error) {
-    _v = &Ai_Node{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    return
 }

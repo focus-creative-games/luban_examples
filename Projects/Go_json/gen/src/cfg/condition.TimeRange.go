@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Condition_TimeRange struct {
-    Condition_Condition
-    DateTimeRange *Common_DateTimeRange
+type ConditionTimeRange struct {
+    DateTimeRange *CommonDateTimeRange
 }
 
-func (Condition_TimeRange) GetTypeId() int {
+const TypeId_ConditionTimeRange = 1069033789
+
+func (*ConditionTimeRange) GetTypeId() int32 {
     return 1069033789
 }
 
-func NewCondition_TimeRange(_buf map[string]interface{}) (_v *Condition_TimeRange, err error) {
-    _v = &Condition_TimeRange{}
-    var _p *Condition_Condition
-     if _p, err = NewCondition_Condition_Body(_buf) ; err != nil { return }
-    _v.Condition_Condition = *_p
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date_time_range"].(map[string]interface{}); !_ok_ { err = errors.New("date_time_range error"); return }; if _v.DateTimeRange, err = NewCommon_DateTimeRange(_x_); err != nil { return } }
+func (_v *ConditionTimeRange)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["date_time_range"].(map[string]interface{}); !_ok_ { err = errors.New("date_time_range error"); return }; if _v.DateTimeRange, err = DeserializeCommonDateTimeRange(_x_); err != nil { return } }
     return
+}
+
+func DeserializeConditionTimeRange(_buf map[string]interface{}) (*ConditionTimeRange, error) {
+    v := &ConditionTimeRange{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

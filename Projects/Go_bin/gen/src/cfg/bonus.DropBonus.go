@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_DropBonus struct {
-    Bonus_Bonus
+type BonusDropBonus struct {
     Id int32
 }
 
-func (Bonus_DropBonus) GetTypeId() int {
+const TypeId_BonusDropBonus = 1959868225
+
+func (*BonusDropBonus) GetTypeId() int32 {
     return 1959868225
 }
 
-func NewBonus_DropBonus(_buf *serialization.ByteBuf) (_v *Bonus_DropBonus, err error) {
-    _v = &Bonus_DropBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
+func (_v *BonusDropBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BonusDropBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
     return
+}
+
+func DeserializeBonusDropBonus(_buf *serialization.ByteBuf) (*BonusDropBonus, error) {
+    v := &BonusDropBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

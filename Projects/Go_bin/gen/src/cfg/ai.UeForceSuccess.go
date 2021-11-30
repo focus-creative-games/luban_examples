@@ -6,26 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_UeForceSuccess struct {
-    Ai_Decorator
+type AiUeForceSuccess struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
 }
 
-func (Ai_UeForceSuccess) GetTypeId() int {
+const TypeId_AiUeForceSuccess = 195054574
+
+func (*AiUeForceSuccess) GetTypeId() int32 {
     return 195054574
 }
 
-func NewAi_UeForceSuccess(_buf *serialization.ByteBuf) (_v *Ai_UeForceSuccess, err error) {
-    _v = &Ai_UeForceSuccess{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
+func (_v *AiUeForceSuccess)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiUeForceSuccess)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FlowAbortMode error"); return } }
     return
+}
+
+func DeserializeAiUeForceSuccess(_buf *serialization.ByteBuf) (*AiUeForceSuccess, error) {
+    v := &AiUeForceSuccess{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

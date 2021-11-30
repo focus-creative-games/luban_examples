@@ -11,33 +11,39 @@ package cfg
 
 import "errors"
 
-type Bonus_ProbabilityBonus struct {
-    Bonus_Bonus
-    Bonuses []*Bonus_ProbabilityBonusInfo
+type BonusProbabilityBonus struct {
+    Bonuses []*BonusProbabilityBonusInfo
 }
 
-func (Bonus_ProbabilityBonus) GetTypeId() int {
+const TypeId_BonusProbabilityBonus = 359783161
+
+func (*BonusProbabilityBonus) GetTypeId() int32 {
     return 359783161
 }
 
-func NewBonus_ProbabilityBonus(_buf map[string]interface{}) (_v *Bonus_ProbabilityBonus, err error) {
-    _v = &Bonus_ProbabilityBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
+func (_v *BonusProbabilityBonus)Deserialize(_buf map[string]interface{}) (err error) {
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["bonuses"].([]interface{}); !_ok_ { err = errors.New("bonuses error"); return }
 
-                _v.Bonuses = make([]*Bonus_ProbabilityBonusInfo, 0, len(_arr_))
+                _v.Bonuses = make([]*BonusProbabilityBonusInfo, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Bonus_ProbabilityBonusInfo
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_ProbabilityBonusInfo(_x_); err != nil { return } }
+                    var _list_v_ *BonusProbabilityBonusInfo
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBonusProbabilityBonusInfo(_x_); err != nil { return } }
                     _v.Bonuses = append(_v.Bonuses, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeBonusProbabilityBonus(_buf map[string]interface{}) (*BonusProbabilityBonus, error) {
+    v := &BonusProbabilityBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

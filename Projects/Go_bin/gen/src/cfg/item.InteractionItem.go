@@ -6,32 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_InteractionItem struct {
-    Item_ItemExtra
+type ItemInteractionItem struct {
+    Id int32
     AttackNum *int32
     HoldingStaticMesh string
     HoldingStaticMeshMat string
 }
 
-func (Item_InteractionItem) GetTypeId() int {
+const TypeId_ItemInteractionItem = 640937802
+
+func (*ItemInteractionItem) GetTypeId() int32 {
     return 640937802
 }
 
-func NewItem_InteractionItem(_buf *serialization.ByteBuf) (_v *Item_InteractionItem, err error) {
-    _v = &Item_InteractionItem{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.AttackNum = &__x__ }}
-    { if _v.HoldingStaticMesh, err = _buf.ReadString(); err != nil { return } }
-    { if _v.HoldingStaticMeshMat, err = _buf.ReadString(); err != nil { return } }
+func (_v *ItemInteractionItem)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemInteractionItem)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.AttackNum = &__x__ }}
+    { if _v.HoldingStaticMesh, err = _buf.ReadString(); err != nil { err = errors.New("_v.HoldingStaticMesh error"); return } }
+    { if _v.HoldingStaticMeshMat, err = _buf.ReadString(); err != nil { err = errors.New("_v.HoldingStaticMeshMat error"); return } }
     return
+}
+
+func DeserializeItemInteractionItem(_buf *serialization.ByteBuf) (*ItemInteractionItem, error) {
+    v := &ItemInteractionItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

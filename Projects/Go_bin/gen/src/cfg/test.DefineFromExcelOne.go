@@ -6,30 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_DefineFromExcelOne struct {
+type TestDefineFromExcelOne struct {
     UnlockEquip int32
     UnlockHero int32
     DefaultAvatar string
     DefaultItem string
 }
 
-func (Test_DefineFromExcelOne) GetTypeId() int {
+const TypeId_TestDefineFromExcelOne = 528039504
+
+func (*TestDefineFromExcelOne) GetTypeId() int32 {
     return 528039504
 }
 
-func NewTest_DefineFromExcelOne(_buf *serialization.ByteBuf) (_v *Test_DefineFromExcelOne, err error) {
-    _v = &Test_DefineFromExcelOne{}
-    { if _v.UnlockEquip, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.UnlockHero, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.DefaultAvatar, err = _buf.ReadString(); err != nil { return } }
-    { if _v.DefaultItem, err = _buf.ReadString(); err != nil { return } }
+func (_v *TestDefineFromExcelOne)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestDefineFromExcelOne)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.UnlockEquip, err = _buf.ReadInt(); err != nil { err = errors.New("_v.UnlockEquip error"); return } }
+    { if _v.UnlockHero, err = _buf.ReadInt(); err != nil { err = errors.New("_v.UnlockHero error"); return } }
+    { if _v.DefaultAvatar, err = _buf.ReadString(); err != nil { err = errors.New("_v.DefaultAvatar error"); return } }
+    { if _v.DefaultItem, err = _buf.ReadString(); err != nil { err = errors.New("_v.DefaultItem error"); return } }
     return
+}
+
+func DeserializeTestDefineFromExcelOne(_buf *serialization.ByteBuf) (*TestDefineFromExcelOne, error) {
+    v := &TestDefineFromExcelOne{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

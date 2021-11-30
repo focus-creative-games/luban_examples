@@ -11,22 +11,32 @@ package cfg
 
 import "errors"
 
-type Item_ItemFunction struct {
+type ItemItemFunction struct {
     MinorType int32
     FuncType int32
     Method string
     CloseBagUi bool
 }
 
-func (Item_ItemFunction) GetTypeId() int {
+const TypeId_ItemItemFunction = 1205824294
+
+func (*ItemItemFunction) GetTypeId() int32 {
     return 1205824294
 }
 
-func NewItem_ItemFunction(_buf map[string]interface{}) (_v *Item_ItemFunction, err error) {
-    _v = &Item_ItemFunction{}
+func (_v *ItemItemFunction)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["minor_type"].(float64); !_ok_ { err = errors.New("minor_type error"); return }; _v.MinorType = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["func_type"].(float64); !_ok_ { err = errors.New("func_type error"); return }; _v.FuncType = int32(_tempNum_) }
     { var _ok_ bool; if _v.Method, _ok_ = _buf["method"].(string); !_ok_ { err = errors.New("method error"); return } }
     { var _ok_ bool; if _v.CloseBagUi, _ok_ = _buf["close_bag_ui"].(bool); !_ok_ { err = errors.New("close_bag_ui error"); return } }
     return
+}
+
+func DeserializeItemItemFunction(_buf map[string]interface{}) (*ItemItemFunction, error) {
+    v := &ItemItemFunction{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

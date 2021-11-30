@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_GenderLimit struct {
-    Condition_BoolRoleCondition
+type ConditionGenderLimit struct {
     Gender int32
 }
 
-func (Condition_GenderLimit) GetTypeId() int {
+const TypeId_ConditionGenderLimit = 103675143
+
+func (*ConditionGenderLimit) GetTypeId() int32 {
     return 103675143
 }
 
-func NewCondition_GenderLimit(_buf *serialization.ByteBuf) (_v *Condition_GenderLimit, err error) {
-    _v = &Condition_GenderLimit{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
-    { if _v.Gender, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ConditionGenderLimit)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionGenderLimit)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Gender, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Gender error"); return } }
     return
+}
+
+func DeserializeConditionGenderLimit(_buf *serialization.ByteBuf) (*ConditionGenderLimit, error) {
+    v := &ConditionGenderLimit{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

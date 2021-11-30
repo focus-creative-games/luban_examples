@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type L10n_PatchDemo struct {
+type L10nPatchDemo struct {
     Id int32
     Value int32
 }
 
-func (L10n_PatchDemo) GetTypeId() int {
+const TypeId_L10nPatchDemo = -1707294656
+
+func (*L10nPatchDemo) GetTypeId() int32 {
     return -1707294656
 }
 
-func NewL10n_PatchDemo(_buf map[string]interface{}) (_v *L10n_PatchDemo, err error) {
-    _v = &L10n_PatchDemo{}
+func (_v *L10nPatchDemo)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["value"].(float64); !_ok_ { err = errors.New("value error"); return }; _v.Value = int32(_tempNum_) }
     return
+}
+
+func DeserializeL10nPatchDemo(_buf map[string]interface{}) (*L10nPatchDemo, error) {
+    v := &L10nPatchDemo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

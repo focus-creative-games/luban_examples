@@ -11,20 +11,19 @@ package cfg
 
 import "errors"
 
-type Item_DesignDrawing struct {
-    Item_ItemExtra
+type ItemDesignDrawing struct {
+    Id int32
     LearnComponentId []int32
 }
 
-func (Item_DesignDrawing) GetTypeId() int {
+const TypeId_ItemDesignDrawing = -1679179579
+
+func (*ItemDesignDrawing) GetTypeId() int32 {
     return -1679179579
 }
 
-func NewItem_DesignDrawing(_buf map[string]interface{}) (_v *Item_DesignDrawing, err error) {
-    _v = &Item_DesignDrawing{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
+func (_v *ItemDesignDrawing)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -40,4 +39,13 @@ func NewItem_DesignDrawing(_buf map[string]interface{}) (_v *Item_DesignDrawing,
             }
 
     return
+}
+
+func DeserializeItemDesignDrawing(_buf map[string]interface{}) (*ItemDesignDrawing, error) {
+    v := &ItemDesignDrawing{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

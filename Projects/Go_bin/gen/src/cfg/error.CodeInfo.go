@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Error_CodeInfo struct {
+type ErrorCodeInfo struct {
     Code int32
     Key string
 }
 
-func (Error_CodeInfo) GetTypeId() int {
+const TypeId_ErrorCodeInfo = -1942481535
+
+func (*ErrorCodeInfo) GetTypeId() int32 {
     return -1942481535
 }
 
-func NewError_CodeInfo(_buf *serialization.ByteBuf) (_v *Error_CodeInfo, err error) {
-    _v = &Error_CodeInfo{}
-    { if _v.Code, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Key, err = _buf.ReadString(); err != nil { return } }
+func (_v *ErrorCodeInfo)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ErrorCodeInfo)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Code, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Code error"); return } }
+    { if _v.Key, err = _buf.ReadString(); err != nil { err = errors.New("_v.Key error"); return } }
     return
+}
+
+func DeserializeErrorCodeInfo(_buf *serialization.ByteBuf) (*ErrorCodeInfo, error) {
+    v := &ErrorCodeInfo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

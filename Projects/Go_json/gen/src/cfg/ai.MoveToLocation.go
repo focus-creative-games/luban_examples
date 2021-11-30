@@ -12,21 +12,54 @@ package cfg
 import "errors"
 import "bright/math"
 
-type Ai_MoveToLocation struct {
-    Ai_Task
+type AiMoveToLocation struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
+    IgnoreRestartSelf bool
     Location math.Vector3
     AcceptableRadius float32
 }
 
-func (Ai_MoveToLocation) GetTypeId() int {
+const TypeId_AiMoveToLocation = -969953113
+
+func (*AiMoveToLocation) GetTypeId() int32 {
     return -969953113
 }
 
-func NewAi_MoveToLocation(_buf map[string]interface{}) (_v *Ai_MoveToLocation, err error) {
-    _v = &Ai_MoveToLocation{}
-    var _p *Ai_Task
-     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
-    _v.Ai_Task = *_p
+func (_v *AiMoveToLocation)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
+    { var _ok_ bool; if _v.IgnoreRestartSelf, _ok_ = _buf["ignore_restart_self"].(bool); !_ok_ { err = errors.New("ignore_restart_self error"); return } }
     { var _ok_ bool; var _v_ map[string]interface{}; if _v_, _ok_ = _buf["location"].(map[string]interface{}); !_ok_ { err = errors.New("location error"); return }
             var _x_, _y_, _z_ float32;
             { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _v_["x"].(float64); !_ok_ { err = errors.New("x error"); return }; _x_ = float32(_tempNum_) }
@@ -37,4 +70,13 @@ func NewAi_MoveToLocation(_buf map[string]interface{}) (_v *Ai_MoveToLocation, e
 
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["acceptable_radius"].(float64); !_ok_ { err = errors.New("acceptable_radius error"); return }; _v.AcceptableRadius = float32(_tempNum_) }
     return
+}
+
+func DeserializeAiMoveToLocation(_buf map[string]interface{}) (*AiMoveToLocation, error) {
+    v := &AiMoveToLocation{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

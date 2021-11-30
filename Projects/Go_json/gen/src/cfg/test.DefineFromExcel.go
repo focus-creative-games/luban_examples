@@ -12,7 +12,7 @@ package cfg
 import "errors"
 import "bright/math"
 
-type Test_DefineFromExcel struct {
+type TestDefineFromExcel struct {
     Id int32
     X1 bool
     X5 int64
@@ -25,15 +25,16 @@ type Test_DefineFromExcel struct {
     T1 int32
     K1 []int32
     K8 map[int32]int32
-    K9 []*Test_DemoE2
+    K9 []*TestDemoE2
 }
 
-func (Test_DefineFromExcel) GetTypeId() int {
+const TypeId_TestDefineFromExcel = 2100429878
+
+func (*TestDefineFromExcel) GetTypeId() int32 {
     return 2100429878
 }
 
-func NewTest_DefineFromExcel(_buf map[string]interface{}) (_v *Test_DefineFromExcel, err error) {
-    _v = &Test_DefineFromExcel{}
+func (_v *TestDefineFromExcel)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.X1, _ok_ = _buf["x1"].(bool); !_ok_ { err = errors.New("x1 error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x5"].(float64); !_ok_ { err = errors.New("x5 error"); return }; _v.X5 = int64(_tempNum_) }
@@ -41,7 +42,7 @@ func NewTest_DefineFromExcel(_buf map[string]interface{}) (_v *Test_DefineFromEx
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x8"].(float64); !_ok_ { err = errors.New("x8 error"); return }; _v.X8 = int32(_tempNum_) }
     { var _ok_ bool; if _v.X10, _ok_ = _buf["x10"].(string); !_ok_ { err = errors.New("x10 error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x13"].(float64); !_ok_ { err = errors.New("x13 error"); return }; _v.X13 = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = NewTest_DemoDynamic(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = DeserializeTestDemoDynamic(_x_); err != nil { return } }
     { var _ok_ bool; var _v_ map[string]interface{}; if _v_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }
             var _x_, _y_ float32;
             { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _v_["x"].(float64); !_ok_ { err = errors.New("x error"); return }; _x_ = float32(_tempNum_) }
@@ -86,14 +87,23 @@ func NewTest_DefineFromExcel(_buf map[string]interface{}) (_v *Test_DefineFromEx
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["k9"].([]interface{}); !_ok_ { err = errors.New("k9 error"); return }
 
-                _v.K9 = make([]*Test_DemoE2, 0, len(_arr_))
+                _v.K9 = make([]*TestDemoE2, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_DemoE2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoE2(_x_); err != nil { return } }
+                    var _list_v_ *TestDemoE2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestDemoE2(_x_); err != nil { return } }
                     _v.K9 = append(_v.K9, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeTestDefineFromExcel(_buf map[string]interface{}) (*TestDefineFromExcel, error) {
+    v := &TestDefineFromExcel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

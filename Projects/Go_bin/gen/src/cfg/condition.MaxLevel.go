@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_MaxLevel struct {
-    Condition_BoolRoleCondition
+type ConditionMaxLevel struct {
     Level int32
 }
 
-func (Condition_MaxLevel) GetTypeId() int {
+const TypeId_ConditionMaxLevel = 700922899
+
+func (*ConditionMaxLevel) GetTypeId() int32 {
     return 700922899
 }
 
-func NewCondition_MaxLevel(_buf *serialization.ByteBuf) (_v *Condition_MaxLevel, err error) {
-    _v = &Condition_MaxLevel{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
-    { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ConditionMaxLevel)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionMaxLevel)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Level, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Level error"); return } }
     return
+}
+
+func DeserializeConditionMaxLevel(_buf *serialization.ByteBuf) (*ConditionMaxLevel, error) {
+    v := &ConditionMaxLevel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

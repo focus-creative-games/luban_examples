@@ -9,34 +9,34 @@
 
 package cfg
 
-type Mail_TbSystemMail struct {
-    _dataMap map[int32]*Mail_SystemMail
-    _dataList []*Mail_SystemMail
+type MailTbSystemMail struct {
+    _dataMap map[int32]*MailSystemMail
+    _dataList []*MailSystemMail
 }
 
-func NewMail_TbSystemMail(_buf []map[string]interface{}) (*Mail_TbSystemMail, error) {
-	_dataList := make([]*Mail_SystemMail, 0, len(_buf))
-	dataMap := make(map[int32]*Mail_SystemMail)
+func NewMailTbSystemMail(_buf []map[string]interface{}) (*MailTbSystemMail, error) {
+	_dataList := make([]*MailSystemMail, 0, len(_buf))
+	dataMap := make(map[int32]*MailSystemMail)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewMail_SystemMail(_ele_); err2 != nil {
+		if _v, err2 := DeserializeMailSystemMail(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Mail_TbSystemMail{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &MailTbSystemMail{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Mail_TbSystemMail) GetDataMap() map[int32]*Mail_SystemMail {
+func (table *MailTbSystemMail) GetDataMap() map[int32]*MailSystemMail {
     return table._dataMap
 }
 
-func (table *Mail_TbSystemMail) GetDataList() []*Mail_SystemMail {
+func (table *MailTbSystemMail) GetDataList() []*MailSystemMail {
     return table._dataList
 }
 
-func (table *Mail_TbSystemMail) Get(key int32) *Mail_SystemMail {
+func (table *MailTbSystemMail) Get(key int32) *MailSystemMail {
     return table._dataMap[key]
 }
 

@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Condition_GenderLimit struct {
-    Condition_BoolRoleCondition
+type ConditionGenderLimit struct {
     Gender int32
 }
 
-func (Condition_GenderLimit) GetTypeId() int {
+const TypeId_ConditionGenderLimit = 103675143
+
+func (*ConditionGenderLimit) GetTypeId() int32 {
     return 103675143
 }
 
-func NewCondition_GenderLimit(_buf map[string]interface{}) (_v *Condition_GenderLimit, err error) {
-    _v = &Condition_GenderLimit{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
+func (_v *ConditionGenderLimit)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["gender"].(float64); !_ok_ { err = errors.New("gender error"); return }; _v.Gender = int32(_tempNum_) }
     return
+}
+
+func DeserializeConditionGenderLimit(_buf map[string]interface{}) (*ConditionGenderLimit, error) {
+    v := &ConditionGenderLimit{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

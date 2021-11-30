@@ -11,7 +11,7 @@ package cfg
 
 import "errors"
 
-type Mail_SystemMail struct {
+type MailSystemMail struct {
     Id int32
     Title string
     Sender string
@@ -19,12 +19,13 @@ type Mail_SystemMail struct {
     Award []int32
 }
 
-func (Mail_SystemMail) GetTypeId() int {
+const TypeId_MailSystemMail = 1214073149
+
+func (*MailSystemMail) GetTypeId() int32 {
     return 1214073149
 }
 
-func NewMail_SystemMail(_buf map[string]interface{}) (_v *Mail_SystemMail, err error) {
-    _v = &Mail_SystemMail{}
+func (_v *MailSystemMail)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Title, _ok_ = _buf["title"].(string); !_ok_ { err = errors.New("title error"); return } }
     { var _ok_ bool; if _v.Sender, _ok_ = _buf["sender"].(string); !_ok_ { err = errors.New("sender error"); return } }
@@ -44,4 +45,13 @@ func NewMail_SystemMail(_buf map[string]interface{}) (_v *Mail_SystemMail, err e
             }
 
     return
+}
+
+func DeserializeMailSystemMail(_buf map[string]interface{}) (*MailSystemMail, error) {
+    v := &MailSystemMail{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

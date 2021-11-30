@@ -6,16 +6,17 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Blueprint_TbClazz struct {
+type BlueprintTbClazz struct {
     _dataMap map[string]interface{}
     _dataList []interface{}
 }
 
-func NewBlueprint_TbClazz(_buf *serialization.ByteBuf) (*Blueprint_TbClazz, error) {
+func NewBlueprintTbClazz(_buf *serialization.ByteBuf) (*BlueprintTbClazz, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
@@ -23,37 +24,37 @@ func NewBlueprint_TbClazz(_buf *serialization.ByteBuf) (*Blueprint_TbClazz, erro
 		dataMap := make(map[string]interface{})
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewBlueprint_Clazz(_buf); err2 != nil {
+			if _v, err2 := DeserializeBlueprintClazz(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
-                if __v, __is := _v.(*Blueprint_Interface) ; __is {
+                if __v, __is := _v.(*BlueprintInterface) ; __is {
                     dataMap[__v.Name] = _v
                     continue
                 }
-                if __v, __is := _v.(*Blueprint_NormalClazz) ; __is {
+                if __v, __is := _v.(*BlueprintNormalClazz) ; __is {
                     dataMap[__v.Name] = _v
                     continue
                 }
-                if __v, __is := _v.(*Blueprint_EnumClazz) ; __is {
+                if __v, __is := _v.(*BlueprintEnumClazz) ; __is {
                     dataMap[__v.Name] = _v
                     continue
                 }
 			}
 		}
-		return &Blueprint_TbClazz{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &BlueprintTbClazz{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Blueprint_TbClazz) GetDataMap() map[string]interface{} {
+func (table *BlueprintTbClazz) GetDataMap() map[string]interface{} {
     return table._dataMap
 }
 
-func (table *Blueprint_TbClazz) GetDataList() []interface{} {
+func (table *BlueprintTbClazz) GetDataList() []interface{} {
     return table._dataList
 }
 
-func (table *Blueprint_TbClazz) Get(key string) interface{} {
+func (table *BlueprintTbClazz) Get(key string) interface{} {
     return table._dataMap[key]
 }
 

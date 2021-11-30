@@ -107,6 +107,14 @@
           }
         }
       },
+      "Google.Protobuf/3.19.1": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.19.1.0",
+            "fileVersion": "3.19.1.0"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {},
       "Microsoft.NETCore.Platforms/2.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
@@ -993,7 +1001,8 @@
       },
       "Luban.Common/1.0.0": {
         "dependencies": {
-          "Bright.Net": "1.1.0.41"
+          "Bright.Net": "1.1.0.41",
+          "CommandLineParser": "2.8.0"
         },
         "runtime": {
           "Luban.Common.dll": {}
@@ -1002,6 +1011,7 @@
       "Luban.Job.Common/1.0.0": {
         "dependencies": {
           "CommandLineParser": "2.8.0",
+          "Google.Protobuf": "3.19.1",
           "Luban.Server.Common": "1.0.0",
           "Scriban": "4.1.0"
         },
@@ -1080,6 +1090,13 @@
       "sha512": "sha512-dRx817M5t0sv4GCJyAXU8qmhFXcqRpCHzLpxNmkMWTvzlfE0/KM7BNk6qEble0ffAr4xT7RyU7s/HpovVlA/9g==",
       "path": "excelnumberformat/1.0.10",
       "hashPath": "excelnumberformat.1.0.10.nupkg.sha512"
+    },
+    "Google.Protobuf/3.19.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M6yun2BPdHkBjD3V14muZSt72azWHRJEx88ME2TyyH2+/ww6R3hIptjBFQQtO6pmkfLXW/NGQ4hADWSa9AmK2A==",
+      "path": "google.protobuf/3.19.1",
+      "hashPath": "google.protobuf.3.19.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",

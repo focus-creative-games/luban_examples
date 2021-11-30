@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,28 +15,36 @@ import (
 
 import "errors"
 
-type Cost_Cost struct {
+type CostCost struct {
 }
 
+const TypeId_CostCost = -316635794
 
-func NewCost_Cost(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*CostCost) GetTypeId() int32 {
+    return -316635794
+}
+
+func (_v *CostCost)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *CostCost)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeCostCost(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case 911838111: return NewCost_CostCurrency(_buf)
-        case 103084157: return NewCost_CostCurrencies(_buf)
-        case -1033587381: return NewCost_CostOneItem(_buf)
-        case -1249440351: return NewCost_CostItem(_buf)
-        case -77945102: return NewCost_CostItems(_buf)
+        case 911838111: _v := &CostCostCurrency{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("cost.CostCurrency") } else { return _v, nil }
+        case 103084157: _v := &CostCostCurrencies{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("cost.CostCurrencies") } else { return _v, nil }
+        case -1033587381: _v := &CostCostOneItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("cost.CostOneItem") } else { return _v, nil }
+        case -1249440351: _v := &CostCostItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("cost.CostItem") } else { return _v, nil }
+        case -77945102: _v := &CostCostItems{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("cost.CostItems") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewCost_Cost_Body(_buf *serialization.ByteBuf) (_v *Cost_Cost, err error) {
-    _v = &Cost_Cost{}
-    return
 }
 

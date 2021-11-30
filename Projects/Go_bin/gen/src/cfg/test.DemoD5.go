@@ -6,28 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_DemoD5 struct {
-    Test_DemoDynamic
-    Time *Test_DateTimeRange
+type TestDemoD5 struct {
+    X1 int32
+    Time *TestDateTimeRange
 }
 
-func (Test_DemoD5) GetTypeId() int {
+const TypeId_TestDemoD5 = -2138341744
+
+func (*TestDemoD5) GetTypeId() int32 {
     return -2138341744
 }
 
-func NewTest_DemoD5(_buf *serialization.ByteBuf) (_v *Test_DemoD5, err error) {
-    _v = &Test_DemoD5{}
-    var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
-    _v.Test_DemoDynamic = *_p
-    { if _v.Time, err = NewTest_DateTimeRange(_buf); err != nil { return } }
+func (_v *TestDemoD5)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestDemoD5)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.X1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X1 error"); return } }
+    { if _v.Time, err = DeserializeTestDateTimeRange(_buf); err != nil { err = errors.New("_v.Time error"); return } }
     return
+}
+
+func DeserializeTestDemoD5(_buf *serialization.ByteBuf) (*TestDemoD5, error) {
+    v := &TestDemoD5{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

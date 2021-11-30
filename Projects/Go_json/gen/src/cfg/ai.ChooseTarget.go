@@ -11,20 +11,30 @@ package cfg
 
 import "errors"
 
-type Ai_ChooseTarget struct {
-    Ai_Service
+type AiChooseTarget struct {
+    Id int32
+    NodeName string
     ResultTargetKey string
 }
 
-func (Ai_ChooseTarget) GetTypeId() int {
+const TypeId_AiChooseTarget = 1601247918
+
+func (*AiChooseTarget) GetTypeId() int32 {
     return 1601247918
 }
 
-func NewAi_ChooseTarget(_buf map[string]interface{}) (_v *Ai_ChooseTarget, err error) {
-    _v = &Ai_ChooseTarget{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
+func (_v *AiChooseTarget)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     { var _ok_ bool; if _v.ResultTargetKey, _ok_ = _buf["result_target_key"].(string); !_ok_ { err = errors.New("result_target_key error"); return } }
     return
+}
+
+func DeserializeAiChooseTarget(_buf map[string]interface{}) (*AiChooseTarget, error) {
+    v := &AiChooseTarget{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

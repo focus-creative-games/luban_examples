@@ -10,9 +10,9 @@
 package cfg
 
 const (
-    Item_EItemQuality_WHITE = 0
-    Item_EItemQuality_GREEN = 1
-    Item_EItemQuality_BLUE = 2
-    Item_EItemQuality_PURPLE = 3
-    Item_EItemQuality_GOLDEN = 4
+    ItemEItemQuality_WHITE = 0
+    ItemEItemQuality_GREEN = 1
+    ItemEItemQuality_BLUE = 2
+    ItemEItemQuality_PURPLE = 3
+    ItemEItemQuality_GOLDEN = 4
 )

@@ -9,34 +9,34 @@
 
 package cfg
 
-type Test_TbTestExcelBean struct {
-    _dataMap map[int32]*Test_TestExcelBean1
-    _dataList []*Test_TestExcelBean1
+type TestTbTestExcelBean struct {
+    _dataMap map[int32]*TestTestExcelBean1
+    _dataList []*TestTestExcelBean1
 }
 
-func NewTest_TbTestExcelBean(_buf []map[string]interface{}) (*Test_TbTestExcelBean, error) {
-	_dataList := make([]*Test_TestExcelBean1, 0, len(_buf))
-	dataMap := make(map[int32]*Test_TestExcelBean1)
+func NewTestTbTestExcelBean(_buf []map[string]interface{}) (*TestTbTestExcelBean, error) {
+	_dataList := make([]*TestTestExcelBean1, 0, len(_buf))
+	dataMap := make(map[int32]*TestTestExcelBean1)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewTest_TestExcelBean1(_ele_); err2 != nil {
+		if _v, err2 := DeserializeTestTestExcelBean1(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.X1] = _v
 		}
 	}
-	return &Test_TbTestExcelBean{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &TestTbTestExcelBean{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbTestExcelBean) GetDataMap() map[int32]*Test_TestExcelBean1 {
+func (table *TestTbTestExcelBean) GetDataMap() map[int32]*TestTestExcelBean1 {
     return table._dataMap
 }
 
-func (table *Test_TbTestExcelBean) GetDataList() []*Test_TestExcelBean1 {
+func (table *TestTbTestExcelBean) GetDataList() []*TestTestExcelBean1 {
     return table._dataList
 }
 
-func (table *Test_TbTestExcelBean) Get(key int32) *Test_TestExcelBean1 {
+func (table *TestTbTestExcelBean) Get(key int32) *TestTestExcelBean1 {
     return table._dataMap[key]
 }
 

@@ -9,34 +9,34 @@
 
 package cfg
 
-type Role_TbRoleLevelBonusCoefficient struct {
-    _dataMap map[int32]*Role_LevelBonus
-    _dataList []*Role_LevelBonus
+type RoleTbRoleLevelBonusCoefficient struct {
+    _dataMap map[int32]*RoleLevelBonus
+    _dataList []*RoleLevelBonus
 }
 
-func NewRole_TbRoleLevelBonusCoefficient(_buf []map[string]interface{}) (*Role_TbRoleLevelBonusCoefficient, error) {
-	_dataList := make([]*Role_LevelBonus, 0, len(_buf))
-	dataMap := make(map[int32]*Role_LevelBonus)
+func NewRoleTbRoleLevelBonusCoefficient(_buf []map[string]interface{}) (*RoleTbRoleLevelBonusCoefficient, error) {
+	_dataList := make([]*RoleLevelBonus, 0, len(_buf))
+	dataMap := make(map[int32]*RoleLevelBonus)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewRole_LevelBonus(_ele_); err2 != nil {
+		if _v, err2 := DeserializeRoleLevelBonus(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Role_TbRoleLevelBonusCoefficient{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &RoleTbRoleLevelBonusCoefficient{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Role_TbRoleLevelBonusCoefficient) GetDataMap() map[int32]*Role_LevelBonus {
+func (table *RoleTbRoleLevelBonusCoefficient) GetDataMap() map[int32]*RoleLevelBonus {
     return table._dataMap
 }
 
-func (table *Role_TbRoleLevelBonusCoefficient) GetDataList() []*Role_LevelBonus {
+func (table *RoleTbRoleLevelBonusCoefficient) GetDataList() []*RoleLevelBonus {
     return table._dataList
 }
 
-func (table *Role_TbRoleLevelBonusCoefficient) Get(key int32) *Role_LevelBonus {
+func (table *RoleTbRoleLevelBonusCoefficient) Get(key int32) *RoleLevelBonus {
     return table._dataMap[key]
 }
 

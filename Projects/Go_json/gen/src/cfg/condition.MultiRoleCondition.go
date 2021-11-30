@@ -11,20 +11,17 @@ package cfg
 
 import "errors"
 
-type Condition_MultiRoleCondition struct {
-    Condition_RoleCondition
+type ConditionMultiRoleCondition struct {
     Conditions []interface{}
 }
 
-func (Condition_MultiRoleCondition) GetTypeId() int {
+const TypeId_ConditionMultiRoleCondition = 934079583
+
+func (*ConditionMultiRoleCondition) GetTypeId() int32 {
     return 934079583
 }
 
-func NewCondition_MultiRoleCondition(_buf map[string]interface{}) (_v *Condition_MultiRoleCondition, err error) {
-    _v = &Condition_MultiRoleCondition{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
+func (_v *ConditionMultiRoleCondition)Deserialize(_buf map[string]interface{}) (err error) {
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -34,10 +31,19 @@ func NewCondition_MultiRoleCondition(_buf map[string]interface{}) (_v *Condition
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewCondition_RoleCondition(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeConditionRoleCondition(_x_); err != nil { return } }
                     _v.Conditions = append(_v.Conditions, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeConditionMultiRoleCondition(_buf map[string]interface{}) (*ConditionMultiRoleCondition, error) {
+    v := &ConditionMultiRoleCondition{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

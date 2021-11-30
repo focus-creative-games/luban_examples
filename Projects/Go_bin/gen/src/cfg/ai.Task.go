@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,36 +15,48 @@ import (
 
 import "errors"
 
-type Ai_Task struct {
-    Ai_FlowNode
+type AiTask struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
     IgnoreRestartSelf bool
 }
 
+const TypeId_AiTask = -1055314005
 
-func NewAi_Task(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case -512994101: return NewAi_UeWait(_buf)
-        case 1215378271: return NewAi_UeWaitBlackboardTime(_buf)
-        case 514987779: return NewAi_MoveToTarget(_buf)
-        case -918812268: return NewAi_ChooseSkill(_buf)
-        case -2140042998: return NewAi_MoveToRandomLocation(_buf)
-        case -969953113: return NewAi_MoveToLocation(_buf)
-        case 1357409728: return NewAi_DebugPrint(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*AiTask) GetTypeId() int32 {
+    return -1055314005
+}
+
+func (_v *AiTask)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiTask)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    {_v.Decorators = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Decorators error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeAiDecorator(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Decorators = append(_v.Decorators, _e_) } }
+    {_v.Services = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Services error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeAiService(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Services = append(_v.Services, _e_) } }
+    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { err = errors.New("_v.IgnoreRestartSelf error"); err = errors.New("_v.IgnoreRestartSelf error"); return } }
     return
 }
 
-func NewAi_Task_Body(_buf *serialization.ByteBuf) (_v *Ai_Task, err error) {
-    _v = &Ai_Task{}
-    var _p *Ai_FlowNode
-     if _p, err = NewAi_FlowNode_Body(_buf) ; err != nil { return }
-    _v.Ai_FlowNode = *_p
-    { if _v.IgnoreRestartSelf, err = _buf.ReadBool(); err != nil { return } }
-    return
+func DeserializeAiTask(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case -512994101: _v := &AiUeWait{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWait") } else { return _v, nil }
+        case 1215378271: _v := &AiUeWaitBlackboardTime{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWaitBlackboardTime") } else { return _v, nil }
+        case 514987779: _v := &AiMoveToTarget{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToTarget") } else { return _v, nil }
+        case -918812268: _v := &AiChooseSkill{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseSkill") } else { return _v, nil }
+        case -2140042998: _v := &AiMoveToRandomLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToRandomLocation") } else { return _v, nil }
+        case -969953113: _v := &AiMoveToLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToLocation") } else { return _v, nil }
+        case 1357409728: _v := &AiDebugPrint{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DebugPrint") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

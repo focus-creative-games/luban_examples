@@ -10,12 +10,12 @@
 package cfg
 
 const (
-    Ai_EOperator_IS_EQUAL_TO = 0
-    Ai_EOperator_IS_NOT_EQUAL_TO = 1
-    Ai_EOperator_IS_LESS_THAN = 2
-    Ai_EOperator_IS_LESS_THAN_OR_EQUAL_TO = 3
-    Ai_EOperator_IS_GREAT_THAN = 4
-    Ai_EOperator_IS_GREAT_THAN_OR_EQUAL_TO = 5
-    Ai_EOperator_CONTAINS = 6
-    Ai_EOperator_NOT_CONTAINS = 7
+    AiEOperator_IS_EQUAL_TO = 0
+    AiEOperator_IS_NOT_EQUAL_TO = 1
+    AiEOperator_IS_LESS_THAN = 2
+    AiEOperator_IS_LESS_THAN_OR_EQUAL_TO = 3
+    AiEOperator_IS_GREAT_THAN = 4
+    AiEOperator_IS_GREAT_THAN_OR_EQUAL_TO = 5
+    AiEOperator_CONTAINS = 6
+    AiEOperator_NOT_CONTAINS = 7
 )

@@ -11,20 +11,17 @@ package cfg
 
 import "errors"
 
-type Bonus_MultiBonus struct {
-    Bonus_Bonus
+type BonusMultiBonus struct {
     Bonuses []interface{}
 }
 
-func (Bonus_MultiBonus) GetTypeId() int {
+const TypeId_BonusMultiBonus = 1421907893
+
+func (*BonusMultiBonus) GetTypeId() int32 {
     return 1421907893
 }
 
-func NewBonus_MultiBonus(_buf map[string]interface{}) (_v *Bonus_MultiBonus, err error) {
-    _v = &Bonus_MultiBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
+func (_v *BonusMultiBonus)Deserialize(_buf map[string]interface{}) (err error) {
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -34,10 +31,19 @@ func NewBonus_MultiBonus(_buf map[string]interface{}) (_v *Bonus_MultiBonus, err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_Bonus(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBonusBonus(_x_); err != nil { return } }
                     _v.Bonuses = append(_v.Bonuses, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeBonusMultiBonus(_buf map[string]interface{}) (*BonusMultiBonus, error) {
+    v := &BonusMultiBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

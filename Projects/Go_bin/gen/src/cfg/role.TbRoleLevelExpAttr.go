@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Role_TbRoleLevelExpAttr struct {
-    _dataMap map[int32]*Role_LevelExpAttr
-    _dataList []*Role_LevelExpAttr
+type RoleTbRoleLevelExpAttr struct {
+    _dataMap map[int32]*RoleLevelExpAttr
+    _dataList []*RoleLevelExpAttr
 }
 
-func NewRole_TbRoleLevelExpAttr(_buf *serialization.ByteBuf) (*Role_TbRoleLevelExpAttr, error) {
+func NewRoleTbRoleLevelExpAttr(_buf *serialization.ByteBuf) (*RoleTbRoleLevelExpAttr, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Role_LevelExpAttr, 0, size)
-		dataMap := make(map[int32]*Role_LevelExpAttr)
+		_dataList := make([]*RoleLevelExpAttr, 0, size)
+		dataMap := make(map[int32]*RoleLevelExpAttr)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewRole_LevelExpAttr(_buf); err2 != nil {
+			if _v, err2 := DeserializeRoleLevelExpAttr(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Level] = _v
 			}
 		}
-		return &Role_TbRoleLevelExpAttr{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &RoleTbRoleLevelExpAttr{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Role_TbRoleLevelExpAttr) GetDataMap() map[int32]*Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) GetDataMap() map[int32]*RoleLevelExpAttr {
     return table._dataMap
 }
 
-func (table *Role_TbRoleLevelExpAttr) GetDataList() []*Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) GetDataList() []*RoleLevelExpAttr {
     return table._dataList
 }
 
-func (table *Role_TbRoleLevelExpAttr) Get(key int32) *Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) Get(key int32) *RoleLevelExpAttr {
     return table._dataMap[key]
 }
 

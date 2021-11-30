@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Test_H1 struct {
-    Y2 *Test_H2
+type TestH1 struct {
+    Y2 *TestH2
     Y3 int32
 }
 
-func (Test_H1) GetTypeId() int {
+const TypeId_TestH1 = -1422503995
+
+func (*TestH1) GetTypeId() int32 {
     return -1422503995
 }
 
-func NewTest_H1(_buf map[string]interface{}) (_v *Test_H1, err error) {
-    _v = &Test_H1{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["y2"].(map[string]interface{}); !_ok_ { err = errors.New("y2 error"); return }; if _v.Y2, err = NewTest_H2(_x_); err != nil { return } }
+func (_v *TestH1)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["y2"].(map[string]interface{}); !_ok_ { err = errors.New("y2 error"); return }; if _v.Y2, err = DeserializeTestH2(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y3"].(float64); !_ok_ { err = errors.New("y3 error"); return }; _v.Y3 = int32(_tempNum_) }
     return
+}
+
+func DeserializeTestH1(_buf map[string]interface{}) (*TestH1, error) {
+    v := &TestH1{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

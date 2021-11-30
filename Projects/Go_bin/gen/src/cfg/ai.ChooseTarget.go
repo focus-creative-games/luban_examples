@@ -6,28 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_ChooseTarget struct {
-    Ai_Service
+type AiChooseTarget struct {
+    Id int32
+    NodeName string
     ResultTargetKey string
 }
 
-func (Ai_ChooseTarget) GetTypeId() int {
+const TypeId_AiChooseTarget = 1601247918
+
+func (*AiChooseTarget) GetTypeId() int32 {
     return 1601247918
 }
 
-func NewAi_ChooseTarget(_buf *serialization.ByteBuf) (_v *Ai_ChooseTarget, err error) {
-    _v = &Ai_ChooseTarget{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
-    { if _v.ResultTargetKey, err = _buf.ReadString(); err != nil { return } }
+func (_v *AiChooseTarget)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiChooseTarget)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.ResultTargetKey, err = _buf.ReadString(); err != nil { err = errors.New("_v.ResultTargetKey error"); return } }
     return
+}
+
+func DeserializeAiChooseTarget(_buf *serialization.ByteBuf) (*AiChooseTarget, error) {
+    v := &AiChooseTarget{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

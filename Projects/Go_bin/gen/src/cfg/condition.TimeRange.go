@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_TimeRange struct {
-    Condition_Condition
-    DateTimeRange *Common_DateTimeRange
+type ConditionTimeRange struct {
+    DateTimeRange *CommonDateTimeRange
 }
 
-func (Condition_TimeRange) GetTypeId() int {
+const TypeId_ConditionTimeRange = 1069033789
+
+func (*ConditionTimeRange) GetTypeId() int32 {
     return 1069033789
 }
 
-func NewCondition_TimeRange(_buf *serialization.ByteBuf) (_v *Condition_TimeRange, err error) {
-    _v = &Condition_TimeRange{}
-    var _p *Condition_Condition
-     if _p, err = NewCondition_Condition_Body(_buf) ; err != nil { return }
-    _v.Condition_Condition = *_p
-    { if _v.DateTimeRange, err = NewCommon_DateTimeRange(_buf); err != nil { return } }
+func (_v *ConditionTimeRange)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionTimeRange)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.DateTimeRange, err = DeserializeCommonDateTimeRange(_buf); err != nil { err = errors.New("_v.DateTimeRange error"); return } }
     return
+}
+
+func DeserializeConditionTimeRange(_buf *serialization.ByteBuf) (*ConditionTimeRange, error) {
+    v := &ConditionTimeRange{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

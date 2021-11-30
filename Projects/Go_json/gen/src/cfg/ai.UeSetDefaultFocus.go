@@ -11,20 +11,30 @@ package cfg
 
 import "errors"
 
-type Ai_UeSetDefaultFocus struct {
-    Ai_Service
+type AiUeSetDefaultFocus struct {
+    Id int32
+    NodeName string
     KeyboardKey string
 }
 
-func (Ai_UeSetDefaultFocus) GetTypeId() int {
+const TypeId_AiUeSetDefaultFocus = 1812449155
+
+func (*AiUeSetDefaultFocus) GetTypeId() int32 {
     return 1812449155
 }
 
-func NewAi_UeSetDefaultFocus(_buf map[string]interface{}) (_v *Ai_UeSetDefaultFocus, err error) {
-    _v = &Ai_UeSetDefaultFocus{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
+func (_v *AiUeSetDefaultFocus)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     { var _ok_ bool; if _v.KeyboardKey, _ok_ = _buf["keyboard_key"].(string); !_ok_ { err = errors.New("keyboard_key error"); return } }
     return
+}
+
+func DeserializeAiUeSetDefaultFocus(_buf map[string]interface{}) (*AiUeSetDefaultFocus, error) {
+    v := &AiUeSetDefaultFocus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

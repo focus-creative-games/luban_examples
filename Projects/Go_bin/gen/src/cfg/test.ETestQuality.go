@@ -10,8 +10,8 @@
 package cfg
 
 const (
-    Test_ETestQuality_A = 1
-    Test_ETestQuality_B = 2
-    Test_ETestQuality_C = 3
-    Test_ETestQuality_D = 4
+    TestETestQuality_A = 1
+    TestETestQuality_B = 2
+    TestETestQuality_C = 3
+    TestETestQuality_D = 4
 )

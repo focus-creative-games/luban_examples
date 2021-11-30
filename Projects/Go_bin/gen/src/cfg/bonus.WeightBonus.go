@@ -6,38 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_WeightBonus struct {
-    Bonus_Bonus
-    Bonuses []*Bonus_WeightBonusInfo
+type BonusWeightBonus struct {
+    Bonuses []*BonusWeightBonusInfo
 }
 
-func (Bonus_WeightBonus) GetTypeId() int {
+const TypeId_BonusWeightBonus = -362807016
+
+func (*BonusWeightBonus) GetTypeId() int32 {
     return -362807016
 }
 
-func NewBonus_WeightBonus(_buf *serialization.ByteBuf) (_v *Bonus_WeightBonus, err error) {
-    _v = &Bonus_WeightBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
-     {
-                _v.Bonuses = make([]*Bonus_WeightBonusInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Bonus_WeightBonusInfo
-                    { if _e_, err = NewBonus_WeightBonusInfo(_buf); err != nil { return } }
-                    _v.Bonuses = append(_v.Bonuses, _e_)
-                }
-            }
+func (_v *BonusWeightBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *BonusWeightBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    {_v.Bonuses = make([]*BonusWeightBonusInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Bonuses error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BonusWeightBonusInfo; { if _e_, err = DeserializeBonusWeightBonusInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Bonuses = append(_v.Bonuses, _e_) } }
     return
+}
+
+func DeserializeBonusWeightBonus(_buf *serialization.ByteBuf) (*BonusWeightBonus, error) {
+    v := &BonusWeightBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

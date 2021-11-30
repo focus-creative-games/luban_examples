@@ -9,34 +9,34 @@
 
 package cfg
 
-type Role_TbRoleLevelExpAttr struct {
-    _dataMap map[int32]*Role_LevelExpAttr
-    _dataList []*Role_LevelExpAttr
+type RoleTbRoleLevelExpAttr struct {
+    _dataMap map[int32]*RoleLevelExpAttr
+    _dataList []*RoleLevelExpAttr
 }
 
-func NewRole_TbRoleLevelExpAttr(_buf []map[string]interface{}) (*Role_TbRoleLevelExpAttr, error) {
-	_dataList := make([]*Role_LevelExpAttr, 0, len(_buf))
-	dataMap := make(map[int32]*Role_LevelExpAttr)
+func NewRoleTbRoleLevelExpAttr(_buf []map[string]interface{}) (*RoleTbRoleLevelExpAttr, error) {
+	_dataList := make([]*RoleLevelExpAttr, 0, len(_buf))
+	dataMap := make(map[int32]*RoleLevelExpAttr)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewRole_LevelExpAttr(_ele_); err2 != nil {
+		if _v, err2 := DeserializeRoleLevelExpAttr(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Level] = _v
 		}
 	}
-	return &Role_TbRoleLevelExpAttr{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &RoleTbRoleLevelExpAttr{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Role_TbRoleLevelExpAttr) GetDataMap() map[int32]*Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) GetDataMap() map[int32]*RoleLevelExpAttr {
     return table._dataMap
 }
 
-func (table *Role_TbRoleLevelExpAttr) GetDataList() []*Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) GetDataList() []*RoleLevelExpAttr {
     return table._dataList
 }
 
-func (table *Role_TbRoleLevelExpAttr) Get(key int32) *Role_LevelExpAttr {
+func (table *RoleTbRoleLevelExpAttr) Get(key int32) *RoleLevelExpAttr {
     return table._dataMap[key]
 }
 

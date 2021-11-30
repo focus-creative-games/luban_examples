@@ -10,7 +10,7 @@
 package cfg
 
 const (
-    Test_ETestEmptyEnum2_SMALL_THAN_256 = 255
-    Test_ETestEmptyEnum2_X_256 = 256
-    Test_ETestEmptyEnum2_X_257 = 257
+    TestETestEmptyEnum2_SMALL_THAN_256 = 255
+    TestETestEmptyEnum2_X_256 = 256
+    TestETestEmptyEnum2_X_257 = 257
 )

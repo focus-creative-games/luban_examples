@@ -6,15 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_TestRef struct {
+type TestTestRef struct {
     Id int32
     X1 int32
     X12 int32
@@ -29,105 +30,37 @@ type Test_TestRef struct {
     D2 map[int32]int32
 }
 
-func (Test_TestRef) GetTypeId() int {
+const TypeId_TestTestRef = -543222491
+
+func (*TestTestRef) GetTypeId() int32 {
     return -543222491
 }
 
-func NewTest_TestRef(_buf *serialization.ByteBuf) (_v *Test_TestRef, err error) {
-    _v = &Test_TestRef{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X1, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X12, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X2, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.A1 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.A1 = append(_v.A1, _e_)
-                }
-            }
+func (_v *TestTestRef)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
-     {
-                _v.A2 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.A2 = append(_v.A2, _e_)
-                }
-            }
-
-     {
-                _v.B1 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.B1 = append(_v.B1, _e_)
-                }
-            }
-
-     {
-                _v.B2 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.B2 = append(_v.B2, _e_)
-                }
-            }
-
-     {
-                _v.C1 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.C1 = append(_v.C1, _e_)
-                }
-            }
-
-     {
-                _v.C2 = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.C2 = append(_v.C2, _e_)
-                }
-            }
-
-    {
-                _v.D1 = make(map[int32]int32)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _key_ int32
-                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
-                    var _value_ int32
-                    { if _value_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.D1[_key_] = _value_
-                }
-                }
-    {
-                _v.D2 = make(map[int32]int32)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _key_ int32
-                    { if _key_, err = _buf.ReadInt(); err != nil { return } }
-                    var _value_ int32
-                    { if _value_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.D2[_key_] = _value_
-                }
-                }
+func (_v *TestTestRef)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.X1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X1 error"); return } }
+    { if _v.X12, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X12 error"); return } }
+    { if _v.X2, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X2 error"); return } }
+    {_v.A1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.A1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.A1 = append(_v.A1, _e_) } }
+    {_v.A2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.A2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.A2 = append(_v.A2, _e_) } }
+    {_v.B1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.B1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.B1 = append(_v.B1, _e_) } }
+    {_v.B2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.B2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.B2 = append(_v.B2, _e_) } }
+    {_v.C1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.C1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.C1 = append(_v.C1, _e_) } }
+    {_v.C2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.C2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.C2 = append(_v.C2, _e_) } }
+    { _v.D1 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.D1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("_key_ error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("_value_ error"); return } }; _v.D1[_key_] = _value_} }
+    { _v.D2 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.D2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("_key_ error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("_value_ error"); return } }; _v.D2[_key_] = _value_} }
     return
+}
+
+func DeserializeTestTestRef(_buf *serialization.ByteBuf) (*TestTestRef, error) {
+    v := &TestTestRef{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

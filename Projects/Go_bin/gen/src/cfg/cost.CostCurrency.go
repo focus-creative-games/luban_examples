@@ -6,30 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Cost_CostCurrency struct {
-    Cost_Cost
+type CostCostCurrency struct {
     Type int32
     Num int32
 }
 
-func (Cost_CostCurrency) GetTypeId() int {
+const TypeId_CostCostCurrency = 911838111
+
+func (*CostCostCurrency) GetTypeId() int32 {
     return 911838111
 }
 
-func NewCost_CostCurrency(_buf *serialization.ByteBuf) (_v *Cost_CostCurrency, err error) {
-    _v = &Cost_CostCurrency{}
-    var _p *Cost_Cost
-     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
-    _v.Cost_Cost = *_p
-    { if _v.Type, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Num, err = _buf.ReadInt(); err != nil { return } }
+func (_v *CostCostCurrency)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *CostCostCurrency)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Type, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Type error"); return } }
+    { if _v.Num, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Num error"); return } }
     return
+}
+
+func DeserializeCostCostCurrency(_buf *serialization.ByteBuf) (*CostCostCurrency, error) {
+    v := &CostCostCurrency{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

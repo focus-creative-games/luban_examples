@@ -9,34 +9,34 @@
 
 package cfg
 
-type Test_TbTestBeRef struct {
-    _dataMap map[int32]*Test_TestBeRef
-    _dataList []*Test_TestBeRef
+type TestTbTestBeRef struct {
+    _dataMap map[int32]*TestTestBeRef
+    _dataList []*TestTestBeRef
 }
 
-func NewTest_TbTestBeRef(_buf []map[string]interface{}) (*Test_TbTestBeRef, error) {
-	_dataList := make([]*Test_TestBeRef, 0, len(_buf))
-	dataMap := make(map[int32]*Test_TestBeRef)
+func NewTestTbTestBeRef(_buf []map[string]interface{}) (*TestTbTestBeRef, error) {
+	_dataList := make([]*TestTestBeRef, 0, len(_buf))
+	dataMap := make(map[int32]*TestTestBeRef)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewTest_TestBeRef(_ele_); err2 != nil {
+		if _v, err2 := DeserializeTestTestBeRef(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Test_TbTestBeRef{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &TestTbTestBeRef{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbTestBeRef) GetDataMap() map[int32]*Test_TestBeRef {
+func (table *TestTbTestBeRef) GetDataMap() map[int32]*TestTestBeRef {
     return table._dataMap
 }
 
-func (table *Test_TbTestBeRef) GetDataList() []*Test_TestBeRef {
+func (table *TestTbTestBeRef) GetDataList() []*TestTestBeRef {
     return table._dataList
 }
 
-func (table *Test_TbTestBeRef) Get(key int32) *Test_TestBeRef {
+func (table *TestTbTestBeRef) Get(key int32) *TestTestBeRef {
     return table._dataMap[key]
 }
 

@@ -9,34 +9,34 @@
 
 package cfg
 
-type Error_TbCodeInfo struct {
-    _dataMap map[int32]*Error_CodeInfo
-    _dataList []*Error_CodeInfo
+type ErrorTbCodeInfo struct {
+    _dataMap map[int32]*ErrorCodeInfo
+    _dataList []*ErrorCodeInfo
 }
 
-func NewError_TbCodeInfo(_buf []map[string]interface{}) (*Error_TbCodeInfo, error) {
-	_dataList := make([]*Error_CodeInfo, 0, len(_buf))
-	dataMap := make(map[int32]*Error_CodeInfo)
+func NewErrorTbCodeInfo(_buf []map[string]interface{}) (*ErrorTbCodeInfo, error) {
+	_dataList := make([]*ErrorCodeInfo, 0, len(_buf))
+	dataMap := make(map[int32]*ErrorCodeInfo)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewError_CodeInfo(_ele_); err2 != nil {
+		if _v, err2 := DeserializeErrorCodeInfo(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Code] = _v
 		}
 	}
-	return &Error_TbCodeInfo{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &ErrorTbCodeInfo{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Error_TbCodeInfo) GetDataMap() map[int32]*Error_CodeInfo {
+func (table *ErrorTbCodeInfo) GetDataMap() map[int32]*ErrorCodeInfo {
     return table._dataMap
 }
 
-func (table *Error_TbCodeInfo) GetDataList() []*Error_CodeInfo {
+func (table *ErrorTbCodeInfo) GetDataList() []*ErrorCodeInfo {
     return table._dataList
 }
 
-func (table *Error_TbCodeInfo) Get(key int32) *Error_CodeInfo {
+func (table *ErrorTbCodeInfo) Get(key int32) *ErrorCodeInfo {
     return table._dataMap[key]
 }
 

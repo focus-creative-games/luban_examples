@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
@@ -13,25 +14,25 @@ import "bright/serialization"
 
 import "errors"
 
-type Test_TbTestGlobal struct {
-    _data *Test_TestGlobal
+type TestTbTestGlobal struct {
+    _data *TestTestGlobal
 }
 
-func NewTest_TbTestGlobal(_buf *serialization.ByteBuf) (*Test_TbTestGlobal, error) {
+func NewTestTbTestGlobal(_buf *serialization.ByteBuf) (*TestTbTestGlobal, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
     } else if size != 1 {
         return nil, errors.New(" size != 1 ")
 	} else {
-		if _v, err2 := NewTest_TestGlobal(_buf); err2 != nil {
+		if _v, err2 := DeserializeTestTestGlobal(_buf); err2 != nil {
 			return nil, err2
 		} else {
-		    return &Test_TbTestGlobal{_data:_v}, nil
+		    return &TestTbTestGlobal{_data:_v}, nil
 		}
 	}
 }
 
-func (table *Test_TbTestGlobal) Get() *Test_TestGlobal {
+func (table *TestTbTestGlobal) Get() *TestTestGlobal {
     return table._data
 }
 

@@ -6,34 +6,47 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_Clothes struct {
-    Item_ItemExtra
+type ItemClothes struct {
+    Id int32
     Attack int32
     Hp int64
     EnergyLimit int32
     EnergyResume int32
 }
 
-func (Item_Clothes) GetTypeId() int {
+const TypeId_ItemClothes = 1659907149
+
+func (*ItemClothes) GetTypeId() int32 {
     return 1659907149
 }
 
-func NewItem_Clothes(_buf *serialization.ByteBuf) (_v *Item_Clothes, err error) {
-    _v = &Item_Clothes{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
-    { if _v.Attack, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Hp, err = _buf.ReadLong(); err != nil { return } }
-    { if _v.EnergyLimit, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.EnergyResume, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ItemClothes)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemClothes)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Attack, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Attack error"); return } }
+    { if _v.Hp, err = _buf.ReadLong(); err != nil { err = errors.New("_v.Hp error"); return } }
+    { if _v.EnergyLimit, err = _buf.ReadInt(); err != nil { err = errors.New("_v.EnergyLimit error"); return } }
+    { if _v.EnergyResume, err = _buf.ReadInt(); err != nil { err = errors.New("_v.EnergyResume error"); return } }
     return
+}
+
+func DeserializeItemClothes(_buf *serialization.ByteBuf) (*ItemClothes, error) {
+    v := &ItemClothes{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

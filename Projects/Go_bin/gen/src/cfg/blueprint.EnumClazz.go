@@ -6,38 +6,47 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Blueprint_EnumClazz struct {
-    Blueprint_Clazz
-    Enums []*Blueprint_EnumField
+type BlueprintEnumClazz struct {
+    Name string
+    Desc string
+    Parents []interface{}
+    Methods []interface{}
+    Enums []*BlueprintEnumField
 }
 
-func (Blueprint_EnumClazz) GetTypeId() int {
+const TypeId_BlueprintEnumClazz = 1827364892
+
+func (*BlueprintEnumClazz) GetTypeId() int32 {
     return 1827364892
 }
 
-func NewBlueprint_EnumClazz(_buf *serialization.ByteBuf) (_v *Blueprint_EnumClazz, err error) {
-    _v = &Blueprint_EnumClazz{}
-    var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
-    _v.Blueprint_Clazz = *_p
-     {
-                _v.Enums = make([]*Blueprint_EnumField, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Blueprint_EnumField
-                    { if _e_, err = NewBlueprint_EnumField(_buf); err != nil { return } }
-                    _v.Enums = append(_v.Enums, _e_)
-                }
-            }
+func (_v *BlueprintEnumClazz)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *BlueprintEnumClazz)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    {_v.Parents = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Parents error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintClazz(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Parents = append(_v.Parents, _e_) } }
+    {_v.Methods = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Methods error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintMethod(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Methods = append(_v.Methods, _e_) } }
+    {_v.Enums = make([]*BlueprintEnumField, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Enums error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BlueprintEnumField; { if _e_, err = DeserializeBlueprintEnumField(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Enums = append(_v.Enums, _e_) } }
     return
+}
+
+func DeserializeBlueprintEnumClazz(_buf *serialization.ByteBuf) (*BlueprintEnumClazz, error) {
+    v := &BlueprintEnumClazz{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

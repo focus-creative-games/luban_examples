@@ -6,15 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_BehaviorTree struct {
+type AiBehaviorTree struct {
     Id int32
     Name string
     Desc string
@@ -22,16 +23,30 @@ type Ai_BehaviorTree struct {
     Root interface{}
 }
 
-func (Ai_BehaviorTree) GetTypeId() int {
+const TypeId_AiBehaviorTree = 159552822
+
+func (*AiBehaviorTree) GetTypeId() int32 {
     return 159552822
 }
 
-func NewAi_BehaviorTree(_buf *serialization.ByteBuf) (_v *Ai_BehaviorTree, err error) {
-    _v = &Ai_BehaviorTree{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
-    { if _v.BlackboardId, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Root, err = NewAi_ComposeNode(_buf); err != nil { return } }
+func (_v *AiBehaviorTree)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiBehaviorTree)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    { if _v.BlackboardId, err = _buf.ReadString(); err != nil { err = errors.New("_v.BlackboardId error"); return } }
+    { if _v.Root, err = DeserializeAiComposeNode(_buf); err != nil { err = errors.New("_v.Root error"); return } }
     return
+}
+
+func DeserializeAiBehaviorTree(_buf *serialization.ByteBuf) (*AiBehaviorTree, error) {
+    v := &AiBehaviorTree{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

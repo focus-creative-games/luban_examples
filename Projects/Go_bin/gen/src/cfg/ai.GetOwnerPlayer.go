@@ -6,28 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_GetOwnerPlayer struct {
-    Ai_Service
+type AiGetOwnerPlayer struct {
+    Id int32
+    NodeName string
     PlayerActorKey string
 }
 
-func (Ai_GetOwnerPlayer) GetTypeId() int {
+const TypeId_AiGetOwnerPlayer = -999247644
+
+func (*AiGetOwnerPlayer) GetTypeId() int32 {
     return -999247644
 }
 
-func NewAi_GetOwnerPlayer(_buf *serialization.ByteBuf) (_v *Ai_GetOwnerPlayer, err error) {
-    _v = &Ai_GetOwnerPlayer{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
-    { if _v.PlayerActorKey, err = _buf.ReadString(); err != nil { return } }
+func (_v *AiGetOwnerPlayer)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiGetOwnerPlayer)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.PlayerActorKey, err = _buf.ReadString(); err != nil { err = errors.New("_v.PlayerActorKey error"); return } }
     return
+}
+
+func DeserializeAiGetOwnerPlayer(_buf *serialization.ByteBuf) (*AiGetOwnerPlayer, error) {
+    v := &AiGetOwnerPlayer{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

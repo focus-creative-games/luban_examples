@@ -11,33 +11,36 @@ package cfg
 
 import "errors"
 
-type Ai_Service struct {
-    Ai_Node
+type AiService struct {
+    Id int32
+    NodeName string
 }
 
+const TypeId_AiService = -472395057
 
-func NewAi_Service(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*AiService) GetTypeId() int32 {
+    return -472395057
+}
+
+func (_v *AiService)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+    return
+}
+
+func DeserializeAiService(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "UeSetDefaultFocus": return NewAi_UeSetDefaultFocus(_buf);
-        case "ExecuteTimeStatistic": return NewAi_ExecuteTimeStatistic(_buf);
-        case "ChooseTarget": return NewAi_ChooseTarget(_buf);
-        case "KeepFaceTarget": return NewAi_KeepFaceTarget(_buf);
-        case "GetOwnerPlayer": return NewAi_GetOwnerPlayer(_buf);
-        case "UpdateDailyBehaviorProps": return NewAi_UpdateDailyBehaviorProps(_buf);
+        case "UeSetDefaultFocus": _v := &AiUeSetDefaultFocus{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeSetDefaultFocus") } else { return _v, nil }
+        case "ExecuteTimeStatistic": _v := &AiExecuteTimeStatistic{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ExecuteTimeStatistic") } else { return _v, nil }
+        case "ChooseTarget": _v := &AiChooseTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseTarget") } else { return _v, nil }
+        case "KeepFaceTarget": _v := &AiKeepFaceTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.KeepFaceTarget") } else { return _v, nil }
+        case "GetOwnerPlayer": _v := &AiGetOwnerPlayer{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.GetOwnerPlayer") } else { return _v, nil }
+        case "UpdateDailyBehaviorProps": _v := &AiUpdateDailyBehaviorProps{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UpdateDailyBehaviorProps") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_Service_Body(_buf map[string]interface{}) (_v *Ai_Service, err error) {
-    _v = &Ai_Service{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-    return
 }

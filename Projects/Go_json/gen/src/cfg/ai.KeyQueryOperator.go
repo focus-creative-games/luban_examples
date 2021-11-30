@@ -11,26 +11,29 @@ package cfg
 
 import "errors"
 
-type Ai_KeyQueryOperator struct {
+type AiKeyQueryOperator struct {
 }
 
+const TypeId_AiKeyQueryOperator = -738364781
 
-func NewAi_KeyQueryOperator(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*AiKeyQueryOperator) GetTypeId() int32 {
+    return -738364781
+}
+
+func (_v *AiKeyQueryOperator)Deserialize(_buf map[string]interface{}) (err error) {
+    return
+}
+
+func DeserializeAiKeyQueryOperator(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "IsSet": return NewAi_IsSet(_buf);
-        case "IsNotSet": return NewAi_IsNotSet(_buf);
-        case "BinaryOperator": return NewAi_BinaryOperator(_buf);
+        case "IsSet": _v := &AiIsSet{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsSet") } else { return _v, nil }
+        case "IsNotSet": _v := &AiIsNotSet{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsNotSet") } else { return _v, nil }
+        case "BinaryOperator": _v := &AiBinaryOperator{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.BinaryOperator") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_KeyQueryOperator_Body(_buf map[string]interface{}) (_v *Ai_KeyQueryOperator, err error) {
-    _v = &Ai_KeyQueryOperator{}
-    return
 }

@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Test_ETestCurrency_DIAMOND = 1
-    Test_ETestCurrency_GOLD = 2
+    TestETestCurrency_DIAMOND = 1
+    TestETestCurrency_GOLD = 2
 )

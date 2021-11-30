@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Mail_EMailType_GLOBAL = 0
-    Mail_EMailType_SYSTEM = 1
+    MailEMailType_GLOBAL = 0
+    MailEMailType_SYSTEM = 1
 )

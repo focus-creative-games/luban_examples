@@ -6,38 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Role_LevelExpAttr struct {
+type RoleLevelExpAttr struct {
     Level int32
     NeedExp int64
     ClothesAttrs []int32
 }
 
-func (Role_LevelExpAttr) GetTypeId() int {
+const TypeId_RoleLevelExpAttr = -1569837022
+
+func (*RoleLevelExpAttr) GetTypeId() int32 {
     return -1569837022
 }
 
-func NewRole_LevelExpAttr(_buf *serialization.ByteBuf) (_v *Role_LevelExpAttr, err error) {
-    _v = &Role_LevelExpAttr{}
-    { if _v.Level, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.NeedExp, err = _buf.ReadLong(); err != nil { return } }
-     {
-                _v.ClothesAttrs = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.ClothesAttrs = append(_v.ClothesAttrs, _e_)
-                }
-            }
+func (_v *RoleLevelExpAttr)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *RoleLevelExpAttr)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Level, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Level error"); return } }
+    { if _v.NeedExp, err = _buf.ReadLong(); err != nil { err = errors.New("_v.NeedExp error"); return } }
+    {_v.ClothesAttrs = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.ClothesAttrs error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.ClothesAttrs = append(_v.ClothesAttrs, _e_) } }
     return
+}
+
+func DeserializeRoleLevelExpAttr(_buf *serialization.ByteBuf) (*RoleLevelExpAttr, error) {
+    v := &RoleLevelExpAttr{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

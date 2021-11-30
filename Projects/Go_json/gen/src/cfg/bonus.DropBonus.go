@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Bonus_DropBonus struct {
-    Bonus_Bonus
+type BonusDropBonus struct {
     Id int32
 }
 
-func (Bonus_DropBonus) GetTypeId() int {
+const TypeId_BonusDropBonus = 1959868225
+
+func (*BonusDropBonus) GetTypeId() int32 {
     return 1959868225
 }
 
-func NewBonus_DropBonus(_buf map[string]interface{}) (_v *Bonus_DropBonus, err error) {
-    _v = &Bonus_DropBonus{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
+func (_v *BonusDropBonus)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     return
+}
+
+func DeserializeBonusDropBonus(_buf map[string]interface{}) (*BonusDropBonus, error) {
+    v := &BonusDropBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

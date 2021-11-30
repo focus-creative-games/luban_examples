@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbDefineFromExcel struct {
-    _dataMap map[int32]*Test_DefineFromExcel
-    _dataList []*Test_DefineFromExcel
+type TestTbDefineFromExcel struct {
+    _dataMap map[int32]*TestDefineFromExcel
+    _dataList []*TestDefineFromExcel
 }
 
-func NewTest_TbDefineFromExcel(_buf *serialization.ByteBuf) (*Test_TbDefineFromExcel, error) {
+func NewTestTbDefineFromExcel(_buf *serialization.ByteBuf) (*TestTbDefineFromExcel, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_DefineFromExcel, 0, size)
-		dataMap := make(map[int32]*Test_DefineFromExcel)
+		_dataList := make([]*TestDefineFromExcel, 0, size)
+		dataMap := make(map[int32]*TestDefineFromExcel)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_DefineFromExcel(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestDefineFromExcel(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Id] = _v
 			}
 		}
-		return &Test_TbDefineFromExcel{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbDefineFromExcel{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbDefineFromExcel) GetDataMap() map[int32]*Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) GetDataMap() map[int32]*TestDefineFromExcel {
     return table._dataMap
 }
 
-func (table *Test_TbDefineFromExcel) GetDataList() []*Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) GetDataList() []*TestDefineFromExcel {
     return table._dataList
 }
 
-func (table *Test_TbDefineFromExcel) Get(key int32) *Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) Get(key int32) *TestDefineFromExcel {
     return table._dataMap[key]
 }
 

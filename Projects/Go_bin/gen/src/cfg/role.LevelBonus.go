@@ -6,36 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Role_LevelBonus struct {
+type RoleLevelBonus struct {
     Id int32
-    DistinctBonusInfos []*Role_DistinctBonusInfos
+    DistinctBonusInfos []*RoleDistinctBonusInfos
 }
 
-func (Role_LevelBonus) GetTypeId() int {
+const TypeId_RoleLevelBonus = -572269677
+
+func (*RoleLevelBonus) GetTypeId() int32 {
     return -572269677
 }
 
-func NewRole_LevelBonus(_buf *serialization.ByteBuf) (_v *Role_LevelBonus, err error) {
-    _v = &Role_LevelBonus{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.DistinctBonusInfos = make([]*Role_DistinctBonusInfos, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Role_DistinctBonusInfos
-                    { if _e_, err = NewRole_DistinctBonusInfos(_buf); err != nil { return } }
-                    _v.DistinctBonusInfos = append(_v.DistinctBonusInfos, _e_)
-                }
-            }
+func (_v *RoleLevelBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *RoleLevelBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    {_v.DistinctBonusInfos = make([]*RoleDistinctBonusInfos, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.DistinctBonusInfos error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *RoleDistinctBonusInfos; { if _e_, err = DeserializeRoleDistinctBonusInfos(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.DistinctBonusInfos = append(_v.DistinctBonusInfos, _e_) } }
     return
+}
+
+func DeserializeRoleLevelBonus(_buf *serialization.ByteBuf) (*RoleLevelBonus, error) {
+    v := &RoleLevelBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

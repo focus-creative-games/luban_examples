@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Ai_EExecutor_CLIENT = 0
-    Ai_EExecutor_SERVER = 1
+    AiEExecutor_CLIENT = 0
+    AiEExecutor_SERVER = 1
 )

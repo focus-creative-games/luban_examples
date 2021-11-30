@@ -9,34 +9,34 @@
 
 package cfg
 
-type Test_TbDefineFromExcel struct {
-    _dataMap map[int32]*Test_DefineFromExcel
-    _dataList []*Test_DefineFromExcel
+type TestTbDefineFromExcel struct {
+    _dataMap map[int32]*TestDefineFromExcel
+    _dataList []*TestDefineFromExcel
 }
 
-func NewTest_TbDefineFromExcel(_buf []map[string]interface{}) (*Test_TbDefineFromExcel, error) {
-	_dataList := make([]*Test_DefineFromExcel, 0, len(_buf))
-	dataMap := make(map[int32]*Test_DefineFromExcel)
+func NewTestTbDefineFromExcel(_buf []map[string]interface{}) (*TestTbDefineFromExcel, error) {
+	_dataList := make([]*TestDefineFromExcel, 0, len(_buf))
+	dataMap := make(map[int32]*TestDefineFromExcel)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewTest_DefineFromExcel(_ele_); err2 != nil {
+		if _v, err2 := DeserializeTestDefineFromExcel(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Test_TbDefineFromExcel{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &TestTbDefineFromExcel{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbDefineFromExcel) GetDataMap() map[int32]*Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) GetDataMap() map[int32]*TestDefineFromExcel {
     return table._dataMap
 }
 
-func (table *Test_TbDefineFromExcel) GetDataList() []*Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) GetDataList() []*TestDefineFromExcel {
     return table._dataList
 }
 
-func (table *Test_TbDefineFromExcel) Get(key int32) *Test_DefineFromExcel {
+func (table *TestTbDefineFromExcel) Get(key int32) *TestDefineFromExcel {
     return table._dataMap[key]
 }
 

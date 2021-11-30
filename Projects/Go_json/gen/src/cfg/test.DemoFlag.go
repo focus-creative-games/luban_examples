@@ -10,7 +10,7 @@
 package cfg
 
 const (
-    Test_DemoFlag_A = 1
-    Test_DemoFlag_B = 2
-    Test_DemoFlag_D = 3
+    TestDemoFlag_A = 1
+    TestDemoFlag_B = 2
+    TestDemoFlag_D = 3
 )

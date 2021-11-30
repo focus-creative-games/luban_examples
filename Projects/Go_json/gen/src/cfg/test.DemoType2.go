@@ -12,7 +12,7 @@ package cfg
 import "errors"
 import "bright/math"
 
-type Test_DemoType2 struct {
+type TestDemoType2 struct {
     X4 int32
     X1 bool
     X2 byte
@@ -24,7 +24,7 @@ type Test_DemoType2 struct {
     X8 int32
     X9 int64
     X10 string
-    X12 *Test_DemoType1
+    X12 *TestDemoType1
     X13 int32
     X14 interface{}
     S1 string
@@ -36,16 +36,17 @@ type Test_DemoType2 struct {
     K2 []int32
     K5 []int32
     K8 map[int32]int32
-    K9 []*Test_DemoE2
+    K9 []*TestDemoE2
     K15 []interface{}
 }
 
-func (Test_DemoType2) GetTypeId() int {
+const TypeId_TestDemoType2 = -367048295
+
+func (*TestDemoType2) GetTypeId() int32 {
     return -367048295
 }
 
-func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err error) {
-    _v = &Test_DemoType2{}
+func (_v *TestDemoType2)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int32(_tempNum_) }
     { var _ok_ bool; if _v.X1, _ok_ = _buf["x1"].(bool); !_ok_ { err = errors.New("x1 error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = byte(_tempNum_) }
@@ -57,9 +58,9 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x8"].(float64); !_ok_ { err = errors.New("x8 error"); return }; _v.X8 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x9"].(float64); !_ok_ { err = errors.New("x9 error"); return }; _v.X9 = int64(_tempNum_) }
     { var _ok_ bool; if _v.X10, _ok_ = _buf["x10"].(string); !_ok_ { err = errors.New("x10 error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x12"].(map[string]interface{}); !_ok_ { err = errors.New("x12 error"); return }; if _v.X12, err = NewTest_DemoType1(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x12"].(map[string]interface{}); !_ok_ { err = errors.New("x12 error"); return }; if _v.X12, err = DeserializeTestDemoType1(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x13"].(float64); !_ok_ { err = errors.New("x13 error"); return }; _v.X13 = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = NewTest_DemoDynamic(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = DeserializeTestDemoDynamic(_x_); err != nil { return } }
     {var _ok_ bool; var __json_text__ map[string]interface{}; if __json_text__, _ok_ = _buf["s1"].(map[string]interface{}) ; !_ok_ { err = errors.New("_v.S1 error"); return };  { var _ok_ bool; if _, _ok_ = __json_text__["key"].(string); !_ok_ { err = errors.New("key error"); return } }; { var _ok_ bool; if _v.S1, _ok_ = __json_text__["text"].(string); !_ok_ { err = errors.New("text error"); return } } }
     { var _ok_ bool; var _v_ map[string]interface{}; if _v_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }
             var _x_, _y_ float32;
@@ -150,11 +151,11 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["k9"].([]interface{}); !_ok_ { err = errors.New("k9 error"); return }
 
-                _v.K9 = make([]*Test_DemoE2, 0, len(_arr_))
+                _v.K9 = make([]*TestDemoE2, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_DemoE2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoE2(_x_); err != nil { return } }
+                    var _list_v_ *TestDemoE2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestDemoE2(_x_); err != nil { return } }
                     _v.K9 = append(_v.K9, _list_v_)
                 }
             }
@@ -168,10 +169,19 @@ func NewTest_DemoType2(_buf map[string]interface{}) (_v *Test_DemoType2, err err
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_DemoDynamic(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestDemoDynamic(_x_); err != nil { return } }
                     _v.K15 = append(_v.K15, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeTestDemoType2(_buf map[string]interface{}) (*TestDemoType2, error) {
+    v := &TestDemoType2{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

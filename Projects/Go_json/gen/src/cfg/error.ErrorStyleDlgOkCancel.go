@@ -11,22 +11,28 @@ package cfg
 
 import "errors"
 
-type Error_ErrorStyleDlgOkCancel struct {
-    Error_ErrorStyle
+type ErrorErrorStyleDlgOkCancel struct {
     Btn1Name string
     Btn2Name string
 }
 
-func (Error_ErrorStyleDlgOkCancel) GetTypeId() int {
+const TypeId_ErrorErrorStyleDlgOkCancel = 971221414
+
+func (*ErrorErrorStyleDlgOkCancel) GetTypeId() int32 {
     return 971221414
 }
 
-func NewError_ErrorStyleDlgOkCancel(_buf map[string]interface{}) (_v *Error_ErrorStyleDlgOkCancel, err error) {
-    _v = &Error_ErrorStyleDlgOkCancel{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
+func (_v *ErrorErrorStyleDlgOkCancel)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.Btn1Name, _ok_ = _buf["btn1_name"].(string); !_ok_ { err = errors.New("btn1_name error"); return } }
     { var _ok_ bool; if _v.Btn2Name, _ok_ = _buf["btn2_name"].(string); !_ok_ { err = errors.New("btn2_name error"); return } }
     return
+}
+
+func DeserializeErrorErrorStyleDlgOkCancel(_buf map[string]interface{}) (*ErrorErrorStyleDlgOkCancel, error) {
+    v := &ErrorErrorStyleDlgOkCancel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

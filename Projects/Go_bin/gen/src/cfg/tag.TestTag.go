@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Tag_TestTag struct {
+type TagTestTag struct {
     Id int32
     Value string
 }
 
-func (Tag_TestTag) GetTypeId() int {
+const TypeId_TagTestTag = 1742933812
+
+func (*TagTestTag) GetTypeId() int32 {
     return 1742933812
 }
 
-func NewTag_TestTag(_buf *serialization.ByteBuf) (_v *Tag_TestTag, err error) {
-    _v = &Tag_TestTag{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Value, err = _buf.ReadString(); err != nil { return } }
+func (_v *TagTestTag)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TagTestTag)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Value, err = _buf.ReadString(); err != nil { err = errors.New("_v.Value error"); return } }
     return
+}
+
+func DeserializeTagTestTag(_buf *serialization.ByteBuf) (*TagTestTag, error) {
+    v := &TagTestTag{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

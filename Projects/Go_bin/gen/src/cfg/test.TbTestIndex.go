@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbTestIndex struct {
-    _dataMap map[int32]*Test_TestIndex
-    _dataList []*Test_TestIndex
+type TestTbTestIndex struct {
+    _dataMap map[int32]*TestTestIndex
+    _dataList []*TestTestIndex
 }
 
-func NewTest_TbTestIndex(_buf *serialization.ByteBuf) (*Test_TbTestIndex, error) {
+func NewTestTbTestIndex(_buf *serialization.ByteBuf) (*TestTbTestIndex, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_TestIndex, 0, size)
-		dataMap := make(map[int32]*Test_TestIndex)
+		_dataList := make([]*TestTestIndex, 0, size)
+		dataMap := make(map[int32]*TestTestIndex)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_TestIndex(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestTestIndex(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Id] = _v
 			}
 		}
-		return &Test_TbTestIndex{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbTestIndex{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbTestIndex) GetDataMap() map[int32]*Test_TestIndex {
+func (table *TestTbTestIndex) GetDataMap() map[int32]*TestTestIndex {
     return table._dataMap
 }
 
-func (table *Test_TbTestIndex) GetDataList() []*Test_TestIndex {
+func (table *TestTbTestIndex) GetDataList() []*TestTestIndex {
     return table._dataList
 }
 
-func (table *Test_TbTestIndex) Get(key int32) *Test_TestIndex {
+func (table *TestTbTestIndex) Get(key int32) *TestTestIndex {
     return table._dataMap[key]
 }
 

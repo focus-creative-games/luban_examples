@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,32 +15,36 @@ import (
 
 import "errors"
 
-type Condition_BoolRoleCondition struct {
-    Condition_RoleCondition
+type ConditionBoolRoleCondition struct {
 }
 
+const TypeId_ConditionBoolRoleCondition = -293269432
 
-func NewCondition_BoolRoleCondition(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*ConditionBoolRoleCondition) GetTypeId() int32 {
+    return -293269432
+}
+
+func (_v *ConditionBoolRoleCondition)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionBoolRoleCondition)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeConditionBoolRoleCondition(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case 103675143: return NewCondition_GenderLimit(_buf)
-        case -1075273755: return NewCondition_MinLevel(_buf)
-        case 700922899: return NewCondition_MaxLevel(_buf)
-        case 907499647: return NewCondition_MinMaxLevel(_buf)
-        case 696630835: return NewCondition_ClothesPropertyScoreGreaterThan(_buf)
+        case 103675143: _v := &ConditionGenderLimit{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.GenderLimit") } else { return _v, nil }
+        case -1075273755: _v := &ConditionMinLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinLevel") } else { return _v, nil }
+        case 700922899: _v := &ConditionMaxLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MaxLevel") } else { return _v, nil }
+        case 907499647: _v := &ConditionMinMaxLevel{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinMaxLevel") } else { return _v, nil }
+        case 696630835: _v := &ConditionClothesPropertyScoreGreaterThan{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ClothesPropertyScoreGreaterThan") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewCondition_BoolRoleCondition_Body(_buf *serialization.ByteBuf) (_v *Condition_BoolRoleCondition, err error) {
-    _v = &Condition_BoolRoleCondition{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
-    return
 }
 

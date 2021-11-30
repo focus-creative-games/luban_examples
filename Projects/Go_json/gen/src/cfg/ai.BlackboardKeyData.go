@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Ai_BlackboardKeyData struct {
-    Ai_KeyData
+type AiBlackboardKeyData struct {
     Value string
 }
 
-func (Ai_BlackboardKeyData) GetTypeId() int {
+const TypeId_AiBlackboardKeyData = 1517269500
+
+func (*AiBlackboardKeyData) GetTypeId() int32 {
     return 1517269500
 }
 
-func NewAi_BlackboardKeyData(_buf map[string]interface{}) (_v *Ai_BlackboardKeyData, err error) {
-    _v = &Ai_BlackboardKeyData{}
-    var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyData = *_p
+func (_v *AiBlackboardKeyData)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
     return
+}
+
+func DeserializeAiBlackboardKeyData(_buf map[string]interface{}) (*AiBlackboardKeyData, error) {
+    v := &AiBlackboardKeyData{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -6,36 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Role_DistinctBonusInfos struct {
+type RoleDistinctBonusInfos struct {
     EffectiveLevel int32
-    BonusInfo []*Role_BonusInfo
+    BonusInfo []*RoleBonusInfo
 }
 
-func (Role_DistinctBonusInfos) GetTypeId() int {
+const TypeId_RoleDistinctBonusInfos = -854361766
+
+func (*RoleDistinctBonusInfos) GetTypeId() int32 {
     return -854361766
 }
 
-func NewRole_DistinctBonusInfos(_buf *serialization.ByteBuf) (_v *Role_DistinctBonusInfos, err error) {
-    _v = &Role_DistinctBonusInfos{}
-    { if _v.EffectiveLevel, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.BonusInfo = make([]*Role_BonusInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Role_BonusInfo
-                    { if _e_, err = NewRole_BonusInfo(_buf); err != nil { return } }
-                    _v.BonusInfo = append(_v.BonusInfo, _e_)
-                }
-            }
+func (_v *RoleDistinctBonusInfos)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *RoleDistinctBonusInfos)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.EffectiveLevel, err = _buf.ReadInt(); err != nil { err = errors.New("_v.EffectiveLevel error"); return } }
+    {_v.BonusInfo = make([]*RoleBonusInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.BonusInfo error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *RoleBonusInfo; { if _e_, err = DeserializeRoleBonusInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.BonusInfo = append(_v.BonusInfo, _e_) } }
     return
+}
+
+func DeserializeRoleDistinctBonusInfos(_buf *serialization.ByteBuf) (*RoleDistinctBonusInfos, error) {
+    v := &RoleDistinctBonusInfos{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

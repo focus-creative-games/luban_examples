@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Blueprint_EnumField struct {
+type BlueprintEnumField struct {
     Name string
     Value int32
 }
 
-func (Blueprint_EnumField) GetTypeId() int {
+const TypeId_BlueprintEnumField = 1830049470
+
+func (*BlueprintEnumField) GetTypeId() int32 {
     return 1830049470
 }
 
-func NewBlueprint_EnumField(_buf map[string]interface{}) (_v *Blueprint_EnumField, err error) {
-    _v = &Blueprint_EnumField{}
+func (_v *BlueprintEnumField)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["value"].(float64); !_ok_ { err = errors.New("value error"); return }; _v.Value = int32(_tempNum_) }
     return
+}
+
+func DeserializeBlueprintEnumField(_buf map[string]interface{}) (*BlueprintEnumField, error) {
+    v := &BlueprintEnumField{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

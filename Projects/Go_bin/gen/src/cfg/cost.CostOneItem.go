@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Cost_CostOneItem struct {
-    Cost_Cost
+type CostCostOneItem struct {
     ItemId int32
 }
 
-func (Cost_CostOneItem) GetTypeId() int {
+const TypeId_CostCostOneItem = -1033587381
+
+func (*CostCostOneItem) GetTypeId() int32 {
     return -1033587381
 }
 
-func NewCost_CostOneItem(_buf *serialization.ByteBuf) (_v *Cost_CostOneItem, err error) {
-    _v = &Cost_CostOneItem{}
-    var _p *Cost_Cost
-     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
-    _v.Cost_Cost = *_p
-    { if _v.ItemId, err = _buf.ReadInt(); err != nil { return } }
+func (_v *CostCostOneItem)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *CostCostOneItem)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.ItemId, err = _buf.ReadInt(); err != nil { err = errors.New("_v.ItemId error"); return } }
     return
+}
+
+func DeserializeCostCostOneItem(_buf *serialization.ByteBuf) (*CostCostOneItem, error) {
+    v := &CostCostOneItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

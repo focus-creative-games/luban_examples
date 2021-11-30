@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,34 +15,42 @@ import (
 
 import "errors"
 
-type Bonus_Bonus struct {
+type BonusBonus struct {
 }
 
+const TypeId_BonusBonus = 813132144
 
-func NewBonus_Bonus(_buf *serialization.ByteBuf) (_v interface{}, err error) {
+func (*BonusBonus) GetTypeId() int32 {
+    return 813132144
+}
+
+func (_v *BonusBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BonusBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    return
+}
+
+func DeserializeBonusBonus(_buf *serialization.ByteBuf) (interface{}, error) {
     var id int32
+    var err error
     if id, err = _buf.ReadInt() ; err != nil {
-        return
+        return nil, err
     }
     switch id {
-        case -1649658966: return NewBonus_OneItem(_buf)
-        case 400179721: return NewBonus_OneItems(_buf)
-        case 1689011106: return NewBonus_Item(_buf)
-        case 819736849: return NewBonus_Items(_buf)
-        case -229470727: return NewBonus_CoefficientItem(_buf)
-        case -356202311: return NewBonus_WeightItems(_buf)
-        case 366387866: return NewBonus_ProbabilityItems(_buf)
-        case 1421907893: return NewBonus_MultiBonus(_buf)
-        case 359783161: return NewBonus_ProbabilityBonus(_buf)
-        case -362807016: return NewBonus_WeightBonus(_buf)
-        case 1959868225: return NewBonus_DropBonus(_buf)
+        case -1649658966: _v := &BonusOneItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.OneItem") } else { return _v, nil }
+        case 400179721: _v := &BonusOneItems{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.OneItems") } else { return _v, nil }
+        case 1689011106: _v := &BonusItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.Item") } else { return _v, nil }
+        case 819736849: _v := &BonusItems{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.Items") } else { return _v, nil }
+        case -229470727: _v := &BonusCoefficientItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.CoefficientItem") } else { return _v, nil }
+        case -356202311: _v := &BonusWeightItems{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.WeightItems") } else { return _v, nil }
+        case 366387866: _v := &BonusProbabilityItems{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.ProbabilityItems") } else { return _v, nil }
+        case 1421907893: _v := &BonusMultiBonus{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.MultiBonus") } else { return _v, nil }
+        case 359783161: _v := &BonusProbabilityBonus{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.ProbabilityBonus") } else { return _v, nil }
+        case -362807016: _v := &BonusWeightBonus{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.WeightBonus") } else { return _v, nil }
+        case 1959868225: _v := &BonusDropBonus{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("bonus.DropBonus") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewBonus_Bonus_Body(_buf *serialization.ByteBuf) (_v *Bonus_Bonus, err error) {
-    _v = &Bonus_Bonus{}
-    return
 }
 

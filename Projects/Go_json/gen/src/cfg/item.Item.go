@@ -11,7 +11,7 @@ package cfg
 
 import "errors"
 
-type Item_Item struct {
+type ItemItem struct {
     Id int32
     Name string
     MajorType int32
@@ -35,12 +35,13 @@ type Item_Item struct {
     LevelUpId *int32
 }
 
-func (Item_Item) GetTypeId() int {
+const TypeId_ItemItem = 2107285806
+
+func (*ItemItem) GetTypeId() int32 {
     return 2107285806
 }
 
-func NewItem_Item(_buf map[string]interface{}) (_v *Item_Item, err error) {
-    _v = &Item_Item{}
+func (_v *ItemItem)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["major_type"].(float64); !_ok_ { err = errors.New("major_type error"); return }; _v.MajorType = int32(_tempNum_) }
@@ -63,4 +64,13 @@ func NewItem_Item(_buf map[string]interface{}) (_v *Item_Item, err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["use_type"].(float64); !_ok_ { err = errors.New("use_type error"); return }; _v.UseType = int32(_tempNum_) }
     { var _ok_ bool; var __json_level_up_id__ interface{}; if __json_level_up_id__, _ok_ = _buf["level_up_id"]; !_ok_ || __json_level_up_id__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_level_up_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.LevelUpId = &__x__ }}
     return
+}
+
+func DeserializeItemItem(_buf map[string]interface{}) (*ItemItem, error) {
+    v := &ItemItem{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

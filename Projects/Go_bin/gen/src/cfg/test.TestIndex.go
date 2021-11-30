@@ -6,36 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_TestIndex struct {
+type TestTestIndex struct {
     Id int32
-    Eles []*Test_DemoType1
+    Eles []*TestDemoType1
 }
 
-func (Test_TestIndex) GetTypeId() int {
+const TypeId_TestTestIndex = 1941154020
+
+func (*TestTestIndex) GetTypeId() int32 {
     return 1941154020
 }
 
-func NewTest_TestIndex(_buf *serialization.ByteBuf) (_v *Test_TestIndex, err error) {
-    _v = &Test_TestIndex{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-     {
-                _v.Eles = make([]*Test_DemoType1, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Test_DemoType1
-                    { if _e_, err = NewTest_DemoType1(_buf); err != nil { return } }
-                    _v.Eles = append(_v.Eles, _e_)
-                }
-            }
+func (_v *TestTestIndex)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *TestTestIndex)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    {_v.Eles = make([]*TestDemoType1, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Eles error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestDemoType1; { if _e_, err = DeserializeTestDemoType1(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Eles = append(_v.Eles, _e_) } }
     return
+}
+
+func DeserializeTestTestIndex(_buf *serialization.ByteBuf) (*TestTestIndex, error) {
+    v := &TestTestIndex{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

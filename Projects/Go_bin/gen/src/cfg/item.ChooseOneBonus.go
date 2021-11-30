@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_ChooseOneBonus struct {
+type ItemChooseOneBonus struct {
     DropId int32
     IsUnique bool
 }
 
-func (Item_ChooseOneBonus) GetTypeId() int {
+const TypeId_ItemChooseOneBonus = 228058347
+
+func (*ItemChooseOneBonus) GetTypeId() int32 {
     return 228058347
 }
 
-func NewItem_ChooseOneBonus(_buf *serialization.ByteBuf) (_v *Item_ChooseOneBonus, err error) {
-    _v = &Item_ChooseOneBonus{}
-    { if _v.DropId, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.IsUnique, err = _buf.ReadBool(); err != nil { return } }
+func (_v *ItemChooseOneBonus)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemChooseOneBonus)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.DropId, err = _buf.ReadInt(); err != nil { err = errors.New("_v.DropId error"); return } }
+    { if _v.IsUnique, err = _buf.ReadBool(); err != nil { err = errors.New("_v.IsUnique error"); err = errors.New("_v.IsUnique error"); return } }
     return
+}
+
+func DeserializeItemChooseOneBonus(_buf *serialization.ByteBuf) (*ItemChooseOneBonus, error) {
+    v := &ItemChooseOneBonus{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

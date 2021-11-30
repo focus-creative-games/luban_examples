@@ -11,31 +11,41 @@ package cfg
 
 import "errors"
 
-type Role_DistinctBonusInfos struct {
+type RoleDistinctBonusInfos struct {
     EffectiveLevel int32
-    BonusInfo []*Role_BonusInfo
+    BonusInfo []*RoleBonusInfo
 }
 
-func (Role_DistinctBonusInfos) GetTypeId() int {
+const TypeId_RoleDistinctBonusInfos = -854361766
+
+func (*RoleDistinctBonusInfos) GetTypeId() int32 {
     return -854361766
 }
 
-func NewRole_DistinctBonusInfos(_buf map[string]interface{}) (_v *Role_DistinctBonusInfos, err error) {
-    _v = &Role_DistinctBonusInfos{}
+func (_v *RoleDistinctBonusInfos)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["effective_level"].(float64); !_ok_ { err = errors.New("effective_level error"); return }; _v.EffectiveLevel = int32(_tempNum_) }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["bonus_info"].([]interface{}); !_ok_ { err = errors.New("bonus_info error"); return }
 
-                _v.BonusInfo = make([]*Role_BonusInfo, 0, len(_arr_))
+                _v.BonusInfo = make([]*RoleBonusInfo, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Role_BonusInfo
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewRole_BonusInfo(_x_); err != nil { return } }
+                    var _list_v_ *RoleBonusInfo
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeRoleBonusInfo(_x_); err != nil { return } }
                     _v.BonusInfo = append(_v.BonusInfo, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeRoleDistinctBonusInfos(_buf map[string]interface{}) (*RoleDistinctBonusInfos, error) {
+    v := &RoleDistinctBonusInfos{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

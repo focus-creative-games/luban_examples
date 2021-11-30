@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type L10n_PatchDemo struct {
+type L10nPatchDemo struct {
     Id int32
     Value int32
 }
 
-func (L10n_PatchDemo) GetTypeId() int {
+const TypeId_L10nPatchDemo = -1707294656
+
+func (*L10nPatchDemo) GetTypeId() int32 {
     return -1707294656
 }
 
-func NewL10n_PatchDemo(_buf *serialization.ByteBuf) (_v *L10n_PatchDemo, err error) {
-    _v = &L10n_PatchDemo{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
+func (_v *L10nPatchDemo)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *L10nPatchDemo)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Value, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Value error"); return } }
     return
+}
+
+func DeserializeL10nPatchDemo(_buf *serialization.ByteBuf) (*L10nPatchDemo, error) {
+    v := &L10nPatchDemo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -11,30 +11,31 @@ package cfg
 
 import "errors"
 
-type Test_DemoD3 struct {
-    Test_DemoDynamic
+type TestDemoD3 struct {
+    X1 int32
     X3 int32
 }
 
+const TypeId_TestDemoD3 = -2138341746
 
-func NewTest_DemoD3(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*TestDemoD3) GetTypeId() int32 {
+    return -2138341746
+}
+
+func (_v *TestDemoD3)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
+    return
+}
+
+func DeserializeTestDemoD3(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "DemoE1": return NewTest_DemoE1(_buf);
+        case "DemoE1": _v := &TestDemoE1{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("test.DemoE1") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewTest_DemoD3_Body(_buf map[string]interface{}) (_v *Test_DemoD3, err error) {
-    _v = &Test_DemoD3{}
-    var _p *Test_DemoDynamic
-     if _p, err = NewTest_DemoDynamic_Body(_buf) ; err != nil { return }
-    _v.Test_DemoDynamic = *_p
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
-    return
 }

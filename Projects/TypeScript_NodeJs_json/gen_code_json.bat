@@ -10,7 +10,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_code_dir Gen ^
  --output_data_dir ..\GenerateDatas\json ^
  --gen_types code_typescript_json,data_json ^
- --embed_bright_types ^
+ --typescript:embed_bright_types ^
  -s all
 
 pause

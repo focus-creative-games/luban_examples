@@ -6,28 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_KeepFaceTarget struct {
-    Ai_Service
+type AiKeepFaceTarget struct {
+    Id int32
+    NodeName string
     TargetActorKey string
 }
 
-func (Ai_KeepFaceTarget) GetTypeId() int {
+const TypeId_AiKeepFaceTarget = 1195270745
+
+func (*AiKeepFaceTarget) GetTypeId() int32 {
     return 1195270745
 }
 
-func NewAi_KeepFaceTarget(_buf *serialization.ByteBuf) (_v *Ai_KeepFaceTarget, err error) {
-    _v = &Ai_KeepFaceTarget{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
-    { if _v.TargetActorKey, err = _buf.ReadString(); err != nil { return } }
+func (_v *AiKeepFaceTarget)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiKeepFaceTarget)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.TargetActorKey, err = _buf.ReadString(); err != nil { err = errors.New("_v.TargetActorKey error"); return } }
     return
+}
+
+func DeserializeAiKeepFaceTarget(_buf *serialization.ByteBuf) (*AiKeepFaceTarget, error) {
+    v := &AiKeepFaceTarget{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

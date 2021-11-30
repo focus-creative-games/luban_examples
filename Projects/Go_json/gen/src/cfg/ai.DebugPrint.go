@@ -11,20 +11,62 @@ package cfg
 
 import "errors"
 
-type Ai_DebugPrint struct {
-    Ai_Task
+type AiDebugPrint struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
+    IgnoreRestartSelf bool
     Text string
 }
 
-func (Ai_DebugPrint) GetTypeId() int {
+const TypeId_AiDebugPrint = 1357409728
+
+func (*AiDebugPrint) GetTypeId() int32 {
     return 1357409728
 }
 
-func NewAi_DebugPrint(_buf map[string]interface{}) (_v *Ai_DebugPrint, err error) {
-    _v = &Ai_DebugPrint{}
-    var _p *Ai_Task
-     if _p, err = NewAi_Task_Body(_buf) ; err != nil { return }
-    _v.Ai_Task = *_p
+func (_v *AiDebugPrint)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
+    { var _ok_ bool; if _v.IgnoreRestartSelf, _ok_ = _buf["ignore_restart_self"].(bool); !_ok_ { err = errors.New("ignore_restart_self error"); return } }
     { var _ok_ bool; if _v.Text, _ok_ = _buf["text"].(string); !_ok_ { err = errors.New("text error"); return } }
     return
+}
+
+func DeserializeAiDebugPrint(_buf map[string]interface{}) (*AiDebugPrint, error) {
+    v := &AiDebugPrint{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

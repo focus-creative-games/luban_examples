@@ -6,38 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_DesignDrawing struct {
-    Item_ItemExtra
+type ItemDesignDrawing struct {
+    Id int32
     LearnComponentId []int32
 }
 
-func (Item_DesignDrawing) GetTypeId() int {
+const TypeId_ItemDesignDrawing = -1679179579
+
+func (*ItemDesignDrawing) GetTypeId() int32 {
     return -1679179579
 }
 
-func NewItem_DesignDrawing(_buf *serialization.ByteBuf) (_v *Item_DesignDrawing, err error) {
-    _v = &Item_DesignDrawing{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
-     {
-                _v.LearnComponentId = make([]int32, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ int32
-                    { if _e_, err = _buf.ReadInt(); err != nil { return } }
-                    _v.LearnComponentId = append(_v.LearnComponentId, _e_)
-                }
-            }
+func (_v *ItemDesignDrawing)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *ItemDesignDrawing)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    {_v.LearnComponentId = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.LearnComponentId error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.LearnComponentId = append(_v.LearnComponentId, _e_) } }
     return
+}
+
+func DeserializeItemDesignDrawing(_buf *serialization.ByteBuf) (*ItemDesignDrawing, error) {
+    v := &ItemDesignDrawing{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

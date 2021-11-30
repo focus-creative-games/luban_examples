@@ -6,30 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Condition_MinMaxLevel struct {
-    Condition_BoolRoleCondition
+type ConditionMinMaxLevel struct {
     Min int32
     Max int32
 }
 
-func (Condition_MinMaxLevel) GetTypeId() int {
+const TypeId_ConditionMinMaxLevel = 907499647
+
+func (*ConditionMinMaxLevel) GetTypeId() int32 {
     return 907499647
 }
 
-func NewCondition_MinMaxLevel(_buf *serialization.ByteBuf) (_v *Condition_MinMaxLevel, err error) {
-    _v = &Condition_MinMaxLevel{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
-    { if _v.Min, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Max, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ConditionMinMaxLevel)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ConditionMinMaxLevel)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Min, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Min error"); return } }
+    { if _v.Max, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Max error"); return } }
     return
+}
+
+func DeserializeConditionMinMaxLevel(_buf *serialization.ByteBuf) (*ConditionMinMaxLevel, error) {
+    v := &ConditionMinMaxLevel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

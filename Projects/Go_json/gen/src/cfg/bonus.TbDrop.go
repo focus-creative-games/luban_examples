@@ -9,34 +9,34 @@
 
 package cfg
 
-type Bonus_TbDrop struct {
-    _dataMap map[int32]*Bonus_DropInfo
-    _dataList []*Bonus_DropInfo
+type BonusTbDrop struct {
+    _dataMap map[int32]*BonusDropInfo
+    _dataList []*BonusDropInfo
 }
 
-func NewBonus_TbDrop(_buf []map[string]interface{}) (*Bonus_TbDrop, error) {
-	_dataList := make([]*Bonus_DropInfo, 0, len(_buf))
-	dataMap := make(map[int32]*Bonus_DropInfo)
+func NewBonusTbDrop(_buf []map[string]interface{}) (*BonusTbDrop, error) {
+	_dataList := make([]*BonusDropInfo, 0, len(_buf))
+	dataMap := make(map[int32]*BonusDropInfo)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewBonus_DropInfo(_ele_); err2 != nil {
+		if _v, err2 := DeserializeBonusDropInfo(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Bonus_TbDrop{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &BonusTbDrop{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Bonus_TbDrop) GetDataMap() map[int32]*Bonus_DropInfo {
+func (table *BonusTbDrop) GetDataMap() map[int32]*BonusDropInfo {
     return table._dataMap
 }
 
-func (table *Bonus_TbDrop) GetDataList() []*Bonus_DropInfo {
+func (table *BonusTbDrop) GetDataList() []*BonusDropInfo {
     return table._dataList
 }
 
-func (table *Bonus_TbDrop) Get(key int32) *Bonus_DropInfo {
+func (table *BonusTbDrop) Get(key int32) *BonusDropInfo {
     return table._dataMap[key]
 }
 

@@ -9,34 +9,34 @@
 
 package cfg
 
-type Test_TbExcelFromJsonMultiRow struct {
-    _dataMap map[int32]*Test_ExcelFromJsonMultiRow
-    _dataList []*Test_ExcelFromJsonMultiRow
+type TestTbExcelFromJsonMultiRow struct {
+    _dataMap map[int32]*TestExcelFromJsonMultiRow
+    _dataList []*TestExcelFromJsonMultiRow
 }
 
-func NewTest_TbExcelFromJsonMultiRow(_buf []map[string]interface{}) (*Test_TbExcelFromJsonMultiRow, error) {
-	_dataList := make([]*Test_ExcelFromJsonMultiRow, 0, len(_buf))
-	dataMap := make(map[int32]*Test_ExcelFromJsonMultiRow)
+func NewTestTbExcelFromJsonMultiRow(_buf []map[string]interface{}) (*TestTbExcelFromJsonMultiRow, error) {
+	_dataList := make([]*TestExcelFromJsonMultiRow, 0, len(_buf))
+	dataMap := make(map[int32]*TestExcelFromJsonMultiRow)
 	for _, _ele_ := range _buf {
-		if _v, err2 := NewTest_ExcelFromJsonMultiRow(_ele_); err2 != nil {
+		if _v, err2 := DeserializeTestExcelFromJsonMultiRow(_ele_); err2 != nil {
 			return nil, err2
 		} else {
 			_dataList = append(_dataList, _v)
 			dataMap[_v.Id] = _v
 		}
 	}
-	return &Test_TbExcelFromJsonMultiRow{_dataList:_dataList, _dataMap:dataMap}, nil
+	return &TestTbExcelFromJsonMultiRow{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *Test_TbExcelFromJsonMultiRow) GetDataMap() map[int32]*Test_ExcelFromJsonMultiRow {
+func (table *TestTbExcelFromJsonMultiRow) GetDataMap() map[int32]*TestExcelFromJsonMultiRow {
     return table._dataMap
 }
 
-func (table *Test_TbExcelFromJsonMultiRow) GetDataList() []*Test_ExcelFromJsonMultiRow {
+func (table *TestTbExcelFromJsonMultiRow) GetDataList() []*TestExcelFromJsonMultiRow {
     return table._dataList
 }
 
-func (table *Test_TbExcelFromJsonMultiRow) Get(key int32) *Test_ExcelFromJsonMultiRow {
+func (table *TestTbExcelFromJsonMultiRow) Get(key int32) *TestExcelFromJsonMultiRow {
     return table._dataMap[key]
 }
 

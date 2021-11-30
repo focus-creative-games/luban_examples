@@ -10,14 +10,14 @@
 package cfg
 
 const (
-    Ai_EKeyType_BOOL = 1
-    Ai_EKeyType_INT = 2
-    Ai_EKeyType_FLOAT = 3
-    Ai_EKeyType_STRING = 4
-    Ai_EKeyType_VECTOR = 5
-    Ai_EKeyType_ROTATOR = 6
-    Ai_EKeyType_NAME = 7
-    Ai_EKeyType_CLASS = 8
-    Ai_EKeyType_ENUM = 9
-    Ai_EKeyType_OBJECT = 10
+    AiEKeyType_BOOL = 1
+    AiEKeyType_INT = 2
+    AiEKeyType_FLOAT = 3
+    AiEKeyType_STRING = 4
+    AiEKeyType_VECTOR = 5
+    AiEKeyType_ROTATOR = 6
+    AiEKeyType_NAME = 7
+    AiEKeyType_CLASS = 8
+    AiEKeyType_ENUM = 9
+    AiEKeyType_OBJECT = 10
 )

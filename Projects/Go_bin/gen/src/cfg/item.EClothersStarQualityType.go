@@ -10,14 +10,14 @@
 package cfg
 
 const (
-    Item_EClothersStarQualityType_ONE = 1
-    Item_EClothersStarQualityType_TWO = 2
-    Item_EClothersStarQualityType_THREE = 3
-    Item_EClothersStarQualityType_FOUR = 4
-    Item_EClothersStarQualityType_FIVE = 5
-    Item_EClothersStarQualityType_SIX = 6
-    Item_EClothersStarQualityType_SEVEN = 7
-    Item_EClothersStarQualityType_EIGHT = 8
-    Item_EClothersStarQualityType_NINE = 9
-    Item_EClothersStarQualityType_TEN = 10
+    ItemEClothersStarQualityType_ONE = 1
+    ItemEClothersStarQualityType_TWO = 2
+    ItemEClothersStarQualityType_THREE = 3
+    ItemEClothersStarQualityType_FOUR = 4
+    ItemEClothersStarQualityType_FIVE = 5
+    ItemEClothersStarQualityType_SIX = 6
+    ItemEClothersStarQualityType_SEVEN = 7
+    ItemEClothersStarQualityType_EIGHT = 8
+    ItemEClothersStarQualityType_NINE = 9
+    ItemEClothersStarQualityType_TEN = 10
 )

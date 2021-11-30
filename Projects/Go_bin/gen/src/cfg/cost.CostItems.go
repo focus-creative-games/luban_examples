@@ -6,38 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Cost_CostItems struct {
-    Cost_Cost
-    ItemList []*Cost_CostItem
+type CostCostItems struct {
+    ItemList []*CostCostItem
 }
 
-func (Cost_CostItems) GetTypeId() int {
+const TypeId_CostCostItems = -77945102
+
+func (*CostCostItems) GetTypeId() int32 {
     return -77945102
 }
 
-func NewCost_CostItems(_buf *serialization.ByteBuf) (_v *Cost_CostItems, err error) {
-    _v = &Cost_CostItems{}
-    var _p *Cost_Cost
-     if _p, err = NewCost_Cost_Body(_buf) ; err != nil { return }
-    _v.Cost_Cost = *_p
-     {
-                _v.ItemList = make([]*Cost_CostItem, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Cost_CostItem
-                    { if _e_, err = NewCost_CostItem(_buf); err != nil { return } }
-                    _v.ItemList = append(_v.ItemList, _e_)
-                }
-            }
+func (_v *CostCostItems)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *CostCostItems)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    {_v.ItemList = make([]*CostCostItem, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.ItemList error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *CostCostItem; { if _e_, err = DeserializeCostCostItem(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.ItemList = append(_v.ItemList, _e_) } }
     return
+}
+
+func DeserializeCostCostItems(_buf *serialization.ByteBuf) (*CostCostItems, error) {
+    v := &CostCostItems{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

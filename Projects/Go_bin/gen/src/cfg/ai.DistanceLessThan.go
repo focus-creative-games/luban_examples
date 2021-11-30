@@ -6,34 +6,51 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_DistanceLessThan struct {
-    Ai_Decorator
+type AiDistanceLessThan struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
     Actor1Key string
     Actor2Key string
     Distance float32
     ReverseResult bool
 }
 
-func (Ai_DistanceLessThan) GetTypeId() int {
+const TypeId_AiDistanceLessThan = -1207170283
+
+func (*AiDistanceLessThan) GetTypeId() int32 {
     return -1207170283
 }
 
-func NewAi_DistanceLessThan(_buf *serialization.ByteBuf) (_v *Ai_DistanceLessThan, err error) {
-    _v = &Ai_DistanceLessThan{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
-    { if _v.Actor1Key, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Actor2Key, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Distance, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.ReverseResult, err = _buf.ReadBool(); err != nil { return } }
+func (_v *AiDistanceLessThan)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiDistanceLessThan)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FlowAbortMode error"); return } }
+    { if _v.Actor1Key, err = _buf.ReadString(); err != nil { err = errors.New("_v.Actor1Key error"); return } }
+    { if _v.Actor2Key, err = _buf.ReadString(); err != nil { err = errors.New("_v.Actor2Key error"); return } }
+    { if _v.Distance, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.Distance error"); return } }
+    { if _v.ReverseResult, err = _buf.ReadBool(); err != nil { err = errors.New("_v.ReverseResult error"); err = errors.New("_v.ReverseResult error"); return } }
     return
+}
+
+func DeserializeAiDistanceLessThan(_buf *serialization.ByteBuf) (*AiDistanceLessThan, error) {
+    v := &AiDistanceLessThan{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

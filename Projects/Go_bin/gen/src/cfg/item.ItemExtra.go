@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,30 +15,38 @@ import (
 
 import "errors"
 
-type Item_ItemExtra struct {
+type ItemItemExtra struct {
     Id int32
 }
 
+const TypeId_ItemItemExtra = 23433090
 
-func NewItem_ItemExtra(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case 1494222369: return NewItem_TreasureBox(_buf)
-        case 640937802: return NewItem_InteractionItem(_buf)
-        case 1659907149: return NewItem_Clothes(_buf)
-        case -1679179579: return NewItem_DesignDrawing(_buf)
-        case 896889705: return NewItem_Dymmy(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*ItemItemExtra) GetTypeId() int32 {
+    return 23433090
+}
+
+func (_v *ItemItemExtra)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemItemExtra)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
     return
 }
 
-func NewItem_ItemExtra_Body(_buf *serialization.ByteBuf) (_v *Item_ItemExtra, err error) {
-    _v = &Item_ItemExtra{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    return
+func DeserializeItemItemExtra(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case 1494222369: _v := &ItemTreasureBox{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("item.TreasureBox") } else { return _v, nil }
+        case 640937802: _v := &ItemInteractionItem{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("item.InteractionItem") } else { return _v, nil }
+        case 1659907149: _v := &ItemClothes{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("item.Clothes") } else { return _v, nil }
+        case -1679179579: _v := &ItemDesignDrawing{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("item.DesignDrawing") } else { return _v, nil }
+        case 896889705: _v := &ItemDymmy{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("item.Dymmy") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Test_TbFullTypes struct {
-    _dataMap map[int32]*Test_DemoType2
-    _dataList []*Test_DemoType2
+type TestTbFullTypes struct {
+    _dataMap map[int32]*TestDemoType2
+    _dataList []*TestDemoType2
 }
 
-func NewTest_TbFullTypes(_buf *serialization.ByteBuf) (*Test_TbFullTypes, error) {
+func NewTestTbFullTypes(_buf *serialization.ByteBuf) (*TestTbFullTypes, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Test_DemoType2, 0, size)
-		dataMap := make(map[int32]*Test_DemoType2)
+		_dataList := make([]*TestDemoType2, 0, size)
+		dataMap := make(map[int32]*TestDemoType2)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewTest_DemoType2(_buf); err2 != nil {
+			if _v, err2 := DeserializeTestDemoType2(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.X4] = _v
 			}
 		}
-		return &Test_TbFullTypes{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &TestTbFullTypes{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Test_TbFullTypes) GetDataMap() map[int32]*Test_DemoType2 {
+func (table *TestTbFullTypes) GetDataMap() map[int32]*TestDemoType2 {
     return table._dataMap
 }
 
-func (table *Test_TbFullTypes) GetDataList() []*Test_DemoType2 {
+func (table *TestTbFullTypes) GetDataList() []*TestDemoType2 {
     return table._dataList
 }
 
-func (table *Test_TbFullTypes) Get(key int32) *Test_DemoType2 {
+func (table *TestTbFullTypes) Get(key int32) *TestDemoType2 {
     return table._dataMap[key]
 }
 

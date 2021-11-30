@@ -11,7 +11,7 @@ package cfg
 
 import "errors"
 
-type Test_TestMap struct {
+type TestTestMap struct {
     Id int32
     X1 map[int32]int32
     X2 map[int64]int32
@@ -19,12 +19,13 @@ type Test_TestMap struct {
     X4 map[int32]int32
 }
 
-func (Test_TestMap) GetTypeId() int {
+const TypeId_TestTestMap = -543227410
+
+func (*TestTestMap) GetTypeId() int32 {
     return -543227410
 }
 
-func NewTest_TestMap(_buf map[string]interface{}) (_v *Test_TestMap, err error) {
-    _v = &Test_TestMap{}
+func (_v *TestTestMap)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     {
                 var _arr_ []interface{}
@@ -95,4 +96,13 @@ func NewTest_TestMap(_buf map[string]interface{}) (_v *Test_TestMap, err error) 
                 }
                 }
     return
+}
+
+func DeserializeTestTestMap(_buf map[string]interface{}) (*TestTestMap, error) {
+    v := &TestTestMap{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

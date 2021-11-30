@@ -6,28 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_IntKeyData struct {
-    Ai_KeyData
+type AiIntKeyData struct {
     Value int32
 }
 
-func (Ai_IntKeyData) GetTypeId() int {
+const TypeId_AiIntKeyData = -342751904
+
+func (*AiIntKeyData) GetTypeId() int32 {
     return -342751904
 }
 
-func NewAi_IntKeyData(_buf *serialization.ByteBuf) (_v *Ai_IntKeyData, err error) {
-    _v = &Ai_IntKeyData{}
-    var _p *Ai_KeyData
-     if _p, err = NewAi_KeyData_Body(_buf) ; err != nil { return }
-    _v.Ai_KeyData = *_p
-    { if _v.Value, err = _buf.ReadInt(); err != nil { return } }
+func (_v *AiIntKeyData)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiIntKeyData)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Value, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Value error"); return } }
     return
+}
+
+func DeserializeAiIntKeyData(_buf *serialization.ByteBuf) (*AiIntKeyData, error) {
+    v := &AiIntKeyData{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

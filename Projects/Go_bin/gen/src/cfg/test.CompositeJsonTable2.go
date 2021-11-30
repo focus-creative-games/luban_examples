@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_CompositeJsonTable2 struct {
+type TestCompositeJsonTable2 struct {
     Id int32
     Y int32
 }
 
-func (Test_CompositeJsonTable2) GetTypeId() int {
+const TypeId_TestCompositeJsonTable2 = 1566207895
+
+func (*TestCompositeJsonTable2) GetTypeId() int32 {
     return 1566207895
 }
 
-func NewTest_CompositeJsonTable2(_buf *serialization.ByteBuf) (_v *Test_CompositeJsonTable2, err error) {
-    _v = &Test_CompositeJsonTable2{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.Y, err = _buf.ReadInt(); err != nil { return } }
+func (_v *TestCompositeJsonTable2)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestCompositeJsonTable2)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Y, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Y error"); return } }
     return
+}
+
+func DeserializeTestCompositeJsonTable2(_buf *serialization.ByteBuf) (*TestCompositeJsonTable2, error) {
+    v := &TestCompositeJsonTable2{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

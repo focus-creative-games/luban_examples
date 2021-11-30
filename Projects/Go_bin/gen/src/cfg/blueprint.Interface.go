@@ -6,26 +6,45 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Blueprint_Interface struct {
-    Blueprint_Clazz
+type BlueprintInterface struct {
+    Name string
+    Desc string
+    Parents []interface{}
+    Methods []interface{}
 }
 
-func (Blueprint_Interface) GetTypeId() int {
+const TypeId_BlueprintInterface = 2114170750
+
+func (*BlueprintInterface) GetTypeId() int32 {
     return 2114170750
 }
 
-func NewBlueprint_Interface(_buf *serialization.ByteBuf) (_v *Blueprint_Interface, err error) {
-    _v = &Blueprint_Interface{}
-    var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
-    _v.Blueprint_Clazz = *_p
+func (_v *BlueprintInterface)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintInterface)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
+    {_v.Parents = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Parents error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintClazz(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Parents = append(_v.Parents, _e_) } }
+    {_v.Methods = make([]interface{}, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.Methods error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ interface{}; { if _e_, err = DeserializeBlueprintMethod(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.Methods = append(_v.Methods, _e_) } }
     return
+}
+
+func DeserializeBlueprintInterface(_buf *serialization.ByteBuf) (*BlueprintInterface, error) {
+    v := &BlueprintInterface{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

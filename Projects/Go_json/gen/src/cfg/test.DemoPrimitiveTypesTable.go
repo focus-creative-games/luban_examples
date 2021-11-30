@@ -12,7 +12,7 @@ package cfg
 import "errors"
 import "bright/math"
 
-type Test_DemoPrimitiveTypesTable struct {
+type TestDemoPrimitiveTypesTable struct {
     X1 bool
     X2 byte
     X3 int16
@@ -28,12 +28,13 @@ type Test_DemoPrimitiveTypesTable struct {
     T1 int32
 }
 
-func (Test_DemoPrimitiveTypesTable) GetTypeId() int {
+const TypeId_TestDemoPrimitiveTypesTable = -370934083
+
+func (*TestDemoPrimitiveTypesTable) GetTypeId() int32 {
     return -370934083
 }
 
-func NewTest_DemoPrimitiveTypesTable(_buf map[string]interface{}) (_v *Test_DemoPrimitiveTypesTable, err error) {
-    _v = &Test_DemoPrimitiveTypesTable{}
+func (_v *TestDemoPrimitiveTypesTable)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.X1, _ok_ = _buf["x1"].(bool); !_ok_ { err = errors.New("x1 error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = byte(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int16(_tempNum_) }
@@ -69,4 +70,13 @@ func NewTest_DemoPrimitiveTypesTable(_buf map[string]interface{}) (_v *Test_Demo
 
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["t1"].(float64); !_ok_ { err = errors.New("t1 error"); return }; _v.T1 = int32(_tempNum_) }
     return
+}
+
+func DeserializeTestDemoPrimitiveTypesTable(_buf map[string]interface{}) (*TestDemoPrimitiveTypesTable, error) {
+    v := &TestDemoPrimitiveTypesTable{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

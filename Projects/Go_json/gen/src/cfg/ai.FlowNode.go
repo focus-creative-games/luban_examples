@@ -11,40 +11,22 @@ package cfg
 
 import "errors"
 
-type Ai_FlowNode struct {
-    Ai_Node
+type AiFlowNode struct {
+    Id int32
+    NodeName string
     Decorators []interface{}
     Services []interface{}
 }
 
+const TypeId_AiFlowNode = -1109240970
 
-func NewAi_FlowNode(_buf map[string]interface{}) (_v interface{}, err error) {
-    var id string
-    var _ok_ bool
-    if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
-        return nil, errors.New("type id missing")
-    }
-    switch id {
-        case "Sequence": return NewAi_Sequence(_buf);
-        case "Selector": return NewAi_Selector(_buf);
-        case "SimpleParallel": return NewAi_SimpleParallel(_buf);
-        case "UeWait": return NewAi_UeWait(_buf);
-        case "UeWaitBlackboardTime": return NewAi_UeWaitBlackboardTime(_buf);
-        case "MoveToTarget": return NewAi_MoveToTarget(_buf);
-        case "ChooseSkill": return NewAi_ChooseSkill(_buf);
-        case "MoveToRandomLocation": return NewAi_MoveToRandomLocation(_buf);
-        case "MoveToLocation": return NewAi_MoveToLocation(_buf);
-        case "DebugPrint": return NewAi_DebugPrint(_buf);
-        default: return nil, errors.New("unknown type id")
-    }
-    return
+func (*AiFlowNode) GetTypeId() int32 {
+    return -1109240970
 }
 
-func NewAi_FlowNode_Body(_buf map[string]interface{}) (_v *Ai_FlowNode, err error) {
-    _v = &Ai_FlowNode{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
+func (_v *AiFlowNode)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
@@ -54,7 +36,7 @@ func NewAi_FlowNode_Body(_buf map[string]interface{}) (_v *Ai_FlowNode, err erro
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_Decorator(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
                     _v.Decorators = append(_v.Decorators, _list_v_)
                 }
             }
@@ -68,10 +50,31 @@ func NewAi_FlowNode_Body(_buf map[string]interface{}) (_v *Ai_FlowNode, err erro
                 
                 for _, _e_ := range _arr_ {
                     var _list_v_ interface{}
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAi_Service(_x_); err != nil { return } }
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
                     _v.Services = append(_v.Services, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeAiFlowNode(_buf map[string]interface{}) (interface{}, error) {
+    var id string
+    var _ok_ bool
+    if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
+        return nil, errors.New("type id missing")
+    }
+    switch id {
+        case "Sequence": _v := &AiSequence{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Sequence") } else { return _v, nil }
+        case "Selector": _v := &AiSelector{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.Selector") } else { return _v, nil }
+        case "SimpleParallel": _v := &AiSimpleParallel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.SimpleParallel") } else { return _v, nil }
+        case "UeWait": _v := &AiUeWait{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWait") } else { return _v, nil }
+        case "UeWaitBlackboardTime": _v := &AiUeWaitBlackboardTime{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWaitBlackboardTime") } else { return _v, nil }
+        case "MoveToTarget": _v := &AiMoveToTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToTarget") } else { return _v, nil }
+        case "ChooseSkill": _v := &AiChooseSkill{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseSkill") } else { return _v, nil }
+        case "MoveToRandomLocation": _v := &AiMoveToRandomLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToRandomLocation") } else { return _v, nil }
+        case "MoveToLocation": _v := &AiMoveToLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToLocation") } else { return _v, nil }
+        case "DebugPrint": _v := &AiDebugPrint{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DebugPrint") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }

@@ -11,35 +11,75 @@ package cfg
 
 import "errors"
 
-type Blueprint_NormalClazz struct {
-    Blueprint_Clazz
+type BlueprintNormalClazz struct {
+    Name string
+    Desc string
+    Parents []interface{}
+    Methods []interface{}
     IsAbstract bool
-    Fields []*Blueprint_Field
+    Fields []*BlueprintField
 }
 
-func (Blueprint_NormalClazz) GetTypeId() int {
+const TypeId_BlueprintNormalClazz = -2073576778
+
+func (*BlueprintNormalClazz) GetTypeId() int32 {
     return -2073576778
 }
 
-func NewBlueprint_NormalClazz(_buf map[string]interface{}) (_v *Blueprint_NormalClazz, err error) {
-    _v = &Blueprint_NormalClazz{}
-    var _p *Blueprint_Clazz
-     if _p, err = NewBlueprint_Clazz_Body(_buf) ; err != nil { return }
-    _v.Blueprint_Clazz = *_p
+func (_v *BlueprintNormalClazz)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
+    { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["parents"].([]interface{}); !_ok_ { err = errors.New("parents error"); return }
+
+                _v.Parents = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBlueprintClazz(_x_); err != nil { return } }
+                    _v.Parents = append(_v.Parents, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["methods"].([]interface{}); !_ok_ { err = errors.New("methods error"); return }
+
+                _v.Methods = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBlueprintMethod(_x_); err != nil { return } }
+                    _v.Methods = append(_v.Methods, _list_v_)
+                }
+            }
+
     { var _ok_ bool; if _v.IsAbstract, _ok_ = _buf["is_abstract"].(bool); !_ok_ { err = errors.New("is_abstract error"); return } }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["fields"].([]interface{}); !_ok_ { err = errors.New("fields error"); return }
 
-                _v.Fields = make([]*Blueprint_Field, 0, len(_arr_))
+                _v.Fields = make([]*BlueprintField, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Blueprint_Field
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBlueprint_Field(_x_); err != nil { return } }
+                    var _list_v_ *BlueprintField
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBlueprintField(_x_); err != nil { return } }
                     _v.Fields = append(_v.Fields, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeBlueprintNormalClazz(_buf map[string]interface{}) (*BlueprintNormalClazz, error) {
+    v := &BlueprintNormalClazz{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

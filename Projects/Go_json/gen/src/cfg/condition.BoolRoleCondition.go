@@ -11,32 +11,31 @@ package cfg
 
 import "errors"
 
-type Condition_BoolRoleCondition struct {
-    Condition_RoleCondition
+type ConditionBoolRoleCondition struct {
 }
 
+const TypeId_ConditionBoolRoleCondition = -293269432
 
-func NewCondition_BoolRoleCondition(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*ConditionBoolRoleCondition) GetTypeId() int32 {
+    return -293269432
+}
+
+func (_v *ConditionBoolRoleCondition)Deserialize(_buf map[string]interface{}) (err error) {
+    return
+}
+
+func DeserializeConditionBoolRoleCondition(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "GenderLimit": return NewCondition_GenderLimit(_buf);
-        case "MinLevel": return NewCondition_MinLevel(_buf);
-        case "MaxLevel": return NewCondition_MaxLevel(_buf);
-        case "MinMaxLevel": return NewCondition_MinMaxLevel(_buf);
-        case "ClothesPropertyScoreGreaterThan": return NewCondition_ClothesPropertyScoreGreaterThan(_buf);
+        case "GenderLimit": _v := &ConditionGenderLimit{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.GenderLimit") } else { return _v, nil }
+        case "MinLevel": _v := &ConditionMinLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinLevel") } else { return _v, nil }
+        case "MaxLevel": _v := &ConditionMaxLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MaxLevel") } else { return _v, nil }
+        case "MinMaxLevel": _v := &ConditionMinMaxLevel{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.MinMaxLevel") } else { return _v, nil }
+        case "ClothesPropertyScoreGreaterThan": _v := &ConditionClothesPropertyScoreGreaterThan{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("condition.ClothesPropertyScoreGreaterThan") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewCondition_BoolRoleCondition_Body(_buf map[string]interface{}) (_v *Condition_BoolRoleCondition, err error) {
-    _v = &Condition_BoolRoleCondition{}
-    var _p *Condition_RoleCondition
-     if _p, err = NewCondition_RoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_RoleCondition = *_p
-    return
 }

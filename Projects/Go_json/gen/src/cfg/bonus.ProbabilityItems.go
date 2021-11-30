@@ -11,33 +11,39 @@ package cfg
 
 import "errors"
 
-type Bonus_ProbabilityItems struct {
-    Bonus_Bonus
-    ItemList []*Bonus_ProbabilityItemInfo
+type BonusProbabilityItems struct {
+    ItemList []*BonusProbabilityItemInfo
 }
 
-func (Bonus_ProbabilityItems) GetTypeId() int {
+const TypeId_BonusProbabilityItems = 366387866
+
+func (*BonusProbabilityItems) GetTypeId() int32 {
     return 366387866
 }
 
-func NewBonus_ProbabilityItems(_buf map[string]interface{}) (_v *Bonus_ProbabilityItems, err error) {
-    _v = &Bonus_ProbabilityItems{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
+func (_v *BonusProbabilityItems)Deserialize(_buf map[string]interface{}) (err error) {
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["item_list"].([]interface{}); !_ok_ { err = errors.New("item_list error"); return }
 
-                _v.ItemList = make([]*Bonus_ProbabilityItemInfo, 0, len(_arr_))
+                _v.ItemList = make([]*BonusProbabilityItemInfo, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Bonus_ProbabilityItemInfo
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewBonus_ProbabilityItemInfo(_x_); err != nil { return } }
+                    var _list_v_ *BonusProbabilityItemInfo
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeBonusProbabilityItemInfo(_x_); err != nil { return } }
                     _v.ItemList = append(_v.ItemList, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeBonusProbabilityItems(_buf map[string]interface{}) (*BonusProbabilityItems, error) {
+    v := &BonusProbabilityItems{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

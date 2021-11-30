@@ -11,20 +11,30 @@ package cfg
 
 import "errors"
 
-type Ai_KeepFaceTarget struct {
-    Ai_Service
+type AiKeepFaceTarget struct {
+    Id int32
+    NodeName string
     TargetActorKey string
 }
 
-func (Ai_KeepFaceTarget) GetTypeId() int {
+const TypeId_AiKeepFaceTarget = 1195270745
+
+func (*AiKeepFaceTarget) GetTypeId() int32 {
     return 1195270745
 }
 
-func NewAi_KeepFaceTarget(_buf map[string]interface{}) (_v *Ai_KeepFaceTarget, err error) {
-    _v = &Ai_KeepFaceTarget{}
-    var _p *Ai_Service
-     if _p, err = NewAi_Service_Body(_buf) ; err != nil { return }
-    _v.Ai_Service = *_p
+func (_v *AiKeepFaceTarget)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
     { var _ok_ bool; if _v.TargetActorKey, _ok_ = _buf["target_actor_key"].(string); !_ok_ { err = errors.New("target_actor_key error"); return } }
     return
+}
+
+func DeserializeAiKeepFaceTarget(_buf map[string]interface{}) (*AiKeepFaceTarget, error) {
+    v := &AiKeepFaceTarget{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

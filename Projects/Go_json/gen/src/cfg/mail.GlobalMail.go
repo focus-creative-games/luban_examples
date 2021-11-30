@@ -11,7 +11,7 @@ package cfg
 
 import "errors"
 
-type Mail_GlobalMail struct {
+type MailGlobalMail struct {
     Id int32
     Title string
     Sender string
@@ -21,17 +21,18 @@ type Mail_GlobalMail struct {
     ServerList []int32
     Platform string
     Channel string
-    MinMaxLevel *Condition_MinMaxLevel
-    RegisterTime *Condition_TimeRange
-    MailTime *Condition_TimeRange
+    MinMaxLevel *ConditionMinMaxLevel
+    RegisterTime *ConditionTimeRange
+    MailTime *ConditionTimeRange
 }
 
-func (Mail_GlobalMail) GetTypeId() int {
+const TypeId_MailGlobalMail = -287571791
+
+func (*MailGlobalMail) GetTypeId() int32 {
     return -287571791
 }
 
-func NewMail_GlobalMail(_buf map[string]interface{}) (_v *Mail_GlobalMail, err error) {
-    _v = &Mail_GlobalMail{}
+func (_v *MailGlobalMail)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Title, _ok_ = _buf["title"].(string); !_ok_ { err = errors.New("title error"); return } }
     { var _ok_ bool; if _v.Sender, _ok_ = _buf["sender"].(string); !_ok_ { err = errors.New("sender error"); return } }
@@ -67,8 +68,17 @@ func NewMail_GlobalMail(_buf map[string]interface{}) (_v *Mail_GlobalMail, err e
 
     { var _ok_ bool; if _v.Platform, _ok_ = _buf["platform"].(string); !_ok_ { err = errors.New("platform error"); return } }
     { var _ok_ bool; if _v.Channel, _ok_ = _buf["channel"].(string); !_ok_ { err = errors.New("channel error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["min_max_level"].(map[string]interface{}); !_ok_ { err = errors.New("min_max_level error"); return }; if _v.MinMaxLevel, err = NewCondition_MinMaxLevel(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["register_time"].(map[string]interface{}); !_ok_ { err = errors.New("register_time error"); return }; if _v.RegisterTime, err = NewCondition_TimeRange(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["mail_time"].(map[string]interface{}); !_ok_ { err = errors.New("mail_time error"); return }; if _v.MailTime, err = NewCondition_TimeRange(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["min_max_level"].(map[string]interface{}); !_ok_ { err = errors.New("min_max_level error"); return }; if _v.MinMaxLevel, err = DeserializeConditionMinMaxLevel(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["register_time"].(map[string]interface{}); !_ok_ { err = errors.New("register_time error"); return }; if _v.RegisterTime, err = DeserializeConditionTimeRange(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["mail_time"].(map[string]interface{}); !_ok_ { err = errors.New("mail_time error"); return }; if _v.MailTime, err = DeserializeConditionTimeRange(_x_); err != nil { return } }
     return
+}
+
+func DeserializeMailGlobalMail(_buf map[string]interface{}) (*MailGlobalMail, error) {
+    v := &MailGlobalMail{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Item_EClothersTag_FANG_SHAI = 1
-    Item_EClothersTag_WU_ZHE = 2
+    ItemEClothersTag_FANG_SHAI = 1
+    ItemEClothersTag_WU_ZHE = 2
 )

@@ -11,26 +11,34 @@ package cfg
 
 import "errors"
 
-type Item_Clothes struct {
-    Item_ItemExtra
+type ItemClothes struct {
+    Id int32
     Attack int32
     Hp int64
     EnergyLimit int32
     EnergyResume int32
 }
 
-func (Item_Clothes) GetTypeId() int {
+const TypeId_ItemClothes = 1659907149
+
+func (*ItemClothes) GetTypeId() int32 {
     return 1659907149
 }
 
-func NewItem_Clothes(_buf map[string]interface{}) (_v *Item_Clothes, err error) {
-    _v = &Item_Clothes{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
+func (_v *ItemClothes)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["attack"].(float64); !_ok_ { err = errors.New("attack error"); return }; _v.Attack = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["hp"].(float64); !_ok_ { err = errors.New("hp error"); return }; _v.Hp = int64(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["energy_limit"].(float64); !_ok_ { err = errors.New("energy_limit error"); return }; _v.EnergyLimit = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["energy_resume"].(float64); !_ok_ { err = errors.New("energy_resume error"); return }; _v.EnergyResume = int32(_tempNum_) }
     return
+}
+
+func DeserializeItemClothes(_buf map[string]interface{}) (*ItemClothes, error) {
+    v := &ItemClothes{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

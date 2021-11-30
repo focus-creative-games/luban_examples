@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Bonus_WeightBonusInfo struct {
+type BonusWeightBonusInfo struct {
     Bonus interface{}
     Weight int32
 }
 
-func (Bonus_WeightBonusInfo) GetTypeId() int {
+const TypeId_BonusWeightBonusInfo = -907244058
+
+func (*BonusWeightBonusInfo) GetTypeId() int32 {
     return -907244058
 }
 
-func NewBonus_WeightBonusInfo(_buf map[string]interface{}) (_v *Bonus_WeightBonusInfo, err error) {
-    _v = &Bonus_WeightBonusInfo{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = NewBonus_Bonus(_x_); err != nil { return } }
+func (_v *BonusWeightBonusInfo)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["bonus"].(map[string]interface{}); !_ok_ { err = errors.New("bonus error"); return }; if _v.Bonus, err = DeserializeBonusBonus(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["weight"].(float64); !_ok_ { err = errors.New("weight error"); return }; _v.Weight = int32(_tempNum_) }
     return
+}
+
+func DeserializeBonusWeightBonusInfo(_buf map[string]interface{}) (*BonusWeightBonusInfo, error) {
+    v := &BonusWeightBonusInfo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

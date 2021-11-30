@@ -11,22 +11,28 @@ package cfg
 
 import "errors"
 
-type Error_ErrorStyleMsgbox struct {
-    Error_ErrorStyle
+type ErrorErrorStyleMsgbox struct {
     BtnName string
     Operation int32
 }
 
-func (Error_ErrorStyleMsgbox) GetTypeId() int {
+const TypeId_ErrorErrorStyleMsgbox = -1920482343
+
+func (*ErrorErrorStyleMsgbox) GetTypeId() int32 {
     return -1920482343
 }
 
-func NewError_ErrorStyleMsgbox(_buf map[string]interface{}) (_v *Error_ErrorStyleMsgbox, err error) {
-    _v = &Error_ErrorStyleMsgbox{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
+func (_v *ErrorErrorStyleMsgbox)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.BtnName, _ok_ = _buf["btn_name"].(string); !_ok_ { err = errors.New("btn_name error"); return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["operation"].(float64); !_ok_ { err = errors.New("operation error"); return }; _v.Operation = int32(_tempNum_) }
     return
+}
+
+func DeserializeErrorErrorStyleMsgbox(_buf map[string]interface{}) (*ErrorErrorStyleMsgbox, error) {
+    v := &ErrorErrorStyleMsgbox{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

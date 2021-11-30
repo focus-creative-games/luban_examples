@@ -8,8 +8,8 @@ set PROTO_ROOT=%WORKSPACE%\ProtoDefines
  -d %PROTO_ROOT%\__root__.xml ^
  --output_code_dir TsScripts/src/Gen/Proto ^
  --gen_type typescript ^
- --use_puerts_bytebuf ^
- --embed_bright_types ^
+ --typescript:use_puerts_bytebuf ^
+ --typescript:embed_bright_types ^
  -s all 
 
 pause

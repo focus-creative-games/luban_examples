@@ -6,32 +6,49 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Ai_UeLoop struct {
-    Ai_Decorator
+type AiUeLoop struct {
+    Id int32
+    NodeName string
+    FlowAbortMode int32
     NumLoops int32
     InfiniteLoop bool
     InfiniteLoopTimeoutTime float32
 }
 
-func (Ai_UeLoop) GetTypeId() int {
+const TypeId_AiUeLoop = -513308166
+
+func (*AiUeLoop) GetTypeId() int32 {
     return -513308166
 }
 
-func NewAi_UeLoop(_buf *serialization.ByteBuf) (_v *Ai_UeLoop, err error) {
-    _v = &Ai_UeLoop{}
-    var _p *Ai_Decorator
-     if _p, err = NewAi_Decorator_Body(_buf) ; err != nil { return }
-    _v.Ai_Decorator = *_p
-    { if _v.NumLoops, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.InfiniteLoop, err = _buf.ReadBool(); err != nil { return } }
-    { if _v.InfiniteLoopTimeoutTime, err = _buf.ReadFloat(); err != nil { return } }
+func (_v *AiUeLoop)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiUeLoop)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FlowAbortMode error"); return } }
+    { if _v.NumLoops, err = _buf.ReadInt(); err != nil { err = errors.New("_v.NumLoops error"); return } }
+    { if _v.InfiniteLoop, err = _buf.ReadBool(); err != nil { err = errors.New("_v.InfiniteLoop error"); err = errors.New("_v.InfiniteLoop error"); return } }
+    { if _v.InfiniteLoopTimeoutTime, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.InfiniteLoopTimeoutTime error"); return } }
     return
+}
+
+func DeserializeAiUeLoop(_buf *serialization.ByteBuf) (*AiUeLoop, error) {
+    v := &AiUeLoop{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

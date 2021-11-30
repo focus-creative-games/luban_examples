@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_MultiRowType1 struct {
+type TestMultiRowType1 struct {
     Id int32
     X int32
 }
 
-func (Test_MultiRowType1) GetTypeId() int {
+const TypeId_TestMultiRowType1 = 540474970
+
+func (*TestMultiRowType1) GetTypeId() int32 {
     return 540474970
 }
 
-func NewTest_MultiRowType1(_buf *serialization.ByteBuf) (_v *Test_MultiRowType1, err error) {
-    _v = &Test_MultiRowType1{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.X, err = _buf.ReadInt(); err != nil { return } }
+func (_v *TestMultiRowType1)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestMultiRowType1)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.X, err = _buf.ReadInt(); err != nil { err = errors.New("_v.X error"); return } }
     return
+}
+
+func DeserializeTestMultiRowType1(_buf *serialization.ByteBuf) (*TestMultiRowType1, error) {
+    v := &TestMultiRowType1{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

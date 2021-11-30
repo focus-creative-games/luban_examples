@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Ai_ENotifyObserverMode_ON_VALUE_CHANGE = 0
-    Ai_ENotifyObserverMode_ON_RESULT_CHANGE = 1
+    AiENotifyObserverMode_ON_VALUE_CHANGE = 0
+    AiENotifyObserverMode_ON_RESULT_CHANGE = 1
 )

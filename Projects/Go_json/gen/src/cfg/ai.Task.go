@@ -11,36 +11,69 @@ package cfg
 
 import "errors"
 
-type Ai_Task struct {
-    Ai_FlowNode
+type AiTask struct {
+    Id int32
+    NodeName string
+    Decorators []interface{}
+    Services []interface{}
     IgnoreRestartSelf bool
 }
 
+const TypeId_AiTask = -1055314005
 
-func NewAi_Task(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*AiTask) GetTypeId() int32 {
+    return -1055314005
+}
+
+func (_v *AiTask)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+
+                _v.Decorators = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiDecorator(_x_); err != nil { return } }
+                    _v.Decorators = append(_v.Decorators, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+
+                _v.Services = make([]interface{}, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ interface{}
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeAiService(_x_); err != nil { return } }
+                    _v.Services = append(_v.Services, _list_v_)
+                }
+            }
+
+    { var _ok_ bool; if _v.IgnoreRestartSelf, _ok_ = _buf["ignore_restart_self"].(bool); !_ok_ { err = errors.New("ignore_restart_self error"); return } }
+    return
+}
+
+func DeserializeAiTask(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "UeWait": return NewAi_UeWait(_buf);
-        case "UeWaitBlackboardTime": return NewAi_UeWaitBlackboardTime(_buf);
-        case "MoveToTarget": return NewAi_MoveToTarget(_buf);
-        case "ChooseSkill": return NewAi_ChooseSkill(_buf);
-        case "MoveToRandomLocation": return NewAi_MoveToRandomLocation(_buf);
-        case "MoveToLocation": return NewAi_MoveToLocation(_buf);
-        case "DebugPrint": return NewAi_DebugPrint(_buf);
+        case "UeWait": _v := &AiUeWait{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWait") } else { return _v, nil }
+        case "UeWaitBlackboardTime": _v := &AiUeWaitBlackboardTime{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeWaitBlackboardTime") } else { return _v, nil }
+        case "MoveToTarget": _v := &AiMoveToTarget{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToTarget") } else { return _v, nil }
+        case "ChooseSkill": _v := &AiChooseSkill{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.ChooseSkill") } else { return _v, nil }
+        case "MoveToRandomLocation": _v := &AiMoveToRandomLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToRandomLocation") } else { return _v, nil }
+        case "MoveToLocation": _v := &AiMoveToLocation{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.MoveToLocation") } else { return _v, nil }
+        case "DebugPrint": _v := &AiDebugPrint{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DebugPrint") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewAi_Task_Body(_buf map[string]interface{}) (_v *Ai_Task, err error) {
-    _v = &Ai_Task{}
-    var _p *Ai_FlowNode
-     if _p, err = NewAi_FlowNode_Body(_buf) ; err != nil { return }
-    _v.Ai_FlowNode = *_p
-    { var _ok_ bool; if _v.IgnoreRestartSelf, _ok_ = _buf["ignore_restart_self"].(bool); !_ok_ { err = errors.New("ignore_restart_self error"); return } }
-    return
 }

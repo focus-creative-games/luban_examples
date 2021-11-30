@@ -11,18 +11,28 @@ package cfg
 
 import "errors"
 
-type Test_H2 struct {
+type TestH2 struct {
     Z2 int32
     Z3 int32
 }
 
-func (Test_H2) GetTypeId() int {
+const TypeId_TestH2 = -1422503994
+
+func (*TestH2) GetTypeId() int32 {
     return -1422503994
 }
 
-func NewTest_H2(_buf map[string]interface{}) (_v *Test_H2, err error) {
-    _v = &Test_H2{}
+func (_v *TestH2)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["z2"].(float64); !_ok_ { err = errors.New("z2 error"); return }; _v.Z2 = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["z3"].(float64); !_ok_ { err = errors.New("z3 error"); return }; _v.Z3 = int32(_tempNum_) }
     return
+}
+
+func DeserializeTestH2(_buf map[string]interface{}) (*TestH2, error) {
+    v := &TestH2{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

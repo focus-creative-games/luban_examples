@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Role_EGenderType_MALE = 1
-    Role_EGenderType_FEMALE = 2
+    RoleEGenderType_MALE = 1
+    RoleEGenderType_FEMALE = 2
 )

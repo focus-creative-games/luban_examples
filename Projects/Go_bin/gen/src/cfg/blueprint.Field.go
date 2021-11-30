@@ -6,28 +6,43 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Blueprint_Field struct {
+type BlueprintField struct {
     Name string
     Type string
     Desc string
 }
 
-func (Blueprint_Field) GetTypeId() int {
+const TypeId_BlueprintField = 1694158271
+
+func (*BlueprintField) GetTypeId() int32 {
     return 1694158271
 }
 
-func NewBlueprint_Field(_buf *serialization.ByteBuf) (_v *Blueprint_Field, err error) {
-    _v = &Blueprint_Field{}
-    { if _v.Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Type, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Desc, err = _buf.ReadString(); err != nil { return } }
+func (_v *BlueprintField)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BlueprintField)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Name error"); return } }
+    { if _v.Type, err = _buf.ReadString(); err != nil { err = errors.New("_v.Type error"); return } }
+    { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("_v.Desc error"); return } }
     return
+}
+
+func DeserializeBlueprintField(_buf *serialization.ByteBuf) (*BlueprintField, error) {
+    v := &BlueprintField{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -11,33 +11,34 @@ package cfg
 
 import "errors"
 
-type Test_MultiRowTitle struct {
+type TestMultiRowTitle struct {
     Id int32
     Name string
-    X1 *Test_H1
-    X2 []*Test_H2
-    X3 []*Test_H2
+    X1 *TestH1
+    X2 []*TestH2
+    X3 []*TestH2
 }
 
-func (Test_MultiRowTitle) GetTypeId() int {
+const TypeId_TestMultiRowTitle = 540002427
+
+func (*TestMultiRowTitle) GetTypeId() int32 {
     return 540002427
 }
 
-func NewTest_MultiRowTitle(_buf map[string]interface{}) (_v *Test_MultiRowTitle, err error) {
-    _v = &Test_MultiRowTitle{}
+func (_v *TestMultiRowTitle)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x1"].(map[string]interface{}); !_ok_ { err = errors.New("x1 error"); return }; if _v.X1, err = NewTest_H1(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x1"].(map[string]interface{}); !_ok_ { err = errors.New("x1 error"); return }; if _v.X1, err = DeserializeTestH1(_x_); err != nil { return } }
      {
                 var _arr_ []interface{}
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["x2"].([]interface{}); !_ok_ { err = errors.New("x2 error"); return }
 
-                _v.X2 = make([]*Test_H2, 0, len(_arr_))
+                _v.X2 = make([]*TestH2, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_H2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_H2(_x_); err != nil { return } }
+                    var _list_v_ *TestH2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestH2(_x_); err != nil { return } }
                     _v.X2 = append(_v.X2, _list_v_)
                 }
             }
@@ -47,14 +48,23 @@ func NewTest_MultiRowTitle(_buf map[string]interface{}) (_v *Test_MultiRowTitle,
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["x3"].([]interface{}); !_ok_ { err = errors.New("x3 error"); return }
 
-                _v.X3 = make([]*Test_H2, 0, len(_arr_))
+                _v.X3 = make([]*TestH2, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_H2
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_H2(_x_); err != nil { return } }
+                    var _list_v_ *TestH2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestH2(_x_); err != nil { return } }
                     _v.X3 = append(_v.X3, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeTestMultiRowTitle(_buf map[string]interface{}) (*TestMultiRowTitle, error) {
+    v := &TestMultiRowTitle{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

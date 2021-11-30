@@ -6,26 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_ProbabilityBonusInfo struct {
+type BonusProbabilityBonusInfo struct {
     Bonus interface{}
     Probability float32
 }
 
-func (Bonus_ProbabilityBonusInfo) GetTypeId() int {
+const TypeId_BonusProbabilityBonusInfo = 46960455
+
+func (*BonusProbabilityBonusInfo) GetTypeId() int32 {
     return 46960455
 }
 
-func NewBonus_ProbabilityBonusInfo(_buf *serialization.ByteBuf) (_v *Bonus_ProbabilityBonusInfo, err error) {
-    _v = &Bonus_ProbabilityBonusInfo{}
-    { if _v.Bonus, err = NewBonus_Bonus(_buf); err != nil { return } }
-    { if _v.Probability, err = _buf.ReadFloat(); err != nil { return } }
+func (_v *BonusProbabilityBonusInfo)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *BonusProbabilityBonusInfo)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Bonus, err = DeserializeBonusBonus(_buf); err != nil { err = errors.New("_v.Bonus error"); return } }
+    { if _v.Probability, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.Probability error"); return } }
     return
+}
+
+func DeserializeBonusProbabilityBonusInfo(_buf *serialization.ByteBuf) (*BonusProbabilityBonusInfo, error) {
+    v := &BonusProbabilityBonusInfo{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

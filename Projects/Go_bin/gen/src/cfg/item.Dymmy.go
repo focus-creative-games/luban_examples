@@ -6,28 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Item_Dymmy struct {
-    Item_ItemExtra
+type ItemDymmy struct {
+    Id int32
     Cost interface{}
 }
 
-func (Item_Dymmy) GetTypeId() int {
+const TypeId_ItemDymmy = 896889705
+
+func (*ItemDymmy) GetTypeId() int32 {
     return 896889705
 }
 
-func NewItem_Dymmy(_buf *serialization.ByteBuf) (_v *Item_Dymmy, err error) {
-    _v = &Item_Dymmy{}
-    var _p *Item_ItemExtra
-     if _p, err = NewItem_ItemExtra_Body(_buf) ; err != nil { return }
-    _v.Item_ItemExtra = *_p
-    { if _v.Cost, err = NewCost_Cost(_buf); err != nil { return } }
+func (_v *ItemDymmy)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ItemDymmy)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.Cost, err = DeserializeCostCost(_buf); err != nil { err = errors.New("_v.Cost error"); return } }
     return
+}
+
+func DeserializeItemDymmy(_buf *serialization.ByteBuf) (*ItemDymmy, error) {
+    v := &ItemDymmy{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

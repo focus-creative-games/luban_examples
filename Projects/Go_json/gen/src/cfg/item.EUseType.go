@@ -10,6 +10,6 @@
 package cfg
 
 const (
-    Item_EUseType_MANUAL = 0
-    Item_EUseType_AUTO = 1
+    ItemEUseType_MANUAL = 0
+    ItemEUseType_AUTO = 1
 )

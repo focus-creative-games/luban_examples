@@ -6,43 +6,44 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import "bright/serialization"
 
-type Mail_TbGlobalMail struct {
-    _dataMap map[int32]*Mail_GlobalMail
-    _dataList []*Mail_GlobalMail
+type MailTbGlobalMail struct {
+    _dataMap map[int32]*MailGlobalMail
+    _dataList []*MailGlobalMail
 }
 
-func NewMail_TbGlobalMail(_buf *serialization.ByteBuf) (*Mail_TbGlobalMail, error) {
+func NewMailTbGlobalMail(_buf *serialization.ByteBuf) (*MailTbGlobalMail, error) {
 	if size, err := _buf.ReadSize() ; err != nil {
 		return nil, err
 	} else {
-		_dataList := make([]*Mail_GlobalMail, 0, size)
-		dataMap := make(map[int32]*Mail_GlobalMail)
+		_dataList := make([]*MailGlobalMail, 0, size)
+		dataMap := make(map[int32]*MailGlobalMail)
 
 		for i := 0 ; i < size ; i++ {
-			if _v, err2 := NewMail_GlobalMail(_buf); err2 != nil {
+			if _v, err2 := DeserializeMailGlobalMail(_buf); err2 != nil {
 				return nil, err2
 			} else {
 				_dataList = append(_dataList, _v)
 				dataMap[_v.Id] = _v
 			}
 		}
-		return &Mail_TbGlobalMail{_dataList:_dataList, _dataMap:dataMap}, nil
+		return &MailTbGlobalMail{_dataList:_dataList, _dataMap:dataMap}, nil
 	}
 }
 
-func (table *Mail_TbGlobalMail) GetDataMap() map[int32]*Mail_GlobalMail {
+func (table *MailTbGlobalMail) GetDataMap() map[int32]*MailGlobalMail {
     return table._dataMap
 }
 
-func (table *Mail_TbGlobalMail) GetDataList() []*Mail_GlobalMail {
+func (table *MailTbGlobalMail) GetDataList() []*MailGlobalMail {
     return table._dataList
 }
 
-func (table *Mail_TbGlobalMail) Get(key int32) *Mail_GlobalMail {
+func (table *MailTbGlobalMail) Get(key int32) *MailGlobalMail {
     return table._dataMap[key]
 }
 

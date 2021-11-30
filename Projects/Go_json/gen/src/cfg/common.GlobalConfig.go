@@ -11,7 +11,7 @@ package cfg
 
 import "errors"
 
-type Common_GlobalConfig struct {
+type CommonGlobalConfig struct {
     BagCapacity int32
     BagCapacitySpecial int32
     BagTempExpendableCapacity int32
@@ -35,12 +35,13 @@ type Common_GlobalConfig struct {
     PerVialityRecoveryTime int32
 }
 
-func (Common_GlobalConfig) GetTypeId() int {
+const TypeId_CommonGlobalConfig = -848234488
+
+func (*CommonGlobalConfig) GetTypeId() int32 {
     return -848234488
 }
 
-func NewCommon_GlobalConfig(_buf map[string]interface{}) (_v *Common_GlobalConfig, err error) {
-    _v = &Common_GlobalConfig{}
+func (_v *CommonGlobalConfig)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_capacity"].(float64); !_ok_ { err = errors.New("bag_capacity error"); return }; _v.BagCapacity = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_capacity_special"].(float64); !_ok_ { err = errors.New("bag_capacity_special error"); return }; _v.BagCapacitySpecial = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_temp_expendable_capacity"].(float64); !_ok_ { err = errors.New("bag_temp_expendable_capacity error"); return }; _v.BagTempExpendableCapacity = int32(_tempNum_) }
@@ -63,4 +64,13 @@ func NewCommon_GlobalConfig(_buf map[string]interface{}) (_v *Common_GlobalConfi
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["max_viality"].(float64); !_ok_ { err = errors.New("max_viality error"); return }; _v.MaxViality = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["per_viality_recovery_time"].(float64); !_ok_ { err = errors.New("per_viality_recovery_time error"); return }; _v.PerVialityRecoveryTime = int32(_tempNum_) }
     return
+}
+
+func DeserializeCommonGlobalConfig(_buf map[string]interface{}) (*CommonGlobalConfig, error) {
+    v := &CommonGlobalConfig{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

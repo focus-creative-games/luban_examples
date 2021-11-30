@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Error_ErrorStyleDlgOk struct {
-    Error_ErrorStyle
+type ErrorErrorStyleDlgOk struct {
     BtnName string
 }
 
-func (Error_ErrorStyleDlgOk) GetTypeId() int {
+const TypeId_ErrorErrorStyleDlgOk = -2010134516
+
+func (*ErrorErrorStyleDlgOk) GetTypeId() int32 {
     return -2010134516
 }
 
-func NewError_ErrorStyleDlgOk(_buf map[string]interface{}) (_v *Error_ErrorStyleDlgOk, err error) {
-    _v = &Error_ErrorStyleDlgOk{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
+func (_v *ErrorErrorStyleDlgOk)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; if _v.BtnName, _ok_ = _buf["btn_name"].(string); !_ok_ { err = errors.New("btn_name error"); return } }
     return
+}
+
+func DeserializeErrorErrorStyleDlgOk(_buf map[string]interface{}) (*ErrorErrorStyleDlgOk, error) {
+    v := &ErrorErrorStyleDlgOk{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

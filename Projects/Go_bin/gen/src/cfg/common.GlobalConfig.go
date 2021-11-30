@@ -6,15 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Common_GlobalConfig struct {
+type CommonGlobalConfig struct {
     BagCapacity int32
     BagCapacitySpecial int32
     BagTempExpendableCapacity int32
@@ -38,32 +39,46 @@ type Common_GlobalConfig struct {
     PerVialityRecoveryTime int32
 }
 
-func (Common_GlobalConfig) GetTypeId() int {
+const TypeId_CommonGlobalConfig = -848234488
+
+func (*CommonGlobalConfig) GetTypeId() int32 {
     return -848234488
 }
 
-func NewCommon_GlobalConfig(_buf *serialization.ByteBuf) (_v *Common_GlobalConfig, err error) {
-    _v = &Common_GlobalConfig{}
-    { if _v.BagCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.BagCapacitySpecial, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.BagTempExpendableCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.BagTempToolCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.BagInitCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.QuickBagCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.ClothBagCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.ClothBagInitCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.ClothBagCapacitySpecial, err = _buf.ReadInt(); err != nil { return } }
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.BagInitItemsDropId = &__x__ }}
-    { if _v.MailBoxCapacity, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.DamageParamC, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.DamageParamE, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.DamageParamF, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.DamageParamD, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.RoleSpeed, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.MonsterSpeed, err = _buf.ReadFloat(); err != nil { return } }
-    { if _v.InitEnergy, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.InitViality, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.MaxViality, err = _buf.ReadInt(); err != nil { return } }
-    { if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil { return } }
+func (_v *CommonGlobalConfig)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *CommonGlobalConfig)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.BagCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.BagCapacity error"); return } }
+    { if _v.BagCapacitySpecial, err = _buf.ReadInt(); err != nil { err = errors.New("_v.BagCapacitySpecial error"); return } }
+    { if _v.BagTempExpendableCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.BagTempExpendableCapacity error"); return } }
+    { if _v.BagTempToolCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.BagTempToolCapacity error"); return } }
+    { if _v.BagInitCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.BagInitCapacity error"); return } }
+    { if _v.QuickBagCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.QuickBagCapacity error"); return } }
+    { if _v.ClothBagCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.ClothBagCapacity error"); return } }
+    { if _v.ClothBagInitCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.ClothBagInitCapacity error"); return } }
+    { if _v.ClothBagCapacitySpecial, err = _buf.ReadInt(); err != nil { err = errors.New("_v.ClothBagCapacitySpecial error"); return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.BagInitItemsDropId = &__x__ }}
+    { if _v.MailBoxCapacity, err = _buf.ReadInt(); err != nil { err = errors.New("_v.MailBoxCapacity error"); return } }
+    { if _v.DamageParamC, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.DamageParamC error"); return } }
+    { if _v.DamageParamE, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.DamageParamE error"); return } }
+    { if _v.DamageParamF, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.DamageParamF error"); return } }
+    { if _v.DamageParamD, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.DamageParamD error"); return } }
+    { if _v.RoleSpeed, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.RoleSpeed error"); return } }
+    { if _v.MonsterSpeed, err = _buf.ReadFloat(); err != nil { err = errors.New("_v.MonsterSpeed error"); return } }
+    { if _v.InitEnergy, err = _buf.ReadInt(); err != nil { err = errors.New("_v.InitEnergy error"); return } }
+    { if _v.InitViality, err = _buf.ReadInt(); err != nil { err = errors.New("_v.InitViality error"); return } }
+    { if _v.MaxViality, err = _buf.ReadInt(); err != nil { err = errors.New("_v.MaxViality error"); return } }
+    { if _v.PerVialityRecoveryTime, err = _buf.ReadInt(); err != nil { err = errors.New("_v.PerVialityRecoveryTime error"); return } }
     return
+}
+
+func DeserializeCommonGlobalConfig(_buf *serialization.ByteBuf) (*CommonGlobalConfig, error) {
+    v := &CommonGlobalConfig{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

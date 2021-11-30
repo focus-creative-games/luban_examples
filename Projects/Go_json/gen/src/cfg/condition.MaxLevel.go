@@ -11,20 +11,26 @@ package cfg
 
 import "errors"
 
-type Condition_MaxLevel struct {
-    Condition_BoolRoleCondition
+type ConditionMaxLevel struct {
     Level int32
 }
 
-func (Condition_MaxLevel) GetTypeId() int {
+const TypeId_ConditionMaxLevel = 700922899
+
+func (*ConditionMaxLevel) GetTypeId() int32 {
     return 700922899
 }
 
-func NewCondition_MaxLevel(_buf map[string]interface{}) (_v *Condition_MaxLevel, err error) {
-    _v = &Condition_MaxLevel{}
-    var _p *Condition_BoolRoleCondition
-     if _p, err = NewCondition_BoolRoleCondition_Body(_buf) ; err != nil { return }
-    _v.Condition_BoolRoleCondition = *_p
+func (_v *ConditionMaxLevel)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["level"].(float64); !_ok_ { err = errors.New("level error"); return }; _v.Level = int32(_tempNum_) }
     return
+}
+
+func DeserializeConditionMaxLevel(_buf map[string]interface{}) (*ConditionMaxLevel, error) {
+    v := &ConditionMaxLevel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

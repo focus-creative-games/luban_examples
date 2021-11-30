@@ -11,30 +11,33 @@ package cfg
 
 import "errors"
 
-type Item_ItemExtra struct {
+type ItemItemExtra struct {
     Id int32
 }
 
+const TypeId_ItemItemExtra = 23433090
 
-func NewItem_ItemExtra(_buf map[string]interface{}) (_v interface{}, err error) {
+func (*ItemItemExtra) GetTypeId() int32 {
+    return 23433090
+}
+
+func (_v *ItemItemExtra)Deserialize(_buf map[string]interface{}) (err error) {
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    return
+}
+
+func DeserializeItemItemExtra(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
     if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "TreasureBox": return NewItem_TreasureBox(_buf);
-        case "InteractionItem": return NewItem_InteractionItem(_buf);
-        case "Clothes": return NewItem_Clothes(_buf);
-        case "DesignDrawing": return NewItem_DesignDrawing(_buf);
-        case "Dymmy": return NewItem_Dymmy(_buf);
+        case "TreasureBox": _v := &ItemTreasureBox{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("item.TreasureBox") } else { return _v, nil }
+        case "InteractionItem": _v := &ItemInteractionItem{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("item.InteractionItem") } else { return _v, nil }
+        case "Clothes": _v := &ItemClothes{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("item.Clothes") } else { return _v, nil }
+        case "DesignDrawing": _v := &ItemDesignDrawing{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("item.DesignDrawing") } else { return _v, nil }
+        case "Dymmy": _v := &ItemDymmy{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("item.Dymmy") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
-    return
-}
-
-func NewItem_ItemExtra_Body(_buf map[string]interface{}) (_v *Item_ItemExtra, err error) {
-    _v = &Item_ItemExtra{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    return
 }

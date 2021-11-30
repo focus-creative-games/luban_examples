@@ -6,30 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Error_ErrorStyleDlgOkCancel struct {
-    Error_ErrorStyle
+type ErrorErrorStyleDlgOkCancel struct {
     Btn1Name string
     Btn2Name string
 }
 
-func (Error_ErrorStyleDlgOkCancel) GetTypeId() int {
+const TypeId_ErrorErrorStyleDlgOkCancel = 971221414
+
+func (*ErrorErrorStyleDlgOkCancel) GetTypeId() int32 {
     return 971221414
 }
 
-func NewError_ErrorStyleDlgOkCancel(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleDlgOkCancel, err error) {
-    _v = &Error_ErrorStyleDlgOkCancel{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
-    { if _v.Btn1Name, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Btn2Name, err = _buf.ReadString(); err != nil { return } }
+func (_v *ErrorErrorStyleDlgOkCancel)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ErrorErrorStyleDlgOkCancel)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Btn1Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Btn1Name error"); return } }
+    { if _v.Btn2Name, err = _buf.ReadString(); err != nil { err = errors.New("_v.Btn2Name error"); return } }
     return
+}
+
+func DeserializeErrorErrorStyleDlgOkCancel(_buf *serialization.ByteBuf) (*ErrorErrorStyleDlgOkCancel, error) {
+    v := &ErrorErrorStyleDlgOkCancel{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

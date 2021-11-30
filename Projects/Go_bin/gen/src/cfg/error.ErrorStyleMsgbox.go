@@ -6,30 +6,41 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Error_ErrorStyleMsgbox struct {
-    Error_ErrorStyle
+type ErrorErrorStyleMsgbox struct {
     BtnName string
     Operation int32
 }
 
-func (Error_ErrorStyleMsgbox) GetTypeId() int {
+const TypeId_ErrorErrorStyleMsgbox = -1920482343
+
+func (*ErrorErrorStyleMsgbox) GetTypeId() int32 {
     return -1920482343
 }
 
-func NewError_ErrorStyleMsgbox(_buf *serialization.ByteBuf) (_v *Error_ErrorStyleMsgbox, err error) {
-    _v = &Error_ErrorStyleMsgbox{}
-    var _p *Error_ErrorStyle
-     if _p, err = NewError_ErrorStyle_Body(_buf) ; err != nil { return }
-    _v.Error_ErrorStyle = *_p
-    { if _v.BtnName, err = _buf.ReadString(); err != nil { return } }
-    { if _v.Operation, err = _buf.ReadInt(); err != nil { return } }
+func (_v *ErrorErrorStyleMsgbox)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *ErrorErrorStyleMsgbox)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.BtnName, err = _buf.ReadString(); err != nil { err = errors.New("_v.BtnName error"); return } }
+    { if _v.Operation, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Operation error"); return } }
     return
+}
+
+func DeserializeErrorErrorStyleMsgbox(_buf *serialization.ByteBuf) (*ErrorErrorStyleMsgbox, error) {
+    v := &ErrorErrorStyleMsgbox{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

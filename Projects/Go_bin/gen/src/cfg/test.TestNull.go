@@ -6,36 +6,51 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Test_TestNull struct {
+type TestTestNull struct {
     Id int32
     X1 *int32
     X2 *int32
-    X3 *Test_DemoType1
+    X3 *TestDemoType1
     X4 interface{}
     S1 *string
     S2 *string
 }
 
-func (Test_TestNull) GetTypeId() int {
+const TypeId_TestTestNull = 339868469
+
+func (*TestTestNull) GetTypeId() int32 {
     return 339868469
 }
 
-func NewTest_TestNull(_buf *serialization.ByteBuf) (_v *Test_TestNull, err error) {
-    _v = &Test_TestNull{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { return } }
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.X1 = &__x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { return } }; _v.X2 = &__x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *Test_DemoType1;  { if __x__, err = NewTest_DemoType1(_buf); err != nil { return } }; _v.X3 = __x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ interface{};  { if __x__, err = NewTest_DemoDynamic(_buf); err != nil { return } }; _v.X4 = __x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S1 = &__x__ }}
-    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if _, err = _buf.ReadString(); err != nil { return }; if __x__, err = _buf.ReadString(); err != nil { return } }; _v.S2 = &__x__ }}
+func (_v *TestTestNull)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *TestTestNull)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.X1 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ int32;  { if __x__, err = _buf.ReadInt(); err != nil { err = errors.New("__x__ error"); return } }; _v.X2 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *TestDemoType1;  { if __x__, err = DeserializeTestDemoType1(_buf); err != nil { err = errors.New("__x__ error"); return } }; _v.X3 = __x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ interface{};  { if __x__, err = DeserializeTestDemoDynamic(_buf); err != nil { err = errors.New("__x__ error"); return } }; _v.X4 = __x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if __x__, err = _buf.ReadString(); err != nil { err = errors.New("__x__ error"); return } }; _v.S1 = &__x__ }}
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ string;  { if _, err = _buf.ReadString(); err != nil { return }; if __x__, err = _buf.ReadString(); err != nil { err = errors.New("__x__ error"); return } }; _v.S2 = &__x__ }}
     return
+}
+
+func DeserializeTestTestNull(_buf *serialization.ByteBuf) (*TestTestNull, error) {
+    v := &TestTestNull{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
@@ -14,36 +15,44 @@ import (
 
 import "errors"
 
-type Ai_Decorator struct {
-    Ai_Node
+type AiDecorator struct {
+    Id int32
+    NodeName string
     FlowAbortMode int32
 }
 
+const TypeId_AiDecorator = 2017109461
 
-func NewAi_Decorator(_buf *serialization.ByteBuf) (_v interface{}, err error) {
-    var id int32
-    if id, err = _buf.ReadInt() ; err != nil {
-        return
-    }
-    switch id {
-        case -513308166: return NewAi_UeLoop(_buf)
-        case -951439423: return NewAi_UeCooldown(_buf)
-        case 338469720: return NewAi_UeTimeLimit(_buf)
-        case -315297507: return NewAi_UeBlackboard(_buf)
-        case 195054574: return NewAi_UeForceSuccess(_buf)
-        case 1255972344: return NewAi_IsAtLocation(_buf)
-        case -1207170283: return NewAi_DistanceLessThan(_buf)
-        default: return nil, errors.New("unknown type id")
-    }
+func (*AiDecorator) GetTypeId() int32 {
+    return 2017109461
+}
+
+func (_v *AiDecorator)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
+
+func (_v *AiDecorator)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("_v.Id error"); return } }
+    { if _v.NodeName, err = _buf.ReadString(); err != nil { err = errors.New("_v.NodeName error"); return } }
+    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { err = errors.New("_v.FlowAbortMode error"); return } }
     return
 }
 
-func NewAi_Decorator_Body(_buf *serialization.ByteBuf) (_v *Ai_Decorator, err error) {
-    _v = &Ai_Decorator{}
-    var _p *Ai_Node
-     if _p, err = NewAi_Node_Body(_buf) ; err != nil { return }
-    _v.Ai_Node = *_p
-    { if _v.FlowAbortMode, err = _buf.ReadInt(); err != nil { return } }
-    return
+func DeserializeAiDecorator(_buf *serialization.ByteBuf) (interface{}, error) {
+    var id int32
+    var err error
+    if id, err = _buf.ReadInt() ; err != nil {
+        return nil, err
+    }
+    switch id {
+        case -513308166: _v := &AiUeLoop{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeLoop") } else { return _v, nil }
+        case -951439423: _v := &AiUeCooldown{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeCooldown") } else { return _v, nil }
+        case 338469720: _v := &AiUeTimeLimit{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeTimeLimit") } else { return _v, nil }
+        case -315297507: _v := &AiUeBlackboard{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeBlackboard") } else { return _v, nil }
+        case 195054574: _v := &AiUeForceSuccess{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.UeForceSuccess") } else { return _v, nil }
+        case 1255972344: _v := &AiIsAtLocation{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.IsAtLocation") } else { return _v, nil }
+        case -1207170283: _v := &AiDistanceLessThan{}; if err = _v.Deserialize(_buf); err != nil { return nil, errors.New("ai.DistanceLessThan") } else { return _v, nil }
+        default: return nil, errors.New("unknown type id")
+    }
 }
 

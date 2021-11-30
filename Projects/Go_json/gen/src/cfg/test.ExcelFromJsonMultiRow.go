@@ -11,18 +11,19 @@ package cfg
 
 import "errors"
 
-type Test_ExcelFromJsonMultiRow struct {
+type TestExcelFromJsonMultiRow struct {
     Id int32
     X int32
-    Items []*Test_TestRow
+    Items []*TestTestRow
 }
 
-func (Test_ExcelFromJsonMultiRow) GetTypeId() int {
+const TypeId_TestExcelFromJsonMultiRow = 715335694
+
+func (*TestExcelFromJsonMultiRow) GetTypeId() int32 {
     return 715335694
 }
 
-func NewTest_ExcelFromJsonMultiRow(_buf map[string]interface{}) (_v *Test_ExcelFromJsonMultiRow, err error) {
-    _v = &Test_ExcelFromJsonMultiRow{}
+func (_v *TestExcelFromJsonMultiRow)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x"].(float64); !_ok_ { err = errors.New("x error"); return }; _v.X = int32(_tempNum_) }
      {
@@ -30,14 +31,23 @@ func NewTest_ExcelFromJsonMultiRow(_buf map[string]interface{}) (_v *Test_ExcelF
                 var _ok_ bool
                 if _arr_, _ok_ = _buf["items"].([]interface{}); !_ok_ { err = errors.New("items error"); return }
 
-                _v.Items = make([]*Test_TestRow, 0, len(_arr_))
+                _v.Items = make([]*TestTestRow, 0, len(_arr_))
                 
                 for _, _e_ := range _arr_ {
-                    var _list_v_ *Test_TestRow
-                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTest_TestRow(_x_); err != nil { return } }
+                    var _list_v_ *TestTestRow
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestTestRow(_x_); err != nil { return } }
                     _v.Items = append(_v.Items, _list_v_)
                 }
             }
 
     return
+}
+
+func DeserializeTestExcelFromJsonMultiRow(_buf map[string]interface{}) (*TestExcelFromJsonMultiRow, error) {
+    v := &TestExcelFromJsonMultiRow{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }

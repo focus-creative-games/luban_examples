@@ -6,38 +6,39 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 package cfg
 
 import (
     "bright/serialization"
 )
 
+import "errors"
 
-
-type Bonus_ProbabilityItems struct {
-    Bonus_Bonus
-    ItemList []*Bonus_ProbabilityItemInfo
+type BonusProbabilityItems struct {
+    ItemList []*BonusProbabilityItemInfo
 }
 
-func (Bonus_ProbabilityItems) GetTypeId() int {
+const TypeId_BonusProbabilityItems = 366387866
+
+func (*BonusProbabilityItems) GetTypeId() int32 {
     return 366387866
 }
 
-func NewBonus_ProbabilityItems(_buf *serialization.ByteBuf) (_v *Bonus_ProbabilityItems, err error) {
-    _v = &Bonus_ProbabilityItems{}
-    var _p *Bonus_Bonus
-     if _p, err = NewBonus_Bonus_Body(_buf) ; err != nil { return }
-    _v.Bonus_Bonus = *_p
-     {
-                _v.ItemList = make([]*Bonus_ProbabilityItemInfo, 0)
-                var _n_ int
-                if _n_, err = _buf.ReadSize(); err != nil {return}
-                for i := 0 ; i < _n_ ; i++ {
-                    var _e_ *Bonus_ProbabilityItemInfo
-                    { if _e_, err = NewBonus_ProbabilityItemInfo(_buf); err != nil { return } }
-                    _v.ItemList = append(_v.ItemList, _e_)
-                }
-            }
+func (_v *BonusProbabilityItems)Serialize(_buf *serialization.ByteBuf) {
+    // not support
+}
 
+func (_v *BonusProbabilityItems)Deserialize(_buf *serialization.ByteBuf) (err error) {
+    {_v.ItemList = make([]*BonusProbabilityItemInfo, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.ItemList error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *BonusProbabilityItemInfo; { if _e_, err = DeserializeBonusProbabilityItemInfo(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.ItemList = append(_v.ItemList, _e_) } }
     return
+}
+
+func DeserializeBonusProbabilityItems(_buf *serialization.ByteBuf) (*BonusProbabilityItems, error) {
+    v := &BonusProbabilityItems{}
+    if err := v.Deserialize(_buf); err == nil {
+        return v, nil
+    } else {
+        return nil, err
+    }
 }
