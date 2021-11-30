@@ -185,6 +185,7 @@
 		<var name="x1" type="H1"/>
 		<var name="x2" type="list,H2"/>
 		<var name="x3" type="array,H2"/>
+		<var name="x4" type="array,H2"/>
 	</bean>
 	<table name="TbMultiRowTitle" value="MultiRowTitle" input="test/multi_level_title.xlsx"/>
 	
