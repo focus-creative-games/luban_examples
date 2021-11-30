@@ -6,6 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 namespace cfg.role
 {
     public enum EGenderType

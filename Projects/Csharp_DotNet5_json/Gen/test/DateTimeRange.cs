@@ -35,7 +35,9 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
     }
 
     public int StartTime { get; private set; }
+    public long StartTime_Millis => StartTime * 1000L;
     public int EndTime { get; private set; }
+    public long EndTime_Millis => EndTime * 1000L;
 
     public const int __ID__ = 495315430;
     public override int GetTypeId() => __ID__;

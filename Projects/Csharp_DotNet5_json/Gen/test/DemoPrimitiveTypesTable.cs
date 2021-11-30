@@ -70,6 +70,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     public System.Numerics.Vector3 V3 { get; private set; }
     public System.Numerics.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
+    public long T1_Millis => T1 * 1000L;
 
     public const int __ID__ = -370934083;
     public override int GetTypeId() => __ID__;
