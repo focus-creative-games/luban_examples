@@ -54,7 +54,7 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
     public test.DemoDynamic X14 { get; private set; }
     public System.Numerics.Vector2 V2 { get; private set; }
     public int T1 { get; private set; }
-    public long T1_MS => T1 * 1000L;
+    public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }

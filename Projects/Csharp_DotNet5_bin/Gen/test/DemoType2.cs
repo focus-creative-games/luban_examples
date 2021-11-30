@@ -70,7 +70,7 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
     public System.Numerics.Vector3 V3 { get; private set; }
     public System.Numerics.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
-    public long T1_MS => T1 * 1000L;
+    public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }
     public System.Collections.Generic.List<int> K2 { get; private set; }
     public System.Collections.Generic.HashSet<int> K5 { get; private set; }
