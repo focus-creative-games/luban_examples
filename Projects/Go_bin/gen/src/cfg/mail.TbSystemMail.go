@@ -47,4 +47,3 @@ func (table *MailTbSystemMail) Get(key int32) *MailSystemMail {
     return table._dataMap[key]
 }
 
-

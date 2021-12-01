@@ -47,4 +47,3 @@ func (table *TestTbDemoPrimitive) Get(key int32) *TestDemoPrimitiveTypesTable {
     return table._dataMap[key]
 }
 
-

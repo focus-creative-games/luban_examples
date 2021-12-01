@@ -47,4 +47,3 @@ func (table *TestTbMultiRowRecord) Get(key int32) *TestMultiRowRecord {
     return table._dataMap[key]
 }
 
-

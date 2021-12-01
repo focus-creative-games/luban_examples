@@ -1655,6 +1655,45 @@ beans['test.DemoSingletonType'] =
     { name='date', type='test.DemoDynamic'},
 }
 
+---@class test.NotIndexList 
+---@field public x int
+---@field public y int
+beans['test.NotIndexList'] =
+{
+    { name='x', type='int'},
+    { name='y', type='int'},
+}
+
+---@class test.MultiUnionIndexList 
+---@field public id1 int
+---@field public id2 long
+---@field public id3 string
+---@field public num int
+---@field public desc string
+beans['test.MultiUnionIndexList'] =
+{
+    { name='id1', type='int'},
+    { name='id2', type='long'},
+    { name='id3', type='string'},
+    { name='num', type='int'},
+    { name='desc', type='string'},
+}
+
+---@class test.MultiIndexList 
+---@field public id1 int
+---@field public id2 long
+---@field public id3 string
+---@field public num int
+---@field public desc string
+beans['test.MultiIndexList'] =
+{
+    { name='id1', type='int'},
+    { name='id2', type='long'},
+    { name='id3', type='string'},
+    { name='num', type='int'},
+    { name='desc', type='string'},
+}
+
 ---@class test.MultiRowRecord 
 ---@field public id int
 ---@field public name string
@@ -1713,6 +1752,7 @@ beans['test.MultiRowType3'] =
 ---@field public x1 test.H1
 ---@field public x2 test.H2[]
 ---@field public x3 test.H2[]
+---@field public x4 test.H2[]
 beans['test.MultiRowTitle'] =
 {
     { name='id', type='int'},
@@ -1720,6 +1760,7 @@ beans['test.MultiRowTitle'] =
     { name='x1', type='test.H1'},
     { name='x2', type='test.H2[]'},
     { name='x3', type='test.H2[]'},
+    { name='x4', type='test.H2[]'},
 }
 
 ---@class test.H1 
@@ -1875,6 +1916,12 @@ beans['test.TestBeRef'] =
 ---@field public c2 int[]
 ---@field public d1 table<int,int>
 ---@field public d2 table<int,int>
+---@field public e1 int
+---@field public e2 long
+---@field public e3 string
+---@field public f1 int
+---@field public f2 long
+---@field public f3 string
 beans['test.TestRef'] =
 {
     { name='id', type='int'},
@@ -1889,6 +1936,12 @@ beans['test.TestRef'] =
     { name='c2', type='int[]'},
     { name='d1', type='table<int,int>'},
     { name='d2', type='table<int,int>'},
+    { name='e1', type='int'},
+    { name='e2', type='long'},
+    { name='e3', type='string'},
+    { name='f1', type='int'},
+    { name='f2', type='long'},
+    { name='f3', type='string'},
 }
 
 ---@class test.TestSize 
@@ -2203,6 +2256,12 @@ local tables =
 
     { name='TbSingleton', file='test_tbsingleton', mode='one', value_type='test.DemoSingletonType'},
     
+    { name='TbNotIndexList', file='test_tbnotindexlist', mode='list', index='', value_type='test.NotIndexList' },
+
+    { name='TbMultiUnionIndexList', file='test_tbmultiunionindexlist', mode='list', index='id1+id2+id3', value_type='test.MultiUnionIndexList' },
+
+    { name='TbMultiIndexList', file='test_tbmultiindexlist', mode='list', index='id1,id2,id3', value_type='test.MultiIndexList' },
+
     { name='TbDataFromMisc', file='test_tbdatafrommisc', mode='map', index='x4', value_type='test.DemoType2' },
 
     { name='TbMultiRowRecord', file='test_tbmultirowrecord', mode='map', index='id', value_type='test.MultiRowRecord' },

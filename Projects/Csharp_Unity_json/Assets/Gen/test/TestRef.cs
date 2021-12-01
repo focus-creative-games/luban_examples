@@ -31,9 +31,15 @@ public sealed class TestRef :  Bright.Config.BeanBase
         { var _json1 = _json["c2"]; if(!_json1.IsArray) { throw new SerializationException(); } C2 = new System.Collections.Generic.HashSet<int>(/*_json1.Count*/); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  C2.Add(__v); }   }
         { var _json1 = _json["d1"]; if(!_json1.IsArray) { throw new SerializationException(); } D1 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  D1.Add(__k, __v); }   }
         { var _json1 = _json["d2"]; if(!_json1.IsArray) { throw new SerializationException(); } D2 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  D2.Add(__k, __v); }   }
+        { if(!_json["e1"].IsNumber) { throw new SerializationException(); }  E1 = _json["e1"]; }
+        { if(!_json["e2"].IsNumber) { throw new SerializationException(); }  E2 = _json["e2"]; }
+        { if(!_json["e3"].IsString) { throw new SerializationException(); }  E3 = _json["e3"]; }
+        { if(!_json["f1"].IsNumber) { throw new SerializationException(); }  F1 = _json["f1"]; }
+        { if(!_json["f2"].IsNumber) { throw new SerializationException(); }  F2 = _json["f2"]; }
+        { if(!_json["f3"].IsString) { throw new SerializationException(); }  F3 = _json["f3"]; }
     }
 
-    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2 ) 
+    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2, int e1, long e2, string e3, int f1, long f2, string f3 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -47,6 +53,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         this.C2 = c2;
         this.D1 = d1;
         this.D2 = d2;
+        this.E1 = e1;
+        this.E2 = e2;
+        this.E3 = e3;
+        this.F1 = f1;
+        this.F2 = f2;
+        this.F3 = f3;
     }
 
     public static TestRef DeserializeTestRef(JSONNode _json)
@@ -68,6 +80,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
+    public int E1 { get; private set; }
+    public long E2 { get; private set; }
+    public string E3 { get; private set; }
+    public int F1 { get; private set; }
+    public long F2 { get; private set; }
+    public string F3 { get; private set; }
 
     public const int __ID__ = -543222491;
     public override int GetTypeId() => __ID__;
@@ -97,6 +115,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "C2:" + Bright.Common.StringUtil.CollectionToString(C2) + ","
         + "D1:" + Bright.Common.StringUtil.CollectionToString(D1) + ","
         + "D2:" + Bright.Common.StringUtil.CollectionToString(D2) + ","
+        + "E1:" + E1 + ","
+        + "E2:" + E2 + ","
+        + "E3:" + E3 + ","
+        + "F1:" + F1 + ","
+        + "F2:" + F2 + ","
+        + "F3:" + F3 + ","
         + "}";
     }
     }

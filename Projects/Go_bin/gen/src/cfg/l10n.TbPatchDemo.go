@@ -47,4 +47,3 @@ func (table *L10nTbPatchDemo) Get(key int32) *L10nPatchDemo {
     return table._dataMap[key]
 }
 
-

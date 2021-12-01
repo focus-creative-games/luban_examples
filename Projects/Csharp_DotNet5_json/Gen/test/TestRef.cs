@@ -31,9 +31,15 @@ public sealed class TestRef :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("c2"); C2 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  C2.Add(__v); }   }
         { var _json0 = _json.GetProperty("d1"); D1 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  D1.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("d2"); D2 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  D2.Add(__k, __v); }   }
+        E1 = _json.GetProperty("e1").GetInt32();
+        E2 = _json.GetProperty("e2").GetInt64();
+        E3 = _json.GetProperty("e3").GetString();
+        F1 = _json.GetProperty("f1").GetInt32();
+        F2 = _json.GetProperty("f2").GetInt64();
+        F3 = _json.GetProperty("f3").GetString();
     }
 
-    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2 ) 
+    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2, int e1, long e2, string e3, int f1, long f2, string f3 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -47,6 +53,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         this.C2 = c2;
         this.D1 = d1;
         this.D2 = d2;
+        this.E1 = e1;
+        this.E2 = e2;
+        this.E3 = e3;
+        this.F1 = f1;
+        this.F2 = f2;
+        this.F3 = f3;
     }
 
     public static TestRef DeserializeTestRef(JsonElement _json)
@@ -68,6 +80,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
+    public int E1 { get; private set; }
+    public long E2 { get; private set; }
+    public string E3 { get; private set; }
+    public int F1 { get; private set; }
+    public long F2 { get; private set; }
+    public string F3 { get; private set; }
 
     public const int __ID__ = -543222491;
     public override int GetTypeId() => __ID__;
@@ -97,6 +115,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "C2:" + Bright.Common.StringUtil.CollectionToString(C2) + ","
         + "D1:" + Bright.Common.StringUtil.CollectionToString(D1) + ","
         + "D2:" + Bright.Common.StringUtil.CollectionToString(D2) + ","
+        + "E1:" + E1 + ","
+        + "E2:" + E2 + ","
+        + "E3:" + E3 + ","
+        + "F1:" + F1 + ","
+        + "F2:" + F2 + ","
+        + "F3:" + F3 + ","
         + "}";
     }
     }

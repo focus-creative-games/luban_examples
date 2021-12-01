@@ -57,6 +57,12 @@ public final class Tables
     public cfg.test.TbFullTypes getTbFullTypes() { return _TbFullTypes; }
     private final cfg.test.TbSingleton _TbSingleton;
     public cfg.test.TbSingleton getTbSingleton() { return _TbSingleton; }
+    private final cfg.test.TbNotIndexList _TbNotIndexList;
+    public cfg.test.TbNotIndexList getTbNotIndexList() { return _TbNotIndexList; }
+    private final cfg.test.TbMultiUnionIndexList _TbMultiUnionIndexList;
+    public cfg.test.TbMultiUnionIndexList getTbMultiUnionIndexList() { return _TbMultiUnionIndexList; }
+    private final cfg.test.TbMultiIndexList _TbMultiIndexList;
+    public cfg.test.TbMultiIndexList getTbMultiIndexList() { return _TbMultiIndexList; }
     private final cfg.test.TbDataFromMisc _TbDataFromMisc;
     public cfg.test.TbDataFromMisc getTbDataFromMisc() { return _TbDataFromMisc; }
     private final cfg.test.TbMultiRowRecord _TbMultiRowRecord;
@@ -156,6 +162,12 @@ public final class Tables
         tables.put("test.TbFullTypes", _TbFullTypes);
         _TbSingleton = new cfg.test.TbSingleton(loader.load("test_tbsingleton")); 
         tables.put("test.TbSingleton", _TbSingleton);
+        _TbNotIndexList = new cfg.test.TbNotIndexList(loader.load("test_tbnotindexlist")); 
+        tables.put("test.TbNotIndexList", _TbNotIndexList);
+        _TbMultiUnionIndexList = new cfg.test.TbMultiUnionIndexList(loader.load("test_tbmultiunionindexlist")); 
+        tables.put("test.TbMultiUnionIndexList", _TbMultiUnionIndexList);
+        _TbMultiIndexList = new cfg.test.TbMultiIndexList(loader.load("test_tbmultiindexlist")); 
+        tables.put("test.TbMultiIndexList", _TbMultiIndexList);
         _TbDataFromMisc = new cfg.test.TbDataFromMisc(loader.load("test_tbdatafrommisc")); 
         tables.put("test.TbDataFromMisc", _TbDataFromMisc);
         _TbMultiRowRecord = new cfg.test.TbMultiRowRecord(loader.load("test_tbmultirowrecord")); 
@@ -234,6 +246,9 @@ public final class Tables
         _TbTestTag.resolve(tables); 
         _TbFullTypes.resolve(tables); 
         _TbSingleton.resolve(tables); 
+        _TbNotIndexList.resolve(tables); 
+        _TbMultiUnionIndexList.resolve(tables); 
+        _TbMultiIndexList.resolve(tables); 
         _TbDataFromMisc.resolve(tables); 
         _TbMultiRowRecord.resolve(tables); 
         _TbMultiRowTitle.resolve(tables); 

@@ -37,5 +37,4 @@ public final class TbGlobalMail {
             v.resolve(_tables);
         }
     }
-
 }

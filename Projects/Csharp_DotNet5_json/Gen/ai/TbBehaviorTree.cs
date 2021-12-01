@@ -55,7 +55,7 @@ public sealed class TbBehaviorTree
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -53,7 +53,6 @@ public sealed class TbGlobalMail
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

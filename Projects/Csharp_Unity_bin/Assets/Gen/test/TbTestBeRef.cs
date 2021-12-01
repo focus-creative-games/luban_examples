@@ -53,7 +53,6 @@ public sealed class TbTestBeRef
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

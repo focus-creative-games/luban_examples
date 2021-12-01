@@ -37,5 +37,4 @@ public final class TbDefineFromExcel {
             v.resolve(_tables);
         }
     }
-
 }

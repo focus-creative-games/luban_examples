@@ -37,5 +37,4 @@ public final class TbBehaviorTree {
             v.resolve(_tables);
         }
     }
-
 }

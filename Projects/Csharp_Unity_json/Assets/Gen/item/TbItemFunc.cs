@@ -55,7 +55,7 @@ public sealed class TbItemFunc
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -37,5 +37,4 @@ public final class TbL10NDemo {
             v.resolve(_tables);
         }
     }
-
 }

@@ -55,7 +55,7 @@ public sealed class TbRoleLevelExpAttr
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

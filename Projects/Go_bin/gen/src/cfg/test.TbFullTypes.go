@@ -47,4 +47,3 @@ func (table *TestTbFullTypes) Get(key int32) *TestDemoType2 {
     return table._dataMap[key]
 }
 
-

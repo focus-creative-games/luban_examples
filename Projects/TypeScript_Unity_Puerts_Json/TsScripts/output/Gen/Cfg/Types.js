@@ -2817,196 +2817,6 @@ var bonus;
     }
     common.GlobalConfig = GlobalConfig;
 })(common = exports.common || (exports.common = {}));
-(function (common) {
-    class TbDummy {
-        _dataMap;
-        _dataList;
-        constructor(_json_) {
-            this._dataMap = new Map();
-            this._dataList = [];
-            for (var _json2_ of _json_) {
-                let _v;
-                _v = new common.Dummy(_json2_);
-                this._dataList.push(_v);
-                this._dataMap.set(_v.id, _v);
-            }
-        }
-        getDataMap() { return this._dataMap; }
-        getDataList() { return this._dataList; }
-        get(key) { return this._dataMap.get(key); }
-        resolve(_tables) {
-            for (var v of this._dataList) {
-                v.resolve(_tables);
-            }
-        }
-    }
-    common.TbDummy = TbDummy;
-})(common = exports.common || (exports.common = {}));
-(function (common) {
-    class Dummy {
-        constructor(_json_) {
-            if (_json_.id === undefined) {
-                throw new Error();
-            }
-            this.id = _json_.id;
-            if (_json_.limit === undefined) {
-                throw new Error();
-            }
-            this.limit = limit.LimitBase.constructorFrom(_json_.limit);
-        }
-        id;
-        limit;
-        resolve(_tables) {
-            if (this.limit != null) {
-                this.limit.resolve(_tables);
-            }
-        }
-    }
-    common.Dummy = Dummy;
-})(common = exports.common || (exports.common = {}));
-(function (limit) {
-    class LimitBase {
-        static constructorFrom(_json_) {
-            switch (_json_.__type__) {
-                case 'DailyLimit': return new limit.DailyLimit(_json_);
-                case 'MultiDayLimit': return new limit.MultiDayLimit(_json_);
-                case 'WeeklyLimit': return new limit.WeeklyLimit(_json_);
-                case 'MonthlyLimit': return new limit.MonthlyLimit(_json_);
-                case 'CoolDown': return new limit.CoolDown(_json_);
-                case 'GroupCoolDown': return new limit.GroupCoolDown(_json_);
-                default: throw new Error();
-            }
-        }
-        constructor(_json_) {
-        }
-        resolve(_tables) {
-        }
-    }
-    limit.LimitBase = LimitBase;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class DailyLimitBase extends limit.LimitBase {
-        static constructorFrom(_json_) {
-            switch (_json_.__type__) {
-                case 'DailyLimit': return new limit.DailyLimit(_json_);
-                default: throw new Error();
-            }
-        }
-        constructor(_json_) {
-            super(_json_);
-        }
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.DailyLimitBase = DailyLimitBase;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class DailyLimit extends limit.DailyLimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.num === undefined) {
-                throw new Error();
-            }
-            this.num = _json_.num;
-        }
-        num;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.DailyLimit = DailyLimit;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class MultiDayLimit extends limit.LimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.day === undefined) {
-                throw new Error();
-            }
-            this.day = _json_.day;
-            if (_json_.num === undefined) {
-                throw new Error();
-            }
-            this.num = _json_.num;
-        }
-        day;
-        num;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.MultiDayLimit = MultiDayLimit;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class WeeklyLimit extends limit.LimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.num === undefined) {
-                throw new Error();
-            }
-            this.num = _json_.num;
-        }
-        num;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.WeeklyLimit = WeeklyLimit;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class MonthlyLimit extends limit.LimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.num === undefined) {
-                throw new Error();
-            }
-            this.num = _json_.num;
-        }
-        num;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.MonthlyLimit = MonthlyLimit;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class CoolDown extends limit.LimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.duration === undefined) {
-                throw new Error();
-            }
-            this.duration = _json_.duration;
-        }
-        duration;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.CoolDown = CoolDown;
-})(limit = exports.limit || (exports.limit = {}));
-(function (limit) {
-    class GroupCoolDown extends limit.LimitBase {
-        constructor(_json_) {
-            super(_json_);
-            if (_json_.group_id === undefined) {
-                throw new Error();
-            }
-            this.groupId = _json_.group_id;
-            if (_json_.duration === undefined) {
-                throw new Error();
-            }
-            this.duration = _json_.duration;
-        }
-        groupId;
-        duration;
-        resolve(_tables) {
-            super.resolve(_tables);
-        }
-    }
-    limit.GroupCoolDown = GroupCoolDown;
-})(limit = exports.limit || (exports.limit = {}));
 (function (error) {
     class TbErrorInfo {
         _dataMap;
@@ -4848,6 +4658,156 @@ var tag;
     test.DemoSingletonType = DemoSingletonType;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbNotIndexList {
+        _dataList;
+        constructor(_json_) {
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.NotIndexList(_json2_);
+                this._dataList.push(_v);
+            }
+        }
+        getDataList() { return this._dataList; }
+        get(index) { return this._dataList[index]; }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbNotIndexList = TbNotIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class NotIndexList {
+        constructor(_json_) {
+            if (_json_.x === undefined) {
+                throw new Error();
+            }
+            this.x = _json_.x;
+            if (_json_.y === undefined) {
+                throw new Error();
+            }
+            this.y = _json_.y;
+        }
+        x;
+        y;
+        resolve(_tables) {
+        }
+    }
+    test.NotIndexList = NotIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbMultiUnionIndexList {
+        _dataList;
+        constructor(_json_) {
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.MultiUnionIndexList(_json2_);
+                this._dataList.push(_v);
+            }
+        }
+        getDataList() { return this._dataList; }
+        get(index) { return this._dataList[index]; }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbMultiUnionIndexList = TbMultiUnionIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class MultiUnionIndexList {
+        constructor(_json_) {
+            if (_json_.id1 === undefined) {
+                throw new Error();
+            }
+            this.id1 = _json_.id1;
+            if (_json_.id2 === undefined) {
+                throw new Error();
+            }
+            this.id2 = _json_.id2;
+            if (_json_.id3 === undefined) {
+                throw new Error();
+            }
+            this.id3 = _json_.id3;
+            if (_json_.num === undefined) {
+                throw new Error();
+            }
+            this.num = _json_.num;
+            if (_json_.desc === undefined) {
+                throw new Error();
+            }
+            this.desc = _json_.desc;
+        }
+        id1;
+        id2;
+        id3;
+        num;
+        desc;
+        resolve(_tables) {
+        }
+    }
+    test.MultiUnionIndexList = MultiUnionIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbMultiIndexList {
+        _dataList;
+        constructor(_json_) {
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.MultiIndexList(_json2_);
+                this._dataList.push(_v);
+            }
+        }
+        getDataList() { return this._dataList; }
+        get(index) { return this._dataList[index]; }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbMultiIndexList = TbMultiIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class MultiIndexList {
+        constructor(_json_) {
+            if (_json_.id1 === undefined) {
+                throw new Error();
+            }
+            this.id1 = _json_.id1;
+            if (_json_.id2 === undefined) {
+                throw new Error();
+            }
+            this.id2 = _json_.id2;
+            if (_json_.id3 === undefined) {
+                throw new Error();
+            }
+            this.id3 = _json_.id3;
+            if (_json_.num === undefined) {
+                throw new Error();
+            }
+            this.num = _json_.num;
+            if (_json_.desc === undefined) {
+                throw new Error();
+            }
+            this.desc = _json_.desc;
+        }
+        id1;
+        id2;
+        id3;
+        num;
+        desc;
+        resolve(_tables) {
+        }
+    }
+    test.MultiIndexList = MultiIndexList;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbDataFromMisc {
         _dataMap;
         _dataList;
@@ -5166,12 +5126,24 @@ var tag;
                     this.x3.push(_e);
                 }
             }
+            if (_json_.x4 === undefined) {
+                throw new Error();
+            }
+            {
+                this.x4 = [];
+                for (let _ele of _json_.x4) {
+                    let _e;
+                    _e = new test.H2(_ele);
+                    this.x4.push(_e);
+                }
+            }
         }
         id;
         name;
         x1;
         x2;
         x3;
+        x4;
         resolve(_tables) {
             if (this.x1 != null) {
                 this.x1.resolve(_tables);
@@ -5182,6 +5154,11 @@ var tag;
                 }
             }
             for (let _e of this.x3) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+            for (let _e of this.x4) {
                 if (_e != null) {
                     _e.resolve(_tables);
                 }
@@ -5709,6 +5686,324 @@ var tag;
     test.TestGlobal = TestGlobal;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbTestBeRef {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.TestBeRef(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestBeRef = TbTestBeRef;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestBeRef {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.count === undefined) {
+                throw new Error();
+            }
+            this.count = _json_.count;
+        }
+        id;
+        count;
+        resolve(_tables) {
+        }
+    }
+    test.TestBeRef = TestBeRef;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestRef {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.TestRef(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestRef = TbTestRef;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestRef {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.x1 === undefined) {
+                throw new Error();
+            }
+            this.x1 = _json_.x1;
+            if (_json_.x1_2 === undefined) {
+                throw new Error();
+            }
+            this.x12 = _json_.x1_2;
+            if (_json_.x2 === undefined) {
+                throw new Error();
+            }
+            this.x2 = _json_.x2;
+            if (_json_.a1 === undefined) {
+                throw new Error();
+            }
+            this.a1 = _json_.a1;
+            if (_json_.a2 === undefined) {
+                throw new Error();
+            }
+            this.a2 = _json_.a2;
+            if (_json_.b1 === undefined) {
+                throw new Error();
+            }
+            this.b1 = _json_.b1;
+            if (_json_.b2 === undefined) {
+                throw new Error();
+            }
+            this.b2 = _json_.b2;
+            if (_json_.c1 === undefined) {
+                throw new Error();
+            }
+            this.c1 = _json_.c1;
+            if (_json_.c2 === undefined) {
+                throw new Error();
+            }
+            this.c2 = _json_.c2;
+            if (_json_.d1 === undefined) {
+                throw new Error();
+            }
+            this.d1 = new Map();
+            for (var _entry_ of _json_.d1) {
+                let _k;
+                _k = _entry_[0];
+                let _v;
+                _v = _entry_[1];
+                this.d1.set(_k, _v);
+            }
+            if (_json_.d2 === undefined) {
+                throw new Error();
+            }
+            this.d2 = new Map();
+            for (var _entry_ of _json_.d2) {
+                let _k;
+                _k = _entry_[0];
+                let _v;
+                _v = _entry_[1];
+                this.d2.set(_k, _v);
+            }
+            if (_json_.e1 === undefined) {
+                throw new Error();
+            }
+            this.e1 = _json_.e1;
+            if (_json_.e2 === undefined) {
+                throw new Error();
+            }
+            this.e2 = _json_.e2;
+            if (_json_.e3 === undefined) {
+                throw new Error();
+            }
+            this.e3 = _json_.e3;
+            if (_json_.f1 === undefined) {
+                throw new Error();
+            }
+            this.f1 = _json_.f1;
+            if (_json_.f2 === undefined) {
+                throw new Error();
+            }
+            this.f2 = _json_.f2;
+            if (_json_.f3 === undefined) {
+                throw new Error();
+            }
+            this.f3 = _json_.f3;
+        }
+        id;
+        x1;
+        x1_Ref = undefined;
+        x12;
+        x2;
+        x2_Ref = undefined;
+        a1;
+        a2;
+        b1;
+        b2;
+        c1;
+        c2;
+        d1;
+        d2;
+        e1;
+        e2;
+        e3;
+        f1;
+        f2;
+        f3;
+        resolve(_tables) {
+            this.x1_Ref = _tables.get('test.TbTestBeRef').get(this.x1);
+            this.x2_Ref = _tables.get('test.TbTestBeRef').get(this.x2);
+        }
+    }
+    test.TestRef = TestRef;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestSize {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.TestSize(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestSize = TbTestSize;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestSize {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.x1 === undefined) {
+                throw new Error();
+            }
+            this.x1 = _json_.x1;
+            if (_json_.x2 === undefined) {
+                throw new Error();
+            }
+            this.x2 = _json_.x2;
+            if (_json_.x3 === undefined) {
+                throw new Error();
+            }
+            this.x3 = _json_.x3;
+            if (_json_.x4 === undefined) {
+                throw new Error();
+            }
+            this.x4 = new Map();
+            for (var _entry_ of _json_.x4) {
+                let _k;
+                _k = _entry_[0];
+                let _v;
+                _v = _entry_[1];
+                this.x4.set(_k, _v);
+            }
+        }
+        id;
+        x1;
+        x2;
+        x3;
+        x4;
+        resolve(_tables) {
+        }
+    }
+    test.TestSize = TestSize;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestSet {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.TestSet(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestSet = TbTestSet;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestSet {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.x1 === undefined) {
+                throw new Error();
+            }
+            this.x1 = _json_.x1;
+            if (_json_.x2 === undefined) {
+                throw new Error();
+            }
+            this.x2 = _json_.x2;
+            if (_json_.x3 === undefined) {
+                throw new Error();
+            }
+            this.x3 = _json_.x3;
+            if (_json_.x4 === undefined) {
+                throw new Error();
+            }
+            {
+                this.x4 = [];
+                for (let _ele of _json_.x4) {
+                    let _e;
+                    _e = _ele;
+                    this.x4.push(_e);
+                }
+            }
+        }
+        id;
+        x1;
+        x2;
+        x3;
+        x4;
+        resolve(_tables) {
+        }
+    }
+    test.TestSet = TestSet;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbDetectCsvEncoding {
         _dataMap;
         _dataList;
@@ -5778,9 +6073,6 @@ var tag;
     test.TbDefineFromExcel = TbDefineFromExcel;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
-    /**
-     *
-     */
     class DefineFromExcel {
         constructor(_json_) {
             if (_json_.id === undefined) {
@@ -5899,9 +6191,6 @@ var tag;
          * 英雄解锁等级
          */
         get unlockHero() { return this._data.unlockHero; }
-        /**
-         * 默认头像
-         */
         get defaultAvatar() { return this._data.defaultAvatar; }
         get defaultItem() { return this._data.defaultItem; }
         resolve(_tables) {
@@ -5911,9 +6200,6 @@ var tag;
     test.TbDefineFromExcelOne = TbDefineFromExcelOne;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
-    /**
-     *
-     */
     class DefineFromExcelOne {
         constructor(_json_) {
             if (_json_.unlock_equip === undefined) {
@@ -5941,9 +6227,6 @@ var tag;
          * 英雄解锁等级
          */
         unlockHero;
-        /**
-         * 默认头像
-         */
         defaultAvatar;
         defaultItem;
         resolve(_tables) {
@@ -6253,6 +6536,130 @@ var tag;
     test.ExcelFromJson = ExcelFromJson;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbCompositeJsonTable1 {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.CompositeJsonTable1(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbCompositeJsonTable1 = TbCompositeJsonTable1;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class CompositeJsonTable1 {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.x === undefined) {
+                throw new Error();
+            }
+            this.x = _json_.x;
+        }
+        id;
+        x;
+        resolve(_tables) {
+        }
+    }
+    test.CompositeJsonTable1 = CompositeJsonTable1;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbCompositeJsonTable2 {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.CompositeJsonTable2(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbCompositeJsonTable2 = TbCompositeJsonTable2;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class CompositeJsonTable2 {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.y === undefined) {
+                throw new Error();
+            }
+            this.y = _json_.y;
+        }
+        id;
+        y;
+        resolve(_tables) {
+        }
+    }
+    test.CompositeJsonTable2 = CompositeJsonTable2;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbCompositeJsonTable3 {
+        _data;
+        constructor(_json_) {
+            if (_json_.length != 1)
+                throw new Error('table mode=one, but size != 1');
+            this._data = new test.CompositeJsonTable3(_json_[0]);
+        }
+        getData() { return this._data; }
+        get a() { return this._data.a; }
+        get b() { return this._data.b; }
+        resolve(_tables) {
+            this._data.resolve(_tables);
+        }
+    }
+    test.TbCompositeJsonTable3 = TbCompositeJsonTable3;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class CompositeJsonTable3 {
+        constructor(_json_) {
+            if (_json_.a === undefined) {
+                throw new Error();
+            }
+            this.a = _json_.a;
+            if (_json_.b === undefined) {
+                throw new Error();
+            }
+            this.b = _json_.b;
+        }
+        a;
+        b;
+        resolve(_tables) {
+        }
+    }
+    test.CompositeJsonTable3 = CompositeJsonTable3;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbExcelFromJsonMultiRow {
         _dataMap;
         _dataList;
@@ -6420,9 +6827,6 @@ var tag;
     test.TbDefineFromExcel2 = TbDefineFromExcel2;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
-    /**
-     *
-     */
     class DefineFromExcel2 {
         constructor(_json_) {
             if (_json_.id === undefined) {
@@ -6593,6 +6997,114 @@ var tag;
     }
     test.TestExcelBean1 = TestExcelBean1;
 })(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestDesc {
+        _dataMap;
+        _dataList;
+        constructor(_json_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (var _json2_ of _json_) {
+                let _v;
+                _v = new test.TestDesc(_json2_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestDesc = TbTestDesc;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestDesc {
+        constructor(_json_) {
+            if (_json_.id === undefined) {
+                throw new Error();
+            }
+            this.id = _json_.id;
+            if (_json_.name === undefined) {
+                throw new Error();
+            }
+            this.name = _json_.name;
+            if (_json_.a1 === undefined) {
+                throw new Error();
+            }
+            this.a1 = _json_.a1;
+            if (_json_.a2 === undefined) {
+                throw new Error();
+            }
+            this.a2 = _json_.a2;
+            if (_json_.x1 === undefined) {
+                throw new Error();
+            }
+            this.x1 = new test.H1(_json_.x1);
+            if (_json_.x2 === undefined) {
+                throw new Error();
+            }
+            {
+                this.x2 = [];
+                for (let _ele of _json_.x2) {
+                    let _e;
+                    _e = new test.H2(_ele);
+                    this.x2.push(_e);
+                }
+            }
+            if (_json_.x3 === undefined) {
+                throw new Error();
+            }
+            {
+                this.x3 = [];
+                for (let _ele of _json_.x3) {
+                    let _e;
+                    _e = new test.H2(_ele);
+                    this.x3.push(_e);
+                }
+            }
+        }
+        id;
+        /**
+         * 禁止
+         */
+        name;
+        /**
+         * 测试换行<br/>第2行<br/>第3层
+         */
+        a1;
+        /**
+         * 测试转义 &lt; &amp; % / # &gt;
+         */
+        a2;
+        x1;
+        /**
+         * 这是x2
+         */
+        x2;
+        x3;
+        resolve(_tables) {
+            if (this.x1 != null) {
+                this.x1.resolve(_tables);
+            }
+            for (let _e of this.x2) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+            for (let _e of this.x3) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+        }
+    }
+    test.TestDesc = TestDesc;
+})(test = exports.test || (exports.test = {}));
 class Tables {
     _TbBlackboard;
     get TbBlackboard() { return this._TbBlackboard; }
@@ -6604,8 +7116,6 @@ class Tables {
     get TbDrop() { return this._TbDrop; }
     _TbGlobalConfig;
     get TbGlobalConfig() { return this._TbGlobalConfig; }
-    _TbDummy;
-    get TbDummy() { return this._TbDummy; }
     _TbErrorInfo;
     get TbErrorInfo() { return this._TbErrorInfo; }
     _TbCodeInfo;
@@ -6637,6 +7147,12 @@ class Tables {
     get TbFullTypes() { return this._TbFullTypes; }
     _TbSingleton;
     get TbSingleton() { return this._TbSingleton; }
+    _TbNotIndexList;
+    get TbNotIndexList() { return this._TbNotIndexList; }
+    _TbMultiUnionIndexList;
+    get TbMultiUnionIndexList() { return this._TbMultiUnionIndexList; }
+    _TbMultiIndexList;
+    get TbMultiIndexList() { return this._TbMultiIndexList; }
     _TbDataFromMisc;
     get TbDataFromMisc() { return this._TbDataFromMisc; }
     _TbMultiRowRecord;
@@ -6659,6 +7175,14 @@ class Tables {
     get TbDemoGroup_E() { return this._TbDemoGroup_E; }
     _TbTestGlobal;
     get TbTestGlobal() { return this._TbTestGlobal; }
+    _TbTestBeRef;
+    get TbTestBeRef() { return this._TbTestBeRef; }
+    _TbTestRef;
+    get TbTestRef() { return this._TbTestRef; }
+    _TbTestSize;
+    get TbTestSize() { return this._TbTestSize; }
+    _TbTestSet;
+    get TbTestSet() { return this._TbTestSet; }
     _TbDetectCsvEncoding;
     get TbDetectCsvEncoding() { return this._TbDetectCsvEncoding; }
     _TbDefineFromExcel;
@@ -6671,6 +7195,12 @@ class Tables {
     get TbTestMap() { return this._TbTestMap; }
     _TbExcelFromJson;
     get TbExcelFromJson() { return this._TbExcelFromJson; }
+    _TbCompositeJsonTable1;
+    get TbCompositeJsonTable1() { return this._TbCompositeJsonTable1; }
+    _TbCompositeJsonTable2;
+    get TbCompositeJsonTable2() { return this._TbCompositeJsonTable2; }
+    _TbCompositeJsonTable3;
+    get TbCompositeJsonTable3() { return this._TbCompositeJsonTable3; }
     _TbExcelFromJsonMultiRow;
     get TbExcelFromJsonMultiRow() { return this._TbExcelFromJsonMultiRow; }
     _TbDemoGroupDefineFromExcel;
@@ -6679,6 +7209,8 @@ class Tables {
     get TbDefineFromExcel2() { return this._TbDefineFromExcel2; }
     _TbTestExcelBean;
     get TbTestExcelBean() { return this._TbTestExcelBean; }
+    _TbTestDesc;
+    get TbTestDesc() { return this._TbTestDesc; }
     constructor(loader) {
         let tables = new Map();
         this._TbBlackboard = new ai.TbBlackboard(loader('ai_tbblackboard'));
@@ -6691,8 +7223,6 @@ class Tables {
         tables.set('bonus.TbDrop', this._TbDrop);
         this._TbGlobalConfig = new common.TbGlobalConfig(loader('common_tbglobalconfig'));
         tables.set('common.TbGlobalConfig', this._TbGlobalConfig);
-        this._TbDummy = new common.TbDummy(loader('common_tbdummy'));
-        tables.set('common.TbDummy', this._TbDummy);
         this._TbErrorInfo = new error.TbErrorInfo(loader('error_tberrorinfo'));
         tables.set('error.TbErrorInfo', this._TbErrorInfo);
         this._TbCodeInfo = new error.TbCodeInfo(loader('error_tbcodeinfo'));
@@ -6721,6 +7251,12 @@ class Tables {
         tables.set('test.TbFullTypes', this._TbFullTypes);
         this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton'));
         tables.set('test.TbSingleton', this._TbSingleton);
+        this._TbNotIndexList = new test.TbNotIndexList(loader('test_tbnotindexlist'));
+        tables.set('test.TbNotIndexList', this._TbNotIndexList);
+        this._TbMultiUnionIndexList = new test.TbMultiUnionIndexList(loader('test_tbmultiunionindexlist'));
+        tables.set('test.TbMultiUnionIndexList', this._TbMultiUnionIndexList);
+        this._TbMultiIndexList = new test.TbMultiIndexList(loader('test_tbmultiindexlist'));
+        tables.set('test.TbMultiIndexList', this._TbMultiIndexList);
         this._TbDataFromMisc = new test.TbDataFromMisc(loader('test_tbdatafrommisc'));
         tables.set('test.TbDataFromMisc', this._TbDataFromMisc);
         this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test_tbmultirowrecord'));
@@ -6743,6 +7279,14 @@ class Tables {
         tables.set('test.TbDemoGroup_E', this._TbDemoGroup_E);
         this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal'));
         tables.set('test.TbTestGlobal', this._TbTestGlobal);
+        this._TbTestBeRef = new test.TbTestBeRef(loader('test_tbtestberef'));
+        tables.set('test.TbTestBeRef', this._TbTestBeRef);
+        this._TbTestRef = new test.TbTestRef(loader('test_tbtestref'));
+        tables.set('test.TbTestRef', this._TbTestRef);
+        this._TbTestSize = new test.TbTestSize(loader('test_tbtestsize'));
+        tables.set('test.TbTestSize', this._TbTestSize);
+        this._TbTestSet = new test.TbTestSet(loader('test_tbtestset'));
+        tables.set('test.TbTestSet', this._TbTestSet);
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding'));
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding);
         this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel'));
@@ -6755,6 +7299,12 @@ class Tables {
         tables.set('test.TbTestMap', this._TbTestMap);
         this._TbExcelFromJson = new test.TbExcelFromJson(loader('test_tbexcelfromjson'));
         tables.set('test.TbExcelFromJson', this._TbExcelFromJson);
+        this._TbCompositeJsonTable1 = new test.TbCompositeJsonTable1(loader('test_tbcompositejsontable1'));
+        tables.set('test.TbCompositeJsonTable1', this._TbCompositeJsonTable1);
+        this._TbCompositeJsonTable2 = new test.TbCompositeJsonTable2(loader('test_tbcompositejsontable2'));
+        tables.set('test.TbCompositeJsonTable2', this._TbCompositeJsonTable2);
+        this._TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader('test_tbcompositejsontable3'));
+        tables.set('test.TbCompositeJsonTable3', this._TbCompositeJsonTable3);
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'));
         tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow);
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'));
@@ -6763,12 +7313,13 @@ class Tables {
         tables.set('test.TbDefineFromExcel2', this._TbDefineFromExcel2);
         this._TbTestExcelBean = new test.TbTestExcelBean(loader('test_tbtestexcelbean'));
         tables.set('test.TbTestExcelBean', this._TbTestExcelBean);
+        this._TbTestDesc = new test.TbTestDesc(loader('test_tbtestdesc'));
+        tables.set('test.TbTestDesc', this._TbTestDesc);
         this._TbBlackboard.resolve(tables);
         this._TbBehaviorTree.resolve(tables);
         this._TbClazz.resolve(tables);
         this._TbDrop.resolve(tables);
         this._TbGlobalConfig.resolve(tables);
-        this._TbDummy.resolve(tables);
         this._TbErrorInfo.resolve(tables);
         this._TbCodeInfo.resolve(tables);
         this._TbItem.resolve(tables);
@@ -6783,6 +7334,9 @@ class Tables {
         this._TbTestTag.resolve(tables);
         this._TbFullTypes.resolve(tables);
         this._TbSingleton.resolve(tables);
+        this._TbNotIndexList.resolve(tables);
+        this._TbMultiUnionIndexList.resolve(tables);
+        this._TbMultiIndexList.resolve(tables);
         this._TbDataFromMisc.resolve(tables);
         this._TbMultiRowRecord.resolve(tables);
         this._TbMultiRowTitle.resolve(tables);
@@ -6794,16 +7348,24 @@ class Tables {
         this._TbDemoGroup_S.resolve(tables);
         this._TbDemoGroup_E.resolve(tables);
         this._TbTestGlobal.resolve(tables);
+        this._TbTestBeRef.resolve(tables);
+        this._TbTestRef.resolve(tables);
+        this._TbTestSize.resolve(tables);
+        this._TbTestSet.resolve(tables);
         this._TbDetectCsvEncoding.resolve(tables);
         this._TbDefineFromExcel.resolve(tables);
         this._TbDefineFromExcelOne.resolve(tables);
         this._TbTestIndex.resolve(tables);
         this._TbTestMap.resolve(tables);
         this._TbExcelFromJson.resolve(tables);
+        this._TbCompositeJsonTable1.resolve(tables);
+        this._TbCompositeJsonTable2.resolve(tables);
+        this._TbCompositeJsonTable3.resolve(tables);
         this._TbExcelFromJsonMultiRow.resolve(tables);
         this._TbDemoGroupDefineFromExcel.resolve(tables);
         this._TbDefineFromExcel2.resolve(tables);
         this._TbTestExcelBean.resolve(tables);
+        this._TbTestDesc.resolve(tables);
     }
 }
 exports.Tables = Tables;

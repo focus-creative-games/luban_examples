@@ -55,7 +55,7 @@ public sealed class TbTestIndex
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -55,7 +55,7 @@ public sealed class TbCodeInfo
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

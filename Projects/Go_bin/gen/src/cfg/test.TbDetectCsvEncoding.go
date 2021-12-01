@@ -47,4 +47,3 @@ func (table *TestTbDetectCsvEncoding) Get(key int32) *TestDetectEncoding {
     return table._dataMap[key]
 }
 
-

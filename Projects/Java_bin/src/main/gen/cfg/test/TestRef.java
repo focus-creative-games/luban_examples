@@ -26,9 +26,15 @@ public final class TestRef {
         {int n = Math.min(_buf.readSize(), _buf.size());c2 = new java.util.HashSet<Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); c2.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());d1 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     d1.put(_k, _v);}}
         {int n = Math.min(_buf.readSize(), _buf.size());d2 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     d2.put(_k, _v);}}
+        e1 = _buf.readInt();
+        e2 = _buf.readLong();
+        e3 = _buf.readString();
+        f1 = _buf.readInt();
+        f2 = _buf.readLong();
+        f3 = _buf.readString();
     }
 
-    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, java.util.ArrayList<Integer> b1, java.util.ArrayList<Integer> b2, java.util.HashSet<Integer> c1, java.util.HashSet<Integer> c2, java.util.HashMap<Integer, Integer> d1, java.util.HashMap<Integer, Integer> d2 ) {
+    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, java.util.ArrayList<Integer> b1, java.util.ArrayList<Integer> b2, java.util.HashSet<Integer> c1, java.util.HashSet<Integer> c2, java.util.HashMap<Integer, Integer> d1, java.util.HashMap<Integer, Integer> d2, int e1, long e2, String e3, int f1, long f2, String f3 ) {
         this.id = id;
         this.x1 = x1;
         this.x12 = x1_2;
@@ -41,6 +47,12 @@ public final class TestRef {
         this.c2 = c2;
         this.d1 = d1;
         this.d2 = d2;
+        this.e1 = e1;
+        this.e2 = e2;
+        this.e3 = e3;
+        this.f1 = f1;
+        this.f2 = f2;
+        this.f3 = f3;
     }
 
 
@@ -58,6 +70,12 @@ public final class TestRef {
     public final java.util.HashSet<Integer> c2;
     public final java.util.HashMap<Integer, Integer> d1;
     public final java.util.HashMap<Integer, Integer> d2;
+    public final int e1;
+    public final long e2;
+    public final String e3;
+    public final int f1;
+    public final long f2;
+    public final String f3;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
@@ -80,6 +98,12 @@ public final class TestRef {
         + "c2:" + c2 + ","
         + "d1:" + d1 + ","
         + "d2:" + d2 + ","
+        + "e1:" + e1 + ","
+        + "e2:" + e2 + ","
+        + "e3:" + e3 + ","
+        + "f1:" + f1 + ","
+        + "f2:" + f2 + ","
+        + "f3:" + f3 + ","
         + "}";
     }
 }

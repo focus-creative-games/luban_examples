@@ -55,7 +55,7 @@ public sealed class TbDataFromMisc
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

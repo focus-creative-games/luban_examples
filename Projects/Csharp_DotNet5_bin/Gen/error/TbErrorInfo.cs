@@ -53,7 +53,6 @@ public sealed class TbErrorInfo
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

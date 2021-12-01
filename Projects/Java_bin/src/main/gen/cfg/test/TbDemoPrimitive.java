@@ -37,5 +37,4 @@ public final class TbDemoPrimitive {
             v.resolve(_tables);
         }
     }
-
 }

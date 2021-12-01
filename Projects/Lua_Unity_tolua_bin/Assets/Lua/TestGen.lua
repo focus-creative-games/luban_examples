@@ -112,28 +112,19 @@ function Load(typeDefs, configFileloader)
 			local index = t.index
             for i = 1, buf:ReadSize() do
                 local v = valueType._deserialize(buf)
-				print(ttostring(v))
                 tableDatas[v[index]] = v
             end
-        elseif mode == "bmap" then
+        elseif mode == "list" then
             tableDatas = {}
-			local index1 = t.index1
-			local index2 = t.index2
             for i = 1, buf:ReadSize() do
                 local v = valueType._deserialize(buf)
-                local primaryDatas = tableDatas[v[index1]]
-                if not primaryDatas then
-                    primaryDatas = {}
-					print(ttostring(v))
-                    tableDatas[v[index1]] = primaryDatas
-                end
-                primaryDatas[index2] = v
+                tinsert(tableDatas, v)
             end
         else
             assert(buf:ReadSize() == 1)
             tableDatas = valueType._deserialize(buf)
-			print(ttostring(tableDatas))
         end
+		print(ttostring(tableDatas))
         tables[t.name] = tableDatas
     end
 end

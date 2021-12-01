@@ -47,4 +47,3 @@ func (table *TestTbTestIndex) Get(key int32) *TestTestIndex {
     return table._dataMap[key]
 }
 
-

@@ -17,6 +17,7 @@ type TestMultiRowTitle struct {
     X1 *TestH1
     X2 []*TestH2
     X3 []*TestH2
+    X4 []*TestH2
 }
 
 const TypeId_TestMultiRowTitle = 540002427
@@ -54,6 +55,20 @@ func (_v *TestMultiRowTitle)Deserialize(_buf map[string]interface{}) (err error)
                     var _list_v_ *TestH2
                     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestH2(_x_); err != nil { return } }
                     _v.X3 = append(_v.X3, _list_v_)
+                }
+            }
+
+     {
+                var _arr_ []interface{}
+                var _ok_ bool
+                if _arr_, _ok_ = _buf["x4"].([]interface{}); !_ok_ { err = errors.New("x4 error"); return }
+
+                _v.X4 = make([]*TestH2, 0, len(_arr_))
+                
+                for _, _e_ := range _arr_ {
+                    var _list_v_ *TestH2
+                    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = DeserializeTestH2(_x_); err != nil { return } }
+                    _v.X4 = append(_v.X4, _list_v_)
                 }
             }
 

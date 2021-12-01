@@ -18,6 +18,7 @@ using ByteBuf = ::bright::serialization::ByteBuf;
 namespace cfg
 {
 
+
 namespace ai {
 enum class EExecutor
 {
@@ -25,6 +26,7 @@ enum class EExecutor
     SERVER = 1,
 };
 }
+
 namespace ai {
 enum class EKeyType
 {
@@ -40,6 +42,7 @@ enum class EKeyType
     OBJECT = 10,
 };
 }
+
 namespace ai {
 enum class EFlowAbortMode
 {
@@ -49,6 +52,7 @@ enum class EFlowAbortMode
     BOTH = 3,
 };
 }
+
 namespace ai {
 enum class EFinishMode
 {
@@ -56,6 +60,7 @@ enum class EFinishMode
     DELAYED = 1,
 };
 }
+
 namespace ai {
 enum class ENotifyObserverMode
 {
@@ -63,6 +68,7 @@ enum class ENotifyObserverMode
     ON_RESULT_CHANGE = 1,
 };
 }
+
 namespace ai {
 enum class EOperator
 {
@@ -76,6 +82,7 @@ enum class EOperator
     NOT_CONTAINS = 7,
 };
 }
+
 namespace common {
 enum class EBoolOperator
 {
@@ -83,6 +90,7 @@ enum class EBoolOperator
     OR = 1,
 };
 }
+
 namespace error {
 enum class EOperation
 {
@@ -96,6 +104,7 @@ enum class EOperation
     RESTART = 1,
 };
 }
+
 namespace error {
 enum class EErrorCode
 {
@@ -186,6 +195,7 @@ enum class EErrorCode
     SELFIE_HAD_REWARD = 1203,
 };
 }
+
 namespace item {
 /**
  * 道具品质
@@ -214,6 +224,7 @@ enum class EItemQuality
     GOLDEN = 4,
 };
 }
+
 namespace item {
 enum class ECurrencyType
 {
@@ -239,6 +250,7 @@ enum class ECurrencyType
     POWER_POINT = 5,
 };
 }
+
 namespace item {
 enum class EMajorType
 {
@@ -288,6 +300,7 @@ enum class EMajorType
     MATERIAL = 11,
 };
 }
+
 namespace item {
 enum class EMinorType
 {
@@ -489,6 +502,7 @@ enum class EMinorType
     DESIGN_DRAWING = 1102,
 };
 }
+
 namespace item {
 enum class EClothersStarQualityType
 {
@@ -534,6 +548,7 @@ enum class EClothersStarQualityType
     TEN = 10,
 };
 }
+
 namespace item {
 enum class EClothersTag
 {
@@ -547,6 +562,7 @@ enum class EClothersTag
     WU_ZHE = 2,
 };
 }
+
 namespace item {
 enum class EUseType
 {
@@ -560,6 +576,7 @@ enum class EUseType
     AUTO = 1,
 };
 }
+
 namespace item {
 enum class EClothesHidePartType
 {
@@ -597,6 +614,7 @@ enum class EClothesHidePartType
     LEG_LOWER = 7,
 };
 }
+
 namespace item {
 enum class EClothesPropertyType
 {
@@ -642,6 +660,7 @@ enum class EClothesPropertyType
     BAO_NUAN = 10,
 };
 }
+
 namespace item {
 enum class EItemFunctionType
 {
@@ -655,6 +674,7 @@ enum class EItemFunctionType
     USE_DESIGN_DRAWING = 1,
 };
 }
+
 namespace limit {
 enum class ENamespace
 {
@@ -663,6 +683,7 @@ enum class ENamespace
     STORE_GOODS_LIMIT_BUY = 3,
 };
 }
+
 namespace mail {
 enum class EMailType
 {
@@ -676,6 +697,7 @@ enum class EMailType
     SYSTEM = 1,
 };
 }
+
 namespace role {
 enum class EGenderType
 {
@@ -689,12 +711,14 @@ enum class EGenderType
     FEMALE = 2,
 };
 }
+
 namespace role {
 enum class EProfession
 {
     TEST_PROFESSION = 1,
 };
 }
+
 namespace test {
 enum class DemoEnum
 {
@@ -716,6 +740,7 @@ enum class DemoEnum
     D = 5,
 };
 }
+
 namespace test {
 enum class DemoFlag
 {
@@ -724,6 +749,7 @@ enum class DemoFlag
     D = A|B,
 };
 }
+
 namespace test {
 enum class ETestUeType
 {
@@ -734,11 +760,13 @@ enum class ETestUeType
     BLACK = 1,
 };
 }
+
 namespace test {
 enum class ETestEmptyEnum
 {
 };
 }
+
 namespace test {
 enum class ETestEmptyEnum2
 {
@@ -747,6 +775,7 @@ enum class ETestEmptyEnum2
     X_257 = 257,
 };
 }
+
 namespace test {
 enum class ETestQuality
 {
@@ -768,6 +797,7 @@ enum class ETestQuality
     D = 4,
 };
 }
+
 namespace test {
 enum class ETestCurrency
 {
@@ -905,6 +935,9 @@ namespace test { class DemoD5; }
 namespace test { class DateTimeRange; } 
 namespace test { class DemoE2; } 
 namespace test { class DemoSingletonType; } 
+namespace test { class NotIndexList; } 
+namespace test { class MultiUnionIndexList; } 
+namespace test { class MultiIndexList; } 
 namespace test { class MultiRowRecord; } 
 namespace test { class MultiRowType1; } 
 namespace test { class MultiRowType2; } 
@@ -5474,6 +5507,126 @@ namespace test {
 
 
 
+class NotIndexList : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeNotIndexList(ByteBuf& _buf, ::bright::SharedPtr<NotIndexList>& _out);
+
+    NotIndexList()
+    { 
+
+    }
+
+    NotIndexList(::bright::int32 x, ::bright::int32 y ) 
+    {
+
+        this->x = x;
+        this->y = y;
+    }
+    virtual ~NotIndexList() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x;
+    ::bright::int32 y;
+
+    static constexpr int __ID__ = -50446599;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class MultiUnionIndexList : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiUnionIndexList(ByteBuf& _buf, ::bright::SharedPtr<MultiUnionIndexList>& _out);
+
+    MultiUnionIndexList()
+    { 
+
+    }
+
+    MultiUnionIndexList(::bright::int32 id1, ::bright::int64 id2, ::bright::String id3, ::bright::int32 num, ::bright::String desc ) 
+    {
+
+        this->id1 = id1;
+        this->id2 = id2;
+        this->id3 = id3;
+        this->num = num;
+        this->desc = desc;
+    }
+    virtual ~MultiUnionIndexList() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id1;
+    ::bright::int64 id2;
+    ::bright::String id3;
+    ::bright::int32 num;
+    ::bright::String desc;
+
+    static constexpr int __ID__ = 1966847134;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class MultiIndexList : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeMultiIndexList(ByteBuf& _buf, ::bright::SharedPtr<MultiIndexList>& _out);
+
+    MultiIndexList()
+    { 
+
+    }
+
+    MultiIndexList(::bright::int32 id1, ::bright::int64 id2, ::bright::String id3, ::bright::int32 num, ::bright::String desc ) 
+    {
+
+        this->id1 = id1;
+        this->id2 = id2;
+        this->id3 = id3;
+        this->num = num;
+        this->desc = desc;
+    }
+    virtual ~MultiIndexList() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id1;
+    ::bright::int64 id2;
+    ::bright::String id3;
+    ::bright::int32 num;
+    ::bright::String desc;
+
+    static constexpr int __ID__ = 2016237651;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
 class MultiRowRecord : public  bright::CfgBean 
 {
     public:
@@ -5645,7 +5798,7 @@ class MultiRowTitle : public  bright::CfgBean
 
     }
 
-    MultiRowTitle(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::H1> x1, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3 ) 
+    MultiRowTitle(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::H1> x1, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3, ::bright::Vector<::bright::SharedPtr<test::H2>> x4 ) 
     {
 
         this->id = id;
@@ -5653,6 +5806,7 @@ class MultiRowTitle : public  bright::CfgBean
         this->x1 = x1;
         this->x2 = x2;
         this->x3 = x3;
+        this->x4 = x4;
     }
     virtual ~MultiRowTitle() {}
 
@@ -5663,6 +5817,7 @@ class MultiRowTitle : public  bright::CfgBean
     ::bright::SharedPtr<test::H1> x1;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
+    ::bright::Vector<::bright::SharedPtr<test::H2>> x4;
 
     static constexpr int __ID__ = 540002427;
 
@@ -6097,7 +6252,7 @@ class TestRef : public  bright::CfgBean
 
     }
 
-    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2 ) 
+    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2, ::bright::int32 e1, ::bright::int64 e2, ::bright::String e3, ::bright::int32 f1, ::bright::int64 f2, ::bright::String f3 ) 
     {
 
         this->id = id;
@@ -6112,6 +6267,12 @@ class TestRef : public  bright::CfgBean
         this->c2 = c2;
         this->d1 = d1;
         this->d2 = d2;
+        this->e1 = e1;
+        this->e2 = e2;
+        this->e3 = e3;
+        this->f1 = f1;
+        this->f2 = f2;
+        this->f3 = f3;
     }
     virtual ~TestRef() {}
 
@@ -6131,6 +6292,12 @@ class TestRef : public  bright::CfgBean
     ::bright::HashSet<::bright::int32> c2;
     ::bright::HashMap<::bright::int32, ::bright::int32> d1;
     ::bright::HashMap<::bright::int32, ::bright::int32> d2;
+    ::bright::int32 e1;
+    ::bright::int64 e2;
+    ::bright::String e3;
+    ::bright::int32 f1;
+    ::bright::int64 f2;
+    ::bright::String f3;
 
     static constexpr int __ID__ = -543222491;
 
@@ -7836,6 +8003,135 @@ class TbSingleton
 namespace test {
 
 
+class TbNotIndexList
+{
+    private:
+    ::bright::Vector<::bright::SharedPtr<test::NotIndexList>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::NotIndexList> _v;
+            if(!test::NotIndexList::deserializeNotIndexList(_buf, _v)) return false;
+            _dataList.push_back(_v);
+        }
+        return true;
+    }
+
+    const ::bright::Vector<::bright::SharedPtr<test::NotIndexList>>& getDataList() const { return _dataList; }
+
+    test::NotIndexList* getRaw(size_t index) const
+    { 
+        return _dataList[index].get();
+    }
+
+    ::bright::SharedPtr<test::NotIndexList> get(size_t index) const
+    { 
+        return _dataList[index];
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+};
+}
+namespace test {
+
+
+class TbMultiUnionIndexList
+{
+    private:
+    ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::MultiUnionIndexList> _v;
+            if(!test::MultiUnionIndexList::deserializeMultiUnionIndexList(_buf, _v)) return false;
+            _dataList.push_back(_v);
+        }
+        return true;
+    }
+
+    const ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>>& getDataList() const { return _dataList; }
+
+    test::MultiUnionIndexList* getRaw(size_t index) const
+    { 
+        return _dataList[index].get();
+    }
+
+    ::bright::SharedPtr<test::MultiUnionIndexList> get(size_t index) const
+    { 
+        return _dataList[index];
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+};
+}
+namespace test {
+
+
+class TbMultiIndexList
+{
+    private:
+    ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::MultiIndexList> _v;
+            if(!test::MultiIndexList::deserializeMultiIndexList(_buf, _v)) return false;
+            _dataList.push_back(_v);
+        }
+        return true;
+    }
+
+    const ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>>& getDataList() const { return _dataList; }
+
+    test::MultiIndexList* getRaw(size_t index) const
+    { 
+        return _dataList[index].get();
+    }
+
+    ::bright::SharedPtr<test::MultiIndexList> get(size_t index) const
+    { 
+        return _dataList[index];
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+};
+}
+namespace test {
+
+
 class TbDataFromMisc
 {
     private:
@@ -9227,6 +9523,9 @@ class Tables
      tag::TbTestTag TbTestTag;
      test::TbFullTypes TbFullTypes;
      test::TbSingleton TbSingleton;
+     test::TbNotIndexList TbNotIndexList;
+     test::TbMultiUnionIndexList TbMultiUnionIndexList;
+     test::TbMultiIndexList TbMultiIndexList;
      test::TbDataFromMisc TbDataFromMisc;
      test::TbMultiRowRecord TbMultiRowRecord;
      test::TbMultiRowTitle TbMultiRowTitle;
@@ -9319,6 +9618,15 @@ class Tables
         if (!loader(buf, "test_tbsingleton")) return false;
         if (!TbSingleton.load(buf)) return false;
         __tables__["test.TbSingleton"] = &TbSingleton;
+        if (!loader(buf, "test_tbnotindexlist")) return false;
+        if (!TbNotIndexList.load(buf)) return false;
+        __tables__["test.TbNotIndexList"] = &TbNotIndexList;
+        if (!loader(buf, "test_tbmultiunionindexlist")) return false;
+        if (!TbMultiUnionIndexList.load(buf)) return false;
+        __tables__["test.TbMultiUnionIndexList"] = &TbMultiUnionIndexList;
+        if (!loader(buf, "test_tbmultiindexlist")) return false;
+        if (!TbMultiIndexList.load(buf)) return false;
+        __tables__["test.TbMultiIndexList"] = &TbMultiIndexList;
         if (!loader(buf, "test_tbdatafrommisc")) return false;
         if (!TbDataFromMisc.load(buf)) return false;
         __tables__["test.TbDataFromMisc"] = &TbDataFromMisc;
@@ -9426,6 +9734,9 @@ class Tables
         TbTestTag.resolve(__tables__); 
         TbFullTypes.resolve(__tables__); 
         TbSingleton.resolve(__tables__); 
+        TbNotIndexList.resolve(__tables__); 
+        TbMultiUnionIndexList.resolve(__tables__); 
+        TbMultiIndexList.resolve(__tables__); 
         TbDataFromMisc.resolve(__tables__); 
         TbMultiRowRecord.resolve(__tables__); 
         TbMultiRowTitle.resolve(__tables__); 

@@ -55,7 +55,7 @@ public sealed class TbMultiRowRecord
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

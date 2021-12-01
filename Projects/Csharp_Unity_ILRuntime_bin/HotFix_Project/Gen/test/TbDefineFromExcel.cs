@@ -53,7 +53,6 @@ public sealed class TbDefineFromExcel
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

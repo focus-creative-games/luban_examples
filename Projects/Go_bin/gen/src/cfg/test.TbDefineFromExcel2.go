@@ -47,4 +47,3 @@ func (table *TestTbDefineFromExcel2) Get(key int32) *TestDefineFromExcel2 {
     return table._dataMap[key]
 }
 
-

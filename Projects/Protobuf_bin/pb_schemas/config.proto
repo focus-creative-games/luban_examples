@@ -1272,6 +1272,27 @@ message TestDemoSingletonType {
     required TestDemoDynamic date = 3 ;
 }
 
+message TestNotIndexList {
+    required int32 x = 1 ;
+    required int32 y = 2 ;
+}
+
+message TestMultiUnionIndexList {
+    required int32 id1 = 1 ;
+    required int64 id2 = 2 ;
+    required string id3 = 3 ;
+    required int32 num = 4 ;
+    required string desc = 5 ;
+}
+
+message TestMultiIndexList {
+    required int32 id1 = 1 ;
+    required int64 id2 = 2 ;
+    required string id3 = 3 ;
+    required int32 num = 4 ;
+    required string desc = 5 ;
+}
+
 message TestMultiRowRecord {
     required int32 id = 1 ;
     required string name = 2 ;
@@ -1306,6 +1327,7 @@ message TestMultiRowTitle {
     required TestH1 x1 = 3 ;
     repeated TestH2 x2 = 4 [packed = false];
     repeated TestH2 x3 = 5 [packed = false];
+    repeated TestH2 x4 = 6 [packed = false];
 }
 
 message TestH1 {
@@ -1396,6 +1418,12 @@ message TestTestRef {
     repeated int32 c2 = 10 [packed = true];
      map<int32, int32> d1 = 11 ;
      map<int32, int32> d2 = 12 ;
+    required int32 e1 = 13 ;
+    required int64 e2 = 14 ;
+    required string e3 = 15 ;
+    required int32 f1 = 16 ;
+    required int64 f2 = 17 ;
+    required string f3 = 18 ;
 }
 
 message TestTestSize {
@@ -1617,6 +1645,18 @@ message TestTbFullTypes {
 
 message TestTbSingleton {
     repeated TestDemoSingletonType data_list = 1 [packed = false];
+}
+
+message TestTbNotIndexList {
+    repeated TestNotIndexList data_list = 1 [packed = false];
+}
+
+message TestTbMultiUnionIndexList {
+    repeated TestMultiUnionIndexList data_list = 1 [packed = false];
+}
+
+message TestTbMultiIndexList {
+    repeated TestMultiIndexList data_list = 1 [packed = false];
 }
 
 message TestTbDataFromMisc {

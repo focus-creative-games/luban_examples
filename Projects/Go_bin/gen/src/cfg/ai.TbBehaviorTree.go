@@ -47,4 +47,3 @@ func (table *AiTbBehaviorTree) Get(key int32) *AiBehaviorTree {
     return table._dataMap[key]
 }
 
-

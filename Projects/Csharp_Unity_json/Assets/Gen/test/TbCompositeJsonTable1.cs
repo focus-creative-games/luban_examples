@@ -55,7 +55,7 @@ public sealed class TbCompositeJsonTable1
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

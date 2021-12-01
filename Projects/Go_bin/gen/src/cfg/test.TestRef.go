@@ -28,6 +28,12 @@ type TestTestRef struct {
     C2 []int32
     D1 map[int32]int32
     D2 map[int32]int32
+    E1 int32
+    E2 int64
+    E3 string
+    F1 int32
+    F2 int64
+    F3 string
 }
 
 const TypeId_TestTestRef = -543222491
@@ -53,6 +59,12 @@ func (_v *TestTestRef)Deserialize(_buf *serialization.ByteBuf) (err error) {
     {_v.C2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.C2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("_e_ error"); return } }; _v.C2 = append(_v.C2, _e_) } }
     { _v.D1 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.D1 error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("_key_ error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("_value_ error"); return } }; _v.D1[_key_] = _value_} }
     { _v.D2 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.D2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("_key_ error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("_value_ error"); return } }; _v.D2[_key_] = _value_} }
+    { if _v.E1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.E1 error"); return } }
+    { if _v.E2, err = _buf.ReadLong(); err != nil { err = errors.New("_v.E2 error"); return } }
+    { if _v.E3, err = _buf.ReadString(); err != nil { err = errors.New("_v.E3 error"); return } }
+    { if _v.F1, err = _buf.ReadInt(); err != nil { err = errors.New("_v.F1 error"); return } }
+    { if _v.F2, err = _buf.ReadLong(); err != nil { err = errors.New("_v.F2 error"); return } }
+    { if _v.F3, err = _buf.ReadString(); err != nil { err = errors.New("_v.F3 error"); return } }
     return
 }
 

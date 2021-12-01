@@ -24,6 +24,12 @@ type TestTestRef struct {
     C2 []int32
     D1 map[int32]int32
     D2 map[int32]int32
+    E1 int32
+    E2 int64
+    E3 string
+    F1 int32
+    F2 int64
+    F3 string
 }
 
 const TypeId_TestTestRef = -543222491
@@ -155,6 +161,12 @@ func (_v *TestTestRef)Deserialize(_buf map[string]interface{}) (err error) {
                     _v.D2[_key_] = _value_
                 }
                 }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["e1"].(float64); !_ok_ { err = errors.New("e1 error"); return }; _v.E1 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["e2"].(float64); !_ok_ { err = errors.New("e2 error"); return }; _v.E2 = int64(_tempNum_) }
+    { var _ok_ bool; if _v.E3, _ok_ = _buf["e3"].(string); !_ok_ { err = errors.New("e3 error"); return } }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["f1"].(float64); !_ok_ { err = errors.New("f1 error"); return }; _v.F1 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["f2"].(float64); !_ok_ { err = errors.New("f2 error"); return }; _v.F2 = int64(_tempNum_) }
+    { var _ok_ bool; if _v.F3, _ok_ = _buf["f3"].(string); !_ok_ { err = errors.New("f3 error"); return } }
     return
 }
 

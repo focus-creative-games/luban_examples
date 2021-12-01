@@ -37,5 +37,4 @@ public final class TbSystemMail {
             v.resolve(_tables);
         }
     }
-
 }

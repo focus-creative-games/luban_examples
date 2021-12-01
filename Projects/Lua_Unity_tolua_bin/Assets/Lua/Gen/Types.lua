@@ -2766,6 +2766,72 @@ local function InitTypes(methods)
         beans[class._name] = class
     end
     do
+    ---@class test.NotIndexList 
+     ---@field public x int
+     ---@field public y int
+        local class = SimpleClass()
+        class._id = -50446599
+        class._name = 'test.NotIndexList'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x = readInt(bs),
+            y = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiUnionIndexList 
+     ---@field public id1 int
+     ---@field public id2 long
+     ---@field public id3 string
+     ---@field public num int
+     ---@field public desc string
+        local class = SimpleClass()
+        class._id = 1966847134
+        class._name = 'test.MultiUnionIndexList'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id1 = readInt(bs),
+            id2 = readLong(bs),
+            id3 = readString(bs),
+            num = readInt(bs),
+            desc = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
+    ---@class test.MultiIndexList 
+     ---@field public id1 int
+     ---@field public id2 long
+     ---@field public id3 string
+     ---@field public num int
+     ---@field public desc string
+        local class = SimpleClass()
+        class._id = 2016237651
+        class._name = 'test.MultiIndexList'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id1 = readInt(bs),
+            id2 = readLong(bs),
+            id3 = readString(bs),
+            num = readInt(bs),
+            desc = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class._name] = class
+    end
+    do
     ---@class test.MultiRowRecord 
      ---@field public id int
      ---@field public name string
@@ -2860,6 +2926,7 @@ local function InitTypes(methods)
      ---@field public x1 test.H1
      ---@field public x2 test.H2[]
      ---@field public x3 test.H2[]
+     ---@field public x4 test.H2[]
         local class = SimpleClass()
         class._id = 540002427
         class._name = 'test.MultiRowTitle'
@@ -2871,6 +2938,7 @@ local function InitTypes(methods)
             x1 = beans['test.H1']._deserialize(bs),
             x2 = readList(bs, beans['test.H2']._deserialize),
             x3 = readArray(bs, beans['test.H2']._deserialize),
+            x4 = readArray(bs, beans['test.H2']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -3121,6 +3189,12 @@ local function InitTypes(methods)
      ---@field public c2 int[]
      ---@field public d1 table<int,int>
      ---@field public d2 table<int,int>
+     ---@field public e1 int
+     ---@field public e2 long
+     ---@field public e3 string
+     ---@field public f1 int
+     ---@field public f2 long
+     ---@field public f3 string
         local class = SimpleClass()
         class._id = -543222491
         class._name = 'test.TestRef'
@@ -3139,6 +3213,12 @@ local function InitTypes(methods)
             c2 = readSet(bs, readInt),
             d1 = readMap(bs, readInt, readInt),
             d2 = readMap(bs, readInt, readInt),
+            e1 = readInt(bs),
+            e2 = readLong(bs),
+            e3 = readString(bs),
+            f1 = readInt(bs),
+            f2 = readLong(bs),
+            f3 = readString(bs),
             }
             setmetatable(o, class)
             return o
@@ -3591,6 +3671,9 @@ local function InitTypes(methods)
     { name='TbTestTag', file='tag_tbtesttag', mode='map', index='id', value_type='tag.TestTag' },
     { name='TbFullTypes', file='test_tbfulltypes', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbSingleton', file='test_tbsingleton', mode='one', value_type='test.DemoSingletonType'},
+    { name='TbNotIndexList', file='test_tbnotindexlist', mode='list', index='', value_type='test.NotIndexList' },
+    { name='TbMultiUnionIndexList', file='test_tbmultiunionindexlist', mode='list', index='id1+id2+id3', value_type='test.MultiUnionIndexList' },
+    { name='TbMultiIndexList', file='test_tbmultiindexlist', mode='list', index='id1,id2,id3', value_type='test.MultiIndexList' },
     { name='TbDataFromMisc', file='test_tbdatafrommisc', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbMultiRowRecord', file='test_tbmultirowrecord', mode='map', index='id', value_type='test.MultiRowRecord' },
     { name='TbMultiRowTitle', file='test_tbmultirowtitle', mode='map', index='id', value_type='test.MultiRowTitle' },

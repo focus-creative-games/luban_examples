@@ -47,4 +47,3 @@ func (table *AiTbBlackboard) Get(key string) *AiBlackboard {
     return table._dataMap[key]
 }
 
-

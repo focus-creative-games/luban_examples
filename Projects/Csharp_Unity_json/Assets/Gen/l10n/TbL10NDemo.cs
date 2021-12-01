@@ -55,7 +55,7 @@ public sealed class TbL10NDemo
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

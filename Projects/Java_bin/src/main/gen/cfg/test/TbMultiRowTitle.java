@@ -37,5 +37,4 @@ public final class TbMultiRowTitle {
             v.resolve(_tables);
         }
     }
-
 }

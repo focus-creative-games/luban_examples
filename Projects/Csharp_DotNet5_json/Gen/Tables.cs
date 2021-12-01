@@ -36,6 +36,9 @@ public sealed class Tables
     public tag.TbTestTag TbTestTag {get; }
     public test.TbFullTypes TbFullTypes {get; }
     public test.TbSingleton TbSingleton {get; }
+    public test.TbNotIndexList TbNotIndexList {get; }
+    public test.TbMultiUnionIndexList TbMultiUnionIndexList {get; }
+    public test.TbMultiIndexList TbMultiIndexList {get; }
     public test.TbDataFromMisc TbDataFromMisc {get; }
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
@@ -107,6 +110,12 @@ public sealed class Tables
         tables.Add("test.TbFullTypes", TbFullTypes);
         TbSingleton = new test.TbSingleton(loader("test_tbsingleton")); 
         tables.Add("test.TbSingleton", TbSingleton);
+        TbNotIndexList = new test.TbNotIndexList(loader("test_tbnotindexlist")); 
+        tables.Add("test.TbNotIndexList", TbNotIndexList);
+        TbMultiUnionIndexList = new test.TbMultiUnionIndexList(loader("test_tbmultiunionindexlist")); 
+        tables.Add("test.TbMultiUnionIndexList", TbMultiUnionIndexList);
+        TbMultiIndexList = new test.TbMultiIndexList(loader("test_tbmultiindexlist")); 
+        tables.Add("test.TbMultiIndexList", TbMultiIndexList);
         TbDataFromMisc = new test.TbDataFromMisc(loader("test_tbdatafrommisc")); 
         tables.Add("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new test.TbMultiRowRecord(loader("test_tbmultirowrecord")); 
@@ -185,6 +194,9 @@ public sealed class Tables
         TbTestTag.Resolve(tables); 
         TbFullTypes.Resolve(tables); 
         TbSingleton.Resolve(tables); 
+        TbNotIndexList.Resolve(tables); 
+        TbMultiUnionIndexList.Resolve(tables); 
+        TbMultiIndexList.Resolve(tables); 
         TbDataFromMisc.Resolve(tables); 
         TbMultiRowRecord.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
@@ -237,6 +249,9 @@ public sealed class Tables
         TbTestTag.TranslateText(translator); 
         TbFullTypes.TranslateText(translator); 
         TbSingleton.TranslateText(translator); 
+        TbNotIndexList.TranslateText(translator); 
+        TbMultiUnionIndexList.TranslateText(translator); 
+        TbMultiIndexList.TranslateText(translator); 
         TbDataFromMisc.TranslateText(translator); 
         TbMultiRowRecord.TranslateText(translator); 
         TbMultiRowTitle.TranslateText(translator); 

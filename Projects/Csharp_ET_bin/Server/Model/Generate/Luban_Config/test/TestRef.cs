@@ -30,6 +30,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);C2 = new System.Collections.Generic.HashSet<int>(/*n * 3 / 2*/);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); C2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);D1 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     D1.Add(_k, _v);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);D2 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     D2.Add(_k, _v);}}
+        E1 = _buf.ReadInt();
+        E2 = _buf.ReadLong();
+        E3 = _buf.ReadString();
+        F1 = _buf.ReadInt();
+        F2 = _buf.ReadLong();
+        F3 = _buf.ReadString();
     }
 
     public static TestRef DeserializeTestRef(ByteBuf _buf)
@@ -51,6 +57,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
+    public int E1 { get; private set; }
+    public long E2 { get; private set; }
+    public string E3 { get; private set; }
+    public int F1 { get; private set; }
+    public long F2 { get; private set; }
+    public string F3 { get; private set; }
 
     public const int __ID__ = -543222491;
     public override int GetTypeId() => __ID__;
@@ -80,6 +92,12 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "C2:" + Bright.Common.StringUtil.CollectionToString(C2) + ","
         + "D1:" + Bright.Common.StringUtil.CollectionToString(D1) + ","
         + "D2:" + Bright.Common.StringUtil.CollectionToString(D2) + ","
+        + "E1:" + E1 + ","
+        + "E2:" + E2 + ","
+        + "E3:" + E3 + ","
+        + "F1:" + F1 + ","
+        + "F2:" + F2 + ","
+        + "F3:" + F3 + ","
         + "}";
     }
     }

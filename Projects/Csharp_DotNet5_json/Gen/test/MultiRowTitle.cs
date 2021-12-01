@@ -24,15 +24,17 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1 =  test.H1.DeserializeH1(_json.GetProperty("x1"));
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X2.Add(__v); }   }
         { var _json0 = _json.GetProperty("x3"); int _n = _json0.GetArrayLength(); X3 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X3[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("x4"); int _n = _json0.GetArrayLength(); X4 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X4[_index++] = __v; }   }
     }
 
-    public MultiRowTitle(int id, string name, test.H1 x1, System.Collections.Generic.List<test.H2> x2, test.H2[] x3 ) 
+    public MultiRowTitle(int id, string name, test.H1 x1, System.Collections.Generic.List<test.H2> x2, test.H2[] x3, test.H2[] x4 ) 
     {
         this.Id = id;
         this.Name = name;
         this.X1 = x1;
         this.X2 = x2;
         this.X3 = x3;
+        this.X4 = x4;
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(JsonElement _json)
@@ -45,6 +47,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
     public test.H1 X1 { get; private set; }
     public System.Collections.Generic.List<test.H2> X2 { get; private set; }
     public test.H2[] X3 { get; private set; }
+    public test.H2[] X4 { get; private set; }
 
     public const int __ID__ = 540002427;
     public override int GetTypeId() => __ID__;
@@ -54,6 +57,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1?.Resolve(_tables);
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
+        foreach(var _e in X4) { _e?.Resolve(_tables); }
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -61,6 +65,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1?.TranslateText(translator);
         foreach(var _e in X2) { _e?.TranslateText(translator); }
         foreach(var _e in X3) { _e?.TranslateText(translator); }
+        foreach(var _e in X4) { _e?.TranslateText(translator); }
     }
 
     public override string ToString()
@@ -71,6 +76,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "X2:" + Bright.Common.StringUtil.CollectionToString(X2) + ","
         + "X3:" + Bright.Common.StringUtil.CollectionToString(X3) + ","
+        + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
     }

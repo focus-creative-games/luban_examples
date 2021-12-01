@@ -47,4 +47,3 @@ func (table *RoleTbRoleLevelExpAttr) Get(key int32) *RoleLevelExpAttr {
     return table._dataMap[key]
 }
 
-

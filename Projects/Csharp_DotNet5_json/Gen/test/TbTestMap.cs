@@ -55,7 +55,7 @@ public sealed class TbTestMap
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

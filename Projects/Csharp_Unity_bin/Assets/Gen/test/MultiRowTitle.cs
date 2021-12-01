@@ -23,6 +23,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1 = test.H1.DeserializeH1(_buf);
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<test.H2>(n);for(var i = 0 ; i < n ; i++) { test.H2 _e;  _e = test.H2.DeserializeH2(_buf); X2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X3[i] = _e;}}
+        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X4[i] = _e;}}
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
     public test.H1 X1 { get; private set; }
     public System.Collections.Generic.List<test.H2> X2 { get; private set; }
     public test.H2[] X3 { get; private set; }
+    public test.H2[] X4 { get; private set; }
 
     public const int __ID__ = 540002427;
     public override int GetTypeId() => __ID__;
@@ -44,6 +46,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1?.Resolve(_tables);
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
+        foreach(var _e in X4) { _e?.Resolve(_tables); }
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +54,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         X1?.TranslateText(translator);
         foreach(var _e in X2) { _e?.TranslateText(translator); }
         foreach(var _e in X3) { _e?.TranslateText(translator); }
+        foreach(var _e in X4) { _e?.TranslateText(translator); }
     }
 
     public override string ToString()
@@ -61,6 +65,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "X2:" + Bright.Common.StringUtil.CollectionToString(X2) + ","
         + "X3:" + Bright.Common.StringUtil.CollectionToString(X3) + ","
+        + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
     }

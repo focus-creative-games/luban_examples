@@ -47,4 +47,3 @@ func (table *ErrorTbErrorInfo) Get(key string) *ErrorErrorInfo {
     return table._dataMap[key]
 }
 
-

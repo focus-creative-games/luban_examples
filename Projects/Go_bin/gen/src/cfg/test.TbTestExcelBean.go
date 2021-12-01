@@ -47,4 +47,3 @@ func (table *TestTbTestExcelBean) Get(key int32) *TestTestExcelBean1 {
     return table._dataMap[key]
 }
 
-

@@ -55,7 +55,7 @@ public sealed class TbRoleLevelBonusCoefficient
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -905,7 +905,6 @@ export class TbBlackboard {
         }
     }
 
-
 }
 }
 
@@ -990,7 +989,6 @@ export class TbBehaviorTree {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -1956,7 +1954,6 @@ export class TbClazz {
         }
     }
 
-
 }
 }
 
@@ -2237,7 +2234,6 @@ export class TbDrop {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -2787,7 +2783,6 @@ export class TbErrorInfo {
         }
     }
 
-
 }
 }
 
@@ -2950,7 +2945,6 @@ export class TbCodeInfo {
         }
     }
 
-
 }
 }
 
@@ -3005,7 +2999,6 @@ export class TbItem {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -3103,7 +3096,6 @@ export class TbItemFunc {
         }
     }
 
-
 }
 }
 
@@ -3159,7 +3151,6 @@ export class TbItemExtra {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -3779,7 +3770,6 @@ export class TbL10NDemo {
         }
     }
 
-
 }
 }
 
@@ -3832,7 +3822,6 @@ export class TbPatchDemo {
         }
     }
 
-
 }
 }
 
@@ -3884,7 +3873,6 @@ export class TbSystemMail {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -3943,7 +3931,6 @@ export class TbGlobalMail {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4020,7 +4007,6 @@ export class TbRoleLevelExpAttr {
         }
     }
 
-
 }
 }
 
@@ -4074,7 +4060,6 @@ export class TbRoleLevelBonusCoefficient {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4170,7 +4155,6 @@ export class TbTestTag {
         }
     }
 
-
 }
 }
 
@@ -4222,7 +4206,6 @@ export class TbFullTypes {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4518,6 +4501,165 @@ export  class DemoSingletonType  {
 
 
 export namespace test {
+export class TbNotIndexList {
+    private _dataList: test.NotIndexList[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.NotIndexList
+            _v = new test.NotIndexList(_buf_)
+            this._dataList.push(_v)
+        }
+    }
+
+    getDataList(): test.NotIndexList[] { return this._dataList }
+
+    get(index: number): test.NotIndexList | undefined { return this._dataList[index] }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class NotIndexList  {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbMultiUnionIndexList {
+    private _dataList: test.MultiUnionIndexList[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.MultiUnionIndexList
+            _v = new test.MultiUnionIndexList(_buf_)
+            this._dataList.push(_v)
+        }
+    }
+
+    getDataList(): test.MultiUnionIndexList[] { return this._dataList }
+
+    get(index: number): test.MultiUnionIndexList | undefined { return this._dataList[index] }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class MultiUnionIndexList  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id1 = _buf_.ReadInt()
+        this.id2 = _buf_.ReadLongAsNumber()
+        this.id3 = _buf_.ReadString()
+        this.num = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+    }
+
+    readonly id1: number
+    readonly id2: number
+    readonly id3: string
+    readonly num: number
+    readonly desc: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
+export class TbMultiIndexList {
+    private _dataList: test.MultiIndexList[]
+    
+    constructor(_buf_: ByteBuf) {
+        this._dataList = []
+        
+        for(let n = _buf_.ReadInt() ; n > 0 ; n--) {
+            let _v: test.MultiIndexList
+            _v = new test.MultiIndexList(_buf_)
+            this._dataList.push(_v)
+        }
+    }
+
+    getDataList(): test.MultiIndexList[] { return this._dataList }
+
+    get(index: number): test.MultiIndexList | undefined { return this._dataList[index] }
+
+    resolve(_tables: Map<string, any>) {
+        for(var v of this._dataList) {
+            v.resolve(_tables)
+        }
+    }
+
+
+}
+}
+
+
+
+
+export namespace test {
+export  class MultiIndexList  {
+
+    constructor(_buf_: ByteBuf) {
+        this.id1 = _buf_.ReadInt()
+        this.id2 = _buf_.ReadLongAsNumber()
+        this.id3 = _buf_.ReadString()
+        this.num = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+    }
+
+    readonly id1: number
+    readonly id2: number
+    readonly id3: string
+    readonly num: number
+    readonly desc: string
+
+    resolve(_tables: Map<string, any>) {
+    }
+}
+
+}
+
+
+export namespace test {
 export class TbDataFromMisc {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
@@ -4544,7 +4686,6 @@ export class TbDataFromMisc {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4577,7 +4718,6 @@ export class TbMultiRowRecord {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4714,7 +4854,6 @@ export class TbMultiRowTitle {
         }
     }
 
-
 }
 }
 
@@ -4730,6 +4869,7 @@ export  class MultiRowTitle  {
         this.x1 = new test.H1(_buf_)
         { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2; _e = new test.H2(_buf_); this.x2.push(_e) } }
         { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x4.push(_e) } }
     }
 
     readonly id: number
@@ -4737,11 +4877,13 @@ export  class MultiRowTitle  {
     readonly x1: test.H1
     readonly x2: test.H2[]
     readonly x3: test.H2[]
+    readonly x4: test.H2[]
 
     resolve(_tables: Map<string, any>) {
         if (this.x1 != null) { this.x1.resolve(_tables);}
         for(let _e of this.x2) { if (_e != null ) {_e.resolve(_tables);} }
         for(let _e of this.x3) { if (_e != null) { _e.resolve(_tables); } }
+        for(let _e of this.x4) { if (_e != null) { _e.resolve(_tables); } }
     }
 }
 
@@ -4817,7 +4959,6 @@ export class TbTestNull {
         }
     }
 
-
 }
 }
 
@@ -4881,7 +5022,6 @@ export class TbDemoPrimitive {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -4956,7 +5096,6 @@ export class TbTestString {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5037,7 +5176,6 @@ export class TbDemoGroup {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5124,7 +5262,6 @@ export class TbDemoGroup_C {
         }
     }
 
-
 }
 }
 
@@ -5157,7 +5294,6 @@ export class TbDemoGroup_S {
         }
     }
 
-
 }
 }
 
@@ -5189,7 +5325,6 @@ export class TbDemoGroup_E {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5267,7 +5402,6 @@ export class TbTestBeRef {
         }
     }
 
-
 }
 }
 
@@ -5320,7 +5454,6 @@ export class TbTestRef {
         }
     }
 
-
 }
 }
 
@@ -5343,6 +5476,12 @@ export  class TestRef  {
         { this.c2 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c2.add(_e);}}
         { this.d1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d1.set(_k, _v);  } }
         { this.d2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d2.set(_k, _v);  } }
+        this.e1 = _buf_.ReadInt()
+        this.e2 = _buf_.ReadLongAsNumber()
+        this.e3 = _buf_.ReadString()
+        this.f1 = _buf_.ReadInt()
+        this.f2 = _buf_.ReadLongAsNumber()
+        this.f3 = _buf_.ReadString()
     }
 
     readonly id: number
@@ -5359,6 +5498,12 @@ export  class TestRef  {
     readonly c2: Set<number>
     readonly d1: Map<number, number>
     readonly d2: Map<number, number>
+    readonly e1: number
+    readonly e2: number
+    readonly e3: string
+    readonly f1: number
+    readonly f2: number
+    readonly f3: string
 
     resolve(_tables: Map<string, any>) {
         this.x1_Ref = (_tables.get('test.TbTestBeRef') as test.TbTestBeRef).get(this.x1)!
@@ -5396,7 +5541,6 @@ export class TbTestSize {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5456,7 +5600,6 @@ export class TbTestSet {
         }
     }
 
-
 }
 }
 
@@ -5515,7 +5658,6 @@ export class TbDetectCsvEncoding {
         }
     }
 
-
 }
 }
 
@@ -5567,7 +5709,6 @@ export class TbDefineFromExcel {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5713,7 +5854,6 @@ export class TbTestIndex {
         }
     }
 
-
 }
 }
 
@@ -5766,7 +5906,6 @@ export class TbTestMap {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5827,7 +5966,6 @@ export class TbExcelFromJson {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -5915,7 +6053,6 @@ export class TbCompositeJsonTable1 {
         }
     }
 
-
 }
 }
 
@@ -5967,7 +6104,6 @@ export class TbCompositeJsonTable2 {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -6064,7 +6200,6 @@ export class TbExcelFromJsonMultiRow {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -6168,7 +6303,6 @@ export class TbDemoGroupDefineFromExcel {
         }
     }
 
-
 }
 }
 
@@ -6200,7 +6334,6 @@ export class TbDefineFromExcel2 {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -6284,7 +6417,6 @@ export class TbTestExcelBean {
         }
     }
 
-
 }
 }
 
@@ -6355,7 +6487,6 @@ export class TbTestDesc {
             v.resolve(_tables)
         }
     }
-
 
 }
 }
@@ -6451,6 +6582,12 @@ export class Tables {
     get TbFullTypes(): test.TbFullTypes  { return this._TbFullTypes}
     private _TbSingleton: test.TbSingleton
     get TbSingleton(): test.TbSingleton  { return this._TbSingleton}
+    private _TbNotIndexList: test.TbNotIndexList
+    get TbNotIndexList(): test.TbNotIndexList  { return this._TbNotIndexList}
+    private _TbMultiUnionIndexList: test.TbMultiUnionIndexList
+    get TbMultiUnionIndexList(): test.TbMultiUnionIndexList  { return this._TbMultiUnionIndexList}
+    private _TbMultiIndexList: test.TbMultiIndexList
+    get TbMultiIndexList(): test.TbMultiIndexList  { return this._TbMultiIndexList}
     private _TbDataFromMisc: test.TbDataFromMisc
     get TbDataFromMisc(): test.TbDataFromMisc  { return this._TbDataFromMisc}
     private _TbMultiRowRecord: test.TbMultiRowRecord
@@ -6550,6 +6687,12 @@ export class Tables {
         tables.set('test.TbFullTypes', this._TbFullTypes)
         this._TbSingleton = new test.TbSingleton(loader('test_tbsingleton')) 
         tables.set('test.TbSingleton', this._TbSingleton)
+        this._TbNotIndexList = new test.TbNotIndexList(loader('test_tbnotindexlist')) 
+        tables.set('test.TbNotIndexList', this._TbNotIndexList)
+        this._TbMultiUnionIndexList = new test.TbMultiUnionIndexList(loader('test_tbmultiunionindexlist')) 
+        tables.set('test.TbMultiUnionIndexList', this._TbMultiUnionIndexList)
+        this._TbMultiIndexList = new test.TbMultiIndexList(loader('test_tbmultiindexlist')) 
+        tables.set('test.TbMultiIndexList', this._TbMultiIndexList)
         this._TbDataFromMisc = new test.TbDataFromMisc(loader('test_tbdatafrommisc')) 
         tables.set('test.TbDataFromMisc', this._TbDataFromMisc)
         this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test_tbmultirowrecord')) 
@@ -6628,6 +6771,9 @@ export class Tables {
         this._TbTestTag.resolve(tables) 
         this._TbFullTypes.resolve(tables) 
         this._TbSingleton.resolve(tables) 
+        this._TbNotIndexList.resolve(tables) 
+        this._TbMultiUnionIndexList.resolve(tables) 
+        this._TbMultiIndexList.resolve(tables) 
         this._TbDataFromMisc.resolve(tables) 
         this._TbMultiRowRecord.resolve(tables) 
         this._TbMultiRowTitle.resolve(tables) 

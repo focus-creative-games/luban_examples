@@ -47,4 +47,3 @@ func (table *TestTbCompositeJsonTable1) Get(key int32) *TestCompositeJsonTable1 
     return table._dataMap[key]
 }
 
-

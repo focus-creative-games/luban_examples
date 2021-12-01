@@ -37,5 +37,4 @@ public final class TbExcelFromJsonMultiRow {
             v.resolve(_tables);
         }
     }
-
 }

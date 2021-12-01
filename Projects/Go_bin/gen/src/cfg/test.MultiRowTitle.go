@@ -21,6 +21,7 @@ type TestMultiRowTitle struct {
     X1 *TestH1
     X2 []*TestH2
     X3 []*TestH2
+    X4 []*TestH2
 }
 
 const TypeId_TestMultiRowTitle = 540002427
@@ -39,6 +40,7 @@ func (_v *TestMultiRowTitle)Deserialize(_buf *serialization.ByteBuf) (err error)
     { if _v.X1, err = DeserializeTestH1(_buf); err != nil { err = errors.New("_v.X1 error"); return } }
     {_v.X2 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X2 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = DeserializeTestH2(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.X2 = append(_v.X2, _e_) } }
     {_v.X3 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X3 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = DeserializeTestH2(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.X3 = append(_v.X3, _e_) } }
+    {_v.X4 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("_v.X4 error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = DeserializeTestH2(_buf); err != nil { err = errors.New("_e_ error"); return } }; _v.X4 = append(_v.X4, _e_) } }
     return
 }
 

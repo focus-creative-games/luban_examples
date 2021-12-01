@@ -47,4 +47,3 @@ func (table *TagTbTestTag) Get(key int32) *TagTestTag {
     return table._dataMap[key]
 }
 
-

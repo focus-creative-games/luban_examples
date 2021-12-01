@@ -66,4 +66,3 @@ func (table *ItemTbItemExtra) Get(key int32) interface{} {
     return table._dataMap[key]
 }
 
-

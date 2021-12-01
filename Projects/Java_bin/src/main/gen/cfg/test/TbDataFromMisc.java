@@ -37,5 +37,4 @@ public final class TbDataFromMisc {
             v.resolve(_tables);
         }
     }
-
 }

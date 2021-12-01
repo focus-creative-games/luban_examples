@@ -69,7 +69,7 @@ impl Vector4 {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_EExecutor {
+pub enum AiEExecutor {
     CLIENT = 0,
     SERVER = 1,
 }
@@ -78,7 +78,7 @@ pub enum Ai_EExecutor {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_EKeyType {
+pub enum AiEKeyType {
     BOOL = 1,
     INT = 2,
     FLOAT = 3,
@@ -95,7 +95,7 @@ pub enum Ai_EKeyType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_EFlowAbortMode {
+pub enum AiEFlowAbortMode {
     NONE = 0,
     LOWER_PRIORITY = 1,
     SELF = 2,
@@ -106,7 +106,7 @@ pub enum Ai_EFlowAbortMode {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_EFinishMode {
+pub enum AiEFinishMode {
     IMMEDIATE = 0,
     DELAYED = 1,
 }
@@ -115,7 +115,7 @@ pub enum Ai_EFinishMode {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_ENotifyObserverMode {
+pub enum AiENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
 }
@@ -124,7 +124,7 @@ pub enum Ai_ENotifyObserverMode {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Ai_EOperator {
+pub enum AiEOperator {
     IS_EQUAL_TO = 0,
     IS_NOT_EQUAL_TO = 1,
     IS_LESS_THAN = 2,
@@ -139,7 +139,7 @@ pub enum Ai_EOperator {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Common_EBoolOperator {
+pub enum CommonEBoolOperator {
     AND = 0,
     OR = 1,
 }
@@ -148,7 +148,7 @@ pub enum Common_EBoolOperator {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Error_EOperation {
+pub enum ErrorEOperation {
     /**
      * 登出
      */
@@ -163,7 +163,7 @@ pub enum Error_EOperation {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Error_EErrorCode {
+pub enum ErrorEErrorCode {
     OK = 0,
     SERVER_NOT_EXISTS = 1,
     HAS_BIND_SERVER = 2,
@@ -258,7 +258,7 @@ pub enum Error_EErrorCode {
  */
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EItemQuality {
+pub enum ItemEItemQuality {
     /**
      * 白
      */
@@ -285,7 +285,7 @@ pub enum Item_EItemQuality {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_ECurrencyType {
+pub enum ItemECurrencyType {
     /**
      * 钻石
      */
@@ -312,7 +312,7 @@ pub enum Item_ECurrencyType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EMajorType {
+pub enum ItemEMajorType {
     /**
      * 货币
      */
@@ -363,7 +363,7 @@ pub enum Item_EMajorType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EMinorType {
+pub enum ItemEMinorType {
     /**
      * 钻石
      */
@@ -566,7 +566,7 @@ pub enum Item_EMinorType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EClothersStarQualityType {
+pub enum ItemEClothersStarQualityType {
     /**
      * 一星
      */
@@ -613,7 +613,7 @@ pub enum Item_EClothersStarQualityType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EClothersTag {
+pub enum ItemEClothersTag {
     /**
      * 防晒
      */
@@ -628,7 +628,7 @@ pub enum Item_EClothersTag {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EUseType {
+pub enum ItemEUseType {
     /**
      * 手动
      */
@@ -643,7 +643,7 @@ pub enum Item_EUseType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EClothesHidePartType {
+pub enum ItemEClothesHidePartType {
     /**
      * 胸部
      */
@@ -682,7 +682,7 @@ pub enum Item_EClothesHidePartType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EClothesPropertyType {
+pub enum ItemEClothesPropertyType {
     /**
      * 简约
      */
@@ -729,7 +729,7 @@ pub enum Item_EClothesPropertyType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Item_EItemFunctionType {
+pub enum ItemEItemFunctionType {
     /**
      * 更换手持物
      */
@@ -744,7 +744,7 @@ pub enum Item_EItemFunctionType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Limit_ENamespace {
+pub enum LimitENamespace {
     ITEM_DAILY_OBTAIN = 1,
     TREASURE_DAILY_USE = 2,
     STORE_GOODS_LIMIT_BUY = 3,
@@ -754,7 +754,7 @@ pub enum Limit_ENamespace {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Mail_EMailType {
+pub enum MailEMailType {
     /**
      * 全局邮件
      */
@@ -769,7 +769,7 @@ pub enum Mail_EMailType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Role_EGenderType {
+pub enum RoleEGenderType {
     /**
      * 男
      */
@@ -784,7 +784,7 @@ pub enum Role_EGenderType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Role_EProfession {
+pub enum RoleEProfession {
     TEST_PROFESSION = 1,
 }
 
@@ -792,7 +792,7 @@ pub enum Role_EProfession {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_DemoEnum {
+pub enum TestDemoEnum {
     /**
      * aa
      */
@@ -815,7 +815,7 @@ pub enum Test_DemoEnum {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_DemoFlag {
+pub enum TestDemoFlag {
     A = 1,
     B = 2,
     D = 3,
@@ -825,7 +825,7 @@ pub enum Test_DemoFlag {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_ETestUeType {
+pub enum TestETestUeType {
     /**
      * 白
      */
@@ -837,14 +837,14 @@ pub enum Test_ETestUeType {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_ETestEmptyEnum {
+pub enum TestETestEmptyEnum {
 }
 
 
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_ETestEmptyEnum2 {
+pub enum TestETestEmptyEnum2 {
     SMALL_THAN_256 = 255,
     X_256 = 256,
     X_257 = 257,
@@ -854,7 +854,7 @@ pub enum Test_ETestEmptyEnum2 {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_ETestQuality {
+pub enum TestETestQuality {
     /**
      * 最高品质
      */
@@ -877,7 +877,7 @@ pub enum Test_ETestQuality {
 
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
-pub enum Test_ETestCurrency {
+pub enum TestETestCurrency {
     /**
      * 重要
      */
@@ -891,23 +891,23 @@ pub enum Test_ETestCurrency {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_TbBlackboard {
-    data_list: Vec<std::rc::Rc<Ai_Blackboard>>,
-    data_map: std::collections::HashMap<String, std::rc::Rc<Ai_Blackboard>>,
+pub struct AiTbBlackboard {
+    data_list: Vec<std::rc::Rc<AiBlackboard>>,
+    data_map: std::collections::HashMap<String, std::rc::Rc<AiBlackboard>>,
 }
 
-impl Ai_TbBlackboard{
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_TbBlackboard, LoadError> {
+impl AiTbBlackboard{
+    pub fn new(__js: &json::JsonValue) -> Result<AiTbBlackboard, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Ai_TbBlackboard {
+        let mut t = AiTbBlackboard {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Ai_Blackboard::new(__e) {
+            let __v = std::rc::Rc::new(match AiBlackboard::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -918,31 +918,32 @@ impl Ai_TbBlackboard{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Ai_TbBlackboard) -> &std::collections::HashMap<String, std::rc::Rc<Ai_Blackboard>> { &self.data_map }
+    pub fn get_data_map(self:&AiTbBlackboard) -> &std::collections::HashMap<String, std::rc::Rc<AiBlackboard>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Ai_TbBlackboard) -> &Vec<std::rc::Rc<Ai_Blackboard>> { &self.data_list }
+    pub fn get_data_list(self:&AiTbBlackboard) -> &Vec<std::rc::Rc<AiBlackboard>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Ai_TbBlackboard, key: &String) -> std::option::Option<&std::rc::Rc<Ai_Blackboard>> { self.data_map.get(key) }
+    pub fn get(self:&AiTbBlackboard, key: &String) -> std::option::Option<&std::rc::Rc<AiBlackboard>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_Blackboard {
+pub struct AiBlackboard {
 pub name: String,
 pub desc: String,
 pub parent_name: String,
-pub keys: Vec<Ai_BlackboardKey>,
+pub keys: Vec<AiBlackboardKey>,
 }
 
-impl Ai_Blackboard {
+impl AiBlackboard {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Blackboard, LoadError> {
-        let __b = Ai_Blackboard {
+    pub fn new(__js: &json::JsonValue) -> Result<AiBlackboard, LoadError> {
+        let __b = AiBlackboard {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             parent_name: match __js["parent_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            keys: { if !__js["keys"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["keys"].members() { __list__.push(Ai_BlackboardKey::new(&__e)?); }   __list__},
+            keys: { if !__js["keys"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["keys"].members() { __list__.push(AiBlackboardKey::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -952,7 +953,7 @@ impl Ai_Blackboard {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_BlackboardKey {
+pub struct AiBlackboardKey {
 pub name: String,
 pub desc: String,
 pub is_static: bool,
@@ -960,10 +961,10 @@ pub r#type: i32,
 pub type_class_name: String,
 }
 
-impl Ai_BlackboardKey {
+impl AiBlackboardKey {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_BlackboardKey, LoadError> {
-        let __b = Ai_BlackboardKey {
+    pub fn new(__js: &json::JsonValue) -> Result<AiBlackboardKey, LoadError> {
+        let __b = AiBlackboardKey {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             is_static: match __js["is_static"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -976,23 +977,23 @@ impl Ai_BlackboardKey {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_TbBehaviorTree {
-    data_list: Vec<std::rc::Rc<Ai_BehaviorTree>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Ai_BehaviorTree>>,
+pub struct AiTbBehaviorTree {
+    data_list: Vec<std::rc::Rc<AiBehaviorTree>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<AiBehaviorTree>>,
 }
 
-impl Ai_TbBehaviorTree{
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_TbBehaviorTree, LoadError> {
+impl AiTbBehaviorTree{
+    pub fn new(__js: &json::JsonValue) -> Result<AiTbBehaviorTree, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Ai_TbBehaviorTree {
+        let mut t = AiTbBehaviorTree {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Ai_BehaviorTree::new(__e) {
+            let __v = std::rc::Rc::new(match AiBehaviorTree::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -1003,33 +1004,34 @@ impl Ai_TbBehaviorTree{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Ai_TbBehaviorTree) -> &std::collections::HashMap<i32, std::rc::Rc<Ai_BehaviorTree>> { &self.data_map }
+    pub fn get_data_map(self:&AiTbBehaviorTree) -> &std::collections::HashMap<i32, std::rc::Rc<AiBehaviorTree>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Ai_TbBehaviorTree) -> &Vec<std::rc::Rc<Ai_BehaviorTree>> { &self.data_list }
+    pub fn get_data_list(self:&AiTbBehaviorTree) -> &Vec<std::rc::Rc<AiBehaviorTree>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Ai_TbBehaviorTree, key: &i32) -> std::option::Option<&std::rc::Rc<Ai_BehaviorTree>> { self.data_map.get(key) }
+    pub fn get(self:&AiTbBehaviorTree, key: &i32) -> std::option::Option<&std::rc::Rc<AiBehaviorTree>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_BehaviorTree {
+pub struct AiBehaviorTree {
 pub id: i32,
 pub name: String,
 pub desc: String,
 pub blackboard_id: String,
-pub root: Ai_ComposeNode,
+pub root: AiComposeNode,
 }
 
-impl Ai_BehaviorTree {
+impl AiBehaviorTree {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_BehaviorTree, LoadError> {
-        let __b = Ai_BehaviorTree {
+    pub fn new(__js: &json::JsonValue) -> Result<AiBehaviorTree, LoadError> {
+        let __b = AiBehaviorTree {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             blackboard_id: match __js["blackboard_id"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            root: Ai_ComposeNode::new(&__js["root"])?,
+            root: AiComposeNode::new(&__js["root"])?,
         };
         Ok(__b)
     }
@@ -1039,60 +1041,60 @@ impl Ai_BehaviorTree {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_Node {
-  UeSetDefaultFocus(Box<Ai_UeSetDefaultFocus>),
-  ExecuteTimeStatistic(Box<Ai_ExecuteTimeStatistic>),
-  ChooseTarget(Box<Ai_ChooseTarget>),
-  KeepFaceTarget(Box<Ai_KeepFaceTarget>),
-  GetOwnerPlayer(Box<Ai_GetOwnerPlayer>),
-  UpdateDailyBehaviorProps(Box<Ai_UpdateDailyBehaviorProps>),
-  UeLoop(Box<Ai_UeLoop>),
-  UeCooldown(Box<Ai_UeCooldown>),
-  UeTimeLimit(Box<Ai_UeTimeLimit>),
-  UeBlackboard(Box<Ai_UeBlackboard>),
-  UeForceSuccess(Box<Ai_UeForceSuccess>),
-  IsAtLocation(Box<Ai_IsAtLocation>),
-  DistanceLessThan(Box<Ai_DistanceLessThan>),
-  Sequence(Box<Ai_Sequence>),
-  Selector(Box<Ai_Selector>),
-  SimpleParallel(Box<Ai_SimpleParallel>),
-  UeWait(Box<Ai_UeWait>),
-  UeWaitBlackboardTime(Box<Ai_UeWaitBlackboardTime>),
-  MoveToTarget(Box<Ai_MoveToTarget>),
-  ChooseSkill(Box<Ai_ChooseSkill>),
-  MoveToRandomLocation(Box<Ai_MoveToRandomLocation>),
-  MoveToLocation(Box<Ai_MoveToLocation>),
-  DebugPrint(Box<Ai_DebugPrint>),
+pub enum AiNode {
+  UeSetDefaultFocus(Box<AiUeSetDefaultFocus>),
+  ExecuteTimeStatistic(Box<AiExecuteTimeStatistic>),
+  ChooseTarget(Box<AiChooseTarget>),
+  KeepFaceTarget(Box<AiKeepFaceTarget>),
+  GetOwnerPlayer(Box<AiGetOwnerPlayer>),
+  UpdateDailyBehaviorProps(Box<AiUpdateDailyBehaviorProps>),
+  UeLoop(Box<AiUeLoop>),
+  UeCooldown(Box<AiUeCooldown>),
+  UeTimeLimit(Box<AiUeTimeLimit>),
+  UeBlackboard(Box<AiUeBlackboard>),
+  UeForceSuccess(Box<AiUeForceSuccess>),
+  IsAtLocation(Box<AiIsAtLocation>),
+  DistanceLessThan(Box<AiDistanceLessThan>),
+  Sequence(Box<AiSequence>),
+  Selector(Box<AiSelector>),
+  SimpleParallel(Box<AiSimpleParallel>),
+  UeWait(Box<AiUeWait>),
+  UeWaitBlackboardTime(Box<AiUeWaitBlackboardTime>),
+  MoveToTarget(Box<AiMoveToTarget>),
+  ChooseSkill(Box<AiChooseSkill>),
+  MoveToRandomLocation(Box<AiMoveToRandomLocation>),
+  MoveToLocation(Box<AiMoveToLocation>),
+  DebugPrint(Box<AiDebugPrint>),
 }
 
-impl Ai_Node {
+impl AiNode {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Node, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiNode, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "UeSetDefaultFocus" => Ai_Node::UeSetDefaultFocus(Box::new(Ai_UeSetDefaultFocus::new(&__js)?)),
-                "ExecuteTimeStatistic" => Ai_Node::ExecuteTimeStatistic(Box::new(Ai_ExecuteTimeStatistic::new(&__js)?)),
-                "ChooseTarget" => Ai_Node::ChooseTarget(Box::new(Ai_ChooseTarget::new(&__js)?)),
-                "KeepFaceTarget" => Ai_Node::KeepFaceTarget(Box::new(Ai_KeepFaceTarget::new(&__js)?)),
-                "GetOwnerPlayer" => Ai_Node::GetOwnerPlayer(Box::new(Ai_GetOwnerPlayer::new(&__js)?)),
-                "UpdateDailyBehaviorProps" => Ai_Node::UpdateDailyBehaviorProps(Box::new(Ai_UpdateDailyBehaviorProps::new(&__js)?)),
-                "UeLoop" => Ai_Node::UeLoop(Box::new(Ai_UeLoop::new(&__js)?)),
-                "UeCooldown" => Ai_Node::UeCooldown(Box::new(Ai_UeCooldown::new(&__js)?)),
-                "UeTimeLimit" => Ai_Node::UeTimeLimit(Box::new(Ai_UeTimeLimit::new(&__js)?)),
-                "UeBlackboard" => Ai_Node::UeBlackboard(Box::new(Ai_UeBlackboard::new(&__js)?)),
-                "UeForceSuccess" => Ai_Node::UeForceSuccess(Box::new(Ai_UeForceSuccess::new(&__js)?)),
-                "IsAtLocation" => Ai_Node::IsAtLocation(Box::new(Ai_IsAtLocation::new(&__js)?)),
-                "DistanceLessThan" => Ai_Node::DistanceLessThan(Box::new(Ai_DistanceLessThan::new(&__js)?)),
-                "Sequence" => Ai_Node::Sequence(Box::new(Ai_Sequence::new(&__js)?)),
-                "Selector" => Ai_Node::Selector(Box::new(Ai_Selector::new(&__js)?)),
-                "SimpleParallel" => Ai_Node::SimpleParallel(Box::new(Ai_SimpleParallel::new(&__js)?)),
-                "UeWait" => Ai_Node::UeWait(Box::new(Ai_UeWait::new(&__js)?)),
-                "UeWaitBlackboardTime" => Ai_Node::UeWaitBlackboardTime(Box::new(Ai_UeWaitBlackboardTime::new(&__js)?)),
-                "MoveToTarget" => Ai_Node::MoveToTarget(Box::new(Ai_MoveToTarget::new(&__js)?)),
-                "ChooseSkill" => Ai_Node::ChooseSkill(Box::new(Ai_ChooseSkill::new(&__js)?)),
-                "MoveToRandomLocation" => Ai_Node::MoveToRandomLocation(Box::new(Ai_MoveToRandomLocation::new(&__js)?)),
-                "MoveToLocation" => Ai_Node::MoveToLocation(Box::new(Ai_MoveToLocation::new(&__js)?)),
-                "DebugPrint" => Ai_Node::DebugPrint(Box::new(Ai_DebugPrint::new(&__js)?)),
+                "UeSetDefaultFocus" => AiNode::UeSetDefaultFocus(Box::new(AiUeSetDefaultFocus::new(&__js)?)),
+                "ExecuteTimeStatistic" => AiNode::ExecuteTimeStatistic(Box::new(AiExecuteTimeStatistic::new(&__js)?)),
+                "ChooseTarget" => AiNode::ChooseTarget(Box::new(AiChooseTarget::new(&__js)?)),
+                "KeepFaceTarget" => AiNode::KeepFaceTarget(Box::new(AiKeepFaceTarget::new(&__js)?)),
+                "GetOwnerPlayer" => AiNode::GetOwnerPlayer(Box::new(AiGetOwnerPlayer::new(&__js)?)),
+                "UpdateDailyBehaviorProps" => AiNode::UpdateDailyBehaviorProps(Box::new(AiUpdateDailyBehaviorProps::new(&__js)?)),
+                "UeLoop" => AiNode::UeLoop(Box::new(AiUeLoop::new(&__js)?)),
+                "UeCooldown" => AiNode::UeCooldown(Box::new(AiUeCooldown::new(&__js)?)),
+                "UeTimeLimit" => AiNode::UeTimeLimit(Box::new(AiUeTimeLimit::new(&__js)?)),
+                "UeBlackboard" => AiNode::UeBlackboard(Box::new(AiUeBlackboard::new(&__js)?)),
+                "UeForceSuccess" => AiNode::UeForceSuccess(Box::new(AiUeForceSuccess::new(&__js)?)),
+                "IsAtLocation" => AiNode::IsAtLocation(Box::new(AiIsAtLocation::new(&__js)?)),
+                "DistanceLessThan" => AiNode::DistanceLessThan(Box::new(AiDistanceLessThan::new(&__js)?)),
+                "Sequence" => AiNode::Sequence(Box::new(AiSequence::new(&__js)?)),
+                "Selector" => AiNode::Selector(Box::new(AiSelector::new(&__js)?)),
+                "SimpleParallel" => AiNode::SimpleParallel(Box::new(AiSimpleParallel::new(&__js)?)),
+                "UeWait" => AiNode::UeWait(Box::new(AiUeWait::new(&__js)?)),
+                "UeWaitBlackboardTime" => AiNode::UeWaitBlackboardTime(Box::new(AiUeWaitBlackboardTime::new(&__js)?)),
+                "MoveToTarget" => AiNode::MoveToTarget(Box::new(AiMoveToTarget::new(&__js)?)),
+                "ChooseSkill" => AiNode::ChooseSkill(Box::new(AiChooseSkill::new(&__js)?)),
+                "MoveToRandomLocation" => AiNode::MoveToRandomLocation(Box::new(AiMoveToRandomLocation::new(&__js)?)),
+                "MoveToLocation" => AiNode::MoveToLocation(Box::new(AiMoveToLocation::new(&__js)?)),
+                "DebugPrint" => AiNode::DebugPrint(Box::new(AiDebugPrint::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1105,26 +1107,26 @@ impl Ai_Node {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_Service {
-  UeSetDefaultFocus(Box<Ai_UeSetDefaultFocus>),
-  ExecuteTimeStatistic(Box<Ai_ExecuteTimeStatistic>),
-  ChooseTarget(Box<Ai_ChooseTarget>),
-  KeepFaceTarget(Box<Ai_KeepFaceTarget>),
-  GetOwnerPlayer(Box<Ai_GetOwnerPlayer>),
-  UpdateDailyBehaviorProps(Box<Ai_UpdateDailyBehaviorProps>),
+pub enum AiService {
+  UeSetDefaultFocus(Box<AiUeSetDefaultFocus>),
+  ExecuteTimeStatistic(Box<AiExecuteTimeStatistic>),
+  ChooseTarget(Box<AiChooseTarget>),
+  KeepFaceTarget(Box<AiKeepFaceTarget>),
+  GetOwnerPlayer(Box<AiGetOwnerPlayer>),
+  UpdateDailyBehaviorProps(Box<AiUpdateDailyBehaviorProps>),
 }
 
-impl Ai_Service {
+impl AiService {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Service, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiService, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "UeSetDefaultFocus" => Ai_Service::UeSetDefaultFocus(Box::new(Ai_UeSetDefaultFocus::new(&__js)?)),
-                "ExecuteTimeStatistic" => Ai_Service::ExecuteTimeStatistic(Box::new(Ai_ExecuteTimeStatistic::new(&__js)?)),
-                "ChooseTarget" => Ai_Service::ChooseTarget(Box::new(Ai_ChooseTarget::new(&__js)?)),
-                "KeepFaceTarget" => Ai_Service::KeepFaceTarget(Box::new(Ai_KeepFaceTarget::new(&__js)?)),
-                "GetOwnerPlayer" => Ai_Service::GetOwnerPlayer(Box::new(Ai_GetOwnerPlayer::new(&__js)?)),
-                "UpdateDailyBehaviorProps" => Ai_Service::UpdateDailyBehaviorProps(Box::new(Ai_UpdateDailyBehaviorProps::new(&__js)?)),
+                "UeSetDefaultFocus" => AiService::UeSetDefaultFocus(Box::new(AiUeSetDefaultFocus::new(&__js)?)),
+                "ExecuteTimeStatistic" => AiService::ExecuteTimeStatistic(Box::new(AiExecuteTimeStatistic::new(&__js)?)),
+                "ChooseTarget" => AiService::ChooseTarget(Box::new(AiChooseTarget::new(&__js)?)),
+                "KeepFaceTarget" => AiService::KeepFaceTarget(Box::new(AiKeepFaceTarget::new(&__js)?)),
+                "GetOwnerPlayer" => AiService::GetOwnerPlayer(Box::new(AiGetOwnerPlayer::new(&__js)?)),
+                "UpdateDailyBehaviorProps" => AiService::UpdateDailyBehaviorProps(Box::new(AiUpdateDailyBehaviorProps::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1137,16 +1139,16 @@ impl Ai_Service {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeSetDefaultFocus {
+pub struct AiUeSetDefaultFocus {
 pub id: i32,
 pub node_name: String,
 pub keyboard_key: String,
 }
 
-impl Ai_UeSetDefaultFocus {
+impl AiUeSetDefaultFocus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeSetDefaultFocus, LoadError> {
-        let __b = Ai_UeSetDefaultFocus {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeSetDefaultFocus, LoadError> {
+        let __b = AiUeSetDefaultFocus {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             keyboard_key: match __js["keyboard_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1159,15 +1161,15 @@ impl Ai_UeSetDefaultFocus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_ExecuteTimeStatistic {
+pub struct AiExecuteTimeStatistic {
 pub id: i32,
 pub node_name: String,
 }
 
-impl Ai_ExecuteTimeStatistic {
+impl AiExecuteTimeStatistic {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_ExecuteTimeStatistic, LoadError> {
-        let __b = Ai_ExecuteTimeStatistic {
+    pub fn new(__js: &json::JsonValue) -> Result<AiExecuteTimeStatistic, LoadError> {
+        let __b = AiExecuteTimeStatistic {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -1179,16 +1181,16 @@ impl Ai_ExecuteTimeStatistic {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_ChooseTarget {
+pub struct AiChooseTarget {
 pub id: i32,
 pub node_name: String,
 pub result_target_key: String,
 }
 
-impl Ai_ChooseTarget {
+impl AiChooseTarget {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_ChooseTarget, LoadError> {
-        let __b = Ai_ChooseTarget {
+    pub fn new(__js: &json::JsonValue) -> Result<AiChooseTarget, LoadError> {
+        let __b = AiChooseTarget {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             result_target_key: match __js["result_target_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1201,16 +1203,16 @@ impl Ai_ChooseTarget {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_KeepFaceTarget {
+pub struct AiKeepFaceTarget {
 pub id: i32,
 pub node_name: String,
 pub target_actor_key: String,
 }
 
-impl Ai_KeepFaceTarget {
+impl AiKeepFaceTarget {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_KeepFaceTarget, LoadError> {
-        let __b = Ai_KeepFaceTarget {
+    pub fn new(__js: &json::JsonValue) -> Result<AiKeepFaceTarget, LoadError> {
+        let __b = AiKeepFaceTarget {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             target_actor_key: match __js["target_actor_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1223,16 +1225,16 @@ impl Ai_KeepFaceTarget {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_GetOwnerPlayer {
+pub struct AiGetOwnerPlayer {
 pub id: i32,
 pub node_name: String,
 pub player_actor_key: String,
 }
 
-impl Ai_GetOwnerPlayer {
+impl AiGetOwnerPlayer {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_GetOwnerPlayer, LoadError> {
-        let __b = Ai_GetOwnerPlayer {
+    pub fn new(__js: &json::JsonValue) -> Result<AiGetOwnerPlayer, LoadError> {
+        let __b = AiGetOwnerPlayer {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             player_actor_key: match __js["player_actor_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1245,7 +1247,7 @@ impl Ai_GetOwnerPlayer {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UpdateDailyBehaviorProps {
+pub struct AiUpdateDailyBehaviorProps {
 pub id: i32,
 pub node_name: String,
 pub satiety_key: String,
@@ -1259,10 +1261,10 @@ pub mood_lower_threshold_key: String,
 pub mood_upper_threshold_key: String,
 }
 
-impl Ai_UpdateDailyBehaviorProps {
+impl AiUpdateDailyBehaviorProps {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UpdateDailyBehaviorProps, LoadError> {
-        let __b = Ai_UpdateDailyBehaviorProps {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUpdateDailyBehaviorProps, LoadError> {
+        let __b = AiUpdateDailyBehaviorProps {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             satiety_key: match __js["satiety_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1283,28 +1285,28 @@ impl Ai_UpdateDailyBehaviorProps {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_Decorator {
-  UeLoop(Box<Ai_UeLoop>),
-  UeCooldown(Box<Ai_UeCooldown>),
-  UeTimeLimit(Box<Ai_UeTimeLimit>),
-  UeBlackboard(Box<Ai_UeBlackboard>),
-  UeForceSuccess(Box<Ai_UeForceSuccess>),
-  IsAtLocation(Box<Ai_IsAtLocation>),
-  DistanceLessThan(Box<Ai_DistanceLessThan>),
+pub enum AiDecorator {
+  UeLoop(Box<AiUeLoop>),
+  UeCooldown(Box<AiUeCooldown>),
+  UeTimeLimit(Box<AiUeTimeLimit>),
+  UeBlackboard(Box<AiUeBlackboard>),
+  UeForceSuccess(Box<AiUeForceSuccess>),
+  IsAtLocation(Box<AiIsAtLocation>),
+  DistanceLessThan(Box<AiDistanceLessThan>),
 }
 
-impl Ai_Decorator {
+impl AiDecorator {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Decorator, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiDecorator, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "UeLoop" => Ai_Decorator::UeLoop(Box::new(Ai_UeLoop::new(&__js)?)),
-                "UeCooldown" => Ai_Decorator::UeCooldown(Box::new(Ai_UeCooldown::new(&__js)?)),
-                "UeTimeLimit" => Ai_Decorator::UeTimeLimit(Box::new(Ai_UeTimeLimit::new(&__js)?)),
-                "UeBlackboard" => Ai_Decorator::UeBlackboard(Box::new(Ai_UeBlackboard::new(&__js)?)),
-                "UeForceSuccess" => Ai_Decorator::UeForceSuccess(Box::new(Ai_UeForceSuccess::new(&__js)?)),
-                "IsAtLocation" => Ai_Decorator::IsAtLocation(Box::new(Ai_IsAtLocation::new(&__js)?)),
-                "DistanceLessThan" => Ai_Decorator::DistanceLessThan(Box::new(Ai_DistanceLessThan::new(&__js)?)),
+                "UeLoop" => AiDecorator::UeLoop(Box::new(AiUeLoop::new(&__js)?)),
+                "UeCooldown" => AiDecorator::UeCooldown(Box::new(AiUeCooldown::new(&__js)?)),
+                "UeTimeLimit" => AiDecorator::UeTimeLimit(Box::new(AiUeTimeLimit::new(&__js)?)),
+                "UeBlackboard" => AiDecorator::UeBlackboard(Box::new(AiUeBlackboard::new(&__js)?)),
+                "UeForceSuccess" => AiDecorator::UeForceSuccess(Box::new(AiUeForceSuccess::new(&__js)?)),
+                "IsAtLocation" => AiDecorator::IsAtLocation(Box::new(AiIsAtLocation::new(&__js)?)),
+                "DistanceLessThan" => AiDecorator::DistanceLessThan(Box::new(AiDistanceLessThan::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1317,7 +1319,7 @@ impl Ai_Decorator {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeLoop {
+pub struct AiUeLoop {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
@@ -1326,10 +1328,10 @@ pub infinite_loop: bool,
 pub infinite_loop_timeout_time: f32,
 }
 
-impl Ai_UeLoop {
+impl AiUeLoop {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeLoop, LoadError> {
-        let __b = Ai_UeLoop {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeLoop, LoadError> {
+        let __b = AiUeLoop {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1345,17 +1347,17 @@ impl Ai_UeLoop {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeCooldown {
+pub struct AiUeCooldown {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
 pub cooldown_time: f32,
 }
 
-impl Ai_UeCooldown {
+impl AiUeCooldown {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeCooldown, LoadError> {
-        let __b = Ai_UeCooldown {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeCooldown, LoadError> {
+        let __b = AiUeCooldown {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1369,17 +1371,17 @@ impl Ai_UeCooldown {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeTimeLimit {
+pub struct AiUeTimeLimit {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
 pub limit_time: f32,
 }
 
-impl Ai_UeTimeLimit {
+impl AiUeTimeLimit {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeTimeLimit, LoadError> {
-        let __b = Ai_UeTimeLimit {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeTimeLimit, LoadError> {
+        let __b = AiUeTimeLimit {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1393,25 +1395,25 @@ impl Ai_UeTimeLimit {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeBlackboard {
+pub struct AiUeBlackboard {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
 pub notify_observer: i32,
 pub blackboard_key: String,
-pub key_query: Ai_KeyQueryOperator,
+pub key_query: AiKeyQueryOperator,
 }
 
-impl Ai_UeBlackboard {
+impl AiUeBlackboard {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeBlackboard, LoadError> {
-        let __b = Ai_UeBlackboard {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeBlackboard, LoadError> {
+        let __b = AiUeBlackboard {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             notify_observer: match __js["notify_observer"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             blackboard_key: match __js["blackboard_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            key_query: Ai_KeyQueryOperator::new(&__js["key_query"])?,
+            key_query: AiKeyQueryOperator::new(&__js["key_query"])?,
         };
         Ok(__b)
     }
@@ -1421,20 +1423,20 @@ impl Ai_UeBlackboard {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_KeyQueryOperator {
-  IsSet(Box<Ai_IsSet>),
-  IsNotSet(Box<Ai_IsNotSet>),
-  BinaryOperator(Box<Ai_BinaryOperator>),
+pub enum AiKeyQueryOperator {
+  IsSet(Box<AiIsSet>),
+  IsNotSet(Box<AiIsNotSet>),
+  BinaryOperator(Box<AiBinaryOperator>),
 }
 
-impl Ai_KeyQueryOperator {
+impl AiKeyQueryOperator {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_KeyQueryOperator, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiKeyQueryOperator, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "IsSet" => Ai_KeyQueryOperator::IsSet(Box::new(Ai_IsSet::new(&__js)?)),
-                "IsNotSet" => Ai_KeyQueryOperator::IsNotSet(Box::new(Ai_IsNotSet::new(&__js)?)),
-                "BinaryOperator" => Ai_KeyQueryOperator::BinaryOperator(Box::new(Ai_BinaryOperator::new(&__js)?)),
+                "IsSet" => AiKeyQueryOperator::IsSet(Box::new(AiIsSet::new(&__js)?)),
+                "IsNotSet" => AiKeyQueryOperator::IsNotSet(Box::new(AiIsNotSet::new(&__js)?)),
+                "BinaryOperator" => AiKeyQueryOperator::BinaryOperator(Box::new(AiBinaryOperator::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1447,13 +1449,13 @@ impl Ai_KeyQueryOperator {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_IsSet {
+pub struct AiIsSet {
 }
 
-impl Ai_IsSet {
+impl AiIsSet {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_IsSet, LoadError> {
-        let __b = Ai_IsSet {
+    pub fn new(__js: &json::JsonValue) -> Result<AiIsSet, LoadError> {
+        let __b = AiIsSet {
         };
         Ok(__b)
     }
@@ -1463,13 +1465,13 @@ impl Ai_IsSet {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_IsNotSet {
+pub struct AiIsNotSet {
 }
 
-impl Ai_IsNotSet {
+impl AiIsNotSet {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_IsNotSet, LoadError> {
-        let __b = Ai_IsNotSet {
+    pub fn new(__js: &json::JsonValue) -> Result<AiIsNotSet, LoadError> {
+        let __b = AiIsNotSet {
         };
         Ok(__b)
     }
@@ -1479,17 +1481,17 @@ impl Ai_IsNotSet {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_BinaryOperator {
+pub struct AiBinaryOperator {
 pub oper: i32,
-pub data: Ai_KeyData,
+pub data: AiKeyData,
 }
 
-impl Ai_BinaryOperator {
+impl AiBinaryOperator {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_BinaryOperator, LoadError> {
-        let __b = Ai_BinaryOperator {
+    pub fn new(__js: &json::JsonValue) -> Result<AiBinaryOperator, LoadError> {
+        let __b = AiBinaryOperator {
             oper: match __js["oper"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            data: Ai_KeyData::new(&__js["data"])?,
+            data: AiKeyData::new(&__js["data"])?,
         };
         Ok(__b)
     }
@@ -1499,22 +1501,22 @@ impl Ai_BinaryOperator {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_KeyData {
-  FloatKeyData(Box<Ai_FloatKeyData>),
-  IntKeyData(Box<Ai_IntKeyData>),
-  StringKeyData(Box<Ai_StringKeyData>),
-  BlackboardKeyData(Box<Ai_BlackboardKeyData>),
+pub enum AiKeyData {
+  FloatKeyData(Box<AiFloatKeyData>),
+  IntKeyData(Box<AiIntKeyData>),
+  StringKeyData(Box<AiStringKeyData>),
+  BlackboardKeyData(Box<AiBlackboardKeyData>),
 }
 
-impl Ai_KeyData {
+impl AiKeyData {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_KeyData, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiKeyData, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "FloatKeyData" => Ai_KeyData::FloatKeyData(Box::new(Ai_FloatKeyData::new(&__js)?)),
-                "IntKeyData" => Ai_KeyData::IntKeyData(Box::new(Ai_IntKeyData::new(&__js)?)),
-                "StringKeyData" => Ai_KeyData::StringKeyData(Box::new(Ai_StringKeyData::new(&__js)?)),
-                "BlackboardKeyData" => Ai_KeyData::BlackboardKeyData(Box::new(Ai_BlackboardKeyData::new(&__js)?)),
+                "FloatKeyData" => AiKeyData::FloatKeyData(Box::new(AiFloatKeyData::new(&__js)?)),
+                "IntKeyData" => AiKeyData::IntKeyData(Box::new(AiIntKeyData::new(&__js)?)),
+                "StringKeyData" => AiKeyData::StringKeyData(Box::new(AiStringKeyData::new(&__js)?)),
+                "BlackboardKeyData" => AiKeyData::BlackboardKeyData(Box::new(AiBlackboardKeyData::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1527,14 +1529,14 @@ impl Ai_KeyData {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_FloatKeyData {
+pub struct AiFloatKeyData {
 pub value: f32,
 }
 
-impl Ai_FloatKeyData {
+impl AiFloatKeyData {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_FloatKeyData, LoadError> {
-        let __b = Ai_FloatKeyData {
+    pub fn new(__js: &json::JsonValue) -> Result<AiFloatKeyData, LoadError> {
+        let __b = AiFloatKeyData {
             value: match __js["value"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -1545,14 +1547,14 @@ impl Ai_FloatKeyData {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_IntKeyData {
+pub struct AiIntKeyData {
 pub value: i32,
 }
 
-impl Ai_IntKeyData {
+impl AiIntKeyData {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_IntKeyData, LoadError> {
-        let __b = Ai_IntKeyData {
+    pub fn new(__js: &json::JsonValue) -> Result<AiIntKeyData, LoadError> {
+        let __b = AiIntKeyData {
             value: match __js["value"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -1563,14 +1565,14 @@ impl Ai_IntKeyData {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_StringKeyData {
+pub struct AiStringKeyData {
 pub value: String,
 }
 
-impl Ai_StringKeyData {
+impl AiStringKeyData {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_StringKeyData, LoadError> {
-        let __b = Ai_StringKeyData {
+    pub fn new(__js: &json::JsonValue) -> Result<AiStringKeyData, LoadError> {
+        let __b = AiStringKeyData {
             value: match __js["value"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -1581,14 +1583,14 @@ impl Ai_StringKeyData {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_BlackboardKeyData {
+pub struct AiBlackboardKeyData {
 pub value: String,
 }
 
-impl Ai_BlackboardKeyData {
+impl AiBlackboardKeyData {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_BlackboardKeyData, LoadError> {
-        let __b = Ai_BlackboardKeyData {
+    pub fn new(__js: &json::JsonValue) -> Result<AiBlackboardKeyData, LoadError> {
+        let __b = AiBlackboardKeyData {
             value: match __js["value"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -1599,16 +1601,16 @@ impl Ai_BlackboardKeyData {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeForceSuccess {
+pub struct AiUeForceSuccess {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
 }
 
-impl Ai_UeForceSuccess {
+impl AiUeForceSuccess {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeForceSuccess, LoadError> {
-        let __b = Ai_UeForceSuccess {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeForceSuccess, LoadError> {
+        let __b = AiUeForceSuccess {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1621,7 +1623,7 @@ impl Ai_UeForceSuccess {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_IsAtLocation {
+pub struct AiIsAtLocation {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
@@ -1630,10 +1632,10 @@ pub keyboard_key: String,
 pub inverse_condition: bool,
 }
 
-impl Ai_IsAtLocation {
+impl AiIsAtLocation {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_IsAtLocation, LoadError> {
-        let __b = Ai_IsAtLocation {
+    pub fn new(__js: &json::JsonValue) -> Result<AiIsAtLocation, LoadError> {
+        let __b = AiIsAtLocation {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1649,7 +1651,7 @@ impl Ai_IsAtLocation {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_DistanceLessThan {
+pub struct AiDistanceLessThan {
 pub id: i32,
 pub node_name: String,
 pub flow_abort_mode: i32,
@@ -1659,10 +1661,10 @@ pub distance: f32,
 pub reverse_result: bool,
 }
 
-impl Ai_DistanceLessThan {
+impl AiDistanceLessThan {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_DistanceLessThan, LoadError> {
-        let __b = Ai_DistanceLessThan {
+    pub fn new(__js: &json::JsonValue) -> Result<AiDistanceLessThan, LoadError> {
+        let __b = AiDistanceLessThan {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             flow_abort_mode: match __js["flow_abort_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1679,34 +1681,34 @@ impl Ai_DistanceLessThan {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_FlowNode {
-  Sequence(Box<Ai_Sequence>),
-  Selector(Box<Ai_Selector>),
-  SimpleParallel(Box<Ai_SimpleParallel>),
-  UeWait(Box<Ai_UeWait>),
-  UeWaitBlackboardTime(Box<Ai_UeWaitBlackboardTime>),
-  MoveToTarget(Box<Ai_MoveToTarget>),
-  ChooseSkill(Box<Ai_ChooseSkill>),
-  MoveToRandomLocation(Box<Ai_MoveToRandomLocation>),
-  MoveToLocation(Box<Ai_MoveToLocation>),
-  DebugPrint(Box<Ai_DebugPrint>),
+pub enum AiFlowNode {
+  Sequence(Box<AiSequence>),
+  Selector(Box<AiSelector>),
+  SimpleParallel(Box<AiSimpleParallel>),
+  UeWait(Box<AiUeWait>),
+  UeWaitBlackboardTime(Box<AiUeWaitBlackboardTime>),
+  MoveToTarget(Box<AiMoveToTarget>),
+  ChooseSkill(Box<AiChooseSkill>),
+  MoveToRandomLocation(Box<AiMoveToRandomLocation>),
+  MoveToLocation(Box<AiMoveToLocation>),
+  DebugPrint(Box<AiDebugPrint>),
 }
 
-impl Ai_FlowNode {
+impl AiFlowNode {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_FlowNode, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiFlowNode, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "Sequence" => Ai_FlowNode::Sequence(Box::new(Ai_Sequence::new(&__js)?)),
-                "Selector" => Ai_FlowNode::Selector(Box::new(Ai_Selector::new(&__js)?)),
-                "SimpleParallel" => Ai_FlowNode::SimpleParallel(Box::new(Ai_SimpleParallel::new(&__js)?)),
-                "UeWait" => Ai_FlowNode::UeWait(Box::new(Ai_UeWait::new(&__js)?)),
-                "UeWaitBlackboardTime" => Ai_FlowNode::UeWaitBlackboardTime(Box::new(Ai_UeWaitBlackboardTime::new(&__js)?)),
-                "MoveToTarget" => Ai_FlowNode::MoveToTarget(Box::new(Ai_MoveToTarget::new(&__js)?)),
-                "ChooseSkill" => Ai_FlowNode::ChooseSkill(Box::new(Ai_ChooseSkill::new(&__js)?)),
-                "MoveToRandomLocation" => Ai_FlowNode::MoveToRandomLocation(Box::new(Ai_MoveToRandomLocation::new(&__js)?)),
-                "MoveToLocation" => Ai_FlowNode::MoveToLocation(Box::new(Ai_MoveToLocation::new(&__js)?)),
-                "DebugPrint" => Ai_FlowNode::DebugPrint(Box::new(Ai_DebugPrint::new(&__js)?)),
+                "Sequence" => AiFlowNode::Sequence(Box::new(AiSequence::new(&__js)?)),
+                "Selector" => AiFlowNode::Selector(Box::new(AiSelector::new(&__js)?)),
+                "SimpleParallel" => AiFlowNode::SimpleParallel(Box::new(AiSimpleParallel::new(&__js)?)),
+                "UeWait" => AiFlowNode::UeWait(Box::new(AiUeWait::new(&__js)?)),
+                "UeWaitBlackboardTime" => AiFlowNode::UeWaitBlackboardTime(Box::new(AiUeWaitBlackboardTime::new(&__js)?)),
+                "MoveToTarget" => AiFlowNode::MoveToTarget(Box::new(AiMoveToTarget::new(&__js)?)),
+                "ChooseSkill" => AiFlowNode::ChooseSkill(Box::new(AiChooseSkill::new(&__js)?)),
+                "MoveToRandomLocation" => AiFlowNode::MoveToRandomLocation(Box::new(AiMoveToRandomLocation::new(&__js)?)),
+                "MoveToLocation" => AiFlowNode::MoveToLocation(Box::new(AiMoveToLocation::new(&__js)?)),
+                "DebugPrint" => AiFlowNode::DebugPrint(Box::new(AiDebugPrint::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1719,20 +1721,20 @@ impl Ai_FlowNode {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_ComposeNode {
-  Sequence(Box<Ai_Sequence>),
-  Selector(Box<Ai_Selector>),
-  SimpleParallel(Box<Ai_SimpleParallel>),
+pub enum AiComposeNode {
+  Sequence(Box<AiSequence>),
+  Selector(Box<AiSelector>),
+  SimpleParallel(Box<AiSimpleParallel>),
 }
 
-impl Ai_ComposeNode {
+impl AiComposeNode {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_ComposeNode, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiComposeNode, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "Sequence" => Ai_ComposeNode::Sequence(Box::new(Ai_Sequence::new(&__js)?)),
-                "Selector" => Ai_ComposeNode::Selector(Box::new(Ai_Selector::new(&__js)?)),
-                "SimpleParallel" => Ai_ComposeNode::SimpleParallel(Box::new(Ai_SimpleParallel::new(&__js)?)),
+                "Sequence" => AiComposeNode::Sequence(Box::new(AiSequence::new(&__js)?)),
+                "Selector" => AiComposeNode::Selector(Box::new(AiSelector::new(&__js)?)),
+                "SimpleParallel" => AiComposeNode::SimpleParallel(Box::new(AiSimpleParallel::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1745,23 +1747,23 @@ impl Ai_ComposeNode {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_Sequence {
+pub struct AiSequence {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
-pub children: Vec<Ai_FlowNode>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
+pub children: Vec<AiFlowNode>,
 }
 
-impl Ai_Sequence {
+impl AiSequence {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Sequence, LoadError> {
-        let __b = Ai_Sequence {
+    pub fn new(__js: &json::JsonValue) -> Result<AiSequence, LoadError> {
+        let __b = AiSequence {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
-            children: { if !__js["children"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["children"].members() { __list__.push(Ai_FlowNode::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
+            children: { if !__js["children"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["children"].members() { __list__.push(AiFlowNode::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -1771,23 +1773,23 @@ impl Ai_Sequence {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_Selector {
+pub struct AiSelector {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
-pub children: Vec<Ai_FlowNode>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
+pub children: Vec<AiFlowNode>,
 }
 
-impl Ai_Selector {
+impl AiSelector {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Selector, LoadError> {
-        let __b = Ai_Selector {
+    pub fn new(__js: &json::JsonValue) -> Result<AiSelector, LoadError> {
+        let __b = AiSelector {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
-            children: { if !__js["children"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["children"].members() { __list__.push(Ai_FlowNode::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
+            children: { if !__js["children"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["children"].members() { __list__.push(AiFlowNode::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -1797,27 +1799,27 @@ impl Ai_Selector {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_SimpleParallel {
+pub struct AiSimpleParallel {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub finish_mode: i32,
-pub main_task: Ai_Task,
-pub background_node: Ai_FlowNode,
+pub main_task: AiTask,
+pub background_node: AiFlowNode,
 }
 
-impl Ai_SimpleParallel {
+impl AiSimpleParallel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_SimpleParallel, LoadError> {
-        let __b = Ai_SimpleParallel {
+    pub fn new(__js: &json::JsonValue) -> Result<AiSimpleParallel, LoadError> {
+        let __b = AiSimpleParallel {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             finish_mode: match __js["finish_mode"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            main_task: Ai_Task::new(&__js["main_task"])?,
-            background_node: Ai_FlowNode::new(&__js["background_node"])?,
+            main_task: AiTask::new(&__js["main_task"])?,
+            background_node: AiFlowNode::new(&__js["background_node"])?,
         };
         Ok(__b)
     }
@@ -1827,28 +1829,28 @@ impl Ai_SimpleParallel {
 
 
 #[allow(non_camel_case_types)]
-pub enum Ai_Task {
-  UeWait(Box<Ai_UeWait>),
-  UeWaitBlackboardTime(Box<Ai_UeWaitBlackboardTime>),
-  MoveToTarget(Box<Ai_MoveToTarget>),
-  ChooseSkill(Box<Ai_ChooseSkill>),
-  MoveToRandomLocation(Box<Ai_MoveToRandomLocation>),
-  MoveToLocation(Box<Ai_MoveToLocation>),
-  DebugPrint(Box<Ai_DebugPrint>),
+pub enum AiTask {
+  UeWait(Box<AiUeWait>),
+  UeWaitBlackboardTime(Box<AiUeWaitBlackboardTime>),
+  MoveToTarget(Box<AiMoveToTarget>),
+  ChooseSkill(Box<AiChooseSkill>),
+  MoveToRandomLocation(Box<AiMoveToRandomLocation>),
+  MoveToLocation(Box<AiMoveToLocation>),
+  DebugPrint(Box<AiDebugPrint>),
 }
 
-impl Ai_Task {
+impl AiTask {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_Task, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<AiTask, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "UeWait" => Ai_Task::UeWait(Box::new(Ai_UeWait::new(&__js)?)),
-                "UeWaitBlackboardTime" => Ai_Task::UeWaitBlackboardTime(Box::new(Ai_UeWaitBlackboardTime::new(&__js)?)),
-                "MoveToTarget" => Ai_Task::MoveToTarget(Box::new(Ai_MoveToTarget::new(&__js)?)),
-                "ChooseSkill" => Ai_Task::ChooseSkill(Box::new(Ai_ChooseSkill::new(&__js)?)),
-                "MoveToRandomLocation" => Ai_Task::MoveToRandomLocation(Box::new(Ai_MoveToRandomLocation::new(&__js)?)),
-                "MoveToLocation" => Ai_Task::MoveToLocation(Box::new(Ai_MoveToLocation::new(&__js)?)),
-                "DebugPrint" => Ai_Task::DebugPrint(Box::new(Ai_DebugPrint::new(&__js)?)),
+                "UeWait" => AiTask::UeWait(Box::new(AiUeWait::new(&__js)?)),
+                "UeWaitBlackboardTime" => AiTask::UeWaitBlackboardTime(Box::new(AiUeWaitBlackboardTime::new(&__js)?)),
+                "MoveToTarget" => AiTask::MoveToTarget(Box::new(AiMoveToTarget::new(&__js)?)),
+                "ChooseSkill" => AiTask::ChooseSkill(Box::new(AiChooseSkill::new(&__js)?)),
+                "MoveToRandomLocation" => AiTask::MoveToRandomLocation(Box::new(AiMoveToRandomLocation::new(&__js)?)),
+                "MoveToLocation" => AiTask::MoveToLocation(Box::new(AiMoveToLocation::new(&__js)?)),
+                "DebugPrint" => AiTask::DebugPrint(Box::new(AiDebugPrint::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -1861,24 +1863,24 @@ impl Ai_Task {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeWait {
+pub struct AiUeWait {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub wait_time: f32,
 pub random_deviation: f32,
 }
 
-impl Ai_UeWait {
+impl AiUeWait {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeWait, LoadError> {
-        let __b = Ai_UeWait {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeWait, LoadError> {
+        let __b = AiUeWait {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             wait_time: match __js["wait_time"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             random_deviation: match __js["random_deviation"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1891,23 +1893,23 @@ impl Ai_UeWait {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_UeWaitBlackboardTime {
+pub struct AiUeWaitBlackboardTime {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub blackboard_key: String,
 }
 
-impl Ai_UeWaitBlackboardTime {
+impl AiUeWaitBlackboardTime {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_UeWaitBlackboardTime, LoadError> {
-        let __b = Ai_UeWaitBlackboardTime {
+    pub fn new(__js: &json::JsonValue) -> Result<AiUeWaitBlackboardTime, LoadError> {
+        let __b = AiUeWaitBlackboardTime {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             blackboard_key: match __js["blackboard_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -1919,24 +1921,24 @@ impl Ai_UeWaitBlackboardTime {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_MoveToTarget {
+pub struct AiMoveToTarget {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub target_actor_key: String,
 pub acceptable_radius: f32,
 }
 
-impl Ai_MoveToTarget {
+impl AiMoveToTarget {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_MoveToTarget, LoadError> {
-        let __b = Ai_MoveToTarget {
+    pub fn new(__js: &json::JsonValue) -> Result<AiMoveToTarget, LoadError> {
+        let __b = AiMoveToTarget {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             target_actor_key: match __js["target_actor_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             acceptable_radius: match __js["acceptable_radius"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -1949,24 +1951,24 @@ impl Ai_MoveToTarget {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_ChooseSkill {
+pub struct AiChooseSkill {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub target_actor_key: String,
 pub result_skill_id_key: String,
 }
 
-impl Ai_ChooseSkill {
+impl AiChooseSkill {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_ChooseSkill, LoadError> {
-        let __b = Ai_ChooseSkill {
+    pub fn new(__js: &json::JsonValue) -> Result<AiChooseSkill, LoadError> {
+        let __b = AiChooseSkill {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             target_actor_key: match __js["target_actor_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             result_skill_id_key: match __js["result_skill_id_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -1979,24 +1981,24 @@ impl Ai_ChooseSkill {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_MoveToRandomLocation {
+pub struct AiMoveToRandomLocation {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub origin_position_key: String,
 pub radius: f32,
 }
 
-impl Ai_MoveToRandomLocation {
+impl AiMoveToRandomLocation {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_MoveToRandomLocation, LoadError> {
-        let __b = Ai_MoveToRandomLocation {
+    pub fn new(__js: &json::JsonValue) -> Result<AiMoveToRandomLocation, LoadError> {
+        let __b = AiMoveToRandomLocation {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             origin_position_key: match __js["origin_position_key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             radius: match __js["radius"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2009,24 +2011,24 @@ impl Ai_MoveToRandomLocation {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_MoveToLocation {
+pub struct AiMoveToLocation {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub location: Vector3,
 pub acceptable_radius: f32,
 }
 
-impl Ai_MoveToLocation {
+impl AiMoveToLocation {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_MoveToLocation, LoadError> {
-        let __b = Ai_MoveToLocation {
+    pub fn new(__js: &json::JsonValue) -> Result<AiMoveToLocation, LoadError> {
+        let __b = AiMoveToLocation {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             location: Vector3::new(&__js["location"])?,
             acceptable_radius: match __js["acceptable_radius"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2039,23 +2041,23 @@ impl Ai_MoveToLocation {
 
 
 #[allow(non_camel_case_types)]
-pub struct Ai_DebugPrint {
+pub struct AiDebugPrint {
 pub id: i32,
 pub node_name: String,
-pub decorators: Vec<Ai_Decorator>,
-pub services: Vec<Ai_Service>,
+pub decorators: Vec<AiDecorator>,
+pub services: Vec<AiService>,
 pub ignore_restart_self: bool,
 pub text: String,
 }
 
-impl Ai_DebugPrint {
+impl AiDebugPrint {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Ai_DebugPrint, LoadError> {
-        let __b = Ai_DebugPrint {
+    pub fn new(__js: &json::JsonValue) -> Result<AiDebugPrint, LoadError> {
+        let __b = AiDebugPrint {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             node_name: match __js["node_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(Ai_Decorator::new(&__e)?); }   __list__},
-            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(Ai_Service::new(&__e)?); }   __list__},
+            decorators: { if !__js["decorators"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["decorators"].members() { __list__.push(AiDecorator::new(&__e)?); }   __list__},
+            services: { if !__js["services"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["services"].members() { __list__.push(AiService::new(&__e)?); }   __list__},
             ignore_restart_self: match __js["ignore_restart_self"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             text: match __js["text"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -2065,61 +2067,62 @@ impl Ai_DebugPrint {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_TbClazz {
-    data_list: Vec<std::rc::Rc<Blueprint_Clazz>>,
-    data_map: std::collections::HashMap<String, std::rc::Rc<Blueprint_Clazz>>,
+pub struct BlueprintTbClazz {
+    data_list: Vec<std::rc::Rc<BlueprintClazz>>,
+    data_map: std::collections::HashMap<String, std::rc::Rc<BlueprintClazz>>,
 }
 
-impl Blueprint_TbClazz{
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_TbClazz, LoadError> {
+impl BlueprintTbClazz{
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintTbClazz, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Blueprint_TbClazz {
+        let mut t = BlueprintTbClazz {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Blueprint_Clazz::new(__e) {
+            let __v = std::rc::Rc::new(match BlueprintClazz::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
             let __v2 = std::rc::Rc::clone(&__v);
             t.data_list.push(__v);
             match &*__v2 {
-                Blueprint_Clazz::Interface(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
-                Blueprint_Clazz::NormalClazz(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
-                Blueprint_Clazz::EnumClazz(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
+                BlueprintClazz::Interface(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
+                BlueprintClazz::NormalClazz(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
+                BlueprintClazz::EnumClazz(__w__) => t.data_map.insert(__w__.name.clone(), __v2),
             };
         }
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Blueprint_TbClazz) -> &std::collections::HashMap<String, std::rc::Rc<Blueprint_Clazz>> { &self.data_map }
+    pub fn get_data_map(self:&BlueprintTbClazz) -> &std::collections::HashMap<String, std::rc::Rc<BlueprintClazz>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Blueprint_TbClazz) -> &Vec<std::rc::Rc<Blueprint_Clazz>> { &self.data_list }
+    pub fn get_data_list(self:&BlueprintTbClazz) -> &Vec<std::rc::Rc<BlueprintClazz>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Blueprint_TbClazz, key: &String) -> std::option::Option<&std::rc::Rc<Blueprint_Clazz>> { self.data_map.get(key) }
+    pub fn get(self:&BlueprintTbClazz, key: &String) -> std::option::Option<&std::rc::Rc<BlueprintClazz>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub enum Blueprint_Clazz {
-  Interface(Box<Blueprint_Interface>),
-  NormalClazz(Box<Blueprint_NormalClazz>),
-  EnumClazz(Box<Blueprint_EnumClazz>),
+pub enum BlueprintClazz {
+  Interface(Box<BlueprintInterface>),
+  NormalClazz(Box<BlueprintNormalClazz>),
+  EnumClazz(Box<BlueprintEnumClazz>),
 }
 
-impl Blueprint_Clazz {
+impl BlueprintClazz {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_Clazz, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintClazz, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "Interface" => Blueprint_Clazz::Interface(Box::new(Blueprint_Interface::new(&__js)?)),
-                "NormalClazz" => Blueprint_Clazz::NormalClazz(Box::new(Blueprint_NormalClazz::new(&__js)?)),
-                "EnumClazz" => Blueprint_Clazz::EnumClazz(Box::new(Blueprint_EnumClazz::new(&__js)?)),
+                "Interface" => BlueprintClazz::Interface(Box::new(BlueprintInterface::new(&__js)?)),
+                "NormalClazz" => BlueprintClazz::NormalClazz(Box::new(BlueprintNormalClazz::new(&__js)?)),
+                "EnumClazz" => BlueprintClazz::EnumClazz(Box::new(BlueprintEnumClazz::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -2132,20 +2135,20 @@ impl Blueprint_Clazz {
 
 
 #[allow(non_camel_case_types)]
-pub enum Blueprint_Method {
-  AbstraceMethod(Box<Blueprint_AbstraceMethod>),
-  ExternalMethod(Box<Blueprint_ExternalMethod>),
-  BlueprintMethod(Box<Blueprint_BlueprintMethod>),
+pub enum BlueprintMethod {
+  AbstraceMethod(Box<BlueprintAbstraceMethod>),
+  ExternalMethod(Box<BlueprintExternalMethod>),
+  BlueprintMethod(Box<BlueprintBlueprintMethod>),
 }
 
-impl Blueprint_Method {
+impl BlueprintMethod {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_Method, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintMethod, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "AbstraceMethod" => Blueprint_Method::AbstraceMethod(Box::new(Blueprint_AbstraceMethod::new(&__js)?)),
-                "ExternalMethod" => Blueprint_Method::ExternalMethod(Box::new(Blueprint_ExternalMethod::new(&__js)?)),
-                "BlueprintMethod" => Blueprint_Method::BlueprintMethod(Box::new(Blueprint_BlueprintMethod::new(&__js)?)),
+                "AbstraceMethod" => BlueprintMethod::AbstraceMethod(Box::new(BlueprintAbstraceMethod::new(&__js)?)),
+                "ExternalMethod" => BlueprintMethod::ExternalMethod(Box::new(BlueprintExternalMethod::new(&__js)?)),
+                "BlueprintMethod" => BlueprintMethod::BlueprintMethod(Box::new(BlueprintBlueprintMethod::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -2158,16 +2161,16 @@ impl Blueprint_Method {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_ParamInfo {
+pub struct BlueprintParamInfo {
 pub name: String,
 pub r#type: String,
 pub is_ref: bool,
 }
 
-impl Blueprint_ParamInfo {
+impl BlueprintParamInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_ParamInfo, LoadError> {
-        let __b = Blueprint_ParamInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintParamInfo, LoadError> {
+        let __b = BlueprintParamInfo {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             r#type: match __js["type"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             is_ref: match __js["is_ref"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2180,23 +2183,23 @@ impl Blueprint_ParamInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_AbstraceMethod {
+pub struct BlueprintAbstraceMethod {
 pub name: String,
 pub desc: String,
 pub is_static: bool,
 pub return_type: String,
-pub parameters: Vec<Blueprint_ParamInfo>,
+pub parameters: Vec<BlueprintParamInfo>,
 }
 
-impl Blueprint_AbstraceMethod {
+impl BlueprintAbstraceMethod {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_AbstraceMethod, LoadError> {
-        let __b = Blueprint_AbstraceMethod {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintAbstraceMethod, LoadError> {
+        let __b = BlueprintAbstraceMethod {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             is_static: match __js["is_static"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             return_type: match __js["return_type"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(Blueprint_ParamInfo::new(&__e)?); }   __list__},
+            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(BlueprintParamInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2206,23 +2209,23 @@ impl Blueprint_AbstraceMethod {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_ExternalMethod {
+pub struct BlueprintExternalMethod {
 pub name: String,
 pub desc: String,
 pub is_static: bool,
 pub return_type: String,
-pub parameters: Vec<Blueprint_ParamInfo>,
+pub parameters: Vec<BlueprintParamInfo>,
 }
 
-impl Blueprint_ExternalMethod {
+impl BlueprintExternalMethod {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_ExternalMethod, LoadError> {
-        let __b = Blueprint_ExternalMethod {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintExternalMethod, LoadError> {
+        let __b = BlueprintExternalMethod {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             is_static: match __js["is_static"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             return_type: match __js["return_type"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(Blueprint_ParamInfo::new(&__e)?); }   __list__},
+            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(BlueprintParamInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2232,23 +2235,23 @@ impl Blueprint_ExternalMethod {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_BlueprintMethod {
+pub struct BlueprintBlueprintMethod {
 pub name: String,
 pub desc: String,
 pub is_static: bool,
 pub return_type: String,
-pub parameters: Vec<Blueprint_ParamInfo>,
+pub parameters: Vec<BlueprintParamInfo>,
 }
 
-impl Blueprint_BlueprintMethod {
+impl BlueprintBlueprintMethod {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_BlueprintMethod, LoadError> {
-        let __b = Blueprint_BlueprintMethod {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintBlueprintMethod, LoadError> {
+        let __b = BlueprintBlueprintMethod {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             is_static: match __js["is_static"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             return_type: match __js["return_type"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(Blueprint_ParamInfo::new(&__e)?); }   __list__},
+            parameters: { if !__js["parameters"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parameters"].members() { __list__.push(BlueprintParamInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2258,21 +2261,21 @@ impl Blueprint_BlueprintMethod {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_Interface {
+pub struct BlueprintInterface {
 pub name: String,
 pub desc: String,
-pub parents: Vec<Blueprint_Clazz>,
-pub methods: Vec<Blueprint_Method>,
+pub parents: Vec<BlueprintClazz>,
+pub methods: Vec<BlueprintMethod>,
 }
 
-impl Blueprint_Interface {
+impl BlueprintInterface {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_Interface, LoadError> {
-        let __b = Blueprint_Interface {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintInterface, LoadError> {
+        let __b = BlueprintInterface {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(Blueprint_Clazz::new(&__e)?); }   __list__},
-            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(Blueprint_Method::new(&__e)?); }   __list__},
+            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(BlueprintClazz::new(&__e)?); }   __list__},
+            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(BlueprintMethod::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2282,25 +2285,25 @@ impl Blueprint_Interface {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_NormalClazz {
+pub struct BlueprintNormalClazz {
 pub name: String,
 pub desc: String,
-pub parents: Vec<Blueprint_Clazz>,
-pub methods: Vec<Blueprint_Method>,
+pub parents: Vec<BlueprintClazz>,
+pub methods: Vec<BlueprintMethod>,
 pub is_abstract: bool,
-pub fields: Vec<Blueprint_Field>,
+pub fields: Vec<BlueprintField>,
 }
 
-impl Blueprint_NormalClazz {
+impl BlueprintNormalClazz {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_NormalClazz, LoadError> {
-        let __b = Blueprint_NormalClazz {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintNormalClazz, LoadError> {
+        let __b = BlueprintNormalClazz {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(Blueprint_Clazz::new(&__e)?); }   __list__},
-            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(Blueprint_Method::new(&__e)?); }   __list__},
+            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(BlueprintClazz::new(&__e)?); }   __list__},
+            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(BlueprintMethod::new(&__e)?); }   __list__},
             is_abstract: match __js["is_abstract"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            fields: { if !__js["fields"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["fields"].members() { __list__.push(Blueprint_Field::new(&__e)?); }   __list__},
+            fields: { if !__js["fields"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["fields"].members() { __list__.push(BlueprintField::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2310,16 +2313,16 @@ impl Blueprint_NormalClazz {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_Field {
+pub struct BlueprintField {
 pub name: String,
 pub r#type: String,
 pub desc: String,
 }
 
-impl Blueprint_Field {
+impl BlueprintField {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_Field, LoadError> {
-        let __b = Blueprint_Field {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintField, LoadError> {
+        let __b = BlueprintField {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             r#type: match __js["type"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -2332,23 +2335,23 @@ impl Blueprint_Field {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_EnumClazz {
+pub struct BlueprintEnumClazz {
 pub name: String,
 pub desc: String,
-pub parents: Vec<Blueprint_Clazz>,
-pub methods: Vec<Blueprint_Method>,
-pub enums: Vec<Blueprint_EnumField>,
+pub parents: Vec<BlueprintClazz>,
+pub methods: Vec<BlueprintMethod>,
+pub enums: Vec<BlueprintEnumField>,
 }
 
-impl Blueprint_EnumClazz {
+impl BlueprintEnumClazz {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_EnumClazz, LoadError> {
-        let __b = Blueprint_EnumClazz {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintEnumClazz, LoadError> {
+        let __b = BlueprintEnumClazz {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(Blueprint_Clazz::new(&__e)?); }   __list__},
-            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(Blueprint_Method::new(&__e)?); }   __list__},
-            enums: { if !__js["enums"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["enums"].members() { __list__.push(Blueprint_EnumField::new(&__e)?); }   __list__},
+            parents: { if !__js["parents"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["parents"].members() { __list__.push(BlueprintClazz::new(&__e)?); }   __list__},
+            methods: { if !__js["methods"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["methods"].members() { __list__.push(BlueprintMethod::new(&__e)?); }   __list__},
+            enums: { if !__js["enums"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["enums"].members() { __list__.push(BlueprintEnumField::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2358,15 +2361,15 @@ impl Blueprint_EnumClazz {
 
 
 #[allow(non_camel_case_types)]
-pub struct Blueprint_EnumField {
+pub struct BlueprintEnumField {
 pub name: String,
 pub value: i32,
 }
 
-impl Blueprint_EnumField {
+impl BlueprintEnumField {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Blueprint_EnumField, LoadError> {
-        let __b = Blueprint_EnumField {
+    pub fn new(__js: &json::JsonValue) -> Result<BlueprintEnumField, LoadError> {
+        let __b = BlueprintEnumField {
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             value: match __js["value"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -2376,23 +2379,23 @@ impl Blueprint_EnumField {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_TbDrop {
-    data_list: Vec<std::rc::Rc<Bonus_DropInfo>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Bonus_DropInfo>>,
+pub struct BonusTbDrop {
+    data_list: Vec<std::rc::Rc<BonusDropInfo>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<BonusDropInfo>>,
 }
 
-impl Bonus_TbDrop{
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_TbDrop, LoadError> {
+impl BonusTbDrop{
+    pub fn new(__js: &json::JsonValue) -> Result<BonusTbDrop, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Bonus_TbDrop {
+        let mut t = BonusTbDrop {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Bonus_DropInfo::new(__e) {
+            let __v = std::rc::Rc::new(match BonusDropInfo::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -2403,31 +2406,32 @@ impl Bonus_TbDrop{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Bonus_TbDrop) -> &std::collections::HashMap<i32, std::rc::Rc<Bonus_DropInfo>> { &self.data_map }
+    pub fn get_data_map(self:&BonusTbDrop) -> &std::collections::HashMap<i32, std::rc::Rc<BonusDropInfo>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Bonus_TbDrop) -> &Vec<std::rc::Rc<Bonus_DropInfo>> { &self.data_list }
+    pub fn get_data_list(self:&BonusTbDrop) -> &Vec<std::rc::Rc<BonusDropInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Bonus_TbDrop, key: &i32) -> std::option::Option<&std::rc::Rc<Bonus_DropInfo>> { self.data_map.get(key) }
+    pub fn get(self:&BonusTbDrop, key: &i32) -> std::option::Option<&std::rc::Rc<BonusDropInfo>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_DropInfo {
+pub struct BonusDropInfo {
 pub id: i32,
 pub desc: String,
-pub client_show_items: Vec<Bonus_ShowItemInfo>,
-pub bonus: Bonus_Bonus,
+pub client_show_items: Vec<BonusShowItemInfo>,
+pub bonus: BonusBonus,
 }
 
-impl Bonus_DropInfo {
+impl BonusDropInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_DropInfo, LoadError> {
-        let __b = Bonus_DropInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusDropInfo, LoadError> {
+        let __b = BonusDropInfo {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            client_show_items: { if !__js["client_show_items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["client_show_items"].members() { __list__.push(Bonus_ShowItemInfo::new(&__e)?); }   __list__},
-            bonus: Bonus_Bonus::new(&__js["bonus"])?,
+            client_show_items: { if !__js["client_show_items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["client_show_items"].members() { __list__.push(BonusShowItemInfo::new(&__e)?); }   __list__},
+            bonus: BonusBonus::new(&__js["bonus"])?,
         };
         Ok(__b)
     }
@@ -2437,15 +2441,15 @@ impl Bonus_DropInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_ShowItemInfo {
+pub struct BonusShowItemInfo {
 pub item_id: i32,
 pub item_num: i64,
 }
 
-impl Bonus_ShowItemInfo {
+impl BonusShowItemInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_ShowItemInfo, LoadError> {
-        let __b = Bonus_ShowItemInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusShowItemInfo, LoadError> {
+        let __b = BonusShowItemInfo {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             item_num: match __js["item_num"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -2457,36 +2461,36 @@ impl Bonus_ShowItemInfo {
 
 
 #[allow(non_camel_case_types)]
-pub enum Bonus_Bonus {
-  OneItem(Box<Bonus_OneItem>),
-  OneItems(Box<Bonus_OneItems>),
-  Item(Box<Bonus_Item>),
-  Items(Box<Bonus_Items>),
-  CoefficientItem(Box<Bonus_CoefficientItem>),
-  WeightItems(Box<Bonus_WeightItems>),
-  ProbabilityItems(Box<Bonus_ProbabilityItems>),
-  MultiBonus(Box<Bonus_MultiBonus>),
-  ProbabilityBonus(Box<Bonus_ProbabilityBonus>),
-  WeightBonus(Box<Bonus_WeightBonus>),
-  DropBonus(Box<Bonus_DropBonus>),
+pub enum BonusBonus {
+  OneItem(Box<BonusOneItem>),
+  OneItems(Box<BonusOneItems>),
+  Item(Box<BonusItem>),
+  Items(Box<BonusItems>),
+  CoefficientItem(Box<BonusCoefficientItem>),
+  WeightItems(Box<BonusWeightItems>),
+  ProbabilityItems(Box<BonusProbabilityItems>),
+  MultiBonus(Box<BonusMultiBonus>),
+  ProbabilityBonus(Box<BonusProbabilityBonus>),
+  WeightBonus(Box<BonusWeightBonus>),
+  DropBonus(Box<BonusDropBonus>),
 }
 
-impl Bonus_Bonus {
+impl BonusBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_Bonus, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusBonus, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "OneItem" => Bonus_Bonus::OneItem(Box::new(Bonus_OneItem::new(&__js)?)),
-                "OneItems" => Bonus_Bonus::OneItems(Box::new(Bonus_OneItems::new(&__js)?)),
-                "Item" => Bonus_Bonus::Item(Box::new(Bonus_Item::new(&__js)?)),
-                "Items" => Bonus_Bonus::Items(Box::new(Bonus_Items::new(&__js)?)),
-                "CoefficientItem" => Bonus_Bonus::CoefficientItem(Box::new(Bonus_CoefficientItem::new(&__js)?)),
-                "WeightItems" => Bonus_Bonus::WeightItems(Box::new(Bonus_WeightItems::new(&__js)?)),
-                "ProbabilityItems" => Bonus_Bonus::ProbabilityItems(Box::new(Bonus_ProbabilityItems::new(&__js)?)),
-                "MultiBonus" => Bonus_Bonus::MultiBonus(Box::new(Bonus_MultiBonus::new(&__js)?)),
-                "ProbabilityBonus" => Bonus_Bonus::ProbabilityBonus(Box::new(Bonus_ProbabilityBonus::new(&__js)?)),
-                "WeightBonus" => Bonus_Bonus::WeightBonus(Box::new(Bonus_WeightBonus::new(&__js)?)),
-                "DropBonus" => Bonus_Bonus::DropBonus(Box::new(Bonus_DropBonus::new(&__js)?)),
+                "OneItem" => BonusBonus::OneItem(Box::new(BonusOneItem::new(&__js)?)),
+                "OneItems" => BonusBonus::OneItems(Box::new(BonusOneItems::new(&__js)?)),
+                "Item" => BonusBonus::Item(Box::new(BonusItem::new(&__js)?)),
+                "Items" => BonusBonus::Items(Box::new(BonusItems::new(&__js)?)),
+                "CoefficientItem" => BonusBonus::CoefficientItem(Box::new(BonusCoefficientItem::new(&__js)?)),
+                "WeightItems" => BonusBonus::WeightItems(Box::new(BonusWeightItems::new(&__js)?)),
+                "ProbabilityItems" => BonusBonus::ProbabilityItems(Box::new(BonusProbabilityItems::new(&__js)?)),
+                "MultiBonus" => BonusBonus::MultiBonus(Box::new(BonusMultiBonus::new(&__js)?)),
+                "ProbabilityBonus" => BonusBonus::ProbabilityBonus(Box::new(BonusProbabilityBonus::new(&__js)?)),
+                "WeightBonus" => BonusBonus::WeightBonus(Box::new(BonusWeightBonus::new(&__js)?)),
+                "DropBonus" => BonusBonus::DropBonus(Box::new(BonusDropBonus::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -2499,14 +2503,14 @@ impl Bonus_Bonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_OneItem {
+pub struct BonusOneItem {
 pub item_id: i32,
 }
 
-impl Bonus_OneItem {
+impl BonusOneItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_OneItem, LoadError> {
-        let __b = Bonus_OneItem {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusOneItem, LoadError> {
+        let __b = BonusOneItem {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -2517,14 +2521,14 @@ impl Bonus_OneItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_OneItems {
+pub struct BonusOneItems {
 pub items: Vec<i32>,
 }
 
-impl Bonus_OneItems {
+impl BonusOneItems {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_OneItems, LoadError> {
-        let __b = Bonus_OneItems {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusOneItems, LoadError> {
+        let __b = BonusOneItems {
             items: { if !__js["items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["items"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
         };
         Ok(__b)
@@ -2535,15 +2539,15 @@ impl Bonus_OneItems {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_Item {
+pub struct BonusItem {
 pub item_id: i32,
 pub amount: i32,
 }
 
-impl Bonus_Item {
+impl BonusItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_Item, LoadError> {
-        let __b = Bonus_Item {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusItem, LoadError> {
+        let __b = BonusItem {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             amount: match __js["amount"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -2555,15 +2559,15 @@ impl Bonus_Item {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_Items {
-pub item_list: Vec<Bonus_Item>,
+pub struct BonusItems {
+pub item_list: Vec<BonusItem>,
 }
 
-impl Bonus_Items {
+impl BonusItems {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_Items, LoadError> {
-        let __b = Bonus_Items {
-            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(Bonus_Item::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusItems, LoadError> {
+        let __b = BonusItems {
+            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(BonusItem::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2573,17 +2577,17 @@ impl Bonus_Items {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_CoefficientItem {
+pub struct BonusCoefficientItem {
 pub bonus_id: i32,
-pub bonus_list: Bonus_Items,
+pub bonus_list: BonusItems,
 }
 
-impl Bonus_CoefficientItem {
+impl BonusCoefficientItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_CoefficientItem, LoadError> {
-        let __b = Bonus_CoefficientItem {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusCoefficientItem, LoadError> {
+        let __b = BonusCoefficientItem {
             bonus_id: match __js["bonus_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            bonus_list: Bonus_Items::new(&__js["bonus_list"])?,
+            bonus_list: BonusItems::new(&__js["bonus_list"])?,
         };
         Ok(__b)
     }
@@ -2593,15 +2597,15 @@ impl Bonus_CoefficientItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_WeightItems {
-pub item_list: Vec<Bonus_WeightItemInfo>,
+pub struct BonusWeightItems {
+pub item_list: Vec<BonusWeightItemInfo>,
 }
 
-impl Bonus_WeightItems {
+impl BonusWeightItems {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_WeightItems, LoadError> {
-        let __b = Bonus_WeightItems {
-            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(Bonus_WeightItemInfo::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusWeightItems, LoadError> {
+        let __b = BonusWeightItems {
+            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(BonusWeightItemInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2611,16 +2615,16 @@ impl Bonus_WeightItems {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_WeightItemInfo {
+pub struct BonusWeightItemInfo {
 pub item_id: i32,
 pub num: i32,
 pub weight: i32,
 }
 
-impl Bonus_WeightItemInfo {
+impl BonusWeightItemInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_WeightItemInfo, LoadError> {
-        let __b = Bonus_WeightItemInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusWeightItemInfo, LoadError> {
+        let __b = BonusWeightItemInfo {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             weight: match __js["weight"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2633,15 +2637,15 @@ impl Bonus_WeightItemInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_ProbabilityItems {
-pub item_list: Vec<Bonus_ProbabilityItemInfo>,
+pub struct BonusProbabilityItems {
+pub item_list: Vec<BonusProbabilityItemInfo>,
 }
 
-impl Bonus_ProbabilityItems {
+impl BonusProbabilityItems {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_ProbabilityItems, LoadError> {
-        let __b = Bonus_ProbabilityItems {
-            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(Bonus_ProbabilityItemInfo::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusProbabilityItems, LoadError> {
+        let __b = BonusProbabilityItems {
+            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(BonusProbabilityItemInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2651,16 +2655,16 @@ impl Bonus_ProbabilityItems {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_ProbabilityItemInfo {
+pub struct BonusProbabilityItemInfo {
 pub item_id: i32,
 pub num: i32,
 pub probability: f32,
 }
 
-impl Bonus_ProbabilityItemInfo {
+impl BonusProbabilityItemInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_ProbabilityItemInfo, LoadError> {
-        let __b = Bonus_ProbabilityItemInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusProbabilityItemInfo, LoadError> {
+        let __b = BonusProbabilityItemInfo {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             probability: match __js["probability"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2673,15 +2677,15 @@ impl Bonus_ProbabilityItemInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_MultiBonus {
-pub bonuses: Vec<Bonus_Bonus>,
+pub struct BonusMultiBonus {
+pub bonuses: Vec<BonusBonus>,
 }
 
-impl Bonus_MultiBonus {
+impl BonusMultiBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_MultiBonus, LoadError> {
-        let __b = Bonus_MultiBonus {
-            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(Bonus_Bonus::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusMultiBonus, LoadError> {
+        let __b = BonusMultiBonus {
+            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(BonusBonus::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2691,15 +2695,15 @@ impl Bonus_MultiBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_ProbabilityBonus {
-pub bonuses: Vec<Bonus_ProbabilityBonusInfo>,
+pub struct BonusProbabilityBonus {
+pub bonuses: Vec<BonusProbabilityBonusInfo>,
 }
 
-impl Bonus_ProbabilityBonus {
+impl BonusProbabilityBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_ProbabilityBonus, LoadError> {
-        let __b = Bonus_ProbabilityBonus {
-            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(Bonus_ProbabilityBonusInfo::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusProbabilityBonus, LoadError> {
+        let __b = BonusProbabilityBonus {
+            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(BonusProbabilityBonusInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2709,16 +2713,16 @@ impl Bonus_ProbabilityBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_ProbabilityBonusInfo {
-pub bonus: Bonus_Bonus,
+pub struct BonusProbabilityBonusInfo {
+pub bonus: BonusBonus,
 pub probability: f32,
 }
 
-impl Bonus_ProbabilityBonusInfo {
+impl BonusProbabilityBonusInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_ProbabilityBonusInfo, LoadError> {
-        let __b = Bonus_ProbabilityBonusInfo {
-            bonus: Bonus_Bonus::new(&__js["bonus"])?,
+    pub fn new(__js: &json::JsonValue) -> Result<BonusProbabilityBonusInfo, LoadError> {
+        let __b = BonusProbabilityBonusInfo {
+            bonus: BonusBonus::new(&__js["bonus"])?,
             probability: match __js["probability"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -2729,15 +2733,15 @@ impl Bonus_ProbabilityBonusInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_WeightBonus {
-pub bonuses: Vec<Bonus_WeightBonusInfo>,
+pub struct BonusWeightBonus {
+pub bonuses: Vec<BonusWeightBonusInfo>,
 }
 
-impl Bonus_WeightBonus {
+impl BonusWeightBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_WeightBonus, LoadError> {
-        let __b = Bonus_WeightBonus {
-            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(Bonus_WeightBonusInfo::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<BonusWeightBonus, LoadError> {
+        let __b = BonusWeightBonus {
+            bonuses: { if !__js["bonuses"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonuses"].members() { __list__.push(BonusWeightBonusInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -2747,16 +2751,16 @@ impl Bonus_WeightBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_WeightBonusInfo {
-pub bonus: Bonus_Bonus,
+pub struct BonusWeightBonusInfo {
+pub bonus: BonusBonus,
 pub weight: i32,
 }
 
-impl Bonus_WeightBonusInfo {
+impl BonusWeightBonusInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_WeightBonusInfo, LoadError> {
-        let __b = Bonus_WeightBonusInfo {
-            bonus: Bonus_Bonus::new(&__js["bonus"])?,
+    pub fn new(__js: &json::JsonValue) -> Result<BonusWeightBonusInfo, LoadError> {
+        let __b = BonusWeightBonusInfo {
+            bonus: BonusBonus::new(&__js["bonus"])?,
             weight: match __js["weight"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -2767,14 +2771,14 @@ impl Bonus_WeightBonusInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Bonus_DropBonus {
+pub struct BonusDropBonus {
 pub id: i32,
 }
 
-impl Bonus_DropBonus {
+impl BonusDropBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Bonus_DropBonus, LoadError> {
-        let __b = Bonus_DropBonus {
+    pub fn new(__js: &json::JsonValue) -> Result<BonusDropBonus, LoadError> {
+        let __b = BonusDropBonus {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -2783,32 +2787,32 @@ impl Bonus_DropBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Common_TbGlobalConfig {
-    data: Common_GlobalConfig,
+pub struct CommonTbGlobalConfig {
+    data: CommonGlobalConfig,
 }
 
-impl Common_TbGlobalConfig{
-    pub fn new(__js: &json::JsonValue) -> Result<Common_TbGlobalConfig, LoadError> {
+impl CommonTbGlobalConfig{
+    pub fn new(__js: &json::JsonValue) -> Result<CommonTbGlobalConfig, LoadError> {
         if !__js.is_array() || __js.len() != 1 {
             return Err(LoadError{});
         }
-        let __v = match Common_GlobalConfig::new(&__js[0]) {
+        let __v = match CommonGlobalConfig::new(&__js[0]) {
             Ok(x) => x,
             Err(err) => return Err(err),
         };
-        let t = Common_TbGlobalConfig {
+        let t = CommonTbGlobalConfig {
             data: __v,
         };
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data(self:&Common_TbGlobalConfig) -> &Common_GlobalConfig { &self.data }
+    pub fn get_data(self:&CommonTbGlobalConfig) -> &CommonGlobalConfig { &self.data }
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Common_GlobalConfig {
+pub struct CommonGlobalConfig {
 pub bag_capacity: i32,
 pub bag_capacity_special: i32,
 pub bag_temp_expendable_capacity: i32,
@@ -2832,10 +2836,10 @@ pub max_viality: i32,
 pub per_viality_recovery_time: i32,
 }
 
-impl Common_GlobalConfig {
+impl CommonGlobalConfig {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Common_GlobalConfig, LoadError> {
-        let __b = Common_GlobalConfig {
+    pub fn new(__js: &json::JsonValue) -> Result<CommonGlobalConfig, LoadError> {
+        let __b = CommonGlobalConfig {
             bag_capacity: match __js["bag_capacity"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             bag_capacity_special: match __js["bag_capacity_special"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             bag_temp_expendable_capacity: match __js["bag_temp_expendable_capacity"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -2864,23 +2868,23 @@ impl Common_GlobalConfig {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_TbErrorInfo {
-    data_list: Vec<std::rc::Rc<Error_ErrorInfo>>,
-    data_map: std::collections::HashMap<String, std::rc::Rc<Error_ErrorInfo>>,
+pub struct ErrorTbErrorInfo {
+    data_list: Vec<std::rc::Rc<ErrorErrorInfo>>,
+    data_map: std::collections::HashMap<String, std::rc::Rc<ErrorErrorInfo>>,
 }
 
-impl Error_TbErrorInfo{
-    pub fn new(__js: &json::JsonValue) -> Result<Error_TbErrorInfo, LoadError> {
+impl ErrorTbErrorInfo{
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorTbErrorInfo, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Error_TbErrorInfo {
+        let mut t = ErrorTbErrorInfo {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Error_ErrorInfo::new(__e) {
+            let __v = std::rc::Rc::new(match ErrorErrorInfo::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -2891,29 +2895,30 @@ impl Error_TbErrorInfo{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Error_TbErrorInfo) -> &std::collections::HashMap<String, std::rc::Rc<Error_ErrorInfo>> { &self.data_map }
+    pub fn get_data_map(self:&ErrorTbErrorInfo) -> &std::collections::HashMap<String, std::rc::Rc<ErrorErrorInfo>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Error_TbErrorInfo) -> &Vec<std::rc::Rc<Error_ErrorInfo>> { &self.data_list }
+    pub fn get_data_list(self:&ErrorTbErrorInfo) -> &Vec<std::rc::Rc<ErrorErrorInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Error_TbErrorInfo, key: &String) -> std::option::Option<&std::rc::Rc<Error_ErrorInfo>> { self.data_map.get(key) }
+    pub fn get(self:&ErrorTbErrorInfo, key: &String) -> std::option::Option<&std::rc::Rc<ErrorErrorInfo>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_ErrorInfo {
+pub struct ErrorErrorInfo {
 pub code: String,
 pub desc: String,
-pub style: Error_ErrorStyle,
+pub style: ErrorErrorStyle,
 }
 
-impl Error_ErrorInfo {
+impl ErrorErrorInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorInfo, LoadError> {
-        let __b = Error_ErrorInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorInfo, LoadError> {
+        let __b = ErrorErrorInfo {
             code: match __js["code"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            style: Error_ErrorStyle::new(&__js["style"])?,
+            style: ErrorErrorStyle::new(&__js["style"])?,
         };
         Ok(__b)
     }
@@ -2923,22 +2928,22 @@ impl Error_ErrorInfo {
 
 
 #[allow(non_camel_case_types)]
-pub enum Error_ErrorStyle {
-  ErrorStyleTip(Box<Error_ErrorStyleTip>),
-  ErrorStyleMsgbox(Box<Error_ErrorStyleMsgbox>),
-  ErrorStyleDlgOk(Box<Error_ErrorStyleDlgOk>),
-  ErrorStyleDlgOkCancel(Box<Error_ErrorStyleDlgOkCancel>),
+pub enum ErrorErrorStyle {
+  ErrorStyleTip(Box<ErrorErrorStyleTip>),
+  ErrorStyleMsgbox(Box<ErrorErrorStyleMsgbox>),
+  ErrorStyleDlgOk(Box<ErrorErrorStyleDlgOk>),
+  ErrorStyleDlgOkCancel(Box<ErrorErrorStyleDlgOkCancel>),
 }
 
-impl Error_ErrorStyle {
+impl ErrorErrorStyle {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorStyle, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorStyle, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "ErrorStyleTip" => Error_ErrorStyle::ErrorStyleTip(Box::new(Error_ErrorStyleTip::new(&__js)?)),
-                "ErrorStyleMsgbox" => Error_ErrorStyle::ErrorStyleMsgbox(Box::new(Error_ErrorStyleMsgbox::new(&__js)?)),
-                "ErrorStyleDlgOk" => Error_ErrorStyle::ErrorStyleDlgOk(Box::new(Error_ErrorStyleDlgOk::new(&__js)?)),
-                "ErrorStyleDlgOkCancel" => Error_ErrorStyle::ErrorStyleDlgOkCancel(Box::new(Error_ErrorStyleDlgOkCancel::new(&__js)?)),
+                "ErrorStyleTip" => ErrorErrorStyle::ErrorStyleTip(Box::new(ErrorErrorStyleTip::new(&__js)?)),
+                "ErrorStyleMsgbox" => ErrorErrorStyle::ErrorStyleMsgbox(Box::new(ErrorErrorStyleMsgbox::new(&__js)?)),
+                "ErrorStyleDlgOk" => ErrorErrorStyle::ErrorStyleDlgOk(Box::new(ErrorErrorStyleDlgOk::new(&__js)?)),
+                "ErrorStyleDlgOkCancel" => ErrorErrorStyle::ErrorStyleDlgOkCancel(Box::new(ErrorErrorStyleDlgOkCancel::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -2951,13 +2956,13 @@ impl Error_ErrorStyle {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_ErrorStyleTip {
+pub struct ErrorErrorStyleTip {
 }
 
-impl Error_ErrorStyleTip {
+impl ErrorErrorStyleTip {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorStyleTip, LoadError> {
-        let __b = Error_ErrorStyleTip {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorStyleTip, LoadError> {
+        let __b = ErrorErrorStyleTip {
         };
         Ok(__b)
     }
@@ -2967,15 +2972,15 @@ impl Error_ErrorStyleTip {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_ErrorStyleMsgbox {
+pub struct ErrorErrorStyleMsgbox {
 pub btn_name: String,
 pub operation: i32,
 }
 
-impl Error_ErrorStyleMsgbox {
+impl ErrorErrorStyleMsgbox {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorStyleMsgbox, LoadError> {
-        let __b = Error_ErrorStyleMsgbox {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorStyleMsgbox, LoadError> {
+        let __b = ErrorErrorStyleMsgbox {
             btn_name: match __js["btn_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             operation: match __js["operation"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -2987,14 +2992,14 @@ impl Error_ErrorStyleMsgbox {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_ErrorStyleDlgOk {
+pub struct ErrorErrorStyleDlgOk {
 pub btn_name: String,
 }
 
-impl Error_ErrorStyleDlgOk {
+impl ErrorErrorStyleDlgOk {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorStyleDlgOk, LoadError> {
-        let __b = Error_ErrorStyleDlgOk {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorStyleDlgOk, LoadError> {
+        let __b = ErrorErrorStyleDlgOk {
             btn_name: match __js["btn_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -3005,15 +3010,15 @@ impl Error_ErrorStyleDlgOk {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_ErrorStyleDlgOkCancel {
+pub struct ErrorErrorStyleDlgOkCancel {
 pub btn1_name: String,
 pub btn2_name: String,
 }
 
-impl Error_ErrorStyleDlgOkCancel {
+impl ErrorErrorStyleDlgOkCancel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_ErrorStyleDlgOkCancel, LoadError> {
-        let __b = Error_ErrorStyleDlgOkCancel {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorErrorStyleDlgOkCancel, LoadError> {
+        let __b = ErrorErrorStyleDlgOkCancel {
             btn1_name: match __js["btn1_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             btn2_name: match __js["btn2_name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -3023,23 +3028,23 @@ impl Error_ErrorStyleDlgOkCancel {
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_TbCodeInfo {
-    data_list: Vec<std::rc::Rc<Error_CodeInfo>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Error_CodeInfo>>,
+pub struct ErrorTbCodeInfo {
+    data_list: Vec<std::rc::Rc<ErrorCodeInfo>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<ErrorCodeInfo>>,
 }
 
-impl Error_TbCodeInfo{
-    pub fn new(__js: &json::JsonValue) -> Result<Error_TbCodeInfo, LoadError> {
+impl ErrorTbCodeInfo{
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorTbCodeInfo, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Error_TbCodeInfo {
+        let mut t = ErrorTbCodeInfo {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Error_CodeInfo::new(__e) {
+            let __v = std::rc::Rc::new(match ErrorCodeInfo::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3050,25 +3055,26 @@ impl Error_TbCodeInfo{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Error_TbCodeInfo) -> &std::collections::HashMap<i32, std::rc::Rc<Error_CodeInfo>> { &self.data_map }
+    pub fn get_data_map(self:&ErrorTbCodeInfo) -> &std::collections::HashMap<i32, std::rc::Rc<ErrorCodeInfo>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Error_TbCodeInfo) -> &Vec<std::rc::Rc<Error_CodeInfo>> { &self.data_list }
+    pub fn get_data_list(self:&ErrorTbCodeInfo) -> &Vec<std::rc::Rc<ErrorCodeInfo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Error_TbCodeInfo, key: &i32) -> std::option::Option<&std::rc::Rc<Error_CodeInfo>> { self.data_map.get(key) }
+    pub fn get(self:&ErrorTbCodeInfo, key: &i32) -> std::option::Option<&std::rc::Rc<ErrorCodeInfo>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Error_CodeInfo {
+pub struct ErrorCodeInfo {
 pub code: i32,
 pub key: String,
 }
 
-impl Error_CodeInfo {
+impl ErrorCodeInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Error_CodeInfo, LoadError> {
-        let __b = Error_CodeInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<ErrorCodeInfo, LoadError> {
+        let __b = ErrorCodeInfo {
             code: match __js["code"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             key: match __js["key"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -3081,23 +3087,23 @@ impl Error_CodeInfo {
  * 道具表
  */
 #[allow(non_camel_case_types)]
-pub struct Item_TbItem {
-    data_list: Vec<std::rc::Rc<Item_Item>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Item_Item>>,
+pub struct ItemTbItem {
+    data_list: Vec<std::rc::Rc<ItemItem>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<ItemItem>>,
 }
 
-impl Item_TbItem{
-    pub fn new(__js: &json::JsonValue) -> Result<Item_TbItem, LoadError> {
+impl ItemTbItem{
+    pub fn new(__js: &json::JsonValue) -> Result<ItemTbItem, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Item_TbItem {
+        let mut t = ItemTbItem {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Item_Item::new(__e) {
+            let __v = std::rc::Rc::new(match ItemItem::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3108,11 +3114,12 @@ impl Item_TbItem{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Item_TbItem) -> &std::collections::HashMap<i32, std::rc::Rc<Item_Item>> { &self.data_map }
+    pub fn get_data_map(self:&ItemTbItem) -> &std::collections::HashMap<i32, std::rc::Rc<ItemItem>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Item_TbItem) -> &Vec<std::rc::Rc<Item_Item>> { &self.data_list }
+    pub fn get_data_list(self:&ItemTbItem) -> &Vec<std::rc::Rc<ItemItem>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItem, key: &i32) -> std::option::Option<&std::rc::Rc<Item_Item>> { self.data_map.get(key) }
+    pub fn get(self:&ItemTbItem, key: &i32) -> std::option::Option<&std::rc::Rc<ItemItem>> { self.data_map.get(key) }
+    
 }
 
 
@@ -3121,7 +3128,7 @@ impl Item_TbItem{
  * 道具
  */
 #[allow(non_camel_case_types)]
-pub struct Item_Item {
+pub struct ItemItem {
 pub id: i32,
 pub name: String,
 pub major_type: i32,
@@ -3145,10 +3152,10 @@ pub use_type: i32,
 pub level_up_id: std::option::Option<i32>,
 }
 
-impl Item_Item {
+impl ItemItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_Item, LoadError> {
-        let __b = Item_Item {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemItem, LoadError> {
+        let __b = ItemItem {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             major_type: match __js["major_type"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -3177,23 +3184,23 @@ impl Item_Item {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_TbItemFunc {
-    data_list: Vec<std::rc::Rc<Item_ItemFunction>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Item_ItemFunction>>,
+pub struct ItemTbItemFunc {
+    data_list: Vec<std::rc::Rc<ItemItemFunction>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<ItemItemFunction>>,
 }
 
-impl Item_TbItemFunc{
-    pub fn new(__js: &json::JsonValue) -> Result<Item_TbItemFunc, LoadError> {
+impl ItemTbItemFunc{
+    pub fn new(__js: &json::JsonValue) -> Result<ItemTbItemFunc, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Item_TbItemFunc {
+        let mut t = ItemTbItemFunc {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Item_ItemFunction::new(__e) {
+            let __v = std::rc::Rc::new(match ItemItemFunction::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3204,27 +3211,28 @@ impl Item_TbItemFunc{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Item_TbItemFunc) -> &std::collections::HashMap<i32, std::rc::Rc<Item_ItemFunction>> { &self.data_map }
+    pub fn get_data_map(self:&ItemTbItemFunc) -> &std::collections::HashMap<i32, std::rc::Rc<ItemItemFunction>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Item_TbItemFunc) -> &Vec<std::rc::Rc<Item_ItemFunction>> { &self.data_list }
+    pub fn get_data_list(self:&ItemTbItemFunc) -> &Vec<std::rc::Rc<ItemItemFunction>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItemFunc, key: &i32) -> std::option::Option<&std::rc::Rc<Item_ItemFunction>> { self.data_map.get(key) }
+    pub fn get(self:&ItemTbItemFunc, key: &i32) -> std::option::Option<&std::rc::Rc<ItemItemFunction>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_ItemFunction {
+pub struct ItemItemFunction {
 pub minor_type: i32,
 pub func_type: i32,
 pub method: String,
 pub close_bag_ui: bool,
 }
 
-impl Item_ItemFunction {
+impl ItemItemFunction {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_ItemFunction, LoadError> {
-        let __b = Item_ItemFunction {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemItemFunction, LoadError> {
+        let __b = ItemItemFunction {
             minor_type: match __js["minor_type"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             func_type: match __js["func_type"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             method: match __js["method"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -3236,67 +3244,68 @@ impl Item_ItemFunction {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_TbItemExtra {
-    data_list: Vec<std::rc::Rc<Item_ItemExtra>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Item_ItemExtra>>,
+pub struct ItemTbItemExtra {
+    data_list: Vec<std::rc::Rc<ItemItemExtra>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<ItemItemExtra>>,
 }
 
-impl Item_TbItemExtra{
-    pub fn new(__js: &json::JsonValue) -> Result<Item_TbItemExtra, LoadError> {
+impl ItemTbItemExtra{
+    pub fn new(__js: &json::JsonValue) -> Result<ItemTbItemExtra, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Item_TbItemExtra {
+        let mut t = ItemTbItemExtra {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Item_ItemExtra::new(__e) {
+            let __v = std::rc::Rc::new(match ItemItemExtra::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
             let __v2 = std::rc::Rc::clone(&__v);
             t.data_list.push(__v);
             match &*__v2 {
-                Item_ItemExtra::TreasureBox(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
-                Item_ItemExtra::InteractionItem(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
-                Item_ItemExtra::Clothes(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
-                Item_ItemExtra::DesignDrawing(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
-                Item_ItemExtra::Dymmy(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
+                ItemItemExtra::TreasureBox(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
+                ItemItemExtra::InteractionItem(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
+                ItemItemExtra::Clothes(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
+                ItemItemExtra::DesignDrawing(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
+                ItemItemExtra::Dymmy(__w__) => t.data_map.insert(__w__.id.clone(), __v2),
             };
         }
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Item_TbItemExtra) -> &std::collections::HashMap<i32, std::rc::Rc<Item_ItemExtra>> { &self.data_map }
+    pub fn get_data_map(self:&ItemTbItemExtra) -> &std::collections::HashMap<i32, std::rc::Rc<ItemItemExtra>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Item_TbItemExtra) -> &Vec<std::rc::Rc<Item_ItemExtra>> { &self.data_list }
+    pub fn get_data_list(self:&ItemTbItemExtra) -> &Vec<std::rc::Rc<ItemItemExtra>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Item_TbItemExtra, key: &i32) -> std::option::Option<&std::rc::Rc<Item_ItemExtra>> { self.data_map.get(key) }
+    pub fn get(self:&ItemTbItemExtra, key: &i32) -> std::option::Option<&std::rc::Rc<ItemItemExtra>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub enum Item_ItemExtra {
-  TreasureBox(Box<Item_TreasureBox>),
-  InteractionItem(Box<Item_InteractionItem>),
-  Clothes(Box<Item_Clothes>),
-  DesignDrawing(Box<Item_DesignDrawing>),
-  Dymmy(Box<Item_Dymmy>),
+pub enum ItemItemExtra {
+  TreasureBox(Box<ItemTreasureBox>),
+  InteractionItem(Box<ItemInteractionItem>),
+  Clothes(Box<ItemClothes>),
+  DesignDrawing(Box<ItemDesignDrawing>),
+  Dymmy(Box<ItemDymmy>),
 }
 
-impl Item_ItemExtra {
+impl ItemItemExtra {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_ItemExtra, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemItemExtra, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "TreasureBox" => Item_ItemExtra::TreasureBox(Box::new(Item_TreasureBox::new(&__js)?)),
-                "InteractionItem" => Item_ItemExtra::InteractionItem(Box::new(Item_InteractionItem::new(&__js)?)),
-                "Clothes" => Item_ItemExtra::Clothes(Box::new(Item_Clothes::new(&__js)?)),
-                "DesignDrawing" => Item_ItemExtra::DesignDrawing(Box::new(Item_DesignDrawing::new(&__js)?)),
-                "Dymmy" => Item_ItemExtra::Dymmy(Box::new(Item_Dymmy::new(&__js)?)),
+                "TreasureBox" => ItemItemExtra::TreasureBox(Box::new(ItemTreasureBox::new(&__js)?)),
+                "InteractionItem" => ItemItemExtra::InteractionItem(Box::new(ItemInteractionItem::new(&__js)?)),
+                "Clothes" => ItemItemExtra::Clothes(Box::new(ItemClothes::new(&__js)?)),
+                "DesignDrawing" => ItemItemExtra::DesignDrawing(Box::new(ItemDesignDrawing::new(&__js)?)),
+                "Dymmy" => ItemItemExtra::Dymmy(Box::new(ItemDymmy::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -3309,25 +3318,25 @@ impl Item_ItemExtra {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_TreasureBox {
+pub struct ItemTreasureBox {
 pub id: i32,
 pub key_item_id: std::option::Option<i32>,
-pub open_level: Condition_MinLevel,
+pub open_level: ConditionMinLevel,
 pub use_on_obtain: bool,
 pub drop_ids: Vec<i32>,
-pub choose_list: Vec<Item_ChooseOneBonus>,
+pub choose_list: Vec<ItemChooseOneBonus>,
 }
 
-impl Item_TreasureBox {
+impl ItemTreasureBox {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_TreasureBox, LoadError> {
-        let __b = Item_TreasureBox {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemTreasureBox, LoadError> {
+        let __b = ItemTreasureBox {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             key_item_id: if !__js["key_item_id"].is_null() { Some(match __js["key_item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
-            open_level: Condition_MinLevel::new(&__js["open_level"])?,
+            open_level: ConditionMinLevel::new(&__js["open_level"])?,
             use_on_obtain: match __js["use_on_obtain"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             drop_ids: { if !__js["drop_ids"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["drop_ids"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
-            choose_list: { if !__js["choose_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["choose_list"].members() { __list__.push(Item_ChooseOneBonus::new(&__e)?); }   __list__},
+            choose_list: { if !__js["choose_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["choose_list"].members() { __list__.push(ItemChooseOneBonus::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -3337,30 +3346,30 @@ impl Item_TreasureBox {
 
 
 #[allow(non_camel_case_types)]
-pub enum Condition_Condition {
-  TimeRange(Box<Condition_TimeRange>),
-  MultiRoleCondition(Box<Condition_MultiRoleCondition>),
-  GenderLimit(Box<Condition_GenderLimit>),
-  MinLevel(Box<Condition_MinLevel>),
-  MaxLevel(Box<Condition_MaxLevel>),
-  MinMaxLevel(Box<Condition_MinMaxLevel>),
-  ClothesPropertyScoreGreaterThan(Box<Condition_ClothesPropertyScoreGreaterThan>),
-  ContainsItem(Box<Condition_ContainsItem>),
+pub enum ConditionCondition {
+  TimeRange(Box<ConditionTimeRange>),
+  MultiRoleCondition(Box<ConditionMultiRoleCondition>),
+  GenderLimit(Box<ConditionGenderLimit>),
+  MinLevel(Box<ConditionMinLevel>),
+  MaxLevel(Box<ConditionMaxLevel>),
+  MinMaxLevel(Box<ConditionMinMaxLevel>),
+  ClothesPropertyScoreGreaterThan(Box<ConditionClothesPropertyScoreGreaterThan>),
+  ContainsItem(Box<ConditionContainsItem>),
 }
 
-impl Condition_Condition {
+impl ConditionCondition {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_Condition, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionCondition, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "TimeRange" => Condition_Condition::TimeRange(Box::new(Condition_TimeRange::new(&__js)?)),
-                "MultiRoleCondition" => Condition_Condition::MultiRoleCondition(Box::new(Condition_MultiRoleCondition::new(&__js)?)),
-                "GenderLimit" => Condition_Condition::GenderLimit(Box::new(Condition_GenderLimit::new(&__js)?)),
-                "MinLevel" => Condition_Condition::MinLevel(Box::new(Condition_MinLevel::new(&__js)?)),
-                "MaxLevel" => Condition_Condition::MaxLevel(Box::new(Condition_MaxLevel::new(&__js)?)),
-                "MinMaxLevel" => Condition_Condition::MinMaxLevel(Box::new(Condition_MinMaxLevel::new(&__js)?)),
-                "ClothesPropertyScoreGreaterThan" => Condition_Condition::ClothesPropertyScoreGreaterThan(Box::new(Condition_ClothesPropertyScoreGreaterThan::new(&__js)?)),
-                "ContainsItem" => Condition_Condition::ContainsItem(Box::new(Condition_ContainsItem::new(&__js)?)),
+                "TimeRange" => ConditionCondition::TimeRange(Box::new(ConditionTimeRange::new(&__js)?)),
+                "MultiRoleCondition" => ConditionCondition::MultiRoleCondition(Box::new(ConditionMultiRoleCondition::new(&__js)?)),
+                "GenderLimit" => ConditionCondition::GenderLimit(Box::new(ConditionGenderLimit::new(&__js)?)),
+                "MinLevel" => ConditionCondition::MinLevel(Box::new(ConditionMinLevel::new(&__js)?)),
+                "MaxLevel" => ConditionCondition::MaxLevel(Box::new(ConditionMaxLevel::new(&__js)?)),
+                "MinMaxLevel" => ConditionCondition::MinMaxLevel(Box::new(ConditionMinMaxLevel::new(&__js)?)),
+                "ClothesPropertyScoreGreaterThan" => ConditionCondition::ClothesPropertyScoreGreaterThan(Box::new(ConditionClothesPropertyScoreGreaterThan::new(&__js)?)),
+                "ContainsItem" => ConditionCondition::ContainsItem(Box::new(ConditionContainsItem::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -3373,15 +3382,15 @@ impl Condition_Condition {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_TimeRange {
-pub date_time_range: Common_DateTimeRange,
+pub struct ConditionTimeRange {
+pub date_time_range: CommonDateTimeRange,
 }
 
-impl Condition_TimeRange {
+impl ConditionTimeRange {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_TimeRange, LoadError> {
-        let __b = Condition_TimeRange {
-            date_time_range: Common_DateTimeRange::new(&__js["date_time_range"])?,
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionTimeRange, LoadError> {
+        let __b = ConditionTimeRange {
+            date_time_range: CommonDateTimeRange::new(&__js["date_time_range"])?,
         };
         Ok(__b)
     }
@@ -3391,15 +3400,15 @@ impl Condition_TimeRange {
 
 
 #[allow(non_camel_case_types)]
-pub struct Common_DateTimeRange {
+pub struct CommonDateTimeRange {
 pub start_time: std::option::Option<i32>,
 pub end_time: std::option::Option<i32>,
 }
 
-impl Common_DateTimeRange {
+impl CommonDateTimeRange {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Common_DateTimeRange, LoadError> {
-        let __b = Common_DateTimeRange {
+    pub fn new(__js: &json::JsonValue) -> Result<CommonDateTimeRange, LoadError> {
+        let __b = CommonDateTimeRange {
             start_time: if !__js["start_time"].is_null() { Some(match __js["start_time"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
             end_time: if !__js["end_time"].is_null() { Some(match __js["end_time"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
         };
@@ -3411,28 +3420,28 @@ impl Common_DateTimeRange {
 
 
 #[allow(non_camel_case_types)]
-pub enum Condition_RoleCondition {
-  MultiRoleCondition(Box<Condition_MultiRoleCondition>),
-  GenderLimit(Box<Condition_GenderLimit>),
-  MinLevel(Box<Condition_MinLevel>),
-  MaxLevel(Box<Condition_MaxLevel>),
-  MinMaxLevel(Box<Condition_MinMaxLevel>),
-  ClothesPropertyScoreGreaterThan(Box<Condition_ClothesPropertyScoreGreaterThan>),
-  ContainsItem(Box<Condition_ContainsItem>),
+pub enum ConditionRoleCondition {
+  MultiRoleCondition(Box<ConditionMultiRoleCondition>),
+  GenderLimit(Box<ConditionGenderLimit>),
+  MinLevel(Box<ConditionMinLevel>),
+  MaxLevel(Box<ConditionMaxLevel>),
+  MinMaxLevel(Box<ConditionMinMaxLevel>),
+  ClothesPropertyScoreGreaterThan(Box<ConditionClothesPropertyScoreGreaterThan>),
+  ContainsItem(Box<ConditionContainsItem>),
 }
 
-impl Condition_RoleCondition {
+impl ConditionRoleCondition {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_RoleCondition, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionRoleCondition, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "MultiRoleCondition" => Condition_RoleCondition::MultiRoleCondition(Box::new(Condition_MultiRoleCondition::new(&__js)?)),
-                "GenderLimit" => Condition_RoleCondition::GenderLimit(Box::new(Condition_GenderLimit::new(&__js)?)),
-                "MinLevel" => Condition_RoleCondition::MinLevel(Box::new(Condition_MinLevel::new(&__js)?)),
-                "MaxLevel" => Condition_RoleCondition::MaxLevel(Box::new(Condition_MaxLevel::new(&__js)?)),
-                "MinMaxLevel" => Condition_RoleCondition::MinMaxLevel(Box::new(Condition_MinMaxLevel::new(&__js)?)),
-                "ClothesPropertyScoreGreaterThan" => Condition_RoleCondition::ClothesPropertyScoreGreaterThan(Box::new(Condition_ClothesPropertyScoreGreaterThan::new(&__js)?)),
-                "ContainsItem" => Condition_RoleCondition::ContainsItem(Box::new(Condition_ContainsItem::new(&__js)?)),
+                "MultiRoleCondition" => ConditionRoleCondition::MultiRoleCondition(Box::new(ConditionMultiRoleCondition::new(&__js)?)),
+                "GenderLimit" => ConditionRoleCondition::GenderLimit(Box::new(ConditionGenderLimit::new(&__js)?)),
+                "MinLevel" => ConditionRoleCondition::MinLevel(Box::new(ConditionMinLevel::new(&__js)?)),
+                "MaxLevel" => ConditionRoleCondition::MaxLevel(Box::new(ConditionMaxLevel::new(&__js)?)),
+                "MinMaxLevel" => ConditionRoleCondition::MinMaxLevel(Box::new(ConditionMinMaxLevel::new(&__js)?)),
+                "ClothesPropertyScoreGreaterThan" => ConditionRoleCondition::ClothesPropertyScoreGreaterThan(Box::new(ConditionClothesPropertyScoreGreaterThan::new(&__js)?)),
+                "ContainsItem" => ConditionRoleCondition::ContainsItem(Box::new(ConditionContainsItem::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -3445,15 +3454,15 @@ impl Condition_RoleCondition {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_MultiRoleCondition {
-pub conditions: Vec<Condition_RoleCondition>,
+pub struct ConditionMultiRoleCondition {
+pub conditions: Vec<ConditionRoleCondition>,
 }
 
-impl Condition_MultiRoleCondition {
+impl ConditionMultiRoleCondition {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_MultiRoleCondition, LoadError> {
-        let __b = Condition_MultiRoleCondition {
-            conditions: { if !__js["conditions"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["conditions"].members() { __list__.push(Condition_RoleCondition::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionMultiRoleCondition, LoadError> {
+        let __b = ConditionMultiRoleCondition {
+            conditions: { if !__js["conditions"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["conditions"].members() { __list__.push(ConditionRoleCondition::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -3463,24 +3472,24 @@ impl Condition_MultiRoleCondition {
 
 
 #[allow(non_camel_case_types)]
-pub enum Condition_BoolRoleCondition {
-  GenderLimit(Box<Condition_GenderLimit>),
-  MinLevel(Box<Condition_MinLevel>),
-  MaxLevel(Box<Condition_MaxLevel>),
-  MinMaxLevel(Box<Condition_MinMaxLevel>),
-  ClothesPropertyScoreGreaterThan(Box<Condition_ClothesPropertyScoreGreaterThan>),
+pub enum ConditionBoolRoleCondition {
+  GenderLimit(Box<ConditionGenderLimit>),
+  MinLevel(Box<ConditionMinLevel>),
+  MaxLevel(Box<ConditionMaxLevel>),
+  MinMaxLevel(Box<ConditionMinMaxLevel>),
+  ClothesPropertyScoreGreaterThan(Box<ConditionClothesPropertyScoreGreaterThan>),
 }
 
-impl Condition_BoolRoleCondition {
+impl ConditionBoolRoleCondition {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_BoolRoleCondition, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionBoolRoleCondition, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "GenderLimit" => Condition_BoolRoleCondition::GenderLimit(Box::new(Condition_GenderLimit::new(&__js)?)),
-                "MinLevel" => Condition_BoolRoleCondition::MinLevel(Box::new(Condition_MinLevel::new(&__js)?)),
-                "MaxLevel" => Condition_BoolRoleCondition::MaxLevel(Box::new(Condition_MaxLevel::new(&__js)?)),
-                "MinMaxLevel" => Condition_BoolRoleCondition::MinMaxLevel(Box::new(Condition_MinMaxLevel::new(&__js)?)),
-                "ClothesPropertyScoreGreaterThan" => Condition_BoolRoleCondition::ClothesPropertyScoreGreaterThan(Box::new(Condition_ClothesPropertyScoreGreaterThan::new(&__js)?)),
+                "GenderLimit" => ConditionBoolRoleCondition::GenderLimit(Box::new(ConditionGenderLimit::new(&__js)?)),
+                "MinLevel" => ConditionBoolRoleCondition::MinLevel(Box::new(ConditionMinLevel::new(&__js)?)),
+                "MaxLevel" => ConditionBoolRoleCondition::MaxLevel(Box::new(ConditionMaxLevel::new(&__js)?)),
+                "MinMaxLevel" => ConditionBoolRoleCondition::MinMaxLevel(Box::new(ConditionMinMaxLevel::new(&__js)?)),
+                "ClothesPropertyScoreGreaterThan" => ConditionBoolRoleCondition::ClothesPropertyScoreGreaterThan(Box::new(ConditionClothesPropertyScoreGreaterThan::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -3493,14 +3502,14 @@ impl Condition_BoolRoleCondition {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_GenderLimit {
+pub struct ConditionGenderLimit {
 pub gender: i32,
 }
 
-impl Condition_GenderLimit {
+impl ConditionGenderLimit {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_GenderLimit, LoadError> {
-        let __b = Condition_GenderLimit {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionGenderLimit, LoadError> {
+        let __b = ConditionGenderLimit {
             gender: match __js["gender"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -3511,14 +3520,14 @@ impl Condition_GenderLimit {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_MinLevel {
+pub struct ConditionMinLevel {
 pub level: i32,
 }
 
-impl Condition_MinLevel {
+impl ConditionMinLevel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_MinLevel, LoadError> {
-        let __b = Condition_MinLevel {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionMinLevel, LoadError> {
+        let __b = ConditionMinLevel {
             level: match __js["level"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -3529,14 +3538,14 @@ impl Condition_MinLevel {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_MaxLevel {
+pub struct ConditionMaxLevel {
 pub level: i32,
 }
 
-impl Condition_MaxLevel {
+impl ConditionMaxLevel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_MaxLevel, LoadError> {
-        let __b = Condition_MaxLevel {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionMaxLevel, LoadError> {
+        let __b = ConditionMaxLevel {
             level: match __js["level"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -3547,15 +3556,15 @@ impl Condition_MaxLevel {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_MinMaxLevel {
+pub struct ConditionMinMaxLevel {
 pub min: i32,
 pub max: i32,
 }
 
-impl Condition_MinMaxLevel {
+impl ConditionMinMaxLevel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_MinMaxLevel, LoadError> {
-        let __b = Condition_MinMaxLevel {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionMinMaxLevel, LoadError> {
+        let __b = ConditionMinMaxLevel {
             min: match __js["min"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             max: match __js["max"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3567,15 +3576,15 @@ impl Condition_MinMaxLevel {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_ClothesPropertyScoreGreaterThan {
+pub struct ConditionClothesPropertyScoreGreaterThan {
 pub prop: i32,
 pub value: i32,
 }
 
-impl Condition_ClothesPropertyScoreGreaterThan {
+impl ConditionClothesPropertyScoreGreaterThan {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_ClothesPropertyScoreGreaterThan, LoadError> {
-        let __b = Condition_ClothesPropertyScoreGreaterThan {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionClothesPropertyScoreGreaterThan, LoadError> {
+        let __b = ConditionClothesPropertyScoreGreaterThan {
             prop: match __js["prop"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             value: match __js["value"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3587,16 +3596,16 @@ impl Condition_ClothesPropertyScoreGreaterThan {
 
 
 #[allow(non_camel_case_types)]
-pub struct Condition_ContainsItem {
+pub struct ConditionContainsItem {
 pub item_id: i32,
 pub num: i32,
 pub reverse: bool,
 }
 
-impl Condition_ContainsItem {
+impl ConditionContainsItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Condition_ContainsItem, LoadError> {
-        let __b = Condition_ContainsItem {
+    pub fn new(__js: &json::JsonValue) -> Result<ConditionContainsItem, LoadError> {
+        let __b = ConditionContainsItem {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             reverse: match __js["reverse"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -3609,15 +3618,15 @@ impl Condition_ContainsItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_ChooseOneBonus {
+pub struct ItemChooseOneBonus {
 pub drop_id: i32,
 pub is_unique: bool,
 }
 
-impl Item_ChooseOneBonus {
+impl ItemChooseOneBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_ChooseOneBonus, LoadError> {
-        let __b = Item_ChooseOneBonus {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemChooseOneBonus, LoadError> {
+        let __b = ItemChooseOneBonus {
             drop_id: match __js["drop_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             is_unique: match __js["is_unique"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3629,17 +3638,17 @@ impl Item_ChooseOneBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_InteractionItem {
+pub struct ItemInteractionItem {
 pub id: i32,
 pub attack_num: std::option::Option<i32>,
 pub holding_static_mesh: String,
 pub holding_static_mesh_mat: String,
 }
 
-impl Item_InteractionItem {
+impl ItemInteractionItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_InteractionItem, LoadError> {
-        let __b = Item_InteractionItem {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemInteractionItem, LoadError> {
+        let __b = ItemInteractionItem {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             attack_num: if !__js["attack_num"].is_null() { Some(match __js["attack_num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
             holding_static_mesh: match __js["holding_static_mesh"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -3653,7 +3662,7 @@ impl Item_InteractionItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_Clothes {
+pub struct ItemClothes {
 pub id: i32,
 pub attack: i32,
 pub hp: i64,
@@ -3661,10 +3670,10 @@ pub energy_limit: i32,
 pub energy_resume: i32,
 }
 
-impl Item_Clothes {
+impl ItemClothes {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_Clothes, LoadError> {
-        let __b = Item_Clothes {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemClothes, LoadError> {
+        let __b = ItemClothes {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             attack: match __js["attack"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             hp: match __js["hp"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -3679,15 +3688,15 @@ impl Item_Clothes {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_DesignDrawing {
+pub struct ItemDesignDrawing {
 pub id: i32,
 pub learn_component_id: Vec<i32>,
 }
 
-impl Item_DesignDrawing {
+impl ItemDesignDrawing {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_DesignDrawing, LoadError> {
-        let __b = Item_DesignDrawing {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemDesignDrawing, LoadError> {
+        let __b = ItemDesignDrawing {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             learn_component_id: { if !__js["learn_component_id"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["learn_component_id"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
         };
@@ -3699,17 +3708,17 @@ impl Item_DesignDrawing {
 
 
 #[allow(non_camel_case_types)]
-pub struct Item_Dymmy {
+pub struct ItemDymmy {
 pub id: i32,
-pub cost: Cost_Cost,
+pub cost: CostCost,
 }
 
-impl Item_Dymmy {
+impl ItemDymmy {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Item_Dymmy, LoadError> {
-        let __b = Item_Dymmy {
+    pub fn new(__js: &json::JsonValue) -> Result<ItemDymmy, LoadError> {
+        let __b = ItemDymmy {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            cost: Cost_Cost::new(&__js["cost"])?,
+            cost: CostCost::new(&__js["cost"])?,
         };
         Ok(__b)
     }
@@ -3719,24 +3728,24 @@ impl Item_Dymmy {
 
 
 #[allow(non_camel_case_types)]
-pub enum Cost_Cost {
-  CostCurrency(Box<Cost_CostCurrency>),
-  CostCurrencies(Box<Cost_CostCurrencies>),
-  CostOneItem(Box<Cost_CostOneItem>),
-  CostItem(Box<Cost_CostItem>),
-  CostItems(Box<Cost_CostItems>),
+pub enum CostCost {
+  CostCurrency(Box<CostCostCurrency>),
+  CostCurrencies(Box<CostCostCurrencies>),
+  CostOneItem(Box<CostCostOneItem>),
+  CostItem(Box<CostCostItem>),
+  CostItems(Box<CostCostItems>),
 }
 
-impl Cost_Cost {
+impl CostCost {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_Cost, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<CostCost, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "CostCurrency" => Cost_Cost::CostCurrency(Box::new(Cost_CostCurrency::new(&__js)?)),
-                "CostCurrencies" => Cost_Cost::CostCurrencies(Box::new(Cost_CostCurrencies::new(&__js)?)),
-                "CostOneItem" => Cost_Cost::CostOneItem(Box::new(Cost_CostOneItem::new(&__js)?)),
-                "CostItem" => Cost_Cost::CostItem(Box::new(Cost_CostItem::new(&__js)?)),
-                "CostItems" => Cost_Cost::CostItems(Box::new(Cost_CostItems::new(&__js)?)),
+                "CostCurrency" => CostCost::CostCurrency(Box::new(CostCostCurrency::new(&__js)?)),
+                "CostCurrencies" => CostCost::CostCurrencies(Box::new(CostCostCurrencies::new(&__js)?)),
+                "CostOneItem" => CostCost::CostOneItem(Box::new(CostCostOneItem::new(&__js)?)),
+                "CostItem" => CostCost::CostItem(Box::new(CostCostItem::new(&__js)?)),
+                "CostItems" => CostCost::CostItems(Box::new(CostCostItems::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -3749,15 +3758,15 @@ impl Cost_Cost {
 
 
 #[allow(non_camel_case_types)]
-pub struct Cost_CostCurrency {
+pub struct CostCostCurrency {
 pub r#type: i32,
 pub num: i32,
 }
 
-impl Cost_CostCurrency {
+impl CostCostCurrency {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_CostCurrency, LoadError> {
-        let __b = Cost_CostCurrency {
+    pub fn new(__js: &json::JsonValue) -> Result<CostCostCurrency, LoadError> {
+        let __b = CostCostCurrency {
             r#type: match __js["type"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3769,15 +3778,15 @@ impl Cost_CostCurrency {
 
 
 #[allow(non_camel_case_types)]
-pub struct Cost_CostCurrencies {
-pub currencies: Vec<Cost_CostCurrency>,
+pub struct CostCostCurrencies {
+pub currencies: Vec<CostCostCurrency>,
 }
 
-impl Cost_CostCurrencies {
+impl CostCostCurrencies {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_CostCurrencies, LoadError> {
-        let __b = Cost_CostCurrencies {
-            currencies: { if !__js["currencies"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["currencies"].members() { __list__.push(Cost_CostCurrency::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<CostCostCurrencies, LoadError> {
+        let __b = CostCostCurrencies {
+            currencies: { if !__js["currencies"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["currencies"].members() { __list__.push(CostCostCurrency::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -3787,14 +3796,14 @@ impl Cost_CostCurrencies {
 
 
 #[allow(non_camel_case_types)]
-pub struct Cost_CostOneItem {
+pub struct CostCostOneItem {
 pub item_id: i32,
 }
 
-impl Cost_CostOneItem {
+impl CostCostOneItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_CostOneItem, LoadError> {
-        let __b = Cost_CostOneItem {
+    pub fn new(__js: &json::JsonValue) -> Result<CostCostOneItem, LoadError> {
+        let __b = CostCostOneItem {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -3805,15 +3814,15 @@ impl Cost_CostOneItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Cost_CostItem {
+pub struct CostCostItem {
 pub item_id: i32,
 pub amount: i32,
 }
 
-impl Cost_CostItem {
+impl CostCostItem {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_CostItem, LoadError> {
-        let __b = Cost_CostItem {
+    pub fn new(__js: &json::JsonValue) -> Result<CostCostItem, LoadError> {
+        let __b = CostCostItem {
             item_id: match __js["item_id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             amount: match __js["amount"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3825,15 +3834,15 @@ impl Cost_CostItem {
 
 
 #[allow(non_camel_case_types)]
-pub struct Cost_CostItems {
-pub item_list: Vec<Cost_CostItem>,
+pub struct CostCostItems {
+pub item_list: Vec<CostCostItem>,
 }
 
-impl Cost_CostItems {
+impl CostCostItems {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Cost_CostItems, LoadError> {
-        let __b = Cost_CostItems {
-            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(Cost_CostItem::new(&__e)?); }   __list__},
+    pub fn new(__js: &json::JsonValue) -> Result<CostCostItems, LoadError> {
+        let __b = CostCostItems {
+            item_list: { if !__js["item_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["item_list"].members() { __list__.push(CostCostItem::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -3841,23 +3850,23 @@ impl Cost_CostItems {
 
 
 #[allow(non_camel_case_types)]
-pub struct L10n_TbL10NDemo {
-    data_list: Vec<std::rc::Rc<L10n_L10NDemo>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<L10n_L10NDemo>>,
+pub struct L10nTbL10NDemo {
+    data_list: Vec<std::rc::Rc<L10nL10NDemo>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<L10nL10NDemo>>,
 }
 
-impl L10n_TbL10NDemo{
-    pub fn new(__js: &json::JsonValue) -> Result<L10n_TbL10NDemo, LoadError> {
+impl L10nTbL10NDemo{
+    pub fn new(__js: &json::JsonValue) -> Result<L10nTbL10NDemo, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = L10n_TbL10NDemo {
+        let mut t = L10nTbL10NDemo {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match L10n_L10NDemo::new(__e) {
+            let __v = std::rc::Rc::new(match L10nL10NDemo::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3868,25 +3877,26 @@ impl L10n_TbL10NDemo{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&L10n_TbL10NDemo) -> &std::collections::HashMap<i32, std::rc::Rc<L10n_L10NDemo>> { &self.data_map }
+    pub fn get_data_map(self:&L10nTbL10NDemo) -> &std::collections::HashMap<i32, std::rc::Rc<L10nL10NDemo>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&L10n_TbL10NDemo) -> &Vec<std::rc::Rc<L10n_L10NDemo>> { &self.data_list }
+    pub fn get_data_list(self:&L10nTbL10NDemo) -> &Vec<std::rc::Rc<L10nL10NDemo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&L10n_TbL10NDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10n_L10NDemo>> { self.data_map.get(key) }
+    pub fn get(self:&L10nTbL10NDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10nL10NDemo>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct L10n_L10NDemo {
+pub struct L10nL10NDemo {
 pub id: i32,
 pub text: String,
 }
 
-impl L10n_L10NDemo {
+impl L10nL10NDemo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<L10n_L10NDemo, LoadError> {
-        let __b = L10n_L10NDemo {
+    pub fn new(__js: &json::JsonValue) -> Result<L10nL10NDemo, LoadError> {
+        let __b = L10nL10NDemo {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             text: { if !__js["text"]["key"].is_string() { return Err(LoadError{}); } match __js["text"]["text"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) } },
         };
@@ -3896,23 +3906,23 @@ impl L10n_L10NDemo {
 
 
 #[allow(non_camel_case_types)]
-pub struct L10n_TbPatchDemo {
-    data_list: Vec<std::rc::Rc<L10n_PatchDemo>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<L10n_PatchDemo>>,
+pub struct L10nTbPatchDemo {
+    data_list: Vec<std::rc::Rc<L10nPatchDemo>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<L10nPatchDemo>>,
 }
 
-impl L10n_TbPatchDemo{
-    pub fn new(__js: &json::JsonValue) -> Result<L10n_TbPatchDemo, LoadError> {
+impl L10nTbPatchDemo{
+    pub fn new(__js: &json::JsonValue) -> Result<L10nTbPatchDemo, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = L10n_TbPatchDemo {
+        let mut t = L10nTbPatchDemo {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match L10n_PatchDemo::new(__e) {
+            let __v = std::rc::Rc::new(match L10nPatchDemo::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3923,25 +3933,26 @@ impl L10n_TbPatchDemo{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&L10n_TbPatchDemo) -> &std::collections::HashMap<i32, std::rc::Rc<L10n_PatchDemo>> { &self.data_map }
+    pub fn get_data_map(self:&L10nTbPatchDemo) -> &std::collections::HashMap<i32, std::rc::Rc<L10nPatchDemo>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&L10n_TbPatchDemo) -> &Vec<std::rc::Rc<L10n_PatchDemo>> { &self.data_list }
+    pub fn get_data_list(self:&L10nTbPatchDemo) -> &Vec<std::rc::Rc<L10nPatchDemo>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&L10n_TbPatchDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10n_PatchDemo>> { self.data_map.get(key) }
+    pub fn get(self:&L10nTbPatchDemo, key: &i32) -> std::option::Option<&std::rc::Rc<L10nPatchDemo>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct L10n_PatchDemo {
+pub struct L10nPatchDemo {
 pub id: i32,
 pub value: i32,
 }
 
-impl L10n_PatchDemo {
+impl L10nPatchDemo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<L10n_PatchDemo, LoadError> {
-        let __b = L10n_PatchDemo {
+    pub fn new(__js: &json::JsonValue) -> Result<L10nPatchDemo, LoadError> {
+        let __b = L10nPatchDemo {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             value: match __js["value"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -3951,23 +3962,23 @@ impl L10n_PatchDemo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Mail_TbSystemMail {
-    data_list: Vec<std::rc::Rc<Mail_SystemMail>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Mail_SystemMail>>,
+pub struct MailTbSystemMail {
+    data_list: Vec<std::rc::Rc<MailSystemMail>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<MailSystemMail>>,
 }
 
-impl Mail_TbSystemMail{
-    pub fn new(__js: &json::JsonValue) -> Result<Mail_TbSystemMail, LoadError> {
+impl MailTbSystemMail{
+    pub fn new(__js: &json::JsonValue) -> Result<MailTbSystemMail, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Mail_TbSystemMail {
+        let mut t = MailTbSystemMail {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Mail_SystemMail::new(__e) {
+            let __v = std::rc::Rc::new(match MailSystemMail::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -3978,17 +3989,18 @@ impl Mail_TbSystemMail{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Mail_TbSystemMail) -> &std::collections::HashMap<i32, std::rc::Rc<Mail_SystemMail>> { &self.data_map }
+    pub fn get_data_map(self:&MailTbSystemMail) -> &std::collections::HashMap<i32, std::rc::Rc<MailSystemMail>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Mail_TbSystemMail) -> &Vec<std::rc::Rc<Mail_SystemMail>> { &self.data_list }
+    pub fn get_data_list(self:&MailTbSystemMail) -> &Vec<std::rc::Rc<MailSystemMail>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Mail_TbSystemMail, key: &i32) -> std::option::Option<&std::rc::Rc<Mail_SystemMail>> { self.data_map.get(key) }
+    pub fn get(self:&MailTbSystemMail, key: &i32) -> std::option::Option<&std::rc::Rc<MailSystemMail>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Mail_SystemMail {
+pub struct MailSystemMail {
 pub id: i32,
 pub title: String,
 pub sender: String,
@@ -3996,10 +4008,10 @@ pub content: String,
 pub award: Vec<i32>,
 }
 
-impl Mail_SystemMail {
+impl MailSystemMail {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Mail_SystemMail, LoadError> {
-        let __b = Mail_SystemMail {
+    pub fn new(__js: &json::JsonValue) -> Result<MailSystemMail, LoadError> {
+        let __b = MailSystemMail {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             title: match __js["title"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             sender: match __js["sender"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -4012,23 +4024,23 @@ impl Mail_SystemMail {
 
 
 #[allow(non_camel_case_types)]
-pub struct Mail_TbGlobalMail {
-    data_list: Vec<std::rc::Rc<Mail_GlobalMail>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Mail_GlobalMail>>,
+pub struct MailTbGlobalMail {
+    data_list: Vec<std::rc::Rc<MailGlobalMail>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<MailGlobalMail>>,
 }
 
-impl Mail_TbGlobalMail{
-    pub fn new(__js: &json::JsonValue) -> Result<Mail_TbGlobalMail, LoadError> {
+impl MailTbGlobalMail{
+    pub fn new(__js: &json::JsonValue) -> Result<MailTbGlobalMail, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Mail_TbGlobalMail {
+        let mut t = MailTbGlobalMail {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Mail_GlobalMail::new(__e) {
+            let __v = std::rc::Rc::new(match MailGlobalMail::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4039,17 +4051,18 @@ impl Mail_TbGlobalMail{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Mail_TbGlobalMail) -> &std::collections::HashMap<i32, std::rc::Rc<Mail_GlobalMail>> { &self.data_map }
+    pub fn get_data_map(self:&MailTbGlobalMail) -> &std::collections::HashMap<i32, std::rc::Rc<MailGlobalMail>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Mail_TbGlobalMail) -> &Vec<std::rc::Rc<Mail_GlobalMail>> { &self.data_list }
+    pub fn get_data_list(self:&MailTbGlobalMail) -> &Vec<std::rc::Rc<MailGlobalMail>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Mail_TbGlobalMail, key: &i32) -> std::option::Option<&std::rc::Rc<Mail_GlobalMail>> { self.data_map.get(key) }
+    pub fn get(self:&MailTbGlobalMail, key: &i32) -> std::option::Option<&std::rc::Rc<MailGlobalMail>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Mail_GlobalMail {
+pub struct MailGlobalMail {
 pub id: i32,
 pub title: String,
 pub sender: String,
@@ -4059,15 +4072,15 @@ pub all_server: bool,
 pub server_list: Vec<i32>,
 pub platform: String,
 pub channel: String,
-pub min_max_level: Condition_MinMaxLevel,
-pub register_time: Condition_TimeRange,
-pub mail_time: Condition_TimeRange,
+pub min_max_level: ConditionMinMaxLevel,
+pub register_time: ConditionTimeRange,
+pub mail_time: ConditionTimeRange,
 }
 
-impl Mail_GlobalMail {
+impl MailGlobalMail {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Mail_GlobalMail, LoadError> {
-        let __b = Mail_GlobalMail {
+    pub fn new(__js: &json::JsonValue) -> Result<MailGlobalMail, LoadError> {
+        let __b = MailGlobalMail {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             title: match __js["title"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             sender: match __js["sender"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -4077,9 +4090,9 @@ impl Mail_GlobalMail {
             server_list: { if !__js["server_list"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["server_list"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             platform: match __js["platform"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             channel: match __js["channel"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            min_max_level: Condition_MinMaxLevel::new(&__js["min_max_level"])?,
-            register_time: Condition_TimeRange::new(&__js["register_time"])?,
-            mail_time: Condition_TimeRange::new(&__js["mail_time"])?,
+            min_max_level: ConditionMinMaxLevel::new(&__js["min_max_level"])?,
+            register_time: ConditionTimeRange::new(&__js["register_time"])?,
+            mail_time: ConditionTimeRange::new(&__js["mail_time"])?,
         };
         Ok(__b)
     }
@@ -4087,23 +4100,23 @@ impl Mail_GlobalMail {
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_TbRoleLevelExpAttr {
-    data_list: Vec<std::rc::Rc<Role_LevelExpAttr>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Role_LevelExpAttr>>,
+pub struct RoleTbRoleLevelExpAttr {
+    data_list: Vec<std::rc::Rc<RoleLevelExpAttr>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<RoleLevelExpAttr>>,
 }
 
-impl Role_TbRoleLevelExpAttr{
-    pub fn new(__js: &json::JsonValue) -> Result<Role_TbRoleLevelExpAttr, LoadError> {
+impl RoleTbRoleLevelExpAttr{
+    pub fn new(__js: &json::JsonValue) -> Result<RoleTbRoleLevelExpAttr, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Role_TbRoleLevelExpAttr {
+        let mut t = RoleTbRoleLevelExpAttr {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Role_LevelExpAttr::new(__e) {
+            let __v = std::rc::Rc::new(match RoleLevelExpAttr::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4114,26 +4127,27 @@ impl Role_TbRoleLevelExpAttr{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Role_TbRoleLevelExpAttr) -> &std::collections::HashMap<i32, std::rc::Rc<Role_LevelExpAttr>> { &self.data_map }
+    pub fn get_data_map(self:&RoleTbRoleLevelExpAttr) -> &std::collections::HashMap<i32, std::rc::Rc<RoleLevelExpAttr>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Role_TbRoleLevelExpAttr) -> &Vec<std::rc::Rc<Role_LevelExpAttr>> { &self.data_list }
+    pub fn get_data_list(self:&RoleTbRoleLevelExpAttr) -> &Vec<std::rc::Rc<RoleLevelExpAttr>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Role_TbRoleLevelExpAttr, key: &i32) -> std::option::Option<&std::rc::Rc<Role_LevelExpAttr>> { self.data_map.get(key) }
+    pub fn get(self:&RoleTbRoleLevelExpAttr, key: &i32) -> std::option::Option<&std::rc::Rc<RoleLevelExpAttr>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_LevelExpAttr {
+pub struct RoleLevelExpAttr {
 pub level: i32,
 pub need_exp: i64,
 pub clothes_attrs: Vec<i32>,
 }
 
-impl Role_LevelExpAttr {
+impl RoleLevelExpAttr {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Role_LevelExpAttr, LoadError> {
-        let __b = Role_LevelExpAttr {
+    pub fn new(__js: &json::JsonValue) -> Result<RoleLevelExpAttr, LoadError> {
+        let __b = RoleLevelExpAttr {
             level: match __js["level"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             need_exp: match __js["need_exp"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             clothes_attrs: { if !__js["clothes_attrs"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["clothes_attrs"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
@@ -4144,23 +4158,23 @@ impl Role_LevelExpAttr {
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_TbRoleLevelBonusCoefficient {
-    data_list: Vec<std::rc::Rc<Role_LevelBonus>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Role_LevelBonus>>,
+pub struct RoleTbRoleLevelBonusCoefficient {
+    data_list: Vec<std::rc::Rc<RoleLevelBonus>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<RoleLevelBonus>>,
 }
 
-impl Role_TbRoleLevelBonusCoefficient{
-    pub fn new(__js: &json::JsonValue) -> Result<Role_TbRoleLevelBonusCoefficient, LoadError> {
+impl RoleTbRoleLevelBonusCoefficient{
+    pub fn new(__js: &json::JsonValue) -> Result<RoleTbRoleLevelBonusCoefficient, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Role_TbRoleLevelBonusCoefficient {
+        let mut t = RoleTbRoleLevelBonusCoefficient {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Role_LevelBonus::new(__e) {
+            let __v = std::rc::Rc::new(match RoleLevelBonus::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4171,27 +4185,28 @@ impl Role_TbRoleLevelBonusCoefficient{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Role_TbRoleLevelBonusCoefficient) -> &std::collections::HashMap<i32, std::rc::Rc<Role_LevelBonus>> { &self.data_map }
+    pub fn get_data_map(self:&RoleTbRoleLevelBonusCoefficient) -> &std::collections::HashMap<i32, std::rc::Rc<RoleLevelBonus>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Role_TbRoleLevelBonusCoefficient) -> &Vec<std::rc::Rc<Role_LevelBonus>> { &self.data_list }
+    pub fn get_data_list(self:&RoleTbRoleLevelBonusCoefficient) -> &Vec<std::rc::Rc<RoleLevelBonus>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Role_TbRoleLevelBonusCoefficient, key: &i32) -> std::option::Option<&std::rc::Rc<Role_LevelBonus>> { self.data_map.get(key) }
+    pub fn get(self:&RoleTbRoleLevelBonusCoefficient, key: &i32) -> std::option::Option<&std::rc::Rc<RoleLevelBonus>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_LevelBonus {
+pub struct RoleLevelBonus {
 pub id: i32,
-pub distinct_bonus_infos: Vec<Role_DistinctBonusInfos>,
+pub distinct_bonus_infos: Vec<RoleDistinctBonusInfos>,
 }
 
-impl Role_LevelBonus {
+impl RoleLevelBonus {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Role_LevelBonus, LoadError> {
-        let __b = Role_LevelBonus {
+    pub fn new(__js: &json::JsonValue) -> Result<RoleLevelBonus, LoadError> {
+        let __b = RoleLevelBonus {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            distinct_bonus_infos: { if !__js["distinct_bonus_infos"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["distinct_bonus_infos"].members() { __list__.push(Role_DistinctBonusInfos::new(&__e)?); }   __list__},
+            distinct_bonus_infos: { if !__js["distinct_bonus_infos"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["distinct_bonus_infos"].members() { __list__.push(RoleDistinctBonusInfos::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -4201,17 +4216,17 @@ impl Role_LevelBonus {
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_DistinctBonusInfos {
+pub struct RoleDistinctBonusInfos {
 pub effective_level: i32,
-pub bonus_info: Vec<Role_BonusInfo>,
+pub bonus_info: Vec<RoleBonusInfo>,
 }
 
-impl Role_DistinctBonusInfos {
+impl RoleDistinctBonusInfos {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Role_DistinctBonusInfos, LoadError> {
-        let __b = Role_DistinctBonusInfos {
+    pub fn new(__js: &json::JsonValue) -> Result<RoleDistinctBonusInfos, LoadError> {
+        let __b = RoleDistinctBonusInfos {
             effective_level: match __js["effective_level"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            bonus_info: { if !__js["bonus_info"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonus_info"].members() { __list__.push(Role_BonusInfo::new(&__e)?); }   __list__},
+            bonus_info: { if !__js["bonus_info"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["bonus_info"].members() { __list__.push(RoleBonusInfo::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -4221,15 +4236,15 @@ impl Role_DistinctBonusInfos {
 
 
 #[allow(non_camel_case_types)]
-pub struct Role_BonusInfo {
+pub struct RoleBonusInfo {
 pub r#type: i32,
 pub coefficient: f32,
 }
 
-impl Role_BonusInfo {
+impl RoleBonusInfo {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Role_BonusInfo, LoadError> {
-        let __b = Role_BonusInfo {
+    pub fn new(__js: &json::JsonValue) -> Result<RoleBonusInfo, LoadError> {
+        let __b = RoleBonusInfo {
             r#type: match __js["type"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             coefficient: match __js["coefficient"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4239,23 +4254,23 @@ impl Role_BonusInfo {
 
 
 #[allow(non_camel_case_types)]
-pub struct Tag_TbTestTag {
-    data_list: Vec<std::rc::Rc<Tag_TestTag>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Tag_TestTag>>,
+pub struct TagTbTestTag {
+    data_list: Vec<std::rc::Rc<TagTestTag>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TagTestTag>>,
 }
 
-impl Tag_TbTestTag{
-    pub fn new(__js: &json::JsonValue) -> Result<Tag_TbTestTag, LoadError> {
+impl TagTbTestTag{
+    pub fn new(__js: &json::JsonValue) -> Result<TagTbTestTag, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Tag_TbTestTag {
+        let mut t = TagTbTestTag {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Tag_TestTag::new(__e) {
+            let __v = std::rc::Rc::new(match TagTestTag::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4266,25 +4281,26 @@ impl Tag_TbTestTag{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Tag_TbTestTag) -> &std::collections::HashMap<i32, std::rc::Rc<Tag_TestTag>> { &self.data_map }
+    pub fn get_data_map(self:&TagTbTestTag) -> &std::collections::HashMap<i32, std::rc::Rc<TagTestTag>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Tag_TbTestTag) -> &Vec<std::rc::Rc<Tag_TestTag>> { &self.data_list }
+    pub fn get_data_list(self:&TagTbTestTag) -> &Vec<std::rc::Rc<TagTestTag>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Tag_TbTestTag, key: &i32) -> std::option::Option<&std::rc::Rc<Tag_TestTag>> { self.data_map.get(key) }
+    pub fn get(self:&TagTbTestTag, key: &i32) -> std::option::Option<&std::rc::Rc<TagTestTag>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Tag_TestTag {
+pub struct TagTestTag {
 pub id: i32,
 pub value: String,
 }
 
-impl Tag_TestTag {
+impl TagTestTag {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Tag_TestTag, LoadError> {
-        let __b = Tag_TestTag {
+    pub fn new(__js: &json::JsonValue) -> Result<TagTestTag, LoadError> {
+        let __b = TagTestTag {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             value: match __js["value"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -4294,23 +4310,23 @@ impl Tag_TestTag {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbFullTypes {
-    data_list: Vec<std::rc::Rc<Test_DemoType2>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoType2>>,
+pub struct TestTbFullTypes {
+    data_list: Vec<std::rc::Rc<TestDemoType2>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoType2>>,
 }
 
-impl Test_TbFullTypes{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbFullTypes, LoadError> {
+impl TestTbFullTypes{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbFullTypes, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbFullTypes {
+        let mut t = TestTbFullTypes {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoType2::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoType2::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4321,17 +4337,18 @@ impl Test_TbFullTypes{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbFullTypes) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoType2>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbFullTypes) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoType2>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbFullTypes) -> &Vec<std::rc::Rc<Test_DemoType2>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbFullTypes) -> &Vec<std::rc::Rc<TestDemoType2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbFullTypes, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbFullTypes, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoType2>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoType2 {
+pub struct TestDemoType2 {
 pub x4: i32,
 pub x1: bool,
 pub x2: u8,
@@ -4343,9 +4360,9 @@ pub x8_0: i16,
 pub x8: i32,
 pub x9: i64,
 pub x10: String,
-pub x12: Test_DemoType1,
+pub x12: TestDemoType1,
 pub x13: i32,
-pub x14: Test_DemoDynamic,
+pub x14: TestDemoDynamic,
 pub s1: String,
 pub v2: Vector2,
 pub v3: Vector3,
@@ -4355,14 +4372,14 @@ pub k1: Vec<i32>,
 pub k2: Vec<i32>,
 pub k5: std::collections::HashSet<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
-pub k9: Vec<Test_DemoE2>,
-pub k15: Vec<Test_DemoDynamic>,
+pub k9: Vec<TestDemoE2>,
+pub k15: Vec<TestDemoDynamic>,
 }
 
-impl Test_DemoType2 {
+impl TestDemoType2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoType2, LoadError> {
-        let __b = Test_DemoType2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoType2, LoadError> {
+        let __b = TestDemoType2 {
             x4: match __js["x4"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x2: match __js["x2"].as_u8() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -4374,9 +4391,9 @@ impl Test_DemoType2 {
             x8: match __js["x8"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x9: match __js["x9"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x10: match __js["x10"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            x12: Test_DemoType1::new(&__js["x12"])?,
+            x12: TestDemoType1::new(&__js["x12"])?,
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x14: Test_DemoDynamic::new(&__js["x14"])?,
+            x14: TestDemoDynamic::new(&__js["x14"])?,
             s1: { if !__js["s1"]["key"].is_string() { return Err(LoadError{}); } match __js["s1"]["text"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) } },
             v2: Vector2::new(&__js["v2"])?,
             v3: Vector3::new(&__js["v3"])?,
@@ -4386,8 +4403,8 @@ impl Test_DemoType2 {
             k2: { if !__js["k2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k5: { if !__js["k5"].is_array() { return Err(LoadError{}); } let mut __set__ = std::collections::HashSet::new(); for __e in __js["k5"].members() { __set__.insert(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __set__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
-            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(Test_DemoE2::new(&__e)?); }   __list__},
-            k15: { if !__js["k15"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k15"].members() { __list__.push(Test_DemoDynamic::new(&__e)?); }   __list__},
+            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
+            k15: { if !__js["k15"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k15"].members() { __list__.push(TestDemoDynamic::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -4397,14 +4414,14 @@ impl Test_DemoType2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoType1 {
+pub struct TestDemoType1 {
 pub x1: i32,
 }
 
-impl Test_DemoType1 {
+impl TestDemoType1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoType1, LoadError> {
-        let __b = Test_DemoType1 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoType1, LoadError> {
+        let __b = TestDemoType1 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -4415,20 +4432,20 @@ impl Test_DemoType1 {
 
 
 #[allow(non_camel_case_types)]
-pub enum Test_DemoDynamic {
-  DemoD2(Box<Test_DemoD2>),
-  DemoE1(Box<Test_DemoE1>),
-  DemoD5(Box<Test_DemoD5>),
+pub enum TestDemoDynamic {
+  DemoD2(Box<TestDemoD2>),
+  DemoE1(Box<TestDemoE1>),
+  DemoD5(Box<TestDemoD5>),
 }
 
-impl Test_DemoDynamic {
+impl TestDemoDynamic {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoDynamic, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoDynamic, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "DemoD2" => Test_DemoDynamic::DemoD2(Box::new(Test_DemoD2::new(&__js)?)),
-                "DemoE1" => Test_DemoDynamic::DemoE1(Box::new(Test_DemoE1::new(&__js)?)),
-                "DemoD5" => Test_DemoDynamic::DemoD5(Box::new(Test_DemoD5::new(&__js)?)),
+                "DemoD2" => TestDemoDynamic::DemoD2(Box::new(TestDemoD2::new(&__js)?)),
+                "DemoE1" => TestDemoDynamic::DemoE1(Box::new(TestDemoE1::new(&__js)?)),
+                "DemoD5" => TestDemoDynamic::DemoD5(Box::new(TestDemoD5::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -4441,15 +4458,15 @@ impl Test_DemoDynamic {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoD2 {
+pub struct TestDemoD2 {
 pub x1: i32,
 pub x2: i32,
 }
 
-impl Test_DemoD2 {
+impl TestDemoD2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoD2, LoadError> {
-        let __b = Test_DemoD2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoD2, LoadError> {
+        let __b = TestDemoD2 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x2: match __js["x2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4461,16 +4478,16 @@ impl Test_DemoD2 {
 
 
 #[allow(non_camel_case_types)]
-pub enum Test_DemoD3 {
-  DemoE1(Box<Test_DemoE1>),
+pub enum TestDemoD3 {
+  DemoE1(Box<TestDemoE1>),
 }
 
-impl Test_DemoD3 {
+impl TestDemoD3 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoD3, LoadError> {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoD3, LoadError> {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
-                "DemoE1" => Test_DemoD3::DemoE1(Box::new(Test_DemoE1::new(&__js)?)),
+                "DemoE1" => TestDemoD3::DemoE1(Box::new(TestDemoE1::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -4483,16 +4500,16 @@ impl Test_DemoD3 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoE1 {
+pub struct TestDemoE1 {
 pub x1: i32,
 pub x3: i32,
 pub x4: i32,
 }
 
-impl Test_DemoE1 {
+impl TestDemoE1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoE1, LoadError> {
-        let __b = Test_DemoE1 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoE1, LoadError> {
+        let __b = TestDemoE1 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x3: match __js["x3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x4: match __js["x4"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -4505,17 +4522,17 @@ impl Test_DemoE1 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoD5 {
+pub struct TestDemoD5 {
 pub x1: i32,
-pub time: Test_DateTimeRange,
+pub time: TestDateTimeRange,
 }
 
-impl Test_DemoD5 {
+impl TestDemoD5 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoD5, LoadError> {
-        let __b = Test_DemoD5 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoD5, LoadError> {
+        let __b = TestDemoD5 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            time: Test_DateTimeRange::new(&__js["time"])?,
+            time: TestDateTimeRange::new(&__js["time"])?,
         };
         Ok(__b)
     }
@@ -4525,15 +4542,15 @@ impl Test_DemoD5 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DateTimeRange {
+pub struct TestDateTimeRange {
 pub start_time: i32,
 pub end_time: i32,
 }
 
-impl Test_DateTimeRange {
+impl TestDateTimeRange {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DateTimeRange, LoadError> {
-        let __b = Test_DateTimeRange {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDateTimeRange, LoadError> {
+        let __b = TestDateTimeRange {
             start_time: match __js["start_time"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             end_time: match __js["end_time"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4545,15 +4562,15 @@ impl Test_DateTimeRange {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoE2 {
+pub struct TestDemoE2 {
 pub y1: std::option::Option<i32>,
 pub y2: bool,
 }
 
-impl Test_DemoE2 {
+impl TestDemoE2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoE2, LoadError> {
-        let __b = Test_DemoE2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoE2, LoadError> {
+        let __b = TestDemoE2 {
             y1: if !__js["y1"].is_null() { Some(match __js["y1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
             y2: match __js["y2"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4563,44 +4580,44 @@ impl Test_DemoE2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbSingleton {
-    data: Test_DemoSingletonType,
+pub struct TestTbSingleton {
+    data: TestDemoSingletonType,
 }
 
-impl Test_TbSingleton{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbSingleton, LoadError> {
+impl TestTbSingleton{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbSingleton, LoadError> {
         if !__js.is_array() || __js.len() != 1 {
             return Err(LoadError{});
         }
-        let __v = match Test_DemoSingletonType::new(&__js[0]) {
+        let __v = match TestDemoSingletonType::new(&__js[0]) {
             Ok(x) => x,
             Err(err) => return Err(err),
         };
-        let t = Test_TbSingleton {
+        let t = TestTbSingleton {
             data: __v,
         };
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data(self:&Test_TbSingleton) -> &Test_DemoSingletonType { &self.data }
+    pub fn get_data(self:&TestTbSingleton) -> &TestDemoSingletonType { &self.data }
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoSingletonType {
+pub struct TestDemoSingletonType {
 pub id: i32,
 pub name: String,
-pub date: Test_DemoDynamic,
+pub date: TestDemoDynamic,
 }
 
-impl Test_DemoSingletonType {
+impl TestDemoSingletonType {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoSingletonType, LoadError> {
-        let __b = Test_DemoSingletonType {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoSingletonType, LoadError> {
+        let __b = TestDemoSingletonType {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: { if !__js["name"]["key"].is_string() { return Err(LoadError{}); } match __js["name"]["text"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) } },
-            date: Test_DemoDynamic::new(&__js["date"])?,
+            date: TestDemoDynamic::new(&__js["date"])?,
         };
         Ok(__b)
     }
@@ -4608,23 +4625,188 @@ impl Test_DemoSingletonType {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDataFromMisc {
-    data_list: Vec<std::rc::Rc<Test_DemoType2>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoType2>>,
+pub struct TestTbNotIndexList {
+    data_list: Vec<std::rc::Rc<TestNotIndexList>>,
 }
 
-impl Test_TbDataFromMisc{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDataFromMisc, LoadError> {
+impl TestTbNotIndexList{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbNotIndexList, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDataFromMisc {
+        let mut t = TestTbNotIndexList {
+            data_list : Vec::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match TestNotIndexList::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+        }
+        Ok(t)
+    }
+
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&TestTbNotIndexList) -> &Vec<std::rc::Rc<TestNotIndexList>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&TestTbNotIndexList, index: usize) -> &std::rc::Rc<TestNotIndexList> { &self.data_list[index] }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct TestNotIndexList {
+pub x: i32,
+pub y: i32,
+}
+
+impl TestNotIndexList {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestNotIndexList, LoadError> {
+        let __b = TestNotIndexList {
+            x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            y: match __js["y"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct TestTbMultiUnionIndexList {
+    data_list: Vec<std::rc::Rc<TestMultiUnionIndexList>>,
+}
+
+impl TestTbMultiUnionIndexList{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbMultiUnionIndexList, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = TestTbMultiUnionIndexList {
+            data_list : Vec::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match TestMultiUnionIndexList::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+        }
+        Ok(t)
+    }
+
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&TestTbMultiUnionIndexList) -> &Vec<std::rc::Rc<TestMultiUnionIndexList>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&TestTbMultiUnionIndexList, index: usize) -> &std::rc::Rc<TestMultiUnionIndexList> { &self.data_list[index] }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct TestMultiUnionIndexList {
+pub id1: i32,
+pub id2: i64,
+pub id3: String,
+pub num: i32,
+pub desc: String,
+}
+
+impl TestMultiUnionIndexList {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiUnionIndexList, LoadError> {
+        let __b = TestMultiUnionIndexList {
+            id1: match __js["id1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            id2: match __js["id2"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            id3: match __js["id3"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct TestTbMultiIndexList {
+    data_list: Vec<std::rc::Rc<TestMultiIndexList>>,
+}
+
+impl TestTbMultiIndexList{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbMultiIndexList, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = TestTbMultiIndexList {
+            data_list : Vec::new(),
+        };
+        
+        for __e in __js.members() {
+            let __v = std::rc::Rc::new(match TestMultiIndexList::new(__e) {
+                Ok(x) => x,
+                Err(err) => return Err(err),
+            });
+            let __v2 = std::rc::Rc::clone(&__v);
+            t.data_list.push(__v);
+        }
+        Ok(t)
+    }
+
+    #[allow(dead_code)]
+    pub fn get_data_list(self:&TestTbMultiIndexList) -> &Vec<std::rc::Rc<TestMultiIndexList>> { &self.data_list }
+    #[allow(dead_code)]
+    pub fn get(self:&TestTbMultiIndexList, index: usize) -> &std::rc::Rc<TestMultiIndexList> { &self.data_list[index] }
+}
+
+
+
+#[allow(non_camel_case_types)]
+pub struct TestMultiIndexList {
+pub id1: i32,
+pub id2: i64,
+pub id3: String,
+pub num: i32,
+pub desc: String,
+}
+
+impl TestMultiIndexList {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiIndexList, LoadError> {
+        let __b = TestMultiIndexList {
+            id1: match __js["id1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            id2: match __js["id2"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            id3: match __js["id3"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+            num: match __js["num"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            desc: match __js["desc"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+#[allow(non_camel_case_types)]
+pub struct TestTbDataFromMisc {
+    data_list: Vec<std::rc::Rc<TestDemoType2>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoType2>>,
+}
+
+impl TestTbDataFromMisc{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDataFromMisc, LoadError> {
+        if !__js.is_array() {
+            return Err(LoadError{});
+        }
+        let mut t = TestTbDataFromMisc {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoType2::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoType2::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4635,31 +4817,32 @@ impl Test_TbDataFromMisc{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDataFromMisc) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoType2>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDataFromMisc) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoType2>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDataFromMisc) -> &Vec<std::rc::Rc<Test_DemoType2>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDataFromMisc) -> &Vec<std::rc::Rc<TestDemoType2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDataFromMisc, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoType2>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDataFromMisc, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoType2>> { self.data_map.get(key) }
+    
 }
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbMultiRowRecord {
-    data_list: Vec<std::rc::Rc<Test_MultiRowRecord>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_MultiRowRecord>>,
+pub struct TestTbMultiRowRecord {
+    data_list: Vec<std::rc::Rc<TestMultiRowRecord>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestMultiRowRecord>>,
 }
 
-impl Test_TbMultiRowRecord{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbMultiRowRecord, LoadError> {
+impl TestTbMultiRowRecord{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbMultiRowRecord, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbMultiRowRecord {
+        let mut t = TestTbMultiRowRecord {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_MultiRowRecord::new(__e) {
+            let __v = std::rc::Rc::new(match TestMultiRowRecord::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4670,40 +4853,41 @@ impl Test_TbMultiRowRecord{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbMultiRowRecord) -> &std::collections::HashMap<i32, std::rc::Rc<Test_MultiRowRecord>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbMultiRowRecord) -> &std::collections::HashMap<i32, std::rc::Rc<TestMultiRowRecord>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbMultiRowRecord) -> &Vec<std::rc::Rc<Test_MultiRowRecord>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbMultiRowRecord) -> &Vec<std::rc::Rc<TestMultiRowRecord>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbMultiRowRecord, key: &i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowRecord>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbMultiRowRecord, key: &i32) -> std::option::Option<&std::rc::Rc<TestMultiRowRecord>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_MultiRowRecord {
+pub struct TestMultiRowRecord {
 pub id: i32,
 pub name: String,
-pub one_rows: Vec<Test_MultiRowType1>,
-pub multi_rows1: Vec<Test_MultiRowType1>,
-pub multi_rows2: Vec<Test_MultiRowType1>,
-pub multi_rows4: std::collections::HashMap<i32, Test_MultiRowType2>,
-pub multi_rows5: Vec<Test_MultiRowType3>,
-pub multi_rows6: std::collections::HashMap<i32, Test_MultiRowType2>,
+pub one_rows: Vec<TestMultiRowType1>,
+pub multi_rows1: Vec<TestMultiRowType1>,
+pub multi_rows2: Vec<TestMultiRowType1>,
+pub multi_rows4: std::collections::HashMap<i32, TestMultiRowType2>,
+pub multi_rows5: Vec<TestMultiRowType3>,
+pub multi_rows6: std::collections::HashMap<i32, TestMultiRowType2>,
 pub multi_rows7: std::collections::HashMap<i32, i32>,
 }
 
-impl Test_MultiRowRecord {
+impl TestMultiRowRecord {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_MultiRowRecord, LoadError> {
-        let __b = Test_MultiRowRecord {
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiRowRecord, LoadError> {
+        let __b = TestMultiRowRecord {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            one_rows: { if !__js["one_rows"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["one_rows"].members() { __list__.push(Test_MultiRowType1::new(&__e)?); }   __list__},
-            multi_rows1: { if !__js["multi_rows1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows1"].members() { __list__.push(Test_MultiRowType1::new(&__e)?); }   __list__},
-            multi_rows2: { if !__js["multi_rows2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows2"].members() { __list__.push(Test_MultiRowType1::new(&__e)?); }   __list__},
-            multi_rows4: { if !__js["multi_rows4"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["multi_rows4"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, Test_MultiRowType2::new(&__e[1])?); }   __map__},
-            multi_rows5: { if !__js["multi_rows5"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows5"].members() { __list__.push(Test_MultiRowType3::new(&__e)?); }   __list__},
-            multi_rows6: { if !__js["multi_rows6"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["multi_rows6"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, Test_MultiRowType2::new(&__e[1])?); }   __map__},
+            one_rows: { if !__js["one_rows"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["one_rows"].members() { __list__.push(TestMultiRowType1::new(&__e)?); }   __list__},
+            multi_rows1: { if !__js["multi_rows1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows1"].members() { __list__.push(TestMultiRowType1::new(&__e)?); }   __list__},
+            multi_rows2: { if !__js["multi_rows2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows2"].members() { __list__.push(TestMultiRowType1::new(&__e)?); }   __list__},
+            multi_rows4: { if !__js["multi_rows4"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["multi_rows4"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, TestMultiRowType2::new(&__e[1])?); }   __map__},
+            multi_rows5: { if !__js["multi_rows5"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["multi_rows5"].members() { __list__.push(TestMultiRowType3::new(&__e)?); }   __list__},
+            multi_rows6: { if !__js["multi_rows6"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["multi_rows6"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, TestMultiRowType2::new(&__e[1])?); }   __map__},
             multi_rows7: { if !__js["multi_rows7"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["multi_rows7"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
         };
         Ok(__b)
@@ -4714,15 +4898,15 @@ impl Test_MultiRowRecord {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_MultiRowType1 {
+pub struct TestMultiRowType1 {
 pub id: i32,
 pub x: i32,
 }
 
-impl Test_MultiRowType1 {
+impl TestMultiRowType1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_MultiRowType1, LoadError> {
-        let __b = Test_MultiRowType1 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiRowType1, LoadError> {
+        let __b = TestMultiRowType1 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4734,16 +4918,16 @@ impl Test_MultiRowType1 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_MultiRowType2 {
+pub struct TestMultiRowType2 {
 pub id: i32,
 pub x: i32,
 pub y: f32,
 }
 
-impl Test_MultiRowType2 {
+impl TestMultiRowType2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_MultiRowType2, LoadError> {
-        let __b = Test_MultiRowType2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiRowType2, LoadError> {
+        let __b = TestMultiRowType2 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y: match __js["y"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -4756,17 +4940,17 @@ impl Test_MultiRowType2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_MultiRowType3 {
+pub struct TestMultiRowType3 {
 pub id: i32,
-pub items: Vec<Test_MultiRowType1>,
+pub items: Vec<TestMultiRowType1>,
 }
 
-impl Test_MultiRowType3 {
+impl TestMultiRowType3 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_MultiRowType3, LoadError> {
-        let __b = Test_MultiRowType3 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiRowType3, LoadError> {
+        let __b = TestMultiRowType3 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            items: { if !__js["items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["items"].members() { __list__.push(Test_MultiRowType1::new(&__e)?); }   __list__},
+            items: { if !__js["items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["items"].members() { __list__.push(TestMultiRowType1::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -4774,23 +4958,23 @@ impl Test_MultiRowType3 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbMultiRowTitle {
-    data_list: Vec<std::rc::Rc<Test_MultiRowTitle>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_MultiRowTitle>>,
+pub struct TestTbMultiRowTitle {
+    data_list: Vec<std::rc::Rc<TestMultiRowTitle>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestMultiRowTitle>>,
 }
 
-impl Test_TbMultiRowTitle{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbMultiRowTitle, LoadError> {
+impl TestTbMultiRowTitle{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbMultiRowTitle, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbMultiRowTitle {
+        let mut t = TestTbMultiRowTitle {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_MultiRowTitle::new(__e) {
+            let __v = std::rc::Rc::new(match TestMultiRowTitle::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4801,33 +4985,36 @@ impl Test_TbMultiRowTitle{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbMultiRowTitle) -> &std::collections::HashMap<i32, std::rc::Rc<Test_MultiRowTitle>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbMultiRowTitle) -> &std::collections::HashMap<i32, std::rc::Rc<TestMultiRowTitle>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbMultiRowTitle) -> &Vec<std::rc::Rc<Test_MultiRowTitle>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbMultiRowTitle) -> &Vec<std::rc::Rc<TestMultiRowTitle>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbMultiRowTitle, key: &i32) -> std::option::Option<&std::rc::Rc<Test_MultiRowTitle>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbMultiRowTitle, key: &i32) -> std::option::Option<&std::rc::Rc<TestMultiRowTitle>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_MultiRowTitle {
+pub struct TestMultiRowTitle {
 pub id: i32,
 pub name: String,
-pub x1: Test_H1,
-pub x2: Vec<Test_H2>,
-pub x3: Vec<Test_H2>,
+pub x1: TestH1,
+pub x2: Vec<TestH2>,
+pub x3: Vec<TestH2>,
+pub x4: Vec<TestH2>,
 }
 
-impl Test_MultiRowTitle {
+impl TestMultiRowTitle {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_MultiRowTitle, LoadError> {
-        let __b = Test_MultiRowTitle {
+    pub fn new(__js: &json::JsonValue) -> Result<TestMultiRowTitle, LoadError> {
+        let __b = TestMultiRowTitle {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            x1: Test_H1::new(&__js["x1"])?,
-            x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
-            x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
+            x1: TestH1::new(&__js["x1"])?,
+            x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(TestH2::new(&__e)?); }   __list__},
+            x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(TestH2::new(&__e)?); }   __list__},
+            x4: { if !__js["x4"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x4"].members() { __list__.push(TestH2::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -4837,16 +5024,16 @@ impl Test_MultiRowTitle {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_H1 {
-pub y2: Test_H2,
+pub struct TestH1 {
+pub y2: TestH2,
 pub y3: i32,
 }
 
-impl Test_H1 {
+impl TestH1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_H1, LoadError> {
-        let __b = Test_H1 {
-            y2: Test_H2::new(&__js["y2"])?,
+    pub fn new(__js: &json::JsonValue) -> Result<TestH1, LoadError> {
+        let __b = TestH1 {
+            y2: TestH2::new(&__js["y2"])?,
             y3: match __js["y3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
@@ -4857,15 +5044,15 @@ impl Test_H1 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_H2 {
+pub struct TestH2 {
 pub z2: i32,
 pub z3: i32,
 }
 
-impl Test_H2 {
+impl TestH2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_H2, LoadError> {
-        let __b = Test_H2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestH2, LoadError> {
+        let __b = TestH2 {
             z2: match __js["z2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             z3: match __js["z3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -4875,23 +5062,23 @@ impl Test_H2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestNull {
-    data_list: Vec<std::rc::Rc<Test_TestNull>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestNull>>,
+pub struct TestTbTestNull {
+    data_list: Vec<std::rc::Rc<TestTestNull>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestNull>>,
 }
 
-impl Test_TbTestNull{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestNull, LoadError> {
+impl TestTbTestNull{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestNull, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestNull {
+        let mut t = TestTbTestNull {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestNull::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestNull::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4902,35 +5089,36 @@ impl Test_TbTestNull{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestNull) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestNull>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestNull) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestNull>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestNull) -> &Vec<std::rc::Rc<Test_TestNull>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestNull) -> &Vec<std::rc::Rc<TestTestNull>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestNull, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestNull>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestNull, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestNull>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestNull {
+pub struct TestTestNull {
 pub id: i32,
 pub x1: std::option::Option<i32>,
 pub x2: std::option::Option<i32>,
-pub x3: std::option::Option<Test_DemoType1>,
-pub x4: std::option::Option<Test_DemoDynamic>,
+pub x3: std::option::Option<TestDemoType1>,
+pub x4: std::option::Option<TestDemoDynamic>,
 pub s1: std::option::Option<String>,
 pub s2: std::option::Option<String>,
 }
 
-impl Test_TestNull {
+impl TestTestNull {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestNull, LoadError> {
-        let __b = Test_TestNull {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestNull, LoadError> {
+        let __b = TestTestNull {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: if !__js["x1"].is_null() { Some(match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
             x2: if !__js["x2"].is_null() { Some(match __js["x2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }) } else { None },
-            x3: if !__js["x3"].is_null() { Some(Test_DemoType1::new(&__js["x3"])?) } else { None },
-            x4: if !__js["x4"].is_null() { Some(Test_DemoDynamic::new(&__js["x4"])?) } else { None },
+            x3: if !__js["x3"].is_null() { Some(TestDemoType1::new(&__js["x3"])?) } else { None },
+            x4: if !__js["x4"].is_null() { Some(TestDemoDynamic::new(&__js["x4"])?) } else { None },
             s1: if !__js["s1"].is_null() { Some(match __js["s1"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) }) } else { None },
             s2: if !__js["s2"].is_null() { Some({ if !__js["s2"]["key"].is_string() { return Err(LoadError{}); } match __js["s2"]["text"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) } }) } else { None },
         };
@@ -4940,23 +5128,23 @@ impl Test_TestNull {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoPrimitive {
-    data_list: Vec<std::rc::Rc<Test_DemoPrimitiveTypesTable>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoPrimitiveTypesTable>>,
+pub struct TestTbDemoPrimitive {
+    data_list: Vec<std::rc::Rc<TestDemoPrimitiveTypesTable>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoPrimitiveTypesTable>>,
 }
 
-impl Test_TbDemoPrimitive{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoPrimitive, LoadError> {
+impl TestTbDemoPrimitive{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoPrimitive, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoPrimitive {
+        let mut t = TestTbDemoPrimitive {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoPrimitiveTypesTable::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoPrimitiveTypesTable::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -4967,17 +5155,18 @@ impl Test_TbDemoPrimitive{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoPrimitive) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoPrimitiveTypesTable>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoPrimitive) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoPrimitiveTypesTable>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoPrimitive) -> &Vec<std::rc::Rc<Test_DemoPrimitiveTypesTable>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoPrimitive) -> &Vec<std::rc::Rc<TestDemoPrimitiveTypesTable>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoPrimitive, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoPrimitiveTypesTable>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoPrimitive, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoPrimitiveTypesTable>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoPrimitiveTypesTable {
+pub struct TestDemoPrimitiveTypesTable {
 pub x1: bool,
 pub x2: u8,
 pub x3: i16,
@@ -4993,10 +5182,10 @@ pub v4: Vector4,
 pub t1: i32,
 }
 
-impl Test_DemoPrimitiveTypesTable {
+impl TestDemoPrimitiveTypesTable {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoPrimitiveTypesTable, LoadError> {
-        let __b = Test_DemoPrimitiveTypesTable {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoPrimitiveTypesTable, LoadError> {
+        let __b = TestDemoPrimitiveTypesTable {
             x1: match __js["x1"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x2: match __js["x2"].as_u8() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x3: match __js["x3"].as_i16() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -5017,23 +5206,23 @@ impl Test_DemoPrimitiveTypesTable {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestString {
-    data_list: Vec<std::rc::Rc<Test_TestString>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestString>>,
+pub struct TestTbTestString {
+    data_list: Vec<std::rc::Rc<TestTestString>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestString>>,
 }
 
-impl Test_TbTestString{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestString, LoadError> {
+impl TestTbTestString{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestString, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestString {
+        let mut t = TestTbTestString {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestString::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestString::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5044,31 +5233,32 @@ impl Test_TbTestString{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestString) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestString>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestString) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestString>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestString) -> &Vec<std::rc::Rc<Test_TestString>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestString) -> &Vec<std::rc::Rc<TestTestString>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestString, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestString>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestString, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestString>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestString {
+pub struct TestTestString {
 pub id: i32,
 pub s1: String,
-pub cs1: Test_CompactString,
-pub cs2: Test_CompactString,
+pub cs1: TestCompactString,
+pub cs2: TestCompactString,
 }
 
-impl Test_TestString {
+impl TestTestString {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestString, LoadError> {
-        let __b = Test_TestString {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestString, LoadError> {
+        let __b = TestTestString {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             s1: match __js["s1"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            cs1: Test_CompactString::new(&__js["cs1"])?,
-            cs2: Test_CompactString::new(&__js["cs2"])?,
+            cs1: TestCompactString::new(&__js["cs1"])?,
+            cs2: TestCompactString::new(&__js["cs2"])?,
         };
         Ok(__b)
     }
@@ -5078,16 +5268,16 @@ impl Test_TestString {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_CompactString {
+pub struct TestCompactString {
 pub id: i32,
 pub s2: String,
 pub s3: String,
 }
 
-impl Test_CompactString {
+impl TestCompactString {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_CompactString, LoadError> {
-        let __b = Test_CompactString {
+    pub fn new(__js: &json::JsonValue) -> Result<TestCompactString, LoadError> {
+        let __b = TestCompactString {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             s2: match __js["s2"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             s3: match __js["s3"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -5098,23 +5288,23 @@ impl Test_CompactString {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoGroup {
-    data_list: Vec<std::rc::Rc<Test_DemoGroup>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>>,
+pub struct TestTbDemoGroup {
+    data_list: Vec<std::rc::Rc<TestDemoGroup>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>>,
 }
 
-impl Test_TbDemoGroup{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoGroup, LoadError> {
+impl TestTbDemoGroup{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoGroup, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoGroup {
+        let mut t = TestTbDemoGroup {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoGroup::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoGroup::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5125,35 +5315,36 @@ impl Test_TbDemoGroup{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoGroup) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoGroup) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoGroup) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoGroup) -> &Vec<std::rc::Rc<TestDemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoGroup, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoGroup>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DemoGroup {
+pub struct TestDemoGroup {
 pub id: i32,
 pub x1: i32,
 pub x2: i32,
 pub x3: i32,
 pub x4: i32,
-pub x5: Test_InnerGroup,
+pub x5: TestInnerGroup,
 }
 
-impl Test_DemoGroup {
+impl TestDemoGroup {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DemoGroup, LoadError> {
-        let __b = Test_DemoGroup {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDemoGroup, LoadError> {
+        let __b = TestDemoGroup {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x2: match __js["x2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x3: match __js["x3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x4: match __js["x4"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x5: Test_InnerGroup::new(&__js["x5"])?,
+            x5: TestInnerGroup::new(&__js["x5"])?,
         };
         Ok(__b)
     }
@@ -5163,17 +5354,17 @@ impl Test_DemoGroup {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_InnerGroup {
+pub struct TestInnerGroup {
 pub y1: i32,
 pub y2: i32,
 pub y3: i32,
 pub y4: i32,
 }
 
-impl Test_InnerGroup {
+impl TestInnerGroup {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_InnerGroup, LoadError> {
-        let __b = Test_InnerGroup {
+    pub fn new(__js: &json::JsonValue) -> Result<TestInnerGroup, LoadError> {
+        let __b = TestInnerGroup {
             y1: match __js["y1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y2: match __js["y2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y3: match __js["y3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -5185,23 +5376,23 @@ impl Test_InnerGroup {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoGroup_C {
-    data_list: Vec<std::rc::Rc<Test_DemoGroup>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>>,
+pub struct TestTbDemoGroup_C {
+    data_list: Vec<std::rc::Rc<TestDemoGroup>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>>,
 }
 
-impl Test_TbDemoGroup_C{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoGroup_C, LoadError> {
+impl TestTbDemoGroup_C{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoGroup_C, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoGroup_C {
+        let mut t = TestTbDemoGroup_C {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoGroup::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoGroup::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5212,31 +5403,32 @@ impl Test_TbDemoGroup_C{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoGroup_C) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoGroup_C) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoGroup_C) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoGroup_C) -> &Vec<std::rc::Rc<TestDemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_C, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoGroup_C, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoGroup>> { self.data_map.get(key) }
+    
 }
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoGroup_S {
-    data_list: Vec<std::rc::Rc<Test_DemoGroup>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>>,
+pub struct TestTbDemoGroup_S {
+    data_list: Vec<std::rc::Rc<TestDemoGroup>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>>,
 }
 
-impl Test_TbDemoGroup_S{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoGroup_S, LoadError> {
+impl TestTbDemoGroup_S{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoGroup_S, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoGroup_S {
+        let mut t = TestTbDemoGroup_S {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoGroup::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoGroup::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5247,31 +5439,32 @@ impl Test_TbDemoGroup_S{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoGroup_S) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoGroup_S) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoGroup_S) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoGroup_S) -> &Vec<std::rc::Rc<TestDemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_S, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoGroup_S, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoGroup>> { self.data_map.get(key) }
+    
 }
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoGroup_E {
-    data_list: Vec<std::rc::Rc<Test_DemoGroup>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>>,
+pub struct TestTbDemoGroup_E {
+    data_list: Vec<std::rc::Rc<TestDemoGroup>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>>,
 }
 
-impl Test_TbDemoGroup_E{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoGroup_E, LoadError> {
+impl TestTbDemoGroup_E{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoGroup_E, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoGroup_E {
+        let mut t = TestTbDemoGroup_E {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoGroup::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoGroup::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5282,48 +5475,49 @@ impl Test_TbDemoGroup_E{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoGroup_E) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoGroup_E) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoGroup_E) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoGroup_E) -> &Vec<std::rc::Rc<TestDemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroup_E, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoGroup_E, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoGroup>> { self.data_map.get(key) }
+    
 }
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestGlobal {
-    data: Test_TestGlobal,
+pub struct TestTbTestGlobal {
+    data: TestTestGlobal,
 }
 
-impl Test_TbTestGlobal{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestGlobal, LoadError> {
+impl TestTbTestGlobal{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestGlobal, LoadError> {
         if !__js.is_array() || __js.len() != 1 {
             return Err(LoadError{});
         }
-        let __v = match Test_TestGlobal::new(&__js[0]) {
+        let __v = match TestTestGlobal::new(&__js[0]) {
             Ok(x) => x,
             Err(err) => return Err(err),
         };
-        let t = Test_TbTestGlobal {
+        let t = TestTbTestGlobal {
             data: __v,
         };
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data(self:&Test_TbTestGlobal) -> &Test_TestGlobal { &self.data }
+    pub fn get_data(self:&TestTbTestGlobal) -> &TestTestGlobal { &self.data }
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestGlobal {
+pub struct TestTestGlobal {
 pub unlock_equip: i32,
 pub unlock_hero: i32,
 }
 
-impl Test_TestGlobal {
+impl TestTestGlobal {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestGlobal, LoadError> {
-        let __b = Test_TestGlobal {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestGlobal, LoadError> {
+        let __b = TestTestGlobal {
             unlock_equip: match __js["unlock_equip"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             unlock_hero: match __js["unlock_hero"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -5333,23 +5527,23 @@ impl Test_TestGlobal {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestBeRef {
-    data_list: Vec<std::rc::Rc<Test_TestBeRef>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestBeRef>>,
+pub struct TestTbTestBeRef {
+    data_list: Vec<std::rc::Rc<TestTestBeRef>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestBeRef>>,
 }
 
-impl Test_TbTestBeRef{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestBeRef, LoadError> {
+impl TestTbTestBeRef{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestBeRef, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestBeRef {
+        let mut t = TestTbTestBeRef {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestBeRef::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestBeRef::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5360,25 +5554,26 @@ impl Test_TbTestBeRef{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestBeRef) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestBeRef>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestBeRef) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestBeRef>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestBeRef) -> &Vec<std::rc::Rc<Test_TestBeRef>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestBeRef) -> &Vec<std::rc::Rc<TestTestBeRef>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestBeRef, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestBeRef>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestBeRef, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestBeRef>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestBeRef {
+pub struct TestTestBeRef {
 pub id: i32,
 pub count: i32,
 }
 
-impl Test_TestBeRef {
+impl TestTestBeRef {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestBeRef, LoadError> {
-        let __b = Test_TestBeRef {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestBeRef, LoadError> {
+        let __b = TestTestBeRef {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             count: match __js["count"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -5388,23 +5583,23 @@ impl Test_TestBeRef {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestRef {
-    data_list: Vec<std::rc::Rc<Test_TestRef>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestRef>>,
+pub struct TestTbTestRef {
+    data_list: Vec<std::rc::Rc<TestTestRef>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestRef>>,
 }
 
-impl Test_TbTestRef{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestRef, LoadError> {
+impl TestTbTestRef{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestRef, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestRef {
+        let mut t = TestTbTestRef {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestRef::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestRef::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5415,17 +5610,18 @@ impl Test_TbTestRef{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestRef) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestRef>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestRef) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestRef>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestRef) -> &Vec<std::rc::Rc<Test_TestRef>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestRef) -> &Vec<std::rc::Rc<TestTestRef>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestRef, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestRef>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestRef, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestRef>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestRef {
+pub struct TestTestRef {
 pub id: i32,
 pub x1: i32,
 pub x1_2: i32,
@@ -5438,12 +5634,18 @@ pub c1: std::collections::HashSet<i32>,
 pub c2: std::collections::HashSet<i32>,
 pub d1: std::collections::HashMap<i32, i32>,
 pub d2: std::collections::HashMap<i32, i32>,
+pub e1: i32,
+pub e2: i64,
+pub e3: String,
+pub f1: i32,
+pub f2: i64,
+pub f3: String,
 }
 
-impl Test_TestRef {
+impl TestTestRef {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestRef, LoadError> {
-        let __b = Test_TestRef {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestRef, LoadError> {
+        let __b = TestTestRef {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1_2: match __js["x1_2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -5456,6 +5658,12 @@ impl Test_TestRef {
             c2: { if !__js["c2"].is_array() { return Err(LoadError{}); } let mut __set__ = std::collections::HashSet::new(); for __e in __js["c2"].members() { __set__.insert(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __set__},
             d1: { if !__js["d1"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["d1"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
             d2: { if !__js["d2"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["d2"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
+            e1: match __js["e1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            e2: match __js["e2"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            e3: match __js["e3"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
+            f1: match __js["f1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            f2: match __js["f2"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            f3: match __js["f3"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
         Ok(__b)
     }
@@ -5463,23 +5671,23 @@ impl Test_TestRef {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestSize {
-    data_list: Vec<std::rc::Rc<Test_TestSize>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestSize>>,
+pub struct TestTbTestSize {
+    data_list: Vec<std::rc::Rc<TestTestSize>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestSize>>,
 }
 
-impl Test_TbTestSize{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestSize, LoadError> {
+impl TestTbTestSize{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestSize, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestSize {
+        let mut t = TestTbTestSize {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestSize::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestSize::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5490,17 +5698,18 @@ impl Test_TbTestSize{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestSize) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestSize>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestSize) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestSize>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestSize) -> &Vec<std::rc::Rc<Test_TestSize>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestSize) -> &Vec<std::rc::Rc<TestTestSize>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestSize, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestSize>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestSize, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestSize>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestSize {
+pub struct TestTestSize {
 pub id: i32,
 pub x1: Vec<i32>,
 pub x2: Vec<i32>,
@@ -5508,10 +5717,10 @@ pub x3: std::collections::HashSet<i32>,
 pub x4: std::collections::HashMap<i32, i32>,
 }
 
-impl Test_TestSize {
+impl TestTestSize {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestSize, LoadError> {
-        let __b = Test_TestSize {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestSize, LoadError> {
+        let __b = TestTestSize {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: { if !__js["x1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
@@ -5524,23 +5733,23 @@ impl Test_TestSize {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestSet {
-    data_list: Vec<std::rc::Rc<Test_TestSet>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestSet>>,
+pub struct TestTbTestSet {
+    data_list: Vec<std::rc::Rc<TestTestSet>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestSet>>,
 }
 
-impl Test_TbTestSet{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestSet, LoadError> {
+impl TestTbTestSet{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestSet, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestSet {
+        let mut t = TestTbTestSet {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestSet::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestSet::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5551,17 +5760,18 @@ impl Test_TbTestSet{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestSet) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestSet>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestSet) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestSet>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestSet) -> &Vec<std::rc::Rc<Test_TestSet>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestSet) -> &Vec<std::rc::Rc<TestTestSet>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestSet, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestSet>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestSet, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestSet>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestSet {
+pub struct TestTestSet {
 pub id: i32,
 pub x1: Vec<i32>,
 pub x2: Vec<i64>,
@@ -5569,10 +5779,10 @@ pub x3: Vec<String>,
 pub x4: Vec<i32>,
 }
 
-impl Test_TestSet {
+impl TestTestSet {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestSet, LoadError> {
-        let __b = Test_TestSet {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestSet, LoadError> {
+        let __b = TestTestSet {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: { if !__js["x1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(match __e.as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
@@ -5585,23 +5795,23 @@ impl Test_TestSet {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDetectCsvEncoding {
-    data_list: Vec<std::rc::Rc<Test_DetectEncoding>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DetectEncoding>>,
+pub struct TestTbDetectCsvEncoding {
+    data_list: Vec<std::rc::Rc<TestDetectEncoding>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDetectEncoding>>,
 }
 
-impl Test_TbDetectCsvEncoding{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDetectCsvEncoding, LoadError> {
+impl TestTbDetectCsvEncoding{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDetectCsvEncoding, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDetectCsvEncoding {
+        let mut t = TestTbDetectCsvEncoding {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DetectEncoding::new(__e) {
+            let __v = std::rc::Rc::new(match TestDetectEncoding::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5612,25 +5822,26 @@ impl Test_TbDetectCsvEncoding{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDetectCsvEncoding) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DetectEncoding>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDetectCsvEncoding) -> &std::collections::HashMap<i32, std::rc::Rc<TestDetectEncoding>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDetectCsvEncoding) -> &Vec<std::rc::Rc<Test_DetectEncoding>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDetectCsvEncoding) -> &Vec<std::rc::Rc<TestDetectEncoding>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDetectCsvEncoding, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DetectEncoding>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDetectCsvEncoding, key: &i32) -> std::option::Option<&std::rc::Rc<TestDetectEncoding>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DetectEncoding {
+pub struct TestDetectEncoding {
 pub id: i32,
 pub name: String,
 }
 
-impl Test_DetectEncoding {
+impl TestDetectEncoding {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DetectEncoding, LoadError> {
-        let __b = Test_DetectEncoding {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDetectEncoding, LoadError> {
+        let __b = TestDetectEncoding {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -5640,23 +5851,23 @@ impl Test_DetectEncoding {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDefineFromExcel {
-    data_list: Vec<std::rc::Rc<Test_DefineFromExcel>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DefineFromExcel>>,
+pub struct TestTbDefineFromExcel {
+    data_list: Vec<std::rc::Rc<TestDefineFromExcel>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDefineFromExcel>>,
 }
 
-impl Test_TbDefineFromExcel{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDefineFromExcel, LoadError> {
+impl TestTbDefineFromExcel{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDefineFromExcel, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDefineFromExcel {
+        let mut t = TestTbDefineFromExcel {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DefineFromExcel::new(__e) {
+            let __v = std::rc::Rc::new(match TestDefineFromExcel::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5667,17 +5878,18 @@ impl Test_TbDefineFromExcel{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDefineFromExcel) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DefineFromExcel>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDefineFromExcel) -> &std::collections::HashMap<i32, std::rc::Rc<TestDefineFromExcel>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDefineFromExcel) -> &Vec<std::rc::Rc<Test_DefineFromExcel>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDefineFromExcel) -> &Vec<std::rc::Rc<TestDefineFromExcel>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<TestDefineFromExcel>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DefineFromExcel {
+pub struct TestDefineFromExcel {
 pub id: i32,
 pub x1: bool,
 pub x5: i64,
@@ -5685,18 +5897,18 @@ pub x6: f32,
 pub x8: i32,
 pub x10: String,
 pub x13: i32,
-pub x14: Test_DemoDynamic,
+pub x14: TestDemoDynamic,
 pub v2: Vector2,
 pub t1: i32,
 pub k1: Vec<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
-pub k9: Vec<Test_DemoE2>,
+pub k9: Vec<TestDemoE2>,
 }
 
-impl Test_DefineFromExcel {
+impl TestDefineFromExcel {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DefineFromExcel, LoadError> {
-        let __b = Test_DefineFromExcel {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDefineFromExcel, LoadError> {
+        let __b = TestDefineFromExcel {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x5: match __js["x5"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -5704,12 +5916,12 @@ impl Test_DefineFromExcel {
             x8: match __js["x8"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x10: match __js["x10"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x14: Test_DemoDynamic::new(&__js["x14"])?,
+            x14: TestDemoDynamic::new(&__js["x14"])?,
             v2: Vector2::new(&__js["v2"])?,
             t1: match __js["t1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             k1: { if !__js["k1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
-            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(Test_DemoE2::new(&__e)?); }   __list__},
+            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -5717,42 +5929,42 @@ impl Test_DefineFromExcel {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDefineFromExcelOne {
-    data: Test_DefineFromExcelOne,
+pub struct TestTbDefineFromExcelOne {
+    data: TestDefineFromExcelOne,
 }
 
-impl Test_TbDefineFromExcelOne{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDefineFromExcelOne, LoadError> {
+impl TestTbDefineFromExcelOne{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDefineFromExcelOne, LoadError> {
         if !__js.is_array() || __js.len() != 1 {
             return Err(LoadError{});
         }
-        let __v = match Test_DefineFromExcelOne::new(&__js[0]) {
+        let __v = match TestDefineFromExcelOne::new(&__js[0]) {
             Ok(x) => x,
             Err(err) => return Err(err),
         };
-        let t = Test_TbDefineFromExcelOne {
+        let t = TestTbDefineFromExcelOne {
             data: __v,
         };
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data(self:&Test_TbDefineFromExcelOne) -> &Test_DefineFromExcelOne { &self.data }
+    pub fn get_data(self:&TestTbDefineFromExcelOne) -> &TestDefineFromExcelOne { &self.data }
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DefineFromExcelOne {
+pub struct TestDefineFromExcelOne {
 pub unlock_equip: i32,
 pub unlock_hero: i32,
 pub default_avatar: String,
 pub default_item: String,
 }
 
-impl Test_DefineFromExcelOne {
+impl TestDefineFromExcelOne {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DefineFromExcelOne, LoadError> {
-        let __b = Test_DefineFromExcelOne {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDefineFromExcelOne, LoadError> {
+        let __b = TestDefineFromExcelOne {
             unlock_equip: match __js["unlock_equip"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             unlock_hero: match __js["unlock_hero"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             default_avatar: match __js["default_avatar"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
@@ -5764,23 +5976,23 @@ impl Test_DefineFromExcelOne {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestIndex {
-    data_list: Vec<std::rc::Rc<Test_TestIndex>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestIndex>>,
+pub struct TestTbTestIndex {
+    data_list: Vec<std::rc::Rc<TestTestIndex>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestIndex>>,
 }
 
-impl Test_TbTestIndex{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestIndex, LoadError> {
+impl TestTbTestIndex{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestIndex, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestIndex {
+        let mut t = TestTbTestIndex {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestIndex::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestIndex::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5791,27 +6003,28 @@ impl Test_TbTestIndex{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestIndex) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestIndex>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestIndex) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestIndex>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestIndex) -> &Vec<std::rc::Rc<Test_TestIndex>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestIndex) -> &Vec<std::rc::Rc<TestTestIndex>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestIndex, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestIndex>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestIndex, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestIndex>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestIndex {
+pub struct TestTestIndex {
 pub id: i32,
-pub eles: Vec<Test_DemoType1>,
+pub eles: Vec<TestDemoType1>,
 }
 
-impl Test_TestIndex {
+impl TestTestIndex {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestIndex, LoadError> {
-        let __b = Test_TestIndex {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestIndex, LoadError> {
+        let __b = TestTestIndex {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            eles: { if !__js["eles"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["eles"].members() { __list__.push(Test_DemoType1::new(&__e)?); }   __list__},
+            eles: { if !__js["eles"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["eles"].members() { __list__.push(TestDemoType1::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -5819,23 +6032,23 @@ impl Test_TestIndex {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestMap {
-    data_list: Vec<std::rc::Rc<Test_TestMap>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestMap>>,
+pub struct TestTbTestMap {
+    data_list: Vec<std::rc::Rc<TestTestMap>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestMap>>,
 }
 
-impl Test_TbTestMap{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestMap, LoadError> {
+impl TestTbTestMap{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestMap, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestMap {
+        let mut t = TestTbTestMap {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestMap::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestMap::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5846,17 +6059,18 @@ impl Test_TbTestMap{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestMap) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestMap>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestMap) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestMap>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestMap) -> &Vec<std::rc::Rc<Test_TestMap>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestMap) -> &Vec<std::rc::Rc<TestTestMap>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestMap, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestMap>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestMap, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestMap>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestMap {
+pub struct TestTestMap {
 pub id: i32,
 pub x1: std::collections::HashMap<i32, i32>,
 pub x2: std::collections::HashMap<i64, i32>,
@@ -5864,10 +6078,10 @@ pub x3: std::collections::HashMap<String, i32>,
 pub x4: std::collections::HashMap<i32, i32>,
 }
 
-impl Test_TestMap {
+impl TestTestMap {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestMap, LoadError> {
-        let __b = Test_TestMap {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestMap, LoadError> {
+        let __b = TestTestMap {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: { if !__js["x1"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["x1"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
             x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["x2"].members() { __map__.insert(match __e[0].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
@@ -5880,23 +6094,23 @@ impl Test_TestMap {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbExcelFromJson {
-    data_list: Vec<std::rc::Rc<Test_ExcelFromJson>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_ExcelFromJson>>,
+pub struct TestTbExcelFromJson {
+    data_list: Vec<std::rc::Rc<TestExcelFromJson>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestExcelFromJson>>,
 }
 
-impl Test_TbExcelFromJson{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbExcelFromJson, LoadError> {
+impl TestTbExcelFromJson{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbExcelFromJson, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbExcelFromJson {
+        let mut t = TestTbExcelFromJson {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_ExcelFromJson::new(__e) {
+            let __v = std::rc::Rc::new(match TestExcelFromJson::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5907,17 +6121,18 @@ impl Test_TbExcelFromJson{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbExcelFromJson) -> &std::collections::HashMap<i32, std::rc::Rc<Test_ExcelFromJson>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbExcelFromJson) -> &std::collections::HashMap<i32, std::rc::Rc<TestExcelFromJson>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbExcelFromJson) -> &Vec<std::rc::Rc<Test_ExcelFromJson>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbExcelFromJson) -> &Vec<std::rc::Rc<TestExcelFromJson>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbExcelFromJson, key: &i32) -> std::option::Option<&std::rc::Rc<Test_ExcelFromJson>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbExcelFromJson, key: &i32) -> std::option::Option<&std::rc::Rc<TestExcelFromJson>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_ExcelFromJson {
+pub struct TestExcelFromJson {
 pub x4: i32,
 pub x1: bool,
 pub x5: i64,
@@ -5928,19 +6143,19 @@ pub v2: Vector2,
 pub v3: Vector3,
 pub v4: Vector4,
 pub t1: i32,
-pub x12: Test_DemoType1,
+pub x12: TestDemoType1,
 pub x13: i32,
-pub x14: Test_DemoDynamic,
+pub x14: TestDemoDynamic,
 pub k1: Vec<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
-pub k9: Vec<Test_DemoE2>,
-pub k15: Vec<Test_DemoDynamic>,
+pub k9: Vec<TestDemoE2>,
+pub k15: Vec<TestDemoDynamic>,
 }
 
-impl Test_ExcelFromJson {
+impl TestExcelFromJson {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_ExcelFromJson, LoadError> {
-        let __b = Test_ExcelFromJson {
+    pub fn new(__js: &json::JsonValue) -> Result<TestExcelFromJson, LoadError> {
+        let __b = TestExcelFromJson {
             x4: match __js["x4"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x5: match __js["x5"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -5951,13 +6166,13 @@ impl Test_ExcelFromJson {
             v3: Vector3::new(&__js["v3"])?,
             v4: Vector4::new(&__js["v4"])?,
             t1: match __js["t1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x12: Test_DemoType1::new(&__js["x12"])?,
+            x12: TestDemoType1::new(&__js["x12"])?,
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x14: Test_DemoDynamic::new(&__js["x14"])?,
+            x14: TestDemoDynamic::new(&__js["x14"])?,
             k1: { if !__js["k1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
-            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(Test_DemoE2::new(&__e)?); }   __list__},
-            k15: { if !__js["k15"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k15"].members() { __list__.push(Test_DemoDynamic::new(&__e)?); }   __list__},
+            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
+            k15: { if !__js["k15"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k15"].members() { __list__.push(TestDemoDynamic::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -5965,23 +6180,23 @@ impl Test_ExcelFromJson {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbCompositeJsonTable1 {
-    data_list: Vec<std::rc::Rc<Test_CompositeJsonTable1>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable1>>,
+pub struct TestTbCompositeJsonTable1 {
+    data_list: Vec<std::rc::Rc<TestCompositeJsonTable1>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestCompositeJsonTable1>>,
 }
 
-impl Test_TbCompositeJsonTable1{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable1, LoadError> {
+impl TestTbCompositeJsonTable1{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbCompositeJsonTable1, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbCompositeJsonTable1 {
+        let mut t = TestTbCompositeJsonTable1 {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_CompositeJsonTable1::new(__e) {
+            let __v = std::rc::Rc::new(match TestCompositeJsonTable1::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -5992,25 +6207,26 @@ impl Test_TbCompositeJsonTable1{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbCompositeJsonTable1) -> &std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable1>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbCompositeJsonTable1) -> &std::collections::HashMap<i32, std::rc::Rc<TestCompositeJsonTable1>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbCompositeJsonTable1) -> &Vec<std::rc::Rc<Test_CompositeJsonTable1>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbCompositeJsonTable1) -> &Vec<std::rc::Rc<TestCompositeJsonTable1>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbCompositeJsonTable1, key: &i32) -> std::option::Option<&std::rc::Rc<Test_CompositeJsonTable1>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbCompositeJsonTable1, key: &i32) -> std::option::Option<&std::rc::Rc<TestCompositeJsonTable1>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_CompositeJsonTable1 {
+pub struct TestCompositeJsonTable1 {
 pub id: i32,
 pub x: String,
 }
 
-impl Test_CompositeJsonTable1 {
+impl TestCompositeJsonTable1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable1, LoadError> {
-        let __b = Test_CompositeJsonTable1 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestCompositeJsonTable1, LoadError> {
+        let __b = TestCompositeJsonTable1 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x: match __js["x"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
         };
@@ -6020,23 +6236,23 @@ impl Test_CompositeJsonTable1 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbCompositeJsonTable2 {
-    data_list: Vec<std::rc::Rc<Test_CompositeJsonTable2>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable2>>,
+pub struct TestTbCompositeJsonTable2 {
+    data_list: Vec<std::rc::Rc<TestCompositeJsonTable2>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestCompositeJsonTable2>>,
 }
 
-impl Test_TbCompositeJsonTable2{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable2, LoadError> {
+impl TestTbCompositeJsonTable2{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbCompositeJsonTable2, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbCompositeJsonTable2 {
+        let mut t = TestTbCompositeJsonTable2 {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_CompositeJsonTable2::new(__e) {
+            let __v = std::rc::Rc::new(match TestCompositeJsonTable2::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6047,25 +6263,26 @@ impl Test_TbCompositeJsonTable2{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbCompositeJsonTable2) -> &std::collections::HashMap<i32, std::rc::Rc<Test_CompositeJsonTable2>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbCompositeJsonTable2) -> &std::collections::HashMap<i32, std::rc::Rc<TestCompositeJsonTable2>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbCompositeJsonTable2) -> &Vec<std::rc::Rc<Test_CompositeJsonTable2>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbCompositeJsonTable2) -> &Vec<std::rc::Rc<TestCompositeJsonTable2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbCompositeJsonTable2, key: &i32) -> std::option::Option<&std::rc::Rc<Test_CompositeJsonTable2>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbCompositeJsonTable2, key: &i32) -> std::option::Option<&std::rc::Rc<TestCompositeJsonTable2>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_CompositeJsonTable2 {
+pub struct TestCompositeJsonTable2 {
 pub id: i32,
 pub y: i32,
 }
 
-impl Test_CompositeJsonTable2 {
+impl TestCompositeJsonTable2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable2, LoadError> {
-        let __b = Test_CompositeJsonTable2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestCompositeJsonTable2, LoadError> {
+        let __b = TestCompositeJsonTable2 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y: match __js["y"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -6075,40 +6292,40 @@ impl Test_CompositeJsonTable2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbCompositeJsonTable3 {
-    data: Test_CompositeJsonTable3,
+pub struct TestTbCompositeJsonTable3 {
+    data: TestCompositeJsonTable3,
 }
 
-impl Test_TbCompositeJsonTable3{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbCompositeJsonTable3, LoadError> {
+impl TestTbCompositeJsonTable3{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbCompositeJsonTable3, LoadError> {
         if !__js.is_array() || __js.len() != 1 {
             return Err(LoadError{});
         }
-        let __v = match Test_CompositeJsonTable3::new(&__js[0]) {
+        let __v = match TestCompositeJsonTable3::new(&__js[0]) {
             Ok(x) => x,
             Err(err) => return Err(err),
         };
-        let t = Test_TbCompositeJsonTable3 {
+        let t = TestTbCompositeJsonTable3 {
             data: __v,
         };
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data(self:&Test_TbCompositeJsonTable3) -> &Test_CompositeJsonTable3 { &self.data }
+    pub fn get_data(self:&TestTbCompositeJsonTable3) -> &TestCompositeJsonTable3 { &self.data }
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_CompositeJsonTable3 {
+pub struct TestCompositeJsonTable3 {
 pub a: i32,
 pub b: i32,
 }
 
-impl Test_CompositeJsonTable3 {
+impl TestCompositeJsonTable3 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_CompositeJsonTable3, LoadError> {
-        let __b = Test_CompositeJsonTable3 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestCompositeJsonTable3, LoadError> {
+        let __b = TestCompositeJsonTable3 {
             a: match __js["a"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             b: match __js["b"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -6118,23 +6335,23 @@ impl Test_CompositeJsonTable3 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbExcelFromJsonMultiRow {
-    data_list: Vec<std::rc::Rc<Test_ExcelFromJsonMultiRow>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_ExcelFromJsonMultiRow>>,
+pub struct TestTbExcelFromJsonMultiRow {
+    data_list: Vec<std::rc::Rc<TestExcelFromJsonMultiRow>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestExcelFromJsonMultiRow>>,
 }
 
-impl Test_TbExcelFromJsonMultiRow{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbExcelFromJsonMultiRow, LoadError> {
+impl TestTbExcelFromJsonMultiRow{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbExcelFromJsonMultiRow, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbExcelFromJsonMultiRow {
+        let mut t = TestTbExcelFromJsonMultiRow {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_ExcelFromJsonMultiRow::new(__e) {
+            let __v = std::rc::Rc::new(match TestExcelFromJsonMultiRow::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6145,29 +6362,30 @@ impl Test_TbExcelFromJsonMultiRow{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbExcelFromJsonMultiRow) -> &std::collections::HashMap<i32, std::rc::Rc<Test_ExcelFromJsonMultiRow>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbExcelFromJsonMultiRow) -> &std::collections::HashMap<i32, std::rc::Rc<TestExcelFromJsonMultiRow>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbExcelFromJsonMultiRow) -> &Vec<std::rc::Rc<Test_ExcelFromJsonMultiRow>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbExcelFromJsonMultiRow) -> &Vec<std::rc::Rc<TestExcelFromJsonMultiRow>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbExcelFromJsonMultiRow, key: &i32) -> std::option::Option<&std::rc::Rc<Test_ExcelFromJsonMultiRow>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbExcelFromJsonMultiRow, key: &i32) -> std::option::Option<&std::rc::Rc<TestExcelFromJsonMultiRow>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_ExcelFromJsonMultiRow {
+pub struct TestExcelFromJsonMultiRow {
 pub id: i32,
 pub x: i32,
-pub items: Vec<Test_TestRow>,
+pub items: Vec<TestTestRow>,
 }
 
-impl Test_ExcelFromJsonMultiRow {
+impl TestExcelFromJsonMultiRow {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_ExcelFromJsonMultiRow, LoadError> {
-        let __b = Test_ExcelFromJsonMultiRow {
+    pub fn new(__js: &json::JsonValue) -> Result<TestExcelFromJsonMultiRow, LoadError> {
+        let __b = TestExcelFromJsonMultiRow {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            items: { if !__js["items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["items"].members() { __list__.push(Test_TestRow::new(&__e)?); }   __list__},
+            items: { if !__js["items"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["items"].members() { __list__.push(TestTestRow::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -6177,22 +6395,22 @@ impl Test_ExcelFromJsonMultiRow {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestRow {
+pub struct TestTestRow {
 pub x: i32,
 pub y: bool,
 pub z: String,
-pub a: Test_Test3,
+pub a: TestTest3,
 pub b: Vec<i32>,
 }
 
-impl Test_TestRow {
+impl TestTestRow {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestRow, LoadError> {
-        let __b = Test_TestRow {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestRow, LoadError> {
+        let __b = TestTestRow {
             x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y: match __js["y"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             z: match __js["z"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
-            a: Test_Test3::new(&__js["a"])?,
+            a: TestTest3::new(&__js["a"])?,
             b: { if !__js["b"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["b"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
         };
         Ok(__b)
@@ -6203,15 +6421,15 @@ impl Test_TestRow {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_Test3 {
+pub struct TestTest3 {
 pub x: i32,
 pub y: i32,
 }
 
-impl Test_Test3 {
+impl TestTest3 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_Test3, LoadError> {
-        let __b = Test_Test3 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTest3, LoadError> {
+        let __b = TestTest3 {
             x: match __js["x"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             y: match __js["y"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
@@ -6221,23 +6439,23 @@ impl Test_Test3 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDemoGroupDefineFromExcel {
-    data_list: Vec<std::rc::Rc<Test_DemoGroup>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>>,
+pub struct TestTbDemoGroupDefineFromExcel {
+    data_list: Vec<std::rc::Rc<TestDemoGroup>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>>,
 }
 
-impl Test_TbDemoGroupDefineFromExcel{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDemoGroupDefineFromExcel, LoadError> {
+impl TestTbDemoGroupDefineFromExcel{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDemoGroupDefineFromExcel, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDemoGroupDefineFromExcel {
+        let mut t = TestTbDemoGroupDefineFromExcel {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DemoGroup::new(__e) {
+            let __v = std::rc::Rc::new(match TestDemoGroup::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6248,31 +6466,32 @@ impl Test_TbDemoGroupDefineFromExcel{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDemoGroupDefineFromExcel) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DemoGroup>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDemoGroupDefineFromExcel) -> &std::collections::HashMap<i32, std::rc::Rc<TestDemoGroup>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDemoGroupDefineFromExcel) -> &Vec<std::rc::Rc<Test_DemoGroup>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDemoGroupDefineFromExcel) -> &Vec<std::rc::Rc<TestDemoGroup>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDemoGroupDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DemoGroup>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDemoGroupDefineFromExcel, key: &i32) -> std::option::Option<&std::rc::Rc<TestDemoGroup>> { self.data_map.get(key) }
+    
 }
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbDefineFromExcel2 {
-    data_list: Vec<std::rc::Rc<Test_DefineFromExcel2>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_DefineFromExcel2>>,
+pub struct TestTbDefineFromExcel2 {
+    data_list: Vec<std::rc::Rc<TestDefineFromExcel2>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestDefineFromExcel2>>,
 }
 
-impl Test_TbDefineFromExcel2{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbDefineFromExcel2, LoadError> {
+impl TestTbDefineFromExcel2{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbDefineFromExcel2, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbDefineFromExcel2 {
+        let mut t = TestTbDefineFromExcel2 {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_DefineFromExcel2::new(__e) {
+            let __v = std::rc::Rc::new(match TestDefineFromExcel2::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6283,17 +6502,18 @@ impl Test_TbDefineFromExcel2{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbDefineFromExcel2) -> &std::collections::HashMap<i32, std::rc::Rc<Test_DefineFromExcel2>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbDefineFromExcel2) -> &std::collections::HashMap<i32, std::rc::Rc<TestDefineFromExcel2>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbDefineFromExcel2) -> &Vec<std::rc::Rc<Test_DefineFromExcel2>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbDefineFromExcel2) -> &Vec<std::rc::Rc<TestDefineFromExcel2>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbDefineFromExcel2, key: &i32) -> std::option::Option<&std::rc::Rc<Test_DefineFromExcel2>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbDefineFromExcel2, key: &i32) -> std::option::Option<&std::rc::Rc<TestDefineFromExcel2>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_DefineFromExcel2 {
+pub struct TestDefineFromExcel2 {
 pub id: i32,
 pub x1: bool,
 pub x5: i64,
@@ -6301,18 +6521,18 @@ pub x6: f32,
 pub x8: i32,
 pub x10: String,
 pub x13: i32,
-pub x14: Test_DemoDynamic,
+pub x14: TestDemoDynamic,
 pub v2: Vector2,
 pub t1: i32,
 pub k1: Vec<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
-pub k9: Vec<Test_DemoE2>,
+pub k9: Vec<TestDemoE2>,
 }
 
-impl Test_DefineFromExcel2 {
+impl TestDefineFromExcel2 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_DefineFromExcel2, LoadError> {
-        let __b = Test_DefineFromExcel2 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestDefineFromExcel2, LoadError> {
+        let __b = TestDefineFromExcel2 {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x1: match __js["x1"].as_bool() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x5: match __js["x5"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -6320,12 +6540,12 @@ impl Test_DefineFromExcel2 {
             x8: match __js["x8"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x10: match __js["x10"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x14: Test_DemoDynamic::new(&__js["x14"])?,
+            x14: TestDemoDynamic::new(&__js["x14"])?,
             v2: Vector2::new(&__js["v2"])?,
             t1: match __js["t1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             k1: { if !__js["k1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
-            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(Test_DemoE2::new(&__e)?); }   __list__},
+            k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -6333,23 +6553,23 @@ impl Test_DefineFromExcel2 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestExcelBean {
-    data_list: Vec<std::rc::Rc<Test_TestExcelBean1>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestExcelBean1>>,
+pub struct TestTbTestExcelBean {
+    data_list: Vec<std::rc::Rc<TestTestExcelBean1>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestExcelBean1>>,
 }
 
-impl Test_TbTestExcelBean{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestExcelBean, LoadError> {
+impl TestTbTestExcelBean{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestExcelBean, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestExcelBean {
+        let mut t = TestTbTestExcelBean {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestExcelBean1::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestExcelBean1::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6360,11 +6580,12 @@ impl Test_TbTestExcelBean{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestExcelBean) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestExcelBean1>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestExcelBean) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestExcelBean1>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestExcelBean) -> &Vec<std::rc::Rc<Test_TestExcelBean1>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestExcelBean) -> &Vec<std::rc::Rc<TestTestExcelBean1>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestExcelBean, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestExcelBean1>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestExcelBean, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestExcelBean1>> { self.data_map.get(key) }
+    
 }
 
 
@@ -6373,17 +6594,17 @@ impl Test_TbTestExcelBean{
  * 这是个测试excel结构
  */
 #[allow(non_camel_case_types)]
-pub struct Test_TestExcelBean1 {
+pub struct TestTestExcelBean1 {
 pub x1: i32,
 pub x2: String,
 pub x3: i32,
 pub x4: f32,
 }
 
-impl Test_TestExcelBean1 {
+impl TestTestExcelBean1 {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestExcelBean1, LoadError> {
-        let __b = Test_TestExcelBean1 {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestExcelBean1, LoadError> {
+        let __b = TestTestExcelBean1 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x2: match __js["x2"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x3: match __js["x3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
@@ -6395,23 +6616,23 @@ impl Test_TestExcelBean1 {
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TbTestDesc {
-    data_list: Vec<std::rc::Rc<Test_TestDesc>>,
-    data_map: std::collections::HashMap<i32, std::rc::Rc<Test_TestDesc>>,
+pub struct TestTbTestDesc {
+    data_list: Vec<std::rc::Rc<TestTestDesc>>,
+    data_map: std::collections::HashMap<i32, std::rc::Rc<TestTestDesc>>,
 }
 
-impl Test_TbTestDesc{
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TbTestDesc, LoadError> {
+impl TestTbTestDesc{
+    pub fn new(__js: &json::JsonValue) -> Result<TestTbTestDesc, LoadError> {
         if !__js.is_array() {
             return Err(LoadError{});
         }
-        let mut t = Test_TbTestDesc {
+        let mut t = TestTbTestDesc {
             data_list : Vec::new(),
             data_map: std::collections::HashMap::new(),
         };
         
         for __e in __js.members() {
-            let __v = std::rc::Rc::new(match Test_TestDesc::new(__e) {
+            let __v = std::rc::Rc::new(match TestTestDesc::new(__e) {
                 Ok(x) => x,
                 Err(err) => return Err(err),
             });
@@ -6422,37 +6643,38 @@ impl Test_TbTestDesc{
         Ok(t)
     }
     #[allow(dead_code)]
-    pub fn get_data_map(self:&Test_TbTestDesc) -> &std::collections::HashMap<i32, std::rc::Rc<Test_TestDesc>> { &self.data_map }
+    pub fn get_data_map(self:&TestTbTestDesc) -> &std::collections::HashMap<i32, std::rc::Rc<TestTestDesc>> { &self.data_map }
     #[allow(dead_code)]
-    pub fn get_data_list(self:&Test_TbTestDesc) -> &Vec<std::rc::Rc<Test_TestDesc>> { &self.data_list }
+    pub fn get_data_list(self:&TestTbTestDesc) -> &Vec<std::rc::Rc<TestTestDesc>> { &self.data_list }
     #[allow(dead_code)]
-    pub fn get(self:&Test_TbTestDesc, key: &i32) -> std::option::Option<&std::rc::Rc<Test_TestDesc>> { self.data_map.get(key) }
+    pub fn get(self:&TestTbTestDesc, key: &i32) -> std::option::Option<&std::rc::Rc<TestTestDesc>> { self.data_map.get(key) }
+    
 }
 
 
 
 #[allow(non_camel_case_types)]
-pub struct Test_TestDesc {
+pub struct TestTestDesc {
 pub id: i32,
 pub name: String,
 pub a1: i32,
 pub a2: i32,
-pub x1: Test_H1,
-pub x2: Vec<Test_H2>,
-pub x3: Vec<Test_H2>,
+pub x1: TestH1,
+pub x2: Vec<TestH2>,
+pub x3: Vec<TestH2>,
 }
 
-impl Test_TestDesc {
+impl TestTestDesc {
     #[allow(dead_code)]
-    pub fn new(__js: &json::JsonValue) -> Result<Test_TestDesc, LoadError> {
-        let __b = Test_TestDesc {
+    pub fn new(__js: &json::JsonValue) -> Result<TestTestDesc, LoadError> {
+        let __b = TestTestDesc {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             name: match __js["name"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             a1: match __js["a1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             a2: match __js["a2"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
-            x1: Test_H1::new(&__js["x1"])?,
-            x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
-            x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(Test_H2::new(&__e)?); }   __list__},
+            x1: TestH1::new(&__js["x1"])?,
+            x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(TestH2::new(&__e)?); }   __list__},
+            x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(TestH2::new(&__e)?); }   __list__},
         };
         Ok(__b)
     }
@@ -6465,158 +6687,167 @@ type JsonLoader = fn(&str) -> Result<json::JsonValue, LoadError>;
 #[allow(non_camel_case_types)]
 pub struct Tables {
 
-    pub tbblackboard: Ai_TbBlackboard,
+    pub tbblackboard: AiTbBlackboard,
 
-    pub tbbehaviortree: Ai_TbBehaviorTree,
+    pub tbbehaviortree: AiTbBehaviorTree,
 
-    pub tbclazz: Blueprint_TbClazz,
+    pub tbclazz: BlueprintTbClazz,
 
-    pub tbdrop: Bonus_TbDrop,
+    pub tbdrop: BonusTbDrop,
 
-    pub tbglobalconfig: Common_TbGlobalConfig,
+    pub tbglobalconfig: CommonTbGlobalConfig,
 
-    pub tberrorinfo: Error_TbErrorInfo,
+    pub tberrorinfo: ErrorTbErrorInfo,
 
-    pub tbcodeinfo: Error_TbCodeInfo,
+    pub tbcodeinfo: ErrorTbCodeInfo,
 
     /**
      * 道具表
      */
-    pub tbitem: Item_TbItem,
+    pub tbitem: ItemTbItem,
 
-    pub tbitemfunc: Item_TbItemFunc,
+    pub tbitemfunc: ItemTbItemFunc,
 
-    pub tbitemextra: Item_TbItemExtra,
+    pub tbitemextra: ItemTbItemExtra,
 
-    pub tbl10ndemo: L10n_TbL10NDemo,
+    pub tbl10ndemo: L10nTbL10NDemo,
 
-    pub tbpatchdemo: L10n_TbPatchDemo,
+    pub tbpatchdemo: L10nTbPatchDemo,
 
-    pub tbsystemmail: Mail_TbSystemMail,
+    pub tbsystemmail: MailTbSystemMail,
 
-    pub tbglobalmail: Mail_TbGlobalMail,
+    pub tbglobalmail: MailTbGlobalMail,
 
-    pub tbrolelevelexpattr: Role_TbRoleLevelExpAttr,
+    pub tbrolelevelexpattr: RoleTbRoleLevelExpAttr,
 
-    pub tbrolelevelbonuscoefficient: Role_TbRoleLevelBonusCoefficient,
+    pub tbrolelevelbonuscoefficient: RoleTbRoleLevelBonusCoefficient,
 
-    pub tbtesttag: Tag_TbTestTag,
+    pub tbtesttag: TagTbTestTag,
 
-    pub tbfulltypes: Test_TbFullTypes,
+    pub tbfulltypes: TestTbFullTypes,
 
-    pub tbsingleton: Test_TbSingleton,
+    pub tbsingleton: TestTbSingleton,
 
-    pub tbdatafrommisc: Test_TbDataFromMisc,
+    pub tbnotindexlist: TestTbNotIndexList,
 
-    pub tbmultirowrecord: Test_TbMultiRowRecord,
+    pub tbmultiunionindexlist: TestTbMultiUnionIndexList,
 
-    pub tbmultirowtitle: Test_TbMultiRowTitle,
+    pub tbmultiindexlist: TestTbMultiIndexList,
 
-    pub tbtestnull: Test_TbTestNull,
+    pub tbdatafrommisc: TestTbDataFromMisc,
 
-    pub tbdemoprimitive: Test_TbDemoPrimitive,
+    pub tbmultirowrecord: TestTbMultiRowRecord,
 
-    pub tbteststring: Test_TbTestString,
+    pub tbmultirowtitle: TestTbMultiRowTitle,
 
-    pub tbdemogroup: Test_TbDemoGroup,
+    pub tbtestnull: TestTbTestNull,
 
-    pub tbdemogroup_c: Test_TbDemoGroup_C,
+    pub tbdemoprimitive: TestTbDemoPrimitive,
 
-    pub tbdemogroup_s: Test_TbDemoGroup_S,
+    pub tbteststring: TestTbTestString,
 
-    pub tbdemogroup_e: Test_TbDemoGroup_E,
+    pub tbdemogroup: TestTbDemoGroup,
 
-    pub tbtestglobal: Test_TbTestGlobal,
+    pub tbdemogroup_c: TestTbDemoGroup_C,
 
-    pub tbtestberef: Test_TbTestBeRef,
+    pub tbdemogroup_s: TestTbDemoGroup_S,
 
-    pub tbtestref: Test_TbTestRef,
+    pub tbdemogroup_e: TestTbDemoGroup_E,
 
-    pub tbtestsize: Test_TbTestSize,
+    pub tbtestglobal: TestTbTestGlobal,
 
-    pub tbtestset: Test_TbTestSet,
+    pub tbtestberef: TestTbTestBeRef,
 
-    pub tbdetectcsvencoding: Test_TbDetectCsvEncoding,
+    pub tbtestref: TestTbTestRef,
 
-    pub tbdefinefromexcel: Test_TbDefineFromExcel,
+    pub tbtestsize: TestTbTestSize,
 
-    pub tbdefinefromexcelone: Test_TbDefineFromExcelOne,
+    pub tbtestset: TestTbTestSet,
 
-    pub tbtestindex: Test_TbTestIndex,
+    pub tbdetectcsvencoding: TestTbDetectCsvEncoding,
 
-    pub tbtestmap: Test_TbTestMap,
+    pub tbdefinefromexcel: TestTbDefineFromExcel,
 
-    pub tbexcelfromjson: Test_TbExcelFromJson,
+    pub tbdefinefromexcelone: TestTbDefineFromExcelOne,
 
-    pub tbcompositejsontable1: Test_TbCompositeJsonTable1,
+    pub tbtestindex: TestTbTestIndex,
 
-    pub tbcompositejsontable2: Test_TbCompositeJsonTable2,
+    pub tbtestmap: TestTbTestMap,
 
-    pub tbcompositejsontable3: Test_TbCompositeJsonTable3,
+    pub tbexcelfromjson: TestTbExcelFromJson,
 
-    pub tbexcelfromjsonmultirow: Test_TbExcelFromJsonMultiRow,
+    pub tbcompositejsontable1: TestTbCompositeJsonTable1,
 
-    pub tbdemogroupdefinefromexcel: Test_TbDemoGroupDefineFromExcel,
+    pub tbcompositejsontable2: TestTbCompositeJsonTable2,
 
-    pub tbdefinefromexcel2: Test_TbDefineFromExcel2,
+    pub tbcompositejsontable3: TestTbCompositeJsonTable3,
 
-    pub tbtestexcelbean: Test_TbTestExcelBean,
+    pub tbexcelfromjsonmultirow: TestTbExcelFromJsonMultiRow,
 
-    pub tbtestdesc: Test_TbTestDesc,
+    pub tbdemogroupdefinefromexcel: TestTbDemoGroupDefineFromExcel,
+
+    pub tbdefinefromexcel2: TestTbDefineFromExcel2,
+
+    pub tbtestexcelbean: TestTbTestExcelBean,
+
+    pub tbtestdesc: TestTbTestDesc,
 }
 
 impl Tables {
     #[allow(dead_code)]
     pub fn new(loader: JsonLoader) -> std::result::Result<Tables, LoadError> {
         let tables = Tables {
-            tbblackboard: Ai_TbBlackboard::new(&loader("ai_tbblackboard")?)?,
-            tbbehaviortree: Ai_TbBehaviorTree::new(&loader("ai_tbbehaviortree")?)?,
-            tbclazz: Blueprint_TbClazz::new(&loader("blueprint_tbclazz")?)?,
-            tbdrop: Bonus_TbDrop::new(&loader("bonus_tbdrop")?)?,
-            tbglobalconfig: Common_TbGlobalConfig::new(&loader("common_tbglobalconfig")?)?,
-            tberrorinfo: Error_TbErrorInfo::new(&loader("error_tberrorinfo")?)?,
-            tbcodeinfo: Error_TbCodeInfo::new(&loader("error_tbcodeinfo")?)?,
-            tbitem: Item_TbItem::new(&loader("item_tbitem")?)?,
-            tbitemfunc: Item_TbItemFunc::new(&loader("item_tbitemfunc")?)?,
-            tbitemextra: Item_TbItemExtra::new(&loader("item_tbitemextra")?)?,
-            tbl10ndemo: L10n_TbL10NDemo::new(&loader("l10n_tbl10ndemo")?)?,
-            tbpatchdemo: L10n_TbPatchDemo::new(&loader("l10n_tbpatchdemo")?)?,
-            tbsystemmail: Mail_TbSystemMail::new(&loader("mail_tbsystemmail")?)?,
-            tbglobalmail: Mail_TbGlobalMail::new(&loader("mail_tbglobalmail")?)?,
-            tbrolelevelexpattr: Role_TbRoleLevelExpAttr::new(&loader("role_tbrolelevelexpattr")?)?,
-            tbrolelevelbonuscoefficient: Role_TbRoleLevelBonusCoefficient::new(&loader("role_tbrolelevelbonuscoefficient")?)?,
-            tbtesttag: Tag_TbTestTag::new(&loader("tag_tbtesttag")?)?,
-            tbfulltypes: Test_TbFullTypes::new(&loader("test_tbfulltypes")?)?,
-            tbsingleton: Test_TbSingleton::new(&loader("test_tbsingleton")?)?,
-            tbdatafrommisc: Test_TbDataFromMisc::new(&loader("test_tbdatafrommisc")?)?,
-            tbmultirowrecord: Test_TbMultiRowRecord::new(&loader("test_tbmultirowrecord")?)?,
-            tbmultirowtitle: Test_TbMultiRowTitle::new(&loader("test_tbmultirowtitle")?)?,
-            tbtestnull: Test_TbTestNull::new(&loader("test_tbtestnull")?)?,
-            tbdemoprimitive: Test_TbDemoPrimitive::new(&loader("test_tbdemoprimitive")?)?,
-            tbteststring: Test_TbTestString::new(&loader("test_tbteststring")?)?,
-            tbdemogroup: Test_TbDemoGroup::new(&loader("test_tbdemogroup")?)?,
-            tbdemogroup_c: Test_TbDemoGroup_C::new(&loader("test_tbdemogroup_c")?)?,
-            tbdemogroup_s: Test_TbDemoGroup_S::new(&loader("test_tbdemogroup_s")?)?,
-            tbdemogroup_e: Test_TbDemoGroup_E::new(&loader("test_tbdemogroup_e")?)?,
-            tbtestglobal: Test_TbTestGlobal::new(&loader("test_tbtestglobal")?)?,
-            tbtestberef: Test_TbTestBeRef::new(&loader("test_tbtestberef")?)?,
-            tbtestref: Test_TbTestRef::new(&loader("test_tbtestref")?)?,
-            tbtestsize: Test_TbTestSize::new(&loader("test_tbtestsize")?)?,
-            tbtestset: Test_TbTestSet::new(&loader("test_tbtestset")?)?,
-            tbdetectcsvencoding: Test_TbDetectCsvEncoding::new(&loader("test_tbdetectcsvencoding")?)?,
-            tbdefinefromexcel: Test_TbDefineFromExcel::new(&loader("test_tbdefinefromexcel")?)?,
-            tbdefinefromexcelone: Test_TbDefineFromExcelOne::new(&loader("test_tbdefinefromexcelone")?)?,
-            tbtestindex: Test_TbTestIndex::new(&loader("test_tbtestindex")?)?,
-            tbtestmap: Test_TbTestMap::new(&loader("test_tbtestmap")?)?,
-            tbexcelfromjson: Test_TbExcelFromJson::new(&loader("test_tbexcelfromjson")?)?,
-            tbcompositejsontable1: Test_TbCompositeJsonTable1::new(&loader("test_tbcompositejsontable1")?)?,
-            tbcompositejsontable2: Test_TbCompositeJsonTable2::new(&loader("test_tbcompositejsontable2")?)?,
-            tbcompositejsontable3: Test_TbCompositeJsonTable3::new(&loader("test_tbcompositejsontable3")?)?,
-            tbexcelfromjsonmultirow: Test_TbExcelFromJsonMultiRow::new(&loader("test_tbexcelfromjsonmultirow")?)?,
-            tbdemogroupdefinefromexcel: Test_TbDemoGroupDefineFromExcel::new(&loader("test_tbdemogroupdefinefromexcel")?)?,
-            tbdefinefromexcel2: Test_TbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")?)?,
-            tbtestexcelbean: Test_TbTestExcelBean::new(&loader("test_tbtestexcelbean")?)?,
-            tbtestdesc: Test_TbTestDesc::new(&loader("test_tbtestdesc")?)?,
+            tbblackboard: AiTbBlackboard::new(&loader("ai_tbblackboard")?)?,
+            tbbehaviortree: AiTbBehaviorTree::new(&loader("ai_tbbehaviortree")?)?,
+            tbclazz: BlueprintTbClazz::new(&loader("blueprint_tbclazz")?)?,
+            tbdrop: BonusTbDrop::new(&loader("bonus_tbdrop")?)?,
+            tbglobalconfig: CommonTbGlobalConfig::new(&loader("common_tbglobalconfig")?)?,
+            tberrorinfo: ErrorTbErrorInfo::new(&loader("error_tberrorinfo")?)?,
+            tbcodeinfo: ErrorTbCodeInfo::new(&loader("error_tbcodeinfo")?)?,
+            tbitem: ItemTbItem::new(&loader("item_tbitem")?)?,
+            tbitemfunc: ItemTbItemFunc::new(&loader("item_tbitemfunc")?)?,
+            tbitemextra: ItemTbItemExtra::new(&loader("item_tbitemextra")?)?,
+            tbl10ndemo: L10nTbL10NDemo::new(&loader("l10n_tbl10ndemo")?)?,
+            tbpatchdemo: L10nTbPatchDemo::new(&loader("l10n_tbpatchdemo")?)?,
+            tbsystemmail: MailTbSystemMail::new(&loader("mail_tbsystemmail")?)?,
+            tbglobalmail: MailTbGlobalMail::new(&loader("mail_tbglobalmail")?)?,
+            tbrolelevelexpattr: RoleTbRoleLevelExpAttr::new(&loader("role_tbrolelevelexpattr")?)?,
+            tbrolelevelbonuscoefficient: RoleTbRoleLevelBonusCoefficient::new(&loader("role_tbrolelevelbonuscoefficient")?)?,
+            tbtesttag: TagTbTestTag::new(&loader("tag_tbtesttag")?)?,
+            tbfulltypes: TestTbFullTypes::new(&loader("test_tbfulltypes")?)?,
+            tbsingleton: TestTbSingleton::new(&loader("test_tbsingleton")?)?,
+            tbnotindexlist: TestTbNotIndexList::new(&loader("test_tbnotindexlist")?)?,
+            tbmultiunionindexlist: TestTbMultiUnionIndexList::new(&loader("test_tbmultiunionindexlist")?)?,
+            tbmultiindexlist: TestTbMultiIndexList::new(&loader("test_tbmultiindexlist")?)?,
+            tbdatafrommisc: TestTbDataFromMisc::new(&loader("test_tbdatafrommisc")?)?,
+            tbmultirowrecord: TestTbMultiRowRecord::new(&loader("test_tbmultirowrecord")?)?,
+            tbmultirowtitle: TestTbMultiRowTitle::new(&loader("test_tbmultirowtitle")?)?,
+            tbtestnull: TestTbTestNull::new(&loader("test_tbtestnull")?)?,
+            tbdemoprimitive: TestTbDemoPrimitive::new(&loader("test_tbdemoprimitive")?)?,
+            tbteststring: TestTbTestString::new(&loader("test_tbteststring")?)?,
+            tbdemogroup: TestTbDemoGroup::new(&loader("test_tbdemogroup")?)?,
+            tbdemogroup_c: TestTbDemoGroup_C::new(&loader("test_tbdemogroup_c")?)?,
+            tbdemogroup_s: TestTbDemoGroup_S::new(&loader("test_tbdemogroup_s")?)?,
+            tbdemogroup_e: TestTbDemoGroup_E::new(&loader("test_tbdemogroup_e")?)?,
+            tbtestglobal: TestTbTestGlobal::new(&loader("test_tbtestglobal")?)?,
+            tbtestberef: TestTbTestBeRef::new(&loader("test_tbtestberef")?)?,
+            tbtestref: TestTbTestRef::new(&loader("test_tbtestref")?)?,
+            tbtestsize: TestTbTestSize::new(&loader("test_tbtestsize")?)?,
+            tbtestset: TestTbTestSet::new(&loader("test_tbtestset")?)?,
+            tbdetectcsvencoding: TestTbDetectCsvEncoding::new(&loader("test_tbdetectcsvencoding")?)?,
+            tbdefinefromexcel: TestTbDefineFromExcel::new(&loader("test_tbdefinefromexcel")?)?,
+            tbdefinefromexcelone: TestTbDefineFromExcelOne::new(&loader("test_tbdefinefromexcelone")?)?,
+            tbtestindex: TestTbTestIndex::new(&loader("test_tbtestindex")?)?,
+            tbtestmap: TestTbTestMap::new(&loader("test_tbtestmap")?)?,
+            tbexcelfromjson: TestTbExcelFromJson::new(&loader("test_tbexcelfromjson")?)?,
+            tbcompositejsontable1: TestTbCompositeJsonTable1::new(&loader("test_tbcompositejsontable1")?)?,
+            tbcompositejsontable2: TestTbCompositeJsonTable2::new(&loader("test_tbcompositejsontable2")?)?,
+            tbcompositejsontable3: TestTbCompositeJsonTable3::new(&loader("test_tbcompositejsontable3")?)?,
+            tbexcelfromjsonmultirow: TestTbExcelFromJsonMultiRow::new(&loader("test_tbexcelfromjsonmultirow")?)?,
+            tbdemogroupdefinefromexcel: TestTbDemoGroupDefineFromExcel::new(&loader("test_tbdemogroupdefinefromexcel")?)?,
+            tbdefinefromexcel2: TestTbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")?)?,
+            tbtestexcelbean: TestTbTestExcelBean::new(&loader("test_tbtestexcelbean")?)?,
+            tbtestdesc: TestTbTestDesc::new(&loader("test_tbtestdesc")?)?,
         };
         return Ok(tables);
     }

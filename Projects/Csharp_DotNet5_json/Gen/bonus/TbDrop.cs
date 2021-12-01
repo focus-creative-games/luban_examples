@@ -55,7 +55,7 @@ public sealed class TbDrop
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

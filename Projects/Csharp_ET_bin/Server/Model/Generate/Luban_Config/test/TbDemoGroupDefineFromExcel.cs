@@ -53,7 +53,6 @@ public sealed class TbDemoGroupDefineFromExcel
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

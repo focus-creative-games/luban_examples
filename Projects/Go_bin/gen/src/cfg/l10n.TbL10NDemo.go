@@ -47,4 +47,3 @@ func (table *L10nTbL10NDemo) Get(key int32) *L10nL10NDemo {
     return table._dataMap[key]
 }
 
-

@@ -37,5 +37,4 @@ public final class TbDetectCsvEncoding {
             v.resolve(_tables);
         }
     }
-
 }

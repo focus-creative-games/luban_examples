@@ -58,4 +58,3 @@ func (table *BlueprintTbClazz) Get(key string) interface{} {
     return table._dataMap[key]
 }
 
-

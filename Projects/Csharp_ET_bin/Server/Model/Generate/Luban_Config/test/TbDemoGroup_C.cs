@@ -53,7 +53,6 @@ public sealed class TbDemoGroup_C
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

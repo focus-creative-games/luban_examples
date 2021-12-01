@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,82 +47,41 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.2.1f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Puerts\Src\StaticCallbacks.cs" />
+    <Compile Include="Assets\Puerts\Src\GenericDelegate.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\StringUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ModuleAttribute.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\MathUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\TimeUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\JsonUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\AbstractDispatcher.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Handlers\DumpReceiveBytesHandler.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Managers\ClientManager.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Threading\DedicatedThreadPool.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\SkipAttribute.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Handlers\ChannelHandlerAdaptor.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\SocketException.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ReflectionUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ByteArrayKey.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Tcp\OutboundByteBuffer.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\LogUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Handlers\AbstractChannelHandler.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Collections\CollectionExtension.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\ProtocolUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\IO\MultiFileWatcher.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\AbstractProtocolAllocator.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Handlers\ChannelInitializer.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Tcp\TcpChannel.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Codecs\FrameCodec.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ValueUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\MarshalUtil.cs" />
+    <Compile Include="Assets\Scripts\Libs\Bright.Serialization\EUnmarshalError.cs" />
+    <Compile Include="Assets\Puerts\Src\Utils.cs" />
+    <Compile Include="Assets\Scripts\Libs\Bright.Serialization\FieldTag.cs" />
+    <Compile Include="Assets\Puerts\Src\NativeValueApiGeneric.cs" />
+    <Compile Include="Assets\Puerts\Src\MethodReflection.cs" />
+    <Compile Include="Assets\Puerts\Src\StaticWrapRegister.cs" />
+    <Compile Include="Assets\Puerts\Src\TypeExtensions.cs" />
+    <Compile Include="Assets\Puerts\Src\ArgumentHelper.cs" />
+    <Compile Include="Assets\Puerts\Src\TypeRegister.cs" />
+    <Compile Include="Assets\Puerts\Src\PuertsDLL.cs" />
+    <Compile Include="Assets\Puerts\Src\JsEnv.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Serialization\ISerializable.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Threading\ThreadTaskQueue.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Serialization\ByteBuf.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\EventLoop.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ThreadLocalRandomUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\AbstractSocket.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\DefaultProtocolAllocator.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Protocol.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Rpc.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\AddressInfo.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\ChannelHandlerContext.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Pipeline.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Codecs\AbstractCodec.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Codecs\ProtocolCodec.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Managers\AbstractSession.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Client.cs" />
+    <Compile Include="Assets\Puerts\Src\StaticTranslate.cs" />
+    <Compile Include="Assets\Scripts\Libs\Bright.Serialization\SerializationException.cs" />
+    <Compile Include="Assets\Puerts\Src\TypedValue.cs" />
+    <Compile Include="Assets\Puerts\Src\Loader.cs" />
+    <Compile Include="Assets\Puerts\Src\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Serialization\ITypeId.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Tcp\TcpSocket.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\ThreadLocalByteBufPool.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Udp\UdpSocket.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\SocketOptions.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\PlatformUtil.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Collections\CollectionUtil.cs" />
+    <Compile Include="Assets\Puerts\Src\DataTranslate.cs" />
+    <Compile Include="Assets\Scripts\Libs\Bright.Serialization\BeanBase.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Core\Threading\AtomicLong.cs" />
     <Compile Include="Assets\Scripts\Libs\Bright.Core\Common\NotNullInitialization.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\Udp\UdpChannel.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Net\Channels\AbstractChannel.cs" />
-    <Compile Include="Assets\Scripts\Libs\Bright.Core\Threading\TaskQueue.cs" />
-    <Compile Include="Assets\Puerts\Src\StaticCallbacks.cs" />
-    <Compile Include="Assets\Puerts\Src\ArgumentHelper.cs" />
-    <Compile Include="Assets\Puerts\Src\GenericDelegate.cs" />
-    <Compile Include="Assets\Puerts\Src\StaticTranslate.cs" />
-    <Compile Include="Assets\Puerts\Src\MethodReflection.cs" />
-    <Compile Include="Assets\Puerts\Src\Loader.cs" />
-    <Compile Include="Assets\Puerts\Src\TypedValue.cs" />
-    <Compile Include="Assets\Puerts\Src\NativeValueApiGeneric.cs" />
-    <Compile Include="Assets\Puerts\Src\StaticWrapRegister.cs" />
-    <Compile Include="Assets\Puerts\Src\DataTranslate.cs" />
-    <Compile Include="Assets\Puerts\Src\ObjectPool.cs" />
-    <Compile Include="Assets\Puerts\Src\JsEnv.cs" />
-    <Compile Include="Assets\Puerts\Src\TypeExtensions.cs" />
-    <Compile Include="Assets\Puerts\Src\PuertsDLL.cs" />
-    <Compile Include="Assets\Puerts\Src\TypeRegister.cs" />
-    <Compile Include="Assets\Puerts\Src\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Puerts\Src\Resources\puerts\log.js.txt" />
@@ -745,8 +704,14 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.1f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Welcome.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Welcome.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -754,50 +719,44 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Welcome.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Welcome.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

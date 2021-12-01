@@ -37,5 +37,4 @@ public final class TbBlackboard {
             v.resolve(_tables);
         }
     }
-
 }

@@ -55,7 +55,7 @@ public sealed class TbDemoGroup_S
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

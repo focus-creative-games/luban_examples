@@ -47,4 +47,3 @@ func (table *ItemTbItemFunc) Get(key int32) *ItemItemFunction {
     return table._dataMap[key]
 }
 
-

@@ -57,7 +57,7 @@ public sealed class TbClazz
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

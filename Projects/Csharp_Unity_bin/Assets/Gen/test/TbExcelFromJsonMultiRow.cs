@@ -53,7 +53,6 @@ public sealed class TbExcelFromJsonMultiRow
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

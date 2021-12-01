@@ -47,4 +47,3 @@ func (table *BonusTbDrop) Get(key int32) *BonusDropInfo {
     return table._dataMap[key]
 }
 
-

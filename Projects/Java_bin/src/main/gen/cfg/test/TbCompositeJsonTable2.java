@@ -37,5 +37,4 @@ public final class TbCompositeJsonTable2 {
             v.resolve(_tables);
         }
     }
-
 }

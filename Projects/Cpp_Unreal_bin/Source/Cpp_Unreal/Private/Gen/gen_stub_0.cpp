@@ -122,29 +122,29 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeSetDefaultFocus::ID: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ExecuteTimeStatistic::ID: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ChooseTarget::ID: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::KeepFaceTarget::ID: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::GetOwnerPlayer::ID: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UpdateDailyBehaviorProps::ID: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeLoop::ID: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeCooldown::ID: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeTimeLimit::ID: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeBlackboard::ID: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeForceSuccess::ID: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::IsAtLocation::ID: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::DistanceLessThan::ID: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeSetDefaultFocus::__ID__: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ExecuteTimeStatistic::__ID__: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseTarget::__ID__: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::KeepFaceTarget::__ID__: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::GetOwnerPlayer::__ID__: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UpdateDailyBehaviorProps::__ID__: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeLoop::__ID__: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeCooldown::__ID__: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeTimeLimit::__ID__: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeBlackboard::__ID__: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeForceSuccess::__ID__: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsAtLocation::__ID__: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DistanceLessThan::__ID__: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Sequence::__ID__: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::__ID__: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::__ID__: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWait::__ID__: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::__ID__: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::__ID__: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::__ID__: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::__ID__: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::__ID__: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::__ID__: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -170,12 +170,12 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeSetDefaultFocus::ID: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ExecuteTimeStatistic::ID: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ChooseTarget::ID: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::KeepFaceTarget::ID: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::GetOwnerPlayer::ID: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UpdateDailyBehaviorProps::ID: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeSetDefaultFocus::__ID__: { _out.reset(new ai::UeSetDefaultFocus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ExecuteTimeStatistic::__ID__: { _out.reset(new ai::ExecuteTimeStatistic()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseTarget::__ID__: { _out.reset(new ai::ChooseTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::KeepFaceTarget::__ID__: { _out.reset(new ai::KeepFaceTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::GetOwnerPlayer::__ID__: { _out.reset(new ai::GetOwnerPlayer()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UpdateDailyBehaviorProps::__ID__: { _out.reset(new ai::UpdateDailyBehaviorProps()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -396,13 +396,13 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeLoop::ID: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeCooldown::ID: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeTimeLimit::ID: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeBlackboard::ID: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeForceSuccess::ID: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::IsAtLocation::ID: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::DistanceLessThan::ID: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeLoop::__ID__: { _out.reset(new ai::UeLoop()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeCooldown::__ID__: { _out.reset(new ai::UeCooldown()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeTimeLimit::__ID__: { _out.reset(new ai::UeTimeLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeBlackboard::__ID__: { _out.reset(new ai::UeBlackboard()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeForceSuccess::__ID__: { _out.reset(new ai::UeForceSuccess()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsAtLocation::__ID__: { _out.reset(new ai::IsAtLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DistanceLessThan::__ID__: { _out.reset(new ai::DistanceLessThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -554,9 +554,9 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::IsSet::ID: { _out.reset(new ai::IsSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::IsNotSet::ID: { _out.reset(new ai::IsNotSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::BinaryOperator::ID: { _out.reset(new ai::BinaryOperator()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsSet::__ID__: { _out.reset(new ai::IsSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IsNotSet::__ID__: { _out.reset(new ai::IsNotSet()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::BinaryOperator::__ID__: { _out.reset(new ai::BinaryOperator()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -671,10 +671,10 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::FloatKeyData::ID: { _out.reset(new ai::FloatKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::IntKeyData::ID: { _out.reset(new ai::IntKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::StringKeyData::ID: { _out.reset(new ai::StringKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::BlackboardKeyData::ID: { _out.reset(new ai::BlackboardKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::FloatKeyData::__ID__: { _out.reset(new ai::FloatKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::IntKeyData::__ID__: { _out.reset(new ai::IntKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::StringKeyData::__ID__: { _out.reset(new ai::StringKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::BlackboardKeyData::__ID__: { _out.reset(new ai::BlackboardKeyData()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -923,16 +923,16 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Sequence::__ID__: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::__ID__: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::__ID__: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWait::__ID__: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::__ID__: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::__ID__: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::__ID__: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::__ID__: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::__ID__: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::__ID__: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -961,9 +961,9 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::Sequence::ID: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::Selector::ID: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::SimpleParallel::ID: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Sequence::__ID__: { _out.reset(new ai::Sequence()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::Selector::__ID__: { _out.reset(new ai::Selector()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::SimpleParallel::__ID__: { _out.reset(new ai::SimpleParallel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1090,13 +1090,13 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case ai::UeWait::ID: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::UeWaitBlackboardTime::ID: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToTarget::ID: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::ChooseSkill::ID: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToRandomLocation::ID: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::MoveToLocation::ID: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case ai::DebugPrint::ID: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWait::__ID__: { _out.reset(new ai::UeWait()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::UeWaitBlackboardTime::__ID__: { _out.reset(new ai::UeWaitBlackboardTime()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToTarget::__ID__: { _out.reset(new ai::MoveToTarget()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::ChooseSkill::__ID__: { _out.reset(new ai::ChooseSkill()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToRandomLocation::__ID__: { _out.reset(new ai::MoveToRandomLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::MoveToLocation::__ID__: { _out.reset(new ai::MoveToLocation()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case ai::DebugPrint::__ID__: { _out.reset(new ai::DebugPrint()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1345,9 +1345,9 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case blueprint::Interface::ID: { _out.reset(new blueprint::Interface()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case blueprint::NormalClazz::ID: { _out.reset(new blueprint::NormalClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case blueprint::EnumClazz::ID: { _out.reset(new blueprint::EnumClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::Interface::__ID__: { _out.reset(new blueprint::Interface()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::NormalClazz::__ID__: { _out.reset(new blueprint::NormalClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::EnumClazz::__ID__: { _out.reset(new blueprint::EnumClazz()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1376,9 +1376,9 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case blueprint::AbstraceMethod::ID: { _out.reset(new blueprint::AbstraceMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case blueprint::ExternalMethod::ID: { _out.reset(new blueprint::ExternalMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case blueprint::BlueprintMethod::ID: { _out.reset(new blueprint::BlueprintMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::AbstraceMethod::__ID__: { _out.reset(new blueprint::AbstraceMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::ExternalMethod::__ID__: { _out.reset(new blueprint::ExternalMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case blueprint::BlueprintMethod::__ID__: { _out.reset(new blueprint::BlueprintMethod()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -1728,17 +1728,17 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case bonus::OneItem::ID: { _out.reset(new bonus::OneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::OneItems::ID: { _out.reset(new bonus::OneItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::Item::ID: { _out.reset(new bonus::Item()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::Items::ID: { _out.reset(new bonus::Items()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::CoefficientItem::ID: { _out.reset(new bonus::CoefficientItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::WeightItems::ID: { _out.reset(new bonus::WeightItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::ProbabilityItems::ID: { _out.reset(new bonus::ProbabilityItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::MultiBonus::ID: { _out.reset(new bonus::MultiBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::ProbabilityBonus::ID: { _out.reset(new bonus::ProbabilityBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::WeightBonus::ID: { _out.reset(new bonus::WeightBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case bonus::DropBonus::ID: { _out.reset(new bonus::DropBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::OneItem::__ID__: { _out.reset(new bonus::OneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::OneItems::__ID__: { _out.reset(new bonus::OneItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::Item::__ID__: { _out.reset(new bonus::Item()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::Items::__ID__: { _out.reset(new bonus::Items()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::CoefficientItem::__ID__: { _out.reset(new bonus::CoefficientItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::WeightItems::__ID__: { _out.reset(new bonus::WeightItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::ProbabilityItems::__ID__: { _out.reset(new bonus::ProbabilityItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::MultiBonus::__ID__: { _out.reset(new bonus::MultiBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::ProbabilityBonus::__ID__: { _out.reset(new bonus::ProbabilityBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::WeightBonus::__ID__: { _out.reset(new bonus::WeightBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case bonus::DropBonus::__ID__: { _out.reset(new bonus::DropBonus()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2303,10 +2303,10 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case error::ErrorStyleTip::ID: { _out.reset(new error::ErrorStyleTip()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case error::ErrorStyleMsgbox::ID: { _out.reset(new error::ErrorStyleMsgbox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case error::ErrorStyleDlgOk::ID: { _out.reset(new error::ErrorStyleDlgOk()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case error::ErrorStyleDlgOkCancel::ID: { _out.reset(new error::ErrorStyleDlgOkCancel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleTip::__ID__: { _out.reset(new error::ErrorStyleTip()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleMsgbox::__ID__: { _out.reset(new error::ErrorStyleMsgbox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleDlgOk::__ID__: { _out.reset(new error::ErrorStyleDlgOk()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case error::ErrorStyleDlgOkCancel::__ID__: { _out.reset(new error::ErrorStyleDlgOkCancel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2556,11 +2556,11 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case item::TreasureBox::ID: { _out.reset(new item::TreasureBox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case item::InteractionItem::ID: { _out.reset(new item::InteractionItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case item::Clothes::ID: { _out.reset(new item::Clothes()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case item::DesignDrawing::ID: { _out.reset(new item::DesignDrawing()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case item::Dymmy::ID: { _out.reset(new item::Dymmy()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::TreasureBox::__ID__: { _out.reset(new item::TreasureBox()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::InteractionItem::__ID__: { _out.reset(new item::InteractionItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::Clothes::__ID__: { _out.reset(new item::Clothes()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::DesignDrawing::__ID__: { _out.reset(new item::DesignDrawing()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case item::Dymmy::__ID__: { _out.reset(new item::Dymmy()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2619,14 +2619,14 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::TimeRange::ID: { _out.reset(new condition::TimeRange()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MultiRoleCondition::ID: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::ContainsItem::ID: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::TimeRange::__ID__: { _out.reset(new condition::TimeRange()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MultiRoleCondition::__ID__: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::GenderLimit::__ID__: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::__ID__: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::__ID__: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::__ID__: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::__ID__: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ContainsItem::__ID__: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2711,13 +2711,13 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::MultiRoleCondition::ID: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::ContainsItem::ID: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MultiRoleCondition::__ID__: { _out.reset(new condition::MultiRoleCondition()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::GenderLimit::__ID__: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::__ID__: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::__ID__: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::__ID__: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::__ID__: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ContainsItem::__ID__: { _out.reset(new condition::ContainsItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -2776,11 +2776,11 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case condition::GenderLimit::ID: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinLevel::ID: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MaxLevel::ID: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::MinMaxLevel::ID: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case condition::ClothesPropertyScoreGreaterThan::ID: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::GenderLimit::__ID__: { _out.reset(new condition::GenderLimit()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinLevel::__ID__: { _out.reset(new condition::MinLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MaxLevel::__ID__: { _out.reset(new condition::MaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::MinMaxLevel::__ID__: { _out.reset(new condition::MinMaxLevel()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case condition::ClothesPropertyScoreGreaterThan::__ID__: { _out.reset(new condition::ClothesPropertyScoreGreaterThan()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }
@@ -3152,11 +3152,11 @@ namespace cfg
         if (!_buf.readInt(id)) return false;
         switch (id)
         {
-            case cost::CostCurrency::ID: { _out.reset(new cost::CostCurrency()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case cost::CostCurrencies::ID: { _out.reset(new cost::CostCurrencies()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case cost::CostOneItem::ID: { _out.reset(new cost::CostOneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case cost::CostItem::ID: { _out.reset(new cost::CostItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-            case cost::CostItems::ID: { _out.reset(new cost::CostItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostCurrency::__ID__: { _out.reset(new cost::CostCurrency()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostCurrencies::__ID__: { _out.reset(new cost::CostCurrencies()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostOneItem::__ID__: { _out.reset(new cost::CostOneItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostItem::__ID__: { _out.reset(new cost::CostItem()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+            case cost::CostItems::__ID__: { _out.reset(new cost::CostItems()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
             default: { _out = nullptr; return false;}
         }
     }

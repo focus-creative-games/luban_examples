@@ -55,7 +55,7 @@ public sealed class TbExcelFromJson
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

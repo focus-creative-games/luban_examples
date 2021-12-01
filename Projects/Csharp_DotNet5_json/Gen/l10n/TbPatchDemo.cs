@@ -55,7 +55,7 @@ public sealed class TbPatchDemo
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

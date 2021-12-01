@@ -96,7 +96,33 @@
 	</bean>
 	
 	<table name="TbSingleton" mode="one" value="DemoSingletonType" input="test/table_one.xlsx"/> 单例表，只有一个记录
+    
+    <bean name="NotIndexList">
+        <var name="x" type="int"/>
+        <var name="y" type="int"/>
+    </bean>
+    <table name="TbNotIndexList" value="NotIndexList" mode="list" input="not_index@test/list.xlsx"/>
+    
+    <bean name="MultiUnionIndexList">
+        <var name="id1" type="int"/>
+        <var name="id2" type="long"/>
+        <var name="id3" type="string"/>
+        <var name="num" type="int"/>
+        <var name="desc" type="string"/>
+    </bean>
+    <!--  index="id1,id2,id3" index="id1+id2+id3" index="id1&id2&id3" 都可以表达是 (id1,id2,id3) 联合唯一索引 -->
+    <table name="TbMultiUnionIndexList" value="MultiUnionIndexList" mode="list" index="id1+id2+id3" input="multi_union_index@test/list.xlsx"/>
 	
+    <bean name="MultiIndexList">
+        <var name="id1" type="int"/>
+        <var name="id2" type="long"/>
+        <var name="id3" type="string"/>
+        <var name="num" type="int"/>
+        <var name="desc" type="string"/>
+    </bean>
+    <!-- index="id1|id2|id3" 表示这3个key分别都是唯一索引 -->
+    <table name="TbMultiIndexList" value="MultiIndexList" mode="list" index="id1,id2,id3" input="multi_index@test/list.xlsx"/>
+    
 	<table name="TbDataFromMisc" value="DemoType2" input="test/misc_datas"/> 普通表，不过数据从misc_datas目录递归读入各种类型的数据源
  	
 	<bean name="MultiRowType1">
@@ -281,6 +307,14 @@
         <var name="c2" type="set,int#ref=test.TbTestBeRef"/>
         <var name="d1" type="(map#aaa=5),int#ref=test.TbTestBeRef,int#ref=test.TbTestBeRef"/>
         <var name="d2" type="map#aaa=5;int#ref=test.TbTestBeRef;int#ref=test.TbTestBeRef"/>
+        
+        <var name="e1" type="int" ref="id1@test.TbMultiIndexList"/>
+        <var name="e2" type="long" ref="id2@test.TbMultiIndexList"/>
+        <var name="e3" type="string" ref="id3@test.TbMultiIndexList"/>
+        
+        <var name="f1" type="int" ref="id1@test.TbMultiIndexList"/>
+        <var name="f2" type="long" ref="id2@test.TbMultiIndexList"/>
+        <var name="f3" type="string" ref="id3@test.TbMultiIndexList"/>
     </bean>
     
     <table name="TbTestRef" value="TestRef" input="ref@test/test_ref.xlsx"/>

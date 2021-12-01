@@ -37,5 +37,4 @@ public final class TbPatchDemo {
             v.resolve(_tables);
         }
     }
-
 }

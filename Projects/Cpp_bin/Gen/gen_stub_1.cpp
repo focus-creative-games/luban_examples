@@ -747,6 +747,93 @@ namespace cfg
         date->resolve(_tables);
     }
 
+    bool test::NotIndexList::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x)) return false;
+        if(!_buf.readInt(y)) return false;
+
+        return true;
+    }
+
+    bool test::NotIndexList::deserializeNotIndexList(ByteBuf& _buf, ::bright::SharedPtr<test::NotIndexList>& _out)
+    {
+        _out.reset(new test::NotIndexList());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::NotIndexList::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::MultiUnionIndexList::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id1)) return false;
+        if(!_buf.readLong(id2)) return false;
+        if(!_buf.readString(id3)) return false;
+        if(!_buf.readInt(num)) return false;
+        if(!_buf.readString(desc)) return false;
+
+        return true;
+    }
+
+    bool test::MultiUnionIndexList::deserializeMultiUnionIndexList(ByteBuf& _buf, ::bright::SharedPtr<test::MultiUnionIndexList>& _out)
+    {
+        _out.reset(new test::MultiUnionIndexList());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::MultiUnionIndexList::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::MultiIndexList::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id1)) return false;
+        if(!_buf.readLong(id2)) return false;
+        if(!_buf.readString(id3)) return false;
+        if(!_buf.readInt(num)) return false;
+        if(!_buf.readString(desc)) return false;
+
+        return true;
+    }
+
+    bool test::MultiIndexList::deserializeMultiIndexList(ByteBuf& _buf, ::bright::SharedPtr<test::MultiIndexList>& _out)
+    {
+        _out.reset(new test::MultiIndexList());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::MultiIndexList::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
     bool test::MultiRowRecord::deserialize(ByteBuf& _buf)
     {
 
@@ -878,6 +965,7 @@ namespace cfg
         if(!test::H1::deserializeH1(_buf, x1)) return false;
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;  if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));x3.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));x4.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x4.push_back(_e);}}
 
         return true;
     }
@@ -901,6 +989,7 @@ namespace cfg
         x1->resolve(_tables);
         for(auto _e : x2) { _e->resolve(_tables); }
         for(auto _e : x3) { _e->resolve(_tables); }
+        for(auto _e : x4) { _e->resolve(_tables); }
     }
 
     bool test::H1::deserialize(ByteBuf& _buf)
@@ -1219,6 +1308,12 @@ namespace cfg
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); c2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; c2.insert(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); d1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     d1[_k] = _v;}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::bright::int32)_buf.size()); d2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::bright::int32 _k;  if(!_buf.readInt(_k)) return false; ::bright::int32 _v;  if(!_buf.readInt(_v)) return false;     d2[_k] = _v;}}
+        if(!_buf.readInt(e1)) return false;
+        if(!_buf.readLong(e2)) return false;
+        if(!_buf.readString(e3)) return false;
+        if(!_buf.readInt(f1)) return false;
+        if(!_buf.readLong(f2)) return false;
+        if(!_buf.readString(f3)) return false;
 
         return true;
     }

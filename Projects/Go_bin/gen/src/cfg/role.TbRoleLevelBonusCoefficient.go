@@ -47,4 +47,3 @@ func (table *RoleTbRoleLevelBonusCoefficient) Get(key int32) *RoleLevelBonus {
     return table._dataMap[key]
 }
 
-

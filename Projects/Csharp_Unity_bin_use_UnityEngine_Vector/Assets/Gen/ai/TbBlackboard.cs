@@ -53,7 +53,6 @@ public sealed class TbBlackboard
             v.TranslateText(translator);
         }
     }
-
 }
 
 }

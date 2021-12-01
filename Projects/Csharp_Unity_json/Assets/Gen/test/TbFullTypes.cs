@@ -55,7 +55,7 @@ public sealed class TbFullTypes
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

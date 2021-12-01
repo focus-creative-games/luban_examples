@@ -55,7 +55,7 @@ public sealed class TbSystemMail
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -37,5 +37,4 @@ public final class TbMultiRowRecord {
             v.resolve(_tables);
         }
     }
-
 }

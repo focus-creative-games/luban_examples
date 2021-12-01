@@ -39,5 +39,4 @@ public final class TbClazz {
             v.resolve(_tables);
         }
     }
-
 }

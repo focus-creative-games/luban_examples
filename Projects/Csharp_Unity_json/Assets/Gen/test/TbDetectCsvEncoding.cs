@@ -55,7 +55,7 @@ public sealed class TbDetectCsvEncoding
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

@@ -37,5 +37,4 @@ public final class TbDemoGroup_S {
             v.resolve(_tables);
         }
     }
-
 }

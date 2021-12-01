@@ -33,6 +33,9 @@ type Tables struct {
     TbTestTag *TagTbTestTag
     TbFullTypes *TestTbFullTypes
     TbSingleton *TestTbSingleton
+    TbNotIndexList *TestTbNotIndexList
+    TbMultiUnionIndexList *TestTbMultiUnionIndexList
+    TbMultiIndexList *TestTbMultiIndexList
     TbDataFromMisc *TestTbDataFromMisc
     TbMultiRowRecord *TestTbMultiRowRecord
     TbMultiRowTitle *TestTbMultiRowTitle
@@ -181,6 +184,24 @@ func NewTables(loader ByteBufLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbSingleton, err = NewTestTbSingleton(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbnotindexlist") ; err != nil {
+        return nil, err
+    }
+    if tables.TbNotIndexList, err = NewTestTbNotIndexList(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbmultiunionindexlist") ; err != nil {
+        return nil, err
+    }
+    if tables.TbMultiUnionIndexList, err = NewTestTbMultiUnionIndexList(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbmultiindexlist") ; err != nil {
+        return nil, err
+    }
+    if tables.TbMultiIndexList, err = NewTestTbMultiIndexList(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbdatafrommisc") ; err != nil {

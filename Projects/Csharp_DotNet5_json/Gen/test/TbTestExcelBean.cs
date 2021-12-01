@@ -55,7 +55,7 @@ public sealed class TbTestExcelBean
             v.TranslateText(translator);
         }
     }
-
+    
 }
 
 }

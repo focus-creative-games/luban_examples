@@ -37,5 +37,4 @@ public final class TbRoleLevelBonusCoefficient {
             v.resolve(_tables);
         }
     }
-
 }

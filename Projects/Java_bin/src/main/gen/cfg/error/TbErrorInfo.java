@@ -37,5 +37,4 @@ public final class TbErrorInfo {
             v.resolve(_tables);
         }
     }
-
 }

@@ -113,14 +113,19 @@ function Load(typeDefs, configFileloader)
 			local index = t.index
             for i = 1, buf:ReadSize() do
                 local v = valueType._deserialize(buf)
-				print(ttostring(v))
                 tableDatas[v[index]] = v
+            end
+        elseif mode == "list" then
+            tableDatas = {}
+            for i = 1, buf:ReadSize() do
+                local v = valueType._deserialize(buf)
+                tinsert(tableDatas, v)
             end
         else
             assert(buf:ReadSize() == 1)
             tableDatas = valueType._deserialize(buf)
-			print(ttostring(tableDatas))
         end
+		print(ttostring(tableDatas))
         tables[t.name] = tableDatas
     end
 end
