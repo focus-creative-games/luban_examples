@@ -187,12 +187,12 @@
     <Compile Include="Assets\Gen\test\TbDemoGroup_S.cs" />
     <Compile Include="Assets\Gen\ai\ExecuteTimeStatistic.cs" />
     <Compile Include="Assets\Gen\blueprint\BlueprintMethod.cs" />
-    <Compile Include="Assets\Gen\test\MultiRowRecord.cs" />
     <Compile Include="Assets\Gen\ai\Service.cs" />
     <Compile Include="Assets\Gen\test\TbMultiIndexList.cs" />
     <Compile Include="Assets\LubanLib\ByteBufExtensions.cs" />
     <Compile Include="Assets\Gen\test\TbExcelFromJson.cs" />
     <Compile Include="Assets\Gen\item\EClothersStarQualityType.cs" />
+    <Compile Include="Assets\Gen\test\MultiRowRecord.cs" />
     <Compile Include="Assets\Gen\blueprint\ExternalMethod.cs" />
     <Compile Include="Assets\Gen\ai\MoveToLocation.cs" />
     <Compile Include="Assets\Gen\test\DemoFlag.cs" />

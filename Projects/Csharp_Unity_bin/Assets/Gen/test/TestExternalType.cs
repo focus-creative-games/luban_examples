@@ -19,7 +19,7 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
     public TestExternalType(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
-        AudioType = (UnityEngine.AudioType)_buf.ReadInt();
+        AudioType = (test.AudioType)_buf.ReadInt();
         Color = test.Color.DeserializeColor(_buf);
     }
 
@@ -29,7 +29,7 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
     }
 
     public int Id { get; private set; }
-    public UnityEngine.AudioType AudioType { get; private set; }
+    public test.AudioType AudioType { get; private set; }
     public test.Color Color { get; private set; }
 
     public const int __ID__ = -990826157;
