@@ -16,6 +16,9 @@
 	<importexcel name="tables.xlsx" type="table"/> 相对data目录
 	<importexcel name="enums.xlsx" type="enum"/>相对data目录
 	<importexcel name="beans.xlsx" type="bean"/>相对data目录
+	
+	<externalselector name="client_cs"/>
+	<externalselector name="client_cpp"/>
 
 	<service name="server" manager="Tables" group="s"/>
 	<service name="client" manager="Tables" group="c"/>
