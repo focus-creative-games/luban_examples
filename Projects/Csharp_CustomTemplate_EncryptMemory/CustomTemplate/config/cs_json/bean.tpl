@@ -1,7 +1,6 @@
 using System;
-using Nireus.Base;
-using Nireus.Model;
 using Newtonsoft.Json;
+using Scripts;
 {{
     func encrypt_type_name(x)
         type = x.ctype.type_name
@@ -142,17 +141,6 @@ namespace {{x.namespace_with_top_module}}
             {{~else if is_list_bean field~}}
             foreach(var _e in {{field.name}}) { _e.EndInit(); }
             {{~end~}}
-        {{~end~}}
-        {{~end~}}
-        }
-
-        public override void TranslateText(Func<string, string, string> translator)
-        {
-        {{~ for field in export_fields ~}}
-        {{~if field.gen_text_key~}}
-            {{cs_translate_text field 'translator'}}
-        {{~else if field.has_recursive_text~}}
-            {{cs_recursive_translate_text field 'translator'}}
         {{~end~}}
         {{~end~}}
         }

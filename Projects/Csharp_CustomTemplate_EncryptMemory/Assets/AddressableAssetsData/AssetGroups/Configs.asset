@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Configs
+  m_EditorClassIdentifier: 
+  m_GroupName: Configs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 869e9be60aca142939705be07584620d
+  m_SerializeEntries:
+  - m_GUID: ba10587898c5f4ab4a060e37b48277a1
+    m_Address: ai_tbbehaviortree
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f3bc6b9f52e62461aabeee6c4975a5a9
+    m_Address: ai_tbblackboard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 74ee1f18dabbc40a4bbd3045e44ff663
+    m_Address: blueprint_tbclazz
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4a08613de544147f593c8334ad029fed
+    m_Address: bonus_tbdrop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0c62fba8d7f7b4523a7baa767fce34ab
+    m_Address: common_tbglobalconfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e1f96b32bc828487aabe6fbae335535d
+    m_Address: error_tbcodeinfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2128b085a19b497181586857a4b79b2
+    m_Address: error_tberrorinfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 18dff3a31d36c431da4860533b9cfd42
+    m_Address: item_tbitem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ebcfa80750e9d4a7ca11c807e8290d66
+    m_Address: item_tbitemextra
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bfb7a1b6c17ab41e689ba0a85d00320f
+    m_Address: item_tbitemfunc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: aa8db667e0a1b48468e201752552f1b5
+    m_Address: l10n_tbl10ndemo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9fe0730b600de42029d1763c63d07c79
+    m_Address: l10n_tbpatchdemo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 82e214417f8cd42f9bf1e3e7222c03d3
+    m_Address: mail_tbglobalmail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 02c239eb5dd034cea87ad8333ea1178b
+    m_Address: mail_tbsystemmail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e541f3649ad149209cb4ee91e28c282
+    m_Address: role_tbrolelevelbonuscoefficient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 87a4824794e5a42cf81a3b4cf4ace9db
+    m_Address: role_tbrolelevelexpattr
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fdbae9c4d81c7453fa3d32a2d341f970
+    m_Address: tag_tbtesttag
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6c0612631f2d64f86be0e55d79f6c78b
+    m_Address: test_tbcompositejsontable1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 09a93538a0ef84751bd0b210a2cb517b
+    m_Address: test_tbcompositejsontable2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: aee36357ae9e544b5b3cc2985448ea99
+    m_Address: test_tbcompositejsontable3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 27f8de846bc4547b8b8205c72203c20c
+    m_Address: test_tbdatafrommisc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 839c7c97d807b469c92cbae29cbaaa04
+    m_Address: test_tbdefinefromexcel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3b335144a17d64e019298901668bd66a
+    m_Address: test_tbdefinefromexcel2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9de3dde2adefd4981bb2f49639ee155c
+    m_Address: test_tbdefinefromexcelone
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 60e657fe026f549938d0949ac7deadc5
+    m_Address: test_tbdemogroup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f2cf45c523ee145e9bf5ec2cca7c7cc1
+    m_Address: test_tbdemogroup_c
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 95ebfb98c0869460b88778fa59fec9da
+    m_Address: test_tbdemogroup_e
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c7f22a025a0034ce8bdcb72403912da7
+    m_Address: test_tbdemogroup_s
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4103b5820f2f54972b389a2dde0e236b
+    m_Address: test_tbdemogroupdefinefromexcel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4821ab87a509b4457b1d76e84f747689
+    m_Address: test_tbdemoprimitive
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 84e1e2deb9ef748df98f801aa9acf0de
+    m_Address: test_tbdetectcsvencoding
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5e103b2454f4496fa82e42adfff6523
+    m_Address: test_tbexcelfromjson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5662c5e494102484d9932966a4d88714
+    m_Address: test_tbexcelfromjsonmultirow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 26aa6481e52c14ac38aeba38fb1495ac
+    m_Address: test_tbfulltypes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a1d74f2acb32d4abbb4ff02ffdd71b90
+    m_Address: test_tbmultiindexlist
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bbf61b226ed95466d97f21f4d1a8280c
+    m_Address: test_tbmultirowrecord
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 402b1f4f16e8c48e08edbe08e0013afc
+    m_Address: test_tbmultirowtitle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5575ff318987d474aa361f220d21a3ac
+    m_Address: test_tbmultiunionindexlist
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d2c84fc6976264e73a742b18ef30dd24
+    m_Address: test_tbnotindexlist
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 955234258dc2d4267948b4a1592922fb
+    m_Address: test_tbsingleton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36139117d767d44c58db0021797c7e1c
+    m_Address: test_tbtestberef
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71027ae0a2f6342f48f9f4f11ce9a7a2
+    m_Address: test_tbtestdesc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 62d4979ab804248e2b06c579c55e67b5
+    m_Address: test_tbtestexcelbean
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 051e3bfaa69f64bf7be0f3cd794bc140
+    m_Address: test_tbtestexternaltype
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cdc93842e51ca48fba7a2e8c20a5da67
+    m_Address: test_tbtestglobal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 89169a9b417754235ac1eebf5f3e5658
+    m_Address: test_tbtestindex
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 89a0d4e8ef56146579e1741369ad61a2
+    m_Address: test_tbtestmap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 95ad80498f5c341ada77cd989d77c23a
+    m_Address: test_tbtestnull
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 190e8bf95fcd745ec94f01d8cd3f2f6a
+    m_Address: test_tbtestref
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e1ad2ccb7f34645148c0e080d820fe0c
+    m_Address: test_tbtestset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2fcc54cc0cf2f40f1aff01f3cb31000b
+    m_Address: test_tbtestsize
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 76f4794465c2a49048deb48f1ee988de
+    m_Address: test_tbteststring
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 148341e249578422e9b12ff1077ae17b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 84027be6e6a0144c8ab569b597a19865, type: 2}
+    - {fileID: 11400000, guid: 840ecfc95663d4530a262fb018d61b92, type: 2}

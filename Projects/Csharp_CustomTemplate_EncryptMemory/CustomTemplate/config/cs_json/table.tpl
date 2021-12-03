@@ -1,6 +1,5 @@
 using System;
-using Nireus.Base;
-using Nireus.Model;
+using Scripts;
 {{ 
     name = x.name
 }}

@@ -313,3 +313,8 @@ gradle/
 /ProtoProjects/Csharp_Unity/UserSettings
 /Projects/Protobuf_bin/pb_datas
 /Projects/Csharp_Unity_bin/Logs
+*.DS_Store
+
+Projects/Csharp_CustomTemplate_EncryptMemory/UserSettings/
+Projects/Csharp_CustomTemplate_EncryptMemory/*.csproj
+Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
