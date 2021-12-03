@@ -64,6 +64,7 @@ public sealed class Tables
     public test.TbCompositeJsonTable2 TbCompositeJsonTable2 {get; }
     public test.TbCompositeJsonTable3 TbCompositeJsonTable3 {get; }
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
+    public test.TbTestExternalType TbTestExternalType {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -166,6 +167,8 @@ public sealed class Tables
         tables.Add("test.TbCompositeJsonTable3", TbCompositeJsonTable3);
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow")); 
         tables.Add("test.TbExcelFromJsonMultiRow", TbExcelFromJsonMultiRow);
+        TbTestExternalType = new test.TbTestExternalType(loader("test_tbtestexternaltype")); 
+        tables.Add("test.TbTestExternalType", TbTestExternalType);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test_tbdemogroupdefinefromexcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2")); 
@@ -222,6 +225,7 @@ public sealed class Tables
         TbCompositeJsonTable2.Resolve(tables); 
         TbCompositeJsonTable3.Resolve(tables); 
         TbExcelFromJsonMultiRow.Resolve(tables); 
+        TbTestExternalType.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
@@ -277,6 +281,7 @@ public sealed class Tables
         TbCompositeJsonTable2.TranslateText(translator); 
         TbCompositeJsonTable3.TranslateText(translator); 
         TbExcelFromJsonMultiRow.TranslateText(translator); 
+        TbTestExternalType.TranslateText(translator); 
         TbDemoGroupDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcel2.TranslateText(translator); 
         TbTestExcelBean.TranslateText(translator); 

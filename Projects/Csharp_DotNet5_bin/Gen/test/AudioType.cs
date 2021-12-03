@@ -9,15 +9,10 @@
 
 namespace cfg.test
 {
-    public enum ETestCurrency
+    public enum AudioType
     {
-        /// <summary>
-        /// 重要
-        /// </summary>
-        DIAMOND = 1,
-        /// <summary>
-        /// 有用
-        /// </summary>
-        GOLD = 2,
+        UNKNOWN = 0,
+        ACC = 1,
+        AIFF = 2,
     }
 }
