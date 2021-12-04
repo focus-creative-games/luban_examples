@@ -1,2 +1,2 @@
 #!/bin/bash
-dotnet Tools/Luban.Server/Luban.Server.dll
+dotnet Tools/Luban.ClientServer/Luban.Server.dll

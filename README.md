@@ -1,12 +1,15 @@
 # luban_examples
 
+更多文档请参见 [wiki](https://github.com/focus-creative-games/luban/wiki)
+
 一个示例工程，包含
 
 - Tools 
-
-    - Luban.Client 默认客户端
-    - Luban.Server 服务端。
-    - Luban.Client&Server Client&Server一体程序。免去部属Luban.Server的麻烦
+    - Luban.Client 
+        - Luban.Client 客户端
+    - Luban.ClientServer 
+        - Luban.Server 服务端
+        - Luban.ClientServer 一体化程序。免去部属Luban.Server的麻烦
 
     - [LubanAssistant](https://github.com/focus-creative-games/luban/tree/main/src/LubanAssistant) Excel插件
 
@@ -50,16 +53,21 @@
 
     [性能测试报告](Benchmark/benchmark.md)
 
+- ProtoProjects
+
+    luban也支持消息生成。这个目录是消息生成示例项目目录。
+
 
 ## 准备工作
 
 Projects里的项目都已经过测试，已经包含了生成代码和数据，可以直接运行。
 
-默认Luban.Client使用云生成，需要启动Luban.Server。新上手用户，**推荐使用Luban.ClientServer替代Luban.Client**
+默认Luban.Client使用云生成，需要启动Luban.Server（运行根目录下的run_luban.server.bat即可）。新上手用户，**推荐使用Luban.ClientServer替代Luban.Client**，因为它可以独立运行，不需要部属Luban.Server服务器。
 
 将运行脚本中%LUBAN_CLIENT%变量的Luban.Client/Luban.Client 改为 Luban.ClientServer/Luban.ClientServer，同时删除 -h (--host ) 选项及其参数。
 
-Luban.ClientServer是Luban.Client的功能超集，可以完全替代Luban.Client。
+命令行的详细用法，请见wiki [luban命令工具](https://github.com/focus-creative-games/luban/wiki/command_tools)
+
 
 ## 支持与联系
    

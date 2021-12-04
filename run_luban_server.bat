@@ -1,2 +1,2 @@
-call Tools\Luban.Server\Luban.Server.exe
+call Tools\Luban.ClientServer\Luban.Server.exe
 pause

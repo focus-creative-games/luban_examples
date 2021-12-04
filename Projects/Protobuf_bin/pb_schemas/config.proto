@@ -349,6 +349,12 @@ enum TestETestEmptyEnum2 {
     TestETestEmptyEnum2_X_257 = 257;
 }
 
+enum TestAudioType {
+    TestAudioType_UNKNOWN = 0;
+    TestAudioType_ACC = 1;
+    TestAudioType_AIFF = 2;
+}
+
 enum TestETestQuality {
     TestETestQuality_A = 1;
     TestETestQuality_B = 2;
@@ -356,9 +362,12 @@ enum TestETestQuality {
     TestETestQuality_D = 4;
 }
 
-enum TestETestCurrency {
-    TestETestCurrency_DIAMOND = 1;
-    TestETestCurrency_GOLD = 2;
+enum TestAccessFlag {
+    TestAccessFlag_WRITE = 1;
+    TestAccessFlag_READ = 2;
+    TestAccessFlag_TRUNCATE = 4;
+    TestAccessFlag_NEW = 8;
+    TestAccessFlag_READ_WRITE = 3;
 }
 
 
@@ -1325,9 +1334,10 @@ message TestMultiRowTitle {
     required int32 id = 1 ;
     required string name = 2 ;
     required TestH1 x1 = 3 ;
-    repeated TestH2 x2 = 4 [packed = false];
-    repeated TestH2 x3 = 5 [packed = false];
-    repeated TestH2 x4 = 6 [packed = false];
+    optional TestH2 x2_0 = 4 ;
+    repeated TestH2 x2 = 5 [packed = false];
+    repeated TestH2 x3 = 6 [packed = false];
+    repeated TestH2 x4 = 7 [packed = false];
 }
 
 message TestH1 {
@@ -1535,6 +1545,19 @@ message TestTestRow {
 message TestTest3 {
     required int32 x = 1 ;
     required int32 y = 2 ;
+}
+
+message TestTestExternalType {
+    required int32 id = 1 ;
+    required TestAudioType audio_type = 2 ;
+    required TestColor color = 3 ;
+}
+
+message TestColor {
+    required float r = 1 ;
+    required float g = 2 ;
+    required float b = 3 ;
+    required float a = 4 ;
 }
 
 message TestDefineFromExcel2 {
@@ -1757,6 +1780,10 @@ message TestTbCompositeJsonTable3 {
 
 message TestTbExcelFromJsonMultiRow {
     repeated TestExcelFromJsonMultiRow data_list = 1 [packed = false];
+}
+
+message TestTbTestExternalType {
+    repeated TestTestExternalType data_list = 1 [packed = false];
 }
 
 message TestTbDemoGroupDefineFromExcel {
