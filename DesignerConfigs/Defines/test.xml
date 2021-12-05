@@ -290,16 +290,24 @@
 	</bean>
 	<table name="TbTestGlobal" value="TestGlobal" mode="one" input="test/global.xlsx"/>
 	
+    
     <bean name="TestBeRef">
         <var name="id" type="int"/>
         <var name="count" type="int"/>
     </bean>
-    <table name="TbTestBeRef" value="TestBeRef" input="be_ref@test/test_ref.xlsx"/>
+    <table name="TbTestBeRef" value="TestBeRef" input="be_ref1@test/test_ref.xlsx"/>
+    
+    <table name="TbTestBeRef2" value="TestBeRef" input="be_ref2@test/test_ref.xlsx"/>
+    
+    <refgroup name="test_ref_group" ref="test.TbTestBeRef,test.TbTestBeRef2"/>
+    
     <bean name="TestRef">
         <var name="id" type="int"/>
         <var name="x1" type="int" ref="test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
         <var name="x1_2" type="int" ref="test.TbTestBeRef,test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
         <var name="x2" type="int#ref=test.TbTestBeRef"/>
+        <var name="x3" type="int#ref=test_ref_group"/>
+        
         <var name="a1" type="array,int" ref="test.TbTestBeRef"/>
         <var name="a2" type="array,int#ref=(test.TbTestBeRef)"/>
         <var name="b1" type="list,int" ref="test.TbTestBeRef"/>
