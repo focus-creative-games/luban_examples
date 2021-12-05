@@ -9,7 +9,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --gen_types data_json_monolithic ^
  --output_data_dir json_monolithic ^
- --output_data_json_monolithic_file json_monolithic/all.json ^
+ --output:data:json_monolithic_file json_monolithic/all.json ^
  -s all
 
 

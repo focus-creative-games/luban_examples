@@ -49,10 +49,10 @@
 		<var name="x7" type="bigint"/>
 	</bean>
 	
-	<bean name="DemoType2" tags="d=5|a=3">
+	<bean name="DemoType2" tags="d=5#a=3">
 		<var name="x4" type="int#range=[1,100]"/>
-		<var name="x1" type="bool|kind=cat|type=sss"  tags="aa=10|bb=23"/>
-		<var name="x2" type="byte|kind=mouse|name=yyy" tags="aa||dd=32"/>
+		<var name="x1" type="bool#kind=cat#type=sss"  tags="aa=10#bb=23"/>
+		<var name="x2" type="byte#kind=mouse#name=yyy" tags="aa#dd=32"/>
 		<var name="x3" type="short"/>
 		<var name="x5" type="long" />
 		<var name="x6" type="float"/>
@@ -63,8 +63,8 @@
 		
 		<var name="x10" type="string" path="unity"/>
 		<var name="x12" type="DemoType1"/>
-		<var name="x13" type="DemoEnum"/>
-		<var name="x14" type="DemoDynamic"/>多态数据结构
+		<var name="x13" type="DemoEnum#sep=,"/>
+		<var name="x14" type="DemoDynamic#sep=,"/>多态数据结构
 		
 		<var name="s1" type="text"/>
 		
@@ -77,9 +77,9 @@
 		<var name="k1" type="array,int"/>
 		<var name="k2" type="list,int"/>
 		<var name="k5" type="set,int"/>
-		<var name="k8" type="map,int#ref=test.TbFullTypes,int#ref=test.TbFullTypes"/>
-		<var name="k9" type="list,DemoE2"/>
-		<var name="k15" type="array,DemoDynamic"/> 
+		<var name="k8" type="(map#sep=,),int#ref=test.TbFullTypes,int#ref=test.TbFullTypes"/>
+		<var name="k9" type="(list#sep=,),DemoE2"/>
+		<var name="k15" type="(array#sep=,),DemoDynamic"/> 
 	</bean>
 	
 	<table name="TbFullTypes" index="x4" value="DemoType2" input="test/full_type.xlsx"/> 最常见的普通 key-value表
@@ -432,6 +432,23 @@
         <var name="items" type="list,TestRow"/>
     </bean>
     <table name="TbExcelFromJsonMultiRow" value="ExcelFromJsonMultiRow" input="test/excel_multi_row_jsons"/>
+ 
+ 
+    <bean name="SepVector" sep=",">
+        <var name="x" type="int"/>
+        <var name="y" type="int"/>
+        <var name="z" type="int"/>
+    </bean>
+ 
+    <bean name="SepBean1">
+        <var name="a" type="int"/>
+        <var name="b" type="int"/>
+        <var name="c" type="string"/>
+    </bean>
+    
+    <table name="TbTestSep" value="TestSep" define_from_file="1" input="test/test_sep.xlsx"/>
+ 
+ 
  
 	<enum name="AudioType" externaltype="unity_audio_type">
         <var name="UNKNOWN" value="0"/>

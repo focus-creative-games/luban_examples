@@ -238,9 +238,6 @@
   "per_viality_recovery_time": 300
 }
 ,
-"common.TbDummy":
-{}
-,
 "error.TbErrorInfo":
 {
   "EXAMPLE_FLASH": {
@@ -1262,1990 +1259,6 @@
   "1020300001": {
     "__type__": "Clothes",
     "id": 1020300001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400001": {
-    "__type__": "Clothes",
-    "id": 1020400001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020500001": {
-    "__type__": "Clothes",
-    "id": 1020500001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600001": {
-    "__type__": "Clothes",
-    "id": 1020600001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700001": {
-    "__type__": "Clothes",
-    "id": 1020700001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020800001": {
-    "__type__": "Clothes",
-    "id": 1020800001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020900001": {
-    "__type__": "Clothes",
-    "id": 1020900001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000001": {
-    "__type__": "Clothes",
-    "id": 1021000001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021100001": {
-    "__type__": "Clothes",
-    "id": 1021100001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021200001": {
-    "__type__": "Clothes",
-    "id": 1021200001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021300001": {
-    "__type__": "Clothes",
-    "id": 1021300001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400001": {
-    "__type__": "Clothes",
-    "id": 1021400001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400002": {
-    "__type__": "Clothes",
-    "id": 1021400002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400003": {
-    "__type__": "Clothes",
-    "id": 1021400003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400004": {
-    "__type__": "Clothes",
-    "id": 1021400004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400005": {
-    "__type__": "Clothes",
-    "id": 1021400005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400006": {
-    "__type__": "Clothes",
-    "id": 1021400006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021400007": {
-    "__type__": "Clothes",
-    "id": 1021400007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500001": {
-    "__type__": "Clothes",
-    "id": 1021500001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021600001": {
-    "__type__": "Clothes",
-    "id": 1021600001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021700001": {
-    "__type__": "Clothes",
-    "id": 1021700001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021800001": {
-    "__type__": "Clothes",
-    "id": 1021800001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021900001": {
-    "__type__": "Clothes",
-    "id": 1021900001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022000001": {
-    "__type__": "Clothes",
-    "id": 1022000001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022100001": {
-    "__type__": "Clothes",
-    "id": 1022100001,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020100002": {
-    "__type__": "Clothes",
-    "id": 1020100002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020100003": {
-    "__type__": "Clothes",
-    "id": 1020100003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020100004": {
-    "__type__": "Clothes",
-    "id": 1020100004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020100005": {
-    "__type__": "Clothes",
-    "id": 1020100005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200002": {
-    "__type__": "Clothes",
-    "id": 1020200002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200003": {
-    "__type__": "Clothes",
-    "id": 1020200003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200004": {
-    "__type__": "Clothes",
-    "id": 1020200004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200005": {
-    "__type__": "Clothes",
-    "id": 1020200005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200006": {
-    "__type__": "Clothes",
-    "id": 1020200006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020200007": {
-    "__type__": "Clothes",
-    "id": 1020200007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300002": {
-    "__type__": "Clothes",
-    "id": 1020300002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300003": {
-    "__type__": "Clothes",
-    "id": 1020300003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300004": {
-    "__type__": "Clothes",
-    "id": 1020300004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300005": {
-    "__type__": "Clothes",
-    "id": 1020300005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300006": {
-    "__type__": "Clothes",
-    "id": 1020300006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300007": {
-    "__type__": "Clothes",
-    "id": 1020300007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300008": {
-    "__type__": "Clothes",
-    "id": 1020300008,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300009": {
-    "__type__": "Clothes",
-    "id": 1020300009,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020300010": {
-    "__type__": "Clothes",
-    "id": 1020300010,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400002": {
-    "__type__": "Clothes",
-    "id": 1020400002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400003": {
-    "__type__": "Clothes",
-    "id": 1020400003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400004": {
-    "__type__": "Clothes",
-    "id": 1020400004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400005": {
-    "__type__": "Clothes",
-    "id": 1020400005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400006": {
-    "__type__": "Clothes",
-    "id": 1020400006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400007": {
-    "__type__": "Clothes",
-    "id": 1020400007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400008": {
-    "__type__": "Clothes",
-    "id": 1020400008,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400009": {
-    "__type__": "Clothes",
-    "id": 1020400009,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400010": {
-    "__type__": "Clothes",
-    "id": 1020400010,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400011": {
-    "__type__": "Clothes",
-    "id": 1020400011,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400012": {
-    "__type__": "Clothes",
-    "id": 1020400012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020400013": {
-    "__type__": "Clothes",
-    "id": 1020400013,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020500002": {
-    "__type__": "Clothes",
-    "id": 1020500002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020500003": {
-    "__type__": "Clothes",
-    "id": 1020500003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020500004": {
-    "__type__": "Clothes",
-    "id": 1020500004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600002": {
-    "__type__": "Clothes",
-    "id": 1020600002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600003": {
-    "__type__": "Clothes",
-    "id": 1020600003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600004": {
-    "__type__": "Clothes",
-    "id": 1020600004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600005": {
-    "__type__": "Clothes",
-    "id": 1020600005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020600006": {
-    "__type__": "Clothes",
-    "id": 1020600006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700002": {
-    "__type__": "Clothes",
-    "id": 1020700002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700003": {
-    "__type__": "Clothes",
-    "id": 1020700003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700004": {
-    "__type__": "Clothes",
-    "id": 1020700004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700005": {
-    "__type__": "Clothes",
-    "id": 1020700005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700006": {
-    "__type__": "Clothes",
-    "id": 1020700006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020700007": {
-    "__type__": "Clothes",
-    "id": 1020700007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020800002": {
-    "__type__": "Clothes",
-    "id": 1020800002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020900002": {
-    "__type__": "Clothes",
-    "id": 1020900002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020900003": {
-    "__type__": "Clothes",
-    "id": 1020900003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020900004": {
-    "__type__": "Clothes",
-    "id": 1020900004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000002": {
-    "__type__": "Clothes",
-    "id": 1021000002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000003": {
-    "__type__": "Clothes",
-    "id": 1021000003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000004": {
-    "__type__": "Clothes",
-    "id": 1021000004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000005": {
-    "__type__": "Clothes",
-    "id": 1021000005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021000006": {
-    "__type__": "Clothes",
-    "id": 1021000006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021100002": {
-    "__type__": "Clothes",
-    "id": 1021100002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021100003": {
-    "__type__": "Clothes",
-    "id": 1021100003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021100004": {
-    "__type__": "Clothes",
-    "id": 1021100004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021200002": {
-    "__type__": "Clothes",
-    "id": 1021200002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021300002": {
-    "__type__": "Clothes",
-    "id": 1021300002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021300003": {
-    "__type__": "Clothes",
-    "id": 1021300003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021300004": {
-    "__type__": "Clothes",
-    "id": 1021300004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500002": {
-    "__type__": "Clothes",
-    "id": 1021500002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500003": {
-    "__type__": "Clothes",
-    "id": 1021500003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500004": {
-    "__type__": "Clothes",
-    "id": 1021500004,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500005": {
-    "__type__": "Clothes",
-    "id": 1021500005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500006": {
-    "__type__": "Clothes",
-    "id": 1021500006,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021500007": {
-    "__type__": "Clothes",
-    "id": 1021500007,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021600002": {
-    "__type__": "Clothes",
-    "id": 1021600002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021700002": {
-    "__type__": "Clothes",
-    "id": 1021700002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021800002": {
-    "__type__": "Clothes",
-    "id": 1021800002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021900002": {
-    "__type__": "Clothes",
-    "id": 1021900002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022000002": {
-    "__type__": "Clothes",
-    "id": 1022000002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022100002": {
-    "__type__": "Clothes",
-    "id": 1022100002,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022100003": {
-    "__type__": "Clothes",
-    "id": 1022100003,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109005": {
-    "__type__": "Clothes",
-    "id": 1020109005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609005": {
-    "__type__": "Clothes",
-    "id": 1020609005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809005": {
-    "__type__": "Clothes",
-    "id": 1020809005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009005": {
-    "__type__": "Clothes",
-    "id": 1021009005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109005": {
-    "__type__": "Clothes",
-    "id": 1022109005,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109012": {
-    "__type__": "Clothes",
-    "id": 1020109012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509012": {
-    "__type__": "Clothes",
-    "id": 1020509012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609012": {
-    "__type__": "Clothes",
-    "id": 1020609012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809012": {
-    "__type__": "Clothes",
-    "id": 1020809012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909012": {
-    "__type__": "Clothes",
-    "id": 1020909012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009012": {
-    "__type__": "Clothes",
-    "id": 1021009012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021309012": {
-    "__type__": "Clothes",
-    "id": 1021309012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409012": {
-    "__type__": "Clothes",
-    "id": 1021409012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109012": {
-    "__type__": "Clothes",
-    "id": 1022109012,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109017": {
-    "__type__": "Clothes",
-    "id": 1020109017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309017": {
-    "__type__": "Clothes",
-    "id": 1020309017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409017": {
-    "__type__": "Clothes",
-    "id": 1020409017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509017": {
-    "__type__": "Clothes",
-    "id": 1020509017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609017": {
-    "__type__": "Clothes",
-    "id": 1020609017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709017": {
-    "__type__": "Clothes",
-    "id": 1020709017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409017": {
-    "__type__": "Clothes",
-    "id": 1021409017,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109018": {
-    "__type__": "Clothes",
-    "id": 1020109018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509018": {
-    "__type__": "Clothes",
-    "id": 1020509018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609018": {
-    "__type__": "Clothes",
-    "id": 1020609018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809018": {
-    "__type__": "Clothes",
-    "id": 1020809018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009018": {
-    "__type__": "Clothes",
-    "id": 1021009018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109018": {
-    "__type__": "Clothes",
-    "id": 1022109018,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109022": {
-    "__type__": "Clothes",
-    "id": 1020109022,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309022": {
-    "__type__": "Clothes",
-    "id": 1020309022,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409022": {
-    "__type__": "Clothes",
-    "id": 1020409022,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609022": {
-    "__type__": "Clothes",
-    "id": 1020609022,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809022": {
-    "__type__": "Clothes",
-    "id": 1020809022,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109024": {
-    "__type__": "Clothes",
-    "id": 1020109024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309024": {
-    "__type__": "Clothes",
-    "id": 1020309024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409024": {
-    "__type__": "Clothes",
-    "id": 1020409024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509024": {
-    "__type__": "Clothes",
-    "id": 1020509024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609024": {
-    "__type__": "Clothes",
-    "id": 1020609024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709024": {
-    "__type__": "Clothes",
-    "id": 1020709024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009024": {
-    "__type__": "Clothes",
-    "id": 1021009024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409024": {
-    "__type__": "Clothes",
-    "id": 1021409024,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109029": {
-    "__type__": "Clothes",
-    "id": 1020109029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509029": {
-    "__type__": "Clothes",
-    "id": 1020509029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609029": {
-    "__type__": "Clothes",
-    "id": 1020609029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809029": {
-    "__type__": "Clothes",
-    "id": 1020809029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909029": {
-    "__type__": "Clothes",
-    "id": 1020909029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409029": {
-    "__type__": "Clothes",
-    "id": 1021409029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109029": {
-    "__type__": "Clothes",
-    "id": 1022109029,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109033": {
-    "__type__": "Clothes",
-    "id": 1020109033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020209033": {
-    "__type__": "Clothes",
-    "id": 1020209033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509033": {
-    "__type__": "Clothes",
-    "id": 1020509033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609033": {
-    "__type__": "Clothes",
-    "id": 1020609033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709033": {
-    "__type__": "Clothes",
-    "id": 1020709033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009033": {
-    "__type__": "Clothes",
-    "id": 1021009033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109033": {
-    "__type__": "Clothes",
-    "id": 1022109033,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109039": {
-    "__type__": "Clothes",
-    "id": 1020109039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020209039": {
-    "__type__": "Clothes",
-    "id": 1020209039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509039": {
-    "__type__": "Clothes",
-    "id": 1020509039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609039": {
-    "__type__": "Clothes",
-    "id": 1020609039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709039": {
-    "__type__": "Clothes",
-    "id": 1020709039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109039": {
-    "__type__": "Clothes",
-    "id": 1022109039,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109044": {
-    "__type__": "Clothes",
-    "id": 1020109044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309044": {
-    "__type__": "Clothes",
-    "id": 1020309044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409044": {
-    "__type__": "Clothes",
-    "id": 1020409044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509044": {
-    "__type__": "Clothes",
-    "id": 1020509044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609044": {
-    "__type__": "Clothes",
-    "id": 1020609044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709044": {
-    "__type__": "Clothes",
-    "id": 1020709044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009044": {
-    "__type__": "Clothes",
-    "id": 1021009044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409044": {
-    "__type__": "Clothes",
-    "id": 1021409044,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109048": {
-    "__type__": "Clothes",
-    "id": 1020109048,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509048": {
-    "__type__": "Clothes",
-    "id": 1020509048,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609048": {
-    "__type__": "Clothes",
-    "id": 1020609048,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809048": {
-    "__type__": "Clothes",
-    "id": 1020809048,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109048": {
-    "__type__": "Clothes",
-    "id": 1022109048,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109051": {
-    "__type__": "Clothes",
-    "id": 1020109051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609051": {
-    "__type__": "Clothes",
-    "id": 1020609051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709051": {
-    "__type__": "Clothes",
-    "id": 1020709051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909051": {
-    "__type__": "Clothes",
-    "id": 1020909051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009051": {
-    "__type__": "Clothes",
-    "id": 1021009051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409051": {
-    "__type__": "Clothes",
-    "id": 1021409051,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109057": {
-    "__type__": "Clothes",
-    "id": 1020109057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509057": {
-    "__type__": "Clothes",
-    "id": 1020509057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609057": {
-    "__type__": "Clothes",
-    "id": 1020609057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709057": {
-    "__type__": "Clothes",
-    "id": 1020709057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009057": {
-    "__type__": "Clothes",
-    "id": 1021009057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109057": {
-    "__type__": "Clothes",
-    "id": 1022109057,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109059": {
-    "__type__": "Clothes",
-    "id": 1020109059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509059": {
-    "__type__": "Clothes",
-    "id": 1020509059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609059": {
-    "__type__": "Clothes",
-    "id": 1020609059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809059": {
-    "__type__": "Clothes",
-    "id": 1020809059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009059": {
-    "__type__": "Clothes",
-    "id": 1021009059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021309059": {
-    "__type__": "Clothes",
-    "id": 1021309059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109059": {
-    "__type__": "Clothes",
-    "id": 1022109059,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109064": {
-    "__type__": "Clothes",
-    "id": 1020109064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309064": {
-    "__type__": "Clothes",
-    "id": 1020309064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409064": {
-    "__type__": "Clothes",
-    "id": 1020409064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509064": {
-    "__type__": "Clothes",
-    "id": 1020509064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609064": {
-    "__type__": "Clothes",
-    "id": 1020609064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809064": {
-    "__type__": "Clothes",
-    "id": 1020809064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909064": {
-    "__type__": "Clothes",
-    "id": 1020909064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021309064": {
-    "__type__": "Clothes",
-    "id": 1021309064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409064": {
-    "__type__": "Clothes",
-    "id": 1021409064,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109082": {
-    "__type__": "Clothes",
-    "id": 1020109082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509082": {
-    "__type__": "Clothes",
-    "id": 1020509082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609082": {
-    "__type__": "Clothes",
-    "id": 1020609082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809082": {
-    "__type__": "Clothes",
-    "id": 1020809082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021309082": {
-    "__type__": "Clothes",
-    "id": 1021309082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409082": {
-    "__type__": "Clothes",
-    "id": 1021409082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109082": {
-    "__type__": "Clothes",
-    "id": 1022109082,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109085": {
-    "__type__": "Clothes",
-    "id": 1020109085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509085": {
-    "__type__": "Clothes",
-    "id": 1020509085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609085": {
-    "__type__": "Clothes",
-    "id": 1020609085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709085": {
-    "__type__": "Clothes",
-    "id": 1020709085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809085": {
-    "__type__": "Clothes",
-    "id": 1020809085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409085": {
-    "__type__": "Clothes",
-    "id": 1021409085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109085": {
-    "__type__": "Clothes",
-    "id": 1022109085,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109087": {
-    "__type__": "Clothes",
-    "id": 1020109087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020209087": {
-    "__type__": "Clothes",
-    "id": 1020209087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509087": {
-    "__type__": "Clothes",
-    "id": 1020509087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609087": {
-    "__type__": "Clothes",
-    "id": 1020609087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709087": {
-    "__type__": "Clothes",
-    "id": 1020709087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909087": {
-    "__type__": "Clothes",
-    "id": 1020909087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409087": {
-    "__type__": "Clothes",
-    "id": 1021409087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109087": {
-    "__type__": "Clothes",
-    "id": 1022109087,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609089": {
-    "__type__": "Clothes",
-    "id": 1020609089,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709089": {
-    "__type__": "Clothes",
-    "id": 1020709089,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009089": {
-    "__type__": "Clothes",
-    "id": 1021009089,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109089": {
-    "__type__": "Clothes",
-    "id": 1022109089,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109093": {
-    "__type__": "Clothes",
-    "id": 1020109093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509093": {
-    "__type__": "Clothes",
-    "id": 1020509093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609093": {
-    "__type__": "Clothes",
-    "id": 1020609093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709093": {
-    "__type__": "Clothes",
-    "id": 1020709093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909093": {
-    "__type__": "Clothes",
-    "id": 1020909093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109093": {
-    "__type__": "Clothes",
-    "id": 1022109093,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109095": {
-    "__type__": "Clothes",
-    "id": 1020109095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020309095": {
-    "__type__": "Clothes",
-    "id": 1020309095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020409095": {
-    "__type__": "Clothes",
-    "id": 1020409095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020509095": {
-    "__type__": "Clothes",
-    "id": 1020509095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609095": {
-    "__type__": "Clothes",
-    "id": 1020609095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020809095": {
-    "__type__": "Clothes",
-    "id": 1020809095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909095": {
-    "__type__": "Clothes",
-    "id": 1020909095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009095": {
-    "__type__": "Clothes",
-    "id": 1021009095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409095": {
-    "__type__": "Clothes",
-    "id": 1021409095,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020109132": {
-    "__type__": "Clothes",
-    "id": 1020109132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020609132": {
-    "__type__": "Clothes",
-    "id": 1020609132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020709132": {
-    "__type__": "Clothes",
-    "id": 1020709132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1020909132": {
-    "__type__": "Clothes",
-    "id": 1020909132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021009132": {
-    "__type__": "Clothes",
-    "id": 1021009132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021309132": {
-    "__type__": "Clothes",
-    "id": 1021309132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1021409132": {
-    "__type__": "Clothes",
-    "id": 1021409132,
-    "attack": 100,
-    "hp": 1000,
-    "energy_limit": 5,
-    "energy_resume": 1
-  },
-  "1022109132": {
-    "__type__": "Clothes",
-    "id": 1022109132,
     "attack": 100,
     "hp": 1000,
     "energy_limit": 5,
@@ -5353,11 +3366,11 @@
   },
   "2004": {
     "id": 2004,
-    "value": "导出"
+    "value": "any"
   },
   "2003": {
     "id": 2003,
-    "value": "导出"
+    "value": "test"
   },
   "100": {
     "id": 100,
@@ -5371,6 +3384,14 @@
     "id": 2,
     "value": "导出"
   },
+  "6": {
+    "id": 6,
+    "value": "导出"
+  },
+  "7": {
+    "id": 7,
+    "value": "导出"
+  },
   "9": {
     "id": 9,
     "value": "测试"
@@ -5381,7 +3402,7 @@
   },
   "11": {
     "id": 11,
-    "value": "测试"
+    "value": "any"
   },
   "12": {
     "id": 12,
@@ -5393,11 +3414,11 @@
   },
   "104": {
     "id": 104,
-    "value": "导出"
+    "value": "any"
   },
   "102": {
     "id": 102,
-    "value": "测试"
+    "value": "test"
   },
   "3001": {
     "id": 3001,
@@ -5405,18 +3426,18 @@
   },
   "3004": {
     "id": 3004,
-    "value": "其他"
+    "value": "any"
   },
   "3003": {
     "id": 3003,
-    "value": "测试"
+    "value": "test"
   }
 }
 ,
 "test.TbFullTypes":
 {
   "1": {
-    "x4": 10000,
+    "x4": 1,
     "x1": true,
     "x2": 5,
     "x3": 1,
@@ -5500,7 +3521,7 @@
     ]
   },
   "2": {
-    "x4": 0,
+    "x4": 2,
     "x1": false,
     "x2": 0,
     "x3": 2,
@@ -5584,7 +3605,7 @@
     ]
   },
   "3": {
-    "x4": 0,
+    "x4": 3,
     "x1": false,
     "x2": 0,
     "x3": 3,
@@ -5668,7 +3689,7 @@
     ]
   },
   "4": {
-    "x4": 0,
+    "x4": 4,
     "x1": false,
     "x2": 5,
     "x3": 4,
@@ -5751,8 +3772,8 @@
       }
     ]
   },
-  "6": {
-    "x4": 10001,
+  "5": {
+    "x4": 5,
     "x1": false,
     "x2": 5,
     "x3": 6,
@@ -5835,8 +3856,8 @@
       }
     ]
   },
-  "7": {
-    "x4": 10002,
+  "6": {
+    "x4": 6,
     "x1": true,
     "x2": 5,
     "x3": 7,
@@ -5919,12 +3940,12 @@
       }
     ]
   },
-  "8": {
-    "x4": 10003,
+  "7": {
+    "x4": 7,
     "x1": true,
     "x2": 5,
     "x3": 8,
-    "x5": 2,
+    "x5": 1213123,
     "x6": 1.28,
     "x7": 1.23457891,
     "x8_0": 1234,
@@ -6003,8 +4024,8 @@
       }
     ]
   },
-  "9": {
-    "x4": 1,
+  "8": {
+    "x4": 8,
     "x1": true,
     "x2": 5,
     "x3": 9,
@@ -6018,7 +4039,7 @@
     "x12": {
       "x1": 1988
     },
-    "x13": 1,
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -6087,8 +4108,8 @@
       }
     ]
   },
-  "128": {
-    "x4": 1,
+  "9": {
+    "x4": 9,
     "x1": true,
     "x2": 5,
     "x3": 128,
@@ -6170,6 +4191,258 @@
         "x4": 11
       }
     ]
+  },
+  "10": {
+    "x4": 10,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "huang",
+    "x12": {
+      "x1": 1989
+    },
+    "x13": 1,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 3
+    },
+    "s1": {
+      "key": "key4",
+      "text": "asdfa9"
+    },
+    "v2": {
+      "x": 1,
+      "y": 3
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 5
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.9
+    },
+    "t1": 935460550,
+    "k1": [
+      1,
+      2,
+      4
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 5
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 3,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 12
+      }
+    ]
+  },
+  "12": {
+    "x4": 12,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "huang",
+    "x12": {
+      "x1": 1990
+    },
+    "x13": 2,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 4
+    },
+    "s1": {
+      "key": "key5",
+      "text": "asdfa10"
+    },
+    "v2": {
+      "x": 1,
+      "y": 4
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 6
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.1
+    },
+    "t1": 935460551,
+    "k1": [
+      1,
+      2,
+      5
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 6
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 4,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 13
+      }
+    ]
+  },
+  "30": {
+    "x4": 30,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "huang",
+    "x12": {
+      "x1": 1991
+    },
+    "x13": 4,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 5
+    },
+    "s1": {
+      "key": "key6",
+      "text": "asdfa11"
+    },
+    "v2": {
+      "x": 1,
+      "y": 5
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 7
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.11
+    },
+    "t1": 935460552,
+    "k1": [
+      1,
+      2,
+      6
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 7
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 5,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 14
+      }
+    ]
   }
 }
 ,
@@ -6189,6 +4462,192 @@
     }
   }
 }
+,
+"test.TbNotIndexList":
+[
+  {
+    "x": 1,
+    "y": 2
+  },
+  {
+    "x": 1,
+    "y": 2
+  },
+  {
+    "x": 2,
+    "y": 3
+  },
+  {
+    "x": 3,
+    "y": 4
+  },
+  {
+    "x": 2,
+    "y": 3
+  }
+]
+,
+"test.TbMultiUnionIndexList":
+[
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab1",
+    "num": 1,
+    "desc": "desc1"
+  },
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab2",
+    "num": 2,
+    "desc": "desc2"
+  },
+  {
+    "id1": 1,
+    "id2": 5,
+    "id3": "ab1",
+    "num": 3,
+    "desc": "desc3"
+  },
+  {
+    "id1": 4,
+    "id2": 5,
+    "id3": "ab1",
+    "num": 4,
+    "desc": "desc4"
+  },
+  {
+    "id1": 5,
+    "id2": 9,
+    "id3": "ab5",
+    "num": 5,
+    "desc": "desc5"
+  },
+  {
+    "id1": 6,
+    "id2": 11,
+    "id3": "ab6",
+    "num": 6,
+    "desc": "desc6"
+  },
+  {
+    "id1": 7,
+    "id2": 13,
+    "id3": "ab7",
+    "num": 7,
+    "desc": "desc7"
+  },
+  {
+    "id1": 8,
+    "id2": 15,
+    "id3": "ab8",
+    "num": 8,
+    "desc": "desc8"
+  },
+  {
+    "id1": 9,
+    "id2": 17,
+    "id3": "ab9",
+    "num": 9,
+    "desc": "desc9"
+  },
+  {
+    "id1": 10,
+    "id2": 19,
+    "id3": "ab10",
+    "num": 10,
+    "desc": "desc10"
+  },
+  {
+    "id1": 11,
+    "id2": 21,
+    "id3": "ab11",
+    "num": 11,
+    "desc": "desc11"
+  }
+]
+,
+"test.TbMultiIndexList":
+[
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab1",
+    "num": 1,
+    "desc": "desc1"
+  },
+  {
+    "id1": 2,
+    "id2": 3,
+    "id3": "ab2",
+    "num": 2,
+    "desc": "desc2"
+  },
+  {
+    "id1": 3,
+    "id2": 5,
+    "id3": "ab3",
+    "num": 3,
+    "desc": "desc3"
+  },
+  {
+    "id1": 4,
+    "id2": 7,
+    "id3": "ab4",
+    "num": 4,
+    "desc": "desc4"
+  },
+  {
+    "id1": 5,
+    "id2": 9,
+    "id3": "ab5",
+    "num": 5,
+    "desc": "desc5"
+  },
+  {
+    "id1": 6,
+    "id2": 11,
+    "id3": "ab6",
+    "num": 6,
+    "desc": "desc6"
+  },
+  {
+    "id1": 7,
+    "id2": 13,
+    "id3": "ab7",
+    "num": 7,
+    "desc": "desc7"
+  },
+  {
+    "id1": 8,
+    "id2": 15,
+    "id3": "ab8",
+    "num": 8,
+    "desc": "desc8"
+  },
+  {
+    "id1": 9,
+    "id2": 17,
+    "id3": "ab9",
+    "num": 9,
+    "desc": "desc9"
+  },
+  {
+    "id1": 10,
+    "id2": 19,
+    "id3": "ab10",
+    "num": 10,
+    "desc": "desc10"
+  },
+  {
+    "id1": 11,
+    "id2": 21,
+    "id3": "ab11",
+    "num": 11,
+    "desc": "desc11"
+  }
+]
 ,
 "test.TbDataFromMisc":
 {
@@ -6667,13 +5126,6 @@
         "x": 2
       }
     ],
-    "multi_rows3": [
-      {
-        "id": 1,
-        "x": 2,
-        "y": 3
-      }
-    ],
     "multi_rows4": {
       "1": {
         "id": 1,
@@ -6691,7 +5143,14 @@
           }
         ]
       }
-    ]
+    ],
+    "multi_rows6": {},
+    "multi_rows7": {
+      "1": 10,
+      "2": 10,
+      "3": 30,
+      "4": 40
+    }
   },
   "2": {
     "id": 2,
@@ -6736,18 +5195,6 @@
       {
         "id": 3,
         "x": 4
-      }
-    ],
-    "multi_rows3": [
-      {
-        "id": 2,
-        "x": 3,
-        "y": 4
-      },
-      {
-        "id": 2,
-        "x": 3,
-        "y": 4
       }
     ],
     "multi_rows4": {
@@ -6797,7 +5244,33 @@
           }
         ]
       }
-    ]
+    ],
+    "multi_rows6": {
+      "2": {
+        "id": 2,
+        "x": 2,
+        "y": 2
+      },
+      "22": {
+        "id": 22,
+        "x": 22,
+        "y": 22
+      },
+      "222": {
+        "id": 3,
+        "x": 3,
+        "y": 3
+      },
+      "2222": {
+        "id": 4,
+        "x": 4,
+        "y": 4
+      }
+    },
+    "multi_rows7": {
+      "1": 100,
+      "2": 200
+    }
   },
   "3": {
     "id": 3,
@@ -6826,18 +5299,6 @@
       {
         "id": 3,
         "x": 4
-      }
-    ],
-    "multi_rows3": [
-      {
-        "id": 1,
-        "x": 2,
-        "y": 3
-      },
-      {
-        "id": 2,
-        "x": 3,
-        "y": 4
       }
     ],
     "multi_rows4": {
@@ -6879,7 +5340,34 @@
           }
         ]
       }
-    ]
+    ],
+    "multi_rows6": {
+      "1": {
+        "id": 2,
+        "x": 3,
+        "y": 4
+      },
+      "10": {
+        "id": 20,
+        "x": 3,
+        "y": 40
+      },
+      "100": {
+        "id": 200,
+        "x": 4,
+        "y": 400
+      },
+      "1000": {
+        "id": 2000,
+        "x": 5,
+        "y": 4000
+      }
+    },
+    "multi_rows7": {
+      "1": 1,
+      "2": 2,
+      "4": 4
+    }
   }
 }
 ,
@@ -6913,6 +5401,69 @@
       {
         "z2": 3,
         "z3": 4
+      }
+    ],
+    "x4": [
+      {
+        "z2": 12,
+        "z3": 13
+      },
+      {
+        "z2": 22,
+        "z3": 23
+      },
+      {
+        "z2": 32,
+        "z3": 33
+      }
+    ]
+  },
+  "11": {
+    "id": 11,
+    "name": "yyy",
+    "x1": {
+      "y2": {
+        "z2": 12,
+        "z3": 13
+      },
+      "y3": 14
+    },
+    "x2_0": {
+      "z2": 1,
+      "z3": 2
+    },
+    "x2": [
+      {
+        "z2": 11,
+        "z3": 12
+      },
+      {
+        "z2": 13,
+        "z3": 14
+      }
+    ],
+    "x3": [
+      {
+        "z2": 11,
+        "z3": 12
+      },
+      {
+        "z2": 13,
+        "z3": 14
+      }
+    ],
+    "x4": [
+      {
+        "z2": 112,
+        "z3": 113
+      },
+      {
+        "z2": 122,
+        "z3": 123
+      },
+      {
+        "z2": 132,
+        "z3": 133
       }
     ]
   }
@@ -7054,20 +5605,20 @@
   },
   "4": {
     "x1": true,
-    "x2": 0,
-    "x3": 0,
+    "x2": 1,
+    "x3": 2,
     "x4": 4,
-    "x5": 0,
-    "x6": 0,
-    "x7": 0,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
     "s1": "world",
     "s2": {
       "key": "/test/key2",
       "text": "测试本地化字符串2"
     },
     "v2": {
-      "x": 1.1,
-      "y": 1.2
+      "x": 2,
+      "y": 3
     },
     "v3": {
       "x": 2.2,
@@ -7080,24 +5631,24 @@
       "z": 6.7,
       "w": 8.8
     },
-    "t1": 946742700
+    "t1": 946829099
   },
   "5": {
-    "x1": false,
-    "x2": 0,
-    "x3": 0,
+    "x1": true,
+    "x2": 1,
+    "x3": 2,
     "x4": 5,
-    "x5": 0,
-    "x6": 0,
-    "x7": 0,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
     "s1": "nihao",
     "s2": {
       "key": "/test/key3",
       "text": "测试本地化字符串3"
     },
     "v2": {
-      "x": 1.1,
-      "y": 1.3
+      "x": 4,
+      "y": 5
     },
     "v3": {
       "x": 2.2,
@@ -7110,10 +5661,10 @@
       "z": 6.8,
       "w": 9.9
     },
-    "t1": 915120000
+    "t1": 946915499
   },
   "6": {
-    "x1": false,
+    "x1": true,
     "x2": 1,
     "x3": 2,
     "x4": 6,
@@ -7122,12 +5673,12 @@
     "x7": 6,
     "s1": "shijie",
     "s2": {
-      "key": "",
-      "text": ""
+      "key": "/test/key4",
+      "text": "测试本地化字符串4"
     },
     "v2": {
-      "x": 1.1,
-      "y": 1.4
+      "x": 6,
+      "y": 7
     },
     "v3": {
       "x": 2.2,
@@ -7140,7 +5691,7 @@
       "z": 6.9,
       "w": 123
     },
-    "t1": 1578585600
+    "t1": 947001899
   }
 }
 ,
@@ -7162,7 +5713,7 @@
   },
   "2": {
     "id": 2,
-    "s1": "",
+    "s1": "adsf\u0022",
     "cs1": {
       "id": 2,
       "s2": "",
@@ -7176,7 +5727,7 @@
   },
   "3": {
     "id": 3,
-    "s1": "",
+    "s1": "升级到10级\u0022\u0022",
     "cs1": {
       "id": 3,
       "s2": "asdfas",
@@ -7432,6 +5983,255 @@
 {
   "unlock_equip": 10,
   "unlock_hero": 20
+}
+,
+"test.TbTestBeRef":
+{
+  "1": {
+    "id": 1,
+    "count": 10
+  },
+  "2": {
+    "id": 2,
+    "count": 10
+  },
+  "3": {
+    "id": 3,
+    "count": 10
+  },
+  "4": {
+    "id": 4,
+    "count": 10
+  },
+  "5": {
+    "id": 5,
+    "count": 10
+  },
+  "6": {
+    "id": 6,
+    "count": 10
+  },
+  "7": {
+    "id": 7,
+    "count": 10
+  },
+  "8": {
+    "id": 8,
+    "count": 10
+  },
+  "9": {
+    "id": 9,
+    "count": 10
+  },
+  "10": {
+    "id": 10,
+    "count": 10
+  }
+}
+,
+"test.TbTestRef":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "a1": [
+      1,
+      2
+    ],
+    "a2": [
+      2,
+      3
+    ],
+    "b1": [
+      3,
+      4
+    ],
+    "b2": [
+      4,
+      5
+    ],
+    "c1": [
+      5,
+      6,
+      7
+    ],
+    "c2": [
+      6,
+      7
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5"
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "a1": [
+      1,
+      3
+    ],
+    "a2": [
+      2,
+      4
+    ],
+    "b1": [
+      3,
+      5
+    ],
+    "b2": [
+      4,
+      6
+    ],
+    "c1": [
+      5,
+      6,
+      8
+    ],
+    "c2": [
+      6,
+      8
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5"
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "a1": [
+      1,
+      4
+    ],
+    "a2": [
+      2,
+      5
+    ],
+    "b1": [
+      3,
+      6
+    ],
+    "b2": [
+      4,
+      7
+    ],
+    "c1": [
+      5,
+      6,
+      9
+    ],
+    "c2": [
+      6,
+      9
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5"
+  }
+}
+,
+"test.TbTestSize":
+{
+  "1": {
+    "id": 1,
+    "x1": [
+      1,
+      2
+    ],
+    "x2": [
+      3,
+      4
+    ],
+    "x3": [
+      5,
+      6
+    ],
+    "x4": {
+      "1": 2,
+      "3": 4
+    }
+  }
+}
+,
+"test.TbTestSet":
+{
+  "1": {
+    "id": 1,
+    "x1": [
+      1,
+      2,
+      3
+    ],
+    "x2": [
+      2,
+      3,
+      4
+    ],
+    "x3": [
+      "ab",
+      "cd"
+    ],
+    "x4": [
+      1,
+      2
+    ]
+  },
+  "2": {
+    "id": 2,
+    "x1": [
+      1,
+      2
+    ],
+    "x2": [
+      2,
+      3
+    ],
+    "x3": [
+      "ab",
+      "cd"
+    ],
+    "x4": [
+      1
+    ]
+  }
 }
 ,
 "test.TbDetectCsvEncoding":
@@ -7719,11 +6519,11 @@
   "10006": {
     "id": 10006,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 6,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -7757,11 +6557,11 @@
   "10007": {
     "id": 10007,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 4,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "xxx",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -7795,11 +6595,11 @@
   "10008": {
     "id": 10008,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 3,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "xxx",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -7838,56 +6638,6 @@
   "unlock_hero": 20,
   "default_avatar": "Assets/Icon/DefaultAvatar.png",
   "default_item": "Assets/Icon/DefaultAvatar.png"
-}
-,
-"test.TbTestJson2":
-{
-  "1": {
-    "id": 1,
-    "m1": {
-      "1": 2,
-      "2": 4
-    },
-    "m2": {
-      "2": 2,
-      "3": 3
-    },
-    "m3": {
-      "abc": 1,
-      "efg": 2
-    },
-    "m4": {
-      "abc": {
-        "x1": 5
-      },
-      "defg": {
-        "x1": 10
-      }
-    }
-  },
-  "2": {
-    "id": 2,
-    "m1": {
-      "1": 2,
-      "2": 4
-    },
-    "m2": {
-      "2": 2,
-      "3": 3
-    },
-    "m3": {
-      "abc": 1,
-      "efg": 2
-    },
-    "m4": {
-      "abc": {
-        "x1": 5
-      },
-      "defg": {
-        "x1": 10
-      }
-    }
-  }
 }
 ,
 "test.TbTestIndex":
@@ -7993,6 +6743,545 @@
     "x4": {
       "1": 1,
       "2": 20
+    }
+  }
+}
+,
+"test.TbExcelFromJson":
+{
+  "1": {
+    "x4": 1,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 1,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "2": {
+    "x4": 2,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 2,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "3": {
+    "x4": 3,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 4,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "6": {
+    "x4": 6,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 4,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "7": {
+    "x4": 7,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 3
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.5
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.5
+    },
+    "t1": 631209600,
+    "x12": {
+      "x1": 11
+    },
+    "x13": 4,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 3
+    },
+    "k1": [
+      13
+    ],
+    "k8": {
+      "2": 2,
+      "4": 11
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 3,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 4
+      }
+    ]
+  },
+  "8": {
+    "x4": 8,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 4
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.6
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.6
+    },
+    "t1": 631296000,
+    "x12": {
+      "x1": 12
+    },
+    "x13": 4,
+    "x14": {
+      "__type__": "DemoD2",
+      "x1": 1,
+      "x2": 4
+    },
+    "k1": [
+      14
+    ],
+    "k8": {
+      "2": 2,
+      "4": 12
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 4,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "__type__": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "__type__": "DemoD2",
+        "x1": 2,
+        "x2": 5
+      }
+    ]
+  }
+}
+,
+"test.TbCompositeJsonTable1":
+{
+  "1": {
+    "id": 1,
+    "x": "aaa1"
+  },
+  "2": {
+    "id": 2,
+    "x": "xx2"
+  },
+  "11": {
+    "id": 11,
+    "x": "aaa11"
+  },
+  "12": {
+    "id": 12,
+    "x": "xx12"
+  }
+}
+,
+"test.TbCompositeJsonTable2":
+{
+  "1": {
+    "id": 1,
+    "y": 100
+  },
+  "3": {
+    "id": 3,
+    "y": 300
+  }
+}
+,
+"test.TbCompositeJsonTable3":
+{
+  "a": 111,
+  "b": 222
+}
+,
+"test.TbExcelFromJsonMultiRow":
+{
+  "1": {
+    "id": 1,
+    "x": 5,
+    "items": [
+      {
+        "x": 1,
+        "y": true,
+        "z": "abcd",
+        "a": {
+          "x": 10,
+          "y": 100
+        },
+        "b": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "x": 2,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      }
+    ]
+  },
+  "2": {
+    "id": 2,
+    "x": 9,
+    "items": [
+      {
+        "x": 2,
+        "y": true,
+        "z": "abcd",
+        "a": {
+          "x": 10,
+          "y": 11
+        },
+        "b": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "x": 4,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      },
+      {
+        "x": 5,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      }
+    ]
+  }
+}
+,
+"test.TbTestExternalType":
+{
+  "1": {
+    "id": 1,
+    "audio_type": 1,
+    "color": {
+      "r": 0.2,
+      "g": 0.2,
+      "b": 0.4,
+      "a": 1
+    }
+  },
+  "2": {
+    "id": 2,
+    "audio_type": 2,
+    "color": {
+      "r": 0.2,
+      "g": 0.2,
+      "b": 0.4,
+      "a": 0.8
     }
   }
 }
@@ -8286,11 +7575,11 @@
   "10006": {
     "id": 10006,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 6,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -8324,11 +7613,11 @@
   "10007": {
     "id": 10007,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 4,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "xxx",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -8362,11 +7651,11 @@
   "10008": {
     "id": 10008,
     "x1": true,
-    "x5": 13234234234,
+    "x5": 10,
     "x6": 1.28,
     "x8": 3,
-    "x10": "huang",
-    "x13": 1,
+    "x10": "xxx",
+    "x13": 2,
     "x14": {
       "__type__": "DemoD2",
       "x1": 1,
@@ -8424,6 +7713,43 @@
     "x2": "ee",
     "x3": 2,
     "x4": 6
+  }
+}
+,
+"test.TbTestDesc":
+{
+  "1": {
+    "id": 1,
+    "name": "xxx",
+    "a1": 0,
+    "a2": 0,
+    "x1": {
+      "y2": {
+        "z2": 2,
+        "z3": 3
+      },
+      "y3": 4
+    },
+    "x2": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ],
+    "x3": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ]
   }
 }
 }
