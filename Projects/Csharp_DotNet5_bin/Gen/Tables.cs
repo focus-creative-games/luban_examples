@@ -64,6 +64,7 @@ public sealed class Tables
     public test.TbCompositeJsonTable2 TbCompositeJsonTable2 {get; }
     public test.TbCompositeJsonTable3 TbCompositeJsonTable3 {get; }
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
+    public test.TbTestSep TbTestSep {get; }
     public test.TbTestExternalType TbTestExternalType {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
@@ -167,6 +168,8 @@ public sealed class Tables
         tables.Add("test.TbCompositeJsonTable3", TbCompositeJsonTable3);
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow")); 
         tables.Add("test.TbExcelFromJsonMultiRow", TbExcelFromJsonMultiRow);
+        TbTestSep = new test.TbTestSep(loader("test_tbtestsep")); 
+        tables.Add("test.TbTestSep", TbTestSep);
         TbTestExternalType = new test.TbTestExternalType(loader("test_tbtestexternaltype")); 
         tables.Add("test.TbTestExternalType", TbTestExternalType);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test_tbdemogroupdefinefromexcel")); 
@@ -225,6 +228,7 @@ public sealed class Tables
         TbCompositeJsonTable2.Resolve(tables); 
         TbCompositeJsonTable3.Resolve(tables); 
         TbExcelFromJsonMultiRow.Resolve(tables); 
+        TbTestSep.Resolve(tables); 
         TbTestExternalType.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
@@ -281,6 +285,7 @@ public sealed class Tables
         TbCompositeJsonTable2.TranslateText(translator); 
         TbCompositeJsonTable3.TranslateText(translator); 
         TbExcelFromJsonMultiRow.TranslateText(translator); 
+        TbTestSep.TranslateText(translator); 
         TbTestExternalType.TranslateText(translator); 
         TbDemoGroupDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcel2.TranslateText(translator); 

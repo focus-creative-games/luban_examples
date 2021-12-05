@@ -271,9 +271,9 @@
 	
 	<bean name="DemoGroup">
 		<var name="id" type="int"/>
-		<var name="x1" type="int"/> 默认属于所有分组c,s,e
-		<var name="x2" type="int" group="c"/>属于 c 分组
-		<var name="x3" type="int" group="s"/>属于s分组
+		<var name="x1" type="int" ref="test.TbDemoGroup_C"/> 默认属于所有分组c,s,e
+		<var name="x2" type="int" ref="test.TbDemoGroup_S" group="c"/>属于 c 分组
+		<var name="x3" type="int" ref="test.TbDemoGroup_E" group="s"/>属于s分组
 		<var name="x4" type="int" group="c,s"/>属于c,s分组
 		<var name="x5" type="InnerGroup"/>
 	</bean>
