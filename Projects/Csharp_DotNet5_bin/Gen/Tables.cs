@@ -51,6 +51,7 @@ public sealed class Tables
     public test.TbDemoGroup_E TbDemoGroup_E {get; }
     public test.TbTestGlobal TbTestGlobal {get; }
     public test.TbTestBeRef TbTestBeRef {get; }
+    public test.TbTestBeRef2 TbTestBeRef2 {get; }
     public test.TbTestRef TbTestRef {get; }
     public test.TbTestSize TbTestSize {get; }
     public test.TbTestSet TbTestSet {get; }
@@ -142,6 +143,8 @@ public sealed class Tables
         tables.Add("test.TbTestGlobal", TbTestGlobal);
         TbTestBeRef = new test.TbTestBeRef(loader("test_tbtestberef")); 
         tables.Add("test.TbTestBeRef", TbTestBeRef);
+        TbTestBeRef2 = new test.TbTestBeRef2(loader("test_tbtestberef2")); 
+        tables.Add("test.TbTestBeRef2", TbTestBeRef2);
         TbTestRef = new test.TbTestRef(loader("test_tbtestref")); 
         tables.Add("test.TbTestRef", TbTestRef);
         TbTestSize = new test.TbTestSize(loader("test_tbtestsize")); 
@@ -215,6 +218,7 @@ public sealed class Tables
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
         TbTestBeRef.Resolve(tables); 
+        TbTestBeRef2.Resolve(tables); 
         TbTestRef.Resolve(tables); 
         TbTestSize.Resolve(tables); 
         TbTestSet.Resolve(tables); 
@@ -272,6 +276,7 @@ public sealed class Tables
         TbDemoGroup_E.TranslateText(translator); 
         TbTestGlobal.TranslateText(translator); 
         TbTestBeRef.TranslateText(translator); 
+        TbTestBeRef2.TranslateText(translator); 
         TbTestRef.TranslateText(translator); 
         TbTestSize.TranslateText(translator); 
         TbTestSet.TranslateText(translator); 

@@ -11,7 +11,7 @@ namespace HotFix_Project
         // static method
         public static void StaticFunTest()
         {
-            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../../GenerateDatas/bin/" + file + ".bin")));
+            var tables = new cfg.Tables(file => new ByteBuf(File.ReadAllBytes(Application.dataPath + "/../../GenerateDatas/bin/" + file + ".bytes")));
             UnityEngine.Debug.Log("== load succ ==");
         }
     }

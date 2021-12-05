@@ -19,7 +19,7 @@ class Program
 
     private static void TestNullable()
     {
-        var file = "../../../pb_datas/test_tbtestnull.pb";
+        var file = "../../../pb_datas/test_tbtestnull.bytes";
 
         var bytes = File.ReadAllBytes(file);
         Console.WriteLine(string.Join(',', bytes.Select(b => b.ToString())));
@@ -37,7 +37,7 @@ class Program
 
         //Console.WriteLine(tbItem);
 
-        var file = "../../../pb_datas/test_tbfulltypes.pb";
+        var file = "../../../pb_datas/test_tbfulltypes.bytes";
 
         var bytes = File.ReadAllBytes(file);
 

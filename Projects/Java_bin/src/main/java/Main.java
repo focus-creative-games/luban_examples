@@ -11,6 +11,6 @@ public class Main {
     }
 
     private static ByteBuf createByteBufFromFile(String file) throws java.io.IOException    {
-        return new ByteBuf(java.nio.file.Files.readAllBytes(Paths.get("../GenerateDatas/bin", file + ".bin")));
+        return new ByteBuf(java.nio.file.Files.readAllBytes(Paths.get("../GenerateDatas/bin", file + ".bytes")));
     }
 }

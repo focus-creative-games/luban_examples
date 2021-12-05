@@ -15,7 +15,7 @@ void MainModule::StartupModule()
 
     auto dir = FPaths::ProjectContentDir() + TEXT("/../../GenerateDatas/bin/");
 
-    if (tables.load([=](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile(std::string(TCHAR_TO_UTF8(*dir)) + str + ".bin"); }))
+    if (tables.load([=](ByteBuf& buf, const std::string& str) { buf.clear(); return buf.loadFromFile(std::string(TCHAR_TO_UTF8(*dir)) + str + ".bytes"); }))
     {
         UE_LOG(LogTemp, Log, TEXT("LOAD SUCC"));
     }

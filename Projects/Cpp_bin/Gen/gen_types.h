@@ -777,6 +777,15 @@ enum class ETestEmptyEnum2
 }
 
 namespace test {
+enum class AudioType
+{
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
+};
+}
+
+namespace test {
 enum class ETestQuality
 {
     /**
@@ -799,16 +808,13 @@ enum class ETestQuality
 }
 
 namespace test {
-enum class ETestCurrency
+enum class AccessFlag
 {
-    /**
-     * 重要
-     */
-    DIAMOND = 1,
-    /**
-     * 有用
-     */
-    GOLD = 2,
+    WRITE = 1,
+    READ = 2,
+    TRUNCATE = 4,
+    NEW = 8,
+    READ_WRITE = WRITE|READ,
 };
 }
 namespace ai { class Blackboard; } 
@@ -968,6 +974,11 @@ namespace test { class CompositeJsonTable3; }
 namespace test { class ExcelFromJsonMultiRow; } 
 namespace test { class TestRow; } 
 namespace test { class Test3; } 
+namespace test { class TestSep; } 
+namespace test { class SepBean1; } 
+namespace test { class SepVector; } 
+namespace test { class TestExternalType; } 
+namespace test { class Color; } 
 namespace test { class DefineFromExcel2; } 
 namespace test { class TestExcelBean1; } 
 namespace test { class TestDesc; } 
@@ -5798,12 +5809,13 @@ class MultiRowTitle : public  bright::CfgBean
 
     }
 
-    MultiRowTitle(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::H1> x1, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3, ::bright::Vector<::bright::SharedPtr<test::H2>> x4 ) 
+    MultiRowTitle(::bright::int32 id, ::bright::String name, ::bright::SharedPtr<test::H1> x1, ::bright::SharedPtr<test::H2> x2_0, ::bright::Vector<::bright::SharedPtr<test::H2>> x2, ::bright::Vector<::bright::SharedPtr<test::H2>> x3, ::bright::Vector<::bright::SharedPtr<test::H2>> x4 ) 
     {
 
         this->id = id;
         this->name = name;
         this->x1 = x1;
+        this->x20 = x2_0;
         this->x2 = x2;
         this->x3 = x3;
         this->x4 = x4;
@@ -5815,6 +5827,7 @@ class MultiRowTitle : public  bright::CfgBean
     ::bright::int32 id;
     ::bright::String name;
     ::bright::SharedPtr<test::H1> x1;
+    ::bright::SharedPtr<test::H2> x20;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x2;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x3;
     ::bright::Vector<::bright::SharedPtr<test::H2>> x4;
@@ -6112,8 +6125,11 @@ class DemoGroup : public  bright::CfgBean
 
     ::bright::int32 id;
     ::bright::int32 x1;
+    ::bright::SharedPtr<test::DemoGroup> x1_Ref;
     ::bright::int32 x2;
+    ::bright::SharedPtr<test::DemoGroup> x2_Ref;
     ::bright::int32 x3;
+    ::bright::SharedPtr<test::DemoGroup> x3_Ref;
     ::bright::int32 x4;
     ::bright::SharedPtr<test::InnerGroup> x5;
 
@@ -6252,13 +6268,14 @@ class TestRef : public  bright::CfgBean
 
     }
 
-    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2, ::bright::int32 e1, ::bright::int64 e2, ::bright::String e3, ::bright::int32 f1, ::bright::int64 f2, ::bright::String f3 ) 
+    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::int32 x3, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2, ::bright::int32 e1, ::bright::int64 e2, ::bright::String e3, ::bright::int32 f1, ::bright::int64 f2, ::bright::String f3 ) 
     {
 
         this->id = id;
         this->x1 = x1;
         this->x12 = x1_2;
         this->x2 = x2;
+        this->x3 = x3;
         this->a1 = a1;
         this->a2 = a2;
         this->b1 = b1;
@@ -6284,6 +6301,7 @@ class TestRef : public  bright::CfgBean
     ::bright::int32 x12;
     ::bright::int32 x2;
     ::bright::SharedPtr<test::TestBeRef> x2_Ref;
+    ::bright::int32 x3;
     ::bright::Vector<::bright::int32> a1;
     ::bright::Vector<::bright::int32> a2;
     ::bright::Vector<::bright::int32> b1;
@@ -6899,6 +6917,218 @@ class Test3 : public  bright::CfgBean
     ::bright::int32 y;
 
     static constexpr int __ID__ = 638540133;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestSep : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestSep(ByteBuf& _buf, ::bright::SharedPtr<TestSep>& _out);
+
+    TestSep()
+    { 
+
+    }
+
+    TestSep(::bright::int32 id, ::bright::String x1, ::bright::SharedPtr<test::SepBean1> x2, ::bright::SharedPtr<test::SepVector> x3, ::bright::Vector<::bright::SharedPtr<test::SepVector>> x4, ::bright::Vector<::bright::SharedPtr<test::SepBean1>> x5, ::bright::Vector<::bright::SharedPtr<test::SepBean1>> x6 ) 
+    {
+
+        this->id = id;
+        this->x1 = x1;
+        this->x2 = x2;
+        this->x3 = x3;
+        this->x4 = x4;
+        this->x5 = x5;
+        this->x6 = x6;
+    }
+    virtual ~TestSep() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    ::bright::String x1;
+    ::bright::SharedPtr<test::SepBean1> x2;
+    /**
+     * SepVector已经定义了sep=,属性
+     */
+    ::bright::SharedPtr<test::SepVector> x3;
+    /**
+     * 用;来分割数据，然后顺序读入SepVector
+     */
+    ::bright::Vector<::bright::SharedPtr<test::SepVector>> x4;
+    /**
+     * 用,分割数据，然后顺序读入
+     */
+    ::bright::Vector<::bright::SharedPtr<test::SepBean1>> x5;
+    /**
+     * 用;分割数据，然后再将每个数据用,分割，读入
+     */
+    ::bright::Vector<::bright::SharedPtr<test::SepBean1>> x6;
+
+    static constexpr int __ID__ = -543221520;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class SepBean1 : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeSepBean1(ByteBuf& _buf, ::bright::SharedPtr<SepBean1>& _out);
+
+    SepBean1()
+    { 
+
+    }
+
+    SepBean1(::bright::int32 a, ::bright::int32 b, ::bright::String c ) 
+    {
+
+        this->a = a;
+        this->b = b;
+        this->c = c;
+    }
+    virtual ~SepBean1() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 a;
+    ::bright::int32 b;
+    ::bright::String c;
+
+    static constexpr int __ID__ = -1534339393;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class SepVector : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeSepVector(ByteBuf& _buf, ::bright::SharedPtr<SepVector>& _out);
+
+    SepVector()
+    { 
+
+    }
+
+    SepVector(::bright::int32 x, ::bright::int32 y, ::bright::int32 z ) 
+    {
+
+        this->x = x;
+        this->y = y;
+        this->z = z;
+    }
+    virtual ~SepVector() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x;
+    ::bright::int32 y;
+    ::bright::int32 z;
+
+    static constexpr int __ID__ = 252769477;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class TestExternalType : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeTestExternalType(ByteBuf& _buf, ::bright::SharedPtr<TestExternalType>& _out);
+
+    TestExternalType()
+    { 
+
+    }
+
+    TestExternalType(::bright::int32 id, test::AudioType audio_type, ::bright::SharedPtr<test::Color> color ) 
+    {
+
+        this->id = id;
+        this->audioType = audio_type;
+        this->color = color;
+    }
+    virtual ~TestExternalType() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 id;
+    test::AudioType audioType;
+    ::bright::SharedPtr<test::Color> color;
+
+    static constexpr int __ID__ = -990826157;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+namespace test {
+
+
+
+class Color : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeColor(ByteBuf& _buf, ::bright::SharedPtr<Color>& _out);
+
+    Color()
+    { 
+
+    }
+
+    Color(::bright::float32 r, ::bright::float32 g, ::bright::float32 b, ::bright::float32 a ) 
+    {
+
+        this->r = r;
+        this->g = g;
+        this->b = b;
+        this->a = a;
+    }
+    virtual ~Color() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::float32 r;
+    ::bright::float32 g;
+    ::bright::float32 b;
+    ::bright::float32 a;
+
+    static constexpr int __ID__ = 623131367;
 
     int getTypeId() const { return __ID__; }
 
@@ -8700,6 +8930,55 @@ class TbTestBeRef
 namespace test {
 
 
+class TbTestBeRef2
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestBeRef>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestBeRef>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestBeRef> _v;
+            if(!test::TestBeRef::deserializeTestBeRef(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestBeRef>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestBeRef>>& getDataList() const { return _dataList; }
+
+    test::TestBeRef* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestBeRef> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
 class TbTestRef
 {
     private:
@@ -9305,6 +9584,104 @@ class TbExcelFromJsonMultiRow
 namespace test {
 
 
+class TbTestSep
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSep>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestSep>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestSep> _v;
+            if(!test::TestSep::deserializeTestSep(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestSep>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestSep>>& getDataList() const { return _dataList; }
+
+    test::TestSep* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestSep> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
+class TbTestExternalType
+{
+    private:
+    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestExternalType>> _dataMap;
+    ::bright::Vector<::bright::SharedPtr<test::TestExternalType>> _dataList;
+    
+    public:
+    bool load(ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::bright::SharedPtr<test::TestExternalType> _v;
+            if(!test::TestExternalType::deserializeTestExternalType(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestExternalType>>& getDataMap() const { return _dataMap; }
+    const ::bright::Vector<::bright::SharedPtr<test::TestExternalType>>& getDataList() const { return _dataList; }
+
+    test::TestExternalType* getRaw(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::bright::SharedPtr<test::TestExternalType> get(::bright::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        for(auto v : _dataList)
+        {
+            v->resolve(_tables);
+        }
+    }
+
+};
+}
+namespace test {
+
+
 class TbDemoGroupDefineFromExcel
 {
     private:
@@ -9538,6 +9915,7 @@ class Tables
      test::TbDemoGroup_E TbDemoGroup_E;
      test::TbTestGlobal TbTestGlobal;
      test::TbTestBeRef TbTestBeRef;
+     test::TbTestBeRef2 TbTestBeRef2;
      test::TbTestRef TbTestRef;
      test::TbTestSize TbTestSize;
      test::TbTestSet TbTestSet;
@@ -9551,6 +9929,8 @@ class Tables
      test::TbCompositeJsonTable2 TbCompositeJsonTable2;
      test::TbCompositeJsonTable3 TbCompositeJsonTable3;
      test::TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow;
+     test::TbTestSep TbTestSep;
+     test::TbTestExternalType TbTestExternalType;
      test::TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
      test::TbTestExcelBean TbTestExcelBean;
@@ -9663,6 +10043,9 @@ class Tables
         if (!loader(buf, "test_tbtestberef")) return false;
         if (!TbTestBeRef.load(buf)) return false;
         __tables__["test.TbTestBeRef"] = &TbTestBeRef;
+        if (!loader(buf, "test_tbtestberef2")) return false;
+        if (!TbTestBeRef2.load(buf)) return false;
+        __tables__["test.TbTestBeRef2"] = &TbTestBeRef2;
         if (!loader(buf, "test_tbtestref")) return false;
         if (!TbTestRef.load(buf)) return false;
         __tables__["test.TbTestRef"] = &TbTestRef;
@@ -9702,6 +10085,12 @@ class Tables
         if (!loader(buf, "test_tbexcelfromjsonmultirow")) return false;
         if (!TbExcelFromJsonMultiRow.load(buf)) return false;
         __tables__["test.TbExcelFromJsonMultiRow"] = &TbExcelFromJsonMultiRow;
+        if (!loader(buf, "test_tbtestsep")) return false;
+        if (!TbTestSep.load(buf)) return false;
+        __tables__["test.TbTestSep"] = &TbTestSep;
+        if (!loader(buf, "test_tbtestexternaltype")) return false;
+        if (!TbTestExternalType.load(buf)) return false;
+        __tables__["test.TbTestExternalType"] = &TbTestExternalType;
         if (!loader(buf, "test_tbdemogroupdefinefromexcel")) return false;
         if (!TbDemoGroupDefineFromExcel.load(buf)) return false;
         __tables__["test.TbDemoGroupDefineFromExcel"] = &TbDemoGroupDefineFromExcel;
@@ -9749,6 +10138,7 @@ class Tables
         TbDemoGroup_E.resolve(__tables__); 
         TbTestGlobal.resolve(__tables__); 
         TbTestBeRef.resolve(__tables__); 
+        TbTestBeRef2.resolve(__tables__); 
         TbTestRef.resolve(__tables__); 
         TbTestSize.resolve(__tables__); 
         TbTestSet.resolve(__tables__); 
@@ -9762,6 +10152,8 @@ class Tables
         TbCompositeJsonTable2.resolve(__tables__); 
         TbCompositeJsonTable3.resolve(__tables__); 
         TbExcelFromJsonMultiRow.resolve(__tables__); 
+        TbTestSep.resolve(__tables__); 
+        TbTestExternalType.resolve(__tables__); 
         TbDemoGroupDefineFromExcel.resolve(__tables__); 
         TbDefineFromExcel2.resolve(__tables__); 
         TbTestExcelBean.resolve(__tables__); 

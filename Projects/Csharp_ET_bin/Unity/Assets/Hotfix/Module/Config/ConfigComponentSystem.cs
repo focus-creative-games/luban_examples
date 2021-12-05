@@ -49,7 +49,7 @@ namespace ET
             }
 
             // == luban ==
-            self.LubanAllConfig = new cfg.Tables(file => new Bright.Serialization.ByteBuf(System.IO.File.ReadAllBytes("../../GenerateDatas/bin/" + file + ".bin")));
+            self.LubanAllConfig = new cfg.Tables(file => new Bright.Serialization.ByteBuf(System.IO.File.ReadAllBytes("../../GenerateDatas/bin/" + file + ".bytes")));
             // == luban ==
 
             await Task.WhenAll(listTasks.ToArray());
