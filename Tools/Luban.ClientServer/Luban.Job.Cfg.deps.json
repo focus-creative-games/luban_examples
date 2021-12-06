@@ -11,7 +11,8 @@
           "ClosedXML": "0.95.4",
           "ExcelDataReader": "3.6.0",
           "Luban.Job.Common": "1.0.0",
-          "NeoLua": "1.3.13",
+          "MessagePack": "2.3.85",
+          "NeoLua": "1.3.14",
           "Ude.NetStandard": "1.2.0",
           "YamlDotNet": "11.2.1"
         },
@@ -115,6 +116,25 @@
           }
         }
       },
+      "MessagePack/2.3.85": {
+        "dependencies": {
+          "MessagePack.Annotations": "2.3.85"
+        },
+        "runtime": {
+          "lib/net5.0/MessagePack.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.85.30390"
+          }
+        }
+      },
+      "MessagePack.Annotations/2.3.85": {
+        "runtime": {
+          "lib/netstandard2.0/MessagePack.Annotations.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.85.30390"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {},
       "Microsoft.NETCore.Platforms/2.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
@@ -144,14 +164,14 @@
           }
         }
       },
-      "NeoLua/1.3.13": {
+      "NeoLua/1.3.14": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0"
         },
         "runtime": {
           "lib/net5.0/Neo.Lua.dll": {
             "assemblyVersion": "5.3.0.0",
-            "fileVersion": "1.3.13.0"
+            "fileVersion": "1.3.14.0"
           }
         },
         "resources": {
@@ -1098,6 +1118,20 @@
       "path": "google.protobuf/3.19.1",
       "hashPath": "google.protobuf.3.19.1.nupkg.sha512"
     },
+    "MessagePack/2.3.85": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wOabnqkrXp7oeEYLY4Kd0m0eT4falJQukqvErfz5Y4FKKo9mSQQ1+rMxx9mapF2el+P0XQxiZOBKFm+oCvu0aw==",
+      "path": "messagepack/2.3.85",
+      "hashPath": "messagepack.2.3.85.nupkg.sha512"
+    },
+    "MessagePack.Annotations/2.3.85": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2GCYZ9qgNS5Og0tiqfhWRhcfDZI/iRi8t07R0fNic1HthMMRfWxWOKDIBhtMA1RwZM4BuRsmJXUgk3evyisb1w==",
+      "path": "messagepack.annotations/2.3.85",
+      "hashPath": "messagepack.annotations.2.3.85.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -1133,12 +1167,12 @@
       "path": "microsoft.win32.systemevents/4.5.0",
       "hashPath": "microsoft.win32.systemevents.4.5.0.nupkg.sha512"
     },
-    "NeoLua/1.3.13": {
+    "NeoLua/1.3.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-e2nn6Vxkx5GRlcufbnJ2R9wR/uDi0C+LpxClUKdwJN0d1jfZ3fCI/y4ar2rPCUTsIITCfT71OfgQI4w8r9WYyA==",
-      "path": "neolua/1.3.13",
-      "hashPath": "neolua.1.3.13.nupkg.sha512"
+      "sha512": "sha512-BXIUN+ePY2wx3ZGiSmR8KZKD85s01pXI690orrB3u/biB8R0nalziGw+iGbPBq1Cuz8Upggpw2ERF84POXWTCQ==",
+      "path": "neolua/1.3.14",
+      "hashPath": "neolua.1.3.14.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
