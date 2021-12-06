@@ -51,6 +51,7 @@ public sealed class Tables
     public test.TbDemoGroup_E TbDemoGroup_E {get; }
     public test.TbTestGlobal TbTestGlobal {get; }
     public test.TbTestBeRef TbTestBeRef {get; }
+    public test.TbTestBeRef2 TbTestBeRef2 {get; }
     public test.TbTestRef TbTestRef {get; }
     public test.TbTestSize TbTestSize {get; }
     public test.TbTestSet TbTestSet {get; }
@@ -64,6 +65,8 @@ public sealed class Tables
     public test.TbCompositeJsonTable2 TbCompositeJsonTable2 {get; }
     public test.TbCompositeJsonTable3 TbCompositeJsonTable3 {get; }
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
+    public test.TbTestSep TbTestSep {get; }
+    public test.TbTestExternalType TbTestExternalType {get; }
     public test.TbDemoGroupDefineFromExcel TbDemoGroupDefineFromExcel {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
@@ -140,6 +143,8 @@ public sealed class Tables
         tables.Add("test.TbTestGlobal", TbTestGlobal);
         TbTestBeRef = new test.TbTestBeRef(loader("test_tbtestberef")); 
         tables.Add("test.TbTestBeRef", TbTestBeRef);
+        TbTestBeRef2 = new test.TbTestBeRef2(loader("test_tbtestberef2")); 
+        tables.Add("test.TbTestBeRef2", TbTestBeRef2);
         TbTestRef = new test.TbTestRef(loader("test_tbtestref")); 
         tables.Add("test.TbTestRef", TbTestRef);
         TbTestSize = new test.TbTestSize(loader("test_tbtestsize")); 
@@ -166,6 +171,10 @@ public sealed class Tables
         tables.Add("test.TbCompositeJsonTable3", TbCompositeJsonTable3);
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow")); 
         tables.Add("test.TbExcelFromJsonMultiRow", TbExcelFromJsonMultiRow);
+        TbTestSep = new test.TbTestSep(loader("test_tbtestsep")); 
+        tables.Add("test.TbTestSep", TbTestSep);
+        TbTestExternalType = new test.TbTestExternalType(loader("test_tbtestexternaltype")); 
+        tables.Add("test.TbTestExternalType", TbTestExternalType);
         TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader("test_tbdemogroupdefinefromexcel")); 
         tables.Add("test.TbDemoGroupDefineFromExcel", TbDemoGroupDefineFromExcel);
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2")); 
@@ -209,6 +218,7 @@ public sealed class Tables
         TbDemoGroup_E.Resolve(tables); 
         TbTestGlobal.Resolve(tables); 
         TbTestBeRef.Resolve(tables); 
+        TbTestBeRef2.Resolve(tables); 
         TbTestRef.Resolve(tables); 
         TbTestSize.Resolve(tables); 
         TbTestSet.Resolve(tables); 
@@ -222,6 +232,8 @@ public sealed class Tables
         TbCompositeJsonTable2.Resolve(tables); 
         TbCompositeJsonTable3.Resolve(tables); 
         TbExcelFromJsonMultiRow.Resolve(tables); 
+        TbTestSep.Resolve(tables); 
+        TbTestExternalType.Resolve(tables); 
         TbDemoGroupDefineFromExcel.Resolve(tables); 
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
@@ -264,6 +276,7 @@ public sealed class Tables
         TbDemoGroup_E.TranslateText(translator); 
         TbTestGlobal.TranslateText(translator); 
         TbTestBeRef.TranslateText(translator); 
+        TbTestBeRef2.TranslateText(translator); 
         TbTestRef.TranslateText(translator); 
         TbTestSize.TranslateText(translator); 
         TbTestSet.TranslateText(translator); 
@@ -277,6 +290,8 @@ public sealed class Tables
         TbCompositeJsonTable2.TranslateText(translator); 
         TbCompositeJsonTable3.TranslateText(translator); 
         TbExcelFromJsonMultiRow.TranslateText(translator); 
+        TbTestSep.TranslateText(translator); 
+        TbTestExternalType.TranslateText(translator); 
         TbDemoGroupDefineFromExcel.TranslateText(translator); 
         TbDefineFromExcel2.TranslateText(translator); 
         TbTestExcelBean.TranslateText(translator); 

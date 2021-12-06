@@ -9,9 +9,10 @@ class Program
         // See https://aka.ms/new-console-template for more information
         Console.WriteLine("Hello, World!");
 
+        // ==========
+        // 使用 LsMsgPack 可视化工具检查无误
 
-
-        TestFullTypes();
+        //TestFullTypes();
 
         //TestNullable();
     }
@@ -36,15 +37,13 @@ class Program
 
         //Console.WriteLine(tbItem);
 
-        var file = "../../../msgpack_datas/test_tbfulltypes.bytes";
+        //var file = "../../../msgpack_datas/test_tbfulltypes.bytes";
 
-        var bytes = File.ReadAllBytes(file);
+        //var bytes = File.ReadAllBytes(file);
 
-        Console.WriteLine(string.Join(',', bytes.Select(b => b.ToString())));
+        //Console.WriteLine(string.Join(',', bytes.Select(b => b.ToString())));
 
-        MsgPack.
-
-        Console.WriteLine();
+        //Console.WriteLine();
     }
 }
 

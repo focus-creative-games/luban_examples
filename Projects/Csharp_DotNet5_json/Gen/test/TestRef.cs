@@ -23,6 +23,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         X1 = _json.GetProperty("x1").GetInt32();
         X12 = _json.GetProperty("x1_2").GetInt32();
         X2 = _json.GetProperty("x2").GetInt32();
+        X3 = _json.GetProperty("x3").GetInt32();
         { var _json0 = _json.GetProperty("a1"); int _n = _json0.GetArrayLength(); A1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  A1[_index++] = __v; }   }
         { var _json0 = _json.GetProperty("a2"); int _n = _json0.GetArrayLength(); A2 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  A2[_index++] = __v; }   }
         { var _json0 = _json.GetProperty("b1"); B1 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  B1.Add(__v); }   }
@@ -39,12 +40,13 @@ public sealed class TestRef :  Bright.Config.BeanBase
         F3 = _json.GetProperty("f3").GetString();
     }
 
-    public TestRef(int id, int x1, int x1_2, int x2, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2, int e1, long e2, string e3, int f1, long f2, string f3 ) 
+    public TestRef(int id, int x1, int x1_2, int x2, int x3, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2, int e1, long e2, string e3, int f1, long f2, string f3 ) 
     {
         this.Id = id;
         this.X1 = x1;
         this.X12 = x1_2;
         this.X2 = x2;
+        this.X3 = x3;
         this.A1 = a1;
         this.A2 = a2;
         this.B1 = b1;
@@ -72,6 +74,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public int X12 { get; private set; }
     public int X2 { get; private set; }
     public test.TestBeRef X2_Ref { get; private set; }
+    public int X3 { get; private set; }
     public int[] A1 { get; private set; }
     public int[] A2 { get; private set; }
     public System.Collections.Generic.List<int> B1 { get; private set; }
@@ -107,6 +110,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "X12:" + X12 + ","
         + "X2:" + X2 + ","
+        + "X3:" + X3 + ","
         + "A1:" + Bright.Common.StringUtil.CollectionToString(A1) + ","
         + "A2:" + Bright.Common.StringUtil.CollectionToString(A2) + ","
         + "B1:" + Bright.Common.StringUtil.CollectionToString(B1) + ","

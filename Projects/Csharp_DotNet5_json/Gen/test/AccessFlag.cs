@@ -9,15 +9,13 @@
 
 namespace cfg.test
 {
-    public enum ETestCurrency
+    [System.Flags]
+    public enum AccessFlag
     {
-        /// <summary>
-        /// 重要
-        /// </summary>
-        DIAMOND = 1,
-        /// <summary>
-        /// 有用
-        /// </summary>
-        GOLD = 2,
+        WRITE = 1,
+        READ = 2,
+        TRUNCATE = 4,
+        NEW = 8,
+        READ_WRITE = WRITE|READ,
     }
 }

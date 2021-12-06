@@ -318,3 +318,6 @@ gradle/
 Projects/Csharp_CustomTemplate_EncryptMemory/UserSettings/
 Projects/Csharp_CustomTemplate_EncryptMemory/*.csproj
 Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
+/Projects/Flatbuffers_bin/datas_bin
+/Projects/Flatbuffers_bin/datas
+/Projects/Flatbuffers_json/datas

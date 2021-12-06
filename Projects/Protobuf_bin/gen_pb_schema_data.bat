@@ -10,6 +10,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_code_dir pb_schemas ^
  --output_data_dir pb_datas ^
  --gen_types code_protobuf,data_protobuf ^
+ --output:code:monolithic_file config.proto ^
  -s all 
 
 pause
