@@ -321,3 +321,7 @@ Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
 /Projects/Flatbuffers_bin/datas_bin
 /Projects/Flatbuffers_bin/datas
 /Projects/Flatbuffers_json/datas
+/Projects/Protobuf2_bin/pb_datas
+/Projects/Flatbuffers_json/output
+/Projects/Protobuf3_bin_json/pb_bin
+/Projects/Protobuf3_bin_json/pb_json
