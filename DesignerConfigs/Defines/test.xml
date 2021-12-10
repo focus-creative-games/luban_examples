@@ -156,6 +156,18 @@
 	
 	<table name="TbMultiRowRecord" value="MultiRowRecord" input="test/multi_rows_record.xlsx"/>
 	
+    <bean name="Foo">
+		<var name="y1" type="int"/>
+		<var name="y2" type="int"/>
+		<var name="y3" type="int"/>
+	</bean>
+    <bean name="TestMultiColumn">
+        <var name="id" type="int"/>
+        <var name="a" type="Foo"/>
+        <var name="b" type="Foo"/>
+        <var name="c" type="Foo"/>
+    </bean>
+    <table name="TbTestMultiColumn" value="TestMultiColumn" input="test/multi_column.xlsx"/>
 	
 	<enum name="ETestUeType">
 		<var name="WHITE" alias="白"/>

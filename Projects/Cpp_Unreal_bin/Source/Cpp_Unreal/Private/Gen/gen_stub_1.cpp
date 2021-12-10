@@ -963,6 +963,7 @@ namespace cfg
         if(!_buf.readInt(id)) return false;
         if(!_buf.readString(name)) return false;
         if(!test::H1::deserializeH1(_buf, x1)) return false;
+        { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x20.reset(); if(!test::H2::deserializeH2(_buf, x20)) return false; } else { x20.reset(); } }
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;  if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));x3.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));x4.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::H2> _e;if(!test::H2::deserializeH2(_buf, _e)) return false; x4.push_back(_e);}}
@@ -987,6 +988,7 @@ namespace cfg
     void test::MultiRowTitle::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
         x1->resolve(_tables);
+        if (x20 != nullptr) x20->resolve(_tables);
         for(auto _e : x2) { _e->resolve(_tables); }
         for(auto _e : x3) { _e->resolve(_tables); }
         for(auto _e : x4) { _e->resolve(_tables); }
@@ -1207,6 +1209,9 @@ namespace cfg
 
     void test::DemoGroup::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
+        this->x1_Ref = ((test::TbDemoGroup_C*)(_tables["test.TbDemoGroup_C"]))->get(x1);
+        this->x2_Ref = ((test::TbDemoGroup_S*)(_tables["test.TbDemoGroup_S"]))->get(x2);
+        this->x3_Ref = ((test::TbDemoGroup_E*)(_tables["test.TbDemoGroup_E"]))->get(x3);
         x5->resolve(_tables);
     }
 
@@ -1300,6 +1305,7 @@ namespace cfg
         if(!_buf.readInt(x1)) return false;
         if(!_buf.readInt(x12)) return false;
         if(!_buf.readInt(x2)) return false;
+        if(!_buf.readInt(x3)) return false;
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));a1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; a1.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size()));a2.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;if(!_buf.readInt(_e)) return false; a2.push_back(_e);}}
         {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); b1.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::int32 _e;  if(!_buf.readInt(_e)) return false; b1.push_back(_e);}}
@@ -1764,6 +1770,157 @@ namespace cfg
     }
 
     void test::Test3::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::TestSep::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        if(!_buf.readString(x1)) return false; /* key */ if(!_buf.readString(x1)) return false; /* text */
+        if(!test::SepBean1::deserializeSepBean1(_buf, x2)) return false;
+        if(!test::SepVector::deserializeSepVector(_buf, x3)) return false;
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::SepVector> _e;  if(!test::SepVector::deserializeSepVector(_buf, _e)) return false; x4.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x5.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::SepBean1> _e;  if(!test::SepBean1::deserializeSepBean1(_buf, _e)) return false; x5.push_back(_e);}}
+        {::bright::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::bright::int32(_buf.size())); x6.reserve(n);for(int i = 0 ; i < n ; i++) { ::bright::SharedPtr<test::SepBean1> _e;  if(!test::SepBean1::deserializeSepBean1(_buf, _e)) return false; x6.push_back(_e);}}
+
+        return true;
+    }
+
+    bool test::TestSep::deserializeTestSep(ByteBuf& _buf, ::bright::SharedPtr<test::TestSep>& _out)
+    {
+        _out.reset(new test::TestSep());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestSep::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        x2->resolve(_tables);
+        x3->resolve(_tables);
+        for(auto _e : x4) { _e->resolve(_tables); }
+        for(auto _e : x5) { _e->resolve(_tables); }
+        for(auto _e : x6) { _e->resolve(_tables); }
+    }
+
+    bool test::SepBean1::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(a)) return false;
+        if(!_buf.readInt(b)) return false;
+        if(!_buf.readString(c)) return false;
+
+        return true;
+    }
+
+    bool test::SepBean1::deserializeSepBean1(ByteBuf& _buf, ::bright::SharedPtr<test::SepBean1>& _out)
+    {
+        _out.reset(new test::SepBean1());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::SepBean1::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::SepVector::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(x)) return false;
+        if(!_buf.readInt(y)) return false;
+        if(!_buf.readInt(z)) return false;
+
+        return true;
+    }
+
+    bool test::SepVector::deserializeSepVector(ByteBuf& _buf, ::bright::SharedPtr<test::SepVector>& _out)
+    {
+        _out.reset(new test::SepVector());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::SepVector::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+    }
+
+    bool test::TestExternalType::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readInt(id)) return false;
+        {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; audioType = test::AudioType(__enum_temp__); }
+        if(!test::Color::deserializeColor(_buf, color)) return false;
+
+        return true;
+    }
+
+    bool test::TestExternalType::deserializeTestExternalType(ByteBuf& _buf, ::bright::SharedPtr<test::TestExternalType>& _out)
+    {
+        _out.reset(new test::TestExternalType());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::TestExternalType::resolve(::bright::HashMap<::bright::String, void*>& _tables)
+    {
+        color->resolve(_tables);
+    }
+
+    bool test::Color::deserialize(ByteBuf& _buf)
+    {
+
+        if(!_buf.readFloat(r)) return false;
+        if(!_buf.readFloat(g)) return false;
+        if(!_buf.readFloat(b)) return false;
+        if(!_buf.readFloat(a)) return false;
+
+        return true;
+    }
+
+    bool test::Color::deserializeColor(ByteBuf& _buf, ::bright::SharedPtr<test::Color>& _out)
+    {
+        _out.reset(new test::Color());
+        if (_out->deserialize(_buf))
+        {
+            return true;
+        }
+        else
+        { 
+            _out.reset();
+            return false;
+        }
+    }
+
+    void test::Color::resolve(::bright::HashMap<::bright::String, void*>& _tables)
     {
     }
 
