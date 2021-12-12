@@ -13,9 +13,9 @@
 	
 	<import name="."/>
 	
-	<importexcel name="tables.xlsx" type="table"/> 相对data目录
-	<importexcel name="enums.xlsx" type="enum"/>相对data目录
-	<importexcel name="beans.xlsx" type="bean"/>相对data目录
+	<importexcel name="__tables__.xlsx" type="table"/> 相对data目录
+	<importexcel name="__enums__.xlsx" type="enum"/>相对data目录
+	<importexcel name="__beans__.xlsx" type="bean"/>相对data目录
 	
 	<externalselector name="unity_cs"/>
 	<externalselector name="ue_cpp"/>
