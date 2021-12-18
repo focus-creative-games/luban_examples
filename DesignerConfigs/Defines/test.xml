@@ -469,6 +469,17 @@
     <table name="TbTestSep" value="TestSep" define_from_file="1" input="test/test_sep.xlsx"/>
  
  
+    <bean name="TestScriptableObject">
+        <var name="id" type="int"/>
+        <var name="desc" type="string"/>
+        <var name="rate" type="float"/>
+        <var name="num" type="int"/>
+        <var name="v2" type="vector2"/>
+        <var name="v3" type="vector3"/>
+        <var name="v4" type="vector4"/>
+    </bean>
+    <table name="TbTestScriptableObject" value="TestScriptableObject" input="test/unity_scriptable_objects"/>
+ 
  
 	<enum name="AudioType" externaltype="unity_audio_type">
         <var name="UNKNOWN" value="0"/>

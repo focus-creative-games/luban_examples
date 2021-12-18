@@ -41,6 +41,7 @@ public sealed class Tables
     public test.TbMultiIndexList TbMultiIndexList {get; }
     public test.TbDataFromMisc TbDataFromMisc {get; }
     public test.TbMultiRowRecord TbMultiRowRecord {get; }
+    public test.TbTestMultiColumn TbTestMultiColumn {get; }
     public test.TbMultiRowTitle TbMultiRowTitle {get; }
     public test.TbTestNull TbTestNull {get; }
     public test.TbDemoPrimitive TbDemoPrimitive {get; }
@@ -123,6 +124,8 @@ public sealed class Tables
         tables.Add("test.TbDataFromMisc", TbDataFromMisc);
         TbMultiRowRecord = new test.TbMultiRowRecord(loader("test_tbmultirowrecord")); 
         tables.Add("test.TbMultiRowRecord", TbMultiRowRecord);
+        TbTestMultiColumn = new test.TbTestMultiColumn(loader("test_tbtestmulticolumn")); 
+        tables.Add("test.TbTestMultiColumn", TbTestMultiColumn);
         TbMultiRowTitle = new test.TbMultiRowTitle(loader("test_tbmultirowtitle")); 
         tables.Add("test.TbMultiRowTitle", TbMultiRowTitle);
         TbTestNull = new test.TbTestNull(loader("test_tbtestnull")); 
@@ -208,6 +211,7 @@ public sealed class Tables
         TbMultiIndexList.Resolve(tables); 
         TbDataFromMisc.Resolve(tables); 
         TbMultiRowRecord.Resolve(tables); 
+        TbTestMultiColumn.Resolve(tables); 
         TbMultiRowTitle.Resolve(tables); 
         TbTestNull.Resolve(tables); 
         TbDemoPrimitive.Resolve(tables); 
@@ -266,6 +270,7 @@ public sealed class Tables
         TbMultiIndexList.TranslateText(translator); 
         TbDataFromMisc.TranslateText(translator); 
         TbMultiRowRecord.TranslateText(translator); 
+        TbTestMultiColumn.TranslateText(translator); 
         TbMultiRowTitle.TranslateText(translator); 
         TbTestNull.TranslateText(translator); 
         TbDemoPrimitive.TranslateText(translator); 
