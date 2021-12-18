@@ -22,6 +22,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         X1 = _buf.ReadInt();
         X12 = _buf.ReadInt();
         X2 = _buf.ReadInt();
+        X3 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);A1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); A1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);A2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); A2[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);B1 = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); B1.Add(_e);}}
@@ -49,6 +50,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public int X12 { get; private set; }
     public int X2 { get; private set; }
     public test.TestBeRef X2_Ref { get; private set; }
+    public int X3 { get; private set; }
     public int[] A1 { get; private set; }
     public int[] A2 { get; private set; }
     public System.Collections.Generic.List<int> B1 { get; private set; }
@@ -84,6 +86,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "X12:" + X12 + ","
         + "X2:" + X2 + ","
+        + "X3:" + X3 + ","
         + "A1:" + Bright.Common.StringUtil.CollectionToString(A1) + ","
         + "A2:" + Bright.Common.StringUtil.CollectionToString(A2) + ","
         + "B1:" + Bright.Common.StringUtil.CollectionToString(B1) + ","

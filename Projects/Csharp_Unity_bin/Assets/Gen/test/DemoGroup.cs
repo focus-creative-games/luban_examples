@@ -33,8 +33,11 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
 
     public int Id { get; private set; }
     public int X1 { get; private set; }
+    public test.DemoGroup X1_Ref { get; private set; }
     public int X2 { get; private set; }
+    public test.DemoGroup X2_Ref { get; private set; }
     public int X3 { get; private set; }
+    public test.DemoGroup X3_Ref { get; private set; }
     public int X4 { get; private set; }
     public test.InnerGroup X5 { get; private set; }
 
@@ -43,6 +46,9 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        this.X1_Ref = (_tables["test.TbDemoGroup_C"] as test.TbDemoGroup_C).GetOrDefault(X1);
+        this.X2_Ref = (_tables["test.TbDemoGroup_S"] as test.TbDemoGroup_S).GetOrDefault(X2);
+        this.X3_Ref = (_tables["test.TbDemoGroup_E"] as test.TbDemoGroup_E).GetOrDefault(X3);
         X5?.Resolve(_tables);
     }
 
