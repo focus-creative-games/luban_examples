@@ -1,0 +1,7 @@
+{
+  "code": "LEVEL_TOO_HIGH",
+  "desc": "等级太高",
+  "style": {
+    "__type__": "ErrorStyleTip"
+  }
+}

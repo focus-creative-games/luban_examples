@@ -1,0 +1,7 @@
+{
+  "code": "SKILL_NOT_COOLDOWN",
+  "desc": "",
+  "style": {
+    "__type__": "ErrorStyleTip"
+  }
+}
