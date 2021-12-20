@@ -1,5 +1,5 @@
 #!/bin/zsh
-GEN_CLIENT=dotnet ../Tools/Luban.ClientServer/Luban.ClientServer.dll
+GEN_CLIENT=../Tools/Luban.ClientServer/Luban.ClientServer.dll
 
 dotnet ${GEN_CLIENT} -j cfg --\
  -d Defines/__root__.xml \
