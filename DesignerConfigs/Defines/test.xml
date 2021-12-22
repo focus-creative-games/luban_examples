@@ -364,7 +364,23 @@
 	</bean>
 	<table name="TbDetectCsvEncoding" value="DetectEncoding" input="test/detect_csv_encoding_utf8.csv,test/detect_csv_encoding_ansi.csv,test/detect_csv_encoding_big5.csv,test/detect_csv_encoding_gb2312.csv,"/>
 	
-	<!--table name="TbDynamic" value="DemoDynamic" input="多态数据源"/-->
+    <bean name="ItemBase">
+        <var name="id" type="int"/>
+        <var name="name" type="string"/>
+        <var name="desc" type="string"/>
+        <bean name="Item">
+            <var name="num" type="int"/>
+            <var name="price" type="int"/>
+        </bean>
+        <bean name="Equipment">
+            <var name="attr" type="DemoEnum"/>
+            <var name="value" type="int"/>
+        </bean>
+        <bean name="Decorator">
+            <var name="duration" type="int"/>
+        </bean>
+    </bean>
+	<table name="TbItem2" value="ItemBase" input="test/item.xlsx"/>
 	
 	<table name="TbDefineFromExcel" value="DefineFromExcel" input="test/define_from_excel.xlsx" define_from_file="1"/>
 	<table name="TbDefineFromExcelOne" value="DefineFromExcelOne" mode="one" input="test/define_from_excel_one.xlsx" define_from_file="1"/>
