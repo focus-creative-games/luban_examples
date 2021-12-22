@@ -844,7 +844,7 @@ class aiBehaviorTree :
 
 
 
-class aiNode (metaclass=abc.ABCMeta):
+class aiNode :
     _childrenTypes = None
 
     @staticmethod
@@ -1053,7 +1053,7 @@ class aiUeBlackboard (aiDecorator):
 
 
 
-class aiKeyQueryOperator (metaclass=abc.ABCMeta):
+class aiKeyQueryOperator :
     _childrenTypes = None
 
     @staticmethod
@@ -1109,7 +1109,7 @@ class aiBinaryOperator (aiKeyQueryOperator):
 
 
 
-class aiKeyData (metaclass=abc.ABCMeta):
+class aiKeyData :
     _childrenTypes = None
 
     @staticmethod
@@ -1415,7 +1415,7 @@ class blueprintTbClazz:
 
 
 
-class blueprintClazz (metaclass=abc.ABCMeta):
+class blueprintClazz :
     _childrenTypes = None
 
     @staticmethod
@@ -1445,7 +1445,7 @@ class blueprintClazz (metaclass=abc.ABCMeta):
 
 
 
-class blueprintMethod (metaclass=abc.ABCMeta):
+class blueprintMethod :
     _childrenTypes = None
 
     @staticmethod
@@ -1604,7 +1604,7 @@ class bonusShowItemInfo :
 
 
 
-class bonusBonus (metaclass=abc.ABCMeta):
+class bonusBonus :
     _childrenTypes = None
 
     @staticmethod
@@ -1874,7 +1874,7 @@ class errorErrorInfo :
 
 
 
-class errorErrorStyle (metaclass=abc.ABCMeta):
+class errorErrorStyle :
     _childrenTypes = None
 
     @staticmethod
@@ -2060,7 +2060,7 @@ class itemTbItemExtra:
 
 
 
-class itemItemExtra (metaclass=abc.ABCMeta):
+class itemItemExtra :
     _childrenTypes = None
 
     @staticmethod
@@ -2101,7 +2101,7 @@ class itemTreasureBox (itemItemExtra):
 
 
 
-class conditionCondition (metaclass=abc.ABCMeta):
+class conditionCondition :
     _childrenTypes = None
 
     @staticmethod
@@ -2328,7 +2328,7 @@ class itemDymmy (itemItemExtra):
 
 
 
-class costCost (metaclass=abc.ABCMeta):
+class costCost :
     _childrenTypes = None
 
     @staticmethod
@@ -2689,7 +2689,7 @@ class testDemoType1 :
 
 
 
-class testDemoDynamic (metaclass=abc.ABCMeta):
+class testDemoDynamic :
     _childrenTypes = None
 
     @staticmethod
@@ -3493,7 +3493,7 @@ class testTbItem2:
 
 
 
-class testItemBase (metaclass=abc.ABCMeta):
+class testItemBase :
     _childrenTypes = None
 
     @staticmethod

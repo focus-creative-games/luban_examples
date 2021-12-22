@@ -7,10 +7,10 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 %GEN_CLIENT% -h %LUBAN_SERVER_IP% -j cfg --^
  -d %CONF_ROOT%\Defines\__root__.xml ^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_code_dir src/cfg ^
+ --output_code_dir gen ^
  --output_data_dir ..\GenerateDatas\json ^
- --output:code:monolithic_file src/cfg/Mod.rs ^
- --gen_types code_rust_json,data_json ^
+ --output:code:monolithic_file gen\Types.py ^
+ --gen_types code_python2_json,data_json ^
  -s all 
 
 pause
