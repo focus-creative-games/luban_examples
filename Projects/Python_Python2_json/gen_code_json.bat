@@ -9,7 +9,6 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir gen ^
  --output_data_dir ..\GenerateDatas\json ^
- --output:code:monolithic_file gen\Types.py ^
  --gen_types code_python2_json,data_json ^
  -s all 
 

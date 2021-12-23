@@ -9,7 +9,6 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir src/cfg ^
  --output_data_dir ..\GenerateDatas\json ^
- --output:code:monolithic_file src/cfg/Mod.rs ^
  --gen_types code_rust_json,data_json ^
  -s all 
 
