@@ -61,7 +61,7 @@
 		<var name="x8" type="fint"/>
 		<var name="x9" type="flong"/>
 		
-		<var name="x10" type="string" path="unity"/>
+		<var name="x10" type="string#res=demo" path="unity"/>
 		<var name="x12" type="DemoType1"/>
 		<var name="x13" type="DemoEnum#sep=,"/>
 		<var name="x14" type="DemoDynamic#sep=,"/>多态数据结构
