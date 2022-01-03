@@ -312,12 +312,13 @@
     <table name="TbTestBeRef2" value="TestBeRef" input="be_ref2@test/test_ref.xlsx"/>
     
     <refgroup name="test_ref_group" ref="test.TbTestBeRef,test.TbTestBeRef2"/>
+    <refgroup name="test_ref_group2" ref="test.TbTestBeRef"/>
     
     <bean name="TestRef">
         <var name="id" type="int"/>
         <var name="x1" type="int" ref="test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
         <var name="x1_2" type="int" ref="test.TbTestBeRef,test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
-        <var name="x2" type="int#ref=test.TbTestBeRef"/>
+        <var name="x2" type="int#ref=test_ref_group2"/>
         <var name="x3" type="int#ref=test_ref_group"/>
         
         <var name="a1" type="array,int" ref="test.TbTestBeRef"/>
