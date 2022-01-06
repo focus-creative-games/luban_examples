@@ -136,7 +136,7 @@
 		<var name="minor_type" type="EMinorType"/>
 		<var name="max_pile_num" type="int" group="s"/>
 		<var name="quality" type="EItemQuality"/>
-		<var name="icon" type="string" path="ue" group="c"/>
+		<var name="icon" type="string" group="c"/>
 		<var name="icon_backgroud" type="string"/>
 		<var name="icon_mask" type="string"/>
 		<var name="desc" type="string"/>
@@ -199,8 +199,8 @@
 
 		<bean name="InteractionItem" alias="交互道具">
 			<var name="attack_num" type="int?"/>
-			<var name="holding_static_mesh" type="string" path="ue?"/>
-			<var name="holding_static_mesh_mat" type="string" path="ue?"/>
+			<var name="holding_static_mesh" type="string"/>
+			<var name="holding_static_mesh_mat" type="string"/>
 		</bean>
 		<bean name="Clothes" alias="服装">
 			<var name="attack" type="int"/>

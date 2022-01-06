@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Luban.Client/1.0.0": {
         "dependencies": {
-          "Luban.Common": "1.0.0"
+          "Luban.Common": "1.0.0",
+          "YamlDotNet": "11.2.1"
         },
         "runtime": {
           "Luban.Client.dll": {}
@@ -835,6 +836,14 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "YamlDotNet/11.2.1": {
+        "runtime": {
+          "lib/netstandard2.1/YamlDotNet.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.1.0"
+          }
+        }
+      },
       "Luban.Common/1.0.0": {
         "dependencies": {
           "Bright.Net": "1.1.0.41",
@@ -1446,6 +1455,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "YamlDotNet/11.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw==",
+      "path": "yamldotnet/11.2.1",
+      "hashPath": "yamldotnet.11.2.1.nupkg.sha512"
     },
     "Luban.Common/1.0.0": {
       "type": "project",

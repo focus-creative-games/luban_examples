@@ -1016,7 +1016,8 @@
       },
       "Luban.Client/1.0.0": {
         "dependencies": {
-          "Luban.Common": "1.0.0"
+          "Luban.Common": "1.0.0",
+          "YamlDotNet": "11.2.1"
         },
         "runtime": {
           "Luban.Client.dll": {}
