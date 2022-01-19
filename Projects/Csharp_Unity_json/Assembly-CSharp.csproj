@@ -165,7 +165,6 @@
     <Compile Include="Assets\Gen\test\NotIndexList.cs" />
     <Compile Include="Assets\Gen\test\TestIndex.cs" />
     <Compile Include="Assets\Gen\ai\SimpleParallel.cs" />
-    <Compile Include="Assets\Gen\test\ETestCurrency.cs" />
     <Compile Include="Assets\LubanLib\ITypeId.cs" />
     <Compile Include="Assets\Gen\test\MultiRowType1.cs" />
     <Compile Include="Assets\Gen\l10n\L10NDemo.cs" />
@@ -307,6 +306,26 @@
     <Compile Include="Assets\Gen\blueprint\NormalClazz.cs" />
     <Compile Include="Assets\Gen\test\TestRef.cs" />
     <Compile Include="Assets\Gen\test\MultiIndexList.cs" />
+    <Compile Include="Assets\Gen\test\TestScriptableObject.cs" />
+    <Compile Include="Assets\Gen\test\TestSep.cs" />
+    <Compile Include="Assets\Gen\test\SepBean1.cs" />
+    <Compile Include="Assets\Gen\test\Color.cs" />
+    <Compile Include="Assets\Gen\test\AudioType.cs" />
+    <Compile Include="Assets\Gen\test\TbTestMultiColumn.cs" />
+    <Compile Include="Assets\Gen\test\TbTestSep.cs" />
+    <Compile Include="Assets\Gen\test\AccessFlag.cs" />
+    <Compile Include="Assets\Gen\test\ItemBase.cs" />
+    <Compile Include="Assets\Gen\test\Decorator.cs" />
+    <Compile Include="Assets\Gen\test\Item.cs" />
+    <Compile Include="Assets\Gen\test\TbItem2.cs" />
+    <Compile Include="Assets\Gen\test\SepVector.cs" />
+    <Compile Include="Assets\Gen\test\TbTestBeRef2.cs" />
+    <Compile Include="Assets\Gen\test\Foo.cs" />
+    <Compile Include="Assets\Gen\test\TbTestExternalType.cs" />
+    <Compile Include="Assets\Gen\test\TestMultiColumn.cs" />
+    <Compile Include="Assets\Gen\test\Equipment.cs" />
+    <Compile Include="Assets\Gen\test\TbTestScriptableObject.cs" />
+    <Compile Include="Assets\Gen\test\TestExternalType.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\LubanLib\SimpleJSON\Changelog.txt" />

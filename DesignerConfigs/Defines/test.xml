@@ -78,8 +78,8 @@
 		<var name="k2" type="list,int"/>
 		<var name="k5" type="set,int"/>
 		<var name="k8" type="(map#sep=,),int#ref=test.TbFullTypes,int#ref=test.TbFullTypes"/>
-		<var name="k9" type="(list#sep=,),DemoE2"/>
-		<var name="k15" type="(array#sep=,),DemoDynamic"/> 
+		<var name="k9" type="(list#sep=;),DemoE2#sep=,"/>
+		<var name="k15" type="(array#sep=;),DemoDynamic#sep=,"/> 
 	</bean>
 	
 	<table name="TbFullTypes" index="x4" value="DemoType2" input="test/full_type.xlsx"/> 最常见的普通 key-value表
@@ -352,6 +352,7 @@
     
     <bean name="TestSet">
         <var name="id" type="int"/>
+        <var name="x0" type="string#(set=ab,cd)"/>
         <var name="x1" type="list,int#set=1,2,3,4,5"/>
         <var name="x2" type="list,long#set=2,3,4,5"/>
         <var name="x3" type="list,string#set=ab,cd"/>

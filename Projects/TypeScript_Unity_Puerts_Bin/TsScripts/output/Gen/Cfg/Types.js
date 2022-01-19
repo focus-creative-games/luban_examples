@@ -827,6 +827,14 @@ var test;
     })(ETestEmptyEnum2 = test.ETestEmptyEnum2 || (test.ETestEmptyEnum2 = {}));
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    let AudioType;
+    (function (AudioType) {
+        AudioType[AudioType["UNKNOWN"] = 0] = "UNKNOWN";
+        AudioType[AudioType["ACC"] = 1] = "ACC";
+        AudioType[AudioType["AIFF"] = 2] = "AIFF";
+    })(AudioType = test.AudioType || (test.AudioType = {}));
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     let ETestQuality;
     (function (ETestQuality) {
         /**
@@ -848,17 +856,14 @@ var test;
     })(ETestQuality = test.ETestQuality || (test.ETestQuality = {}));
 })(test = exports.test || (exports.test = {}));
 (function (test) {
-    let ETestCurrency;
-    (function (ETestCurrency) {
-        /**
-         * 重要
-         */
-        ETestCurrency[ETestCurrency["DIAMOND"] = 1] = "DIAMOND";
-        /**
-         * 有用
-         */
-        ETestCurrency[ETestCurrency["GOLD"] = 2] = "GOLD";
-    })(ETestCurrency = test.ETestCurrency || (test.ETestCurrency = {}));
+    let AccessFlag;
+    (function (AccessFlag) {
+        AccessFlag[AccessFlag["WRITE"] = 1] = "WRITE";
+        AccessFlag[AccessFlag["READ"] = 2] = "READ";
+        AccessFlag[AccessFlag["TRUNCATE"] = 4] = "TRUNCATE";
+        AccessFlag[AccessFlag["NEW"] = 8] = "NEW";
+        AccessFlag[AccessFlag["READ_WRITE"] = 3] = "READ_WRITE";
+    })(AccessFlag = test.AccessFlag || (test.AccessFlag = {}));
 })(test = exports.test || (exports.test = {}));
 (function (ai) {
     class TbBlackboard {
@@ -4267,6 +4272,72 @@ var tag;
     test.MultiRowType3 = MultiRowType3;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbTestMultiColumn {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = new test.TestMultiColumn(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestMultiColumn = TbTestMultiColumn;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestMultiColumn {
+        constructor(_buf_) {
+            this.id = _buf_.ReadInt();
+            this.a = new test.Foo(_buf_);
+            this.b = new test.Foo(_buf_);
+            this.c = new test.Foo(_buf_);
+        }
+        id;
+        a;
+        b;
+        c;
+        resolve(_tables) {
+            if (this.a != null) {
+                this.a.resolve(_tables);
+            }
+            if (this.b != null) {
+                this.b.resolve(_tables);
+            }
+            if (this.c != null) {
+                this.c.resolve(_tables);
+            }
+        }
+    }
+    test.TestMultiColumn = TestMultiColumn;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class Foo {
+        constructor(_buf_) {
+            this.y1 = _buf_.ReadInt();
+            this.y2 = _buf_.ReadInt();
+            this.y3 = _buf_.ReadInt();
+        }
+        y1;
+        y2;
+        y3;
+        resolve(_tables) {
+        }
+    }
+    test.Foo = Foo;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbMultiRowTitle {
         _dataMap;
         _dataList;
@@ -4297,6 +4368,12 @@ var tag;
             this.id = _buf_.ReadInt();
             this.name = _buf_.ReadString();
             this.x1 = new test.H1(_buf_);
+            if (_buf_.ReadBool()) {
+                this.x20 = new test.H2(_buf_);
+            }
+            else {
+                this.x20 = undefined;
+            }
             {
                 this.x2 = [];
                 for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
@@ -4327,12 +4404,16 @@ var tag;
         id;
         name;
         x1;
+        x20;
         x2;
         x3;
         x4;
         resolve(_tables) {
             if (this.x1 != null) {
                 this.x1.resolve(_tables);
+            }
+            if (this.x20 != null) {
+                this.x20.resolve(_tables);
             }
             for (let _e of this.x2) {
                 if (_e != null) {
@@ -4628,11 +4709,17 @@ var tag;
         }
         id;
         x1;
+        x1_Ref = undefined;
         x2;
+        x2_Ref = undefined;
         x3;
+        x3_Ref = undefined;
         x4;
         x5;
         resolve(_tables) {
+            this.x1_Ref = _tables.get('test.TbDemoGroup_C').get(this.x1);
+            this.x2_Ref = _tables.get('test.TbDemoGroup_S').get(this.x2);
+            this.x3_Ref = _tables.get('test.TbDemoGroup_E').get(this.x3);
             if (this.x5 != null) {
                 this.x5.resolve(_tables);
             }
@@ -4801,6 +4888,31 @@ var tag;
     test.TestBeRef = TestBeRef;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbTestBeRef2 {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = new test.TestBeRef(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestBeRef2 = TbTestBeRef2;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbTestRef {
         _dataMap;
         _dataList;
@@ -4832,6 +4944,7 @@ var tag;
             this.x1 = _buf_.ReadInt();
             this.x12 = _buf_.ReadInt();
             this.x2 = _buf_.ReadInt();
+            this.x3 = _buf_.ReadInt();
             {
                 let n = Math.min(_buf_.ReadSize(), _buf_.Size);
                 this.a1 = new Int32Array(n);
@@ -4914,7 +5027,7 @@ var tag;
         x1_Ref = undefined;
         x12;
         x2;
-        x2_Ref = undefined;
+        x3;
         a1;
         a2;
         b1;
@@ -4931,7 +5044,6 @@ var tag;
         f3;
         resolve(_tables) {
             this.x1_Ref = _tables.get('test.TbTestBeRef').get(this.x1);
-            this.x2_Ref = _tables.get('test.TbTestBeRef').get(this.x2);
         }
     }
     test.TestRef = TestRef;
@@ -5040,6 +5152,7 @@ var tag;
     class TestSet {
         constructor(_buf_) {
             this.id = _buf_.ReadInt();
+            this.x0 = _buf_.ReadString();
             {
                 this.x1 = [];
                 for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
@@ -5074,6 +5187,7 @@ var tag;
             }
         }
         id;
+        x0;
         x1;
         x2;
         x3;
@@ -5120,6 +5234,97 @@ var tag;
         }
     }
     test.DetectEncoding = DetectEncoding;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbItem2 {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = test.ItemBase.constructorFrom(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbItem2 = TbItem2;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class ItemBase {
+        static constructorFrom(_buf_) {
+            switch (_buf_.ReadInt()) {
+                case -1226641649: return new test.Item(_buf_);
+                case -76837102: return new test.Equipment(_buf_);
+                case -625155649: return new test.Decorator(_buf_);
+                default: throw new Error();
+            }
+        }
+        constructor(_buf_) {
+            this.id = _buf_.ReadInt();
+            this.name = _buf_.ReadString();
+            this.desc = _buf_.ReadString();
+        }
+        id;
+        name;
+        desc;
+        resolve(_tables) {
+        }
+    }
+    test.ItemBase = ItemBase;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class Item extends test.ItemBase {
+        constructor(_buf_) {
+            super(_buf_);
+            this.num = _buf_.ReadInt();
+            this.price = _buf_.ReadInt();
+        }
+        num;
+        price;
+        resolve(_tables) {
+            super.resolve(_tables);
+        }
+    }
+    test.Item = Item;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class Equipment extends test.ItemBase {
+        constructor(_buf_) {
+            super(_buf_);
+            this.attr = _buf_.ReadInt();
+            this.value = _buf_.ReadInt();
+        }
+        attr;
+        value;
+        resolve(_tables) {
+            super.resolve(_tables);
+        }
+    }
+    test.Equipment = Equipment;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class Decorator extends test.ItemBase {
+        constructor(_buf_) {
+            super(_buf_);
+            this.duration = _buf_.ReadInt();
+        }
+        duration;
+        resolve(_tables) {
+            super.resolve(_tables);
+        }
+    }
+    test.Decorator = Decorator;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
     class TbDefineFromExcel {
@@ -5717,6 +5922,247 @@ var tag;
     test.Test3 = Test3;
 })(test = exports.test || (exports.test = {}));
 (function (test) {
+    class TbTestSep {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = new test.TestSep(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestSep = TbTestSep;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestSep {
+        constructor(_buf_) {
+            this.id = _buf_.ReadInt();
+            _buf_.ReadString();
+            this.x1 = _buf_.ReadString();
+            this.x2 = new test.SepBean1(_buf_);
+            this.x3 = new test.SepVector(_buf_);
+            {
+                this.x4 = [];
+                for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                    let _e;
+                    _e = new test.SepVector(_buf_);
+                    this.x4.push(_e);
+                }
+            }
+            {
+                this.x5 = [];
+                for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                    let _e;
+                    _e = new test.SepBean1(_buf_);
+                    this.x5.push(_e);
+                }
+            }
+            {
+                this.x6 = [];
+                for (let i = 0, n = _buf_.ReadSize(); i < n; i++) {
+                    let _e;
+                    _e = new test.SepBean1(_buf_);
+                    this.x6.push(_e);
+                }
+            }
+        }
+        id;
+        x1;
+        x2;
+        /**
+         * SepVector已经定义了sep=,属性
+         */
+        x3;
+        /**
+         * 用;来分割数据，然后顺序读入SepVector
+         */
+        x4;
+        /**
+         * 用,分割数据，然后顺序读入
+         */
+        x5;
+        /**
+         * 用;分割数据，然后再将每个数据用,分割，读入
+         */
+        x6;
+        resolve(_tables) {
+            if (this.x2 != null) {
+                this.x2.resolve(_tables);
+            }
+            if (this.x3 != null) {
+                this.x3.resolve(_tables);
+            }
+            for (let _e of this.x4) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+            for (let _e of this.x5) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+            for (let _e of this.x6) {
+                if (_e != null) {
+                    _e.resolve(_tables);
+                }
+            }
+        }
+    }
+    test.TestSep = TestSep;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class SepBean1 {
+        constructor(_buf_) {
+            this.a = _buf_.ReadInt();
+            this.b = _buf_.ReadInt();
+            this.c = _buf_.ReadString();
+        }
+        a;
+        b;
+        c;
+        resolve(_tables) {
+        }
+    }
+    test.SepBean1 = SepBean1;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class SepVector {
+        constructor(_buf_) {
+            this.x = _buf_.ReadInt();
+            this.y = _buf_.ReadInt();
+            this.z = _buf_.ReadInt();
+        }
+        x;
+        y;
+        z;
+        resolve(_tables) {
+        }
+    }
+    test.SepVector = SepVector;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestScriptableObject {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = new test.TestScriptableObject(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestScriptableObject = TbTestScriptableObject;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestScriptableObject {
+        constructor(_buf_) {
+            this.id = _buf_.ReadInt();
+            this.desc = _buf_.ReadString();
+            this.rate = _buf_.ReadFloat();
+            this.num = _buf_.ReadInt();
+            this.v2 = Vector2.deserializeFrom(_buf_);
+            this.v3 = Vector3.deserializeFrom(_buf_);
+            this.v4 = Vector4.deserializeFrom(_buf_);
+        }
+        id;
+        desc;
+        rate;
+        num;
+        v2;
+        v3;
+        v4;
+        resolve(_tables) {
+        }
+    }
+    test.TestScriptableObject = TestScriptableObject;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TbTestExternalType {
+        _dataMap;
+        _dataList;
+        constructor(_buf_) {
+            this._dataMap = new Map();
+            this._dataList = [];
+            for (let n = _buf_.ReadInt(); n > 0; n--) {
+                let _v;
+                _v = new test.TestExternalType(_buf_);
+                this._dataList.push(_v);
+                this._dataMap.set(_v.id, _v);
+            }
+        }
+        getDataMap() { return this._dataMap; }
+        getDataList() { return this._dataList; }
+        get(key) { return this._dataMap.get(key); }
+        resolve(_tables) {
+            for (var v of this._dataList) {
+                v.resolve(_tables);
+            }
+        }
+    }
+    test.TbTestExternalType = TbTestExternalType;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class TestExternalType {
+        constructor(_buf_) {
+            this.id = _buf_.ReadInt();
+            this.audioType = _buf_.ReadInt();
+            this.color = new test.Color(_buf_);
+        }
+        id;
+        audioType;
+        color;
+        resolve(_tables) {
+            if (this.color != null) {
+                this.color.resolve(_tables);
+            }
+        }
+    }
+    test.TestExternalType = TestExternalType;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
+    class Color {
+        constructor(_buf_) {
+            this.r = _buf_.ReadFloat();
+            this.g = _buf_.ReadFloat();
+            this.b = _buf_.ReadFloat();
+            this.a = _buf_.ReadFloat();
+        }
+        r;
+        g;
+        b;
+        a;
+        resolve(_tables) {
+        }
+    }
+    test.Color = Color;
+})(test = exports.test || (exports.test = {}));
+(function (test) {
     class TbDemoGroupDefineFromExcel {
         _dataMap;
         _dataList;
@@ -6036,6 +6482,8 @@ class Tables {
     get TbDataFromMisc() { return this._TbDataFromMisc; }
     _TbMultiRowRecord;
     get TbMultiRowRecord() { return this._TbMultiRowRecord; }
+    _TbTestMultiColumn;
+    get TbTestMultiColumn() { return this._TbTestMultiColumn; }
     _TbMultiRowTitle;
     get TbMultiRowTitle() { return this._TbMultiRowTitle; }
     _TbTestNull;
@@ -6056,6 +6504,8 @@ class Tables {
     get TbTestGlobal() { return this._TbTestGlobal; }
     _TbTestBeRef;
     get TbTestBeRef() { return this._TbTestBeRef; }
+    _TbTestBeRef2;
+    get TbTestBeRef2() { return this._TbTestBeRef2; }
     _TbTestRef;
     get TbTestRef() { return this._TbTestRef; }
     _TbTestSize;
@@ -6064,6 +6514,8 @@ class Tables {
     get TbTestSet() { return this._TbTestSet; }
     _TbDetectCsvEncoding;
     get TbDetectCsvEncoding() { return this._TbDetectCsvEncoding; }
+    _TbItem2;
+    get TbItem2() { return this._TbItem2; }
     _TbDefineFromExcel;
     get TbDefineFromExcel() { return this._TbDefineFromExcel; }
     _TbDefineFromExcelOne;
@@ -6082,6 +6534,12 @@ class Tables {
     get TbCompositeJsonTable3() { return this._TbCompositeJsonTable3; }
     _TbExcelFromJsonMultiRow;
     get TbExcelFromJsonMultiRow() { return this._TbExcelFromJsonMultiRow; }
+    _TbTestSep;
+    get TbTestSep() { return this._TbTestSep; }
+    _TbTestScriptableObject;
+    get TbTestScriptableObject() { return this._TbTestScriptableObject; }
+    _TbTestExternalType;
+    get TbTestExternalType() { return this._TbTestExternalType; }
     _TbDemoGroupDefineFromExcel;
     get TbDemoGroupDefineFromExcel() { return this._TbDemoGroupDefineFromExcel; }
     _TbDefineFromExcel2;
@@ -6140,6 +6598,8 @@ class Tables {
         tables.set('test.TbDataFromMisc', this._TbDataFromMisc);
         this._TbMultiRowRecord = new test.TbMultiRowRecord(loader('test_tbmultirowrecord'));
         tables.set('test.TbMultiRowRecord', this._TbMultiRowRecord);
+        this._TbTestMultiColumn = new test.TbTestMultiColumn(loader('test_tbtestmulticolumn'));
+        tables.set('test.TbTestMultiColumn', this._TbTestMultiColumn);
         this._TbMultiRowTitle = new test.TbMultiRowTitle(loader('test_tbmultirowtitle'));
         tables.set('test.TbMultiRowTitle', this._TbMultiRowTitle);
         this._TbTestNull = new test.TbTestNull(loader('test_tbtestnull'));
@@ -6160,6 +6620,8 @@ class Tables {
         tables.set('test.TbTestGlobal', this._TbTestGlobal);
         this._TbTestBeRef = new test.TbTestBeRef(loader('test_tbtestberef'));
         tables.set('test.TbTestBeRef', this._TbTestBeRef);
+        this._TbTestBeRef2 = new test.TbTestBeRef2(loader('test_tbtestberef2'));
+        tables.set('test.TbTestBeRef2', this._TbTestBeRef2);
         this._TbTestRef = new test.TbTestRef(loader('test_tbtestref'));
         tables.set('test.TbTestRef', this._TbTestRef);
         this._TbTestSize = new test.TbTestSize(loader('test_tbtestsize'));
@@ -6168,6 +6630,8 @@ class Tables {
         tables.set('test.TbTestSet', this._TbTestSet);
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding'));
         tables.set('test.TbDetectCsvEncoding', this._TbDetectCsvEncoding);
+        this._TbItem2 = new test.TbItem2(loader('test_tbitem2'));
+        tables.set('test.TbItem2', this._TbItem2);
         this._TbDefineFromExcel = new test.TbDefineFromExcel(loader('test_tbdefinefromexcel'));
         tables.set('test.TbDefineFromExcel', this._TbDefineFromExcel);
         this._TbDefineFromExcelOne = new test.TbDefineFromExcelOne(loader('test_tbdefinefromexcelone'));
@@ -6186,6 +6650,12 @@ class Tables {
         tables.set('test.TbCompositeJsonTable3', this._TbCompositeJsonTable3);
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'));
         tables.set('test.TbExcelFromJsonMultiRow', this._TbExcelFromJsonMultiRow);
+        this._TbTestSep = new test.TbTestSep(loader('test_tbtestsep'));
+        tables.set('test.TbTestSep', this._TbTestSep);
+        this._TbTestScriptableObject = new test.TbTestScriptableObject(loader('test_tbtestscriptableobject'));
+        tables.set('test.TbTestScriptableObject', this._TbTestScriptableObject);
+        this._TbTestExternalType = new test.TbTestExternalType(loader('test_tbtestexternaltype'));
+        tables.set('test.TbTestExternalType', this._TbTestExternalType);
         this._TbDemoGroupDefineFromExcel = new test.TbDemoGroupDefineFromExcel(loader('test_tbdemogroupdefinefromexcel'));
         tables.set('test.TbDemoGroupDefineFromExcel', this._TbDemoGroupDefineFromExcel);
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'));
@@ -6218,6 +6688,7 @@ class Tables {
         this._TbMultiIndexList.resolve(tables);
         this._TbDataFromMisc.resolve(tables);
         this._TbMultiRowRecord.resolve(tables);
+        this._TbTestMultiColumn.resolve(tables);
         this._TbMultiRowTitle.resolve(tables);
         this._TbTestNull.resolve(tables);
         this._TbDemoPrimitive.resolve(tables);
@@ -6228,10 +6699,12 @@ class Tables {
         this._TbDemoGroup_E.resolve(tables);
         this._TbTestGlobal.resolve(tables);
         this._TbTestBeRef.resolve(tables);
+        this._TbTestBeRef2.resolve(tables);
         this._TbTestRef.resolve(tables);
         this._TbTestSize.resolve(tables);
         this._TbTestSet.resolve(tables);
         this._TbDetectCsvEncoding.resolve(tables);
+        this._TbItem2.resolve(tables);
         this._TbDefineFromExcel.resolve(tables);
         this._TbDefineFromExcelOne.resolve(tables);
         this._TbTestIndex.resolve(tables);
@@ -6241,6 +6714,9 @@ class Tables {
         this._TbCompositeJsonTable2.resolve(tables);
         this._TbCompositeJsonTable3.resolve(tables);
         this._TbExcelFromJsonMultiRow.resolve(tables);
+        this._TbTestSep.resolve(tables);
+        this._TbTestScriptableObject.resolve(tables);
+        this._TbTestExternalType.resolve(tables);
         this._TbDemoGroupDefineFromExcel.resolve(tables);
         this._TbDefineFromExcel2.resolve(tables);
         this._TbTestExcelBean.resolve(tables);
