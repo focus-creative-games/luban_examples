@@ -19,15 +19,17 @@ public sealed class TestSet :  Bright.Config.BeanBase
     public TestSet(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
+        X0 = _json.GetProperty("x0").GetString();
         { var _json0 = _json.GetProperty("x1"); X1 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X1.Add(__v); }   }
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<long>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { long __v;  __v = __e.GetInt64();  X2.Add(__v); }   }
         { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.List<string>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { string __v;  __v = __e.GetString();  X3.Add(__v); }   }
         { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.DemoEnum>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoEnum __v;  __v = (test.DemoEnum)__e.GetInt32();  X4.Add(__v); }   }
     }
 
-    public TestSet(int id, System.Collections.Generic.List<int> x1, System.Collections.Generic.List<long> x2, System.Collections.Generic.List<string> x3, System.Collections.Generic.List<test.DemoEnum> x4 ) 
+    public TestSet(int id, string x0, System.Collections.Generic.List<int> x1, System.Collections.Generic.List<long> x2, System.Collections.Generic.List<string> x3, System.Collections.Generic.List<test.DemoEnum> x4 ) 
     {
         this.Id = id;
+        this.X0 = x0;
         this.X1 = x1;
         this.X2 = x2;
         this.X3 = x3;
@@ -40,6 +42,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
     }
 
     public int Id { get; private set; }
+    public string X0 { get; private set; }
     public System.Collections.Generic.List<int> X1 { get; private set; }
     public System.Collections.Generic.List<long> X2 { get; private set; }
     public System.Collections.Generic.List<string> X3 { get; private set; }
@@ -60,6 +63,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
     {
         return "{ "
         + "Id:" + Id + ","
+        + "X0:" + X0 + ","
         + "X1:" + Bright.Common.StringUtil.CollectionToString(X1) + ","
         + "X2:" + Bright.Common.StringUtil.CollectionToString(X2) + ","
         + "X3:" + Bright.Common.StringUtil.CollectionToString(X3) + ","
