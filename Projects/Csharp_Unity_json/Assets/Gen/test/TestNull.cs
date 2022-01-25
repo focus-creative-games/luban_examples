@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestNull :  Bright.Config.BeanBase 
+public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(JSONNode _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
         { var _j = _json["x4"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsObject) { throw new SerializationException(); }  X4 = test.DemoDynamic.DeserializeDemoDynamic(_j); } } else { X4 = null; } }
         { var _j = _json["s1"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsString) { throw new SerializationException(); }  S1 = _j; } } else { S1 = null; } }
         { var _j = _json["s2"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j["key"].IsString) { throw new SerializationException(); }  S2_l10n_key = _j["key"]; if(!_j["text"].IsString) { throw new SerializationException(); }  S2 = _j["text"]; } } else { S2 = null; } }
+        PostInit();
     }
 
     public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
@@ -36,6 +37,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
         this.X4 = x4;
         this.S1 = s1;
         this.S2 = s2;
+        PostInit();
     }
 
     public static TestNull DeserializeTestNull(JSONNode _json)
@@ -59,6 +61,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
     {
         X3?.Resolve(_tables);
         X4?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -80,5 +83,8 @@ public sealed class TestNull :  Bright.Config.BeanBase
         + "S2:" + S2 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

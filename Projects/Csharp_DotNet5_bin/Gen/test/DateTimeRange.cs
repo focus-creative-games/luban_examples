@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DateTimeRange :  Bright.Config.BeanBase 
+public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(ByteBuf _buf) 
     {
         StartTime = _buf.ReadInt();
         EndTime = _buf.ReadInt();
+        PostInit();
     }
 
     public static DateTimeRange DeserializeDateTimeRange(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
         + "EndTime:" + EndTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

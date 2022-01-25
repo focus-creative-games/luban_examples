@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class ChooseTarget :  ai.Service 
+public sealed partial class ChooseTarget :  ai.Service 
 {
     public ChooseTarget(JSONNode _json)  : base(_json) 
     {
         { if(!_json["result_target_key"].IsString) { throw new SerializationException(); }  ResultTargetKey = _json["result_target_key"]; }
+        PostInit();
     }
 
     public ChooseTarget(int id, string node_name, string result_target_key )  : base(id,node_name) 
     {
         this.ResultTargetKey = result_target_key;
+        PostInit();
     }
 
     public static ChooseTarget DeserializeChooseTarget(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class ChooseTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class ChooseTarget :  ai.Service
         + "ResultTargetKey:" + ResultTargetKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

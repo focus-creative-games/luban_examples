@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class DebugPrint :  ai.Task 
+public sealed partial class DebugPrint :  ai.Task 
 {
     public DebugPrint(JSONNode _json)  : base(_json) 
     {
         { if(!_json["text"].IsString) { throw new SerializationException(); }  Text = _json["text"]; }
+        PostInit();
     }
 
     public DebugPrint(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string text )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.Text = text;
+        PostInit();
     }
 
     public static DebugPrint DeserializeDebugPrint(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class DebugPrint :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -57,5 +60,8 @@ public sealed class DebugPrint :  ai.Task
         + "Text:" + Text + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

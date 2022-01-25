@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleMsgbox :  error.ErrorStyle 
+public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(ByteBuf _buf)  : base(_buf) 
     {
         BtnName = _buf.ReadString();
         Operation = (error.EOperation)_buf.ReadInt();
+        PostInit();
     }
 
     public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class ErrorStyleMsgbox :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class ErrorStyleMsgbox :  error.ErrorStyle
         + "Operation:" + Operation + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

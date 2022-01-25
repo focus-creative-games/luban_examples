@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public abstract class ItemBase :  Bright.Config.BeanBase 
+public abstract partial class ItemBase :  Bright.Config.BeanBase 
 {
     public ItemBase(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Name = _json.GetProperty("name").GetString();
         Desc = _json.GetProperty("desc").GetString();
+        PostInit();
     }
 
     public ItemBase(int id, string name, string desc ) 
@@ -28,6 +29,7 @@ public abstract class ItemBase :  Bright.Config.BeanBase
         this.Id = id;
         this.Name = name;
         this.Desc = desc;
+        PostInit();
     }
 
     public static ItemBase DeserializeItemBase(JsonElement _json)
@@ -48,6 +50,7 @@ public abstract class ItemBase :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public abstract class ItemBase :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestRow :  Bright.Config.BeanBase 
+public sealed partial class TestRow :  Bright.Config.BeanBase 
 {
     public TestRow(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
         { if(!_json["z"].IsString) { throw new SerializationException(); }  Z = _json["z"]; }
         { if(!_json["a"].IsObject) { throw new SerializationException(); }  A = test.Test3.DeserializeTest3(_json["a"]); }
         { var _json1 = _json["b"]; if(!_json1.IsArray) { throw new SerializationException(); } B = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  B.Add(__v); }   }
+        PostInit();
     }
 
     public TestRow(int x, bool y, string z, test.Test3 a, System.Collections.Generic.List<int> b ) 
@@ -32,6 +33,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
         this.Z = z;
         this.A = a;
         this.B = b;
+        PostInit();
     }
 
     public static TestRow DeserializeTestRow(JSONNode _json)
@@ -51,6 +53,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         A?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class TestRow :  Bright.Config.BeanBase
         + "B:" + Bright.Common.StringUtil.CollectionToString(B) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

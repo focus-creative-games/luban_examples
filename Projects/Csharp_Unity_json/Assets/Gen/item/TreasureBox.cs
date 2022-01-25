@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class TreasureBox :  item.ItemExtra 
+public sealed partial class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(JSONNode _json)  : base(_json) 
     {
@@ -23,6 +23,7 @@ public sealed class TreasureBox :  item.ItemExtra
         { if(!_json["use_on_obtain"].IsBoolean) { throw new SerializationException(); }  UseOnObtain = _json["use_on_obtain"]; }
         { var _json1 = _json["drop_ids"]; if(!_json1.IsArray) { throw new SerializationException(); } DropIds = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  DropIds.Add(__v); }   }
         { var _json1 = _json["choose_list"]; if(!_json1.IsArray) { throw new SerializationException(); } ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(_json1.Count); foreach(JSONNode __e in _json1.Children) { item.ChooseOneBonus __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = item.ChooseOneBonus.DeserializeChooseOneBonus(__e); }  ChooseList.Add(__v); }   }
+        PostInit();
     }
 
     public TreasureBox(int id, int? key_item_id, condition.MinLevel open_level, bool use_on_obtain, System.Collections.Generic.List<int> drop_ids, System.Collections.Generic.List<item.ChooseOneBonus> choose_list )  : base(id) 
@@ -32,6 +33,7 @@ public sealed class TreasureBox :  item.ItemExtra
         this.UseOnObtain = use_on_obtain;
         this.DropIds = drop_ids;
         this.ChooseList = choose_list;
+        PostInit();
     }
 
     public static TreasureBox DeserializeTreasureBox(JSONNode _json)
@@ -53,6 +55,7 @@ public sealed class TreasureBox :  item.ItemExtra
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -73,5 +76,8 @@ public sealed class TreasureBox :  item.ItemExtra
         + "ChooseList:" + Bright.Common.StringUtil.CollectionToString(ChooseList) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestNull :  Bright.Config.BeanBase 
+public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(ByteBuf _buf) 
     {
@@ -24,6 +24,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
         if(_buf.ReadBool()){ X4 = test.DemoDynamic.DeserializeDemoDynamic(_buf); } else { X4 = null; }
         if(_buf.ReadBool()){ S1 = _buf.ReadString(); } else { S1 = null; }
         if(_buf.ReadBool()){ S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString(); } else { S2 = null; }
+        PostInit();
     }
 
     public static TestNull DeserializeTestNull(ByteBuf _buf)
@@ -47,6 +48,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
     {
         X3?.Resolve(_tables);
         X4?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,6 +70,9 @@ public sealed class TestNull :  Bright.Config.BeanBase
         + "S2:" + S2 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

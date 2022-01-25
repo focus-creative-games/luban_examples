@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed class LevelExpAttr :  Bright.Config.BeanBase 
+public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(JsonElement _json) 
     {
         Level = _json.GetProperty("level").GetInt32();
         NeedExp = _json.GetProperty("need_exp").GetInt64();
         { var _json0 = _json.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ClothesAttrs.Add(__v); }   }
+        PostInit();
     }
 
     public LevelExpAttr(int level, long need_exp, System.Collections.Generic.List<int> clothes_attrs ) 
@@ -28,6 +29,7 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
         this.Level = level;
         this.NeedExp = need_exp;
         this.ClothesAttrs = clothes_attrs;
+        PostInit();
     }
 
     public static LevelExpAttr DeserializeLevelExpAttr(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
         + "ClothesAttrs:" + Bright.Common.StringUtil.CollectionToString(ClothesAttrs) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

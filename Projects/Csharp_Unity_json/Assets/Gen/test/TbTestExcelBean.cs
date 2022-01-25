@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbTestExcelBean
+public sealed partial class TbTestExcelBean
 {
     private readonly Dictionary<int, test.TestExcelBean1> _dataMap;
     private readonly List<test.TestExcelBean1> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbTestExcelBean
             _dataList.Add(_v);
             _dataMap.Add(_v.X1, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.TestExcelBean1> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbTestExcelBean
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbTestExcelBean
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

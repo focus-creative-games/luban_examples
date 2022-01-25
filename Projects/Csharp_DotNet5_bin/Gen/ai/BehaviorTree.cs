@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class BehaviorTree :  Bright.Config.BeanBase 
+public sealed partial class BehaviorTree :  Bright.Config.BeanBase 
 {
     public BehaviorTree(ByteBuf _buf) 
     {
@@ -22,6 +22,7 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
         BlackboardId = _buf.ReadString();
         Root = ai.ComposeNode.DeserializeComposeNode(_buf);
+        PostInit();
     }
 
     public static BehaviorTree DeserializeBehaviorTree(ByteBuf _buf)
@@ -43,6 +44,7 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
     {
         this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
         Root?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,6 +62,9 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
         + "Root:" + Root + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

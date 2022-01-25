@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public sealed class ErrorInfo :  Bright.Config.BeanBase 
+public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
     public ErrorInfo(JSONNode _json) 
     {
         { if(!_json["code"].IsString) { throw new SerializationException(); }  Code = _json["code"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["style"].IsObject) { throw new SerializationException(); }  Style = error.ErrorStyle.DeserializeErrorStyle(_json["style"]); }
+        PostInit();
     }
 
     public ErrorInfo(string code, string desc, error.ErrorStyle style ) 
@@ -28,6 +29,7 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
         this.Code = code;
         this.Desc = desc;
         this.Style = style;
+        PostInit();
     }
 
     public static ErrorInfo DeserializeErrorInfo(JSONNode _json)
@@ -45,6 +47,7 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Style?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
         + "Style:" + Style + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

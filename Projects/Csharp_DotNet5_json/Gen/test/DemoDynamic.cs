@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public abstract class DemoDynamic :  Bright.Config.BeanBase 
+public abstract partial class DemoDynamic :  Bright.Config.BeanBase 
 {
     public DemoDynamic(JsonElement _json) 
     {
         X1 = _json.GetProperty("x1").GetInt32();
+        PostInit();
     }
 
     public DemoDynamic(int x1 ) 
     {
         this.X1 = x1;
+        PostInit();
     }
 
     public static DemoDynamic DeserializeDemoDynamic(JsonElement _json)
@@ -42,6 +44,7 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

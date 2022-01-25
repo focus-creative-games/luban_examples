@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed class CodeInfo :  Bright.Config.BeanBase 
+public sealed partial class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(ByteBuf _buf) 
     {
         Code = (error.EErrorCode)_buf.ReadInt();
         Key = _buf.ReadString();
+        PostInit();
     }
 
     public static CodeInfo DeserializeCodeInfo(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class CodeInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class CodeInfo :  Bright.Config.BeanBase
         + "Key:" + Key + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.mail
 {
 
-public sealed class SystemMail :  Bright.Config.BeanBase 
+public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(ByteBuf _buf) 
     {
@@ -22,6 +22,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         Sender = _buf.ReadString();
         Content = _buf.ReadString();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Award = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); Award.Add(_e);}}
+        PostInit();
     }
 
     public static SystemMail DeserializeSystemMail(ByteBuf _buf)
@@ -40,6 +41,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,6 +58,9 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

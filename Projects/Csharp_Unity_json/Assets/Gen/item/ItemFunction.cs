@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class ItemFunction :  Bright.Config.BeanBase 
+public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         { if(!_json["func_type"].IsNumber) { throw new SerializationException(); }  FuncType = (item.EItemFunctionType)_json["func_type"].AsInt; }
         { if(!_json["method"].IsString) { throw new SerializationException(); }  Method = _json["method"]; }
         { if(!_json["close_bag_ui"].IsBoolean) { throw new SerializationException(); }  CloseBagUi = _json["close_bag_ui"]; }
+        PostInit();
     }
 
     public ItemFunction(item.EMinorType minor_type, item.EItemFunctionType func_type, string method, bool close_bag_ui ) 
@@ -30,6 +31,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         this.FuncType = func_type;
         this.Method = method;
         this.CloseBagUi = close_bag_ui;
+        PostInit();
     }
 
     public static ItemFunction DeserializeItemFunction(JSONNode _json)
@@ -47,6 +49,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         + "CloseBagUi:" + CloseBagUi + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

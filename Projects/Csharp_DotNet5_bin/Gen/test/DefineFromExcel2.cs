@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DefineFromExcel2 :  Bright.Config.BeanBase 
+public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase 
 {
     public DefineFromExcel2(ByteBuf _buf) 
     {
@@ -30,6 +30,7 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     K8.Add(_k, _v);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
+        PostInit();
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
@@ -65,6 +66,7 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
     {
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -91,6 +93,9 @@ public sealed class DefineFromExcel2 :  Bright.Config.BeanBase
         + "K9:" + Bright.Common.StringUtil.CollectionToString(K9) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

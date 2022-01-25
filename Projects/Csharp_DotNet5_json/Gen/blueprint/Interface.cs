@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed class Interface :  blueprint.Clazz 
+public sealed partial class Interface :  blueprint.Clazz 
 {
     public Interface(JsonElement _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public Interface(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods )  : base(name,desc,parents,methods) 
     {
+        PostInit();
     }
 
     public static Interface DeserializeInterface(JsonElement _json)
@@ -36,6 +38,7 @@ public sealed class Interface :  blueprint.Clazz
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class Interface :  blueprint.Clazz
         + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

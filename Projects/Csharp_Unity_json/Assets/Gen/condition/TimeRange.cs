@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class TimeRange :  condition.Condition 
+public sealed partial class TimeRange :  condition.Condition 
 {
     public TimeRange(JSONNode _json)  : base(_json) 
     {
         { if(!_json["date_time_range"].IsObject) { throw new SerializationException(); }  DateTimeRange = common.DateTimeRange.DeserializeDateTimeRange(_json["date_time_range"]); }
+        PostInit();
     }
 
     public TimeRange(common.DateTimeRange date_time_range )  : base() 
     {
         this.DateTimeRange = date_time_range;
+        PostInit();
     }
 
     public static TimeRange DeserializeTimeRange(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class TimeRange :  condition.Condition
     {
         base.Resolve(_tables);
         DateTimeRange?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class TimeRange :  condition.Condition
         + "DateTimeRange:" + DateTimeRange + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

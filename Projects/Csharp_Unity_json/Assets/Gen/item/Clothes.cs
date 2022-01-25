@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class Clothes :  item.ItemExtra 
+public sealed partial class Clothes :  item.ItemExtra 
 {
     public Clothes(JSONNode _json)  : base(_json) 
     {
@@ -22,6 +22,7 @@ public sealed class Clothes :  item.ItemExtra
         { if(!_json["hp"].IsNumber) { throw new SerializationException(); }  Hp = _json["hp"]; }
         { if(!_json["energy_limit"].IsNumber) { throw new SerializationException(); }  EnergyLimit = _json["energy_limit"]; }
         { if(!_json["energy_resume"].IsNumber) { throw new SerializationException(); }  EnergyResume = _json["energy_resume"]; }
+        PostInit();
     }
 
     public Clothes(int id, int attack, long hp, int energy_limit, int energy_resume )  : base(id) 
@@ -30,6 +31,7 @@ public sealed class Clothes :  item.ItemExtra
         this.Hp = hp;
         this.EnergyLimit = energy_limit;
         this.EnergyResume = energy_resume;
+        PostInit();
     }
 
     public static Clothes DeserializeClothes(JSONNode _json)
@@ -48,6 +50,7 @@ public sealed class Clothes :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -65,5 +68,8 @@ public sealed class Clothes :  item.ItemExtra
         + "EnergyResume:" + EnergyResume + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

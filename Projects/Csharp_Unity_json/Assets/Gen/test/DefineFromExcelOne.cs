@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DefineFromExcelOne :  Bright.Config.BeanBase 
+public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase 
 {
     public DefineFromExcelOne(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
         { if(!_json["unlock_hero"].IsNumber) { throw new SerializationException(); }  UnlockHero = _json["unlock_hero"]; }
         { if(!_json["default_avatar"].IsString) { throw new SerializationException(); }  DefaultAvatar = _json["default_avatar"]; }
         { if(!_json["default_item"].IsString) { throw new SerializationException(); }  DefaultItem = _json["default_item"]; }
+        PostInit();
     }
 
     public DefineFromExcelOne(int unlock_equip, int unlock_hero, string default_avatar, string default_item ) 
@@ -30,6 +31,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
         this.UnlockHero = unlock_hero;
         this.DefaultAvatar = default_avatar;
         this.DefaultItem = default_item;
+        PostInit();
     }
 
     public static DefineFromExcelOne DeserializeDefineFromExcelOne(JSONNode _json)
@@ -53,6 +55,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
         + "DefaultItem:" + DefaultItem + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

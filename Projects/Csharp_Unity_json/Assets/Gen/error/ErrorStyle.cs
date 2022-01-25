@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public abstract class ErrorStyle :  Bright.Config.BeanBase 
+public abstract partial class ErrorStyle :  Bright.Config.BeanBase 
 {
     public ErrorStyle(JSONNode _json) 
     {
+        PostInit();
     }
 
     public ErrorStyle() 
     {
+        PostInit();
     }
 
     public static ErrorStyle DeserializeErrorStyle(JSONNode _json)
@@ -41,6 +43,7 @@ public abstract class ErrorStyle :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public abstract class ErrorStyle :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

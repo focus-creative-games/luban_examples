@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.l10n
 {
 
-public sealed class L10NDemo :  Bright.Config.BeanBase 
+public sealed partial class L10NDemo :  Bright.Config.BeanBase 
 {
     public L10NDemo(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["text"]["key"].IsString) { throw new SerializationException(); }  Text_l10n_key = _json["text"]["key"]; if(!_json["text"]["text"].IsString) { throw new SerializationException(); }  Text = _json["text"]["text"]; }
+        PostInit();
     }
 
     public L10NDemo(int id, string text ) 
     {
         this.Id = id;
         this.Text = text;
+        PostInit();
     }
 
     public static L10NDemo DeserializeL10NDemo(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
         + "Text:" + Text + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

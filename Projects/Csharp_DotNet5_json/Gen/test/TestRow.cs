@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestRow :  Bright.Config.BeanBase 
+public sealed partial class TestRow :  Bright.Config.BeanBase 
 {
     public TestRow(JsonElement _json) 
     {
@@ -23,6 +23,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
         Z = _json.GetProperty("z").GetString();
         A =  test.Test3.DeserializeTest3(_json.GetProperty("a"));
         { var _json0 = _json.GetProperty("b"); B = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  B.Add(__v); }   }
+        PostInit();
     }
 
     public TestRow(int x, bool y, string z, test.Test3 a, System.Collections.Generic.List<int> b ) 
@@ -32,6 +33,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
         this.Z = z;
         this.A = a;
         this.B = b;
+        PostInit();
     }
 
     public static TestRow DeserializeTestRow(JsonElement _json)
@@ -51,6 +53,7 @@ public sealed class TestRow :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         A?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class TestRow :  Bright.Config.BeanBase
         + "B:" + Bright.Common.StringUtil.CollectionToString(B) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

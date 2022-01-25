@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestDesc :  Bright.Config.BeanBase 
+public sealed partial class TestDesc :  Bright.Config.BeanBase 
 {
     public TestDesc(JSONNode _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         { if(!_json["x1"].IsObject) { throw new SerializationException(); }  X1 = test.H1.DeserializeH1(_json["x1"]); }
         { var _json1 = _json["x2"]; if(!_json1.IsArray) { throw new SerializationException(); } X2 = new System.Collections.Generic.List<test.H2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.H2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.H2.DeserializeH2(__e); }  X2.Add(__v); }   }
         { var _json1 = _json["x3"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; X3 = new test.H2[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { test.H2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.H2.DeserializeH2(__e); }  X3[_index++] = __v; }   }
+        PostInit();
     }
 
     public TestDesc(int id, string name, int a1, int a2, test.H1 x1, System.Collections.Generic.List<test.H2> x2, test.H2[] x3 ) 
@@ -36,6 +37,7 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         this.X1 = x1;
         this.X2 = x2;
         this.X3 = x3;
+        PostInit();
     }
 
     public static TestDesc DeserializeTestDesc(JSONNode _json)
@@ -71,6 +73,7 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         X1?.Resolve(_tables);
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -92,5 +95,8 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         + "X3:" + Bright.Common.StringUtil.CollectionToString(X3) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

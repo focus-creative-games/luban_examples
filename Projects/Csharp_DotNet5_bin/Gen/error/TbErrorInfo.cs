@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.error
 {
    
-public sealed class TbErrorInfo
+public partial class TbErrorInfo
 {
     private readonly Dictionary<string, error.ErrorInfo> _dataMap;
     private readonly List<error.ErrorInfo> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbErrorInfo
             _dataList.Add(_v);
             _dataMap.Add(_v.Code, _v);
         }
+        PostInit();
     }
 
     public Dictionary<string, error.ErrorInfo> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbErrorInfo
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbErrorInfo
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

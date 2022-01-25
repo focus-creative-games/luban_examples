@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class MultiIndexList :  Bright.Config.BeanBase 
+public sealed partial class MultiIndexList :  Bright.Config.BeanBase 
 {
     public MultiIndexList(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public sealed class MultiIndexList :  Bright.Config.BeanBase
         { if(!_json["id3"].IsString) { throw new SerializationException(); }  Id3 = _json["id3"]; }
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        PostInit();
     }
 
     public MultiIndexList(int id1, long id2, string id3, int num, string desc ) 
@@ -32,6 +33,7 @@ public sealed class MultiIndexList :  Bright.Config.BeanBase
         this.Id3 = id3;
         this.Num = num;
         this.Desc = desc;
+        PostInit();
     }
 
     public static MultiIndexList DeserializeMultiIndexList(JSONNode _json)
@@ -50,6 +52,7 @@ public sealed class MultiIndexList :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class MultiIndexList :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

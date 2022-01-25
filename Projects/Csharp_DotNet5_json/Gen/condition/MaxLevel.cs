@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed class MaxLevel :  condition.BoolRoleCondition 
+public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
     public MaxLevel(JsonElement _json)  : base(_json) 
     {
         Level = _json.GetProperty("level").GetInt32();
+        PostInit();
     }
 
     public MaxLevel(int level )  : base() 
     {
         this.Level = level;
+        PostInit();
     }
 
     public static MaxLevel DeserializeMaxLevel(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
         + "Level:" + Level + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

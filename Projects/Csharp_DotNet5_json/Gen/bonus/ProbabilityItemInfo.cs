@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase 
+public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityItemInfo(JsonElement _json) 
     {
         ItemId = _json.GetProperty("item_id").GetInt32();
         Num = _json.GetProperty("num").GetInt32();
         Probability = _json.GetProperty("probability").GetSingle();
+        PostInit();
     }
 
     public ProbabilityItemInfo(int item_id, int num, float probability ) 
@@ -28,6 +29,7 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
         this.ItemId = item_id;
         this.Num = num;
         this.Probability = probability;
+        PostInit();
     }
 
     public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JsonElement _json)
@@ -46,6 +48,7 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
         + "Probability:" + Probability + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

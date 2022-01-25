@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestSet :  Bright.Config.BeanBase 
+public sealed partial class TestSet :  Bright.Config.BeanBase 
 {
     public TestSet(JsonElement _json) 
     {
@@ -24,6 +24,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<long>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { long __v;  __v = __e.GetInt64();  X2.Add(__v); }   }
         { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.List<string>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { string __v;  __v = __e.GetString();  X3.Add(__v); }   }
         { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.DemoEnum>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoEnum __v;  __v = (test.DemoEnum)__e.GetInt32();  X4.Add(__v); }   }
+        PostInit();
     }
 
     public TestSet(int id, string x0, System.Collections.Generic.List<int> x1, System.Collections.Generic.List<long> x2, System.Collections.Generic.List<string> x3, System.Collections.Generic.List<test.DemoEnum> x4 ) 
@@ -34,6 +35,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static TestSet DeserializeTestSet(JsonElement _json)
@@ -53,6 +55,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -70,5 +73,8 @@ public sealed class TestSet :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

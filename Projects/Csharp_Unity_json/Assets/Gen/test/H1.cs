@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class H1 :  Bright.Config.BeanBase 
+public sealed partial class H1 :  Bright.Config.BeanBase 
 {
     public H1(JSONNode _json) 
     {
         { if(!_json["y2"].IsObject) { throw new SerializationException(); }  Y2 = test.H2.DeserializeH2(_json["y2"]); }
         { if(!_json["y3"].IsNumber) { throw new SerializationException(); }  Y3 = _json["y3"]; }
+        PostInit();
     }
 
     public H1(test.H2 y2, int y3 ) 
     {
         this.Y2 = y2;
         this.Y3 = y3;
+        PostInit();
     }
 
     public static H1 DeserializeH1(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class H1 :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Y2?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class H1 :  Bright.Config.BeanBase
         + "Y3:" + Y3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

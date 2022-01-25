@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.common
 {
 
-public sealed class DateTimeRange :  Bright.Config.BeanBase 
+public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JSONNode _json) 
     {
         { var _j = _json["start_time"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  StartTime = _j; } } else { StartTime = null; } }
         { var _j = _json["end_time"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  EndTime = _j; } } else { EndTime = null; } }
+        PostInit();
     }
 
     public DateTimeRange(int? start_time, int? end_time ) 
     {
         this.StartTime = start_time;
         this.EndTime = end_time;
+        PostInit();
     }
 
     public static DateTimeRange DeserializeDateTimeRange(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
         + "EndTime:" + EndTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

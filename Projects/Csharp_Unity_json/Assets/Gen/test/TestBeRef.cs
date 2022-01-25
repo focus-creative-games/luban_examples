@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestBeRef :  Bright.Config.BeanBase 
+public sealed partial class TestBeRef :  Bright.Config.BeanBase 
 {
     public TestBeRef(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["count"].IsNumber) { throw new SerializationException(); }  Count = _json["count"]; }
+        PostInit();
     }
 
     public TestBeRef(int id, int count ) 
     {
         this.Id = id;
         this.Count = count;
+        PostInit();
     }
 
     public static TestBeRef DeserializeTestBeRef(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
         + "Count:" + Count + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

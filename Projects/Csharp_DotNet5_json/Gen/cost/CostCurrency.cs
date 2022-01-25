@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-public sealed class CostCurrency :  cost.Cost 
+public sealed partial class CostCurrency :  cost.Cost 
 {
     public CostCurrency(JsonElement _json)  : base(_json) 
     {
         Type = (item.ECurrencyType)_json.GetProperty("type").GetInt32();
         Num = _json.GetProperty("num").GetInt32();
+        PostInit();
     }
 
     public CostCurrency(item.ECurrencyType type, int num )  : base() 
     {
         this.Type = type;
         this.Num = num;
+        PostInit();
     }
 
     public static CostCurrency DeserializeCostCurrency(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class CostCurrency :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class CostCurrency :  cost.Cost
         + "Num:" + Num + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public abstract class Method :  Bright.Config.BeanBase 
+public abstract partial class Method :  Bright.Config.BeanBase 
 {
     public Method(JsonElement _json) 
     {
@@ -23,6 +23,7 @@ public abstract class Method :  Bright.Config.BeanBase
         IsStatic = _json.GetProperty("is_static").GetBoolean();
         ReturnType = _json.GetProperty("return_type").GetString();
         { var _json0 = _json.GetProperty("parameters"); Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.ParamInfo __v;  __v =  blueprint.ParamInfo.DeserializeParamInfo(__e);  Parameters.Add(__v); }   }
+        PostInit();
     }
 
     public Method(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters ) 
@@ -32,6 +33,7 @@ public abstract class Method :  Bright.Config.BeanBase
         this.IsStatic = is_static;
         this.ReturnType = return_type;
         this.Parameters = parameters;
+        PostInit();
     }
 
     public static Method DeserializeMethod(JsonElement _json)
@@ -55,6 +57,7 @@ public abstract class Method :  Bright.Config.BeanBase
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -72,5 +75,8 @@ public abstract class Method :  Bright.Config.BeanBase
         + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

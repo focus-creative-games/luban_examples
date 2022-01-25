@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed class EnumClazz :  blueprint.Clazz 
+public sealed partial class EnumClazz :  blueprint.Clazz 
 {
     public EnumClazz(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["enums"]; if(!_json1.IsArray) { throw new SerializationException(); } Enums = new System.Collections.Generic.List<blueprint.EnumField>(_json1.Count); foreach(JSONNode __e in _json1.Children) { blueprint.EnumField __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.EnumField.DeserializeEnumField(__e); }  Enums.Add(__v); }   }
+        PostInit();
     }
 
     public EnumClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, System.Collections.Generic.List<blueprint.EnumField> enums )  : base(name,desc,parents,methods) 
     {
         this.Enums = enums;
+        PostInit();
     }
 
     public static EnumClazz DeserializeEnumClazz(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class EnumClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Enums) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class EnumClazz :  blueprint.Clazz
         + "Enums:" + Bright.Common.StringUtil.CollectionToString(Enums) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeLoop :  ai.Decorator 
+public sealed partial class UeLoop :  ai.Decorator 
 {
     public UeLoop(JSONNode _json)  : base(_json) 
     {
         { if(!_json["num_loops"].IsNumber) { throw new SerializationException(); }  NumLoops = _json["num_loops"]; }
         { if(!_json["infinite_loop"].IsBoolean) { throw new SerializationException(); }  InfiniteLoop = _json["infinite_loop"]; }
         { if(!_json["infinite_loop_timeout_time"].IsNumber) { throw new SerializationException(); }  InfiniteLoopTimeoutTime = _json["infinite_loop_timeout_time"]; }
+        PostInit();
     }
 
     public UeLoop(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, int num_loops, bool infinite_loop, float infinite_loop_timeout_time )  : base(id,node_name,flow_abort_mode) 
@@ -28,6 +29,7 @@ public sealed class UeLoop :  ai.Decorator
         this.NumLoops = num_loops;
         this.InfiniteLoop = infinite_loop;
         this.InfiniteLoopTimeoutTime = infinite_loop_timeout_time;
+        PostInit();
     }
 
     public static UeLoop DeserializeUeLoop(JSONNode _json)
@@ -45,6 +47,7 @@ public sealed class UeLoop :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -63,5 +66,8 @@ public sealed class UeLoop :  ai.Decorator
         + "InfiniteLoopTimeoutTime:" + InfiniteLoopTimeoutTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

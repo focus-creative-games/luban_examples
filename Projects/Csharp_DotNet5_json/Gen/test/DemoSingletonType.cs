@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DemoSingletonType :  Bright.Config.BeanBase 
+public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Name_l10n_key = _json.GetProperty("name").GetProperty("key").GetString();Name = _json.GetProperty("name").GetProperty("text").GetString();
         Date =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("date"));
+        PostInit();
     }
 
     public DemoSingletonType(int id, string name, test.DemoDynamic date ) 
@@ -28,6 +29,7 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
         this.Id = id;
         this.Name = name;
         this.Date = date;
+        PostInit();
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(JsonElement _json)
@@ -46,6 +48,7 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Date?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
         + "Date:" + Date + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

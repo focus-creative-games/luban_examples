@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed class CodeInfo :  Bright.Config.BeanBase 
+public sealed partial class CodeInfo :  Bright.Config.BeanBase 
 {
     public CodeInfo(JsonElement _json) 
     {
         Code = (error.EErrorCode)_json.GetProperty("code").GetInt32();
         Key = _json.GetProperty("key").GetString();
+        PostInit();
     }
 
     public CodeInfo(error.EErrorCode code, string key ) 
     {
         this.Code = code;
         this.Key = key;
+        PostInit();
     }
 
     public static CodeInfo DeserializeCodeInfo(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class CodeInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CodeInfo :  Bright.Config.BeanBase
         + "Key:" + Key + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

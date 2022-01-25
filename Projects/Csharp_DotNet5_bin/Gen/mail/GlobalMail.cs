@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.mail
 {
 
-public sealed class GlobalMail :  Bright.Config.BeanBase 
+public sealed partial class GlobalMail :  Bright.Config.BeanBase 
 {
     public GlobalMail(ByteBuf _buf) 
     {
@@ -29,6 +29,7 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         MinMaxLevel = condition.MinMaxLevel.DeserializeMinMaxLevel(_buf);
         RegisterTime = condition.TimeRange.DeserializeTimeRange(_buf);
         MailTime = condition.TimeRange.DeserializeTimeRange(_buf);
+        PostInit();
     }
 
     public static GlobalMail DeserializeGlobalMail(ByteBuf _buf)
@@ -57,6 +58,7 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -83,6 +85,9 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         + "MailTime:" + MailTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

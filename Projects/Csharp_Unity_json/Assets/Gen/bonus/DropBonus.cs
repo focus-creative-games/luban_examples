@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class DropBonus :  bonus.Bonus 
+public sealed partial class DropBonus :  bonus.Bonus 
 {
     public DropBonus(JSONNode _json)  : base(_json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
+        PostInit();
     }
 
     public DropBonus(int id )  : base() 
     {
         this.Id = id;
+        PostInit();
     }
 
     public static DropBonus DeserializeDropBonus(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class DropBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DropBonus :  bonus.Bonus
         + "Id:" + Id + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

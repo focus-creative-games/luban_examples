@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class BinaryOperator :  ai.KeyQueryOperator 
+public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(JSONNode _json)  : base(_json) 
     {
         { if(!_json["oper"].IsNumber) { throw new SerializationException(); }  Oper = (ai.EOperator)_json["oper"].AsInt; }
         { if(!_json["data"].IsObject) { throw new SerializationException(); }  Data = ai.KeyData.DeserializeKeyData(_json["data"]); }
+        PostInit();
     }
 
     public BinaryOperator(ai.EOperator oper, ai.KeyData data )  : base() 
     {
         this.Oper = oper;
         this.Data = data;
+        PostInit();
     }
 
     public static BinaryOperator DeserializeBinaryOperator(JSONNode _json)
@@ -43,6 +45,7 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
     {
         base.Resolve(_tables);
         Data?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         + "Data:" + Data + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class NotIndexList :  Bright.Config.BeanBase 
+public sealed partial class NotIndexList :  Bright.Config.BeanBase 
 {
     public NotIndexList(JsonElement _json) 
     {
         X = _json.GetProperty("x").GetInt32();
         Y = _json.GetProperty("y").GetInt32();
+        PostInit();
     }
 
     public NotIndexList(int x, int y ) 
     {
         this.X = x;
         this.Y = y;
+        PostInit();
     }
 
     public static NotIndexList DeserializeNotIndexList(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class NotIndexList :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class NotIndexList :  Bright.Config.BeanBase
         + "Y:" + Y + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

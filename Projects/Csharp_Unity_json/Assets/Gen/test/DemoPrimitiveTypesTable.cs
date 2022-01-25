@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
+public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(JSONNode _json) 
     {
@@ -31,6 +31,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new System.Numerics.Vector3(__x, __y,__z); }
         { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
         { if(!_json["t1"].IsNumber) { throw new SerializationException(); }  T1 = _json["t1"]; }
+        PostInit();
     }
 
     public DemoPrimitiveTypesTable(bool x1, byte x2, short x3, int x4, long x5, float x6, double x7, string s1, string s2, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1 ) 
@@ -48,6 +49,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         this.V3 = v3;
         this.V4 = v4;
         this.T1 = t1;
+        PostInit();
     }
 
     public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(JSONNode _json)
@@ -76,6 +78,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -101,5 +104,8 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         + "T1:" + T1 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

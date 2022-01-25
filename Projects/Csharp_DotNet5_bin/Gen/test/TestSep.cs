@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestSep :  Bright.Config.BeanBase 
+public sealed partial class TestSep :  Bright.Config.BeanBase 
 {
     public TestSep(ByteBuf _buf) 
     {
@@ -24,6 +24,7 @@ public sealed class TestSep :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new System.Collections.Generic.List<test.SepVector>(n);for(var i = 0 ; i < n ; i++) { test.SepVector _e;  _e = test.SepVector.DeserializeSepVector(_buf); X4.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X5 = new System.Collections.Generic.List<test.SepBean1>(n);for(var i = 0 ; i < n ; i++) { test.SepBean1 _e;  _e = test.SepBean1.DeserializeSepBean1(_buf); X5.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X6 = new System.Collections.Generic.List<test.SepBean1>(n);for(var i = 0 ; i < n ; i++) { test.SepBean1 _e;  _e = test.SepBean1.DeserializeSepBean1(_buf); X6.Add(_e);}}
+        PostInit();
     }
 
     public static TestSep DeserializeTestSep(ByteBuf _buf)
@@ -62,6 +63,7 @@ public sealed class TestSep :  Bright.Config.BeanBase
         foreach(var _e in X4) { _e?.Resolve(_tables); }
         foreach(var _e in X5) { _e?.Resolve(_tables); }
         foreach(var _e in X6) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -86,6 +88,9 @@ public sealed class TestSep :  Bright.Config.BeanBase
         + "X6:" + Bright.Common.StringUtil.CollectionToString(X6) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

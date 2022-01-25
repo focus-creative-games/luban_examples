@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class IsAtLocation :  ai.Decorator 
+public sealed partial class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(ByteBuf _buf)  : base(_buf) 
     {
         AcceptableRadius = _buf.ReadFloat();
         KeyboardKey = _buf.ReadString();
         InverseCondition = _buf.ReadBool();
+        PostInit();
     }
 
     public static IsAtLocation DeserializeIsAtLocation(ByteBuf _buf)
@@ -37,6 +38,7 @@ public sealed class IsAtLocation :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class IsAtLocation :  ai.Decorator
         + "InverseCondition:" + InverseCondition + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

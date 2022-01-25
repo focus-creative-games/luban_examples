@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract class KeyQueryOperator :  Bright.Config.BeanBase 
+public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase 
 {
     public KeyQueryOperator(JSONNode _json) 
     {
+        PostInit();
     }
 
     public KeyQueryOperator() 
     {
+        PostInit();
     }
 
     public static KeyQueryOperator DeserializeKeyQueryOperator(JSONNode _json)
@@ -40,6 +42,7 @@ public abstract class KeyQueryOperator :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -51,5 +54,8 @@ public abstract class KeyQueryOperator :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

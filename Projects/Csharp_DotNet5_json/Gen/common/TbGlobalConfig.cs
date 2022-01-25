@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.common
 {
 
-public sealed class TbGlobalConfig
+public sealed partial class TbGlobalConfig
 {
 
      private readonly common.GlobalConfig _data;
@@ -24,6 +24,7 @@ public sealed class TbGlobalConfig
         int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = common.GlobalConfig.DeserializeGlobalConfig(_json[0]);
+        PostInit();
     }
 
     /// <summary>
@@ -55,6 +56,7 @@ public sealed class TbGlobalConfig
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -62,6 +64,9 @@ public sealed class TbGlobalConfig
         _data.TranslateText(translator);
     }
 
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

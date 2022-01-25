@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class Clothes :  item.ItemExtra 
+public sealed partial class Clothes :  item.ItemExtra 
 {
     public Clothes(ByteBuf _buf)  : base(_buf) 
     {
@@ -21,6 +21,7 @@ public sealed class Clothes :  item.ItemExtra
         Hp = _buf.ReadLong();
         EnergyLimit = _buf.ReadInt();
         EnergyResume = _buf.ReadInt();
+        PostInit();
     }
 
     public static Clothes DeserializeClothes(ByteBuf _buf)
@@ -39,6 +40,7 @@ public sealed class Clothes :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,6 +58,9 @@ public sealed class Clothes :  item.ItemExtra
         + "EnergyResume:" + EnergyResume + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

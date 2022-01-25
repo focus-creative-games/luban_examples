@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed class DistinctBonusInfos :  Bright.Config.BeanBase 
+public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(JsonElement _json) 
     {
         EffectiveLevel = _json.GetProperty("effective_level").GetInt32();
         { var _json0 = _json.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { role.BonusInfo __v;  __v =  role.BonusInfo.DeserializeBonusInfo(__e);  BonusInfo.Add(__v); }   }
+        PostInit();
     }
 
     public DistinctBonusInfos(int effective_level, System.Collections.Generic.List<role.BonusInfo> bonus_info ) 
     {
         this.EffectiveLevel = effective_level;
         this.BonusInfo = bonus_info;
+        PostInit();
     }
 
     public static DistinctBonusInfos DeserializeDistinctBonusInfos(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class DistinctBonusInfos :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class DistinctBonusInfos :  Bright.Config.BeanBase
         + "BonusInfo:" + Bright.Common.StringUtil.CollectionToString(BonusInfo) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

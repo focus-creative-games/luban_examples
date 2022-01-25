@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class BinaryOperator :  ai.KeyQueryOperator 
+public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(JsonElement _json)  : base(_json) 
     {
         Oper = (ai.EOperator)_json.GetProperty("oper").GetInt32();
         Data =  ai.KeyData.DeserializeKeyData(_json.GetProperty("data"));
+        PostInit();
     }
 
     public BinaryOperator(ai.EOperator oper, ai.KeyData data )  : base() 
     {
         this.Oper = oper;
         this.Data = data;
+        PostInit();
     }
 
     public static BinaryOperator DeserializeBinaryOperator(JsonElement _json)
@@ -43,6 +45,7 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
     {
         base.Resolve(_tables);
         Data?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         + "Data:" + Data + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

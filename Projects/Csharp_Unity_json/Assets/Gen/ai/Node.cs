@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract class Node :  Bright.Config.BeanBase 
+public abstract partial class Node :  Bright.Config.BeanBase 
 {
     public Node(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["node_name"].IsString) { throw new SerializationException(); }  NodeName = _json["node_name"]; }
+        PostInit();
     }
 
     public Node(int id, string node_name ) 
     {
         this.Id = id;
         this.NodeName = node_name;
+        PostInit();
     }
 
     public static Node DeserializeNode(JSONNode _json)
@@ -66,6 +68,7 @@ public abstract class Node :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -79,5 +82,8 @@ public abstract class Node :  Bright.Config.BeanBase
         + "NodeName:" + NodeName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

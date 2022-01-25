@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed class ItemFunction :  Bright.Config.BeanBase 
+public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         FuncType = (item.EItemFunctionType)_json.GetProperty("func_type").GetInt32();
         Method = _json.GetProperty("method").GetString();
         CloseBagUi = _json.GetProperty("close_bag_ui").GetBoolean();
+        PostInit();
     }
 
     public ItemFunction(item.EMinorType minor_type, item.EItemFunctionType func_type, string method, bool close_bag_ui ) 
@@ -30,6 +31,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         this.FuncType = func_type;
         this.Method = method;
         this.CloseBagUi = close_bag_ui;
+        PostInit();
     }
 
     public static ItemFunction DeserializeItemFunction(JsonElement _json)
@@ -47,6 +49,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         + "CloseBagUi:" + CloseBagUi + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

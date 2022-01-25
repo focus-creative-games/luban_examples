@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class SepBean1 :  Bright.Config.BeanBase 
+public sealed partial class SepBean1 :  Bright.Config.BeanBase 
 {
     public SepBean1(JsonElement _json) 
     {
         A = _json.GetProperty("a").GetInt32();
         B = _json.GetProperty("b").GetInt32();
         C = _json.GetProperty("c").GetString();
+        PostInit();
     }
 
     public SepBean1(int a, int b, string c ) 
@@ -28,6 +29,7 @@ public sealed class SepBean1 :  Bright.Config.BeanBase
         this.A = a;
         this.B = b;
         this.C = c;
+        PostInit();
     }
 
     public static SepBean1 DeserializeSepBean1(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class SepBean1 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class SepBean1 :  Bright.Config.BeanBase
         + "C:" + C + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

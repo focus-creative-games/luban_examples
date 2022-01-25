@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbCompositeJsonTable3
+public sealed partial class TbCompositeJsonTable3
 {
 
      private readonly test.CompositeJsonTable3 _data;
@@ -24,6 +24,7 @@ public sealed class TbCompositeJsonTable3
         int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_json[0]);
+        PostInit();
     }
 
      public int A => _data.A;
@@ -32,6 +33,7 @@ public sealed class TbCompositeJsonTable3
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -39,6 +41,9 @@ public sealed class TbCompositeJsonTable3
         _data.TranslateText(translator);
     }
 
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

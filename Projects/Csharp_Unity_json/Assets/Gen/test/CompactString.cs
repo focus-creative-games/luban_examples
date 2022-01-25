@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class CompactString :  Bright.Config.BeanBase 
+public sealed partial class CompactString :  Bright.Config.BeanBase 
 {
     public CompactString(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["s2"].IsString) { throw new SerializationException(); }  S2 = _json["s2"]; }
         { if(!_json["s3"].IsString) { throw new SerializationException(); }  S3 = _json["s3"]; }
+        PostInit();
     }
 
     public CompactString(int id, string s2, string s3 ) 
@@ -28,6 +29,7 @@ public sealed class CompactString :  Bright.Config.BeanBase
         this.Id = id;
         this.S2 = s2;
         this.S3 = s3;
+        PostInit();
     }
 
     public static CompactString DeserializeCompactString(JSONNode _json)
@@ -44,6 +46,7 @@ public sealed class CompactString :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class CompactString :  Bright.Config.BeanBase
         + "S3:" + S3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed class TbItemFunc
+public sealed partial class TbItemFunc
 {
     private readonly Dictionary<item.EMinorType, item.ItemFunction> _dataMap;
     private readonly List<item.ItemFunction> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbItemFunc
             _dataList.Add(_v);
             _dataMap.Add(_v.MinorType, _v);
         }
+        PostInit();
     }
 
     public Dictionary<item.EMinorType, item.ItemFunction> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbItemFunc
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbItemFunc
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

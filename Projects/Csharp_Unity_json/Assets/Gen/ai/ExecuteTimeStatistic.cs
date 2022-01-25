@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class ExecuteTimeStatistic :  ai.Service 
+public sealed partial class ExecuteTimeStatistic :  ai.Service 
 {
     public ExecuteTimeStatistic(JSONNode _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public ExecuteTimeStatistic(int id, string node_name )  : base(id,node_name) 
     {
+        PostInit();
     }
 
     public static ExecuteTimeStatistic DeserializeExecuteTimeStatistic(JSONNode _json)
@@ -36,6 +38,7 @@ public sealed class ExecuteTimeStatistic :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -50,5 +53,8 @@ public sealed class ExecuteTimeStatistic :  ai.Service
         + "NodeName:" + NodeName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

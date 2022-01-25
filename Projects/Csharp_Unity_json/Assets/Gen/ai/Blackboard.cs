@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class Blackboard :  Bright.Config.BeanBase 
+public sealed partial class Blackboard :  Bright.Config.BeanBase 
 {
     public Blackboard(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class Blackboard :  Bright.Config.BeanBase
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["parent_name"].IsString) { throw new SerializationException(); }  ParentName = _json["parent_name"]; }
         { var _json1 = _json["keys"]; if(!_json1.IsArray) { throw new SerializationException(); } Keys = new System.Collections.Generic.List<ai.BlackboardKey>(_json1.Count); foreach(JSONNode __e in _json1.Children) { ai.BlackboardKey __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.BlackboardKey.DeserializeBlackboardKey(__e); }  Keys.Add(__v); }   }
+        PostInit();
     }
 
     public Blackboard(string name, string desc, string parent_name, System.Collections.Generic.List<ai.BlackboardKey> keys ) 
@@ -30,6 +31,7 @@ public sealed class Blackboard :  Bright.Config.BeanBase
         this.Desc = desc;
         this.ParentName = parent_name;
         this.Keys = keys;
+        PostInit();
     }
 
     public static Blackboard DeserializeBlackboard(JSONNode _json)
@@ -50,6 +52,7 @@ public sealed class Blackboard :  Bright.Config.BeanBase
     {
         this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
         foreach(var _e in Keys) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class Blackboard :  Bright.Config.BeanBase
         + "Keys:" + Bright.Common.StringUtil.CollectionToString(Keys) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

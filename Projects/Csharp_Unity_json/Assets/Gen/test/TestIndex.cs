@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestIndex :  Bright.Config.BeanBase 
+public sealed partial class TestIndex :  Bright.Config.BeanBase 
 {
     public TestIndex(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { var _json1 = _json["eles"]; if(!_json1.IsArray) { throw new SerializationException(); } Eles = new System.Collections.Generic.List<test.DemoType1>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.DemoType1 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoType1.DeserializeDemoType1(__e); }  Eles.Add(__v); }   }
+        PostInit();
     }
 
     public TestIndex(int id, System.Collections.Generic.List<test.DemoType1> eles ) 
     {
         this.Id = id;
         this.Eles = eles;
+        PostInit();
     }
 
     public static TestIndex DeserializeTestIndex(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class TestIndex :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Eles) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class TestIndex :  Bright.Config.BeanBase
         + "Eles:" + Bright.Common.StringUtil.CollectionToString(Eles) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

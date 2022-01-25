@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-public sealed class CostOneItem :  cost.Cost 
+public sealed partial class CostOneItem :  cost.Cost 
 {
     public CostOneItem(JSONNode _json)  : base(_json) 
     {
         { if(!_json["item_id"].IsNumber) { throw new SerializationException(); }  ItemId = _json["item_id"]; }
+        PostInit();
     }
 
     public CostOneItem(int item_id )  : base() 
     {
         this.ItemId = item_id;
+        PostInit();
     }
 
     public static CostOneItem DeserializeCostOneItem(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class CostOneItem :  cost.Cost
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CostOneItem :  cost.Cost
         + "ItemId:" + ItemId + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

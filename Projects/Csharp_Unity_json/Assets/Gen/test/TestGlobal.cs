@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestGlobal :  Bright.Config.BeanBase 
+public sealed partial class TestGlobal :  Bright.Config.BeanBase 
 {
     public TestGlobal(JSONNode _json) 
     {
         { if(!_json["unlock_equip"].IsNumber) { throw new SerializationException(); }  UnlockEquip = _json["unlock_equip"]; }
         { if(!_json["unlock_hero"].IsNumber) { throw new SerializationException(); }  UnlockHero = _json["unlock_hero"]; }
+        PostInit();
     }
 
     public TestGlobal(int unlock_equip, int unlock_hero ) 
     {
         this.UnlockEquip = unlock_equip;
         this.UnlockHero = unlock_hero;
+        PostInit();
     }
 
     public static TestGlobal DeserializeTestGlobal(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
         + "UnlockHero:" + UnlockHero + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

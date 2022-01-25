@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbSingleton
+public sealed partial class TbSingleton
 {
 
      private readonly test.DemoSingletonType _data;
@@ -24,6 +24,7 @@ public sealed class TbSingleton
         int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = test.DemoSingletonType.DeserializeDemoSingletonType(_json[0]);
+        PostInit();
     }
 
      public int Id => _data.Id;
@@ -33,6 +34,7 @@ public sealed class TbSingleton
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -40,6 +42,9 @@ public sealed class TbSingleton
         _data.TranslateText(translator);
     }
 
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

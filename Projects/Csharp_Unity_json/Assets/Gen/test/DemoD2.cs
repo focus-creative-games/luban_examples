@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DemoD2 :  test.DemoDynamic 
+public sealed partial class DemoD2 :  test.DemoDynamic 
 {
     public DemoD2(JSONNode _json)  : base(_json) 
     {
         { if(!_json["x2"].IsNumber) { throw new SerializationException(); }  X2 = _json["x2"]; }
+        PostInit();
     }
 
     public DemoD2(int x1, int x2 )  : base(x1) 
     {
         this.X2 = x2;
+        PostInit();
     }
 
     public static DemoD2 DeserializeDemoD2(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class DemoD2 :  test.DemoDynamic
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -53,5 +56,8 @@ public sealed class DemoD2 :  test.DemoDynamic
         + "X2:" + X2 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

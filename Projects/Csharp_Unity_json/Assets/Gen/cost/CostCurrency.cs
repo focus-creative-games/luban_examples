@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-public sealed class CostCurrency :  cost.Cost 
+public sealed partial class CostCurrency :  cost.Cost 
 {
     public CostCurrency(JSONNode _json)  : base(_json) 
     {
         { if(!_json["type"].IsNumber) { throw new SerializationException(); }  Type = (item.ECurrencyType)_json["type"].AsInt; }
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
+        PostInit();
     }
 
     public CostCurrency(item.ECurrencyType type, int num )  : base() 
     {
         this.Type = type;
         this.Num = num;
+        PostInit();
     }
 
     public static CostCurrency DeserializeCostCurrency(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class CostCurrency :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class CostCurrency :  cost.Cost
         + "Num:" + Num + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

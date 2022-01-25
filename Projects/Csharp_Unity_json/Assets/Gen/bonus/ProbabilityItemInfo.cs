@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase 
+public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityItemInfo(JSONNode _json) 
     {
         { if(!_json["item_id"].IsNumber) { throw new SerializationException(); }  ItemId = _json["item_id"]; }
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
         { if(!_json["probability"].IsNumber) { throw new SerializationException(); }  Probability = _json["probability"]; }
+        PostInit();
     }
 
     public ProbabilityItemInfo(int item_id, int num, float probability ) 
@@ -28,6 +29,7 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
         this.ItemId = item_id;
         this.Num = num;
         this.Probability = probability;
+        PostInit();
     }
 
     public static ProbabilityItemInfo DeserializeProbabilityItemInfo(JSONNode _json)
@@ -46,6 +48,7 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class ProbabilityItemInfo :  Bright.Config.BeanBase
         + "Probability:" + Probability + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

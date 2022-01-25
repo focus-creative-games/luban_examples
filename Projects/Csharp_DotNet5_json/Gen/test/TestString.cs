@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestString :  Bright.Config.BeanBase 
+public sealed partial class TestString :  Bright.Config.BeanBase 
 {
     public TestString(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class TestString :  Bright.Config.BeanBase
         S1 = _json.GetProperty("s1").GetString();
         Cs1 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs1"));
         Cs2 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs2"));
+        PostInit();
     }
 
     public TestString(int id, string s1, test.CompactString cs1, test.CompactString cs2 ) 
@@ -30,6 +31,7 @@ public sealed class TestString :  Bright.Config.BeanBase
         this.S1 = s1;
         this.Cs1 = cs1;
         this.Cs2 = cs2;
+        PostInit();
     }
 
     public static TestString DeserializeTestString(JsonElement _json)
@@ -49,6 +51,7 @@ public sealed class TestString :  Bright.Config.BeanBase
     {
         Cs1?.Resolve(_tables);
         Cs2?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class TestString :  Bright.Config.BeanBase
         + "Cs2:" + Cs2 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

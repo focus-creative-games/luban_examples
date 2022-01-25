@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestMultiColumn :  Bright.Config.BeanBase 
+public sealed partial class TestMultiColumn :  Bright.Config.BeanBase 
 {
     public TestMultiColumn(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         A = test.Foo.DeserializeFoo(_buf);
         B = test.Foo.DeserializeFoo(_buf);
         C = test.Foo.DeserializeFoo(_buf);
+        PostInit();
     }
 
     public static TestMultiColumn DeserializeTestMultiColumn(ByteBuf _buf)
@@ -41,6 +42,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         A?.Resolve(_tables);
         B?.Resolve(_tables);
         C?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -59,6 +61,9 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         + "C:" + C + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

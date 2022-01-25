@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed class Dymmy :  item.ItemExtra 
+public sealed partial class Dymmy :  item.ItemExtra 
 {
     public Dymmy(JsonElement _json)  : base(_json) 
     {
         Cost =  cost.Cost.DeserializeCost(_json.GetProperty("cost"));
+        PostInit();
     }
 
     public Dymmy(int id, cost.Cost cost )  : base(id) 
     {
         this.Cost = cost;
+        PostInit();
     }
 
     public static Dymmy DeserializeDymmy(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class Dymmy :  item.ItemExtra
     {
         base.Resolve(_tables);
         Cost?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class Dymmy :  item.ItemExtra
         + "Cost:" + Cost + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

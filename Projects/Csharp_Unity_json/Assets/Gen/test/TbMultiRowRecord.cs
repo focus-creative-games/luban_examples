@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbMultiRowRecord
+public sealed partial class TbMultiRowRecord
 {
     private readonly Dictionary<int, test.MultiRowRecord> _dataMap;
     private readonly List<test.MultiRowRecord> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbMultiRowRecord
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.MultiRowRecord> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbMultiRowRecord
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbMultiRowRecord
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

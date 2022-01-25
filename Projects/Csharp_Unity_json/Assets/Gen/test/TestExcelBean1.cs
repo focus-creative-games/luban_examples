@@ -17,7 +17,7 @@ namespace cfg.test
 /// <summary>
 /// 这是个测试excel结构
 /// </summary>
-public sealed class TestExcelBean1 :  Bright.Config.BeanBase 
+public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase 
 {
     public TestExcelBean1(JSONNode _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
         { if(!_json["x2"].IsString) { throw new SerializationException(); }  X2 = _json["x2"]; }
         { if(!_json["x3"].IsNumber) { throw new SerializationException(); }  X3 = _json["x3"]; }
         { if(!_json["x4"].IsNumber) { throw new SerializationException(); }  X4 = _json["x4"]; }
+        PostInit();
     }
 
     public TestExcelBean1(int x1, string x2, int x3, float x4 ) 
@@ -33,6 +34,7 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static TestExcelBean1 DeserializeTestExcelBean1(JSONNode _json)
@@ -62,6 +64,7 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -77,5 +80,8 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
         + "X4:" + X4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

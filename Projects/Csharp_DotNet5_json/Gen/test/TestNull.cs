@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestNull :  Bright.Config.BeanBase 
+public sealed partial class TestNull :  Bright.Config.BeanBase 
 {
     public TestNull(JsonElement _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
         { if (_json.TryGetProperty("x4", out var _j) && _j.ValueKind != JsonValueKind.Null) { X4 =  test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
         { if (_json.TryGetProperty("s1", out var _j) && _j.ValueKind != JsonValueKind.Null) { S1 = _j.GetString(); } else { S1 = null; } }
         { if (_json.TryGetProperty("s2", out var _j) && _j.ValueKind != JsonValueKind.Null) { S2_l10n_key = _j.GetProperty("key").GetString();S2 = _j.GetProperty("text").GetString(); } else { S2 = null; } }
+        PostInit();
     }
 
     public TestNull(int id, int? x1, test.DemoEnum? x2, test.DemoType1 x3, test.DemoDynamic x4, string s1, string s2 ) 
@@ -36,6 +37,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
         this.X4 = x4;
         this.S1 = s1;
         this.S2 = s2;
+        PostInit();
     }
 
     public static TestNull DeserializeTestNull(JsonElement _json)
@@ -59,6 +61,7 @@ public sealed class TestNull :  Bright.Config.BeanBase
     {
         X3?.Resolve(_tables);
         X4?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -80,5 +83,8 @@ public sealed class TestNull :  Bright.Config.BeanBase
         + "S2:" + S2 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -17,7 +17,7 @@ namespace cfg.item
 /// <summary>
 /// 道具
 /// </summary>
-public sealed class Item :  Bright.Config.BeanBase 
+public sealed partial class Item :  Bright.Config.BeanBase 
 {
     public Item(JSONNode _json) 
     {
@@ -42,6 +42,7 @@ public sealed class Item :  Bright.Config.BeanBase
         { var _j = _json["price"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  Price = _j; } } else { Price = null; } }
         { if(!_json["use_type"].IsNumber) { throw new SerializationException(); }  UseType = (item.EUseType)_json["use_type"].AsInt; }
         { var _j = _json["level_up_id"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  LevelUpId = _j; } } else { LevelUpId = null; } }
+        PostInit();
     }
 
     public Item(int id, string name, item.EMajorType major_type, item.EMinorType minor_type, int max_pile_num, item.EItemQuality quality, string icon, string icon_backgroud, string icon_mask, string desc, int show_order, string quantifier, bool show_in_bag, int min_show_level, bool batch_usable, float progress_time_when_use, bool show_hint_when_use, bool droppable, int? price, item.EUseType use_type, int? level_up_id ) 
@@ -67,6 +68,7 @@ public sealed class Item :  Bright.Config.BeanBase
         this.Price = price;
         this.UseType = use_type;
         this.LevelUpId = level_up_id;
+        PostInit();
     }
 
     public static Item DeserializeItem(JSONNode _json)
@@ -104,6 +106,7 @@ public sealed class Item :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -136,5 +139,8 @@ public sealed class Item :  Bright.Config.BeanBase
         + "LevelUpId:" + LevelUpId + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.l10n
 {
 
-public sealed class PatchDemo :  Bright.Config.BeanBase 
+public sealed partial class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["value"].IsNumber) { throw new SerializationException(); }  Value = _json["value"]; }
+        PostInit();
     }
 
     public PatchDemo(int id, int value ) 
     {
         this.Id = id;
         this.Value = value;
+        PostInit();
     }
 
     public static PatchDemo DeserializePatchDemo(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class SimpleParallel :  ai.ComposeNode 
+public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(JSONNode _json)  : base(_json) 
     {
         { if(!_json["finish_mode"].IsNumber) { throw new SerializationException(); }  FinishMode = (ai.EFinishMode)_json["finish_mode"].AsInt; }
         { if(!_json["main_task"].IsObject) { throw new SerializationException(); }  MainTask = ai.Task.DeserializeTask(_json["main_task"]); }
         { if(!_json["background_node"].IsObject) { throw new SerializationException(); }  BackgroundNode = ai.FlowNode.DeserializeFlowNode(_json["background_node"]); }
+        PostInit();
     }
 
     public SimpleParallel(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, ai.EFinishMode finish_mode, ai.Task main_task, ai.FlowNode background_node )  : base(id,node_name,decorators,services) 
@@ -28,6 +29,7 @@ public sealed class SimpleParallel :  ai.ComposeNode
         this.FinishMode = finish_mode;
         this.MainTask = main_task;
         this.BackgroundNode = background_node;
+        PostInit();
     }
 
     public static SimpleParallel DeserializeSimpleParallel(JSONNode _json)
@@ -47,6 +49,7 @@ public sealed class SimpleParallel :  ai.ComposeNode
         base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class SimpleParallel :  ai.ComposeNode
         + "BackgroundNode:" + BackgroundNode + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

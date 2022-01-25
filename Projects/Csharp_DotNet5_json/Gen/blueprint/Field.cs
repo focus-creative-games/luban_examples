@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed class Field :  Bright.Config.BeanBase 
+public sealed partial class Field :  Bright.Config.BeanBase 
 {
     public Field(JsonElement _json) 
     {
         Name = _json.GetProperty("name").GetString();
         Type = _json.GetProperty("type").GetString();
         Desc = _json.GetProperty("desc").GetString();
+        PostInit();
     }
 
     public Field(string name, string type, string desc ) 
@@ -28,6 +29,7 @@ public sealed class Field :  Bright.Config.BeanBase
         this.Name = name;
         this.Type = type;
         this.Desc = desc;
+        PostInit();
     }
 
     public static Field DeserializeField(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class Field :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class Field :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-public sealed class CostItems :  cost.Cost 
+public sealed partial class CostItems :  cost.Cost 
 {
     public CostItems(JsonElement _json)  : base(_json) 
     {
         { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new cost.CostItem[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { cost.CostItem __v;  __v =  cost.CostItem.DeserializeCostItem(__e);  ItemList[_index++] = __v; }   }
+        PostInit();
     }
 
     public CostItems(cost.CostItem[] item_list )  : base() 
     {
         this.ItemList = item_list;
+        PostInit();
     }
 
     public static CostItems DeserializeCostItems(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class CostItems :  cost.Cost
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CostItems :  cost.Cost
         + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

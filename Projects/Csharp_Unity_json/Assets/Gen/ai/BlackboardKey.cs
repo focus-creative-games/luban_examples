@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class BlackboardKey :  Bright.Config.BeanBase 
+public sealed partial class BlackboardKey :  Bright.Config.BeanBase 
 {
     public BlackboardKey(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
         { if(!_json["is_static"].IsBoolean) { throw new SerializationException(); }  IsStatic = _json["is_static"]; }
         { if(!_json["type"].IsNumber) { throw new SerializationException(); }  Type = (ai.EKeyType)_json["type"].AsInt; }
         { if(!_json["type_class_name"].IsString) { throw new SerializationException(); }  TypeClassName = _json["type_class_name"]; }
+        PostInit();
     }
 
     public BlackboardKey(string name, string desc, bool is_static, ai.EKeyType type, string type_class_name ) 
@@ -32,6 +33,7 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
         this.IsStatic = is_static;
         this.Type = type;
         this.TypeClassName = type_class_name;
+        PostInit();
     }
 
     public static BlackboardKey DeserializeBlackboardKey(JSONNode _json)
@@ -50,6 +52,7 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
         + "TypeClassName:" + TypeClassName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

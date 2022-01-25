@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class UeCooldown :  ai.Decorator 
+public sealed partial class UeCooldown :  ai.Decorator 
 {
     public UeCooldown(JsonElement _json)  : base(_json) 
     {
         CooldownTime = _json.GetProperty("cooldown_time").GetSingle();
+        PostInit();
     }
 
     public UeCooldown(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float cooldown_time )  : base(id,node_name,flow_abort_mode) 
     {
         this.CooldownTime = cooldown_time;
+        PostInit();
     }
 
     public static UeCooldown DeserializeUeCooldown(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class UeCooldown :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class UeCooldown :  ai.Decorator
         + "CooldownTime:" + CooldownTime + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

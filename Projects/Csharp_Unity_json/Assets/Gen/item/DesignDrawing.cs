@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class DesignDrawing :  item.ItemExtra 
+public sealed partial class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["learn_component_id"]; if(!_json1.IsArray) { throw new SerializationException(); } LearnComponentId = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  LearnComponentId.Add(__v); }   }
+        PostInit();
     }
 
     public DesignDrawing(int id, System.Collections.Generic.List<int> learn_component_id )  : base(id) 
     {
         this.LearnComponentId = learn_component_id;
+        PostInit();
     }
 
     public static DesignDrawing DeserializeDesignDrawing(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class DesignDrawing :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -53,5 +56,8 @@ public sealed class DesignDrawing :  item.ItemExtra
         + "LearnComponentId:" + Bright.Common.StringUtil.CollectionToString(LearnComponentId) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

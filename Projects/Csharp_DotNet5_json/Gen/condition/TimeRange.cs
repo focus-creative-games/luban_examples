@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed class TimeRange :  condition.Condition 
+public sealed partial class TimeRange :  condition.Condition 
 {
     public TimeRange(JsonElement _json)  : base(_json) 
     {
         DateTimeRange =  common.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("date_time_range"));
+        PostInit();
     }
 
     public TimeRange(common.DateTimeRange date_time_range )  : base() 
     {
         this.DateTimeRange = date_time_range;
+        PostInit();
     }
 
     public static TimeRange DeserializeTimeRange(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class TimeRange :  condition.Condition
     {
         base.Resolve(_tables);
         DateTimeRange?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class TimeRange :  condition.Condition
         + "DateTimeRange:" + DateTimeRange + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

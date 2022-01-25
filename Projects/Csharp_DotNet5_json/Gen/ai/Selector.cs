@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class Selector :  ai.ComposeNode 
+public sealed partial class Selector :  ai.ComposeNode 
 {
     public Selector(JsonElement _json)  : base(_json) 
     {
         { var _json0 = _json.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.FlowNode __v;  __v =  ai.FlowNode.DeserializeFlowNode(__e);  Children.Add(__v); }   }
+        PostInit();
     }
 
     public Selector(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, System.Collections.Generic.List<ai.FlowNode> children )  : base(id,node_name,decorators,services) 
     {
         this.Children = children;
+        PostInit();
     }
 
     public static Selector DeserializeSelector(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class Selector :  ai.ComposeNode
     {
         base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class Selector :  ai.ComposeNode
         + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

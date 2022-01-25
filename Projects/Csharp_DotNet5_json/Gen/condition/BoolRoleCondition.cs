@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public abstract class BoolRoleCondition :  condition.RoleCondition 
+public abstract partial class BoolRoleCondition :  condition.RoleCondition 
 {
     public BoolRoleCondition(JsonElement _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public BoolRoleCondition()  : base() 
     {
+        PostInit();
     }
 
     public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _json)
@@ -42,6 +44,7 @@ public abstract class BoolRoleCondition :  condition.RoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public abstract class BoolRoleCondition :  condition.RoleCondition
         return "{ "
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

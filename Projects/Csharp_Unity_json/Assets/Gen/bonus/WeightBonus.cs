@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class WeightBonus :  bonus.Bonus 
+public sealed partial class WeightBonus :  bonus.Bonus 
 {
     public WeightBonus(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["bonuses"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; Bonuses = new bonus.WeightBonusInfo[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { bonus.WeightBonusInfo __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = bonus.WeightBonusInfo.DeserializeWeightBonusInfo(__e); }  Bonuses[_index++] = __v; }   }
+        PostInit();
     }
 
     public WeightBonus(bonus.WeightBonusInfo[] bonuses )  : base() 
     {
         this.Bonuses = bonuses;
+        PostInit();
     }
 
     public static WeightBonus DeserializeWeightBonus(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class WeightBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class WeightBonus :  bonus.Bonus
         + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

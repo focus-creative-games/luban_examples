@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeTimeLimit :  ai.Decorator 
+public sealed partial class UeTimeLimit :  ai.Decorator 
 {
     public UeTimeLimit(JSONNode _json)  : base(_json) 
     {
         { if(!_json["limit_time"].IsNumber) { throw new SerializationException(); }  LimitTime = _json["limit_time"]; }
+        PostInit();
     }
 
     public UeTimeLimit(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float limit_time )  : base(id,node_name,flow_abort_mode) 
     {
         this.LimitTime = limit_time;
+        PostInit();
     }
 
     public static UeTimeLimit DeserializeUeTimeLimit(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class UeTimeLimit :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class UeTimeLimit :  ai.Decorator
         + "LimitTime:" + LimitTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

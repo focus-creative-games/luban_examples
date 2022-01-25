@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed class AbstraceMethod :  blueprint.Method 
+public sealed partial class AbstraceMethod :  blueprint.Method 
 {
     public AbstraceMethod(JsonElement _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public AbstraceMethod(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters )  : base(name,desc,is_static,return_type,parameters) 
     {
+        PostInit();
     }
 
     public static AbstraceMethod DeserializeAbstraceMethod(JsonElement _json)
@@ -36,6 +38,7 @@ public sealed class AbstraceMethod :  blueprint.Method
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -53,5 +56,8 @@ public sealed class AbstraceMethod :  blueprint.Method
         + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

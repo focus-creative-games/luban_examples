@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class ShowItemInfo :  Bright.Config.BeanBase 
+public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(JsonElement _json) 
     {
         ItemId = _json.GetProperty("item_id").GetInt32();
         ItemNum = _json.GetProperty("item_num").GetInt64();
+        PostInit();
     }
 
     public ShowItemInfo(int item_id, long item_num ) 
     {
         this.ItemId = item_id;
         this.ItemNum = item_num;
+        PostInit();
     }
 
     public static ShowItemInfo DeserializeShowItemInfo(JsonElement _json)
@@ -43,6 +45,7 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
         + "ItemNum:" + ItemNum + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

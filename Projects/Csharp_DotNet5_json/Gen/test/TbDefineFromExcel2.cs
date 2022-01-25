@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbDefineFromExcel2
+public sealed partial class TbDefineFromExcel2
 {
     private readonly Dictionary<int, test.DefineFromExcel2> _dataMap;
     private readonly List<test.DefineFromExcel2> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbDefineFromExcel2
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.DefineFromExcel2> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbDefineFromExcel2
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbDefineFromExcel2
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

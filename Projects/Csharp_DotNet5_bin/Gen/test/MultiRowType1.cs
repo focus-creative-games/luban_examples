@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class MultiRowType1 :  Bright.Config.BeanBase 
+public sealed partial class MultiRowType1 :  Bright.Config.BeanBase 
 {
     public MultiRowType1(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         X = _buf.ReadInt();
+        PostInit();
     }
 
     public static MultiRowType1 DeserializeMultiRowType1(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class MultiRowType1 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class MultiRowType1 :  Bright.Config.BeanBase
         + "X:" + X + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

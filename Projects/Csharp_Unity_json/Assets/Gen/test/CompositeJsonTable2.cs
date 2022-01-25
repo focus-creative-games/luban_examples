@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class CompositeJsonTable2 :  Bright.Config.BeanBase 
+public sealed partial class CompositeJsonTable2 :  Bright.Config.BeanBase 
 {
     public CompositeJsonTable2(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["y"].IsNumber) { throw new SerializationException(); }  Y = _json["y"]; }
+        PostInit();
     }
 
     public CompositeJsonTable2(int id, int y ) 
     {
         this.Id = id;
         this.Y = y;
+        PostInit();
     }
 
     public static CompositeJsonTable2 DeserializeCompositeJsonTable2(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class CompositeJsonTable2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CompositeJsonTable2 :  Bright.Config.BeanBase
         + "Y:" + Y + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

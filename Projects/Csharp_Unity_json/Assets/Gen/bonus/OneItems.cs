@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class OneItems :  bonus.Bonus 
+public sealed partial class OneItems :  bonus.Bonus 
 {
     public OneItems(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["items"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; Items = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  Items[_index++] = __v; }   }
+        PostInit();
     }
 
     public OneItems(int[] items )  : base() 
     {
         this.Items = items;
+        PostInit();
     }
 
     public static OneItems DeserializeOneItems(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class OneItems :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class OneItems :  bonus.Bonus
         + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

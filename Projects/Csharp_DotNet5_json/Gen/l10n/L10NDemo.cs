@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-public sealed class L10NDemo :  Bright.Config.BeanBase 
+public sealed partial class L10NDemo :  Bright.Config.BeanBase 
 {
     public L10NDemo(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Text_l10n_key = _json.GetProperty("text").GetProperty("key").GetString();Text = _json.GetProperty("text").GetProperty("text").GetString();
+        PostInit();
     }
 
     public L10NDemo(int id, string text ) 
     {
         this.Id = id;
         this.Text = text;
+        PostInit();
     }
 
     public static L10NDemo DeserializeL10NDemo(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
         + "Text:" + Text + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

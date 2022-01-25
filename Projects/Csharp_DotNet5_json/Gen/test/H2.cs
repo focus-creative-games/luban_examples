@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class H2 :  Bright.Config.BeanBase 
+public sealed partial class H2 :  Bright.Config.BeanBase 
 {
     public H2(JsonElement _json) 
     {
         Z2 = _json.GetProperty("z2").GetInt32();
         Z3 = _json.GetProperty("z3").GetInt32();
+        PostInit();
     }
 
     public H2(int z2, int z3 ) 
     {
         this.Z2 = z2;
         this.Z3 = z3;
+        PostInit();
     }
 
     public static H2 DeserializeH2(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class H2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class H2 :  Bright.Config.BeanBase
         + "Z3:" + Z3 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

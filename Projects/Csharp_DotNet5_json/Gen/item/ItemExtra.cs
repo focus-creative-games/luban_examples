@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public abstract class ItemExtra :  Bright.Config.BeanBase 
+public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
+        PostInit();
     }
 
     public ItemExtra(int id ) 
     {
         this.Id = id;
+        PostInit();
     }
 
     public static ItemExtra DeserializeItemExtra(JsonElement _json)
@@ -44,6 +46,7 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

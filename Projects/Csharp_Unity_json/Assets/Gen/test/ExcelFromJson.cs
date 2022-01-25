@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class ExcelFromJson :  Bright.Config.BeanBase 
+public sealed partial class ExcelFromJson :  Bright.Config.BeanBase 
 {
     public ExcelFromJson(JSONNode _json) 
     {
@@ -35,6 +35,7 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         { var _json1 = _json["k8"]; if(!_json1.IsArray) { throw new SerializationException(); } K8 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  K8.Add(__k, __v); }   }
         { var _json1 = _json["k9"]; if(!_json1.IsArray) { throw new SerializationException(); } K9 = new System.Collections.Generic.List<test.DemoE2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.DemoE2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoE2.DeserializeDemoE2(__e); }  K9.Add(__v); }   }
         { var _json1 = _json["k15"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; K15 = new test.DemoDynamic[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { test.DemoDynamic __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoDynamic.DeserializeDemoDynamic(__e); }  K15[_index++] = __v; }   }
+        PostInit();
     }
 
     public ExcelFromJson(int x4, bool x1, long x5, float x6, string s1, string s2, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
@@ -56,6 +57,7 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         this.K8 = k8;
         this.K9 = k9;
         this.K15 = k15;
+        PostInit();
     }
 
     public static ExcelFromJson DeserializeExcelFromJson(JSONNode _json)
@@ -92,6 +94,7 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -125,5 +128,8 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         + "K15:" + Bright.Common.StringUtil.CollectionToString(K15) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

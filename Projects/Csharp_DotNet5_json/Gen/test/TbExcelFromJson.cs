@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbExcelFromJson
+public sealed partial class TbExcelFromJson
 {
     private readonly Dictionary<int, test.ExcelFromJson> _dataMap;
     private readonly List<test.ExcelFromJson> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbExcelFromJson
             _dataList.Add(_v);
             _dataMap.Add(_v.X4, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.ExcelFromJson> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbExcelFromJson
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbExcelFromJson
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

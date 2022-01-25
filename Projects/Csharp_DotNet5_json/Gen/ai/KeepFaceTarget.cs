@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class KeepFaceTarget :  ai.Service 
+public sealed partial class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(JsonElement _json)  : base(_json) 
     {
         TargetActorKey = _json.GetProperty("target_actor_key").GetString();
+        PostInit();
     }
 
     public KeepFaceTarget(int id, string node_name, string target_actor_key )  : base(id,node_name) 
     {
         this.TargetActorKey = target_actor_key;
+        PostInit();
     }
 
     public static KeepFaceTarget DeserializeKeepFaceTarget(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class KeepFaceTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class KeepFaceTarget :  ai.Service
         + "TargetActorKey:" + TargetActorKey + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

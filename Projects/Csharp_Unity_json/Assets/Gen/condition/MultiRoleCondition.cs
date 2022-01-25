@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class MultiRoleCondition :  condition.RoleCondition 
+public sealed partial class MultiRoleCondition :  condition.RoleCondition 
 {
     public MultiRoleCondition(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["conditions"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; Conditions = new condition.RoleCondition[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { condition.RoleCondition __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = condition.RoleCondition.DeserializeRoleCondition(__e); }  Conditions[_index++] = __v; }   }
+        PostInit();
     }
 
     public MultiRoleCondition(condition.RoleCondition[] conditions )  : base() 
     {
         this.Conditions = conditions;
+        PostInit();
     }
 
     public static MultiRoleCondition DeserializeMultiRoleCondition(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class MultiRoleCondition :  condition.RoleCondition
     {
         base.Resolve(_tables);
         foreach(var _e in Conditions) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class MultiRoleCondition :  condition.RoleCondition
         + "Conditions:" + Bright.Common.StringUtil.CollectionToString(Conditions) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

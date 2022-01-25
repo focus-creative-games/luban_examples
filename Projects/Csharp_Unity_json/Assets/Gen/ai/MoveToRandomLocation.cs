@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class MoveToRandomLocation :  ai.Task 
+public sealed partial class MoveToRandomLocation :  ai.Task 
 {
     public MoveToRandomLocation(JSONNode _json)  : base(_json) 
     {
         { if(!_json["origin_position_key"].IsString) { throw new SerializationException(); }  OriginPositionKey = _json["origin_position_key"]; }
         { if(!_json["radius"].IsNumber) { throw new SerializationException(); }  Radius = _json["radius"]; }
+        PostInit();
     }
 
     public MoveToRandomLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string origin_position_key, float radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.OriginPositionKey = origin_position_key;
         this.Radius = radius;
+        PostInit();
     }
 
     public static MoveToRandomLocation DeserializeMoveToRandomLocation(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class MoveToRandomLocation :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class MoveToRandomLocation :  ai.Task
         + "Radius:" + Radius + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

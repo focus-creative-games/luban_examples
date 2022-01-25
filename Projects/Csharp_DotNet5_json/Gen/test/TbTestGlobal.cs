@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbTestGlobal
+public sealed partial class TbTestGlobal
 {
 
      private readonly test.TestGlobal _data;
@@ -24,6 +24,7 @@ public sealed class TbTestGlobal
         int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = test.TestGlobal.DeserializeTestGlobal(_json[0]);
+        PostInit();
     }
 
      public int UnlockEquip => _data.UnlockEquip;
@@ -32,6 +33,7 @@ public sealed class TbTestGlobal
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -39,6 +41,9 @@ public sealed class TbTestGlobal
         _data.TranslateText(translator);
     }
 
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

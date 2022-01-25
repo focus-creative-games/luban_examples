@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestBeRef :  Bright.Config.BeanBase 
+public sealed partial class TestBeRef :  Bright.Config.BeanBase 
 {
     public TestBeRef(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Count = _buf.ReadInt();
+        PostInit();
     }
 
     public static TestBeRef DeserializeTestBeRef(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
         + "Count:" + Count + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

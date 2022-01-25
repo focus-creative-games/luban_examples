@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public abstract class ItemExtra :  Bright.Config.BeanBase 
+public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
+        PostInit();
     }
 
     public ItemExtra(int id ) 
     {
         this.Id = id;
+        PostInit();
     }
 
     public static ItemExtra DeserializeItemExtra(JSONNode _json)
@@ -45,6 +47,7 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -57,5 +60,8 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

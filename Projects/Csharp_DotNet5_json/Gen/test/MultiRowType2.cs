@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class MultiRowType2 :  Bright.Config.BeanBase 
+public sealed partial class MultiRowType2 :  Bright.Config.BeanBase 
 {
     public MultiRowType2(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         X = _json.GetProperty("x").GetInt32();
         Y = _json.GetProperty("y").GetSingle();
+        PostInit();
     }
 
     public MultiRowType2(int id, int x, float y ) 
@@ -28,6 +29,7 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
         this.Id = id;
         this.X = x;
         this.Y = y;
+        PostInit();
     }
 
     public static MultiRowType2 DeserializeMultiRowType2(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
         + "Y:" + Y + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

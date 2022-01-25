@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class ShowItemInfo :  Bright.Config.BeanBase 
+public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(ByteBuf _buf) 
     {
         ItemId = _buf.ReadInt();
         ItemNum = _buf.ReadLong();
+        PostInit();
     }
 
     public static ShowItemInfo DeserializeShowItemInfo(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
         + "ItemNum:" + ItemNum + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

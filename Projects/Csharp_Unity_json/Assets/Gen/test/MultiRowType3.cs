@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class MultiRowType3 :  Bright.Config.BeanBase 
+public sealed partial class MultiRowType3 :  Bright.Config.BeanBase 
 {
     public MultiRowType3(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { var _json1 = _json["items"]; if(!_json1.IsArray) { throw new SerializationException(); } Items = new System.Collections.Generic.List<test.MultiRowType1>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.MultiRowType1 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.MultiRowType1.DeserializeMultiRowType1(__e); }  Items.Add(__v); }   }
+        PostInit();
     }
 
     public MultiRowType3(int id, System.Collections.Generic.List<test.MultiRowType1> items ) 
     {
         this.Id = id;
         this.Items = items;
+        PostInit();
     }
 
     public static MultiRowType3 DeserializeMultiRowType3(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class MultiRowType3 :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Items) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class MultiRowType3 :  Bright.Config.BeanBase
         + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

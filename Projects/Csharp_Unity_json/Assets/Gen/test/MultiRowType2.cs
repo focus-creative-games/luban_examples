@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class MultiRowType2 :  Bright.Config.BeanBase 
+public sealed partial class MultiRowType2 :  Bright.Config.BeanBase 
 {
     public MultiRowType2(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["x"].IsNumber) { throw new SerializationException(); }  X = _json["x"]; }
         { if(!_json["y"].IsNumber) { throw new SerializationException(); }  Y = _json["y"]; }
+        PostInit();
     }
 
     public MultiRowType2(int id, int x, float y ) 
@@ -28,6 +29,7 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
         this.Id = id;
         this.X = x;
         this.Y = y;
+        PostInit();
     }
 
     public static MultiRowType2 DeserializeMultiRowType2(JSONNode _json)
@@ -44,6 +46,7 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class MultiRowType2 :  Bright.Config.BeanBase
         + "Y:" + Y + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

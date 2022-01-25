@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestScriptableObject :  Bright.Config.BeanBase 
+public sealed partial class TestScriptableObject :  Bright.Config.BeanBase 
 {
     public TestScriptableObject(JsonElement _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
         { var _json0 = _json.GetProperty("v3"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
         { var _json0 = _json.GetProperty("v4"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  float __w; __w = _json0.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        PostInit();
     }
 
     public TestScriptableObject(int id, string desc, float rate, int num, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4 ) 
@@ -36,6 +37,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         this.V2 = v2;
         this.V3 = v3;
         this.V4 = v4;
+        PostInit();
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JsonElement _json)
@@ -56,6 +58,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -74,5 +77,8 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         + "V4:" + V4 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

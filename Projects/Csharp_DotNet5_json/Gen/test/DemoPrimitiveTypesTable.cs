@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
+public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(JsonElement _json) 
     {
@@ -31,6 +31,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("v3"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  V3 = new System.Numerics.Vector3(__x, __y,__z); }
         { var _json0 = _json.GetProperty("v4"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); float __z; __z = _json0.GetProperty("z").GetSingle();  float __w; __w = _json0.GetProperty("w").GetSingle(); V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
         T1 = _json.GetProperty("t1").GetInt32();
+        PostInit();
     }
 
     public DemoPrimitiveTypesTable(bool x1, byte x2, short x3, int x4, long x5, float x6, double x7, string s1, string s2, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1 ) 
@@ -48,6 +49,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         this.V3 = v3;
         this.V4 = v4;
         this.T1 = t1;
+        PostInit();
     }
 
     public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(JsonElement _json)
@@ -76,6 +78,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -101,5 +104,8 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         + "T1:" + T1 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

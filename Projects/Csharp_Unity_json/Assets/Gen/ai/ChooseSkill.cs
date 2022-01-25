@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class ChooseSkill :  ai.Task 
+public sealed partial class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(JSONNode _json)  : base(_json) 
     {
         { if(!_json["target_actor_key"].IsString) { throw new SerializationException(); }  TargetActorKey = _json["target_actor_key"]; }
         { if(!_json["result_skill_id_key"].IsString) { throw new SerializationException(); }  ResultSkillIdKey = _json["result_skill_id_key"]; }
+        PostInit();
     }
 
     public ChooseSkill(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, string result_skill_id_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.TargetActorKey = target_actor_key;
         this.ResultSkillIdKey = result_skill_id_key;
+        PostInit();
     }
 
     public static ChooseSkill DeserializeChooseSkill(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class ChooseSkill :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class ChooseSkill :  ai.Task
         + "ResultSkillIdKey:" + ResultSkillIdKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

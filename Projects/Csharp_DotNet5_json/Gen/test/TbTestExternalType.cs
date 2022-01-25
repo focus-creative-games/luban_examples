@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbTestExternalType
+public sealed partial class TbTestExternalType
 {
     private readonly Dictionary<int, test.TestExternalType> _dataMap;
     private readonly List<test.TestExternalType> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbTestExternalType
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.TestExternalType> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbTestExternalType
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbTestExternalType
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

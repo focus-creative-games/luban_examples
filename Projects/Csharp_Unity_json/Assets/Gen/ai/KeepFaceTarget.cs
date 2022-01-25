@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class KeepFaceTarget :  ai.Service 
+public sealed partial class KeepFaceTarget :  ai.Service 
 {
     public KeepFaceTarget(JSONNode _json)  : base(_json) 
     {
         { if(!_json["target_actor_key"].IsString) { throw new SerializationException(); }  TargetActorKey = _json["target_actor_key"]; }
+        PostInit();
     }
 
     public KeepFaceTarget(int id, string node_name, string target_actor_key )  : base(id,node_name) 
     {
         this.TargetActorKey = target_actor_key;
+        PostInit();
     }
 
     public static KeepFaceTarget DeserializeKeepFaceTarget(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class KeepFaceTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class KeepFaceTarget :  ai.Service
         + "TargetActorKey:" + TargetActorKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

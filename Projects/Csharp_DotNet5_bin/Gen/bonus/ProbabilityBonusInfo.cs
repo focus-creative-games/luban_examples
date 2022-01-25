@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase 
+public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityBonusInfo(ByteBuf _buf) 
     {
         Bonus = bonus.Bonus.DeserializeBonus(_buf);
         Probability = _buf.ReadFloat();
+        PostInit();
     }
 
     public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Bonus?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase
         + "Probability:" + Probability + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

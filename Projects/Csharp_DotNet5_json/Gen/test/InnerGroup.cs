@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class InnerGroup :  Bright.Config.BeanBase 
+public sealed partial class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         Y2 = _json.GetProperty("y2").GetInt32();
         Y3 = _json.GetProperty("y3").GetInt32();
         Y4 = _json.GetProperty("y4").GetInt32();
+        PostInit();
     }
 
     public InnerGroup(int y1, int y2, int y3, int y4 ) 
@@ -30,6 +31,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         this.Y2 = y2;
         this.Y3 = y3;
         this.Y4 = y4;
+        PostInit();
     }
 
     public static InnerGroup DeserializeInnerGroup(JsonElement _json)
@@ -47,6 +49,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         + "Y4:" + Y4 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

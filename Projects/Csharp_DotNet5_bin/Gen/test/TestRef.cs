@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestRef :  Bright.Config.BeanBase 
+public sealed partial class TestRef :  Bright.Config.BeanBase 
 {
     public TestRef(ByteBuf _buf) 
     {
@@ -36,6 +36,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         F1 = _buf.ReadInt();
         F2 = _buf.ReadLong();
         F3 = _buf.ReadString();
+        PostInit();
     }
 
     public static TestRef DeserializeTestRef(ByteBuf _buf)
@@ -70,6 +71,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.X1_Ref = (_tables["test.TbTestBeRef"] as test.TbTestBeRef).GetOrDefault(X1);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -100,6 +102,9 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "F3:" + F3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

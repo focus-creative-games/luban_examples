@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class ShowItemInfo :  Bright.Config.BeanBase 
+public sealed partial class ShowItemInfo :  Bright.Config.BeanBase 
 {
     public ShowItemInfo(JSONNode _json) 
     {
         { if(!_json["item_id"].IsNumber) { throw new SerializationException(); }  ItemId = _json["item_id"]; }
         { if(!_json["item_num"].IsNumber) { throw new SerializationException(); }  ItemNum = _json["item_num"]; }
+        PostInit();
     }
 
     public ShowItemInfo(int item_id, long item_num ) 
     {
         this.ItemId = item_id;
         this.ItemNum = item_num;
+        PostInit();
     }
 
     public static ShowItemInfo DeserializeShowItemInfo(JSONNode _json)
@@ -43,6 +45,7 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ShowItemInfo :  Bright.Config.BeanBase
         + "ItemNum:" + ItemNum + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

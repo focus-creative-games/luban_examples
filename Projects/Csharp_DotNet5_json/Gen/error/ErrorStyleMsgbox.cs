@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleMsgbox :  error.ErrorStyle 
+public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle 
 {
     public ErrorStyleMsgbox(JsonElement _json)  : base(_json) 
     {
         BtnName = _json.GetProperty("btn_name").GetString();
         Operation = (error.EOperation)_json.GetProperty("operation").GetInt32();
+        PostInit();
     }
 
     public ErrorStyleMsgbox(string btn_name, error.EOperation operation )  : base() 
     {
         this.BtnName = btn_name;
         this.Operation = operation;
+        PostInit();
     }
 
     public static ErrorStyleMsgbox DeserializeErrorStyleMsgbox(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class ErrorStyleMsgbox :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ErrorStyleMsgbox :  error.ErrorStyle
         + "Operation:" + Operation + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class MultiRowTitle :  Bright.Config.BeanBase 
+public sealed partial class MultiRowTitle :  Bright.Config.BeanBase 
 {
     public MultiRowTitle(JsonElement _json) 
     {
@@ -25,6 +25,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X2.Add(__v); }   }
         { var _json0 = _json.GetProperty("x3"); int _n = _json0.GetArrayLength(); X3 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X3[_index++] = __v; }   }
         { var _json0 = _json.GetProperty("x4"); int _n = _json0.GetArrayLength(); X4 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X4[_index++] = __v; }   }
+        PostInit();
     }
 
     public MultiRowTitle(int id, string name, test.H1 x1, test.H2 x2_0, System.Collections.Generic.List<test.H2> x2, test.H2[] x3, test.H2[] x4 ) 
@@ -36,6 +37,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(JsonElement _json)
@@ -61,6 +63,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
         foreach(var _e in X4) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -84,5 +87,8 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

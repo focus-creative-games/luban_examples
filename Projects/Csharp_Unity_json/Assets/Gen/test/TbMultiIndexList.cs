@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbMultiIndexList
+public sealed partial class TbMultiIndexList
 {
     private readonly List<test.MultiIndexList> _dataList;
     
@@ -40,6 +40,7 @@ public sealed class TbMultiIndexList
         _dataMap_id2.Add(_v.Id2, _v);
         _dataMap_id3.Add(_v.Id3, _v);
     }
+        PostInit();
     }
 
     public List<test.MultiIndexList> DataList => _dataList;
@@ -54,6 +55,7 @@ public sealed class TbMultiIndexList
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -64,6 +66,9 @@ public sealed class TbMultiIndexList
         }
     }
 
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

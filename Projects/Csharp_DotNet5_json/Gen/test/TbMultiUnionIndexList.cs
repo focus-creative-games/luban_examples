@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbMultiUnionIndexList
+public sealed partial class TbMultiUnionIndexList
 {
     private readonly List<test.MultiUnionIndexList> _dataList;
 
@@ -34,6 +34,7 @@ public sealed class TbMultiUnionIndexList
         {
             _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
         }
+        PostInit();
     }
 
     public List<test.MultiUnionIndexList> DataList => _dataList;
@@ -46,6 +47,7 @@ public sealed class TbMultiUnionIndexList
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbMultiUnionIndexList
             v.TranslateText(translator);
         }
     }
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

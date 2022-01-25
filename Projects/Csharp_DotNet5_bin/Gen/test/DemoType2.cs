@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoType2 :  Bright.Config.BeanBase 
+public sealed partial class DemoType2 :  Bright.Config.BeanBase 
 {
     public DemoType2(ByteBuf _buf) 
     {
@@ -42,6 +42,7 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     K8.Add(_k, _v);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K15 = new test.DemoDynamic[n];for(var i = 0 ; i < n ; i++) { test.DemoDynamic _e;_e = test.DemoDynamic.DeserializeDemoDynamic(_buf); K15[i] = _e;}}
+        PostInit();
     }
 
     public static DemoType2 DeserializeDemoType2(ByteBuf _buf)
@@ -86,6 +87,7 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -127,6 +129,9 @@ public sealed class DemoType2 :  Bright.Config.BeanBase
         + "K15:" + Bright.Common.StringUtil.CollectionToString(K15) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

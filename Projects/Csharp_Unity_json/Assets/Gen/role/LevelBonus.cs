@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed class LevelBonus :  Bright.Config.BeanBase 
+public sealed partial class LevelBonus :  Bright.Config.BeanBase 
 {
     public LevelBonus(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { var _json1 = _json["distinct_bonus_infos"]; if(!_json1.IsArray) { throw new SerializationException(); } DistinctBonusInfos = new System.Collections.Generic.List<role.DistinctBonusInfos>(_json1.Count); foreach(JSONNode __e in _json1.Children) { role.DistinctBonusInfos __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = role.DistinctBonusInfos.DeserializeDistinctBonusInfos(__e); }  DistinctBonusInfos.Add(__v); }   }
+        PostInit();
     }
 
     public LevelBonus(int id, System.Collections.Generic.List<role.DistinctBonusInfos> distinct_bonus_infos ) 
     {
         this.Id = id;
         this.DistinctBonusInfos = distinct_bonus_infos;
+        PostInit();
     }
 
     public static LevelBonus DeserializeLevelBonus(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class LevelBonus :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class LevelBonus :  Bright.Config.BeanBase
         + "DistinctBonusInfos:" + Bright.Common.StringUtil.CollectionToString(DistinctBonusInfos) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

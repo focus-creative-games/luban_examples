@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class Equipment :  test.ItemBase 
+public sealed partial class Equipment :  test.ItemBase 
 {
     public Equipment(JsonElement _json)  : base(_json) 
     {
         Attr = (test.DemoEnum)_json.GetProperty("attr").GetInt32();
         Value = _json.GetProperty("value").GetInt32();
+        PostInit();
     }
 
     public Equipment(int id, string name, string desc, test.DemoEnum attr, int value )  : base(id,name,desc) 
     {
         this.Attr = attr;
         this.Value = value;
+        PostInit();
     }
 
     public static Equipment DeserializeEquipment(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class Equipment :  test.ItemBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -59,5 +62,8 @@ public sealed class Equipment :  test.ItemBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

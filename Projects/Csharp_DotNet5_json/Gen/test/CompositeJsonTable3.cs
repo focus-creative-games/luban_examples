@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class CompositeJsonTable3 :  Bright.Config.BeanBase 
+public sealed partial class CompositeJsonTable3 :  Bright.Config.BeanBase 
 {
     public CompositeJsonTable3(JsonElement _json) 
     {
         A = _json.GetProperty("a").GetInt32();
         B = _json.GetProperty("b").GetInt32();
+        PostInit();
     }
 
     public CompositeJsonTable3(int a, int b ) 
     {
         this.A = a;
         this.B = b;
+        PostInit();
     }
 
     public static CompositeJsonTable3 DeserializeCompositeJsonTable3(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class CompositeJsonTable3 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CompositeJsonTable3 :  Bright.Config.BeanBase
         + "B:" + B + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

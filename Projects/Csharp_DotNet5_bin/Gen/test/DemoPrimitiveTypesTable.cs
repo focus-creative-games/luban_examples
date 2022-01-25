@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
+public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(ByteBuf _buf) 
     {
@@ -30,6 +30,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         V3 = _buf.ReadVector3();
         V4 = _buf.ReadVector4();
         T1 = _buf.ReadInt();
+        PostInit();
     }
 
     public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(ByteBuf _buf)
@@ -58,6 +59,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -83,6 +85,9 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         + "T1:" + T1 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

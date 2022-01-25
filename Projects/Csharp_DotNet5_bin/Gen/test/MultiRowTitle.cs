@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class MultiRowTitle :  Bright.Config.BeanBase 
+public sealed partial class MultiRowTitle :  Bright.Config.BeanBase 
 {
     public MultiRowTitle(ByteBuf _buf) 
     {
@@ -24,6 +24,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<test.H2>(n);for(var i = 0 ; i < n ; i++) { test.H2 _e;  _e = test.H2.DeserializeH2(_buf); X2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X3[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X4[i] = _e;}}
+        PostInit();
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(ByteBuf _buf)
@@ -49,6 +50,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
         foreach(var _e in X4) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -72,6 +74,9 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

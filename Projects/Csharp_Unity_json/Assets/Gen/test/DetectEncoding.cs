@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DetectEncoding :  Bright.Config.BeanBase 
+public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
+        PostInit();
     }
 
     public DetectEncoding(int id, string name ) 
     {
         this.Id = id;
         this.Name = name;
+        PostInit();
     }
 
     public static DetectEncoding DeserializeDetectEncoding(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class IntKeyData :  ai.KeyData 
+public sealed partial class IntKeyData :  ai.KeyData 
 {
     public IntKeyData(JsonElement _json)  : base(_json) 
     {
         Value = _json.GetProperty("value").GetInt32();
+        PostInit();
     }
 
     public IntKeyData(int value )  : base() 
     {
         this.Value = value;
+        PostInit();
     }
 
     public static IntKeyData DeserializeIntKeyData(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class IntKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class IntKeyData :  ai.KeyData
         + "Value:" + Value + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class DropBonus :  bonus.Bonus 
+public sealed partial class DropBonus :  bonus.Bonus 
 {
     public DropBonus(JsonElement _json)  : base(_json) 
     {
         Id = _json.GetProperty("id").GetInt32();
+        PostInit();
     }
 
     public DropBonus(int id )  : base() 
     {
         this.Id = id;
+        PostInit();
     }
 
     public static DropBonus DeserializeDropBonus(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class DropBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DropBonus :  bonus.Bonus
         + "Id:" + Id + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

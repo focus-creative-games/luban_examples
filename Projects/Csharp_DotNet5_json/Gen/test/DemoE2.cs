@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DemoE2 :  Bright.Config.BeanBase 
+public sealed partial class DemoE2 :  Bright.Config.BeanBase 
 {
     public DemoE2(JsonElement _json) 
     {
         { if (_json.TryGetProperty("y1", out var _j) && _j.ValueKind != JsonValueKind.Null) { Y1 = _j.GetInt32(); } else { Y1 = null; } }
         Y2 = _json.GetProperty("y2").GetBoolean();
+        PostInit();
     }
 
     public DemoE2(int? y1, bool y2 ) 
     {
         this.Y1 = y1;
         this.Y2 = y2;
+        PostInit();
     }
 
     public static DemoE2 DeserializeDemoE2(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class DemoE2 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DemoE2 :  Bright.Config.BeanBase
         + "Y2:" + Y2 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

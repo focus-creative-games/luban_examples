@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbTestBeRef2
+public sealed partial class TbTestBeRef2
 {
     private readonly Dictionary<int, test.TestBeRef> _dataMap;
     private readonly List<test.TestBeRef> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbTestBeRef2
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.TestBeRef> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbTestBeRef2
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbTestBeRef2
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

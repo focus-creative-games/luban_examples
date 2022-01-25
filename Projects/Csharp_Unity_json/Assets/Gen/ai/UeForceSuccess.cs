@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeForceSuccess :  ai.Decorator 
+public sealed partial class UeForceSuccess :  ai.Decorator 
 {
     public UeForceSuccess(JSONNode _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public UeForceSuccess(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name,flow_abort_mode) 
     {
+        PostInit();
     }
 
     public static UeForceSuccess DeserializeUeForceSuccess(JSONNode _json)
@@ -36,6 +38,7 @@ public sealed class UeForceSuccess :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,5 +54,8 @@ public sealed class UeForceSuccess :  ai.Decorator
         + "FlowAbortMode:" + FlowAbortMode + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

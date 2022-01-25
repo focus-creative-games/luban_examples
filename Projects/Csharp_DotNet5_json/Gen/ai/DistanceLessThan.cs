@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class DistanceLessThan :  ai.Decorator 
+public sealed partial class DistanceLessThan :  ai.Decorator 
 {
     public DistanceLessThan(JsonElement _json)  : base(_json) 
     {
@@ -22,6 +22,7 @@ public sealed class DistanceLessThan :  ai.Decorator
         Actor2Key = _json.GetProperty("actor2_key").GetString();
         Distance = _json.GetProperty("distance").GetSingle();
         ReverseResult = _json.GetProperty("reverse_result").GetBoolean();
+        PostInit();
     }
 
     public DistanceLessThan(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, string actor1_key, string actor2_key, float distance, bool reverse_result )  : base(id,node_name,flow_abort_mode) 
@@ -30,6 +31,7 @@ public sealed class DistanceLessThan :  ai.Decorator
         this.Actor2Key = actor2_key;
         this.Distance = distance;
         this.ReverseResult = reverse_result;
+        PostInit();
     }
 
     public static DistanceLessThan DeserializeDistanceLessThan(JsonElement _json)
@@ -48,6 +50,7 @@ public sealed class DistanceLessThan :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -67,5 +70,8 @@ public sealed class DistanceLessThan :  ai.Decorator
         + "ReverseResult:" + ReverseResult + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

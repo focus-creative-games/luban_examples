@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleDlgOk :  error.ErrorStyle 
+public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(JSONNode _json)  : base(_json) 
     {
         { if(!_json["btn_name"].IsString) { throw new SerializationException(); }  BtnName = _json["btn_name"]; }
+        PostInit();
     }
 
     public ErrorStyleDlgOk(string btn_name )  : base() 
     {
         this.BtnName = btn_name;
+        PostInit();
     }
 
     public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class ErrorStyleDlgOk :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class ErrorStyleDlgOk :  error.ErrorStyle
         + "BtnName:" + BtnName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

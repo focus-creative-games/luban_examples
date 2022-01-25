@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class StringKeyData :  ai.KeyData 
+public sealed partial class StringKeyData :  ai.KeyData 
 {
     public StringKeyData(JSONNode _json)  : base(_json) 
     {
         { if(!_json["value"].IsString) { throw new SerializationException(); }  Value = _json["value"]; }
+        PostInit();
     }
 
     public StringKeyData(string value )  : base() 
     {
         this.Value = value;
+        PostInit();
     }
 
     public static StringKeyData DeserializeStringKeyData(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class StringKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class StringKeyData :  ai.KeyData
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

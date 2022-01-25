@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class TbDrop
+public sealed partial class TbDrop
 {
     private readonly Dictionary<int, bonus.DropInfo> _dataMap;
     private readonly List<bonus.DropInfo> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbDrop
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, bonus.DropInfo> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbDrop
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbDrop
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

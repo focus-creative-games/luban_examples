@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class InnerGroup :  Bright.Config.BeanBase 
+public sealed partial class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         { if(!_json["y2"].IsNumber) { throw new SerializationException(); }  Y2 = _json["y2"]; }
         { if(!_json["y3"].IsNumber) { throw new SerializationException(); }  Y3 = _json["y3"]; }
         { if(!_json["y4"].IsNumber) { throw new SerializationException(); }  Y4 = _json["y4"]; }
+        PostInit();
     }
 
     public InnerGroup(int y1, int y2, int y3, int y4 ) 
@@ -30,6 +31,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         this.Y2 = y2;
         this.Y3 = y3;
         this.Y4 = y4;
+        PostInit();
     }
 
     public static InnerGroup DeserializeInnerGroup(JSONNode _json)
@@ -47,6 +49,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         + "Y4:" + Y4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

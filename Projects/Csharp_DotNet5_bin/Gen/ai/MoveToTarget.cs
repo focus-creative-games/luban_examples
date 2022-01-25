@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class MoveToTarget :  ai.Task 
+public sealed partial class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(ByteBuf _buf)  : base(_buf) 
     {
         TargetActorKey = _buf.ReadString();
         AcceptableRadius = _buf.ReadFloat();
+        PostInit();
     }
 
     public static MoveToTarget DeserializeMoveToTarget(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class MoveToTarget :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,6 +56,9 @@ public sealed class MoveToTarget :  ai.Task
         + "AcceptableRadius:" + AcceptableRadius + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

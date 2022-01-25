@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class MoveToTarget :  ai.Task 
+public sealed partial class MoveToTarget :  ai.Task 
 {
     public MoveToTarget(JSONNode _json)  : base(_json) 
     {
         { if(!_json["target_actor_key"].IsString) { throw new SerializationException(); }  TargetActorKey = _json["target_actor_key"]; }
         { if(!_json["acceptable_radius"].IsNumber) { throw new SerializationException(); }  AcceptableRadius = _json["acceptable_radius"]; }
+        PostInit();
     }
 
     public MoveToTarget(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string target_actor_key, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.TargetActorKey = target_actor_key;
         this.AcceptableRadius = acceptable_radius;
+        PostInit();
     }
 
     public static MoveToTarget DeserializeMoveToTarget(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class MoveToTarget :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class MoveToTarget :  ai.Task
         + "AcceptableRadius:" + AcceptableRadius + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

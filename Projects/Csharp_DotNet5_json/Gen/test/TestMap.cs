@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestMap :  Bright.Config.BeanBase 
+public sealed partial class TestMap :  Bright.Config.BeanBase 
 {
     public TestMap(JsonElement _json) 
     {
@@ -23,6 +23,7 @@ public sealed class TestMap :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.Dictionary<long, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { long __k;  __k = __e[0].GetInt64(); int __v;  __v = __e[1].GetInt32();  X2.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.Dictionary<string, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { string __k;  __k = __e[0].GetString(); int __v;  __v = __e[1].GetInt32();  X3.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoEnum __k;  __k = (test.DemoEnum)__e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  X4.Add(__k, __v); }   }
+        PostInit();
     }
 
     public TestMap(int id, System.Collections.Generic.Dictionary<int, int> x1, System.Collections.Generic.Dictionary<long, int> x2, System.Collections.Generic.Dictionary<string, int> x3, System.Collections.Generic.Dictionary<test.DemoEnum, int> x4 ) 
@@ -32,6 +33,7 @@ public sealed class TestMap :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static TestMap DeserializeTestMap(JsonElement _json)
@@ -52,6 +54,7 @@ public sealed class TestMap :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.Id_Ref = (_tables["test.TbTestIndex"] as test.TbTestIndex).GetOrDefault(Id);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class TestMap :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

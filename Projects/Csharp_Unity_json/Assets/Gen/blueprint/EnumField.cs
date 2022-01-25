@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed class EnumField :  Bright.Config.BeanBase 
+public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(JSONNode _json) 
     {
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["value"].IsNumber) { throw new SerializationException(); }  Value = _json["value"]; }
+        PostInit();
     }
 
     public EnumField(string name, int value ) 
     {
         this.Name = name;
         this.Value = value;
+        PostInit();
     }
 
     public static EnumField DeserializeEnumField(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class EnumField :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class EnumField :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

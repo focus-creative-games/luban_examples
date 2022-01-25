@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed class ContainsItem :  condition.RoleCondition 
+public sealed partial class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(JsonElement _json)  : base(_json) 
     {
         ItemId = _json.GetProperty("item_id").GetInt32();
         Num = _json.GetProperty("num").GetInt32();
         Reverse = _json.GetProperty("reverse").GetBoolean();
+        PostInit();
     }
 
     public ContainsItem(int item_id, int num, bool reverse )  : base() 
@@ -28,6 +29,7 @@ public sealed class ContainsItem :  condition.RoleCondition
         this.ItemId = item_id;
         this.Num = num;
         this.Reverse = reverse;
+        PostInit();
     }
 
     public static ContainsItem DeserializeContainsItem(JsonElement _json)
@@ -47,6 +49,7 @@ public sealed class ContainsItem :  condition.RoleCondition
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class ContainsItem :  condition.RoleCondition
         + "Reverse:" + Reverse + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

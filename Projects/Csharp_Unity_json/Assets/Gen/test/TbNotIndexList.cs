@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbNotIndexList
+public sealed partial class TbNotIndexList
 {
     private readonly List<test.NotIndexList> _dataList;
     
@@ -28,6 +28,7 @@ public sealed class TbNotIndexList
             var _v = test.NotIndexList.DeserializeNotIndexList(_row);
             _dataList.Add(_v);
         }
+        PostInit();
     }
 
     public List<test.NotIndexList> DataList => _dataList;
@@ -39,6 +40,7 @@ public sealed class TbNotIndexList
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class TbNotIndexList
         }
     }
 
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

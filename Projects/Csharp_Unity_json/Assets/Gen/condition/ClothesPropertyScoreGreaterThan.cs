@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
+public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(JSONNode _json)  : base(_json) 
     {
         { if(!_json["prop"].IsNumber) { throw new SerializationException(); }  Prop = (item.EClothesPropertyType)_json["prop"].AsInt; }
         { if(!_json["value"].IsNumber) { throw new SerializationException(); }  Value = _json["value"]; }
+        PostInit();
     }
 
     public ClothesPropertyScoreGreaterThan(item.EClothesPropertyType prop, int value )  : base() 
     {
         this.Prop = prop;
         this.Value = value;
+        PostInit();
     }
 
     public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

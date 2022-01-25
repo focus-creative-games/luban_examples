@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class IsSet :  ai.KeyQueryOperator 
+public sealed partial class IsSet :  ai.KeyQueryOperator 
 {
     public IsSet(JSONNode _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public IsSet()  : base() 
     {
+        PostInit();
     }
 
     public static IsSet DeserializeIsSet(JSONNode _json)
@@ -36,6 +38,7 @@ public sealed class IsSet :  ai.KeyQueryOperator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,5 +51,8 @@ public sealed class IsSet :  ai.KeyQueryOperator
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

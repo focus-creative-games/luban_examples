@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeSetDefaultFocus :  ai.Service 
+public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(JSONNode _json)  : base(_json) 
     {
         { if(!_json["keyboard_key"].IsString) { throw new SerializationException(); }  KeyboardKey = _json["keyboard_key"]; }
+        PostInit();
     }
 
     public UeSetDefaultFocus(int id, string node_name, string keyboard_key )  : base(id,node_name) 
     {
         this.KeyboardKey = keyboard_key;
+        PostInit();
     }
 
     public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class UeSetDefaultFocus :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class UeSetDefaultFocus :  ai.Service
         + "KeyboardKey:" + KeyboardKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

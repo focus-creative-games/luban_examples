@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public abstract class Method :  Bright.Config.BeanBase 
+public abstract partial class Method :  Bright.Config.BeanBase 
 {
     public Method(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public abstract class Method :  Bright.Config.BeanBase
         { if(!_json["is_static"].IsBoolean) { throw new SerializationException(); }  IsStatic = _json["is_static"]; }
         { if(!_json["return_type"].IsString) { throw new SerializationException(); }  ReturnType = _json["return_type"]; }
         { var _json1 = _json["parameters"]; if(!_json1.IsArray) { throw new SerializationException(); } Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(_json1.Count); foreach(JSONNode __e in _json1.Children) { blueprint.ParamInfo __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.ParamInfo.DeserializeParamInfo(__e); }  Parameters.Add(__v); }   }
+        PostInit();
     }
 
     public Method(string name, string desc, bool is_static, string return_type, System.Collections.Generic.List<blueprint.ParamInfo> parameters ) 
@@ -32,6 +33,7 @@ public abstract class Method :  Bright.Config.BeanBase
         this.IsStatic = is_static;
         this.ReturnType = return_type;
         this.Parameters = parameters;
+        PostInit();
     }
 
     public static Method DeserializeMethod(JSONNode _json)
@@ -56,6 +58,7 @@ public abstract class Method :  Bright.Config.BeanBase
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -73,5 +76,8 @@ public abstract class Method :  Bright.Config.BeanBase
         + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

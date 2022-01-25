@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestBeRef :  Bright.Config.BeanBase 
+public sealed partial class TestBeRef :  Bright.Config.BeanBase 
 {
     public TestBeRef(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Count = _json.GetProperty("count").GetInt32();
+        PostInit();
     }
 
     public TestBeRef(int id, int count ) 
     {
         this.Id = id;
         this.Count = count;
+        PostInit();
     }
 
     public static TestBeRef DeserializeTestBeRef(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class TestBeRef :  Bright.Config.BeanBase
         + "Count:" + Count + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

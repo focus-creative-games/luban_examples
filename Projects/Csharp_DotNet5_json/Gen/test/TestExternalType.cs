@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestExternalType :  Bright.Config.BeanBase 
+public sealed partial class TestExternalType :  Bright.Config.BeanBase 
 {
     public TestExternalType(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         AudioType = (test.AudioType)_json.GetProperty("audio_type").GetInt32();
         Color =  test.Color.DeserializeColor(_json.GetProperty("color"));
+        PostInit();
     }
 
     public TestExternalType(int id, test.AudioType audio_type, test.Color color ) 
@@ -28,6 +29,7 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
         this.Id = id;
         this.AudioType = audio_type;
         this.Color = color;
+        PostInit();
     }
 
     public static TestExternalType DeserializeTestExternalType(JsonElement _json)
@@ -45,6 +47,7 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Color?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
         + "Color:" + Color + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

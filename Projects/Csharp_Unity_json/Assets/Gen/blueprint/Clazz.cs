@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public abstract class Clazz :  Bright.Config.BeanBase 
+public abstract partial class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public abstract class Clazz :  Bright.Config.BeanBase
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { var _json1 = _json["parents"]; if(!_json1.IsArray) { throw new SerializationException(); } Parents = new System.Collections.Generic.List<blueprint.Clazz>(_json1.Count); foreach(JSONNode __e in _json1.Children) { blueprint.Clazz __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.Clazz.DeserializeClazz(__e); }  Parents.Add(__v); }   }
         { var _json1 = _json["methods"]; if(!_json1.IsArray) { throw new SerializationException(); } Methods = new System.Collections.Generic.List<blueprint.Method>(_json1.Count); foreach(JSONNode __e in _json1.Children) { blueprint.Method __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.Method.DeserializeMethod(__e); }  Methods.Add(__v); }   }
+        PostInit();
     }
 
     public Clazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods ) 
@@ -30,6 +31,7 @@ public abstract class Clazz :  Bright.Config.BeanBase
         this.Desc = desc;
         this.Parents = parents;
         this.Methods = methods;
+        PostInit();
     }
 
     public static Clazz DeserializeClazz(JSONNode _json)
@@ -54,6 +56,7 @@ public abstract class Clazz :  Bright.Config.BeanBase
     {
         foreach(var _e in Parents) { _e?.Resolve(_tables); }
         foreach(var _e in Methods) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -71,5 +74,8 @@ public abstract class Clazz :  Bright.Config.BeanBase
         + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

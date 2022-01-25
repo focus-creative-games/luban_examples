@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class Decorator :  test.ItemBase 
+public sealed partial class Decorator :  test.ItemBase 
 {
     public Decorator(JsonElement _json)  : base(_json) 
     {
         Duration = _json.GetProperty("duration").GetInt32();
+        PostInit();
     }
 
     public Decorator(int id, string name, string desc, int duration )  : base(id,name,desc) 
     {
         this.Duration = duration;
+        PostInit();
     }
 
     public static Decorator DeserializeDecorator(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class Decorator :  test.ItemBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class Decorator :  test.ItemBase
         + "Duration:" + Duration + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

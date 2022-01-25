@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class GenderLimit :  condition.BoolRoleCondition 
+public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(JSONNode _json)  : base(_json) 
     {
         { if(!_json["gender"].IsNumber) { throw new SerializationException(); }  Gender = (role.EGenderType)_json["gender"].AsInt; }
+        PostInit();
     }
 
     public GenderLimit(role.EGenderType gender )  : base() 
     {
         this.Gender = gender;
+        PostInit();
     }
 
     public static GenderLimit DeserializeGenderLimit(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
         + "Gender:" + Gender + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

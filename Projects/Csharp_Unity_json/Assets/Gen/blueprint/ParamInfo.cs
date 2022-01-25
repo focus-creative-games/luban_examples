@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed class ParamInfo :  Bright.Config.BeanBase 
+public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
     public ParamInfo(JSONNode _json) 
     {
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type"].IsString) { throw new SerializationException(); }  Type = _json["type"]; }
         { if(!_json["is_ref"].IsBoolean) { throw new SerializationException(); }  IsRef = _json["is_ref"]; }
+        PostInit();
     }
 
     public ParamInfo(string name, string type, bool is_ref ) 
@@ -28,6 +29,7 @@ public sealed class ParamInfo :  Bright.Config.BeanBase
         this.Name = name;
         this.Type = type;
         this.IsRef = is_ref;
+        PostInit();
     }
 
     public static ParamInfo DeserializeParamInfo(JSONNode _json)
@@ -44,6 +46,7 @@ public sealed class ParamInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class ParamInfo :  Bright.Config.BeanBase
         + "IsRef:" + IsRef + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

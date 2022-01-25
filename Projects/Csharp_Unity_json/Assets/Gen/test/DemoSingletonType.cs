@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DemoSingletonType :  Bright.Config.BeanBase 
+public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["name"]["key"].IsString) { throw new SerializationException(); }  Name_l10n_key = _json["name"]["key"]; if(!_json["name"]["text"].IsString) { throw new SerializationException(); }  Name = _json["name"]["text"]; }
         { if(!_json["date"].IsObject) { throw new SerializationException(); }  Date = test.DemoDynamic.DeserializeDemoDynamic(_json["date"]); }
+        PostInit();
     }
 
     public DemoSingletonType(int id, string name, test.DemoDynamic date ) 
@@ -28,6 +29,7 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
         this.Id = id;
         this.Name = name;
         this.Date = date;
+        PostInit();
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(JSONNode _json)
@@ -46,6 +48,7 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Date?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
         + "Date:" + Date + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

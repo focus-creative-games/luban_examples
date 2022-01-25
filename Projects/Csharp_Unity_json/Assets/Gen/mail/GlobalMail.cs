@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.mail
 {
 
-public sealed class GlobalMail :  Bright.Config.BeanBase 
+public sealed partial class GlobalMail :  Bright.Config.BeanBase 
 {
     public GlobalMail(JSONNode _json) 
     {
@@ -30,6 +30,7 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         { if(!_json["min_max_level"].IsObject) { throw new SerializationException(); }  MinMaxLevel = condition.MinMaxLevel.DeserializeMinMaxLevel(_json["min_max_level"]); }
         { if(!_json["register_time"].IsObject) { throw new SerializationException(); }  RegisterTime = condition.TimeRange.DeserializeTimeRange(_json["register_time"]); }
         { if(!_json["mail_time"].IsObject) { throw new SerializationException(); }  MailTime = condition.TimeRange.DeserializeTimeRange(_json["mail_time"]); }
+        PostInit();
     }
 
     public GlobalMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award, bool all_server, System.Collections.Generic.List<int> server_list, string platform, string channel, condition.MinMaxLevel min_max_level, condition.TimeRange register_time, condition.TimeRange mail_time ) 
@@ -46,6 +47,7 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         this.MinMaxLevel = min_max_level;
         this.RegisterTime = register_time;
         this.MailTime = mail_time;
+        PostInit();
     }
 
     public static GlobalMail DeserializeGlobalMail(JSONNode _json)
@@ -74,6 +76,7 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -100,5 +103,8 @@ public sealed class GlobalMail :  Bright.Config.BeanBase
         + "MailTime:" + MailTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

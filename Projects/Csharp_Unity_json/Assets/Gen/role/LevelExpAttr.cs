@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed class LevelExpAttr :  Bright.Config.BeanBase 
+public sealed partial class LevelExpAttr :  Bright.Config.BeanBase 
 {
     public LevelExpAttr(JSONNode _json) 
     {
         { if(!_json["level"].IsNumber) { throw new SerializationException(); }  Level = _json["level"]; }
         { if(!_json["need_exp"].IsNumber) { throw new SerializationException(); }  NeedExp = _json["need_exp"]; }
         { var _json1 = _json["clothes_attrs"]; if(!_json1.IsArray) { throw new SerializationException(); } ClothesAttrs = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  ClothesAttrs.Add(__v); }   }
+        PostInit();
     }
 
     public LevelExpAttr(int level, long need_exp, System.Collections.Generic.List<int> clothes_attrs ) 
@@ -28,6 +29,7 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
         this.Level = level;
         this.NeedExp = need_exp;
         this.ClothesAttrs = clothes_attrs;
+        PostInit();
     }
 
     public static LevelExpAttr DeserializeLevelExpAttr(JSONNode _json)
@@ -44,6 +46,7 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class LevelExpAttr :  Bright.Config.BeanBase
         + "ClothesAttrs:" + Bright.Common.StringUtil.CollectionToString(ClothesAttrs) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

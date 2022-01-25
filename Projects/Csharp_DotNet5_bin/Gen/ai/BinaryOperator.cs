@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class BinaryOperator :  ai.KeyQueryOperator 
+public sealed partial class BinaryOperator :  ai.KeyQueryOperator 
 {
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
     {
         Oper = (ai.EOperator)_buf.ReadInt();
         Data = ai.KeyData.DeserializeKeyData(_buf);
+        PostInit();
     }
 
     public static BinaryOperator DeserializeBinaryOperator(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
     {
         base.Resolve(_tables);
         Data?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         + "Data:" + Data + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class BlackboardKeyData :  ai.KeyData 
+public sealed partial class BlackboardKeyData :  ai.KeyData 
 {
     public BlackboardKeyData(JsonElement _json)  : base(_json) 
     {
         Value = _json.GetProperty("value").GetString();
+        PostInit();
     }
 
     public BlackboardKeyData(string value )  : base() 
     {
         this.Value = value;
+        PostInit();
     }
 
     public static BlackboardKeyData DeserializeBlackboardKeyData(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class BlackboardKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class BlackboardKeyData :  ai.KeyData
         + "Value:" + Value + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

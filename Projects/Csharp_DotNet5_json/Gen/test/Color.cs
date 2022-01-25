@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class Color :  Bright.Config.BeanBase 
+public sealed partial class Color :  Bright.Config.BeanBase 
 {
     public Color(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class Color :  Bright.Config.BeanBase
         G = _json.GetProperty("g").GetSingle();
         B = _json.GetProperty("b").GetSingle();
         A = _json.GetProperty("a").GetSingle();
+        PostInit();
     }
 
     public Color(float r, float g, float b, float a ) 
@@ -30,6 +31,7 @@ public sealed class Color :  Bright.Config.BeanBase
         this.G = g;
         this.B = b;
         this.A = a;
+        PostInit();
     }
 
     public static Color DeserializeColor(JsonElement _json)
@@ -47,6 +49,7 @@ public sealed class Color :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class Color :  Bright.Config.BeanBase
         + "A:" + A + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class ChooseOneBonus :  Bright.Config.BeanBase 
+public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase 
 {
     public ChooseOneBonus(JSONNode _json) 
     {
         { if(!_json["drop_id"].IsNumber) { throw new SerializationException(); }  DropId = _json["drop_id"]; }
         { if(!_json["is_unique"].IsBoolean) { throw new SerializationException(); }  IsUnique = _json["is_unique"]; }
+        PostInit();
     }
 
     public ChooseOneBonus(int drop_id, bool is_unique ) 
     {
         this.DropId = drop_id;
         this.IsUnique = is_unique;
+        PostInit();
     }
 
     public static ChooseOneBonus DeserializeChooseOneBonus(JSONNode _json)
@@ -43,6 +45,7 @@ public sealed class ChooseOneBonus :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.DropId_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(DropId);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ChooseOneBonus :  Bright.Config.BeanBase
         + "IsUnique:" + IsUnique + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-public abstract class Cost :  Bright.Config.BeanBase 
+public abstract partial class Cost :  Bright.Config.BeanBase 
 {
     public Cost(JsonElement _json) 
     {
+        PostInit();
     }
 
     public Cost() 
     {
+        PostInit();
     }
 
     public static Cost DeserializeCost(JsonElement _json)
@@ -41,6 +43,7 @@ public abstract class Cost :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public abstract class Cost :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

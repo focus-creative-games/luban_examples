@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class Item :  test.ItemBase 
+public sealed partial class Item :  test.ItemBase 
 {
     public Item(JSONNode _json)  : base(_json) 
     {
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
         { if(!_json["price"].IsNumber) { throw new SerializationException(); }  Price = _json["price"]; }
+        PostInit();
     }
 
     public Item(int id, string name, string desc, int num, int price )  : base(id,name,desc) 
     {
         this.Num = num;
         this.Price = price;
+        PostInit();
     }
 
     public static Item DeserializeItem(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class Item :  test.ItemBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -59,5 +62,8 @@ public sealed class Item :  test.ItemBase
         + "Price:" + Price + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

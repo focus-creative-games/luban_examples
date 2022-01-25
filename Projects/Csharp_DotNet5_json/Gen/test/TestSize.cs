@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestSize :  Bright.Config.BeanBase 
+public sealed partial class TestSize :  Bright.Config.BeanBase 
 {
     public TestSize(JsonElement _json) 
     {
@@ -23,6 +23,7 @@ public sealed class TestSize :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X2.Add(__v); }   }
         { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X3.Add(__v); }   }
         { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  X4.Add(__k, __v); }   }
+        PostInit();
     }
 
     public TestSize(int id, int[] x1, System.Collections.Generic.List<int> x2, System.Collections.Generic.HashSet<int> x3, System.Collections.Generic.Dictionary<int, int> x4 ) 
@@ -32,6 +33,7 @@ public sealed class TestSize :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static TestSize DeserializeTestSize(JsonElement _json)
@@ -50,6 +52,7 @@ public sealed class TestSize :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class TestSize :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

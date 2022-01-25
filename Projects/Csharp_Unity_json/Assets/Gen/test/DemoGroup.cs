@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DemoGroup :  Bright.Config.BeanBase 
+public sealed partial class DemoGroup :  Bright.Config.BeanBase 
 {
     public DemoGroup(JSONNode _json) 
     {
@@ -24,6 +24,7 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         { if(!_json["x3"].IsNumber) { throw new SerializationException(); }  X3 = _json["x3"]; }
         { if(!_json["x4"].IsNumber) { throw new SerializationException(); }  X4 = _json["x4"]; }
         { if(!_json["x5"].IsObject) { throw new SerializationException(); }  X5 = test.InnerGroup.DeserializeInnerGroup(_json["x5"]); }
+        PostInit();
     }
 
     public DemoGroup(int id, int x1, int x2, int x3, int x4, test.InnerGroup x5 ) 
@@ -34,6 +35,7 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         this.X3 = x3;
         this.X4 = x4;
         this.X5 = x5;
+        PostInit();
     }
 
     public static DemoGroup DeserializeDemoGroup(JSONNode _json)
@@ -60,6 +62,7 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         this.X2_Ref = (_tables["test.TbDemoGroup_S"] as test.TbDemoGroup_S).GetOrDefault(X2);
         this.X3_Ref = (_tables["test.TbDemoGroup_E"] as test.TbDemoGroup_E).GetOrDefault(X3);
         X5?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -78,5 +81,8 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         + "X5:" + X5 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

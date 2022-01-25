@@ -11,7 +11,7 @@ using System.Text.Json;
 namespace cfg
 {
    
-public sealed class Tables
+public sealed partial class Tables
 {
     public ai.TbBlackboard TbBlackboard {get; }
     public ai.TbBehaviorTree TbBehaviorTree {get; }
@@ -191,6 +191,7 @@ public sealed class Tables
         tables.Add("test.TbTestExcelBean", TbTestExcelBean);
         TbTestDesc = new test.TbTestDesc(loader("test_tbtestdesc")); 
         tables.Add("test.TbTestDesc", TbTestDesc);
+        PostInit();
 
         TbBlackboard.Resolve(tables); 
         TbBehaviorTree.Resolve(tables); 
@@ -249,6 +250,7 @@ public sealed class Tables
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
         TbTestDesc.Resolve(tables); 
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -311,6 +313,9 @@ public sealed class Tables
         TbTestExcelBean.TranslateText(translator); 
         TbTestDesc.TranslateText(translator); 
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

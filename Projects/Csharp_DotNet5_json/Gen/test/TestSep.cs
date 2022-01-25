@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestSep :  Bright.Config.BeanBase 
+public sealed partial class TestSep :  Bright.Config.BeanBase 
 {
     public TestSep(JsonElement _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestSep :  Bright.Config.BeanBase
         { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.SepVector>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepVector __v;  __v =  test.SepVector.DeserializeSepVector(__e);  X4.Add(__v); }   }
         { var _json0 = _json.GetProperty("x5"); X5 = new System.Collections.Generic.List<test.SepBean1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepBean1 __v;  __v =  test.SepBean1.DeserializeSepBean1(__e);  X5.Add(__v); }   }
         { var _json0 = _json.GetProperty("x6"); X6 = new System.Collections.Generic.List<test.SepBean1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepBean1 __v;  __v =  test.SepBean1.DeserializeSepBean1(__e);  X6.Add(__v); }   }
+        PostInit();
     }
 
     public TestSep(int id, string x1, test.SepBean1 x2, test.SepVector x3, System.Collections.Generic.List<test.SepVector> x4, System.Collections.Generic.List<test.SepBean1> x5, System.Collections.Generic.List<test.SepBean1> x6 ) 
@@ -36,6 +37,7 @@ public sealed class TestSep :  Bright.Config.BeanBase
         this.X4 = x4;
         this.X5 = x5;
         this.X6 = x6;
+        PostInit();
     }
 
     public static TestSep DeserializeTestSep(JsonElement _json)
@@ -74,6 +76,7 @@ public sealed class TestSep :  Bright.Config.BeanBase
         foreach(var _e in X4) { _e?.Resolve(_tables); }
         foreach(var _e in X5) { _e?.Resolve(_tables); }
         foreach(var _e in X6) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -98,5 +101,8 @@ public sealed class TestSep :  Bright.Config.BeanBase
         + "X6:" + Bright.Common.StringUtil.CollectionToString(X6) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

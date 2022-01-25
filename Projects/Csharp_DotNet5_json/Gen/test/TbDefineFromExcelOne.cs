@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbDefineFromExcelOne
+public sealed partial class TbDefineFromExcelOne
 {
 
      private readonly test.DefineFromExcelOne _data;
@@ -24,6 +24,7 @@ public sealed class TbDefineFromExcelOne
         int n = _json.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = test.DefineFromExcelOne.DeserializeDefineFromExcelOne(_json[0]);
+        PostInit();
     }
 
     /// <summary>
@@ -40,6 +41,7 @@ public sealed class TbDefineFromExcelOne
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class TbDefineFromExcelOne
         _data.TranslateText(translator);
     }
 
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

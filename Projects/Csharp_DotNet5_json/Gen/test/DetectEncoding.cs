@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DetectEncoding :  Bright.Config.BeanBase 
+public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Name = _json.GetProperty("name").GetString();
+        PostInit();
     }
 
     public DetectEncoding(int id, string name ) 
     {
         this.Id = id;
         this.Name = name;
+        PostInit();
     }
 
     public static DetectEncoding DeserializeDetectEncoding(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

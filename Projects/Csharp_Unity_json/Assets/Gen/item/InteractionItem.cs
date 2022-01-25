@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.item
 {
 
-public sealed class InteractionItem :  item.ItemExtra 
+public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(JSONNode _json)  : base(_json) 
     {
         { var _j = _json["attack_num"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  AttackNum = _j; } } else { AttackNum = null; } }
         { if(!_json["holding_static_mesh"].IsString) { throw new SerializationException(); }  HoldingStaticMesh = _json["holding_static_mesh"]; }
         { if(!_json["holding_static_mesh_mat"].IsString) { throw new SerializationException(); }  HoldingStaticMeshMat = _json["holding_static_mesh_mat"]; }
+        PostInit();
     }
 
     public InteractionItem(int id, int? attack_num, string holding_static_mesh, string holding_static_mesh_mat )  : base(id) 
@@ -28,6 +29,7 @@ public sealed class InteractionItem :  item.ItemExtra
         this.AttackNum = attack_num;
         this.HoldingStaticMesh = holding_static_mesh;
         this.HoldingStaticMeshMat = holding_static_mesh_mat;
+        PostInit();
     }
 
     public static InteractionItem DeserializeInteractionItem(JSONNode _json)
@@ -45,6 +47,7 @@ public sealed class InteractionItem :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class InteractionItem :  item.ItemExtra
         + "HoldingStaticMeshMat:" + HoldingStaticMeshMat + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

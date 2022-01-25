@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class DropInfo :  Bright.Config.BeanBase 
+public sealed partial class DropInfo :  Bright.Config.BeanBase 
 {
     public DropInfo(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         Desc = _json.GetProperty("desc").GetString();
         { var _json0 = _json.GetProperty("client_show_items"); ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.ShowItemInfo __v;  __v =  bonus.ShowItemInfo.DeserializeShowItemInfo(__e);  ClientShowItems.Add(__v); }   }
         Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
+        PostInit();
     }
 
     public DropInfo(int id, string desc, System.Collections.Generic.List<bonus.ShowItemInfo> client_show_items, bonus.Bonus bonus ) 
@@ -30,6 +31,7 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         this.Desc = desc;
         this.ClientShowItems = client_show_items;
         this.Bonus = bonus;
+        PostInit();
     }
 
     public static DropInfo DeserializeDropInfo(JsonElement _json)
@@ -49,6 +51,7 @@ public sealed class DropInfo :  Bright.Config.BeanBase
     {
         foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
         Bonus?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         + "Bonus:" + Bonus + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

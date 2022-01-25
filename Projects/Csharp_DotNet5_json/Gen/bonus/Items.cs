@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class Items :  bonus.Bonus 
+public sealed partial class Items :  bonus.Bonus 
 {
     public Items(JsonElement _json)  : base(_json) 
     {
         { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.Item[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.Item __v;  __v =  bonus.Item.DeserializeItem(__e);  ItemList[_index++] = __v; }   }
+        PostInit();
     }
 
     public Items(bonus.Item[] item_list )  : base() 
     {
         this.ItemList = item_list;
+        PostInit();
     }
 
     public static Items DeserializeItems(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class Items :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class Items :  bonus.Bonus
         + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

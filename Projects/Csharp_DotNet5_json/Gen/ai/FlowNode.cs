@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract class FlowNode :  ai.Node 
+public abstract partial class FlowNode :  ai.Node 
 {
     public FlowNode(JsonElement _json)  : base(_json) 
     {
         { var _json0 = _json.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.Decorator __v;  __v =  ai.Decorator.DeserializeDecorator(__e);  Decorators.Add(__v); }   }
         { var _json0 = _json.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.Service __v;  __v =  ai.Service.DeserializeService(__e);  Services.Add(__v); }   }
+        PostInit();
     }
 
     public FlowNode(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services )  : base(id,node_name) 
     {
         this.Decorators = decorators;
         this.Services = services;
+        PostInit();
     }
 
     public static FlowNode DeserializeFlowNode(JsonElement _json)
@@ -55,6 +57,7 @@ public abstract class FlowNode :  ai.Node
         base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -73,5 +76,8 @@ public abstract class FlowNode :  ai.Node
         + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

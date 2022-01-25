@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeWait :  ai.Task 
+public sealed partial class UeWait :  ai.Task 
 {
     public UeWait(JSONNode _json)  : base(_json) 
     {
         { if(!_json["wait_time"].IsNumber) { throw new SerializationException(); }  WaitTime = _json["wait_time"]; }
         { if(!_json["random_deviation"].IsNumber) { throw new SerializationException(); }  RandomDeviation = _json["random_deviation"]; }
+        PostInit();
     }
 
     public UeWait(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, float wait_time, float random_deviation )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.WaitTime = wait_time;
         this.RandomDeviation = random_deviation;
+        PostInit();
     }
 
     public static UeWait DeserializeUeWait(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class UeWait :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class UeWait :  ai.Task
         + "RandomDeviation:" + RandomDeviation + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

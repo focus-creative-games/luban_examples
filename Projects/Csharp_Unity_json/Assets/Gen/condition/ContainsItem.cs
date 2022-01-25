@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class ContainsItem :  condition.RoleCondition 
+public sealed partial class ContainsItem :  condition.RoleCondition 
 {
     public ContainsItem(JSONNode _json)  : base(_json) 
     {
         { if(!_json["item_id"].IsNumber) { throw new SerializationException(); }  ItemId = _json["item_id"]; }
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
         { if(!_json["reverse"].IsBoolean) { throw new SerializationException(); }  Reverse = _json["reverse"]; }
+        PostInit();
     }
 
     public ContainsItem(int item_id, int num, bool reverse )  : base() 
@@ -28,6 +29,7 @@ public sealed class ContainsItem :  condition.RoleCondition
         this.ItemId = item_id;
         this.Num = num;
         this.Reverse = reverse;
+        PostInit();
     }
 
     public static ContainsItem DeserializeContainsItem(JSONNode _json)
@@ -47,6 +49,7 @@ public sealed class ContainsItem :  condition.RoleCondition
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class ContainsItem :  condition.RoleCondition
         + "Reverse:" + Reverse + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeBlackboard :  ai.Decorator 
+public sealed partial class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JSONNode _json)  : base(_json) 
     {
         { if(!_json["notify_observer"].IsNumber) { throw new SerializationException(); }  NotifyObserver = (ai.ENotifyObserverMode)_json["notify_observer"].AsInt; }
         { if(!_json["blackboard_key"].IsString) { throw new SerializationException(); }  BlackboardKey = _json["blackboard_key"]; }
         { if(!_json["key_query"].IsObject) { throw new SerializationException(); }  KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_json["key_query"]); }
+        PostInit();
     }
 
     public UeBlackboard(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, ai.ENotifyObserverMode notify_observer, string blackboard_key, ai.KeyQueryOperator key_query )  : base(id,node_name,flow_abort_mode) 
@@ -28,6 +29,7 @@ public sealed class UeBlackboard :  ai.Decorator
         this.NotifyObserver = notify_observer;
         this.BlackboardKey = blackboard_key;
         this.KeyQuery = key_query;
+        PostInit();
     }
 
     public static UeBlackboard DeserializeUeBlackboard(JSONNode _json)
@@ -46,6 +48,7 @@ public sealed class UeBlackboard :  ai.Decorator
     {
         base.Resolve(_tables);
         KeyQuery?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -65,5 +68,8 @@ public sealed class UeBlackboard :  ai.Decorator
         + "KeyQuery:" + KeyQuery + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

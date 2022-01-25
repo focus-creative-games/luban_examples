@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TbMultiRowTitle
+public sealed partial class TbMultiRowTitle
 {
     private readonly Dictionary<int, test.MultiRowTitle> _dataMap;
     private readonly List<test.MultiRowTitle> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbMultiRowTitle
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.MultiRowTitle> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbMultiRowTitle
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbMultiRowTitle
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

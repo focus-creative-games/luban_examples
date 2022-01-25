@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public abstract class RoleCondition :  condition.Condition 
+public abstract partial class RoleCondition :  condition.Condition 
 {
     public RoleCondition(JSONNode _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public RoleCondition()  : base() 
     {
+        PostInit();
     }
 
     public static RoleCondition DeserializeRoleCondition(JSONNode _json)
@@ -45,6 +47,7 @@ public abstract class RoleCondition :  condition.Condition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -57,5 +60,8 @@ public abstract class RoleCondition :  condition.Condition
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

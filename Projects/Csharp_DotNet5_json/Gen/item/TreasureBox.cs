@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed class TreasureBox :  item.ItemExtra 
+public sealed partial class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(JsonElement _json)  : base(_json) 
     {
@@ -23,6 +23,7 @@ public sealed class TreasureBox :  item.ItemExtra
         UseOnObtain = _json.GetProperty("use_on_obtain").GetBoolean();
         { var _json0 = _json.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  DropIds.Add(__v); }   }
         { var _json0 = _json.GetProperty("choose_list"); ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { item.ChooseOneBonus __v;  __v =  item.ChooseOneBonus.DeserializeChooseOneBonus(__e);  ChooseList.Add(__v); }   }
+        PostInit();
     }
 
     public TreasureBox(int id, int? key_item_id, condition.MinLevel open_level, bool use_on_obtain, System.Collections.Generic.List<int> drop_ids, System.Collections.Generic.List<item.ChooseOneBonus> choose_list )  : base(id) 
@@ -32,6 +33,7 @@ public sealed class TreasureBox :  item.ItemExtra
         this.UseOnObtain = use_on_obtain;
         this.DropIds = drop_ids;
         this.ChooseList = choose_list;
+        PostInit();
     }
 
     public static TreasureBox DeserializeTreasureBox(JsonElement _json)
@@ -53,6 +55,7 @@ public sealed class TreasureBox :  item.ItemExtra
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -73,5 +76,8 @@ public sealed class TreasureBox :  item.ItemExtra
         + "ChooseList:" + Bright.Common.StringUtil.CollectionToString(ChooseList) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

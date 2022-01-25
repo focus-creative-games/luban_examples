@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class TbBehaviorTree
+public sealed partial class TbBehaviorTree
 {
     private readonly Dictionary<int, ai.BehaviorTree> _dataMap;
     private readonly List<ai.BehaviorTree> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbBehaviorTree
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, ai.BehaviorTree> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbBehaviorTree
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbBehaviorTree
         }
     }
     
+
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

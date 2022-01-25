@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.mail
 {
 
-public sealed class SystemMail :  Bright.Config.BeanBase 
+public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(JsonElement _json) 
     {
@@ -23,6 +23,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         Sender = _json.GetProperty("sender").GetString();
         Content = _json.GetProperty("content").GetString();
         { var _json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
+        PostInit();
     }
 
     public SystemMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award ) 
@@ -32,6 +33,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         this.Sender = sender;
         this.Content = content;
         this.Award = award;
+        PostInit();
     }
 
     public static SystemMail DeserializeSystemMail(JsonElement _json)
@@ -50,6 +52,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed class ErrorInfo :  Bright.Config.BeanBase 
+public sealed partial class ErrorInfo :  Bright.Config.BeanBase 
 {
     public ErrorInfo(JsonElement _json) 
     {
         Code = _json.GetProperty("code").GetString();
         Desc = _json.GetProperty("desc").GetString();
         Style =  error.ErrorStyle.DeserializeErrorStyle(_json.GetProperty("style"));
+        PostInit();
     }
 
     public ErrorInfo(string code, string desc, error.ErrorStyle style ) 
@@ -28,6 +29,7 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
         this.Code = code;
         this.Desc = desc;
         this.Style = style;
+        PostInit();
     }
 
     public static ErrorInfo DeserializeErrorInfo(JsonElement _json)
@@ -45,6 +47,7 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Style?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class ErrorInfo :  Bright.Config.BeanBase
         + "Style:" + Style + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

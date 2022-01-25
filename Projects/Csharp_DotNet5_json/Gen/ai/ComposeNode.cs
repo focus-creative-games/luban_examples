@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract class ComposeNode :  ai.FlowNode 
+public abstract partial class ComposeNode :  ai.FlowNode 
 {
     public ComposeNode(JsonElement _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public ComposeNode(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services )  : base(id,node_name,decorators,services) 
     {
+        PostInit();
     }
 
     public static ComposeNode DeserializeComposeNode(JsonElement _json)
@@ -40,6 +42,7 @@ public abstract class ComposeNode :  ai.FlowNode
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public abstract class ComposeNode :  ai.FlowNode
         + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

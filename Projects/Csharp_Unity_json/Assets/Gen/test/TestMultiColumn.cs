@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestMultiColumn :  Bright.Config.BeanBase 
+public sealed partial class TestMultiColumn :  Bright.Config.BeanBase 
 {
     public TestMultiColumn(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         { if(!_json["a"].IsObject) { throw new SerializationException(); }  A = test.Foo.DeserializeFoo(_json["a"]); }
         { if(!_json["b"].IsObject) { throw new SerializationException(); }  B = test.Foo.DeserializeFoo(_json["b"]); }
         { if(!_json["c"].IsObject) { throw new SerializationException(); }  C = test.Foo.DeserializeFoo(_json["c"]); }
+        PostInit();
     }
 
     public TestMultiColumn(int id, test.Foo a, test.Foo b, test.Foo c ) 
@@ -30,6 +31,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         this.A = a;
         this.B = b;
         this.C = c;
+        PostInit();
     }
 
     public static TestMultiColumn DeserializeTestMultiColumn(JSONNode _json)
@@ -50,6 +52,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         A?.Resolve(_tables);
         B?.Resolve(_tables);
         C?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         + "C:" + C + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.role
 {
 
-public sealed class BonusInfo :  Bright.Config.BeanBase 
+public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(JsonElement _json) 
     {
         Type = (item.ECurrencyType)_json.GetProperty("type").GetInt32();
         Coefficient = _json.GetProperty("coefficient").GetSingle();
+        PostInit();
     }
 
     public BonusInfo(item.ECurrencyType type, float coefficient ) 
     {
         this.Type = type;
         this.Coefficient = coefficient;
+        PostInit();
     }
 
     public static BonusInfo DeserializeBonusInfo(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
         + "Coefficient:" + Coefficient + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class InteractionItem :  item.ItemExtra 
+public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(ByteBuf _buf)  : base(_buf) 
     {
         if(_buf.ReadBool()){ AttackNum = _buf.ReadInt(); } else { AttackNum = null; }
         HoldingStaticMesh = _buf.ReadString();
         HoldingStaticMeshMat = _buf.ReadString();
+        PostInit();
     }
 
     public static InteractionItem DeserializeInteractionItem(ByteBuf _buf)
@@ -37,6 +38,7 @@ public sealed class InteractionItem :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -53,6 +55,9 @@ public sealed class InteractionItem :  item.ItemExtra
         + "HoldingStaticMeshMat:" + HoldingStaticMeshMat + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

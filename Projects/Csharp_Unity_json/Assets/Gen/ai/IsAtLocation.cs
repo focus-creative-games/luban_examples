@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class IsAtLocation :  ai.Decorator 
+public sealed partial class IsAtLocation :  ai.Decorator 
 {
     public IsAtLocation(JSONNode _json)  : base(_json) 
     {
         { if(!_json["acceptable_radius"].IsNumber) { throw new SerializationException(); }  AcceptableRadius = _json["acceptable_radius"]; }
         { if(!_json["keyboard_key"].IsString) { throw new SerializationException(); }  KeyboardKey = _json["keyboard_key"]; }
         { if(!_json["inverse_condition"].IsBoolean) { throw new SerializationException(); }  InverseCondition = _json["inverse_condition"]; }
+        PostInit();
     }
 
     public IsAtLocation(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, float acceptable_radius, string keyboard_key, bool inverse_condition )  : base(id,node_name,flow_abort_mode) 
@@ -28,6 +29,7 @@ public sealed class IsAtLocation :  ai.Decorator
         this.AcceptableRadius = acceptable_radius;
         this.KeyboardKey = keyboard_key;
         this.InverseCondition = inverse_condition;
+        PostInit();
     }
 
     public static IsAtLocation DeserializeIsAtLocation(JSONNode _json)
@@ -45,6 +47,7 @@ public sealed class IsAtLocation :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -63,5 +66,8 @@ public sealed class IsAtLocation :  ai.Decorator
         + "InverseCondition:" + InverseCondition + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

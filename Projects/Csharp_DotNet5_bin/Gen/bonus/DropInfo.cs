@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class DropInfo :  Bright.Config.BeanBase 
+public sealed partial class DropInfo :  Bright.Config.BeanBase 
 {
     public DropInfo(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(n);for(var i = 0 ; i < n ; i++) { bonus.ShowItemInfo _e;  _e = bonus.ShowItemInfo.DeserializeShowItemInfo(_buf); ClientShowItems.Add(_e);}}
         Bonus = bonus.Bonus.DeserializeBonus(_buf);
+        PostInit();
     }
 
     public static DropInfo DeserializeDropInfo(ByteBuf _buf)
@@ -40,6 +41,7 @@ public sealed class DropInfo :  Bright.Config.BeanBase
     {
         foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
         Bonus?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -57,6 +59,9 @@ public sealed class DropInfo :  Bright.Config.BeanBase
         + "Bonus:" + Bonus + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

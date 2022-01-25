@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract class Task :  ai.FlowNode 
+public abstract partial class Task :  ai.FlowNode 
 {
     public Task(JsonElement _json)  : base(_json) 
     {
         IgnoreRestartSelf = _json.GetProperty("ignore_restart_self").GetBoolean();
+        PostInit();
     }
 
     public Task(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self )  : base(id,node_name,decorators,services) 
     {
         this.IgnoreRestartSelf = ignore_restart_self;
+        PostInit();
     }
 
     public static Task DeserializeTask(JsonElement _json)
@@ -47,6 +49,7 @@ public abstract class Task :  ai.FlowNode
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -64,5 +67,8 @@ public abstract class Task :  ai.FlowNode
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public abstract class DemoDynamic :  Bright.Config.BeanBase 
+public abstract partial class DemoDynamic :  Bright.Config.BeanBase 
 {
     public DemoDynamic(JSONNode _json) 
     {
         { if(!_json["x1"].IsNumber) { throw new SerializationException(); }  X1 = _json["x1"]; }
+        PostInit();
     }
 
     public DemoDynamic(int x1 ) 
     {
         this.X1 = x1;
+        PostInit();
     }
 
     public static DemoDynamic DeserializeDemoDynamic(JSONNode _json)
@@ -43,6 +45,7 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public abstract class DemoDynamic :  Bright.Config.BeanBase
         + "X1:" + X1 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

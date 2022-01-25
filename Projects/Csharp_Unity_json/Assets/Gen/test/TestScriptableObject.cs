@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestScriptableObject :  Bright.Config.BeanBase 
+public sealed partial class TestScriptableObject :  Bright.Config.BeanBase 
 {
     public TestScriptableObject(JSONNode _json) 
     {
@@ -25,6 +25,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
         { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new System.Numerics.Vector3(__x, __y,__z); }
         { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        PostInit();
     }
 
     public TestScriptableObject(int id, string desc, float rate, int num, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4 ) 
@@ -36,6 +37,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         this.V2 = v2;
         this.V3 = v3;
         this.V4 = v4;
+        PostInit();
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JSONNode _json)
@@ -56,6 +58,7 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -74,5 +77,8 @@ public sealed class TestScriptableObject :  Bright.Config.BeanBase
         + "V4:" + V4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

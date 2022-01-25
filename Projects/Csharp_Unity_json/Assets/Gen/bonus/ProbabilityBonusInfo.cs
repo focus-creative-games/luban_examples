@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase 
+public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase 
 {
     public ProbabilityBonusInfo(JSONNode _json) 
     {
         { if(!_json["bonus"].IsObject) { throw new SerializationException(); }  Bonus = bonus.Bonus.DeserializeBonus(_json["bonus"]); }
         { if(!_json["probability"].IsNumber) { throw new SerializationException(); }  Probability = _json["probability"]; }
+        PostInit();
     }
 
     public ProbabilityBonusInfo(bonus.Bonus bonus, float probability ) 
     {
         this.Bonus = bonus;
         this.Probability = probability;
+        PostInit();
     }
 
     public static ProbabilityBonusInfo DeserializeProbabilityBonusInfo(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Bonus?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ProbabilityBonusInfo :  Bright.Config.BeanBase
         + "Probability:" + Probability + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

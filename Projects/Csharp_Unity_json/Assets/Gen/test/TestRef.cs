@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TestRef :  Bright.Config.BeanBase 
+public sealed partial class TestRef :  Bright.Config.BeanBase 
 {
     public TestRef(JSONNode _json) 
     {
@@ -37,6 +37,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         { if(!_json["f1"].IsNumber) { throw new SerializationException(); }  F1 = _json["f1"]; }
         { if(!_json["f2"].IsNumber) { throw new SerializationException(); }  F2 = _json["f2"]; }
         { if(!_json["f3"].IsString) { throw new SerializationException(); }  F3 = _json["f3"]; }
+        PostInit();
     }
 
     public TestRef(int id, int x1, int x1_2, int x2, int x3, int[] a1, int[] a2, System.Collections.Generic.List<int> b1, System.Collections.Generic.List<int> b2, System.Collections.Generic.HashSet<int> c1, System.Collections.Generic.HashSet<int> c2, System.Collections.Generic.Dictionary<int, int> d1, System.Collections.Generic.Dictionary<int, int> d2, int e1, long e2, string e3, int f1, long f2, string f3 ) 
@@ -60,6 +61,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
         this.F1 = f1;
         this.F2 = f2;
         this.F3 = f3;
+        PostInit();
     }
 
     public static TestRef DeserializeTestRef(JSONNode _json)
@@ -94,6 +96,7 @@ public sealed class TestRef :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.X1_Ref = (_tables["test.TbTestBeRef"] as test.TbTestBeRef).GetOrDefault(X1);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -124,5 +127,8 @@ public sealed class TestRef :  Bright.Config.BeanBase
         + "F3:" + F3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

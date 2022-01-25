@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed class Field :  Bright.Config.BeanBase 
+public sealed partial class Field :  Bright.Config.BeanBase 
 {
     public Field(JSONNode _json) 
     {
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type"].IsString) { throw new SerializationException(); }  Type = _json["type"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        PostInit();
     }
 
     public Field(string name, string type, string desc ) 
@@ -28,6 +29,7 @@ public sealed class Field :  Bright.Config.BeanBase
         this.Name = name;
         this.Type = type;
         this.Desc = desc;
+        PostInit();
     }
 
     public static Field DeserializeField(JSONNode _json)
@@ -44,6 +46,7 @@ public sealed class Field :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class Field :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

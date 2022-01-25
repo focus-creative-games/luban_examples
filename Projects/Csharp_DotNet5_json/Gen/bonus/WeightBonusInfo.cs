@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class WeightBonusInfo :  Bright.Config.BeanBase 
+public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase 
 {
     public WeightBonusInfo(JsonElement _json) 
     {
         Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
         Weight = _json.GetProperty("weight").GetInt32();
+        PostInit();
     }
 
     public WeightBonusInfo(bonus.Bonus bonus, int weight ) 
     {
         this.Bonus = bonus;
         this.Weight = weight;
+        PostInit();
     }
 
     public static WeightBonusInfo DeserializeWeightBonusInfo(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class WeightBonusInfo :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Bonus?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class WeightBonusInfo :  Bright.Config.BeanBase
         + "Weight:" + Weight + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

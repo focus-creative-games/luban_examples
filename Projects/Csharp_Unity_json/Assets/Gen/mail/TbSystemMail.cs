@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.mail
 {
 
-public sealed class TbSystemMail
+public sealed partial class TbSystemMail
 {
     private readonly Dictionary<int, mail.SystemMail> _dataMap;
     private readonly List<mail.SystemMail> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbSystemMail
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, mail.SystemMail> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbSystemMail
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbSystemMail
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

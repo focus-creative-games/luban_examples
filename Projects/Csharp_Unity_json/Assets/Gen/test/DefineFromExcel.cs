@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DefineFromExcel :  Bright.Config.BeanBase 
+public sealed partial class DefineFromExcel :  Bright.Config.BeanBase 
 {
     public DefineFromExcel(JSONNode _json) 
     {
@@ -31,6 +31,7 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
         { var _json1 = _json["k1"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; K1 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  K1[_index++] = __v; }   }
         { var _json1 = _json["k8"]; if(!_json1.IsArray) { throw new SerializationException(); } K8 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  K8.Add(__k, __v); }   }
         { var _json1 = _json["k9"]; if(!_json1.IsArray) { throw new SerializationException(); } K9 = new System.Collections.Generic.List<test.DemoE2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.DemoE2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.DemoE2.DeserializeDemoE2(__e); }  K9.Add(__v); }   }
+        PostInit();
     }
 
     public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
@@ -48,6 +49,7 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
         this.K1 = k1;
         this.K8 = k8;
         this.K9 = k9;
+        PostInit();
     }
 
     public static DefineFromExcel DeserializeDefineFromExcel(JSONNode _json)
@@ -83,6 +85,7 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
     {
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -109,5 +112,8 @@ public sealed class DefineFromExcel :  Bright.Config.BeanBase
         + "K9:" + Bright.Common.StringUtil.CollectionToString(K9) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

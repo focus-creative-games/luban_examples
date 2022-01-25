@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class Color :  Bright.Config.BeanBase 
+public sealed partial class Color :  Bright.Config.BeanBase 
 {
     public Color(JSONNode _json) 
     {
@@ -22,6 +22,7 @@ public sealed class Color :  Bright.Config.BeanBase
         { if(!_json["g"].IsNumber) { throw new SerializationException(); }  G = _json["g"]; }
         { if(!_json["b"].IsNumber) { throw new SerializationException(); }  B = _json["b"]; }
         { if(!_json["a"].IsNumber) { throw new SerializationException(); }  A = _json["a"]; }
+        PostInit();
     }
 
     public Color(float r, float g, float b, float a ) 
@@ -30,6 +31,7 @@ public sealed class Color :  Bright.Config.BeanBase
         this.G = g;
         this.B = b;
         this.A = a;
+        PostInit();
     }
 
     public static Color DeserializeColor(JSONNode _json)
@@ -47,6 +49,7 @@ public sealed class Color :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class Color :  Bright.Config.BeanBase
         + "A:" + A + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

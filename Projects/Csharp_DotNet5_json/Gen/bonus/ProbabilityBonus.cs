@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityBonus :  bonus.Bonus 
+public sealed partial class ProbabilityBonus :  bonus.Bonus 
 {
     public ProbabilityBonus(JsonElement _json)  : base(_json) 
     {
         { var _json0 = _json.GetProperty("bonuses"); int _n = _json0.GetArrayLength(); Bonuses = new bonus.ProbabilityBonusInfo[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.ProbabilityBonusInfo __v;  __v =  bonus.ProbabilityBonusInfo.DeserializeProbabilityBonusInfo(__e);  Bonuses[_index++] = __v; }   }
+        PostInit();
     }
 
     public ProbabilityBonus(bonus.ProbabilityBonusInfo[] bonuses )  : base() 
     {
         this.Bonuses = bonuses;
+        PostInit();
     }
 
     public static ProbabilityBonus DeserializeProbabilityBonus(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class ProbabilityBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class ProbabilityBonus :  bonus.Bonus
         + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

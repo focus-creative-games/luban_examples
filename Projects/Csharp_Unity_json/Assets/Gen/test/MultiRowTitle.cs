@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class MultiRowTitle :  Bright.Config.BeanBase 
+public sealed partial class MultiRowTitle :  Bright.Config.BeanBase 
 {
     public MultiRowTitle(JSONNode _json) 
     {
@@ -25,6 +25,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         { var _json1 = _json["x2"]; if(!_json1.IsArray) { throw new SerializationException(); } X2 = new System.Collections.Generic.List<test.H2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.H2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.H2.DeserializeH2(__e); }  X2.Add(__v); }   }
         { var _json1 = _json["x3"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; X3 = new test.H2[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { test.H2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.H2.DeserializeH2(__e); }  X3[_index++] = __v; }   }
         { var _json1 = _json["x4"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; X4 = new test.H2[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { test.H2 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.H2.DeserializeH2(__e); }  X4[_index++] = __v; }   }
+        PostInit();
     }
 
     public MultiRowTitle(int id, string name, test.H1 x1, test.H2 x2_0, System.Collections.Generic.List<test.H2> x2, test.H2[] x3, test.H2[] x4 ) 
@@ -36,6 +37,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         this.X2 = x2;
         this.X3 = x3;
         this.X4 = x4;
+        PostInit();
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(JSONNode _json)
@@ -61,6 +63,7 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
         foreach(var _e in X4) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -84,5 +87,8 @@ public sealed class MultiRowTitle :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

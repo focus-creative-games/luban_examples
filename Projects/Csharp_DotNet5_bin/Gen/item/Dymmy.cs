@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class Dymmy :  item.ItemExtra 
+public sealed partial class Dymmy :  item.ItemExtra 
 {
     public Dymmy(ByteBuf _buf)  : base(_buf) 
     {
         Cost = cost.Cost.DeserializeCost(_buf);
+        PostInit();
     }
 
     public static Dymmy DeserializeDymmy(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class Dymmy :  item.ItemExtra
     {
         base.Resolve(_tables);
         Cost?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class Dymmy :  item.ItemExtra
         + "Cost:" + Cost + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.cost
 {
 
-public sealed class CostCurrencies :  cost.Cost 
+public sealed partial class CostCurrencies :  cost.Cost 
 {
     public CostCurrencies(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["currencies"]; if(!_json1.IsArray) { throw new SerializationException(); } Currencies = new System.Collections.Generic.List<cost.CostCurrency>(_json1.Count); foreach(JSONNode __e in _json1.Children) { cost.CostCurrency __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = cost.CostCurrency.DeserializeCostCurrency(__e); }  Currencies.Add(__v); }   }
+        PostInit();
     }
 
     public CostCurrencies(System.Collections.Generic.List<cost.CostCurrency> currencies )  : base() 
     {
         this.Currencies = currencies;
+        PostInit();
     }
 
     public static CostCurrencies DeserializeCostCurrencies(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class CostCurrencies :  cost.Cost
     {
         base.Resolve(_tables);
         foreach(var _e in Currencies) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class CostCurrencies :  cost.Cost
         + "Currencies:" + Bright.Common.StringUtil.CollectionToString(Currencies) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

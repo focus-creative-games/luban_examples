@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.item
 {
 
-public sealed class InteractionItem :  item.ItemExtra 
+public sealed partial class InteractionItem :  item.ItemExtra 
 {
     public InteractionItem(JsonElement _json)  : base(_json) 
     {
         { if (_json.TryGetProperty("attack_num", out var _j) && _j.ValueKind != JsonValueKind.Null) { AttackNum = _j.GetInt32(); } else { AttackNum = null; } }
         HoldingStaticMesh = _json.GetProperty("holding_static_mesh").GetString();
         HoldingStaticMeshMat = _json.GetProperty("holding_static_mesh_mat").GetString();
+        PostInit();
     }
 
     public InteractionItem(int id, int? attack_num, string holding_static_mesh, string holding_static_mesh_mat )  : base(id) 
@@ -28,6 +29,7 @@ public sealed class InteractionItem :  item.ItemExtra
         this.AttackNum = attack_num;
         this.HoldingStaticMesh = holding_static_mesh;
         this.HoldingStaticMeshMat = holding_static_mesh_mat;
+        PostInit();
     }
 
     public static InteractionItem DeserializeInteractionItem(JsonElement _json)
@@ -45,6 +47,7 @@ public sealed class InteractionItem :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -61,5 +64,8 @@ public sealed class InteractionItem :  item.ItemExtra
         + "HoldingStaticMeshMat:" + HoldingStaticMeshMat + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

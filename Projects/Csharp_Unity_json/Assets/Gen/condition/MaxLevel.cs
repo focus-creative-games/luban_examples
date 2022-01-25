@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class MaxLevel :  condition.BoolRoleCondition 
+public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
     public MaxLevel(JSONNode _json)  : base(_json) 
     {
         { if(!_json["level"].IsNumber) { throw new SerializationException(); }  Level = _json["level"]; }
+        PostInit();
     }
 
     public MaxLevel(int level )  : base() 
     {
         this.Level = level;
+        PostInit();
     }
 
     public static MaxLevel DeserializeMaxLevel(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
         + "Level:" + Level + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

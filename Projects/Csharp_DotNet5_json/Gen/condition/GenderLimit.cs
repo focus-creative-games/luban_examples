@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed class GenderLimit :  condition.BoolRoleCondition 
+public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(JsonElement _json)  : base(_json) 
     {
         Gender = (role.EGenderType)_json.GetProperty("gender").GetInt32();
+        PostInit();
     }
 
     public GenderLimit(role.EGenderType gender )  : base() 
     {
         this.Gender = gender;
+        PostInit();
     }
 
     public static GenderLimit DeserializeGenderLimit(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
         + "Gender:" + Gender + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

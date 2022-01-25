@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class TestMultiColumn :  Bright.Config.BeanBase 
+public sealed partial class TestMultiColumn :  Bright.Config.BeanBase 
 {
     public TestMultiColumn(JsonElement _json) 
     {
@@ -22,6 +22,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         A =  test.Foo.DeserializeFoo(_json.GetProperty("a"));
         B =  test.Foo.DeserializeFoo(_json.GetProperty("b"));
         C =  test.Foo.DeserializeFoo(_json.GetProperty("c"));
+        PostInit();
     }
 
     public TestMultiColumn(int id, test.Foo a, test.Foo b, test.Foo c ) 
@@ -30,6 +31,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         this.A = a;
         this.B = b;
         this.C = c;
+        PostInit();
     }
 
     public static TestMultiColumn DeserializeTestMultiColumn(JsonElement _json)
@@ -50,6 +52,7 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         A?.Resolve(_tables);
         B?.Resolve(_tables);
         C?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,5 +71,8 @@ public sealed class TestMultiColumn :  Bright.Config.BeanBase
         + "C:" + C + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

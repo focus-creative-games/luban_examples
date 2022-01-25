@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.cost
 {
 
-public sealed class CostItem :  cost.Cost 
+public sealed partial class CostItem :  cost.Cost 
 {
     public CostItem(JsonElement _json)  : base(_json) 
     {
         ItemId = _json.GetProperty("item_id").GetInt32();
         Amount = _json.GetProperty("amount").GetInt32();
+        PostInit();
     }
 
     public CostItem(int item_id, int amount )  : base() 
     {
         this.ItemId = item_id;
         this.Amount = amount;
+        PostInit();
     }
 
     public static CostItem DeserializeCostItem(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class CostItem :  cost.Cost
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class CostItem :  cost.Cost
         + "Amount:" + Amount + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

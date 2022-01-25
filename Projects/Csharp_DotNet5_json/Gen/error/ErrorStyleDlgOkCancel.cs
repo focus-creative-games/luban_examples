@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleDlgOkCancel :  error.ErrorStyle 
+public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle 
 {
     public ErrorStyleDlgOkCancel(JsonElement _json)  : base(_json) 
     {
         Btn1Name = _json.GetProperty("btn1_name").GetString();
         Btn2Name = _json.GetProperty("btn2_name").GetString();
+        PostInit();
     }
 
     public ErrorStyleDlgOkCancel(string btn1_name, string btn2_name )  : base() 
     {
         this.Btn1Name = btn1_name;
         this.Btn2Name = btn2_name;
+        PostInit();
     }
 
     public static ErrorStyleDlgOkCancel DeserializeErrorStyleDlgOkCancel(JsonElement _json)
@@ -42,6 +44,7 @@ public sealed class ErrorStyleDlgOkCancel :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class ErrorStyleDlgOkCancel :  error.ErrorStyle
         + "Btn2Name:" + Btn2Name + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

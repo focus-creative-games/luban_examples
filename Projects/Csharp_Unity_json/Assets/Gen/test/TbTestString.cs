@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbTestString
+public sealed partial class TbTestString
 {
     private readonly Dictionary<int, test.TestString> _dataMap;
     private readonly List<test.TestString> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbTestString
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.TestString> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbTestString
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbTestString
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

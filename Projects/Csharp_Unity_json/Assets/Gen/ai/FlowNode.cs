@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract class FlowNode :  ai.Node 
+public abstract partial class FlowNode :  ai.Node 
 {
     public FlowNode(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["decorators"]; if(!_json1.IsArray) { throw new SerializationException(); } Decorators = new System.Collections.Generic.List<ai.Decorator>(_json1.Count); foreach(JSONNode __e in _json1.Children) { ai.Decorator __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Decorator.DeserializeDecorator(__e); }  Decorators.Add(__v); }   }
         { var _json1 = _json["services"]; if(!_json1.IsArray) { throw new SerializationException(); } Services = new System.Collections.Generic.List<ai.Service>(_json1.Count); foreach(JSONNode __e in _json1.Children) { ai.Service __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Service.DeserializeService(__e); }  Services.Add(__v); }   }
+        PostInit();
     }
 
     public FlowNode(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services )  : base(id,node_name) 
     {
         this.Decorators = decorators;
         this.Services = services;
+        PostInit();
     }
 
     public static FlowNode DeserializeFlowNode(JSONNode _json)
@@ -56,6 +58,7 @@ public abstract class FlowNode :  ai.Node
         base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -74,5 +77,8 @@ public abstract class FlowNode :  ai.Node
         + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

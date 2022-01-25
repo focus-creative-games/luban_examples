@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class UeBlackboard :  ai.Decorator 
+public sealed partial class UeBlackboard :  ai.Decorator 
 {
     public UeBlackboard(JsonElement _json)  : base(_json) 
     {
         NotifyObserver = (ai.ENotifyObserverMode)_json.GetProperty("notify_observer").GetInt32();
         BlackboardKey = _json.GetProperty("blackboard_key").GetString();
         KeyQuery =  ai.KeyQueryOperator.DeserializeKeyQueryOperator(_json.GetProperty("key_query"));
+        PostInit();
     }
 
     public UeBlackboard(int id, string node_name, ai.EFlowAbortMode flow_abort_mode, ai.ENotifyObserverMode notify_observer, string blackboard_key, ai.KeyQueryOperator key_query )  : base(id,node_name,flow_abort_mode) 
@@ -28,6 +29,7 @@ public sealed class UeBlackboard :  ai.Decorator
         this.NotifyObserver = notify_observer;
         this.BlackboardKey = blackboard_key;
         this.KeyQuery = key_query;
+        PostInit();
     }
 
     public static UeBlackboard DeserializeUeBlackboard(JsonElement _json)
@@ -46,6 +48,7 @@ public sealed class UeBlackboard :  ai.Decorator
     {
         base.Resolve(_tables);
         KeyQuery?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -65,5 +68,8 @@ public sealed class UeBlackboard :  ai.Decorator
         + "KeyQuery:" + KeyQuery + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

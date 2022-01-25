@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class DemoD5 :  test.DemoDynamic 
+public sealed partial class DemoD5 :  test.DemoDynamic 
 {
     public DemoD5(JSONNode _json)  : base(_json) 
     {
         { if(!_json["time"].IsObject) { throw new SerializationException(); }  Time = test.DateTimeRange.DeserializeDateTimeRange(_json["time"]); }
+        PostInit();
     }
 
     public DemoD5(int x1, test.DateTimeRange time )  : base(x1) 
     {
         this.Time = time;
+        PostInit();
     }
 
     public static DemoD5 DeserializeDemoD5(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class DemoD5 :  test.DemoDynamic
     {
         base.Resolve(_tables);
         Time?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class DemoD5 :  test.DemoDynamic
         + "Time:" + Time + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

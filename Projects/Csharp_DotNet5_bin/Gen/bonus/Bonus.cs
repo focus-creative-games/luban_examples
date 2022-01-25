@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public abstract class Bonus :  Bright.Config.BeanBase 
+public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(ByteBuf _buf) 
     {
+        PostInit();
     }
 
     public static Bonus DeserializeBonus(ByteBuf _buf)
@@ -42,6 +43,7 @@ public abstract class Bonus :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -53,6 +55,9 @@ public abstract class Bonus :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

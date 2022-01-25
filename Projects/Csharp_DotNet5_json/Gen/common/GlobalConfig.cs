@@ -14,7 +14,7 @@ using System.Text.Json;
 namespace cfg.common
 {
 
-public sealed class GlobalConfig :  Bright.Config.BeanBase 
+public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(JsonElement _json) 
     {
@@ -39,6 +39,7 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
         InitViality = _json.GetProperty("init_viality").GetInt32();
         MaxViality = _json.GetProperty("max_viality").GetInt32();
         PerVialityRecoveryTime = _json.GetProperty("per_viality_recovery_time").GetInt32();
+        PostInit();
     }
 
     public GlobalConfig(int bag_capacity, int bag_capacity_special, int bag_temp_expendable_capacity, int bag_temp_tool_capacity, int bag_init_capacity, int quick_bag_capacity, int cloth_bag_capacity, int cloth_bag_init_capacity, int cloth_bag_capacity_special, int? bag_init_items_drop_id, int mail_box_capacity, float damage_param_c, float damage_param_e, float damage_param_f, float damage_param_d, float role_speed, float monster_speed, int init_energy, int init_viality, int max_viality, int per_viality_recovery_time ) 
@@ -64,6 +65,7 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
         this.InitViality = init_viality;
         this.MaxViality = max_viality;
         this.PerVialityRecoveryTime = per_viality_recovery_time;
+        PostInit();
     }
 
     public static GlobalConfig DeserializeGlobalConfig(JsonElement _json)
@@ -103,6 +105,7 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -135,5 +138,8 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
         + "PerVialityRecoveryTime:" + PerVialityRecoveryTime + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.role
 {
 
-public sealed class BonusInfo :  Bright.Config.BeanBase 
+public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(JSONNode _json) 
     {
         { if(!_json["type"].IsNumber) { throw new SerializationException(); }  Type = (item.ECurrencyType)_json["type"].AsInt; }
         { if(!_json["coefficient"].IsNumber) { throw new SerializationException(); }  Coefficient = _json["coefficient"]; }
+        PostInit();
     }
 
     public BonusInfo(item.ECurrencyType type, float coefficient ) 
     {
         this.Type = type;
         this.Coefficient = coefficient;
+        PostInit();
     }
 
     public static BonusInfo DeserializeBonusInfo(JSONNode _json)
@@ -41,6 +43,7 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
         + "Coefficient:" + Coefficient + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

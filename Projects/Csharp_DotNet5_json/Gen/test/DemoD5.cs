@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DemoD5 :  test.DemoDynamic 
+public sealed partial class DemoD5 :  test.DemoDynamic 
 {
     public DemoD5(JsonElement _json)  : base(_json) 
     {
         Time =  test.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("time"));
+        PostInit();
     }
 
     public DemoD5(int x1, test.DateTimeRange time )  : base(x1) 
     {
         this.Time = time;
+        PostInit();
     }
 
     public static DemoD5 DeserializeDemoD5(JsonElement _json)
@@ -40,6 +42,7 @@ public sealed class DemoD5 :  test.DemoDynamic
     {
         base.Resolve(_tables);
         Time?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,5 +58,8 @@ public sealed class DemoD5 :  test.DemoDynamic
         + "Time:" + Time + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

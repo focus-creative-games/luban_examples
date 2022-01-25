@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DateTimeRange :  Bright.Config.BeanBase 
+public sealed partial class DateTimeRange :  Bright.Config.BeanBase 
 {
     public DateTimeRange(JsonElement _json) 
     {
         StartTime = _json.GetProperty("start_time").GetInt32();
         EndTime = _json.GetProperty("end_time").GetInt32();
+        PostInit();
     }
 
     public DateTimeRange(int start_time, int end_time ) 
     {
         this.StartTime = start_time;
         this.EndTime = end_time;
+        PostInit();
     }
 
     public static DateTimeRange DeserializeDateTimeRange(JsonElement _json)
@@ -43,6 +45,7 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class DateTimeRange :  Bright.Config.BeanBase
         + "EndTime:" + EndTime + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

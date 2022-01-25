@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.l10n
 {
 
-public sealed class PatchDemo :  Bright.Config.BeanBase 
+public sealed partial class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         Value = _json.GetProperty("value").GetInt32();
+        PostInit();
     }
 
     public PatchDemo(int id, int value ) 
     {
         this.Id = id;
         this.Value = value;
+        PostInit();
     }
 
     public static PatchDemo DeserializePatchDemo(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class TbCompositeJsonTable1
+public sealed partial class TbCompositeJsonTable1
 {
     private readonly Dictionary<int, test.CompositeJsonTable1> _dataMap;
     private readonly List<test.CompositeJsonTable1> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbCompositeJsonTable1
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.CompositeJsonTable1> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbCompositeJsonTable1
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbCompositeJsonTable1
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

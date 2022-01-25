@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class Sequence :  ai.ComposeNode 
+public sealed partial class Sequence :  ai.ComposeNode 
 {
     public Sequence(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["children"]; if(!_json1.IsArray) { throw new SerializationException(); } Children = new System.Collections.Generic.List<ai.FlowNode>(_json1.Count); foreach(JSONNode __e in _json1.Children) { ai.FlowNode __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.FlowNode.DeserializeFlowNode(__e); }  Children.Add(__v); }   }
+        PostInit();
     }
 
     public Sequence(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, System.Collections.Generic.List<ai.FlowNode> children )  : base(id,node_name,decorators,services) 
     {
         this.Children = children;
+        PostInit();
     }
 
     public static Sequence DeserializeSequence(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class Sequence :  ai.ComposeNode
     {
         base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class Sequence :  ai.ComposeNode
         + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

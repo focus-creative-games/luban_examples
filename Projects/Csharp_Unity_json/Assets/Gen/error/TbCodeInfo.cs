@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.error
 {
 
-public sealed class TbCodeInfo
+public sealed partial class TbCodeInfo
 {
     private readonly Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;
     private readonly List<error.CodeInfo> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbCodeInfo
             _dataList.Add(_v);
             _dataMap.Add(_v.Code, _v);
         }
+        PostInit();
     }
 
     public Dictionary<error.EErrorCode, error.CodeInfo> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbCodeInfo
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbCodeInfo
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

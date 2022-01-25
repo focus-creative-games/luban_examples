@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class BehaviorTree :  Bright.Config.BeanBase 
+public sealed partial class BehaviorTree :  Bright.Config.BeanBase 
 {
     public BehaviorTree(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["blackboard_id"].IsString) { throw new SerializationException(); }  BlackboardId = _json["blackboard_id"]; }
         { if(!_json["root"].IsObject) { throw new SerializationException(); }  Root = ai.ComposeNode.DeserializeComposeNode(_json["root"]); }
+        PostInit();
     }
 
     public BehaviorTree(int id, string name, string desc, string blackboard_id, ai.ComposeNode root ) 
@@ -32,6 +33,7 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
         this.Desc = desc;
         this.BlackboardId = blackboard_id;
         this.Root = root;
+        PostInit();
     }
 
     public static BehaviorTree DeserializeBehaviorTree(JSONNode _json)
@@ -53,6 +55,7 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
     {
         this.BlackboardId_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(BlackboardId);
         Root?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -70,5 +73,8 @@ public sealed class BehaviorTree :  Bright.Config.BeanBase
         + "Root:" + Root + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed class BonusInfo :  Bright.Config.BeanBase 
+public sealed partial class BonusInfo :  Bright.Config.BeanBase 
 {
     public BonusInfo(ByteBuf _buf) 
     {
         Type = (item.ECurrencyType)_buf.ReadInt();
         Coefficient = _buf.ReadFloat();
+        PostInit();
     }
 
     public static BonusInfo DeserializeBonusInfo(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class BonusInfo :  Bright.Config.BeanBase
         + "Coefficient:" + Coefficient + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

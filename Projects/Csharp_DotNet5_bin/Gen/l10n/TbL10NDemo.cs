@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.l10n
 {
    
-public sealed class TbL10NDemo
+public partial class TbL10NDemo
 {
     private readonly Dictionary<int, l10n.L10NDemo> _dataMap;
     private readonly List<l10n.L10NDemo> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbL10NDemo
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, l10n.L10NDemo> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbL10NDemo
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbL10NDemo
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

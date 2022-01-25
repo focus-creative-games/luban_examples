@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.condition
 {
 
-public sealed class MinMaxLevel :  condition.BoolRoleCondition 
+public sealed partial class MinMaxLevel :  condition.BoolRoleCondition 
 {
     public MinMaxLevel(JSONNode _json)  : base(_json) 
     {
         { if(!_json["min"].IsNumber) { throw new SerializationException(); }  Min = _json["min"]; }
         { if(!_json["max"].IsNumber) { throw new SerializationException(); }  Max = _json["max"]; }
+        PostInit();
     }
 
     public MinMaxLevel(int min, int max )  : base() 
     {
         this.Min = min;
         this.Max = max;
+        PostInit();
     }
 
     public static MinMaxLevel DeserializeMinMaxLevel(JSONNode _json)
@@ -42,6 +44,7 @@ public sealed class MinMaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,5 +59,8 @@ public sealed class MinMaxLevel :  condition.BoolRoleCondition
         + "Max:" + Max + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

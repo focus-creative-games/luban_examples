@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.condition
 {
 
-public sealed class MinLevel :  condition.BoolRoleCondition 
+public sealed partial class MinLevel :  condition.BoolRoleCondition 
 {
     public MinLevel(JsonElement _json)  : base(_json) 
     {
         Level = _json.GetProperty("level").GetInt32();
+        PostInit();
     }
 
     public MinLevel(int level )  : base() 
     {
         this.Level = level;
+        PostInit();
     }
 
     public static MinLevel DeserializeMinLevel(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class MinLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,5 +55,8 @@ public sealed class MinLevel :  condition.BoolRoleCondition
         + "Level:" + Level + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class ChooseSkill :  ai.Task 
+public sealed partial class ChooseSkill :  ai.Task 
 {
     public ChooseSkill(ByteBuf _buf)  : base(_buf) 
     {
         TargetActorKey = _buf.ReadString();
         ResultSkillIdKey = _buf.ReadString();
+        PostInit();
     }
 
     public static ChooseSkill DeserializeChooseSkill(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class ChooseSkill :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,6 +56,9 @@ public sealed class ChooseSkill :  ai.Task
         + "ResultSkillIdKey:" + ResultSkillIdKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

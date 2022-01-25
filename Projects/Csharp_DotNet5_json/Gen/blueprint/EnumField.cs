@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.blueprint
 {
 
-public sealed class EnumField :  Bright.Config.BeanBase 
+public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(JsonElement _json) 
     {
         Name = _json.GetProperty("name").GetString();
         Value = _json.GetProperty("value").GetInt32();
+        PostInit();
     }
 
     public EnumField(string name, int value ) 
     {
         this.Name = name;
         this.Value = value;
+        PostInit();
     }
 
     public static EnumField DeserializeEnumField(JsonElement _json)
@@ -41,6 +43,7 @@ public sealed class EnumField :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class EnumField :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

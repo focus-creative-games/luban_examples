@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.l10n
 {
 
-public sealed class L10NDemo :  Bright.Config.BeanBase 
+public sealed partial class L10NDemo :  Bright.Config.BeanBase 
 {
     public L10NDemo(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Text_l10n_key = _buf.ReadString(); Text = _buf.ReadString();
+        PostInit();
     }
 
     public static L10NDemo DeserializeL10NDemo(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class L10NDemo :  Bright.Config.BeanBase
         + "Text:" + Text + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public abstract class Decorator :  ai.Node 
+public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(JsonElement _json)  : base(_json) 
     {
         FlowAbortMode = (ai.EFlowAbortMode)_json.GetProperty("flow_abort_mode").GetInt32();
+        PostInit();
     }
 
     public Decorator(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name) 
     {
         this.FlowAbortMode = flow_abort_mode;
+        PostInit();
     }
 
     public static Decorator DeserializeDecorator(JsonElement _json)
@@ -47,6 +49,7 @@ public abstract class Decorator :  ai.Node
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public abstract class Decorator :  ai.Node
         + "FlowAbortMode:" + FlowAbortMode + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityItems :  bonus.Bonus 
+public sealed partial class ProbabilityItems :  bonus.Bonus 
 {
     public ProbabilityItems(JSONNode _json)  : base(_json) 
     {
         { var _json1 = _json["item_list"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; ItemList = new bonus.ProbabilityItemInfo[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { bonus.ProbabilityItemInfo __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = bonus.ProbabilityItemInfo.DeserializeProbabilityItemInfo(__e); }  ItemList[_index++] = __v; }   }
+        PostInit();
     }
 
     public ProbabilityItems(bonus.ProbabilityItemInfo[] item_list )  : base() 
     {
         this.ItemList = item_list;
+        PostInit();
     }
 
     public static ProbabilityItems DeserializeProbabilityItems(JSONNode _json)
@@ -40,6 +42,7 @@ public sealed class ProbabilityItems :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class ProbabilityItems :  bonus.Bonus
         + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class SepVector :  Bright.Config.BeanBase 
+public sealed partial class SepVector :  Bright.Config.BeanBase 
 {
     public SepVector(JsonElement _json) 
     {
         X = _json.GetProperty("x").GetInt32();
         Y = _json.GetProperty("y").GetInt32();
         Z = _json.GetProperty("z").GetInt32();
+        PostInit();
     }
 
     public SepVector(int x, int y, int z ) 
@@ -28,6 +29,7 @@ public sealed class SepVector :  Bright.Config.BeanBase
         this.X = x;
         this.Y = y;
         this.Z = z;
+        PostInit();
     }
 
     public static SepVector DeserializeSepVector(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class SepVector :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class SepVector :  Bright.Config.BeanBase
         + "Z:" + Z + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

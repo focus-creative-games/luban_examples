@@ -14,18 +14,20 @@ using SimpleJSON;
 namespace cfg.blueprint
 {
 
-public sealed class NormalClazz :  blueprint.Clazz 
+public sealed partial class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(JSONNode _json)  : base(_json) 
     {
         { if(!_json["is_abstract"].IsBoolean) { throw new SerializationException(); }  IsAbstract = _json["is_abstract"]; }
         { var _json1 = _json["fields"]; if(!_json1.IsArray) { throw new SerializationException(); } Fields = new System.Collections.Generic.List<blueprint.Field>(_json1.Count); foreach(JSONNode __e in _json1.Children) { blueprint.Field __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.Field.DeserializeField(__e); }  Fields.Add(__v); }   }
+        PostInit();
     }
 
     public NormalClazz(string name, string desc, System.Collections.Generic.List<blueprint.Clazz> parents, System.Collections.Generic.List<blueprint.Method> methods, bool is_abstract, System.Collections.Generic.List<blueprint.Field> fields )  : base(name,desc,parents,methods) 
     {
         this.IsAbstract = is_abstract;
         this.Fields = fields;
+        PostInit();
     }
 
     public static NormalClazz DeserializeNormalClazz(JSONNode _json)
@@ -43,6 +45,7 @@ public sealed class NormalClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Fields) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -62,5 +65,8 @@ public sealed class NormalClazz :  blueprint.Clazz
         + "Fields:" + Bright.Common.StringUtil.CollectionToString(Fields) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

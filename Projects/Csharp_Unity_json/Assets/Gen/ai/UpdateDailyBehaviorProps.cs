@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UpdateDailyBehaviorProps :  ai.Service 
+public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
 {
     public UpdateDailyBehaviorProps(JSONNode _json)  : base(_json) 
     {
@@ -27,6 +27,7 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         { if(!_json["energy_upper_threshold_key"].IsString) { throw new SerializationException(); }  EnergyUpperThresholdKey = _json["energy_upper_threshold_key"]; }
         { if(!_json["mood_lower_threshold_key"].IsString) { throw new SerializationException(); }  MoodLowerThresholdKey = _json["mood_lower_threshold_key"]; }
         { if(!_json["mood_upper_threshold_key"].IsString) { throw new SerializationException(); }  MoodUpperThresholdKey = _json["mood_upper_threshold_key"]; }
+        PostInit();
     }
 
     public UpdateDailyBehaviorProps(int id, string node_name, string satiety_key, string energy_key, string mood_key, string satiety_lower_threshold_key, string satiety_upper_threshold_key, string energy_lower_threshold_key, string energy_upper_threshold_key, string mood_lower_threshold_key, string mood_upper_threshold_key )  : base(id,node_name) 
@@ -40,6 +41,7 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         this.EnergyUpperThresholdKey = energy_upper_threshold_key;
         this.MoodLowerThresholdKey = mood_lower_threshold_key;
         this.MoodUpperThresholdKey = mood_upper_threshold_key;
+        PostInit();
     }
 
     public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(JSONNode _json)
@@ -63,6 +65,7 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -86,5 +89,8 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         + "MoodUpperThresholdKey:" + MoodUpperThresholdKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

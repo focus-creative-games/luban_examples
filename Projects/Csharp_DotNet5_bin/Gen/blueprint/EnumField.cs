@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed class EnumField :  Bright.Config.BeanBase 
+public sealed partial class EnumField :  Bright.Config.BeanBase 
 {
     public EnumField(ByteBuf _buf) 
     {
         Name = _buf.ReadString();
         Value = _buf.ReadInt();
+        PostInit();
     }
 
     public static EnumField DeserializeEnumField(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class EnumField :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class EnumField :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class DemoE1 :  test.DemoD3 
+public sealed partial class DemoE1 :  test.DemoD3 
 {
     public DemoE1(JsonElement _json)  : base(_json) 
     {
         X4 = _json.GetProperty("x4").GetInt32();
+        PostInit();
     }
 
     public DemoE1(int x1, int x3, int x4 )  : base(x1,x3) 
     {
         this.X4 = x4;
+        PostInit();
     }
 
     public static DemoE1 DeserializeDemoE1(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class DemoE1 :  test.DemoD3
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class DemoE1 :  test.DemoD3
         + "X4:" + X4 + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

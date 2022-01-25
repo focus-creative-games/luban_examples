@@ -14,13 +14,14 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public abstract class ItemBase :  Bright.Config.BeanBase 
+public abstract partial class ItemBase :  Bright.Config.BeanBase 
 {
     public ItemBase(JSONNode _json) 
     {
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        PostInit();
     }
 
     public ItemBase(int id, string name, string desc ) 
@@ -28,6 +29,7 @@ public abstract class ItemBase :  Bright.Config.BeanBase
         this.Id = id;
         this.Name = name;
         this.Desc = desc;
+        PostInit();
     }
 
     public static ItemBase DeserializeItemBase(JSONNode _json)
@@ -49,6 +51,7 @@ public abstract class ItemBase :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -63,5 +66,8 @@ public abstract class ItemBase :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class TbBlackboard
+public sealed partial class TbBlackboard
 {
     private readonly Dictionary<string, ai.Blackboard> _dataMap;
     private readonly List<ai.Blackboard> _dataList;
@@ -30,6 +30,7 @@ public sealed class TbBlackboard
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
+        PostInit();
     }
 
     public Dictionary<string, ai.Blackboard> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbBlackboard
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class TbBlackboard
         }
     }
     
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public sealed class UeWaitBlackboardTime :  ai.Task 
+public sealed partial class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(JSONNode _json)  : base(_json) 
     {
         { if(!_json["blackboard_key"].IsString) { throw new SerializationException(); }  BlackboardKey = _json["blackboard_key"]; }
+        PostInit();
     }
 
     public UeWaitBlackboardTime(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, string blackboard_key )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.BlackboardKey = blackboard_key;
+        PostInit();
     }
 
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(JSONNode _json)
@@ -39,6 +41,7 @@ public sealed class UeWaitBlackboardTime :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -57,5 +60,8 @@ public sealed class UeWaitBlackboardTime :  ai.Task
         + "BlackboardKey:" + BlackboardKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

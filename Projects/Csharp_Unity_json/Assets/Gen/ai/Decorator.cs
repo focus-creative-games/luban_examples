@@ -14,16 +14,18 @@ using SimpleJSON;
 namespace cfg.ai
 {
 
-public abstract class Decorator :  ai.Node 
+public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(JSONNode _json)  : base(_json) 
     {
         { if(!_json["flow_abort_mode"].IsNumber) { throw new SerializationException(); }  FlowAbortMode = (ai.EFlowAbortMode)_json["flow_abort_mode"].AsInt; }
+        PostInit();
     }
 
     public Decorator(int id, string node_name, ai.EFlowAbortMode flow_abort_mode )  : base(id,node_name) 
     {
         this.FlowAbortMode = flow_abort_mode;
+        PostInit();
     }
 
     public static Decorator DeserializeDecorator(JSONNode _json)
@@ -48,6 +50,7 @@ public abstract class Decorator :  ai.Node
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -63,5 +66,8 @@ public abstract class Decorator :  ai.Node
         + "FlowAbortMode:" + FlowAbortMode + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,14 +14,16 @@ using System.Text.Json;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleTip :  error.ErrorStyle 
+public sealed partial class ErrorStyleTip :  error.ErrorStyle 
 {
     public ErrorStyleTip(JsonElement _json)  : base(_json) 
     {
+        PostInit();
     }
 
     public ErrorStyleTip()  : base() 
     {
+        PostInit();
     }
 
     public static ErrorStyleTip DeserializeErrorStyleTip(JsonElement _json)
@@ -36,6 +38,7 @@ public sealed class ErrorStyleTip :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,5 +51,8 @@ public sealed class ErrorStyleTip :  error.ErrorStyle
         return "{ "
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

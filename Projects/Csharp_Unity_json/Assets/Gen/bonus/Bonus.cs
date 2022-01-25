@@ -14,14 +14,16 @@ using SimpleJSON;
 namespace cfg.bonus
 {
 
-public abstract class Bonus :  Bright.Config.BeanBase 
+public abstract partial class Bonus :  Bright.Config.BeanBase 
 {
     public Bonus(JSONNode _json) 
     {
+        PostInit();
     }
 
     public Bonus() 
     {
+        PostInit();
     }
 
     public static Bonus DeserializeBonus(JSONNode _json)
@@ -48,6 +50,7 @@ public abstract class Bonus :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -59,5 +62,8 @@ public abstract class Bonus :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

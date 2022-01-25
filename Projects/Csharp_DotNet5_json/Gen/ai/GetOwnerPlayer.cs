@@ -14,16 +14,18 @@ using System.Text.Json;
 namespace cfg.ai
 {
 
-public sealed class GetOwnerPlayer :  ai.Service 
+public sealed partial class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(JsonElement _json)  : base(_json) 
     {
         PlayerActorKey = _json.GetProperty("player_actor_key").GetString();
+        PostInit();
     }
 
     public GetOwnerPlayer(int id, string node_name, string player_actor_key )  : base(id,node_name) 
     {
         this.PlayerActorKey = player_actor_key;
+        PostInit();
     }
 
     public static GetOwnerPlayer DeserializeGetOwnerPlayer(JsonElement _json)
@@ -39,6 +41,7 @@ public sealed class GetOwnerPlayer :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,5 +57,8 @@ public sealed class GetOwnerPlayer :  ai.Service
         + "PlayerActorKey:" + PlayerActorKey + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.test
 {
 
-public sealed class MultiRowRecord :  Bright.Config.BeanBase 
+public sealed partial class MultiRowRecord :  Bright.Config.BeanBase 
 {
     public MultiRowRecord(JSONNode _json) 
     {
@@ -27,6 +27,7 @@ public sealed class MultiRowRecord :  Bright.Config.BeanBase
         { var _json1 = _json["multi_rows5"]; if(!_json1.IsArray) { throw new SerializationException(); } MultiRows5 = new System.Collections.Generic.List<test.MultiRowType3>(_json1.Count); foreach(JSONNode __e in _json1.Children) { test.MultiRowType3 __v;  { if(!__e.IsObject) { throw new SerializationException(); }  __v = test.MultiRowType3.DeserializeMultiRowType3(__e); }  MultiRows5.Add(__v); }   }
         { var _json1 = _json["multi_rows6"]; if(!_json1.IsArray) { throw new SerializationException(); } MultiRows6 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } test.MultiRowType2 __v;  { if(!__e[1].IsObject) { throw new SerializationException(); }  __v = test.MultiRowType2.DeserializeMultiRowType2(__e[1]); }  MultiRows6.Add(__k, __v); }   }
         { var _json1 = _json["multi_rows7"]; if(!_json1.IsArray) { throw new SerializationException(); } MultiRows7 = new System.Collections.Generic.Dictionary<int, int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __k;  { if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; } int __v;  { if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1]; }  MultiRows7.Add(__k, __v); }   }
+        PostInit();
     }
 
     public MultiRowRecord(int id, string name, System.Collections.Generic.List<test.MultiRowType1> one_rows, System.Collections.Generic.List<test.MultiRowType1> multi_rows1, test.MultiRowType1[] multi_rows2, System.Collections.Generic.Dictionary<int, test.MultiRowType2> multi_rows4, System.Collections.Generic.List<test.MultiRowType3> multi_rows5, System.Collections.Generic.Dictionary<int, test.MultiRowType2> multi_rows6, System.Collections.Generic.Dictionary<int, int> multi_rows7 ) 
@@ -40,6 +41,7 @@ public sealed class MultiRowRecord :  Bright.Config.BeanBase
         this.MultiRows5 = multi_rows5;
         this.MultiRows6 = multi_rows6;
         this.MultiRows7 = multi_rows7;
+        PostInit();
     }
 
     public static MultiRowRecord DeserializeMultiRowRecord(JSONNode _json)
@@ -68,6 +70,7 @@ public sealed class MultiRowRecord :  Bright.Config.BeanBase
         foreach(var _e in MultiRows4.Values) { _e?.Resolve(_tables); }
         foreach(var _e in MultiRows5) { _e?.Resolve(_tables); }
         foreach(var _e in MultiRows6.Values) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -94,5 +97,8 @@ public sealed class MultiRowRecord :  Bright.Config.BeanBase
         + "MultiRows7:" + Bright.Common.StringUtil.CollectionToString(MultiRows7) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

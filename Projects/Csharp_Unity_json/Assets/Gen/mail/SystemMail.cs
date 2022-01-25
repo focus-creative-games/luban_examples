@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace cfg.mail
 {
 
-public sealed class SystemMail :  Bright.Config.BeanBase 
+public sealed partial class SystemMail :  Bright.Config.BeanBase 
 {
     public SystemMail(JSONNode _json) 
     {
@@ -23,6 +23,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         { if(!_json["sender"].IsString) { throw new SerializationException(); }  Sender = _json["sender"]; }
         { if(!_json["content"].IsString) { throw new SerializationException(); }  Content = _json["content"]; }
         { var _json1 = _json["award"]; if(!_json1.IsArray) { throw new SerializationException(); } Award = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  Award.Add(__v); }   }
+        PostInit();
     }
 
     public SystemMail(int id, string title, string sender, string content, System.Collections.Generic.List<int> award ) 
@@ -32,6 +33,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         this.Sender = sender;
         this.Content = content;
         this.Award = award;
+        PostInit();
     }
 
     public static SystemMail DeserializeSystemMail(JSONNode _json)
@@ -50,6 +52,7 @@ public sealed class SystemMail :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -66,5 +69,8 @@ public sealed class SystemMail :  Bright.Config.BeanBase
         + "Award:" + Bright.Common.StringUtil.CollectionToString(Award) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

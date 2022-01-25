@@ -14,13 +14,14 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
+public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
 {
     public ExcelFromJsonMultiRow(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
         X = _json.GetProperty("x").GetInt32();
         { var _json0 = _json.GetProperty("items"); Items = new System.Collections.Generic.List<test.TestRow>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.TestRow __v;  __v =  test.TestRow.DeserializeTestRow(__e);  Items.Add(__v); }   }
+        PostInit();
     }
 
     public ExcelFromJsonMultiRow(int id, int x, System.Collections.Generic.List<test.TestRow> items ) 
@@ -28,6 +29,7 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
         this.Id = id;
         this.X = x;
         this.Items = items;
+        PostInit();
     }
 
     public static ExcelFromJsonMultiRow DeserializeExcelFromJsonMultiRow(JsonElement _json)
@@ -45,6 +47,7 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Items) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -60,5 +63,8 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
         + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

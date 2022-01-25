@@ -14,18 +14,20 @@ using System.Text.Json;
 namespace cfg.bonus
 {
 
-public sealed class Item :  bonus.Bonus 
+public sealed partial class Item :  bonus.Bonus 
 {
     public Item(JsonElement _json)  : base(_json) 
     {
         ItemId = _json.GetProperty("item_id").GetInt32();
         Amount = _json.GetProperty("amount").GetInt32();
+        PostInit();
     }
 
     public Item(int item_id, int amount )  : base() 
     {
         this.ItemId = item_id;
         this.Amount = amount;
+        PostInit();
     }
 
     public static Item DeserializeItem(JsonElement _json)
@@ -44,6 +46,7 @@ public sealed class Item :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,5 +61,8 @@ public sealed class Item :  bonus.Bonus
         + "Amount:" + Amount + ","
         + "}";
     }
-    }
+
+    partial void PostInit();
+    partial void PostResolve();
+}
 }

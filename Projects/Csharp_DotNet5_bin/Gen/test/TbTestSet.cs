@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed class TbTestSet
+public partial class TbTestSet
 {
     private readonly Dictionary<int, test.TestSet> _dataMap;
     private readonly List<test.TestSet> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbTestSet
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.TestSet> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbTestSet
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbTestSet
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }
