@@ -14,7 +14,11 @@ public class Main : MonoBehaviour
         UnityEngine.Debug.LogFormat("item[1].name:{0}", tables.TbItem[1].Name);
         Debug.LogFormat("bag init capacity:{0}", tables.TbGlobalConfig.BagInitCapacity);
 
-        tables.TranslateText((key, text) => text + "# translate");
+        //tables.TranslateText((key, text) => text + "# translate");
+
+        Dictionary<(int, int), string> m = new Dictionary<(int, int), string>();
+
+        m.Add((1, 2), "xxx");
 
         UnityEngine.Debug.Log("== load succ==");
     }

@@ -14,7 +14,9 @@ namespace cfg.test
 public sealed class TbMultiUnionIndexList
 {
     private readonly List<test.MultiUnionIndexList> _dataList;
-    
+
+    private Dictionary<(int, long, string), test.MultiUnionIndexList> _dataMapUnion;
+
     public TbMultiUnionIndexList(ByteBuf _buf)
     {
         _dataList = new List<test.MultiUnionIndexList>();
@@ -25,12 +27,16 @@ public sealed class TbMultiUnionIndexList
             _v = test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_buf);
             _dataList.Add(_v);
         }
+        _dataMapUnion = new Dictionary<(int, long, string), test.MultiUnionIndexList>();
+        foreach(var _v in _dataList)
+        {
+            _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
+        }
     }
 
     public List<test.MultiUnionIndexList> DataList => _dataList;
 
-    public test.MultiUnionIndexList Get(int index) => _dataList[index];
-    public test.MultiUnionIndexList this[int index] => _dataList[index];
+    public test.MultiUnionIndexList Get(int id1, long id2, string id3) => _dataMapUnion.TryGetValue((id1, id2, id3), out test.MultiUnionIndexList __v) ? __v : null;
 
     public void Resolve(Dictionary<string, object> _tables)
     {

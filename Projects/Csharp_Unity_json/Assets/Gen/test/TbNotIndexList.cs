@@ -18,6 +18,7 @@ public sealed class TbNotIndexList
 {
     private readonly List<test.NotIndexList> _dataList;
     
+
     public TbNotIndexList(JSONNode _json)
     {
         _dataList = new List<test.NotIndexList>();
@@ -31,8 +32,6 @@ public sealed class TbNotIndexList
 
     public List<test.NotIndexList> DataList => _dataList;
 
-    public test.NotIndexList Get(int index) => _dataList[index];
-    public test.NotIndexList this[int index] => _dataList[index];
 
     public void Resolve(Dictionary<string, object> _tables)
     {
