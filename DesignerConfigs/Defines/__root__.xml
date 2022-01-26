@@ -1,6 +1,8 @@
 <root>
 
 	<topmodule name="cfg"/>
+    
+    <option name="editor.topmodule" value="editor.cfg"/>
 
 	<patch name="cn"/>
 	<patch name="tw"/>
