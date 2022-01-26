@@ -1,5 +1,6 @@
 <module name="test">
 	<enum name="DemoEnum">
+        <var name="NONE" value="0"/>
 		<var name="A" alias="aa" value="1"/>
 		<var name="B" alias="bb"/>
 		<var name="C" alias="cc" value="4"/>
