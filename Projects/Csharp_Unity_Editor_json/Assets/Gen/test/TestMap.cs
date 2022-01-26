@@ -76,22 +76,22 @@ public sealed partial class TestMap :  Bright.Config.EditorBeanBase
         {
 
             if (X1 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X1) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x1"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X1) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x1"] = __cjson; }
         }
         {
 
             if (X2 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X2) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x2"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X2) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x2"] = __cjson; }
         }
         {
 
             if (X3 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X3) { var __entry = new JSONArray(); __entry["null"] = new JSONString(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x3"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X3) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONString(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x3"] = __cjson; }
         }
         {
 
             if (X4 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __entry["null"] = new JSONString(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONString(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
         }
     }
 

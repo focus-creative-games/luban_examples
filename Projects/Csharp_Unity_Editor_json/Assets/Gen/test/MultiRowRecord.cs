@@ -132,7 +132,7 @@ public sealed partial class MultiRowRecord :  Bright.Config.EditorBeanBase
         {
 
             if (MultiRows4 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in MultiRows4) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); { var __bjson = new JSONObject();  test.MultiRowType2.SaveJsonMultiRowType2(_e.Value, __bjson); __entry["null"] = __bjson; } } _json["multi_rows4"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in MultiRows4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); { var __bjson = new JSONObject();  test.MultiRowType2.SaveJsonMultiRowType2(_e.Value, __bjson); __entry["null"] = __bjson; } } _json["multi_rows4"] = __cjson; }
         }
         {
 
@@ -142,12 +142,12 @@ public sealed partial class MultiRowRecord :  Bright.Config.EditorBeanBase
         {
 
             if (MultiRows6 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in MultiRows6) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); { var __bjson = new JSONObject();  test.MultiRowType2.SaveJsonMultiRowType2(_e.Value, __bjson); __entry["null"] = __bjson; } } _json["multi_rows6"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in MultiRows6) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); { var __bjson = new JSONObject();  test.MultiRowType2.SaveJsonMultiRowType2(_e.Value, __bjson); __entry["null"] = __bjson; } } _json["multi_rows6"] = __cjson; }
         }
         {
 
             if (MultiRows7 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in MultiRows7) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["multi_rows7"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in MultiRows7) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["multi_rows7"] = __cjson; }
         }
     }
 

@@ -236,12 +236,12 @@ public sealed partial class TestRef :  Bright.Config.EditorBeanBase
         {
 
             if (D1 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in D1) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["d1"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in D1) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["d1"] = __cjson; }
         }
         {
 
             if (D2 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in D2) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["d2"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in D2) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["d2"] = __cjson; }
         }
         {
             _json["e1"] = new JSONNumber(E1);

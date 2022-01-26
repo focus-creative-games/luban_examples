@@ -91,7 +91,7 @@ public sealed partial class TestSize :  Bright.Config.EditorBeanBase
         {
 
             if (X4 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
         }
     }
 

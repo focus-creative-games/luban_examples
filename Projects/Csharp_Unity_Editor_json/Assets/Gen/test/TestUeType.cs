@@ -240,7 +240,7 @@ public sealed partial class TestUeType :  Bright.Config.EditorBeanBase
         {
 
             if (K8 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in K8) { var __entry = new JSONArray(); __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["k8"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in K8) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["k8"] = __cjson; }
         }
         {
 
