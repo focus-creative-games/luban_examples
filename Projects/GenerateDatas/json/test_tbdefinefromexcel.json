@@ -65,7 +65,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 20
     },
@@ -118,7 +118,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 21
     },
@@ -171,7 +171,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 22
     },
@@ -224,7 +224,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 23
     },
@@ -277,7 +277,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 24
     },
@@ -329,7 +329,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 25
     },
@@ -382,7 +382,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 26
     },
@@ -439,7 +439,7 @@
       "x2": 2
     },
     "x15": {
-      "__type__": "Rectangle",
+      "__type__": "test2.Rectangle",
       "width": 10,
       "height": 27
     },
