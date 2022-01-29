@@ -326,6 +326,10 @@
     <Compile Include="Assets\Gen\bonus\MultiBonus.cs" />
     <Compile Include="Assets\Gen\blueprint\NormalClazz.cs" />
     <Compile Include="Assets\Gen\test\TestRef.cs" />
+    <Compile Include="Assets\Gen\test\login\RoleInfo.cs" />
+    <Compile Include="Assets\Gen\test\Circle.cs" />
+    <Compile Include="Assets\Gen\test\Shape.cs" />
+    <Compile Include="Assets\Gen\test\Rectangle.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\LubanLib\SimpleJSON\Changelog.txt" />

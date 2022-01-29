@@ -14,7 +14,7 @@ using SimpleJSON;
 namespace editor.cfg.test.login
 {
 
-public sealed partial class RoleInfo :  Bright.Config.EditorBeanBase 
+public sealed partial class RoleInfo :  test.DemoD3 
 {
     public RoleInfo()
     {
@@ -22,6 +22,7 @@ public sealed partial class RoleInfo :  Bright.Config.EditorBeanBase
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
+        base.LoadJson(_json);
         { 
             var _fieldJson = _json["role_id"];
             if (_fieldJson != null)
@@ -34,6 +35,7 @@ public sealed partial class RoleInfo :  Bright.Config.EditorBeanBase
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
     {        
+        base.SaveJson(_json);
         {
             _json["role_id"] = new JSONNumber(RoleId);
         }

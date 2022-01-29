@@ -30,6 +30,7 @@ set OUTPUT_DIR=%4
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbMultiIndexList %DATA_DIR%\test_tbmultiindexlist.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDataFromMisc %DATA_DIR%\test_tbdatafrommisc.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbMultiRowRecord %DATA_DIR%\test_tbmultirowrecord.json
+%FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestMultiColumn %DATA_DIR%\test_tbtestmulticolumn.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbMultiRowTitle %DATA_DIR%\test_tbmultirowtitle.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestNull %DATA_DIR%\test_tbtestnull.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDemoPrimitive %DATA_DIR%\test_tbdemoprimitive.json
@@ -45,6 +46,7 @@ set OUTPUT_DIR=%4
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestSize %DATA_DIR%\test_tbtestsize.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestSet %DATA_DIR%\test_tbtestset.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDetectCsvEncoding %DATA_DIR%\test_tbdetectcsvencoding.json
+%FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbItem2 %DATA_DIR%\test_tbitem2.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDefineFromExcel %DATA_DIR%\test_tbdefinefromexcel.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDefineFromExcelOne %DATA_DIR%\test_tbdefinefromexcelone.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestIndex %DATA_DIR%\test_tbtestindex.json
@@ -55,6 +57,7 @@ set OUTPUT_DIR=%4
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbCompositeJsonTable3 %DATA_DIR%\test_tbcompositejsontable3.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbExcelFromJsonMultiRow %DATA_DIR%\test_tbexcelfromjsonmultirow.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestSep %DATA_DIR%\test_tbtestsep.json
+%FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestScriptableObject %DATA_DIR%\test_tbtestscriptableobject.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbTestExternalType %DATA_DIR%\test_tbtestexternaltype.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDemoGroupDefineFromExcel %DATA_DIR%\test_tbdemogroupdefinefromexcel.json
 %FLATC% -o %OUTPUT_DIR% -b %SCHEMA_FILE% --root-type cfg.TestTbDefineFromExcel2 %DATA_DIR%\test_tbdefinefromexcel2.json

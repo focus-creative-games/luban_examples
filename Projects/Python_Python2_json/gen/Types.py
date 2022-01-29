@@ -695,6 +695,7 @@ class roleEProfession(Enum):
 
 
 class testDemoEnum(Enum):
+    NONE = 0
     '''
     aa
     '''
@@ -2699,6 +2700,7 @@ class testDemoDynamic :
             childrenTypes = testDemoDynamic._childrenTypes = {
             'DemoD2': testDemoD2,
             'DemoE1': testDemoE1,
+            'test.login.RoleInfo': test_loginRoleInfo,
             'DemoD5': testDemoD5,
     }
         type = _json_['__type__']
@@ -2732,6 +2734,7 @@ class testDemoD3 (testDemoDynamic):
         if not childrenTypes:
             childrenTypes = testDemoD3._childrenTypes = {
             'DemoE1': testDemoE1,
+            'test.login.RoleInfo': test_loginRoleInfo,
     }
         type = _json_['__type__']
         child = testDemoD3._childrenTypes.get(type)
@@ -2752,6 +2755,15 @@ class testDemoE1 (testDemoD3):
     def __init__(self, _json_):
         testDemoD3.__init__(self, _json_)
         self.x4 = _json_['x4']
+
+
+
+
+class test_loginRoleInfo (testDemoD3):
+
+    def __init__(self, _json_):
+        testDemoD3.__init__(self, _json_)
+        self.role_id = _json_['role_id']
 
 
 
@@ -3439,6 +3451,7 @@ class testTestSet :
 
     def __init__(self, _json_):
         self.id = _json_['id']
+        self.x0 = _json_['x0']
         self.x1 = _json_['x1']
         self.x2 = _json_['x2']
         self.x3 = _json_['x3']
@@ -3578,13 +3591,59 @@ class testDefineFromExcel :
         self.x10 = _json_['x10']
         self.x13 = testETestQuality(_json_['x13'])
         self.x14 = testDemoDynamic.fromJson(_json_['x14'])
+        self.x15 = testShape.fromJson(_json_['x15'])
         self.v2 = Vector2.fromJson(_json_['v2'])
         self.t1 = _json_['t1']
         self.k1 = _json_['k1']
+        self.k2 = _json_['k2']
         self.k8 = {}
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
         for _ele in _json_['k9']: _e = testDemoE2(_ele); self.k9.append(_e)
+
+
+
+
+class testShape :
+    _childrenTypes = None
+
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = testShape._childrenTypes
+        if not childrenTypes:
+            childrenTypes = testShape._childrenTypes = {
+            'Circle': testCircle,
+            'Rectangle': testRectangle,
+    }
+        type = _json_['__type__']
+        child = testShape._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
+
+    def __init__(self, _json_):
+
+        pass
+
+
+
+
+class testCircle (testShape):
+
+    def __init__(self, _json_):
+        testShape.__init__(self, _json_)
+        self.radius = _json_['radius']
+
+
+
+
+class testRectangle (testShape):
+
+    def __init__(self, _json_):
+        testShape.__init__(self, _json_)
+        self.width = _json_['width']
+        self.height = _json_['height']
 
 
 
@@ -4027,9 +4086,11 @@ class testDefineFromExcel2 :
         self.x10 = _json_['x10']
         self.x13 = testETestQuality(_json_['x13'])
         self.x14 = testDemoDynamic.fromJson(_json_['x14'])
+        self.x15 = testShape.fromJson(_json_['x15'])
         self.v2 = Vector2.fromJson(_json_['v2'])
         self.t1 = _json_['t1']
         self.k1 = _json_['k1']
+        self.k2 = _json_['k2']
         self.k8 = {}
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []

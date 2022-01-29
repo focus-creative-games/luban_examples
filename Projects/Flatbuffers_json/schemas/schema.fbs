@@ -330,7 +330,7 @@ enum RoleEProfession:int {
 }
 
 enum TestDemoEnum:int {
-    __GENERATE_DEFAULT_VALUE = 0,
+    TestDemoEnum_NONE = 0,
     TestDemoEnum_A = 1,
     TestDemoEnum_B = 2,
     TestDemoEnum_C = 4,
@@ -384,6 +384,117 @@ enum TestAccessFlag:int {
 }
 
 
+union ConditionBoolRoleCondition {
+    ConditionGenderLimit,
+    ConditionMinLevel,
+    ConditionMaxLevel,
+    ConditionMinMaxLevel,
+    ConditionClothesPropertyScoreGreaterThan,
+}
+
+
+union TestDemoDynamic {
+    TestDemoD2,
+    TestDemoE1,
+    TestLoginRoleInfo,
+    TestDemoD5,
+}
+
+
+union AiComposeNode {
+    AiSequence,
+    AiSelector,
+    AiSimpleParallel,
+}
+
+
+union AiFlowNode {
+    AiSequence,
+    AiSelector,
+    AiSimpleParallel,
+    AiUeWait,
+    AiUeWaitBlackboardTime,
+    AiMoveToTarget,
+    AiChooseSkill,
+    AiMoveToRandomLocation,
+    AiMoveToLocation,
+    AiDebugPrint,
+}
+
+
+union ErrorErrorStyle {
+    ErrorErrorStyleTip,
+    ErrorErrorStyleMsgbox,
+    ErrorErrorStyleDlgOk,
+    ErrorErrorStyleDlgOkCancel,
+}
+
+
+union BonusBonus {
+    BonusOneItem,
+    BonusOneItems,
+    BonusItem,
+    BonusItems,
+    BonusCoefficientItem,
+    BonusWeightItems,
+    BonusProbabilityItems,
+    BonusMultiBonus,
+    BonusProbabilityBonus,
+    BonusWeightBonus,
+    BonusDropBonus,
+}
+
+
+union TestShape {
+    TestCircle,
+    TestRectangle,
+}
+
+
+union TestDemoD3 {
+    TestDemoE1,
+    TestLoginRoleInfo,
+}
+
+
+union AiKeyData {
+    AiFloatKeyData,
+    AiIntKeyData,
+    AiStringKeyData,
+    AiBlackboardKeyData,
+}
+
+
+union BlueprintClazz {
+    BlueprintInterface,
+    BlueprintNormalClazz,
+    BlueprintEnumClazz,
+}
+
+
+union ItemItemExtra {
+    ItemTreasureBox,
+    ItemInteractionItem,
+    ItemClothes,
+    ItemDesignDrawing,
+    ItemDymmy,
+}
+
+
+union TestItemBase {
+    TestItem,
+    TestEquipment,
+    TestDecorator,
+}
+
+
+union BlueprintMethod {
+    BlueprintAbstraceMethod,
+    BlueprintExternalMethod,
+    BlueprintBlueprintMethod,
+}
+
+
 union ConditionCondition {
     ConditionTimeRange,
     ConditionMultiRoleCondition,
@@ -393,6 +504,13 @@ union ConditionCondition {
     ConditionMinMaxLevel,
     ConditionClothesPropertyScoreGreaterThan,
     ConditionContainsItem,
+}
+
+
+union AiKeyQueryOperator {
+    AiIsSet,
+    AiIsNotSet,
+    AiBinaryOperator,
 }
 
 
@@ -407,48 +525,6 @@ union AiTask {
 }
 
 
-union AiKeyData {
-    AiFloatKeyData,
-    AiIntKeyData,
-    AiStringKeyData,
-    AiBlackboardKeyData,
-}
-
-
-union ErrorErrorStyle {
-    ErrorErrorStyleTip,
-    ErrorErrorStyleMsgbox,
-    ErrorErrorStyleDlgOk,
-    ErrorErrorStyleDlgOkCancel,
-}
-
-
-union TestDemoDynamic {
-    TestDemoD2,
-    TestDemoE1,
-    TestDemoD5,
-}
-
-
-union AiKeyQueryOperator {
-    AiIsSet,
-    AiIsNotSet,
-    AiBinaryOperator,
-}
-
-
-union AiComposeNode {
-    AiSequence,
-    AiSelector,
-    AiSimpleParallel,
-}
-
-
-union TestDemoD3 {
-    TestDemoE1,
-}
-
-
 union AiDecorator {
     AiUeLoop,
     AiUeCooldown,
@@ -460,29 +536,6 @@ union AiDecorator {
 }
 
 
-union BlueprintClazz {
-    BlueprintInterface,
-    BlueprintNormalClazz,
-    BlueprintEnumClazz,
-}
-
-
-union CostCost {
-    CostCostCurrency,
-    CostCostCurrencies,
-    CostCostOneItem,
-    CostCostItem,
-    CostCostItems,
-}
-
-
-union BlueprintMethod {
-    BlueprintAbstraceMethod,
-    BlueprintExternalMethod,
-    BlueprintBlueprintMethod,
-}
-
-
 union ConditionRoleCondition {
     ConditionMultiRoleCondition,
     ConditionGenderLimit,
@@ -491,25 +544,6 @@ union ConditionRoleCondition {
     ConditionMinMaxLevel,
     ConditionClothesPropertyScoreGreaterThan,
     ConditionContainsItem,
-}
-
-
-union ItemItemExtra {
-    ItemTreasureBox,
-    ItemInteractionItem,
-    ItemClothes,
-    ItemDesignDrawing,
-    ItemDymmy,
-}
-
-
-union AiService {
-    AiUeSetDefaultFocus,
-    AiExecuteTimeStatistic,
-    AiChooseTarget,
-    AiKeepFaceTarget,
-    AiGetOwnerPlayer,
-    AiUpdateDailyBehaviorProps,
 }
 
 
@@ -540,41 +574,77 @@ union AiNode {
 }
 
 
-union ConditionBoolRoleCondition {
-    ConditionGenderLimit,
-    ConditionMinLevel,
-    ConditionMaxLevel,
-    ConditionMinMaxLevel,
-    ConditionClothesPropertyScoreGreaterThan,
+union AiService {
+    AiUeSetDefaultFocus,
+    AiExecuteTimeStatistic,
+    AiChooseTarget,
+    AiKeepFaceTarget,
+    AiGetOwnerPlayer,
+    AiUpdateDailyBehaviorProps,
 }
 
 
-union BonusBonus {
-    BonusOneItem,
-    BonusOneItems,
-    BonusItem,
-    BonusItems,
-    BonusCoefficientItem,
-    BonusWeightItems,
-    BonusProbabilityItems,
-    BonusMultiBonus,
-    BonusProbabilityBonus,
-    BonusWeightBonus,
-    BonusDropBonus,
+union CostCost {
+    CostCostCurrency,
+    CostCostCurrencies,
+    CostCostOneItem,
+    CostCostItem,
+    CostCostItems,
 }
 
 
-union AiFlowNode {
-    AiSequence,
-    AiSelector,
-    AiSimpleParallel,
-    AiUeWait,
-    AiUeWaitBlackboardTime,
-    AiMoveToTarget,
-    AiChooseSkill,
-    AiMoveToRandomLocation,
-    AiMoveToLocation,
-    AiDebugPrint,
+table TestMultiRowType2 {
+    id:int32;
+    x:int32;
+    y:float32;
+}
+
+
+table TestDemoD2 {
+    x1:int32;
+    x2:int32;
+}
+
+
+table TestMultiRowType1 {
+    id:int32;
+    x:int32;
+}
+
+
+table TestMultiRowRecord {
+    id:int32;
+    name:string;
+    one_rows:[TestMultiRowType1](required);
+    multi_rows1:[TestMultiRowType1](required);
+    multi_rows2:[TestMultiRowType1](required);
+    multi_rows4:[KeyValue_int32_TestMultiRowType2](required);
+    multi_rows5:[TestMultiRowType3](required);
+    multi_rows6:[KeyValue_int32_TestMultiRowType2](required);
+    multi_rows7:[KeyValue_int32_int32](required);
+}
+
+
+table TestMultiIndexList {
+    id1:int32;
+    id2:int64;
+    id3:string;
+    num:int32;
+    desc:string;
+}
+
+
+table TestDemoE1 {
+    x1:int32;
+    x3:int32;
+    x4:int32;
+}
+
+
+table TestLoginRoleInfo {
+    x1:int32;
+    x3:int32;
+    role_id:int64;
 }
 
 
@@ -584,15 +654,43 @@ table TestDemoD5 {
 }
 
 
-table TestDemoType1 {
-    x1:int32;
+table TestMultiUnionIndexList {
+    id1:int32;
+    id2:int64;
+    id3:string;
+    num:int32;
+    desc:string;
 }
 
 
-table TestDemoE1 {
-    x1:int32;
-    x3:int32;
-    x4:int32;
+table TestDateTimeRange {
+    start_time:int32;
+    end_time:int32;
+}
+
+
+table TestNotIndexList {
+    x:int32;
+    y:int32;
+}
+
+
+table TestDemoE2 {
+    y1:int32;
+    y2:bool;
+}
+
+
+table TestDemoSingletonType {
+    id:int32;
+    name:string;
+    date:TestDemoDynamic(required);
+}
+
+
+table TagTestTag {
+    id:int32;
+    value:string;
 }
 
 
@@ -625,122 +723,21 @@ table TestDemoType2 {
 }
 
 
-table TagTestTag {
-    id:int32;
-    value:string;
-}
-
-
-table TestDateTimeRange {
-    start_time:int32;
-    end_time:int32;
-}
-
-
-table RoleBonusInfo {
-    type:ItemECurrencyType;
-    coefficient:float32;
-}
-
-
-table RoleDistinctBonusInfos {
-    effective_level:int32;
-    bonus_info:[RoleBonusInfo](required);
-}
-
-
-table RoleLevelBonus {
-    id:int32;
-    distinct_bonus_infos:[RoleDistinctBonusInfos](required);
-}
-
-
-table TestDemoD2 {
-    x1:int32;
-    x2:int32;
-}
-
-
-table L10nPatchDemo {
-    id:int32;
-    value:int32;
-}
-
-
-table MailGlobalMail {
-    id:int32;
-    title:string;
-    sender:string;
-    content:string;
-    award:[int32](required);
-    all_server:bool;
-    server_list:[int32](required);
-    platform:string;
-    channel:string;
-    min_max_level:ConditionMinMaxLevel(required);
-    register_time:ConditionTimeRange(required);
-    mail_time:ConditionTimeRange(required);
-}
-
-
-table ConditionMinMaxLevel {
-    min:int32;
-    max:int32;
-}
-
-
-table ConditionClothesPropertyScoreGreaterThan {
-    prop:ItemEClothesPropertyType;
-    value:int32;
-}
-
-
-table ConditionContainsItem {
-    item_id:int32;
-    num:int32;
-    reverse:bool;
-}
-
-
-table ItemChooseOneBonus {
-    drop_id:int32;
-    is_unique:bool;
-}
-
-
-table ItemInteractionItem {
-    id:int32;
-    attack_num:int32;
-    holding_static_mesh:string;
-    holding_static_mesh_mat:string;
-}
-
-
-table ItemClothes {
-    id:int32;
-    attack:int32;
-    hp:int64;
-    energy_limit:int32;
-    energy_resume:int32;
-}
-
-
 table ItemDesignDrawing {
     id:int32;
     learn_component_id:[int32](required);
 }
 
 
-table RoleLevelExpAttr {
-    level:int32;
-    need_exp:int64;
-    clothes_attrs:[int32](required);
-}
-
-
 table ItemDymmy {
     id:int32;
     cost:CostCost(required);
+}
+
+
+table CostCostCurrency {
+    type:ItemECurrencyType;
+    num:int32;
 }
 
 
@@ -771,9 +768,9 @@ table L10nL10NDemo {
 }
 
 
-table TestDemoE2 {
-    y1:int32;
-    y2:bool;
+table L10nPatchDemo {
+    id:int32;
+    value:int32;
 }
 
 
@@ -786,32 +783,73 @@ table MailSystemMail {
 }
 
 
-table CostCostCurrency {
+table MailGlobalMail {
+    id:int32;
+    title:string;
+    sender:string;
+    content:string;
+    award:[int32](required);
+    all_server:bool;
+    server_list:[int32](required);
+    platform:string;
+    channel:string;
+    min_max_level:ConditionMinMaxLevel(required);
+    register_time:ConditionTimeRange(required);
+    mail_time:ConditionTimeRange(required);
+}
+
+
+table RoleLevelExpAttr {
+    level:int32;
+    need_exp:int64;
+    clothes_attrs:[int32](required);
+}
+
+
+table RoleLevelBonus {
+    id:int32;
+    distinct_bonus_infos:[RoleDistinctBonusInfos](required);
+}
+
+
+table RoleDistinctBonusInfos {
+    effective_level:int32;
+    bonus_info:[RoleBonusInfo](required);
+}
+
+
+table RoleBonusInfo {
     type:ItemECurrencyType;
-    num:int32;
+    coefficient:float32;
 }
 
 
-table TestDemoSingletonType {
+table TestDemoType1 {
+    x1:int32;
+}
+
+
+table TestMultiRowType3 {
     id:int32;
-    name:string;
-    date:TestDemoDynamic(required);
+    items:[TestMultiRowType1](required);
 }
 
 
-table TestMultiRowType2 {
+table TestTestNull {
     id:int32;
-    x:int32;
-    y:float32;
+    x1:int32;
+    x2:TestDemoEnum;
+    x3:TestDemoType1;
+    x4:TestDemoDynamic;
+    s1:string;
+    s2:string;
 }
 
 
-table TestMultiUnionIndexList {
-    id1:int32;
-    id2:int64;
-    id3:string;
-    num:int32;
-    desc:string;
+table TestFoo {
+    y1:int32;
+    y2:int32;
+    y3:int32;
 }
 
 
@@ -877,27 +915,19 @@ table TestCompositeJsonTable3 {
 }
 
 
-table TestDefineFromExcel {
-    id:int32;
-    x1:bool;
-    x5:int64;
-    x6:float32;
-    x8:int32;
-    x10:string;
-    x13:TestETestQuality;
-    x14:TestDemoDynamic(required);
-    v2:Vector2(required);
-    t1:int32;
-    k1:[int32](required);
-    k8:[KeyValue_int32_int32](required);
-    k9:[TestDemoE2](required);
-}
-
-
 table TestExcelFromJsonMultiRow {
     id:int32;
     x:int32;
     items:[TestTestRow](required);
+}
+
+
+table TestTestRow {
+    x:int32;
+    y:bool;
+    z:string;
+    a:TestTest3(required);
+    b:[int32](required);
 }
 
 
@@ -932,6 +962,17 @@ table TestSepVector {
 }
 
 
+table TestTestScriptableObject {
+    id:int32;
+    desc:string;
+    rate:float32;
+    num:int32;
+    v2:Vector2(required);
+    v3:Vector3(required);
+    v4:Vector4(required);
+}
+
+
 table TestTestExternalType {
     id:int32;
     audio_type:TestAudioType;
@@ -956,75 +997,40 @@ table TestDefineFromExcel2 {
     x10:string;
     x13:TestETestQuality;
     x14:TestDemoDynamic(required);
+    x15:TestShape(required);
     v2:Vector2(required);
     t1:int32;
     k1:[int32](required);
+    k2:[int32](required);
     k8:[KeyValue_int32_int32](required);
     k9:[TestDemoE2](required);
 }
 
 
-table TestTestRow {
-    x:int32;
-    y:bool;
-    z:string;
-    a:TestTest3(required);
-    b:[int32](required);
+table TestRectangle {
+    width:float32;
+    height:float32;
 }
 
 
-table TestNotIndexList {
-    x:int32;
-    y:int32;
+table TestTestMultiColumn {
+    id:int32;
+    a:TestFoo(required);
+    b:TestFoo(required);
+    c:TestFoo(required);
 }
 
 
-table TestDetectEncoding {
+table TestCircle {
+    radius:float32;
+}
+
+
+table TestDecorator {
     id:int32;
     name:string;
-}
-
-
-table TestTestSize {
-    id:int32;
-    x1:[int32](required);
-    x2:[int32](required);
-    x3:[int32](required);
-    x4:[KeyValue_int32_int32](required);
-}
-
-
-table TestMultiIndexList {
-    id1:int32;
-    id2:int64;
-    id3:string;
-    num:int32;
     desc:string;
-}
-
-
-table TestMultiRowRecord {
-    id:int32;
-    name:string;
-    one_rows:[TestMultiRowType1](required);
-    multi_rows1:[TestMultiRowType1](required);
-    multi_rows2:[TestMultiRowType1](required);
-    multi_rows4:[KeyValue_int32_TestMultiRowType2](required);
-    multi_rows5:[TestMultiRowType3](required);
-    multi_rows6:[KeyValue_int32_TestMultiRowType2](required);
-    multi_rows7:[KeyValue_int32_int32](required);
-}
-
-
-table TestMultiRowType1 {
-    id:int32;
-    x:int32;
-}
-
-
-table TestMultiRowType3 {
-    id:int32;
-    items:[TestMultiRowType1](required);
+    duration:int32;
 }
 
 
@@ -1051,23 +1057,29 @@ table TestH2 {
 }
 
 
-table TestTestSet {
+table ItemClothes {
     id:int32;
-    x1:[int32](required);
-    x2:[int64](required);
-    x3:[string](required);
-    x4:[TestDemoEnum](required);
+    attack:int32;
+    hp:int64;
+    energy_limit:int32;
+    energy_resume:int32;
 }
 
 
-table TestTestNull {
-    id:int32;
-    x1:int32;
-    x2:TestDemoEnum;
-    x3:TestDemoType1;
-    x4:TestDemoDynamic;
+table TestDemoPrimitiveTypesTable {
+    x1:bool;
+    x2:ubyte;
+    x3:int16;
+    x4:int32;
+    x5:int64;
+    x6:float32;
+    x7:float64;
     s1:string;
     s2:string;
+    v2:Vector2(required);
+    v3:Vector3(required);
+    v4:Vector4(required);
+    t1:int32;
 }
 
 
@@ -1139,25 +1151,73 @@ table TestTestRef {
 }
 
 
-table TestDemoPrimitiveTypesTable {
-    x1:bool;
-    x2:ubyte;
-    x3:int16;
-    x4:int32;
-    x5:int64;
-    x6:float32;
-    x7:float64;
-    s1:string;
-    s2:string;
-    v2:Vector2(required);
-    v3:Vector3(required);
-    v4:Vector4(required);
-    t1:int32;
+table TestTestSize {
+    id:int32;
+    x1:[int32](required);
+    x2:[int32](required);
+    x3:[int32](required);
+    x4:[KeyValue_int32_int32](required);
 }
 
 
-table ConditionMaxLevel {
-    level:int32;
+table TestTestSet {
+    id:int32;
+    x0:string;
+    x1:[int32](required);
+    x2:[int64](required);
+    x3:[string](required);
+    x4:[TestDemoEnum](required);
+}
+
+
+table TestDetectEncoding {
+    id:int32;
+    name:string;
+}
+
+
+table TestItem {
+    id:int32;
+    name:string;
+    desc:string;
+    num:int32;
+    price:int32;
+}
+
+
+table TestEquipment {
+    id:int32;
+    name:string;
+    desc:string;
+    attr:TestDemoEnum;
+    value:int32;
+}
+
+
+table TestDefineFromExcel {
+    id:int32;
+    x1:bool;
+    x5:int64;
+    x6:float32;
+    x8:int32;
+    x10:string;
+    x13:TestETestQuality;
+    x14:TestDemoDynamic(required);
+    x15:TestShape(required);
+    v2:Vector2(required);
+    t1:int32;
+    k1:[int32](required);
+    k2:[int32](required);
+    k8:[KeyValue_int32_int32](required);
+    k9:[TestDemoE2](required);
+}
+
+
+table ItemInteractionItem {
+    id:int32;
+    attack_num:int32;
+    holding_static_mesh:string;
+    holding_static_mesh_mat:string;
 }
 
 
@@ -1169,15 +1229,10 @@ table AiBlackboard {
 }
 
 
-table ConditionGenderLimit {
-    gender:RoleEGenderType;
-}
-
-
-table AiUeForceSuccess {
-    id:int32;
-    node_name:string;
-    flow_abort_mode:AiEFlowAbortMode;
+table ConditionContainsItem {
+    item_id:int32;
+    num:int32;
+    reverse:bool;
 }
 
 
@@ -1252,6 +1307,13 @@ table AiUeWaitBlackboardTime {
 }
 
 
+table AiUeForceSuccess {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+}
+
+
 table AiMoveToTarget {
     id:int32;
     node_name:string;
@@ -1260,17 +1322,6 @@ table AiMoveToTarget {
     ignore_restart_self:bool;
     target_actor_key:string;
     acceptable_radius:float32;
-}
-
-
-table AiChooseSkill {
-    id:int32;
-    node_name:string;
-    decorators:[AiDecorator](required);
-    services:[AiService](required);
-    ignore_restart_self:bool;
-    target_actor_key:string;
-    result_skill_id_key:string;
 }
 
 
@@ -1322,11 +1373,6 @@ table BlueprintAbstraceMethod {
 }
 
 
-table AiBlackboardKeyData {
-    value:string;
-}
-
-
 table BlueprintExternalMethod {
     name:string;
     desc:string;
@@ -1336,13 +1382,41 @@ table BlueprintExternalMethod {
 }
 
 
-table AiStringKeyData {
+table BlueprintBlueprintMethod {
+    name:string;
+    desc:string;
+    is_static:bool;
+    return_type:string;
+    parameters:[BlueprintParamInfo](required);
+}
+
+
+table AiChooseSkill {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    target_actor_key:string;
+    result_skill_id_key:string;
+}
+
+
+table BlueprintInterface {
+    name:string;
+    desc:string;
+    parents:[BlueprintClazz](required);
+    methods:[BlueprintMethod](required);
+}
+
+
+table AiBlackboardKeyData {
     value:string;
 }
 
 
-table AiFloatKeyData {
-    value:float32;
+table AiIntKeyData {
+    value:int32;
 }
 
 
@@ -1398,6 +1472,11 @@ table AiGetOwnerPlayer {
 }
 
 
+table AiStringKeyData {
+    value:string;
+}
+
+
 table AiUpdateDailyBehaviorProps {
     id:int32;
     node_name:string;
@@ -1410,16 +1489,6 @@ table AiUpdateDailyBehaviorProps {
     energy_upper_threshold_key:string;
     mood_lower_threshold_key:string;
     mood_upper_threshold_key:string;
-}
-
-
-table AiUeLoop {
-    id:int32;
-    node_name:string;
-    flow_abort_mode:AiEFlowAbortMode;
-    num_loops:int32;
-    infinite_loop:bool;
-    infinite_loop_timeout_time:float32;
 }
 
 
@@ -1463,22 +1532,18 @@ table AiBinaryOperator {
 }
 
 
-table AiIntKeyData {
-    value:int32;
+table AiFloatKeyData {
+    value:float32;
 }
 
 
-table ConditionMinLevel {
-    level:int32;
-}
-
-
-table BlueprintBlueprintMethod {
-    name:string;
-    desc:string;
-    is_static:bool;
-    return_type:string;
-    parameters:[BlueprintParamInfo](required);
+table AiUeLoop {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    num_loops:int32;
+    infinite_loop:bool;
+    infinite_loop_timeout_time:float32;
 }
 
 
@@ -1492,44 +1557,19 @@ table BlueprintNormalClazz {
 }
 
 
-table BonusDropBonus {
-    id:int32;
-}
-
-
-table CommonGlobalConfig {
-    bag_capacity:int32;
-    bag_capacity_special:int32;
-    bag_temp_expendable_capacity:int32;
-    bag_temp_tool_capacity:int32;
-    bag_init_capacity:int32;
-    quick_bag_capacity:int32;
-    cloth_bag_capacity:int32;
-    cloth_bag_init_capacity:int32;
-    cloth_bag_capacity_special:int32;
-    bag_init_items_drop_id:int32;
-    mail_box_capacity:int32;
-    damage_param_c:float32;
-    damage_param_e:float32;
-    damage_param_f:float32;
-    damage_param_d:float32;
-    role_speed:float32;
-    monster_speed:float32;
-    init_energy:int32;
-    init_viality:int32;
-    max_viality:int32;
-    per_viality_recovery_time:int32;
-}
-
-
-table ErrorErrorInfo {
-    code:string;
+table BlueprintField {
+    name:string;
+    type:string;
     desc:string;
-    style:ErrorErrorStyle(required);
 }
 
 
-table ErrorErrorStyleTip {
+table BlueprintEnumClazz {
+    name:string;
+    desc:string;
+    parents:[BlueprintClazz](required);
+    methods:[BlueprintMethod](required);
+    enums:[BlueprintEnumField](required);
 }
 
 
@@ -1599,6 +1639,20 @@ table ItemTreasureBox {
 }
 
 
+table ErrorErrorStyleTip {
+}
+
+
+table ConditionTimeRange {
+    date_time_range:CommonDateTimeRange(required);
+}
+
+
+table ConditionMultiRoleCondition {
+    conditions:[ConditionRoleCondition](required);
+}
+
+
 table TestTestExcelBean1 {
     x1:int32;
     x2:string;
@@ -1607,8 +1661,30 @@ table TestTestExcelBean1 {
 }
 
 
-table ConditionTimeRange {
-    date_time_range:CommonDateTimeRange(required);
+table ConditionGenderLimit {
+    gender:RoleEGenderType;
+}
+
+
+table ConditionMinLevel {
+    level:int32;
+}
+
+
+table ConditionMaxLevel {
+    level:int32;
+}
+
+
+table ConditionMinMaxLevel {
+    min:int32;
+    max:int32;
+}
+
+
+table ConditionClothesPropertyScoreGreaterThan {
+    prop:ItemEClothesPropertyType;
+    value:int32;
 }
 
 
@@ -1618,48 +1694,40 @@ table CommonDateTimeRange {
 }
 
 
-table ConditionMultiRoleCondition {
-    conditions:[ConditionRoleCondition](required);
-}
-
-
-table BonusWeightBonusInfo {
-    bonus:BonusBonus(required);
-    weight:int32;
-}
-
-
-table BlueprintInterface {
-    name:string;
+table ErrorErrorInfo {
+    code:string;
     desc:string;
-    parents:[BlueprintClazz](required);
-    methods:[BlueprintMethod](required);
+    style:ErrorErrorStyle(required);
 }
 
 
-table BonusWeightBonus {
-    bonuses:[BonusWeightBonusInfo](required);
+table CommonGlobalConfig {
+    bag_capacity:int32;
+    bag_capacity_special:int32;
+    bag_temp_expendable_capacity:int32;
+    bag_temp_tool_capacity:int32;
+    bag_init_capacity:int32;
+    quick_bag_capacity:int32;
+    cloth_bag_capacity:int32;
+    cloth_bag_init_capacity:int32;
+    cloth_bag_capacity_special:int32;
+    bag_init_items_drop_id:int32;
+    mail_box_capacity:int32;
+    damage_param_c:float32;
+    damage_param_e:float32;
+    damage_param_f:float32;
+    damage_param_d:float32;
+    role_speed:float32;
+    monster_speed:float32;
+    init_energy:int32;
+    init_viality:int32;
+    max_viality:int32;
+    per_viality_recovery_time:int32;
 }
 
 
-table BonusProbabilityBonus {
-    bonuses:[BonusProbabilityBonusInfo](required);
-}
-
-
-table BlueprintField {
-    name:string;
-    type:string;
-    desc:string;
-}
-
-
-table BlueprintEnumClazz {
-    name:string;
-    desc:string;
-    parents:[BlueprintClazz](required);
-    methods:[BlueprintMethod](required);
-    enums:[BlueprintEnumField](required);
+table BonusDropBonus {
+    id:int32;
 }
 
 
@@ -1739,9 +1807,31 @@ table BonusMultiBonus {
 }
 
 
+table BonusProbabilityBonus {
+    bonuses:[BonusProbabilityBonusInfo](required);
+}
+
+
 table BonusProbabilityBonusInfo {
     bonus:BonusBonus(required);
     probability:float32;
+}
+
+
+table BonusWeightBonus {
+    bonuses:[BonusWeightBonusInfo](required);
+}
+
+
+table BonusWeightBonusInfo {
+    bonus:BonusBonus(required);
+    weight:int32;
+}
+
+
+table ItemChooseOneBonus {
+    drop_id:int32;
+    is_unique:bool;
 }
 
 
@@ -1946,6 +2036,13 @@ table TestTbMultiRowRecord {
 
 root_type TestTbMultiRowRecord;
 
+table TestTbTestMultiColumn {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestMultiColumn](required);
+}
+
+root_type TestTbTestMultiColumn;
+
 table TestTbMultiRowTitle {
     // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
     data_list:[TestMultiRowTitle](required);
@@ -2051,6 +2148,13 @@ table TestTbDetectCsvEncoding {
 
 root_type TestTbDetectCsvEncoding;
 
+table TestTbItem2 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestItemBase](required);
+}
+
+root_type TestTbItem2;
+
 table TestTbDefineFromExcel {
     // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
     data_list:[TestDefineFromExcel](required);
@@ -2120,6 +2224,13 @@ table TestTbTestSep {
 }
 
 root_type TestTbTestSep;
+
+table TestTbTestScriptableObject {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestScriptableObject](required);
+}
+
+root_type TestTbTestScriptableObject;
 
 table TestTbTestExternalType {
     // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!

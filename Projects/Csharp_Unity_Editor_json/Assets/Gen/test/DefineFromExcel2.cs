@@ -22,6 +22,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
             X13 = "A";
             T1 = "1970-01-01 00:00:00";
             K1 = System.Array.Empty<int>();
+            K2 = System.Array.Empty<int>();
             K8 = new System.Collections.Generic.Dictionary<int,int>();
             K9 = new System.Collections.Generic.List<test.DemoE2>();
     }
@@ -93,6 +94,14 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
         }
         
         { 
+            var _fieldJson = _json["x15"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsObject) { throw new SerializationException(); }  X15 = test.Shape.LoadJsonShape(_fieldJson);
+            }
+        }
+        
+        { 
             var _fieldJson = _json["v2"];
             if (_fieldJson != null)
             {
@@ -113,6 +122,14 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
             if (_fieldJson != null)
             {
                 if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n = _fieldJson.Count; K1 = new int[_n]; int _index=0; foreach(SimpleJSON.JSONNode __e in _fieldJson.Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  K1[_index++] = __v; }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["k2"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n = _fieldJson.Count; K2 = new int[_n]; int _index=0; foreach(SimpleJSON.JSONNode __e in _fieldJson.Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  K2[_index++] = __v; }  
             }
         }
         
@@ -165,6 +182,11 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
             { var __bjson = new JSONObject();  test.DemoDynamic.SaveJsonDemoDynamic(X14, __bjson); _json["x14"] = __bjson; }
         }
         {
+
+            if (X15 == null) { throw new System.ArgumentNullException(); }
+            { var __bjson = new JSONObject();  test.Shape.SaveJsonShape(X15, __bjson); _json["x15"] = __bjson; }
+        }
+        {
             { var __vjson = new JSONObject(); __vjson["x"] = V2.X;  __vjson["y"] = V2.Y; _json["v2"] = __vjson; }
         }
         {
@@ -174,6 +196,11 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
 
             if (K1 == null) { throw new System.ArgumentNullException(); }
             { var __cjson = new JSONArray(); foreach(var _e in K1) { __cjson["null"] = new JSONNumber(_e); } _json["k1"] = __cjson; }
+        }
+        {
+
+            if (K2 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in K2) { __cjson["null"] = new JSONNumber(_e); } _json["k2"] = __cjson; }
         }
         {
 
@@ -221,11 +248,15 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
 
     public test.DemoDynamic X14 { get; set; }
 
+    public test.Shape X15 { get; set; }
+
     public System.Numerics.Vector2 V2 { get; set; }
 
     public string T1 { get; set; }
 
     public int[] K1 { get; set; }
+
+    public int[] K2 { get; set; }
 
     public System.Collections.Generic.Dictionary<int, int> K8 { get; set; }
 

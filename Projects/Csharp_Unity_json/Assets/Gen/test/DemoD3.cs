@@ -34,6 +34,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         switch (type)
         {
             case "DemoE1": return new test.DemoE1(_json);
+            case "test.login.RoleInfo": return new test.login.RoleInfo(_json);
             default: throw new SerializationException();
         }
     }

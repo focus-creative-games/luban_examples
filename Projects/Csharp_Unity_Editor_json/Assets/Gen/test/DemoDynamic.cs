@@ -47,6 +47,7 @@ public abstract partial class DemoDynamic :  Bright.Config.EditorBeanBase
         {
             case "DemoD2": obj = new test.DemoD2(); break;
             case "DemoE1": obj = new test.DemoE1(); break;
+            case "test.login.RoleInfo": obj = new test.login.RoleInfo(); break;
             case "DemoD5": obj = new test.DemoD5(); break;
             default: throw new SerializationException();
         }

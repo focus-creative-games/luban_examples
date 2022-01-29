@@ -26,15 +26,17 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         X10 = _json.GetProperty("x10").GetString();
         X13 = (test.ETestQuality)_json.GetProperty("x13").GetInt32();
         X14 =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
+        X15 =  test.Shape.DeserializeShape(_json.GetProperty("x15"));
         { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
         T1 = _json.GetProperty("t1").GetInt32();
         { var _json0 = _json.GetProperty("k1"); int _n = _json0.GetArrayLength(); K1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K1[_index++] = __v; }   }
+        { var _json0 = _json.GetProperty("k2"); int _n = _json0.GetArrayLength(); K2 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K2[_index++] = __v; }   }
         { var _json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
         { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
         PostInit();
     }
 
-    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, System.Numerics.Vector2 v2, int t1, int[] k1, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, test.Shape x15, System.Numerics.Vector2 v2, int t1, int[] k1, int[] k2, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -44,9 +46,11 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         this.X10 = x10;
         this.X13 = x13;
         this.X14 = x14;
+        this.X15 = x15;
         this.V2 = v2;
         this.T1 = t1;
         this.K1 = k1;
+        this.K2 = k2;
         this.K8 = k8;
         this.K9 = k9;
         PostInit();
@@ -71,10 +75,12 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public string X10 { get; private set; }
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
+    public test.Shape X15 { get; private set; }
     public System.Numerics.Vector2 V2 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }
+    public int[] K2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
 
@@ -84,6 +90,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         X14?.Resolve(_tables);
+        X15?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         PostResolve();
     }
@@ -91,6 +98,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public  void TranslateText(System.Func<string, string, string> translator)
     {
         X14?.TranslateText(translator);
+        X15?.TranslateText(translator);
         foreach(var _e in K9) { _e?.TranslateText(translator); }
     }
 
@@ -105,9 +113,11 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         + "X10:" + X10 + ","
         + "X13:" + X13 + ","
         + "X14:" + X14 + ","
+        + "X15:" + X15 + ","
         + "V2:" + V2 + ","
         + "T1:" + T1 + ","
         + "K1:" + Bright.Common.StringUtil.CollectionToString(K1) + ","
+        + "K2:" + Bright.Common.StringUtil.CollectionToString(K2) + ","
         + "K8:" + Bright.Common.StringUtil.CollectionToString(K8) + ","
         + "K9:" + Bright.Common.StringUtil.CollectionToString(K9) + ","
         + "}";

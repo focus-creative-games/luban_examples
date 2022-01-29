@@ -48,6 +48,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         switch (type)
         {
             case "DemoE1": obj = new test.DemoE1(); break;
+            case "test.login.RoleInfo": obj = new test.login.RoleInfo(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

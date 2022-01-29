@@ -792,6 +792,7 @@ pub enum RoleEProfession {
 #[allow(dead_code)]
 #[allow(non_camel_case_types)]
 pub enum TestDemoEnum {
+    NONE = 0,
     /**
      * aa
      */
@@ -4441,6 +4442,7 @@ impl TestDemoType1 {
 pub enum TestDemoDynamic {
   DemoD2(Box<TestDemoD2>),
   DemoE1(Box<TestDemoE1>),
+  RoleInfo(Box<TestLoginRoleInfo>),
   DemoD5(Box<TestDemoD5>),
 }
 
@@ -4451,6 +4453,7 @@ impl TestDemoDynamic {
             Some(type_name) => match type_name {
                 "DemoD2" => TestDemoDynamic::DemoD2(Box::new(TestDemoD2::new(&__js)?)),
                 "DemoE1" => TestDemoDynamic::DemoE1(Box::new(TestDemoE1::new(&__js)?)),
+                "test.login.RoleInfo" => TestDemoDynamic::RoleInfo(Box::new(TestLoginRoleInfo::new(&__js)?)),
                 "DemoD5" => TestDemoDynamic::DemoD5(Box::new(TestDemoD5::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
@@ -4486,6 +4489,7 @@ impl TestDemoD2 {
 #[allow(non_camel_case_types)]
 pub enum TestDemoD3 {
   DemoE1(Box<TestDemoE1>),
+  RoleInfo(Box<TestLoginRoleInfo>),
 }
 
 impl TestDemoD3 {
@@ -4494,6 +4498,7 @@ impl TestDemoD3 {
         let __b = match __js["__type__"].as_str() {
             Some(type_name) => match type_name {
                 "DemoE1" => TestDemoD3::DemoE1(Box::new(TestDemoE1::new(&__js)?)),
+                "test.login.RoleInfo" => TestDemoD3::RoleInfo(Box::new(TestLoginRoleInfo::new(&__js)?)),
                 _ => return Err(LoadError{})
                 },
             None => return Err(LoadError{})
@@ -4519,6 +4524,28 @@ impl TestDemoE1 {
             x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x3: match __js["x3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x4: match __js["x4"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+
+
+#[allow(non_camel_case_types)]
+pub struct TestLoginRoleInfo {
+pub x1: i32,
+pub x3: i32,
+pub role_id: i64,
+}
+
+impl TestLoginRoleInfo {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestLoginRoleInfo, LoadError> {
+        let __b = TestLoginRoleInfo {
+            x1: match __js["x1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x3: match __js["x3"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            role_id: match __js["role_id"].as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
     }
@@ -5901,6 +5928,7 @@ impl TestTbTestSet{
 #[allow(non_camel_case_types)]
 pub struct TestTestSet {
 pub id: i32,
+pub x0: String,
 pub x1: Vec<i32>,
 pub x2: Vec<i64>,
 pub x3: Vec<String>,
@@ -5912,6 +5940,7 @@ impl TestTestSet {
     pub fn new(__js: &json::JsonValue) -> Result<TestTestSet, LoadError> {
         let __b = TestTestSet {
             id: match __js["id"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            x0: match __js["x0"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x1: { if !__js["x1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             x2: { if !__js["x2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x2"].members() { __list__.push(match __e.as_i64() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             x3: { if !__js["x3"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["x3"].members() { __list__.push(match __e.as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) }); }   __list__},
@@ -6168,9 +6197,11 @@ pub x8: i32,
 pub x10: String,
 pub x13: i32,
 pub x14: TestDemoDynamic,
+pub x15: TestShape,
 pub v2: Vector2,
 pub t1: i32,
 pub k1: Vec<i32>,
+pub k2: Vec<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
 pub k9: Vec<TestDemoE2>,
 }
@@ -6187,11 +6218,81 @@ impl TestDefineFromExcel {
             x10: match __js["x10"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x14: TestDemoDynamic::new(&__js["x14"])?,
+            x15: TestShape::new(&__js["x15"])?,
             v2: Vector2::new(&__js["v2"])?,
             t1: match __js["t1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             k1: { if !__js["k1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            k2: { if !__js["k2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
             k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
+        };
+        Ok(__b)
+    }
+}
+
+
+
+
+#[allow(non_camel_case_types)]
+pub enum TestShape {
+  Circle(Box<TestCircle>),
+  Rectangle(Box<TestRectangle>),
+}
+
+impl TestShape {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestShape, LoadError> {
+        let __b = match __js["__type__"].as_str() {
+            Some(type_name) => match type_name {
+                "Circle" => TestShape::Circle(Box::new(TestCircle::new(&__js)?)),
+                "Rectangle" => TestShape::Rectangle(Box::new(TestRectangle::new(&__js)?)),
+                _ => return Err(LoadError{})
+                },
+            None => return Err(LoadError{})
+        };
+        Ok(__b)
+    }
+}
+
+
+
+
+/**
+ * 圆
+ */
+#[allow(non_camel_case_types)]
+pub struct TestCircle {
+pub radius: f32,
+}
+
+impl TestCircle {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestCircle, LoadError> {
+        let __b = TestCircle {
+            radius: match __js["radius"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+        };
+        Ok(__b)
+    }
+}
+
+
+
+
+/**
+ * 矩形
+ */
+#[allow(non_camel_case_types)]
+pub struct TestRectangle {
+pub width: f32,
+pub height: f32,
+}
+
+impl TestRectangle {
+    #[allow(dead_code)]
+    pub fn new(__js: &json::JsonValue) -> Result<TestRectangle, LoadError> {
+        let __b = TestRectangle {
+            width: match __js["width"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
+            height: match __js["height"].as_f32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
         };
         Ok(__b)
     }
@@ -7050,9 +7151,11 @@ pub x8: i32,
 pub x10: String,
 pub x13: i32,
 pub x14: TestDemoDynamic,
+pub x15: TestShape,
 pub v2: Vector2,
 pub t1: i32,
 pub k1: Vec<i32>,
+pub k2: Vec<i32>,
 pub k8: std::collections::HashMap<i32, i32>,
 pub k9: Vec<TestDemoE2>,
 }
@@ -7069,9 +7172,11 @@ impl TestDefineFromExcel2 {
             x10: match __js["x10"].as_str() { Some(__x__) => __x__.to_string(), None => return Err(LoadError{}) },
             x13: match __js["x13"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             x14: TestDemoDynamic::new(&__js["x14"])?,
+            x15: TestShape::new(&__js["x15"])?,
             v2: Vector2::new(&__js["v2"])?,
             t1: match __js["t1"].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) },
             k1: { if !__js["k1"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k1"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
+            k2: { if !__js["k2"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k2"].members() { __list__.push(match __e.as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __list__},
             k8: { if !__js["k8"].is_array() { return Err(LoadError{}); } let mut __map__ = std::collections::HashMap::new(); for __e in __js["k8"].members() { __map__.insert(match __e[0].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }, match __e[1].as_i32() { Some(__x__) => __x__, None => return Err(LoadError{}) }); }   __map__},
             k9: { if !__js["k9"].is_array() { return Err(LoadError{}); } let mut __list__ = vec![]; for __e in __js["k9"].members() { __list__.push(TestDemoE2::new(&__e)?); }   __list__},
         };

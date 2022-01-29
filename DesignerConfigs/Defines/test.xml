@@ -535,7 +535,7 @@
 	
 	<module name="login">
 		支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。
-		<bean name="RoleInfo">
+		<bean name="RoleInfo" parent="test.DemoD3">
 			<var name="role_id" type="long"/>
 		</bean>
 	</module>
