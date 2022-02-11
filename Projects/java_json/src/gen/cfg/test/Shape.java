@@ -22,7 +22,7 @@ public abstract class Shape {
     public static Shape deserializeShape(JsonObject __json__) {
         switch (__json__.get("__type__").getAsString()) {
             case "Circle": return new cfg.test.Circle(__json__);
-            case "Rectangle": return new cfg.test.Rectangle(__json__);
+            case "test2.Rectangle": return new cfg.test2.Rectangle(__json__);
             default: throw new bright.serialization.SerializationException();
         }
     }

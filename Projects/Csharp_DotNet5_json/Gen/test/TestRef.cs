@@ -76,13 +76,21 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
     public int X2 { get; private set; }
     public int X3 { get; private set; }
     public int[] A1 { get; private set; }
+    public test.TestBeRef[] A1_Ref { get; private set; }
     public int[] A2 { get; private set; }
+    public test.TestBeRef[] A2_Ref { get; private set; }
     public System.Collections.Generic.List<int> B1 { get; private set; }
+    public System.Collections.Generic.List<test.TestBeRef> B1_Ref { get; private set; }
     public System.Collections.Generic.List<int> B2 { get; private set; }
+    public System.Collections.Generic.List<test.TestBeRef> B2_Ref { get; private set; }
     public System.Collections.Generic.HashSet<int> C1 { get; private set; }
+    public System.Collections.Generic.HashSet<test.TestBeRef> C1_Ref { get; private set; }
     public System.Collections.Generic.HashSet<int> C2 { get; private set; }
+    public System.Collections.Generic.HashSet<test.TestBeRef> C2_Ref { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, test.TestBeRef> D1_Ref { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; private set; }
     public int E1 { get; private set; }
     public long E2 { get; private set; }
     public string E3 { get; private set; }
@@ -96,6 +104,14 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.X1_Ref = (_tables["test.TbTestBeRef"] as test.TbTestBeRef).GetOrDefault(X1);
+        { int __n = A1.Length; test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.A1_Ref = new test.TestBeRef[__n]; for(int i = 0 ; i < __n ; i++) { this.A1_Ref[i] =  __table.GetOrDefault(A1[i]); } }
+        { int __n = A2.Length; test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.A2_Ref = new test.TestBeRef[__n]; for(int i = 0 ; i < __n ; i++) { this.A2_Ref[i] =  __table.GetOrDefault(A2[i]); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.B1_Ref = new System.Collections.Generic.List<test.TestBeRef>(B1.Count); foreach(var __e in B1) { this.B1_Ref.Add(__table.GetOrDefault(__e)); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.B2_Ref = new System.Collections.Generic.List<test.TestBeRef>(B2.Count); foreach(var __e in B2) { this.B2_Ref.Add(__table.GetOrDefault(__e)); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.C1_Ref = new System.Collections.Generic.HashSet<test.TestBeRef>(C1.Count); foreach(var __e in C1) { this.C1_Ref.Add(__table.GetOrDefault(__e)); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.C2_Ref = new System.Collections.Generic.HashSet<test.TestBeRef>(C2.Count); foreach(var __e in C2) { this.C2_Ref.Add(__table.GetOrDefault(__e)); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.D1_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>(); foreach(var __e in D1) { this.D1_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
+        { test.TbTestBeRef __table = (test.TbTestBeRef)_tables["test.TbTestBeRef"]; this.D2_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>(); foreach(var __e in D2) { this.D2_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
         PostResolve();
     }
 

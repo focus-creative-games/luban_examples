@@ -5,7 +5,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-package cfg.test;
+package cfg.test2;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -41,7 +41,7 @@ public final class Rectangle extends cfg.test.Shape {
      */
     public final float height;
 
-    public static final int __ID__ = -31893773;
+    public static final int __ID__ = 694982337;
 
     @Override
     public int getTypeId() { return __ID__; }

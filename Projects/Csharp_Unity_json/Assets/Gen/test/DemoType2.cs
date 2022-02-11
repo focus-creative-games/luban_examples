@@ -106,6 +106,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public System.Collections.Generic.List<int> K2 { get; private set; }
     public System.Collections.Generic.HashSet<int> K5 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, test.DemoType2> K8_Ref { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
     public test.DemoDynamic[] K15 { get; private set; }
 
@@ -116,6 +117,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     {
         X12?.Resolve(_tables);
         X14?.Resolve(_tables);
+        { test.TbFullTypes __table = (test.TbFullTypes)_tables["test.TbFullTypes"]; this.K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>(); foreach(var __e in K8) { this.K8_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
         PostResolve();

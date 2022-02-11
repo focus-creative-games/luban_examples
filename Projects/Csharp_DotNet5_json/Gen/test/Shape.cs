@@ -31,7 +31,7 @@ public abstract partial class Shape :  Bright.Config.BeanBase
         switch (_json.GetProperty("__type__").GetString())
         {
             case "Circle": return new test.Circle(_json);
-            case "Rectangle": return new test.Rectangle(_json);
+            case "test2.Rectangle": return new test2.Rectangle(_json);
             default: throw new SerializationException();
         }
     }

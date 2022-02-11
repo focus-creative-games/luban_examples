@@ -11,13 +11,13 @@ using System.Text.Json;
 
 
 
-namespace cfg.test
+namespace cfg.test2
 {
 
 /// <summary>
 /// 矩形
 /// </summary>
-public sealed partial class Rectangle :  Shape 
+public sealed partial class Rectangle :  test.Shape 
 {
     public Rectangle(JsonElement _json)  : base(_json) 
     {
@@ -35,7 +35,7 @@ public sealed partial class Rectangle :  Shape
 
     public static Rectangle DeserializeRectangle(JsonElement _json)
     {
-        return new test.Rectangle(_json);
+        return new test2.Rectangle(_json);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public sealed partial class Rectangle :  Shape
     /// </summary>
     public float Height { get; private set; }
 
-    public const int __ID__ = -31893773;
+    public const int __ID__ = 694982337;
     public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
