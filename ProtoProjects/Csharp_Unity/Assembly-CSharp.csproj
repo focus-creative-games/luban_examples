@@ -85,6 +85,7 @@
     <Compile Include="Assets\Gen\test\Child21.cs" />
     <Compile Include="Assets\Gen\test\Dyn.cs" />
     <Compile Include="Assets\Gen\test\AllType.cs" />
+    <Compile Include="Assets\Gen\test\EnumType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
