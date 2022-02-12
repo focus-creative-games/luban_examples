@@ -9,7 +9,7 @@
   "x8_0": 1234,
   "x8": 1234,
   "x9": 111111111,
-  "x10": "huang",
+  "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
   "x12": {
     "x1": 1988
   },
@@ -70,7 +70,7 @@
       "y2": true
     },
     {
-      "y1": 2,
+      "y1": 10,
       "y2": false
     }
   ],

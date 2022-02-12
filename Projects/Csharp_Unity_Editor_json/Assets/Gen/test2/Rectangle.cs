@@ -11,13 +11,13 @@ using SimpleJSON;
 
 
 
-namespace editor.cfg.test
+namespace editor.cfg.test2
 {
 
 /// <summary>
 /// 矩形
 /// </summary>
-public sealed partial class Rectangle :  Shape 
+public sealed partial class Rectangle :  test.Shape 
 {
     public Rectangle()
     {
@@ -57,7 +57,7 @@ public sealed partial class Rectangle :  Shape
 
     public static Rectangle LoadJsonRectangle(SimpleJSON.JSONNode _json)
     {
-        Rectangle obj = new test.Rectangle();
+        Rectangle obj = new test2.Rectangle();
         obj.LoadJson((SimpleJSON.JSONObject)_json);
         return obj;
     }

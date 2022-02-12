@@ -35,7 +35,7 @@ public abstract partial class Shape :  Bright.Config.EditorBeanBase
         switch (type)
         {
             case "Circle": obj = new test.Circle(); break;
-            case "Rectangle": obj = new test.Rectangle(); break;
+            case "test2.Rectangle": obj = new test2.Rectangle(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

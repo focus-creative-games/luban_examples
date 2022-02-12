@@ -55,7 +55,7 @@ public sealed partial class TreasureBox :  item.ItemExtra
     {
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
-        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.DropIds_Ref = new System.Collections.Generic.List<bonus.DropInfo>(DropIds.Count); foreach(var __e in DropIds) { this.DropIds_Ref.Add(__table.GetOrDefault(__e)); } }
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.DropIds_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in DropIds) { this.DropIds_Ref.Add(__table.GetOrDefault(__e)); } }
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
         PostResolve();
     }

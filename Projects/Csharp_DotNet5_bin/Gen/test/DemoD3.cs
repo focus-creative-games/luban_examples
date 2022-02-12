@@ -26,6 +26,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         switch (_buf.ReadInt())
         {
             case test.DemoE1.__ID__: return new test.DemoE1(_buf);
+            case test.login.RoleInfo.__ID__: return new test.login.RoleInfo(_buf);
             default: throw new SerializationException();
         }
     }

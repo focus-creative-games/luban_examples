@@ -74,7 +74,7 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.Award_Ref = new System.Collections.Generic.List<bonus.DropInfo>(Award.Count); foreach(var __e in Award) { this.Award_Ref.Add(__table.GetOrDefault(__e)); } }
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.Award_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in Award) { this.Award_Ref.Add(__table.GetOrDefault(__e)); } }
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);
