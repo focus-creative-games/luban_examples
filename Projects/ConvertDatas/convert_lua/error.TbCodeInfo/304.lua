@@ -1,4 +1,4 @@
 return {
-    code = 304,
+    code = 'OVER_TIME',
     key = "OVER_TIME",
 }

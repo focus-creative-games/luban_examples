@@ -32,7 +32,7 @@ public abstract partial class FlowNode :  ai.Node
 
     public static FlowNode DeserializeFlowNode(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "Sequence": return new ai.Sequence(_json);
             case "Selector": return new ai.Selector(_json);

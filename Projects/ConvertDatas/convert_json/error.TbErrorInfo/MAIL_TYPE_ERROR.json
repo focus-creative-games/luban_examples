@@ -2,6 +2,6 @@
   "code": "MAIL_TYPE_ERROR",
   "desc": "邮件类型错误",
   "style": {
-    "__type__": "ErrorStyleTip"
+    "$type": "ErrorStyleTip"
   }
 }

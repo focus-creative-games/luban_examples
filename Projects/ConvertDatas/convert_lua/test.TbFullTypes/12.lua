@@ -9,15 +9,16 @@ return {
     x8_0 = 1234,
     x8 = 1234,
     x9 = 111111111,
-    x10 = "huang",
+    x10 = "Assets/GoodsIcon/GoodsIcon.spriteatlas",
     x12 = {
         x1 = 1990,
     },
-    x13 = 2,
+    x13 = '2',
     x14 = {
-        _name = 'DemoD2',
+        _type_ = 'RoleInfo',
         x1 = 1,
-        x2 = 4,
+        x3 = 4,
+        role_id = 10000,
     },
     s1 = {key='key5',text="asdfa10"},
     v2 = {x=1,y=4},
@@ -50,18 +51,18 @@ return {
             y2 = true,
         },
         {
-            y1 = 4,
+            y1 = 12,
             y2 = false,
         },
     },
     k15 = {
         {
-            _name = 'DemoD2',
+            _type_ = 'DemoD2',
             x1 = 1,
             x2 = 2,
         },
         {
-            _name = 'DemoE1',
+            _type_ = 'DemoE1',
             x1 = 1,
             x3 = 2,
             x4 = 13,

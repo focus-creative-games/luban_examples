@@ -1,10 +1,10 @@
 return {
     id = 1022490000,
     name = "测试数据-包子",
-    major_type = 4,
-    minor_type = 403,
+    major_type = '消耗品',
+    minor_type = '食物',
     max_pile_num = 100,
-    quality = 2,
+    quality = '蓝',
     icon = "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
     icon_backgroud = "",
     icon_mask = "",
@@ -17,5 +17,5 @@ return {
     progress_time_when_use = 1,
     show_hint_when_use = false,
     droppable = true,
-    use_type = 1,
+    use_type = '自动',
 }

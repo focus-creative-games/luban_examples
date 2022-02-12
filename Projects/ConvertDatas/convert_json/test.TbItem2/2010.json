@@ -1,5 +1,5 @@
 {
-  "__type__": "Equipment",
+  "$type": "Equipment",
   "id": 2010,
   "name": "装备20",
   "desc": "装备好",

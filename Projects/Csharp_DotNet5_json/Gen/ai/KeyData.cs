@@ -28,7 +28,7 @@ public abstract partial class KeyData :  Bright.Config.BeanBase
 
     public static KeyData DeserializeKeyData(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "FloatKeyData": return new ai.FloatKeyData(_json);
             case "IntKeyData": return new ai.IntKeyData(_json);

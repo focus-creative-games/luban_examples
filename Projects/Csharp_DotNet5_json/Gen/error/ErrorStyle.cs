@@ -28,7 +28,7 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
 
     public static ErrorStyle DeserializeErrorStyle(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "ErrorStyleTip": return new error.ErrorStyleTip(_json);
             case "ErrorStyleMsgbox": return new error.ErrorStyleMsgbox(_json);

@@ -1,4 +1,4 @@
 return {
-    code = 901,
+    code = 'SUIT_COMPONENT_NOT_UNLOCK',
     key = "SUIT_COMPONENT_NOT_UNLOCK",
 }

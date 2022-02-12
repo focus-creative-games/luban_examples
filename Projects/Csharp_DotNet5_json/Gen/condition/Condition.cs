@@ -28,7 +28,7 @@ public abstract partial class Condition :  Bright.Config.BeanBase
 
     public static Condition DeserializeCondition(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "TimeRange": return new condition.TimeRange(_json);
             case "MultiRoleCondition": return new condition.MultiRoleCondition(_json);

@@ -1,4 +1,4 @@
 return {
-    code = 3,
+    code = 'AUTH_FAIL',
     key = "AUTH_FAIL",
 }

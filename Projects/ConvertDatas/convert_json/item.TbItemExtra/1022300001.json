@@ -1,5 +1,5 @@
 {
-  "__type__": "TreasureBox",
+  "$type": "TreasureBox",
   "id": 1022300001,
   "open_level": {
     "level": 5

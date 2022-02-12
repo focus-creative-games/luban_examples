@@ -2,7 +2,7 @@
   "code": "SERVER_ACCESS_FAIL",
   "desc": "访问服务器失败",
   "style": {
-    "__type__": "ErrorStyleMsgbox",
+    "$type": "ErrorStyleMsgbox",
     "btn_name": "ok",
     "operation": "重启"
   }

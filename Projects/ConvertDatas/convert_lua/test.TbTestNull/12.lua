@@ -1,12 +1,12 @@
 return {
     id = 12,
     x1 = 1,
-    x2 = 1,
+    x2 = 'A',
     x3 = {
         x1 = 1,
     },
     x4 = {
-        _name = 'DemoD2',
+        _type_ = 'DemoD2',
         x1 = 2,
         x2 = 3,
     },

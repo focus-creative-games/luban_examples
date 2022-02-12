@@ -1,5 +1,5 @@
 return {
-    _name = 'Clothes',
+    _type_ = 'Clothes',
     id = 1020100001,
     attack = 100,
     hp = 1000,

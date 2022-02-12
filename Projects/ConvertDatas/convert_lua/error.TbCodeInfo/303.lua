@@ -1,4 +1,4 @@
 return {
-    code = 303,
+    code = 'EXCEED_LIMIT',
     key = "EXCEED_LIMIT",
 }

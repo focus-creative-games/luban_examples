@@ -1,4 +1,4 @@
 return {
-    code = 708,
+    code = 'MAIL_BOX_IS_FULL',
     key = "MAIL_BOX_IS_FULL",
 }

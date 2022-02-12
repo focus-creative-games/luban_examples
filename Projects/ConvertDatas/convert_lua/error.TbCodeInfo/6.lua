@@ -1,4 +1,4 @@
 return {
-    code = 6,
+    code = 'EXAMPLE_FLASH',
     key = "EXAMPLE_FLASH",
 }

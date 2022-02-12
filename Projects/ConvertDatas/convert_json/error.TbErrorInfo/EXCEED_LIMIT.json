@@ -2,6 +2,6 @@
   "code": "EXCEED_LIMIT",
   "desc": "超过限制",
   "style": {
-    "__type__": "ErrorStyleTip"
+    "$type": "ErrorStyleTip"
   }
 }

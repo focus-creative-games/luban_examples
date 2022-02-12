@@ -2,6 +2,6 @@
   "code": "SKILL_ANOTHER_CASTING",
   "desc": "",
   "style": {
-    "__type__": "ErrorStyleTip"
+    "$type": "ErrorStyleTip"
   }
 }

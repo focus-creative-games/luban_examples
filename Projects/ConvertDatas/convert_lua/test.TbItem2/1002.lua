@@ -1,0 +1,8 @@
+return {
+    _type_ = 'Item',
+    id = 1002,
+    name = "道具2",
+    desc = "道具1",
+    num = 20,
+    price = 30,
+}

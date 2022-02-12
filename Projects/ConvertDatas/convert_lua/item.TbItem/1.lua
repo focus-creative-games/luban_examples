@@ -1,10 +1,10 @@
 return {
     id = 1,
     name = "钻石",
-    major_type = 1,
-    minor_type = 101,
+    major_type = '货币',
+    minor_type = '钻石',
     max_pile_num = 9999999,
-    quality = 0,
+    quality = '白',
     icon = "/Game/UI/UIText/UI_TestIcon_3.UI_TestIcon_3",
     icon_backgroud = "",
     icon_mask = "",
@@ -17,5 +17,5 @@ return {
     progress_time_when_use = 1,
     show_hint_when_use = false,
     droppable = false,
-    use_type = 0,
+    use_type = '手动',
 }

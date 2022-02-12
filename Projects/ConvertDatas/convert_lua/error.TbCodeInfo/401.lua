@@ -1,4 +1,4 @@
 return {
-    code = 401,
+    code = 'SKILL_NOT_COOLDOWN',
     key = "SKILL_NOT_COOLDOWN",
 }

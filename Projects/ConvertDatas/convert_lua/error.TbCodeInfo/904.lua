@@ -1,4 +1,4 @@
 return {
-    code = 904,
+    code = 'SUIT_COMPONENT_NO_NEED_LEARN',
     key = "SUIT_COMPONENT_NO_NEED_LEARN",
 }

@@ -2,6 +2,6 @@ return {
     code = "MAIL_NO_AWARD",
     desc = "邮件没有奖励",
     style = {
-        _name = 'ErrorStyleTip',
+        _type_ = 'ErrorStyleTip',
     },
 }

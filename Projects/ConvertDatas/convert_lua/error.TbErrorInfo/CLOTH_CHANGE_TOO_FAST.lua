@@ -2,6 +2,6 @@ return {
     code = "CLOTH_CHANGE_TOO_FAST",
     desc = "暖暖正在换衣服中，请稍等",
     style = {
-        _name = 'ErrorStyleTip',
+        _type_ = 'ErrorStyleTip',
     },
 }

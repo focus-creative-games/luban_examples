@@ -9,13 +9,13 @@ return {
     x8_0 = 1234,
     x8 = 1234,
     x9 = 111111111,
-    x10 = "huang",
+    x10 = "Assets/GoodsIcon/GoodsIcon.spriteatlas",
     x12 = {
         x1 = 1991,
     },
-    x13 = 4,
+    x13 = '4',
     x14 = {
-        _name = 'DemoD2',
+        _type_ = 'DemoD2',
         x1 = 1,
         x2 = 5,
     },
@@ -50,18 +50,18 @@ return {
             y2 = true,
         },
         {
-            y1 = 5,
+            y1 = 13,
             y2 = false,
         },
     },
     k15 = {
         {
-            _name = 'DemoD2',
+            _type_ = 'DemoD2',
             x1 = 1,
             x2 = 2,
         },
         {
-            _name = 'DemoE1',
+            _type_ = 'DemoE1',
             x1 = 1,
             x3 = 2,
             x4 = 14,

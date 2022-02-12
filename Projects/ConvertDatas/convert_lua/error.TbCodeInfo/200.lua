@@ -1,4 +1,4 @@
 return {
-    code = 200,
+    code = 'PARAM_ILLEGAL',
     key = "PARAM_ILLEGAL",
 }

@@ -4,7 +4,7 @@ return {
     client_show_items = {
     },
     bonus = {
-        _name = 'OneItem',
+        _type_ = 'OneItem',
         item_id = 1021490001,
     },
 }

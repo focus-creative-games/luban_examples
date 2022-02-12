@@ -1,4 +1,4 @@
 return {
-    code = 5,
+    code = 'SERVER_ACCESS_FAIL',
     key = "SERVER_ACCESS_FAIL",
 }

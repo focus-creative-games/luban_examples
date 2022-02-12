@@ -1,4 +1,4 @@
 return {
-    code = 1,
+    code = 'SERVER_NOT_EXISTS',
     key = "SERVER_NOT_EXISTS",
 }

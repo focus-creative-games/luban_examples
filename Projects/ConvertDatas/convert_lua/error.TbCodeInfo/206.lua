@@ -1,4 +1,4 @@
 return {
-    code = 206,
+    code = 'ITEM_IN_BAG',
     key = "ITEM_IN_BAG",
 }

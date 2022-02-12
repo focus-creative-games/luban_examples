@@ -2,6 +2,6 @@
   "code": "OVER_TIME",
   "desc": "超时",
   "style": {
-    "__type__": "ErrorStyleTip"
+    "$type": "ErrorStyleTip"
   }
 }

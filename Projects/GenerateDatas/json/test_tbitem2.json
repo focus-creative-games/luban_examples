@@ -1,6 +1,6 @@
 [
   {
-    "__type__": "Item",
+    "$type": "Item",
     "id": 1001,
     "name": "道具1",
     "desc": "道具1",
@@ -8,7 +8,7 @@
     "price": 15
   },
   {
-    "__type__": "Item",
+    "$type": "Item",
     "id": 1002,
     "name": "道具2",
     "desc": "道具1",
@@ -16,7 +16,7 @@
     "price": 30
   },
   {
-    "__type__": "Equipment",
+    "$type": "Equipment",
     "id": 2001,
     "name": "装备1",
     "desc": "装备1",
@@ -24,7 +24,7 @@
     "value": 100
   },
   {
-    "__type__": "Equipment",
+    "$type": "Equipment",
     "id": 2002,
     "name": "装备2",
     "desc": "装备2好",
@@ -32,21 +32,21 @@
     "value": 15
   },
   {
-    "__type__": "Decorator",
+    "$type": "Decorator",
     "id": 3001,
     "name": "耳环",
     "desc": "耳环",
     "duration": 100
   },
   {
-    "__type__": "Decorator",
+    "$type": "Decorator",
     "id": 3002,
     "name": "耳环",
     "desc": "耳环",
     "duration": 100
   },
   {
-    "__type__": "Item",
+    "$type": "Item",
     "id": 1010,
     "name": "道具10",
     "desc": "道具10",
@@ -54,7 +54,7 @@
     "price": 10
   },
   {
-    "__type__": "Equipment",
+    "$type": "Equipment",
     "id": 2010,
     "name": "装备20",
     "desc": "装备好",
@@ -62,7 +62,7 @@
     "value": 10
   },
   {
-    "__type__": "Decorator",
+    "$type": "Decorator",
     "id": 3010,
     "name": "帽子",
     "desc": "帽子",

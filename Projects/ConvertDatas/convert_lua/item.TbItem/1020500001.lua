@@ -1,10 +1,10 @@
 return {
     id = 1020500001,
     name = "初始袜子",
-    major_type = 2,
-    minor_type = 250,
+    major_type = '服装',
+    minor_type = '袜子',
     max_pile_num = 1,
-    quality = 0,
+    quality = '白',
     icon = "/Game/UI/UIText/IocnResource/Frames/S0012S_png.S0012S_png",
     icon_backgroud = "",
     icon_mask = "",
@@ -17,5 +17,5 @@ return {
     progress_time_when_use = 1,
     show_hint_when_use = false,
     droppable = false,
-    use_type = 0,
+    use_type = '手动',
 }

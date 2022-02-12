@@ -1,4 +1,4 @@
 return {
-    code = 100,
+    code = 'ROLE_CREATE_NAME_INVALID_CHAR',
     key = "ROLE_CREATE_NAME_INVALID_CHAR",
 }

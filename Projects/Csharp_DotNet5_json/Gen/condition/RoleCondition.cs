@@ -28,7 +28,7 @@ public abstract partial class RoleCondition :  condition.Condition
 
     public static RoleCondition DeserializeRoleCondition(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "MultiRoleCondition": return new condition.MultiRoleCondition(_json);
             case "GenderLimit": return new condition.GenderLimit(_json);
