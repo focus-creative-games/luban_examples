@@ -23,15 +23,8 @@ namespace proto.test
 
         public static void SerializeDyn(ByteBuf _buf, Dyn x)
         {
-            if (x != null)
-            {
-                _buf.WriteInt(x.GetTypeId());
-                x.Serialize(_buf);
-            }
-            else
-            {
-                _buf.WriteInt(0);
-            }
+            _buf.WriteInt(x.GetTypeId());
+            x.Serialize(_buf);
         }
 
         public static Dyn DeserializeDyn(ByteBuf _buf)
@@ -39,7 +32,6 @@ namespace proto.test
            test.Dyn x;
             switch (_buf.ReadInt())
             {
-                case 0 : return null;
                 case test.Child2.__ID__: x = new test.Child2(); break;
                 case test.Child31.__ID__: x = new test.Child31(); break;
                 case test.Child32.__ID__: x = new test.Child32(); break;

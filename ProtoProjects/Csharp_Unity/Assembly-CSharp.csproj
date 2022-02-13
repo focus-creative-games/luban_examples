@@ -74,6 +74,7 @@
     <Compile Include="Assets\Bright.Serialization\ByteBuf.cs" />
     <Compile Include="Assets\Bright.Net\Codecs\Protocol.cs" />
     <Compile Include="Assets\Gen\test\Child32.cs" />
+    <Compile Include="Assets\Gen\test\EnumType.cs" />
     <Compile Include="Assets\Gen\test\TestRpcArg.cs" />
     <Compile Include="Assets\Bright.Serialization\BeanBase.cs" />
     <Compile Include="Assets\Gen\test\TestRpc.cs" />
@@ -85,7 +86,8 @@
     <Compile Include="Assets\Gen\test\Child21.cs" />
     <Compile Include="Assets\Gen\test\Dyn.cs" />
     <Compile Include="Assets\Gen\test\AllType.cs" />
-    <Compile Include="Assets\Gen\test\EnumType.cs" />
+    <Compile Include="Assets\Gen\test\TestNullable.cs" />
+    <Compile Include="Assets\Gen\test\MyIntVector3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

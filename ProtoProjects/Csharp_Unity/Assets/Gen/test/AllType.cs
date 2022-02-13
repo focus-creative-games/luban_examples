@@ -32,8 +32,6 @@ namespace proto.test
             E1 = new System.Collections.Generic.Dictionary<int,int>();
             E2 = new System.Collections.Generic.Dictionary<int,test.Simple>();
             E3 = new System.Collections.Generic.Dictionary<int,test.Dyn>();
-            F2 = "";
-            F3 = new test.Simple();
         }
 
         public static void SerializeAllType(ByteBuf _buf, AllType x)
@@ -92,14 +90,6 @@ namespace proto.test
 
          public System.Collections.Generic.Dictionary<int, test.Dyn> E3;
 
-         public int? F1;
-
-         public string F2;
-
-         public test.Simple F3;
-
-         public test.Dyn F4;
-
 
         public const int __ID__ = 0;
         public override int GetTypeId() => __ID__;
@@ -128,10 +118,6 @@ namespace proto.test
             { _buf.WriteSize(E1.Count); foreach(var _e in E1) { _buf.WriteInt(_e.Key); _buf.WriteInt(_e.Value); } }
             { _buf.WriteSize(E2.Count); foreach(var _e in E2) { _buf.WriteInt(_e.Key); test.Simple.SerializeSimple(_buf, _e.Value); } }
             { _buf.WriteSize(E3.Count); foreach(var _e in E3) { _buf.WriteInt(_e.Key); test.Dyn.SerializeDyn(_buf, _e.Value); } }
-            if(F1 != null){ _buf.WriteBool(true); _buf.WriteInt(F1.Value); } else { _buf.WriteBool(true); }
-            if(F2 != null){ _buf.WriteBool(true); _buf.WriteString(F2); } else { _buf.WriteBool(true); }
-            test.Simple.SerializeSimple(_buf, F3);
-            test.Dyn.SerializeDyn(_buf, F4);
         }
 
         public override void Deserialize(ByteBuf _buf)
@@ -158,10 +144,6 @@ namespace proto.test
             {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);E1 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     E1.Add(_k, _v);}}
             {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);E2 = new System.Collections.Generic.Dictionary<int, test.Simple>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); test.Simple _v;  _v = test.Simple.DeserializeSimple(_buf);     E2.Add(_k, _v);}}
             {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);E3 = new System.Collections.Generic.Dictionary<int, test.Dyn>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); test.Dyn _v;  _v = test.Dyn.DeserializeDyn(_buf);     E3.Add(_k, _v);}}
-            if(_buf.ReadBool()){ F1 = _buf.ReadInt(); } else { F1 = null; }
-            if(_buf.ReadBool()){ F2 = _buf.ReadString(); } else { F2 = null; }
-            if(_buf.ReadBool()){ F3 = test.Simple.DeserializeSimple(_buf); } else { F3 = null; }
-            if(_buf.ReadBool()){ F4 = test.Dyn.DeserializeDyn(_buf); } else { F4 = null; }
         }
 
         public override string ToString()
@@ -189,10 +171,6 @@ namespace proto.test
             + "E1:" + Bright.Common.StringUtil.CollectionToString(E1) + ","
             + "E2:" + Bright.Common.StringUtil.CollectionToString(E2) + ","
             + "E3:" + Bright.Common.StringUtil.CollectionToString(E3) + ","
-            + "F1:" + F1 + ","
-            + "F2:" + F2 + ","
-            + "F3:" + F3 + ","
-            + "F4:" + F4 + ","
             + "}";
         }
     }

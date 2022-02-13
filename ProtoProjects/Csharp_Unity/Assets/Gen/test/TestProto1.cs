@@ -16,6 +16,8 @@ namespace proto.test
 
          public string Y;
 
+         public test.TestNullable Z;
+
 
         public TestProto1()
         {
@@ -24,6 +26,7 @@ namespace proto.test
         public TestProto1(Bright.Common.NotNullInitialization _)
         {
             Y = "";
+            Z = new test.TestNullable();
         }
         public const int __ID__ = 23983;
 
@@ -36,12 +39,14 @@ namespace proto.test
         {
             _buf.WriteInt(X);
             _buf.WriteString(Y);
+            test.TestNullable.SerializeTestNullable(_buf, Z);
         }
 
         public override void Deserialize(ByteBuf _buf)
         {
             X = _buf.ReadInt();
             Y = _buf.ReadString();
+            Z = test.TestNullable.DeserializeTestNullable(_buf);
         }
 
         public override void Reset()
@@ -59,6 +64,7 @@ namespace proto.test
             return "test.TestProto1{ "
             + "X:" + X + ","
             + "Y:" + Y + ","
+            + "Z:" + Z + ","
             + "}";
         }
     }
