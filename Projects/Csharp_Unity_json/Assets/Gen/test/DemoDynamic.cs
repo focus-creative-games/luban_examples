@@ -30,7 +30,7 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
 
     public static DemoDynamic DeserializeDemoDynamic(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "DemoD2": return new test.DemoD2(_json);

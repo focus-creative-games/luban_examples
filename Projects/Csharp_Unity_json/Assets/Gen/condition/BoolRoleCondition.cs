@@ -28,7 +28,7 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
 
     public static BoolRoleCondition DeserializeBoolRoleCondition(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "GenderLimit": return new condition.GenderLimit(_json);

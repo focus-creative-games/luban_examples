@@ -26,10 +26,10 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         X7 = _buf.ReadDouble();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadUnityVector2();
+        V2 = ExternalTypeUtil.NewFromVector2(_buf.ReadUnityVector2());
         V3 = _buf.ReadUnityVector3();
         V4 = _buf.ReadUnityVector4();
-        T1 = _buf.ReadInt();
+        T1 = ExternalTypeUtil.NewDatetime(_buf.ReadInt());
         PostInit();
     }
 
@@ -48,11 +48,10 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     public string S1 { get; private set; }
     public string S2 { get; private set; }
     public string S2_l10n_key { get; }
-    public UnityEngine.Vector2 V2 { get; private set; }
+    public System.Numerics.Vector2 V2 { get; private set; }
     public UnityEngine.Vector3 V3 { get; private set; }
     public UnityEngine.Vector4 V4 { get; private set; }
-    public int T1 { get; private set; }
-    public long T1_Millis => T1 * 1000L;
+    public System.DateTime T1 { get; private set; }
 
     public const int __ID__ = -370934083;
     public override int GetTypeId() => __ID__;

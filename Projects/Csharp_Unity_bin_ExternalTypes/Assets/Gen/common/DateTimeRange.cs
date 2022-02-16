@@ -17,8 +17,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
 {
     public DateTimeRange(ByteBuf _buf) 
     {
-        if(_buf.ReadBool()){ StartTime = _buf.ReadInt(); } else { StartTime = null; }
-        if(_buf.ReadBool()){ EndTime = _buf.ReadInt(); } else { EndTime = null; }
+        if(_buf.ReadBool()){ StartTime = ExternalTypeUtil.NewDatetime(_buf.ReadInt()); } else { StartTime = null; }
+        if(_buf.ReadBool()){ EndTime = ExternalTypeUtil.NewDatetime(_buf.ReadInt()); } else { EndTime = null; }
         PostInit();
     }
 
@@ -27,8 +27,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new common.DateTimeRange(_buf);
     }
 
-    public int? StartTime { get; private set; }
-    public int? EndTime { get; private set; }
+    public System.DateTime? StartTime { get; private set; }
+    public System.DateTime? EndTime { get; private set; }
 
     public const int __ID__ = 1642200959;
     public override int GetTypeId() => __ID__;

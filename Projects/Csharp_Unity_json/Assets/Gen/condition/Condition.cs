@@ -28,7 +28,7 @@ public abstract partial class Condition :  Bright.Config.BeanBase
 
     public static Condition DeserializeCondition(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "TimeRange": return new condition.TimeRange(_json);

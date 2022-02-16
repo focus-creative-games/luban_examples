@@ -525,13 +525,26 @@
         </mapper>
     </externaltype>
     
+    <externaltype name="unity_vector2" origin_type_name="vector2">
+        <mapper lan="cs" selector="unity_cs">
+            <target_type_name>System.Numerics.Vector2</target_type_name>
+            <create_external_object_function>ExternalTypeUtil.NewFromVector2</create_external_object_function>
+        </mapper>
+    </externaltype>
+    
+    <externaltype name="cs_datetime" origin_type_name="datetime">
+        <mapper lan="cs" selector="unity_cs">
+            <target_type_name>System.DateTime</target_type_name>
+            <create_external_object_function>ExternalTypeUtil.NewDatetime</create_external_object_function>
+        </mapper>
+    </externaltype>
+    
     <bean name="TestExternalType">
         <var name="id" type="int"/>
         <var name="audio_type" type="AudioType"/>
         <var name="color" type="Color"/>
     </bean>
     <table name="TbTestExternalType" value="TestExternalType" input="test/external_type.xlsx"/>
-    
     
     <module name="login">
         支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。

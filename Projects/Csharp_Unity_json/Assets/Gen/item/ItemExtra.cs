@@ -30,7 +30,7 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public static ItemExtra DeserializeItemExtra(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "TreasureBox": return new item.TreasureBox(_json);

@@ -30,7 +30,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
 
     public static DemoD3 DeserializeDemoD3(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "DemoE1": return new test.DemoE1(_json);

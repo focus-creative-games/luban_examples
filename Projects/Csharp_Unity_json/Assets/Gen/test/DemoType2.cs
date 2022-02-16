@@ -33,9 +33,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         { if(!_json["x13"].IsNumber) { throw new SerializationException(); }  X13 = (test.DemoEnum)_json["x13"].AsInt; }
         { if(!_json["x14"].IsObject) { throw new SerializationException(); }  X14 = test.DemoDynamic.DeserializeDemoDynamic(_json["x14"]); }
         { if(!_json["s1"]["key"].IsString) { throw new SerializationException(); }  S1_l10n_key = _json["s1"]["key"]; if(!_json["s1"]["text"].IsString) { throw new SerializationException(); }  S1 = _json["s1"]["text"]; }
-        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
-        { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new System.Numerics.Vector3(__x, __y,__z); }
-        { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new UnityEngine.Vector2(__x, __y); }
+        { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new UnityEngine.Vector3(__x, __y,__z); }
+        { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new UnityEngine.Vector4(__x, __y, __z, __w); }
         { if(!_json["t1"].IsNumber) { throw new SerializationException(); }  T1 = _json["t1"]; }
         { var _json1 = _json["k1"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; K1 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  K1[_index++] = __v; }   }
         { var _json1 = _json["k2"]; if(!_json1.IsArray) { throw new SerializationException(); } K2 = new System.Collections.Generic.List<int>(_json1.Count); foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  K2.Add(__v); }   }
@@ -46,7 +46,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
+    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, UnityEngine.Vector2 v2, UnityEngine.Vector3 v3, UnityEngine.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
     {
         this.X4 = x4;
         this.X1 = x1;
@@ -97,9 +97,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public test.DemoDynamic X14 { get; private set; }
     public string S1 { get; private set; }
     public string S1_l10n_key { get; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }

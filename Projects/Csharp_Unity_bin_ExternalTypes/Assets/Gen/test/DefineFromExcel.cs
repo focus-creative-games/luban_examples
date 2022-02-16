@@ -26,8 +26,8 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         X13 = (test.ETestQuality)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         X15 = test.Shape.DeserializeShape(_buf);
-        V2 = _buf.ReadUnityVector2();
-        T1 = _buf.ReadInt();
+        V2 = ExternalTypeUtil.NewFromVector2(_buf.ReadUnityVector2());
+        T1 = ExternalTypeUtil.NewDatetime(_buf.ReadInt());
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K2[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     K8.Add(_k, _v);}}
@@ -55,9 +55,8 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
     public test.Shape X15 { get; private set; }
-    public UnityEngine.Vector2 V2 { get; private set; }
-    public int T1 { get; private set; }
-    public long T1_Millis => T1 * 1000L;
+    public System.Numerics.Vector2 V2 { get; private set; }
+    public System.DateTime T1 { get; private set; }
     public int[] K1 { get; private set; }
     public int[] K2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }

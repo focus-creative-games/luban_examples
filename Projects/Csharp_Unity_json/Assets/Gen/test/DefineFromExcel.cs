@@ -27,7 +27,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         { if(!_json["x13"].IsNumber) { throw new SerializationException(); }  X13 = (test.ETestQuality)_json["x13"].AsInt; }
         { if(!_json["x14"].IsObject) { throw new SerializationException(); }  X14 = test.DemoDynamic.DeserializeDemoDynamic(_json["x14"]); }
         { if(!_json["x15"].IsObject) { throw new SerializationException(); }  X15 = test.Shape.DeserializeShape(_json["x15"]); }
-        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
+        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new UnityEngine.Vector2(__x, __y); }
         { if(!_json["t1"].IsNumber) { throw new SerializationException(); }  T1 = _json["t1"]; }
         { var _json1 = _json["k1"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; K1 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  K1[_index++] = __v; }   }
         { var _json1 = _json["k2"]; if(!_json1.IsArray) { throw new SerializationException(); } int _n = _json1.Count; K2 = new int[_n]; int _index=0; foreach(JSONNode __e in _json1.Children) { int __v;  { if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e; }  K2[_index++] = __v; }   }
@@ -36,7 +36,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, test.Shape x15, System.Numerics.Vector2 v2, int t1, int[] k1, int[] k2, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
+    public DefineFromExcel(int id, bool x1, long x5, float x6, int x8, string x10, test.ETestQuality x13, test.DemoDynamic x14, test.Shape x15, UnityEngine.Vector2 v2, int t1, int[] k1, int[] k2, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9 ) 
     {
         this.Id = id;
         this.X1 = x1;
@@ -76,7 +76,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
     public test.Shape X15 { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }

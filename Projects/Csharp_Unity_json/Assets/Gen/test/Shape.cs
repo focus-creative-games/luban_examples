@@ -28,7 +28,7 @@ public abstract partial class Shape :  Bright.Config.BeanBase
 
     public static Shape DeserializeShape(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "Circle": return new test.Circle(_json);

@@ -21,7 +21,7 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
         Rate = _buf.ReadFloat();
         Num = _buf.ReadInt();
-        V2 = _buf.ReadUnityVector2();
+        V2 = ExternalTypeUtil.NewFromVector2(_buf.ReadUnityVector2());
         V3 = _buf.ReadUnityVector3();
         V4 = _buf.ReadUnityVector4();
         PostInit();
@@ -36,7 +36,7 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
     public string Desc { get; private set; }
     public float Rate { get; private set; }
     public int Num { get; private set; }
-    public UnityEngine.Vector2 V2 { get; private set; }
+    public System.Numerics.Vector2 V2 { get; private set; }
     public UnityEngine.Vector3 V3 { get; private set; }
     public UnityEngine.Vector4 V4 { get; private set; }
 

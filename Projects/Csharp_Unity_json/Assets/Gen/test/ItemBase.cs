@@ -34,7 +34,7 @@ public abstract partial class ItemBase :  Bright.Config.BeanBase
 
     public static ItemBase DeserializeItemBase(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "Item": return new test.Item(_json);
