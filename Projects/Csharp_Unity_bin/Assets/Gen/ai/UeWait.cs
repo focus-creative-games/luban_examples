@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class UeWait :  ai.Task 
+public sealed partial class UeWait :  ai.Task 
 {
     public UeWait(ByteBuf _buf)  : base(_buf) 
     {
         WaitTime = _buf.ReadFloat();
         RandomDeviation = _buf.ReadFloat();
+        PostInit();
     }
 
     public static UeWait DeserializeUeWait(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class UeWait :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -54,6 +56,9 @@ public sealed class UeWait :  ai.Task
         + "RandomDeviation:" + RandomDeviation + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -17,7 +17,7 @@ public sealed partial class MoveToLocation :  ai.Task
 {
     public MoveToLocation(ByteBuf _buf)  : base(_buf) 
     {
-        Location = _buf.ReadVector3();
+        Location = _buf.ReadUnityVector3();
         AcceptableRadius = _buf.ReadFloat();
         PostInit();
     }
@@ -27,7 +27,7 @@ public sealed partial class MoveToLocation :  ai.Task
         return new ai.MoveToLocation(_buf);
     }
 
-    public System.Numerics.Vector3 Location { get; private set; }
+    public UnityEngine.Vector3 Location { get; private set; }
     public float AcceptableRadius { get; private set; }
 
     public const int __ID__ = -969953113;

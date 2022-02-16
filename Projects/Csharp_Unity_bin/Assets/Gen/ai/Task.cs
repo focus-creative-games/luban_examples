@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class Task :  ai.FlowNode 
+public abstract partial class Task :  ai.FlowNode 
 {
     public Task(ByteBuf _buf)  : base(_buf) 
     {
         IgnoreRestartSelf = _buf.ReadBool();
+        PostInit();
     }
 
     public static Task DeserializeTask(ByteBuf _buf)
@@ -41,6 +42,7 @@ public abstract class Task :  ai.FlowNode
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,6 +60,9 @@ public abstract class Task :  ai.FlowNode
         + "IgnoreRestartSelf:" + IgnoreRestartSelf + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

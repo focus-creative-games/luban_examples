@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestDesc :  Bright.Config.BeanBase 
+public sealed partial class TestDesc :  Bright.Config.BeanBase 
 {
     public TestDesc(ByteBuf _buf) 
     {
@@ -24,6 +24,7 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         X1 = test.H1.DeserializeH1(_buf);
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<test.H2>(n);for(var i = 0 ; i < n ; i++) { test.H2 _e;  _e = test.H2.DeserializeH2(_buf); X2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[n];for(var i = 0 ; i < n ; i++) { test.H2 _e;_e = test.H2.DeserializeH2(_buf); X3[i] = _e;}}
+        PostInit();
     }
 
     public static TestDesc DeserializeTestDesc(ByteBuf _buf)
@@ -59,6 +60,7 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         X1?.Resolve(_tables);
         foreach(var _e in X2) { _e?.Resolve(_tables); }
         foreach(var _e in X3) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -80,6 +82,9 @@ public sealed class TestDesc :  Bright.Config.BeanBase
         + "X3:" + Bright.Common.StringUtil.CollectionToString(X3) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

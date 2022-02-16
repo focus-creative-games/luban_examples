@@ -23,9 +23,9 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
         X6 = _buf.ReadFloat();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         X12 = test.DemoType1.DeserializeDemoType1(_buf);
         X13 = (test.DemoEnum)_buf.ReadInt();
@@ -49,9 +49,9 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
     public string S1 { get; private set; }
     public string S2 { get; private set; }
     public string S2_l10n_key { get; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public test.DemoType1 X12 { get; private set; }

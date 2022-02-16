@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class Decorator :  ai.Node 
+public abstract partial class Decorator :  ai.Node 
 {
     public Decorator(ByteBuf _buf)  : base(_buf) 
     {
         FlowAbortMode = (ai.EFlowAbortMode)_buf.ReadInt();
+        PostInit();
     }
 
     public static Decorator DeserializeDecorator(ByteBuf _buf)
@@ -41,6 +42,7 @@ public abstract class Decorator :  ai.Node
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -56,6 +58,9 @@ public abstract class Decorator :  ai.Node
         + "FlowAbortMode:" + FlowAbortMode + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

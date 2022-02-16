@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class SepVector :  Bright.Config.BeanBase 
+public sealed partial class SepVector :  Bright.Config.BeanBase 
 {
     public SepVector(ByteBuf _buf) 
     {
         X = _buf.ReadInt();
         Y = _buf.ReadInt();
         Z = _buf.ReadInt();
+        PostInit();
     }
 
     public static SepVector DeserializeSepVector(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class SepVector :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public sealed class SepVector :  Bright.Config.BeanBase
         + "Z:" + Z + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

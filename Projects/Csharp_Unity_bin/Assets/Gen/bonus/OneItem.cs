@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class OneItem :  bonus.Bonus 
+public sealed partial class OneItem :  bonus.Bonus 
 {
     public OneItem(ByteBuf _buf)  : base(_buf) 
     {
         ItemId = _buf.ReadInt();
+        PostInit();
     }
 
     public static OneItem DeserializeOneItem(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class OneItem :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class OneItem :  bonus.Bonus
         + "ItemId:" + ItemId + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

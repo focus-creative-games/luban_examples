@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class DistanceLessThan :  ai.Decorator 
+public sealed partial class DistanceLessThan :  ai.Decorator 
 {
     public DistanceLessThan(ByteBuf _buf)  : base(_buf) 
     {
@@ -21,6 +21,7 @@ public sealed class DistanceLessThan :  ai.Decorator
         Actor2Key = _buf.ReadString();
         Distance = _buf.ReadFloat();
         ReverseResult = _buf.ReadBool();
+        PostInit();
     }
 
     public static DistanceLessThan DeserializeDistanceLessThan(ByteBuf _buf)
@@ -39,6 +40,7 @@ public sealed class DistanceLessThan :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -58,6 +60,9 @@ public sealed class DistanceLessThan :  ai.Decorator
         + "ReverseResult:" + ReverseResult + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

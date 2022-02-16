@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class GetOwnerPlayer :  ai.Service 
+public sealed partial class GetOwnerPlayer :  ai.Service 
 {
     public GetOwnerPlayer(ByteBuf _buf)  : base(_buf) 
     {
         PlayerActorKey = _buf.ReadString();
+        PostInit();
     }
 
     public static GetOwnerPlayer DeserializeGetOwnerPlayer(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class GetOwnerPlayer :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class GetOwnerPlayer :  ai.Service
         + "PlayerActorKey:" + PlayerActorKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

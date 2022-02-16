@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class ItemFunction :  Bright.Config.BeanBase 
+public sealed partial class ItemFunction :  Bright.Config.BeanBase 
 {
     public ItemFunction(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         FuncType = (item.EItemFunctionType)_buf.ReadInt();
         Method = _buf.ReadString();
         CloseBagUi = _buf.ReadBool();
+        PostInit();
     }
 
     public static ItemFunction DeserializeItemFunction(ByteBuf _buf)
@@ -38,6 +39,7 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -53,6 +55,9 @@ public sealed class ItemFunction :  Bright.Config.BeanBase
         + "CloseBagUi:" + CloseBagUi + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

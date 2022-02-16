@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class DropBonus :  bonus.Bonus 
+public sealed partial class DropBonus :  bonus.Bonus 
 {
     public DropBonus(ByteBuf _buf)  : base(_buf) 
     {
         Id = _buf.ReadInt();
+        PostInit();
     }
 
     public static DropBonus DeserializeDropBonus(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class DropBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class DropBonus :  bonus.Bonus
         + "Id:" + Id + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

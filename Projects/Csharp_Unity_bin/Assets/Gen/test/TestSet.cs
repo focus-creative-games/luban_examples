@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestSet :  Bright.Config.BeanBase 
+public sealed partial class TestSet :  Bright.Config.BeanBase 
 {
     public TestSet(ByteBuf _buf) 
     {
@@ -23,6 +23,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<long>(n);for(var i = 0 ; i < n ; i++) { long _e;  _e = _buf.ReadLong(); X2.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new System.Collections.Generic.List<string>(n);for(var i = 0 ; i < n ; i++) { string _e;  _e = _buf.ReadString(); X3.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new System.Collections.Generic.List<test.DemoEnum>(n);for(var i = 0 ; i < n ; i++) { test.DemoEnum _e;  _e = (test.DemoEnum)_buf.ReadInt(); X4.Add(_e);}}
+        PostInit();
     }
 
     public static TestSet DeserializeTestSet(ByteBuf _buf)
@@ -42,6 +43,7 @@ public sealed class TestSet :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -59,6 +61,9 @@ public sealed class TestSet :  Bright.Config.BeanBase
         + "X4:" + Bright.Common.StringUtil.CollectionToString(X4) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
    
-public sealed class TbGlobalConfig
+public partial class TbGlobalConfig
 {
 
      private readonly common.GlobalConfig _data;
@@ -21,6 +21,7 @@ public sealed class TbGlobalConfig
         int n = _buf.ReadSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = common.GlobalConfig.DeserializeGlobalConfig(_buf);
+        PostInit();
     }
 
 
@@ -37,7 +38,6 @@ public sealed class TbGlobalConfig
      public int ClothBagInitCapacity => _data.ClothBagInitCapacity;
      public int ClothBagCapacitySpecial => _data.ClothBagCapacitySpecial;
      public int? BagInitItemsDropId => _data.BagInitItemsDropId;
-        public bonus.DropInfo BagInitItemsDropId_Ref => _data.BagInitItemsDropId_Ref;
      public int MailBoxCapacity => _data.MailBoxCapacity;
      public float DamageParamC => _data.DamageParamC;
      public float DamageParamE => _data.DamageParamE;
@@ -53,6 +53,7 @@ public sealed class TbGlobalConfig
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -60,6 +61,9 @@ public sealed class TbGlobalConfig
         _data.TranslateText(translator);
     }
 
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

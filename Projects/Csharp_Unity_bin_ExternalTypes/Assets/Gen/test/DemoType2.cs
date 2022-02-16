@@ -32,9 +32,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X13 = (test.DemoEnum)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         S1_l10n_key = _buf.ReadString(); S1 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); K2.Add(_e);}}
@@ -66,15 +66,16 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public test.DemoDynamic X14 { get; private set; }
     public string S1 { get; private set; }
     public string S1_l10n_key { get; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }
     public System.Collections.Generic.List<int> K2 { get; private set; }
     public System.Collections.Generic.HashSet<int> K5 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, test.DemoType2> K8_Ref { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
     public test.DemoDynamic[] K15 { get; private set; }
 
@@ -85,6 +86,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     {
         X12?.Resolve(_tables);
         X14?.Resolve(_tables);
+        { test.TbFullTypes __table = (test.TbFullTypes)_tables["test.TbFullTypes"]; this.K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>(); foreach(var __e in K8) { this.K8_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
         PostResolve();

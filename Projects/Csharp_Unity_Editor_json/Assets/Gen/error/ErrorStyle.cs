@@ -30,7 +30,7 @@ public abstract partial class ErrorStyle :  Bright.Config.EditorBeanBase
 
     public static ErrorStyle LoadJsonErrorStyle(SimpleJSON.JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         ErrorStyle obj;
         switch (type)
         {
@@ -46,7 +46,7 @@ public abstract partial class ErrorStyle :  Bright.Config.EditorBeanBase
         
     public static void SaveJsonErrorStyle(ErrorStyle _obj, SimpleJSON.JSONNode _json)
     {
-        _json["__type__"] = _obj.GetType().Name;
+        _json["$type"] = _obj.GetType().Name;
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 

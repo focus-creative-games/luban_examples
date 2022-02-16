@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public sealed class CostItem :  cost.Cost 
+public sealed partial class CostItem :  cost.Cost 
 {
     public CostItem(ByteBuf _buf)  : base(_buf) 
     {
         ItemId = _buf.ReadInt();
         Amount = _buf.ReadInt();
+        PostInit();
     }
 
     public static CostItem DeserializeCostItem(ByteBuf _buf)
@@ -37,6 +38,7 @@ public sealed class CostItem :  cost.Cost
     {
         base.Resolve(_tables);
         this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public sealed class CostItem :  cost.Cost
         + "Amount:" + Amount + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

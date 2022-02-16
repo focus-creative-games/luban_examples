@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class Service :  ai.Node 
+public abstract partial class Service :  ai.Node 
 {
     public Service(ByteBuf _buf)  : base(_buf) 
     {
+        PostInit();
     }
 
     public static Service DeserializeService(ByteBuf _buf)
@@ -38,6 +39,7 @@ public abstract class Service :  ai.Node
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public abstract class Service :  ai.Node
         + "NodeName:" + NodeName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

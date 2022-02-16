@@ -32,7 +32,7 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
 
     public static BoolRoleCondition LoadJsonBoolRoleCondition(SimpleJSON.JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         BoolRoleCondition obj;
         switch (type)
         {
@@ -49,7 +49,7 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
         
     public static void SaveJsonBoolRoleCondition(BoolRoleCondition _obj, SimpleJSON.JSONNode _json)
     {
-        _json["__type__"] = _obj.GetType().Name;
+        _json["$type"] = _obj.GetType().Name;
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 

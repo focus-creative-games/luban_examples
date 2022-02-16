@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class UeSetDefaultFocus :  ai.Service 
+public sealed partial class UeSetDefaultFocus :  ai.Service 
 {
     public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 
     {
         KeyboardKey = _buf.ReadString();
+        PostInit();
     }
 
     public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class UeSetDefaultFocus :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class UeSetDefaultFocus :  ai.Service
         + "KeyboardKey:" + KeyboardKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

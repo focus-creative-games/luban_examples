@@ -16,7 +16,7 @@ namespace cfg.item
 /// <summary>
 /// 道具
 /// </summary>
-public sealed class Item :  Bright.Config.BeanBase 
+public sealed partial class Item :  Bright.Config.BeanBase 
 {
     public Item(ByteBuf _buf) 
     {
@@ -41,6 +41,7 @@ public sealed class Item :  Bright.Config.BeanBase
         if(_buf.ReadBool()){ Price = _buf.ReadInt(); } else { Price = null; }
         UseType = (item.EUseType)_buf.ReadInt();
         if(_buf.ReadBool()){ LevelUpId = _buf.ReadInt(); } else { LevelUpId = null; }
+        PostInit();
     }
 
     public static Item DeserializeItem(ByteBuf _buf)
@@ -78,6 +79,7 @@ public sealed class Item :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -110,6 +112,9 @@ public sealed class Item :  Bright.Config.BeanBase
         + "LevelUpId:" + LevelUpId + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

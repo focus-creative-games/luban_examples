@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class FlowNode :  ai.Node 
+public abstract partial class FlowNode :  ai.Node 
 {
     public FlowNode(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Decorators = new System.Collections.Generic.List<ai.Decorator>(n);for(var i = 0 ; i < n ; i++) { ai.Decorator _e;  _e = ai.Decorator.DeserializeDecorator(_buf); Decorators.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Services = new System.Collections.Generic.List<ai.Service>(n);for(var i = 0 ; i < n ; i++) { ai.Service _e;  _e = ai.Service.DeserializeService(_buf); Services.Add(_e);}}
+        PostInit();
     }
 
     public static FlowNode DeserializeFlowNode(ByteBuf _buf)
@@ -48,6 +49,7 @@ public abstract class FlowNode :  ai.Node
         base.Resolve(_tables);
         foreach(var _e in Decorators) { _e?.Resolve(_tables); }
         foreach(var _e in Services) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -66,6 +68,9 @@ public abstract class FlowNode :  ai.Node
         + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

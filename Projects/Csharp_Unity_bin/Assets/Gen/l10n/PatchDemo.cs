@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.l10n
 {
 
-public sealed class PatchDemo :  Bright.Config.BeanBase 
+public sealed partial class PatchDemo :  Bright.Config.BeanBase 
 {
     public PatchDemo(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Value = _buf.ReadInt();
+        PostInit();
     }
 
     public static PatchDemo DeserializePatchDemo(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class PatchDemo :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

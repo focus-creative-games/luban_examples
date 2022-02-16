@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class DesignDrawing :  item.ItemExtra 
+public sealed partial class DesignDrawing :  item.ItemExtra 
 {
     public DesignDrawing(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);LearnComponentId = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); LearnComponentId.Add(_e);}}
+        PostInit();
     }
 
     public static DesignDrawing DeserializeDesignDrawing(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class DesignDrawing :  item.ItemExtra
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class DesignDrawing :  item.ItemExtra
         + "LearnComponentId:" + Bright.Common.StringUtil.CollectionToString(LearnComponentId) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

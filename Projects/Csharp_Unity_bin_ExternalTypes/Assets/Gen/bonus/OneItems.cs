@@ -27,6 +27,7 @@ public sealed partial class OneItems :  bonus.Bonus
     }
 
     public int[] Items { get; private set; }
+    public item.Item[] Items_Ref { get; private set; }
 
     public const int __ID__ = 400179721;
     public override int GetTypeId() => __ID__;
@@ -34,6 +35,7 @@ public sealed partial class OneItems :  bonus.Bonus
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        { int __n = Items.Length; item.TbItem __table = (item.TbItem)_tables["item.TbItem"]; this.Items_Ref = new item.Item[__n]; for(int i = 0 ; i < __n ; i++) { this.Items_Ref[i] =  __table.GetOrDefault(Items[i]); } }
         PostResolve();
     }
 

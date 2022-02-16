@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public abstract class DemoD3 :  test.DemoDynamic 
+public abstract partial class DemoD3 :  test.DemoDynamic 
 {
     public DemoD3(ByteBuf _buf)  : base(_buf) 
     {
         X3 = _buf.ReadInt();
+        PostInit();
     }
 
     public static DemoD3 DeserializeDemoD3(ByteBuf _buf)
@@ -25,6 +26,7 @@ public abstract class DemoD3 :  test.DemoDynamic
         switch (_buf.ReadInt())
         {
             case test.DemoE1.__ID__: return new test.DemoE1(_buf);
+            case test.login.RoleInfo.__ID__: return new test.login.RoleInfo(_buf);
             default: throw new SerializationException();
         }
     }
@@ -35,6 +37,7 @@ public abstract class DemoD3 :  test.DemoDynamic
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +52,9 @@ public abstract class DemoD3 :  test.DemoDynamic
         + "X3:" + X3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

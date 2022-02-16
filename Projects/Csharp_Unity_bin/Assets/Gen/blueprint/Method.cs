@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public abstract class Method :  Bright.Config.BeanBase 
+public abstract partial class Method :  Bright.Config.BeanBase 
 {
     public Method(ByteBuf _buf) 
     {
@@ -22,6 +22,7 @@ public abstract class Method :  Bright.Config.BeanBase
         IsStatic = _buf.ReadBool();
         ReturnType = _buf.ReadString();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(n);for(var i = 0 ; i < n ; i++) { blueprint.ParamInfo _e;  _e = blueprint.ParamInfo.DeserializeParamInfo(_buf); Parameters.Add(_e);}}
+        PostInit();
     }
 
     public static Method DeserializeMethod(ByteBuf _buf)
@@ -45,6 +46,7 @@ public abstract class Method :  Bright.Config.BeanBase
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -62,6 +64,9 @@ public abstract class Method :  Bright.Config.BeanBase
         + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

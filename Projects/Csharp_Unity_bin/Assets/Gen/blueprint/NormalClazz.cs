@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed class NormalClazz :  blueprint.Clazz 
+public sealed partial class NormalClazz :  blueprint.Clazz 
 {
     public NormalClazz(ByteBuf _buf)  : base(_buf) 
     {
         IsAbstract = _buf.ReadBool();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Fields = new System.Collections.Generic.List<blueprint.Field>(n);for(var i = 0 ; i < n ; i++) { blueprint.Field _e;  _e = blueprint.Field.DeserializeField(_buf); Fields.Add(_e);}}
+        PostInit();
     }
 
     public static NormalClazz DeserializeNormalClazz(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class NormalClazz :  blueprint.Clazz
     {
         base.Resolve(_tables);
         foreach(var _e in Fields) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -55,6 +57,9 @@ public sealed class NormalClazz :  blueprint.Clazz
         + "Fields:" + Bright.Common.StringUtil.CollectionToString(Fields) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

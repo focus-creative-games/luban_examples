@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed class TbFullTypes
+public partial class TbFullTypes
 {
     private readonly Dictionary<int, test.DemoType2> _dataMap;
     private readonly List<test.DemoType2> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbFullTypes
             _dataList.Add(_v);
             _dataMap.Add(_v.X4, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, test.DemoType2> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbFullTypes
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbFullTypes
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

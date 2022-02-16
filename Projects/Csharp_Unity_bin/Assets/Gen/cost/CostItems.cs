@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public sealed class CostItems :  cost.Cost 
+public sealed partial class CostItems :  cost.Cost 
 {
     public CostItems(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ItemList = new cost.CostItem[n];for(var i = 0 ; i < n ; i++) { cost.CostItem _e;_e = cost.CostItem.DeserializeCostItem(_buf); ItemList[i] = _e;}}
+        PostInit();
     }
 
     public static CostItems DeserializeCostItems(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class CostItems :  cost.Cost
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class CostItems :  cost.Cost
         + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

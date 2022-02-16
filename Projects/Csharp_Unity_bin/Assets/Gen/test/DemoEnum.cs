@@ -10,6 +10,7 @@ namespace cfg.test
 {
     public enum DemoEnum
     {
+        NONE = 0,
         /// <summary>
         /// aa
         /// </summary>

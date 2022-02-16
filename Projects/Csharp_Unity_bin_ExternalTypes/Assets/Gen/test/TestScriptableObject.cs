@@ -21,9 +21,9 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
         Rate = _buf.ReadFloat();
         Num = _buf.ReadInt();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         PostInit();
     }
 
@@ -36,9 +36,9 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
     public string Desc { get; private set; }
     public float Rate { get; private set; }
     public int Num { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
 
     public const int __ID__ = -1896814350;
     public override int GetTypeId() => __ID__;

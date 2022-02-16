@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class ProbabilityBonus :  bonus.Bonus 
+public sealed partial class ProbabilityBonus :  bonus.Bonus 
 {
     public ProbabilityBonus(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Bonuses = new bonus.ProbabilityBonusInfo[n];for(var i = 0 ; i < n ; i++) { bonus.ProbabilityBonusInfo _e;_e = bonus.ProbabilityBonusInfo.DeserializeProbabilityBonusInfo(_buf); Bonuses[i] = _e;}}
+        PostInit();
     }
 
     public static ProbabilityBonus DeserializeProbabilityBonus(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class ProbabilityBonus :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in Bonuses) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class ProbabilityBonus :  bonus.Bonus
         + "Bonuses:" + Bright.Common.StringUtil.CollectionToString(Bonuses) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

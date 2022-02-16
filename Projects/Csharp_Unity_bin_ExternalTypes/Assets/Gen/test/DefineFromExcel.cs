@@ -26,7 +26,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         X13 = (test.ETestQuality)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         X15 = test.Shape.DeserializeShape(_buf);
-        V2 = _buf.ReadVector2();
+        V2 = _buf.ReadUnityVector2();
         T1 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K2[i] = _e;}}
@@ -55,7 +55,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
     public test.Shape X15 { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }

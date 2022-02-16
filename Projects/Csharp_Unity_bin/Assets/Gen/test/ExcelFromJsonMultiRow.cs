@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
+public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase 
 {
     public ExcelFromJsonMultiRow(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         X = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new System.Collections.Generic.List<test.TestRow>(n);for(var i = 0 ; i < n ; i++) { test.TestRow _e;  _e = test.TestRow.DeserializeTestRow(_buf); Items.Add(_e);}}
+        PostInit();
     }
 
     public static ExcelFromJsonMultiRow DeserializeExcelFromJsonMultiRow(ByteBuf _buf)
@@ -37,6 +38,7 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Items) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
         + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

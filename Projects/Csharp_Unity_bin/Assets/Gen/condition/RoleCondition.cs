@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public abstract class RoleCondition :  condition.Condition 
+public abstract partial class RoleCondition :  condition.Condition 
 {
     public RoleCondition(ByteBuf _buf)  : base(_buf) 
     {
+        PostInit();
     }
 
     public static RoleCondition DeserializeRoleCondition(ByteBuf _buf)
@@ -39,6 +40,7 @@ public abstract class RoleCondition :  condition.Condition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public abstract class RoleCondition :  condition.Condition
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

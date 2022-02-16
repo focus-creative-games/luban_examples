@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public abstract class ItemExtra :  Bright.Config.BeanBase 
+public abstract partial class ItemExtra :  Bright.Config.BeanBase 
 {
     public ItemExtra(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
+        PostInit();
     }
 
     public static ItemExtra DeserializeItemExtra(ByteBuf _buf)
@@ -38,6 +39,7 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public abstract class ItemExtra :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

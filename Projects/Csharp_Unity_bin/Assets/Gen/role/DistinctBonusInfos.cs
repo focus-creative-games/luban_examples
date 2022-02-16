@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.role
 {
 
-public sealed class DistinctBonusInfos :  Bright.Config.BeanBase 
+public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase 
 {
     public DistinctBonusInfos(ByteBuf _buf) 
     {
         EffectiveLevel = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(n);for(var i = 0 ; i < n ; i++) { role.BonusInfo _e;  _e = role.BonusInfo.DeserializeBonusInfo(_buf); BonusInfo.Add(_e);}}
+        PostInit();
     }
 
     public static DistinctBonusInfos DeserializeDistinctBonusInfos(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class DistinctBonusInfos :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in BonusInfo) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class DistinctBonusInfos :  Bright.Config.BeanBase
         + "BonusInfo:" + Bright.Common.StringUtil.CollectionToString(BonusInfo) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class Node :  Bright.Config.BeanBase 
+public abstract partial class Node :  Bright.Config.BeanBase 
 {
     public Node(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         NodeName = _buf.ReadString();
+        PostInit();
     }
 
     public static Node DeserializeNode(ByteBuf _buf)
@@ -58,6 +59,7 @@ public abstract class Node :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -71,6 +73,9 @@ public abstract class Node :  Bright.Config.BeanBase
         + "NodeName:" + NodeName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

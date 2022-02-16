@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class Foo :  Bright.Config.BeanBase 
+public sealed partial class Foo :  Bright.Config.BeanBase 
 {
     public Foo(ByteBuf _buf) 
     {
         Y1 = _buf.ReadInt();
         Y2 = _buf.ReadInt();
         Y3 = _buf.ReadInt();
+        PostInit();
     }
 
     public static Foo DeserializeFoo(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class Foo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public sealed class Foo :  Bright.Config.BeanBase
         + "Y3:" + Y3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

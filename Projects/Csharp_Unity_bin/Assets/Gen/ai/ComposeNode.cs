@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class ComposeNode :  ai.FlowNode 
+public abstract partial class ComposeNode :  ai.FlowNode 
 {
     public ComposeNode(ByteBuf _buf)  : base(_buf) 
     {
+        PostInit();
     }
 
     public static ComposeNode DeserializeComposeNode(ByteBuf _buf)
@@ -35,6 +36,7 @@ public abstract class ComposeNode :  ai.FlowNode
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public abstract class ComposeNode :  ai.FlowNode
         + "Services:" + Bright.Common.StringUtil.CollectionToString(Services) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

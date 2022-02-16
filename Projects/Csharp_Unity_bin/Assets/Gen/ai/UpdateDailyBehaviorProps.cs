@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class UpdateDailyBehaviorProps :  ai.Service 
+public sealed partial class UpdateDailyBehaviorProps :  ai.Service 
 {
     public UpdateDailyBehaviorProps(ByteBuf _buf)  : base(_buf) 
     {
@@ -26,6 +26,7 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         EnergyUpperThresholdKey = _buf.ReadString();
         MoodLowerThresholdKey = _buf.ReadString();
         MoodUpperThresholdKey = _buf.ReadString();
+        PostInit();
     }
 
     public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(ByteBuf _buf)
@@ -49,6 +50,7 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -72,6 +74,9 @@ public sealed class UpdateDailyBehaviorProps :  ai.Service
         + "MoodUpperThresholdKey:" + MoodUpperThresholdKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

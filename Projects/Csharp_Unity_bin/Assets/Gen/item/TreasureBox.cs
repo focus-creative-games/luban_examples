@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.item
 {
 
-public sealed class TreasureBox :  item.ItemExtra 
+public sealed partial class TreasureBox :  item.ItemExtra 
 {
     public TreasureBox(ByteBuf _buf)  : base(_buf) 
     {
@@ -22,6 +22,7 @@ public sealed class TreasureBox :  item.ItemExtra
         UseOnObtain = _buf.ReadBool();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);DropIds = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); DropIds.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(n);for(var i = 0 ; i < n ; i++) { item.ChooseOneBonus _e;  _e = item.ChooseOneBonus.DeserializeChooseOneBonus(_buf); ChooseList.Add(_e);}}
+        PostInit();
     }
 
     public static TreasureBox DeserializeTreasureBox(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class TreasureBox :  item.ItemExtra
     public condition.MinLevel OpenLevel { get; private set; }
     public bool UseOnObtain { get; private set; }
     public System.Collections.Generic.List<int> DropIds { get; private set; }
+    public System.Collections.Generic.List<bonus.DropInfo> DropIds_Ref { get; private set; }
     public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
 
     public const int __ID__ = 1494222369;
@@ -42,7 +44,9 @@ public sealed class TreasureBox :  item.ItemExtra
     {
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.DropIds_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in DropIds) { this.DropIds_Ref.Add(__table.GetOrDefault(__e)); } }
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -63,6 +67,9 @@ public sealed class TreasureBox :  item.ItemExtra
         + "ChooseList:" + Bright.Common.StringUtil.CollectionToString(ChooseList) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

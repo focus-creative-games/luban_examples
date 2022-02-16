@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public abstract class Clazz :  Bright.Config.BeanBase 
+public abstract partial class Clazz :  Bright.Config.BeanBase 
 {
     public Clazz(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public abstract class Clazz :  Bright.Config.BeanBase
         Desc = _buf.ReadString();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Parents = new System.Collections.Generic.List<blueprint.Clazz>(n);for(var i = 0 ; i < n ; i++) { blueprint.Clazz _e;  _e = blueprint.Clazz.DeserializeClazz(_buf); Parents.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Methods = new System.Collections.Generic.List<blueprint.Method>(n);for(var i = 0 ; i < n ; i++) { blueprint.Method _e;  _e = blueprint.Method.DeserializeMethod(_buf); Methods.Add(_e);}}
+        PostInit();
     }
 
     public static Clazz DeserializeClazz(ByteBuf _buf)
@@ -44,6 +45,7 @@ public abstract class Clazz :  Bright.Config.BeanBase
     {
         foreach(var _e in Parents) { _e?.Resolve(_tables); }
         foreach(var _e in Methods) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -61,6 +63,9 @@ public abstract class Clazz :  Bright.Config.BeanBase
         + "Methods:" + Bright.Common.StringUtil.CollectionToString(Methods) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

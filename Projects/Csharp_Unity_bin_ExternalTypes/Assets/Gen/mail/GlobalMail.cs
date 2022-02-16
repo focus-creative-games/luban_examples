@@ -42,6 +42,7 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
     public string Sender { get; private set; }
     public string Content { get; private set; }
     public System.Collections.Generic.List<int> Award { get; private set; }
+    public System.Collections.Generic.List<bonus.DropInfo> Award_Ref { get; private set; }
     public bool AllServer { get; private set; }
     public System.Collections.Generic.List<int> ServerList { get; private set; }
     public string Platform { get; private set; }
@@ -55,6 +56,7 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.Award_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in Award) { this.Award_Ref.Add(__table.GetOrDefault(__e)); } }
         MinMaxLevel?.Resolve(_tables);
         RegisterTime?.Resolve(_tables);
         MailTime?.Resolve(_tables);

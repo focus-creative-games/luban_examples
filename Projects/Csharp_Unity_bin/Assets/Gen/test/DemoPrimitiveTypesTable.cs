@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
+public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase 
 {
     public DemoPrimitiveTypesTable(ByteBuf _buf) 
     {
@@ -26,10 +26,11 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         X7 = _buf.ReadDouble();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
+        PostInit();
     }
 
     public static DemoPrimitiveTypesTable DeserializeDemoPrimitiveTypesTable(ByteBuf _buf)
@@ -47,9 +48,9 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     public string S1 { get; private set; }
     public string S2 { get; private set; }
     public string S2_l10n_key { get; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
 
@@ -58,6 +59,7 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -83,6 +85,9 @@ public sealed class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         + "T1:" + T1 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

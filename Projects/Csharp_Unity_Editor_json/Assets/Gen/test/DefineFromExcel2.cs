@@ -105,7 +105,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["v2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsObject) { throw new SerializationException(); }  float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; V2 = new System.Numerics.Vector2(__x, __y);
+                if(!_fieldJson.IsObject) { throw new SerializationException(); }  float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; V2 = new UnityEngine.Vector2(__x, __y);
             }
         }
         
@@ -250,7 +250,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
 
     public test.Shape X15 { get; set; }
 
-    public System.Numerics.Vector2 V2 { get; set; }
+    public UnityEngine.Vector2 V2 { get; set; }
 
     public string T1 { get; set; }
 

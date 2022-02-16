@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestGlobal :  Bright.Config.BeanBase 
+public sealed partial class TestGlobal :  Bright.Config.BeanBase 
 {
     public TestGlobal(ByteBuf _buf) 
     {
         UnlockEquip = _buf.ReadInt();
         UnlockHero = _buf.ReadInt();
+        PostInit();
     }
 
     public static TestGlobal DeserializeTestGlobal(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class TestGlobal :  Bright.Config.BeanBase
         + "UnlockHero:" + UnlockHero + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

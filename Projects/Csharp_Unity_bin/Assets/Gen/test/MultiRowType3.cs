@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class MultiRowType3 :  Bright.Config.BeanBase 
+public sealed partial class MultiRowType3 :  Bright.Config.BeanBase 
 {
     public MultiRowType3(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new System.Collections.Generic.List<test.MultiRowType1>(n);for(var i = 0 ; i < n ; i++) { test.MultiRowType1 _e;  _e = test.MultiRowType1.DeserializeMultiRowType1(_buf); Items.Add(_e);}}
+        PostInit();
     }
 
     public static MultiRowType3 DeserializeMultiRowType3(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class MultiRowType3 :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Items) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class MultiRowType3 :  Bright.Config.BeanBase
         + "Items:" + Bright.Common.StringUtil.CollectionToString(Items) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

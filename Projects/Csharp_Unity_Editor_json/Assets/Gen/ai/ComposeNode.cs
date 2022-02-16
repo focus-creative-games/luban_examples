@@ -32,7 +32,7 @@ public abstract partial class ComposeNode :  ai.FlowNode
 
     public static ComposeNode LoadJsonComposeNode(SimpleJSON.JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         ComposeNode obj;
         switch (type)
         {
@@ -47,7 +47,7 @@ public abstract partial class ComposeNode :  ai.FlowNode
         
     public static void SaveJsonComposeNode(ComposeNode _obj, SimpleJSON.JSONNode _json)
     {
-        _json["__type__"] = _obj.GetType().Name;
+        _json["$type"] = _obj.GetType().Name;
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 

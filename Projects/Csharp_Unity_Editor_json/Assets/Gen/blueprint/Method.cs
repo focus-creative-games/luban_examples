@@ -97,7 +97,7 @@ public abstract partial class Method :  Bright.Config.EditorBeanBase
 
     public static Method LoadJsonMethod(SimpleJSON.JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         Method obj;
         switch (type)
         {
@@ -112,7 +112,7 @@ public abstract partial class Method :  Bright.Config.EditorBeanBase
         
     public static void SaveJsonMethod(Method _obj, SimpleJSON.JSONNode _json)
     {
-        _json["__type__"] = _obj.GetType().Name;
+        _json["$type"] = _obj.GetType().Name;
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 

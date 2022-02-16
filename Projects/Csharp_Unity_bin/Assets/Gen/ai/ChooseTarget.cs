@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class ChooseTarget :  ai.Service 
+public sealed partial class ChooseTarget :  ai.Service 
 {
     public ChooseTarget(ByteBuf _buf)  : base(_buf) 
     {
         ResultTargetKey = _buf.ReadString();
+        PostInit();
     }
 
     public static ChooseTarget DeserializeChooseTarget(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class ChooseTarget :  ai.Service
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class ChooseTarget :  ai.Service
         + "ResultTargetKey:" + ResultTargetKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoSingletonType :  Bright.Config.BeanBase 
+public sealed partial class DemoSingletonType :  Bright.Config.BeanBase 
 {
     public DemoSingletonType(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Name_l10n_key = _buf.ReadString(); Name = _buf.ReadString();
         Date = test.DemoDynamic.DeserializeDemoDynamic(_buf);
+        PostInit();
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(ByteBuf _buf)
@@ -38,6 +39,7 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Date?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -54,6 +56,9 @@ public sealed class DemoSingletonType :  Bright.Config.BeanBase
         + "Date:" + Date + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

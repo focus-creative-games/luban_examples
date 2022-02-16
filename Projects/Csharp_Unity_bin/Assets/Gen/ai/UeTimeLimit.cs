@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class UeTimeLimit :  ai.Decorator 
+public sealed partial class UeTimeLimit :  ai.Decorator 
 {
     public UeTimeLimit(ByteBuf _buf)  : base(_buf) 
     {
         LimitTime = _buf.ReadFloat();
+        PostInit();
     }
 
     public static UeTimeLimit DeserializeUeTimeLimit(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class UeTimeLimit :  ai.Decorator
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class UeTimeLimit :  ai.Decorator
         + "LimitTime:" + LimitTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

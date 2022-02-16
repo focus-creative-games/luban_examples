@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class UeWaitBlackboardTime :  ai.Task 
+public sealed partial class UeWaitBlackboardTime :  ai.Task 
 {
     public UeWaitBlackboardTime(ByteBuf _buf)  : base(_buf) 
     {
         BlackboardKey = _buf.ReadString();
+        PostInit();
     }
 
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class UeWaitBlackboardTime :  ai.Task
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public sealed class UeWaitBlackboardTime :  ai.Task
         + "BlackboardKey:" + BlackboardKey + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class BlackboardKey :  Bright.Config.BeanBase 
+public sealed partial class BlackboardKey :  Bright.Config.BeanBase 
 {
     public BlackboardKey(ByteBuf _buf) 
     {
@@ -22,6 +22,7 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
         IsStatic = _buf.ReadBool();
         Type = (ai.EKeyType)_buf.ReadInt();
         TypeClassName = _buf.ReadString();
+        PostInit();
     }
 
     public static BlackboardKey DeserializeBlackboardKey(ByteBuf _buf)
@@ -40,6 +41,7 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,6 +58,9 @@ public sealed class BlackboardKey :  Bright.Config.BeanBase
         + "TypeClassName:" + TypeClassName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

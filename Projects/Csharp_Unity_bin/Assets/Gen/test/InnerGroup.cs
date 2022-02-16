@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class InnerGroup :  Bright.Config.BeanBase 
+public sealed partial class InnerGroup :  Bright.Config.BeanBase 
 {
     public InnerGroup(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         Y2 = _buf.ReadInt();
         Y3 = _buf.ReadInt();
         Y4 = _buf.ReadInt();
+        PostInit();
     }
 
     public static InnerGroup DeserializeInnerGroup(ByteBuf _buf)
@@ -38,6 +39,7 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -53,6 +55,9 @@ public sealed class InnerGroup :  Bright.Config.BeanBase
         + "Y4:" + Y4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

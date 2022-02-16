@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestString :  Bright.Config.BeanBase 
+public sealed partial class TestString :  Bright.Config.BeanBase 
 {
     public TestString(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class TestString :  Bright.Config.BeanBase
         S1 = _buf.ReadString();
         Cs1 = test.CompactString.DeserializeCompactString(_buf);
         Cs2 = test.CompactString.DeserializeCompactString(_buf);
+        PostInit();
     }
 
     public static TestString DeserializeTestString(ByteBuf _buf)
@@ -40,6 +41,7 @@ public sealed class TestString :  Bright.Config.BeanBase
     {
         Cs1?.Resolve(_tables);
         Cs2?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -57,6 +59,9 @@ public sealed class TestString :  Bright.Config.BeanBase
         + "Cs2:" + Cs2 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

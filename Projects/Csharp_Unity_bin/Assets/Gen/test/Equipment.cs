@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class Equipment :  test.ItemBase 
+public sealed partial class Equipment :  test.ItemBase 
 {
     public Equipment(ByteBuf _buf)  : base(_buf) 
     {
         Attr = (test.DemoEnum)_buf.ReadInt();
         Value = _buf.ReadInt();
+        PostInit();
     }
 
     public static Equipment DeserializeEquipment(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class Equipment :  test.ItemBase
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class Equipment :  test.ItemBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }
