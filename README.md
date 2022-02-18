@@ -1,6 +1,6 @@
 # luban_examples
 
-更多文档请参见 [wiki](https://github.com/focus-creative-games/luban/wiki)
+更多文档请参见 [Document](https://focus-creative-games.github.io/lubandoc/)
 
 一个示例工程，包含
 
