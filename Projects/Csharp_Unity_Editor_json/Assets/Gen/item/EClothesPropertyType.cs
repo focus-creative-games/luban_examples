@@ -8,7 +8,52 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EClothesPropertyType
+
+    public enum EClothesPropertyType
+    {
+        /// <summary>
+        /// 简约
+        /// </summary>
+        JIAN_YUE = 1,
+        /// <summary>
+        /// 华丽
+        /// </summary>
+        HUA_LI = 2,
+        /// <summary>
+        /// 可爱
+        /// </summary>
+        KE_AI = 3,
+        /// <summary>
+        /// 成熟
+        /// </summary>
+        CHENG_SHU = 4,
+        /// <summary>
+        /// 活泼
+        /// </summary>
+        HUO_PO = 5,
+        /// <summary>
+        /// 优雅
+        /// </summary>
+        YOU_YA = 6,
+        /// <summary>
+        /// 清纯
+        /// </summary>
+        QING_CHUN = 7,
+        /// <summary>
+        /// 性感
+        /// </summary>
+        XING_GAN = 8,
+        /// <summary>
+        /// 清凉
+        /// </summary>
+        QING_LIANG = 9,
+        /// <summary>
+        /// 保暖
+        /// </summary>
+        BAO_NUAN = 10,
+    }
+
+    public static partial class EClothesPropertyType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo JIAN_YUE = new Bright.Config.EditorEnumItemInfo("JIAN_YUE", "简约", 1, "简约");
         public static readonly Bright.Config.EditorEnumItemInfo HUA_LI = new Bright.Config.EditorEnumItemInfo("HUA_LI", "华丽", 2, "华丽");

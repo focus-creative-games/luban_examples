@@ -28,7 +28,7 @@ public abstract partial class KeyQueryOperator :  Bright.Config.BeanBase
 
     public static KeyQueryOperator DeserializeKeyQueryOperator(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "IsSet": return new ai.IsSet(_json);
             case "IsNotSet": return new ai.IsNotSet(_json);

@@ -1,4 +1,4 @@
 return {
-    code = 403,
+    code = 'SKILL_ANOTHER_CASTING',
     key = "SKILL_ANOTHER_CASTING",
 }

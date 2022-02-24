@@ -42,7 +42,7 @@ public sealed partial class TestNull :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["x2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  X2 = _fieldJson;
+                if(_fieldJson.IsString) { X2 = (test.DemoEnum?)System.Enum.Parse(typeof(test.DemoEnum?), _fieldJson); } else if(_fieldJson.IsNumber) { X2 = (test.DemoEnum?)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -93,7 +93,7 @@ public sealed partial class TestNull :  Bright.Config.EditorBeanBase
 
         if (X2 != null)
         {
-            _json["x2"] = new JSONString(X2);
+            _json["x2"] = new JSONNumber((int)X2);
         }
 
         if (X3 != null)
@@ -133,7 +133,7 @@ public sealed partial class TestNull :  Bright.Config.EditorBeanBase
 
     public int? X1 { get; set; }
 
-    public string X2 { get; set; }
+    public test.DemoEnum? X2 { get; set; }
 
     public test.DemoType1 X3 { get; set; }
 

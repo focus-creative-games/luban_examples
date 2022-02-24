@@ -18,7 +18,7 @@ public sealed partial class Equipment :  test.ItemBase
 {
     public Equipment()
     {
-            Attr = "NONE";
+            Attr = test.DemoEnum.NONE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class Equipment :  test.ItemBase
             var _fieldJson = _json["attr"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Attr = _fieldJson;
+                if(_fieldJson.IsString) { Attr = (test.DemoEnum)System.Enum.Parse(typeof(test.DemoEnum), _fieldJson); } else if(_fieldJson.IsNumber) { Attr = (test.DemoEnum)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -46,7 +46,7 @@ public sealed partial class Equipment :  test.ItemBase
     {        
         base.SaveJson(_json);
         {
-            _json["attr"] = new JSONString(Attr);
+            _json["attr"] = new JSONNumber((int)Attr);
         }
         {
             _json["value"] = new JSONNumber(Value);
@@ -65,7 +65,7 @@ public sealed partial class Equipment :  test.ItemBase
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Attr { get; set; }
+    public test.DemoEnum Attr { get; set; }
 
     public int Value { get; set; }
 

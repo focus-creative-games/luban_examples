@@ -18,7 +18,7 @@ public abstract partial class Decorator :  ai.Node
 {
     public Decorator()
     {
-            FlowAbortMode = "NONE";
+            FlowAbortMode = ai.EFlowAbortMode.NONE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public abstract partial class Decorator :  ai.Node
             var _fieldJson = _json["flow_abort_mode"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  FlowAbortMode = _fieldJson;
+                if(_fieldJson.IsString) { FlowAbortMode = (ai.EFlowAbortMode)System.Enum.Parse(typeof(ai.EFlowAbortMode), _fieldJson); } else if(_fieldJson.IsNumber) { FlowAbortMode = (ai.EFlowAbortMode)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -38,13 +38,13 @@ public abstract partial class Decorator :  ai.Node
     {        
         base.SaveJson(_json);
         {
-            _json["flow_abort_mode"] = new JSONString(FlowAbortMode);
+            _json["flow_abort_mode"] = new JSONNumber((int)FlowAbortMode);
         }
     }
 
     public static Decorator LoadJsonDecorator(SimpleJSON.JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         Decorator obj;
         switch (type)
         {
@@ -63,11 +63,11 @@ public abstract partial class Decorator :  ai.Node
         
     public static void SaveJsonDecorator(Decorator _obj, SimpleJSON.JSONNode _json)
     {
-        _json["__type__"] = _obj.GetType().Name;
+        _json["$type"] = _obj.GetType().Name;
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string FlowAbortMode { get; set; }
+    public ai.EFlowAbortMode FlowAbortMode { get; set; }
 
 }
 }

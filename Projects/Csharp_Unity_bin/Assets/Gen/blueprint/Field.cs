@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed class Field :  Bright.Config.BeanBase 
+public sealed partial class Field :  Bright.Config.BeanBase 
 {
     public Field(ByteBuf _buf) 
     {
         Name = _buf.ReadString();
         Type = _buf.ReadString();
         Desc = _buf.ReadString();
+        PostInit();
     }
 
     public static Field DeserializeField(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class Field :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public sealed class Field :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.common
 {
 
-public sealed class GlobalConfig :  Bright.Config.BeanBase 
+public sealed partial class GlobalConfig :  Bright.Config.BeanBase 
 {
     public GlobalConfig(ByteBuf _buf) 
     {
@@ -38,6 +38,7 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
         InitViality = _buf.ReadInt();
         MaxViality = _buf.ReadInt();
         PerVialityRecoveryTime = _buf.ReadInt();
+        PostInit();
     }
 
     public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
@@ -77,6 +78,7 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -109,6 +111,9 @@ public sealed class GlobalConfig :  Bright.Config.BeanBase
         + "PerVialityRecoveryTime:" + PerVialityRecoveryTime + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

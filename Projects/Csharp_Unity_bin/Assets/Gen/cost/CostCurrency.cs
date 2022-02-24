@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.cost
 {
 
-public sealed class CostCurrency :  cost.Cost 
+public sealed partial class CostCurrency :  cost.Cost 
 {
     public CostCurrency(ByteBuf _buf)  : base(_buf) 
     {
         Type = (item.ECurrencyType)_buf.ReadInt();
         Num = _buf.ReadInt();
+        PostInit();
     }
 
     public static CostCurrency DeserializeCostCurrency(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class CostCurrency :  cost.Cost
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class CostCurrency :  cost.Cost
         + "Num:" + Num + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

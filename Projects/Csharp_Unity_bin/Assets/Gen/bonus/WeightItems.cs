@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class WeightItems :  bonus.Bonus 
+public sealed partial class WeightItems :  bonus.Bonus 
 {
     public WeightItems(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);ItemList = new bonus.WeightItemInfo[n];for(var i = 0 ; i < n ; i++) { bonus.WeightItemInfo _e;_e = bonus.WeightItemInfo.DeserializeWeightItemInfo(_buf); ItemList[i] = _e;}}
+        PostInit();
     }
 
     public static WeightItems DeserializeWeightItems(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class WeightItems :  bonus.Bonus
     {
         base.Resolve(_tables);
         foreach(var _e in ItemList) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class WeightItems :  bonus.Bonus
         + "ItemList:" + Bright.Common.StringUtil.CollectionToString(ItemList) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -8,7 +8,44 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EClothesHidePartType
+
+    public enum EClothesHidePartType
+    {
+        /// <summary>
+        /// 胸部
+        /// </summary>
+        CHEST = 0,
+        /// <summary>
+        /// 手
+        /// </summary>
+        HEAD = 1,
+        /// <summary>
+        /// 脊柱上
+        /// </summary>
+        SPINE_UPPER = 2,
+        /// <summary>
+        /// 脊柱下
+        /// </summary>
+        SPINE_LOWER = 3,
+        /// <summary>
+        /// 臀部
+        /// </summary>
+        HIP = 4,
+        /// <summary>
+        /// 腿上
+        /// </summary>
+        LEG_UPPER = 5,
+        /// <summary>
+        /// 腿中
+        /// </summary>
+        LEG_MIDDLE = 6,
+        /// <summary>
+        /// 腿下
+        /// </summary>
+        LEG_LOWER = 7,
+    }
+
+    public static partial class EClothesHidePartType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo CHEST = new Bright.Config.EditorEnumItemInfo("CHEST", "胸部", 0, "胸部");
         public static readonly Bright.Config.EditorEnumItemInfo HEAD = new Bright.Config.EditorEnumItemInfo("HEAD", "手", 1, "手");

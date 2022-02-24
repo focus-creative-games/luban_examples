@@ -8,7 +8,13 @@
 
 namespace editor.cfg.role
 {
-    public static partial class EProfession
+
+    public enum EProfession
+    {
+        TEST_PROFESSION = 1,
+    }
+
+    public static partial class EProfession_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo TEST_PROFESSION = new Bright.Config.EditorEnumItemInfo("TEST_PROFESSION", "", 1, "");
 

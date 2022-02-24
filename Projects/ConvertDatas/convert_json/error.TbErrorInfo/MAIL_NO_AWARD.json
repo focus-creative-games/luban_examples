@@ -2,6 +2,6 @@
   "code": "MAIL_NO_AWARD",
   "desc": "邮件没有奖励",
   "style": {
-    "__type__": "ErrorStyleTip"
+    "$type": "ErrorStyleTip"
   }
 }

@@ -18,7 +18,7 @@ public sealed partial class TestExternalType :  Bright.Config.EditorBeanBase
 {
     public TestExternalType()
     {
-            AudioType = "UNKNOWN";
+            AudioType = test.AudioType.UNKNOWN;
             Color = new test.Color();
     }
 
@@ -36,7 +36,7 @@ public sealed partial class TestExternalType :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["audio_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  AudioType = _fieldJson;
+                if(_fieldJson.IsString) { AudioType = (test.AudioType)System.Enum.Parse(typeof(test.AudioType), _fieldJson); } else if(_fieldJson.IsNumber) { AudioType = (test.AudioType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -56,7 +56,7 @@ public sealed partial class TestExternalType :  Bright.Config.EditorBeanBase
             _json["id"] = new JSONNumber(Id);
         }
         {
-            _json["audio_type"] = new JSONString(AudioType);
+            _json["audio_type"] = new JSONNumber((int)AudioType);
         }
         {
 
@@ -79,7 +79,7 @@ public sealed partial class TestExternalType :  Bright.Config.EditorBeanBase
 
     public int Id { get; set; }
 
-    public string AudioType { get; set; }
+    public test.AudioType AudioType { get; set; }
 
     public test.Color Color { get; set; }
 

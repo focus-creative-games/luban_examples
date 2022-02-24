@@ -1,5 +1,5 @@
 return {
-    _name = 'NormalClazz',
+    _type_ = 'NormalClazz',
     name = "int",
     desc = "primity type:int",
     parents = {

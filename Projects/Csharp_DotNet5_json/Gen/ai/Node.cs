@@ -32,7 +32,7 @@ public abstract partial class Node :  Bright.Config.BeanBase
 
     public static Node DeserializeNode(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_json);
             case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_json);

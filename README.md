@@ -1,6 +1,6 @@
 # luban_examples
 
-更多文档请参见 [wiki](https://github.com/focus-creative-games/luban/wiki)
+更多文档请参见 [Document](https://focus-creative-games.github.io/lubandoc/)
 
 一个示例工程，包含
 
@@ -56,6 +56,10 @@
 - ProtoProjects
 
     luban也支持消息生成。这个目录是消息生成示例项目目录。
+
+- githooks-demo
+
+  设置git hooks的示例。策划提交配置前进行合法性验证。
 
 ## 准备工作
 

@@ -22,15 +22,15 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
     public Item()
     {
             Name = "";
-            MajorType = "CURRENCY";
-            MinorType = "DIAMOND";
-            Quality = "WHITE";
+            MajorType = item.EMajorType.CURRENCY;
+            MinorType = item.EMinorType.DIAMOND;
+            Quality = item.EItemQuality.WHITE;
             Icon = "";
             IconBackgroud = "";
             IconMask = "";
             Desc = "";
             Quantifier = "";
-            UseType = "MANUAL";
+            UseType = item.EUseType.MANUAL;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -55,7 +55,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["major_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  MajorType = _fieldJson;
+                if(_fieldJson.IsString) { MajorType = (item.EMajorType)System.Enum.Parse(typeof(item.EMajorType), _fieldJson); } else if(_fieldJson.IsNumber) { MajorType = (item.EMajorType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -63,7 +63,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["minor_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  MinorType = _fieldJson;
+                if(_fieldJson.IsString) { MinorType = (item.EMinorType)System.Enum.Parse(typeof(item.EMinorType), _fieldJson); } else if(_fieldJson.IsNumber) { MinorType = (item.EMinorType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -79,7 +79,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["quality"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Quality = _fieldJson;
+                if(_fieldJson.IsString) { Quality = (item.EItemQuality)System.Enum.Parse(typeof(item.EItemQuality), _fieldJson); } else if(_fieldJson.IsNumber) { Quality = (item.EItemQuality)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -191,7 +191,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["use_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  UseType = _fieldJson;
+                if(_fieldJson.IsString) { UseType = (item.EUseType)System.Enum.Parse(typeof(item.EUseType), _fieldJson); } else if(_fieldJson.IsNumber) { UseType = (item.EUseType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -216,16 +216,16 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             _json["name"] = new JSONString(Name);
         }
         {
-            _json["major_type"] = new JSONString(MajorType);
+            _json["major_type"] = new JSONNumber((int)MajorType);
         }
         {
-            _json["minor_type"] = new JSONString(MinorType);
+            _json["minor_type"] = new JSONNumber((int)MinorType);
         }
         {
             _json["max_pile_num"] = new JSONNumber(MaxPileNum);
         }
         {
-            _json["quality"] = new JSONString(Quality);
+            _json["quality"] = new JSONNumber((int)Quality);
         }
         {
 
@@ -279,7 +279,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
             _json["price"] = new JSONNumber(Price.Value);
         }
         {
-            _json["use_type"] = new JSONString(UseType);
+            _json["use_type"] = new JSONNumber((int)UseType);
         }
 
         if (LevelUpId != null)
@@ -307,13 +307,13 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
 
     public string Name { get; set; }
 
-    public string MajorType { get; set; }
+    public item.EMajorType MajorType { get; set; }
 
-    public string MinorType { get; set; }
+    public item.EMinorType MinorType { get; set; }
 
     public int MaxPileNum { get; set; }
 
-    public string Quality { get; set; }
+    public item.EItemQuality Quality { get; set; }
 
     public string Icon { get; set; }
 
@@ -341,7 +341,7 @@ public sealed partial class Item :  Bright.Config.EditorBeanBase
 
     public int? Price { get; set; }
 
-    public string UseType { get; set; }
+    public item.EUseType UseType { get; set; }
 
     public int? LevelUpId { get; set; }
 

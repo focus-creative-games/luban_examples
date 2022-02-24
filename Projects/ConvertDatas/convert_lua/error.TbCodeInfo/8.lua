@@ -1,4 +1,4 @@
 return {
-    code = 8,
+    code = 'EXAMPLE_DLG_OK',
     key = "EXAMPLE_DLG_OK",
 }

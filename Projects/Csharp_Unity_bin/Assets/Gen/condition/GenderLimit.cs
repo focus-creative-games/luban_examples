@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed class GenderLimit :  condition.BoolRoleCondition 
+public sealed partial class GenderLimit :  condition.BoolRoleCondition 
 {
     public GenderLimit(ByteBuf _buf)  : base(_buf) 
     {
         Gender = (role.EGenderType)_buf.ReadInt();
+        PostInit();
     }
 
     public static GenderLimit DeserializeGenderLimit(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +48,9 @@ public sealed class GenderLimit :  condition.BoolRoleCondition
         + "Gender:" + Gender + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

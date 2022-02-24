@@ -30,7 +30,7 @@ public abstract partial class Decorator :  ai.Node
 
     public static Decorator DeserializeDecorator(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "UeLoop": return new ai.UeLoop(_json);
             case "UeCooldown": return new ai.UeCooldown(_json);

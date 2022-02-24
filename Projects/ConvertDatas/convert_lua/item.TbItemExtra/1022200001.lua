@@ -1,5 +1,5 @@
 return {
-    _name = 'TreasureBox',
+    _type_ = 'TreasureBox',
     id = 1022200001,
     key_item_id = 1022300001,
     open_level = {

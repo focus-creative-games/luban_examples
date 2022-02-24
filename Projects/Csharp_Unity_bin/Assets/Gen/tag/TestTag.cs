@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.tag
 {
 
-public sealed class TestTag :  Bright.Config.BeanBase 
+public sealed partial class TestTag :  Bright.Config.BeanBase 
 {
     public TestTag(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Value = _buf.ReadString();
+        PostInit();
     }
 
     public static TestTag DeserializeTestTag(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class TestTag :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class TestTag :  Bright.Config.BeanBase
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

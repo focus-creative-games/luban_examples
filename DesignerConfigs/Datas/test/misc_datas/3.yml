@@ -14,7 +14,7 @@ x12:
   x1: 10
 x13: B
 x14:
-  __type__: DemoD2
+  $type: DemoD2
   x1: 1
   x2: 2
 s1:
@@ -65,6 +65,6 @@ k9:
 - y1: 2
   y2: false
 k15:
-- __type__: DemoD2
+- $type: DemoD2
   x1: 1
   x2: 2

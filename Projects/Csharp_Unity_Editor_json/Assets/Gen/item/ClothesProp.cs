@@ -18,7 +18,7 @@ public sealed partial class ClothesProp :  Bright.Config.EditorBeanBase
 {
     public ClothesProp()
     {
-            PropEnum = "JIAN_YUE";
+            PropEnum = item.EClothesPropertyType.JIAN_YUE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -27,7 +27,7 @@ public sealed partial class ClothesProp :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["prop_enum"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  PropEnum = _fieldJson;
+                if(_fieldJson.IsString) { PropEnum = (item.EClothesPropertyType)System.Enum.Parse(typeof(item.EClothesPropertyType), _fieldJson); } else if(_fieldJson.IsNumber) { PropEnum = (item.EClothesPropertyType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -44,7 +44,7 @@ public sealed partial class ClothesProp :  Bright.Config.EditorBeanBase
     public override void SaveJson(SimpleJSON.JSONObject _json)
     {        
         {
-            _json["prop_enum"] = new JSONString(PropEnum);
+            _json["prop_enum"] = new JSONNumber((int)PropEnum);
         }
         {
             _json["value"] = new JSONNumber(Value);
@@ -63,7 +63,7 @@ public sealed partial class ClothesProp :  Bright.Config.EditorBeanBase
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string PropEnum { get; set; }
+    public item.EClothesPropertyType PropEnum { get; set; }
 
     public int Value { get; set; }
 

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.tag
 {
    
-public sealed class TbTestTag
+public partial class TbTestTag
 {
     private readonly Dictionary<int, tag.TestTag> _dataMap;
     private readonly List<tag.TestTag> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbTestTag
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, tag.TestTag> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbTestTag
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbTestTag
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

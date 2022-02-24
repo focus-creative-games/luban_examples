@@ -2,6 +2,6 @@ return {
     code = "ITEM_IN_BAG",
     desc = "道具已在背包中",
     style = {
-        _name = 'ErrorStyleTip',
+        _type_ = 'ErrorStyleTip',
     },
 }

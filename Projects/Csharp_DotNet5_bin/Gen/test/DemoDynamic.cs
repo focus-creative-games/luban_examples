@@ -27,6 +27,7 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
         {
             case test.DemoD2.__ID__: return new test.DemoD2(_buf);
             case test.DemoE1.__ID__: return new test.DemoE1(_buf);
+            case test.login.RoleInfo.__ID__: return new test.login.RoleInfo(_buf);
             case test.DemoD5.__ID__: return new test.DemoD5(_buf);
             default: throw new SerializationException();
         }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoGroup :  Bright.Config.BeanBase 
+public sealed partial class DemoGroup :  Bright.Config.BeanBase 
 {
     public DemoGroup(ByteBuf _buf) 
     {
@@ -23,6 +23,7 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         X3 = _buf.ReadInt();
         X4 = _buf.ReadInt();
         X5 = test.InnerGroup.DeserializeInnerGroup(_buf);
+        PostInit();
     }
 
     public static DemoGroup DeserializeDemoGroup(ByteBuf _buf)
@@ -49,6 +50,7 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         this.X2_Ref = (_tables["test.TbDemoGroup_S"] as test.TbDemoGroup_S).GetOrDefault(X2);
         this.X3_Ref = (_tables["test.TbDemoGroup_E"] as test.TbDemoGroup_E).GetOrDefault(X3);
         X5?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -67,6 +69,9 @@ public sealed class DemoGroup :  Bright.Config.BeanBase
         + "X5:" + X5 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

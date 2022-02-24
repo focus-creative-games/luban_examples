@@ -22,7 +22,7 @@ public sealed partial class TestSet :  Bright.Config.EditorBeanBase
             X1 = new System.Collections.Generic.List<int>();
             X2 = new System.Collections.Generic.List<long>();
             X3 = new System.Collections.Generic.List<string>();
-            X4 = new System.Collections.Generic.List<string>();
+            X4 = new System.Collections.Generic.List<test.DemoEnum>();
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -71,7 +71,7 @@ public sealed partial class TestSet :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["x4"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } X4 = new System.Collections.Generic.List<string>(); foreach(JSONNode __e in _fieldJson.Children) { string __v;  if(!__e.IsString) { throw new SerializationException(); }  __v = __e;  X4.Add(__v); }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } X4 = new System.Collections.Generic.List<test.DemoEnum>(); foreach(JSONNode __e in _fieldJson.Children) { test.DemoEnum __v;  if(__e.IsString) { __v = (test.DemoEnum)System.Enum.Parse(typeof(test.DemoEnum), __e); } else if(__e.IsNumber) { __v = (test.DemoEnum)(int)__e; } else { throw new SerializationException(); }    X4.Add(__v); }  
             }
         }
         
@@ -105,7 +105,7 @@ public sealed partial class TestSet :  Bright.Config.EditorBeanBase
         {
 
             if (X4 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X4) { __cjson["null"] = new JSONString(_e); } _json["x4"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X4) { __cjson["null"] = new JSONNumber((int)_e); } _json["x4"] = __cjson; }
         }
     }
 
@@ -131,7 +131,7 @@ public sealed partial class TestSet :  Bright.Config.EditorBeanBase
 
     public System.Collections.Generic.List<string> X3 { get; set; }
 
-    public System.Collections.Generic.List<string> X4 { get; set; }
+    public System.Collections.Generic.List<test.DemoEnum> X4 { get; set; }
 
 }
 }

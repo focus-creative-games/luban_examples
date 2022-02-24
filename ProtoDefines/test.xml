@@ -56,8 +56,9 @@
     <var name="e1" type="map,int,int"/>
     <var name="e2" type="map,int,Simple"/>
     <var name="e3" type="map,int,Dyn"/>
-    
-    
+</bean>
+
+<bean name="TestNullable">
     <var name="f1" type="int?"/>
     <var name="f2" type="string?"/>
     <var name="f3" type="Simple?"/>
@@ -67,6 +68,7 @@
 <proto name="TestProto1">
     <var name="x" type="int"/>
     <var name="y" type="string"/>
+    <var name="z" type="TestNullable"/>
 </proto>
 
 <proto name="Foo" id="1234">
@@ -83,6 +85,12 @@
 <bean name="TestRpcRes">
     <var name="x" type="int"/>
     <var name="y" type="int"/>
+</bean>
+
+<bean name="MyIntVector3">
+    <var name="x" type="int"/>
+    <var name="y" type="int"/>
+    <var name="z" type="int"/>
 </bean>
 
 <rpc name="TestRpc" arg="TestRpcArg" res="TestRpcRes"/>

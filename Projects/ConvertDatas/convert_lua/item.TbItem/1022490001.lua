@@ -1,10 +1,10 @@
 return {
     id = 1022490001,
     name = "测试数据-铲子",
-    major_type = 4,
-    minor_type = 424,
+    major_type = '消耗品',
+    minor_type = '特殊工具',
     max_pile_num = 1,
-    quality = 3,
+    quality = '紫',
     icon = "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
     icon_backgroud = "",
     icon_mask = "",
@@ -18,5 +18,5 @@ return {
     show_hint_when_use = false,
     droppable = false,
     price = 100,
-    use_type = 0,
+    use_type = '手动',
 }

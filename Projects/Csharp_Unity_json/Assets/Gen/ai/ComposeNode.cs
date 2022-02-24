@@ -28,7 +28,7 @@ public abstract partial class ComposeNode :  ai.FlowNode
 
     public static ComposeNode DeserializeComposeNode(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "Sequence": return new ai.Sequence(_json);

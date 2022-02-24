@@ -1,5 +1,5 @@
 {
-  "__type__": "Clothes",
+  "$type": "Clothes",
   "id": 1020300001,
   "attack": 100,
   "hp": 1000,

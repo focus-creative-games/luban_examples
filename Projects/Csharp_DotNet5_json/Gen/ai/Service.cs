@@ -28,7 +28,7 @@ public abstract partial class Service :  ai.Node
 
     public static Service DeserializeService(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_json);
             case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_json);

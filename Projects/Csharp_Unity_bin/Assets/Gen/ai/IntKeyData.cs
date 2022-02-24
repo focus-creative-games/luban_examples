@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class IntKeyData :  ai.KeyData 
+public sealed partial class IntKeyData :  ai.KeyData 
 {
     public IntKeyData(ByteBuf _buf)  : base(_buf) 
     {
         Value = _buf.ReadInt();
+        PostInit();
     }
 
     public static IntKeyData DeserializeIntKeyData(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class IntKeyData :  ai.KeyData
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +48,9 @@ public sealed class IntKeyData :  ai.KeyData
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

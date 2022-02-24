@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class CompositeJsonTable1 :  Bright.Config.BeanBase 
+public sealed partial class CompositeJsonTable1 :  Bright.Config.BeanBase 
 {
     public CompositeJsonTable1(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         X = _buf.ReadString();
+        PostInit();
     }
 
     public static CompositeJsonTable1 DeserializeCompositeJsonTable1(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class CompositeJsonTable1 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class CompositeJsonTable1 :  Bright.Config.BeanBase
         + "X:" + X + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

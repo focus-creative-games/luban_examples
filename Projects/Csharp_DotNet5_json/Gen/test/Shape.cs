@@ -28,10 +28,10 @@ public abstract partial class Shape :  Bright.Config.BeanBase
 
     public static Shape DeserializeShape(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "Circle": return new test.Circle(_json);
-            case "Rectangle": return new test.Rectangle(_json);
+            case "test2.Rectangle": return new test2.Rectangle(_json);
             default: throw new SerializationException();
         }
     }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class MultiUnionIndexList :  Bright.Config.BeanBase 
+public sealed partial class MultiUnionIndexList :  Bright.Config.BeanBase 
 {
     public MultiUnionIndexList(ByteBuf _buf) 
     {
@@ -22,6 +22,7 @@ public sealed class MultiUnionIndexList :  Bright.Config.BeanBase
         Id3 = _buf.ReadString();
         Num = _buf.ReadInt();
         Desc = _buf.ReadString();
+        PostInit();
     }
 
     public static MultiUnionIndexList DeserializeMultiUnionIndexList(ByteBuf _buf)
@@ -40,6 +41,7 @@ public sealed class MultiUnionIndexList :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -56,6 +58,9 @@ public sealed class MultiUnionIndexList :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

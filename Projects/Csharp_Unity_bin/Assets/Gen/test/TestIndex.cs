@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestIndex :  Bright.Config.BeanBase 
+public sealed partial class TestIndex :  Bright.Config.BeanBase 
 {
     public TestIndex(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Eles = new System.Collections.Generic.List<test.DemoType1>(n);for(var i = 0 ; i < n ; i++) { test.DemoType1 _e;  _e = test.DemoType1.DeserializeDemoType1(_buf); Eles.Add(_e);}}
+        PostInit();
     }
 
     public static TestIndex DeserializeTestIndex(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class TestIndex :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         foreach(var _e in Eles) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class TestIndex :  Bright.Config.BeanBase
         + "Eles:" + Bright.Common.StringUtil.CollectionToString(Eles) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

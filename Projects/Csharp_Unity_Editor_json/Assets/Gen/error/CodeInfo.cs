@@ -18,7 +18,7 @@ public sealed partial class CodeInfo :  Bright.Config.EditorBeanBase
 {
     public CodeInfo()
     {
-            Code = "OK";
+            Code = error.EErrorCode.OK;
             Key = "";
     }
 
@@ -28,7 +28,7 @@ public sealed partial class CodeInfo :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["code"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Code = _fieldJson;
+                if(_fieldJson.IsString) { Code = (error.EErrorCode)System.Enum.Parse(typeof(error.EErrorCode), _fieldJson); } else if(_fieldJson.IsNumber) { Code = (error.EErrorCode)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -45,7 +45,7 @@ public sealed partial class CodeInfo :  Bright.Config.EditorBeanBase
     public override void SaveJson(SimpleJSON.JSONObject _json)
     {        
         {
-            _json["code"] = new JSONString(Code);
+            _json["code"] = new JSONNumber((int)Code);
         }
         {
 
@@ -66,7 +66,7 @@ public sealed partial class CodeInfo :  Bright.Config.EditorBeanBase
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Code { get; set; }
+    public error.EErrorCode Code { get; set; }
 
     public string Key { get; set; }
 

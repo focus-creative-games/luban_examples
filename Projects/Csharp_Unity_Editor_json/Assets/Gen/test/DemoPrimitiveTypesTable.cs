@@ -101,7 +101,7 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
             var _fieldJson = _json["v2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsObject) { throw new SerializationException(); }  float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; V2 = new System.Numerics.Vector2(__x, __y);
+                if(!_fieldJson.IsObject) { throw new SerializationException(); }  float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; V2 = new UnityEngine.Vector2(__x, __y);
             }
         }
         
@@ -109,7 +109,7 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
             var _fieldJson = _json["v3"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  V3 = new System.Numerics.Vector3(__x, __y,__z);
+                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  V3 = new UnityEngine.Vector3(__x, __y,__z);
             }
         }
         
@@ -117,7 +117,7 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
             var _fieldJson = _json["v4"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  float __w; if(!_fieldJson["w"].IsNumber) { throw new SerializationException(); }  __w = _fieldJson["w"]; V4 = new System.Numerics.Vector4(__x, __y, __z, __w);
+                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  float __w; if(!_fieldJson["w"].IsNumber) { throw new SerializationException(); }  __w = _fieldJson["w"]; V4 = new UnityEngine.Vector4(__x, __y, __z, __w);
             }
         }
         
@@ -165,13 +165,13 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
             _json["s2"] = Bright.Config.EditorText.SaveJson(S2);
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V2.X;  __vjson["y"] = V2.Y; _json["v2"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V2.x;  __vjson["y"] = V2.y; _json["v2"] = __vjson; }
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V3.X;  __vjson["y"] = V3.Y; __vjson["z"] = V3.Z; _json["v3"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V3.x;  __vjson["y"] = V3.y; __vjson["z"] = V3.z; _json["v3"] = __vjson; }
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V4.X;  __vjson["y"] = V4.Y; __vjson["z"] = V4.Z; __vjson["w"] = V4.W; _json["v4"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V4.x;  __vjson["y"] = V4.y; __vjson["z"] = V4.z; __vjson["w"] = V4.w; _json["v4"] = __vjson; }
         }
         {
             _json["t1"] = new JSONString(T1);
@@ -208,11 +208,11 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
 
     public Bright.Config.EditorText S2 { get; set; }
 
-    public System.Numerics.Vector2 V2 { get; set; }
+    public UnityEngine.Vector2 V2 { get; set; }
 
-    public System.Numerics.Vector3 V3 { get; set; }
+    public UnityEngine.Vector3 V3 { get; set; }
 
-    public System.Numerics.Vector4 V4 { get; set; }
+    public UnityEngine.Vector4 V4 { get; set; }
 
     public string T1 { get; set; }
 

@@ -43,7 +43,6 @@ public sealed partial class TbGlobalConfig
      public int ClothBagInitCapacity => _data.ClothBagInitCapacity;
      public int ClothBagCapacitySpecial => _data.ClothBagCapacitySpecial;
      public int? BagInitItemsDropId => _data.BagInitItemsDropId;
-        public bonus.DropInfo BagInitItemsDropId_Ref => _data.BagInitItemsDropId_Ref;
      public int MailBoxCapacity => _data.MailBoxCapacity;
      public float DamageParamC => _data.DamageParamC;
      public float DamageParamE => _data.DamageParamE;

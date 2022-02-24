@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class NotIndexList :  Bright.Config.BeanBase 
+public sealed partial class NotIndexList :  Bright.Config.BeanBase 
 {
     public NotIndexList(ByteBuf _buf) 
     {
         X = _buf.ReadInt();
         Y = _buf.ReadInt();
+        PostInit();
     }
 
     public static NotIndexList DeserializeNotIndexList(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class NotIndexList :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class NotIndexList :  Bright.Config.BeanBase
         + "Y:" + Y + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

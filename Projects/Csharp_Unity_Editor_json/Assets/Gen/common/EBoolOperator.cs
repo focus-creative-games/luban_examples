@@ -8,7 +8,14 @@
 
 namespace editor.cfg.common
 {
-    public static partial class EBoolOperator
+
+    public enum EBoolOperator
+    {
+        AND = 0,
+        OR = 1,
+    }
+
+    public static partial class EBoolOperator_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo AND = new Bright.Config.EditorEnumItemInfo("AND", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo OR = new Bright.Config.EditorEnumItemInfo("OR", "", 1, "");

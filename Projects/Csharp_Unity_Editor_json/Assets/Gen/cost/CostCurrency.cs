@@ -18,7 +18,7 @@ public sealed partial class CostCurrency :  cost.Cost
 {
     public CostCurrency()
     {
-            Type = "DIAMOND";
+            Type = item.ECurrencyType.DIAMOND;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class CostCurrency :  cost.Cost
             var _fieldJson = _json["type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Type = _fieldJson;
+                if(_fieldJson.IsString) { Type = (item.ECurrencyType)System.Enum.Parse(typeof(item.ECurrencyType), _fieldJson); } else if(_fieldJson.IsNumber) { Type = (item.ECurrencyType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -46,7 +46,7 @@ public sealed partial class CostCurrency :  cost.Cost
     {        
         base.SaveJson(_json);
         {
-            _json["type"] = new JSONString(Type);
+            _json["type"] = new JSONNumber((int)Type);
         }
         {
             _json["num"] = new JSONNumber(Num);
@@ -65,7 +65,7 @@ public sealed partial class CostCurrency :  cost.Cost
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Type { get; set; }
+    public item.ECurrencyType Type { get; set; }
 
     public int Num { get; set; }
 

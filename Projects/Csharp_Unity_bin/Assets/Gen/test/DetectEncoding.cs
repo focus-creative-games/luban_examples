@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DetectEncoding :  Bright.Config.BeanBase 
+public sealed partial class DetectEncoding :  Bright.Config.BeanBase 
 {
     public DetectEncoding(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
+        PostInit();
     }
 
     public static DetectEncoding DeserializeDetectEncoding(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -47,6 +49,9 @@ public sealed class DetectEncoding :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

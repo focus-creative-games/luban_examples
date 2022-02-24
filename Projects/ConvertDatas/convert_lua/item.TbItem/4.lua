@@ -1,10 +1,10 @@
 return {
     id = 4,
     name = "经验",
-    major_type = 1,
-    minor_type = 104,
+    major_type = '货币',
+    minor_type = '经验',
     max_pile_num = 9999999,
-    quality = 0,
+    quality = '白',
     icon = "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
     icon_backgroud = "",
     icon_mask = "",
@@ -17,5 +17,5 @@ return {
     progress_time_when_use = 1,
     show_hint_when_use = false,
     droppable = false,
-    use_type = 0,
+    use_type = '手动',
 }

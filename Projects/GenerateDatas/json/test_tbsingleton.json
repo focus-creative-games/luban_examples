@@ -6,7 +6,7 @@
       "text": "aabbcc"
     },
     "date": {
-      "__type__": "DemoD5",
+      "$type": "DemoD5",
       "x1": 1,
       "time": {
         "start_time": 398966400,

@@ -1,4 +1,4 @@
 return {
-    code = 400,
+    code = 'SKILL_NOT_IN_LIST',
     key = "SKILL_NOT_IN_LIST",
 }

@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed class ParamInfo :  Bright.Config.BeanBase 
+public sealed partial class ParamInfo :  Bright.Config.BeanBase 
 {
     public ParamInfo(ByteBuf _buf) 
     {
         Name = _buf.ReadString();
         Type = _buf.ReadString();
         IsRef = _buf.ReadBool();
+        PostInit();
     }
 
     public static ParamInfo DeserializeParamInfo(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class ParamInfo :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public sealed class ParamInfo :  Bright.Config.BeanBase
         + "IsRef:" + IsRef + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

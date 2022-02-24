@@ -1,4 +1,4 @@
 return {
-    code = 700,
+    code = 'MAIL_TYPE_ERROR',
     key = "MAIL_TYPE_ERROR",
 }

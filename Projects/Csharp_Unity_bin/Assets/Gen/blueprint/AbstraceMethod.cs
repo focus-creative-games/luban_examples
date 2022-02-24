@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
 
-public sealed class AbstraceMethod :  blueprint.Method 
+public sealed partial class AbstraceMethod :  blueprint.Method 
 {
     public AbstraceMethod(ByteBuf _buf)  : base(_buf) 
     {
+        PostInit();
     }
 
     public static AbstraceMethod DeserializeAbstraceMethod(ByteBuf _buf)
@@ -31,6 +32,7 @@ public sealed class AbstraceMethod :  blueprint.Method
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class AbstraceMethod :  blueprint.Method
         + "Parameters:" + Bright.Common.StringUtil.CollectionToString(Parameters) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

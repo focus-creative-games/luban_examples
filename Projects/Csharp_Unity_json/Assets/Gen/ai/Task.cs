@@ -30,7 +30,7 @@ public abstract partial class Task :  ai.FlowNode
 
     public static Task DeserializeTask(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "UeWait": return new ai.UeWait(_json);

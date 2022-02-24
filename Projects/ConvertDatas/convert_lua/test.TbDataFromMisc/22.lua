@@ -13,9 +13,9 @@ return {
     x12 = {
         x1 = 1,
     },
-    x13 = 5,
+    x13 = 'D',
     x14 = {
-        _name = 'DemoD2',
+        _type_ = 'DemoD2',
         x1 = 1,
         x2 = 3,
     },
@@ -53,7 +53,7 @@ return {
     },
     k15 = {
         {
-            _name = 'DemoD2',
+            _type_ = 'DemoD2',
             x1 = 1,
             x2 = 3,
         },

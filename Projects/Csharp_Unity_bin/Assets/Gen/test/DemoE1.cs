@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DemoE1 :  test.DemoD3 
+public sealed partial class DemoE1 :  test.DemoD3 
 {
     public DemoE1(ByteBuf _buf)  : base(_buf) 
     {
         X4 = _buf.ReadInt();
+        PostInit();
     }
 
     public static DemoE1 DeserializeDemoE1(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class DemoE1 :  test.DemoD3
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -48,6 +50,9 @@ public sealed class DemoE1 :  test.DemoD3
         + "X4:" + X4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

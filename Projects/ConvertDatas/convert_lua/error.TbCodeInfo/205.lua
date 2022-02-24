@@ -1,4 +1,4 @@
 return {
-    code = 205,
+    code = 'ITEM_NOT_ENOUGH',
     key = "ITEM_NOT_ENOUGH",
 }

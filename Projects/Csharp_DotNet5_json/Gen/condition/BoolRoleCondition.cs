@@ -28,7 +28,7 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
 
     public static BoolRoleCondition DeserializeBoolRoleCondition(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "GenderLimit": return new condition.GenderLimit(_json);
             case "MinLevel": return new condition.MinLevel(_json);

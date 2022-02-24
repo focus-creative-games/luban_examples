@@ -25,9 +25,11 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         X10 = _buf.ReadString();
         X13 = (test.ETestQuality)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
+        X15 = test.Shape.DeserializeShape(_buf);
         V2 = _buf.ReadVector2();
         T1 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
+        {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K2[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     K8.Add(_k, _v);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
         PostInit();
@@ -52,10 +54,12 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public string X10 { get; private set; }
     public test.ETestQuality X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
+    public test.Shape X15 { get; private set; }
     public System.Numerics.Vector2 V2 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; private set; }
+    public int[] K2 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
 
@@ -65,6 +69,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         X14?.Resolve(_tables);
+        X15?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         PostResolve();
     }
@@ -72,6 +77,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
     public  void TranslateText(System.Func<string, string, string> translator)
     {
         X14?.TranslateText(translator);
+        X15?.TranslateText(translator);
         foreach(var _e in K9) { _e?.TranslateText(translator); }
     }
 
@@ -86,9 +92,11 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
         + "X10:" + X10 + ","
         + "X13:" + X13 + ","
         + "X14:" + X14 + ","
+        + "X15:" + X15 + ","
         + "V2:" + V2 + ","
         + "T1:" + T1 + ","
         + "K1:" + Bright.Common.StringUtil.CollectionToString(K1) + ","
+        + "K2:" + Bright.Common.StringUtil.CollectionToString(K2) + ","
         + "K8:" + Bright.Common.StringUtil.CollectionToString(K8) + ","
         + "K9:" + Bright.Common.StringUtil.CollectionToString(K9) + ","
         + "}";

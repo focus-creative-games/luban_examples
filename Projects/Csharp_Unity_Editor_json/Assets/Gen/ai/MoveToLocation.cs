@@ -27,7 +27,7 @@ public sealed partial class MoveToLocation :  ai.Task
             var _fieldJson = _json["location"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  Location = new System.Numerics.Vector3(__x, __y,__z);
+                if(!_fieldJson.IsObject) { throw new SerializationException(); } float __x; if(!_fieldJson["x"].IsNumber) { throw new SerializationException(); }  __x = _fieldJson["x"]; float __y; if(!_fieldJson["y"].IsNumber) { throw new SerializationException(); }  __y = _fieldJson["y"]; float __z; if(!_fieldJson["z"].IsNumber) { throw new SerializationException(); }  __z = _fieldJson["z"];  Location = new UnityEngine.Vector3(__x, __y,__z);
             }
         }
         
@@ -45,7 +45,7 @@ public sealed partial class MoveToLocation :  ai.Task
     {        
         base.SaveJson(_json);
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = Location.X;  __vjson["y"] = Location.Y; __vjson["z"] = Location.Z; _json["location"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = Location.x;  __vjson["y"] = Location.y; __vjson["z"] = Location.z; _json["location"] = __vjson; }
         }
         {
             _json["acceptable_radius"] = new JSONNumber(AcceptableRadius);
@@ -64,7 +64,7 @@ public sealed partial class MoveToLocation :  ai.Task
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public System.Numerics.Vector3 Location { get; set; }
+    public UnityEngine.Vector3 Location { get; set; }
 
     public float AcceptableRadius { get; set; }
 

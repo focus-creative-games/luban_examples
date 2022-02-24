@@ -30,7 +30,7 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public static ItemExtra DeserializeItemExtra(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "TreasureBox": return new item.TreasureBox(_json);
             case "InteractionItem": return new item.InteractionItem(_json);

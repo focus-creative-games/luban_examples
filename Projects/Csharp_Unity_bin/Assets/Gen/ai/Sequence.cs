@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class Sequence :  ai.ComposeNode 
+public sealed partial class Sequence :  ai.ComposeNode 
 {
     public Sequence(ByteBuf _buf)  : base(_buf) 
     {
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);Children = new System.Collections.Generic.List<ai.FlowNode>(n);for(var i = 0 ; i < n ; i++) { ai.FlowNode _e;  _e = ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e);}}
+        PostInit();
     }
 
     public static Sequence DeserializeSequence(ByteBuf _buf)
@@ -34,6 +35,7 @@ public sealed class Sequence :  ai.ComposeNode
     {
         base.Resolve(_tables);
         foreach(var _e in Children) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class Sequence :  ai.ComposeNode
         + "Children:" + Bright.Common.StringUtil.CollectionToString(Children) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

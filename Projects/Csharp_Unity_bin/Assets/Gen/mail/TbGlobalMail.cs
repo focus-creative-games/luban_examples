@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.mail
 {
    
-public sealed class TbGlobalMail
+public partial class TbGlobalMail
 {
     private readonly Dictionary<int, mail.GlobalMail> _dataMap;
     private readonly List<mail.GlobalMail> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbGlobalMail
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, mail.GlobalMail> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbGlobalMail
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbGlobalMail
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

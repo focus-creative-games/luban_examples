@@ -2,7 +2,7 @@
   "code": "HAS_BIND_SERVER",
   "desc": "已经绑定过该服务器",
   "style": {
-    "__type__": "ErrorStyleMsgbox",
+    "$type": "ErrorStyleMsgbox",
     "btn_name": "ok",
     "operation": "重启"
   }

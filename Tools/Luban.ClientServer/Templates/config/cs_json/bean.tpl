@@ -45,7 +45,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     public static {{name}} Deserialize{{name}}(JsonElement _json)
     {
     {{~if x.is_abstract_type~}}
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("{{x.json_type_name_key}}").GetString())
         {
         {{~for child in x.hierarchy_not_abstract_children~}}
             case "{{cs_impl_data_type child x}}": return new {{child.full_name}}(_json);
@@ -70,7 +70,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     {{~if field.gen_ref~}}
     public {{field.cs_ref_validator_define}}
     {{~end~}}
-    {{~if field.ctype.type_name == "datetime" && !field.ctype.is_nullable ~}}
+    {{~if (gen_datetime_mills field.ctype) ~}}
     public long {{field.convention_name}}_Millis => {{field.convention_name}} * 1000L;
     {{~end~}}
     {{~if field.gen_text_key~}}

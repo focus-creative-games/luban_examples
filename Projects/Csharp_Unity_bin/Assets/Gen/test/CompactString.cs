@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class CompactString :  Bright.Config.BeanBase 
+public sealed partial class CompactString :  Bright.Config.BeanBase 
 {
     public CompactString(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         S2 = _buf.ReadString();
         S3 = _buf.ReadString();
+        PostInit();
     }
 
     public static CompactString DeserializeCompactString(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class CompactString :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -50,6 +52,9 @@ public sealed class CompactString :  Bright.Config.BeanBase
         + "S3:" + S3 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

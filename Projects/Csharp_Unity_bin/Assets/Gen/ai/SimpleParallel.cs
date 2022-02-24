@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public sealed class SimpleParallel :  ai.ComposeNode 
+public sealed partial class SimpleParallel :  ai.ComposeNode 
 {
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 
     {
         FinishMode = (ai.EFinishMode)_buf.ReadInt();
         MainTask = ai.Task.DeserializeTask(_buf);
         BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf);
+        PostInit();
     }
 
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
@@ -39,6 +40,7 @@ public sealed class SimpleParallel :  ai.ComposeNode
         base.Resolve(_tables);
         MainTask?.Resolve(_tables);
         BackgroundNode?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -60,6 +62,9 @@ public sealed class SimpleParallel :  ai.ComposeNode
         + "BackgroundNode:" + BackgroundNode + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

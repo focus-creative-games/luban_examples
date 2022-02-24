@@ -38,7 +38,7 @@ public abstract partial class Method :  Bright.Config.BeanBase
 
     public static Method DeserializeMethod(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "AbstraceMethod": return new blueprint.AbstraceMethod(_json);

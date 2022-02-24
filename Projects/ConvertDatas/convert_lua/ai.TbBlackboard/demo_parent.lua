@@ -7,7 +7,7 @@ return {
             name = "v1",
             desc = "v1 haha",
             is_static = false,
-            type = 1,
+            type = 'BOOL',
             type_class_name = "",
         },
     },

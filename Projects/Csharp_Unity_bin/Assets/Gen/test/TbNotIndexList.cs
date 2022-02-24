@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed class TbNotIndexList
+public partial class TbNotIndexList
 {
     private readonly List<test.NotIndexList> _dataList;
 
@@ -26,7 +26,9 @@ public sealed class TbNotIndexList
             _v = test.NotIndexList.DeserializeNotIndexList(_buf);
             _dataList.Add(_v);
         }
+        PostInit();
     }
+
 
     public List<test.NotIndexList> DataList => _dataList;
 
@@ -37,6 +39,7 @@ public sealed class TbNotIndexList
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +49,9 @@ public sealed class TbNotIndexList
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

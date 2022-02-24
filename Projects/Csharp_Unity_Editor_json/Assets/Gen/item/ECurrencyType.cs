@@ -8,7 +8,32 @@
 
 namespace editor.cfg.item
 {
-    public static partial class ECurrencyType
+
+    public enum ECurrencyType
+    {
+        /// <summary>
+        /// 钻石
+        /// </summary>
+        DIAMOND = 1,
+        /// <summary>
+        /// 金币
+        /// </summary>
+        GOLD = 2,
+        /// <summary>
+        /// 银币
+        /// </summary>
+        SILVER = 3,
+        /// <summary>
+        /// 经验
+        /// </summary>
+        EXP = 4,
+        /// <summary>
+        /// 能量点
+        /// </summary>
+        POWER_POINT = 5,
+    }
+
+    public static partial class ECurrencyType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo DIAMOND = new Bright.Config.EditorEnumItemInfo("DIAMOND", "钻石", 1, "钻石");
         public static readonly Bright.Config.EditorEnumItemInfo GOLD = new Bright.Config.EditorEnumItemInfo("GOLD", "金币", 2, "金币");

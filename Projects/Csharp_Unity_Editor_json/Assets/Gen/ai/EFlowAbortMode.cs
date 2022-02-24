@@ -8,7 +8,16 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class EFlowAbortMode
+
+    public enum EFlowAbortMode
+    {
+        NONE = 0,
+        LOWER_PRIORITY = 1,
+        SELF = 2,
+        BOTH = 3,
+    }
+
+    public static partial class EFlowAbortMode_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo NONE = new Bright.Config.EditorEnumItemInfo("NONE", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo LOWER_PRIORITY = new Bright.Config.EditorEnumItemInfo("LOWER_PRIORITY", "", 1, "");

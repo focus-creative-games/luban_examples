@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed class MaxLevel :  condition.BoolRoleCondition 
+public sealed partial class MaxLevel :  condition.BoolRoleCondition 
 {
     public MaxLevel(ByteBuf _buf)  : base(_buf) 
     {
         Level = _buf.ReadInt();
+        PostInit();
     }
 
     public static MaxLevel DeserializeMaxLevel(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +48,9 @@ public sealed class MaxLevel :  condition.BoolRoleCondition
         + "Level:" + Level + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

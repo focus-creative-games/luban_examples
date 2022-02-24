@@ -12,9 +12,9 @@ return {
     x12 = {
         x1 = 10,
     },
-    x13 = 1,
+    x13 = 'A',
     x14 = {
-        _name = 'DemoD2',
+        _type_ = 'DemoD2',
         x1 = 1,
         x2 = 2,
     },
@@ -38,12 +38,12 @@ return {
     },
     k15 = {
         {
-            _name = 'DemoD2',
+            _type_ = 'DemoD2',
             x1 = 1,
             x2 = 2,
         },
         {
-            _name = 'DemoD2',
+            _type_ = 'DemoD2',
             x1 = 2,
             x2 = 3,
         },

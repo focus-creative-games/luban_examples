@@ -2,6 +2,6 @@ return {
     code = "SKILL_NOT_COOLDOWN",
     desc = "",
     style = {
-        _name = 'ErrorStyleTip',
+        _type_ = 'ErrorStyleTip',
     },
 }

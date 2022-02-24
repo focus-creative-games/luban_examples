@@ -8,7 +8,20 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EItemFunctionType
+
+    public enum EItemFunctionType
+    {
+        /// <summary>
+        /// 更换手持物
+        /// </summary>
+        REPLACE_HANDHELD = 0,
+        /// <summary>
+        /// 使用设计图纸
+        /// </summary>
+        USE_DESIGN_DRAWING = 1,
+    }
+
+    public static partial class EItemFunctionType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo REPLACE_HANDHELD = new Bright.Config.EditorEnumItemInfo("REPLACE_HANDHELD", "更换手持物", 0, "更换手持物");
         public static readonly Bright.Config.EditorEnumItemInfo USE_DESIGN_DRAWING = new Bright.Config.EditorEnumItemInfo("USE_DESIGN_DRAWING", "使用设计图纸", 1, "使用设计图纸");

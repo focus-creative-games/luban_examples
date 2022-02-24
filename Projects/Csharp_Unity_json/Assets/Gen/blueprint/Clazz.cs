@@ -36,7 +36,7 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
 
     public static Clazz DeserializeClazz(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "Interface": return new blueprint.Interface(_json);

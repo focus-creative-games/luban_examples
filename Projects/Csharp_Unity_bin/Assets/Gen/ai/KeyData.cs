@@ -13,10 +13,11 @@ using System.Collections.Generic;
 namespace cfg.ai
 {
 
-public abstract class KeyData :  Bright.Config.BeanBase 
+public abstract partial class KeyData :  Bright.Config.BeanBase 
 {
     public KeyData(ByteBuf _buf) 
     {
+        PostInit();
     }
 
     public static KeyData DeserializeKeyData(ByteBuf _buf)
@@ -35,6 +36,7 @@ public abstract class KeyData :  Bright.Config.BeanBase
 
     public virtual void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public virtual void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +48,9 @@ public abstract class KeyData :  Bright.Config.BeanBase
         return "{ "
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

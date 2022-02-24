@@ -303,11 +303,12 @@ local enums =
      ---@field public TEST_PROFESSION int
     ['role.EProfession'] = {   TEST_PROFESSION=1,  };
     ---@class test.DemoEnum
+     ---@field public NONE int
      ---@field public A int
      ---@field public B int
      ---@field public C int
      ---@field public D int
-    ['test.DemoEnum'] = {   A=1,  B=2,  C=4,  D=5,  };
+    ['test.DemoEnum'] = {   NONE=0,  A=1,  B=2,  C=4,  D=5,  };
     ---@class test.DemoFlag
      ---@field public A int
      ---@field public B int
@@ -324,16 +325,24 @@ local enums =
      ---@field public X_256 int
      ---@field public X_257 int
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
+    ---@class test.AudioType
+     ---@field public UNKNOWN int
+     ---@field public ACC int
+     ---@field public AIFF int
+    ['test.AudioType'] = {   UNKNOWN=0,  ACC=1,  AIFF=2,  };
     ---@class test.ETestQuality
      ---@field public A int
      ---@field public B int
      ---@field public C int
      ---@field public D int
     ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
-    ---@class test.ETestCurrency
-     ---@field public DIAMOND int
-     ---@field public GOLD int
-    ['test.ETestCurrency'] = {   DIAMOND=1,  GOLD=2,  };
+    ---@class test.AccessFlag
+     ---@field public WRITE int
+     ---@field public READ int
+     ---@field public TRUNCATE int
+     ---@field public NEW int
+     ---@field public READ_WRITE int
+    ['test.AccessFlag'] = {   WRITE=1,  READ=2,  TRUNCATE=4,  NEW=8,  READ_WRITE=3,  };
 }
 
 
@@ -409,7 +418,7 @@ local function InitTypes(methods)
      ---@field public keys ai.BlackboardKey[]
         local class = SimpleClass()
         class._id = 1576193005
-        class._name = 'ai.Blackboard'
+        class['_type_'] = 'ai.Blackboard'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -421,7 +430,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.BlackboardKey 
@@ -432,7 +441,7 @@ local function InitTypes(methods)
      ---@field public type_class_name string
         local class = SimpleClass()
         class._id = -511559886
-        class._name = 'ai.BlackboardKey'
+        class['_type_'] = 'ai.BlackboardKey'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -445,7 +454,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.BehaviorTree 
@@ -456,7 +465,7 @@ local function InitTypes(methods)
      ---@field public root ai.ComposeNode
         local class = SimpleClass()
         class._id = 159552822
-        class._name = 'ai.BehaviorTree'
+        class['_type_'] = 'ai.BehaviorTree'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -469,7 +478,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Node 
@@ -477,32 +486,32 @@ local function InitTypes(methods)
      ---@field public node_name string
         local class = SimpleClass()
         class._id = -1055479768
-        class._name = 'ai.Node'
+        class['_type_'] = 'ai.Node'
         local id2name = {  [1812449155] = 'ai.UeSetDefaultFocus',  [990693812] = 'ai.ExecuteTimeStatistic',  [1601247918] = 'ai.ChooseTarget',  [1195270745] = 'ai.KeepFaceTarget',  [-999247644] = 'ai.GetOwnerPlayer',  [-61887372] = 'ai.UpdateDailyBehaviorProps',  [-513308166] = 'ai.UeLoop',  [-951439423] = 'ai.UeCooldown',  [338469720] = 'ai.UeTimeLimit',  [-315297507] = 'ai.UeBlackboard',  [195054574] = 'ai.UeForceSuccess',  [1255972344] = 'ai.IsAtLocation',  [-1207170283] = 'ai.DistanceLessThan',  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Service :ai.Node 
         local class = SimpleClass()
         class._id = -472395057
-        class._name = 'ai.Service'
+        class['_type_'] = 'ai.Service'
         local id2name = {  [1812449155] = 'ai.UeSetDefaultFocus',  [990693812] = 'ai.ExecuteTimeStatistic',  [1601247918] = 'ai.ChooseTarget',  [1195270745] = 'ai.KeepFaceTarget',  [-999247644] = 'ai.GetOwnerPlayer',  [-61887372] = 'ai.UpdateDailyBehaviorProps',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeSetDefaultFocus :ai.Service 
      ---@field public keyboard_key string
         local class = SimpleClass()
         class._id = 1812449155
-        class._name = 'ai.UeSetDefaultFocus'
+        class['_type_'] = 'ai.UeSetDefaultFocus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -513,13 +522,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.ExecuteTimeStatistic :ai.Service 
         local class = SimpleClass()
         class._id = 990693812
-        class._name = 'ai.ExecuteTimeStatistic'
+        class['_type_'] = 'ai.ExecuteTimeStatistic'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -529,14 +538,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.ChooseTarget :ai.Service 
      ---@field public result_target_key string
         local class = SimpleClass()
         class._id = 1601247918
-        class._name = 'ai.ChooseTarget'
+        class['_type_'] = 'ai.ChooseTarget'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -547,14 +556,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.KeepFaceTarget :ai.Service 
      ---@field public target_actor_key string
         local class = SimpleClass()
         class._id = 1195270745
-        class._name = 'ai.KeepFaceTarget'
+        class['_type_'] = 'ai.KeepFaceTarget'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -565,14 +574,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.GetOwnerPlayer :ai.Service 
      ---@field public player_actor_key string
         local class = SimpleClass()
         class._id = -999247644
-        class._name = 'ai.GetOwnerPlayer'
+        class['_type_'] = 'ai.GetOwnerPlayer'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -583,7 +592,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UpdateDailyBehaviorProps :ai.Service 
@@ -598,7 +607,7 @@ local function InitTypes(methods)
      ---@field public mood_upper_threshold_key string
         local class = SimpleClass()
         class._id = -61887372
-        class._name = 'ai.UpdateDailyBehaviorProps'
+        class['_type_'] = 'ai.UpdateDailyBehaviorProps'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -617,20 +626,20 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Decorator :ai.Node 
      ---@field public flow_abort_mode ai.EFlowAbortMode
         local class = SimpleClass()
         class._id = 2017109461
-        class._name = 'ai.Decorator'
+        class['_type_'] = 'ai.Decorator'
         local id2name = {  [-513308166] = 'ai.UeLoop',  [-951439423] = 'ai.UeCooldown',  [338469720] = 'ai.UeTimeLimit',  [-315297507] = 'ai.UeBlackboard',  [195054574] = 'ai.UeForceSuccess',  [1255972344] = 'ai.IsAtLocation',  [-1207170283] = 'ai.DistanceLessThan',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeLoop :ai.Decorator 
@@ -639,7 +648,7 @@ local function InitTypes(methods)
      ---@field public infinite_loop_timeout_time float
         local class = SimpleClass()
         class._id = -513308166
-        class._name = 'ai.UeLoop'
+        class['_type_'] = 'ai.UeLoop'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -653,14 +662,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeCooldown :ai.Decorator 
      ---@field public cooldown_time float
         local class = SimpleClass()
         class._id = -951439423
-        class._name = 'ai.UeCooldown'
+        class['_type_'] = 'ai.UeCooldown'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -672,14 +681,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeTimeLimit :ai.Decorator 
      ---@field public limit_time float
         local class = SimpleClass()
         class._id = 338469720
-        class._name = 'ai.UeTimeLimit'
+        class['_type_'] = 'ai.UeTimeLimit'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -691,7 +700,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeBlackboard :ai.Decorator 
@@ -700,7 +709,7 @@ local function InitTypes(methods)
      ---@field public key_query ai.KeyQueryOperator
         local class = SimpleClass()
         class._id = -315297507
-        class._name = 'ai.UeBlackboard'
+        class['_type_'] = 'ai.UeBlackboard'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -714,25 +723,25 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.KeyQueryOperator 
         local class = SimpleClass()
         class._id = -738364781
-        class._name = 'ai.KeyQueryOperator'
+        class['_type_'] = 'ai.KeyQueryOperator'
         local id2name = {  [1635350898] = 'ai.IsSet',  [790736255] = 'ai.IsNotSet',  [-979891605] = 'ai.BinaryOperator',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.IsSet :ai.KeyQueryOperator 
         local class = SimpleClass()
         class._id = 1635350898
-        class._name = 'ai.IsSet'
+        class['_type_'] = 'ai.IsSet'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -740,13 +749,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.IsNotSet :ai.KeyQueryOperator 
         local class = SimpleClass()
         class._id = 790736255
-        class._name = 'ai.IsNotSet'
+        class['_type_'] = 'ai.IsNotSet'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -754,7 +763,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.BinaryOperator :ai.KeyQueryOperator 
@@ -762,7 +771,7 @@ local function InitTypes(methods)
      ---@field public data ai.KeyData
         local class = SimpleClass()
         class._id = -979891605
-        class._name = 'ai.BinaryOperator'
+        class['_type_'] = 'ai.BinaryOperator'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -772,26 +781,26 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.KeyData 
         local class = SimpleClass()
         class._id = 1022478019
-        class._name = 'ai.KeyData'
+        class['_type_'] = 'ai.KeyData'
         local id2name = {  [-719747885] = 'ai.FloatKeyData',  [-342751904] = 'ai.IntKeyData',  [-307888654] = 'ai.StringKeyData',  [1517269500] = 'ai.BlackboardKeyData',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.FloatKeyData :ai.KeyData 
      ---@field public value float
         local class = SimpleClass()
         class._id = -719747885
-        class._name = 'ai.FloatKeyData'
+        class['_type_'] = 'ai.FloatKeyData'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -800,14 +809,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.IntKeyData :ai.KeyData 
      ---@field public value int
         local class = SimpleClass()
         class._id = -342751904
-        class._name = 'ai.IntKeyData'
+        class['_type_'] = 'ai.IntKeyData'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -816,14 +825,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.StringKeyData :ai.KeyData 
      ---@field public value string
         local class = SimpleClass()
         class._id = -307888654
-        class._name = 'ai.StringKeyData'
+        class['_type_'] = 'ai.StringKeyData'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -832,14 +841,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.BlackboardKeyData :ai.KeyData 
      ---@field public value string
         local class = SimpleClass()
         class._id = 1517269500
-        class._name = 'ai.BlackboardKeyData'
+        class['_type_'] = 'ai.BlackboardKeyData'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -848,13 +857,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeForceSuccess :ai.Decorator 
         local class = SimpleClass()
         class._id = 195054574
-        class._name = 'ai.UeForceSuccess'
+        class['_type_'] = 'ai.UeForceSuccess'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -865,7 +874,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.IsAtLocation :ai.Decorator 
@@ -874,7 +883,7 @@ local function InitTypes(methods)
      ---@field public inverse_condition bool
         local class = SimpleClass()
         class._id = 1255972344
-        class._name = 'ai.IsAtLocation'
+        class['_type_'] = 'ai.IsAtLocation'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -888,7 +897,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.DistanceLessThan :ai.Decorator 
@@ -898,7 +907,7 @@ local function InitTypes(methods)
      ---@field public reverse_result bool
         local class = SimpleClass()
         class._id = -1207170283
-        class._name = 'ai.DistanceLessThan'
+        class['_type_'] = 'ai.DistanceLessThan'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -913,7 +922,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.FlowNode :ai.Node 
@@ -921,32 +930,32 @@ local function InitTypes(methods)
      ---@field public services ai.Service[]
         local class = SimpleClass()
         class._id = -1109240970
-        class._name = 'ai.FlowNode'
+        class['_type_'] = 'ai.FlowNode'
         local id2name = {  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.ComposeNode :ai.FlowNode 
         local class = SimpleClass()
         class._id = -70129202
-        class._name = 'ai.ComposeNode'
+        class['_type_'] = 'ai.ComposeNode'
         local id2name = {  [-1789006105] = 'ai.Sequence',  [-1946981627] = 'ai.Selector',  [-1952582529] = 'ai.SimpleParallel',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Sequence :ai.ComposeNode 
      ---@field public children ai.FlowNode[]
         local class = SimpleClass()
         class._id = -1789006105
-        class._name = 'ai.Sequence'
+        class['_type_'] = 'ai.Sequence'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -959,14 +968,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Selector :ai.ComposeNode 
      ---@field public children ai.FlowNode[]
         local class = SimpleClass()
         class._id = -1946981627
-        class._name = 'ai.Selector'
+        class['_type_'] = 'ai.Selector'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -979,7 +988,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.SimpleParallel :ai.ComposeNode 
@@ -988,7 +997,7 @@ local function InitTypes(methods)
      ---@field public background_node ai.FlowNode
         local class = SimpleClass()
         class._id = -1952582529
-        class._name = 'ai.SimpleParallel'
+        class['_type_'] = 'ai.SimpleParallel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1003,20 +1012,20 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.Task :ai.FlowNode 
      ---@field public ignore_restart_self bool
         local class = SimpleClass()
         class._id = -1055314005
-        class._name = 'ai.Task'
+        class['_type_'] = 'ai.Task'
         local id2name = {  [-512994101] = 'ai.UeWait',  [1215378271] = 'ai.UeWaitBlackboardTime',  [514987779] = 'ai.MoveToTarget',  [-918812268] = 'ai.ChooseSkill',  [-2140042998] = 'ai.MoveToRandomLocation',  [-969953113] = 'ai.MoveToLocation',  [1357409728] = 'ai.DebugPrint',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeWait :ai.Task 
@@ -1024,7 +1033,7 @@ local function InitTypes(methods)
      ---@field public random_deviation float
         local class = SimpleClass()
         class._id = -512994101
-        class._name = 'ai.UeWait'
+        class['_type_'] = 'ai.UeWait'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1039,14 +1048,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.UeWaitBlackboardTime :ai.Task 
      ---@field public blackboard_key string
         local class = SimpleClass()
         class._id = 1215378271
-        class._name = 'ai.UeWaitBlackboardTime'
+        class['_type_'] = 'ai.UeWaitBlackboardTime'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1060,7 +1069,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.MoveToTarget :ai.Task 
@@ -1068,7 +1077,7 @@ local function InitTypes(methods)
      ---@field public acceptable_radius float
         local class = SimpleClass()
         class._id = 514987779
-        class._name = 'ai.MoveToTarget'
+        class['_type_'] = 'ai.MoveToTarget'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1083,7 +1092,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.ChooseSkill :ai.Task 
@@ -1091,7 +1100,7 @@ local function InitTypes(methods)
      ---@field public result_skill_id_key string
         local class = SimpleClass()
         class._id = -918812268
-        class._name = 'ai.ChooseSkill'
+        class['_type_'] = 'ai.ChooseSkill'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1106,7 +1115,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.MoveToRandomLocation :ai.Task 
@@ -1114,7 +1123,7 @@ local function InitTypes(methods)
      ---@field public radius float
         local class = SimpleClass()
         class._id = -2140042998
-        class._name = 'ai.MoveToRandomLocation'
+        class['_type_'] = 'ai.MoveToRandomLocation'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1129,7 +1138,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.MoveToLocation :ai.Task 
@@ -1137,7 +1146,7 @@ local function InitTypes(methods)
      ---@field public acceptable_radius float
         local class = SimpleClass()
         class._id = -969953113
-        class._name = 'ai.MoveToLocation'
+        class['_type_'] = 'ai.MoveToLocation'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1152,14 +1161,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class ai.DebugPrint :ai.Task 
      ---@field public text string
         local class = SimpleClass()
         class._id = 1357409728
-        class._name = 'ai.DebugPrint'
+        class['_type_'] = 'ai.DebugPrint'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1173,7 +1182,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.Clazz 
@@ -1183,13 +1192,13 @@ local function InitTypes(methods)
      ---@field public methods blueprint.Method[]
         local class = SimpleClass()
         class._id = 1691473693
-        class._name = 'blueprint.Clazz'
+        class['_type_'] = 'blueprint.Clazz'
         local id2name = {  [2114170750] = 'blueprint.Interface',  [-2073576778] = 'blueprint.NormalClazz',  [1827364892] = 'blueprint.EnumClazz',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.Method 
@@ -1200,13 +1209,13 @@ local function InitTypes(methods)
      ---@field public parameters blueprint.ParamInfo[]
         local class = SimpleClass()
         class._id = 1176452284
-        class._name = 'blueprint.Method'
+        class['_type_'] = 'blueprint.Method'
         local id2name = {  [-392137809] = 'blueprint.AbstraceMethod',  [1739079015] = 'blueprint.ExternalMethod',  [-696408103] = 'blueprint.BlueprintMethod',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.ParamInfo 
@@ -1215,7 +1224,7 @@ local function InitTypes(methods)
      ---@field public is_ref bool
         local class = SimpleClass()
         class._id = -729799392
-        class._name = 'blueprint.ParamInfo'
+        class['_type_'] = 'blueprint.ParamInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1226,13 +1235,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.AbstraceMethod :blueprint.Method 
         local class = SimpleClass()
         class._id = -392137809
-        class._name = 'blueprint.AbstraceMethod'
+        class['_type_'] = 'blueprint.AbstraceMethod'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1245,13 +1254,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.ExternalMethod :blueprint.Method 
         local class = SimpleClass()
         class._id = 1739079015
-        class._name = 'blueprint.ExternalMethod'
+        class['_type_'] = 'blueprint.ExternalMethod'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1264,13 +1273,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.BlueprintMethod :blueprint.Method 
         local class = SimpleClass()
         class._id = -696408103
-        class._name = 'blueprint.BlueprintMethod'
+        class['_type_'] = 'blueprint.BlueprintMethod'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1283,13 +1292,13 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.Interface :blueprint.Clazz 
         local class = SimpleClass()
         class._id = 2114170750
-        class._name = 'blueprint.Interface'
+        class['_type_'] = 'blueprint.Interface'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1301,7 +1310,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.NormalClazz :blueprint.Clazz 
@@ -1309,7 +1318,7 @@ local function InitTypes(methods)
      ---@field public fields blueprint.Field[]
         local class = SimpleClass()
         class._id = -2073576778
-        class._name = 'blueprint.NormalClazz'
+        class['_type_'] = 'blueprint.NormalClazz'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1323,7 +1332,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.Field 
@@ -1332,7 +1341,7 @@ local function InitTypes(methods)
      ---@field public desc string
         local class = SimpleClass()
         class._id = 1694158271
-        class._name = 'blueprint.Field'
+        class['_type_'] = 'blueprint.Field'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1343,14 +1352,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.EnumClazz :blueprint.Clazz 
      ---@field public enums blueprint.EnumField[]
         local class = SimpleClass()
         class._id = 1827364892
-        class._name = 'blueprint.EnumClazz'
+        class['_type_'] = 'blueprint.EnumClazz'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1363,7 +1372,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class blueprint.EnumField 
@@ -1371,7 +1380,7 @@ local function InitTypes(methods)
      ---@field public value int
         local class = SimpleClass()
         class._id = 1830049470
-        class._name = 'blueprint.EnumField'
+        class['_type_'] = 'blueprint.EnumField'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1381,7 +1390,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.DropInfo 
@@ -1391,7 +1400,7 @@ local function InitTypes(methods)
      ---@field public bonus bonus.Bonus
         local class = SimpleClass()
         class._id = -2014781108
-        class._name = 'bonus.DropInfo'
+        class['_type_'] = 'bonus.DropInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1403,7 +1412,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.ShowItemInfo 
@@ -1411,7 +1420,7 @@ local function InitTypes(methods)
      ---@field public item_num long
         local class = SimpleClass()
         class._id = -1496363507
-        class._name = 'bonus.ShowItemInfo'
+        class['_type_'] = 'bonus.ShowItemInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1421,26 +1430,26 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.Bonus 
         local class = SimpleClass()
         class._id = 813132144
-        class._name = 'bonus.Bonus'
+        class['_type_'] = 'bonus.Bonus'
         local id2name = {  [-1649658966] = 'bonus.OneItem',  [400179721] = 'bonus.OneItems',  [1689011106] = 'bonus.Item',  [819736849] = 'bonus.Items',  [-229470727] = 'bonus.CoefficientItem',  [-356202311] = 'bonus.WeightItems',  [366387866] = 'bonus.ProbabilityItems',  [1421907893] = 'bonus.MultiBonus',  [359783161] = 'bonus.ProbabilityBonus',  [-362807016] = 'bonus.WeightBonus',  [1959868225] = 'bonus.DropBonus',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.OneItem :bonus.Bonus 
      ---@field public item_id int
         local class = SimpleClass()
         class._id = -1649658966
-        class._name = 'bonus.OneItem'
+        class['_type_'] = 'bonus.OneItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1449,14 +1458,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.OneItems :bonus.Bonus 
      ---@field public items int[]
         local class = SimpleClass()
         class._id = 400179721
-        class._name = 'bonus.OneItems'
+        class['_type_'] = 'bonus.OneItems'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1465,7 +1474,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.Item :bonus.Bonus 
@@ -1473,7 +1482,7 @@ local function InitTypes(methods)
      ---@field public amount int
         local class = SimpleClass()
         class._id = 1689011106
-        class._name = 'bonus.Item'
+        class['_type_'] = 'bonus.Item'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1483,14 +1492,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.Items :bonus.Bonus 
      ---@field public item_list bonus.Item[]
         local class = SimpleClass()
         class._id = 819736849
-        class._name = 'bonus.Items'
+        class['_type_'] = 'bonus.Items'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1499,7 +1508,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.CoefficientItem :bonus.Bonus 
@@ -1507,7 +1516,7 @@ local function InitTypes(methods)
      ---@field public bonus_list bonus.Items
         local class = SimpleClass()
         class._id = -229470727
-        class._name = 'bonus.CoefficientItem'
+        class['_type_'] = 'bonus.CoefficientItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1517,14 +1526,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.WeightItems :bonus.Bonus 
      ---@field public item_list bonus.WeightItemInfo[]
         local class = SimpleClass()
         class._id = -356202311
-        class._name = 'bonus.WeightItems'
+        class['_type_'] = 'bonus.WeightItems'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1533,7 +1542,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.WeightItemInfo 
@@ -1542,7 +1551,7 @@ local function InitTypes(methods)
      ---@field public weight int
         local class = SimpleClass()
         class._id = 1239999176
-        class._name = 'bonus.WeightItemInfo'
+        class['_type_'] = 'bonus.WeightItemInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1553,14 +1562,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.ProbabilityItems :bonus.Bonus 
      ---@field public item_list bonus.ProbabilityItemInfo[]
         local class = SimpleClass()
         class._id = 366387866
-        class._name = 'bonus.ProbabilityItems'
+        class['_type_'] = 'bonus.ProbabilityItems'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1569,7 +1578,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.ProbabilityItemInfo 
@@ -1578,7 +1587,7 @@ local function InitTypes(methods)
      ---@field public probability float
         local class = SimpleClass()
         class._id = 1547874631
-        class._name = 'bonus.ProbabilityItemInfo'
+        class['_type_'] = 'bonus.ProbabilityItemInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1589,14 +1598,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.MultiBonus :bonus.Bonus 
      ---@field public bonuses bonus.Bonus[]
         local class = SimpleClass()
         class._id = 1421907893
-        class._name = 'bonus.MultiBonus'
+        class['_type_'] = 'bonus.MultiBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1605,14 +1614,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.ProbabilityBonus :bonus.Bonus 
      ---@field public bonuses bonus.ProbabilityBonusInfo[]
         local class = SimpleClass()
         class._id = 359783161
-        class._name = 'bonus.ProbabilityBonus'
+        class['_type_'] = 'bonus.ProbabilityBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1621,7 +1630,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.ProbabilityBonusInfo 
@@ -1629,7 +1638,7 @@ local function InitTypes(methods)
      ---@field public probability float
         local class = SimpleClass()
         class._id = 46960455
-        class._name = 'bonus.ProbabilityBonusInfo'
+        class['_type_'] = 'bonus.ProbabilityBonusInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1639,14 +1648,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.WeightBonus :bonus.Bonus 
      ---@field public bonuses bonus.WeightBonusInfo[]
         local class = SimpleClass()
         class._id = -362807016
-        class._name = 'bonus.WeightBonus'
+        class['_type_'] = 'bonus.WeightBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1655,7 +1664,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.WeightBonusInfo 
@@ -1663,7 +1672,7 @@ local function InitTypes(methods)
      ---@field public weight int
         local class = SimpleClass()
         class._id = -907244058
-        class._name = 'bonus.WeightBonusInfo'
+        class['_type_'] = 'bonus.WeightBonusInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1673,14 +1682,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class bonus.DropBonus :bonus.Bonus 
      ---@field public id int
         local class = SimpleClass()
         class._id = 1959868225
-        class._name = 'bonus.DropBonus'
+        class['_type_'] = 'bonus.DropBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1689,7 +1698,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class common.GlobalConfig 
@@ -1716,7 +1725,7 @@ local function InitTypes(methods)
      ---@field public per_viality_recovery_time int
         local class = SimpleClass()
         class._id = -848234488
-        class._name = 'common.GlobalConfig'
+        class['_type_'] = 'common.GlobalConfig'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1745,7 +1754,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorInfo 
@@ -1754,7 +1763,7 @@ local function InitTypes(methods)
      ---@field public style error.ErrorStyle
         local class = SimpleClass()
         class._id = 1389347408
-        class._name = 'error.ErrorInfo'
+        class['_type_'] = 'error.ErrorInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1765,25 +1774,25 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorStyle 
         local class = SimpleClass()
         class._id = 129528911
-        class._name = 'error.ErrorStyle'
+        class['_type_'] = 'error.ErrorStyle'
         local id2name = {  [1915239884] = 'error.ErrorStyleTip',  [-1920482343] = 'error.ErrorStyleMsgbox',  [-2010134516] = 'error.ErrorStyleDlgOk',  [971221414] = 'error.ErrorStyleDlgOkCancel',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorStyleTip :error.ErrorStyle 
         local class = SimpleClass()
         class._id = 1915239884
-        class._name = 'error.ErrorStyleTip'
+        class['_type_'] = 'error.ErrorStyleTip'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1791,7 +1800,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorStyleMsgbox :error.ErrorStyle 
@@ -1799,7 +1808,7 @@ local function InitTypes(methods)
      ---@field public operation error.EOperation
         local class = SimpleClass()
         class._id = -1920482343
-        class._name = 'error.ErrorStyleMsgbox'
+        class['_type_'] = 'error.ErrorStyleMsgbox'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1809,14 +1818,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorStyleDlgOk :error.ErrorStyle 
      ---@field public btn_name string
         local class = SimpleClass()
         class._id = -2010134516
-        class._name = 'error.ErrorStyleDlgOk'
+        class['_type_'] = 'error.ErrorStyleDlgOk'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1825,7 +1834,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.ErrorStyleDlgOkCancel :error.ErrorStyle 
@@ -1833,7 +1842,7 @@ local function InitTypes(methods)
      ---@field public btn2_name string
         local class = SimpleClass()
         class._id = 971221414
-        class._name = 'error.ErrorStyleDlgOkCancel'
+        class['_type_'] = 'error.ErrorStyleDlgOkCancel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1843,7 +1852,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class error.CodeInfo 
@@ -1851,7 +1860,7 @@ local function InitTypes(methods)
      ---@field public key string
         local class = SimpleClass()
         class._id = -1942481535
-        class._name = 'error.CodeInfo'
+        class['_type_'] = 'error.CodeInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1861,7 +1870,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.Item 
@@ -1888,7 +1897,7 @@ local function InitTypes(methods)
      ---@field public level_up_id int
         local class = SimpleClass()
         class._id = 2107285806
-        class._name = 'item.Item'
+        class['_type_'] = 'item.Item'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1917,7 +1926,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.ItemFunction 
@@ -1927,7 +1936,7 @@ local function InitTypes(methods)
      ---@field public close_bag_ui bool
         local class = SimpleClass()
         class._id = 1205824294
-        class._name = 'item.ItemFunction'
+        class['_type_'] = 'item.ItemFunction'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1939,20 +1948,20 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.ItemExtra 
      ---@field public id int
         local class = SimpleClass()
         class._id = 23433090
-        class._name = 'item.ItemExtra'
+        class['_type_'] = 'item.ItemExtra'
         local id2name = {  [1494222369] = 'item.TreasureBox',  [640937802] = 'item.InteractionItem',  [1659907149] = 'item.Clothes',  [-1679179579] = 'item.DesignDrawing',  [896889705] = 'item.Dymmy',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.TreasureBox :item.ItemExtra 
@@ -1963,7 +1972,7 @@ local function InitTypes(methods)
      ---@field public choose_list item.ChooseOneBonus[]
         local class = SimpleClass()
         class._id = 1494222369
-        class._name = 'item.TreasureBox'
+        class['_type_'] = 'item.TreasureBox'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -1977,26 +1986,26 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.Condition 
         local class = SimpleClass()
         class._id = 183625704
-        class._name = 'condition.Condition'
+        class['_type_'] = 'condition.Condition'
         local id2name = {  [1069033789] = 'condition.TimeRange',  [934079583] = 'condition.MultiRoleCondition',  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  [1961145317] = 'condition.ContainsItem',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.TimeRange :condition.Condition 
      ---@field public date_time_range common.DateTimeRange
         local class = SimpleClass()
         class._id = 1069033789
-        class._name = 'condition.TimeRange'
+        class['_type_'] = 'condition.TimeRange'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2005,7 +2014,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class common.DateTimeRange 
@@ -2013,7 +2022,7 @@ local function InitTypes(methods)
      ---@field public end_time int
         local class = SimpleClass()
         class._id = 1642200959
-        class._name = 'common.DateTimeRange'
+        class['_type_'] = 'common.DateTimeRange'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2023,26 +2032,26 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.RoleCondition :condition.Condition 
         local class = SimpleClass()
         class._id = -1632338542
-        class._name = 'condition.RoleCondition'
+        class['_type_'] = 'condition.RoleCondition'
         local id2name = {  [934079583] = 'condition.MultiRoleCondition',  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  [1961145317] = 'condition.ContainsItem',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.MultiRoleCondition :condition.RoleCondition 
      ---@field public conditions condition.RoleCondition[]
         local class = SimpleClass()
         class._id = 934079583
-        class._name = 'condition.MultiRoleCondition'
+        class['_type_'] = 'condition.MultiRoleCondition'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2051,26 +2060,26 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.BoolRoleCondition :condition.RoleCondition 
         local class = SimpleClass()
         class._id = -293269432
-        class._name = 'condition.BoolRoleCondition'
+        class['_type_'] = 'condition.BoolRoleCondition'
         local id2name = {  [103675143] = 'condition.GenderLimit',  [-1075273755] = 'condition.MinLevel',  [700922899] = 'condition.MaxLevel',  [907499647] = 'condition.MinMaxLevel',  [696630835] = 'condition.ClothesPropertyScoreGreaterThan',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.GenderLimit :condition.BoolRoleCondition 
      ---@field public gender role.EGenderType
         local class = SimpleClass()
         class._id = 103675143
-        class._name = 'condition.GenderLimit'
+        class['_type_'] = 'condition.GenderLimit'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2079,14 +2088,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.MinLevel :condition.BoolRoleCondition 
      ---@field public level int
         local class = SimpleClass()
         class._id = -1075273755
-        class._name = 'condition.MinLevel'
+        class['_type_'] = 'condition.MinLevel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2095,14 +2104,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.MaxLevel :condition.BoolRoleCondition 
      ---@field public level int
         local class = SimpleClass()
         class._id = 700922899
-        class._name = 'condition.MaxLevel'
+        class['_type_'] = 'condition.MaxLevel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2111,7 +2120,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.MinMaxLevel :condition.BoolRoleCondition 
@@ -2119,7 +2128,7 @@ local function InitTypes(methods)
      ---@field public max int
         local class = SimpleClass()
         class._id = 907499647
-        class._name = 'condition.MinMaxLevel'
+        class['_type_'] = 'condition.MinMaxLevel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2129,7 +2138,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.ClothesPropertyScoreGreaterThan :condition.BoolRoleCondition 
@@ -2137,7 +2146,7 @@ local function InitTypes(methods)
      ---@field public value int
         local class = SimpleClass()
         class._id = 696630835
-        class._name = 'condition.ClothesPropertyScoreGreaterThan'
+        class['_type_'] = 'condition.ClothesPropertyScoreGreaterThan'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2147,7 +2156,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class condition.ContainsItem :condition.RoleCondition 
@@ -2156,7 +2165,7 @@ local function InitTypes(methods)
      ---@field public reverse bool
         local class = SimpleClass()
         class._id = 1961145317
-        class._name = 'condition.ContainsItem'
+        class['_type_'] = 'condition.ContainsItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2167,7 +2176,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.ChooseOneBonus 
@@ -2175,7 +2184,7 @@ local function InitTypes(methods)
      ---@field public is_unique bool
         local class = SimpleClass()
         class._id = 228058347
-        class._name = 'item.ChooseOneBonus'
+        class['_type_'] = 'item.ChooseOneBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2185,7 +2194,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.InteractionItem :item.ItemExtra 
@@ -2194,7 +2203,7 @@ local function InitTypes(methods)
      ---@field public holding_static_mesh_mat string
         local class = SimpleClass()
         class._id = 640937802
-        class._name = 'item.InteractionItem'
+        class['_type_'] = 'item.InteractionItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2206,7 +2215,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.Clothes :item.ItemExtra 
@@ -2216,7 +2225,7 @@ local function InitTypes(methods)
      ---@field public energy_resume int
         local class = SimpleClass()
         class._id = 1659907149
-        class._name = 'item.Clothes'
+        class['_type_'] = 'item.Clothes'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2229,14 +2238,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.DesignDrawing :item.ItemExtra 
      ---@field public learn_component_id int[]
         local class = SimpleClass()
         class._id = -1679179579
-        class._name = 'item.DesignDrawing'
+        class['_type_'] = 'item.DesignDrawing'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2246,14 +2255,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class item.Dymmy :item.ItemExtra 
      ---@field public cost cost.Cost
         local class = SimpleClass()
         class._id = 896889705
-        class._name = 'item.Dymmy'
+        class['_type_'] = 'item.Dymmy'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2263,19 +2272,19 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.Cost 
         local class = SimpleClass()
         class._id = -316635794
-        class._name = 'cost.Cost'
+        class['_type_'] = 'cost.Cost'
         local id2name = {  [911838111] = 'cost.CostCurrency',  [103084157] = 'cost.CostCurrencies',  [-1033587381] = 'cost.CostOneItem',  [-1249440351] = 'cost.CostItem',  [-77945102] = 'cost.CostItems',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.CostCurrency :cost.Cost 
@@ -2283,7 +2292,7 @@ local function InitTypes(methods)
      ---@field public num int
         local class = SimpleClass()
         class._id = 911838111
-        class._name = 'cost.CostCurrency'
+        class['_type_'] = 'cost.CostCurrency'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2293,14 +2302,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.CostCurrencies :cost.Cost 
      ---@field public currencies cost.CostCurrency[]
         local class = SimpleClass()
         class._id = 103084157
-        class._name = 'cost.CostCurrencies'
+        class['_type_'] = 'cost.CostCurrencies'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2309,14 +2318,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.CostOneItem :cost.Cost 
      ---@field public item_id int
         local class = SimpleClass()
         class._id = -1033587381
-        class._name = 'cost.CostOneItem'
+        class['_type_'] = 'cost.CostOneItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2325,7 +2334,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.CostItem :cost.Cost 
@@ -2333,7 +2342,7 @@ local function InitTypes(methods)
      ---@field public amount int
         local class = SimpleClass()
         class._id = -1249440351
-        class._name = 'cost.CostItem'
+        class['_type_'] = 'cost.CostItem'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2343,14 +2352,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class cost.CostItems :cost.Cost 
      ---@field public item_list cost.CostItem[]
         local class = SimpleClass()
         class._id = -77945102
-        class._name = 'cost.CostItems'
+        class['_type_'] = 'cost.CostItems'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2359,7 +2368,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class l10n.L10NDemo 
@@ -2367,7 +2376,7 @@ local function InitTypes(methods)
      ---@field public text string
         local class = SimpleClass()
         class._id = -331195887
-        class._name = 'l10n.L10NDemo'
+        class['_type_'] = 'l10n.L10NDemo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2377,7 +2386,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class l10n.PatchDemo 
@@ -2385,7 +2394,7 @@ local function InitTypes(methods)
      ---@field public value int
         local class = SimpleClass()
         class._id = -1707294656
-        class._name = 'l10n.PatchDemo'
+        class['_type_'] = 'l10n.PatchDemo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2395,7 +2404,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class mail.SystemMail 
@@ -2406,7 +2415,7 @@ local function InitTypes(methods)
      ---@field public award int[]
         local class = SimpleClass()
         class._id = 1214073149
-        class._name = 'mail.SystemMail'
+        class['_type_'] = 'mail.SystemMail'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2419,7 +2428,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class mail.GlobalMail 
@@ -2437,7 +2446,7 @@ local function InitTypes(methods)
      ---@field public mail_time condition.TimeRange
         local class = SimpleClass()
         class._id = -287571791
-        class._name = 'mail.GlobalMail'
+        class['_type_'] = 'mail.GlobalMail'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2457,7 +2466,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class role.LevelExpAttr 
@@ -2466,7 +2475,7 @@ local function InitTypes(methods)
      ---@field public clothes_attrs int[]
         local class = SimpleClass()
         class._id = -1569837022
-        class._name = 'role.LevelExpAttr'
+        class['_type_'] = 'role.LevelExpAttr'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2477,7 +2486,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class role.LevelBonus 
@@ -2485,7 +2494,7 @@ local function InitTypes(methods)
      ---@field public distinct_bonus_infos role.DistinctBonusInfos[]
         local class = SimpleClass()
         class._id = -572269677
-        class._name = 'role.LevelBonus'
+        class['_type_'] = 'role.LevelBonus'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2495,7 +2504,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class role.DistinctBonusInfos 
@@ -2503,7 +2512,7 @@ local function InitTypes(methods)
      ---@field public bonus_info role.BonusInfo[]
         local class = SimpleClass()
         class._id = -854361766
-        class._name = 'role.DistinctBonusInfos'
+        class['_type_'] = 'role.DistinctBonusInfos'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2513,7 +2522,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class role.BonusInfo 
@@ -2521,7 +2530,7 @@ local function InitTypes(methods)
      ---@field public coefficient float
         local class = SimpleClass()
         class._id = -1354421803
-        class._name = 'role.BonusInfo'
+        class['_type_'] = 'role.BonusInfo'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2531,7 +2540,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class tag.TestTag 
@@ -2539,7 +2548,7 @@ local function InitTypes(methods)
      ---@field public value string
         local class = SimpleClass()
         class._id = 1742933812
-        class._name = 'tag.TestTag'
+        class['_type_'] = 'tag.TestTag'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2549,7 +2558,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoType2 
@@ -2580,7 +2589,7 @@ local function InitTypes(methods)
      ---@field public k15 test.DemoDynamic[]
         local class = SimpleClass()
         class._id = -367048295
-        class._name = 'test.DemoType2'
+        class['_type_'] = 'test.DemoType2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2613,14 +2622,14 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoType1 
      ---@field public x1 int
         local class = SimpleClass()
         class._id = -367048296
-        class._name = 'test.DemoType1'
+        class['_type_'] = 'test.DemoType1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2629,27 +2638,27 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoDynamic 
      ---@field public x1 int
         local class = SimpleClass()
         class._id = -1863156384
-        class._name = 'test.DemoDynamic'
-        local id2name = {  [-2138341747] = 'test.DemoD2',  [-2138341717] = 'test.DemoE1',  [-2138341744] = 'test.DemoD5',  }
+        class['_type_'] = 'test.DemoDynamic'
+        local id2name = {  [-2138341747] = 'test.DemoD2',  [-2138341717] = 'test.DemoE1',  [-989153243] = 'test.login.RoleInfo',  [-2138341744] = 'test.DemoD5',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoD2 :test.DemoDynamic 
      ---@field public x2 int
         local class = SimpleClass()
         class._id = -2138341747
-        class._name = 'test.DemoD2'
+        class['_type_'] = 'test.DemoD2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2659,27 +2668,27 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoD3 :test.DemoDynamic 
      ---@field public x3 int
         local class = SimpleClass()
         class._id = -2138341746
-        class._name = 'test.DemoD3'
-        local id2name = {  [-2138341717] = 'test.DemoE1',  }
+        class['_type_'] = 'test.DemoD3'
+        local id2name = {  [-2138341717] = 'test.DemoE1',  [-989153243] = 'test.login.RoleInfo',  }
         class._deserialize = function(bs)
             local id = readInt(bs)
             return beans[id2name[id]]._deserialize(bs)
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoE1 :test.DemoD3 
      ---@field public x4 int
         local class = SimpleClass()
         class._id = -2138341717
-        class._name = 'test.DemoE1'
+        class['_type_'] = 'test.DemoE1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2690,14 +2699,32 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.login.RoleInfo :test.DemoD3 
+     ---@field public role_id long
+        local class = SimpleClass()
+        class._id = -989153243
+        class['_type_'] = 'test.login.RoleInfo'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readInt(bs),
+            x3 = readInt(bs),
+            role_id = readLong(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoD5 :test.DemoDynamic 
      ---@field public time test.DateTimeRange
         local class = SimpleClass()
         class._id = -2138341744
-        class._name = 'test.DemoD5'
+        class['_type_'] = 'test.DemoD5'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2707,7 +2734,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DateTimeRange 
@@ -2715,7 +2742,7 @@ local function InitTypes(methods)
      ---@field public end_time int
         local class = SimpleClass()
         class._id = 495315430
-        class._name = 'test.DateTimeRange'
+        class['_type_'] = 'test.DateTimeRange'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2725,7 +2752,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoE2 
@@ -2733,7 +2760,7 @@ local function InitTypes(methods)
      ---@field public y2 bool
         local class = SimpleClass()
         class._id = -2138341716
-        class._name = 'test.DemoE2'
+        class['_type_'] = 'test.DemoE2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2743,7 +2770,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoSingletonType 
@@ -2752,7 +2779,7 @@ local function InitTypes(methods)
      ---@field public date test.DemoDynamic
         local class = SimpleClass()
         class._id = 539196998
-        class._name = 'test.DemoSingletonType'
+        class['_type_'] = 'test.DemoSingletonType'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2763,7 +2790,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.NotIndexList 
@@ -2771,7 +2798,7 @@ local function InitTypes(methods)
      ---@field public y int
         local class = SimpleClass()
         class._id = -50446599
-        class._name = 'test.NotIndexList'
+        class['_type_'] = 'test.NotIndexList'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2781,7 +2808,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiUnionIndexList 
@@ -2792,7 +2819,7 @@ local function InitTypes(methods)
      ---@field public desc string
         local class = SimpleClass()
         class._id = 1966847134
-        class._name = 'test.MultiUnionIndexList'
+        class['_type_'] = 'test.MultiUnionIndexList'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2805,7 +2832,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiIndexList 
@@ -2816,7 +2843,7 @@ local function InitTypes(methods)
      ---@field public desc string
         local class = SimpleClass()
         class._id = 2016237651
-        class._name = 'test.MultiIndexList'
+        class['_type_'] = 'test.MultiIndexList'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2829,7 +2856,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiRowRecord 
@@ -2844,7 +2871,7 @@ local function InitTypes(methods)
      ---@field public multi_rows7 table<int,int>
         local class = SimpleClass()
         class._id = -501249394
-        class._name = 'test.MultiRowRecord'
+        class['_type_'] = 'test.MultiRowRecord'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2861,7 +2888,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiRowType1 
@@ -2869,7 +2896,7 @@ local function InitTypes(methods)
      ---@field public x int
         local class = SimpleClass()
         class._id = 540474970
-        class._name = 'test.MultiRowType1'
+        class['_type_'] = 'test.MultiRowType1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2879,7 +2906,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiRowType2 
@@ -2888,7 +2915,7 @@ local function InitTypes(methods)
      ---@field public y float
         local class = SimpleClass()
         class._id = 540474971
-        class._name = 'test.MultiRowType2'
+        class['_type_'] = 'test.MultiRowType2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2899,7 +2926,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiRowType3 
@@ -2907,7 +2934,7 @@ local function InitTypes(methods)
      ---@field public items test.MultiRowType1[]
         local class = SimpleClass()
         class._id = 540474972
-        class._name = 'test.MultiRowType3'
+        class['_type_'] = 'test.MultiRowType3'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2917,25 +2944,69 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.TestMultiColumn 
+     ---@field public id int
+     ---@field public a test.Foo
+     ---@field public b test.Foo
+     ---@field public c test.Foo
+        local class = SimpleClass()
+        class._id = -294473599
+        class['_type_'] = 'test.TestMultiColumn'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            a = beans['test.Foo']._deserialize(bs),
+            b = beans['test.Foo']._deserialize(bs),
+            c = beans['test.Foo']._deserialize(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Foo 
+     ---@field public y1 int
+     ---@field public y2 int
+     ---@field public y3 int
+        local class = SimpleClass()
+        class._id = -1147950774
+        class['_type_'] = 'test.Foo'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            y1 = readInt(bs),
+            y2 = readInt(bs),
+            y3 = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
     end
     do
     ---@class test.MultiRowTitle 
      ---@field public id int
      ---@field public name string
      ---@field public x1 test.H1
+     ---@field public x2_0 test.H2
      ---@field public x2 test.H2[]
      ---@field public x3 test.H2[]
      ---@field public x4 test.H2[]
         local class = SimpleClass()
         class._id = 540002427
-        class._name = 'test.MultiRowTitle'
+        class['_type_'] = 'test.MultiRowTitle'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
             id = readInt(bs),
             name = readString(bs),
             x1 = beans['test.H1']._deserialize(bs),
+            x2_0 = readBool(bs) and beans['test.H2']._deserialize(bs) or nil,
             x2 = readList(bs, beans['test.H2']._deserialize),
             x3 = readArray(bs, beans['test.H2']._deserialize),
             x4 = readArray(bs, beans['test.H2']._deserialize),
@@ -2943,7 +3014,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.H1 
@@ -2951,7 +3022,7 @@ local function InitTypes(methods)
      ---@field public y3 int
         local class = SimpleClass()
         class._id = -1422503995
-        class._name = 'test.H1'
+        class['_type_'] = 'test.H1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2961,7 +3032,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.H2 
@@ -2969,7 +3040,7 @@ local function InitTypes(methods)
      ---@field public z3 int
         local class = SimpleClass()
         class._id = -1422503994
-        class._name = 'test.H2'
+        class['_type_'] = 'test.H2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -2979,7 +3050,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestNull 
@@ -2992,7 +3063,7 @@ local function InitTypes(methods)
      ---@field public s2 string
         local class = SimpleClass()
         class._id = 339868469
-        class._name = 'test.TestNull'
+        class['_type_'] = 'test.TestNull'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3007,7 +3078,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoPrimitiveTypesTable 
@@ -3026,7 +3097,7 @@ local function InitTypes(methods)
      ---@field public t1 int
         local class = SimpleClass()
         class._id = -370934083
-        class._name = 'test.DemoPrimitiveTypesTable'
+        class['_type_'] = 'test.DemoPrimitiveTypesTable'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3047,7 +3118,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestString 
@@ -3057,7 +3128,7 @@ local function InitTypes(methods)
      ---@field public cs2 test.CompactString
         local class = SimpleClass()
         class._id = 338485823
-        class._name = 'test.TestString'
+        class['_type_'] = 'test.TestString'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3069,7 +3140,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.CompactString 
@@ -3078,7 +3149,7 @@ local function InitTypes(methods)
      ---@field public s3 string
         local class = SimpleClass()
         class._id = 1968089240
-        class._name = 'test.CompactString'
+        class['_type_'] = 'test.CompactString'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3089,7 +3160,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DemoGroup 
@@ -3101,7 +3172,7 @@ local function InitTypes(methods)
      ---@field public x5 test.InnerGroup
         local class = SimpleClass()
         class._id = -379263008
-        class._name = 'test.DemoGroup'
+        class['_type_'] = 'test.DemoGroup'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3115,7 +3186,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.InnerGroup 
@@ -3125,7 +3196,7 @@ local function InitTypes(methods)
      ---@field public y4 int
         local class = SimpleClass()
         class._id = -587873083
-        class._name = 'test.InnerGroup'
+        class['_type_'] = 'test.InnerGroup'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3137,7 +3208,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestGlobal 
@@ -3145,7 +3216,7 @@ local function InitTypes(methods)
      ---@field public unlock_hero int
         local class = SimpleClass()
         class._id = -12548655
-        class._name = 'test.TestGlobal'
+        class['_type_'] = 'test.TestGlobal'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3155,7 +3226,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestBeRef 
@@ -3163,7 +3234,7 @@ local function InitTypes(methods)
      ---@field public count int
         local class = SimpleClass()
         class._id = 1934403938
-        class._name = 'test.TestBeRef'
+        class['_type_'] = 'test.TestBeRef'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3173,7 +3244,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestRef 
@@ -3181,6 +3252,7 @@ local function InitTypes(methods)
      ---@field public x1 int
      ---@field public x1_2 int
      ---@field public x2 int
+     ---@field public x3 int
      ---@field public a1 int[]
      ---@field public a2 int[]
      ---@field public b1 int[]
@@ -3197,7 +3269,7 @@ local function InitTypes(methods)
      ---@field public f3 string
         local class = SimpleClass()
         class._id = -543222491
-        class._name = 'test.TestRef'
+        class['_type_'] = 'test.TestRef'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3205,6 +3277,7 @@ local function InitTypes(methods)
             x1 = readInt(bs),
             x1_2 = readInt(bs),
             x2 = readInt(bs),
+            x3 = readInt(bs),
             a1 = readArray(bs, readInt),
             a2 = readArray(bs, readInt),
             b1 = readList(bs, readInt),
@@ -3223,7 +3296,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestSize 
@@ -3234,7 +3307,7 @@ local function InitTypes(methods)
      ---@field public x4 table<int,int>
         local class = SimpleClass()
         class._id = 340006319
-        class._name = 'test.TestSize'
+        class['_type_'] = 'test.TestSize'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3247,22 +3320,24 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestSet 
      ---@field public id int
+     ---@field public x0 string
      ---@field public x1 int[]
      ---@field public x2 long[]
      ---@field public x3 string[]
      ---@field public x4 test.DemoEnum[]
         local class = SimpleClass()
         class._id = -543221516
-        class._name = 'test.TestSet'
+        class['_type_'] = 'test.TestSet'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
             id = readInt(bs),
+            x0 = readString(bs),
             x1 = readList(bs, readInt),
             x2 = readList(bs, readLong),
             x3 = readList(bs, readString),
@@ -3271,7 +3346,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DetectEncoding 
@@ -3279,7 +3354,7 @@ local function InitTypes(methods)
      ---@field public name string
         local class = SimpleClass()
         class._id = -1154609646
-        class._name = 'test.DetectEncoding'
+        class['_type_'] = 'test.DetectEncoding'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3289,7 +3364,83 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.ItemBase 
+     ---@field public id int
+     ---@field public name string
+     ---@field public desc string
+        local class = SimpleClass()
+        class._id = -1631171968
+        class['_type_'] = 'test.ItemBase'
+        local id2name = {  [-1226641649] = 'test.Item',  [-76837102] = 'test.Equipment',  [-625155649] = 'test.Decorator',  }
+        class._deserialize = function(bs)
+            local id = readInt(bs)
+            return beans[id2name[id]]._deserialize(bs)
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Item :test.ItemBase 
+     ---@field public num int
+     ---@field public price int
+        local class = SimpleClass()
+        class._id = -1226641649
+        class['_type_'] = 'test.Item'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            desc = readString(bs),
+            num = readInt(bs),
+            price = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Equipment :test.ItemBase 
+     ---@field public attr test.DemoEnum
+     ---@field public value int
+        local class = SimpleClass()
+        class._id = -76837102
+        class['_type_'] = 'test.Equipment'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            desc = readString(bs),
+            attr = readInt(bs),
+            value = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Decorator :test.ItemBase 
+     ---@field public duration int
+        local class = SimpleClass()
+        class._id = -625155649
+        class['_type_'] = 'test.Decorator'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            name = readString(bs),
+            desc = readString(bs),
+            duration = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DefineFromExcel 
@@ -3301,14 +3452,16 @@ local function InitTypes(methods)
      ---@field public x10 string
      ---@field public x13 test.ETestQuality
      ---@field public x14 test.DemoDynamic
+     ---@field public x15 test.Shape
      ---@field public v2 vector2
      ---@field public t1 int
      ---@field public k1 int[]
+     ---@field public k2 int[]
      ---@field public k8 table<int,int>
      ---@field public k9 test.DemoE2[]
         local class = SimpleClass()
         class._id = 2100429878
-        class._name = 'test.DefineFromExcel'
+        class['_type_'] = 'test.DefineFromExcel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3320,16 +3473,64 @@ local function InitTypes(methods)
             x10 = readString(bs),
             x13 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
+            x15 = beans['test.Shape']._deserialize(bs),
             v2 = readVector2(bs),
             t1 = readInt(bs),
             k1 = readArray(bs, readInt),
+            k2 = readArray(bs, readInt),
             k8 = readMap(bs, readInt, readInt),
             k9 = readList(bs, beans['test.DemoE2']._deserialize),
             }
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Shape 
+        local class = SimpleClass()
+        class._id = 637688613
+        class['_type_'] = 'test.Shape'
+        local id2name = {  [2131829196] = 'test.Circle',  [694982337] = 'test2.Rectangle',  }
+        class._deserialize = function(bs)
+            local id = readInt(bs)
+            return beans[id2name[id]]._deserialize(bs)
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Circle :Shape 
+     ---@field public radius float
+        local class = SimpleClass()
+        class._id = 2131829196
+        class['_type_'] = 'test.Circle'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            radius = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test2.Rectangle :test.Shape 
+     ---@field public width float
+     ---@field public height float
+        local class = SimpleClass()
+        class._id = 694982337
+        class['_type_'] = 'test2.Rectangle'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            width = readFloat(bs),
+            height = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DefineFromExcelOne 
@@ -3339,7 +3540,7 @@ local function InitTypes(methods)
      ---@field public default_item string
         local class = SimpleClass()
         class._id = 528039504
-        class._name = 'test.DefineFromExcelOne'
+        class['_type_'] = 'test.DefineFromExcelOne'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3351,7 +3552,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestIndex 
@@ -3359,7 +3560,7 @@ local function InitTypes(methods)
      ---@field public eles test.DemoType1[]
         local class = SimpleClass()
         class._id = 1941154020
-        class._name = 'test.TestIndex'
+        class['_type_'] = 'test.TestIndex'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3369,7 +3570,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestMap 
@@ -3380,7 +3581,7 @@ local function InitTypes(methods)
      ---@field public x4 table<test.DemoEnum,int>
         local class = SimpleClass()
         class._id = -543227410
-        class._name = 'test.TestMap'
+        class['_type_'] = 'test.TestMap'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3393,7 +3594,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.ExcelFromJson 
@@ -3416,7 +3617,7 @@ local function InitTypes(methods)
      ---@field public k15 test.DemoDynamic[]
         local class = SimpleClass()
         class._id = -1485706483
-        class._name = 'test.ExcelFromJson'
+        class['_type_'] = 'test.ExcelFromJson'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3441,7 +3642,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.CompositeJsonTable1 
@@ -3449,7 +3650,7 @@ local function InitTypes(methods)
      ---@field public x string
         local class = SimpleClass()
         class._id = 1566207894
-        class._name = 'test.CompositeJsonTable1'
+        class['_type_'] = 'test.CompositeJsonTable1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3459,7 +3660,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.CompositeJsonTable2 
@@ -3467,7 +3668,7 @@ local function InitTypes(methods)
      ---@field public y int
         local class = SimpleClass()
         class._id = 1566207895
-        class._name = 'test.CompositeJsonTable2'
+        class['_type_'] = 'test.CompositeJsonTable2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3477,7 +3678,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.CompositeJsonTable3 
@@ -3485,7 +3686,7 @@ local function InitTypes(methods)
      ---@field public b int
         local class = SimpleClass()
         class._id = 1566207896
-        class._name = 'test.CompositeJsonTable3'
+        class['_type_'] = 'test.CompositeJsonTable3'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3495,7 +3696,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.ExcelFromJsonMultiRow 
@@ -3504,7 +3705,7 @@ local function InitTypes(methods)
      ---@field public items test.TestRow[]
         local class = SimpleClass()
         class._id = 715335694
-        class._name = 'test.ExcelFromJsonMultiRow'
+        class['_type_'] = 'test.ExcelFromJsonMultiRow'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3515,7 +3716,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestRow 
@@ -3526,7 +3727,7 @@ local function InitTypes(methods)
      ---@field public b int[]
         local class = SimpleClass()
         class._id = -543222164
-        class._name = 'test.TestRow'
+        class['_type_'] = 'test.TestRow'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3539,7 +3740,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.Test3 
@@ -3547,7 +3748,7 @@ local function InitTypes(methods)
      ---@field public y int
         local class = SimpleClass()
         class._id = 638540133
-        class._name = 'test.Test3'
+        class['_type_'] = 'test.Test3'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3557,7 +3758,145 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.TestSep 
+     ---@field public id int
+     ---@field public x1 string
+     ---@field public x2 test.SepBean1
+     ---@field public x3 test.SepVector
+     ---@field public x4 test.SepVector[]
+     ---@field public x5 test.SepBean1[]
+     ---@field public x6 test.SepBean1[]
+        local class = SimpleClass()
+        class._id = -543221520
+        class['_type_'] = 'test.TestSep'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            x1 = readString(bs) and readString(bs),
+            x2 = beans['test.SepBean1']._deserialize(bs),
+            x3 = beans['test.SepVector']._deserialize(bs),
+            x4 = readList(bs, beans['test.SepVector']._deserialize),
+            x5 = readList(bs, beans['test.SepBean1']._deserialize),
+            x6 = readList(bs, beans['test.SepBean1']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.SepBean1 
+     ---@field public a int
+     ---@field public b int
+     ---@field public c string
+        local class = SimpleClass()
+        class._id = -1534339393
+        class['_type_'] = 'test.SepBean1'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            a = readInt(bs),
+            b = readInt(bs),
+            c = readString(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.SepVector 
+     ---@field public x int
+     ---@field public y int
+     ---@field public z int
+        local class = SimpleClass()
+        class._id = 252769477
+        class['_type_'] = 'test.SepVector'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x = readInt(bs),
+            y = readInt(bs),
+            z = readInt(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.TestScriptableObject 
+     ---@field public id int
+     ---@field public desc string
+     ---@field public rate float
+     ---@field public num int
+     ---@field public v2 vector2
+     ---@field public v3 vector3
+     ---@field public v4 vector4
+        local class = SimpleClass()
+        class._id = -1896814350
+        class['_type_'] = 'test.TestScriptableObject'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            desc = readString(bs),
+            rate = readFloat(bs),
+            num = readInt(bs),
+            v2 = readVector2(bs),
+            v3 = readVector3(bs),
+            v4 = readVector4(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.TestExternalType 
+     ---@field public id int
+     ---@field public audio_type test.AudioType
+     ---@field public color test.Color
+        local class = SimpleClass()
+        class._id = -990826157
+        class['_type_'] = 'test.TestExternalType'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            id = readInt(bs),
+            audio_type = readInt(bs),
+            color = beans['test.Color']._deserialize(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.Color 
+     ---@field public r float
+     ---@field public g float
+     ---@field public b float
+     ---@field public a float
+        local class = SimpleClass()
+        class._id = 623131367
+        class['_type_'] = 'test.Color'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            r = readFloat(bs),
+            g = readFloat(bs),
+            b = readFloat(bs),
+            a = readFloat(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
     end
     do
     ---@class test.DefineFromExcel2 
@@ -3569,14 +3908,16 @@ local function InitTypes(methods)
      ---@field public x10 string
      ---@field public x13 test.ETestQuality
      ---@field public x14 test.DemoDynamic
+     ---@field public x15 test.Shape
      ---@field public v2 vector2
      ---@field public t1 int
      ---@field public k1 int[]
+     ---@field public k2 int[]
      ---@field public k8 table<int,int>
      ---@field public k9 test.DemoE2[]
         local class = SimpleClass()
         class._id = 688816828
-        class._name = 'test.DefineFromExcel2'
+        class['_type_'] = 'test.DefineFromExcel2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3588,16 +3929,18 @@ local function InitTypes(methods)
             x10 = readString(bs),
             x13 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
+            x15 = beans['test.Shape']._deserialize(bs),
             v2 = readVector2(bs),
             t1 = readInt(bs),
             k1 = readArray(bs, readInt),
+            k2 = readArray(bs, readInt),
             k8 = readMap(bs, readInt, readInt),
             k9 = readList(bs, beans['test.DemoE2']._deserialize),
             }
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestExcelBean1 
@@ -3607,7 +3950,7 @@ local function InitTypes(methods)
      ---@field public x4 float
         local class = SimpleClass()
         class._id = -1738345160
-        class._name = 'test.TestExcelBean1'
+        class['_type_'] = 'test.TestExcelBean1'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3619,7 +3962,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
     do
     ---@class test.TestDesc 
@@ -3632,7 +3975,7 @@ local function InitTypes(methods)
      ---@field public x3 test.H2[]
         local class = SimpleClass()
         class._id = 339555391
-        class._name = 'test.TestDesc'
+        class['_type_'] = 'test.TestDesc'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3647,7 +3990,7 @@ local function InitTypes(methods)
             setmetatable(o, class)
             return o
         end
-        beans[class._name] = class
+        beans[class['_type_']] = class
     end
 
     local tables =
@@ -3676,6 +4019,7 @@ local function InitTypes(methods)
     { name='TbMultiIndexList', file='test_tbmultiindexlist', mode='list', index='id1,id2,id3', value_type='test.MultiIndexList' },
     { name='TbDataFromMisc', file='test_tbdatafrommisc', mode='map', index='x4', value_type='test.DemoType2' },
     { name='TbMultiRowRecord', file='test_tbmultirowrecord', mode='map', index='id', value_type='test.MultiRowRecord' },
+    { name='TbTestMultiColumn', file='test_tbtestmulticolumn', mode='map', index='id', value_type='test.TestMultiColumn' },
     { name='TbMultiRowTitle', file='test_tbmultirowtitle', mode='map', index='id', value_type='test.MultiRowTitle' },
     { name='TbTestNull', file='test_tbtestnull', mode='map', index='id', value_type='test.TestNull' },
     { name='TbDemoPrimitive', file='test_tbdemoprimitive', mode='map', index='x4', value_type='test.DemoPrimitiveTypesTable' },
@@ -3686,10 +4030,12 @@ local function InitTypes(methods)
     { name='TbDemoGroup_E', file='test_tbdemogroup_e', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
     { name='TbTestBeRef', file='test_tbtestberef', mode='map', index='id', value_type='test.TestBeRef' },
+    { name='TbTestBeRef2', file='test_tbtestberef2', mode='map', index='id', value_type='test.TestBeRef' },
     { name='TbTestRef', file='test_tbtestref', mode='map', index='id', value_type='test.TestRef' },
     { name='TbTestSize', file='test_tbtestsize', mode='map', index='id', value_type='test.TestSize' },
     { name='TbTestSet', file='test_tbtestset', mode='map', index='id', value_type='test.TestSet' },
     { name='TbDetectCsvEncoding', file='test_tbdetectcsvencoding', mode='map', index='id', value_type='test.DetectEncoding' },
+    { name='TbItem2', file='test_tbitem2', mode='map', index='id', value_type='test.ItemBase' },
     { name='TbDefineFromExcel', file='test_tbdefinefromexcel', mode='map', index='id', value_type='test.DefineFromExcel' },
     { name='TbDefineFromExcelOne', file='test_tbdefinefromexcelone', mode='one', value_type='test.DefineFromExcelOne'},
     { name='TbTestIndex', file='test_tbtestindex', mode='map', index='id', value_type='test.TestIndex' },
@@ -3699,6 +4045,9 @@ local function InitTypes(methods)
     { name='TbCompositeJsonTable2', file='test_tbcompositejsontable2', mode='map', index='id', value_type='test.CompositeJsonTable2' },
     { name='TbCompositeJsonTable3', file='test_tbcompositejsontable3', mode='one', value_type='test.CompositeJsonTable3'},
     { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
+    { name='TbTestSep', file='test_tbtestsep', mode='map', index='id', value_type='test.TestSep' },
+    { name='TbTestScriptableObject', file='test_tbtestscriptableobject', mode='map', index='id', value_type='test.TestScriptableObject' },
+    { name='TbTestExternalType', file='test_tbtestexternaltype', mode='map', index='id', value_type='test.TestExternalType' },
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },

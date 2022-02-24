@@ -45,6 +45,7 @@ public sealed partial class TreasureBox :  item.ItemExtra
     public condition.MinLevel OpenLevel { get; private set; }
     public bool UseOnObtain { get; private set; }
     public System.Collections.Generic.List<int> DropIds { get; private set; }
+    public System.Collections.Generic.List<bonus.DropInfo> DropIds_Ref { get; private set; }
     public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
 
     public const int __ID__ = 1494222369;
@@ -54,6 +55,7 @@ public sealed partial class TreasureBox :  item.ItemExtra
     {
         base.Resolve(_tables);
         OpenLevel?.Resolve(_tables);
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.DropIds_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in DropIds) { this.DropIds_Ref.Add(__table.GetOrDefault(__e)); } }
         foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
         PostResolve();
     }

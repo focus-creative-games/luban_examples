@@ -13,13 +13,14 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class TestExternalType :  Bright.Config.BeanBase 
+public sealed partial class TestExternalType :  Bright.Config.BeanBase 
 {
     public TestExternalType(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         AudioType = (test.AudioType)_buf.ReadInt();
         Color = test.Color.DeserializeColor(_buf);
+        PostInit();
     }
 
     public static TestExternalType DeserializeTestExternalType(ByteBuf _buf)
@@ -37,6 +38,7 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
     public  void Resolve(Dictionary<string, object> _tables)
     {
         Color?.Resolve(_tables);
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TestExternalType :  Bright.Config.BeanBase
         + "Color:" + Color + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

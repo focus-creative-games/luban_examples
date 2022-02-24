@@ -21,7 +21,7 @@ public sealed partial class TestMap :  Bright.Config.EditorBeanBase
             X1 = new System.Collections.Generic.Dictionary<int,int>();
             X2 = new System.Collections.Generic.Dictionary<long,int>();
             X3 = new System.Collections.Generic.Dictionary<string,int>();
-            X4 = new System.Collections.Generic.Dictionary<string,int>();
+            X4 = new System.Collections.Generic.Dictionary<test.DemoEnum,int>();
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -62,7 +62,7 @@ public sealed partial class TestMap :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["x4"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } X4 = new System.Collections.Generic.Dictionary<string, int>(); foreach(JSONNode __e in _fieldJson.Children) { string __k;  if(!__e[0].IsString) { throw new SerializationException(); }  __k = __e[0]; int __v;  if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1];  X4.Add(__k, __v); }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(); foreach(JSONNode __e in _fieldJson.Children) { test.DemoEnum __k;  if(__e[0].IsString) { __k = (test.DemoEnum)System.Enum.Parse(typeof(test.DemoEnum), __e[0]); } else if(__e[0].IsNumber) { __k = (test.DemoEnum)(int)__e[0]; } else { throw new SerializationException(); }   int __v;  if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1];  X4.Add(__k, __v); }  
             }
         }
         
@@ -91,7 +91,7 @@ public sealed partial class TestMap :  Bright.Config.EditorBeanBase
         {
 
             if (X4 == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONString(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
+            { var __cjson = new JSONArray(); foreach(var _e in X4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber((int)_e.Key); __entry["null"] = new JSONNumber(_e.Value); } _json["x4"] = __cjson; }
         }
     }
 
@@ -115,7 +115,7 @@ public sealed partial class TestMap :  Bright.Config.EditorBeanBase
 
     public System.Collections.Generic.Dictionary<string, int> X3 { get; set; }
 
-    public System.Collections.Generic.Dictionary<string, int> X4 { get; set; }
+    public System.Collections.Generic.Dictionary<test.DemoEnum, int> X4 { get; set; }
 
 }
 }

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
    
-public sealed class TbRoleLevelExpAttr
+public partial class TbRoleLevelExpAttr
 {
     private readonly Dictionary<int, role.LevelExpAttr> _dataMap;
     private readonly List<role.LevelExpAttr> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbRoleLevelExpAttr
             _dataList.Add(_v);
             _dataMap.Add(_v.Level, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, role.LevelExpAttr> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbRoleLevelExpAttr
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbRoleLevelExpAttr
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

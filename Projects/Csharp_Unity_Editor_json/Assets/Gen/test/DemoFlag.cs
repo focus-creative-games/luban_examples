@@ -8,7 +8,16 @@
 
 namespace editor.cfg.test
 {
-    public static partial class DemoFlag
+
+    [System.Flags]
+    public enum DemoFlag
+    {
+        A = 1,
+        B = 2,
+        D = A|B,
+    }
+
+    public static partial class DemoFlag_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo A = new Bright.Config.EditorEnumItemInfo("A", "", 1, "");
         public static readonly Bright.Config.EditorEnumItemInfo B = new Bright.Config.EditorEnumItemInfo("B", "", 2, "");

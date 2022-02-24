@@ -1,4 +1,4 @@
 return {
-    code = 7,
+    code = 'EXAMPLE_MSGBOX',
     key = "EXAMPLE_MSGBOX",
 }

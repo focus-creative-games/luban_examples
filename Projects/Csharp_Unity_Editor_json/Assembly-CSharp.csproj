@@ -112,6 +112,7 @@
     <Compile Include="Assets\Gen\limit\MonthlyLimit.cs" />
     <Compile Include="Assets\Gen\test\SepBean1.cs" />
     <Compile Include="Assets\Gen\bonus\ProbabilityBonusInfo.cs" />
+    <Compile Include="Assets\Gen\test2\Rectangle.cs" />
     <Compile Include="Assets\Gen\role\EProfession.cs" />
     <Compile Include="Assets\Gen\ai\UpdateDailyBehaviorProps.cs" />
     <Compile Include="Assets\Gen\ai\KeyData.cs" />
@@ -217,7 +218,6 @@
     <Compile Include="Assets\Gen\ai\Blackboard.cs" />
     <Compile Include="Assets\Gen\test\InnerGroup.cs" />
     <Compile Include="Assets\Gen\ai\Selector.cs" />
-    <Compile Include="Assets\Gen\test\Rectangle.cs" />
     <Compile Include="Assets\Gen\condition\MaxLevel.cs" />
     <Compile Include="Assets\Gen\ai\BinaryOperator.cs" />
     <Compile Include="Assets\Gen\error\EErrorCode.cs" />

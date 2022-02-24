@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class DefineFromExcelOne :  Bright.Config.BeanBase 
+public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase 
 {
     public DefineFromExcelOne(ByteBuf _buf) 
     {
@@ -21,6 +21,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
         UnlockHero = _buf.ReadInt();
         DefaultAvatar = _buf.ReadString();
         DefaultItem = _buf.ReadString();
+        PostInit();
     }
 
     public static DefineFromExcelOne DeserializeDefineFromExcelOne(ByteBuf _buf)
@@ -44,6 +45,7 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -59,6 +61,9 @@ public sealed class DefineFromExcelOne :  Bright.Config.BeanBase
         + "DefaultItem:" + DefaultItem + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

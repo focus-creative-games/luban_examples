@@ -22,13 +22,13 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["rate"].IsNumber) { throw new SerializationException(); }  Rate = _json["rate"]; }
         { if(!_json["num"].IsNumber) { throw new SerializationException(); }  Num = _json["num"]; }
-        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new System.Numerics.Vector2(__x, __y); }
-        { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new System.Numerics.Vector3(__x, __y,__z); }
-        { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new System.Numerics.Vector4(__x, __y, __z, __w); }
+        { var _json2 = _json["v2"]; if(!_json2.IsObject) { throw new SerializationException(); }  float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } V2 = new UnityEngine.Vector2(__x, __y); }
+        { var _json2 = _json["v3"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  V3 = new UnityEngine.Vector3(__x, __y,__z); }
+        { var _json2 = _json["v4"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  float __w; { if(!_json2["w"].IsNumber) { throw new SerializationException(); }  __w = _json2["w"]; } V4 = new UnityEngine.Vector4(__x, __y, __z, __w); }
         PostInit();
     }
 
-    public TestScriptableObject(int id, string desc, float rate, int num, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4 ) 
+    public TestScriptableObject(int id, string desc, float rate, int num, UnityEngine.Vector2 v2, UnityEngine.Vector3 v3, UnityEngine.Vector4 v4 ) 
     {
         this.Id = id;
         this.Desc = desc;
@@ -49,9 +49,9 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
     public string Desc { get; private set; }
     public float Rate { get; private set; }
     public int Num { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
 
     public const int __ID__ = -1896814350;
     public override int GetTypeId() => __ID__;

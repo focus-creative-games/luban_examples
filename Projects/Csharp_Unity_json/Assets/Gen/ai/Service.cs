@@ -28,7 +28,7 @@ public abstract partial class Service :  ai.Node
 
     public static Service DeserializeService(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_json);

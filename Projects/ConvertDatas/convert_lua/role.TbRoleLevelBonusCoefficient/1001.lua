@@ -5,11 +5,11 @@ return {
             effective_level = 1,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 1,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 1,
                 },
             },
@@ -18,11 +18,11 @@ return {
             effective_level = 10,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 1.5,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 2,
                 },
             },
@@ -31,11 +31,11 @@ return {
             effective_level = 20,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 2,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 3,
                 },
             },
@@ -44,11 +44,11 @@ return {
             effective_level = 30,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 2.5,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 4,
                 },
             },
@@ -57,11 +57,11 @@ return {
             effective_level = 40,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 3,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 5,
                 },
             },
@@ -70,11 +70,11 @@ return {
             effective_level = 50,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 3.5,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 6,
                 },
             },
@@ -83,11 +83,11 @@ return {
             effective_level = 60,
             bonus_info = {
                 {
-                    type = 4,
+                    type = '经验',
                     coefficient = 4,
                 },
                 {
-                    type = 2,
+                    type = '金币',
                     coefficient = 7,
                 },
             },

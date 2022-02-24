@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.blueprint
 {
    
-public sealed class TbClazz
+public partial class TbClazz
 {
     private readonly Dictionary<string, blueprint.Clazz> _dataMap;
     private readonly List<blueprint.Clazz> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbClazz
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
+        PostInit();
     }
 
     public Dictionary<string, blueprint.Clazz> DataMap => _dataMap;
@@ -45,6 +46,7 @@ public sealed class TbClazz
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -54,6 +56,9 @@ public sealed class TbClazz
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

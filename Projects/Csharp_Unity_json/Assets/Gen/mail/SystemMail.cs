@@ -46,12 +46,14 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
     public string Sender { get; private set; }
     public string Content { get; private set; }
     public System.Collections.Generic.List<int> Award { get; private set; }
+    public System.Collections.Generic.List<bonus.DropInfo> Award_Ref { get; private set; }
 
     public const int __ID__ = 1214073149;
     public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.Award_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in Award) { this.Award_Ref.Add(__table.GetOrDefault(__e)); } }
         PostResolve();
     }
 

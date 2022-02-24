@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.bonus
 {
 
-public sealed class CoefficientItem :  bonus.Bonus 
+public sealed partial class CoefficientItem :  bonus.Bonus 
 {
     public CoefficientItem(ByteBuf _buf)  : base(_buf) 
     {
         BonusId = _buf.ReadInt();
         BonusList = bonus.Items.DeserializeItems(_buf);
+        PostInit();
     }
 
     public static CoefficientItem DeserializeCoefficientItem(ByteBuf _buf)
@@ -36,6 +37,7 @@ public sealed class CoefficientItem :  bonus.Bonus
     {
         base.Resolve(_tables);
         BonusList?.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -51,6 +53,9 @@ public sealed class CoefficientItem :  bonus.Bonus
         + "BonusList:" + BonusList + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

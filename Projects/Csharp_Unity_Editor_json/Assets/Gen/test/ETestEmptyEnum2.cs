@@ -8,7 +8,15 @@
 
 namespace editor.cfg.test
 {
-    public static partial class ETestEmptyEnum2
+
+    public enum ETestEmptyEnum2
+    {
+        SMALL_THAN_256 = 255,
+        X_256 = 256,
+        X_257 = 257,
+    }
+
+    public static partial class ETestEmptyEnum2_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo SMALL_THAN_256 = new Bright.Config.EditorEnumItemInfo("SMALL_THAN_256", "", 255, "");
         public static readonly Bright.Config.EditorEnumItemInfo X_256 = new Bright.Config.EditorEnumItemInfo("X_256", "", 256, "");

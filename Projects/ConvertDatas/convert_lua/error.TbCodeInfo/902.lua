@@ -1,4 +1,4 @@
 return {
-    code = 902,
+    code = 'SUIT_STATE_ERROR',
     key = "SUIT_STATE_ERROR",
 }

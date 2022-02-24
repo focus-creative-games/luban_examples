@@ -8,12 +8,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "Circle",
+      "$type": "Circle",
       "radius": 1
     },
     "v2": {
@@ -60,12 +60,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 20
     },
@@ -113,12 +113,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 21
     },
@@ -166,12 +166,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 22
     },
@@ -219,12 +219,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 23
     },
@@ -272,12 +272,12 @@
     "x10": "huang",
     "x13": 1,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 24
     },
@@ -324,12 +324,12 @@
     "x10": "",
     "x13": 2,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 25
     },
@@ -344,8 +344,7 @@
       3
     ],
     "k2": [
-      1,
-      2
+      1
     ],
     "k8": [
       [
@@ -377,12 +376,12 @@
     "x10": "xxx",
     "x13": 2,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 26
     },
@@ -397,10 +396,6 @@
       3
     ],
     "k2": [
-      1,
-      2,
-      3,
-      4,
       1,
       2
     ],
@@ -434,12 +429,12 @@
     "x10": "xxx",
     "x13": 2,
     "x14": {
-      "__type__": "DemoD2",
+      "$type": "DemoD2",
       "x1": 1,
       "x2": 2
     },
     "x15": {
-      "__type__": "test2.Rectangle",
+      "$type": "test2.Rectangle",
       "width": 10,
       "height": 27
     },

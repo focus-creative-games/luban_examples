@@ -28,7 +28,7 @@ public abstract partial class ErrorStyle :  Bright.Config.BeanBase
 
     public static ErrorStyle DeserializeErrorStyle(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "ErrorStyleTip": return new error.ErrorStyleTip(_json);

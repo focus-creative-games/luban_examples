@@ -18,12 +18,12 @@ public sealed partial class MoveToLocation :  ai.Task
 {
     public MoveToLocation(JSONNode _json)  : base(_json) 
     {
-        { var _json2 = _json["location"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  Location = new System.Numerics.Vector3(__x, __y,__z); }
+        { var _json2 = _json["location"]; if(!_json2.IsObject) { throw new SerializationException(); } float __x; { if(!_json2["x"].IsNumber) { throw new SerializationException(); }  __x = _json2["x"]; } float __y; { if(!_json2["y"].IsNumber) { throw new SerializationException(); }  __y = _json2["y"]; } float __z; { if(!_json2["z"].IsNumber) { throw new SerializationException(); }  __z = _json2["z"]; }  Location = new UnityEngine.Vector3(__x, __y,__z); }
         { if(!_json["acceptable_radius"].IsNumber) { throw new SerializationException(); }  AcceptableRadius = _json["acceptable_radius"]; }
         PostInit();
     }
 
-    public MoveToLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, System.Numerics.Vector3 location, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
+    public MoveToLocation(int id, string node_name, System.Collections.Generic.List<ai.Decorator> decorators, System.Collections.Generic.List<ai.Service> services, bool ignore_restart_self, UnityEngine.Vector3 location, float acceptable_radius )  : base(id,node_name,decorators,services,ignore_restart_self) 
     {
         this.Location = location;
         this.AcceptableRadius = acceptable_radius;
@@ -35,7 +35,7 @@ public sealed partial class MoveToLocation :  ai.Task
         return new ai.MoveToLocation(_json);
     }
 
-    public System.Numerics.Vector3 Location { get; private set; }
+    public UnityEngine.Vector3 Location { get; private set; }
     public float AcceptableRadius { get; private set; }
 
     public const int __ID__ = -969953113;

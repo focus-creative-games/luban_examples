@@ -13,12 +13,13 @@ using System.Collections.Generic;
 namespace cfg.condition
 {
 
-public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
+public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRoleCondition 
 {
     public ClothesPropertyScoreGreaterThan(ByteBuf _buf)  : base(_buf) 
     {
         Prop = (item.EClothesPropertyType)_buf.ReadInt();
         Value = _buf.ReadInt();
+        PostInit();
     }
 
     public static ClothesPropertyScoreGreaterThan DeserializeClothesPropertyScoreGreaterThan(ByteBuf _buf)
@@ -35,6 +36,7 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -49,6 +51,9 @@ public sealed class ClothesPropertyScoreGreaterThan :  condition.BoolRoleConditi
         + "Value:" + Value + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

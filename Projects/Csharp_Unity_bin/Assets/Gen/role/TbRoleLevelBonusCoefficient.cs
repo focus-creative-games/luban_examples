@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.role
 {
    
-public sealed class TbRoleLevelBonusCoefficient
+public partial class TbRoleLevelBonusCoefficient
 {
     private readonly Dictionary<int, role.LevelBonus> _dataMap;
     private readonly List<role.LevelBonus> _dataList;
@@ -28,6 +28,7 @@ public sealed class TbRoleLevelBonusCoefficient
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
+        PostInit();
     }
 
     public Dictionary<int, role.LevelBonus> DataMap => _dataMap;
@@ -43,6 +44,7 @@ public sealed class TbRoleLevelBonusCoefficient
         {
             v.Resolve(_tables);
         }
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -52,6 +54,9 @@ public sealed class TbRoleLevelBonusCoefficient
             v.TranslateText(translator);
         }
     }
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

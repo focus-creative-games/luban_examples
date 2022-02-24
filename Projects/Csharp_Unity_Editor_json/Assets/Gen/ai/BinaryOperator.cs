@@ -18,7 +18,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
 {
     public BinaryOperator()
     {
-            Oper = "IS_EQUAL_TO";
+            Oper = ai.EOperator.IS_EQUAL_TO;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
             var _fieldJson = _json["oper"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Oper = _fieldJson;
+                if(_fieldJson.IsString) { Oper = (ai.EOperator)System.Enum.Parse(typeof(ai.EOperator), _fieldJson); } else if(_fieldJson.IsNumber) { Oper = (ai.EOperator)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -46,7 +46,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     {        
         base.SaveJson(_json);
         {
-            _json["oper"] = new JSONString(Oper);
+            _json["oper"] = new JSONNumber((int)Oper);
         }
         {
 
@@ -67,7 +67,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Oper { get; set; }
+    public ai.EOperator Oper { get; set; }
 
     public ai.KeyData Data { get; set; }
 

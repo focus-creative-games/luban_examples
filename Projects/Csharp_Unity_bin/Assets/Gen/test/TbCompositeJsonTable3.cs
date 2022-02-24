@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
    
-public sealed class TbCompositeJsonTable3
+public partial class TbCompositeJsonTable3
 {
 
      private readonly test.CompositeJsonTable3 _data;
@@ -21,6 +21,7 @@ public sealed class TbCompositeJsonTable3
         int n = _buf.ReadSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
         _data = test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_buf);
+        PostInit();
     }
 
 
@@ -30,6 +31,7 @@ public sealed class TbCompositeJsonTable3
     public void Resolve(Dictionary<string, object> _tables)
     {
         _data.Resolve(_tables);
+        PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
@@ -37,6 +39,9 @@ public sealed class TbCompositeJsonTable3
         _data.TranslateText(translator);
     }
 
+    
+    partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -18,7 +18,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
 {
     public ClothesPropertyScoreGreaterThan()
     {
-            Prop = "JIAN_YUE";
+            Prop = item.EClothesPropertyType.JIAN_YUE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
             var _fieldJson = _json["prop"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Prop = _fieldJson;
+                if(_fieldJson.IsString) { Prop = (item.EClothesPropertyType)System.Enum.Parse(typeof(item.EClothesPropertyType), _fieldJson); } else if(_fieldJson.IsNumber) { Prop = (item.EClothesPropertyType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -46,7 +46,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
     {        
         base.SaveJson(_json);
         {
-            _json["prop"] = new JSONString(Prop);
+            _json["prop"] = new JSONNumber((int)Prop);
         }
         {
             _json["value"] = new JSONNumber(Value);
@@ -65,7 +65,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Prop { get; set; }
+    public item.EClothesPropertyType Prop { get; set; }
 
     public int Value { get; set; }
 

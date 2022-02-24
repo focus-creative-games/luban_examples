@@ -18,7 +18,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
 {
     public GenderLimit()
     {
-            Gender = "MALE";
+            Gender = role.EGenderType.MALE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
             var _fieldJson = _json["gender"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Gender = _fieldJson;
+                if(_fieldJson.IsString) { Gender = (role.EGenderType)System.Enum.Parse(typeof(role.EGenderType), _fieldJson); } else if(_fieldJson.IsNumber) { Gender = (role.EGenderType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -38,7 +38,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
     {        
         base.SaveJson(_json);
         {
-            _json["gender"] = new JSONString(Gender);
+            _json["gender"] = new JSONNumber((int)Gender);
         }
     }
 
@@ -54,7 +54,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string Gender { get; set; }
+    public role.EGenderType Gender { get; set; }
 
 }
 }

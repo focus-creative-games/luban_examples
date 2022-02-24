@@ -30,7 +30,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
 
     public static DemoD3 DeserializeDemoD3(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "DemoE1": return new test.DemoE1(_json);
             case "test.login.RoleInfo": return new test.login.RoleInfo(_json);

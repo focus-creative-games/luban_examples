@@ -1,4 +1,4 @@
 return {
-    code = 605,
+    code = 'NO_INTERACTION_COMPONENT',
     key = "NO_INTERACTION_COMPONENT",
 }

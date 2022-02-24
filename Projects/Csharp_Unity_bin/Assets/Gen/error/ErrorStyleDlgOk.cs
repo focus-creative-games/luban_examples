@@ -13,11 +13,12 @@ using System.Collections.Generic;
 namespace cfg.error
 {
 
-public sealed class ErrorStyleDlgOk :  error.ErrorStyle 
+public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle 
 {
     public ErrorStyleDlgOk(ByteBuf _buf)  : base(_buf) 
     {
         BtnName = _buf.ReadString();
+        PostInit();
     }
 
     public static ErrorStyleDlgOk DeserializeErrorStyleDlgOk(ByteBuf _buf)
@@ -33,6 +34,7 @@ public sealed class ErrorStyleDlgOk :  error.ErrorStyle
     public override void Resolve(Dictionary<string, object> _tables)
     {
         base.Resolve(_tables);
+        PostResolve();
     }
 
     public override void TranslateText(System.Func<string, string, string> translator)
@@ -46,6 +48,9 @@ public sealed class ErrorStyleDlgOk :  error.ErrorStyle
         + "BtnName:" + BtnName + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

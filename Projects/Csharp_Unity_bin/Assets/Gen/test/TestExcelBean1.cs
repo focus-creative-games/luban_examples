@@ -16,7 +16,7 @@ namespace cfg.test
 /// <summary>
 /// 这是个测试excel结构
 /// </summary>
-public sealed class TestExcelBean1 :  Bright.Config.BeanBase 
+public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase 
 {
     public TestExcelBean1(ByteBuf _buf) 
     {
@@ -24,6 +24,7 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
         X2 = _buf.ReadString();
         X3 = _buf.ReadInt();
         X4 = _buf.ReadFloat();
+        PostInit();
     }
 
     public static TestExcelBean1 DeserializeTestExcelBean1(ByteBuf _buf)
@@ -53,6 +54,7 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -68,6 +70,9 @@ public sealed class TestExcelBean1 :  Bright.Config.BeanBase
         + "X4:" + X4 + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace cfg.test
 {
 
-public sealed class ExcelFromJson :  Bright.Config.BeanBase 
+public sealed partial class ExcelFromJson :  Bright.Config.BeanBase 
 {
     public ExcelFromJson(ByteBuf _buf) 
     {
@@ -23,9 +23,9 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         X6 = _buf.ReadFloat();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         X12 = test.DemoType1.DeserializeDemoType1(_buf);
         X13 = (test.DemoEnum)_buf.ReadInt();
@@ -34,6 +34,7 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n * 3 / 2);for(var i = 0 ; i < n ; i++) { int _k;  _k = _buf.ReadInt(); int _v;  _v = _buf.ReadInt();     K8.Add(_k, _v);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n);for(var i = 0 ; i < n ; i++) { test.DemoE2 _e;  _e = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e);}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K15 = new test.DemoDynamic[n];for(var i = 0 ; i < n ; i++) { test.DemoDynamic _e;_e = test.DemoDynamic.DeserializeDemoDynamic(_buf); K15[i] = _e;}}
+        PostInit();
     }
 
     public static ExcelFromJson DeserializeExcelFromJson(ByteBuf _buf)
@@ -48,9 +49,9 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
     public string S1 { get; private set; }
     public string S2 { get; private set; }
     public string S2_l10n_key { get; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public UnityEngine.Vector2 V2 { get; private set; }
+    public UnityEngine.Vector3 V3 { get; private set; }
+    public UnityEngine.Vector4 V4 { get; private set; }
     public int T1 { get; private set; }
     public long T1_Millis => T1 * 1000L;
     public test.DemoType1 X12 { get; private set; }
@@ -70,6 +71,7 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         X14?.Resolve(_tables);
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
+        PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
@@ -103,6 +105,9 @@ public sealed class ExcelFromJson :  Bright.Config.BeanBase
         + "K15:" + Bright.Common.StringUtil.CollectionToString(K15) + ","
         + "}";
     }
-    }
+    
+    partial void PostInit();
+    partial void PostResolve();
+}
 
 }

@@ -28,7 +28,7 @@ public abstract partial class Cost :  Bright.Config.BeanBase
 
     public static Cost DeserializeCost(JSONNode _json)
     {
-        string type = _json["__type__"];
+        string type = _json["$type"];
         switch (type)
         {
             case "CostCurrency": return new cost.CostCurrency(_json);

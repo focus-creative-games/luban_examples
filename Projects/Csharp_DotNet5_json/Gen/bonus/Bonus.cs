@@ -28,7 +28,7 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
 
     public static Bonus DeserializeBonus(JsonElement _json)
     {
-        switch (_json.GetProperty("__type__").GetString())
+        switch (_json.GetProperty("$type").GetString())
         {
             case "OneItem": return new bonus.OneItem(_json);
             case "OneItems": return new bonus.OneItems(_json);

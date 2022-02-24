@@ -1,10 +1,10 @@
 return {
     id = 1022490002,
     name = "测试数据-不要动",
-    major_type = 2,
-    minor_type = 290,
+    major_type = '服装',
+    minor_type = '连衣裙',
     max_pile_num = 1,
-    quality = 2,
+    quality = '蓝',
     icon = "/Game/UI/UIText/IocnResource/Frames/S0090D_png.S0090D_png",
     icon_backgroud = "",
     icon_mask = "",
@@ -18,5 +18,5 @@ return {
     show_hint_when_use = false,
     droppable = false,
     price = 8,
-    use_type = 0,
+    use_type = '手动',
 }

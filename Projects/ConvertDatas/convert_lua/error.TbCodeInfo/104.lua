@@ -1,4 +1,4 @@
 return {
-    code = 104,
+    code = 'ROLE_CREATE_INVALID_PROFESSION',
     key = "ROLE_CREATE_INVALID_PROFESSION",
 }

@@ -8,7 +8,14 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class EExecutor
+
+    public enum EExecutor
+    {
+        CLIENT = 0,
+        SERVER = 1,
+    }
+
+    public static partial class EExecutor_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo CLIENT = new Bright.Config.EditorEnumItemInfo("CLIENT", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo SERVER = new Bright.Config.EditorEnumItemInfo("SERVER", "", 1, "");
