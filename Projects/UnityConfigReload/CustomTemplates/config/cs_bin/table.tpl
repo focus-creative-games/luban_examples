@@ -83,7 +83,7 @@ public partial class {{name}}
     }
         {{~else if x.is_list_table ~}}
     // is_list_table
-    private readonly List<{{cs_define_type value_type}}> _dataList;
+    private List<{{cs_define_type value_type}}> _dataList;
 
     {{~if x.is_union_index~}}
     private {{cs_table_union_map_type_name x}} _dataMapUnion;
@@ -151,6 +151,7 @@ public partial class {{name}}
         }
     }
 
+    //TODO:
     public void Reload(ByteBuf _buf)
     {
 
@@ -192,7 +193,7 @@ public partial class {{name}}
     
     public void Reload(ByteBuf _buf)
     {
-
+        _data.Reload(new {{name}}(_buf)._data);
     }
 
     {{~end~}}

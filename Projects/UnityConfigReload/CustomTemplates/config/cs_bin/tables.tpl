@@ -35,9 +35,10 @@ public partial class {{name}}
         {{~end~}}
 
         PostInit();
-        {{~for table in tables ~}}
-        {{table.name}}.Resolve(tables); 
-        {{~end~}}
+        foreach (var tableName in tables.Keys)
+        {
+            ResolveOneTable(tableName);
+        }
         PostResolve();
     }
 
@@ -50,6 +51,23 @@ public partial class {{name}}
     
     partial void PostInit();
     partial void PostResolve();
+
+    private void ResolveOneTable(string resolveTableName)
+    {
+        if (!tables.Keys.Contains(resolveTableName))
+        {
+            return;
+        }
+
+        switch (resolveTableName)
+        {
+            {{~for table in tables ~}}
+            case "{{table.full_name}}":
+                {{table.name}}.Resolve(tables);
+                break;
+            {{~end~}}
+        }
+    }
 
     private void ReloadOneTable(string reloadTableName)
     {
@@ -74,6 +92,11 @@ public partial class {{name}}
         foreach (var reloadTableName in reloadTableNames)
         {
             ReloadOneTable(reloadTableName);
+        }
+
+        foreach (var tableName in tables.Keys)
+        {
+            ResolveOneTable(tableName);
         }
     }
     
