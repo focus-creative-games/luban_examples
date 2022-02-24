@@ -20,7 +20,7 @@ public sealed partial class BlackboardKey :  Bright.Config.EditorBeanBase
     {
             Name = "";
             Desc = "";
-            Type = "BOOL";
+            Type = ai.EKeyType.BOOL;
             TypeClassName = "";
     }
 
@@ -54,7 +54,7 @@ public sealed partial class BlackboardKey :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Type = _fieldJson;
+                if(_fieldJson.IsString) { Type = (ai.EKeyType)System.Enum.Parse(typeof(ai.EKeyType), _fieldJson); } else if(_fieldJson.IsNumber) { Type = (ai.EKeyType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -84,7 +84,7 @@ public sealed partial class BlackboardKey :  Bright.Config.EditorBeanBase
             _json["is_static"] = new JSONBool(IsStatic);
         }
         {
-            _json["type"] = new JSONString(Type);
+            _json["type"] = new JSONNumber((int)Type);
         }
         {
 
@@ -111,7 +111,7 @@ public sealed partial class BlackboardKey :  Bright.Config.EditorBeanBase
 
     public bool IsStatic { get; set; }
 
-    public string Type { get; set; }
+    public ai.EKeyType Type { get; set; }
 
     public string TypeClassName { get; set; }
 

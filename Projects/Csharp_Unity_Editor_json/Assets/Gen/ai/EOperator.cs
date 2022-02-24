@@ -8,7 +8,20 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class EOperator
+
+    public enum EOperator
+    {
+        IS_EQUAL_TO = 0,
+        IS_NOT_EQUAL_TO = 1,
+        IS_LESS_THAN = 2,
+        IS_LESS_THAN_OR_EQUAL_TO = 3,
+        IS_GREAT_THAN = 4,
+        IS_GREAT_THAN_OR_EQUAL_TO = 5,
+        CONTAINS = 6,
+        NOT_CONTAINS = 7,
+    }
+
+    public static partial class EOperator_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo IS_EQUAL_TO = new Bright.Config.EditorEnumItemInfo("IS_EQUAL_TO", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo IS_NOT_EQUAL_TO = new Bright.Config.EditorEnumItemInfo("IS_NOT_EQUAL_TO", "", 1, "");

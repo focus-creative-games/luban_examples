@@ -8,7 +8,22 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class EKeyType
+
+    public enum EKeyType
+    {
+        BOOL = 1,
+        INT = 2,
+        FLOAT = 3,
+        STRING = 4,
+        VECTOR = 5,
+        ROTATOR = 6,
+        NAME = 7,
+        CLASS = 8,
+        ENUM = 9,
+        OBJECT = 10,
+    }
+
+    public static partial class EKeyType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo BOOL = new Bright.Config.EditorEnumItemInfo("BOOL", "", 1, "");
         public static readonly Bright.Config.EditorEnumItemInfo INT = new Bright.Config.EditorEnumItemInfo("INT", "", 2, "");

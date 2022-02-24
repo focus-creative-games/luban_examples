@@ -8,7 +8,20 @@
 
 namespace editor.cfg.mail
 {
-    public static partial class EMailType
+
+    public enum EMailType
+    {
+        /// <summary>
+        /// 全局邮件
+        /// </summary>
+        GLOBAL = 0,
+        /// <summary>
+        /// 系统邮件
+        /// </summary>
+        SYSTEM = 1,
+    }
+
+    public static partial class EMailType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo GLOBAL = new Bright.Config.EditorEnumItemInfo("GLOBAL", "全局邮件", 0, "全局邮件");
         public static readonly Bright.Config.EditorEnumItemInfo SYSTEM = new Bright.Config.EditorEnumItemInfo("SYSTEM", "系统邮件", 1, "系统邮件");

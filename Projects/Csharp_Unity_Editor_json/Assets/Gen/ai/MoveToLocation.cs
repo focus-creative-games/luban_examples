@@ -45,7 +45,7 @@ public sealed partial class MoveToLocation :  ai.Task
     {        
         base.SaveJson(_json);
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = Location.X;  __vjson["y"] = Location.Y; __vjson["z"] = Location.Z; _json["location"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = Location.x;  __vjson["y"] = Location.y; __vjson["z"] = Location.z; _json["location"] = __vjson; }
         }
         {
             _json["acceptable_radius"] = new JSONNumber(AcceptableRadius);

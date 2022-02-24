@@ -8,7 +8,12 @@
 
 namespace editor.cfg.test
 {
-    public static partial class ETestEmptyEnum
+
+    public enum ETestEmptyEnum
+    {
+    }
+
+    public static partial class ETestEmptyEnum_Metadata
     {
 
         private static readonly System.Collections.Generic.List<Bright.Config.EditorEnumItemInfo> __items = new System.Collections.Generic.List<Bright.Config.EditorEnumItemInfo>

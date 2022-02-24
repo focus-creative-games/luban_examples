@@ -18,8 +18,8 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
 {
     public ItemFunction()
     {
-            MinorType = "DIAMOND";
-            FuncType = "REPLACE_HANDHELD";
+            MinorType = item.EMinorType.DIAMOND;
+            FuncType = item.EItemFunctionType.REPLACE_HANDHELD;
             Method = "";
     }
 
@@ -29,7 +29,7 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["minor_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  MinorType = _fieldJson;
+                if(_fieldJson.IsString) { MinorType = (item.EMinorType)System.Enum.Parse(typeof(item.EMinorType), _fieldJson); } else if(_fieldJson.IsNumber) { MinorType = (item.EMinorType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -37,7 +37,7 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["func_type"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  FuncType = _fieldJson;
+                if(_fieldJson.IsString) { FuncType = (item.EItemFunctionType)System.Enum.Parse(typeof(item.EItemFunctionType), _fieldJson); } else if(_fieldJson.IsNumber) { FuncType = (item.EItemFunctionType)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -62,10 +62,10 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
     public override void SaveJson(SimpleJSON.JSONObject _json)
     {        
         {
-            _json["minor_type"] = new JSONString(MinorType);
+            _json["minor_type"] = new JSONNumber((int)MinorType);
         }
         {
-            _json["func_type"] = new JSONString(FuncType);
+            _json["func_type"] = new JSONNumber((int)FuncType);
         }
         {
 
@@ -89,9 +89,9 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string MinorType { get; set; }
+    public item.EMinorType MinorType { get; set; }
 
-    public string FuncType { get; set; }
+    public item.EItemFunctionType FuncType { get; set; }
 
     public string Method { get; set; }
 

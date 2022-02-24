@@ -98,13 +98,13 @@ public sealed partial class TestScriptableObject :  Bright.Config.EditorBeanBase
             _json["num"] = new JSONNumber(Num);
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V2.X;  __vjson["y"] = V2.Y; _json["v2"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V2.x;  __vjson["y"] = V2.y; _json["v2"] = __vjson; }
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V3.X;  __vjson["y"] = V3.Y; __vjson["z"] = V3.Z; _json["v3"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V3.x;  __vjson["y"] = V3.y; __vjson["z"] = V3.z; _json["v3"] = __vjson; }
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V4.X;  __vjson["y"] = V4.Y; __vjson["z"] = V4.Z; __vjson["w"] = V4.W; _json["v4"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V4.x;  __vjson["y"] = V4.y; __vjson["z"] = V4.z; __vjson["w"] = V4.w; _json["v4"] = __vjson; }
         }
     }
 

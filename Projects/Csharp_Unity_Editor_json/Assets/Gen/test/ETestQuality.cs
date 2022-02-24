@@ -8,7 +8,28 @@
 
 namespace editor.cfg.test
 {
-    public static partial class ETestQuality
+
+    public enum ETestQuality
+    {
+        /// <summary>
+        /// 最高品质
+        /// </summary>
+        A = 1,
+        /// <summary>
+        /// 黑色的
+        /// </summary>
+        B = 2,
+        /// <summary>
+        /// 蓝色的
+        /// </summary>
+        C = 3,
+        /// <summary>
+        /// 最差品质
+        /// </summary>
+        D = 4,
+    }
+
+    public static partial class ETestQuality_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo A = new Bright.Config.EditorEnumItemInfo("A", "白", 1, "最高品质");
         public static readonly Bright.Config.EditorEnumItemInfo B = new Bright.Config.EditorEnumItemInfo("B", "黑", 2, "黑色的");

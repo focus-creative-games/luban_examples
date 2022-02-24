@@ -18,7 +18,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 {
     public SimpleParallel()
     {
-            FinishMode = "IMMEDIATE";
+            FinishMode = ai.EFinishMode.IMMEDIATE;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -28,7 +28,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
             var _fieldJson = _json["finish_mode"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  FinishMode = _fieldJson;
+                if(_fieldJson.IsString) { FinishMode = (ai.EFinishMode)System.Enum.Parse(typeof(ai.EFinishMode), _fieldJson); } else if(_fieldJson.IsNumber) { FinishMode = (ai.EFinishMode)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -54,7 +54,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     {        
         base.SaveJson(_json);
         {
-            _json["finish_mode"] = new JSONString(FinishMode);
+            _json["finish_mode"] = new JSONNumber((int)FinishMode);
         }
         {
 
@@ -80,7 +80,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string FinishMode { get; set; }
+    public ai.EFinishMode FinishMode { get; set; }
 
     public ai.Task MainTask { get; set; }
 

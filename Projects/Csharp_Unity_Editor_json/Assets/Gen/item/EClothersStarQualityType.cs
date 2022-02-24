@@ -8,7 +8,52 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EClothersStarQualityType
+
+    public enum EClothersStarQualityType
+    {
+        /// <summary>
+        /// 一星
+        /// </summary>
+        ONE = 1,
+        /// <summary>
+        /// 二星
+        /// </summary>
+        TWO = 2,
+        /// <summary>
+        /// 三星
+        /// </summary>
+        THREE = 3,
+        /// <summary>
+        /// 四星
+        /// </summary>
+        FOUR = 4,
+        /// <summary>
+        /// 五星
+        /// </summary>
+        FIVE = 5,
+        /// <summary>
+        /// 六星
+        /// </summary>
+        SIX = 6,
+        /// <summary>
+        /// 七星
+        /// </summary>
+        SEVEN = 7,
+        /// <summary>
+        /// 八星
+        /// </summary>
+        EIGHT = 8,
+        /// <summary>
+        /// 九星
+        /// </summary>
+        NINE = 9,
+        /// <summary>
+        /// 十星
+        /// </summary>
+        TEN = 10,
+    }
+
+    public static partial class EClothersStarQualityType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo ONE = new Bright.Config.EditorEnumItemInfo("ONE", "一星", 1, "一星");
         public static readonly Bright.Config.EditorEnumItemInfo TWO = new Bright.Config.EditorEnumItemInfo("TWO", "二星", 2, "二星");

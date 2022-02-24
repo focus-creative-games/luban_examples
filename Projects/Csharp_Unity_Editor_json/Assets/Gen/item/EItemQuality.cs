@@ -8,10 +8,35 @@
 
 namespace editor.cfg.item
 {
+
     /// <summary>
     /// 道具品质
     /// </summary>
-    public static partial class EItemQuality
+    public enum EItemQuality
+    {
+        /// <summary>
+        /// 白
+        /// </summary>
+        WHITE = 0,
+        /// <summary>
+        /// 绿
+        /// </summary>
+        GREEN = 1,
+        /// <summary>
+        /// 蓝
+        /// </summary>
+        BLUE = 2,
+        /// <summary>
+        /// 紫
+        /// </summary>
+        PURPLE = 3,
+        /// <summary>
+        /// 金
+        /// </summary>
+        GOLDEN = 4,
+    }
+
+    public static partial class EItemQuality_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo WHITE = new Bright.Config.EditorEnumItemInfo("WHITE", "白", 0, "白");
         public static readonly Bright.Config.EditorEnumItemInfo GREEN = new Bright.Config.EditorEnumItemInfo("GREEN", "绿", 1, "绿");

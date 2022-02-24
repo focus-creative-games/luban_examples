@@ -19,7 +19,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.EditorBeanBase
     public DefineFromExcel()
     {
             X10 = "";
-            X13 = "A";
+            X13 = test.ETestQuality.A;
             T1 = "1970-01-01 00:00:00";
             K1 = System.Array.Empty<int>();
             K2 = System.Array.Empty<int>();
@@ -81,7 +81,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.EditorBeanBase
             var _fieldJson = _json["x13"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  X13 = _fieldJson;
+                if(_fieldJson.IsString) { X13 = (test.ETestQuality)System.Enum.Parse(typeof(test.ETestQuality), _fieldJson); } else if(_fieldJson.IsNumber) { X13 = (test.ETestQuality)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -174,7 +174,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.EditorBeanBase
             _json["x10"] = new JSONString(X10);
         }
         {
-            _json["x13"] = new JSONString(X13);
+            _json["x13"] = new JSONNumber((int)X13);
         }
         {
 
@@ -187,7 +187,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.EditorBeanBase
             { var __bjson = new JSONObject();  test.Shape.SaveJsonShape(X15, __bjson); _json["x15"] = __bjson; }
         }
         {
-            { var __vjson = new JSONObject(); __vjson["x"] = V2.X;  __vjson["y"] = V2.Y; _json["v2"] = __vjson; }
+            { var __vjson = new JSONObject(); __vjson["x"] = V2.x;  __vjson["y"] = V2.y; _json["v2"] = __vjson; }
         }
         {
             _json["t1"] = new JSONString(T1);
@@ -244,7 +244,7 @@ public sealed partial class DefineFromExcel :  Bright.Config.EditorBeanBase
 
     public string X10 { get; set; }
 
-    public string X13 { get; set; }
+    public test.ETestQuality X13 { get; set; }
 
     public test.DemoDynamic X14 { get; set; }
 

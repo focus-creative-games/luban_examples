@@ -8,7 +8,15 @@
 
 namespace editor.cfg.limit
 {
-    public static partial class ENamespace
+
+    public enum ENamespace
+    {
+        ITEM_DAILY_OBTAIN = 1,
+        TREASURE_DAILY_USE = 2,
+        STORE_GOODS_LIMIT_BUY = 3,
+    }
+
+    public static partial class ENamespace_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo ITEM_DAILY_OBTAIN = new Bright.Config.EditorEnumItemInfo("ITEM_DAILY_OBTAIN", "", 1, "");
         public static readonly Bright.Config.EditorEnumItemInfo TREASURE_DAILY_USE = new Bright.Config.EditorEnumItemInfo("TREASURE_DAILY_USE", "", 2, "");

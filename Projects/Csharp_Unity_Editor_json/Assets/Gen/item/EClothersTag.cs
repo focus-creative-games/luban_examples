@@ -8,7 +8,20 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EClothersTag
+
+    public enum EClothersTag
+    {
+        /// <summary>
+        /// 防晒
+        /// </summary>
+        FANG_SHAI = 1,
+        /// <summary>
+        /// 舞者
+        /// </summary>
+        WU_ZHE = 2,
+    }
+
+    public static partial class EClothersTag_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo FANG_SHAI = new Bright.Config.EditorEnumItemInfo("FANG_SHAI", "防晒", 1, "防晒");
         public static readonly Bright.Config.EditorEnumItemInfo WU_ZHE = new Bright.Config.EditorEnumItemInfo("WU_ZHE", "舞者", 2, "舞者");

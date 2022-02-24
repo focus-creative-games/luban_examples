@@ -19,7 +19,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
     public ErrorStyleMsgbox()
     {
             BtnName = "";
-            Operation = "LOGOUT";
+            Operation = error.EOperation.LOGOUT;
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -37,7 +37,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
             var _fieldJson = _json["operation"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Operation = _fieldJson;
+                if(_fieldJson.IsString) { Operation = (error.EOperation)System.Enum.Parse(typeof(error.EOperation), _fieldJson); } else if(_fieldJson.IsNumber) { Operation = (error.EOperation)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -52,7 +52,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
             _json["btn_name"] = new JSONString(BtnName);
         }
         {
-            _json["operation"] = new JSONString(Operation);
+            _json["operation"] = new JSONNumber((int)Operation);
         }
     }
 
@@ -70,7 +70,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
 
     public string BtnName { get; set; }
 
-    public string Operation { get; set; }
+    public error.EOperation Operation { get; set; }
 
 }
 }

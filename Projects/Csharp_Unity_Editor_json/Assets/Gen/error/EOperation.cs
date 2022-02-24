@@ -8,7 +8,20 @@
 
 namespace editor.cfg.error
 {
-    public static partial class EOperation
+
+    public enum EOperation
+    {
+        /// <summary>
+        /// 登出
+        /// </summary>
+        LOGOUT = 0,
+        /// <summary>
+        /// 重启
+        /// </summary>
+        RESTART = 1,
+    }
+
+    public static partial class EOperation_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo LOGOUT = new Bright.Config.EditorEnumItemInfo("LOGOUT", "登出", 0, "登出");
         public static readonly Bright.Config.EditorEnumItemInfo RESTART = new Bright.Config.EditorEnumItemInfo("RESTART", "重启", 1, "重启");

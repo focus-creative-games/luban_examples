@@ -8,7 +8,18 @@
 
 namespace editor.cfg.test
 {
-    public static partial class AccessFlag
+
+    [System.Flags]
+    public enum AccessFlag
+    {
+        WRITE = 1,
+        READ = 2,
+        TRUNCATE = 4,
+        NEW = 8,
+        READ_WRITE = WRITE|READ,
+    }
+
+    public static partial class AccessFlag_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo WRITE = new Bright.Config.EditorEnumItemInfo("WRITE", "", 1, "");
         public static readonly Bright.Config.EditorEnumItemInfo READ = new Bright.Config.EditorEnumItemInfo("READ", "", 2, "");

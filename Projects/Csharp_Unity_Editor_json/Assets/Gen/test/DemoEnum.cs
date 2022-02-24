@@ -8,7 +8,29 @@
 
 namespace editor.cfg.test
 {
-    public static partial class DemoEnum
+
+    public enum DemoEnum
+    {
+        NONE = 0,
+        /// <summary>
+        /// aa
+        /// </summary>
+        A = 1,
+        /// <summary>
+        /// bb
+        /// </summary>
+        B = 2,
+        /// <summary>
+        /// cc
+        /// </summary>
+        C = 4,
+        /// <summary>
+        /// dd
+        /// </summary>
+        D = 5,
+    }
+
+    public static partial class DemoEnum_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo NONE = new Bright.Config.EditorEnumItemInfo("NONE", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo A = new Bright.Config.EditorEnumItemInfo("A", "aa", 1, "aa");

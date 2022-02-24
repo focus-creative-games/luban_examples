@@ -8,7 +8,15 @@
 
 namespace editor.cfg.test
 {
-    public static partial class AudioType
+
+    public enum AudioType
+    {
+        UNKNOWN = 0,
+        ACC = 1,
+        AIFF = 2,
+    }
+
+    public static partial class AudioType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo UNKNOWN = new Bright.Config.EditorEnumItemInfo("UNKNOWN", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo ACC = new Bright.Config.EditorEnumItemInfo("ACC", "", 1, "");

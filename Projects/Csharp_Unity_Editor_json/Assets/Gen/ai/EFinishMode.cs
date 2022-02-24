@@ -8,7 +8,14 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class EFinishMode
+
+    public enum EFinishMode
+    {
+        IMMEDIATE = 0,
+        DELAYED = 1,
+    }
+
+    public static partial class EFinishMode_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo IMMEDIATE = new Bright.Config.EditorEnumItemInfo("IMMEDIATE", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo DELAYED = new Bright.Config.EditorEnumItemInfo("DELAYED", "", 1, "");

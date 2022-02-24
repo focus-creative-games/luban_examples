@@ -8,7 +8,20 @@
 
 namespace editor.cfg.role
 {
-    public static partial class EGenderType
+
+    public enum EGenderType
+    {
+        /// <summary>
+        /// 男
+        /// </summary>
+        MALE = 1,
+        /// <summary>
+        /// 女
+        /// </summary>
+        FEMALE = 2,
+    }
+
+    public static partial class EGenderType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo MALE = new Bright.Config.EditorEnumItemInfo("MALE", "男", 1, "男");
         public static readonly Bright.Config.EditorEnumItemInfo FEMALE = new Bright.Config.EditorEnumItemInfo("FEMALE", "女", 2, "女");

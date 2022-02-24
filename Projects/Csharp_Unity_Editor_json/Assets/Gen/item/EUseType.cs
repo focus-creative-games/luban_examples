@@ -8,7 +8,20 @@
 
 namespace editor.cfg.item
 {
-    public static partial class EUseType
+
+    public enum EUseType
+    {
+        /// <summary>
+        /// 手动
+        /// </summary>
+        MANUAL = 0,
+        /// <summary>
+        /// 自动
+        /// </summary>
+        AUTO = 1,
+    }
+
+    public static partial class EUseType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo MANUAL = new Bright.Config.EditorEnumItemInfo("MANUAL", "手动", 0, "手动");
         public static readonly Bright.Config.EditorEnumItemInfo AUTO = new Bright.Config.EditorEnumItemInfo("AUTO", "自动", 1, "自动");

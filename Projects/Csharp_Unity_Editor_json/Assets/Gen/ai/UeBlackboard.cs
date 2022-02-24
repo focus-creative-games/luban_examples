@@ -18,7 +18,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
 {
     public UeBlackboard()
     {
-            NotifyObserver = "ON_VALUE_CHANGE";
+            NotifyObserver = ai.ENotifyObserverMode.ON_VALUE_CHANGE;
             BlackboardKey = "";
     }
 
@@ -29,7 +29,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
             var _fieldJson = _json["notify_observer"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  NotifyObserver = _fieldJson;
+                if(_fieldJson.IsString) { NotifyObserver = (ai.ENotifyObserverMode)System.Enum.Parse(typeof(ai.ENotifyObserverMode), _fieldJson); } else if(_fieldJson.IsNumber) { NotifyObserver = (ai.ENotifyObserverMode)(int)_fieldJson; } else { throw new SerializationException(); }  
             }
         }
         
@@ -55,7 +55,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
     {        
         base.SaveJson(_json);
         {
-            _json["notify_observer"] = new JSONString(NotifyObserver);
+            _json["notify_observer"] = new JSONNumber((int)NotifyObserver);
         }
         {
 
@@ -81,7 +81,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }
 
-    public string NotifyObserver { get; set; }
+    public ai.ENotifyObserverMode NotifyObserver { get; set; }
 
     public string BlackboardKey { get; set; }
 

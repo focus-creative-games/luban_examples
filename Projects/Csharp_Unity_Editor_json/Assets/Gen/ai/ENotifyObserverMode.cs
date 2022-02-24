@@ -8,7 +8,14 @@
 
 namespace editor.cfg.ai
 {
-    public static partial class ENotifyObserverMode
+
+    public enum ENotifyObserverMode
+    {
+        ON_VALUE_CHANGE = 0,
+        ON_RESULT_CHANGE = 1,
+    }
+
+    public static partial class ENotifyObserverMode_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo ON_VALUE_CHANGE = new Bright.Config.EditorEnumItemInfo("ON_VALUE_CHANGE", "", 0, "");
         public static readonly Bright.Config.EditorEnumItemInfo ON_RESULT_CHANGE = new Bright.Config.EditorEnumItemInfo("ON_RESULT_CHANGE", "", 1, "");

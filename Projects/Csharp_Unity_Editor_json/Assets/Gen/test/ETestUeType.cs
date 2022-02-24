@@ -8,7 +8,17 @@
 
 namespace editor.cfg.test
 {
-    public static partial class ETestUeType
+
+    public enum ETestUeType
+    {
+        /// <summary>
+        /// 白
+        /// </summary>
+        WHITE = 0,
+        BLACK = 1,
+    }
+
+    public static partial class ETestUeType_Metadata
     {
         public static readonly Bright.Config.EditorEnumItemInfo WHITE = new Bright.Config.EditorEnumItemInfo("WHITE", "白", 0, "白");
         public static readonly Bright.Config.EditorEnumItemInfo BLACK = new Bright.Config.EditorEnumItemInfo("BLACK", "", 1, "");
