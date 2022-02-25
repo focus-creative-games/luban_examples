@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
 
     public void Reload(MinMaxLevel reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Min = reloadData.Min;
-        //Luban.Job.Common.Types.TInt
         Max = reloadData.Max;
     }
 

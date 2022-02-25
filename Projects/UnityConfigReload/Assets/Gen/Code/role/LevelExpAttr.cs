@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,12 +47,19 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
 
     public void Reload(LevelExpAttr reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Level = reloadData.Level;
-        //Luban.Job.Common.Types.TLong
         NeedExp = reloadData.NeedExp;
-        //Luban.Job.Common.Types.TList
-        ClothesAttrs = reloadData.ClothesAttrs;
+        if(ClothesAttrs.Count<reloadData.ClothesAttrs.Count)
+        {
+            ClothesAttrs.AddRange(new List<int>(reloadData.ClothesAttrs.Count-ClothesAttrs.Count));
+        }else if(ClothesAttrs.Count>reloadData.ClothesAttrs.Count)
+        {
+            ClothesAttrs.RemoveRange(reloadData.ClothesAttrs.Count, ClothesAttrs.Count-reloadData.ClothesAttrs.Count);
+        }
+        for (int i = 0; i < reloadData.ClothesAttrs.Count; i++)
+        {
+            ClothesAttrs[i] = reloadData.ClothesAttrs[i];
+        }
     }
 
     public override string ToString()

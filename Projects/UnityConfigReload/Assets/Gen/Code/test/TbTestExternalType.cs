@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
@@ -58,6 +59,15 @@ public partial class TbTestExternalType
     public void Reload(ByteBuf _buf)
     {
         var reloadMap = new TbTestExternalType(_buf);
+        foreach (var rowDataKey in this._dataMap.Keys.ToList())
+        {
+            if(!reloadMap._dataMap.ContainsKey(rowDataKey))
+            {
+                this._dataList.Remove(this._dataMap[rowDataKey]);
+                this._dataMap.Remove(rowDataKey);
+            }
+        }
+
         foreach (var reloadData in reloadMap._dataMap)
         {
             if (this._dataMap.ContainsKey(reloadData.Key))
@@ -70,7 +80,6 @@ public partial class TbTestExternalType
                 this._dataList.Add(reloadData.Value);
             }
         }
-
     }
     
     partial void PostInit();

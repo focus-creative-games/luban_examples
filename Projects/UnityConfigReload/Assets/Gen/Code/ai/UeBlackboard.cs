@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,11 +51,8 @@ public sealed partial class UeBlackboard :  ai.Decorator
 
     public void Reload(UeBlackboard reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         NotifyObserver = reloadData.NotifyObserver;
-        //Luban.Job.Common.Types.TString
         BlackboardKey = reloadData.BlackboardKey;
-        //Luban.Job.Common.Types.TBean
         KeyQuery = reloadData.KeyQuery;
     }
 

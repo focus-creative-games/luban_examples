@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
 
     public void Reload(ErrorStyleDlgOkCancel reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Btn1Name = reloadData.Btn1Name;
-        //Luban.Job.Common.Types.TString
         Btn2Name = reloadData.Btn2Name;
     }
 

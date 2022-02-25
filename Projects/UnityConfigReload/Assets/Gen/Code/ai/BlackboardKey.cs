@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,15 +51,10 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
 
     public void Reload(BlackboardKey reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TBool
         IsStatic = reloadData.IsStatic;
-        //Luban.Job.Common.Types.TEnum
         Type = reloadData.Type;
-        //Luban.Job.Common.Types.TString
         TypeClassName = reloadData.TypeClassName;
     }
 

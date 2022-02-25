@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
 
     public void Reload(ErrorStyleMsgbox reloadData)
     {
-        //Luban.Job.Common.Types.TString
         BtnName = reloadData.BtnName;
-        //Luban.Job.Common.Types.TEnum
         Operation = reloadData.Operation;
     }
 

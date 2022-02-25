@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class Item :  test.ItemBase
 
     public void Reload(Item reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Num = reloadData.Num;
-        //Luban.Job.Common.Types.TInt
         Price = reloadData.Price;
     }
 

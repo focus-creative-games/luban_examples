@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,18 +53,52 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
 
     public void Reload(TestSet reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         X0 = reloadData.X0;
-        //Luban.Job.Common.Types.TList
-        X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TList
-        X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TList
-        X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TList
-        X4 = reloadData.X4;
+        if(X1.Count<reloadData.X1.Count)
+        {
+            X1.AddRange(new List<int>(reloadData.X1.Count-X1.Count));
+        }else if(X1.Count>reloadData.X1.Count)
+        {
+            X1.RemoveRange(reloadData.X1.Count, X1.Count-reloadData.X1.Count);
+        }
+        for (int i = 0; i < reloadData.X1.Count; i++)
+        {
+            X1[i] = reloadData.X1[i];
+        }
+        if(X2.Count<reloadData.X2.Count)
+        {
+            X2.AddRange(new List<long>(reloadData.X2.Count-X2.Count));
+        }else if(X2.Count>reloadData.X2.Count)
+        {
+            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
+        }
+        for (int i = 0; i < reloadData.X2.Count; i++)
+        {
+            X2[i] = reloadData.X2[i];
+        }
+        if(X3.Count<reloadData.X3.Count)
+        {
+            X3.AddRange(new List<string>(reloadData.X3.Count-X3.Count));
+        }else if(X3.Count>reloadData.X3.Count)
+        {
+            X3.RemoveRange(reloadData.X3.Count, X3.Count-reloadData.X3.Count);
+        }
+        for (int i = 0; i < reloadData.X3.Count; i++)
+        {
+            X3[i] = reloadData.X3[i];
+        }
+        if(X4.Count<reloadData.X4.Count)
+        {
+            X4.AddRange(new List<test.DemoEnum>(reloadData.X4.Count-X4.Count));
+        }else if(X4.Count>reloadData.X4.Count)
+        {
+            X4.RemoveRange(reloadData.X4.Count, X4.Count-reloadData.X4.Count);
+        }
+        for (int i = 0; i < reloadData.X4.Count; i++)
+        {
+            X4[i] = reloadData.X4[i];
+        }
     }
 
     public override string ToString()

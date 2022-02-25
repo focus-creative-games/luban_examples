@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
 
     public void Reload(BonusInfo reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         Type = reloadData.Type;
-        //Luban.Job.Common.Types.TFloat
         Coefficient = reloadData.Coefficient;
     }
 

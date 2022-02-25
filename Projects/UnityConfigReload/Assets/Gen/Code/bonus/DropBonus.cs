@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,7 +48,6 @@ public sealed partial class DropBonus :  bonus.Bonus
 
     public void Reload(DropBonus reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
     }
 

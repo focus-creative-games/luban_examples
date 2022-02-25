@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,11 +53,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public void Reload(SimpleParallel reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         FinishMode = reloadData.FinishMode;
-        //Luban.Job.Common.Types.TBean
         MainTask = reloadData.MainTask;
-        //Luban.Job.Common.Types.TBean
         BackgroundNode = reloadData.BackgroundNode;
     }
 

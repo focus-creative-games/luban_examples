@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(WeightBonusInfo reloadData)
     {
-        //Luban.Job.Common.Types.TBean
         Bonus = reloadData.Bonus;
-        //Luban.Job.Common.Types.TInt
         Weight = reloadData.Weight;
     }
 

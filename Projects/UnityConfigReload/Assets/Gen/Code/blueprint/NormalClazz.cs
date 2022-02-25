@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,10 +49,18 @@ public sealed partial class NormalClazz :  blueprint.Clazz
 
     public void Reload(NormalClazz reloadData)
     {
-        //Luban.Job.Common.Types.TBool
         IsAbstract = reloadData.IsAbstract;
-        //Luban.Job.Common.Types.TList
-        Fields = reloadData.Fields;
+        if(Fields.Count<reloadData.Fields.Count)
+        {
+            Fields.AddRange(new List<blueprint.Field>(reloadData.Fields.Count-Fields.Count));
+        }else if(Fields.Count>reloadData.Fields.Count)
+        {
+            Fields.RemoveRange(reloadData.Fields.Count, Fields.Count-reloadData.Fields.Count);
+        }
+        for (int i = 0; i < reloadData.Fields.Count; i++)
+        {
+            Fields[i] = reloadData.Fields[i];
+        }
     }
 
     public override string ToString()

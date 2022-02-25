@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,11 +49,8 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
 
     public void Reload(TestExternalType reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TEnum
         AudioType = reloadData.AudioType;
-        //Luban.Job.Common.Types.TBean
         Color = reloadData.Color;
     }
 

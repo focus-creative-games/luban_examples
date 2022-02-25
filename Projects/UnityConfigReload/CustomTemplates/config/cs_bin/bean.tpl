@@ -1,5 +1,6 @@
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 {{
     name = x.name
     parent_def_type = x.parent_def_type
@@ -109,8 +110,56 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     public void Reload({{name}} reloadData)
     {
         {{~ for field in export_fields ~}}
-        //{{field.ctype}}
+        {{~if field.ctype == "Luban.Job.Common.Types.TList" ~}}
+        if({{field.convention_name}}.Count<reloadData.{{field.convention_name}}.Count)
+        {
+            {{field.convention_name}}.AddRange(new List<{{cs_define_type field.ctype.element_type}}>(reloadData.{{field.convention_name}}.Count-{{field.convention_name}}.Count));
+        }else if({{field.convention_name}}.Count>reloadData.{{field.convention_name}}.Count)
+        {
+            {{field.convention_name}}.RemoveRange(reloadData.{{field.convention_name}}.Count, {{field.convention_name}}.Count-reloadData.{{field.convention_name}}.Count);
+        }
+        for (int i = 0; i < reloadData.{{field.convention_name}}.Count; i++)
+        {
+            {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+        }
+        {{~else if field.ctype == "Luban.Job.Common.Types.TArray"~}}
+        //array
+        {{~else if field.ctype == "Luban.Job.Common.Types.TMap"~}}
+        foreach (var rawDataKey in {{field.convention_name}}.Keys.ToList())
+        {
+            if(!reloadData.{{field.convention_name}}.ContainsKey(rawDataKey))
+            {
+                {{field.convention_name}}.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.{{field.convention_name}})
+        {
+            if({{field.convention_name}}.ContainsKey(reload.Key))
+            {
+                {{field.convention_name}}[reload.Key] = reload.Value;
+            }else
+            {
+                {{field.convention_name}}.Add(reload.Key,reload.Value);
+            }
+        }
+        {{~ else if field.ctype == "Luban.Job.Common.Types.TSet"~}}
+        foreach (var setData in {{field.convention_name}}.ToList())
+        {
+            if(!reloadData.{{field.convention_name}}.Contains(setData))
+            {
+                {{field.convention_name}}.Remove(setData);
+            }
+        }
+        foreach (var setData in reloadData.{{field.convention_name}})
+        {
+            if(!{{field.convention_name}}.Contains(setData))
+            {
+                {{field.convention_name}}.Add(setData);
+            }
+        }
+        {{~else~}}
         {{field.convention_name}} = reloadData.{{field.convention_name}};
+        {{~end~}}
         {{~end~}}
     }
 

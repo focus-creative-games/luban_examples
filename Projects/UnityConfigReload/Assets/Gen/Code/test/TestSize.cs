@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,16 +51,50 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
 
     public void Reload(TestSize reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TArray
-        X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TList
-        X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TSet
-        X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TMap
-        X4 = reloadData.X4;
+        //array
+        if(X2.Count<reloadData.X2.Count)
+        {
+            X2.AddRange(new List<int>(reloadData.X2.Count-X2.Count));
+        }else if(X2.Count>reloadData.X2.Count)
+        {
+            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
+        }
+        for (int i = 0; i < reloadData.X2.Count; i++)
+        {
+            X2[i] = reloadData.X2[i];
+        }
+        foreach (var setData in X3.ToList())
+        {
+            if(!reloadData.X3.Contains(setData))
+            {
+                X3.Remove(setData);
+            }
+        }
+        foreach (var setData in reloadData.X3)
+        {
+            if(!X3.Contains(setData))
+            {
+                X3.Add(setData);
+            }
+        }
+        foreach (var rawDataKey in X4.Keys.ToList())
+        {
+            if(!reloadData.X4.ContainsKey(rawDataKey))
+            {
+                X4.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.X4)
+        {
+            if(X4.ContainsKey(reload.Key))
+            {
+                X4[reload.Key] = reload.Value;
+            }else
+            {
+                X4.Add(reload.Key,reload.Value);
+            }
+        }
     }
 
     public override string ToString()

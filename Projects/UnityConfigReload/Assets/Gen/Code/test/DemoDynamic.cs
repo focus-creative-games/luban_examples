@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,7 +48,6 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
 
     public void Reload(DemoDynamic reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X1 = reloadData.X1;
     }
 

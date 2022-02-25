@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,13 +49,9 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
 
     public void Reload(InnerGroup reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Y1 = reloadData.Y1;
-        //Luban.Job.Common.Types.TInt
         Y2 = reloadData.Y2;
-        //Luban.Job.Common.Types.TInt
         Y3 = reloadData.Y3;
-        //Luban.Job.Common.Types.TInt
         Y4 = reloadData.Y4;
     }
 

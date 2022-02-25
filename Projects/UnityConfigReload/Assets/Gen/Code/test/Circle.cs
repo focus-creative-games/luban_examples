@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,7 +51,6 @@ public sealed partial class Circle :  Shape
 
     public void Reload(Circle reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         Radius = reloadData.Radius;
     }
 

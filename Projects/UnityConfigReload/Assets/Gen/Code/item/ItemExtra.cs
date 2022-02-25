@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,7 +49,6 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public void Reload(ItemExtra reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
     }
 

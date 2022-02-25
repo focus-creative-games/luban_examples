@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -88,47 +89,26 @@ public sealed partial class Item :  Bright.Config.BeanBase
 
     public void Reload(Item reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TEnum
         MajorType = reloadData.MajorType;
-        //Luban.Job.Common.Types.TEnum
         MinorType = reloadData.MinorType;
-        //Luban.Job.Common.Types.TInt
         MaxPileNum = reloadData.MaxPileNum;
-        //Luban.Job.Common.Types.TEnum
         Quality = reloadData.Quality;
-        //Luban.Job.Common.Types.TString
         Icon = reloadData.Icon;
-        //Luban.Job.Common.Types.TString
         IconBackgroud = reloadData.IconBackgroud;
-        //Luban.Job.Common.Types.TString
         IconMask = reloadData.IconMask;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TInt
         ShowOrder = reloadData.ShowOrder;
-        //Luban.Job.Common.Types.TString
         Quantifier = reloadData.Quantifier;
-        //Luban.Job.Common.Types.TBool
         ShowInBag = reloadData.ShowInBag;
-        //Luban.Job.Common.Types.TInt
         MinShowLevel = reloadData.MinShowLevel;
-        //Luban.Job.Common.Types.TBool
         BatchUsable = reloadData.BatchUsable;
-        //Luban.Job.Common.Types.TFloat
         ProgressTimeWhenUse = reloadData.ProgressTimeWhenUse;
-        //Luban.Job.Common.Types.TBool
         ShowHintWhenUse = reloadData.ShowHintWhenUse;
-        //Luban.Job.Common.Types.TBool
         Droppable = reloadData.Droppable;
-        //Luban.Job.Common.Types.TInt
         Price = reloadData.Price;
-        //Luban.Job.Common.Types.TEnum
         UseType = reloadData.UseType;
-        //Luban.Job.Common.Types.TInt
         LevelUpId = reloadData.LevelUpId;
     }
 

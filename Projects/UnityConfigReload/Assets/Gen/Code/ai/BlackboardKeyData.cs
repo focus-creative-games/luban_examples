@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
 
     public void Reload(BlackboardKeyData reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Value = reloadData.Value;
     }
 

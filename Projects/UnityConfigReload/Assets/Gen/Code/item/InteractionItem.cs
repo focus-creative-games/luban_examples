@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,11 +49,8 @@ public sealed partial class InteractionItem :  item.ItemExtra
 
     public void Reload(InteractionItem reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         AttackNum = reloadData.AttackNum;
-        //Luban.Job.Common.Types.TString
         HoldingStaticMesh = reloadData.HoldingStaticMesh;
-        //Luban.Job.Common.Types.TString
         HoldingStaticMeshMat = reloadData.HoldingStaticMeshMat;
     }
 

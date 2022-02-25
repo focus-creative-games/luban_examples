@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -72,20 +73,23 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
 
     public void Reload(TestDesc reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TInt
         A1 = reloadData.A1;
-        //Luban.Job.Common.Types.TInt
         A2 = reloadData.A2;
-        //Luban.Job.Common.Types.TBean
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TList
-        X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TArray
-        X3 = reloadData.X3;
+        if(X2.Count<reloadData.X2.Count)
+        {
+            X2.AddRange(new List<test.H2>(reloadData.X2.Count-X2.Count));
+        }else if(X2.Count>reloadData.X2.Count)
+        {
+            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
+        }
+        for (int i = 0; i < reloadData.X2.Count; i++)
+        {
+            X2[i] = reloadData.X2[i];
+        }
+        //array
     }
 
     public override string ToString()

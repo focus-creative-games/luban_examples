@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -70,31 +71,18 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
 
     public void Reload(DemoPrimitiveTypesTable reloadData)
     {
-        //Luban.Job.Common.Types.TBool
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TByte
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TShort
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TInt
         X4 = reloadData.X4;
-        //Luban.Job.Common.Types.TLong
         X5 = reloadData.X5;
-        //Luban.Job.Common.Types.TFloat
         X6 = reloadData.X6;
-        //Luban.Job.Common.Types.TDouble
         X7 = reloadData.X7;
-        //Luban.Job.Common.Types.TString
         S1 = reloadData.S1;
-        //Luban.Job.Common.Types.TText
         S2 = reloadData.S2;
-        //Luban.Job.Common.Types.TVector2
         V2 = reloadData.V2;
-        //Luban.Job.Common.Types.TVector3
         V3 = reloadData.V3;
-        //Luban.Job.Common.Types.TVector4
         V4 = reloadData.V4;
-        //Luban.Job.Common.Types.TDateTime
         T1 = reloadData.T1;
     }
 

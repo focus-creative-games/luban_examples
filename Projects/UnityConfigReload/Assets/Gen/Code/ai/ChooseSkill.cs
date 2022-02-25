@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class ChooseSkill :  ai.Task
 
     public void Reload(ChooseSkill reloadData)
     {
-        //Luban.Job.Common.Types.TString
         TargetActorKey = reloadData.TargetActorKey;
-        //Luban.Job.Common.Types.TString
         ResultSkillIdKey = reloadData.ResultSkillIdKey;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(ProbabilityBonusInfo reloadData)
     {
-        //Luban.Job.Common.Types.TBean
         Bonus = reloadData.Bonus;
-        //Luban.Job.Common.Types.TFloat
         Probability = reloadData.Probability;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,9 +48,7 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
 
     public void Reload(ChooseOneBonus reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         DropId = reloadData.DropId;
-        //Luban.Job.Common.Types.TBool
         IsUnique = reloadData.IsUnique;
     }
 

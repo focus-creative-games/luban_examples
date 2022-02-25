@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,8 +47,17 @@ public sealed partial class EnumClazz :  blueprint.Clazz
 
     public void Reload(EnumClazz reloadData)
     {
-        //Luban.Job.Common.Types.TList
-        Enums = reloadData.Enums;
+        if(Enums.Count<reloadData.Enums.Count)
+        {
+            Enums.AddRange(new List<blueprint.EnumField>(reloadData.Enums.Count-Enums.Count));
+        }else if(Enums.Count>reloadData.Enums.Count)
+        {
+            Enums.RemoveRange(reloadData.Enums.Count, Enums.Count-reloadData.Enums.Count);
+        }
+        for (int i = 0; i < reloadData.Enums.Count; i++)
+        {
+            Enums[i] = reloadData.Enums[i];
+        }
     }
 
     public override string ToString()

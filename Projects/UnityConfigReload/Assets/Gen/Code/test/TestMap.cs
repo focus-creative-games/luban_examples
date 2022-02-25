@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -53,16 +54,75 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
 
     public void Reload(TestMap reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TMap
-        X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TMap
-        X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TMap
-        X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TMap
-        X4 = reloadData.X4;
+        foreach (var rawDataKey in X1.Keys.ToList())
+        {
+            if(!reloadData.X1.ContainsKey(rawDataKey))
+            {
+                X1.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.X1)
+        {
+            if(X1.ContainsKey(reload.Key))
+            {
+                X1[reload.Key] = reload.Value;
+            }else
+            {
+                X1.Add(reload.Key,reload.Value);
+            }
+        }
+        foreach (var rawDataKey in X2.Keys.ToList())
+        {
+            if(!reloadData.X2.ContainsKey(rawDataKey))
+            {
+                X2.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.X2)
+        {
+            if(X2.ContainsKey(reload.Key))
+            {
+                X2[reload.Key] = reload.Value;
+            }else
+            {
+                X2.Add(reload.Key,reload.Value);
+            }
+        }
+        foreach (var rawDataKey in X3.Keys.ToList())
+        {
+            if(!reloadData.X3.ContainsKey(rawDataKey))
+            {
+                X3.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.X3)
+        {
+            if(X3.ContainsKey(reload.Key))
+            {
+                X3[reload.Key] = reload.Value;
+            }else
+            {
+                X3.Add(reload.Key,reload.Value);
+            }
+        }
+        foreach (var rawDataKey in X4.Keys.ToList())
+        {
+            if(!reloadData.X4.ContainsKey(rawDataKey))
+            {
+                X4.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.X4)
+        {
+            if(X4.ContainsKey(reload.Key))
+            {
+                X4[reload.Key] = reload.Value;
+            }else
+            {
+                X4.Add(reload.Key,reload.Value);
+            }
+        }
     }
 
     public override string ToString()

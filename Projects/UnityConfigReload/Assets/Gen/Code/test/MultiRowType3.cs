@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,10 +47,18 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
 
     public void Reload(MultiRowType3 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TList
-        Items = reloadData.Items;
+        if(Items.Count<reloadData.Items.Count)
+        {
+            Items.AddRange(new List<test.MultiRowType1>(reloadData.Items.Count-Items.Count));
+        }else if(Items.Count>reloadData.Items.Count)
+        {
+            Items.RemoveRange(reloadData.Items.Count, Items.Count-reloadData.Items.Count);
+        }
+        for (int i = 0; i < reloadData.Items.Count; i++)
+        {
+            Items[i] = reloadData.Items[i];
+        }
     }
 
     public override string ToString()

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,7 +48,6 @@ public abstract partial class DemoD3 :  test.DemoDynamic
 
     public void Reload(DemoD3 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X3 = reloadData.X3;
     }
 

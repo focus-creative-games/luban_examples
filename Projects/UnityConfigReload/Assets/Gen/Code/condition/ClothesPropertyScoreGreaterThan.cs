@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
 
     public void Reload(ClothesPropertyScoreGreaterThan reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         Prop = reloadData.Prop;
-        //Luban.Job.Common.Types.TInt
         Value = reloadData.Value;
     }
 

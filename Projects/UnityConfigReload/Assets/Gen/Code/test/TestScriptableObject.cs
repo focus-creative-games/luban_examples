@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -54,19 +55,12 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
 
     public void Reload(TestScriptableObject reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TFloat
         Rate = reloadData.Rate;
-        //Luban.Job.Common.Types.TInt
         Num = reloadData.Num;
-        //Luban.Job.Common.Types.TVector2
         V2 = reloadData.V2;
-        //Luban.Job.Common.Types.TVector3
         V3 = reloadData.V3;
-        //Luban.Job.Common.Types.TVector4
         V4 = reloadData.V4;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -55,15 +56,10 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
 
     public void Reload(BehaviorTree reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TString
         BlackboardId = reloadData.BlackboardId;
-        //Luban.Job.Common.Types.TBean
         Root = reloadData.Root;
     }
 

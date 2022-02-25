@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,7 +47,6 @@ public sealed partial class Dymmy :  item.ItemExtra
 
     public void Reload(Dymmy reloadData)
     {
-        //Luban.Job.Common.Types.TBean
         Cost = reloadData.Cost;
     }
 

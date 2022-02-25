@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -53,14 +54,20 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
 
     public void Reload(Blackboard reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TString
         ParentName = reloadData.ParentName;
-        //Luban.Job.Common.Types.TList
-        Keys = reloadData.Keys;
+        if(Keys.Count<reloadData.Keys.Count)
+        {
+            Keys.AddRange(new List<ai.BlackboardKey>(reloadData.Keys.Count-Keys.Count));
+        }else if(Keys.Count>reloadData.Keys.Count)
+        {
+            Keys.RemoveRange(reloadData.Keys.Count, Keys.Count-reloadData.Keys.Count);
+        }
+        for (int i = 0; i < reloadData.Keys.Count; i++)
+        {
+            Keys[i] = reloadData.Keys[i];
+        }
     }
 
     public override string ToString()

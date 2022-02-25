@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -55,9 +56,7 @@ public sealed partial class Rectangle :  test.Shape
 
     public void Reload(Rectangle reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         Width = reloadData.Width;
-        //Luban.Job.Common.Types.TFloat
         Height = reloadData.Height;
     }
 

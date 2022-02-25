@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -79,20 +80,43 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
 
     public void Reload(TestSep reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TText
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TBean
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TBean
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TList
-        X4 = reloadData.X4;
-        //Luban.Job.Common.Types.TList
-        X5 = reloadData.X5;
-        //Luban.Job.Common.Types.TList
-        X6 = reloadData.X6;
+        if(X4.Count<reloadData.X4.Count)
+        {
+            X4.AddRange(new List<test.SepVector>(reloadData.X4.Count-X4.Count));
+        }else if(X4.Count>reloadData.X4.Count)
+        {
+            X4.RemoveRange(reloadData.X4.Count, X4.Count-reloadData.X4.Count);
+        }
+        for (int i = 0; i < reloadData.X4.Count; i++)
+        {
+            X4[i] = reloadData.X4[i];
+        }
+        if(X5.Count<reloadData.X5.Count)
+        {
+            X5.AddRange(new List<test.SepBean1>(reloadData.X5.Count-X5.Count));
+        }else if(X5.Count>reloadData.X5.Count)
+        {
+            X5.RemoveRange(reloadData.X5.Count, X5.Count-reloadData.X5.Count);
+        }
+        for (int i = 0; i < reloadData.X5.Count; i++)
+        {
+            X5[i] = reloadData.X5[i];
+        }
+        if(X6.Count<reloadData.X6.Count)
+        {
+            X6.AddRange(new List<test.SepBean1>(reloadData.X6.Count-X6.Count));
+        }else if(X6.Count>reloadData.X6.Count)
+        {
+            X6.RemoveRange(reloadData.X6.Count, X6.Count-reloadData.X6.Count);
+        }
+        for (int i = 0; i < reloadData.X6.Count; i++)
+        {
+            X6[i] = reloadData.X6[i];
+        }
     }
 
     public override string ToString()

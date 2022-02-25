@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -54,13 +55,9 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
 
     public void Reload(TestMultiColumn reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TBean
         A = reloadData.A;
-        //Luban.Job.Common.Types.TBean
         B = reloadData.B;
-        //Luban.Job.Common.Types.TBean
         C = reloadData.C;
     }
 

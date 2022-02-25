@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,10 +47,18 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
 
     public void Reload(DistinctBonusInfos reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         EffectiveLevel = reloadData.EffectiveLevel;
-        //Luban.Job.Common.Types.TList
-        BonusInfo = reloadData.BonusInfo;
+        if(BonusInfo.Count<reloadData.BonusInfo.Count)
+        {
+            BonusInfo.AddRange(new List<role.BonusInfo>(reloadData.BonusInfo.Count-BonusInfo.Count));
+        }else if(BonusInfo.Count>reloadData.BonusInfo.Count)
+        {
+            BonusInfo.RemoveRange(reloadData.BonusInfo.Count, BonusInfo.Count-reloadData.BonusInfo.Count);
+        }
+        for (int i = 0; i < reloadData.BonusInfo.Count; i++)
+        {
+            BonusInfo[i] = reloadData.BonusInfo[i];
+        }
     }
 
     public override string ToString()

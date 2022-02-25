@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,7 +53,6 @@ public abstract partial class Decorator :  ai.Node
 
     public void Reload(Decorator reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         FlowAbortMode = reloadData.FlowAbortMode;
     }
 

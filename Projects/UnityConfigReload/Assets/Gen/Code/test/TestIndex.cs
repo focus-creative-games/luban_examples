@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,10 +47,18 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
 
     public void Reload(TestIndex reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TList
-        Eles = reloadData.Eles;
+        if(Eles.Count<reloadData.Eles.Count)
+        {
+            Eles.AddRange(new List<test.DemoType1>(reloadData.Eles.Count-Eles.Count));
+        }else if(Eles.Count>reloadData.Eles.Count)
+        {
+            Eles.RemoveRange(reloadData.Eles.Count, Eles.Count-reloadData.Eles.Count);
+        }
+        for (int i = 0; i < reloadData.Eles.Count; i++)
+        {
+            Eles[i] = reloadData.Eles[i];
+        }
     }
 
     public override string ToString()

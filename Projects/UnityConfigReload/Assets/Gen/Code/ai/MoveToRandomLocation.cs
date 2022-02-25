@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class MoveToRandomLocation :  ai.Task
 
     public void Reload(MoveToRandomLocation reloadData)
     {
-        //Luban.Job.Common.Types.TString
         OriginPositionKey = reloadData.OriginPositionKey;
-        //Luban.Job.Common.Types.TFloat
         Radius = reloadData.Radius;
     }
 

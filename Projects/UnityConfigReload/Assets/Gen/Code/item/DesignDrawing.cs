@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,8 +45,17 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 
     public void Reload(DesignDrawing reloadData)
     {
-        //Luban.Job.Common.Types.TList
-        LearnComponentId = reloadData.LearnComponentId;
+        if(LearnComponentId.Count<reloadData.LearnComponentId.Count)
+        {
+            LearnComponentId.AddRange(new List<int>(reloadData.LearnComponentId.Count-LearnComponentId.Count));
+        }else if(LearnComponentId.Count>reloadData.LearnComponentId.Count)
+        {
+            LearnComponentId.RemoveRange(reloadData.LearnComponentId.Count, LearnComponentId.Count-reloadData.LearnComponentId.Count);
+        }
+        for (int i = 0; i < reloadData.LearnComponentId.Count; i++)
+        {
+            LearnComponentId[i] = reloadData.LearnComponentId[i];
+        }
     }
 
     public override string ToString()

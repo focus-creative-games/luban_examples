@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,9 +49,7 @@ public sealed partial class CoefficientItem :  bonus.Bonus
 
     public void Reload(CoefficientItem reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         BonusId = reloadData.BonusId;
-        //Luban.Job.Common.Types.TBean
         BonusList = reloadData.BonusList;
     }
 

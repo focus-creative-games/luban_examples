@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
 
     public void Reload(EnumField reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TInt
         Value = reloadData.Value;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,11 +47,8 @@ public sealed partial class SepVector :  Bright.Config.BeanBase
 
     public void Reload(SepVector reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X = reloadData.X;
-        //Luban.Job.Common.Types.TInt
         Y = reloadData.Y;
-        //Luban.Job.Common.Types.TInt
         Z = reloadData.Z;
     }
 

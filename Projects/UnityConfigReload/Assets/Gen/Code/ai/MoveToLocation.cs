@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class MoveToLocation :  ai.Task
 
     public void Reload(MoveToLocation reloadData)
     {
-        //Luban.Job.Common.Types.TVector3
         Location = reloadData.Location;
-        //Luban.Job.Common.Types.TFloat
         AcceptableRadius = reloadData.AcceptableRadius;
     }
 

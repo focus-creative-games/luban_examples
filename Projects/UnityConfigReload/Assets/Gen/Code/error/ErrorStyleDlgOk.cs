@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
 
     public void Reload(ErrorStyleDlgOk reloadData)
     {
-        //Luban.Job.Common.Types.TString
         BtnName = reloadData.BtnName;
     }
 

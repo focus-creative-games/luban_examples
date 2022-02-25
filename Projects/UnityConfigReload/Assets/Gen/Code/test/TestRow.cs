@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,16 +53,21 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
 
     public void Reload(TestRow reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X = reloadData.X;
-        //Luban.Job.Common.Types.TBool
         Y = reloadData.Y;
-        //Luban.Job.Common.Types.TString
         Z = reloadData.Z;
-        //Luban.Job.Common.Types.TBean
         A = reloadData.A;
-        //Luban.Job.Common.Types.TList
-        B = reloadData.B;
+        if(B.Count<reloadData.B.Count)
+        {
+            B.AddRange(new List<int>(reloadData.B.Count-B.Count));
+        }else if(B.Count>reloadData.B.Count)
+        {
+            B.RemoveRange(reloadData.B.Count, B.Count-reloadData.B.Count);
+        }
+        for (int i = 0; i < reloadData.B.Count; i++)
+        {
+            B[i] = reloadData.B[i];
+        }
     }
 
     public override string ToString()

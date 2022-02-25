@@ -1,5 +1,6 @@
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace {{x.namespace_with_top_module}}
 {
@@ -67,6 +68,15 @@ public partial class {{name}}
     public void Reload(ByteBuf _buf)
     {
         var reloadMap = new {{name}}(_buf);
+        foreach (var rowDataKey in this._dataMap.Keys.ToList())
+        {
+            if(!reloadMap._dataMap.ContainsKey(rowDataKey))
+            {
+                this._dataList.Remove(this._dataMap[rowDataKey]);
+                this._dataMap.Remove(rowDataKey);
+            }
+        }
+
         foreach (var reloadData in reloadMap._dataMap)
         {
             if (this._dataMap.ContainsKey(reloadData.Key))
@@ -79,7 +89,6 @@ public partial class {{name}}
                 this._dataList.Add(reloadData.Value);
             }
         }
-
     }
         {{~else if x.is_list_table ~}}
     // is_list_table

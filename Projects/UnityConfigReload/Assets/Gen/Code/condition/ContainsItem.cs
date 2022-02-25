@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -51,11 +52,8 @@ public sealed partial class ContainsItem :  condition.RoleCondition
 
     public void Reload(ContainsItem reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         ItemId = reloadData.ItemId;
-        //Luban.Job.Common.Types.TInt
         Num = reloadData.Num;
-        //Luban.Job.Common.Types.TBool
         Reverse = reloadData.Reverse;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -56,14 +57,30 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
 
     public void Reload(Clazz reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TList
-        Parents = reloadData.Parents;
-        //Luban.Job.Common.Types.TList
-        Methods = reloadData.Methods;
+        if(Parents.Count<reloadData.Parents.Count)
+        {
+            Parents.AddRange(new List<blueprint.Clazz>(reloadData.Parents.Count-Parents.Count));
+        }else if(Parents.Count>reloadData.Parents.Count)
+        {
+            Parents.RemoveRange(reloadData.Parents.Count, Parents.Count-reloadData.Parents.Count);
+        }
+        for (int i = 0; i < reloadData.Parents.Count; i++)
+        {
+            Parents[i] = reloadData.Parents[i];
+        }
+        if(Methods.Count<reloadData.Methods.Count)
+        {
+            Methods.AddRange(new List<blueprint.Method>(reloadData.Methods.Count-Methods.Count));
+        }else if(Methods.Count>reloadData.Methods.Count)
+        {
+            Methods.RemoveRange(reloadData.Methods.Count, Methods.Count-reloadData.Methods.Count);
+        }
+        for (int i = 0; i < reloadData.Methods.Count; i++)
+        {
+            Methods[i] = reloadData.Methods[i];
+        }
     }
 
     public override string ToString()

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class Test3 :  Bright.Config.BeanBase
 
     public void Reload(Test3 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X = reloadData.X;
-        //Luban.Job.Common.Types.TInt
         Y = reloadData.Y;
     }
 

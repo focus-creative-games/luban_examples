@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,13 +53,19 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
 
     public void Reload(DropInfo reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TList
-        ClientShowItems = reloadData.ClientShowItems;
-        //Luban.Job.Common.Types.TBean
+        if(ClientShowItems.Count<reloadData.ClientShowItems.Count)
+        {
+            ClientShowItems.AddRange(new List<bonus.ShowItemInfo>(reloadData.ClientShowItems.Count-ClientShowItems.Count));
+        }else if(ClientShowItems.Count>reloadData.ClientShowItems.Count)
+        {
+            ClientShowItems.RemoveRange(reloadData.ClientShowItems.Count, ClientShowItems.Count-reloadData.ClientShowItems.Count);
+        }
+        for (int i = 0; i < reloadData.ClientShowItems.Count; i++)
+        {
+            ClientShowItems[i] = reloadData.ClientShowItems[i];
+        }
         Bonus = reloadData.Bonus;
     }
 

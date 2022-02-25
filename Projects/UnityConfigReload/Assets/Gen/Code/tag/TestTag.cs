@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class TestTag :  Bright.Config.BeanBase
 
     public void Reload(TestTag reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Value = reloadData.Value;
     }
 

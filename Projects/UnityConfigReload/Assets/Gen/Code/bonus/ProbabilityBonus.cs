@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,8 +47,7 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
 
     public void Reload(ProbabilityBonus reloadData)
     {
-        //Luban.Job.Common.Types.TArray
-        Bonuses = reloadData.Bonuses;
+        //array
     }
 
     public override string ToString()

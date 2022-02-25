@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -49,9 +50,7 @@ public sealed partial class Item :  bonus.Bonus
 
     public void Reload(Item reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         ItemId = reloadData.ItemId;
-        //Luban.Job.Common.Types.TInt
         Amount = reloadData.Amount;
     }
 

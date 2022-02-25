@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -70,24 +71,93 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
 
     public void Reload(MultiRowRecord reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TList
-        OneRows = reloadData.OneRows;
-        //Luban.Job.Common.Types.TList
-        MultiRows1 = reloadData.MultiRows1;
-        //Luban.Job.Common.Types.TArray
-        MultiRows2 = reloadData.MultiRows2;
-        //Luban.Job.Common.Types.TMap
-        MultiRows4 = reloadData.MultiRows4;
-        //Luban.Job.Common.Types.TList
-        MultiRows5 = reloadData.MultiRows5;
-        //Luban.Job.Common.Types.TMap
-        MultiRows6 = reloadData.MultiRows6;
-        //Luban.Job.Common.Types.TMap
-        MultiRows7 = reloadData.MultiRows7;
+        if(OneRows.Count<reloadData.OneRows.Count)
+        {
+            OneRows.AddRange(new List<test.MultiRowType1>(reloadData.OneRows.Count-OneRows.Count));
+        }else if(OneRows.Count>reloadData.OneRows.Count)
+        {
+            OneRows.RemoveRange(reloadData.OneRows.Count, OneRows.Count-reloadData.OneRows.Count);
+        }
+        for (int i = 0; i < reloadData.OneRows.Count; i++)
+        {
+            OneRows[i] = reloadData.OneRows[i];
+        }
+        if(MultiRows1.Count<reloadData.MultiRows1.Count)
+        {
+            MultiRows1.AddRange(new List<test.MultiRowType1>(reloadData.MultiRows1.Count-MultiRows1.Count));
+        }else if(MultiRows1.Count>reloadData.MultiRows1.Count)
+        {
+            MultiRows1.RemoveRange(reloadData.MultiRows1.Count, MultiRows1.Count-reloadData.MultiRows1.Count);
+        }
+        for (int i = 0; i < reloadData.MultiRows1.Count; i++)
+        {
+            MultiRows1[i] = reloadData.MultiRows1[i];
+        }
+        //array
+        foreach (var rawDataKey in MultiRows4.Keys.ToList())
+        {
+            if(!reloadData.MultiRows4.ContainsKey(rawDataKey))
+            {
+                MultiRows4.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.MultiRows4)
+        {
+            if(MultiRows4.ContainsKey(reload.Key))
+            {
+                MultiRows4[reload.Key] = reload.Value;
+            }else
+            {
+                MultiRows4.Add(reload.Key,reload.Value);
+            }
+        }
+        if(MultiRows5.Count<reloadData.MultiRows5.Count)
+        {
+            MultiRows5.AddRange(new List<test.MultiRowType3>(reloadData.MultiRows5.Count-MultiRows5.Count));
+        }else if(MultiRows5.Count>reloadData.MultiRows5.Count)
+        {
+            MultiRows5.RemoveRange(reloadData.MultiRows5.Count, MultiRows5.Count-reloadData.MultiRows5.Count);
+        }
+        for (int i = 0; i < reloadData.MultiRows5.Count; i++)
+        {
+            MultiRows5[i] = reloadData.MultiRows5[i];
+        }
+        foreach (var rawDataKey in MultiRows6.Keys.ToList())
+        {
+            if(!reloadData.MultiRows6.ContainsKey(rawDataKey))
+            {
+                MultiRows6.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.MultiRows6)
+        {
+            if(MultiRows6.ContainsKey(reload.Key))
+            {
+                MultiRows6[reload.Key] = reload.Value;
+            }else
+            {
+                MultiRows6.Add(reload.Key,reload.Value);
+            }
+        }
+        foreach (var rawDataKey in MultiRows7.Keys.ToList())
+        {
+            if(!reloadData.MultiRows7.ContainsKey(rawDataKey))
+            {
+                MultiRows7.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.MultiRows7)
+        {
+            if(MultiRows7.ContainsKey(reload.Key))
+            {
+                MultiRows7[reload.Key] = reload.Value;
+            }else
+            {
+                MultiRows7.Add(reload.Key,reload.Value);
+            }
+        }
     }
 
     public override string ToString()

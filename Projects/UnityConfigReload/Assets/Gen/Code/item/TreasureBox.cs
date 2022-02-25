@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -59,16 +60,31 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public void Reload(TreasureBox reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         KeyItemId = reloadData.KeyItemId;
-        //Luban.Job.Common.Types.TBean
         OpenLevel = reloadData.OpenLevel;
-        //Luban.Job.Common.Types.TBool
         UseOnObtain = reloadData.UseOnObtain;
-        //Luban.Job.Common.Types.TList
-        DropIds = reloadData.DropIds;
-        //Luban.Job.Common.Types.TList
-        ChooseList = reloadData.ChooseList;
+        if(DropIds.Count<reloadData.DropIds.Count)
+        {
+            DropIds.AddRange(new List<int>(reloadData.DropIds.Count-DropIds.Count));
+        }else if(DropIds.Count>reloadData.DropIds.Count)
+        {
+            DropIds.RemoveRange(reloadData.DropIds.Count, DropIds.Count-reloadData.DropIds.Count);
+        }
+        for (int i = 0; i < reloadData.DropIds.Count; i++)
+        {
+            DropIds[i] = reloadData.DropIds[i];
+        }
+        if(ChooseList.Count<reloadData.ChooseList.Count)
+        {
+            ChooseList.AddRange(new List<item.ChooseOneBonus>(reloadData.ChooseList.Count-ChooseList.Count));
+        }else if(ChooseList.Count>reloadData.ChooseList.Count)
+        {
+            ChooseList.RemoveRange(reloadData.ChooseList.Count, ChooseList.Count-reloadData.ChooseList.Count);
+        }
+        for (int i = 0; i < reloadData.ChooseList.Count; i++)
+        {
+            ChooseList[i] = reloadData.ChooseList[i];
+        }
     }
 
     public override string ToString()

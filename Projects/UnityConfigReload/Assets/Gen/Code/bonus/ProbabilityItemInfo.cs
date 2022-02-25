@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -49,11 +50,8 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
 
     public void Reload(ProbabilityItemInfo reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         ItemId = reloadData.ItemId;
-        //Luban.Job.Common.Types.TInt
         Num = reloadData.Num;
-        //Luban.Job.Common.Types.TFloat
         Probability = reloadData.Probability;
     }
 

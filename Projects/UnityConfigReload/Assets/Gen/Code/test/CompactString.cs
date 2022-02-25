@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,11 +47,8 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
 
     public void Reload(CompactString reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         S2 = reloadData.S2;
-        //Luban.Job.Common.Types.TString
         S3 = reloadData.S3;
     }
 

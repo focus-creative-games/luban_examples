@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -63,17 +64,11 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
 
     public void Reload(DemoGroup reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TInt
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TInt
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TInt
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TInt
         X4 = reloadData.X4;
-        //Luban.Job.Common.Types.TBean
         X5 = reloadData.X5;
     }
 

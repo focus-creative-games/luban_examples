@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class CompositeJsonTable1 :  Bright.Config.BeanBase
 
     public void Reload(CompositeJsonTable1 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         X = reloadData.X;
     }
 

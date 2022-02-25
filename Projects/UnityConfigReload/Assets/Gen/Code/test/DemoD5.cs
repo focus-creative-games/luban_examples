@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,7 +47,6 @@ public sealed partial class DemoD5 :  test.DemoDynamic
 
     public void Reload(DemoD5 reloadData)
     {
-        //Luban.Job.Common.Types.TBean
         Time = reloadData.Time;
     }
 

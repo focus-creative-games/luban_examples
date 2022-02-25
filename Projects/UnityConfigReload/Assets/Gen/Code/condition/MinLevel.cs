@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
 
     public void Reload(MinLevel reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Level = reloadData.Level;
     }
 

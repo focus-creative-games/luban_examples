@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class Decorator :  test.ItemBase
 
     public void Reload(Decorator reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Duration = reloadData.Duration;
     }
 

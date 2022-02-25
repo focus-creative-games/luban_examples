@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public void Reload(UeWaitBlackboardTime reloadData)
     {
-        //Luban.Job.Common.Types.TString
         BlackboardKey = reloadData.BlackboardKey;
     }
 

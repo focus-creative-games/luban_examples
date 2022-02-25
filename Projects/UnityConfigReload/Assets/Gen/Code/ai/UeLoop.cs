@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,11 +49,8 @@ public sealed partial class UeLoop :  ai.Decorator
 
     public void Reload(UeLoop reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         NumLoops = reloadData.NumLoops;
-        //Luban.Job.Common.Types.TBool
         InfiniteLoop = reloadData.InfiniteLoop;
-        //Luban.Job.Common.Types.TFloat
         InfiniteLoopTimeoutTime = reloadData.InfiniteLoopTimeoutTime;
     }
 

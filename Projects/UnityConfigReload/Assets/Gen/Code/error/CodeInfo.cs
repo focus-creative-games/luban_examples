@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,9 +45,7 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
 
     public void Reload(CodeInfo reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         Code = reloadData.Code;
-        //Luban.Job.Common.Types.TString
         Key = reloadData.Key;
     }
 

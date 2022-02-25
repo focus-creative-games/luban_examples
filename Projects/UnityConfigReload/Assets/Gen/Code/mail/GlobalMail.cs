@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -73,29 +74,37 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public void Reload(GlobalMail reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Title = reloadData.Title;
-        //Luban.Job.Common.Types.TString
         Sender = reloadData.Sender;
-        //Luban.Job.Common.Types.TString
         Content = reloadData.Content;
-        //Luban.Job.Common.Types.TList
-        Award = reloadData.Award;
-        //Luban.Job.Common.Types.TBool
+        if(Award.Count<reloadData.Award.Count)
+        {
+            Award.AddRange(new List<int>(reloadData.Award.Count-Award.Count));
+        }else if(Award.Count>reloadData.Award.Count)
+        {
+            Award.RemoveRange(reloadData.Award.Count, Award.Count-reloadData.Award.Count);
+        }
+        for (int i = 0; i < reloadData.Award.Count; i++)
+        {
+            Award[i] = reloadData.Award[i];
+        }
         AllServer = reloadData.AllServer;
-        //Luban.Job.Common.Types.TList
-        ServerList = reloadData.ServerList;
-        //Luban.Job.Common.Types.TString
+        if(ServerList.Count<reloadData.ServerList.Count)
+        {
+            ServerList.AddRange(new List<int>(reloadData.ServerList.Count-ServerList.Count));
+        }else if(ServerList.Count>reloadData.ServerList.Count)
+        {
+            ServerList.RemoveRange(reloadData.ServerList.Count, ServerList.Count-reloadData.ServerList.Count);
+        }
+        for (int i = 0; i < reloadData.ServerList.Count; i++)
+        {
+            ServerList[i] = reloadData.ServerList[i];
+        }
         Platform = reloadData.Platform;
-        //Luban.Job.Common.Types.TString
         Channel = reloadData.Channel;
-        //Luban.Job.Common.Types.TBean
         MinMaxLevel = reloadData.MinMaxLevel;
-        //Luban.Job.Common.Types.TBean
         RegisterTime = reloadData.RegisterTime;
-        //Luban.Job.Common.Types.TBean
         MailTime = reloadData.MailTime;
     }
 

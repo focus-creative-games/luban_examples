@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
 
     public void Reload(GenderLimit reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         Gender = reloadData.Gender;
     }
 

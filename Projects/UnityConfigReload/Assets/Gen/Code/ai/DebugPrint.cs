@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class DebugPrint :  ai.Task
 
     public void Reload(DebugPrint reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Text = reloadData.Text;
     }
 

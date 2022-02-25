@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -88,47 +89,26 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
 
     public void Reload(GlobalConfig reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         BagCapacity = reloadData.BagCapacity;
-        //Luban.Job.Common.Types.TInt
         BagCapacitySpecial = reloadData.BagCapacitySpecial;
-        //Luban.Job.Common.Types.TInt
         BagTempExpendableCapacity = reloadData.BagTempExpendableCapacity;
-        //Luban.Job.Common.Types.TInt
         BagTempToolCapacity = reloadData.BagTempToolCapacity;
-        //Luban.Job.Common.Types.TInt
         BagInitCapacity = reloadData.BagInitCapacity;
-        //Luban.Job.Common.Types.TInt
         QuickBagCapacity = reloadData.QuickBagCapacity;
-        //Luban.Job.Common.Types.TInt
         ClothBagCapacity = reloadData.ClothBagCapacity;
-        //Luban.Job.Common.Types.TInt
         ClothBagInitCapacity = reloadData.ClothBagInitCapacity;
-        //Luban.Job.Common.Types.TInt
         ClothBagCapacitySpecial = reloadData.ClothBagCapacitySpecial;
-        //Luban.Job.Common.Types.TInt
         BagInitItemsDropId = reloadData.BagInitItemsDropId;
-        //Luban.Job.Common.Types.TInt
         MailBoxCapacity = reloadData.MailBoxCapacity;
-        //Luban.Job.Common.Types.TFloat
         DamageParamC = reloadData.DamageParamC;
-        //Luban.Job.Common.Types.TFloat
         DamageParamE = reloadData.DamageParamE;
-        //Luban.Job.Common.Types.TFloat
         DamageParamF = reloadData.DamageParamF;
-        //Luban.Job.Common.Types.TFloat
         DamageParamD = reloadData.DamageParamD;
-        //Luban.Job.Common.Types.TFloat
         RoleSpeed = reloadData.RoleSpeed;
-        //Luban.Job.Common.Types.TFloat
         MonsterSpeed = reloadData.MonsterSpeed;
-        //Luban.Job.Common.Types.TInt
         InitEnergy = reloadData.InitEnergy;
-        //Luban.Job.Common.Types.TInt
         InitViality = reloadData.InitViality;
-        //Luban.Job.Common.Types.TInt
         MaxViality = reloadData.MaxViality;
-        //Luban.Job.Common.Types.TInt
         PerVialityRecoveryTime = reloadData.PerVialityRecoveryTime;
     }
 

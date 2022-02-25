@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,7 +48,6 @@ public sealed partial class CostOneItem :  cost.Cost
 
     public void Reload(CostOneItem reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         ItemId = reloadData.ItemId;
     }
 

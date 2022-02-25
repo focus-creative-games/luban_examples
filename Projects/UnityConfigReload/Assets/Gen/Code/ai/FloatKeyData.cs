@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class FloatKeyData :  ai.KeyData
 
     public void Reload(FloatKeyData reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         Value = reloadData.Value;
     }
 

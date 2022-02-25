@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -83,36 +84,47 @@ public sealed partial class DefineFromExcel :  Bright.Config.BeanBase
 
     public void Reload(DefineFromExcel reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TBool
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TLong
         X5 = reloadData.X5;
-        //Luban.Job.Common.Types.TFloat
         X6 = reloadData.X6;
-        //Luban.Job.Common.Types.TInt
         X8 = reloadData.X8;
-        //Luban.Job.Common.Types.TString
         X10 = reloadData.X10;
-        //Luban.Job.Common.Types.TEnum
         X13 = reloadData.X13;
-        //Luban.Job.Common.Types.TBean
         X14 = reloadData.X14;
-        //Luban.Job.Common.Types.TBean
         X15 = reloadData.X15;
-        //Luban.Job.Common.Types.TVector2
         V2 = reloadData.V2;
-        //Luban.Job.Common.Types.TDateTime
         T1 = reloadData.T1;
-        //Luban.Job.Common.Types.TArray
-        K1 = reloadData.K1;
-        //Luban.Job.Common.Types.TArray
-        K2 = reloadData.K2;
-        //Luban.Job.Common.Types.TMap
-        K8 = reloadData.K8;
-        //Luban.Job.Common.Types.TList
-        K9 = reloadData.K9;
+        //array
+        //array
+        foreach (var rawDataKey in K8.Keys.ToList())
+        {
+            if(!reloadData.K8.ContainsKey(rawDataKey))
+            {
+                K8.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.K8)
+        {
+            if(K8.ContainsKey(reload.Key))
+            {
+                K8[reload.Key] = reload.Value;
+            }else
+            {
+                K8.Add(reload.Key,reload.Value);
+            }
+        }
+        if(K9.Count<reloadData.K9.Count)
+        {
+            K9.AddRange(new List<test.DemoE2>(reloadData.K9.Count-K9.Count));
+        }else if(K9.Count>reloadData.K9.Count)
+        {
+            K9.RemoveRange(reloadData.K9.Count, K9.Count-reloadData.K9.Count);
+        }
+        for (int i = 0; i < reloadData.K9.Count; i++)
+        {
+            K9[i] = reloadData.K9[i];
+        }
     }
 
     public override string ToString()

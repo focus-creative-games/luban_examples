@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,10 +47,18 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
 
     public void Reload(LevelBonus reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TList
-        DistinctBonusInfos = reloadData.DistinctBonusInfos;
+        if(DistinctBonusInfos.Count<reloadData.DistinctBonusInfos.Count)
+        {
+            DistinctBonusInfos.AddRange(new List<role.DistinctBonusInfos>(reloadData.DistinctBonusInfos.Count-DistinctBonusInfos.Count));
+        }else if(DistinctBonusInfos.Count>reloadData.DistinctBonusInfos.Count)
+        {
+            DistinctBonusInfos.RemoveRange(reloadData.DistinctBonusInfos.Count, DistinctBonusInfos.Count-reloadData.DistinctBonusInfos.Count);
+        }
+        for (int i = 0; i < reloadData.DistinctBonusInfos.Count; i++)
+        {
+            DistinctBonusInfos[i] = reloadData.DistinctBonusInfos[i];
+        }
     }
 
     public override string ToString()

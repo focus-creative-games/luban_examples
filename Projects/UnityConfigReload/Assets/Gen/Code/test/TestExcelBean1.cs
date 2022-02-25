@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -63,13 +64,9 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
 
     public void Reload(TestExcelBean1 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TString
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TInt
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TFloat
         X4 = reloadData.X4;
     }
 

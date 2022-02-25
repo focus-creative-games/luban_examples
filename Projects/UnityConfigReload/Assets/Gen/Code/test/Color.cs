@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,13 +49,9 @@ public sealed partial class Color :  Bright.Config.BeanBase
 
     public void Reload(Color reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         R = reloadData.R;
-        //Luban.Job.Common.Types.TFloat
         G = reloadData.G;
-        //Luban.Job.Common.Types.TFloat
         B = reloadData.B;
-        //Luban.Job.Common.Types.TFloat
         A = reloadData.A;
     }
 

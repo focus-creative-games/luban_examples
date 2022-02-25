@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,9 +49,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
 
     public void Reload(BinaryOperator reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         Oper = reloadData.Oper;
-        //Luban.Job.Common.Types.TBean
         Data = reloadData.Data;
     }
 

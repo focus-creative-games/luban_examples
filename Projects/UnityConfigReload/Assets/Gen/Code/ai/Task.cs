@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -52,7 +53,6 @@ public abstract partial class Task :  ai.FlowNode
 
     public void Reload(Task reloadData)
     {
-        //Luban.Job.Common.Types.TBool
         IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
     }
 

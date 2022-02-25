@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,13 +51,9 @@ public sealed partial class Clothes :  item.ItemExtra
 
     public void Reload(Clothes reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Attack = reloadData.Attack;
-        //Luban.Job.Common.Types.TLong
         Hp = reloadData.Hp;
-        //Luban.Job.Common.Types.TInt
         EnergyLimit = reloadData.EnergyLimit;
-        //Luban.Job.Common.Types.TInt
         EnergyResume = reloadData.EnergyResume;
     }
 

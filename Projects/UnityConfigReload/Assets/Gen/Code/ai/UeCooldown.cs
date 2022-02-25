@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -44,7 +45,6 @@ public sealed partial class UeCooldown :  ai.Decorator
 
     public void Reload(UeCooldown reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         CooldownTime = reloadData.CooldownTime;
     }
 

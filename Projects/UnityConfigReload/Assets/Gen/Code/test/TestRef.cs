@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -105,43 +106,102 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
 
     public void Reload(TestRef reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TInt
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TInt
         X12 = reloadData.X12;
-        //Luban.Job.Common.Types.TInt
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TInt
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TArray
-        A1 = reloadData.A1;
-        //Luban.Job.Common.Types.TArray
-        A2 = reloadData.A2;
-        //Luban.Job.Common.Types.TList
-        B1 = reloadData.B1;
-        //Luban.Job.Common.Types.TList
-        B2 = reloadData.B2;
-        //Luban.Job.Common.Types.TSet
-        C1 = reloadData.C1;
-        //Luban.Job.Common.Types.TSet
-        C2 = reloadData.C2;
-        //Luban.Job.Common.Types.TMap
-        D1 = reloadData.D1;
-        //Luban.Job.Common.Types.TMap
-        D2 = reloadData.D2;
-        //Luban.Job.Common.Types.TInt
+        //array
+        //array
+        if(B1.Count<reloadData.B1.Count)
+        {
+            B1.AddRange(new List<int>(reloadData.B1.Count-B1.Count));
+        }else if(B1.Count>reloadData.B1.Count)
+        {
+            B1.RemoveRange(reloadData.B1.Count, B1.Count-reloadData.B1.Count);
+        }
+        for (int i = 0; i < reloadData.B1.Count; i++)
+        {
+            B1[i] = reloadData.B1[i];
+        }
+        if(B2.Count<reloadData.B2.Count)
+        {
+            B2.AddRange(new List<int>(reloadData.B2.Count-B2.Count));
+        }else if(B2.Count>reloadData.B2.Count)
+        {
+            B2.RemoveRange(reloadData.B2.Count, B2.Count-reloadData.B2.Count);
+        }
+        for (int i = 0; i < reloadData.B2.Count; i++)
+        {
+            B2[i] = reloadData.B2[i];
+        }
+        foreach (var setData in C1.ToList())
+        {
+            if(!reloadData.C1.Contains(setData))
+            {
+                C1.Remove(setData);
+            }
+        }
+        foreach (var setData in reloadData.C1)
+        {
+            if(!C1.Contains(setData))
+            {
+                C1.Add(setData);
+            }
+        }
+        foreach (var setData in C2.ToList())
+        {
+            if(!reloadData.C2.Contains(setData))
+            {
+                C2.Remove(setData);
+            }
+        }
+        foreach (var setData in reloadData.C2)
+        {
+            if(!C2.Contains(setData))
+            {
+                C2.Add(setData);
+            }
+        }
+        foreach (var rawDataKey in D1.Keys.ToList())
+        {
+            if(!reloadData.D1.ContainsKey(rawDataKey))
+            {
+                D1.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.D1)
+        {
+            if(D1.ContainsKey(reload.Key))
+            {
+                D1[reload.Key] = reload.Value;
+            }else
+            {
+                D1.Add(reload.Key,reload.Value);
+            }
+        }
+        foreach (var rawDataKey in D2.Keys.ToList())
+        {
+            if(!reloadData.D2.ContainsKey(rawDataKey))
+            {
+                D2.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.D2)
+        {
+            if(D2.ContainsKey(reload.Key))
+            {
+                D2[reload.Key] = reload.Value;
+            }else
+            {
+                D2.Add(reload.Key,reload.Value);
+            }
+        }
         E1 = reloadData.E1;
-        //Luban.Job.Common.Types.TLong
         E2 = reloadData.E2;
-        //Luban.Job.Common.Types.TString
         E3 = reloadData.E3;
-        //Luban.Job.Common.Types.TInt
         F1 = reloadData.F1;
-        //Luban.Job.Common.Types.TLong
         F2 = reloadData.F2;
-        //Luban.Job.Common.Types.TString
         F3 = reloadData.F3;
     }
 

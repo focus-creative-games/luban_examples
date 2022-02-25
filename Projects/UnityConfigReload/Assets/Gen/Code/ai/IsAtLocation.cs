@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,11 +49,8 @@ public sealed partial class IsAtLocation :  ai.Decorator
 
     public void Reload(IsAtLocation reloadData)
     {
-        //Luban.Job.Common.Types.TFloat
         AcceptableRadius = reloadData.AcceptableRadius;
-        //Luban.Job.Common.Types.TString
         KeyboardKey = reloadData.KeyboardKey;
-        //Luban.Job.Common.Types.TBool
         InverseCondition = reloadData.InverseCondition;
     }
 

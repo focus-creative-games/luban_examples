@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,7 +47,6 @@ public sealed partial class TimeRange :  condition.Condition
 
     public void Reload(TimeRange reloadData)
     {
-        //Luban.Job.Common.Types.TBean
         DateTimeRange = reloadData.DateTimeRange;
     }
 

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,11 +47,8 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
 
     public void Reload(ParamInfo reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Type = reloadData.Type;
-        //Luban.Job.Common.Types.TBool
         IsRef = reloadData.IsRef;
     }
 

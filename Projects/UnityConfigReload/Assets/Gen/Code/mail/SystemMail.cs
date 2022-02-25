@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -53,16 +54,21 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
 
     public void Reload(SystemMail reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         Title = reloadData.Title;
-        //Luban.Job.Common.Types.TString
         Sender = reloadData.Sender;
-        //Luban.Job.Common.Types.TString
         Content = reloadData.Content;
-        //Luban.Job.Common.Types.TList
-        Award = reloadData.Award;
+        if(Award.Count<reloadData.Award.Count)
+        {
+            Award.AddRange(new List<int>(reloadData.Award.Count-Award.Count));
+        }else if(Award.Count>reloadData.Award.Count)
+        {
+            Award.RemoveRange(reloadData.Award.Count, Award.Count-reloadData.Award.Count);
+        }
+        for (int i = 0; i < reloadData.Award.Count; i++)
+        {
+            Award[i] = reloadData.Award[i];
+        }
     }
 
     public override string ToString()

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,13 +49,9 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
 
     public void Reload(ItemFunction reloadData)
     {
-        //Luban.Job.Common.Types.TEnum
         MinorType = reloadData.MinorType;
-        //Luban.Job.Common.Types.TEnum
         FuncType = reloadData.FuncType;
-        //Luban.Job.Common.Types.TString
         Method = reloadData.Method;
-        //Luban.Job.Common.Types.TBool
         CloseBagUi = reloadData.CloseBagUi;
     }
 

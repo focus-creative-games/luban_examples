@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -47,8 +48,7 @@ public sealed partial class OneItems :  bonus.Bonus
 
     public void Reload(OneItems reloadData)
     {
-        //Luban.Job.Common.Types.TArray
-        Items = reloadData.Items;
+        //array
     }
 
     public override string ToString()

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -48,11 +49,8 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
 
     public void Reload(ErrorInfo reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Code = reloadData.Code;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TBean
         Style = reloadData.Style;
     }
 

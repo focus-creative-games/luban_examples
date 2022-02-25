@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,9 +47,7 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
 
     public void Reload(DateTimeRange reloadData)
     {
-        //Luban.Job.Common.Types.TDateTime
         StartTime = reloadData.StartTime;
-        //Luban.Job.Common.Types.TDateTime
         EndTime = reloadData.EndTime;
     }
 

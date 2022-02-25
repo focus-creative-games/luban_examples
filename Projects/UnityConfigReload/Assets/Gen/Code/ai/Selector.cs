@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,8 +47,17 @@ public sealed partial class Selector :  ai.ComposeNode
 
     public void Reload(Selector reloadData)
     {
-        //Luban.Job.Common.Types.TList
-        Children = reloadData.Children;
+        if(Children.Count<reloadData.Children.Count)
+        {
+            Children.AddRange(new List<ai.FlowNode>(reloadData.Children.Count-Children.Count));
+        }else if(Children.Count>reloadData.Children.Count)
+        {
+            Children.RemoveRange(reloadData.Children.Count, Children.Count-reloadData.Children.Count);
+        }
+        for (int i = 0; i < reloadData.Children.Count; i++)
+        {
+            Children[i] = reloadData.Children[i];
+        }
     }
 
     public override string ToString()

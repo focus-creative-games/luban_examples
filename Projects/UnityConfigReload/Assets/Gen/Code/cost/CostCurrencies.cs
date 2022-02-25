@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,8 +47,17 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public void Reload(CostCurrencies reloadData)
     {
-        //Luban.Job.Common.Types.TList
-        Currencies = reloadData.Currencies;
+        if(Currencies.Count<reloadData.Currencies.Count)
+        {
+            Currencies.AddRange(new List<cost.CostCurrency>(reloadData.Currencies.Count-Currencies.Count));
+        }else if(Currencies.Count>reloadData.Currencies.Count)
+        {
+            Currencies.RemoveRange(reloadData.Currencies.Count, Currencies.Count-reloadData.Currencies.Count);
+        }
+        for (int i = 0; i < reloadData.Currencies.Count; i++)
+        {
+            Currencies[i] = reloadData.Currencies[i];
+        }
     }
 
     public override string ToString()

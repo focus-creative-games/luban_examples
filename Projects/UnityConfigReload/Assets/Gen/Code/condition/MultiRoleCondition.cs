@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -46,8 +47,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public void Reload(MultiRoleCondition reloadData)
     {
-        //Luban.Job.Common.Types.TArray
-        Conditions = reloadData.Conditions;
+        //array
     }
 
     public override string ToString()

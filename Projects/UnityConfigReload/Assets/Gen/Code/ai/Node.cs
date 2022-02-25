@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -68,9 +69,7 @@ public abstract partial class Node :  Bright.Config.BeanBase
 
     public void Reload(Node reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id = reloadData.Id;
-        //Luban.Job.Common.Types.TString
         NodeName = reloadData.NodeName;
     }
 

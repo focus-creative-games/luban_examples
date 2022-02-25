@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -60,23 +61,14 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
 
     public void Reload(UpdateDailyBehaviorProps reloadData)
     {
-        //Luban.Job.Common.Types.TString
         SatietyKey = reloadData.SatietyKey;
-        //Luban.Job.Common.Types.TString
         EnergyKey = reloadData.EnergyKey;
-        //Luban.Job.Common.Types.TString
         MoodKey = reloadData.MoodKey;
-        //Luban.Job.Common.Types.TString
         SatietyLowerThresholdKey = reloadData.SatietyLowerThresholdKey;
-        //Luban.Job.Common.Types.TString
         SatietyUpperThresholdKey = reloadData.SatietyUpperThresholdKey;
-        //Luban.Job.Common.Types.TString
         EnergyLowerThresholdKey = reloadData.EnergyLowerThresholdKey;
-        //Luban.Job.Common.Types.TString
         EnergyUpperThresholdKey = reloadData.EnergyUpperThresholdKey;
-        //Luban.Job.Common.Types.TString
         MoodLowerThresholdKey = reloadData.MoodLowerThresholdKey;
-        //Luban.Job.Common.Types.TString
         MoodUpperThresholdKey = reloadData.MoodUpperThresholdKey;
     }
 

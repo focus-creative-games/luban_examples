@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -105,56 +106,80 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
 
     public void Reload(DemoType2 reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         X4 = reloadData.X4;
-        //Luban.Job.Common.Types.TBool
         X1 = reloadData.X1;
-        //Luban.Job.Common.Types.TByte
         X2 = reloadData.X2;
-        //Luban.Job.Common.Types.TShort
         X3 = reloadData.X3;
-        //Luban.Job.Common.Types.TLong
         X5 = reloadData.X5;
-        //Luban.Job.Common.Types.TFloat
         X6 = reloadData.X6;
-        //Luban.Job.Common.Types.TDouble
         X7 = reloadData.X7;
-        //Luban.Job.Common.Types.TFshort
         X80 = reloadData.X80;
-        //Luban.Job.Common.Types.TFint
         X8 = reloadData.X8;
-        //Luban.Job.Common.Types.TFlong
         X9 = reloadData.X9;
-        //Luban.Job.Common.Types.TString
         X10 = reloadData.X10;
-        //Luban.Job.Common.Types.TBean
         X12 = reloadData.X12;
-        //Luban.Job.Common.Types.TEnum
         X13 = reloadData.X13;
-        //Luban.Job.Common.Types.TBean
         X14 = reloadData.X14;
-        //Luban.Job.Common.Types.TText
         S1 = reloadData.S1;
-        //Luban.Job.Common.Types.TVector2
         V2 = reloadData.V2;
-        //Luban.Job.Common.Types.TVector3
         V3 = reloadData.V3;
-        //Luban.Job.Common.Types.TVector4
         V4 = reloadData.V4;
-        //Luban.Job.Common.Types.TDateTime
         T1 = reloadData.T1;
-        //Luban.Job.Common.Types.TArray
-        K1 = reloadData.K1;
-        //Luban.Job.Common.Types.TList
-        K2 = reloadData.K2;
-        //Luban.Job.Common.Types.TSet
-        K5 = reloadData.K5;
-        //Luban.Job.Common.Types.TMap
-        K8 = reloadData.K8;
-        //Luban.Job.Common.Types.TList
-        K9 = reloadData.K9;
-        //Luban.Job.Common.Types.TArray
-        K15 = reloadData.K15;
+        //array
+        if(K2.Count<reloadData.K2.Count)
+        {
+            K2.AddRange(new List<int>(reloadData.K2.Count-K2.Count));
+        }else if(K2.Count>reloadData.K2.Count)
+        {
+            K2.RemoveRange(reloadData.K2.Count, K2.Count-reloadData.K2.Count);
+        }
+        for (int i = 0; i < reloadData.K2.Count; i++)
+        {
+            K2[i] = reloadData.K2[i];
+        }
+        foreach (var setData in K5.ToList())
+        {
+            if(!reloadData.K5.Contains(setData))
+            {
+                K5.Remove(setData);
+            }
+        }
+        foreach (var setData in reloadData.K5)
+        {
+            if(!K5.Contains(setData))
+            {
+                K5.Add(setData);
+            }
+        }
+        foreach (var rawDataKey in K8.Keys.ToList())
+        {
+            if(!reloadData.K8.ContainsKey(rawDataKey))
+            {
+                K8.Remove(rawDataKey);
+            }
+        }
+        foreach (var reload in reloadData.K8)
+        {
+            if(K8.ContainsKey(reload.Key))
+            {
+                K8[reload.Key] = reload.Value;
+            }else
+            {
+                K8.Add(reload.Key,reload.Value);
+            }
+        }
+        if(K9.Count<reloadData.K9.Count)
+        {
+            K9.AddRange(new List<test.DemoE2>(reloadData.K9.Count-K9.Count));
+        }else if(K9.Count>reloadData.K9.Count)
+        {
+            K9.RemoveRange(reloadData.K9.Count, K9.Count-reloadData.K9.Count);
+        }
+        for (int i = 0; i < reloadData.K9.Count; i++)
+        {
+            K9[i] = reloadData.K9[i];
+        }
+        //array
     }
 
     public override string ToString()

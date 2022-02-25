@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,15 +51,10 @@ public sealed partial class MultiIndexList :  Bright.Config.BeanBase
 
     public void Reload(MultiIndexList reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         Id1 = reloadData.Id1;
-        //Luban.Job.Common.Types.TLong
         Id2 = reloadData.Id2;
-        //Luban.Job.Common.Types.TString
         Id3 = reloadData.Id3;
-        //Luban.Job.Common.Types.TInt
         Num = reloadData.Num;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
     }
 

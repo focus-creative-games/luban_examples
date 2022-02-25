@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -50,13 +51,9 @@ public sealed partial class DistanceLessThan :  ai.Decorator
 
     public void Reload(DistanceLessThan reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Actor1Key = reloadData.Actor1Key;
-        //Luban.Job.Common.Types.TString
         Actor2Key = reloadData.Actor2Key;
-        //Luban.Job.Common.Types.TFloat
         Distance = reloadData.Distance;
-        //Luban.Job.Common.Types.TBool
         ReverseResult = reloadData.ReverseResult;
     }
 

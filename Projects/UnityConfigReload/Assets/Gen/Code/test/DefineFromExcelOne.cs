@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -54,13 +55,9 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
 
     public void Reload(DefineFromExcelOne reloadData)
     {
-        //Luban.Job.Common.Types.TInt
         UnlockEquip = reloadData.UnlockEquip;
-        //Luban.Job.Common.Types.TInt
         UnlockHero = reloadData.UnlockHero;
-        //Luban.Job.Common.Types.TString
         DefaultAvatar = reloadData.DefaultAvatar;
-        //Luban.Job.Common.Types.TString
         DefaultItem = reloadData.DefaultItem;
     }
 

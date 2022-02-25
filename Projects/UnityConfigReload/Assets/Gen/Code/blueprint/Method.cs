@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -56,16 +57,21 @@ public abstract partial class Method :  Bright.Config.BeanBase
 
     public void Reload(Method reloadData)
     {
-        //Luban.Job.Common.Types.TString
         Name = reloadData.Name;
-        //Luban.Job.Common.Types.TString
         Desc = reloadData.Desc;
-        //Luban.Job.Common.Types.TBool
         IsStatic = reloadData.IsStatic;
-        //Luban.Job.Common.Types.TString
         ReturnType = reloadData.ReturnType;
-        //Luban.Job.Common.Types.TList
-        Parameters = reloadData.Parameters;
+        if(Parameters.Count<reloadData.Parameters.Count)
+        {
+            Parameters.AddRange(new List<blueprint.ParamInfo>(reloadData.Parameters.Count-Parameters.Count));
+        }else if(Parameters.Count>reloadData.Parameters.Count)
+        {
+            Parameters.RemoveRange(reloadData.Parameters.Count, Parameters.Count-reloadData.Parameters.Count);
+        }
+        for (int i = 0; i < reloadData.Parameters.Count; i++)
+        {
+            Parameters[i] = reloadData.Parameters[i];
+        }
     }
 
     public override string ToString()
