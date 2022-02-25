@@ -44,7 +44,8 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 
     public void Reload(DesignDrawing reloadData)
     {
-        typeof(DesignDrawing).GetProperty("LearnComponentId").SetValue(this, reloadData.LearnComponentId);
+        //Luban.Job.Common.Types.TList
+        LearnComponentId = reloadData.LearnComponentId;
     }
 
     public override string ToString()

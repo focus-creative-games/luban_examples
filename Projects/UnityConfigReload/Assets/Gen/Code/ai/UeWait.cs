@@ -46,8 +46,10 @@ public sealed partial class UeWait :  ai.Task
 
     public void Reload(UeWait reloadData)
     {
-        typeof(UeWait).GetProperty("WaitTime").SetValue(this, reloadData.WaitTime);
-        typeof(UeWait).GetProperty("RandomDeviation").SetValue(this, reloadData.RandomDeviation);
+        //Luban.Job.Common.Types.TFloat
+        WaitTime = reloadData.WaitTime;
+        //Luban.Job.Common.Types.TFloat
+        RandomDeviation = reloadData.RandomDeviation;
     }
 
     public override string ToString()

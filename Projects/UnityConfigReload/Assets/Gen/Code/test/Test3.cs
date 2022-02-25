@@ -44,8 +44,10 @@ public sealed partial class Test3 :  Bright.Config.BeanBase
 
     public void Reload(Test3 reloadData)
     {
-        typeof(Test3).GetProperty("X").SetValue(this, reloadData.X);
-        typeof(Test3).GetProperty("Y").SetValue(this, reloadData.Y);
+        //Luban.Job.Common.Types.TInt
+        X = reloadData.X;
+        //Luban.Job.Common.Types.TInt
+        Y = reloadData.Y;
     }
 
     public override string ToString()

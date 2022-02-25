@@ -48,9 +48,12 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
 
     public void Reload(ErrorInfo reloadData)
     {
-        typeof(ErrorInfo).GetProperty("Code").SetValue(this, reloadData.Code);
-        typeof(ErrorInfo).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(ErrorInfo).GetProperty("Style").SetValue(this, reloadData.Style);
+        //Luban.Job.Common.Types.TString
+        Code = reloadData.Code;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TBean
+        Style = reloadData.Style;
     }
 
     public override string ToString()

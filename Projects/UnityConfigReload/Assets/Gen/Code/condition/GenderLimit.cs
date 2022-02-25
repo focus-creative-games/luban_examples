@@ -44,7 +44,8 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
 
     public void Reload(GenderLimit reloadData)
     {
-        typeof(GenderLimit).GetProperty("Gender").SetValue(this, reloadData.Gender);
+        //Luban.Job.Common.Types.TEnum
+        Gender = reloadData.Gender;
     }
 
     public override string ToString()

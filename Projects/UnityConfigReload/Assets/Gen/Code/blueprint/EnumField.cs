@@ -44,8 +44,10 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
 
     public void Reload(EnumField reloadData)
     {
-        typeof(EnumField).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(EnumField).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TInt
+        Value = reloadData.Value;
     }
 
     public override string ToString()

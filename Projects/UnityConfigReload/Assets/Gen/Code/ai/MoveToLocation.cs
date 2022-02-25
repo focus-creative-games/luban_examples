@@ -46,8 +46,10 @@ public sealed partial class MoveToLocation :  ai.Task
 
     public void Reload(MoveToLocation reloadData)
     {
-        typeof(MoveToLocation).GetProperty("Location").SetValue(this, reloadData.Location);
-        typeof(MoveToLocation).GetProperty("AcceptableRadius").SetValue(this, reloadData.AcceptableRadius);
+        //Luban.Job.Common.Types.TVector3
+        Location = reloadData.Location;
+        //Luban.Job.Common.Types.TFloat
+        AcceptableRadius = reloadData.AcceptableRadius;
     }
 
     public override string ToString()

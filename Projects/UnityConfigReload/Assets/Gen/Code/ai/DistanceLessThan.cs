@@ -50,10 +50,14 @@ public sealed partial class DistanceLessThan :  ai.Decorator
 
     public void Reload(DistanceLessThan reloadData)
     {
-        typeof(DistanceLessThan).GetProperty("Actor1Key").SetValue(this, reloadData.Actor1Key);
-        typeof(DistanceLessThan).GetProperty("Actor2Key").SetValue(this, reloadData.Actor2Key);
-        typeof(DistanceLessThan).GetProperty("Distance").SetValue(this, reloadData.Distance);
-        typeof(DistanceLessThan).GetProperty("ReverseResult").SetValue(this, reloadData.ReverseResult);
+        //Luban.Job.Common.Types.TString
+        Actor1Key = reloadData.Actor1Key;
+        //Luban.Job.Common.Types.TString
+        Actor2Key = reloadData.Actor2Key;
+        //Luban.Job.Common.Types.TFloat
+        Distance = reloadData.Distance;
+        //Luban.Job.Common.Types.TBool
+        ReverseResult = reloadData.ReverseResult;
     }
 
     public override string ToString()

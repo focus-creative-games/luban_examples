@@ -61,8 +61,10 @@ public abstract partial class FlowNode :  ai.Node
 
     public void Reload(FlowNode reloadData)
     {
-        typeof(FlowNode).GetProperty("Decorators").SetValue(this, reloadData.Decorators);
-        typeof(FlowNode).GetProperty("Services").SetValue(this, reloadData.Services);
+        //Luban.Job.Common.Types.TList
+        Decorators = reloadData.Decorators;
+        //Luban.Job.Common.Types.TList
+        Services = reloadData.Services;
     }
 
     public override string ToString()

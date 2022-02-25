@@ -52,12 +52,18 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
 
     public void Reload(TestSet reloadData)
     {
-        typeof(TestSet).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestSet).GetProperty("X0").SetValue(this, reloadData.X0);
-        typeof(TestSet).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(TestSet).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(TestSet).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(TestSet).GetProperty("X4").SetValue(this, reloadData.X4);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        X0 = reloadData.X0;
+        //Luban.Job.Common.Types.TList
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TList
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TList
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TList
+        X4 = reloadData.X4;
     }
 
     public override string ToString()

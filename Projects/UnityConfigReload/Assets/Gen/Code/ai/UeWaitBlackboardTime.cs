@@ -44,7 +44,8 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public void Reload(UeWaitBlackboardTime reloadData)
     {
-        typeof(UeWaitBlackboardTime).GetProperty("BlackboardKey").SetValue(this, reloadData.BlackboardKey);
+        //Luban.Job.Common.Types.TString
+        BlackboardKey = reloadData.BlackboardKey;
     }
 
     public override string ToString()

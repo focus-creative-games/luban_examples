@@ -46,7 +46,8 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public void Reload(CostCurrencies reloadData)
     {
-        typeof(CostCurrencies).GetProperty("Currencies").SetValue(this, reloadData.Currencies);
+        //Luban.Job.Common.Types.TList
+        Currencies = reloadData.Currencies;
     }
 
     public override string ToString()

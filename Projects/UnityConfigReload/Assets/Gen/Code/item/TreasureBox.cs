@@ -59,11 +59,16 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public void Reload(TreasureBox reloadData)
     {
-        typeof(TreasureBox).GetProperty("KeyItemId").SetValue(this, reloadData.KeyItemId);
-        typeof(TreasureBox).GetProperty("OpenLevel").SetValue(this, reloadData.OpenLevel);
-        typeof(TreasureBox).GetProperty("UseOnObtain").SetValue(this, reloadData.UseOnObtain);
-        typeof(TreasureBox).GetProperty("DropIds").SetValue(this, reloadData.DropIds);
-        typeof(TreasureBox).GetProperty("ChooseList").SetValue(this, reloadData.ChooseList);
+        //Luban.Job.Common.Types.TInt
+        KeyItemId = reloadData.KeyItemId;
+        //Luban.Job.Common.Types.TBean
+        OpenLevel = reloadData.OpenLevel;
+        //Luban.Job.Common.Types.TBool
+        UseOnObtain = reloadData.UseOnObtain;
+        //Luban.Job.Common.Types.TList
+        DropIds = reloadData.DropIds;
+        //Luban.Job.Common.Types.TList
+        ChooseList = reloadData.ChooseList;
     }
 
     public override string ToString()

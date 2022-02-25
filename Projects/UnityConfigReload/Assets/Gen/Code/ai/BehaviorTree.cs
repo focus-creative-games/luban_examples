@@ -55,11 +55,16 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
 
     public void Reload(BehaviorTree reloadData)
     {
-        typeof(BehaviorTree).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(BehaviorTree).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(BehaviorTree).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(BehaviorTree).GetProperty("BlackboardId").SetValue(this, reloadData.BlackboardId);
-        typeof(BehaviorTree).GetProperty("Root").SetValue(this, reloadData.Root);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TString
+        BlackboardId = reloadData.BlackboardId;
+        //Luban.Job.Common.Types.TBean
+        Root = reloadData.Root;
     }
 
     public override string ToString()

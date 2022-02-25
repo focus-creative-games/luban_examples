@@ -46,9 +46,12 @@ public sealed partial class SepVector :  Bright.Config.BeanBase
 
     public void Reload(SepVector reloadData)
     {
-        typeof(SepVector).GetProperty("X").SetValue(this, reloadData.X);
-        typeof(SepVector).GetProperty("Y").SetValue(this, reloadData.Y);
-        typeof(SepVector).GetProperty("Z").SetValue(this, reloadData.Z);
+        //Luban.Job.Common.Types.TInt
+        X = reloadData.X;
+        //Luban.Job.Common.Types.TInt
+        Y = reloadData.Y;
+        //Luban.Job.Common.Types.TInt
+        Z = reloadData.Z;
     }
 
     public override string ToString()

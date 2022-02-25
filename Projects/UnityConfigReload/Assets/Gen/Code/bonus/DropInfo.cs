@@ -52,10 +52,14 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
 
     public void Reload(DropInfo reloadData)
     {
-        typeof(DropInfo).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(DropInfo).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(DropInfo).GetProperty("ClientShowItems").SetValue(this, reloadData.ClientShowItems);
-        typeof(DropInfo).GetProperty("Bonus").SetValue(this, reloadData.Bonus);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TList
+        ClientShowItems = reloadData.ClientShowItems;
+        //Luban.Job.Common.Types.TBean
+        Bonus = reloadData.Bonus;
     }
 
     public override string ToString()

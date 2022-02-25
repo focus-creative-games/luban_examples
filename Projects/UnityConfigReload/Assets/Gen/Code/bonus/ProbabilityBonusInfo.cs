@@ -46,8 +46,10 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(ProbabilityBonusInfo reloadData)
     {
-        typeof(ProbabilityBonusInfo).GetProperty("Bonus").SetValue(this, reloadData.Bonus);
-        typeof(ProbabilityBonusInfo).GetProperty("Probability").SetValue(this, reloadData.Probability);
+        //Luban.Job.Common.Types.TBean
+        Bonus = reloadData.Bonus;
+        //Luban.Job.Common.Types.TFloat
+        Probability = reloadData.Probability;
     }
 
     public override string ToString()

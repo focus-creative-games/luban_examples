@@ -46,9 +46,12 @@ public sealed partial class CompactString :  Bright.Config.BeanBase
 
     public void Reload(CompactString reloadData)
     {
-        typeof(CompactString).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(CompactString).GetProperty("S2").SetValue(this, reloadData.S2);
-        typeof(CompactString).GetProperty("S3").SetValue(this, reloadData.S3);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        S2 = reloadData.S2;
+        //Luban.Job.Common.Types.TString
+        S3 = reloadData.S3;
     }
 
     public override string ToString()

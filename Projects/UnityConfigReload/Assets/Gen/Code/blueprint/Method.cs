@@ -56,11 +56,16 @@ public abstract partial class Method :  Bright.Config.BeanBase
 
     public void Reload(Method reloadData)
     {
-        typeof(Method).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(Method).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(Method).GetProperty("IsStatic").SetValue(this, reloadData.IsStatic);
-        typeof(Method).GetProperty("ReturnType").SetValue(this, reloadData.ReturnType);
-        typeof(Method).GetProperty("Parameters").SetValue(this, reloadData.Parameters);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TBool
+        IsStatic = reloadData.IsStatic;
+        //Luban.Job.Common.Types.TString
+        ReturnType = reloadData.ReturnType;
+        //Luban.Job.Common.Types.TList
+        Parameters = reloadData.Parameters;
     }
 
     public override string ToString()

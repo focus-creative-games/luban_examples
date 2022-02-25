@@ -44,8 +44,10 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
 
     public void Reload(BonusInfo reloadData)
     {
-        typeof(BonusInfo).GetProperty("Type").SetValue(this, reloadData.Type);
-        typeof(BonusInfo).GetProperty("Coefficient").SetValue(this, reloadData.Coefficient);
+        //Luban.Job.Common.Types.TEnum
+        Type = reloadData.Type;
+        //Luban.Job.Common.Types.TFloat
+        Coefficient = reloadData.Coefficient;
     }
 
     public override string ToString()

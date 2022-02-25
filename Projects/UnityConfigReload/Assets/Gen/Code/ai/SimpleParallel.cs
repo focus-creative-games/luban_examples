@@ -52,9 +52,12 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public void Reload(SimpleParallel reloadData)
     {
-        typeof(SimpleParallel).GetProperty("FinishMode").SetValue(this, reloadData.FinishMode);
-        typeof(SimpleParallel).GetProperty("MainTask").SetValue(this, reloadData.MainTask);
-        typeof(SimpleParallel).GetProperty("BackgroundNode").SetValue(this, reloadData.BackgroundNode);
+        //Luban.Job.Common.Types.TEnum
+        FinishMode = reloadData.FinishMode;
+        //Luban.Job.Common.Types.TBean
+        MainTask = reloadData.MainTask;
+        //Luban.Job.Common.Types.TBean
+        BackgroundNode = reloadData.BackgroundNode;
     }
 
     public override string ToString()

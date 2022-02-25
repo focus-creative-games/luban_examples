@@ -48,9 +48,12 @@ public sealed partial class IsAtLocation :  ai.Decorator
 
     public void Reload(IsAtLocation reloadData)
     {
-        typeof(IsAtLocation).GetProperty("AcceptableRadius").SetValue(this, reloadData.AcceptableRadius);
-        typeof(IsAtLocation).GetProperty("KeyboardKey").SetValue(this, reloadData.KeyboardKey);
-        typeof(IsAtLocation).GetProperty("InverseCondition").SetValue(this, reloadData.InverseCondition);
+        //Luban.Job.Common.Types.TFloat
+        AcceptableRadius = reloadData.AcceptableRadius;
+        //Luban.Job.Common.Types.TString
+        KeyboardKey = reloadData.KeyboardKey;
+        //Luban.Job.Common.Types.TBool
+        InverseCondition = reloadData.InverseCondition;
     }
 
     public override string ToString()

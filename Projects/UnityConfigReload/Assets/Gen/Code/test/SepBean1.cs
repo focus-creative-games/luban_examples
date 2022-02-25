@@ -46,9 +46,12 @@ public sealed partial class SepBean1 :  Bright.Config.BeanBase
 
     public void Reload(SepBean1 reloadData)
     {
-        typeof(SepBean1).GetProperty("A").SetValue(this, reloadData.A);
-        typeof(SepBean1).GetProperty("B").SetValue(this, reloadData.B);
-        typeof(SepBean1).GetProperty("C").SetValue(this, reloadData.C);
+        //Luban.Job.Common.Types.TInt
+        A = reloadData.A;
+        //Luban.Job.Common.Types.TInt
+        B = reloadData.B;
+        //Luban.Job.Common.Types.TString
+        C = reloadData.C;
     }
 
     public override string ToString()

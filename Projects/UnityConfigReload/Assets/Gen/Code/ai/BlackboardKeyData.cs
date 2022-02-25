@@ -44,7 +44,8 @@ public sealed partial class BlackboardKeyData :  ai.KeyData
 
     public void Reload(BlackboardKeyData reloadData)
     {
-        typeof(BlackboardKeyData).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TString
+        Value = reloadData.Value;
     }
 
     public override string ToString()

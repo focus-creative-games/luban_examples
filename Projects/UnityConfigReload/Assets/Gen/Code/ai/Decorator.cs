@@ -52,7 +52,8 @@ public abstract partial class Decorator :  ai.Node
 
     public void Reload(Decorator reloadData)
     {
-        typeof(Decorator).GetProperty("FlowAbortMode").SetValue(this, reloadData.FlowAbortMode);
+        //Luban.Job.Common.Types.TEnum
+        FlowAbortMode = reloadData.FlowAbortMode;
     }
 
     public override string ToString()

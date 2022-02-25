@@ -42,7 +42,8 @@ public sealed partial class DemoType1 :  Bright.Config.BeanBase
 
     public void Reload(DemoType1 reloadData)
     {
-        typeof(DemoType1).GetProperty("X1").SetValue(this, reloadData.X1);
+        //Luban.Job.Common.Types.TInt
+        X1 = reloadData.X1;
     }
 
     public override string ToString()

@@ -44,7 +44,8 @@ public sealed partial class KeepFaceTarget :  ai.Service
 
     public void Reload(KeepFaceTarget reloadData)
     {
-        typeof(KeepFaceTarget).GetProperty("TargetActorKey").SetValue(this, reloadData.TargetActorKey);
+        //Luban.Job.Common.Types.TString
+        TargetActorKey = reloadData.TargetActorKey;
     }
 
     public override string ToString()

@@ -46,8 +46,10 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
 
     public void Reload(DistinctBonusInfos reloadData)
     {
-        typeof(DistinctBonusInfos).GetProperty("EffectiveLevel").SetValue(this, reloadData.EffectiveLevel);
-        typeof(DistinctBonusInfos).GetProperty("BonusInfo").SetValue(this, reloadData.BonusInfo);
+        //Luban.Job.Common.Types.TInt
+        EffectiveLevel = reloadData.EffectiveLevel;
+        //Luban.Job.Common.Types.TList
+        BonusInfo = reloadData.BonusInfo;
     }
 
     public override string ToString()

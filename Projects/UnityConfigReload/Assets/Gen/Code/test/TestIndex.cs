@@ -46,8 +46,10 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
 
     public void Reload(TestIndex reloadData)
     {
-        typeof(TestIndex).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestIndex).GetProperty("Eles").SetValue(this, reloadData.Eles);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TList
+        Eles = reloadData.Eles;
     }
 
     public override string ToString()

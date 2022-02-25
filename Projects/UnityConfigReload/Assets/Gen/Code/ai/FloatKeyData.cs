@@ -44,7 +44,8 @@ public sealed partial class FloatKeyData :  ai.KeyData
 
     public void Reload(FloatKeyData reloadData)
     {
-        typeof(FloatKeyData).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TFloat
+        Value = reloadData.Value;
     }
 
     public override string ToString()

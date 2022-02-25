@@ -55,8 +55,10 @@ public sealed partial class Rectangle :  test.Shape
 
     public void Reload(Rectangle reloadData)
     {
-        typeof(Rectangle).GetProperty("Width").SetValue(this, reloadData.Width);
-        typeof(Rectangle).GetProperty("Height").SetValue(this, reloadData.Height);
+        //Luban.Job.Common.Types.TFloat
+        Width = reloadData.Width;
+        //Luban.Job.Common.Types.TFloat
+        Height = reloadData.Height;
     }
 
     public override string ToString()

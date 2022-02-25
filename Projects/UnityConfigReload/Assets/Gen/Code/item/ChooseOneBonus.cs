@@ -47,8 +47,10 @@ public sealed partial class ChooseOneBonus :  Bright.Config.BeanBase
 
     public void Reload(ChooseOneBonus reloadData)
     {
-        typeof(ChooseOneBonus).GetProperty("DropId").SetValue(this, reloadData.DropId);
-        typeof(ChooseOneBonus).GetProperty("IsUnique").SetValue(this, reloadData.IsUnique);
+        //Luban.Job.Common.Types.TInt
+        DropId = reloadData.DropId;
+        //Luban.Job.Common.Types.TBool
+        IsUnique = reloadData.IsUnique;
     }
 
     public override string ToString()

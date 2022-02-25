@@ -60,15 +60,24 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
 
     public void Reload(UpdateDailyBehaviorProps reloadData)
     {
-        typeof(UpdateDailyBehaviorProps).GetProperty("SatietyKey").SetValue(this, reloadData.SatietyKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("EnergyKey").SetValue(this, reloadData.EnergyKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("MoodKey").SetValue(this, reloadData.MoodKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("SatietyLowerThresholdKey").SetValue(this, reloadData.SatietyLowerThresholdKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("SatietyUpperThresholdKey").SetValue(this, reloadData.SatietyUpperThresholdKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("EnergyLowerThresholdKey").SetValue(this, reloadData.EnergyLowerThresholdKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("EnergyUpperThresholdKey").SetValue(this, reloadData.EnergyUpperThresholdKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("MoodLowerThresholdKey").SetValue(this, reloadData.MoodLowerThresholdKey);
-        typeof(UpdateDailyBehaviorProps).GetProperty("MoodUpperThresholdKey").SetValue(this, reloadData.MoodUpperThresholdKey);
+        //Luban.Job.Common.Types.TString
+        SatietyKey = reloadData.SatietyKey;
+        //Luban.Job.Common.Types.TString
+        EnergyKey = reloadData.EnergyKey;
+        //Luban.Job.Common.Types.TString
+        MoodKey = reloadData.MoodKey;
+        //Luban.Job.Common.Types.TString
+        SatietyLowerThresholdKey = reloadData.SatietyLowerThresholdKey;
+        //Luban.Job.Common.Types.TString
+        SatietyUpperThresholdKey = reloadData.SatietyUpperThresholdKey;
+        //Luban.Job.Common.Types.TString
+        EnergyLowerThresholdKey = reloadData.EnergyLowerThresholdKey;
+        //Luban.Job.Common.Types.TString
+        EnergyUpperThresholdKey = reloadData.EnergyUpperThresholdKey;
+        //Luban.Job.Common.Types.TString
+        MoodLowerThresholdKey = reloadData.MoodLowerThresholdKey;
+        //Luban.Job.Common.Types.TString
+        MoodUpperThresholdKey = reloadData.MoodUpperThresholdKey;
     }
 
     public override string ToString()

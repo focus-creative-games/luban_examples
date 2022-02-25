@@ -53,11 +53,16 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
 
     public void Reload(SystemMail reloadData)
     {
-        typeof(SystemMail).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(SystemMail).GetProperty("Title").SetValue(this, reloadData.Title);
-        typeof(SystemMail).GetProperty("Sender").SetValue(this, reloadData.Sender);
-        typeof(SystemMail).GetProperty("Content").SetValue(this, reloadData.Content);
-        typeof(SystemMail).GetProperty("Award").SetValue(this, reloadData.Award);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Title = reloadData.Title;
+        //Luban.Job.Common.Types.TString
+        Sender = reloadData.Sender;
+        //Luban.Job.Common.Types.TString
+        Content = reloadData.Content;
+        //Luban.Job.Common.Types.TList
+        Award = reloadData.Award;
     }
 
     public override string ToString()

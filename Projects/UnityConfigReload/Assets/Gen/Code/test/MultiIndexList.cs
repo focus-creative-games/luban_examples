@@ -50,11 +50,16 @@ public sealed partial class MultiIndexList :  Bright.Config.BeanBase
 
     public void Reload(MultiIndexList reloadData)
     {
-        typeof(MultiIndexList).GetProperty("Id1").SetValue(this, reloadData.Id1);
-        typeof(MultiIndexList).GetProperty("Id2").SetValue(this, reloadData.Id2);
-        typeof(MultiIndexList).GetProperty("Id3").SetValue(this, reloadData.Id3);
-        typeof(MultiIndexList).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(MultiIndexList).GetProperty("Desc").SetValue(this, reloadData.Desc);
+        //Luban.Job.Common.Types.TInt
+        Id1 = reloadData.Id1;
+        //Luban.Job.Common.Types.TLong
+        Id2 = reloadData.Id2;
+        //Luban.Job.Common.Types.TString
+        Id3 = reloadData.Id3;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
     }
 
     public override string ToString()

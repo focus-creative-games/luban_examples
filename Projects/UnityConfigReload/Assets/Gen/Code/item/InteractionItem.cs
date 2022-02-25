@@ -48,9 +48,12 @@ public sealed partial class InteractionItem :  item.ItemExtra
 
     public void Reload(InteractionItem reloadData)
     {
-        typeof(InteractionItem).GetProperty("AttackNum").SetValue(this, reloadData.AttackNum);
-        typeof(InteractionItem).GetProperty("HoldingStaticMesh").SetValue(this, reloadData.HoldingStaticMesh);
-        typeof(InteractionItem).GetProperty("HoldingStaticMeshMat").SetValue(this, reloadData.HoldingStaticMeshMat);
+        //Luban.Job.Common.Types.TInt
+        AttackNum = reloadData.AttackNum;
+        //Luban.Job.Common.Types.TString
+        HoldingStaticMesh = reloadData.HoldingStaticMesh;
+        //Luban.Job.Common.Types.TString
+        HoldingStaticMeshMat = reloadData.HoldingStaticMeshMat;
     }
 
     public override string ToString()

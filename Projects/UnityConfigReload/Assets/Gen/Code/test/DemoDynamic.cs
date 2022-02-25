@@ -47,7 +47,8 @@ public abstract partial class DemoDynamic :  Bright.Config.BeanBase
 
     public void Reload(DemoDynamic reloadData)
     {
-        typeof(DemoDynamic).GetProperty("X1").SetValue(this, reloadData.X1);
+        //Luban.Job.Common.Types.TInt
+        X1 = reloadData.X1;
     }
 
     public override string ToString()

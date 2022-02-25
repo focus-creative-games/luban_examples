@@ -53,11 +53,16 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
 
     public void Reload(TestMap reloadData)
     {
-        typeof(TestMap).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestMap).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(TestMap).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(TestMap).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(TestMap).GetProperty("X4").SetValue(this, reloadData.X4);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TMap
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TMap
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TMap
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TMap
+        X4 = reloadData.X4;
     }
 
     public override string ToString()

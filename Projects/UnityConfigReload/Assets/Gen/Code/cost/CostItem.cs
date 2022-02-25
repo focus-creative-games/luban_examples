@@ -49,8 +49,10 @@ public sealed partial class CostItem :  cost.Cost
 
     public void Reload(CostItem reloadData)
     {
-        typeof(CostItem).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
-        typeof(CostItem).GetProperty("Amount").SetValue(this, reloadData.Amount);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
+        //Luban.Job.Common.Types.TInt
+        Amount = reloadData.Amount;
     }
 
     public override string ToString()

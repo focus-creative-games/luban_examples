@@ -47,8 +47,10 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
 
     public void Reload(L10NDemo reloadData)
     {
-        typeof(L10NDemo).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(L10NDemo).GetProperty("Text").SetValue(this, reloadData.Text);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TText
+        Text = reloadData.Text;
     }
 
     public override string ToString()

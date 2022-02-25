@@ -47,8 +47,10 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
 
     public void Reload(ShowItemInfo reloadData)
     {
-        typeof(ShowItemInfo).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
-        typeof(ShowItemInfo).GetProperty("ItemNum").SetValue(this, reloadData.ItemNum);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
+        //Luban.Job.Common.Types.TLong
+        ItemNum = reloadData.ItemNum;
     }
 
     public override string ToString()

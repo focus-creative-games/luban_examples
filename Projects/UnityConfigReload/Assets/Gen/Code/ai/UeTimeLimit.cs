@@ -44,7 +44,8 @@ public sealed partial class UeTimeLimit :  ai.Decorator
 
     public void Reload(UeTimeLimit reloadData)
     {
-        typeof(UeTimeLimit).GetProperty("LimitTime").SetValue(this, reloadData.LimitTime);
+        //Luban.Job.Common.Types.TFloat
+        LimitTime = reloadData.LimitTime;
     }
 
     public override string ToString()

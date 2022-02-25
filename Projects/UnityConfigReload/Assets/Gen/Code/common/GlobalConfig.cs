@@ -88,27 +88,48 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
 
     public void Reload(GlobalConfig reloadData)
     {
-        typeof(GlobalConfig).GetProperty("BagCapacity").SetValue(this, reloadData.BagCapacity);
-        typeof(GlobalConfig).GetProperty("BagCapacitySpecial").SetValue(this, reloadData.BagCapacitySpecial);
-        typeof(GlobalConfig).GetProperty("BagTempExpendableCapacity").SetValue(this, reloadData.BagTempExpendableCapacity);
-        typeof(GlobalConfig).GetProperty("BagTempToolCapacity").SetValue(this, reloadData.BagTempToolCapacity);
-        typeof(GlobalConfig).GetProperty("BagInitCapacity").SetValue(this, reloadData.BagInitCapacity);
-        typeof(GlobalConfig).GetProperty("QuickBagCapacity").SetValue(this, reloadData.QuickBagCapacity);
-        typeof(GlobalConfig).GetProperty("ClothBagCapacity").SetValue(this, reloadData.ClothBagCapacity);
-        typeof(GlobalConfig).GetProperty("ClothBagInitCapacity").SetValue(this, reloadData.ClothBagInitCapacity);
-        typeof(GlobalConfig).GetProperty("ClothBagCapacitySpecial").SetValue(this, reloadData.ClothBagCapacitySpecial);
-        typeof(GlobalConfig).GetProperty("BagInitItemsDropId").SetValue(this, reloadData.BagInitItemsDropId);
-        typeof(GlobalConfig).GetProperty("MailBoxCapacity").SetValue(this, reloadData.MailBoxCapacity);
-        typeof(GlobalConfig).GetProperty("DamageParamC").SetValue(this, reloadData.DamageParamC);
-        typeof(GlobalConfig).GetProperty("DamageParamE").SetValue(this, reloadData.DamageParamE);
-        typeof(GlobalConfig).GetProperty("DamageParamF").SetValue(this, reloadData.DamageParamF);
-        typeof(GlobalConfig).GetProperty("DamageParamD").SetValue(this, reloadData.DamageParamD);
-        typeof(GlobalConfig).GetProperty("RoleSpeed").SetValue(this, reloadData.RoleSpeed);
-        typeof(GlobalConfig).GetProperty("MonsterSpeed").SetValue(this, reloadData.MonsterSpeed);
-        typeof(GlobalConfig).GetProperty("InitEnergy").SetValue(this, reloadData.InitEnergy);
-        typeof(GlobalConfig).GetProperty("InitViality").SetValue(this, reloadData.InitViality);
-        typeof(GlobalConfig).GetProperty("MaxViality").SetValue(this, reloadData.MaxViality);
-        typeof(GlobalConfig).GetProperty("PerVialityRecoveryTime").SetValue(this, reloadData.PerVialityRecoveryTime);
+        //Luban.Job.Common.Types.TInt
+        BagCapacity = reloadData.BagCapacity;
+        //Luban.Job.Common.Types.TInt
+        BagCapacitySpecial = reloadData.BagCapacitySpecial;
+        //Luban.Job.Common.Types.TInt
+        BagTempExpendableCapacity = reloadData.BagTempExpendableCapacity;
+        //Luban.Job.Common.Types.TInt
+        BagTempToolCapacity = reloadData.BagTempToolCapacity;
+        //Luban.Job.Common.Types.TInt
+        BagInitCapacity = reloadData.BagInitCapacity;
+        //Luban.Job.Common.Types.TInt
+        QuickBagCapacity = reloadData.QuickBagCapacity;
+        //Luban.Job.Common.Types.TInt
+        ClothBagCapacity = reloadData.ClothBagCapacity;
+        //Luban.Job.Common.Types.TInt
+        ClothBagInitCapacity = reloadData.ClothBagInitCapacity;
+        //Luban.Job.Common.Types.TInt
+        ClothBagCapacitySpecial = reloadData.ClothBagCapacitySpecial;
+        //Luban.Job.Common.Types.TInt
+        BagInitItemsDropId = reloadData.BagInitItemsDropId;
+        //Luban.Job.Common.Types.TInt
+        MailBoxCapacity = reloadData.MailBoxCapacity;
+        //Luban.Job.Common.Types.TFloat
+        DamageParamC = reloadData.DamageParamC;
+        //Luban.Job.Common.Types.TFloat
+        DamageParamE = reloadData.DamageParamE;
+        //Luban.Job.Common.Types.TFloat
+        DamageParamF = reloadData.DamageParamF;
+        //Luban.Job.Common.Types.TFloat
+        DamageParamD = reloadData.DamageParamD;
+        //Luban.Job.Common.Types.TFloat
+        RoleSpeed = reloadData.RoleSpeed;
+        //Luban.Job.Common.Types.TFloat
+        MonsterSpeed = reloadData.MonsterSpeed;
+        //Luban.Job.Common.Types.TInt
+        InitEnergy = reloadData.InitEnergy;
+        //Luban.Job.Common.Types.TInt
+        InitViality = reloadData.InitViality;
+        //Luban.Job.Common.Types.TInt
+        MaxViality = reloadData.MaxViality;
+        //Luban.Job.Common.Types.TInt
+        PerVialityRecoveryTime = reloadData.PerVialityRecoveryTime;
     }
 
     public override string ToString()

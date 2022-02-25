@@ -44,7 +44,8 @@ public sealed partial class DemoE1 :  test.DemoD3
 
     public void Reload(DemoE1 reloadData)
     {
-        typeof(DemoE1).GetProperty("X4").SetValue(this, reloadData.X4);
+        //Luban.Job.Common.Types.TInt
+        X4 = reloadData.X4;
     }
 
     public override string ToString()

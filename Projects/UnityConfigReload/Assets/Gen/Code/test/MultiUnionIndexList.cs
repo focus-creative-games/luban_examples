@@ -50,11 +50,16 @@ public sealed partial class MultiUnionIndexList :  Bright.Config.BeanBase
 
     public void Reload(MultiUnionIndexList reloadData)
     {
-        typeof(MultiUnionIndexList).GetProperty("Id1").SetValue(this, reloadData.Id1);
-        typeof(MultiUnionIndexList).GetProperty("Id2").SetValue(this, reloadData.Id2);
-        typeof(MultiUnionIndexList).GetProperty("Id3").SetValue(this, reloadData.Id3);
-        typeof(MultiUnionIndexList).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(MultiUnionIndexList).GetProperty("Desc").SetValue(this, reloadData.Desc);
+        //Luban.Job.Common.Types.TInt
+        Id1 = reloadData.Id1;
+        //Luban.Job.Common.Types.TLong
+        Id2 = reloadData.Id2;
+        //Luban.Job.Common.Types.TString
+        Id3 = reloadData.Id3;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
     }
 
     public override string ToString()

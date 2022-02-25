@@ -48,9 +48,12 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
 
     public void Reload(TestExternalType reloadData)
     {
-        typeof(TestExternalType).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestExternalType).GetProperty("AudioType").SetValue(this, reloadData.AudioType);
-        typeof(TestExternalType).GetProperty("Color").SetValue(this, reloadData.Color);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TEnum
+        AudioType = reloadData.AudioType;
+        //Luban.Job.Common.Types.TBean
+        Color = reloadData.Color;
     }
 
     public override string ToString()

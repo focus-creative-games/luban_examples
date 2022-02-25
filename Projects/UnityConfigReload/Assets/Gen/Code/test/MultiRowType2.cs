@@ -46,9 +46,12 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
 
     public void Reload(MultiRowType2 reloadData)
     {
-        typeof(MultiRowType2).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(MultiRowType2).GetProperty("X").SetValue(this, reloadData.X);
-        typeof(MultiRowType2).GetProperty("Y").SetValue(this, reloadData.Y);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        X = reloadData.X;
+        //Luban.Job.Common.Types.TFloat
+        Y = reloadData.Y;
     }
 
     public override string ToString()

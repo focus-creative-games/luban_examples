@@ -46,7 +46,8 @@ public sealed partial class CostItems :  cost.Cost
 
     public void Reload(CostItems reloadData)
     {
-        typeof(CostItems).GetProperty("ItemList").SetValue(this, reloadData.ItemList);
+        //Luban.Job.Common.Types.TArray
+        ItemList = reloadData.ItemList;
     }
 
     public override string ToString()

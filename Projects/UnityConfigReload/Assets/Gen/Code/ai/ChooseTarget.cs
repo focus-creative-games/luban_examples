@@ -44,7 +44,8 @@ public sealed partial class ChooseTarget :  ai.Service
 
     public void Reload(ChooseTarget reloadData)
     {
-        typeof(ChooseTarget).GetProperty("ResultTargetKey").SetValue(this, reloadData.ResultTargetKey);
+        //Luban.Job.Common.Types.TString
+        ResultTargetKey = reloadData.ResultTargetKey;
     }
 
     public override string ToString()

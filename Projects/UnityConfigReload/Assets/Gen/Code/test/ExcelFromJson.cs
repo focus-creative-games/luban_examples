@@ -86,23 +86,40 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
 
     public void Reload(ExcelFromJson reloadData)
     {
-        typeof(ExcelFromJson).GetProperty("X4").SetValue(this, reloadData.X4);
-        typeof(ExcelFromJson).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(ExcelFromJson).GetProperty("X5").SetValue(this, reloadData.X5);
-        typeof(ExcelFromJson).GetProperty("X6").SetValue(this, reloadData.X6);
-        typeof(ExcelFromJson).GetProperty("S1").SetValue(this, reloadData.S1);
-        typeof(ExcelFromJson).GetProperty("S2").SetValue(this, reloadData.S2);
-        typeof(ExcelFromJson).GetProperty("V2").SetValue(this, reloadData.V2);
-        typeof(ExcelFromJson).GetProperty("V3").SetValue(this, reloadData.V3);
-        typeof(ExcelFromJson).GetProperty("V4").SetValue(this, reloadData.V4);
-        typeof(ExcelFromJson).GetProperty("T1").SetValue(this, reloadData.T1);
-        typeof(ExcelFromJson).GetProperty("X12").SetValue(this, reloadData.X12);
-        typeof(ExcelFromJson).GetProperty("X13").SetValue(this, reloadData.X13);
-        typeof(ExcelFromJson).GetProperty("X14").SetValue(this, reloadData.X14);
-        typeof(ExcelFromJson).GetProperty("K1").SetValue(this, reloadData.K1);
-        typeof(ExcelFromJson).GetProperty("K8").SetValue(this, reloadData.K8);
-        typeof(ExcelFromJson).GetProperty("K9").SetValue(this, reloadData.K9);
-        typeof(ExcelFromJson).GetProperty("K15").SetValue(this, reloadData.K15);
+        //Luban.Job.Common.Types.TInt
+        X4 = reloadData.X4;
+        //Luban.Job.Common.Types.TBool
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TLong
+        X5 = reloadData.X5;
+        //Luban.Job.Common.Types.TFloat
+        X6 = reloadData.X6;
+        //Luban.Job.Common.Types.TString
+        S1 = reloadData.S1;
+        //Luban.Job.Common.Types.TText
+        S2 = reloadData.S2;
+        //Luban.Job.Common.Types.TVector2
+        V2 = reloadData.V2;
+        //Luban.Job.Common.Types.TVector3
+        V3 = reloadData.V3;
+        //Luban.Job.Common.Types.TVector4
+        V4 = reloadData.V4;
+        //Luban.Job.Common.Types.TDateTime
+        T1 = reloadData.T1;
+        //Luban.Job.Common.Types.TBean
+        X12 = reloadData.X12;
+        //Luban.Job.Common.Types.TEnum
+        X13 = reloadData.X13;
+        //Luban.Job.Common.Types.TBean
+        X14 = reloadData.X14;
+        //Luban.Job.Common.Types.TArray
+        K1 = reloadData.K1;
+        //Luban.Job.Common.Types.TMap
+        K8 = reloadData.K8;
+        //Luban.Job.Common.Types.TList
+        K9 = reloadData.K9;
+        //Luban.Job.Common.Types.TArray
+        K15 = reloadData.K15;
     }
 
     public override string ToString()

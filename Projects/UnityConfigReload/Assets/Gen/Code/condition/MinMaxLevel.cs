@@ -46,8 +46,10 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
 
     public void Reload(MinMaxLevel reloadData)
     {
-        typeof(MinMaxLevel).GetProperty("Min").SetValue(this, reloadData.Min);
-        typeof(MinMaxLevel).GetProperty("Max").SetValue(this, reloadData.Max);
+        //Luban.Job.Common.Types.TInt
+        Min = reloadData.Min;
+        //Luban.Job.Common.Types.TInt
+        Max = reloadData.Max;
     }
 
     public override string ToString()

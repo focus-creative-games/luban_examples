@@ -44,8 +44,10 @@ public sealed partial class DemoE2 :  Bright.Config.BeanBase
 
     public void Reload(DemoE2 reloadData)
     {
-        typeof(DemoE2).GetProperty("Y1").SetValue(this, reloadData.Y1);
-        typeof(DemoE2).GetProperty("Y2").SetValue(this, reloadData.Y2);
+        //Luban.Job.Common.Types.TInt
+        Y1 = reloadData.Y1;
+        //Luban.Job.Common.Types.TBool
+        Y2 = reloadData.Y2;
     }
 
     public override string ToString()

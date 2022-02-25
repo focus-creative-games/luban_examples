@@ -44,7 +44,8 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
 
     public void Reload(MaxLevel reloadData)
     {
-        typeof(MaxLevel).GetProperty("Level").SetValue(this, reloadData.Level);
+        //Luban.Job.Common.Types.TInt
+        Level = reloadData.Level;
     }
 
     public override string ToString()

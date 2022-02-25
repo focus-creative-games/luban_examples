@@ -44,8 +44,10 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
 
     public void Reload(PatchDemo reloadData)
     {
-        typeof(PatchDemo).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(PatchDemo).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        Value = reloadData.Value;
     }
 
     public override string ToString()

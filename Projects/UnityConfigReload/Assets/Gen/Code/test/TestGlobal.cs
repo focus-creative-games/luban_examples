@@ -44,8 +44,10 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
 
     public void Reload(TestGlobal reloadData)
     {
-        typeof(TestGlobal).GetProperty("UnlockEquip").SetValue(this, reloadData.UnlockEquip);
-        typeof(TestGlobal).GetProperty("UnlockHero").SetValue(this, reloadData.UnlockHero);
+        //Luban.Job.Common.Types.TInt
+        UnlockEquip = reloadData.UnlockEquip;
+        //Luban.Job.Common.Types.TInt
+        UnlockHero = reloadData.UnlockHero;
     }
 
     public override string ToString()

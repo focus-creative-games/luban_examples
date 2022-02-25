@@ -63,12 +63,18 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
 
     public void Reload(DemoGroup reloadData)
     {
-        typeof(DemoGroup).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(DemoGroup).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(DemoGroup).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(DemoGroup).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(DemoGroup).GetProperty("X4").SetValue(this, reloadData.X4);
-        typeof(DemoGroup).GetProperty("X5").SetValue(this, reloadData.X5);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TInt
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TInt
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TInt
+        X4 = reloadData.X4;
+        //Luban.Job.Common.Types.TBean
+        X5 = reloadData.X5;
     }
 
     public override string ToString()

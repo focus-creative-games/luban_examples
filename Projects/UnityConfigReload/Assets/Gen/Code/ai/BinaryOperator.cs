@@ -48,8 +48,10 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
 
     public void Reload(BinaryOperator reloadData)
     {
-        typeof(BinaryOperator).GetProperty("Oper").SetValue(this, reloadData.Oper);
-        typeof(BinaryOperator).GetProperty("Data").SetValue(this, reloadData.Data);
+        //Luban.Job.Common.Types.TEnum
+        Oper = reloadData.Oper;
+        //Luban.Job.Common.Types.TBean
+        Data = reloadData.Data;
     }
 
     public override string ToString()

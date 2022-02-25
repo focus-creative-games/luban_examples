@@ -46,8 +46,10 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
 
     public void Reload(LevelBonus reloadData)
     {
-        typeof(LevelBonus).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(LevelBonus).GetProperty("DistinctBonusInfos").SetValue(this, reloadData.DistinctBonusInfos);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TList
+        DistinctBonusInfos = reloadData.DistinctBonusInfos;
     }
 
     public override string ToString()

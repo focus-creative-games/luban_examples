@@ -48,9 +48,12 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
 
     public void Reload(ExcelFromJsonMultiRow reloadData)
     {
-        typeof(ExcelFromJsonMultiRow).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(ExcelFromJsonMultiRow).GetProperty("X").SetValue(this, reloadData.X);
-        typeof(ExcelFromJsonMultiRow).GetProperty("Items").SetValue(this, reloadData.Items);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        X = reloadData.X;
+        //Luban.Job.Common.Types.TList
+        Items = reloadData.Items;
     }
 
     public override string ToString()

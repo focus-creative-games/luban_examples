@@ -46,8 +46,10 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(WeightBonusInfo reloadData)
     {
-        typeof(WeightBonusInfo).GetProperty("Bonus").SetValue(this, reloadData.Bonus);
-        typeof(WeightBonusInfo).GetProperty("Weight").SetValue(this, reloadData.Weight);
+        //Luban.Job.Common.Types.TBean
+        Bonus = reloadData.Bonus;
+        //Luban.Job.Common.Types.TInt
+        Weight = reloadData.Weight;
     }
 
     public override string ToString()

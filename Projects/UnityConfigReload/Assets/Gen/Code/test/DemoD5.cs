@@ -46,7 +46,8 @@ public sealed partial class DemoD5 :  test.DemoDynamic
 
     public void Reload(DemoD5 reloadData)
     {
-        typeof(DemoD5).GetProperty("Time").SetValue(this, reloadData.Time);
+        //Luban.Job.Common.Types.TBean
+        Time = reloadData.Time;
     }
 
     public override string ToString()

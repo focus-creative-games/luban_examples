@@ -51,9 +51,12 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
 
     public void Reload(DemoSingletonType reloadData)
     {
-        typeof(DemoSingletonType).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(DemoSingletonType).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(DemoSingletonType).GetProperty("Date").SetValue(this, reloadData.Date);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TText
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TBean
+        Date = reloadData.Date;
     }
 
     public override string ToString()

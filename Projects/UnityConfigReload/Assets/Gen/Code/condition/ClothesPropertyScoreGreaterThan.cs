@@ -46,8 +46,10 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
 
     public void Reload(ClothesPropertyScoreGreaterThan reloadData)
     {
-        typeof(ClothesPropertyScoreGreaterThan).GetProperty("Prop").SetValue(this, reloadData.Prop);
-        typeof(ClothesPropertyScoreGreaterThan).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TEnum
+        Prop = reloadData.Prop;
+        //Luban.Job.Common.Types.TInt
+        Value = reloadData.Value;
     }
 
     public override string ToString()

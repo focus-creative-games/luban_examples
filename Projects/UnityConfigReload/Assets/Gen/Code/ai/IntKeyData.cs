@@ -44,7 +44,8 @@ public sealed partial class IntKeyData :  ai.KeyData
 
     public void Reload(IntKeyData reloadData)
     {
-        typeof(IntKeyData).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TInt
+        Value = reloadData.Value;
     }
 
     public override string ToString()

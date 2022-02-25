@@ -46,8 +46,10 @@ public sealed partial class ChooseSkill :  ai.Task
 
     public void Reload(ChooseSkill reloadData)
     {
-        typeof(ChooseSkill).GetProperty("TargetActorKey").SetValue(this, reloadData.TargetActorKey);
-        typeof(ChooseSkill).GetProperty("ResultSkillIdKey").SetValue(this, reloadData.ResultSkillIdKey);
+        //Luban.Job.Common.Types.TString
+        TargetActorKey = reloadData.TargetActorKey;
+        //Luban.Job.Common.Types.TString
+        ResultSkillIdKey = reloadData.ResultSkillIdKey;
     }
 
     public override string ToString()

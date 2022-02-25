@@ -46,8 +46,10 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
 
     public void Reload(ErrorStyleMsgbox reloadData)
     {
-        typeof(ErrorStyleMsgbox).GetProperty("BtnName").SetValue(this, reloadData.BtnName);
-        typeof(ErrorStyleMsgbox).GetProperty("Operation").SetValue(this, reloadData.Operation);
+        //Luban.Job.Common.Types.TString
+        BtnName = reloadData.BtnName;
+        //Luban.Job.Common.Types.TEnum
+        Operation = reloadData.Operation;
     }
 
     public override string ToString()

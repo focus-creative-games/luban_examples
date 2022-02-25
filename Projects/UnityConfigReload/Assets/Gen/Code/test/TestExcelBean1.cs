@@ -63,10 +63,14 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
 
     public void Reload(TestExcelBean1 reloadData)
     {
-        typeof(TestExcelBean1).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(TestExcelBean1).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(TestExcelBean1).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(TestExcelBean1).GetProperty("X4").SetValue(this, reloadData.X4);
+        //Luban.Job.Common.Types.TInt
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TString
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TInt
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TFloat
+        X4 = reloadData.X4;
     }
 
     public override string ToString()

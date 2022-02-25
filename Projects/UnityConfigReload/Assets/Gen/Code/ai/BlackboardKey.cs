@@ -50,11 +50,16 @@ public sealed partial class BlackboardKey :  Bright.Config.BeanBase
 
     public void Reload(BlackboardKey reloadData)
     {
-        typeof(BlackboardKey).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(BlackboardKey).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(BlackboardKey).GetProperty("IsStatic").SetValue(this, reloadData.IsStatic);
-        typeof(BlackboardKey).GetProperty("Type").SetValue(this, reloadData.Type);
-        typeof(BlackboardKey).GetProperty("TypeClassName").SetValue(this, reloadData.TypeClassName);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TBool
+        IsStatic = reloadData.IsStatic;
+        //Luban.Job.Common.Types.TEnum
+        Type = reloadData.Type;
+        //Luban.Job.Common.Types.TString
+        TypeClassName = reloadData.TypeClassName;
     }
 
     public override string ToString()

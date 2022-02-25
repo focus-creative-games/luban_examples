@@ -46,8 +46,10 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
 
     public void Reload(ErrorStyleDlgOkCancel reloadData)
     {
-        typeof(ErrorStyleDlgOkCancel).GetProperty("Btn1Name").SetValue(this, reloadData.Btn1Name);
-        typeof(ErrorStyleDlgOkCancel).GetProperty("Btn2Name").SetValue(this, reloadData.Btn2Name);
+        //Luban.Job.Common.Types.TString
+        Btn1Name = reloadData.Btn1Name;
+        //Luban.Job.Common.Types.TString
+        Btn2Name = reloadData.Btn2Name;
     }
 
     public override string ToString()

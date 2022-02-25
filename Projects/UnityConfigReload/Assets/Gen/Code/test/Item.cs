@@ -46,8 +46,10 @@ public sealed partial class Item :  test.ItemBase
 
     public void Reload(Item reloadData)
     {
-        typeof(Item).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(Item).GetProperty("Price").SetValue(this, reloadData.Price);
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TInt
+        Price = reloadData.Price;
     }
 
     public override string ToString()

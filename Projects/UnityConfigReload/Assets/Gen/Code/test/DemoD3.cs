@@ -47,7 +47,8 @@ public abstract partial class DemoD3 :  test.DemoDynamic
 
     public void Reload(DemoD3 reloadData)
     {
-        typeof(DemoD3).GetProperty("X3").SetValue(this, reloadData.X3);
+        //Luban.Job.Common.Types.TInt
+        X3 = reloadData.X3;
     }
 
     public override string ToString()

@@ -44,7 +44,8 @@ public sealed partial class StringKeyData :  ai.KeyData
 
     public void Reload(StringKeyData reloadData)
     {
-        typeof(StringKeyData).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TString
+        Value = reloadData.Value;
     }
 
     public override string ToString()

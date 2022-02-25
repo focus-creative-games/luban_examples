@@ -47,7 +47,8 @@ public sealed partial class CostOneItem :  cost.Cost
 
     public void Reload(CostOneItem reloadData)
     {
-        typeof(CostOneItem).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
     }
 
     public override string ToString()

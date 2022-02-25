@@ -46,7 +46,8 @@ public sealed partial class TimeRange :  condition.Condition
 
     public void Reload(TimeRange reloadData)
     {
-        typeof(TimeRange).GetProperty("DateTimeRange").SetValue(this, reloadData.DateTimeRange);
+        //Luban.Job.Common.Types.TBean
+        DateTimeRange = reloadData.DateTimeRange;
     }
 
     public override string ToString()

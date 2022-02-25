@@ -73,18 +73,30 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
 
     public void Reload(GlobalMail reloadData)
     {
-        typeof(GlobalMail).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(GlobalMail).GetProperty("Title").SetValue(this, reloadData.Title);
-        typeof(GlobalMail).GetProperty("Sender").SetValue(this, reloadData.Sender);
-        typeof(GlobalMail).GetProperty("Content").SetValue(this, reloadData.Content);
-        typeof(GlobalMail).GetProperty("Award").SetValue(this, reloadData.Award);
-        typeof(GlobalMail).GetProperty("AllServer").SetValue(this, reloadData.AllServer);
-        typeof(GlobalMail).GetProperty("ServerList").SetValue(this, reloadData.ServerList);
-        typeof(GlobalMail).GetProperty("Platform").SetValue(this, reloadData.Platform);
-        typeof(GlobalMail).GetProperty("Channel").SetValue(this, reloadData.Channel);
-        typeof(GlobalMail).GetProperty("MinMaxLevel").SetValue(this, reloadData.MinMaxLevel);
-        typeof(GlobalMail).GetProperty("RegisterTime").SetValue(this, reloadData.RegisterTime);
-        typeof(GlobalMail).GetProperty("MailTime").SetValue(this, reloadData.MailTime);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Title = reloadData.Title;
+        //Luban.Job.Common.Types.TString
+        Sender = reloadData.Sender;
+        //Luban.Job.Common.Types.TString
+        Content = reloadData.Content;
+        //Luban.Job.Common.Types.TList
+        Award = reloadData.Award;
+        //Luban.Job.Common.Types.TBool
+        AllServer = reloadData.AllServer;
+        //Luban.Job.Common.Types.TList
+        ServerList = reloadData.ServerList;
+        //Luban.Job.Common.Types.TString
+        Platform = reloadData.Platform;
+        //Luban.Job.Common.Types.TString
+        Channel = reloadData.Channel;
+        //Luban.Job.Common.Types.TBean
+        MinMaxLevel = reloadData.MinMaxLevel;
+        //Luban.Job.Common.Types.TBean
+        RegisterTime = reloadData.RegisterTime;
+        //Luban.Job.Common.Types.TBean
+        MailTime = reloadData.MailTime;
     }
 
     public override string ToString()

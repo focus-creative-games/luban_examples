@@ -54,10 +54,14 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
 
     public void Reload(TestMultiColumn reloadData)
     {
-        typeof(TestMultiColumn).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestMultiColumn).GetProperty("A").SetValue(this, reloadData.A);
-        typeof(TestMultiColumn).GetProperty("B").SetValue(this, reloadData.B);
-        typeof(TestMultiColumn).GetProperty("C").SetValue(this, reloadData.C);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TBean
+        A = reloadData.A;
+        //Luban.Job.Common.Types.TBean
+        B = reloadData.B;
+        //Luban.Job.Common.Types.TBean
+        C = reloadData.C;
     }
 
     public override string ToString()

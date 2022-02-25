@@ -44,8 +44,10 @@ public sealed partial class H2 :  Bright.Config.BeanBase
 
     public void Reload(H2 reloadData)
     {
-        typeof(H2).GetProperty("Z2").SetValue(this, reloadData.Z2);
-        typeof(H2).GetProperty("Z3").SetValue(this, reloadData.Z3);
+        //Luban.Job.Common.Types.TInt
+        Z2 = reloadData.Z2;
+        //Luban.Job.Common.Types.TInt
+        Z3 = reloadData.Z3;
     }
 
     public override string ToString()

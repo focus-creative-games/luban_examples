@@ -48,10 +48,14 @@ public sealed partial class Color :  Bright.Config.BeanBase
 
     public void Reload(Color reloadData)
     {
-        typeof(Color).GetProperty("R").SetValue(this, reloadData.R);
-        typeof(Color).GetProperty("G").SetValue(this, reloadData.G);
-        typeof(Color).GetProperty("B").SetValue(this, reloadData.B);
-        typeof(Color).GetProperty("A").SetValue(this, reloadData.A);
+        //Luban.Job.Common.Types.TFloat
+        R = reloadData.R;
+        //Luban.Job.Common.Types.TFloat
+        G = reloadData.G;
+        //Luban.Job.Common.Types.TFloat
+        B = reloadData.B;
+        //Luban.Job.Common.Types.TFloat
+        A = reloadData.A;
     }
 
     public override string ToString()

@@ -46,9 +46,12 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
 
     public void Reload(LevelExpAttr reloadData)
     {
-        typeof(LevelExpAttr).GetProperty("Level").SetValue(this, reloadData.Level);
-        typeof(LevelExpAttr).GetProperty("NeedExp").SetValue(this, reloadData.NeedExp);
-        typeof(LevelExpAttr).GetProperty("ClothesAttrs").SetValue(this, reloadData.ClothesAttrs);
+        //Luban.Job.Common.Types.TInt
+        Level = reloadData.Level;
+        //Luban.Job.Common.Types.TLong
+        NeedExp = reloadData.NeedExp;
+        //Luban.Job.Common.Types.TList
+        ClothesAttrs = reloadData.ClothesAttrs;
     }
 
     public override string ToString()

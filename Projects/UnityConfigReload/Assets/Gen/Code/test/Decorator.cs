@@ -44,7 +44,8 @@ public sealed partial class Decorator :  test.ItemBase
 
     public void Reload(Decorator reloadData)
     {
-        typeof(Decorator).GetProperty("Duration").SetValue(this, reloadData.Duration);
+        //Luban.Job.Common.Types.TInt
+        Duration = reloadData.Duration;
     }
 
     public override string ToString()

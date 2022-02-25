@@ -48,9 +48,12 @@ public sealed partial class UeLoop :  ai.Decorator
 
     public void Reload(UeLoop reloadData)
     {
-        typeof(UeLoop).GetProperty("NumLoops").SetValue(this, reloadData.NumLoops);
-        typeof(UeLoop).GetProperty("InfiniteLoop").SetValue(this, reloadData.InfiniteLoop);
-        typeof(UeLoop).GetProperty("InfiniteLoopTimeoutTime").SetValue(this, reloadData.InfiniteLoopTimeoutTime);
+        //Luban.Job.Common.Types.TInt
+        NumLoops = reloadData.NumLoops;
+        //Luban.Job.Common.Types.TBool
+        InfiniteLoop = reloadData.InfiniteLoop;
+        //Luban.Job.Common.Types.TFloat
+        InfiniteLoopTimeoutTime = reloadData.InfiniteLoopTimeoutTime;
     }
 
     public override string ToString()

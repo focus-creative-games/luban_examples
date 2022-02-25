@@ -48,8 +48,10 @@ public sealed partial class CoefficientItem :  bonus.Bonus
 
     public void Reload(CoefficientItem reloadData)
     {
-        typeof(CoefficientItem).GetProperty("BonusId").SetValue(this, reloadData.BonusId);
-        typeof(CoefficientItem).GetProperty("BonusList").SetValue(this, reloadData.BonusList);
+        //Luban.Job.Common.Types.TInt
+        BonusId = reloadData.BonusId;
+        //Luban.Job.Common.Types.TBean
+        BonusList = reloadData.BonusList;
     }
 
     public override string ToString()

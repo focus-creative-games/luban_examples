@@ -47,7 +47,8 @@ public sealed partial class OneItem :  bonus.Bonus
 
     public void Reload(OneItem reloadData)
     {
-        typeof(OneItem).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
     }
 
     public override string ToString()

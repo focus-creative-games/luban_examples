@@ -44,8 +44,10 @@ public sealed partial class CompositeJsonTable1 :  Bright.Config.BeanBase
 
     public void Reload(CompositeJsonTable1 reloadData)
     {
-        typeof(CompositeJsonTable1).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(CompositeJsonTable1).GetProperty("X").SetValue(this, reloadData.X);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        X = reloadData.X;
     }
 
     public override string ToString()

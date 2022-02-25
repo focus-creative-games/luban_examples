@@ -44,7 +44,8 @@ public sealed partial class GetOwnerPlayer :  ai.Service
 
     public void Reload(GetOwnerPlayer reloadData)
     {
-        typeof(GetOwnerPlayer).GetProperty("PlayerActorKey").SetValue(this, reloadData.PlayerActorKey);
+        //Luban.Job.Common.Types.TString
+        PlayerActorKey = reloadData.PlayerActorKey;
     }
 
     public override string ToString()

@@ -48,10 +48,14 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
 
     public void Reload(ItemFunction reloadData)
     {
-        typeof(ItemFunction).GetProperty("MinorType").SetValue(this, reloadData.MinorType);
-        typeof(ItemFunction).GetProperty("FuncType").SetValue(this, reloadData.FuncType);
-        typeof(ItemFunction).GetProperty("Method").SetValue(this, reloadData.Method);
-        typeof(ItemFunction).GetProperty("CloseBagUi").SetValue(this, reloadData.CloseBagUi);
+        //Luban.Job.Common.Types.TEnum
+        MinorType = reloadData.MinorType;
+        //Luban.Job.Common.Types.TEnum
+        FuncType = reloadData.FuncType;
+        //Luban.Job.Common.Types.TString
+        Method = reloadData.Method;
+        //Luban.Job.Common.Types.TBool
+        CloseBagUi = reloadData.CloseBagUi;
     }
 
     public override string ToString()

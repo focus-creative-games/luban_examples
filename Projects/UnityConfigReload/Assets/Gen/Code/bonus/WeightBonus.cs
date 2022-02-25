@@ -46,7 +46,8 @@ public sealed partial class WeightBonus :  bonus.Bonus
 
     public void Reload(WeightBonus reloadData)
     {
-        typeof(WeightBonus).GetProperty("Bonuses").SetValue(this, reloadData.Bonuses);
+        //Luban.Job.Common.Types.TArray
+        Bonuses = reloadData.Bonuses;
     }
 
     public override string ToString()

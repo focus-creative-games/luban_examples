@@ -25,6 +25,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
         {{~if field.index_field~}}
         foreach(var _v in {{field.convention_name}})
         { 
+            // field.index_field
             {{field.convention_name}}_Index.Add(_v.{{field.index_field.convention_name}}, _v);
         }
         {{~end~}}
@@ -108,7 +109,8 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     public void Reload({{name}} reloadData)
     {
         {{~ for field in export_fields ~}}
-        typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this, reloadData.{{field.convention_name}});
+        //{{field.ctype}}
+        {{field.convention_name}} = reloadData.{{field.convention_name}};
         {{~end~}}
     }
 

@@ -44,7 +44,8 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
 
     public void Reload(ErrorStyleDlgOk reloadData)
     {
-        typeof(ErrorStyleDlgOk).GetProperty("BtnName").SetValue(this, reloadData.BtnName);
+        //Luban.Job.Common.Types.TString
+        BtnName = reloadData.BtnName;
     }
 
     public override string ToString()

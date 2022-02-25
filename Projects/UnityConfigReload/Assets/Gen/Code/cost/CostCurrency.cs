@@ -46,8 +46,10 @@ public sealed partial class CostCurrency :  cost.Cost
 
     public void Reload(CostCurrency reloadData)
     {
-        typeof(CostCurrency).GetProperty("Type").SetValue(this, reloadData.Type);
-        typeof(CostCurrency).GetProperty("Num").SetValue(this, reloadData.Num);
+        //Luban.Job.Common.Types.TEnum
+        Type = reloadData.Type;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
     }
 
     public override string ToString()

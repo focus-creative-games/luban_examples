@@ -46,9 +46,12 @@ public sealed partial class Field :  Bright.Config.BeanBase
 
     public void Reload(Field reloadData)
     {
-        typeof(Field).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(Field).GetProperty("Type").SetValue(this, reloadData.Type);
-        typeof(Field).GetProperty("Desc").SetValue(this, reloadData.Desc);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Type = reloadData.Type;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
     }
 
     public override string ToString()

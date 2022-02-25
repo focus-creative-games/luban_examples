@@ -48,7 +48,8 @@ public abstract partial class ItemExtra :  Bright.Config.BeanBase
 
     public void Reload(ItemExtra reloadData)
     {
-        typeof(ItemExtra).GetProperty("Id").SetValue(this, reloadData.Id);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
     }
 
     public override string ToString()

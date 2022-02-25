@@ -88,27 +88,48 @@ public sealed partial class Item :  Bright.Config.BeanBase
 
     public void Reload(Item reloadData)
     {
-        typeof(Item).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(Item).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(Item).GetProperty("MajorType").SetValue(this, reloadData.MajorType);
-        typeof(Item).GetProperty("MinorType").SetValue(this, reloadData.MinorType);
-        typeof(Item).GetProperty("MaxPileNum").SetValue(this, reloadData.MaxPileNum);
-        typeof(Item).GetProperty("Quality").SetValue(this, reloadData.Quality);
-        typeof(Item).GetProperty("Icon").SetValue(this, reloadData.Icon);
-        typeof(Item).GetProperty("IconBackgroud").SetValue(this, reloadData.IconBackgroud);
-        typeof(Item).GetProperty("IconMask").SetValue(this, reloadData.IconMask);
-        typeof(Item).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(Item).GetProperty("ShowOrder").SetValue(this, reloadData.ShowOrder);
-        typeof(Item).GetProperty("Quantifier").SetValue(this, reloadData.Quantifier);
-        typeof(Item).GetProperty("ShowInBag").SetValue(this, reloadData.ShowInBag);
-        typeof(Item).GetProperty("MinShowLevel").SetValue(this, reloadData.MinShowLevel);
-        typeof(Item).GetProperty("BatchUsable").SetValue(this, reloadData.BatchUsable);
-        typeof(Item).GetProperty("ProgressTimeWhenUse").SetValue(this, reloadData.ProgressTimeWhenUse);
-        typeof(Item).GetProperty("ShowHintWhenUse").SetValue(this, reloadData.ShowHintWhenUse);
-        typeof(Item).GetProperty("Droppable").SetValue(this, reloadData.Droppable);
-        typeof(Item).GetProperty("Price").SetValue(this, reloadData.Price);
-        typeof(Item).GetProperty("UseType").SetValue(this, reloadData.UseType);
-        typeof(Item).GetProperty("LevelUpId").SetValue(this, reloadData.LevelUpId);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TEnum
+        MajorType = reloadData.MajorType;
+        //Luban.Job.Common.Types.TEnum
+        MinorType = reloadData.MinorType;
+        //Luban.Job.Common.Types.TInt
+        MaxPileNum = reloadData.MaxPileNum;
+        //Luban.Job.Common.Types.TEnum
+        Quality = reloadData.Quality;
+        //Luban.Job.Common.Types.TString
+        Icon = reloadData.Icon;
+        //Luban.Job.Common.Types.TString
+        IconBackgroud = reloadData.IconBackgroud;
+        //Luban.Job.Common.Types.TString
+        IconMask = reloadData.IconMask;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TInt
+        ShowOrder = reloadData.ShowOrder;
+        //Luban.Job.Common.Types.TString
+        Quantifier = reloadData.Quantifier;
+        //Luban.Job.Common.Types.TBool
+        ShowInBag = reloadData.ShowInBag;
+        //Luban.Job.Common.Types.TInt
+        MinShowLevel = reloadData.MinShowLevel;
+        //Luban.Job.Common.Types.TBool
+        BatchUsable = reloadData.BatchUsable;
+        //Luban.Job.Common.Types.TFloat
+        ProgressTimeWhenUse = reloadData.ProgressTimeWhenUse;
+        //Luban.Job.Common.Types.TBool
+        ShowHintWhenUse = reloadData.ShowHintWhenUse;
+        //Luban.Job.Common.Types.TBool
+        Droppable = reloadData.Droppable;
+        //Luban.Job.Common.Types.TInt
+        Price = reloadData.Price;
+        //Luban.Job.Common.Types.TEnum
+        UseType = reloadData.UseType;
+        //Luban.Job.Common.Types.TInt
+        LevelUpId = reloadData.LevelUpId;
     }
 
     public override string ToString()

@@ -44,7 +44,8 @@ public sealed partial class DebugPrint :  ai.Task
 
     public void Reload(DebugPrint reloadData)
     {
-        typeof(DebugPrint).GetProperty("Text").SetValue(this, reloadData.Text);
+        //Luban.Job.Common.Types.TString
+        Text = reloadData.Text;
     }
 
     public override string ToString()

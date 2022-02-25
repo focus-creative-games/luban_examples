@@ -46,8 +46,10 @@ public sealed partial class H1 :  Bright.Config.BeanBase
 
     public void Reload(H1 reloadData)
     {
-        typeof(H1).GetProperty("Y2").SetValue(this, reloadData.Y2);
-        typeof(H1).GetProperty("Y3").SetValue(this, reloadData.Y3);
+        //Luban.Job.Common.Types.TBean
+        Y2 = reloadData.Y2;
+        //Luban.Job.Common.Types.TInt
+        Y3 = reloadData.Y3;
     }
 
     public override string ToString()

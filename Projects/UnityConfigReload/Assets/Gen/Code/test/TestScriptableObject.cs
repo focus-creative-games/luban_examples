@@ -54,13 +54,20 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
 
     public void Reload(TestScriptableObject reloadData)
     {
-        typeof(TestScriptableObject).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestScriptableObject).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(TestScriptableObject).GetProperty("Rate").SetValue(this, reloadData.Rate);
-        typeof(TestScriptableObject).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(TestScriptableObject).GetProperty("V2").SetValue(this, reloadData.V2);
-        typeof(TestScriptableObject).GetProperty("V3").SetValue(this, reloadData.V3);
-        typeof(TestScriptableObject).GetProperty("V4").SetValue(this, reloadData.V4);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TFloat
+        Rate = reloadData.Rate;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TVector2
+        V2 = reloadData.V2;
+        //Luban.Job.Common.Types.TVector3
+        V3 = reloadData.V3;
+        //Luban.Job.Common.Types.TVector4
+        V4 = reloadData.V4;
     }
 
     public override string ToString()

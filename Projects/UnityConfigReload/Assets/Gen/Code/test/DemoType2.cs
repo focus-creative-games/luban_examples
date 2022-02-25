@@ -105,31 +105,56 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
 
     public void Reload(DemoType2 reloadData)
     {
-        typeof(DemoType2).GetProperty("X4").SetValue(this, reloadData.X4);
-        typeof(DemoType2).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(DemoType2).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(DemoType2).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(DemoType2).GetProperty("X5").SetValue(this, reloadData.X5);
-        typeof(DemoType2).GetProperty("X6").SetValue(this, reloadData.X6);
-        typeof(DemoType2).GetProperty("X7").SetValue(this, reloadData.X7);
-        typeof(DemoType2).GetProperty("X80").SetValue(this, reloadData.X80);
-        typeof(DemoType2).GetProperty("X8").SetValue(this, reloadData.X8);
-        typeof(DemoType2).GetProperty("X9").SetValue(this, reloadData.X9);
-        typeof(DemoType2).GetProperty("X10").SetValue(this, reloadData.X10);
-        typeof(DemoType2).GetProperty("X12").SetValue(this, reloadData.X12);
-        typeof(DemoType2).GetProperty("X13").SetValue(this, reloadData.X13);
-        typeof(DemoType2).GetProperty("X14").SetValue(this, reloadData.X14);
-        typeof(DemoType2).GetProperty("S1").SetValue(this, reloadData.S1);
-        typeof(DemoType2).GetProperty("V2").SetValue(this, reloadData.V2);
-        typeof(DemoType2).GetProperty("V3").SetValue(this, reloadData.V3);
-        typeof(DemoType2).GetProperty("V4").SetValue(this, reloadData.V4);
-        typeof(DemoType2).GetProperty("T1").SetValue(this, reloadData.T1);
-        typeof(DemoType2).GetProperty("K1").SetValue(this, reloadData.K1);
-        typeof(DemoType2).GetProperty("K2").SetValue(this, reloadData.K2);
-        typeof(DemoType2).GetProperty("K5").SetValue(this, reloadData.K5);
-        typeof(DemoType2).GetProperty("K8").SetValue(this, reloadData.K8);
-        typeof(DemoType2).GetProperty("K9").SetValue(this, reloadData.K9);
-        typeof(DemoType2).GetProperty("K15").SetValue(this, reloadData.K15);
+        //Luban.Job.Common.Types.TInt
+        X4 = reloadData.X4;
+        //Luban.Job.Common.Types.TBool
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TByte
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TShort
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TLong
+        X5 = reloadData.X5;
+        //Luban.Job.Common.Types.TFloat
+        X6 = reloadData.X6;
+        //Luban.Job.Common.Types.TDouble
+        X7 = reloadData.X7;
+        //Luban.Job.Common.Types.TFshort
+        X80 = reloadData.X80;
+        //Luban.Job.Common.Types.TFint
+        X8 = reloadData.X8;
+        //Luban.Job.Common.Types.TFlong
+        X9 = reloadData.X9;
+        //Luban.Job.Common.Types.TString
+        X10 = reloadData.X10;
+        //Luban.Job.Common.Types.TBean
+        X12 = reloadData.X12;
+        //Luban.Job.Common.Types.TEnum
+        X13 = reloadData.X13;
+        //Luban.Job.Common.Types.TBean
+        X14 = reloadData.X14;
+        //Luban.Job.Common.Types.TText
+        S1 = reloadData.S1;
+        //Luban.Job.Common.Types.TVector2
+        V2 = reloadData.V2;
+        //Luban.Job.Common.Types.TVector3
+        V3 = reloadData.V3;
+        //Luban.Job.Common.Types.TVector4
+        V4 = reloadData.V4;
+        //Luban.Job.Common.Types.TDateTime
+        T1 = reloadData.T1;
+        //Luban.Job.Common.Types.TArray
+        K1 = reloadData.K1;
+        //Luban.Job.Common.Types.TList
+        K2 = reloadData.K2;
+        //Luban.Job.Common.Types.TSet
+        K5 = reloadData.K5;
+        //Luban.Job.Common.Types.TMap
+        K8 = reloadData.K8;
+        //Luban.Job.Common.Types.TList
+        K9 = reloadData.K9;
+        //Luban.Job.Common.Types.TArray
+        K15 = reloadData.K15;
     }
 
     public override string ToString()

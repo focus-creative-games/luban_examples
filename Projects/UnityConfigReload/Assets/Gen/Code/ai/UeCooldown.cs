@@ -44,7 +44,8 @@ public sealed partial class UeCooldown :  ai.Decorator
 
     public void Reload(UeCooldown reloadData)
     {
-        typeof(UeCooldown).GetProperty("CooldownTime").SetValue(this, reloadData.CooldownTime);
+        //Luban.Job.Common.Types.TFloat
+        CooldownTime = reloadData.CooldownTime;
     }
 
     public override string ToString()

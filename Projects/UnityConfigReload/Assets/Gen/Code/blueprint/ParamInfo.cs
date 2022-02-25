@@ -46,9 +46,12 @@ public sealed partial class ParamInfo :  Bright.Config.BeanBase
 
     public void Reload(ParamInfo reloadData)
     {
-        typeof(ParamInfo).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(ParamInfo).GetProperty("Type").SetValue(this, reloadData.Type);
-        typeof(ParamInfo).GetProperty("IsRef").SetValue(this, reloadData.IsRef);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Type = reloadData.Type;
+        //Luban.Job.Common.Types.TBool
+        IsRef = reloadData.IsRef;
     }
 
     public override string ToString()

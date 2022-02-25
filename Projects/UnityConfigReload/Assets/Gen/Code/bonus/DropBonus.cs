@@ -47,7 +47,8 @@ public sealed partial class DropBonus :  bonus.Bonus
 
     public void Reload(DropBonus reloadData)
     {
-        typeof(DropBonus).GetProperty("Id").SetValue(this, reloadData.Id);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
     }
 
     public override string ToString()

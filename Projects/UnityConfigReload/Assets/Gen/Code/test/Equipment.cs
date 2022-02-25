@@ -46,8 +46,10 @@ public sealed partial class Equipment :  test.ItemBase
 
     public void Reload(Equipment reloadData)
     {
-        typeof(Equipment).GetProperty("Attr").SetValue(this, reloadData.Attr);
-        typeof(Equipment).GetProperty("Value").SetValue(this, reloadData.Value);
+        //Luban.Job.Common.Types.TEnum
+        Attr = reloadData.Attr;
+        //Luban.Job.Common.Types.TInt
+        Value = reloadData.Value;
     }
 
     public override string ToString()

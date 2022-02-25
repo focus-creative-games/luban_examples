@@ -46,7 +46,8 @@ public sealed partial class MultiBonus :  bonus.Bonus
 
     public void Reload(MultiBonus reloadData)
     {
-        typeof(MultiBonus).GetProperty("Bonuses").SetValue(this, reloadData.Bonuses);
+        //Luban.Job.Common.Types.TArray
+        Bonuses = reloadData.Bonuses;
     }
 
     public override string ToString()

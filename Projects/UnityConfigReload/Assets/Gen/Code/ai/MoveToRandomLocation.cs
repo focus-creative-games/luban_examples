@@ -46,8 +46,10 @@ public sealed partial class MoveToRandomLocation :  ai.Task
 
     public void Reload(MoveToRandomLocation reloadData)
     {
-        typeof(MoveToRandomLocation).GetProperty("OriginPositionKey").SetValue(this, reloadData.OriginPositionKey);
-        typeof(MoveToRandomLocation).GetProperty("Radius").SetValue(this, reloadData.Radius);
+        //Luban.Job.Common.Types.TString
+        OriginPositionKey = reloadData.OriginPositionKey;
+        //Luban.Job.Common.Types.TFloat
+        Radius = reloadData.Radius;
     }
 
     public override string ToString()

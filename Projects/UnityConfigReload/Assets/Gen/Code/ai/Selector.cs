@@ -46,7 +46,8 @@ public sealed partial class Selector :  ai.ComposeNode
 
     public void Reload(Selector reloadData)
     {
-        typeof(Selector).GetProperty("Children").SetValue(this, reloadData.Children);
+        //Luban.Job.Common.Types.TList
+        Children = reloadData.Children;
     }
 
     public override string ToString()

@@ -44,8 +44,10 @@ public sealed partial class NotIndexList :  Bright.Config.BeanBase
 
     public void Reload(NotIndexList reloadData)
     {
-        typeof(NotIndexList).GetProperty("X").SetValue(this, reloadData.X);
-        typeof(NotIndexList).GetProperty("Y").SetValue(this, reloadData.Y);
+        //Luban.Job.Common.Types.TInt
+        X = reloadData.X;
+        //Luban.Job.Common.Types.TInt
+        Y = reloadData.Y;
     }
 
     public override string ToString()

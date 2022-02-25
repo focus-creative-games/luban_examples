@@ -50,7 +50,8 @@ public sealed partial class Circle :  Shape
 
     public void Reload(Circle reloadData)
     {
-        typeof(Circle).GetProperty("Radius").SetValue(this, reloadData.Radius);
+        //Luban.Job.Common.Types.TFloat
+        Radius = reloadData.Radius;
     }
 
     public override string ToString()

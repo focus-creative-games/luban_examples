@@ -50,9 +50,12 @@ public abstract partial class ItemBase :  Bright.Config.BeanBase
 
     public void Reload(ItemBase reloadData)
     {
-        typeof(ItemBase).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(ItemBase).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(ItemBase).GetProperty("Desc").SetValue(this, reloadData.Desc);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
     }
 
     public override string ToString()

@@ -48,10 +48,14 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
 
     public void Reload(InnerGroup reloadData)
     {
-        typeof(InnerGroup).GetProperty("Y1").SetValue(this, reloadData.Y1);
-        typeof(InnerGroup).GetProperty("Y2").SetValue(this, reloadData.Y2);
-        typeof(InnerGroup).GetProperty("Y3").SetValue(this, reloadData.Y3);
-        typeof(InnerGroup).GetProperty("Y4").SetValue(this, reloadData.Y4);
+        //Luban.Job.Common.Types.TInt
+        Y1 = reloadData.Y1;
+        //Luban.Job.Common.Types.TInt
+        Y2 = reloadData.Y2;
+        //Luban.Job.Common.Types.TInt
+        Y3 = reloadData.Y3;
+        //Luban.Job.Common.Types.TInt
+        Y4 = reloadData.Y4;
     }
 
     public override string ToString()

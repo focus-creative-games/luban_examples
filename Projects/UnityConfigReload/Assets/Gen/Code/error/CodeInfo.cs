@@ -44,8 +44,10 @@ public sealed partial class CodeInfo :  Bright.Config.BeanBase
 
     public void Reload(CodeInfo reloadData)
     {
-        typeof(CodeInfo).GetProperty("Code").SetValue(this, reloadData.Code);
-        typeof(CodeInfo).GetProperty("Key").SetValue(this, reloadData.Key);
+        //Luban.Job.Common.Types.TEnum
+        Code = reloadData.Code;
+        //Luban.Job.Common.Types.TString
+        Key = reloadData.Key;
     }
 
     public override string ToString()

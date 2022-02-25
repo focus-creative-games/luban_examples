@@ -44,7 +44,8 @@ public sealed partial class RoleInfo :  test.DemoD3
 
     public void Reload(RoleInfo reloadData)
     {
-        typeof(RoleInfo).GetProperty("RoleId").SetValue(this, reloadData.RoleId);
+        //Luban.Job.Common.Types.TLong
+        RoleId = reloadData.RoleId;
     }
 
     public override string ToString()

@@ -44,7 +44,8 @@ public sealed partial class DemoD2 :  test.DemoDynamic
 
     public void Reload(DemoD2 reloadData)
     {
-        typeof(DemoD2).GetProperty("X2").SetValue(this, reloadData.X2);
+        //Luban.Job.Common.Types.TInt
+        X2 = reloadData.X2;
     }
 
     public override string ToString()

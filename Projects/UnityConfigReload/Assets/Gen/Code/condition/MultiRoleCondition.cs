@@ -46,7 +46,8 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public void Reload(MultiRoleCondition reloadData)
     {
-        typeof(MultiRoleCondition).GetProperty("Conditions").SetValue(this, reloadData.Conditions);
+        //Luban.Job.Common.Types.TArray
+        Conditions = reloadData.Conditions;
     }
 
     public override string ToString()

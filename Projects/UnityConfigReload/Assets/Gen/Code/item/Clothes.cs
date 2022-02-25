@@ -50,10 +50,14 @@ public sealed partial class Clothes :  item.ItemExtra
 
     public void Reload(Clothes reloadData)
     {
-        typeof(Clothes).GetProperty("Attack").SetValue(this, reloadData.Attack);
-        typeof(Clothes).GetProperty("Hp").SetValue(this, reloadData.Hp);
-        typeof(Clothes).GetProperty("EnergyLimit").SetValue(this, reloadData.EnergyLimit);
-        typeof(Clothes).GetProperty("EnergyResume").SetValue(this, reloadData.EnergyResume);
+        //Luban.Job.Common.Types.TInt
+        Attack = reloadData.Attack;
+        //Luban.Job.Common.Types.TLong
+        Hp = reloadData.Hp;
+        //Luban.Job.Common.Types.TInt
+        EnergyLimit = reloadData.EnergyLimit;
+        //Luban.Job.Common.Types.TInt
+        EnergyResume = reloadData.EnergyResume;
     }
 
     public override string ToString()

@@ -49,9 +49,12 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
 
     public void Reload(WeightItemInfo reloadData)
     {
-        typeof(WeightItemInfo).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
-        typeof(WeightItemInfo).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(WeightItemInfo).GetProperty("Weight").SetValue(this, reloadData.Weight);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TInt
+        Weight = reloadData.Weight;
     }
 
     public override string ToString()

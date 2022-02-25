@@ -50,9 +50,12 @@ public sealed partial class UeBlackboard :  ai.Decorator
 
     public void Reload(UeBlackboard reloadData)
     {
-        typeof(UeBlackboard).GetProperty("NotifyObserver").SetValue(this, reloadData.NotifyObserver);
-        typeof(UeBlackboard).GetProperty("BlackboardKey").SetValue(this, reloadData.BlackboardKey);
-        typeof(UeBlackboard).GetProperty("KeyQuery").SetValue(this, reloadData.KeyQuery);
+        //Luban.Job.Common.Types.TEnum
+        NotifyObserver = reloadData.NotifyObserver;
+        //Luban.Job.Common.Types.TString
+        BlackboardKey = reloadData.BlackboardKey;
+        //Luban.Job.Common.Types.TBean
+        KeyQuery = reloadData.KeyQuery;
     }
 
     public override string ToString()

@@ -52,7 +52,8 @@ public abstract partial class Task :  ai.FlowNode
 
     public void Reload(Task reloadData)
     {
-        typeof(Task).GetProperty("IgnoreRestartSelf").SetValue(this, reloadData.IgnoreRestartSelf);
+        //Luban.Job.Common.Types.TBool
+        IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
     }
 
     public override string ToString()

@@ -79,13 +79,20 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
 
     public void Reload(TestSep reloadData)
     {
-        typeof(TestSep).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestSep).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(TestSep).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(TestSep).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(TestSep).GetProperty("X4").SetValue(this, reloadData.X4);
-        typeof(TestSep).GetProperty("X5").SetValue(this, reloadData.X5);
-        typeof(TestSep).GetProperty("X6").SetValue(this, reloadData.X6);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TText
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TBean
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TBean
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TList
+        X4 = reloadData.X4;
+        //Luban.Job.Common.Types.TList
+        X5 = reloadData.X5;
+        //Luban.Job.Common.Types.TList
+        X6 = reloadData.X6;
     }
 
     public override string ToString()

@@ -68,8 +68,10 @@ public abstract partial class Node :  Bright.Config.BeanBase
 
     public void Reload(Node reloadData)
     {
-        typeof(Node).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(Node).GetProperty("NodeName").SetValue(this, reloadData.NodeName);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        NodeName = reloadData.NodeName;
     }
 
     public override string ToString()

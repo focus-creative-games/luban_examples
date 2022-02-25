@@ -54,10 +54,14 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
 
     public void Reload(DefineFromExcelOne reloadData)
     {
-        typeof(DefineFromExcelOne).GetProperty("UnlockEquip").SetValue(this, reloadData.UnlockEquip);
-        typeof(DefineFromExcelOne).GetProperty("UnlockHero").SetValue(this, reloadData.UnlockHero);
-        typeof(DefineFromExcelOne).GetProperty("DefaultAvatar").SetValue(this, reloadData.DefaultAvatar);
-        typeof(DefineFromExcelOne).GetProperty("DefaultItem").SetValue(this, reloadData.DefaultItem);
+        //Luban.Job.Common.Types.TInt
+        UnlockEquip = reloadData.UnlockEquip;
+        //Luban.Job.Common.Types.TInt
+        UnlockHero = reloadData.UnlockHero;
+        //Luban.Job.Common.Types.TString
+        DefaultAvatar = reloadData.DefaultAvatar;
+        //Luban.Job.Common.Types.TString
+        DefaultItem = reloadData.DefaultItem;
     }
 
     public override string ToString()

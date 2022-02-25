@@ -44,7 +44,8 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
 
     public void Reload(UeSetDefaultFocus reloadData)
     {
-        typeof(UeSetDefaultFocus).GetProperty("KeyboardKey").SetValue(this, reloadData.KeyboardKey);
+        //Luban.Job.Common.Types.TString
+        KeyboardKey = reloadData.KeyboardKey;
     }
 
     public override string ToString()

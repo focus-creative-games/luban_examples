@@ -44,8 +44,10 @@ public sealed partial class DetectEncoding :  Bright.Config.BeanBase
 
     public void Reload(DetectEncoding reloadData)
     {
-        typeof(DetectEncoding).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(DetectEncoding).GetProperty("Name").SetValue(this, reloadData.Name);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
     }
 
     public override string ToString()

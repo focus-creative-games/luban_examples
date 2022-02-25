@@ -46,7 +46,8 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
 
     public void Reload(ProbabilityBonus reloadData)
     {
-        typeof(ProbabilityBonus).GetProperty("Bonuses").SetValue(this, reloadData.Bonuses);
+        //Luban.Job.Common.Types.TArray
+        Bonuses = reloadData.Bonuses;
     }
 
     public override string ToString()

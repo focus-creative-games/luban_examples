@@ -46,7 +46,8 @@ public sealed partial class EnumClazz :  blueprint.Clazz
 
     public void Reload(EnumClazz reloadData)
     {
-        typeof(EnumClazz).GetProperty("Enums").SetValue(this, reloadData.Enums);
+        //Luban.Job.Common.Types.TList
+        Enums = reloadData.Enums;
     }
 
     public override string ToString()

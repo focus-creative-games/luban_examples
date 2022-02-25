@@ -44,8 +44,10 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
 
     public void Reload(DateTimeRange reloadData)
     {
-        typeof(DateTimeRange).GetProperty("StartTime").SetValue(this, reloadData.StartTime);
-        typeof(DateTimeRange).GetProperty("EndTime").SetValue(this, reloadData.EndTime);
+        //Luban.Job.Common.Types.TDateTime
+        StartTime = reloadData.StartTime;
+        //Luban.Job.Common.Types.TDateTime
+        EndTime = reloadData.EndTime;
     }
 
     public override string ToString()

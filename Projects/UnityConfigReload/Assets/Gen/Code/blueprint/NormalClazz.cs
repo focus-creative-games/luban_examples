@@ -48,8 +48,10 @@ public sealed partial class NormalClazz :  blueprint.Clazz
 
     public void Reload(NormalClazz reloadData)
     {
-        typeof(NormalClazz).GetProperty("IsAbstract").SetValue(this, reloadData.IsAbstract);
-        typeof(NormalClazz).GetProperty("Fields").SetValue(this, reloadData.Fields);
+        //Luban.Job.Common.Types.TBool
+        IsAbstract = reloadData.IsAbstract;
+        //Luban.Job.Common.Types.TList
+        Fields = reloadData.Fields;
     }
 
     public override string ToString()

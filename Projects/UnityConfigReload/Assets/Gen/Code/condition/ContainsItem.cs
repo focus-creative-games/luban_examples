@@ -51,9 +51,12 @@ public sealed partial class ContainsItem :  condition.RoleCondition
 
     public void Reload(ContainsItem reloadData)
     {
-        typeof(ContainsItem).GetProperty("ItemId").SetValue(this, reloadData.ItemId);
-        typeof(ContainsItem).GetProperty("Num").SetValue(this, reloadData.Num);
-        typeof(ContainsItem).GetProperty("Reverse").SetValue(this, reloadData.Reverse);
+        //Luban.Job.Common.Types.TInt
+        ItemId = reloadData.ItemId;
+        //Luban.Job.Common.Types.TInt
+        Num = reloadData.Num;
+        //Luban.Job.Common.Types.TBool
+        Reverse = reloadData.Reverse;
     }
 
     public override string ToString()

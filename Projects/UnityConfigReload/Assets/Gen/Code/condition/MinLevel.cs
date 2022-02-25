@@ -44,7 +44,8 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
 
     public void Reload(MinLevel reloadData)
     {
-        typeof(MinLevel).GetProperty("Level").SetValue(this, reloadData.Level);
+        //Luban.Job.Common.Types.TInt
+        Level = reloadData.Level;
     }
 
     public override string ToString()

@@ -46,7 +46,8 @@ public sealed partial class Sequence :  ai.ComposeNode
 
     public void Reload(Sequence reloadData)
     {
-        typeof(Sequence).GetProperty("Children").SetValue(this, reloadData.Children);
+        //Luban.Job.Common.Types.TList
+        Children = reloadData.Children;
     }
 
     public override string ToString()

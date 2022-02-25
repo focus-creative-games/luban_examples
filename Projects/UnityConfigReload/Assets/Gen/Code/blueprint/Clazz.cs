@@ -56,10 +56,14 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
 
     public void Reload(Clazz reloadData)
     {
-        typeof(Clazz).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(Clazz).GetProperty("Desc").SetValue(this, reloadData.Desc);
-        typeof(Clazz).GetProperty("Parents").SetValue(this, reloadData.Parents);
-        typeof(Clazz).GetProperty("Methods").SetValue(this, reloadData.Methods);
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TString
+        Desc = reloadData.Desc;
+        //Luban.Job.Common.Types.TList
+        Parents = reloadData.Parents;
+        //Luban.Job.Common.Types.TList
+        Methods = reloadData.Methods;
     }
 
     public override string ToString()

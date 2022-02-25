@@ -46,8 +46,10 @@ public sealed partial class MoveToTarget :  ai.Task
 
     public void Reload(MoveToTarget reloadData)
     {
-        typeof(MoveToTarget).GetProperty("TargetActorKey").SetValue(this, reloadData.TargetActorKey);
-        typeof(MoveToTarget).GetProperty("AcceptableRadius").SetValue(this, reloadData.AcceptableRadius);
+        //Luban.Job.Common.Types.TString
+        TargetActorKey = reloadData.TargetActorKey;
+        //Luban.Job.Common.Types.TFloat
+        AcceptableRadius = reloadData.AcceptableRadius;
     }
 
     public override string ToString()

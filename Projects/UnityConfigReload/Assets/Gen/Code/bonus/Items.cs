@@ -46,7 +46,8 @@ public sealed partial class Items :  bonus.Bonus
 
     public void Reload(Items reloadData)
     {
-        typeof(Items).GetProperty("ItemList").SetValue(this, reloadData.ItemList);
+        //Luban.Job.Common.Types.TArray
+        ItemList = reloadData.ItemList;
     }
 
     public override string ToString()

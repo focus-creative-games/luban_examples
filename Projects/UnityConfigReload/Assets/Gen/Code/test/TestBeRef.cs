@@ -44,8 +44,10 @@ public sealed partial class TestBeRef :  Bright.Config.BeanBase
 
     public void Reload(TestBeRef reloadData)
     {
-        typeof(TestBeRef).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestBeRef).GetProperty("Count").SetValue(this, reloadData.Count);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        Count = reloadData.Count;
     }
 
     public override string ToString()

@@ -70,15 +70,24 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
 
     public void Reload(MultiRowRecord reloadData)
     {
-        typeof(MultiRowRecord).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(MultiRowRecord).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(MultiRowRecord).GetProperty("OneRows").SetValue(this, reloadData.OneRows);
-        typeof(MultiRowRecord).GetProperty("MultiRows1").SetValue(this, reloadData.MultiRows1);
-        typeof(MultiRowRecord).GetProperty("MultiRows2").SetValue(this, reloadData.MultiRows2);
-        typeof(MultiRowRecord).GetProperty("MultiRows4").SetValue(this, reloadData.MultiRows4);
-        typeof(MultiRowRecord).GetProperty("MultiRows5").SetValue(this, reloadData.MultiRows5);
-        typeof(MultiRowRecord).GetProperty("MultiRows6").SetValue(this, reloadData.MultiRows6);
-        typeof(MultiRowRecord).GetProperty("MultiRows7").SetValue(this, reloadData.MultiRows7);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TList
+        OneRows = reloadData.OneRows;
+        //Luban.Job.Common.Types.TList
+        MultiRows1 = reloadData.MultiRows1;
+        //Luban.Job.Common.Types.TArray
+        MultiRows2 = reloadData.MultiRows2;
+        //Luban.Job.Common.Types.TMap
+        MultiRows4 = reloadData.MultiRows4;
+        //Luban.Job.Common.Types.TList
+        MultiRows5 = reloadData.MultiRows5;
+        //Luban.Job.Common.Types.TMap
+        MultiRows6 = reloadData.MultiRows6;
+        //Luban.Job.Common.Types.TMap
+        MultiRows7 = reloadData.MultiRows7;
     }
 
     public override string ToString()

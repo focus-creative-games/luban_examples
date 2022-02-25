@@ -64,13 +64,20 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
 
     public void Reload(MultiRowTitle reloadData)
     {
-        typeof(MultiRowTitle).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(MultiRowTitle).GetProperty("Name").SetValue(this, reloadData.Name);
-        typeof(MultiRowTitle).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(MultiRowTitle).GetProperty("X20").SetValue(this, reloadData.X20);
-        typeof(MultiRowTitle).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(MultiRowTitle).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(MultiRowTitle).GetProperty("X4").SetValue(this, reloadData.X4);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TString
+        Name = reloadData.Name;
+        //Luban.Job.Common.Types.TBean
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TBean
+        X20 = reloadData.X20;
+        //Luban.Job.Common.Types.TList
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TArray
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TArray
+        X4 = reloadData.X4;
     }
 
     public override string ToString()

@@ -105,25 +105,44 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
 
     public void Reload(TestRef reloadData)
     {
-        typeof(TestRef).GetProperty("Id").SetValue(this, reloadData.Id);
-        typeof(TestRef).GetProperty("X1").SetValue(this, reloadData.X1);
-        typeof(TestRef).GetProperty("X12").SetValue(this, reloadData.X12);
-        typeof(TestRef).GetProperty("X2").SetValue(this, reloadData.X2);
-        typeof(TestRef).GetProperty("X3").SetValue(this, reloadData.X3);
-        typeof(TestRef).GetProperty("A1").SetValue(this, reloadData.A1);
-        typeof(TestRef).GetProperty("A2").SetValue(this, reloadData.A2);
-        typeof(TestRef).GetProperty("B1").SetValue(this, reloadData.B1);
-        typeof(TestRef).GetProperty("B2").SetValue(this, reloadData.B2);
-        typeof(TestRef).GetProperty("C1").SetValue(this, reloadData.C1);
-        typeof(TestRef).GetProperty("C2").SetValue(this, reloadData.C2);
-        typeof(TestRef).GetProperty("D1").SetValue(this, reloadData.D1);
-        typeof(TestRef).GetProperty("D2").SetValue(this, reloadData.D2);
-        typeof(TestRef).GetProperty("E1").SetValue(this, reloadData.E1);
-        typeof(TestRef).GetProperty("E2").SetValue(this, reloadData.E2);
-        typeof(TestRef).GetProperty("E3").SetValue(this, reloadData.E3);
-        typeof(TestRef).GetProperty("F1").SetValue(this, reloadData.F1);
-        typeof(TestRef).GetProperty("F2").SetValue(this, reloadData.F2);
-        typeof(TestRef).GetProperty("F3").SetValue(this, reloadData.F3);
+        //Luban.Job.Common.Types.TInt
+        Id = reloadData.Id;
+        //Luban.Job.Common.Types.TInt
+        X1 = reloadData.X1;
+        //Luban.Job.Common.Types.TInt
+        X12 = reloadData.X12;
+        //Luban.Job.Common.Types.TInt
+        X2 = reloadData.X2;
+        //Luban.Job.Common.Types.TInt
+        X3 = reloadData.X3;
+        //Luban.Job.Common.Types.TArray
+        A1 = reloadData.A1;
+        //Luban.Job.Common.Types.TArray
+        A2 = reloadData.A2;
+        //Luban.Job.Common.Types.TList
+        B1 = reloadData.B1;
+        //Luban.Job.Common.Types.TList
+        B2 = reloadData.B2;
+        //Luban.Job.Common.Types.TSet
+        C1 = reloadData.C1;
+        //Luban.Job.Common.Types.TSet
+        C2 = reloadData.C2;
+        //Luban.Job.Common.Types.TMap
+        D1 = reloadData.D1;
+        //Luban.Job.Common.Types.TMap
+        D2 = reloadData.D2;
+        //Luban.Job.Common.Types.TInt
+        E1 = reloadData.E1;
+        //Luban.Job.Common.Types.TLong
+        E2 = reloadData.E2;
+        //Luban.Job.Common.Types.TString
+        E3 = reloadData.E3;
+        //Luban.Job.Common.Types.TInt
+        F1 = reloadData.F1;
+        //Luban.Job.Common.Types.TLong
+        F2 = reloadData.F2;
+        //Luban.Job.Common.Types.TString
+        F3 = reloadData.F3;
     }
 
     public override string ToString()
