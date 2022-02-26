@@ -9,5 +9,5 @@ dotnet ${GEN_CLIENT} -h 127.0.0.1 -j cfg --\
  --input_data_dir ${CONF_ROOT}/Datas \
  --output_code_dir Gen \
  --output_data_dir config_data \
- --gen_types code_cs_bin,data_bin \
+ --gen_types code_cs_unity_json,data_json \
  -s all 
