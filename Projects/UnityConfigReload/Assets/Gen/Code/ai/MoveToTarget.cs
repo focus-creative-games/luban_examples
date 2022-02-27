@@ -28,8 +28,8 @@ public sealed partial class MoveToTarget :  ai.Task
         return new ai.MoveToTarget(_buf);
     }
 
-    public string TargetActorKey { get; private set; }
-    public float AcceptableRadius { get; private set; }
+    public string TargetActorKey { get; protected set; }
+    public float AcceptableRadius { get; protected set; }
 
     public const int __ID__ = 514987779;
     public override int GetTypeId() => __ID__;
@@ -47,6 +47,31 @@ public sealed partial class MoveToTarget :  ai.Task
 
     public void Reload(MoveToTarget reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        if(Decorators.Count<reloadData.Decorators.Count)
+        {
+            Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));
+        }else if(Decorators.Count>reloadData.Decorators.Count)
+        {
+            Decorators.RemoveRange(reloadData.Decorators.Count, Decorators.Count-reloadData.Decorators.Count);
+        }
+        for (int i = 0; i < reloadData.Decorators.Count; i++)
+        {
+            Decorators[i] = reloadData.Decorators[i];
+        }
+        if(Services.Count<reloadData.Services.Count)
+        {
+            Services.AddRange(new List<ai.Service>(reloadData.Services.Count-Services.Count));
+        }else if(Services.Count>reloadData.Services.Count)
+        {
+            Services.RemoveRange(reloadData.Services.Count, Services.Count-reloadData.Services.Count);
+        }
+        for (int i = 0; i < reloadData.Services.Count; i++)
+        {
+            Services[i] = reloadData.Services[i];
+        }
+        IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
         TargetActorKey = reloadData.TargetActorKey;
         AcceptableRadius = reloadData.AcceptableRadius;
     }

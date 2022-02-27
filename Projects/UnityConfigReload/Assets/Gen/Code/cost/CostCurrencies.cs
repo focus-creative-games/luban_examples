@@ -27,7 +27,7 @@ public sealed partial class CostCurrencies :  cost.Cost
         return new cost.CostCurrencies(_buf);
     }
 
-    public System.Collections.Generic.List<cost.CostCurrency> Currencies { get; private set; }
+    public System.Collections.Generic.List<cost.CostCurrency> Currencies { get; protected set; }
 
     public const int __ID__ = 103084157;
     public override int GetTypeId() => __ID__;

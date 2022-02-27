@@ -29,9 +29,9 @@ public sealed partial class Foo :  Bright.Config.BeanBase
         return new test.Foo(_buf);
     }
 
-    public int Y1 { get; private set; }
-    public int Y2 { get; private set; }
-    public int Y3 { get; private set; }
+    public int Y1 { get; protected set; }
+    public int Y2 { get; protected set; }
+    public int Y3 { get; protected set; }
 
     public const int __ID__ = -1147950774;
     public override int GetTypeId() => __ID__;

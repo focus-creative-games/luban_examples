@@ -31,11 +31,11 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         return new test.TestRow(_buf);
     }
 
-    public int X { get; private set; }
-    public bool Y { get; private set; }
-    public string Z { get; private set; }
-    public test.Test3 A { get; private set; }
-    public System.Collections.Generic.List<int> B { get; private set; }
+    public int X { get; protected set; }
+    public bool Y { get; protected set; }
+    public string Z { get; protected set; }
+    public test.Test3 A { get; protected set; }
+    public System.Collections.Generic.List<int> B { get; protected set; }
 
     public const int __ID__ = -543222164;
     public override int GetTypeId() => __ID__;
@@ -56,7 +56,14 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         X = reloadData.X;
         Y = reloadData.Y;
         Z = reloadData.Z;
-        A = reloadData.A;
+        if(A.GetTypeId() == reloadData.A.GetTypeId())
+        {
+            //A not dynamic
+            A.Reload(reloadData.A);
+        }else
+        {
+            typeof(TestRow).GetProperty("A").SetValue(this,reloadData.A);
+        }
         if(B.Count<reloadData.B.Count)
         {
             B.AddRange(new List<int>(reloadData.B.Count-B.Count));

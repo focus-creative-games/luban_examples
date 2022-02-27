@@ -27,7 +27,7 @@ public sealed partial class WeightBonus :  bonus.Bonus
         return new bonus.WeightBonus(_buf);
     }
 
-    public bonus.WeightBonusInfo[] Bonuses { get; private set; }
+    public bonus.WeightBonusInfo[] Bonuses { get; protected set; }
 
     public const int __ID__ = -362807016;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class WeightBonus :  bonus.Bonus
     public void Reload(WeightBonus reloadData)
     {
         //array
+        if(Bonuses.Length!=reloadData.Bonuses.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new bonus.WeightBonusInfo[reloadData.Bonuses.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<Bonuses.Length)
+                {
+                    newArray[i] = Bonuses[i];
+                }
+            }
+            typeof(WeightBonus).GetProperty("Bonuses").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

@@ -29,9 +29,9 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
         return new test.ExcelFromJsonMultiRow(_buf);
     }
 
-    public int Id { get; private set; }
-    public int X { get; private set; }
-    public System.Collections.Generic.List<test.TestRow> Items { get; private set; }
+    public int Id { get; protected set; }
+    public int X { get; protected set; }
+    public System.Collections.Generic.List<test.TestRow> Items { get; protected set; }
 
     public const int __ID__ = 715335694;
     public override int GetTypeId() => __ID__;

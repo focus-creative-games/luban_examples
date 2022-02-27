@@ -28,8 +28,8 @@ public sealed partial class ErrorStyleDlgOkCancel :  error.ErrorStyle
         return new error.ErrorStyleDlgOkCancel(_buf);
     }
 
-    public string Btn1Name { get; private set; }
-    public string Btn2Name { get; private set; }
+    public string Btn1Name { get; protected set; }
+    public string Btn2Name { get; protected set; }
 
     public const int __ID__ = 971221414;
     public override int GetTypeId() => __ID__;

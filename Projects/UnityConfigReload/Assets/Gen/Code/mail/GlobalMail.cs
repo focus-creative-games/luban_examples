@@ -38,20 +38,20 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         return new mail.GlobalMail(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Title { get; private set; }
-    public string Sender { get; private set; }
-    public string Content { get; private set; }
-    public System.Collections.Generic.List<int> Award { get; private set; }
+    public int Id { get; protected set; }
+    public string Title { get; protected set; }
+    public string Sender { get; protected set; }
+    public string Content { get; protected set; }
+    public System.Collections.Generic.List<int> Award { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.List<bonus.DropInfo> Award_Ref { get; private set; }
-    public bool AllServer { get; private set; }
-    public System.Collections.Generic.List<int> ServerList { get; private set; }
-    public string Platform { get; private set; }
-    public string Channel { get; private set; }
-    public condition.MinMaxLevel MinMaxLevel { get; private set; }
-    public condition.TimeRange RegisterTime { get; private set; }
-    public condition.TimeRange MailTime { get; private set; }
+    public bool AllServer { get; protected set; }
+    public System.Collections.Generic.List<int> ServerList { get; protected set; }
+    public string Platform { get; protected set; }
+    public string Channel { get; protected set; }
+    public condition.MinMaxLevel MinMaxLevel { get; protected set; }
+    public condition.TimeRange RegisterTime { get; protected set; }
+    public condition.TimeRange MailTime { get; protected set; }
 
     public const int __ID__ = -287571791;
     public override int GetTypeId() => __ID__;
@@ -103,9 +103,30 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         }
         Platform = reloadData.Platform;
         Channel = reloadData.Channel;
-        MinMaxLevel = reloadData.MinMaxLevel;
-        RegisterTime = reloadData.RegisterTime;
-        MailTime = reloadData.MailTime;
+        if(MinMaxLevel.GetTypeId() == reloadData.MinMaxLevel.GetTypeId())
+        {
+            //MinMaxLevel not dynamic
+            MinMaxLevel.Reload(reloadData.MinMaxLevel);
+        }else
+        {
+            typeof(GlobalMail).GetProperty("MinMaxLevel").SetValue(this,reloadData.MinMaxLevel);
+        }
+        if(RegisterTime.GetTypeId() == reloadData.RegisterTime.GetTypeId())
+        {
+            //RegisterTime not dynamic
+            RegisterTime.Reload(reloadData.RegisterTime);
+        }else
+        {
+            typeof(GlobalMail).GetProperty("RegisterTime").SetValue(this,reloadData.RegisterTime);
+        }
+        if(MailTime.GetTypeId() == reloadData.MailTime.GetTypeId())
+        {
+            //MailTime not dynamic
+            MailTime.Reload(reloadData.MailTime);
+        }else
+        {
+            typeof(GlobalMail).GetProperty("MailTime").SetValue(this,reloadData.MailTime);
+        }
     }
 
     public override string ToString()

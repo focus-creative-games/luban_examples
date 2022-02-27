@@ -28,10 +28,10 @@ public sealed partial class ShowItemInfo :  Bright.Config.BeanBase
         return new bonus.ShowItemInfo(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
-    public long ItemNum { get; private set; }
+    public long ItemNum { get; protected set; }
 
     public const int __ID__ = -1496363507;
     public override int GetTypeId() => __ID__;

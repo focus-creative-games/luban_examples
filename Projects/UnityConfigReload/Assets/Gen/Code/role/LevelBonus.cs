@@ -28,8 +28,8 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
         return new role.LevelBonus(_buf);
     }
 
-    public int Id { get; private set; }
-    public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos { get; private set; }
+    public int Id { get; protected set; }
+    public System.Collections.Generic.List<role.DistinctBonusInfos> DistinctBonusInfos { get; protected set; }
 
     public const int __ID__ = -572269677;
     public override int GetTypeId() => __ID__;

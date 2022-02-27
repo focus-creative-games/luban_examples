@@ -28,8 +28,8 @@ public sealed partial class H2 :  Bright.Config.BeanBase
         return new test.H2(_buf);
     }
 
-    public int Z2 { get; private set; }
-    public int Z3 { get; private set; }
+    public int Z2 { get; protected set; }
+    public int Z3 { get; protected set; }
 
     public const int __ID__ = -1422503994;
     public override int GetTypeId() => __ID__;

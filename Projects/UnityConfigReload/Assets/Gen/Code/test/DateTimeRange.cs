@@ -28,9 +28,9 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new test.DateTimeRange(_buf);
     }
 
-    public int StartTime { get; private set; }
+    public int StartTime { get; protected set; }
     public long StartTime_Millis => StartTime * 1000L;
-    public int EndTime { get; private set; }
+    public int EndTime { get; protected set; }
     public long EndTime_Millis => EndTime * 1000L;
 
     public const int __ID__ = 495315430;

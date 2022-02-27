@@ -44,25 +44,25 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     /// <summary>
     /// 这是id
     /// </summary>
-    public int Id { get; private set; }
+    public int Id { get; protected set; }
     /// <summary>
     /// 字段x1
     /// </summary>
-    public bool X1 { get; private set; }
-    public long X5 { get; private set; }
-    public float X6 { get; private set; }
-    public int X8 { get; private set; }
-    public string X10 { get; private set; }
-    public test.ETestQuality X13 { get; private set; }
-    public test.DemoDynamic X14 { get; private set; }
-    public test.Shape X15 { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public int T1 { get; private set; }
+    public bool X1 { get; protected set; }
+    public long X5 { get; protected set; }
+    public float X6 { get; protected set; }
+    public int X8 { get; protected set; }
+    public string X10 { get; protected set; }
+    public test.ETestQuality X13 { get; protected set; }
+    public test.DemoDynamic X14 { get; protected set; }
+    public test.Shape X15 { get; protected set; }
+    public System.Numerics.Vector2 V2 { get; protected set; }
+    public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
-    public int[] K1 { get; private set; }
-    public int[] K2 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
-    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
+    public int[] K1 { get; protected set; }
+    public int[] K2 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; protected set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; protected set; }
 
     public const int __ID__ = 688816828;
     public override int GetTypeId() => __ID__;
@@ -91,12 +91,50 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X10 = reloadData.X10;
         X13 = reloadData.X13;
-        X14 = reloadData.X14;
-        X15 = reloadData.X15;
+        if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+        {
+            //X14 is dynamic
+            switch (reloadData.X14.GetTypeId())
+            {
+                case test.DemoD2.__ID__:
+                    (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
+                    break;
+                case test.DemoE1.__ID__:
+                    (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
+                    break;
+                case test.login.RoleInfo.__ID__:
+                    (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
+                    break;
+                case test.DemoD5.__ID__:
+                    (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
+                    break;
+            }
+        }else
+        {
+            typeof(DefineFromExcel2).GetProperty("X14").SetValue(this,reloadData.X14);
+        }
+        if(X15.GetTypeId() == reloadData.X15.GetTypeId())
+        {
+            //X15 is dynamic
+            switch (reloadData.X15.GetTypeId())
+            {
+                case test.Circle.__ID__:
+                    (X15 as test.Circle).Reload(reloadData.X15 as test.Circle);
+                    break;
+                case test2.Rectangle.__ID__:
+                    (X15 as test2.Rectangle).Reload(reloadData.X15 as test2.Rectangle);
+                    break;
+            }
+        }else
+        {
+            typeof(DefineFromExcel2).GetProperty("X15").SetValue(this,reloadData.X15);
+        }
         V2 = reloadData.V2;
         T1 = reloadData.T1;
         //array
+            typeof(DefineFromExcel2).GetProperty("K1").SetValue(this, reloadData.K1);
         //array
+            typeof(DefineFromExcel2).GetProperty("K2").SetValue(this, reloadData.K2);
         foreach (var rawDataKey in K8.Keys.ToList())
         {
             if(!reloadData.K8.ContainsKey(rawDataKey))

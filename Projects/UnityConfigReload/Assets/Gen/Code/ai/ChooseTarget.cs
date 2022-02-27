@@ -27,7 +27,7 @@ public sealed partial class ChooseTarget :  ai.Service
         return new ai.ChooseTarget(_buf);
     }
 
-    public string ResultTargetKey { get; private set; }
+    public string ResultTargetKey { get; protected set; }
 
     public const int __ID__ = 1601247918;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class ChooseTarget :  ai.Service
 
     public void Reload(ChooseTarget reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         ResultTargetKey = reloadData.ResultTargetKey;
     }
 

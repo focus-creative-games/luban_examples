@@ -39,21 +39,21 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         return new test.DemoPrimitiveTypesTable(_buf);
     }
 
-    public bool X1 { get; private set; }
-    public byte X2 { get; private set; }
-    public short X3 { get; private set; }
-    public int X4 { get; private set; }
-    public long X5 { get; private set; }
-    public float X6 { get; private set; }
-    public double X7 { get; private set; }
-    public string S1 { get; private set; }
-    public string S2 { get; private set; }
+    public bool X1 { get; protected set; }
+    public byte X2 { get; protected set; }
+    public short X3 { get; protected set; }
+    public int X4 { get; protected set; }
+    public long X5 { get; protected set; }
+    public float X6 { get; protected set; }
+    public double X7 { get; protected set; }
+    public string S1 { get; protected set; }
+    public string S2 { get; protected set; }
     //field.gen_text_key
-    public string S2_l10n_key { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
-    public int T1 { get; private set; }
+    public string S2_l10n_key { get; protected set; }
+    public System.Numerics.Vector2 V2 { get; protected set; }
+    public System.Numerics.Vector3 V3 { get; protected set; }
+    public System.Numerics.Vector4 V4 { get; protected set; }
+    public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
 
     public const int __ID__ = -370934083;

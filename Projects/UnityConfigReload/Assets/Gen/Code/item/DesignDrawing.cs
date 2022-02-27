@@ -27,7 +27,7 @@ public sealed partial class DesignDrawing :  item.ItemExtra
         return new item.DesignDrawing(_buf);
     }
 
-    public System.Collections.Generic.List<int> LearnComponentId { get; private set; }
+    public System.Collections.Generic.List<int> LearnComponentId { get; protected set; }
 
     public const int __ID__ = -1679179579;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,7 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 
     public void Reload(DesignDrawing reloadData)
     {
+        Id = reloadData.Id;
         if(LearnComponentId.Count<reloadData.LearnComponentId.Count)
         {
             LearnComponentId.AddRange(new List<int>(reloadData.LearnComponentId.Count-LearnComponentId.Count));

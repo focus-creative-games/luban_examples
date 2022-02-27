@@ -28,8 +28,8 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         return new bonus.ProbabilityBonusInfo(_buf);
     }
 
-    public bonus.Bonus Bonus { get; private set; }
-    public float Probability { get; private set; }
+    public bonus.Bonus Bonus { get; protected set; }
+    public float Probability { get; protected set; }
 
     public const int __ID__ = 46960455;
     public override int GetTypeId() => __ID__;
@@ -47,7 +47,49 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(ProbabilityBonusInfo reloadData)
     {
-        Bonus = reloadData.Bonus;
+        if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
+        {
+            //Bonus is dynamic
+            switch (reloadData.Bonus.GetTypeId())
+            {
+                case bonus.OneItem.__ID__:
+                    (Bonus as bonus.OneItem).Reload(reloadData.Bonus as bonus.OneItem);
+                    break;
+                case bonus.OneItems.__ID__:
+                    (Bonus as bonus.OneItems).Reload(reloadData.Bonus as bonus.OneItems);
+                    break;
+                case bonus.Item.__ID__:
+                    (Bonus as bonus.Item).Reload(reloadData.Bonus as bonus.Item);
+                    break;
+                case bonus.Items.__ID__:
+                    (Bonus as bonus.Items).Reload(reloadData.Bonus as bonus.Items);
+                    break;
+                case bonus.CoefficientItem.__ID__:
+                    (Bonus as bonus.CoefficientItem).Reload(reloadData.Bonus as bonus.CoefficientItem);
+                    break;
+                case bonus.WeightItems.__ID__:
+                    (Bonus as bonus.WeightItems).Reload(reloadData.Bonus as bonus.WeightItems);
+                    break;
+                case bonus.ProbabilityItems.__ID__:
+                    (Bonus as bonus.ProbabilityItems).Reload(reloadData.Bonus as bonus.ProbabilityItems);
+                    break;
+                case bonus.MultiBonus.__ID__:
+                    (Bonus as bonus.MultiBonus).Reload(reloadData.Bonus as bonus.MultiBonus);
+                    break;
+                case bonus.ProbabilityBonus.__ID__:
+                    (Bonus as bonus.ProbabilityBonus).Reload(reloadData.Bonus as bonus.ProbabilityBonus);
+                    break;
+                case bonus.WeightBonus.__ID__:
+                    (Bonus as bonus.WeightBonus).Reload(reloadData.Bonus as bonus.WeightBonus);
+                    break;
+                case bonus.DropBonus.__ID__:
+                    (Bonus as bonus.DropBonus).Reload(reloadData.Bonus as bonus.DropBonus);
+                    break;
+            }
+        }else
+        {
+            typeof(ProbabilityBonusInfo).GetProperty("Bonus").SetValue(this,reloadData.Bonus);
+        }
         Probability = reloadData.Probability;
     }
 

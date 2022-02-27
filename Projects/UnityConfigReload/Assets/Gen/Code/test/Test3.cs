@@ -28,8 +28,8 @@ public sealed partial class Test3 :  Bright.Config.BeanBase
         return new test.Test3(_buf);
     }
 
-    public int X { get; private set; }
-    public int Y { get; private set; }
+    public int X { get; protected set; }
+    public int Y { get; protected set; }
 
     public const int __ID__ = 638540133;
     public override int GetTypeId() => __ID__;

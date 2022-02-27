@@ -30,10 +30,10 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         return new bonus.DropInfo(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Desc { get; private set; }
-    public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems { get; private set; }
-    public bonus.Bonus Bonus { get; private set; }
+    public int Id { get; protected set; }
+    public string Desc { get; protected set; }
+    public System.Collections.Generic.List<bonus.ShowItemInfo> ClientShowItems { get; protected set; }
+    public bonus.Bonus Bonus { get; protected set; }
 
     public const int __ID__ = -2014781108;
     public override int GetTypeId() => __ID__;
@@ -66,7 +66,49 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         {
             ClientShowItems[i] = reloadData.ClientShowItems[i];
         }
-        Bonus = reloadData.Bonus;
+        if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
+        {
+            //Bonus is dynamic
+            switch (reloadData.Bonus.GetTypeId())
+            {
+                case bonus.OneItem.__ID__:
+                    (Bonus as bonus.OneItem).Reload(reloadData.Bonus as bonus.OneItem);
+                    break;
+                case bonus.OneItems.__ID__:
+                    (Bonus as bonus.OneItems).Reload(reloadData.Bonus as bonus.OneItems);
+                    break;
+                case bonus.Item.__ID__:
+                    (Bonus as bonus.Item).Reload(reloadData.Bonus as bonus.Item);
+                    break;
+                case bonus.Items.__ID__:
+                    (Bonus as bonus.Items).Reload(reloadData.Bonus as bonus.Items);
+                    break;
+                case bonus.CoefficientItem.__ID__:
+                    (Bonus as bonus.CoefficientItem).Reload(reloadData.Bonus as bonus.CoefficientItem);
+                    break;
+                case bonus.WeightItems.__ID__:
+                    (Bonus as bonus.WeightItems).Reload(reloadData.Bonus as bonus.WeightItems);
+                    break;
+                case bonus.ProbabilityItems.__ID__:
+                    (Bonus as bonus.ProbabilityItems).Reload(reloadData.Bonus as bonus.ProbabilityItems);
+                    break;
+                case bonus.MultiBonus.__ID__:
+                    (Bonus as bonus.MultiBonus).Reload(reloadData.Bonus as bonus.MultiBonus);
+                    break;
+                case bonus.ProbabilityBonus.__ID__:
+                    (Bonus as bonus.ProbabilityBonus).Reload(reloadData.Bonus as bonus.ProbabilityBonus);
+                    break;
+                case bonus.WeightBonus.__ID__:
+                    (Bonus as bonus.WeightBonus).Reload(reloadData.Bonus as bonus.WeightBonus);
+                    break;
+                case bonus.DropBonus.__ID__:
+                    (Bonus as bonus.DropBonus).Reload(reloadData.Bonus as bonus.DropBonus);
+                    break;
+            }
+        }else
+        {
+            typeof(DropInfo).GetProperty("Bonus").SetValue(this,reloadData.Bonus);
+        }
     }
 
     public override string ToString()

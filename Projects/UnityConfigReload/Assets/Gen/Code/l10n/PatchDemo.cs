@@ -28,8 +28,8 @@ public sealed partial class PatchDemo :  Bright.Config.BeanBase
         return new l10n.PatchDemo(_buf);
     }
 
-    public int Id { get; private set; }
-    public int Value { get; private set; }
+    public int Id { get; protected set; }
+    public int Value { get; protected set; }
 
     public const int __ID__ = -1707294656;
     public override int GetTypeId() => __ID__;

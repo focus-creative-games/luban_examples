@@ -36,19 +36,19 @@ public sealed partial class TestExcelBean1 :  Bright.Config.BeanBase
     /// <summary>
     /// 最高品质
     /// </summary>
-    public int X1 { get; private set; }
+    public int X1 { get; protected set; }
     /// <summary>
     /// 黑色的
     /// </summary>
-    public string X2 { get; private set; }
+    public string X2 { get; protected set; }
     /// <summary>
     /// 蓝色的
     /// </summary>
-    public int X3 { get; private set; }
+    public int X3 { get; protected set; }
     /// <summary>
     /// 最差品质
     /// </summary>
-    public float X4 { get; private set; }
+    public float X4 { get; protected set; }
 
     public const int __ID__ = -1738345160;
     public override int GetTypeId() => __ID__;

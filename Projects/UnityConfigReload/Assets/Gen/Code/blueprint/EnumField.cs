@@ -28,8 +28,8 @@ public sealed partial class EnumField :  Bright.Config.BeanBase
         return new blueprint.EnumField(_buf);
     }
 
-    public string Name { get; private set; }
-    public int Value { get; private set; }
+    public string Name { get; protected set; }
+    public int Value { get; protected set; }
 
     public const int __ID__ = 1830049470;
     public override int GetTypeId() => __ID__;

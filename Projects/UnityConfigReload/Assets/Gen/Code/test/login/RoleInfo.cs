@@ -27,7 +27,7 @@ public sealed partial class RoleInfo :  test.DemoD3
         return new test.login.RoleInfo(_buf);
     }
 
-    public long RoleId { get; private set; }
+    public long RoleId { get; protected set; }
 
     public const int __ID__ = -989153243;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class RoleInfo :  test.DemoD3
 
     public void Reload(RoleInfo reloadData)
     {
+        X1 = reloadData.X1;
+        X3 = reloadData.X3;
         RoleId = reloadData.RoleId;
     }
 

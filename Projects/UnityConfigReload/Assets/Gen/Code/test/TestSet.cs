@@ -32,12 +32,12 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
         return new test.TestSet(_buf);
     }
 
-    public int Id { get; private set; }
-    public string X0 { get; private set; }
-    public System.Collections.Generic.List<int> X1 { get; private set; }
-    public System.Collections.Generic.List<long> X2 { get; private set; }
-    public System.Collections.Generic.List<string> X3 { get; private set; }
-    public System.Collections.Generic.List<test.DemoEnum> X4 { get; private set; }
+    public int Id { get; protected set; }
+    public string X0 { get; protected set; }
+    public System.Collections.Generic.List<int> X1 { get; protected set; }
+    public System.Collections.Generic.List<long> X2 { get; protected set; }
+    public System.Collections.Generic.List<string> X3 { get; protected set; }
+    public System.Collections.Generic.List<test.DemoEnum> X4 { get; protected set; }
 
     public const int __ID__ = -543221516;
     public override int GetTypeId() => __ID__;

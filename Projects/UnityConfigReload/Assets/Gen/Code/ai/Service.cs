@@ -50,6 +50,8 @@ public abstract partial class Service :  ai.Node
 
     public void Reload(Service reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
     }
 
     public override string ToString()

@@ -27,7 +27,7 @@ public sealed partial class FloatKeyData :  ai.KeyData
         return new ai.FloatKeyData(_buf);
     }
 
-    public float Value { get; private set; }
+    public float Value { get; protected set; }
 
     public const int __ID__ = -719747885;
     public override int GetTypeId() => __ID__;

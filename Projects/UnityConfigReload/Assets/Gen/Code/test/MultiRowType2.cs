@@ -29,9 +29,9 @@ public sealed partial class MultiRowType2 :  Bright.Config.BeanBase
         return new test.MultiRowType2(_buf);
     }
 
-    public int Id { get; private set; }
-    public int X { get; private set; }
-    public float Y { get; private set; }
+    public int Id { get; protected set; }
+    public int X { get; protected set; }
+    public float Y { get; protected set; }
 
     public const int __ID__ = 540474971;
     public override int GetTypeId() => __ID__;

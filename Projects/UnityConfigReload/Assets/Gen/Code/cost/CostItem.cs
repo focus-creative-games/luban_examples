@@ -28,10 +28,10 @@ public sealed partial class CostItem :  cost.Cost
         return new cost.CostItem(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
-    public int Amount { get; private set; }
+    public int Amount { get; protected set; }
 
     public const int __ID__ = -1249440351;
     public override int GetTypeId() => __ID__;

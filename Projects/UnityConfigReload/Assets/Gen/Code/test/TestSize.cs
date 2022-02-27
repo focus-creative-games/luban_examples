@@ -31,11 +31,11 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
         return new test.TestSize(_buf);
     }
 
-    public int Id { get; private set; }
-    public int[] X1 { get; private set; }
-    public System.Collections.Generic.List<int> X2 { get; private set; }
-    public System.Collections.Generic.HashSet<int> X3 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> X4 { get; private set; }
+    public int Id { get; protected set; }
+    public int[] X1 { get; protected set; }
+    public System.Collections.Generic.List<int> X2 { get; protected set; }
+    public System.Collections.Generic.HashSet<int> X3 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, int> X4 { get; protected set; }
 
     public const int __ID__ = 340006319;
     public override int GetTypeId() => __ID__;
@@ -53,6 +53,7 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         //array
+            typeof(TestSize).GetProperty("X1").SetValue(this, reloadData.X1);
         if(X2.Count<reloadData.X2.Count)
         {
             X2.AddRange(new List<int>(reloadData.X2.Count-X2.Count));

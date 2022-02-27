@@ -37,7 +37,7 @@ public abstract partial class Task :  ai.FlowNode
         }
     }
 
-    public bool IgnoreRestartSelf { get; private set; }
+    public bool IgnoreRestartSelf { get; protected set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -53,6 +53,30 @@ public abstract partial class Task :  ai.FlowNode
 
     public void Reload(Task reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        if(Decorators.Count<reloadData.Decorators.Count)
+        {
+            Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));
+        }else if(Decorators.Count>reloadData.Decorators.Count)
+        {
+            Decorators.RemoveRange(reloadData.Decorators.Count, Decorators.Count-reloadData.Decorators.Count);
+        }
+        for (int i = 0; i < reloadData.Decorators.Count; i++)
+        {
+            Decorators[i] = reloadData.Decorators[i];
+        }
+        if(Services.Count<reloadData.Services.Count)
+        {
+            Services.AddRange(new List<ai.Service>(reloadData.Services.Count-Services.Count));
+        }else if(Services.Count>reloadData.Services.Count)
+        {
+            Services.RemoveRange(reloadData.Services.Count, Services.Count-reloadData.Services.Count);
+        }
+        for (int i = 0; i < reloadData.Services.Count; i++)
+        {
+            Services[i] = reloadData.Services[i];
+        }
         IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
     }
 

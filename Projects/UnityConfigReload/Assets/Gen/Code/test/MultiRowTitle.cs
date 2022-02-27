@@ -33,13 +33,13 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         return new test.MultiRowTitle(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public test.H1 X1 { get; private set; }
-    public test.H2 X20 { get; private set; }
-    public System.Collections.Generic.List<test.H2> X2 { get; private set; }
-    public test.H2[] X3 { get; private set; }
-    public test.H2[] X4 { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
+    public test.H1 X1 { get; protected set; }
+    public test.H2 X20 { get; protected set; }
+    public System.Collections.Generic.List<test.H2> X2 { get; protected set; }
+    public test.H2[] X3 { get; protected set; }
+    public test.H2[] X4 { get; protected set; }
 
     public const int __ID__ = 540002427;
     public override int GetTypeId() => __ID__;
@@ -67,8 +67,22 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        X1 = reloadData.X1;
-        X20 = reloadData.X20;
+        if(X1.GetTypeId() == reloadData.X1.GetTypeId())
+        {
+            //X1 not dynamic
+            X1.Reload(reloadData.X1);
+        }else
+        {
+            typeof(MultiRowTitle).GetProperty("X1").SetValue(this,reloadData.X1);
+        }
+        if(X20.GetTypeId() == reloadData.X20.GetTypeId())
+        {
+            //X20 not dynamic
+            X20.Reload(reloadData.X20);
+        }else
+        {
+            typeof(MultiRowTitle).GetProperty("X20").SetValue(this,reloadData.X20);
+        }
         if(X2.Count<reloadData.X2.Count)
         {
             X2.AddRange(new List<test.H2>(reloadData.X2.Count-X2.Count));
@@ -81,7 +95,35 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
             X2[i] = reloadData.X2[i];
         }
         //array
+        if(X3.Length!=reloadData.X3.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new test.H2[reloadData.X3.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<X3.Length)
+                {
+                    newArray[i] = X3[i];
+                }
+            }
+            typeof(MultiRowTitle).GetProperty("X3").SetValue(this, newArray);
+            
+        }
         //array
+        if(X4.Length!=reloadData.X4.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new test.H2[reloadData.X4.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<X4.Length)
+                {
+                    newArray[i] = X4[i];
+                }
+            }
+            typeof(MultiRowTitle).GetProperty("X4").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

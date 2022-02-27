@@ -28,8 +28,8 @@ public sealed partial class NormalClazz :  blueprint.Clazz
         return new blueprint.NormalClazz(_buf);
     }
 
-    public bool IsAbstract { get; private set; }
-    public System.Collections.Generic.List<blueprint.Field> Fields { get; private set; }
+    public bool IsAbstract { get; protected set; }
+    public System.Collections.Generic.List<blueprint.Field> Fields { get; protected set; }
 
     public const int __ID__ = -2073576778;
     public override int GetTypeId() => __ID__;
@@ -49,6 +49,30 @@ public sealed partial class NormalClazz :  blueprint.Clazz
 
     public void Reload(NormalClazz reloadData)
     {
+        Name = reloadData.Name;
+        Desc = reloadData.Desc;
+        if(Parents.Count<reloadData.Parents.Count)
+        {
+            Parents.AddRange(new List<blueprint.Clazz>(reloadData.Parents.Count-Parents.Count));
+        }else if(Parents.Count>reloadData.Parents.Count)
+        {
+            Parents.RemoveRange(reloadData.Parents.Count, Parents.Count-reloadData.Parents.Count);
+        }
+        for (int i = 0; i < reloadData.Parents.Count; i++)
+        {
+            Parents[i] = reloadData.Parents[i];
+        }
+        if(Methods.Count<reloadData.Methods.Count)
+        {
+            Methods.AddRange(new List<blueprint.Method>(reloadData.Methods.Count-Methods.Count));
+        }else if(Methods.Count>reloadData.Methods.Count)
+        {
+            Methods.RemoveRange(reloadData.Methods.Count, Methods.Count-reloadData.Methods.Count);
+        }
+        for (int i = 0; i < reloadData.Methods.Count; i++)
+        {
+            Methods[i] = reloadData.Methods[i];
+        }
         IsAbstract = reloadData.IsAbstract;
         if(Fields.Count<reloadData.Fields.Count)
         {

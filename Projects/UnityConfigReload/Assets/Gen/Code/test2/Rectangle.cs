@@ -34,11 +34,11 @@ public sealed partial class Rectangle :  test.Shape
     /// <summary>
     /// 宽度
     /// </summary>
-    public float Width { get; private set; }
+    public float Width { get; protected set; }
     /// <summary>
     /// 高度
     /// </summary>
-    public float Height { get; private set; }
+    public float Height { get; protected set; }
 
     public const int __ID__ = 694982337;
     public override int GetTypeId() => __ID__;

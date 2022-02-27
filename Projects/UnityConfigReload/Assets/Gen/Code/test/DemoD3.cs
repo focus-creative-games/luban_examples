@@ -32,7 +32,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         }
     }
 
-    public int X3 { get; private set; }
+    public int X3 { get; protected set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -48,6 +48,7 @@ public abstract partial class DemoD3 :  test.DemoDynamic
 
     public void Reload(DemoD3 reloadData)
     {
+        X1 = reloadData.X1;
         X3 = reloadData.X3;
     }
 

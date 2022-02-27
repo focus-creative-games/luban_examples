@@ -36,10 +36,10 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
         }
     }
 
-    public string Name { get; private set; }
-    public string Desc { get; private set; }
-    public System.Collections.Generic.List<blueprint.Clazz> Parents { get; private set; }
-    public System.Collections.Generic.List<blueprint.Method> Methods { get; private set; }
+    public string Name { get; protected set; }
+    public string Desc { get; protected set; }
+    public System.Collections.Generic.List<blueprint.Clazz> Parents { get; protected set; }
+    public System.Collections.Generic.List<blueprint.Method> Methods { get; protected set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)

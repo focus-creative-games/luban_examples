@@ -51,36 +51,36 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         return new test.DemoType2(_buf);
     }
 
-    public int X4 { get; private set; }
-    public bool X1 { get; private set; }
-    public byte X2 { get; private set; }
-    public short X3 { get; private set; }
-    public long X5 { get; private set; }
-    public float X6 { get; private set; }
-    public double X7 { get; private set; }
-    public short X80 { get; private set; }
-    public int X8 { get; private set; }
-    public long X9 { get; private set; }
-    public string X10 { get; private set; }
-    public test.DemoType1 X12 { get; private set; }
-    public test.DemoEnum X13 { get; private set; }
-    public test.DemoDynamic X14 { get; private set; }
-    public string S1 { get; private set; }
+    public int X4 { get; protected set; }
+    public bool X1 { get; protected set; }
+    public byte X2 { get; protected set; }
+    public short X3 { get; protected set; }
+    public long X5 { get; protected set; }
+    public float X6 { get; protected set; }
+    public double X7 { get; protected set; }
+    public short X80 { get; protected set; }
+    public int X8 { get; protected set; }
+    public long X9 { get; protected set; }
+    public string X10 { get; protected set; }
+    public test.DemoType1 X12 { get; protected set; }
+    public test.DemoEnum X13 { get; protected set; }
+    public test.DemoDynamic X14 { get; protected set; }
+    public string S1 { get; protected set; }
     //field.gen_text_key
-    public string S1_l10n_key { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
-    public int T1 { get; private set; }
+    public string S1_l10n_key { get; protected set; }
+    public System.Numerics.Vector2 V2 { get; protected set; }
+    public System.Numerics.Vector3 V3 { get; protected set; }
+    public System.Numerics.Vector4 V4 { get; protected set; }
+    public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
-    public int[] K1 { get; private set; }
-    public System.Collections.Generic.List<int> K2 { get; private set; }
-    public System.Collections.Generic.HashSet<int> K5 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
+    public int[] K1 { get; protected set; }
+    public System.Collections.Generic.List<int> K2 { get; protected set; }
+    public System.Collections.Generic.HashSet<int> K5 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, int> K8 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.Dictionary<int, test.DemoType2> K8_Ref { get; private set; }
-    public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
-    public test.DemoDynamic[] K15 { get; private set; }
+    public System.Collections.Generic.List<test.DemoE2> K9 { get; protected set; }
+    public test.DemoDynamic[] K15 { get; protected set; }
 
     public const int __ID__ = -367048295;
     public override int GetTypeId() => __ID__;
@@ -117,15 +117,44 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X9 = reloadData.X9;
         X10 = reloadData.X10;
-        X12 = reloadData.X12;
+        if(X12.GetTypeId() == reloadData.X12.GetTypeId())
+        {
+            //X12 not dynamic
+            X12.Reload(reloadData.X12);
+        }else
+        {
+            typeof(DemoType2).GetProperty("X12").SetValue(this,reloadData.X12);
+        }
         X13 = reloadData.X13;
-        X14 = reloadData.X14;
+        if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+        {
+            //X14 is dynamic
+            switch (reloadData.X14.GetTypeId())
+            {
+                case test.DemoD2.__ID__:
+                    (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
+                    break;
+                case test.DemoE1.__ID__:
+                    (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
+                    break;
+                case test.login.RoleInfo.__ID__:
+                    (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
+                    break;
+                case test.DemoD5.__ID__:
+                    (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
+                    break;
+            }
+        }else
+        {
+            typeof(DemoType2).GetProperty("X14").SetValue(this,reloadData.X14);
+        }
         S1 = reloadData.S1;
         V2 = reloadData.V2;
         V3 = reloadData.V3;
         V4 = reloadData.V4;
         T1 = reloadData.T1;
         //array
+            typeof(DemoType2).GetProperty("K1").SetValue(this, reloadData.K1);
         if(K2.Count<reloadData.K2.Count)
         {
             K2.AddRange(new List<int>(reloadData.K2.Count-K2.Count));
@@ -180,6 +209,20 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
             K9[i] = reloadData.K9[i];
         }
         //array
+        if(K15.Length!=reloadData.K15.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new test.DemoDynamic[reloadData.K15.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<K15.Length)
+                {
+                    newArray[i] = K15[i];
+                }
+            }
+            typeof(DemoType2).GetProperty("K15").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

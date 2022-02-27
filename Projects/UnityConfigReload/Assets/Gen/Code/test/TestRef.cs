@@ -45,43 +45,43 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
         return new test.TestRef(_buf);
     }
 
-    public int Id { get; private set; }
-    public int X1 { get; private set; }
+    public int Id { get; protected set; }
+    public int X1 { get; protected set; }
     //field.gen_ref
     public test.TestBeRef X1_Ref { get; private set; }
-    public int X12 { get; private set; }
-    public int X2 { get; private set; }
-    public int X3 { get; private set; }
-    public int[] A1 { get; private set; }
+    public int X12 { get; protected set; }
+    public int X2 { get; protected set; }
+    public int X3 { get; protected set; }
+    public int[] A1 { get; protected set; }
     //field.gen_ref
     public test.TestBeRef[] A1_Ref { get; private set; }
-    public int[] A2 { get; private set; }
+    public int[] A2 { get; protected set; }
     //field.gen_ref
     public test.TestBeRef[] A2_Ref { get; private set; }
-    public System.Collections.Generic.List<int> B1 { get; private set; }
+    public System.Collections.Generic.List<int> B1 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.List<test.TestBeRef> B1_Ref { get; private set; }
-    public System.Collections.Generic.List<int> B2 { get; private set; }
+    public System.Collections.Generic.List<int> B2 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.List<test.TestBeRef> B2_Ref { get; private set; }
-    public System.Collections.Generic.HashSet<int> C1 { get; private set; }
+    public System.Collections.Generic.HashSet<int> C1 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.HashSet<test.TestBeRef> C1_Ref { get; private set; }
-    public System.Collections.Generic.HashSet<int> C2 { get; private set; }
+    public System.Collections.Generic.HashSet<int> C2 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.HashSet<test.TestBeRef> C2_Ref { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> D1 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> D1 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.Dictionary<int, test.TestBeRef> D1_Ref { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> D2 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> D2 { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref { get; private set; }
-    public int E1 { get; private set; }
-    public long E2 { get; private set; }
-    public string E3 { get; private set; }
-    public int F1 { get; private set; }
-    public long F2 { get; private set; }
-    public string F3 { get; private set; }
+    public int E1 { get; protected set; }
+    public long E2 { get; protected set; }
+    public string E3 { get; protected set; }
+    public int F1 { get; protected set; }
+    public long F2 { get; protected set; }
+    public string F3 { get; protected set; }
 
     public const int __ID__ = -543222491;
     public override int GetTypeId() => __ID__;
@@ -112,7 +112,9 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
         X2 = reloadData.X2;
         X3 = reloadData.X3;
         //array
+            typeof(TestRef).GetProperty("A1").SetValue(this, reloadData.A1);
         //array
+            typeof(TestRef).GetProperty("A2").SetValue(this, reloadData.A2);
         if(B1.Count<reloadData.B1.Count)
         {
             B1.AddRange(new List<int>(reloadData.B1.Count-B1.Count));

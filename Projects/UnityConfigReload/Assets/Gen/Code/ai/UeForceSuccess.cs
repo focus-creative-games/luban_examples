@@ -43,6 +43,9 @@ public sealed partial class UeForceSuccess :  ai.Decorator
 
     public void Reload(UeForceSuccess reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
     }
 
     public override string ToString()

@@ -27,7 +27,7 @@ public sealed partial class CostItems :  cost.Cost
         return new cost.CostItems(_buf);
     }
 
-    public cost.CostItem[] ItemList { get; private set; }
+    public cost.CostItem[] ItemList { get; protected set; }
 
     public const int __ID__ = -77945102;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class CostItems :  cost.Cost
     public void Reload(CostItems reloadData)
     {
         //array
+        if(ItemList.Length!=reloadData.ItemList.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new cost.CostItem[reloadData.ItemList.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<ItemList.Length)
+                {
+                    newArray[i] = ItemList[i];
+                }
+            }
+            typeof(CostItems).GetProperty("ItemList").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

@@ -28,8 +28,8 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         return new ai.BinaryOperator(_buf);
     }
 
-    public ai.EOperator Oper { get; private set; }
-    public ai.KeyData Data { get; private set; }
+    public ai.EOperator Oper { get; protected set; }
+    public ai.KeyData Data { get; protected set; }
 
     public const int __ID__ = -979891605;
     public override int GetTypeId() => __ID__;
@@ -50,7 +50,28 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public void Reload(BinaryOperator reloadData)
     {
         Oper = reloadData.Oper;
-        Data = reloadData.Data;
+        if(Data.GetTypeId() == reloadData.Data.GetTypeId())
+        {
+            //Data is dynamic
+            switch (reloadData.Data.GetTypeId())
+            {
+                case ai.FloatKeyData.__ID__:
+                    (Data as ai.FloatKeyData).Reload(reloadData.Data as ai.FloatKeyData);
+                    break;
+                case ai.IntKeyData.__ID__:
+                    (Data as ai.IntKeyData).Reload(reloadData.Data as ai.IntKeyData);
+                    break;
+                case ai.StringKeyData.__ID__:
+                    (Data as ai.StringKeyData).Reload(reloadData.Data as ai.StringKeyData);
+                    break;
+                case ai.BlackboardKeyData.__ID__:
+                    (Data as ai.BlackboardKeyData).Reload(reloadData.Data as ai.BlackboardKeyData);
+                    break;
+            }
+        }else
+        {
+            typeof(BinaryOperator).GetProperty("Data").SetValue(this,reloadData.Data);
+        }
     }
 
     public override string ToString()

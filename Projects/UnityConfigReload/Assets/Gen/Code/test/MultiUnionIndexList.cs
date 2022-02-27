@@ -31,11 +31,11 @@ public sealed partial class MultiUnionIndexList :  Bright.Config.BeanBase
         return new test.MultiUnionIndexList(_buf);
     }
 
-    public int Id1 { get; private set; }
-    public long Id2 { get; private set; }
-    public string Id3 { get; private set; }
-    public int Num { get; private set; }
-    public string Desc { get; private set; }
+    public int Id1 { get; protected set; }
+    public long Id2 { get; protected set; }
+    public string Id3 { get; protected set; }
+    public int Num { get; protected set; }
+    public string Desc { get; protected set; }
 
     public const int __ID__ = 1966847134;
     public override int GetTypeId() => __ID__;

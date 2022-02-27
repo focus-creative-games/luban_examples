@@ -28,8 +28,8 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
         return new role.DistinctBonusInfos(_buf);
     }
 
-    public int EffectiveLevel { get; private set; }
-    public System.Collections.Generic.List<role.BonusInfo> BonusInfo { get; private set; }
+    public int EffectiveLevel { get; protected set; }
+    public System.Collections.Generic.List<role.BonusInfo> BonusInfo { get; protected set; }
 
     public const int __ID__ = -854361766;
     public override int GetTypeId() => __ID__;

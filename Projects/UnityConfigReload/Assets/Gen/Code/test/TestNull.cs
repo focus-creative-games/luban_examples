@@ -33,15 +33,15 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         return new test.TestNull(_buf);
     }
 
-    public int Id { get; private set; }
-    public int? X1 { get; private set; }
-    public test.DemoEnum? X2 { get; private set; }
-    public test.DemoType1 X3 { get; private set; }
-    public test.DemoDynamic X4 { get; private set; }
-    public string S1 { get; private set; }
-    public string S2 { get; private set; }
+    public int Id { get; protected set; }
+    public int? X1 { get; protected set; }
+    public test.DemoEnum? X2 { get; protected set; }
+    public test.DemoType1 X3 { get; protected set; }
+    public test.DemoDynamic X4 { get; protected set; }
+    public string S1 { get; protected set; }
+    public string S2 { get; protected set; }
     //field.gen_text_key
-    public string S2_l10n_key { get; private set; }
+    public string S2_l10n_key { get; protected set; }
 
     public const int __ID__ = 339868469;
     public override int GetTypeId() => __ID__;
@@ -65,8 +65,36 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         Id = reloadData.Id;
         X1 = reloadData.X1;
         X2 = reloadData.X2;
-        X3 = reloadData.X3;
-        X4 = reloadData.X4;
+        if(X3.GetTypeId() == reloadData.X3.GetTypeId())
+        {
+            //X3 not dynamic
+            X3.Reload(reloadData.X3);
+        }else
+        {
+            typeof(TestNull).GetProperty("X3").SetValue(this,reloadData.X3);
+        }
+        if(X4.GetTypeId() == reloadData.X4.GetTypeId())
+        {
+            //X4 is dynamic
+            switch (reloadData.X4.GetTypeId())
+            {
+                case test.DemoD2.__ID__:
+                    (X4 as test.DemoD2).Reload(reloadData.X4 as test.DemoD2);
+                    break;
+                case test.DemoE1.__ID__:
+                    (X4 as test.DemoE1).Reload(reloadData.X4 as test.DemoE1);
+                    break;
+                case test.login.RoleInfo.__ID__:
+                    (X4 as test.login.RoleInfo).Reload(reloadData.X4 as test.login.RoleInfo);
+                    break;
+                case test.DemoD5.__ID__:
+                    (X4 as test.DemoD5).Reload(reloadData.X4 as test.DemoD5);
+                    break;
+            }
+        }else
+        {
+            typeof(TestNull).GetProperty("X4").SetValue(this,reloadData.X4);
+        }
         S1 = reloadData.S1;
         S2 = reloadData.S2;
     }

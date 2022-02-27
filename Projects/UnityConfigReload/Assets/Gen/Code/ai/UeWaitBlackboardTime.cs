@@ -27,7 +27,7 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
         return new ai.UeWaitBlackboardTime(_buf);
     }
 
-    public string BlackboardKey { get; private set; }
+    public string BlackboardKey { get; protected set; }
 
     public const int __ID__ = 1215378271;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,31 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public void Reload(UeWaitBlackboardTime reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        if(Decorators.Count<reloadData.Decorators.Count)
+        {
+            Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));
+        }else if(Decorators.Count>reloadData.Decorators.Count)
+        {
+            Decorators.RemoveRange(reloadData.Decorators.Count, Decorators.Count-reloadData.Decorators.Count);
+        }
+        for (int i = 0; i < reloadData.Decorators.Count; i++)
+        {
+            Decorators[i] = reloadData.Decorators[i];
+        }
+        if(Services.Count<reloadData.Services.Count)
+        {
+            Services.AddRange(new List<ai.Service>(reloadData.Services.Count-Services.Count));
+        }else if(Services.Count>reloadData.Services.Count)
+        {
+            Services.RemoveRange(reloadData.Services.Count, Services.Count-reloadData.Services.Count);
+        }
+        for (int i = 0; i < reloadData.Services.Count; i++)
+        {
+            Services[i] = reloadData.Services[i];
+        }
+        IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
         BlackboardKey = reloadData.BlackboardKey;
     }
 

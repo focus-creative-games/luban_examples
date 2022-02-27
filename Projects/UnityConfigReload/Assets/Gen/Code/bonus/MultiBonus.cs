@@ -27,7 +27,7 @@ public sealed partial class MultiBonus :  bonus.Bonus
         return new bonus.MultiBonus(_buf);
     }
 
-    public bonus.Bonus[] Bonuses { get; private set; }
+    public bonus.Bonus[] Bonuses { get; protected set; }
 
     public const int __ID__ = 1421907893;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class MultiBonus :  bonus.Bonus
     public void Reload(MultiBonus reloadData)
     {
         //array
+        if(Bonuses.Length!=reloadData.Bonuses.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new bonus.Bonus[reloadData.Bonuses.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<Bonuses.Length)
+                {
+                    newArray[i] = Bonuses[i];
+                }
+            }
+            typeof(MultiBonus).GetProperty("Bonuses").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

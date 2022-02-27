@@ -37,7 +37,7 @@ public abstract partial class Decorator :  ai.Node
         }
     }
 
-    public ai.EFlowAbortMode FlowAbortMode { get; private set; }
+    public ai.EFlowAbortMode FlowAbortMode { get; protected set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -53,6 +53,8 @@ public abstract partial class Decorator :  ai.Node
 
     public void Reload(Decorator reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         FlowAbortMode = reloadData.FlowAbortMode;
     }
 

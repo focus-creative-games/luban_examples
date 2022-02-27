@@ -30,10 +30,10 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         return new test.TestString(_buf);
     }
 
-    public int Id { get; private set; }
-    public string S1 { get; private set; }
-    public test.CompactString Cs1 { get; private set; }
-    public test.CompactString Cs2 { get; private set; }
+    public int Id { get; protected set; }
+    public string S1 { get; protected set; }
+    public test.CompactString Cs1 { get; protected set; }
+    public test.CompactString Cs2 { get; protected set; }
 
     public const int __ID__ = 338485823;
     public override int GetTypeId() => __ID__;
@@ -55,8 +55,22 @@ public sealed partial class TestString :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         S1 = reloadData.S1;
-        Cs1 = reloadData.Cs1;
-        Cs2 = reloadData.Cs2;
+        if(Cs1.GetTypeId() == reloadData.Cs1.GetTypeId())
+        {
+            //Cs1 not dynamic
+            Cs1.Reload(reloadData.Cs1);
+        }else
+        {
+            typeof(TestString).GetProperty("Cs1").SetValue(this,reloadData.Cs1);
+        }
+        if(Cs2.GetTypeId() == reloadData.Cs2.GetTypeId())
+        {
+            //Cs2 not dynamic
+            Cs2.Reload(reloadData.Cs2);
+        }else
+        {
+            typeof(TestString).GetProperty("Cs2").SetValue(this,reloadData.Cs2);
+        }
     }
 
     public override string ToString()

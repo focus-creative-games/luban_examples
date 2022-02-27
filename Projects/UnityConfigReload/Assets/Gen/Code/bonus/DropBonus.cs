@@ -27,7 +27,7 @@ public sealed partial class DropBonus :  bonus.Bonus
         return new bonus.DropBonus(_buf);
     }
 
-    public int Id { get; private set; }
+    public int Id { get; protected set; }
     //field.gen_ref
     public bonus.DropInfo Id_Ref { get; private set; }
 

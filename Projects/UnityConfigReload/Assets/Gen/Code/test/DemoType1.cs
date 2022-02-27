@@ -27,7 +27,7 @@ public sealed partial class DemoType1 :  Bright.Config.BeanBase
         return new test.DemoType1(_buf);
     }
 
-    public int X1 { get; private set; }
+    public int X1 { get; protected set; }
 
     public const int __ID__ = -367048296;
     public override int GetTypeId() => __ID__;

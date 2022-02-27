@@ -41,8 +41,8 @@ public abstract partial class FlowNode :  ai.Node
         }
     }
 
-    public System.Collections.Generic.List<ai.Decorator> Decorators { get; private set; }
-    public System.Collections.Generic.List<ai.Service> Services { get; private set; }
+    public System.Collections.Generic.List<ai.Decorator> Decorators { get; protected set; }
+    public System.Collections.Generic.List<ai.Service> Services { get; protected set; }
 
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -62,6 +62,8 @@ public abstract partial class FlowNode :  ai.Node
 
     public void Reload(FlowNode reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         if(Decorators.Count<reloadData.Decorators.Count)
         {
             Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));

@@ -30,10 +30,10 @@ public sealed partial class Clothes :  item.ItemExtra
         return new item.Clothes(_buf);
     }
 
-    public int Attack { get; private set; }
-    public long Hp { get; private set; }
-    public int EnergyLimit { get; private set; }
-    public int EnergyResume { get; private set; }
+    public int Attack { get; protected set; }
+    public long Hp { get; protected set; }
+    public int EnergyLimit { get; protected set; }
+    public int EnergyResume { get; protected set; }
 
     public const int __ID__ = 1659907149;
     public override int GetTypeId() => __ID__;
@@ -51,6 +51,7 @@ public sealed partial class Clothes :  item.ItemExtra
 
     public void Reload(Clothes reloadData)
     {
+        Id = reloadData.Id;
         Attack = reloadData.Attack;
         Hp = reloadData.Hp;
         EnergyLimit = reloadData.EnergyLimit;

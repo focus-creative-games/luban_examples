@@ -27,7 +27,7 @@ public sealed partial class UeCooldown :  ai.Decorator
         return new ai.UeCooldown(_buf);
     }
 
-    public float CooldownTime { get; private set; }
+    public float CooldownTime { get; protected set; }
 
     public const int __ID__ = -951439423;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,9 @@ public sealed partial class UeCooldown :  ai.Decorator
 
     public void Reload(UeCooldown reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         CooldownTime = reloadData.CooldownTime;
     }
 

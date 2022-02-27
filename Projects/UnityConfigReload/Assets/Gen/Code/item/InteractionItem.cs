@@ -29,9 +29,9 @@ public sealed partial class InteractionItem :  item.ItemExtra
         return new item.InteractionItem(_buf);
     }
 
-    public int? AttackNum { get; private set; }
-    public string HoldingStaticMesh { get; private set; }
-    public string HoldingStaticMeshMat { get; private set; }
+    public int? AttackNum { get; protected set; }
+    public string HoldingStaticMesh { get; protected set; }
+    public string HoldingStaticMeshMat { get; protected set; }
 
     public const int __ID__ = 640937802;
     public override int GetTypeId() => __ID__;
@@ -49,6 +49,7 @@ public sealed partial class InteractionItem :  item.ItemExtra
 
     public void Reload(InteractionItem reloadData)
     {
+        Id = reloadData.Id;
         AttackNum = reloadData.AttackNum;
         HoldingStaticMesh = reloadData.HoldingStaticMesh;
         HoldingStaticMeshMat = reloadData.HoldingStaticMeshMat;

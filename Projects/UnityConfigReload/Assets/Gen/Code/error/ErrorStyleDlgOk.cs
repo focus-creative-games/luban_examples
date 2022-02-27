@@ -27,7 +27,7 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
         return new error.ErrorStyleDlgOk(_buf);
     }
 
-    public string BtnName { get; private set; }
+    public string BtnName { get; protected set; }
 
     public const int __ID__ = -2010134516;
     public override int GetTypeId() => __ID__;

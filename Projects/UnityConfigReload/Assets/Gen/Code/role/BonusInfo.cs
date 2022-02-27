@@ -28,8 +28,8 @@ public sealed partial class BonusInfo :  Bright.Config.BeanBase
         return new role.BonusInfo(_buf);
     }
 
-    public item.ECurrencyType Type { get; private set; }
-    public float Coefficient { get; private set; }
+    public item.ECurrencyType Type { get; protected set; }
+    public float Coefficient { get; protected set; }
 
     public const int __ID__ = -1354421803;
     public override int GetTypeId() => __ID__;

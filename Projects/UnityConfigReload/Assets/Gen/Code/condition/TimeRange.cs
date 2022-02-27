@@ -27,7 +27,7 @@ public sealed partial class TimeRange :  condition.Condition
         return new condition.TimeRange(_buf);
     }
 
-    public common.DateTimeRange DateTimeRange { get; private set; }
+    public common.DateTimeRange DateTimeRange { get; protected set; }
 
     public const int __ID__ = 1069033789;
     public override int GetTypeId() => __ID__;
@@ -47,7 +47,14 @@ public sealed partial class TimeRange :  condition.Condition
 
     public void Reload(TimeRange reloadData)
     {
-        DateTimeRange = reloadData.DateTimeRange;
+        if(DateTimeRange.GetTypeId() == reloadData.DateTimeRange.GetTypeId())
+        {
+            //DateTimeRange not dynamic
+            DateTimeRange.Reload(reloadData.DateTimeRange);
+        }else
+        {
+            typeof(TimeRange).GetProperty("DateTimeRange").SetValue(this,reloadData.DateTimeRange);
+        }
     }
 
     public override string ToString()

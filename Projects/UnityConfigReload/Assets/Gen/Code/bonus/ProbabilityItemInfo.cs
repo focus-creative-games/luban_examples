@@ -29,11 +29,11 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
         return new bonus.ProbabilityItemInfo(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
-    public int Num { get; private set; }
-    public float Probability { get; private set; }
+    public int Num { get; protected set; }
+    public float Probability { get; protected set; }
 
     public const int __ID__ = 1547874631;
     public override int GetTypeId() => __ID__;

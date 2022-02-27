@@ -35,15 +35,15 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
         return new ai.UpdateDailyBehaviorProps(_buf);
     }
 
-    public string SatietyKey { get; private set; }
-    public string EnergyKey { get; private set; }
-    public string MoodKey { get; private set; }
-    public string SatietyLowerThresholdKey { get; private set; }
-    public string SatietyUpperThresholdKey { get; private set; }
-    public string EnergyLowerThresholdKey { get; private set; }
-    public string EnergyUpperThresholdKey { get; private set; }
-    public string MoodLowerThresholdKey { get; private set; }
-    public string MoodUpperThresholdKey { get; private set; }
+    public string SatietyKey { get; protected set; }
+    public string EnergyKey { get; protected set; }
+    public string MoodKey { get; protected set; }
+    public string SatietyLowerThresholdKey { get; protected set; }
+    public string SatietyUpperThresholdKey { get; protected set; }
+    public string EnergyLowerThresholdKey { get; protected set; }
+    public string EnergyUpperThresholdKey { get; protected set; }
+    public string MoodLowerThresholdKey { get; protected set; }
+    public string MoodUpperThresholdKey { get; protected set; }
 
     public const int __ID__ = -61887372;
     public override int GetTypeId() => __ID__;
@@ -61,6 +61,8 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
 
     public void Reload(UpdateDailyBehaviorProps reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         SatietyKey = reloadData.SatietyKey;
         EnergyKey = reloadData.EnergyKey;
         MoodKey = reloadData.MoodKey;

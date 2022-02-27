@@ -29,9 +29,9 @@ public sealed partial class UeBlackboard :  ai.Decorator
         return new ai.UeBlackboard(_buf);
     }
 
-    public ai.ENotifyObserverMode NotifyObserver { get; private set; }
-    public string BlackboardKey { get; private set; }
-    public ai.KeyQueryOperator KeyQuery { get; private set; }
+    public ai.ENotifyObserverMode NotifyObserver { get; protected set; }
+    public string BlackboardKey { get; protected set; }
+    public ai.KeyQueryOperator KeyQuery { get; protected set; }
 
     public const int __ID__ = -315297507;
     public override int GetTypeId() => __ID__;
@@ -51,9 +51,30 @@ public sealed partial class UeBlackboard :  ai.Decorator
 
     public void Reload(UeBlackboard reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         NotifyObserver = reloadData.NotifyObserver;
         BlackboardKey = reloadData.BlackboardKey;
-        KeyQuery = reloadData.KeyQuery;
+        if(KeyQuery.GetTypeId() == reloadData.KeyQuery.GetTypeId())
+        {
+            //KeyQuery is dynamic
+            switch (reloadData.KeyQuery.GetTypeId())
+            {
+                case ai.IsSet.__ID__:
+                    (KeyQuery as ai.IsSet).Reload(reloadData.KeyQuery as ai.IsSet);
+                    break;
+                case ai.IsNotSet.__ID__:
+                    (KeyQuery as ai.IsNotSet).Reload(reloadData.KeyQuery as ai.IsNotSet);
+                    break;
+                case ai.BinaryOperator.__ID__:
+                    (KeyQuery as ai.BinaryOperator).Reload(reloadData.KeyQuery as ai.BinaryOperator);
+                    break;
+            }
+        }else
+        {
+            typeof(UeBlackboard).GetProperty("KeyQuery").SetValue(this,reloadData.KeyQuery);
+        }
     }
 
     public override string ToString()

@@ -31,13 +31,13 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
         return new test.TestMap(_buf);
     }
 
-    public int Id { get; private set; }
+    public int Id { get; protected set; }
     //field.gen_ref
     public test.TestIndex Id_Ref { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> X1 { get; private set; }
-    public System.Collections.Generic.Dictionary<long, int> X2 { get; private set; }
-    public System.Collections.Generic.Dictionary<string, int> X3 { get; private set; }
-    public System.Collections.Generic.Dictionary<test.DemoEnum, int> X4 { get; private set; }
+    public System.Collections.Generic.Dictionary<int, int> X1 { get; protected set; }
+    public System.Collections.Generic.Dictionary<long, int> X2 { get; protected set; }
+    public System.Collections.Generic.Dictionary<string, int> X3 { get; protected set; }
+    public System.Collections.Generic.Dictionary<test.DemoEnum, int> X4 { get; protected set; }
 
     public const int __ID__ = -543227410;
     public override int GetTypeId() => __ID__;

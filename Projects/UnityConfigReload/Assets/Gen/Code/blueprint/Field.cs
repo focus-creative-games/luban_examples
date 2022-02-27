@@ -29,9 +29,9 @@ public sealed partial class Field :  Bright.Config.BeanBase
         return new blueprint.Field(_buf);
     }
 
-    public string Name { get; private set; }
-    public string Type { get; private set; }
-    public string Desc { get; private set; }
+    public string Name { get; protected set; }
+    public string Type { get; protected set; }
+    public string Desc { get; protected set; }
 
     public const int __ID__ = 1694158271;
     public override int GetTypeId() => __ID__;

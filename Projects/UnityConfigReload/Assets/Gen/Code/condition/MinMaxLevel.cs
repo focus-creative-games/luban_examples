@@ -28,8 +28,8 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         return new condition.MinMaxLevel(_buf);
     }
 
-    public int Min { get; private set; }
-    public int Max { get; private set; }
+    public int Min { get; protected set; }
+    public int Max { get; protected set; }
 
     public const int __ID__ = 907499647;
     public override int GetTypeId() => __ID__;

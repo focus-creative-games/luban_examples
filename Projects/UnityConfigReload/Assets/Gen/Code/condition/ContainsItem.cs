@@ -29,11 +29,11 @@ public sealed partial class ContainsItem :  condition.RoleCondition
         return new condition.ContainsItem(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
-    public int Num { get; private set; }
-    public bool Reverse { get; private set; }
+    public int Num { get; protected set; }
+    public bool Reverse { get; protected set; }
 
     public const int __ID__ = 1961145317;
     public override int GetTypeId() => __ID__;

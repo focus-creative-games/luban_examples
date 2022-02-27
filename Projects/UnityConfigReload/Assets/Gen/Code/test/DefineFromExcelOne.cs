@@ -33,13 +33,13 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     /// <summary>
     /// 装备解锁等级
     /// </summary>
-    public int UnlockEquip { get; private set; }
+    public int UnlockEquip { get; protected set; }
     /// <summary>
     /// 英雄解锁等级
     /// </summary>
-    public int UnlockHero { get; private set; }
-    public string DefaultAvatar { get; private set; }
-    public string DefaultItem { get; private set; }
+    public int UnlockHero { get; protected set; }
+    public string DefaultAvatar { get; protected set; }
+    public string DefaultItem { get; protected set; }
 
     public const int __ID__ = 528039504;
     public override int GetTypeId() => __ID__;

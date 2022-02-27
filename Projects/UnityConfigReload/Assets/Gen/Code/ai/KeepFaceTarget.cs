@@ -27,7 +27,7 @@ public sealed partial class KeepFaceTarget :  ai.Service
         return new ai.KeepFaceTarget(_buf);
     }
 
-    public string TargetActorKey { get; private set; }
+    public string TargetActorKey { get; protected set; }
 
     public const int __ID__ = 1195270745;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class KeepFaceTarget :  ai.Service
 
     public void Reload(KeepFaceTarget reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         TargetActorKey = reloadData.TargetActorKey;
     }
 

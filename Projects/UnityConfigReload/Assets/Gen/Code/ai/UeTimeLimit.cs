@@ -27,7 +27,7 @@ public sealed partial class UeTimeLimit :  ai.Decorator
         return new ai.UeTimeLimit(_buf);
     }
 
-    public float LimitTime { get; private set; }
+    public float LimitTime { get; protected set; }
 
     public const int __ID__ = 338469720;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,9 @@ public sealed partial class UeTimeLimit :  ai.Decorator
 
     public void Reload(UeTimeLimit reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         LimitTime = reloadData.LimitTime;
     }
 

@@ -28,8 +28,8 @@ public sealed partial class MultiRowType1 :  Bright.Config.BeanBase
         return new test.MultiRowType1(_buf);
     }
 
-    public int Id { get; private set; }
-    public int X { get; private set; }
+    public int Id { get; protected set; }
+    public int X { get; protected set; }
 
     public const int __ID__ = 540474970;
     public override int GetTypeId() => __ID__;

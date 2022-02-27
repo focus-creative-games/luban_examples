@@ -33,25 +33,25 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
         return new test.TestDesc(_buf);
     }
 
-    public int Id { get; private set; }
+    public int Id { get; protected set; }
     /// <summary>
     /// 禁止
     /// </summary>
-    public string Name { get; private set; }
+    public string Name { get; protected set; }
     /// <summary>
     /// 测试换行<br/>第2行<br/>第3层
     /// </summary>
-    public int A1 { get; private set; }
+    public int A1 { get; protected set; }
     /// <summary>
     /// 测试转义 &lt; &amp; % / # &gt;
     /// </summary>
-    public int A2 { get; private set; }
-    public test.H1 X1 { get; private set; }
+    public int A2 { get; protected set; }
+    public test.H1 X1 { get; protected set; }
     /// <summary>
     /// 这是x2
     /// </summary>
-    public System.Collections.Generic.List<test.H2> X2 { get; private set; }
-    public test.H2[] X3 { get; private set; }
+    public System.Collections.Generic.List<test.H2> X2 { get; protected set; }
+    public test.H2[] X3 { get; protected set; }
 
     public const int __ID__ = 339555391;
     public override int GetTypeId() => __ID__;
@@ -77,7 +77,14 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
         Name = reloadData.Name;
         A1 = reloadData.A1;
         A2 = reloadData.A2;
-        X1 = reloadData.X1;
+        if(X1.GetTypeId() == reloadData.X1.GetTypeId())
+        {
+            //X1 not dynamic
+            X1.Reload(reloadData.X1);
+        }else
+        {
+            typeof(TestDesc).GetProperty("X1").SetValue(this,reloadData.X1);
+        }
         if(X2.Count<reloadData.X2.Count)
         {
             X2.AddRange(new List<test.H2>(reloadData.X2.Count-X2.Count));
@@ -90,6 +97,20 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
             X2[i] = reloadData.X2[i];
         }
         //array
+        if(X3.Length!=reloadData.X3.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new test.H2[reloadData.X3.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<X3.Length)
+                {
+                    newArray[i] = X3[i];
+                }
+            }
+            typeof(TestDesc).GetProperty("X3").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

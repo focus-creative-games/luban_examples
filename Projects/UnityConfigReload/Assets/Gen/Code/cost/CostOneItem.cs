@@ -27,7 +27,7 @@ public sealed partial class CostOneItem :  cost.Cost
         return new cost.CostOneItem(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
 

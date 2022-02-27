@@ -32,18 +32,18 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         return new test.DemoGroup(_buf);
     }
 
-    public int Id { get; private set; }
-    public int X1 { get; private set; }
+    public int Id { get; protected set; }
+    public int X1 { get; protected set; }
     //field.gen_ref
     public test.DemoGroup X1_Ref { get; private set; }
-    public int X2 { get; private set; }
+    public int X2 { get; protected set; }
     //field.gen_ref
     public test.DemoGroup X2_Ref { get; private set; }
-    public int X3 { get; private set; }
+    public int X3 { get; protected set; }
     //field.gen_ref
     public test.DemoGroup X3_Ref { get; private set; }
-    public int X4 { get; private set; }
-    public test.InnerGroup X5 { get; private set; }
+    public int X4 { get; protected set; }
+    public test.InnerGroup X5 { get; protected set; }
 
     public const int __ID__ = -379263008;
     public override int GetTypeId() => __ID__;
@@ -69,7 +69,14 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         X2 = reloadData.X2;
         X3 = reloadData.X3;
         X4 = reloadData.X4;
-        X5 = reloadData.X5;
+        if(X5.GetTypeId() == reloadData.X5.GetTypeId())
+        {
+            //X5 not dynamic
+            X5.Reload(reloadData.X5);
+        }else
+        {
+            typeof(DemoGroup).GetProperty("X5").SetValue(this,reloadData.X5);
+        }
     }
 
     public override string ToString()

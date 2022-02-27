@@ -27,7 +27,7 @@ public sealed partial class GetOwnerPlayer :  ai.Service
         return new ai.GetOwnerPlayer(_buf);
     }
 
-    public string PlayerActorKey { get; private set; }
+    public string PlayerActorKey { get; protected set; }
 
     public const int __ID__ = -999247644;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class GetOwnerPlayer :  ai.Service
 
     public void Reload(GetOwnerPlayer reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         PlayerActorKey = reloadData.PlayerActorKey;
     }
 

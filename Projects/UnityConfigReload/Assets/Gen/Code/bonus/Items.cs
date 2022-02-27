@@ -27,7 +27,7 @@ public sealed partial class Items :  bonus.Bonus
         return new bonus.Items(_buf);
     }
 
-    public bonus.Item[] ItemList { get; private set; }
+    public bonus.Item[] ItemList { get; protected set; }
 
     public const int __ID__ = 819736849;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class Items :  bonus.Bonus
     public void Reload(Items reloadData)
     {
         //array
+        if(ItemList.Length!=reloadData.ItemList.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new bonus.Item[reloadData.ItemList.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<ItemList.Length)
+                {
+                    newArray[i] = ItemList[i];
+                }
+            }
+            typeof(Items).GetProperty("ItemList").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

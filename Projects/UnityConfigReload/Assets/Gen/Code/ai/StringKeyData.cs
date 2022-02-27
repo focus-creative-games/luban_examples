@@ -27,7 +27,7 @@ public sealed partial class StringKeyData :  ai.KeyData
         return new ai.StringKeyData(_buf);
     }
 
-    public string Value { get; private set; }
+    public string Value { get; protected set; }
 
     public const int __ID__ = -307888654;
     public override int GetTypeId() => __ID__;

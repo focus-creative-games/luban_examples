@@ -28,8 +28,8 @@ public sealed partial class TestGlobal :  Bright.Config.BeanBase
         return new test.TestGlobal(_buf);
     }
 
-    public int UnlockEquip { get; private set; }
-    public int UnlockHero { get; private set; }
+    public int UnlockEquip { get; protected set; }
+    public int UnlockHero { get; protected set; }
 
     public const int __ID__ = -12548655;
     public override int GetTypeId() => __ID__;

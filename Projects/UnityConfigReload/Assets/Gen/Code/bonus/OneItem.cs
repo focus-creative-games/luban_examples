@@ -27,7 +27,7 @@ public sealed partial class OneItem :  bonus.Bonus
         return new bonus.OneItem(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
 

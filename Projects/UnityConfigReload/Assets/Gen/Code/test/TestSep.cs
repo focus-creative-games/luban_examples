@@ -33,27 +33,27 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
         return new test.TestSep(_buf);
     }
 
-    public int Id { get; private set; }
-    public string X1 { get; private set; }
+    public int Id { get; protected set; }
+    public string X1 { get; protected set; }
     //field.gen_text_key
-    public string X1_l10n_key { get; private set; }
-    public test.SepBean1 X2 { get; private set; }
+    public string X1_l10n_key { get; protected set; }
+    public test.SepBean1 X2 { get; protected set; }
     /// <summary>
     /// SepVector已经定义了sep=,属性
     /// </summary>
-    public test.SepVector X3 { get; private set; }
+    public test.SepVector X3 { get; protected set; }
     /// <summary>
     /// 用;来分割数据，然后顺序读入SepVector
     /// </summary>
-    public System.Collections.Generic.List<test.SepVector> X4 { get; private set; }
+    public System.Collections.Generic.List<test.SepVector> X4 { get; protected set; }
     /// <summary>
     /// 用,分割数据，然后顺序读入
     /// </summary>
-    public System.Collections.Generic.List<test.SepBean1> X5 { get; private set; }
+    public System.Collections.Generic.List<test.SepBean1> X5 { get; protected set; }
     /// <summary>
     /// 用;分割数据，然后再将每个数据用,分割，读入
     /// </summary>
-    public System.Collections.Generic.List<test.SepBean1> X6 { get; private set; }
+    public System.Collections.Generic.List<test.SepBean1> X6 { get; protected set; }
 
     public const int __ID__ = -543221520;
     public override int GetTypeId() => __ID__;
@@ -82,8 +82,22 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X1 = reloadData.X1;
-        X2 = reloadData.X2;
-        X3 = reloadData.X3;
+        if(X2.GetTypeId() == reloadData.X2.GetTypeId())
+        {
+            //X2 not dynamic
+            X2.Reload(reloadData.X2);
+        }else
+        {
+            typeof(TestSep).GetProperty("X2").SetValue(this,reloadData.X2);
+        }
+        if(X3.GetTypeId() == reloadData.X3.GetTypeId())
+        {
+            //X3 not dynamic
+            X3.Reload(reloadData.X3);
+        }else
+        {
+            typeof(TestSep).GetProperty("X3").SetValue(this,reloadData.X3);
+        }
         if(X4.Count<reloadData.X4.Count)
         {
             X4.AddRange(new List<test.SepVector>(reloadData.X4.Count-X4.Count));

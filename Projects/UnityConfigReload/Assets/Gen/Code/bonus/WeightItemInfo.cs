@@ -29,11 +29,11 @@ public sealed partial class WeightItemInfo :  Bright.Config.BeanBase
         return new bonus.WeightItemInfo(_buf);
     }
 
-    public int ItemId { get; private set; }
+    public int ItemId { get; protected set; }
     //field.gen_ref
     public item.Item ItemId_Ref { get; private set; }
-    public int Num { get; private set; }
-    public int Weight { get; private set; }
+    public int Num { get; protected set; }
+    public int Weight { get; protected set; }
 
     public const int __ID__ = 1239999176;
     public override int GetTypeId() => __ID__;

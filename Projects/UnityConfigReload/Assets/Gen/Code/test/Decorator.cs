@@ -27,7 +27,7 @@ public sealed partial class Decorator :  test.ItemBase
         return new test.Decorator(_buf);
     }
 
-    public int Duration { get; private set; }
+    public int Duration { get; protected set; }
 
     public const int __ID__ = -625155649;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,9 @@ public sealed partial class Decorator :  test.ItemBase
 
     public void Reload(Decorator reloadData)
     {
+        Id = reloadData.Id;
+        Name = reloadData.Name;
+        Desc = reloadData.Desc;
         Duration = reloadData.Duration;
     }
 

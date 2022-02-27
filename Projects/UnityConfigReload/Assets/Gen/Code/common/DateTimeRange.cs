@@ -28,8 +28,8 @@ public sealed partial class DateTimeRange :  Bright.Config.BeanBase
         return new common.DateTimeRange(_buf);
     }
 
-    public int? StartTime { get; private set; }
-    public int? EndTime { get; private set; }
+    public int? StartTime { get; protected set; }
+    public int? EndTime { get; protected set; }
 
     public const int __ID__ = 1642200959;
     public override int GetTypeId() => __ID__;

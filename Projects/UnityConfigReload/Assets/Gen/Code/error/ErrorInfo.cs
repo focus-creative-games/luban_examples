@@ -29,9 +29,9 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         return new error.ErrorInfo(_buf);
     }
 
-    public string Code { get; private set; }
-    public string Desc { get; private set; }
-    public error.ErrorStyle Style { get; private set; }
+    public string Code { get; protected set; }
+    public string Desc { get; protected set; }
+    public error.ErrorStyle Style { get; protected set; }
 
     public const int __ID__ = 1389347408;
     public override int GetTypeId() => __ID__;
@@ -51,7 +51,28 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     {
         Code = reloadData.Code;
         Desc = reloadData.Desc;
-        Style = reloadData.Style;
+        if(Style.GetTypeId() == reloadData.Style.GetTypeId())
+        {
+            //Style is dynamic
+            switch (reloadData.Style.GetTypeId())
+            {
+                case error.ErrorStyleTip.__ID__:
+                    (Style as error.ErrorStyleTip).Reload(reloadData.Style as error.ErrorStyleTip);
+                    break;
+                case error.ErrorStyleMsgbox.__ID__:
+                    (Style as error.ErrorStyleMsgbox).Reload(reloadData.Style as error.ErrorStyleMsgbox);
+                    break;
+                case error.ErrorStyleDlgOk.__ID__:
+                    (Style as error.ErrorStyleDlgOk).Reload(reloadData.Style as error.ErrorStyleDlgOk);
+                    break;
+                case error.ErrorStyleDlgOkCancel.__ID__:
+                    (Style as error.ErrorStyleDlgOkCancel).Reload(reloadData.Style as error.ErrorStyleDlgOkCancel);
+                    break;
+            }
+        }else
+        {
+            typeof(ErrorInfo).GetProperty("Style").SetValue(this,reloadData.Style);
+        }
     }
 
     public override string ToString()

@@ -30,12 +30,12 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         return new ai.Blackboard(_buf);
     }
 
-    public string Name { get; private set; }
-    public string Desc { get; private set; }
-    public string ParentName { get; private set; }
+    public string Name { get; protected set; }
+    public string Desc { get; protected set; }
+    public string ParentName { get; protected set; }
     //field.gen_ref
     public ai.Blackboard ParentName_Ref { get; private set; }
-    public System.Collections.Generic.List<ai.BlackboardKey> Keys { get; private set; }
+    public System.Collections.Generic.List<ai.BlackboardKey> Keys { get; protected set; }
 
     public const int __ID__ = 1576193005;
     public override int GetTypeId() => __ID__;

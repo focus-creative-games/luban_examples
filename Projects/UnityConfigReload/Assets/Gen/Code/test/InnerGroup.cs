@@ -30,10 +30,10 @@ public sealed partial class InnerGroup :  Bright.Config.BeanBase
         return new test.InnerGroup(_buf);
     }
 
-    public int Y1 { get; private set; }
-    public int Y2 { get; private set; }
-    public int Y3 { get; private set; }
-    public int Y4 { get; private set; }
+    public int Y1 { get; protected set; }
+    public int Y2 { get; protected set; }
+    public int Y3 { get; protected set; }
+    public int Y4 { get; protected set; }
 
     public const int __ID__ = -587873083;
     public override int GetTypeId() => __ID__;

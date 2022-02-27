@@ -43,6 +43,21 @@ public sealed partial class AbstraceMethod :  blueprint.Method
 
     public void Reload(AbstraceMethod reloadData)
     {
+        Name = reloadData.Name;
+        Desc = reloadData.Desc;
+        IsStatic = reloadData.IsStatic;
+        ReturnType = reloadData.ReturnType;
+        if(Parameters.Count<reloadData.Parameters.Count)
+        {
+            Parameters.AddRange(new List<blueprint.ParamInfo>(reloadData.Parameters.Count-Parameters.Count));
+        }else if(Parameters.Count>reloadData.Parameters.Count)
+        {
+            Parameters.RemoveRange(reloadData.Parameters.Count, Parameters.Count-reloadData.Parameters.Count);
+        }
+        for (int i = 0; i < reloadData.Parameters.Count; i++)
+        {
+            Parameters[i] = reloadData.Parameters[i];
+        }
     }
 
     public override string ToString()

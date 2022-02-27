@@ -33,7 +33,7 @@ public sealed partial class Circle :  Shape
     /// <summary>
     /// 半径
     /// </summary>
-    public float Radius { get; private set; }
+    public float Radius { get; protected set; }
 
     public const int __ID__ = 2131829196;
     public override int GetTypeId() => __ID__;

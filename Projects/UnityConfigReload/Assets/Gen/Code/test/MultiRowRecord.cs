@@ -35,15 +35,15 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
         return new test.MultiRowRecord(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType1> OneRows { get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType1> MultiRows1 { get; private set; }
-    public test.MultiRowType1[] MultiRows2 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows4 { get; private set; }
-    public System.Collections.Generic.List<test.MultiRowType3> MultiRows5 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows6 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, int> MultiRows7 { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
+    public System.Collections.Generic.List<test.MultiRowType1> OneRows { get; protected set; }
+    public System.Collections.Generic.List<test.MultiRowType1> MultiRows1 { get; protected set; }
+    public test.MultiRowType1[] MultiRows2 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows4 { get; protected set; }
+    public System.Collections.Generic.List<test.MultiRowType3> MultiRows5 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, test.MultiRowType2> MultiRows6 { get; protected set; }
+    public System.Collections.Generic.Dictionary<int, int> MultiRows7 { get; protected set; }
 
     public const int __ID__ = -501249394;
     public override int GetTypeId() => __ID__;
@@ -96,6 +96,20 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             MultiRows1[i] = reloadData.MultiRows1[i];
         }
         //array
+        if(MultiRows2.Length!=reloadData.MultiRows2.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new test.MultiRowType1[reloadData.MultiRows2.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<MultiRows2.Length)
+                {
+                    newArray[i] = MultiRows2[i];
+                }
+            }
+            typeof(MultiRowRecord).GetProperty("MultiRows2").SetValue(this, newArray);
+            
+        }
         foreach (var rawDataKey in MultiRows4.Keys.ToList())
         {
             if(!reloadData.MultiRows4.ContainsKey(rawDataKey))

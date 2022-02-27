@@ -28,8 +28,8 @@ public sealed partial class ErrorStyleMsgbox :  error.ErrorStyle
         return new error.ErrorStyleMsgbox(_buf);
     }
 
-    public string BtnName { get; private set; }
-    public error.EOperation Operation { get; private set; }
+    public string BtnName { get; protected set; }
+    public error.EOperation Operation { get; protected set; }
 
     public const int __ID__ = -1920482343;
     public override int GetTypeId() => __ID__;

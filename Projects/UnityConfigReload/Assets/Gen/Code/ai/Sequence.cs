@@ -27,7 +27,7 @@ public sealed partial class Sequence :  ai.ComposeNode
         return new ai.Sequence(_buf);
     }
 
-    public System.Collections.Generic.List<ai.FlowNode> Children { get; private set; }
+    public System.Collections.Generic.List<ai.FlowNode> Children { get; protected set; }
 
     public const int __ID__ = -1789006105;
     public override int GetTypeId() => __ID__;
@@ -47,6 +47,30 @@ public sealed partial class Sequence :  ai.ComposeNode
 
     public void Reload(Sequence reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        if(Decorators.Count<reloadData.Decorators.Count)
+        {
+            Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));
+        }else if(Decorators.Count>reloadData.Decorators.Count)
+        {
+            Decorators.RemoveRange(reloadData.Decorators.Count, Decorators.Count-reloadData.Decorators.Count);
+        }
+        for (int i = 0; i < reloadData.Decorators.Count; i++)
+        {
+            Decorators[i] = reloadData.Decorators[i];
+        }
+        if(Services.Count<reloadData.Services.Count)
+        {
+            Services.AddRange(new List<ai.Service>(reloadData.Services.Count-Services.Count));
+        }else if(Services.Count>reloadData.Services.Count)
+        {
+            Services.RemoveRange(reloadData.Services.Count, Services.Count-reloadData.Services.Count);
+        }
+        for (int i = 0; i < reloadData.Services.Count; i++)
+        {
+            Services[i] = reloadData.Services[i];
+        }
         if(Children.Count<reloadData.Children.Count)
         {
             Children.AddRange(new List<ai.FlowNode>(reloadData.Children.Count-Children.Count));

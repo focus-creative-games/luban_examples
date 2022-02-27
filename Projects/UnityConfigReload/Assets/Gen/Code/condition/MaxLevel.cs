@@ -27,7 +27,7 @@ public sealed partial class MaxLevel :  condition.BoolRoleCondition
         return new condition.MaxLevel(_buf);
     }
 
-    public int Level { get; private set; }
+    public int Level { get; protected set; }
 
     public const int __ID__ = 700922899;
     public override int GetTypeId() => __ID__;

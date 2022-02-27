@@ -29,9 +29,9 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
         return new test.TestExternalType(_buf);
     }
 
-    public int Id { get; private set; }
-    public test.AudioType AudioType { get; private set; }
-    public test.Color Color { get; private set; }
+    public int Id { get; protected set; }
+    public test.AudioType AudioType { get; protected set; }
+    public test.Color Color { get; protected set; }
 
     public const int __ID__ = -990826157;
     public override int GetTypeId() => __ID__;
@@ -51,7 +51,14 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         AudioType = reloadData.AudioType;
-        Color = reloadData.Color;
+        if(Color.GetTypeId() == reloadData.Color.GetTypeId())
+        {
+            //Color not dynamic
+            Color.Reload(reloadData.Color);
+        }else
+        {
+            typeof(TestExternalType).GetProperty("Color").SetValue(this,reloadData.Color);
+        }
     }
 
     public override string ToString()

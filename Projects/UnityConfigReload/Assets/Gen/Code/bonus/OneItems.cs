@@ -27,7 +27,7 @@ public sealed partial class OneItems :  bonus.Bonus
         return new bonus.OneItems(_buf);
     }
 
-    public int[] Items { get; private set; }
+    public int[] Items { get; protected set; }
     //field.gen_ref
     public item.Item[] Items_Ref { get; private set; }
 
@@ -49,6 +49,7 @@ public sealed partial class OneItems :  bonus.Bonus
     public void Reload(OneItems reloadData)
     {
         //array
+            typeof(OneItems).GetProperty("Items").SetValue(this, reloadData.Items);
     }
 
     public override string ToString()

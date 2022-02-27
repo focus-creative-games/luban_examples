@@ -30,10 +30,10 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
         return new test.TestMultiColumn(_buf);
     }
 
-    public int Id { get; private set; }
-    public test.Foo A { get; private set; }
-    public test.Foo B { get; private set; }
-    public test.Foo C { get; private set; }
+    public int Id { get; protected set; }
+    public test.Foo A { get; protected set; }
+    public test.Foo B { get; protected set; }
+    public test.Foo C { get; protected set; }
 
     public const int __ID__ = -294473599;
     public override int GetTypeId() => __ID__;
@@ -56,9 +56,30 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
     public void Reload(TestMultiColumn reloadData)
     {
         Id = reloadData.Id;
-        A = reloadData.A;
-        B = reloadData.B;
-        C = reloadData.C;
+        if(A.GetTypeId() == reloadData.A.GetTypeId())
+        {
+            //A not dynamic
+            A.Reload(reloadData.A);
+        }else
+        {
+            typeof(TestMultiColumn).GetProperty("A").SetValue(this,reloadData.A);
+        }
+        if(B.GetTypeId() == reloadData.B.GetTypeId())
+        {
+            //B not dynamic
+            B.Reload(reloadData.B);
+        }else
+        {
+            typeof(TestMultiColumn).GetProperty("B").SetValue(this,reloadData.B);
+        }
+        if(C.GetTypeId() == reloadData.C.GetTypeId())
+        {
+            //C not dynamic
+            C.Reload(reloadData.C);
+        }else
+        {
+            typeof(TestMultiColumn).GetProperty("C").SetValue(this,reloadData.C);
+        }
     }
 
     public override string ToString()

@@ -31,13 +31,13 @@ public sealed partial class TreasureBox :  item.ItemExtra
         return new item.TreasureBox(_buf);
     }
 
-    public int? KeyItemId { get; private set; }
-    public condition.MinLevel OpenLevel { get; private set; }
-    public bool UseOnObtain { get; private set; }
-    public System.Collections.Generic.List<int> DropIds { get; private set; }
+    public int? KeyItemId { get; protected set; }
+    public condition.MinLevel OpenLevel { get; protected set; }
+    public bool UseOnObtain { get; protected set; }
+    public System.Collections.Generic.List<int> DropIds { get; protected set; }
     //field.gen_ref
     public System.Collections.Generic.List<bonus.DropInfo> DropIds_Ref { get; private set; }
-    public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; private set; }
+    public System.Collections.Generic.List<item.ChooseOneBonus> ChooseList { get; protected set; }
 
     public const int __ID__ = 1494222369;
     public override int GetTypeId() => __ID__;
@@ -60,8 +60,16 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public void Reload(TreasureBox reloadData)
     {
+        Id = reloadData.Id;
         KeyItemId = reloadData.KeyItemId;
-        OpenLevel = reloadData.OpenLevel;
+        if(OpenLevel.GetTypeId() == reloadData.OpenLevel.GetTypeId())
+        {
+            //OpenLevel not dynamic
+            OpenLevel.Reload(reloadData.OpenLevel);
+        }else
+        {
+            typeof(TreasureBox).GetProperty("OpenLevel").SetValue(this,reloadData.OpenLevel);
+        }
         UseOnObtain = reloadData.UseOnObtain;
         if(DropIds.Count<reloadData.DropIds.Count)
         {

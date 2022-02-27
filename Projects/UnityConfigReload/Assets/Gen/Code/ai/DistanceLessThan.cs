@@ -30,10 +30,10 @@ public sealed partial class DistanceLessThan :  ai.Decorator
         return new ai.DistanceLessThan(_buf);
     }
 
-    public string Actor1Key { get; private set; }
-    public string Actor2Key { get; private set; }
-    public float Distance { get; private set; }
-    public bool ReverseResult { get; private set; }
+    public string Actor1Key { get; protected set; }
+    public string Actor2Key { get; protected set; }
+    public float Distance { get; protected set; }
+    public bool ReverseResult { get; protected set; }
 
     public const int __ID__ = -1207170283;
     public override int GetTypeId() => __ID__;
@@ -51,6 +51,9 @@ public sealed partial class DistanceLessThan :  ai.Decorator
 
     public void Reload(DistanceLessThan reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         Actor1Key = reloadData.Actor1Key;
         Actor2Key = reloadData.Actor2Key;
         Distance = reloadData.Distance;

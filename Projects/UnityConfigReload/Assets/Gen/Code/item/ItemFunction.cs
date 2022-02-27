@@ -30,10 +30,10 @@ public sealed partial class ItemFunction :  Bright.Config.BeanBase
         return new item.ItemFunction(_buf);
     }
 
-    public item.EMinorType MinorType { get; private set; }
-    public item.EItemFunctionType FuncType { get; private set; }
-    public string Method { get; private set; }
-    public bool CloseBagUi { get; private set; }
+    public item.EMinorType MinorType { get; protected set; }
+    public item.EItemFunctionType FuncType { get; protected set; }
+    public string Method { get; protected set; }
+    public bool CloseBagUi { get; protected set; }
 
     public const int __ID__ = 1205824294;
     public override int GetTypeId() => __ID__;

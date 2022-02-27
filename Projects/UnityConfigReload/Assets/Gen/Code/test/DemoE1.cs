@@ -27,7 +27,7 @@ public sealed partial class DemoE1 :  test.DemoD3
         return new test.DemoE1(_buf);
     }
 
-    public int X4 { get; private set; }
+    public int X4 { get; protected set; }
 
     public const int __ID__ = -2138341717;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class DemoE1 :  test.DemoD3
 
     public void Reload(DemoE1 reloadData)
     {
+        X1 = reloadData.X1;
+        X3 = reloadData.X3;
         X4 = reloadData.X4;
     }
 

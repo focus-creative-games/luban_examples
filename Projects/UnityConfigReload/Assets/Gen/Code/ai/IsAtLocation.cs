@@ -29,9 +29,9 @@ public sealed partial class IsAtLocation :  ai.Decorator
         return new ai.IsAtLocation(_buf);
     }
 
-    public float AcceptableRadius { get; private set; }
-    public string KeyboardKey { get; private set; }
-    public bool InverseCondition { get; private set; }
+    public float AcceptableRadius { get; protected set; }
+    public string KeyboardKey { get; protected set; }
+    public bool InverseCondition { get; protected set; }
 
     public const int __ID__ = 1255972344;
     public override int GetTypeId() => __ID__;
@@ -49,6 +49,9 @@ public sealed partial class IsAtLocation :  ai.Decorator
 
     public void Reload(IsAtLocation reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         AcceptableRadius = reloadData.AcceptableRadius;
         KeyboardKey = reloadData.KeyboardKey;
         InverseCondition = reloadData.InverseCondition;

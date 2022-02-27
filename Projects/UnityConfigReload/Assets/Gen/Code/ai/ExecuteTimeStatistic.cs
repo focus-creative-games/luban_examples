@@ -43,6 +43,8 @@ public sealed partial class ExecuteTimeStatistic :  ai.Service
 
     public void Reload(ExecuteTimeStatistic reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
     }
 
     public override string ToString()

@@ -29,11 +29,11 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         return new test.DemoSingletonType(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Name { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
     //field.gen_text_key
-    public string Name_l10n_key { get; private set; }
-    public test.DemoDynamic Date { get; private set; }
+    public string Name_l10n_key { get; protected set; }
+    public test.DemoDynamic Date { get; protected set; }
 
     public const int __ID__ = 539196998;
     public override int GetTypeId() => __ID__;
@@ -54,7 +54,28 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        Date = reloadData.Date;
+        if(Date.GetTypeId() == reloadData.Date.GetTypeId())
+        {
+            //Date is dynamic
+            switch (reloadData.Date.GetTypeId())
+            {
+                case test.DemoD2.__ID__:
+                    (Date as test.DemoD2).Reload(reloadData.Date as test.DemoD2);
+                    break;
+                case test.DemoE1.__ID__:
+                    (Date as test.DemoE1).Reload(reloadData.Date as test.DemoE1);
+                    break;
+                case test.login.RoleInfo.__ID__:
+                    (Date as test.login.RoleInfo).Reload(reloadData.Date as test.login.RoleInfo);
+                    break;
+                case test.DemoD5.__ID__:
+                    (Date as test.DemoD5).Reload(reloadData.Date as test.DemoD5);
+                    break;
+            }
+        }else
+        {
+            typeof(DemoSingletonType).GetProperty("Date").SetValue(this,reloadData.Date);
+        }
     }
 
     public override string ToString()

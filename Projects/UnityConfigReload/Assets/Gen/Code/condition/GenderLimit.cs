@@ -27,7 +27,7 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
         return new condition.GenderLimit(_buf);
     }
 
-    public role.EGenderType Gender { get; private set; }
+    public role.EGenderType Gender { get; protected set; }
 
     public const int __ID__ = 103675143;
     public override int GetTypeId() => __ID__;

@@ -28,8 +28,8 @@ public sealed partial class CostCurrency :  cost.Cost
         return new cost.CostCurrency(_buf);
     }
 
-    public item.ECurrencyType Type { get; private set; }
-    public int Num { get; private set; }
+    public item.ECurrencyType Type { get; protected set; }
+    public int Num { get; protected set; }
 
     public const int __ID__ = 911838111;
     public override int GetTypeId() => __ID__;

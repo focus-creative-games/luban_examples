@@ -27,7 +27,7 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         return new test.DemoD5(_buf);
     }
 
-    public test.DateTimeRange Time { get; private set; }
+    public test.DateTimeRange Time { get; protected set; }
 
     public const int __ID__ = -2138341744;
     public override int GetTypeId() => __ID__;
@@ -47,7 +47,15 @@ public sealed partial class DemoD5 :  test.DemoDynamic
 
     public void Reload(DemoD5 reloadData)
     {
-        Time = reloadData.Time;
+        X1 = reloadData.X1;
+        if(Time.GetTypeId() == reloadData.Time.GetTypeId())
+        {
+            //Time not dynamic
+            Time.Reload(reloadData.Time);
+        }else
+        {
+            typeof(DemoD5).GetProperty("Time").SetValue(this,reloadData.Time);
+        }
     }
 
     public override string ToString()

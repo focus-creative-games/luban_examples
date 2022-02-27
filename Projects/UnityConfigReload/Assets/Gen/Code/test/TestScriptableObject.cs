@@ -33,13 +33,13 @@ public sealed partial class TestScriptableObject :  Bright.Config.BeanBase
         return new test.TestScriptableObject(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Desc { get; private set; }
-    public float Rate { get; private set; }
-    public int Num { get; private set; }
-    public System.Numerics.Vector2 V2 { get; private set; }
-    public System.Numerics.Vector3 V3 { get; private set; }
-    public System.Numerics.Vector4 V4 { get; private set; }
+    public int Id { get; protected set; }
+    public string Desc { get; protected set; }
+    public float Rate { get; protected set; }
+    public int Num { get; protected set; }
+    public System.Numerics.Vector2 V2 { get; protected set; }
+    public System.Numerics.Vector3 V3 { get; protected set; }
+    public System.Numerics.Vector4 V4 { get; protected set; }
 
     public const int __ID__ = -1896814350;
     public override int GetTypeId() => __ID__;

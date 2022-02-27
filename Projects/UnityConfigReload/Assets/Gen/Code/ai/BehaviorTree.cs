@@ -31,13 +31,13 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         return new ai.BehaviorTree(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public string Desc { get; private set; }
-    public string BlackboardId { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
+    public string Desc { get; protected set; }
+    public string BlackboardId { get; protected set; }
     //field.gen_ref
     public ai.Blackboard BlackboardId_Ref { get; private set; }
-    public ai.ComposeNode Root { get; private set; }
+    public ai.ComposeNode Root { get; protected set; }
 
     public const int __ID__ = 159552822;
     public override int GetTypeId() => __ID__;
@@ -60,7 +60,25 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Name = reloadData.Name;
         Desc = reloadData.Desc;
         BlackboardId = reloadData.BlackboardId;
-        Root = reloadData.Root;
+        if(Root.GetTypeId() == reloadData.Root.GetTypeId())
+        {
+            //Root is dynamic
+            switch (reloadData.Root.GetTypeId())
+            {
+                case ai.Sequence.__ID__:
+                    (Root as ai.Sequence).Reload(reloadData.Root as ai.Sequence);
+                    break;
+                case ai.Selector.__ID__:
+                    (Root as ai.Selector).Reload(reloadData.Root as ai.Selector);
+                    break;
+                case ai.SimpleParallel.__ID__:
+                    (Root as ai.SimpleParallel).Reload(reloadData.Root as ai.SimpleParallel);
+                    break;
+            }
+        }else
+        {
+            typeof(BehaviorTree).GetProperty("Root").SetValue(this,reloadData.Root);
+        }
     }
 
     public override string ToString()

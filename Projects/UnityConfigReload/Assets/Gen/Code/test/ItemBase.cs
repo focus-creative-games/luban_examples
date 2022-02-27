@@ -35,9 +35,9 @@ public abstract partial class ItemBase :  Bright.Config.BeanBase
         }
     }
 
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public string Desc { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
+    public string Desc { get; protected set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)

@@ -27,7 +27,7 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
         return new bonus.ProbabilityBonus(_buf);
     }
 
-    public bonus.ProbabilityBonusInfo[] Bonuses { get; private set; }
+    public bonus.ProbabilityBonusInfo[] Bonuses { get; protected set; }
 
     public const int __ID__ = 359783161;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
     public void Reload(ProbabilityBonus reloadData)
     {
         //array
+        if(Bonuses.Length!=reloadData.Bonuses.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new bonus.ProbabilityBonusInfo[reloadData.Bonuses.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<Bonuses.Length)
+                {
+                    newArray[i] = Bonuses[i];
+                }
+            }
+            typeof(ProbabilityBonus).GetProperty("Bonuses").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

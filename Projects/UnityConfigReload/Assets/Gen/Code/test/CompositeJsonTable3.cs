@@ -28,8 +28,8 @@ public sealed partial class CompositeJsonTable3 :  Bright.Config.BeanBase
         return new test.CompositeJsonTable3(_buf);
     }
 
-    public int A { get; private set; }
-    public int B { get; private set; }
+    public int A { get; protected set; }
+    public int B { get; protected set; }
 
     public const int __ID__ = 1566207896;
     public override int GetTypeId() => __ID__;

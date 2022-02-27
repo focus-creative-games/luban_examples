@@ -27,7 +27,7 @@ public sealed partial class DemoD2 :  test.DemoDynamic
         return new test.DemoD2(_buf);
     }
 
-    public int X2 { get; private set; }
+    public int X2 { get; protected set; }
 
     public const int __ID__ = -2138341747;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,7 @@ public sealed partial class DemoD2 :  test.DemoDynamic
 
     public void Reload(DemoD2 reloadData)
     {
+        X1 = reloadData.X1;
         X2 = reloadData.X2;
     }
 

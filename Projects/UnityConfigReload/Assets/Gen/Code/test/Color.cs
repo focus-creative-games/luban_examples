@@ -30,10 +30,10 @@ public sealed partial class Color :  Bright.Config.BeanBase
         return new test.Color(_buf);
     }
 
-    public float R { get; private set; }
-    public float G { get; private set; }
-    public float B { get; private set; }
-    public float A { get; private set; }
+    public float R { get; protected set; }
+    public float G { get; protected set; }
+    public float B { get; protected set; }
+    public float A { get; protected set; }
 
     public const int __ID__ = 623131367;
     public override int GetTypeId() => __ID__;

@@ -29,9 +29,9 @@ public sealed partial class UeLoop :  ai.Decorator
         return new ai.UeLoop(_buf);
     }
 
-    public int NumLoops { get; private set; }
-    public bool InfiniteLoop { get; private set; }
-    public float InfiniteLoopTimeoutTime { get; private set; }
+    public int NumLoops { get; protected set; }
+    public bool InfiniteLoop { get; protected set; }
+    public float InfiniteLoopTimeoutTime { get; protected set; }
 
     public const int __ID__ = -513308166;
     public override int GetTypeId() => __ID__;
@@ -49,6 +49,9 @@ public sealed partial class UeLoop :  ai.Decorator
 
     public void Reload(UeLoop reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
+        FlowAbortMode = reloadData.FlowAbortMode;
         NumLoops = reloadData.NumLoops;
         InfiniteLoop = reloadData.InfiniteLoop;
         InfiniteLoopTimeoutTime = reloadData.InfiniteLoopTimeoutTime;

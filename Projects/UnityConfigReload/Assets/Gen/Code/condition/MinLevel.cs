@@ -27,7 +27,7 @@ public sealed partial class MinLevel :  condition.BoolRoleCondition
         return new condition.MinLevel(_buf);
     }
 
-    public int Level { get; private set; }
+    public int Level { get; protected set; }
 
     public const int __ID__ = -1075273755;
     public override int GetTypeId() => __ID__;

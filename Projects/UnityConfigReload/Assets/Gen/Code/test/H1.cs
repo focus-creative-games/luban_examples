@@ -28,8 +28,8 @@ public sealed partial class H1 :  Bright.Config.BeanBase
         return new test.H1(_buf);
     }
 
-    public test.H2 Y2 { get; private set; }
-    public int Y3 { get; private set; }
+    public test.H2 Y2 { get; protected set; }
+    public int Y3 { get; protected set; }
 
     public const int __ID__ = -1422503995;
     public override int GetTypeId() => __ID__;
@@ -47,7 +47,14 @@ public sealed partial class H1 :  Bright.Config.BeanBase
 
     public void Reload(H1 reloadData)
     {
-        Y2 = reloadData.Y2;
+        if(Y2.GetTypeId() == reloadData.Y2.GetTypeId())
+        {
+            //Y2 not dynamic
+            Y2.Reload(reloadData.Y2);
+        }else
+        {
+            typeof(H1).GetProperty("Y2").SetValue(this,reloadData.Y2);
+        }
         Y3 = reloadData.Y3;
     }
 

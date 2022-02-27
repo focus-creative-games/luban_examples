@@ -28,8 +28,8 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         return new bonus.CoefficientItem(_buf);
     }
 
-    public int BonusId { get; private set; }
-    public bonus.Items BonusList { get; private set; }
+    public int BonusId { get; protected set; }
+    public bonus.Items BonusList { get; protected set; }
 
     public const int __ID__ = -229470727;
     public override int GetTypeId() => __ID__;
@@ -50,7 +50,14 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     public void Reload(CoefficientItem reloadData)
     {
         BonusId = reloadData.BonusId;
-        BonusList = reloadData.BonusList;
+        if(BonusList.GetTypeId() == reloadData.BonusList.GetTypeId())
+        {
+            //BonusList not dynamic
+            BonusList.Reload(reloadData.BonusList);
+        }else
+        {
+            typeof(CoefficientItem).GetProperty("BonusList").SetValue(this,reloadData.BonusList);
+        }
     }
 
     public override string ToString()

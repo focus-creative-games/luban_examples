@@ -53,27 +53,27 @@ public sealed partial class Item :  Bright.Config.BeanBase
     /// <summary>
     /// 道具id
     /// </summary>
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public item.EMajorType MajorType { get; private set; }
-    public item.EMinorType MinorType { get; private set; }
-    public int MaxPileNum { get; private set; }
-    public item.EItemQuality Quality { get; private set; }
-    public string Icon { get; private set; }
-    public string IconBackgroud { get; private set; }
-    public string IconMask { get; private set; }
-    public string Desc { get; private set; }
-    public int ShowOrder { get; private set; }
-    public string Quantifier { get; private set; }
-    public bool ShowInBag { get; private set; }
-    public int MinShowLevel { get; private set; }
-    public bool BatchUsable { get; private set; }
-    public float ProgressTimeWhenUse { get; private set; }
-    public bool ShowHintWhenUse { get; private set; }
-    public bool Droppable { get; private set; }
-    public int? Price { get; private set; }
-    public item.EUseType UseType { get; private set; }
-    public int? LevelUpId { get; private set; }
+    public int Id { get; protected set; }
+    public string Name { get; protected set; }
+    public item.EMajorType MajorType { get; protected set; }
+    public item.EMinorType MinorType { get; protected set; }
+    public int MaxPileNum { get; protected set; }
+    public item.EItemQuality Quality { get; protected set; }
+    public string Icon { get; protected set; }
+    public string IconBackgroud { get; protected set; }
+    public string IconMask { get; protected set; }
+    public string Desc { get; protected set; }
+    public int ShowOrder { get; protected set; }
+    public string Quantifier { get; protected set; }
+    public bool ShowInBag { get; protected set; }
+    public int MinShowLevel { get; protected set; }
+    public bool BatchUsable { get; protected set; }
+    public float ProgressTimeWhenUse { get; protected set; }
+    public bool ShowHintWhenUse { get; protected set; }
+    public bool Droppable { get; protected set; }
+    public int? Price { get; protected set; }
+    public item.EUseType UseType { get; protected set; }
+    public int? LevelUpId { get; protected set; }
 
     public const int __ID__ = 2107285806;
     public override int GetTypeId() => __ID__;

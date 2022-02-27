@@ -28,8 +28,8 @@ public sealed partial class Equipment :  test.ItemBase
         return new test.Equipment(_buf);
     }
 
-    public test.DemoEnum Attr { get; private set; }
-    public int Value { get; private set; }
+    public test.DemoEnum Attr { get; protected set; }
+    public int Value { get; protected set; }
 
     public const int __ID__ = -76837102;
     public override int GetTypeId() => __ID__;
@@ -47,6 +47,9 @@ public sealed partial class Equipment :  test.ItemBase
 
     public void Reload(Equipment reloadData)
     {
+        Id = reloadData.Id;
+        Name = reloadData.Name;
+        Desc = reloadData.Desc;
         Attr = reloadData.Attr;
         Value = reloadData.Value;
     }

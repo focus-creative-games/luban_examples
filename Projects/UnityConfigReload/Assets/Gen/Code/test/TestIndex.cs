@@ -28,8 +28,8 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
         return new test.TestIndex(_buf);
     }
 
-    public int Id { get; private set; }
-    public System.Collections.Generic.List<test.DemoType1> Eles { get; private set; }
+    public int Id { get; protected set; }
+    public System.Collections.Generic.List<test.DemoType1> Eles { get; protected set; }
 
     public const int __ID__ = 1941154020;
     public override int GetTypeId() => __ID__;

@@ -28,8 +28,8 @@ public sealed partial class Item :  test.ItemBase
         return new test.Item(_buf);
     }
 
-    public int Num { get; private set; }
-    public int Price { get; private set; }
+    public int Num { get; protected set; }
+    public int Price { get; protected set; }
 
     public const int __ID__ = -1226641649;
     public override int GetTypeId() => __ID__;
@@ -47,6 +47,9 @@ public sealed partial class Item :  test.ItemBase
 
     public void Reload(Item reloadData)
     {
+        Id = reloadData.Id;
+        Name = reloadData.Name;
+        Desc = reloadData.Desc;
         Num = reloadData.Num;
         Price = reloadData.Price;
     }

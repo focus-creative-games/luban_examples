@@ -28,10 +28,10 @@ public sealed partial class L10NDemo :  Bright.Config.BeanBase
         return new l10n.L10NDemo(_buf);
     }
 
-    public int Id { get; private set; }
-    public string Text { get; private set; }
+    public int Id { get; protected set; }
+    public string Text { get; protected set; }
     //field.gen_text_key
-    public string Text_l10n_key { get; private set; }
+    public string Text_l10n_key { get; protected set; }
 
     public const int __ID__ = -331195887;
     public override int GetTypeId() => __ID__;

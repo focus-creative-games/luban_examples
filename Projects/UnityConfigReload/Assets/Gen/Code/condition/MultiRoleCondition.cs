@@ -27,7 +27,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
         return new condition.MultiRoleCondition(_buf);
     }
 
-    public condition.RoleCondition[] Conditions { get; private set; }
+    public condition.RoleCondition[] Conditions { get; protected set; }
 
     public const int __ID__ = 934079583;
     public override int GetTypeId() => __ID__;
@@ -48,6 +48,20 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     public void Reload(MultiRoleCondition reloadData)
     {
         //array
+        if(Conditions.Length!=reloadData.Conditions.Length)
+        {
+            // 原数组的元素赋值过来
+            var newArray = new condition.RoleCondition[reloadData.Conditions.Length];
+            for(int i = 0; i<newArray.Length; i++)
+            {
+                if(i<Conditions.Length)
+                {
+                    newArray[i] = Conditions[i];
+                }
+            }
+            typeof(MultiRoleCondition).GetProperty("Conditions").SetValue(this, newArray);
+            
+        }
     }
 
     public override string ToString()

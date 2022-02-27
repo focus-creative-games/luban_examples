@@ -27,7 +27,7 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
         return new ai.UeSetDefaultFocus(_buf);
     }
 
-    public string KeyboardKey { get; private set; }
+    public string KeyboardKey { get; protected set; }
 
     public const int __ID__ = 1812449155;
     public override int GetTypeId() => __ID__;
@@ -45,6 +45,8 @@ public sealed partial class UeSetDefaultFocus :  ai.Service
 
     public void Reload(UeSetDefaultFocus reloadData)
     {
+        Id = reloadData.Id;
+        NodeName = reloadData.NodeName;
         KeyboardKey = reloadData.KeyboardKey;
     }
 
