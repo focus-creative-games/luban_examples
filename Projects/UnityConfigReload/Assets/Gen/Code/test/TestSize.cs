@@ -53,47 +53,75 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         //array
-            typeof(TestSize).GetProperty("X1").SetValue(this, reloadData.X1);
-        if(X2.Count<reloadData.X2.Count)
+        if(X1==null)
         {
-            X2.AddRange(new List<int>(reloadData.X2.Count-X2.Count));
-        }else if(X2.Count>reloadData.X2.Count)
+            X1 = reloadData.X1;
+        }else
         {
-            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
+                for(int i = 0; i<reloadData.X1.Length; i++)
+                {
+                    if(i<X1.Length)
+                    {
+                        X1[i] = reloadData.X1[i];
+                    }
+                }
         }
-        for (int i = 0; i < reloadData.X2.Count; i++)
+
+        //list
+        if(X2==null)
         {
-            X2[i] = reloadData.X2[i];
-        }
-        foreach (var setData in X3.ToList())
+            X2 = reloadData.X2;
+        }else
         {
-            if(!reloadData.X3.Contains(setData))
+            X2.Capacity = reloadData.X2.Count;
+            for (int i = 0; i < reloadData.X2.Count; i++)
             {
-                X3.Remove(setData);
+                X2[i] = reloadData.X2[i];
             }
         }
-        foreach (var setData in reloadData.X3)
+        //set
+        if(X3==null)
         {
-            if(!X3.Contains(setData))
+            X3 = reloadData.X3;
+        }else
+        {
+            foreach (var setData in X3.ToList())
             {
-                X3.Add(setData);
+                if(!reloadData.X3.Contains(setData))
+                {
+                    X3.Remove(setData);
+                }
+            }
+            foreach (var setData in reloadData.X3)
+            {
+                if(!X3.Contains(setData))
+                {
+                    X3.Add(setData);
+                }
             }
         }
-        foreach (var rawDataKey in X4.Keys.ToList())
+        //map
+        if(X4==null)
         {
-            if(!reloadData.X4.ContainsKey(rawDataKey))
+            X4 = reloadData.X4;
+        }else
+        {
+            foreach (var rawDataKey in X4.Keys.ToList())
             {
-                X4.Remove(rawDataKey);
+                if(!reloadData.X4.ContainsKey(rawDataKey))
+                {
+                    X4.Remove(rawDataKey);
+                }
             }
-        }
-        foreach (var reload in reloadData.X4)
-        {
-            if(X4.ContainsKey(reload.Key))
+            foreach (var reload in reloadData.X4)
             {
-                X4[reload.Key] = reload.Value;
-            }else
-            {
-                X4.Add(reload.Key,reload.Value);
+                if(X4.ContainsKey(reload.Key))
+                {
+                    X4[reload.Key] = reload.Value;
+                }else
+                {
+                    X4.Add(reload.Key,reload.Value);
+                }
             }
         }
     }

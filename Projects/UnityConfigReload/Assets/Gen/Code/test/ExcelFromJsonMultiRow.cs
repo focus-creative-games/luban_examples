@@ -51,16 +51,18 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X = reloadData.X;
-        if(Items.Count<reloadData.Items.Count)
+        //list
+        if(Items==null)
         {
-            Items.AddRange(new List<test.TestRow>(reloadData.Items.Count-Items.Count));
-        }else if(Items.Count>reloadData.Items.Count)
+            Items = reloadData.Items;
+        }else
         {
-            Items.RemoveRange(reloadData.Items.Count, Items.Count-reloadData.Items.Count);
-        }
-        for (int i = 0; i < reloadData.Items.Count; i++)
-        {
-            Items[i] = reloadData.Items[i];
+            Items.Capacity = reloadData.Items.Count;
+            for (int i = 0; i < reloadData.Items.Count; i++)
+            {
+                Items[i].Reload(reloadData.Items[i]);
+            }
+
         }
     }
 

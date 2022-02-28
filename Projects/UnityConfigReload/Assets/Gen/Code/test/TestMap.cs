@@ -55,72 +55,100 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
     public void Reload(TestMap reloadData)
     {
         Id = reloadData.Id;
-        foreach (var rawDataKey in X1.Keys.ToList())
+        //map
+        if(X1==null)
         {
-            if(!reloadData.X1.ContainsKey(rawDataKey))
+            X1 = reloadData.X1;
+        }else
+        {
+            foreach (var rawDataKey in X1.Keys.ToList())
             {
-                X1.Remove(rawDataKey);
+                if(!reloadData.X1.ContainsKey(rawDataKey))
+                {
+                    X1.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.X1)
+            {
+                if(X1.ContainsKey(reload.Key))
+                {
+                    X1[reload.Key] = reload.Value;
+                }else
+                {
+                    X1.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var reload in reloadData.X1)
+        //map
+        if(X2==null)
         {
-            if(X1.ContainsKey(reload.Key))
+            X2 = reloadData.X2;
+        }else
+        {
+            foreach (var rawDataKey in X2.Keys.ToList())
             {
-                X1[reload.Key] = reload.Value;
-            }else
+                if(!reloadData.X2.ContainsKey(rawDataKey))
+                {
+                    X2.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.X2)
             {
-                X1.Add(reload.Key,reload.Value);
+                if(X2.ContainsKey(reload.Key))
+                {
+                    X2[reload.Key] = reload.Value;
+                }else
+                {
+                    X2.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var rawDataKey in X2.Keys.ToList())
+        //map
+        if(X3==null)
         {
-            if(!reloadData.X2.ContainsKey(rawDataKey))
+            X3 = reloadData.X3;
+        }else
+        {
+            foreach (var rawDataKey in X3.Keys.ToList())
             {
-                X2.Remove(rawDataKey);
+                if(!reloadData.X3.ContainsKey(rawDataKey))
+                {
+                    X3.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.X3)
+            {
+                if(X3.ContainsKey(reload.Key))
+                {
+                    X3[reload.Key] = reload.Value;
+                }else
+                {
+                    X3.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var reload in reloadData.X2)
+        //map
+        if(X4==null)
         {
-            if(X2.ContainsKey(reload.Key))
+            X4 = reloadData.X4;
+        }else
+        {
+            foreach (var rawDataKey in X4.Keys.ToList())
             {
-                X2[reload.Key] = reload.Value;
-            }else
-            {
-                X2.Add(reload.Key,reload.Value);
+                if(!reloadData.X4.ContainsKey(rawDataKey))
+                {
+                    X4.Remove(rawDataKey);
+                }
             }
-        }
-        foreach (var rawDataKey in X3.Keys.ToList())
-        {
-            if(!reloadData.X3.ContainsKey(rawDataKey))
+            foreach (var reload in reloadData.X4)
             {
-                X3.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.X3)
-        {
-            if(X3.ContainsKey(reload.Key))
-            {
-                X3[reload.Key] = reload.Value;
-            }else
-            {
-                X3.Add(reload.Key,reload.Value);
-            }
-        }
-        foreach (var rawDataKey in X4.Keys.ToList())
-        {
-            if(!reloadData.X4.ContainsKey(rawDataKey))
-            {
-                X4.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.X4)
-        {
-            if(X4.ContainsKey(reload.Key))
-            {
-                X4[reload.Key] = reload.Value;
-            }else
-            {
-                X4.Add(reload.Key,reload.Value);
+                if(X4.ContainsKey(reload.Key))
+                {
+                    X4[reload.Key] = reload.Value;
+                }else
+                {
+                    X4.Add(reload.Key,reload.Value);
+                }
             }
         }
     }

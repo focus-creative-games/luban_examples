@@ -33,9 +33,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X13 = (test.DemoEnum)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         S1_l10n_key = _buf.ReadString(); S1 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new System.Collections.Generic.List<int>(n);for(var i = 0 ; i < n ; i++) { int _e;  _e = _buf.ReadInt(); K2.Add(_e);}}
@@ -68,9 +68,9 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public string S1 { get; protected set; }
     //field.gen_text_key
     public string S1_l10n_key { get; protected set; }
-    public System.Numerics.Vector2 V2 { get; protected set; }
-    public System.Numerics.Vector3 V3 { get; protected set; }
-    public System.Numerics.Vector4 V4 { get; protected set; }
+    public UnityEngine.Vector2 V2 { get; protected set; }
+    public UnityEngine.Vector3 V3 { get; protected set; }
+    public UnityEngine.Vector4 V4 { get; protected set; }
     public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; protected set; }
@@ -117,36 +117,50 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X9 = reloadData.X9;
         X10 = reloadData.X10;
-        if(X12.GetTypeId() == reloadData.X12.GetTypeId())
+        //bean
+        if(X12==null)
         {
-            //X12 not dynamic
-            X12.Reload(reloadData.X12);
+            X12 = reloadData.X12;
         }else
         {
-            typeof(DemoType2).GetProperty("X12").SetValue(this,reloadData.X12);
+            if(X12.GetTypeId() == reloadData.X12.GetTypeId())
+            {
+                //X12 not dynamic
+                X12.Reload(reloadData.X12);
+            }else
+            {
+                typeof(DemoType2).GetProperty("X12").SetValue(this,reloadData.X12);
+            }
         }
         X13 = reloadData.X13;
-        if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+        //bean
+        if(X14==null)
         {
-            //X14 is dynamic
-            switch (reloadData.X14.GetTypeId())
-            {
-                case test.DemoD2.__ID__:
-                    (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
-                    break;
-                case test.DemoE1.__ID__:
-                    (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
-                    break;
-                case test.login.RoleInfo.__ID__:
-                    (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
-                    break;
-                case test.DemoD5.__ID__:
-                    (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
-                    break;
-            }
+            X14 = reloadData.X14;
         }else
         {
-            typeof(DemoType2).GetProperty("X14").SetValue(this,reloadData.X14);
+            if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+            {
+                //X14 is dynamic
+                switch (reloadData.X14.GetTypeId())
+                {
+                    case test.DemoD2.__ID__:
+                        (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
+                        break;
+                    case test.DemoE1.__ID__:
+                        (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
+                        break;
+                    case test.login.RoleInfo.__ID__:
+                        (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
+                        break;
+                    case test.DemoD5.__ID__:
+                        (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
+                        break;
+                }
+            }else
+            {
+                typeof(DemoType2).GetProperty("X14").SetValue(this,reloadData.X14);
+            }
         }
         S1 = reloadData.S1;
         V2 = reloadData.V2;
@@ -154,75 +168,136 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         V4 = reloadData.V4;
         T1 = reloadData.T1;
         //array
-            typeof(DemoType2).GetProperty("K1").SetValue(this, reloadData.K1);
-        if(K2.Count<reloadData.K2.Count)
+        if(K1==null)
         {
-            K2.AddRange(new List<int>(reloadData.K2.Count-K2.Count));
-        }else if(K2.Count>reloadData.K2.Count)
+            K1 = reloadData.K1;
+        }else
         {
-            K2.RemoveRange(reloadData.K2.Count, K2.Count-reloadData.K2.Count);
-        }
-        for (int i = 0; i < reloadData.K2.Count; i++)
-        {
-            K2[i] = reloadData.K2[i];
-        }
-        foreach (var setData in K5.ToList())
-        {
-            if(!reloadData.K5.Contains(setData))
-            {
-                K5.Remove(setData);
-            }
-        }
-        foreach (var setData in reloadData.K5)
-        {
-            if(!K5.Contains(setData))
-            {
-                K5.Add(setData);
-            }
-        }
-        foreach (var rawDataKey in K8.Keys.ToList())
-        {
-            if(!reloadData.K8.ContainsKey(rawDataKey))
-            {
-                K8.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.K8)
-        {
-            if(K8.ContainsKey(reload.Key))
-            {
-                K8[reload.Key] = reload.Value;
-            }else
-            {
-                K8.Add(reload.Key,reload.Value);
-            }
-        }
-        if(K9.Count<reloadData.K9.Count)
-        {
-            K9.AddRange(new List<test.DemoE2>(reloadData.K9.Count-K9.Count));
-        }else if(K9.Count>reloadData.K9.Count)
-        {
-            K9.RemoveRange(reloadData.K9.Count, K9.Count-reloadData.K9.Count);
-        }
-        for (int i = 0; i < reloadData.K9.Count; i++)
-        {
-            K9[i] = reloadData.K9[i];
-        }
-        //array
-        if(K15.Length!=reloadData.K15.Length)
-        {
-            // 原数组的元素赋值过来
-            var newArray = new test.DemoDynamic[reloadData.K15.Length];
-            for(int i = 0; i<newArray.Length; i++)
-            {
-                if(i<K15.Length)
+                for(int i = 0; i<reloadData.K1.Length; i++)
                 {
-                    newArray[i] = K15[i];
+                    if(i<K1.Length)
+                    {
+                        K1[i] = reloadData.K1[i];
+                    }
+                }
+        }
+
+        //list
+        if(K2==null)
+        {
+            K2 = reloadData.K2;
+        }else
+        {
+            K2.Capacity = reloadData.K2.Count;
+            for (int i = 0; i < reloadData.K2.Count; i++)
+            {
+                K2[i] = reloadData.K2[i];
+            }
+        }
+        //set
+        if(K5==null)
+        {
+            K5 = reloadData.K5;
+        }else
+        {
+            foreach (var setData in K5.ToList())
+            {
+                if(!reloadData.K5.Contains(setData))
+                {
+                    K5.Remove(setData);
                 }
             }
-            typeof(DemoType2).GetProperty("K15").SetValue(this, newArray);
-            
+            foreach (var setData in reloadData.K5)
+            {
+                if(!K5.Contains(setData))
+                {
+                    K5.Add(setData);
+                }
+            }
         }
+        //map
+        if(K8==null)
+        {
+            K8 = reloadData.K8;
+        }else
+        {
+            foreach (var rawDataKey in K8.Keys.ToList())
+            {
+                if(!reloadData.K8.ContainsKey(rawDataKey))
+                {
+                    K8.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.K8)
+            {
+                if(K8.ContainsKey(reload.Key))
+                {
+                    K8[reload.Key] = reload.Value;
+                }else
+                {
+                    K8.Add(reload.Key,reload.Value);
+                }
+            }
+        }
+        //list
+        if(K9==null)
+        {
+            K9 = reloadData.K9;
+        }else
+        {
+            K9.Capacity = reloadData.K9.Count;
+            for (int i = 0; i < reloadData.K9.Count; i++)
+            {
+                K9[i].Reload(reloadData.K9[i]);
+            }
+
+        }
+        //array
+        if(K15==null)
+        {
+            K15 = reloadData.K15;
+        }else
+        {
+            if(K15.Length!=reloadData.K15.Length)
+            {
+                var newArray = new test.DemoDynamic[reloadData.K15.Length];
+                for(int i = 0; i<newArray.Length; i++)
+                {
+                    if(i<K15.Length)
+                    {
+                        newArray[i] = K15[i];
+                    }
+                }
+                typeof(DemoType2).GetProperty("K15").SetValue(this, newArray);
+            }
+                // array is_dynamic
+                for(int i = 0; i<reloadData.K15.Length; i++)
+                {
+                    if(K15[i].GetTypeId() == reloadData.K15[i].GetTypeId())
+                    {
+                        switch (reloadData.K15[i].GetTypeId())
+                        {
+                            case test.DemoD2.__ID__:
+                                (K15[i] as test.DemoD2).Reload(reloadData.K15[i] as test.DemoD2);
+                                break;
+                            case test.DemoE1.__ID__:
+                                (K15[i] as test.DemoE1).Reload(reloadData.K15[i] as test.DemoE1);
+                                break;
+                            case test.login.RoleInfo.__ID__:
+                                (K15[i] as test.login.RoleInfo).Reload(reloadData.K15[i] as test.login.RoleInfo);
+                                break;
+                            case test.DemoD5.__ID__:
+                                (K15[i] as test.DemoD5).Reload(reloadData.K15[i] as test.DemoD5);
+                                break;
+                        }
+                    }else
+                    {
+                        K15[i] = reloadData.K15[i];
+                    }
+                }
+
+        }
+
     }
 
     public override string ToString()

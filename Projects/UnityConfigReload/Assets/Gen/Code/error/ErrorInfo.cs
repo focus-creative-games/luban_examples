@@ -51,27 +51,34 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     {
         Code = reloadData.Code;
         Desc = reloadData.Desc;
-        if(Style.GetTypeId() == reloadData.Style.GetTypeId())
+        //bean
+        if(Style==null)
         {
-            //Style is dynamic
-            switch (reloadData.Style.GetTypeId())
-            {
-                case error.ErrorStyleTip.__ID__:
-                    (Style as error.ErrorStyleTip).Reload(reloadData.Style as error.ErrorStyleTip);
-                    break;
-                case error.ErrorStyleMsgbox.__ID__:
-                    (Style as error.ErrorStyleMsgbox).Reload(reloadData.Style as error.ErrorStyleMsgbox);
-                    break;
-                case error.ErrorStyleDlgOk.__ID__:
-                    (Style as error.ErrorStyleDlgOk).Reload(reloadData.Style as error.ErrorStyleDlgOk);
-                    break;
-                case error.ErrorStyleDlgOkCancel.__ID__:
-                    (Style as error.ErrorStyleDlgOkCancel).Reload(reloadData.Style as error.ErrorStyleDlgOkCancel);
-                    break;
-            }
+            Style = reloadData.Style;
         }else
         {
-            typeof(ErrorInfo).GetProperty("Style").SetValue(this,reloadData.Style);
+            if(Style.GetTypeId() == reloadData.Style.GetTypeId())
+            {
+                //Style is dynamic
+                switch (reloadData.Style.GetTypeId())
+                {
+                    case error.ErrorStyleTip.__ID__:
+                        (Style as error.ErrorStyleTip).Reload(reloadData.Style as error.ErrorStyleTip);
+                        break;
+                    case error.ErrorStyleMsgbox.__ID__:
+                        (Style as error.ErrorStyleMsgbox).Reload(reloadData.Style as error.ErrorStyleMsgbox);
+                        break;
+                    case error.ErrorStyleDlgOk.__ID__:
+                        (Style as error.ErrorStyleDlgOk).Reload(reloadData.Style as error.ErrorStyleDlgOk);
+                        break;
+                    case error.ErrorStyleDlgOkCancel.__ID__:
+                        (Style as error.ErrorStyleDlgOkCancel).Reload(reloadData.Style as error.ErrorStyleDlgOkCancel);
+                        break;
+                }
+            }else
+            {
+                typeof(ErrorInfo).GetProperty("Style").SetValue(this,reloadData.Style);
+            }
         }
     }
 

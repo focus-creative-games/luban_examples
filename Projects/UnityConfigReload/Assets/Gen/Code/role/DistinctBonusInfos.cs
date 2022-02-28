@@ -48,16 +48,18 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     public void Reload(DistinctBonusInfos reloadData)
     {
         EffectiveLevel = reloadData.EffectiveLevel;
-        if(BonusInfo.Count<reloadData.BonusInfo.Count)
+        //list
+        if(BonusInfo==null)
         {
-            BonusInfo.AddRange(new List<role.BonusInfo>(reloadData.BonusInfo.Count-BonusInfo.Count));
-        }else if(BonusInfo.Count>reloadData.BonusInfo.Count)
+            BonusInfo = reloadData.BonusInfo;
+        }else
         {
-            BonusInfo.RemoveRange(reloadData.BonusInfo.Count, BonusInfo.Count-reloadData.BonusInfo.Count);
-        }
-        for (int i = 0; i < reloadData.BonusInfo.Count; i++)
-        {
-            BonusInfo[i] = reloadData.BonusInfo[i];
+            BonusInfo.Capacity = reloadData.BonusInfo.Count;
+            for (int i = 0; i < reloadData.BonusInfo.Count; i++)
+            {
+                BonusInfo[i].Reload(reloadData.BonusInfo[i]);
+            }
+
         }
     }
 

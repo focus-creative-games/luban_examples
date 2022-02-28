@@ -77,40 +77,59 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
         Name = reloadData.Name;
         A1 = reloadData.A1;
         A2 = reloadData.A2;
-        if(X1.GetTypeId() == reloadData.X1.GetTypeId())
+        //bean
+        if(X1==null)
         {
-            //X1 not dynamic
-            X1.Reload(reloadData.X1);
+            X1 = reloadData.X1;
         }else
         {
-            typeof(TestDesc).GetProperty("X1").SetValue(this,reloadData.X1);
+            if(X1.GetTypeId() == reloadData.X1.GetTypeId())
+            {
+                //X1 not dynamic
+                X1.Reload(reloadData.X1);
+            }else
+            {
+                typeof(TestDesc).GetProperty("X1").SetValue(this,reloadData.X1);
+            }
         }
-        if(X2.Count<reloadData.X2.Count)
+        //list
+        if(X2==null)
         {
-            X2.AddRange(new List<test.H2>(reloadData.X2.Count-X2.Count));
-        }else if(X2.Count>reloadData.X2.Count)
+            X2 = reloadData.X2;
+        }else
         {
-            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
-        }
-        for (int i = 0; i < reloadData.X2.Count; i++)
-        {
-            X2[i] = reloadData.X2[i];
+            X2.Capacity = reloadData.X2.Count;
+            for (int i = 0; i < reloadData.X2.Count; i++)
+            {
+                X2[i].Reload(reloadData.X2[i]);
+            }
+
         }
         //array
-        if(X3.Length!=reloadData.X3.Length)
+        if(X3==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new test.H2[reloadData.X3.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            X3 = reloadData.X3;
+        }else
+        {
+            if(X3.Length!=reloadData.X3.Length)
             {
-                if(i<X3.Length)
+                var newArray = new test.H2[reloadData.X3.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = X3[i];
+                    if(i<X3.Length)
+                    {
+                        newArray[i] = X3[i];
+                    }
                 }
+                typeof(TestDesc).GetProperty("X3").SetValue(this, newArray);
             }
-            typeof(TestDesc).GetProperty("X3").SetValue(this, newArray);
-            
+                for(int i = 0; i<reloadData.X3.Length; i++)
+                {
+                    X3[i].Reload(reloadData.X3[i]);
+                }
+
         }
+
     }
 
     public override string ToString()

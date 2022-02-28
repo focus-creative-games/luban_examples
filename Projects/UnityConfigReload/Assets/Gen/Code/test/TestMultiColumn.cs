@@ -56,29 +56,50 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
     public void Reload(TestMultiColumn reloadData)
     {
         Id = reloadData.Id;
-        if(A.GetTypeId() == reloadData.A.GetTypeId())
+        //bean
+        if(A==null)
         {
-            //A not dynamic
-            A.Reload(reloadData.A);
+            A = reloadData.A;
         }else
         {
-            typeof(TestMultiColumn).GetProperty("A").SetValue(this,reloadData.A);
+            if(A.GetTypeId() == reloadData.A.GetTypeId())
+            {
+                //A not dynamic
+                A.Reload(reloadData.A);
+            }else
+            {
+                typeof(TestMultiColumn).GetProperty("A").SetValue(this,reloadData.A);
+            }
         }
-        if(B.GetTypeId() == reloadData.B.GetTypeId())
+        //bean
+        if(B==null)
         {
-            //B not dynamic
-            B.Reload(reloadData.B);
+            B = reloadData.B;
         }else
         {
-            typeof(TestMultiColumn).GetProperty("B").SetValue(this,reloadData.B);
+            if(B.GetTypeId() == reloadData.B.GetTypeId())
+            {
+                //B not dynamic
+                B.Reload(reloadData.B);
+            }else
+            {
+                typeof(TestMultiColumn).GetProperty("B").SetValue(this,reloadData.B);
+            }
         }
-        if(C.GetTypeId() == reloadData.C.GetTypeId())
+        //bean
+        if(C==null)
         {
-            //C not dynamic
-            C.Reload(reloadData.C);
+            C = reloadData.C;
         }else
         {
-            typeof(TestMultiColumn).GetProperty("C").SetValue(this,reloadData.C);
+            if(C.GetTypeId() == reloadData.C.GetTypeId())
+            {
+                //C not dynamic
+                C.Reload(reloadData.C);
+            }else
+            {
+                typeof(TestMultiColumn).GetProperty("C").SetValue(this,reloadData.C);
+            }
         }
     }
 

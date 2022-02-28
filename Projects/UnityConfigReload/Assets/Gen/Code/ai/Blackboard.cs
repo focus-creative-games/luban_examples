@@ -57,16 +57,18 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         Name = reloadData.Name;
         Desc = reloadData.Desc;
         ParentName = reloadData.ParentName;
-        if(Keys.Count<reloadData.Keys.Count)
+        //list
+        if(Keys==null)
         {
-            Keys.AddRange(new List<ai.BlackboardKey>(reloadData.Keys.Count-Keys.Count));
-        }else if(Keys.Count>reloadData.Keys.Count)
+            Keys = reloadData.Keys;
+        }else
         {
-            Keys.RemoveRange(reloadData.Keys.Count, Keys.Count-reloadData.Keys.Count);
-        }
-        for (int i = 0; i < reloadData.Keys.Count; i++)
-        {
-            Keys[i] = reloadData.Keys[i];
+            Keys.Capacity = reloadData.Keys.Count;
+            for (int i = 0; i < reloadData.Keys.Count; i++)
+            {
+                Keys[i].Reload(reloadData.Keys[i]);
+            }
+
         }
     }
 

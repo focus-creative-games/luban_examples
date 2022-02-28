@@ -55,49 +55,53 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X0 = reloadData.X0;
-        if(X1.Count<reloadData.X1.Count)
+        //list
+        if(X1==null)
         {
-            X1.AddRange(new List<int>(reloadData.X1.Count-X1.Count));
-        }else if(X1.Count>reloadData.X1.Count)
+            X1 = reloadData.X1;
+        }else
         {
-            X1.RemoveRange(reloadData.X1.Count, X1.Count-reloadData.X1.Count);
+            X1.Capacity = reloadData.X1.Count;
+            for (int i = 0; i < reloadData.X1.Count; i++)
+            {
+                X1[i] = reloadData.X1[i];
+            }
         }
-        for (int i = 0; i < reloadData.X1.Count; i++)
+        //list
+        if(X2==null)
         {
-            X1[i] = reloadData.X1[i];
+            X2 = reloadData.X2;
+        }else
+        {
+            X2.Capacity = reloadData.X2.Count;
+            for (int i = 0; i < reloadData.X2.Count; i++)
+            {
+                X2[i] = reloadData.X2[i];
+            }
         }
-        if(X2.Count<reloadData.X2.Count)
+        //list
+        if(X3==null)
         {
-            X2.AddRange(new List<long>(reloadData.X2.Count-X2.Count));
-        }else if(X2.Count>reloadData.X2.Count)
+            X3 = reloadData.X3;
+        }else
         {
-            X2.RemoveRange(reloadData.X2.Count, X2.Count-reloadData.X2.Count);
+            X3.Capacity = reloadData.X3.Count;
+            for (int i = 0; i < reloadData.X3.Count; i++)
+            {
+                X3[i] = reloadData.X3[i];
+            }
         }
-        for (int i = 0; i < reloadData.X2.Count; i++)
+        //list
+        if(X4==null)
         {
-            X2[i] = reloadData.X2[i];
-        }
-        if(X3.Count<reloadData.X3.Count)
+            X4 = reloadData.X4;
+        }else
         {
-            X3.AddRange(new List<string>(reloadData.X3.Count-X3.Count));
-        }else if(X3.Count>reloadData.X3.Count)
-        {
-            X3.RemoveRange(reloadData.X3.Count, X3.Count-reloadData.X3.Count);
-        }
-        for (int i = 0; i < reloadData.X3.Count; i++)
-        {
-            X3[i] = reloadData.X3[i];
-        }
-        if(X4.Count<reloadData.X4.Count)
-        {
-            X4.AddRange(new List<test.DemoEnum>(reloadData.X4.Count-X4.Count));
-        }else if(X4.Count>reloadData.X4.Count)
-        {
-            X4.RemoveRange(reloadData.X4.Count, X4.Count-reloadData.X4.Count);
-        }
-        for (int i = 0; i < reloadData.X4.Count; i++)
-        {
-            X4[i] = reloadData.X4[i];
+            X4.Capacity = reloadData.X4.Count;
+            for (int i = 0; i < reloadData.X4.Count; i++)
+            {
+                X4[i] = reloadData.X4[i];
+            }
         }
     }
 

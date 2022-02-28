@@ -46,16 +46,17 @@ public sealed partial class DesignDrawing :  item.ItemExtra
     public void Reload(DesignDrawing reloadData)
     {
         Id = reloadData.Id;
-        if(LearnComponentId.Count<reloadData.LearnComponentId.Count)
+        //list
+        if(LearnComponentId==null)
         {
-            LearnComponentId.AddRange(new List<int>(reloadData.LearnComponentId.Count-LearnComponentId.Count));
-        }else if(LearnComponentId.Count>reloadData.LearnComponentId.Count)
+            LearnComponentId = reloadData.LearnComponentId;
+        }else
         {
-            LearnComponentId.RemoveRange(reloadData.LearnComponentId.Count, LearnComponentId.Count-reloadData.LearnComponentId.Count);
-        }
-        for (int i = 0; i < reloadData.LearnComponentId.Count; i++)
-        {
-            LearnComponentId[i] = reloadData.LearnComponentId[i];
+            LearnComponentId.Capacity = reloadData.LearnComponentId.Count;
+            for (int i = 0; i < reloadData.LearnComponentId.Count; i++)
+            {
+                LearnComponentId[i] = reloadData.LearnComponentId[i];
+            }
         }
     }
 

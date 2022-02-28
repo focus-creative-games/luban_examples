@@ -58,16 +58,17 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         Title = reloadData.Title;
         Sender = reloadData.Sender;
         Content = reloadData.Content;
-        if(Award.Count<reloadData.Award.Count)
+        //list
+        if(Award==null)
         {
-            Award.AddRange(new List<int>(reloadData.Award.Count-Award.Count));
-        }else if(Award.Count>reloadData.Award.Count)
+            Award = reloadData.Award;
+        }else
         {
-            Award.RemoveRange(reloadData.Award.Count, Award.Count-reloadData.Award.Count);
-        }
-        for (int i = 0; i < reloadData.Award.Count; i++)
-        {
-            Award[i] = reloadData.Award[i];
+            Award.Capacity = reloadData.Award.Count;
+            for (int i = 0; i < reloadData.Award.Count; i++)
+            {
+                Award[i] = reloadData.Award[i];
+            }
         }
     }
 

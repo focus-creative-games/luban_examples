@@ -50,27 +50,34 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public void Reload(BinaryOperator reloadData)
     {
         Oper = reloadData.Oper;
-        if(Data.GetTypeId() == reloadData.Data.GetTypeId())
+        //bean
+        if(Data==null)
         {
-            //Data is dynamic
-            switch (reloadData.Data.GetTypeId())
-            {
-                case ai.FloatKeyData.__ID__:
-                    (Data as ai.FloatKeyData).Reload(reloadData.Data as ai.FloatKeyData);
-                    break;
-                case ai.IntKeyData.__ID__:
-                    (Data as ai.IntKeyData).Reload(reloadData.Data as ai.IntKeyData);
-                    break;
-                case ai.StringKeyData.__ID__:
-                    (Data as ai.StringKeyData).Reload(reloadData.Data as ai.StringKeyData);
-                    break;
-                case ai.BlackboardKeyData.__ID__:
-                    (Data as ai.BlackboardKeyData).Reload(reloadData.Data as ai.BlackboardKeyData);
-                    break;
-            }
+            Data = reloadData.Data;
         }else
         {
-            typeof(BinaryOperator).GetProperty("Data").SetValue(this,reloadData.Data);
+            if(Data.GetTypeId() == reloadData.Data.GetTypeId())
+            {
+                //Data is dynamic
+                switch (reloadData.Data.GetTypeId())
+                {
+                    case ai.FloatKeyData.__ID__:
+                        (Data as ai.FloatKeyData).Reload(reloadData.Data as ai.FloatKeyData);
+                        break;
+                    case ai.IntKeyData.__ID__:
+                        (Data as ai.IntKeyData).Reload(reloadData.Data as ai.IntKeyData);
+                        break;
+                    case ai.StringKeyData.__ID__:
+                        (Data as ai.StringKeyData).Reload(reloadData.Data as ai.StringKeyData);
+                        break;
+                    case ai.BlackboardKeyData.__ID__:
+                        (Data as ai.BlackboardKeyData).Reload(reloadData.Data as ai.BlackboardKeyData);
+                        break;
+                }
+            }else
+            {
+                typeof(BinaryOperator).GetProperty("Data").SetValue(this,reloadData.Data);
+            }
         }
     }
 

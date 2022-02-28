@@ -55,99 +55,174 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     {
         Id = reloadData.Id;
         NodeName = reloadData.NodeName;
-        if(Decorators.Count<reloadData.Decorators.Count)
+        //list
+        if(Decorators==null)
         {
-            Decorators.AddRange(new List<ai.Decorator>(reloadData.Decorators.Count-Decorators.Count));
-        }else if(Decorators.Count>reloadData.Decorators.Count)
+            Decorators = reloadData.Decorators;
+        }else
         {
-            Decorators.RemoveRange(reloadData.Decorators.Count, Decorators.Count-reloadData.Decorators.Count);
+            Decorators.Capacity = reloadData.Decorators.Count;
+            for (int i = 0; i < reloadData.Decorators.Count; i++)
+            {
+                //list is_dynamic
+                if(Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
+                {
+                    switch (reloadData.Decorators[i].GetTypeId())
+                    {
+                        case ai.UeLoop.__ID__:
+                            (Decorators[i] as ai.UeLoop).Reload(reloadData.Decorators[i] as ai.UeLoop);
+                            break;
+                        case ai.UeCooldown.__ID__:
+                            (Decorators[i] as ai.UeCooldown).Reload(reloadData.Decorators[i] as ai.UeCooldown);
+                            break;
+                        case ai.UeTimeLimit.__ID__:
+                            (Decorators[i] as ai.UeTimeLimit).Reload(reloadData.Decorators[i] as ai.UeTimeLimit);
+                            break;
+                        case ai.UeBlackboard.__ID__:
+                            (Decorators[i] as ai.UeBlackboard).Reload(reloadData.Decorators[i] as ai.UeBlackboard);
+                            break;
+                        case ai.UeForceSuccess.__ID__:
+                            (Decorators[i] as ai.UeForceSuccess).Reload(reloadData.Decorators[i] as ai.UeForceSuccess);
+                            break;
+                        case ai.IsAtLocation.__ID__:
+                            (Decorators[i] as ai.IsAtLocation).Reload(reloadData.Decorators[i] as ai.IsAtLocation);
+                            break;
+                        case ai.DistanceLessThan.__ID__:
+                            (Decorators[i] as ai.DistanceLessThan).Reload(reloadData.Decorators[i] as ai.DistanceLessThan);
+                            break;
+                    }
+                }else
+                {
+                    Decorators[i] = reloadData.Decorators[i];
+                }
+            }
+
         }
-        for (int i = 0; i < reloadData.Decorators.Count; i++)
+        //list
+        if(Services==null)
         {
-            Decorators[i] = reloadData.Decorators[i];
-        }
-        if(Services.Count<reloadData.Services.Count)
+            Services = reloadData.Services;
+        }else
         {
-            Services.AddRange(new List<ai.Service>(reloadData.Services.Count-Services.Count));
-        }else if(Services.Count>reloadData.Services.Count)
-        {
-            Services.RemoveRange(reloadData.Services.Count, Services.Count-reloadData.Services.Count);
-        }
-        for (int i = 0; i < reloadData.Services.Count; i++)
-        {
-            Services[i] = reloadData.Services[i];
+            Services.Capacity = reloadData.Services.Count;
+            for (int i = 0; i < reloadData.Services.Count; i++)
+            {
+                //list is_dynamic
+                if(Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
+                {
+                    switch (reloadData.Services[i].GetTypeId())
+                    {
+                        case ai.UeSetDefaultFocus.__ID__:
+                            (Services[i] as ai.UeSetDefaultFocus).Reload(reloadData.Services[i] as ai.UeSetDefaultFocus);
+                            break;
+                        case ai.ExecuteTimeStatistic.__ID__:
+                            (Services[i] as ai.ExecuteTimeStatistic).Reload(reloadData.Services[i] as ai.ExecuteTimeStatistic);
+                            break;
+                        case ai.ChooseTarget.__ID__:
+                            (Services[i] as ai.ChooseTarget).Reload(reloadData.Services[i] as ai.ChooseTarget);
+                            break;
+                        case ai.KeepFaceTarget.__ID__:
+                            (Services[i] as ai.KeepFaceTarget).Reload(reloadData.Services[i] as ai.KeepFaceTarget);
+                            break;
+                        case ai.GetOwnerPlayer.__ID__:
+                            (Services[i] as ai.GetOwnerPlayer).Reload(reloadData.Services[i] as ai.GetOwnerPlayer);
+                            break;
+                        case ai.UpdateDailyBehaviorProps.__ID__:
+                            (Services[i] as ai.UpdateDailyBehaviorProps).Reload(reloadData.Services[i] as ai.UpdateDailyBehaviorProps);
+                            break;
+                    }
+                }else
+                {
+                    Services[i] = reloadData.Services[i];
+                }
+            }
+
         }
         FinishMode = reloadData.FinishMode;
-        if(MainTask.GetTypeId() == reloadData.MainTask.GetTypeId())
+        //bean
+        if(MainTask==null)
         {
-            //MainTask is dynamic
-            switch (reloadData.MainTask.GetTypeId())
-            {
-                case ai.UeWait.__ID__:
-                    (MainTask as ai.UeWait).Reload(reloadData.MainTask as ai.UeWait);
-                    break;
-                case ai.UeWaitBlackboardTime.__ID__:
-                    (MainTask as ai.UeWaitBlackboardTime).Reload(reloadData.MainTask as ai.UeWaitBlackboardTime);
-                    break;
-                case ai.MoveToTarget.__ID__:
-                    (MainTask as ai.MoveToTarget).Reload(reloadData.MainTask as ai.MoveToTarget);
-                    break;
-                case ai.ChooseSkill.__ID__:
-                    (MainTask as ai.ChooseSkill).Reload(reloadData.MainTask as ai.ChooseSkill);
-                    break;
-                case ai.MoveToRandomLocation.__ID__:
-                    (MainTask as ai.MoveToRandomLocation).Reload(reloadData.MainTask as ai.MoveToRandomLocation);
-                    break;
-                case ai.MoveToLocation.__ID__:
-                    (MainTask as ai.MoveToLocation).Reload(reloadData.MainTask as ai.MoveToLocation);
-                    break;
-                case ai.DebugPrint.__ID__:
-                    (MainTask as ai.DebugPrint).Reload(reloadData.MainTask as ai.DebugPrint);
-                    break;
-            }
+            MainTask = reloadData.MainTask;
         }else
         {
-            typeof(SimpleParallel).GetProperty("MainTask").SetValue(this,reloadData.MainTask);
+            if(MainTask.GetTypeId() == reloadData.MainTask.GetTypeId())
+            {
+                //MainTask is dynamic
+                switch (reloadData.MainTask.GetTypeId())
+                {
+                    case ai.UeWait.__ID__:
+                        (MainTask as ai.UeWait).Reload(reloadData.MainTask as ai.UeWait);
+                        break;
+                    case ai.UeWaitBlackboardTime.__ID__:
+                        (MainTask as ai.UeWaitBlackboardTime).Reload(reloadData.MainTask as ai.UeWaitBlackboardTime);
+                        break;
+                    case ai.MoveToTarget.__ID__:
+                        (MainTask as ai.MoveToTarget).Reload(reloadData.MainTask as ai.MoveToTarget);
+                        break;
+                    case ai.ChooseSkill.__ID__:
+                        (MainTask as ai.ChooseSkill).Reload(reloadData.MainTask as ai.ChooseSkill);
+                        break;
+                    case ai.MoveToRandomLocation.__ID__:
+                        (MainTask as ai.MoveToRandomLocation).Reload(reloadData.MainTask as ai.MoveToRandomLocation);
+                        break;
+                    case ai.MoveToLocation.__ID__:
+                        (MainTask as ai.MoveToLocation).Reload(reloadData.MainTask as ai.MoveToLocation);
+                        break;
+                    case ai.DebugPrint.__ID__:
+                        (MainTask as ai.DebugPrint).Reload(reloadData.MainTask as ai.DebugPrint);
+                        break;
+                }
+            }else
+            {
+                typeof(SimpleParallel).GetProperty("MainTask").SetValue(this,reloadData.MainTask);
+            }
         }
-        if(BackgroundNode.GetTypeId() == reloadData.BackgroundNode.GetTypeId())
+        //bean
+        if(BackgroundNode==null)
         {
-            //BackgroundNode is dynamic
-            switch (reloadData.BackgroundNode.GetTypeId())
-            {
-                case ai.Sequence.__ID__:
-                    (BackgroundNode as ai.Sequence).Reload(reloadData.BackgroundNode as ai.Sequence);
-                    break;
-                case ai.Selector.__ID__:
-                    (BackgroundNode as ai.Selector).Reload(reloadData.BackgroundNode as ai.Selector);
-                    break;
-                case ai.SimpleParallel.__ID__:
-                    (BackgroundNode as ai.SimpleParallel).Reload(reloadData.BackgroundNode as ai.SimpleParallel);
-                    break;
-                case ai.UeWait.__ID__:
-                    (BackgroundNode as ai.UeWait).Reload(reloadData.BackgroundNode as ai.UeWait);
-                    break;
-                case ai.UeWaitBlackboardTime.__ID__:
-                    (BackgroundNode as ai.UeWaitBlackboardTime).Reload(reloadData.BackgroundNode as ai.UeWaitBlackboardTime);
-                    break;
-                case ai.MoveToTarget.__ID__:
-                    (BackgroundNode as ai.MoveToTarget).Reload(reloadData.BackgroundNode as ai.MoveToTarget);
-                    break;
-                case ai.ChooseSkill.__ID__:
-                    (BackgroundNode as ai.ChooseSkill).Reload(reloadData.BackgroundNode as ai.ChooseSkill);
-                    break;
-                case ai.MoveToRandomLocation.__ID__:
-                    (BackgroundNode as ai.MoveToRandomLocation).Reload(reloadData.BackgroundNode as ai.MoveToRandomLocation);
-                    break;
-                case ai.MoveToLocation.__ID__:
-                    (BackgroundNode as ai.MoveToLocation).Reload(reloadData.BackgroundNode as ai.MoveToLocation);
-                    break;
-                case ai.DebugPrint.__ID__:
-                    (BackgroundNode as ai.DebugPrint).Reload(reloadData.BackgroundNode as ai.DebugPrint);
-                    break;
-            }
+            BackgroundNode = reloadData.BackgroundNode;
         }else
         {
-            typeof(SimpleParallel).GetProperty("BackgroundNode").SetValue(this,reloadData.BackgroundNode);
+            if(BackgroundNode.GetTypeId() == reloadData.BackgroundNode.GetTypeId())
+            {
+                //BackgroundNode is dynamic
+                switch (reloadData.BackgroundNode.GetTypeId())
+                {
+                    case ai.Sequence.__ID__:
+                        (BackgroundNode as ai.Sequence).Reload(reloadData.BackgroundNode as ai.Sequence);
+                        break;
+                    case ai.Selector.__ID__:
+                        (BackgroundNode as ai.Selector).Reload(reloadData.BackgroundNode as ai.Selector);
+                        break;
+                    case ai.SimpleParallel.__ID__:
+                        (BackgroundNode as ai.SimpleParallel).Reload(reloadData.BackgroundNode as ai.SimpleParallel);
+                        break;
+                    case ai.UeWait.__ID__:
+                        (BackgroundNode as ai.UeWait).Reload(reloadData.BackgroundNode as ai.UeWait);
+                        break;
+                    case ai.UeWaitBlackboardTime.__ID__:
+                        (BackgroundNode as ai.UeWaitBlackboardTime).Reload(reloadData.BackgroundNode as ai.UeWaitBlackboardTime);
+                        break;
+                    case ai.MoveToTarget.__ID__:
+                        (BackgroundNode as ai.MoveToTarget).Reload(reloadData.BackgroundNode as ai.MoveToTarget);
+                        break;
+                    case ai.ChooseSkill.__ID__:
+                        (BackgroundNode as ai.ChooseSkill).Reload(reloadData.BackgroundNode as ai.ChooseSkill);
+                        break;
+                    case ai.MoveToRandomLocation.__ID__:
+                        (BackgroundNode as ai.MoveToRandomLocation).Reload(reloadData.BackgroundNode as ai.MoveToRandomLocation);
+                        break;
+                    case ai.MoveToLocation.__ID__:
+                        (BackgroundNode as ai.MoveToLocation).Reload(reloadData.BackgroundNode as ai.MoveToLocation);
+                        break;
+                    case ai.DebugPrint.__ID__:
+                        (BackgroundNode as ai.DebugPrint).Reload(reloadData.BackgroundNode as ai.DebugPrint);
+                        break;
+                }
+            }else
+            {
+                typeof(SimpleParallel).GetProperty("BackgroundNode").SetValue(this,reloadData.BackgroundNode);
+            }
         }
     }
 

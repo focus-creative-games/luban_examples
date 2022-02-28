@@ -56,24 +56,31 @@ public sealed partial class UeBlackboard :  ai.Decorator
         FlowAbortMode = reloadData.FlowAbortMode;
         NotifyObserver = reloadData.NotifyObserver;
         BlackboardKey = reloadData.BlackboardKey;
-        if(KeyQuery.GetTypeId() == reloadData.KeyQuery.GetTypeId())
+        //bean
+        if(KeyQuery==null)
         {
-            //KeyQuery is dynamic
-            switch (reloadData.KeyQuery.GetTypeId())
-            {
-                case ai.IsSet.__ID__:
-                    (KeyQuery as ai.IsSet).Reload(reloadData.KeyQuery as ai.IsSet);
-                    break;
-                case ai.IsNotSet.__ID__:
-                    (KeyQuery as ai.IsNotSet).Reload(reloadData.KeyQuery as ai.IsNotSet);
-                    break;
-                case ai.BinaryOperator.__ID__:
-                    (KeyQuery as ai.BinaryOperator).Reload(reloadData.KeyQuery as ai.BinaryOperator);
-                    break;
-            }
+            KeyQuery = reloadData.KeyQuery;
         }else
         {
-            typeof(UeBlackboard).GetProperty("KeyQuery").SetValue(this,reloadData.KeyQuery);
+            if(KeyQuery.GetTypeId() == reloadData.KeyQuery.GetTypeId())
+            {
+                //KeyQuery is dynamic
+                switch (reloadData.KeyQuery.GetTypeId())
+                {
+                    case ai.IsSet.__ID__:
+                        (KeyQuery as ai.IsSet).Reload(reloadData.KeyQuery as ai.IsSet);
+                        break;
+                    case ai.IsNotSet.__ID__:
+                        (KeyQuery as ai.IsNotSet).Reload(reloadData.KeyQuery as ai.IsNotSet);
+                        break;
+                    case ai.BinaryOperator.__ID__:
+                        (KeyQuery as ai.BinaryOperator).Reload(reloadData.KeyQuery as ai.BinaryOperator);
+                        break;
+                }
+            }else
+            {
+                typeof(UeBlackboard).GetProperty("KeyQuery").SetValue(this,reloadData.KeyQuery);
+            }
         }
     }
 

@@ -48,20 +48,30 @@ public sealed partial class WeightBonus :  bonus.Bonus
     public void Reload(WeightBonus reloadData)
     {
         //array
-        if(Bonuses.Length!=reloadData.Bonuses.Length)
+        if(Bonuses==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new bonus.WeightBonusInfo[reloadData.Bonuses.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            Bonuses = reloadData.Bonuses;
+        }else
+        {
+            if(Bonuses.Length!=reloadData.Bonuses.Length)
             {
-                if(i<Bonuses.Length)
+                var newArray = new bonus.WeightBonusInfo[reloadData.Bonuses.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = Bonuses[i];
+                    if(i<Bonuses.Length)
+                    {
+                        newArray[i] = Bonuses[i];
+                    }
                 }
+                typeof(WeightBonus).GetProperty("Bonuses").SetValue(this, newArray);
             }
-            typeof(WeightBonus).GetProperty("Bonuses").SetValue(this, newArray);
-            
+                for(int i = 0; i<reloadData.Bonuses.Length; i++)
+                {
+                    Bonuses[i].Reload(reloadData.Bonuses[i]);
+                }
+
         }
+
     }
 
     public override string ToString()

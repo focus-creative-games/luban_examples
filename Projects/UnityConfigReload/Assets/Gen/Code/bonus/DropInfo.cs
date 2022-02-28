@@ -55,59 +55,68 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Desc = reloadData.Desc;
-        if(ClientShowItems.Count<reloadData.ClientShowItems.Count)
+        //list
+        if(ClientShowItems==null)
         {
-            ClientShowItems.AddRange(new List<bonus.ShowItemInfo>(reloadData.ClientShowItems.Count-ClientShowItems.Count));
-        }else if(ClientShowItems.Count>reloadData.ClientShowItems.Count)
-        {
-            ClientShowItems.RemoveRange(reloadData.ClientShowItems.Count, ClientShowItems.Count-reloadData.ClientShowItems.Count);
-        }
-        for (int i = 0; i < reloadData.ClientShowItems.Count; i++)
-        {
-            ClientShowItems[i] = reloadData.ClientShowItems[i];
-        }
-        if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
-        {
-            //Bonus is dynamic
-            switch (reloadData.Bonus.GetTypeId())
-            {
-                case bonus.OneItem.__ID__:
-                    (Bonus as bonus.OneItem).Reload(reloadData.Bonus as bonus.OneItem);
-                    break;
-                case bonus.OneItems.__ID__:
-                    (Bonus as bonus.OneItems).Reload(reloadData.Bonus as bonus.OneItems);
-                    break;
-                case bonus.Item.__ID__:
-                    (Bonus as bonus.Item).Reload(reloadData.Bonus as bonus.Item);
-                    break;
-                case bonus.Items.__ID__:
-                    (Bonus as bonus.Items).Reload(reloadData.Bonus as bonus.Items);
-                    break;
-                case bonus.CoefficientItem.__ID__:
-                    (Bonus as bonus.CoefficientItem).Reload(reloadData.Bonus as bonus.CoefficientItem);
-                    break;
-                case bonus.WeightItems.__ID__:
-                    (Bonus as bonus.WeightItems).Reload(reloadData.Bonus as bonus.WeightItems);
-                    break;
-                case bonus.ProbabilityItems.__ID__:
-                    (Bonus as bonus.ProbabilityItems).Reload(reloadData.Bonus as bonus.ProbabilityItems);
-                    break;
-                case bonus.MultiBonus.__ID__:
-                    (Bonus as bonus.MultiBonus).Reload(reloadData.Bonus as bonus.MultiBonus);
-                    break;
-                case bonus.ProbabilityBonus.__ID__:
-                    (Bonus as bonus.ProbabilityBonus).Reload(reloadData.Bonus as bonus.ProbabilityBonus);
-                    break;
-                case bonus.WeightBonus.__ID__:
-                    (Bonus as bonus.WeightBonus).Reload(reloadData.Bonus as bonus.WeightBonus);
-                    break;
-                case bonus.DropBonus.__ID__:
-                    (Bonus as bonus.DropBonus).Reload(reloadData.Bonus as bonus.DropBonus);
-                    break;
-            }
+            ClientShowItems = reloadData.ClientShowItems;
         }else
         {
-            typeof(DropInfo).GetProperty("Bonus").SetValue(this,reloadData.Bonus);
+            ClientShowItems.Capacity = reloadData.ClientShowItems.Count;
+            for (int i = 0; i < reloadData.ClientShowItems.Count; i++)
+            {
+                ClientShowItems[i].Reload(reloadData.ClientShowItems[i]);
+            }
+
+        }
+        //bean
+        if(Bonus==null)
+        {
+            Bonus = reloadData.Bonus;
+        }else
+        {
+            if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
+            {
+                //Bonus is dynamic
+                switch (reloadData.Bonus.GetTypeId())
+                {
+                    case bonus.OneItem.__ID__:
+                        (Bonus as bonus.OneItem).Reload(reloadData.Bonus as bonus.OneItem);
+                        break;
+                    case bonus.OneItems.__ID__:
+                        (Bonus as bonus.OneItems).Reload(reloadData.Bonus as bonus.OneItems);
+                        break;
+                    case bonus.Item.__ID__:
+                        (Bonus as bonus.Item).Reload(reloadData.Bonus as bonus.Item);
+                        break;
+                    case bonus.Items.__ID__:
+                        (Bonus as bonus.Items).Reload(reloadData.Bonus as bonus.Items);
+                        break;
+                    case bonus.CoefficientItem.__ID__:
+                        (Bonus as bonus.CoefficientItem).Reload(reloadData.Bonus as bonus.CoefficientItem);
+                        break;
+                    case bonus.WeightItems.__ID__:
+                        (Bonus as bonus.WeightItems).Reload(reloadData.Bonus as bonus.WeightItems);
+                        break;
+                    case bonus.ProbabilityItems.__ID__:
+                        (Bonus as bonus.ProbabilityItems).Reload(reloadData.Bonus as bonus.ProbabilityItems);
+                        break;
+                    case bonus.MultiBonus.__ID__:
+                        (Bonus as bonus.MultiBonus).Reload(reloadData.Bonus as bonus.MultiBonus);
+                        break;
+                    case bonus.ProbabilityBonus.__ID__:
+                        (Bonus as bonus.ProbabilityBonus).Reload(reloadData.Bonus as bonus.ProbabilityBonus);
+                        break;
+                    case bonus.WeightBonus.__ID__:
+                        (Bonus as bonus.WeightBonus).Reload(reloadData.Bonus as bonus.WeightBonus);
+                        break;
+                    case bonus.DropBonus.__ID__:
+                        (Bonus as bonus.DropBonus).Reload(reloadData.Bonus as bonus.DropBonus);
+                        break;
+                }
+            }else
+            {
+                typeof(DropInfo).GetProperty("Bonus").SetValue(this,reloadData.Bonus);
+            }
         }
     }
 

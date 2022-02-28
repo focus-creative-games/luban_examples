@@ -27,7 +27,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X13 = (test.ETestQuality)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         X15 = test.Shape.DeserializeShape(_buf);
-        V2 = _buf.ReadVector2();
+        V2 = _buf.ReadUnityVector2();
         T1 = _buf.ReadInt();
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K1[i] = _e;}}
         {int n = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new int[n];for(var i = 0 ; i < n ; i++) { int _e;_e = _buf.ReadInt(); K2[i] = _e;}}
@@ -56,7 +56,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
     public test.ETestQuality X13 { get; protected set; }
     public test.DemoDynamic X14 { get; protected set; }
     public test.Shape X15 { get; protected set; }
-    public System.Numerics.Vector2 V2 { get; protected set; }
+    public UnityEngine.Vector2 V2 { get; protected set; }
     public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
     public int[] K1 { get; protected set; }
@@ -91,77 +91,126 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X10 = reloadData.X10;
         X13 = reloadData.X13;
-        if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+        //bean
+        if(X14==null)
         {
-            //X14 is dynamic
-            switch (reloadData.X14.GetTypeId())
-            {
-                case test.DemoD2.__ID__:
-                    (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
-                    break;
-                case test.DemoE1.__ID__:
-                    (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
-                    break;
-                case test.login.RoleInfo.__ID__:
-                    (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
-                    break;
-                case test.DemoD5.__ID__:
-                    (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
-                    break;
-            }
+            X14 = reloadData.X14;
         }else
         {
-            typeof(DefineFromExcel2).GetProperty("X14").SetValue(this,reloadData.X14);
+            if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+            {
+                //X14 is dynamic
+                switch (reloadData.X14.GetTypeId())
+                {
+                    case test.DemoD2.__ID__:
+                        (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
+                        break;
+                    case test.DemoE1.__ID__:
+                        (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
+                        break;
+                    case test.login.RoleInfo.__ID__:
+                        (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
+                        break;
+                    case test.DemoD5.__ID__:
+                        (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
+                        break;
+                }
+            }else
+            {
+                typeof(DefineFromExcel2).GetProperty("X14").SetValue(this,reloadData.X14);
+            }
         }
-        if(X15.GetTypeId() == reloadData.X15.GetTypeId())
+        //bean
+        if(X15==null)
         {
-            //X15 is dynamic
-            switch (reloadData.X15.GetTypeId())
-            {
-                case test.Circle.__ID__:
-                    (X15 as test.Circle).Reload(reloadData.X15 as test.Circle);
-                    break;
-                case test2.Rectangle.__ID__:
-                    (X15 as test2.Rectangle).Reload(reloadData.X15 as test2.Rectangle);
-                    break;
-            }
+            X15 = reloadData.X15;
         }else
         {
-            typeof(DefineFromExcel2).GetProperty("X15").SetValue(this,reloadData.X15);
+            if(X15.GetTypeId() == reloadData.X15.GetTypeId())
+            {
+                //X15 is dynamic
+                switch (reloadData.X15.GetTypeId())
+                {
+                    case test.Circle.__ID__:
+                        (X15 as test.Circle).Reload(reloadData.X15 as test.Circle);
+                        break;
+                    case test2.Rectangle.__ID__:
+                        (X15 as test2.Rectangle).Reload(reloadData.X15 as test2.Rectangle);
+                        break;
+                }
+            }else
+            {
+                typeof(DefineFromExcel2).GetProperty("X15").SetValue(this,reloadData.X15);
+            }
         }
         V2 = reloadData.V2;
         T1 = reloadData.T1;
         //array
-            typeof(DefineFromExcel2).GetProperty("K1").SetValue(this, reloadData.K1);
+        if(K1==null)
+        {
+            K1 = reloadData.K1;
+        }else
+        {
+                for(int i = 0; i<reloadData.K1.Length; i++)
+                {
+                    if(i<K1.Length)
+                    {
+                        K1[i] = reloadData.K1[i];
+                    }
+                }
+        }
+
         //array
-            typeof(DefineFromExcel2).GetProperty("K2").SetValue(this, reloadData.K2);
-        foreach (var rawDataKey in K8.Keys.ToList())
+        if(K2==null)
         {
-            if(!reloadData.K8.ContainsKey(rawDataKey))
+            K2 = reloadData.K2;
+        }else
+        {
+                for(int i = 0; i<reloadData.K2.Length; i++)
+                {
+                    if(i<K2.Length)
+                    {
+                        K2[i] = reloadData.K2[i];
+                    }
+                }
+        }
+
+        //map
+        if(K8==null)
+        {
+            K8 = reloadData.K8;
+        }else
+        {
+            foreach (var rawDataKey in K8.Keys.ToList())
             {
-                K8.Remove(rawDataKey);
+                if(!reloadData.K8.ContainsKey(rawDataKey))
+                {
+                    K8.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.K8)
+            {
+                if(K8.ContainsKey(reload.Key))
+                {
+                    K8[reload.Key] = reload.Value;
+                }else
+                {
+                    K8.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var reload in reloadData.K8)
+        //list
+        if(K9==null)
         {
-            if(K8.ContainsKey(reload.Key))
+            K9 = reloadData.K9;
+        }else
+        {
+            K9.Capacity = reloadData.K9.Count;
+            for (int i = 0; i < reloadData.K9.Count; i++)
             {
-                K8[reload.Key] = reload.Value;
-            }else
-            {
-                K8.Add(reload.Key,reload.Value);
+                K9[i].Reload(reloadData.K9[i]);
             }
-        }
-        if(K9.Count<reloadData.K9.Count)
-        {
-            K9.AddRange(new List<test.DemoE2>(reloadData.K9.Count-K9.Count));
-        }else if(K9.Count>reloadData.K9.Count)
-        {
-            K9.RemoveRange(reloadData.K9.Count, K9.Count-reloadData.K9.Count);
-        }
-        for (int i = 0; i < reloadData.K9.Count; i++)
-        {
-            K9[i] = reloadData.K9[i];
+
         }
     }
 

@@ -69,13 +69,20 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         X2 = reloadData.X2;
         X3 = reloadData.X3;
         X4 = reloadData.X4;
-        if(X5.GetTypeId() == reloadData.X5.GetTypeId())
+        //bean
+        if(X5==null)
         {
-            //X5 not dynamic
-            X5.Reload(reloadData.X5);
+            X5 = reloadData.X5;
         }else
         {
-            typeof(DemoGroup).GetProperty("X5").SetValue(this,reloadData.X5);
+            if(X5.GetTypeId() == reloadData.X5.GetTypeId())
+            {
+                //X5 not dynamic
+                X5.Reload(reloadData.X5);
+            }else
+            {
+                typeof(DemoGroup).GetProperty("X5").SetValue(this,reloadData.X5);
+            }
         }
     }
 

@@ -48,20 +48,30 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
     public void Reload(ProbabilityItems reloadData)
     {
         //array
-        if(ItemList.Length!=reloadData.ItemList.Length)
+        if(ItemList==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new bonus.ProbabilityItemInfo[reloadData.ItemList.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            ItemList = reloadData.ItemList;
+        }else
+        {
+            if(ItemList.Length!=reloadData.ItemList.Length)
             {
-                if(i<ItemList.Length)
+                var newArray = new bonus.ProbabilityItemInfo[reloadData.ItemList.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = ItemList[i];
+                    if(i<ItemList.Length)
+                    {
+                        newArray[i] = ItemList[i];
+                    }
                 }
+                typeof(ProbabilityItems).GetProperty("ItemList").SetValue(this, newArray);
             }
-            typeof(ProbabilityItems).GetProperty("ItemList").SetValue(this, newArray);
-            
+                for(int i = 0; i<reloadData.ItemList.Length; i++)
+                {
+                    ItemList[i].Reload(reloadData.ItemList[i]);
+                }
+
         }
+
     }
 
     public override string ToString()

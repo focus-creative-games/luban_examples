@@ -82,54 +82,74 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X1 = reloadData.X1;
-        if(X2.GetTypeId() == reloadData.X2.GetTypeId())
+        //bean
+        if(X2==null)
         {
-            //X2 not dynamic
-            X2.Reload(reloadData.X2);
+            X2 = reloadData.X2;
         }else
         {
-            typeof(TestSep).GetProperty("X2").SetValue(this,reloadData.X2);
+            if(X2.GetTypeId() == reloadData.X2.GetTypeId())
+            {
+                //X2 not dynamic
+                X2.Reload(reloadData.X2);
+            }else
+            {
+                typeof(TestSep).GetProperty("X2").SetValue(this,reloadData.X2);
+            }
         }
-        if(X3.GetTypeId() == reloadData.X3.GetTypeId())
+        //bean
+        if(X3==null)
         {
-            //X3 not dynamic
-            X3.Reload(reloadData.X3);
+            X3 = reloadData.X3;
         }else
         {
-            typeof(TestSep).GetProperty("X3").SetValue(this,reloadData.X3);
+            if(X3.GetTypeId() == reloadData.X3.GetTypeId())
+            {
+                //X3 not dynamic
+                X3.Reload(reloadData.X3);
+            }else
+            {
+                typeof(TestSep).GetProperty("X3").SetValue(this,reloadData.X3);
+            }
         }
-        if(X4.Count<reloadData.X4.Count)
+        //list
+        if(X4==null)
         {
-            X4.AddRange(new List<test.SepVector>(reloadData.X4.Count-X4.Count));
-        }else if(X4.Count>reloadData.X4.Count)
+            X4 = reloadData.X4;
+        }else
         {
-            X4.RemoveRange(reloadData.X4.Count, X4.Count-reloadData.X4.Count);
+            X4.Capacity = reloadData.X4.Count;
+            for (int i = 0; i < reloadData.X4.Count; i++)
+            {
+                X4[i].Reload(reloadData.X4[i]);
+            }
+
         }
-        for (int i = 0; i < reloadData.X4.Count; i++)
+        //list
+        if(X5==null)
         {
-            X4[i] = reloadData.X4[i];
+            X5 = reloadData.X5;
+        }else
+        {
+            X5.Capacity = reloadData.X5.Count;
+            for (int i = 0; i < reloadData.X5.Count; i++)
+            {
+                X5[i].Reload(reloadData.X5[i]);
+            }
+
         }
-        if(X5.Count<reloadData.X5.Count)
+        //list
+        if(X6==null)
         {
-            X5.AddRange(new List<test.SepBean1>(reloadData.X5.Count-X5.Count));
-        }else if(X5.Count>reloadData.X5.Count)
+            X6 = reloadData.X6;
+        }else
         {
-            X5.RemoveRange(reloadData.X5.Count, X5.Count-reloadData.X5.Count);
-        }
-        for (int i = 0; i < reloadData.X5.Count; i++)
-        {
-            X5[i] = reloadData.X5[i];
-        }
-        if(X6.Count<reloadData.X6.Count)
-        {
-            X6.AddRange(new List<test.SepBean1>(reloadData.X6.Count-X6.Count));
-        }else if(X6.Count>reloadData.X6.Count)
-        {
-            X6.RemoveRange(reloadData.X6.Count, X6.Count-reloadData.X6.Count);
-        }
-        for (int i = 0; i < reloadData.X6.Count; i++)
-        {
-            X6[i] = reloadData.X6[i];
+            X6.Capacity = reloadData.X6.Count;
+            for (int i = 0; i < reloadData.X6.Count; i++)
+            {
+                X6[i].Reload(reloadData.X6[i]);
+            }
+
         }
     }
 

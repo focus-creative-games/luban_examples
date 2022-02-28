@@ -73,103 +73,142 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        if(OneRows.Count<reloadData.OneRows.Count)
+        //list
+        if(OneRows==null)
         {
-            OneRows.AddRange(new List<test.MultiRowType1>(reloadData.OneRows.Count-OneRows.Count));
-        }else if(OneRows.Count>reloadData.OneRows.Count)
+            OneRows = reloadData.OneRows;
+        }else
         {
-            OneRows.RemoveRange(reloadData.OneRows.Count, OneRows.Count-reloadData.OneRows.Count);
+            OneRows.Capacity = reloadData.OneRows.Count;
+            for (int i = 0; i < reloadData.OneRows.Count; i++)
+            {
+                OneRows[i].Reload(reloadData.OneRows[i]);
+            }
+
         }
-        for (int i = 0; i < reloadData.OneRows.Count; i++)
+        //list
+        if(MultiRows1==null)
         {
-            OneRows[i] = reloadData.OneRows[i];
-        }
-        if(MultiRows1.Count<reloadData.MultiRows1.Count)
+            MultiRows1 = reloadData.MultiRows1;
+        }else
         {
-            MultiRows1.AddRange(new List<test.MultiRowType1>(reloadData.MultiRows1.Count-MultiRows1.Count));
-        }else if(MultiRows1.Count>reloadData.MultiRows1.Count)
-        {
-            MultiRows1.RemoveRange(reloadData.MultiRows1.Count, MultiRows1.Count-reloadData.MultiRows1.Count);
-        }
-        for (int i = 0; i < reloadData.MultiRows1.Count; i++)
-        {
-            MultiRows1[i] = reloadData.MultiRows1[i];
+            MultiRows1.Capacity = reloadData.MultiRows1.Count;
+            for (int i = 0; i < reloadData.MultiRows1.Count; i++)
+            {
+                MultiRows1[i].Reload(reloadData.MultiRows1[i]);
+            }
+
         }
         //array
-        if(MultiRows2.Length!=reloadData.MultiRows2.Length)
+        if(MultiRows2==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new test.MultiRowType1[reloadData.MultiRows2.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            MultiRows2 = reloadData.MultiRows2;
+        }else
+        {
+            if(MultiRows2.Length!=reloadData.MultiRows2.Length)
             {
-                if(i<MultiRows2.Length)
+                var newArray = new test.MultiRowType1[reloadData.MultiRows2.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = MultiRows2[i];
+                    if(i<MultiRows2.Length)
+                    {
+                        newArray[i] = MultiRows2[i];
+                    }
+                }
+                typeof(MultiRowRecord).GetProperty("MultiRows2").SetValue(this, newArray);
+            }
+                for(int i = 0; i<reloadData.MultiRows2.Length; i++)
+                {
+                    MultiRows2[i].Reload(reloadData.MultiRows2[i]);
+                }
+
+        }
+
+        //map
+        if(MultiRows4==null)
+        {
+            MultiRows4 = reloadData.MultiRows4;
+        }else
+        {
+            foreach (var rawDataKey in MultiRows4.Keys.ToList())
+            {
+                if(!reloadData.MultiRows4.ContainsKey(rawDataKey))
+                {
+                    MultiRows4.Remove(rawDataKey);
                 }
             }
-            typeof(MultiRowRecord).GetProperty("MultiRows2").SetValue(this, newArray);
-            
-        }
-        foreach (var rawDataKey in MultiRows4.Keys.ToList())
-        {
-            if(!reloadData.MultiRows4.ContainsKey(rawDataKey))
+            foreach (var reload in reloadData.MultiRows4)
             {
-                MultiRows4.Remove(rawDataKey);
+                if(MultiRows4.ContainsKey(reload.Key))
+                {
+                    MultiRows4[reload.Key].Reload(reload.Value);
+    
+                }else
+                {
+                    MultiRows4.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var reload in reloadData.MultiRows4)
+        //list
+        if(MultiRows5==null)
         {
-            if(MultiRows4.ContainsKey(reload.Key))
+            MultiRows5 = reloadData.MultiRows5;
+        }else
+        {
+            MultiRows5.Capacity = reloadData.MultiRows5.Count;
+            for (int i = 0; i < reloadData.MultiRows5.Count; i++)
             {
-                MultiRows4[reload.Key] = reload.Value;
-            }else
+                MultiRows5[i].Reload(reloadData.MultiRows5[i]);
+            }
+
+        }
+        //map
+        if(MultiRows6==null)
+        {
+            MultiRows6 = reloadData.MultiRows6;
+        }else
+        {
+            foreach (var rawDataKey in MultiRows6.Keys.ToList())
             {
-                MultiRows4.Add(reload.Key,reload.Value);
+                if(!reloadData.MultiRows6.ContainsKey(rawDataKey))
+                {
+                    MultiRows6.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.MultiRows6)
+            {
+                if(MultiRows6.ContainsKey(reload.Key))
+                {
+                    MultiRows6[reload.Key].Reload(reload.Value);
+    
+                }else
+                {
+                    MultiRows6.Add(reload.Key,reload.Value);
+                }
             }
         }
-        if(MultiRows5.Count<reloadData.MultiRows5.Count)
+        //map
+        if(MultiRows7==null)
         {
-            MultiRows5.AddRange(new List<test.MultiRowType3>(reloadData.MultiRows5.Count-MultiRows5.Count));
-        }else if(MultiRows5.Count>reloadData.MultiRows5.Count)
+            MultiRows7 = reloadData.MultiRows7;
+        }else
         {
-            MultiRows5.RemoveRange(reloadData.MultiRows5.Count, MultiRows5.Count-reloadData.MultiRows5.Count);
-        }
-        for (int i = 0; i < reloadData.MultiRows5.Count; i++)
-        {
-            MultiRows5[i] = reloadData.MultiRows5[i];
-        }
-        foreach (var rawDataKey in MultiRows6.Keys.ToList())
-        {
-            if(!reloadData.MultiRows6.ContainsKey(rawDataKey))
+            foreach (var rawDataKey in MultiRows7.Keys.ToList())
             {
-                MultiRows6.Remove(rawDataKey);
+                if(!reloadData.MultiRows7.ContainsKey(rawDataKey))
+                {
+                    MultiRows7.Remove(rawDataKey);
+                }
             }
-        }
-        foreach (var reload in reloadData.MultiRows6)
-        {
-            if(MultiRows6.ContainsKey(reload.Key))
+            foreach (var reload in reloadData.MultiRows7)
             {
-                MultiRows6[reload.Key] = reload.Value;
-            }else
-            {
-                MultiRows6.Add(reload.Key,reload.Value);
-            }
-        }
-        foreach (var rawDataKey in MultiRows7.Keys.ToList())
-        {
-            if(!reloadData.MultiRows7.ContainsKey(rawDataKey))
-            {
-                MultiRows7.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.MultiRows7)
-        {
-            if(MultiRows7.ContainsKey(reload.Key))
-            {
-                MultiRows7[reload.Key] = reload.Value;
-            }else
-            {
-                MultiRows7.Add(reload.Key,reload.Value);
+                if(MultiRows7.ContainsKey(reload.Key))
+                {
+                    MultiRows7[reload.Key] = reload.Value;
+                }else
+                {
+                    MultiRows7.Add(reload.Key,reload.Value);
+                }
             }
         }
     }

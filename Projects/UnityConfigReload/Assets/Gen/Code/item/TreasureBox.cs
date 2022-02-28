@@ -62,36 +62,46 @@ public sealed partial class TreasureBox :  item.ItemExtra
     {
         Id = reloadData.Id;
         KeyItemId = reloadData.KeyItemId;
-        if(OpenLevel.GetTypeId() == reloadData.OpenLevel.GetTypeId())
+        //bean
+        if(OpenLevel==null)
         {
-            //OpenLevel not dynamic
-            OpenLevel.Reload(reloadData.OpenLevel);
+            OpenLevel = reloadData.OpenLevel;
         }else
         {
-            typeof(TreasureBox).GetProperty("OpenLevel").SetValue(this,reloadData.OpenLevel);
+            if(OpenLevel.GetTypeId() == reloadData.OpenLevel.GetTypeId())
+            {
+                //OpenLevel not dynamic
+                OpenLevel.Reload(reloadData.OpenLevel);
+            }else
+            {
+                typeof(TreasureBox).GetProperty("OpenLevel").SetValue(this,reloadData.OpenLevel);
+            }
         }
         UseOnObtain = reloadData.UseOnObtain;
-        if(DropIds.Count<reloadData.DropIds.Count)
+        //list
+        if(DropIds==null)
         {
-            DropIds.AddRange(new List<int>(reloadData.DropIds.Count-DropIds.Count));
-        }else if(DropIds.Count>reloadData.DropIds.Count)
+            DropIds = reloadData.DropIds;
+        }else
         {
-            DropIds.RemoveRange(reloadData.DropIds.Count, DropIds.Count-reloadData.DropIds.Count);
+            DropIds.Capacity = reloadData.DropIds.Count;
+            for (int i = 0; i < reloadData.DropIds.Count; i++)
+            {
+                DropIds[i] = reloadData.DropIds[i];
+            }
         }
-        for (int i = 0; i < reloadData.DropIds.Count; i++)
+        //list
+        if(ChooseList==null)
         {
-            DropIds[i] = reloadData.DropIds[i];
-        }
-        if(ChooseList.Count<reloadData.ChooseList.Count)
+            ChooseList = reloadData.ChooseList;
+        }else
         {
-            ChooseList.AddRange(new List<item.ChooseOneBonus>(reloadData.ChooseList.Count-ChooseList.Count));
-        }else if(ChooseList.Count>reloadData.ChooseList.Count)
-        {
-            ChooseList.RemoveRange(reloadData.ChooseList.Count, ChooseList.Count-reloadData.ChooseList.Count);
-        }
-        for (int i = 0; i < reloadData.ChooseList.Count; i++)
-        {
-            ChooseList[i] = reloadData.ChooseList[i];
+            ChooseList.Capacity = reloadData.ChooseList.Count;
+            for (int i = 0; i < reloadData.ChooseList.Count; i++)
+            {
+                ChooseList[i].Reload(reloadData.ChooseList[i]);
+            }
+
         }
     }
 

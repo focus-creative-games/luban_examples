@@ -49,7 +49,20 @@ public sealed partial class OneItems :  bonus.Bonus
     public void Reload(OneItems reloadData)
     {
         //array
-            typeof(OneItems).GetProperty("Items").SetValue(this, reloadData.Items);
+        if(Items==null)
+        {
+            Items = reloadData.Items;
+        }else
+        {
+                for(int i = 0; i<reloadData.Items.Length; i++)
+                {
+                    if(i<Items.Length)
+                    {
+                        Items[i] = reloadData.Items[i];
+                    }
+                }
+        }
+
     }
 
     public override string ToString()

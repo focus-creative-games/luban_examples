@@ -47,13 +47,20 @@ public sealed partial class TimeRange :  condition.Condition
 
     public void Reload(TimeRange reloadData)
     {
-        if(DateTimeRange.GetTypeId() == reloadData.DateTimeRange.GetTypeId())
+        //bean
+        if(DateTimeRange==null)
         {
-            //DateTimeRange not dynamic
-            DateTimeRange.Reload(reloadData.DateTimeRange);
+            DateTimeRange = reloadData.DateTimeRange;
         }else
         {
-            typeof(TimeRange).GetProperty("DateTimeRange").SetValue(this,reloadData.DateTimeRange);
+            if(DateTimeRange.GetTypeId() == reloadData.DateTimeRange.GetTypeId())
+            {
+                //DateTimeRange not dynamic
+                DateTimeRange.Reload(reloadData.DateTimeRange);
+            }else
+            {
+                typeof(TimeRange).GetProperty("DateTimeRange").SetValue(this,reloadData.DateTimeRange);
+            }
         }
     }
 

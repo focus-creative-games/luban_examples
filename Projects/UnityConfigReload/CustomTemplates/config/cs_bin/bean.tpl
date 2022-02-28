@@ -26,7 +26,6 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
         {{~if field.index_field~}}
         foreach(var _v in {{field.convention_name}})
         { 
-            // field.index_field
             {{field.convention_name}}_Index.Add(_v.{{field.index_field.convention_name}}, _v);
         }
         {{~end~}}
@@ -111,91 +110,195 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     {
         {{~ for field in hierarchy_export_fields ~}}
         {{~if field.ctype.type_name == "list" ~}}
-        if({{field.convention_name}}.Count<reloadData.{{field.convention_name}}.Count)
+        //list
+        if({{field.convention_name}}==null)
         {
-            {{field.convention_name}}.AddRange(new List<{{cs_define_type field.ctype.element_type}}>(reloadData.{{field.convention_name}}.Count-{{field.convention_name}}.Count));
-        }else if({{field.convention_name}}.Count>reloadData.{{field.convention_name}}.Count)
+            {{field.convention_name}} = reloadData.{{field.convention_name}};
+        }else
         {
-            {{field.convention_name}}.RemoveRange(reloadData.{{field.convention_name}}.Count, {{field.convention_name}}.Count-reloadData.{{field.convention_name}}.Count);
-        }
-        for (int i = 0; i < reloadData.{{field.convention_name}}.Count; i++)
-        {
-            {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+            {{field.convention_name}}.Capacity = reloadData.{{field.convention_name}}.Count;
+                {{~if field.ctype.element_type.type_name == "bean"~}}
+            for (int i = 0; i < reloadData.{{field.convention_name}}.Count; i++)
+            {
+                {{~if field.ctype.element_type.is_dynamic~}}
+                //list is_dynamic
+                if({{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
+                {
+                    switch (reloadData.{{field.convention_name}}[i].GetTypeId())
+                    {
+                        {{~for child in field.ctype.element_type.bean.hierarchy_not_abstract_children~}}
+                        case {{child.full_name}}.__ID__:
+                            ({{field.convention_name}}[i] as {{child.full_name}}).Reload(reloadData.{{field.convention_name}}[i] as {{child.full_name}});
+                            break;
+                        {{~end~}}
+                    }
+                }else
+                {
+                    {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+                }
+                {{~else~}}
+                {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                {{~end~}}
+            }
+                {{~else~}}
+            for (int i = 0; i < reloadData.{{field.convention_name}}.Count; i++)
+            {
+                {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+            }
+                {{~end~}}
         }
         {{~else if field.ctype.type_name == "array"~}}
         //array
-            {{~if field.ctype.element_type.type_name == "bean"~}}
-        if({{field.convention_name}}.Length!=reloadData.{{field.convention_name}}.Length)
+        if({{field.convention_name}}==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new {{cs_define_type field.ctype.element_type}}[reloadData.{{field.convention_name}}.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            {{field.convention_name}} = reloadData.{{field.convention_name}};
+        }else
+        {
+                {{~if field.ctype.element_type.type_name == "bean"~}}
+            if({{field.convention_name}}.Length!=reloadData.{{field.convention_name}}.Length)
             {
-                if(i<{{field.convention_name}}.Length)
+                var newArray = new {{cs_define_type field.ctype.element_type}}[reloadData.{{field.convention_name}}.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = {{field.convention_name}}[i];
+                    if(i<{{field.convention_name}}.Length)
+                    {
+                        newArray[i] = {{field.convention_name}}[i];
+                    }
+                }
+                typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this, newArray);
+            }
+                {{~if field.ctype.element_type.is_dynamic~}}
+                // array is_dynamic
+                for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
+                {
+                    if({{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
+                    {
+                        switch (reloadData.{{field.convention_name}}[i].GetTypeId())
+                        {
+                            {{~for child in field.ctype.element_type.bean.hierarchy_not_abstract_children~}}
+                            case {{child.full_name}}.__ID__:
+                                ({{field.convention_name}}[i] as {{child.full_name}}).Reload(reloadData.{{field.convention_name}}[i] as {{child.full_name}});
+                                break;
+                            {{~end~}}
+                        }
+                    }else
+                    {
+                        {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+                    }
+                }
+                {{~else~}}
+                for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
+                {
+                    {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                }
+                {{~end~}}
+
+                {{~else~}}
+                for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
+                {
+                    if(i<{{field.convention_name}}.Length)
+                    {
+                        {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+                    }
+                }
+                {{~end~}}
+        }
+        {{~else if field.ctype.type_name == "map"~}}
+        //map
+        if({{field.convention_name}}==null)
+        {
+            {{field.convention_name}} = reloadData.{{field.convention_name}};
+        }else
+        {
+            foreach (var rawDataKey in {{field.convention_name}}.Keys.ToList())
+            {
+                if(!reloadData.{{field.convention_name}}.ContainsKey(rawDataKey))
+                {
+                    {{field.convention_name}}.Remove(rawDataKey);
                 }
             }
-            typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this, newArray);
-            
-
-        }
-            {{~else~}}
-            typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this, reloadData.{{field.convention_name}});
-            {{~end~}}
-        {{~else if field.ctype.type_name == "map"~}}
-        foreach (var rawDataKey in {{field.convention_name}}.Keys.ToList())
-        {
-            if(!reloadData.{{field.convention_name}}.ContainsKey(rawDataKey))
+            foreach (var reload in reloadData.{{field.convention_name}})
             {
-                {{field.convention_name}}.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.{{field.convention_name}})
-        {
-            if({{field.convention_name}}.ContainsKey(reload.Key))
-            {
-                {{field.convention_name}}[reload.Key] = reload.Value;
-            }else
-            {
-                {{field.convention_name}}.Add(reload.Key,reload.Value);
+                if({{field.convention_name}}.ContainsKey(reload.Key))
+                {
+                    {{~if field.ctype.element_type.type_name == "bean"~}}
+                    {{~if field.ctype.element_type.is_dynamic~}}
+                    if({{field.convention_name}}[reload.Key].GetTypeId() == reload.Value.GetTypeId())
+                    {
+                        switch (reload.GetTypeId())
+                        {
+                            {{~for child in field.ctype.element_type.bean.hierarchy_not_abstract_children~}}
+                            case {{child.full_name}}.__ID__:
+                                ({{field.convention_name}}[reload.Key] as {{child.full_name}}).Reload(reload.Value as {{child.full_name}});
+                                break;
+                            {{~end~}}
+                        }
+                    }else
+                    {
+                        {{field.convention_name}}[reload.Key] = reload.Value;
+                    }
+                    {{~else~}}
+                    {{field.convention_name}}[reload.Key].Reload(reload.Value);
+                    {{~end~}}
+    
+                    {{~else~}}
+                    {{field.convention_name}}[reload.Key] = reload.Value;
+                    {{~end~}}
+                }else
+                {
+                    {{field.convention_name}}.Add(reload.Key,reload.Value);
+                }
             }
         }
         {{~ else if field.ctype.type_name == "set"~}}
-        foreach (var setData in {{field.convention_name}}.ToList())
+        //set
+        if({{field.convention_name}}==null)
         {
-            if(!reloadData.{{field.convention_name}}.Contains(setData))
+            {{field.convention_name}} = reloadData.{{field.convention_name}};
+        }else
+        {
+            foreach (var setData in {{field.convention_name}}.ToList())
             {
-                {{field.convention_name}}.Remove(setData);
+                if(!reloadData.{{field.convention_name}}.Contains(setData))
+                {
+                    {{field.convention_name}}.Remove(setData);
+                }
             }
-        }
-        foreach (var setData in reloadData.{{field.convention_name}})
-        {
-            if(!{{field.convention_name}}.Contains(setData))
+            foreach (var setData in reloadData.{{field.convention_name}})
             {
-                {{field.convention_name}}.Add(setData);
+                if(!{{field.convention_name}}.Contains(setData))
+                {
+                    {{field.convention_name}}.Add(setData);
+                }
             }
         }
         {{~ else if field.ctype.type_name == "bean"~}}
-        if({{field.convention_name}}.GetTypeId() == reloadData.{{field.convention_name}}.GetTypeId())
+        //bean
+        if({{field.convention_name}}==null)
         {
-            {{~if field.ctype.is_dynamic~}}
-            //{{field.convention_name}} is dynamic
-            switch (reloadData.{{field.convention_name}}.GetTypeId())
-            {
-                {{~for child in field.ctype.bean.hierarchy_not_abstract_children~}}
-                case {{child.full_name}}.__ID__:
-                    ({{field.convention_name}} as {{child.full_name}}).Reload(reloadData.{{field.convention_name}} as {{child.full_name}});
-                    break;
-                {{~end~}}
-            }
-            {{~else~}}
-            //{{field.convention_name}} not dynamic
-            {{field.convention_name}}.Reload(reloadData.{{field.convention_name}});
-            {{~end~}}
+            {{field.convention_name}} = reloadData.{{field.convention_name}};
         }else
         {
-            typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this,reloadData.{{field.convention_name}});
+            if({{field.convention_name}}.GetTypeId() == reloadData.{{field.convention_name}}.GetTypeId())
+            {
+                {{~if field.ctype.is_dynamic~}}
+                //{{field.convention_name}} is dynamic
+                switch (reloadData.{{field.convention_name}}.GetTypeId())
+                {
+                    {{~for child in field.ctype.bean.hierarchy_not_abstract_children~}}
+                    case {{child.full_name}}.__ID__:
+                        ({{field.convention_name}} as {{child.full_name}}).Reload(reloadData.{{field.convention_name}} as {{child.full_name}});
+                        break;
+                    {{~end~}}
+                }
+                {{~else~}}
+                //{{field.convention_name}} not dynamic
+                {{field.convention_name}}.Reload(reloadData.{{field.convention_name}});
+                {{~end~}}
+            }else
+            {
+                typeof({{name}}).GetProperty("{{field.convention_name}}").SetValue(this,reloadData.{{field.convention_name}});
+            }
         }
         {{~else~}}
         {{field.convention_name}} = reloadData.{{field.convention_name}};

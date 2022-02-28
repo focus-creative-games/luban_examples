@@ -47,16 +47,18 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public void Reload(CostCurrencies reloadData)
     {
-        if(Currencies.Count<reloadData.Currencies.Count)
+        //list
+        if(Currencies==null)
         {
-            Currencies.AddRange(new List<cost.CostCurrency>(reloadData.Currencies.Count-Currencies.Count));
-        }else if(Currencies.Count>reloadData.Currencies.Count)
+            Currencies = reloadData.Currencies;
+        }else
         {
-            Currencies.RemoveRange(reloadData.Currencies.Count, Currencies.Count-reloadData.Currencies.Count);
-        }
-        for (int i = 0; i < reloadData.Currencies.Count; i++)
-        {
-            Currencies[i] = reloadData.Currencies[i];
+            Currencies.Capacity = reloadData.Currencies.Count;
+            for (int i = 0; i < reloadData.Currencies.Count; i++)
+            {
+                Currencies[i].Reload(reloadData.Currencies[i]);
+            }
+
         }
     }
 

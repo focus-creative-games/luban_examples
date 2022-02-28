@@ -48,16 +48,18 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
     public void Reload(TestIndex reloadData)
     {
         Id = reloadData.Id;
-        if(Eles.Count<reloadData.Eles.Count)
+        //list
+        if(Eles==null)
         {
-            Eles.AddRange(new List<test.DemoType1>(reloadData.Eles.Count-Eles.Count));
-        }else if(Eles.Count>reloadData.Eles.Count)
+            Eles = reloadData.Eles;
+        }else
         {
-            Eles.RemoveRange(reloadData.Eles.Count, Eles.Count-reloadData.Eles.Count);
-        }
-        for (int i = 0; i < reloadData.Eles.Count; i++)
-        {
-            Eles[i] = reloadData.Eles[i];
+            Eles.Capacity = reloadData.Eles.Count;
+            for (int i = 0; i < reloadData.Eles.Count; i++)
+            {
+                Eles[i].Reload(reloadData.Eles[i]);
+            }
+
         }
     }
 

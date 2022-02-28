@@ -48,20 +48,72 @@ public sealed partial class MultiBonus :  bonus.Bonus
     public void Reload(MultiBonus reloadData)
     {
         //array
-        if(Bonuses.Length!=reloadData.Bonuses.Length)
+        if(Bonuses==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new bonus.Bonus[reloadData.Bonuses.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            Bonuses = reloadData.Bonuses;
+        }else
+        {
+            if(Bonuses.Length!=reloadData.Bonuses.Length)
             {
-                if(i<Bonuses.Length)
+                var newArray = new bonus.Bonus[reloadData.Bonuses.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = Bonuses[i];
+                    if(i<Bonuses.Length)
+                    {
+                        newArray[i] = Bonuses[i];
+                    }
                 }
+                typeof(MultiBonus).GetProperty("Bonuses").SetValue(this, newArray);
             }
-            typeof(MultiBonus).GetProperty("Bonuses").SetValue(this, newArray);
-            
+                // array is_dynamic
+                for(int i = 0; i<reloadData.Bonuses.Length; i++)
+                {
+                    if(Bonuses[i].GetTypeId() == reloadData.Bonuses[i].GetTypeId())
+                    {
+                        switch (reloadData.Bonuses[i].GetTypeId())
+                        {
+                            case bonus.OneItem.__ID__:
+                                (Bonuses[i] as bonus.OneItem).Reload(reloadData.Bonuses[i] as bonus.OneItem);
+                                break;
+                            case bonus.OneItems.__ID__:
+                                (Bonuses[i] as bonus.OneItems).Reload(reloadData.Bonuses[i] as bonus.OneItems);
+                                break;
+                            case bonus.Item.__ID__:
+                                (Bonuses[i] as bonus.Item).Reload(reloadData.Bonuses[i] as bonus.Item);
+                                break;
+                            case bonus.Items.__ID__:
+                                (Bonuses[i] as bonus.Items).Reload(reloadData.Bonuses[i] as bonus.Items);
+                                break;
+                            case bonus.CoefficientItem.__ID__:
+                                (Bonuses[i] as bonus.CoefficientItem).Reload(reloadData.Bonuses[i] as bonus.CoefficientItem);
+                                break;
+                            case bonus.WeightItems.__ID__:
+                                (Bonuses[i] as bonus.WeightItems).Reload(reloadData.Bonuses[i] as bonus.WeightItems);
+                                break;
+                            case bonus.ProbabilityItems.__ID__:
+                                (Bonuses[i] as bonus.ProbabilityItems).Reload(reloadData.Bonuses[i] as bonus.ProbabilityItems);
+                                break;
+                            case bonus.MultiBonus.__ID__:
+                                (Bonuses[i] as bonus.MultiBonus).Reload(reloadData.Bonuses[i] as bonus.MultiBonus);
+                                break;
+                            case bonus.ProbabilityBonus.__ID__:
+                                (Bonuses[i] as bonus.ProbabilityBonus).Reload(reloadData.Bonuses[i] as bonus.ProbabilityBonus);
+                                break;
+                            case bonus.WeightBonus.__ID__:
+                                (Bonuses[i] as bonus.WeightBonus).Reload(reloadData.Bonuses[i] as bonus.WeightBonus);
+                                break;
+                            case bonus.DropBonus.__ID__:
+                                (Bonuses[i] as bonus.DropBonus).Reload(reloadData.Bonuses[i] as bonus.DropBonus);
+                                break;
+                        }
+                    }else
+                    {
+                        Bonuses[i] = reloadData.Bonuses[i];
+                    }
+                }
+
         }
+
     }
 
     public override string ToString()

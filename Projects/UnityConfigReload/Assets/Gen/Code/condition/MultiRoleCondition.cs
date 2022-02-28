@@ -48,20 +48,60 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     public void Reload(MultiRoleCondition reloadData)
     {
         //array
-        if(Conditions.Length!=reloadData.Conditions.Length)
+        if(Conditions==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new condition.RoleCondition[reloadData.Conditions.Length];
-            for(int i = 0; i<newArray.Length; i++)
+            Conditions = reloadData.Conditions;
+        }else
+        {
+            if(Conditions.Length!=reloadData.Conditions.Length)
             {
-                if(i<Conditions.Length)
+                var newArray = new condition.RoleCondition[reloadData.Conditions.Length];
+                for(int i = 0; i<newArray.Length; i++)
                 {
-                    newArray[i] = Conditions[i];
+                    if(i<Conditions.Length)
+                    {
+                        newArray[i] = Conditions[i];
+                    }
                 }
+                typeof(MultiRoleCondition).GetProperty("Conditions").SetValue(this, newArray);
             }
-            typeof(MultiRoleCondition).GetProperty("Conditions").SetValue(this, newArray);
-            
+                // array is_dynamic
+                for(int i = 0; i<reloadData.Conditions.Length; i++)
+                {
+                    if(Conditions[i].GetTypeId() == reloadData.Conditions[i].GetTypeId())
+                    {
+                        switch (reloadData.Conditions[i].GetTypeId())
+                        {
+                            case condition.MultiRoleCondition.__ID__:
+                                (Conditions[i] as condition.MultiRoleCondition).Reload(reloadData.Conditions[i] as condition.MultiRoleCondition);
+                                break;
+                            case condition.GenderLimit.__ID__:
+                                (Conditions[i] as condition.GenderLimit).Reload(reloadData.Conditions[i] as condition.GenderLimit);
+                                break;
+                            case condition.MinLevel.__ID__:
+                                (Conditions[i] as condition.MinLevel).Reload(reloadData.Conditions[i] as condition.MinLevel);
+                                break;
+                            case condition.MaxLevel.__ID__:
+                                (Conditions[i] as condition.MaxLevel).Reload(reloadData.Conditions[i] as condition.MaxLevel);
+                                break;
+                            case condition.MinMaxLevel.__ID__:
+                                (Conditions[i] as condition.MinMaxLevel).Reload(reloadData.Conditions[i] as condition.MinMaxLevel);
+                                break;
+                            case condition.ClothesPropertyScoreGreaterThan.__ID__:
+                                (Conditions[i] as condition.ClothesPropertyScoreGreaterThan).Reload(reloadData.Conditions[i] as condition.ClothesPropertyScoreGreaterThan);
+                                break;
+                            case condition.ContainsItem.__ID__:
+                                (Conditions[i] as condition.ContainsItem).Reload(reloadData.Conditions[i] as condition.ContainsItem);
+                                break;
+                        }
+                    }else
+                    {
+                        Conditions[i] = reloadData.Conditions[i];
+                    }
+                }
+
         }
+
     }
 
     public override string ToString()

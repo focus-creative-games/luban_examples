@@ -112,91 +112,147 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
         X2 = reloadData.X2;
         X3 = reloadData.X3;
         //array
-            typeof(TestRef).GetProperty("A1").SetValue(this, reloadData.A1);
+        if(A1==null)
+        {
+            A1 = reloadData.A1;
+        }else
+        {
+                for(int i = 0; i<reloadData.A1.Length; i++)
+                {
+                    if(i<A1.Length)
+                    {
+                        A1[i] = reloadData.A1[i];
+                    }
+                }
+        }
+
         //array
-            typeof(TestRef).GetProperty("A2").SetValue(this, reloadData.A2);
-        if(B1.Count<reloadData.B1.Count)
+        if(A2==null)
         {
-            B1.AddRange(new List<int>(reloadData.B1.Count-B1.Count));
-        }else if(B1.Count>reloadData.B1.Count)
+            A2 = reloadData.A2;
+        }else
         {
-            B1.RemoveRange(reloadData.B1.Count, B1.Count-reloadData.B1.Count);
+                for(int i = 0; i<reloadData.A2.Length; i++)
+                {
+                    if(i<A2.Length)
+                    {
+                        A2[i] = reloadData.A2[i];
+                    }
+                }
         }
-        for (int i = 0; i < reloadData.B1.Count; i++)
+
+        //list
+        if(B1==null)
         {
-            B1[i] = reloadData.B1[i];
-        }
-        if(B2.Count<reloadData.B2.Count)
+            B1 = reloadData.B1;
+        }else
         {
-            B2.AddRange(new List<int>(reloadData.B2.Count-B2.Count));
-        }else if(B2.Count>reloadData.B2.Count)
-        {
-            B2.RemoveRange(reloadData.B2.Count, B2.Count-reloadData.B2.Count);
-        }
-        for (int i = 0; i < reloadData.B2.Count; i++)
-        {
-            B2[i] = reloadData.B2[i];
-        }
-        foreach (var setData in C1.ToList())
-        {
-            if(!reloadData.C1.Contains(setData))
+            B1.Capacity = reloadData.B1.Count;
+            for (int i = 0; i < reloadData.B1.Count; i++)
             {
-                C1.Remove(setData);
+                B1[i] = reloadData.B1[i];
             }
         }
-        foreach (var setData in reloadData.C1)
+        //list
+        if(B2==null)
         {
-            if(!C1.Contains(setData))
+            B2 = reloadData.B2;
+        }else
+        {
+            B2.Capacity = reloadData.B2.Count;
+            for (int i = 0; i < reloadData.B2.Count; i++)
             {
-                C1.Add(setData);
+                B2[i] = reloadData.B2[i];
             }
         }
-        foreach (var setData in C2.ToList())
+        //set
+        if(C1==null)
         {
-            if(!reloadData.C2.Contains(setData))
+            C1 = reloadData.C1;
+        }else
+        {
+            foreach (var setData in C1.ToList())
             {
-                C2.Remove(setData);
+                if(!reloadData.C1.Contains(setData))
+                {
+                    C1.Remove(setData);
+                }
+            }
+            foreach (var setData in reloadData.C1)
+            {
+                if(!C1.Contains(setData))
+                {
+                    C1.Add(setData);
+                }
             }
         }
-        foreach (var setData in reloadData.C2)
+        //set
+        if(C2==null)
         {
-            if(!C2.Contains(setData))
+            C2 = reloadData.C2;
+        }else
+        {
+            foreach (var setData in C2.ToList())
             {
-                C2.Add(setData);
+                if(!reloadData.C2.Contains(setData))
+                {
+                    C2.Remove(setData);
+                }
+            }
+            foreach (var setData in reloadData.C2)
+            {
+                if(!C2.Contains(setData))
+                {
+                    C2.Add(setData);
+                }
             }
         }
-        foreach (var rawDataKey in D1.Keys.ToList())
+        //map
+        if(D1==null)
         {
-            if(!reloadData.D1.ContainsKey(rawDataKey))
+            D1 = reloadData.D1;
+        }else
+        {
+            foreach (var rawDataKey in D1.Keys.ToList())
             {
-                D1.Remove(rawDataKey);
+                if(!reloadData.D1.ContainsKey(rawDataKey))
+                {
+                    D1.Remove(rawDataKey);
+                }
+            }
+            foreach (var reload in reloadData.D1)
+            {
+                if(D1.ContainsKey(reload.Key))
+                {
+                    D1[reload.Key] = reload.Value;
+                }else
+                {
+                    D1.Add(reload.Key,reload.Value);
+                }
             }
         }
-        foreach (var reload in reloadData.D1)
+        //map
+        if(D2==null)
         {
-            if(D1.ContainsKey(reload.Key))
+            D2 = reloadData.D2;
+        }else
+        {
+            foreach (var rawDataKey in D2.Keys.ToList())
             {
-                D1[reload.Key] = reload.Value;
-            }else
-            {
-                D1.Add(reload.Key,reload.Value);
+                if(!reloadData.D2.ContainsKey(rawDataKey))
+                {
+                    D2.Remove(rawDataKey);
+                }
             }
-        }
-        foreach (var rawDataKey in D2.Keys.ToList())
-        {
-            if(!reloadData.D2.ContainsKey(rawDataKey))
+            foreach (var reload in reloadData.D2)
             {
-                D2.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.D2)
-        {
-            if(D2.ContainsKey(reload.Key))
-            {
-                D2[reload.Key] = reload.Value;
-            }else
-            {
-                D2.Add(reload.Key,reload.Value);
+                if(D2.ContainsKey(reload.Key))
+                {
+                    D2[reload.Key] = reload.Value;
+                }else
+                {
+                    D2.Add(reload.Key,reload.Value);
+                }
             }
         }
         E1 = reloadData.E1;

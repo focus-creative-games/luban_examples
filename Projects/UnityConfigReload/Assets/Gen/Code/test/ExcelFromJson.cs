@@ -24,9 +24,9 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
         X6 = _buf.ReadFloat();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         X12 = test.DemoType1.DeserializeDemoType1(_buf);
         X13 = (test.DemoEnum)_buf.ReadInt();
@@ -51,9 +51,9 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
     public string S2 { get; protected set; }
     //field.gen_text_key
     public string S2_l10n_key { get; protected set; }
-    public System.Numerics.Vector2 V2 { get; protected set; }
-    public System.Numerics.Vector3 V3 { get; protected set; }
-    public System.Numerics.Vector4 V4 { get; protected set; }
+    public UnityEngine.Vector2 V2 { get; protected set; }
+    public UnityEngine.Vector3 V3 { get; protected set; }
+    public UnityEngine.Vector4 V4 { get; protected set; }
     public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
     public test.DemoType1 X12 { get; protected set; }
@@ -97,82 +97,149 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
         V3 = reloadData.V3;
         V4 = reloadData.V4;
         T1 = reloadData.T1;
-        if(X12.GetTypeId() == reloadData.X12.GetTypeId())
+        //bean
+        if(X12==null)
         {
-            //X12 not dynamic
-            X12.Reload(reloadData.X12);
+            X12 = reloadData.X12;
         }else
         {
-            typeof(ExcelFromJson).GetProperty("X12").SetValue(this,reloadData.X12);
-        }
-        X13 = reloadData.X13;
-        if(X14.GetTypeId() == reloadData.X14.GetTypeId())
-        {
-            //X14 is dynamic
-            switch (reloadData.X14.GetTypeId())
+            if(X12.GetTypeId() == reloadData.X12.GetTypeId())
             {
-                case test.DemoD2.__ID__:
-                    (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
-                    break;
-                case test.DemoE1.__ID__:
-                    (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
-                    break;
-                case test.login.RoleInfo.__ID__:
-                    (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
-                    break;
-                case test.DemoD5.__ID__:
-                    (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
-                    break;
-            }
-        }else
-        {
-            typeof(ExcelFromJson).GetProperty("X14").SetValue(this,reloadData.X14);
-        }
-        //array
-            typeof(ExcelFromJson).GetProperty("K1").SetValue(this, reloadData.K1);
-        foreach (var rawDataKey in K8.Keys.ToList())
-        {
-            if(!reloadData.K8.ContainsKey(rawDataKey))
-            {
-                K8.Remove(rawDataKey);
-            }
-        }
-        foreach (var reload in reloadData.K8)
-        {
-            if(K8.ContainsKey(reload.Key))
-            {
-                K8[reload.Key] = reload.Value;
+                //X12 not dynamic
+                X12.Reload(reloadData.X12);
             }else
             {
-                K8.Add(reload.Key,reload.Value);
+                typeof(ExcelFromJson).GetProperty("X12").SetValue(this,reloadData.X12);
             }
         }
-        if(K9.Count<reloadData.K9.Count)
+        X13 = reloadData.X13;
+        //bean
+        if(X14==null)
         {
-            K9.AddRange(new List<test.DemoE2>(reloadData.K9.Count-K9.Count));
-        }else if(K9.Count>reloadData.K9.Count)
+            X14 = reloadData.X14;
+        }else
         {
-            K9.RemoveRange(reloadData.K9.Count, K9.Count-reloadData.K9.Count);
-        }
-        for (int i = 0; i < reloadData.K9.Count; i++)
-        {
-            K9[i] = reloadData.K9[i];
+            if(X14.GetTypeId() == reloadData.X14.GetTypeId())
+            {
+                //X14 is dynamic
+                switch (reloadData.X14.GetTypeId())
+                {
+                    case test.DemoD2.__ID__:
+                        (X14 as test.DemoD2).Reload(reloadData.X14 as test.DemoD2);
+                        break;
+                    case test.DemoE1.__ID__:
+                        (X14 as test.DemoE1).Reload(reloadData.X14 as test.DemoE1);
+                        break;
+                    case test.login.RoleInfo.__ID__:
+                        (X14 as test.login.RoleInfo).Reload(reloadData.X14 as test.login.RoleInfo);
+                        break;
+                    case test.DemoD5.__ID__:
+                        (X14 as test.DemoD5).Reload(reloadData.X14 as test.DemoD5);
+                        break;
+                }
+            }else
+            {
+                typeof(ExcelFromJson).GetProperty("X14").SetValue(this,reloadData.X14);
+            }
         }
         //array
-        if(K15.Length!=reloadData.K15.Length)
+        if(K1==null)
         {
-            // 原数组的元素赋值过来
-            var newArray = new test.DemoDynamic[reloadData.K15.Length];
-            for(int i = 0; i<newArray.Length; i++)
-            {
-                if(i<K15.Length)
+            K1 = reloadData.K1;
+        }else
+        {
+                for(int i = 0; i<reloadData.K1.Length; i++)
                 {
-                    newArray[i] = K15[i];
+                    if(i<K1.Length)
+                    {
+                        K1[i] = reloadData.K1[i];
+                    }
+                }
+        }
+
+        //map
+        if(K8==null)
+        {
+            K8 = reloadData.K8;
+        }else
+        {
+            foreach (var rawDataKey in K8.Keys.ToList())
+            {
+                if(!reloadData.K8.ContainsKey(rawDataKey))
+                {
+                    K8.Remove(rawDataKey);
                 }
             }
-            typeof(ExcelFromJson).GetProperty("K15").SetValue(this, newArray);
-            
+            foreach (var reload in reloadData.K8)
+            {
+                if(K8.ContainsKey(reload.Key))
+                {
+                    K8[reload.Key] = reload.Value;
+                }else
+                {
+                    K8.Add(reload.Key,reload.Value);
+                }
+            }
         }
+        //list
+        if(K9==null)
+        {
+            K9 = reloadData.K9;
+        }else
+        {
+            K9.Capacity = reloadData.K9.Count;
+            for (int i = 0; i < reloadData.K9.Count; i++)
+            {
+                K9[i].Reload(reloadData.K9[i]);
+            }
+
+        }
+        //array
+        if(K15==null)
+        {
+            K15 = reloadData.K15;
+        }else
+        {
+            if(K15.Length!=reloadData.K15.Length)
+            {
+                var newArray = new test.DemoDynamic[reloadData.K15.Length];
+                for(int i = 0; i<newArray.Length; i++)
+                {
+                    if(i<K15.Length)
+                    {
+                        newArray[i] = K15[i];
+                    }
+                }
+                typeof(ExcelFromJson).GetProperty("K15").SetValue(this, newArray);
+            }
+                // array is_dynamic
+                for(int i = 0; i<reloadData.K15.Length; i++)
+                {
+                    if(K15[i].GetTypeId() == reloadData.K15[i].GetTypeId())
+                    {
+                        switch (reloadData.K15[i].GetTypeId())
+                        {
+                            case test.DemoD2.__ID__:
+                                (K15[i] as test.DemoD2).Reload(reloadData.K15[i] as test.DemoD2);
+                                break;
+                            case test.DemoE1.__ID__:
+                                (K15[i] as test.DemoE1).Reload(reloadData.K15[i] as test.DemoE1);
+                                break;
+                            case test.login.RoleInfo.__ID__:
+                                (K15[i] as test.login.RoleInfo).Reload(reloadData.K15[i] as test.login.RoleInfo);
+                                break;
+                            case test.DemoD5.__ID__:
+                                (K15[i] as test.DemoD5).Reload(reloadData.K15[i] as test.DemoD5);
+                                break;
+                        }
+                    }else
+                    {
+                        K15[i] = reloadData.K15[i];
+                    }
+                }
+
+        }
+
     }
 
     public override string ToString()

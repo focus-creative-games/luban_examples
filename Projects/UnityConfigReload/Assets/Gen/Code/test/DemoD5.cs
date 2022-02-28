@@ -48,13 +48,20 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     public void Reload(DemoD5 reloadData)
     {
         X1 = reloadData.X1;
-        if(Time.GetTypeId() == reloadData.Time.GetTypeId())
+        //bean
+        if(Time==null)
         {
-            //Time not dynamic
-            Time.Reload(reloadData.Time);
+            Time = reloadData.Time;
         }else
         {
-            typeof(DemoD5).GetProperty("Time").SetValue(this,reloadData.Time);
+            if(Time.GetTypeId() == reloadData.Time.GetTypeId())
+            {
+                //Time not dynamic
+                Time.Reload(reloadData.Time);
+            }else
+            {
+                typeof(DemoD5).GetProperty("Time").SetValue(this,reloadData.Time);
+            }
         }
     }
 

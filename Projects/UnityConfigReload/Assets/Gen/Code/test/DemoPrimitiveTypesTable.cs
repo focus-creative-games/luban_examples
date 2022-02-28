@@ -27,9 +27,9 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
         X7 = _buf.ReadDouble();
         S1 = _buf.ReadString();
         S2_l10n_key = _buf.ReadString(); S2 = _buf.ReadString();
-        V2 = _buf.ReadVector2();
-        V3 = _buf.ReadVector3();
-        V4 = _buf.ReadVector4();
+        V2 = _buf.ReadUnityVector2();
+        V3 = _buf.ReadUnityVector3();
+        V4 = _buf.ReadUnityVector4();
         T1 = _buf.ReadInt();
         PostInit();
     }
@@ -50,9 +50,9 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.BeanBase
     public string S2 { get; protected set; }
     //field.gen_text_key
     public string S2_l10n_key { get; protected set; }
-    public System.Numerics.Vector2 V2 { get; protected set; }
-    public System.Numerics.Vector3 V3 { get; protected set; }
-    public System.Numerics.Vector4 V4 { get; protected set; }
+    public UnityEngine.Vector2 V2 { get; protected set; }
+    public UnityEngine.Vector3 V3 { get; protected set; }
+    public UnityEngine.Vector4 V4 { get; protected set; }
     public int T1 { get; protected set; }
     public long T1_Millis => T1 * 1000L;
 

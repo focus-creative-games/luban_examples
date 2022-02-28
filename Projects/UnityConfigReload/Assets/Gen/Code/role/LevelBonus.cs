@@ -48,16 +48,18 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     public void Reload(LevelBonus reloadData)
     {
         Id = reloadData.Id;
-        if(DistinctBonusInfos.Count<reloadData.DistinctBonusInfos.Count)
+        //list
+        if(DistinctBonusInfos==null)
         {
-            DistinctBonusInfos.AddRange(new List<role.DistinctBonusInfos>(reloadData.DistinctBonusInfos.Count-DistinctBonusInfos.Count));
-        }else if(DistinctBonusInfos.Count>reloadData.DistinctBonusInfos.Count)
+            DistinctBonusInfos = reloadData.DistinctBonusInfos;
+        }else
         {
-            DistinctBonusInfos.RemoveRange(reloadData.DistinctBonusInfos.Count, DistinctBonusInfos.Count-reloadData.DistinctBonusInfos.Count);
-        }
-        for (int i = 0; i < reloadData.DistinctBonusInfos.Count; i++)
-        {
-            DistinctBonusInfos[i] = reloadData.DistinctBonusInfos[i];
+            DistinctBonusInfos.Capacity = reloadData.DistinctBonusInfos.Count;
+            for (int i = 0; i < reloadData.DistinctBonusInfos.Count; i++)
+            {
+                DistinctBonusInfos[i].Reload(reloadData.DistinctBonusInfos[i]);
+            }
+
         }
     }
 

@@ -48,30 +48,37 @@ public sealed partial class Dymmy :  item.ItemExtra
     public void Reload(Dymmy reloadData)
     {
         Id = reloadData.Id;
-        if(Cost.GetTypeId() == reloadData.Cost.GetTypeId())
+        //bean
+        if(Cost==null)
         {
-            //Cost is dynamic
-            switch (reloadData.Cost.GetTypeId())
-            {
-                case cost.CostCurrency.__ID__:
-                    (Cost as cost.CostCurrency).Reload(reloadData.Cost as cost.CostCurrency);
-                    break;
-                case cost.CostCurrencies.__ID__:
-                    (Cost as cost.CostCurrencies).Reload(reloadData.Cost as cost.CostCurrencies);
-                    break;
-                case cost.CostOneItem.__ID__:
-                    (Cost as cost.CostOneItem).Reload(reloadData.Cost as cost.CostOneItem);
-                    break;
-                case cost.CostItem.__ID__:
-                    (Cost as cost.CostItem).Reload(reloadData.Cost as cost.CostItem);
-                    break;
-                case cost.CostItems.__ID__:
-                    (Cost as cost.CostItems).Reload(reloadData.Cost as cost.CostItems);
-                    break;
-            }
+            Cost = reloadData.Cost;
         }else
         {
-            typeof(Dymmy).GetProperty("Cost").SetValue(this,reloadData.Cost);
+            if(Cost.GetTypeId() == reloadData.Cost.GetTypeId())
+            {
+                //Cost is dynamic
+                switch (reloadData.Cost.GetTypeId())
+                {
+                    case cost.CostCurrency.__ID__:
+                        (Cost as cost.CostCurrency).Reload(reloadData.Cost as cost.CostCurrency);
+                        break;
+                    case cost.CostCurrencies.__ID__:
+                        (Cost as cost.CostCurrencies).Reload(reloadData.Cost as cost.CostCurrencies);
+                        break;
+                    case cost.CostOneItem.__ID__:
+                        (Cost as cost.CostOneItem).Reload(reloadData.Cost as cost.CostOneItem);
+                        break;
+                    case cost.CostItem.__ID__:
+                        (Cost as cost.CostItem).Reload(reloadData.Cost as cost.CostItem);
+                        break;
+                    case cost.CostItems.__ID__:
+                        (Cost as cost.CostItems).Reload(reloadData.Cost as cost.CostItems);
+                        break;
+                }
+            }else
+            {
+                typeof(Dymmy).GetProperty("Cost").SetValue(this,reloadData.Cost);
+            }
         }
     }
 

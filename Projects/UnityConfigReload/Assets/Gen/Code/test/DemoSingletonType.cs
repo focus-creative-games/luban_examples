@@ -54,27 +54,34 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        if(Date.GetTypeId() == reloadData.Date.GetTypeId())
+        //bean
+        if(Date==null)
         {
-            //Date is dynamic
-            switch (reloadData.Date.GetTypeId())
-            {
-                case test.DemoD2.__ID__:
-                    (Date as test.DemoD2).Reload(reloadData.Date as test.DemoD2);
-                    break;
-                case test.DemoE1.__ID__:
-                    (Date as test.DemoE1).Reload(reloadData.Date as test.DemoE1);
-                    break;
-                case test.login.RoleInfo.__ID__:
-                    (Date as test.login.RoleInfo).Reload(reloadData.Date as test.login.RoleInfo);
-                    break;
-                case test.DemoD5.__ID__:
-                    (Date as test.DemoD5).Reload(reloadData.Date as test.DemoD5);
-                    break;
-            }
+            Date = reloadData.Date;
         }else
         {
-            typeof(DemoSingletonType).GetProperty("Date").SetValue(this,reloadData.Date);
+            if(Date.GetTypeId() == reloadData.Date.GetTypeId())
+            {
+                //Date is dynamic
+                switch (reloadData.Date.GetTypeId())
+                {
+                    case test.DemoD2.__ID__:
+                        (Date as test.DemoD2).Reload(reloadData.Date as test.DemoD2);
+                        break;
+                    case test.DemoE1.__ID__:
+                        (Date as test.DemoE1).Reload(reloadData.Date as test.DemoE1);
+                        break;
+                    case test.login.RoleInfo.__ID__:
+                        (Date as test.login.RoleInfo).Reload(reloadData.Date as test.login.RoleInfo);
+                        break;
+                    case test.DemoD5.__ID__:
+                        (Date as test.DemoD5).Reload(reloadData.Date as test.DemoD5);
+                        break;
+                }
+            }else
+            {
+                typeof(DemoSingletonType).GetProperty("Date").SetValue(this,reloadData.Date);
+            }
         }
     }
 

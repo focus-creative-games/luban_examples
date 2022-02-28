@@ -47,13 +47,20 @@ public sealed partial class H1 :  Bright.Config.BeanBase
 
     public void Reload(H1 reloadData)
     {
-        if(Y2.GetTypeId() == reloadData.Y2.GetTypeId())
+        //bean
+        if(Y2==null)
         {
-            //Y2 not dynamic
-            Y2.Reload(reloadData.Y2);
+            Y2 = reloadData.Y2;
         }else
         {
-            typeof(H1).GetProperty("Y2").SetValue(this,reloadData.Y2);
+            if(Y2.GetTypeId() == reloadData.Y2.GetTypeId())
+            {
+                //Y2 not dynamic
+                Y2.Reload(reloadData.Y2);
+            }else
+            {
+                typeof(H1).GetProperty("Y2").SetValue(this,reloadData.Y2);
+            }
         }
         Y3 = reloadData.Y3;
     }

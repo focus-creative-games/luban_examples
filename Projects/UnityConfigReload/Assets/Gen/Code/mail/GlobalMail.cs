@@ -78,54 +78,77 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         Title = reloadData.Title;
         Sender = reloadData.Sender;
         Content = reloadData.Content;
-        if(Award.Count<reloadData.Award.Count)
+        //list
+        if(Award==null)
         {
-            Award.AddRange(new List<int>(reloadData.Award.Count-Award.Count));
-        }else if(Award.Count>reloadData.Award.Count)
+            Award = reloadData.Award;
+        }else
         {
-            Award.RemoveRange(reloadData.Award.Count, Award.Count-reloadData.Award.Count);
-        }
-        for (int i = 0; i < reloadData.Award.Count; i++)
-        {
-            Award[i] = reloadData.Award[i];
+            Award.Capacity = reloadData.Award.Count;
+            for (int i = 0; i < reloadData.Award.Count; i++)
+            {
+                Award[i] = reloadData.Award[i];
+            }
         }
         AllServer = reloadData.AllServer;
-        if(ServerList.Count<reloadData.ServerList.Count)
+        //list
+        if(ServerList==null)
         {
-            ServerList.AddRange(new List<int>(reloadData.ServerList.Count-ServerList.Count));
-        }else if(ServerList.Count>reloadData.ServerList.Count)
+            ServerList = reloadData.ServerList;
+        }else
         {
-            ServerList.RemoveRange(reloadData.ServerList.Count, ServerList.Count-reloadData.ServerList.Count);
-        }
-        for (int i = 0; i < reloadData.ServerList.Count; i++)
-        {
-            ServerList[i] = reloadData.ServerList[i];
+            ServerList.Capacity = reloadData.ServerList.Count;
+            for (int i = 0; i < reloadData.ServerList.Count; i++)
+            {
+                ServerList[i] = reloadData.ServerList[i];
+            }
         }
         Platform = reloadData.Platform;
         Channel = reloadData.Channel;
-        if(MinMaxLevel.GetTypeId() == reloadData.MinMaxLevel.GetTypeId())
+        //bean
+        if(MinMaxLevel==null)
         {
-            //MinMaxLevel not dynamic
-            MinMaxLevel.Reload(reloadData.MinMaxLevel);
+            MinMaxLevel = reloadData.MinMaxLevel;
         }else
         {
-            typeof(GlobalMail).GetProperty("MinMaxLevel").SetValue(this,reloadData.MinMaxLevel);
+            if(MinMaxLevel.GetTypeId() == reloadData.MinMaxLevel.GetTypeId())
+            {
+                //MinMaxLevel not dynamic
+                MinMaxLevel.Reload(reloadData.MinMaxLevel);
+            }else
+            {
+                typeof(GlobalMail).GetProperty("MinMaxLevel").SetValue(this,reloadData.MinMaxLevel);
+            }
         }
-        if(RegisterTime.GetTypeId() == reloadData.RegisterTime.GetTypeId())
+        //bean
+        if(RegisterTime==null)
         {
-            //RegisterTime not dynamic
-            RegisterTime.Reload(reloadData.RegisterTime);
+            RegisterTime = reloadData.RegisterTime;
         }else
         {
-            typeof(GlobalMail).GetProperty("RegisterTime").SetValue(this,reloadData.RegisterTime);
+            if(RegisterTime.GetTypeId() == reloadData.RegisterTime.GetTypeId())
+            {
+                //RegisterTime not dynamic
+                RegisterTime.Reload(reloadData.RegisterTime);
+            }else
+            {
+                typeof(GlobalMail).GetProperty("RegisterTime").SetValue(this,reloadData.RegisterTime);
+            }
         }
-        if(MailTime.GetTypeId() == reloadData.MailTime.GetTypeId())
+        //bean
+        if(MailTime==null)
         {
-            //MailTime not dynamic
-            MailTime.Reload(reloadData.MailTime);
+            MailTime = reloadData.MailTime;
         }else
         {
-            typeof(GlobalMail).GetProperty("MailTime").SetValue(this,reloadData.MailTime);
+            if(MailTime.GetTypeId() == reloadData.MailTime.GetTypeId())
+            {
+                //MailTime not dynamic
+                MailTime.Reload(reloadData.MailTime);
+            }else
+            {
+                typeof(GlobalMail).GetProperty("MailTime").SetValue(this,reloadData.MailTime);
+            }
         }
     }
 

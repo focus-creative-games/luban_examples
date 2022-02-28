@@ -60,24 +60,31 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Name = reloadData.Name;
         Desc = reloadData.Desc;
         BlackboardId = reloadData.BlackboardId;
-        if(Root.GetTypeId() == reloadData.Root.GetTypeId())
+        //bean
+        if(Root==null)
         {
-            //Root is dynamic
-            switch (reloadData.Root.GetTypeId())
-            {
-                case ai.Sequence.__ID__:
-                    (Root as ai.Sequence).Reload(reloadData.Root as ai.Sequence);
-                    break;
-                case ai.Selector.__ID__:
-                    (Root as ai.Selector).Reload(reloadData.Root as ai.Selector);
-                    break;
-                case ai.SimpleParallel.__ID__:
-                    (Root as ai.SimpleParallel).Reload(reloadData.Root as ai.SimpleParallel);
-                    break;
-            }
+            Root = reloadData.Root;
         }else
         {
-            typeof(BehaviorTree).GetProperty("Root").SetValue(this,reloadData.Root);
+            if(Root.GetTypeId() == reloadData.Root.GetTypeId())
+            {
+                //Root is dynamic
+                switch (reloadData.Root.GetTypeId())
+                {
+                    case ai.Sequence.__ID__:
+                        (Root as ai.Sequence).Reload(reloadData.Root as ai.Sequence);
+                        break;
+                    case ai.Selector.__ID__:
+                        (Root as ai.Selector).Reload(reloadData.Root as ai.Selector);
+                        break;
+                    case ai.SimpleParallel.__ID__:
+                        (Root as ai.SimpleParallel).Reload(reloadData.Root as ai.SimpleParallel);
+                        break;
+                }
+            }else
+            {
+                typeof(BehaviorTree).GetProperty("Root").SetValue(this,reloadData.Root);
+            }
         }
     }
 

@@ -10,6 +10,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_code_dir Assets/Gen/Code ^
  --output_data_dir Assets/Gen/Data ^
  --gen_types code_cs_bin,data_bin ^
+--cs:use_unity_vector ^
  -s all 
 
 pause

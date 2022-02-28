@@ -49,16 +49,17 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     {
         Level = reloadData.Level;
         NeedExp = reloadData.NeedExp;
-        if(ClothesAttrs.Count<reloadData.ClothesAttrs.Count)
+        //list
+        if(ClothesAttrs==null)
         {
-            ClothesAttrs.AddRange(new List<int>(reloadData.ClothesAttrs.Count-ClothesAttrs.Count));
-        }else if(ClothesAttrs.Count>reloadData.ClothesAttrs.Count)
+            ClothesAttrs = reloadData.ClothesAttrs;
+        }else
         {
-            ClothesAttrs.RemoveRange(reloadData.ClothesAttrs.Count, ClothesAttrs.Count-reloadData.ClothesAttrs.Count);
-        }
-        for (int i = 0; i < reloadData.ClothesAttrs.Count; i++)
-        {
-            ClothesAttrs[i] = reloadData.ClothesAttrs[i];
+            ClothesAttrs.Capacity = reloadData.ClothesAttrs.Count;
+            for (int i = 0; i < reloadData.ClothesAttrs.Count; i++)
+            {
+                ClothesAttrs[i] = reloadData.ClothesAttrs[i];
+            }
         }
     }
 

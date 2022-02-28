@@ -48,16 +48,18 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
     public void Reload(MultiRowType3 reloadData)
     {
         Id = reloadData.Id;
-        if(Items.Count<reloadData.Items.Count)
+        //list
+        if(Items==null)
         {
-            Items.AddRange(new List<test.MultiRowType1>(reloadData.Items.Count-Items.Count));
-        }else if(Items.Count>reloadData.Items.Count)
+            Items = reloadData.Items;
+        }else
         {
-            Items.RemoveRange(reloadData.Items.Count, Items.Count-reloadData.Items.Count);
-        }
-        for (int i = 0; i < reloadData.Items.Count; i++)
-        {
-            Items[i] = reloadData.Items[i];
+            Items.Capacity = reloadData.Items.Count;
+            for (int i = 0; i < reloadData.Items.Count; i++)
+            {
+                Items[i].Reload(reloadData.Items[i]);
+            }
+
         }
     }
 

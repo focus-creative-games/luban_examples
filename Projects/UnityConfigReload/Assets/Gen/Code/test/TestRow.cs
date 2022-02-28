@@ -56,24 +56,32 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         X = reloadData.X;
         Y = reloadData.Y;
         Z = reloadData.Z;
-        if(A.GetTypeId() == reloadData.A.GetTypeId())
+        //bean
+        if(A==null)
         {
-            //A not dynamic
-            A.Reload(reloadData.A);
+            A = reloadData.A;
         }else
         {
-            typeof(TestRow).GetProperty("A").SetValue(this,reloadData.A);
+            if(A.GetTypeId() == reloadData.A.GetTypeId())
+            {
+                //A not dynamic
+                A.Reload(reloadData.A);
+            }else
+            {
+                typeof(TestRow).GetProperty("A").SetValue(this,reloadData.A);
+            }
         }
-        if(B.Count<reloadData.B.Count)
+        //list
+        if(B==null)
         {
-            B.AddRange(new List<int>(reloadData.B.Count-B.Count));
-        }else if(B.Count>reloadData.B.Count)
+            B = reloadData.B;
+        }else
         {
-            B.RemoveRange(reloadData.B.Count, B.Count-reloadData.B.Count);
-        }
-        for (int i = 0; i < reloadData.B.Count; i++)
-        {
-            B[i] = reloadData.B[i];
+            B.Capacity = reloadData.B.Count;
+            for (int i = 0; i < reloadData.B.Count; i++)
+            {
+                B[i] = reloadData.B[i];
+            }
         }
     }
 

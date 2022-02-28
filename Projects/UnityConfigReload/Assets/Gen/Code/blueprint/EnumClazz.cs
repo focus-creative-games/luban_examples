@@ -49,38 +49,80 @@ public sealed partial class EnumClazz :  blueprint.Clazz
     {
         Name = reloadData.Name;
         Desc = reloadData.Desc;
-        if(Parents.Count<reloadData.Parents.Count)
+        //list
+        if(Parents==null)
         {
-            Parents.AddRange(new List<blueprint.Clazz>(reloadData.Parents.Count-Parents.Count));
-        }else if(Parents.Count>reloadData.Parents.Count)
+            Parents = reloadData.Parents;
+        }else
         {
-            Parents.RemoveRange(reloadData.Parents.Count, Parents.Count-reloadData.Parents.Count);
+            Parents.Capacity = reloadData.Parents.Count;
+            for (int i = 0; i < reloadData.Parents.Count; i++)
+            {
+                //list is_dynamic
+                if(Parents[i].GetTypeId() == reloadData.Parents[i].GetTypeId())
+                {
+                    switch (reloadData.Parents[i].GetTypeId())
+                    {
+                        case blueprint.Interface.__ID__:
+                            (Parents[i] as blueprint.Interface).Reload(reloadData.Parents[i] as blueprint.Interface);
+                            break;
+                        case blueprint.NormalClazz.__ID__:
+                            (Parents[i] as blueprint.NormalClazz).Reload(reloadData.Parents[i] as blueprint.NormalClazz);
+                            break;
+                        case blueprint.EnumClazz.__ID__:
+                            (Parents[i] as blueprint.EnumClazz).Reload(reloadData.Parents[i] as blueprint.EnumClazz);
+                            break;
+                    }
+                }else
+                {
+                    Parents[i] = reloadData.Parents[i];
+                }
+            }
+
         }
-        for (int i = 0; i < reloadData.Parents.Count; i++)
+        //list
+        if(Methods==null)
         {
-            Parents[i] = reloadData.Parents[i];
+            Methods = reloadData.Methods;
+        }else
+        {
+            Methods.Capacity = reloadData.Methods.Count;
+            for (int i = 0; i < reloadData.Methods.Count; i++)
+            {
+                //list is_dynamic
+                if(Methods[i].GetTypeId() == reloadData.Methods[i].GetTypeId())
+                {
+                    switch (reloadData.Methods[i].GetTypeId())
+                    {
+                        case blueprint.AbstraceMethod.__ID__:
+                            (Methods[i] as blueprint.AbstraceMethod).Reload(reloadData.Methods[i] as blueprint.AbstraceMethod);
+                            break;
+                        case blueprint.ExternalMethod.__ID__:
+                            (Methods[i] as blueprint.ExternalMethod).Reload(reloadData.Methods[i] as blueprint.ExternalMethod);
+                            break;
+                        case blueprint.BlueprintMethod.__ID__:
+                            (Methods[i] as blueprint.BlueprintMethod).Reload(reloadData.Methods[i] as blueprint.BlueprintMethod);
+                            break;
+                    }
+                }else
+                {
+                    Methods[i] = reloadData.Methods[i];
+                }
+            }
+
         }
-        if(Methods.Count<reloadData.Methods.Count)
+        //list
+        if(Enums==null)
         {
-            Methods.AddRange(new List<blueprint.Method>(reloadData.Methods.Count-Methods.Count));
-        }else if(Methods.Count>reloadData.Methods.Count)
+            Enums = reloadData.Enums;
+        }else
         {
-            Methods.RemoveRange(reloadData.Methods.Count, Methods.Count-reloadData.Methods.Count);
-        }
-        for (int i = 0; i < reloadData.Methods.Count; i++)
-        {
-            Methods[i] = reloadData.Methods[i];
-        }
-        if(Enums.Count<reloadData.Enums.Count)
-        {
-            Enums.AddRange(new List<blueprint.EnumField>(reloadData.Enums.Count-Enums.Count));
-        }else if(Enums.Count>reloadData.Enums.Count)
-        {
-            Enums.RemoveRange(reloadData.Enums.Count, Enums.Count-reloadData.Enums.Count);
-        }
-        for (int i = 0; i < reloadData.Enums.Count; i++)
-        {
-            Enums[i] = reloadData.Enums[i];
+            Enums.Capacity = reloadData.Enums.Count;
+            for (int i = 0; i < reloadData.Enums.Count; i++)
+            {
+                Enums[i].Reload(reloadData.Enums[i]);
+            }
+
         }
     }
 
