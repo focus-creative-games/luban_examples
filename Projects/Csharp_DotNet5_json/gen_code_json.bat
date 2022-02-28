@@ -8,7 +8,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir Gen ^
  --output_data_dir ..\GenerateDatas\json ^
- --gen_types code_cs_json,data_json ^
+ --gen_types code_cs_dotnet_json,data_json ^
  -s all 
 
 pause
