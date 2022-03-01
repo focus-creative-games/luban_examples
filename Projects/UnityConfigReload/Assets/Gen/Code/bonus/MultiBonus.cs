@@ -47,7 +47,6 @@ public sealed partial class MultiBonus :  bonus.Bonus
 
     public void Reload(MultiBonus reloadData)
     {
-        //array
         if(Bonuses==null)
         {
             Bonuses = reloadData.Bonuses;
@@ -68,7 +67,7 @@ public sealed partial class MultiBonus :  bonus.Bonus
                 // array is_dynamic
                 for(int i = 0; i<reloadData.Bonuses.Length; i++)
                 {
-                    if(Bonuses[i].GetTypeId() == reloadData.Bonuses[i].GetTypeId())
+                    if(Bonuses[i]!=null && Bonuses[i].GetTypeId() == reloadData.Bonuses[i].GetTypeId())
                     {
                         switch (reloadData.Bonuses[i].GetTypeId())
                         {
@@ -111,9 +110,7 @@ public sealed partial class MultiBonus :  bonus.Bonus
                         Bonuses[i] = reloadData.Bonuses[i];
                     }
                 }
-
         }
-
     }
 
     public override string ToString()

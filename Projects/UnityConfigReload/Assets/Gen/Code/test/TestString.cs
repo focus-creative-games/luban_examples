@@ -55,7 +55,6 @@ public sealed partial class TestString :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         S1 = reloadData.S1;
-        //bean
         if(Cs1==null)
         {
             Cs1 = reloadData.Cs1;
@@ -63,14 +62,12 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         {
             if(Cs1.GetTypeId() == reloadData.Cs1.GetTypeId())
             {
-                //Cs1 not dynamic
                 Cs1.Reload(reloadData.Cs1);
             }else
             {
                 typeof(TestString).GetProperty("Cs1").SetValue(this,reloadData.Cs1);
             }
         }
-        //bean
         if(Cs2==null)
         {
             Cs2 = reloadData.Cs2;
@@ -78,7 +75,6 @@ public sealed partial class TestString :  Bright.Config.BeanBase
         {
             if(Cs2.GetTypeId() == reloadData.Cs2.GetTypeId())
             {
-                //Cs2 not dynamic
                 Cs2.Reload(reloadData.Cs2);
             }else
             {

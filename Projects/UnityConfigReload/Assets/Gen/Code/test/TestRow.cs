@@ -56,7 +56,6 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         X = reloadData.X;
         Y = reloadData.Y;
         Z = reloadData.Z;
-        //bean
         if(A==null)
         {
             A = reloadData.A;
@@ -64,14 +63,12 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         {
             if(A.GetTypeId() == reloadData.A.GetTypeId())
             {
-                //A not dynamic
                 A.Reload(reloadData.A);
             }else
             {
                 typeof(TestRow).GetProperty("A").SetValue(this,reloadData.A);
             }
         }
-        //list
         if(B==null)
         {
             B = reloadData.B;

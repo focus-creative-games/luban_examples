@@ -48,7 +48,6 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     public void Reload(DemoD5 reloadData)
     {
         X1 = reloadData.X1;
-        //bean
         if(Time==null)
         {
             Time = reloadData.Time;
@@ -56,7 +55,6 @@ public sealed partial class DemoD5 :  test.DemoDynamic
         {
             if(Time.GetTypeId() == reloadData.Time.GetTypeId())
             {
-                //Time not dynamic
                 Time.Reload(reloadData.Time);
             }else
             {

@@ -55,7 +55,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     {
         Id = reloadData.Id;
         NodeName = reloadData.NodeName;
-        //list
         if(Decorators==null)
         {
             Decorators = reloadData.Decorators;
@@ -64,8 +63,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
             Decorators.Capacity = reloadData.Decorators.Count;
             for (int i = 0; i < reloadData.Decorators.Count; i++)
             {
-                //list is_dynamic
-                if(Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
+                if(Decorators[i]!=null && Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
                 {
                     switch (reloadData.Decorators[i].GetTypeId())
                     {
@@ -96,9 +94,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
                     Decorators[i] = reloadData.Decorators[i];
                 }
             }
-
         }
-        //list
         if(Services==null)
         {
             Services = reloadData.Services;
@@ -107,8 +103,7 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
             Services.Capacity = reloadData.Services.Count;
             for (int i = 0; i < reloadData.Services.Count; i++)
             {
-                //list is_dynamic
-                if(Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
+                if(Services[i]!=null && Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
                 {
                     switch (reloadData.Services[i].GetTypeId())
                     {
@@ -136,10 +131,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
                     Services[i] = reloadData.Services[i];
                 }
             }
-
         }
         FinishMode = reloadData.FinishMode;
-        //bean
         if(MainTask==null)
         {
             MainTask = reloadData.MainTask;
@@ -147,7 +140,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         {
             if(MainTask.GetTypeId() == reloadData.MainTask.GetTypeId())
             {
-                //MainTask is dynamic
                 switch (reloadData.MainTask.GetTypeId())
                 {
                     case ai.UeWait.__ID__:
@@ -177,7 +169,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
                 typeof(SimpleParallel).GetProperty("MainTask").SetValue(this,reloadData.MainTask);
             }
         }
-        //bean
         if(BackgroundNode==null)
         {
             BackgroundNode = reloadData.BackgroundNode;
@@ -185,7 +176,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
         {
             if(BackgroundNode.GetTypeId() == reloadData.BackgroundNode.GetTypeId())
             {
-                //BackgroundNode is dynamic
                 switch (reloadData.BackgroundNode.GetTypeId())
                 {
                     case ai.Sequence.__ID__:

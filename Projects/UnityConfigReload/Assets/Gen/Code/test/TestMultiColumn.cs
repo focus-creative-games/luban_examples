@@ -56,7 +56,6 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
     public void Reload(TestMultiColumn reloadData)
     {
         Id = reloadData.Id;
-        //bean
         if(A==null)
         {
             A = reloadData.A;
@@ -64,14 +63,12 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
         {
             if(A.GetTypeId() == reloadData.A.GetTypeId())
             {
-                //A not dynamic
                 A.Reload(reloadData.A);
             }else
             {
                 typeof(TestMultiColumn).GetProperty("A").SetValue(this,reloadData.A);
             }
         }
-        //bean
         if(B==null)
         {
             B = reloadData.B;
@@ -79,14 +76,12 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
         {
             if(B.GetTypeId() == reloadData.B.GetTypeId())
             {
-                //B not dynamic
                 B.Reload(reloadData.B);
             }else
             {
                 typeof(TestMultiColumn).GetProperty("B").SetValue(this,reloadData.B);
             }
         }
-        //bean
         if(C==null)
         {
             C = reloadData.C;
@@ -94,7 +89,6 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
         {
             if(C.GetTypeId() == reloadData.C.GetTypeId())
             {
-                //C not dynamic
                 C.Reload(reloadData.C);
             }else
             {

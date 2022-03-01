@@ -52,10 +52,20 @@ public partial class TbNotIndexList
         }
     }
 
-    //TODO:
     public void Reload(ByteBuf _buf)
     {
-
+        var reloadDataList = new TbNotIndexList(_buf)._dataList;
+        _dataList.Capacity = reloadDataList.Count;
+        for (int i = 0; i<reloadDataList.Count; i++)
+        {
+            if(_dataList[i]!=null)
+            {
+                _dataList[i].Reload(reloadDataList[i]);
+            }else
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+        }
     }
     
     partial void PostInit();

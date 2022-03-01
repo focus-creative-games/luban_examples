@@ -47,7 +47,6 @@ public sealed partial class TimeRange :  condition.Condition
 
     public void Reload(TimeRange reloadData)
     {
-        //bean
         if(DateTimeRange==null)
         {
             DateTimeRange = reloadData.DateTimeRange;
@@ -55,7 +54,6 @@ public sealed partial class TimeRange :  condition.Condition
         {
             if(DateTimeRange.GetTypeId() == reloadData.DateTimeRange.GetTypeId())
             {
-                //DateTimeRange not dynamic
                 DateTimeRange.Reload(reloadData.DateTimeRange);
             }else
             {

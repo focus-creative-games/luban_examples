@@ -199,10 +199,7 @@ public partial class Tables
         tables.Add("test.TbTestDesc", TbTestDesc);
 
         PostInit();
-        foreach (var tableName in tables.Keys)
-        {
-            ResolveOneTable(tableName);
-        }
+        ResolveAllTable();
         PostResolve();
     }
 
@@ -270,187 +267,65 @@ public partial class Tables
     partial void PostInit();
     partial void PostResolve();
 
-    private void ResolveOneTable(string resolveTableName)
+    private void ResolveAllTable()
     {
-        if (!tables.Keys.Contains(resolveTableName))
-        {
-            return;
-        }
-
-        switch (resolveTableName)
-        {
-            case "ai.TbBlackboard":
-                TbBlackboard.Resolve(tables);
-                break;
-            case "ai.TbBehaviorTree":
-                TbBehaviorTree.Resolve(tables);
-                break;
-            case "blueprint.TbClazz":
-                TbClazz.Resolve(tables);
-                break;
-            case "bonus.TbDrop":
-                TbDrop.Resolve(tables);
-                break;
-            case "common.TbGlobalConfig":
-                TbGlobalConfig.Resolve(tables);
-                break;
-            case "error.TbErrorInfo":
-                TbErrorInfo.Resolve(tables);
-                break;
-            case "error.TbCodeInfo":
-                TbCodeInfo.Resolve(tables);
-                break;
-            case "item.TbItem":
-                TbItem.Resolve(tables);
-                break;
-            case "item.TbItemFunc":
-                TbItemFunc.Resolve(tables);
-                break;
-            case "item.TbItemExtra":
-                TbItemExtra.Resolve(tables);
-                break;
-            case "l10n.TbL10NDemo":
-                TbL10NDemo.Resolve(tables);
-                break;
-            case "l10n.TbPatchDemo":
-                TbPatchDemo.Resolve(tables);
-                break;
-            case "mail.TbSystemMail":
-                TbSystemMail.Resolve(tables);
-                break;
-            case "mail.TbGlobalMail":
-                TbGlobalMail.Resolve(tables);
-                break;
-            case "role.TbRoleLevelExpAttr":
-                TbRoleLevelExpAttr.Resolve(tables);
-                break;
-            case "role.TbRoleLevelBonusCoefficient":
-                TbRoleLevelBonusCoefficient.Resolve(tables);
-                break;
-            case "tag.TbTestTag":
-                TbTestTag.Resolve(tables);
-                break;
-            case "test.TbFullTypes":
-                TbFullTypes.Resolve(tables);
-                break;
-            case "test.TbSingleton":
-                TbSingleton.Resolve(tables);
-                break;
-            case "test.TbNotIndexList":
-                TbNotIndexList.Resolve(tables);
-                break;
-            case "test.TbMultiUnionIndexList":
-                TbMultiUnionIndexList.Resolve(tables);
-                break;
-            case "test.TbMultiIndexList":
-                TbMultiIndexList.Resolve(tables);
-                break;
-            case "test.TbDataFromMisc":
-                TbDataFromMisc.Resolve(tables);
-                break;
-            case "test.TbMultiRowRecord":
-                TbMultiRowRecord.Resolve(tables);
-                break;
-            case "test.TbTestMultiColumn":
-                TbTestMultiColumn.Resolve(tables);
-                break;
-            case "test.TbMultiRowTitle":
-                TbMultiRowTitle.Resolve(tables);
-                break;
-            case "test.TbTestNull":
-                TbTestNull.Resolve(tables);
-                break;
-            case "test.TbDemoPrimitive":
-                TbDemoPrimitive.Resolve(tables);
-                break;
-            case "test.TbTestString":
-                TbTestString.Resolve(tables);
-                break;
-            case "test.TbDemoGroup":
-                TbDemoGroup.Resolve(tables);
-                break;
-            case "test.TbDemoGroup_C":
-                TbDemoGroup_C.Resolve(tables);
-                break;
-            case "test.TbDemoGroup_S":
-                TbDemoGroup_S.Resolve(tables);
-                break;
-            case "test.TbDemoGroup_E":
-                TbDemoGroup_E.Resolve(tables);
-                break;
-            case "test.TbTestGlobal":
-                TbTestGlobal.Resolve(tables);
-                break;
-            case "test.TbTestBeRef":
-                TbTestBeRef.Resolve(tables);
-                break;
-            case "test.TbTestBeRef2":
-                TbTestBeRef2.Resolve(tables);
-                break;
-            case "test.TbTestRef":
-                TbTestRef.Resolve(tables);
-                break;
-            case "test.TbTestSize":
-                TbTestSize.Resolve(tables);
-                break;
-            case "test.TbTestSet":
-                TbTestSet.Resolve(tables);
-                break;
-            case "test.TbDetectCsvEncoding":
-                TbDetectCsvEncoding.Resolve(tables);
-                break;
-            case "test.TbItem2":
-                TbItem2.Resolve(tables);
-                break;
-            case "test.TbDefineFromExcel":
-                TbDefineFromExcel.Resolve(tables);
-                break;
-            case "test.TbDefineFromExcelOne":
-                TbDefineFromExcelOne.Resolve(tables);
-                break;
-            case "test.TbTestIndex":
-                TbTestIndex.Resolve(tables);
-                break;
-            case "test.TbTestMap":
-                TbTestMap.Resolve(tables);
-                break;
-            case "test.TbExcelFromJson":
-                TbExcelFromJson.Resolve(tables);
-                break;
-            case "test.TbCompositeJsonTable1":
-                TbCompositeJsonTable1.Resolve(tables);
-                break;
-            case "test.TbCompositeJsonTable2":
-                TbCompositeJsonTable2.Resolve(tables);
-                break;
-            case "test.TbCompositeJsonTable3":
-                TbCompositeJsonTable3.Resolve(tables);
-                break;
-            case "test.TbExcelFromJsonMultiRow":
-                TbExcelFromJsonMultiRow.Resolve(tables);
-                break;
-            case "test.TbTestSep":
-                TbTestSep.Resolve(tables);
-                break;
-            case "test.TbTestScriptableObject":
-                TbTestScriptableObject.Resolve(tables);
-                break;
-            case "test.TbTestExternalType":
-                TbTestExternalType.Resolve(tables);
-                break;
-            case "test.TbDemoGroupDefineFromExcel":
-                TbDemoGroupDefineFromExcel.Resolve(tables);
-                break;
-            case "test.TbDefineFromExcel2":
-                TbDefineFromExcel2.Resolve(tables);
-                break;
-            case "test.TbTestExcelBean":
-                TbTestExcelBean.Resolve(tables);
-                break;
-            case "test.TbTestDesc":
-                TbTestDesc.Resolve(tables);
-                break;
-        }
+        TbBlackboard.Resolve(tables);
+        TbBehaviorTree.Resolve(tables);
+        TbClazz.Resolve(tables);
+        TbDrop.Resolve(tables);
+        TbGlobalConfig.Resolve(tables);
+        TbErrorInfo.Resolve(tables);
+        TbCodeInfo.Resolve(tables);
+        TbItem.Resolve(tables);
+        TbItemFunc.Resolve(tables);
+        TbItemExtra.Resolve(tables);
+        TbL10NDemo.Resolve(tables);
+        TbPatchDemo.Resolve(tables);
+        TbSystemMail.Resolve(tables);
+        TbGlobalMail.Resolve(tables);
+        TbRoleLevelExpAttr.Resolve(tables);
+        TbRoleLevelBonusCoefficient.Resolve(tables);
+        TbTestTag.Resolve(tables);
+        TbFullTypes.Resolve(tables);
+        TbSingleton.Resolve(tables);
+        TbNotIndexList.Resolve(tables);
+        TbMultiUnionIndexList.Resolve(tables);
+        TbMultiIndexList.Resolve(tables);
+        TbDataFromMisc.Resolve(tables);
+        TbMultiRowRecord.Resolve(tables);
+        TbTestMultiColumn.Resolve(tables);
+        TbMultiRowTitle.Resolve(tables);
+        TbTestNull.Resolve(tables);
+        TbDemoPrimitive.Resolve(tables);
+        TbTestString.Resolve(tables);
+        TbDemoGroup.Resolve(tables);
+        TbDemoGroup_C.Resolve(tables);
+        TbDemoGroup_S.Resolve(tables);
+        TbDemoGroup_E.Resolve(tables);
+        TbTestGlobal.Resolve(tables);
+        TbTestBeRef.Resolve(tables);
+        TbTestBeRef2.Resolve(tables);
+        TbTestRef.Resolve(tables);
+        TbTestSize.Resolve(tables);
+        TbTestSet.Resolve(tables);
+        TbDetectCsvEncoding.Resolve(tables);
+        TbItem2.Resolve(tables);
+        TbDefineFromExcel.Resolve(tables);
+        TbDefineFromExcelOne.Resolve(tables);
+        TbTestIndex.Resolve(tables);
+        TbTestMap.Resolve(tables);
+        TbExcelFromJson.Resolve(tables);
+        TbCompositeJsonTable1.Resolve(tables);
+        TbCompositeJsonTable2.Resolve(tables);
+        TbCompositeJsonTable3.Resolve(tables);
+        TbExcelFromJsonMultiRow.Resolve(tables);
+        TbTestSep.Resolve(tables);
+        TbTestScriptableObject.Resolve(tables);
+        TbTestExternalType.Resolve(tables);
+        TbDemoGroupDefineFromExcel.Resolve(tables);
+        TbDefineFromExcel2.Resolve(tables);
+        TbTestExcelBean.Resolve(tables);
+        TbTestDesc.Resolve(tables);
     }
 
     private void ReloadOneTable(string reloadTableName)
@@ -643,11 +518,7 @@ public partial class Tables
         {
             ReloadOneTable(reloadTableName);
         }
-
-        foreach (var tableName in tables.Keys)
-        {
-            ResolveOneTable(tableName);
-        }
+        ResolveAllTable();
     }
     
 

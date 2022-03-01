@@ -48,7 +48,6 @@ public sealed partial class Dymmy :  item.ItemExtra
     public void Reload(Dymmy reloadData)
     {
         Id = reloadData.Id;
-        //bean
         if(Cost==null)
         {
             Cost = reloadData.Cost;
@@ -56,7 +55,6 @@ public sealed partial class Dymmy :  item.ItemExtra
         {
             if(Cost.GetTypeId() == reloadData.Cost.GetTypeId())
             {
-                //Cost is dynamic
                 switch (reloadData.Cost.GetTypeId())
                 {
                     case cost.CostCurrency.__ID__:

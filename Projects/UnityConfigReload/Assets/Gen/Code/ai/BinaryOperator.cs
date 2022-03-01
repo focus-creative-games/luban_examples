@@ -50,7 +50,6 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public void Reload(BinaryOperator reloadData)
     {
         Oper = reloadData.Oper;
-        //bean
         if(Data==null)
         {
             Data = reloadData.Data;
@@ -58,7 +57,6 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
         {
             if(Data.GetTypeId() == reloadData.Data.GetTypeId())
             {
-                //Data is dynamic
                 switch (reloadData.Data.GetTypeId())
                 {
                     case ai.FloatKeyData.__ID__:

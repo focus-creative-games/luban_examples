@@ -69,7 +69,6 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         X2 = reloadData.X2;
         X3 = reloadData.X3;
         X4 = reloadData.X4;
-        //bean
         if(X5==null)
         {
             X5 = reloadData.X5;
@@ -77,7 +76,6 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         {
             if(X5.GetTypeId() == reloadData.X5.GetTypeId())
             {
-                //X5 not dynamic
                 X5.Reload(reloadData.X5);
             }else
             {

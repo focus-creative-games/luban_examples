@@ -110,7 +110,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     {
         {{~ for field in hierarchy_export_fields ~}}
         {{~if field.ctype.type_name == "list" ~}}
-        //list
+        {{~#list~}}
         if({{field.convention_name}}==null)
         {
             {{field.convention_name}} = reloadData.{{field.convention_name}};
@@ -121,8 +121,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
             for (int i = 0; i < reloadData.{{field.convention_name}}.Count; i++)
             {
                 {{~if field.ctype.element_type.is_dynamic~}}
-                //list is_dynamic
-                if({{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
+                if({{field.convention_name}}[i]!=null && {{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
                 {
                     switch (reloadData.{{field.convention_name}}[i].GetTypeId())
                     {
@@ -137,7 +136,13 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                     {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
                 }
                 {{~else~}}
-                {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                if({{field.convention_name}}[i]!=null)
+                {
+                    {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                }else
+                {
+                    {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+                }
                 {{~end~}}
             }
                 {{~else~}}
@@ -148,7 +153,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                 {{~end~}}
         }
         {{~else if field.ctype.type_name == "array"~}}
-        //array
+        {{~#array~}}
         if({{field.convention_name}}==null)
         {
             {{field.convention_name}} = reloadData.{{field.convention_name}};
@@ -171,7 +176,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                 // array is_dynamic
                 for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
                 {
-                    if({{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
+                    if({{field.convention_name}}[i]!=null && {{field.convention_name}}[i].GetTypeId() == reloadData.{{field.convention_name}}[i].GetTypeId())
                     {
                         switch (reloadData.{{field.convention_name}}[i].GetTypeId())
                         {
@@ -189,10 +194,13 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                 {{~else~}}
                 for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
                 {
-                    {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                    if({{field.convention_name}}[i]!=null){
+                        {{field.convention_name}}[i].Reload(reloadData.{{field.convention_name}}[i]);
+                    }else{
+                        {{field.convention_name}}[i] = reloadData.{{field.convention_name}}[i];
+                    }
                 }
                 {{~end~}}
-
                 {{~else~}}
                 for(int i = 0; i<reloadData.{{field.convention_name}}.Length; i++)
                 {
@@ -204,7 +212,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                 {{~end~}}
         }
         {{~else if field.ctype.type_name == "map"~}}
-        //map
+        {{~#map~}}
         if({{field.convention_name}}==null)
         {
             {{field.convention_name}} = reloadData.{{field.convention_name}};
@@ -223,7 +231,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                 {
                     {{~if field.ctype.element_type.type_name == "bean"~}}
                     {{~if field.ctype.element_type.is_dynamic~}}
-                    if({{field.convention_name}}[reload.Key].GetTypeId() == reload.Value.GetTypeId())
+                    if({{field.convention_name}}[reload.Key]!=null && {{field.convention_name}}[reload.Key].GetTypeId() == reload.Value.GetTypeId())
                     {
                         switch (reload.GetTypeId())
                         {
@@ -238,9 +246,12 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                         {{field.convention_name}}[reload.Key] = reload.Value;
                     }
                     {{~else~}}
-                    {{field.convention_name}}[reload.Key].Reload(reload.Value);
+                    if({{field.convention_name}}[reload.Key]!=null){
+                        {{field.convention_name}}[reload.Key].Reload(reload.Value);
+                    }else{
+                        {{field.convention_name}}[reload.Key] = reload.Value;
+                    }
                     {{~end~}}
-    
                     {{~else~}}
                     {{field.convention_name}}[reload.Key] = reload.Value;
                     {{~end~}}
@@ -251,7 +262,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
             }
         }
         {{~ else if field.ctype.type_name == "set"~}}
-        //set
+        {{~#set~}}
         if({{field.convention_name}}==null)
         {
             {{field.convention_name}} = reloadData.{{field.convention_name}};
@@ -273,7 +284,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
             }
         }
         {{~ else if field.ctype.type_name == "bean"~}}
-        //bean
+        {{~#bean~}}
         if({{field.convention_name}}==null)
         {
             {{field.convention_name}} = reloadData.{{field.convention_name}};
@@ -282,7 +293,6 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
             if({{field.convention_name}}.GetTypeId() == reloadData.{{field.convention_name}}.GetTypeId())
             {
                 {{~if field.ctype.is_dynamic~}}
-                //{{field.convention_name}} is dynamic
                 switch (reloadData.{{field.convention_name}}.GetTypeId())
                 {
                     {{~for child in field.ctype.bean.hierarchy_not_abstract_children~}}
@@ -292,7 +302,6 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
                     {{~end~}}
                 }
                 {{~else~}}
-                //{{field.convention_name}} not dynamic
                 {{field.convention_name}}.Reload(reloadData.{{field.convention_name}});
                 {{~end~}}
             }else

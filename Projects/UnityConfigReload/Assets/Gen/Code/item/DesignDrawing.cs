@@ -46,7 +46,6 @@ public sealed partial class DesignDrawing :  item.ItemExtra
     public void Reload(DesignDrawing reloadData)
     {
         Id = reloadData.Id;
-        //list
         if(LearnComponentId==null)
         {
             LearnComponentId = reloadData.LearnComponentId;

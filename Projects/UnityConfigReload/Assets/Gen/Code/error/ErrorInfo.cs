@@ -51,7 +51,6 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     {
         Code = reloadData.Code;
         Desc = reloadData.Desc;
-        //bean
         if(Style==null)
         {
             Style = reloadData.Style;
@@ -59,7 +58,6 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
         {
             if(Style.GetTypeId() == reloadData.Style.GetTypeId())
             {
-                //Style is dynamic
                 switch (reloadData.Style.GetTypeId())
                 {
                     case error.ErrorStyleTip.__ID__:

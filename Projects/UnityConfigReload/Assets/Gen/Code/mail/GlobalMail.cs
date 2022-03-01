@@ -78,7 +78,6 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         Title = reloadData.Title;
         Sender = reloadData.Sender;
         Content = reloadData.Content;
-        //list
         if(Award==null)
         {
             Award = reloadData.Award;
@@ -91,7 +90,6 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
             }
         }
         AllServer = reloadData.AllServer;
-        //list
         if(ServerList==null)
         {
             ServerList = reloadData.ServerList;
@@ -105,7 +103,6 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         }
         Platform = reloadData.Platform;
         Channel = reloadData.Channel;
-        //bean
         if(MinMaxLevel==null)
         {
             MinMaxLevel = reloadData.MinMaxLevel;
@@ -113,14 +110,12 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         {
             if(MinMaxLevel.GetTypeId() == reloadData.MinMaxLevel.GetTypeId())
             {
-                //MinMaxLevel not dynamic
                 MinMaxLevel.Reload(reloadData.MinMaxLevel);
             }else
             {
                 typeof(GlobalMail).GetProperty("MinMaxLevel").SetValue(this,reloadData.MinMaxLevel);
             }
         }
-        //bean
         if(RegisterTime==null)
         {
             RegisterTime = reloadData.RegisterTime;
@@ -128,14 +123,12 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         {
             if(RegisterTime.GetTypeId() == reloadData.RegisterTime.GetTypeId())
             {
-                //RegisterTime not dynamic
                 RegisterTime.Reload(reloadData.RegisterTime);
             }else
             {
                 typeof(GlobalMail).GetProperty("RegisterTime").SetValue(this,reloadData.RegisterTime);
             }
         }
-        //bean
         if(MailTime==null)
         {
             MailTime = reloadData.MailTime;
@@ -143,7 +136,6 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         {
             if(MailTime.GetTypeId() == reloadData.MailTime.GetTypeId())
             {
-                //MailTime not dynamic
                 MailTime.Reload(reloadData.MailTime);
             }else
             {

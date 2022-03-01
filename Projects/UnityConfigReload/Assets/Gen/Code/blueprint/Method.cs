@@ -61,7 +61,6 @@ public abstract partial class Method :  Bright.Config.BeanBase
         Desc = reloadData.Desc;
         IsStatic = reloadData.IsStatic;
         ReturnType = reloadData.ReturnType;
-        //list
         if(Parameters==null)
         {
             Parameters = reloadData.Parameters;
@@ -70,9 +69,14 @@ public abstract partial class Method :  Bright.Config.BeanBase
             Parameters.Capacity = reloadData.Parameters.Count;
             for (int i = 0; i < reloadData.Parameters.Count; i++)
             {
-                Parameters[i].Reload(reloadData.Parameters[i]);
+                if(Parameters[i]!=null)
+                {
+                    Parameters[i].Reload(reloadData.Parameters[i]);
+                }else
+                {
+                    Parameters[i] = reloadData.Parameters[i];
+                }
             }
-
         }
     }
 

@@ -62,7 +62,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
     {
         Id = reloadData.Id;
         KeyItemId = reloadData.KeyItemId;
-        //bean
         if(OpenLevel==null)
         {
             OpenLevel = reloadData.OpenLevel;
@@ -70,7 +69,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
         {
             if(OpenLevel.GetTypeId() == reloadData.OpenLevel.GetTypeId())
             {
-                //OpenLevel not dynamic
                 OpenLevel.Reload(reloadData.OpenLevel);
             }else
             {
@@ -78,7 +76,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
             }
         }
         UseOnObtain = reloadData.UseOnObtain;
-        //list
         if(DropIds==null)
         {
             DropIds = reloadData.DropIds;
@@ -90,7 +87,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
                 DropIds[i] = reloadData.DropIds[i];
             }
         }
-        //list
         if(ChooseList==null)
         {
             ChooseList = reloadData.ChooseList;
@@ -99,9 +95,14 @@ public sealed partial class TreasureBox :  item.ItemExtra
             ChooseList.Capacity = reloadData.ChooseList.Count;
             for (int i = 0; i < reloadData.ChooseList.Count; i++)
             {
-                ChooseList[i].Reload(reloadData.ChooseList[i]);
+                if(ChooseList[i]!=null)
+                {
+                    ChooseList[i].Reload(reloadData.ChooseList[i]);
+                }else
+                {
+                    ChooseList[i] = reloadData.ChooseList[i];
+                }
             }
-
         }
     }
 

@@ -111,7 +111,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
         X12 = reloadData.X12;
         X2 = reloadData.X2;
         X3 = reloadData.X3;
-        //array
         if(A1==null)
         {
             A1 = reloadData.A1;
@@ -125,8 +124,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //array
         if(A2==null)
         {
             A2 = reloadData.A2;
@@ -140,8 +137,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //list
         if(B1==null)
         {
             B1 = reloadData.B1;
@@ -153,7 +148,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                 B1[i] = reloadData.B1[i];
             }
         }
-        //list
         if(B2==null)
         {
             B2 = reloadData.B2;
@@ -165,7 +159,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                 B2[i] = reloadData.B2[i];
             }
         }
-        //set
         if(C1==null)
         {
             C1 = reloadData.C1;
@@ -186,7 +179,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                 }
             }
         }
-        //set
         if(C2==null)
         {
             C2 = reloadData.C2;
@@ -207,7 +199,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(D1==null)
         {
             D1 = reloadData.D1;
@@ -231,7 +222,6 @@ public sealed partial class TestRef :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(D2==null)
         {
             D2 = reloadData.D2;

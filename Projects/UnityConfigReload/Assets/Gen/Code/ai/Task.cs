@@ -55,7 +55,6 @@ public abstract partial class Task :  ai.FlowNode
     {
         Id = reloadData.Id;
         NodeName = reloadData.NodeName;
-        //list
         if(Decorators==null)
         {
             Decorators = reloadData.Decorators;
@@ -64,8 +63,7 @@ public abstract partial class Task :  ai.FlowNode
             Decorators.Capacity = reloadData.Decorators.Count;
             for (int i = 0; i < reloadData.Decorators.Count; i++)
             {
-                //list is_dynamic
-                if(Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
+                if(Decorators[i]!=null && Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
                 {
                     switch (reloadData.Decorators[i].GetTypeId())
                     {
@@ -96,9 +94,7 @@ public abstract partial class Task :  ai.FlowNode
                     Decorators[i] = reloadData.Decorators[i];
                 }
             }
-
         }
-        //list
         if(Services==null)
         {
             Services = reloadData.Services;
@@ -107,8 +103,7 @@ public abstract partial class Task :  ai.FlowNode
             Services.Capacity = reloadData.Services.Count;
             for (int i = 0; i < reloadData.Services.Count; i++)
             {
-                //list is_dynamic
-                if(Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
+                if(Services[i]!=null && Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
                 {
                     switch (reloadData.Services[i].GetTypeId())
                     {
@@ -136,7 +131,6 @@ public abstract partial class Task :  ai.FlowNode
                     Services[i] = reloadData.Services[i];
                 }
             }
-
         }
         IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
     }

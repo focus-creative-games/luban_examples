@@ -34,12 +34,12 @@ public partial class TbMultiIndexList
         _dataMap_id1 = new Dictionary<int, test.MultiIndexList>();
         _dataMap_id2 = new Dictionary<long, test.MultiIndexList>();
         _dataMap_id3 = new Dictionary<string, test.MultiIndexList>();
-    foreach(var _v in _dataList)
-    {
-        _dataMap_id1.Add(_v.Id1, _v);
-        _dataMap_id2.Add(_v.Id2, _v);
-        _dataMap_id3.Add(_v.Id3, _v);
-    }
+        foreach(var _v in _dataList)
+        {
+            _dataMap_id1.Add(_v.Id1, _v);
+            _dataMap_id2.Add(_v.Id2, _v);
+            _dataMap_id3.Add(_v.Id3, _v);
+        }
         PostInit();
     }
 
@@ -67,10 +67,29 @@ public partial class TbMultiIndexList
         }
     }
 
-    //TODO:
     public void Reload(ByteBuf _buf)
     {
-
+        var reloadDataList = new TbMultiIndexList(_buf)._dataList;
+        _dataList.Capacity = reloadDataList.Count;
+        for (int i = 0; i<reloadDataList.Count; i++)
+        {
+            if(_dataList[i]!=null)
+            {
+                _dataList[i].Reload(reloadDataList[i]);
+            }else
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+        }
+        _dataMap_id1.Clear();
+        _dataMap_id2.Clear();
+        _dataMap_id3.Clear();
+        foreach (var _v in _dataList)
+        {
+        _dataMap_id1.Add(_v.Id1, _v);
+        _dataMap_id2.Add(_v.Id2, _v);
+        _dataMap_id3.Add(_v.Id3, _v);
+        }
     }
     
     partial void PostInit();

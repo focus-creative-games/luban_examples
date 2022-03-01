@@ -60,7 +60,6 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Name = reloadData.Name;
         Desc = reloadData.Desc;
         BlackboardId = reloadData.BlackboardId;
-        //bean
         if(Root==null)
         {
             Root = reloadData.Root;
@@ -68,7 +67,6 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         {
             if(Root.GetTypeId() == reloadData.Root.GetTypeId())
             {
-                //Root is dynamic
                 switch (reloadData.Root.GetTypeId())
                 {
                     case ai.Sequence.__ID__:

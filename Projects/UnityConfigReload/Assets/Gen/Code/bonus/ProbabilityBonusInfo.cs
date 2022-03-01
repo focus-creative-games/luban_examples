@@ -47,7 +47,6 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public void Reload(ProbabilityBonusInfo reloadData)
     {
-        //bean
         if(Bonus==null)
         {
             Bonus = reloadData.Bonus;
@@ -55,7 +54,6 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
         {
             if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
             {
-                //Bonus is dynamic
                 switch (reloadData.Bonus.GetTypeId())
                 {
                     case bonus.OneItem.__ID__:

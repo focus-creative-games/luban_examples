@@ -55,7 +55,6 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Desc = reloadData.Desc;
-        //list
         if(ClientShowItems==null)
         {
             ClientShowItems = reloadData.ClientShowItems;
@@ -64,11 +63,15 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
             ClientShowItems.Capacity = reloadData.ClientShowItems.Count;
             for (int i = 0; i < reloadData.ClientShowItems.Count; i++)
             {
-                ClientShowItems[i].Reload(reloadData.ClientShowItems[i]);
+                if(ClientShowItems[i]!=null)
+                {
+                    ClientShowItems[i].Reload(reloadData.ClientShowItems[i]);
+                }else
+                {
+                    ClientShowItems[i] = reloadData.ClientShowItems[i];
+                }
             }
-
         }
-        //bean
         if(Bonus==null)
         {
             Bonus = reloadData.Bonus;
@@ -76,7 +79,6 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
         {
             if(Bonus.GetTypeId() == reloadData.Bonus.GetTypeId())
             {
-                //Bonus is dynamic
                 switch (reloadData.Bonus.GetTypeId())
                 {
                     case bonus.OneItem.__ID__:

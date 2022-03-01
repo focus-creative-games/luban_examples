@@ -47,7 +47,6 @@ public sealed partial class CostCurrencies :  cost.Cost
 
     public void Reload(CostCurrencies reloadData)
     {
-        //list
         if(Currencies==null)
         {
             Currencies = reloadData.Currencies;
@@ -56,9 +55,14 @@ public sealed partial class CostCurrencies :  cost.Cost
             Currencies.Capacity = reloadData.Currencies.Count;
             for (int i = 0; i < reloadData.Currencies.Count; i++)
             {
-                Currencies[i].Reload(reloadData.Currencies[i]);
+                if(Currencies[i]!=null)
+                {
+                    Currencies[i].Reload(reloadData.Currencies[i]);
+                }else
+                {
+                    Currencies[i] = reloadData.Currencies[i];
+                }
             }
-
         }
     }
 

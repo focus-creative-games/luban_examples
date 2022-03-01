@@ -50,7 +50,6 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     public void Reload(CoefficientItem reloadData)
     {
         BonusId = reloadData.BonusId;
-        //bean
         if(BonusList==null)
         {
             BonusList = reloadData.BonusList;
@@ -58,7 +57,6 @@ public sealed partial class CoefficientItem :  bonus.Bonus
         {
             if(BonusList.GetTypeId() == reloadData.BonusList.GetTypeId())
             {
-                //BonusList not dynamic
                 BonusList.Reload(reloadData.BonusList);
             }else
             {

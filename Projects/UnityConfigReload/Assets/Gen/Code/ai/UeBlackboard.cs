@@ -56,7 +56,6 @@ public sealed partial class UeBlackboard :  ai.Decorator
         FlowAbortMode = reloadData.FlowAbortMode;
         NotifyObserver = reloadData.NotifyObserver;
         BlackboardKey = reloadData.BlackboardKey;
-        //bean
         if(KeyQuery==null)
         {
             KeyQuery = reloadData.KeyQuery;
@@ -64,7 +63,6 @@ public sealed partial class UeBlackboard :  ai.Decorator
         {
             if(KeyQuery.GetTypeId() == reloadData.KeyQuery.GetTypeId())
             {
-                //KeyQuery is dynamic
                 switch (reloadData.KeyQuery.GetTypeId())
                 {
                     case ai.IsSet.__ID__:

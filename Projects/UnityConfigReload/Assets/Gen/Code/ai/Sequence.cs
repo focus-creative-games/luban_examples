@@ -49,7 +49,6 @@ public sealed partial class Sequence :  ai.ComposeNode
     {
         Id = reloadData.Id;
         NodeName = reloadData.NodeName;
-        //list
         if(Decorators==null)
         {
             Decorators = reloadData.Decorators;
@@ -58,8 +57,7 @@ public sealed partial class Sequence :  ai.ComposeNode
             Decorators.Capacity = reloadData.Decorators.Count;
             for (int i = 0; i < reloadData.Decorators.Count; i++)
             {
-                //list is_dynamic
-                if(Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
+                if(Decorators[i]!=null && Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
                 {
                     switch (reloadData.Decorators[i].GetTypeId())
                     {
@@ -90,9 +88,7 @@ public sealed partial class Sequence :  ai.ComposeNode
                     Decorators[i] = reloadData.Decorators[i];
                 }
             }
-
         }
-        //list
         if(Services==null)
         {
             Services = reloadData.Services;
@@ -101,8 +97,7 @@ public sealed partial class Sequence :  ai.ComposeNode
             Services.Capacity = reloadData.Services.Count;
             for (int i = 0; i < reloadData.Services.Count; i++)
             {
-                //list is_dynamic
-                if(Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
+                if(Services[i]!=null && Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
                 {
                     switch (reloadData.Services[i].GetTypeId())
                     {
@@ -130,9 +125,7 @@ public sealed partial class Sequence :  ai.ComposeNode
                     Services[i] = reloadData.Services[i];
                 }
             }
-
         }
-        //list
         if(Children==null)
         {
             Children = reloadData.Children;
@@ -141,8 +134,7 @@ public sealed partial class Sequence :  ai.ComposeNode
             Children.Capacity = reloadData.Children.Count;
             for (int i = 0; i < reloadData.Children.Count; i++)
             {
-                //list is_dynamic
-                if(Children[i].GetTypeId() == reloadData.Children[i].GetTypeId())
+                if(Children[i]!=null && Children[i].GetTypeId() == reloadData.Children[i].GetTypeId())
                 {
                     switch (reloadData.Children[i].GetTypeId())
                     {
@@ -182,7 +174,6 @@ public sealed partial class Sequence :  ai.ComposeNode
                     Children[i] = reloadData.Children[i];
                 }
             }
-
         }
     }
 

@@ -59,7 +59,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     {
         Name = reloadData.Name;
         Desc = reloadData.Desc;
-        //list
         if(Parents==null)
         {
             Parents = reloadData.Parents;
@@ -68,8 +67,7 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
             Parents.Capacity = reloadData.Parents.Count;
             for (int i = 0; i < reloadData.Parents.Count; i++)
             {
-                //list is_dynamic
-                if(Parents[i].GetTypeId() == reloadData.Parents[i].GetTypeId())
+                if(Parents[i]!=null && Parents[i].GetTypeId() == reloadData.Parents[i].GetTypeId())
                 {
                     switch (reloadData.Parents[i].GetTypeId())
                     {
@@ -88,9 +86,7 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
                     Parents[i] = reloadData.Parents[i];
                 }
             }
-
         }
-        //list
         if(Methods==null)
         {
             Methods = reloadData.Methods;
@@ -99,8 +95,7 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
             Methods.Capacity = reloadData.Methods.Count;
             for (int i = 0; i < reloadData.Methods.Count; i++)
             {
-                //list is_dynamic
-                if(Methods[i].GetTypeId() == reloadData.Methods[i].GetTypeId())
+                if(Methods[i]!=null && Methods[i].GetTypeId() == reloadData.Methods[i].GetTypeId())
                 {
                     switch (reloadData.Methods[i].GetTypeId())
                     {
@@ -119,7 +114,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
                     Methods[i] = reloadData.Methods[i];
                 }
             }
-
         }
     }
 

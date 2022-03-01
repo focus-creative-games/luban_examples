@@ -47,7 +47,6 @@ public sealed partial class H1 :  Bright.Config.BeanBase
 
     public void Reload(H1 reloadData)
     {
-        //bean
         if(Y2==null)
         {
             Y2 = reloadData.Y2;
@@ -55,7 +54,6 @@ public sealed partial class H1 :  Bright.Config.BeanBase
         {
             if(Y2.GetTypeId() == reloadData.Y2.GetTypeId())
             {
-                //Y2 not dynamic
                 Y2.Reload(reloadData.Y2);
             }else
             {

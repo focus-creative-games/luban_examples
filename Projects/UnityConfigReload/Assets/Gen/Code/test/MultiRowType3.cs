@@ -48,7 +48,6 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
     public void Reload(MultiRowType3 reloadData)
     {
         Id = reloadData.Id;
-        //list
         if(Items==null)
         {
             Items = reloadData.Items;
@@ -57,9 +56,14 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
             Items.Capacity = reloadData.Items.Count;
             for (int i = 0; i < reloadData.Items.Count; i++)
             {
-                Items[i].Reload(reloadData.Items[i]);
+                if(Items[i]!=null)
+                {
+                    Items[i].Reload(reloadData.Items[i]);
+                }else
+                {
+                    Items[i] = reloadData.Items[i];
+                }
             }
-
         }
     }
 

@@ -51,7 +51,6 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         AudioType = reloadData.AudioType;
-        //bean
         if(Color==null)
         {
             Color = reloadData.Color;
@@ -59,7 +58,6 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
         {
             if(Color.GetTypeId() == reloadData.Color.GetTypeId())
             {
-                //Color not dynamic
                 Color.Reload(reloadData.Color);
             }else
             {

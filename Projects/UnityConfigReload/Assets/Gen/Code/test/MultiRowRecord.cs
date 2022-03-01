@@ -73,7 +73,6 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        //list
         if(OneRows==null)
         {
             OneRows = reloadData.OneRows;
@@ -82,11 +81,15 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             OneRows.Capacity = reloadData.OneRows.Count;
             for (int i = 0; i < reloadData.OneRows.Count; i++)
             {
-                OneRows[i].Reload(reloadData.OneRows[i]);
+                if(OneRows[i]!=null)
+                {
+                    OneRows[i].Reload(reloadData.OneRows[i]);
+                }else
+                {
+                    OneRows[i] = reloadData.OneRows[i];
+                }
             }
-
         }
-        //list
         if(MultiRows1==null)
         {
             MultiRows1 = reloadData.MultiRows1;
@@ -95,11 +98,15 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             MultiRows1.Capacity = reloadData.MultiRows1.Count;
             for (int i = 0; i < reloadData.MultiRows1.Count; i++)
             {
-                MultiRows1[i].Reload(reloadData.MultiRows1[i]);
+                if(MultiRows1[i]!=null)
+                {
+                    MultiRows1[i].Reload(reloadData.MultiRows1[i]);
+                }else
+                {
+                    MultiRows1[i] = reloadData.MultiRows1[i];
+                }
             }
-
         }
-        //array
         if(MultiRows2==null)
         {
             MultiRows2 = reloadData.MultiRows2;
@@ -119,12 +126,13 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             }
                 for(int i = 0; i<reloadData.MultiRows2.Length; i++)
                 {
-                    MultiRows2[i].Reload(reloadData.MultiRows2[i]);
+                    if(MultiRows2[i]!=null){
+                        MultiRows2[i].Reload(reloadData.MultiRows2[i]);
+                    }else{
+                        MultiRows2[i] = reloadData.MultiRows2[i];
+                    }
                 }
-
         }
-
-        //map
         if(MultiRows4==null)
         {
             MultiRows4 = reloadData.MultiRows4;
@@ -141,15 +149,17 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             {
                 if(MultiRows4.ContainsKey(reload.Key))
                 {
-                    MultiRows4[reload.Key].Reload(reload.Value);
-    
+                    if(MultiRows4[reload.Key]!=null){
+                        MultiRows4[reload.Key].Reload(reload.Value);
+                    }else{
+                        MultiRows4[reload.Key] = reload.Value;
+                    }
                 }else
                 {
                     MultiRows4.Add(reload.Key,reload.Value);
                 }
             }
         }
-        //list
         if(MultiRows5==null)
         {
             MultiRows5 = reloadData.MultiRows5;
@@ -158,11 +168,15 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             MultiRows5.Capacity = reloadData.MultiRows5.Count;
             for (int i = 0; i < reloadData.MultiRows5.Count; i++)
             {
-                MultiRows5[i].Reload(reloadData.MultiRows5[i]);
+                if(MultiRows5[i]!=null)
+                {
+                    MultiRows5[i].Reload(reloadData.MultiRows5[i]);
+                }else
+                {
+                    MultiRows5[i] = reloadData.MultiRows5[i];
+                }
             }
-
         }
-        //map
         if(MultiRows6==null)
         {
             MultiRows6 = reloadData.MultiRows6;
@@ -179,15 +193,17 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
             {
                 if(MultiRows6.ContainsKey(reload.Key))
                 {
-                    MultiRows6[reload.Key].Reload(reload.Value);
-    
+                    if(MultiRows6[reload.Key]!=null){
+                        MultiRows6[reload.Key].Reload(reload.Value);
+                    }else{
+                        MultiRows6[reload.Key] = reload.Value;
+                    }
                 }else
                 {
                     MultiRows6.Add(reload.Key,reload.Value);
                 }
             }
         }
-        //map
         if(MultiRows7==null)
         {
             MultiRows7 = reloadData.MultiRows7;

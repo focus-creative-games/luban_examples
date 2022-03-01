@@ -117,7 +117,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X9 = reloadData.X9;
         X10 = reloadData.X10;
-        //bean
         if(X12==null)
         {
             X12 = reloadData.X12;
@@ -125,7 +124,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         {
             if(X12.GetTypeId() == reloadData.X12.GetTypeId())
             {
-                //X12 not dynamic
                 X12.Reload(reloadData.X12);
             }else
             {
@@ -133,7 +131,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
             }
         }
         X13 = reloadData.X13;
-        //bean
         if(X14==null)
         {
             X14 = reloadData.X14;
@@ -141,7 +138,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         {
             if(X14.GetTypeId() == reloadData.X14.GetTypeId())
             {
-                //X14 is dynamic
                 switch (reloadData.X14.GetTypeId())
                 {
                     case test.DemoD2.__ID__:
@@ -167,7 +163,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         V3 = reloadData.V3;
         V4 = reloadData.V4;
         T1 = reloadData.T1;
-        //array
         if(K1==null)
         {
             K1 = reloadData.K1;
@@ -181,8 +176,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //list
         if(K2==null)
         {
             K2 = reloadData.K2;
@@ -194,7 +187,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                 K2[i] = reloadData.K2[i];
             }
         }
-        //set
         if(K5==null)
         {
             K5 = reloadData.K5;
@@ -215,7 +207,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(K8==null)
         {
             K8 = reloadData.K8;
@@ -239,7 +230,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                 }
             }
         }
-        //list
         if(K9==null)
         {
             K9 = reloadData.K9;
@@ -248,11 +238,15 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
             K9.Capacity = reloadData.K9.Count;
             for (int i = 0; i < reloadData.K9.Count; i++)
             {
-                K9[i].Reload(reloadData.K9[i]);
+                if(K9[i]!=null)
+                {
+                    K9[i].Reload(reloadData.K9[i]);
+                }else
+                {
+                    K9[i] = reloadData.K9[i];
+                }
             }
-
         }
-        //array
         if(K15==null)
         {
             K15 = reloadData.K15;
@@ -273,7 +267,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                 // array is_dynamic
                 for(int i = 0; i<reloadData.K15.Length; i++)
                 {
-                    if(K15[i].GetTypeId() == reloadData.K15[i].GetTypeId())
+                    if(K15[i]!=null && K15[i].GetTypeId() == reloadData.K15[i].GetTypeId())
                     {
                         switch (reloadData.K15[i].GetTypeId())
                         {
@@ -295,9 +289,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
                         K15[i] = reloadData.K15[i];
                     }
                 }
-
         }
-
     }
 
     public override string ToString()

@@ -48,7 +48,6 @@ public sealed partial class OneItems :  bonus.Bonus
 
     public void Reload(OneItems reloadData)
     {
-        //array
         if(Items==null)
         {
             Items = reloadData.Items;
@@ -62,7 +61,6 @@ public sealed partial class OneItems :  bonus.Bonus
                     }
                 }
         }
-
     }
 
     public override string ToString()

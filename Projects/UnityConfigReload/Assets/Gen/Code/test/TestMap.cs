@@ -55,7 +55,6 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
     public void Reload(TestMap reloadData)
     {
         Id = reloadData.Id;
-        //map
         if(X1==null)
         {
             X1 = reloadData.X1;
@@ -79,7 +78,6 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -103,7 +101,6 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -127,7 +124,6 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(X4==null)
         {
             X4 = reloadData.X4;

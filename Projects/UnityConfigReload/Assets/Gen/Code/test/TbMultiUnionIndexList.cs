@@ -59,10 +59,25 @@ public partial class TbMultiUnionIndexList
         }
     }
 
-    //TODO:
     public void Reload(ByteBuf _buf)
     {
-
+        var reloadDataList = new TbMultiUnionIndexList(_buf)._dataList;
+        _dataList.Capacity = reloadDataList.Count;
+        for (int i = 0; i<reloadDataList.Count; i++)
+        {
+            if(_dataList[i]!=null)
+            {
+                _dataList[i].Reload(reloadDataList[i]);
+            }else
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+        }
+        _dataMapUnion.Clear();
+        foreach(var _v in _dataList)
+        {
+            _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
+        }
     }
     
     partial void PostInit();

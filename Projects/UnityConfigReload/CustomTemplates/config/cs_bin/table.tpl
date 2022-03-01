@@ -122,12 +122,12 @@ public partial class {{name}}
     {{~for idx in x.index_list~}}
         _dataMap_{{idx.index_field.name}} = new Dictionary<{{cs_define_type idx.type}}, {{cs_define_type value_type}}>();
     {{~end~}}
-    foreach(var _v in _dataList)
-    {
-    {{~for idx in x.index_list~}}
-        _dataMap_{{idx.index_field.name}}.Add(_v.{{idx.index_field.convention_name}}, _v);
-    {{~end~}}
-    }
+        foreach(var _v in _dataList)
+        {
+        {{~for idx in x.index_list~}}
+            _dataMap_{{idx.index_field.name}}.Add(_v.{{idx.index_field.convention_name}}, _v);
+        {{~end~}}
+        }
     {{~end~}}
         PostInit();
     }
@@ -160,10 +160,61 @@ public partial class {{name}}
         }
     }
 
-    //TODO:
     public void Reload(ByteBuf _buf)
     {
-
+        var reloadDataList = new {{name}}(_buf)._dataList;
+        _dataList.Capacity = reloadDataList.Count;
+        {{~if value_type.type_name == "bean"~}}
+        for (int i = 0; i<reloadDataList.Count; i++)
+        {
+            {{~if value_type.is_dynamic~}}
+            if(_dataList[i]!=null && _dataList[i].GetTypeId() == reloadDataList[i].GetTypeId())
+            {
+                switch (reloadDataList[i].GetTypeId())
+                {
+                    {{~for child in value_type.bean.hierarchy_not_abstract_children~}}
+                    case {{child.full_name}}.__ID__:
+                        (_dataList[i] as {{child.full_name}}).Reload(reloadDataList[i] as {{child.full_name}});
+                        break;
+                    {{~end~}}
+                }
+            }else
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+            {{~else~}}
+            if(_dataList[i]!=null)
+            {
+                _dataList[i].Reload(reloadDataList[i]);
+            }else
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+            {{~end~}}
+        }
+        {{~else~}}
+            for (int i = 0; i<reloadDataList.Count; i++)
+            {
+                _dataList[i] = reloadDataList[i];
+            }
+        {{~end~}}
+        {{~if x.is_union_index~}}
+        _dataMapUnion.Clear();
+        foreach(var _v in _dataList)
+        {
+            _dataMapUnion.Add(({{cs_table_key_list x "_v"}}), _v);
+        }
+        {{~else if !x.index_list.empty?~}}
+            {{~for idx in x.index_list~}}
+        _dataMap_{{idx.index_field.name}}.Clear();
+        {{~end~}}
+        foreach (var _v in _dataList)
+        {
+            {{~for idx in x.index_list~}}
+        _dataMap_{{idx.index_field.name}}.Add(_v.{{idx.index_field.convention_name}}, _v);
+            {{~end~}}
+        }
+        {{~end~}}
     }
     {{~else~}}
 

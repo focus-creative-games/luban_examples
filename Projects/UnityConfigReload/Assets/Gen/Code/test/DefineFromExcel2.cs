@@ -91,7 +91,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X8 = reloadData.X8;
         X10 = reloadData.X10;
         X13 = reloadData.X13;
-        //bean
         if(X14==null)
         {
             X14 = reloadData.X14;
@@ -99,7 +98,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         {
             if(X14.GetTypeId() == reloadData.X14.GetTypeId())
             {
-                //X14 is dynamic
                 switch (reloadData.X14.GetTypeId())
                 {
                     case test.DemoD2.__ID__:
@@ -120,7 +118,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
                 typeof(DefineFromExcel2).GetProperty("X14").SetValue(this,reloadData.X14);
             }
         }
-        //bean
         if(X15==null)
         {
             X15 = reloadData.X15;
@@ -128,7 +125,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         {
             if(X15.GetTypeId() == reloadData.X15.GetTypeId())
             {
-                //X15 is dynamic
                 switch (reloadData.X15.GetTypeId())
                 {
                     case test.Circle.__ID__:
@@ -145,7 +141,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         }
         V2 = reloadData.V2;
         T1 = reloadData.T1;
-        //array
         if(K1==null)
         {
             K1 = reloadData.K1;
@@ -159,8 +154,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //array
         if(K2==null)
         {
             K2 = reloadData.K2;
@@ -174,8 +167,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //map
         if(K8==null)
         {
             K8 = reloadData.K8;
@@ -199,7 +190,6 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
                 }
             }
         }
-        //list
         if(K9==null)
         {
             K9 = reloadData.K9;
@@ -208,9 +198,14 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
             K9.Capacity = reloadData.K9.Count;
             for (int i = 0; i < reloadData.K9.Count; i++)
             {
-                K9[i].Reload(reloadData.K9[i]);
+                if(K9[i]!=null)
+                {
+                    K9[i].Reload(reloadData.K9[i]);
+                }else
+                {
+                    K9[i] = reloadData.K9[i];
+                }
             }
-
         }
     }
 

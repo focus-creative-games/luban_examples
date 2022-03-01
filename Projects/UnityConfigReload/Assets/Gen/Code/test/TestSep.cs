@@ -82,7 +82,6 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X1 = reloadData.X1;
-        //bean
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -90,14 +89,12 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
         {
             if(X2.GetTypeId() == reloadData.X2.GetTypeId())
             {
-                //X2 not dynamic
                 X2.Reload(reloadData.X2);
             }else
             {
                 typeof(TestSep).GetProperty("X2").SetValue(this,reloadData.X2);
             }
         }
-        //bean
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -105,14 +102,12 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
         {
             if(X3.GetTypeId() == reloadData.X3.GetTypeId())
             {
-                //X3 not dynamic
                 X3.Reload(reloadData.X3);
             }else
             {
                 typeof(TestSep).GetProperty("X3").SetValue(this,reloadData.X3);
             }
         }
-        //list
         if(X4==null)
         {
             X4 = reloadData.X4;
@@ -121,11 +116,15 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
             X4.Capacity = reloadData.X4.Count;
             for (int i = 0; i < reloadData.X4.Count; i++)
             {
-                X4[i].Reload(reloadData.X4[i]);
+                if(X4[i]!=null)
+                {
+                    X4[i].Reload(reloadData.X4[i]);
+                }else
+                {
+                    X4[i] = reloadData.X4[i];
+                }
             }
-
         }
-        //list
         if(X5==null)
         {
             X5 = reloadData.X5;
@@ -134,11 +133,15 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
             X5.Capacity = reloadData.X5.Count;
             for (int i = 0; i < reloadData.X5.Count; i++)
             {
-                X5[i].Reload(reloadData.X5[i]);
+                if(X5[i]!=null)
+                {
+                    X5[i].Reload(reloadData.X5[i]);
+                }else
+                {
+                    X5[i] = reloadData.X5[i];
+                }
             }
-
         }
-        //list
         if(X6==null)
         {
             X6 = reloadData.X6;
@@ -147,9 +150,14 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
             X6.Capacity = reloadData.X6.Count;
             for (int i = 0; i < reloadData.X6.Count; i++)
             {
-                X6[i].Reload(reloadData.X6[i]);
+                if(X6[i]!=null)
+                {
+                    X6[i].Reload(reloadData.X6[i]);
+                }else
+                {
+                    X6[i] = reloadData.X6[i];
+                }
             }
-
         }
     }
 

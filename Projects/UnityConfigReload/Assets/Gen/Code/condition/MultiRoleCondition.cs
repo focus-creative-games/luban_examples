@@ -47,7 +47,6 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public void Reload(MultiRoleCondition reloadData)
     {
-        //array
         if(Conditions==null)
         {
             Conditions = reloadData.Conditions;
@@ -68,7 +67,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
                 // array is_dynamic
                 for(int i = 0; i<reloadData.Conditions.Length; i++)
                 {
-                    if(Conditions[i].GetTypeId() == reloadData.Conditions[i].GetTypeId())
+                    if(Conditions[i]!=null && Conditions[i].GetTypeId() == reloadData.Conditions[i].GetTypeId())
                     {
                         switch (reloadData.Conditions[i].GetTypeId())
                         {
@@ -99,9 +98,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
                         Conditions[i] = reloadData.Conditions[i];
                     }
                 }
-
         }
-
     }
 
     public override string ToString()

@@ -47,7 +47,6 @@ public sealed partial class CostItems :  cost.Cost
 
     public void Reload(CostItems reloadData)
     {
-        //array
         if(ItemList==null)
         {
             ItemList = reloadData.ItemList;
@@ -67,11 +66,13 @@ public sealed partial class CostItems :  cost.Cost
             }
                 for(int i = 0; i<reloadData.ItemList.Length; i++)
                 {
-                    ItemList[i].Reload(reloadData.ItemList[i]);
+                    if(ItemList[i]!=null){
+                        ItemList[i].Reload(reloadData.ItemList[i]);
+                    }else{
+                        ItemList[i] = reloadData.ItemList[i];
+                    }
                 }
-
         }
-
     }
 
     public override string ToString()

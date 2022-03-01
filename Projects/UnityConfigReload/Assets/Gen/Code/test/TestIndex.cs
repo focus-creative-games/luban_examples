@@ -48,7 +48,6 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
     public void Reload(TestIndex reloadData)
     {
         Id = reloadData.Id;
-        //list
         if(Eles==null)
         {
             Eles = reloadData.Eles;
@@ -57,9 +56,14 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
             Eles.Capacity = reloadData.Eles.Count;
             for (int i = 0; i < reloadData.Eles.Count; i++)
             {
-                Eles[i].Reload(reloadData.Eles[i]);
+                if(Eles[i]!=null)
+                {
+                    Eles[i].Reload(reloadData.Eles[i]);
+                }else
+                {
+                    Eles[i] = reloadData.Eles[i];
+                }
             }
-
         }
     }
 

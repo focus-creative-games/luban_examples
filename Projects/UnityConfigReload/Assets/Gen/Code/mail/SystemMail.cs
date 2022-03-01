@@ -58,7 +58,6 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         Title = reloadData.Title;
         Sender = reloadData.Sender;
         Content = reloadData.Content;
-        //list
         if(Award==null)
         {
             Award = reloadData.Award;

@@ -52,7 +52,6 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
     public void Reload(TestSize reloadData)
     {
         Id = reloadData.Id;
-        //array
         if(X1==null)
         {
             X1 = reloadData.X1;
@@ -66,8 +65,6 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
                     }
                 }
         }
-
-        //list
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -79,7 +76,6 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
                 X2[i] = reloadData.X2[i];
             }
         }
-        //set
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -100,7 +96,6 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
                 }
             }
         }
-        //map
         if(X4==null)
         {
             X4 = reloadData.X4;

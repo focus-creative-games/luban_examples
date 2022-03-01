@@ -67,7 +67,6 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        //bean
         if(X1==null)
         {
             X1 = reloadData.X1;
@@ -75,14 +74,12 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         {
             if(X1.GetTypeId() == reloadData.X1.GetTypeId())
             {
-                //X1 not dynamic
                 X1.Reload(reloadData.X1);
             }else
             {
                 typeof(MultiRowTitle).GetProperty("X1").SetValue(this,reloadData.X1);
             }
         }
-        //bean
         if(X20==null)
         {
             X20 = reloadData.X20;
@@ -90,14 +87,12 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
         {
             if(X20.GetTypeId() == reloadData.X20.GetTypeId())
             {
-                //X20 not dynamic
                 X20.Reload(reloadData.X20);
             }else
             {
                 typeof(MultiRowTitle).GetProperty("X20").SetValue(this,reloadData.X20);
             }
         }
-        //list
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -106,11 +101,15 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
             X2.Capacity = reloadData.X2.Count;
             for (int i = 0; i < reloadData.X2.Count; i++)
             {
-                X2[i].Reload(reloadData.X2[i]);
+                if(X2[i]!=null)
+                {
+                    X2[i].Reload(reloadData.X2[i]);
+                }else
+                {
+                    X2[i] = reloadData.X2[i];
+                }
             }
-
         }
-        //array
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -130,12 +129,13 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
             }
                 for(int i = 0; i<reloadData.X3.Length; i++)
                 {
-                    X3[i].Reload(reloadData.X3[i]);
+                    if(X3[i]!=null){
+                        X3[i].Reload(reloadData.X3[i]);
+                    }else{
+                        X3[i] = reloadData.X3[i];
+                    }
                 }
-
         }
-
-        //array
         if(X4==null)
         {
             X4 = reloadData.X4;
@@ -155,11 +155,13 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
             }
                 for(int i = 0; i<reloadData.X4.Length; i++)
                 {
-                    X4[i].Reload(reloadData.X4[i]);
+                    if(X4[i]!=null){
+                        X4[i].Reload(reloadData.X4[i]);
+                    }else{
+                        X4[i] = reloadData.X4[i];
+                    }
                 }
-
         }
-
     }
 
     public override string ToString()

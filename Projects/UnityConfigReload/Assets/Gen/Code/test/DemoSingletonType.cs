@@ -54,7 +54,6 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         Name = reloadData.Name;
-        //bean
         if(Date==null)
         {
             Date = reloadData.Date;
@@ -62,7 +61,6 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
         {
             if(Date.GetTypeId() == reloadData.Date.GetTypeId())
             {
-                //Date is dynamic
                 switch (reloadData.Date.GetTypeId())
                 {
                     case test.DemoD2.__ID__:

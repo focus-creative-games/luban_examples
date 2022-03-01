@@ -47,7 +47,6 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
 
     public void Reload(ProbabilityBonus reloadData)
     {
-        //array
         if(Bonuses==null)
         {
             Bonuses = reloadData.Bonuses;
@@ -67,11 +66,13 @@ public sealed partial class ProbabilityBonus :  bonus.Bonus
             }
                 for(int i = 0; i<reloadData.Bonuses.Length; i++)
                 {
-                    Bonuses[i].Reload(reloadData.Bonuses[i]);
+                    if(Bonuses[i]!=null){
+                        Bonuses[i].Reload(reloadData.Bonuses[i]);
+                    }else{
+                        Bonuses[i] = reloadData.Bonuses[i];
+                    }
                 }
-
         }
-
     }
 
     public override string ToString()

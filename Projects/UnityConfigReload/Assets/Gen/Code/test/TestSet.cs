@@ -55,7 +55,6 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
     {
         Id = reloadData.Id;
         X0 = reloadData.X0;
-        //list
         if(X1==null)
         {
             X1 = reloadData.X1;
@@ -67,7 +66,6 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
                 X1[i] = reloadData.X1[i];
             }
         }
-        //list
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -79,7 +77,6 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
                 X2[i] = reloadData.X2[i];
             }
         }
-        //list
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -91,7 +88,6 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
                 X3[i] = reloadData.X3[i];
             }
         }
-        //list
         if(X4==null)
         {
             X4 = reloadData.X4;

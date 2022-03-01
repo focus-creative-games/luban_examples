@@ -57,7 +57,6 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         Name = reloadData.Name;
         Desc = reloadData.Desc;
         ParentName = reloadData.ParentName;
-        //list
         if(Keys==null)
         {
             Keys = reloadData.Keys;
@@ -66,9 +65,14 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
             Keys.Capacity = reloadData.Keys.Count;
             for (int i = 0; i < reloadData.Keys.Count; i++)
             {
-                Keys[i].Reload(reloadData.Keys[i]);
+                if(Keys[i]!=null)
+                {
+                    Keys[i].Reload(reloadData.Keys[i]);
+                }else
+                {
+                    Keys[i] = reloadData.Keys[i];
+                }
             }
-
         }
     }
 

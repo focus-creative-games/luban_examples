@@ -65,7 +65,6 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         Id = reloadData.Id;
         X1 = reloadData.X1;
         X2 = reloadData.X2;
-        //bean
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -73,14 +72,12 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         {
             if(X3.GetTypeId() == reloadData.X3.GetTypeId())
             {
-                //X3 not dynamic
                 X3.Reload(reloadData.X3);
             }else
             {
                 typeof(TestNull).GetProperty("X3").SetValue(this,reloadData.X3);
             }
         }
-        //bean
         if(X4==null)
         {
             X4 = reloadData.X4;
@@ -88,7 +85,6 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         {
             if(X4.GetTypeId() == reloadData.X4.GetTypeId())
             {
-                //X4 is dynamic
                 switch (reloadData.X4.GetTypeId())
                 {
                     case test.DemoD2.__ID__:

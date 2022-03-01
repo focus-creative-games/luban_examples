@@ -49,7 +49,6 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     {
         Level = reloadData.Level;
         NeedExp = reloadData.NeedExp;
-        //list
         if(ClothesAttrs==null)
         {
             ClothesAttrs = reloadData.ClothesAttrs;

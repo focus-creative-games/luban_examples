@@ -51,7 +51,6 @@ public sealed partial class NormalClazz :  blueprint.Clazz
     {
         Name = reloadData.Name;
         Desc = reloadData.Desc;
-        //list
         if(Parents==null)
         {
             Parents = reloadData.Parents;
@@ -60,8 +59,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
             Parents.Capacity = reloadData.Parents.Count;
             for (int i = 0; i < reloadData.Parents.Count; i++)
             {
-                //list is_dynamic
-                if(Parents[i].GetTypeId() == reloadData.Parents[i].GetTypeId())
+                if(Parents[i]!=null && Parents[i].GetTypeId() == reloadData.Parents[i].GetTypeId())
                 {
                     switch (reloadData.Parents[i].GetTypeId())
                     {
@@ -80,9 +78,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
                     Parents[i] = reloadData.Parents[i];
                 }
             }
-
         }
-        //list
         if(Methods==null)
         {
             Methods = reloadData.Methods;
@@ -91,8 +87,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
             Methods.Capacity = reloadData.Methods.Count;
             for (int i = 0; i < reloadData.Methods.Count; i++)
             {
-                //list is_dynamic
-                if(Methods[i].GetTypeId() == reloadData.Methods[i].GetTypeId())
+                if(Methods[i]!=null && Methods[i].GetTypeId() == reloadData.Methods[i].GetTypeId())
                 {
                     switch (reloadData.Methods[i].GetTypeId())
                     {
@@ -111,10 +106,8 @@ public sealed partial class NormalClazz :  blueprint.Clazz
                     Methods[i] = reloadData.Methods[i];
                 }
             }
-
         }
         IsAbstract = reloadData.IsAbstract;
-        //list
         if(Fields==null)
         {
             Fields = reloadData.Fields;
@@ -123,9 +116,14 @@ public sealed partial class NormalClazz :  blueprint.Clazz
             Fields.Capacity = reloadData.Fields.Count;
             for (int i = 0; i < reloadData.Fields.Count; i++)
             {
-                Fields[i].Reload(reloadData.Fields[i]);
+                if(Fields[i]!=null)
+                {
+                    Fields[i].Reload(reloadData.Fields[i]);
+                }else
+                {
+                    Fields[i] = reloadData.Fields[i];
+                }
             }
-
         }
     }
 

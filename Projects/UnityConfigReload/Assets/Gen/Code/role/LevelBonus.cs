@@ -48,7 +48,6 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     public void Reload(LevelBonus reloadData)
     {
         Id = reloadData.Id;
-        //list
         if(DistinctBonusInfos==null)
         {
             DistinctBonusInfos = reloadData.DistinctBonusInfos;
@@ -57,9 +56,14 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
             DistinctBonusInfos.Capacity = reloadData.DistinctBonusInfos.Count;
             for (int i = 0; i < reloadData.DistinctBonusInfos.Count; i++)
             {
-                DistinctBonusInfos[i].Reload(reloadData.DistinctBonusInfos[i]);
+                if(DistinctBonusInfos[i]!=null)
+                {
+                    DistinctBonusInfos[i].Reload(reloadData.DistinctBonusInfos[i]);
+                }else
+                {
+                    DistinctBonusInfos[i] = reloadData.DistinctBonusInfos[i];
+                }
             }
-
         }
     }
 

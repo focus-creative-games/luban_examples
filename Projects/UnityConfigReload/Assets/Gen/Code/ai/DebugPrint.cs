@@ -47,7 +47,6 @@ public sealed partial class DebugPrint :  ai.Task
     {
         Id = reloadData.Id;
         NodeName = reloadData.NodeName;
-        //list
         if(Decorators==null)
         {
             Decorators = reloadData.Decorators;
@@ -56,8 +55,7 @@ public sealed partial class DebugPrint :  ai.Task
             Decorators.Capacity = reloadData.Decorators.Count;
             for (int i = 0; i < reloadData.Decorators.Count; i++)
             {
-                //list is_dynamic
-                if(Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
+                if(Decorators[i]!=null && Decorators[i].GetTypeId() == reloadData.Decorators[i].GetTypeId())
                 {
                     switch (reloadData.Decorators[i].GetTypeId())
                     {
@@ -88,9 +86,7 @@ public sealed partial class DebugPrint :  ai.Task
                     Decorators[i] = reloadData.Decorators[i];
                 }
             }
-
         }
-        //list
         if(Services==null)
         {
             Services = reloadData.Services;
@@ -99,8 +95,7 @@ public sealed partial class DebugPrint :  ai.Task
             Services.Capacity = reloadData.Services.Count;
             for (int i = 0; i < reloadData.Services.Count; i++)
             {
-                //list is_dynamic
-                if(Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
+                if(Services[i]!=null && Services[i].GetTypeId() == reloadData.Services[i].GetTypeId())
                 {
                     switch (reloadData.Services[i].GetTypeId())
                     {
@@ -128,7 +123,6 @@ public sealed partial class DebugPrint :  ai.Task
                     Services[i] = reloadData.Services[i];
                 }
             }
-
         }
         IgnoreRestartSelf = reloadData.IgnoreRestartSelf;
         Text = reloadData.Text;

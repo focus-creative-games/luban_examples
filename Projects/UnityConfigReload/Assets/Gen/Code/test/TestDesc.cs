@@ -77,7 +77,6 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
         Name = reloadData.Name;
         A1 = reloadData.A1;
         A2 = reloadData.A2;
-        //bean
         if(X1==null)
         {
             X1 = reloadData.X1;
@@ -85,14 +84,12 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
         {
             if(X1.GetTypeId() == reloadData.X1.GetTypeId())
             {
-                //X1 not dynamic
                 X1.Reload(reloadData.X1);
             }else
             {
                 typeof(TestDesc).GetProperty("X1").SetValue(this,reloadData.X1);
             }
         }
-        //list
         if(X2==null)
         {
             X2 = reloadData.X2;
@@ -101,11 +98,15 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
             X2.Capacity = reloadData.X2.Count;
             for (int i = 0; i < reloadData.X2.Count; i++)
             {
-                X2[i].Reload(reloadData.X2[i]);
+                if(X2[i]!=null)
+                {
+                    X2[i].Reload(reloadData.X2[i]);
+                }else
+                {
+                    X2[i] = reloadData.X2[i];
+                }
             }
-
         }
-        //array
         if(X3==null)
         {
             X3 = reloadData.X3;
@@ -125,11 +126,13 @@ public sealed partial class TestDesc :  Bright.Config.BeanBase
             }
                 for(int i = 0; i<reloadData.X3.Length; i++)
                 {
-                    X3[i].Reload(reloadData.X3[i]);
+                    if(X3[i]!=null){
+                        X3[i].Reload(reloadData.X3[i]);
+                    }else{
+                        X3[i] = reloadData.X3[i];
+                    }
                 }
-
         }
-
     }
 
     public override string ToString()
