@@ -51,7 +51,8 @@ public sealed partial class TestExternalType :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.TestExternalType";
         {
             _json["id"] = new JSONNumber(Id);
         }

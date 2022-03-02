@@ -22,7 +22,6 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["min"];
             if (_fieldJson != null)
@@ -42,8 +41,8 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "condition.MinMaxLevel";
         {
             _json["min"] = new JSONNumber(Min);
         }

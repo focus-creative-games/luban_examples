@@ -22,7 +22,6 @@ public sealed partial class CostOneItem :  cost.Cost
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["item_id"];
             if (_fieldJson != null)
@@ -34,8 +33,8 @@ public sealed partial class CostOneItem :  cost.Cost
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "cost.CostOneItem";
         {
             _json["item_id"] = new JSONNumber(ItemId);
         }

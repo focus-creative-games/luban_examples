@@ -20,13 +20,6 @@ public abstract partial class KeyData :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static KeyData LoadJsonKeyData(SimpleJSON.JSONNode _json)
     {
@@ -34,10 +27,14 @@ public abstract partial class KeyData :  Bright.Config.EditorBeanBase
         KeyData obj;
         switch (type)
         {
-            case "FloatKeyData": obj = new ai.FloatKeyData(); break;
-            case "IntKeyData": obj = new ai.IntKeyData(); break;
-            case "StringKeyData": obj = new ai.StringKeyData(); break;
-            case "BlackboardKeyData": obj = new ai.BlackboardKeyData(); break;
+            case "ai.FloatKeyData":   
+            case "FloatKeyData":obj = new ai.FloatKeyData(); break;
+            case "ai.IntKeyData":   
+            case "IntKeyData":obj = new ai.IntKeyData(); break;
+            case "ai.StringKeyData":   
+            case "StringKeyData":obj = new ai.StringKeyData(); break;
+            case "ai.BlackboardKeyData":   
+            case "BlackboardKeyData":obj = new ai.BlackboardKeyData(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

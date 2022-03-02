@@ -41,7 +41,8 @@ public sealed partial class IntRange :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "common.IntRange";
         {
             _json["min"] = new JSONNumber(Min);
         }

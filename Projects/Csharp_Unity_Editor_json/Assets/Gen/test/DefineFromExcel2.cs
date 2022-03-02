@@ -152,7 +152,7 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
         {
             _json["id"] = new JSONNumber(Id);
         }

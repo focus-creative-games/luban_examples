@@ -41,7 +41,8 @@ public sealed partial class ShowItemInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "bonus.ShowItemInfo";
         {
             _json["item_id"] = new JSONNumber(ItemId);
         }

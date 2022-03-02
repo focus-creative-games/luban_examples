@@ -57,7 +57,8 @@ public sealed partial class Color :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.Color";
         {
             _json["r"] = new JSONNumber(R);
         }

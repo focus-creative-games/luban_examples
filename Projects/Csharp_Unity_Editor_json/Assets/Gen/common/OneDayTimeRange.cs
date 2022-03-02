@@ -43,7 +43,8 @@ public sealed partial class OneDayTimeRange :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "common.OneDayTimeRange";
         {
 
             if (StartTime == null) { throw new System.ArgumentNullException(); }

@@ -22,41 +22,6 @@ public abstract partial class FlowNode :  ai.Node
             Services = new System.Collections.Generic.List<ai.Service>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-        { 
-            var _fieldJson = _json["decorators"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } Decorators = new System.Collections.Generic.List<ai.Decorator>(); foreach(JSONNode __e in _fieldJson.Children) { ai.Decorator __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Decorator.LoadJsonDecorator(__e);  Decorators.Add(__v); }  
-            }
-        }
-        
-        { 
-            var _fieldJson = _json["services"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } Services = new System.Collections.Generic.List<ai.Service>(); foreach(JSONNode __e in _fieldJson.Children) { ai.Service __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Service.LoadJsonService(__e);  Services.Add(__v); }  
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-        {
-
-            if (Decorators == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in Decorators) { { var __bjson = new JSONObject();  ai.Decorator.SaveJsonDecorator(_e, __bjson); __cjson["null"] = __bjson; } } _json["decorators"] = __cjson; }
-        }
-        {
-
-            if (Services == null) { throw new System.ArgumentNullException(); }
-            { var __cjson = new JSONArray(); foreach(var _e in Services) { { var __bjson = new JSONObject();  ai.Service.SaveJsonService(_e, __bjson); __cjson["null"] = __bjson; } } _json["services"] = __cjson; }
-        }
-    }
 
     public static FlowNode LoadJsonFlowNode(SimpleJSON.JSONNode _json)
     {
@@ -64,16 +29,26 @@ public abstract partial class FlowNode :  ai.Node
         FlowNode obj;
         switch (type)
         {
-            case "Sequence": obj = new ai.Sequence(); break;
-            case "Selector": obj = new ai.Selector(); break;
-            case "SimpleParallel": obj = new ai.SimpleParallel(); break;
-            case "UeWait": obj = new ai.UeWait(); break;
-            case "UeWaitBlackboardTime": obj = new ai.UeWaitBlackboardTime(); break;
-            case "MoveToTarget": obj = new ai.MoveToTarget(); break;
-            case "ChooseSkill": obj = new ai.ChooseSkill(); break;
-            case "MoveToRandomLocation": obj = new ai.MoveToRandomLocation(); break;
-            case "MoveToLocation": obj = new ai.MoveToLocation(); break;
-            case "DebugPrint": obj = new ai.DebugPrint(); break;
+            case "ai.Sequence":   
+            case "Sequence":obj = new ai.Sequence(); break;
+            case "ai.Selector":   
+            case "Selector":obj = new ai.Selector(); break;
+            case "ai.SimpleParallel":   
+            case "SimpleParallel":obj = new ai.SimpleParallel(); break;
+            case "ai.UeWait":   
+            case "UeWait":obj = new ai.UeWait(); break;
+            case "ai.UeWaitBlackboardTime":   
+            case "UeWaitBlackboardTime":obj = new ai.UeWaitBlackboardTime(); break;
+            case "ai.MoveToTarget":   
+            case "MoveToTarget":obj = new ai.MoveToTarget(); break;
+            case "ai.ChooseSkill":   
+            case "ChooseSkill":obj = new ai.ChooseSkill(); break;
+            case "ai.MoveToRandomLocation":   
+            case "MoveToRandomLocation":obj = new ai.MoveToRandomLocation(); break;
+            case "ai.MoveToLocation":   
+            case "MoveToLocation":obj = new ai.MoveToLocation(); break;
+            case "ai.DebugPrint":   
+            case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

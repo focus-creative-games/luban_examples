@@ -132,7 +132,8 @@ public sealed partial class DemoPrimitiveTypesTable :  Bright.Config.EditorBeanB
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.DemoPrimitiveTypesTable";
         {
             _json["x1"] = new JSONBool(X1);
         }

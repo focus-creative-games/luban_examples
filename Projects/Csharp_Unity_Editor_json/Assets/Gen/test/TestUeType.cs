@@ -178,7 +178,8 @@ public sealed partial class TestUeType :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.TestUeType";
         {
             _json["x1"] = new JSONBool(X1);
         }

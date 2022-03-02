@@ -22,12 +22,63 @@ public sealed partial class Interface :  blueprint.Clazz
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Name = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["desc"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Desc = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["parents"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } Parents = new System.Collections.Generic.List<blueprint.Clazz>(); foreach(JSONNode __e in _fieldJson.Children) { blueprint.Clazz __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.Clazz.LoadJsonClazz(__e);  Parents.Add(__v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["methods"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } Methods = new System.Collections.Generic.List<blueprint.Method>(); foreach(JSONNode __e in _fieldJson.Children) { blueprint.Method __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.Method.LoadJsonMethod(__e);  Methods.Add(__v); }  
+            }
+        }
+        
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "blueprint.Interface";
+        {
+
+            if (Name == null) { throw new System.ArgumentNullException(); }
+            _json["name"] = new JSONString(Name);
+        }
+        {
+
+            if (Desc == null) { throw new System.ArgumentNullException(); }
+            _json["desc"] = new JSONString(Desc);
+        }
+        {
+
+            if (Parents == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in Parents) { { var __bjson = new JSONObject();  blueprint.Clazz.SaveJsonClazz(_e, __bjson); __cjson["null"] = __bjson; } } _json["parents"] = __cjson; }
+        }
+        {
+
+            if (Methods == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in Methods) { { var __bjson = new JSONObject();  blueprint.Method.SaveJsonMethod(_e, __bjson); __cjson["null"] = __bjson; } } _json["methods"] = __cjson; }
+        }
     }
 
     public static Interface LoadJsonInterface(SimpleJSON.JSONNode _json)

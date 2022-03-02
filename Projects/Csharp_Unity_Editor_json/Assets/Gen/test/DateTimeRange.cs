@@ -43,7 +43,8 @@ public sealed partial class DateTimeRange :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.DateTimeRange";
         {
             _json["start_time"] = new JSONString(StartTime);
         }

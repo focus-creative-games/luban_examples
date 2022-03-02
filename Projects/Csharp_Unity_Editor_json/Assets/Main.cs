@@ -40,15 +40,24 @@ public class Main : MonoBehaviour
             K15 = new DemoDynamic[] { new DemoD2 { X1 = 11, X2 = 22 }, new DemoE1 { X1 = 12, X3 = 32, X4 = 5 } },
         };
 
-        string fileA = Application.dataPath + "/../a.json";
-        string fileB = Application.dataPath + "/../b.json";
-        t.SaveJsonFile(fileA);
+        string fileA1 = Application.dataPath + "/../a1.json";
+        string fileA2 = Application.dataPath + "/../a2.json";
+        t.SaveJsonFile(fileA1);
 
         var t2 = new DemoType2();
-        t2.LoadJsonFile(fileA);
-        t2.SaveJsonFile(fileB);
+        t2.LoadJsonFile(fileA1);
+        t2.SaveJsonFile(fileA2);
 
-        Debug.Assert(File.ReadAllText(fileA, System.Text.Encoding.UTF8) == File.ReadAllText(fileB, System.Text.Encoding.UTF8));
+        Debug.Assert(File.ReadAllText(fileA1, System.Text.Encoding.UTF8) == File.ReadAllText(fileA2, System.Text.Encoding.UTF8));
+
+
+        string fileD1 = Application.dataPath + "/../d1.json";
+        string fileD2 = Application.dataPath + "/../d2.json";
+
+        var d = new DemoD2();
+        d.LoadJsonFile(fileD1);
+        d.SaveJsonFile(fileD2);
+
     }
 
     // Update is called once per frame

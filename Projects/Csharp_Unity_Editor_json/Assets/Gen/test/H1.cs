@@ -42,7 +42,8 @@ public sealed partial class H1 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.H1";
         {
 
             if (Y2 == null) { throw new System.ArgumentNullException(); }

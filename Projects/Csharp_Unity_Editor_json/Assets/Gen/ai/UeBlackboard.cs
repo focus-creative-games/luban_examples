@@ -24,7 +24,30 @@ public sealed partial class UeBlackboard :  ai.Decorator
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["node_name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  NodeName = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["flow_abort_mode"];
+            if (_fieldJson != null)
+            {
+                if(_fieldJson.IsString) { FlowAbortMode = (ai.EFlowAbortMode)System.Enum.Parse(typeof(ai.EFlowAbortMode), _fieldJson); } else if(_fieldJson.IsNumber) { FlowAbortMode = (ai.EFlowAbortMode)(int)_fieldJson; } else { throw new SerializationException(); }  
+            }
+        }
+        
         { 
             var _fieldJson = _json["notify_observer"];
             if (_fieldJson != null)
@@ -52,8 +75,19 @@ public sealed partial class UeBlackboard :  ai.Decorator
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.UeBlackboard";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
+        {
+
+            if (NodeName == null) { throw new System.ArgumentNullException(); }
+            _json["node_name"] = new JSONString(NodeName);
+        }
+        {
+            _json["flow_abort_mode"] = new JSONNumber((int)FlowAbortMode);
+        }
         {
             _json["notify_observer"] = new JSONNumber((int)NotifyObserver);
         }

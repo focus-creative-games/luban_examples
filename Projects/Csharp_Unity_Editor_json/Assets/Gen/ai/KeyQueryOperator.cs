@@ -20,13 +20,6 @@ public abstract partial class KeyQueryOperator :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static KeyQueryOperator LoadJsonKeyQueryOperator(SimpleJSON.JSONNode _json)
     {
@@ -34,9 +27,12 @@ public abstract partial class KeyQueryOperator :  Bright.Config.EditorBeanBase
         KeyQueryOperator obj;
         switch (type)
         {
-            case "IsSet": obj = new ai.IsSet(); break;
-            case "IsNotSet": obj = new ai.IsNotSet(); break;
-            case "BinaryOperator": obj = new ai.BinaryOperator(); break;
+            case "ai.IsSet":   
+            case "IsSet":obj = new ai.IsSet(); break;
+            case "ai.IsNotSet":   
+            case "IsNotSet":obj = new ai.IsNotSet(); break;
+            case "ai.BinaryOperator":   
+            case "BinaryOperator":obj = new ai.BinaryOperator(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

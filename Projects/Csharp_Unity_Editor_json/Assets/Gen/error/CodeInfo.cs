@@ -43,7 +43,8 @@ public sealed partial class CodeInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "error.CodeInfo";
         {
             _json["code"] = new JSONNumber((int)Code);
         }

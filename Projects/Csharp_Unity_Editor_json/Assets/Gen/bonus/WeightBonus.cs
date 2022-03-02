@@ -23,7 +23,6 @@ public sealed partial class WeightBonus :  bonus.Bonus
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["bonuses"];
             if (_fieldJson != null)
@@ -35,8 +34,8 @@ public sealed partial class WeightBonus :  bonus.Bonus
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "bonus.WeightBonus";
         {
 
             if (Bonuses == null) { throw new System.ArgumentNullException(); }

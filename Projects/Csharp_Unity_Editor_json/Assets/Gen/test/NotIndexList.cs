@@ -41,7 +41,8 @@ public sealed partial class NotIndexList :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.NotIndexList";
         {
             _json["x"] = new JSONNumber(X);
         }

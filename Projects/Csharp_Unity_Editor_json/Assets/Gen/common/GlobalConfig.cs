@@ -193,7 +193,8 @@ public sealed partial class GlobalConfig :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "common.GlobalConfig";
         {
             _json["bag_capacity"] = new JSONNumber(BagCapacity);
         }

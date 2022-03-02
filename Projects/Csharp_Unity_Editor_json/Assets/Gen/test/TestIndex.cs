@@ -42,7 +42,8 @@ public sealed partial class TestIndex :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.TestIndex";
         {
             _json["id"] = new JSONNumber(Id);
         }

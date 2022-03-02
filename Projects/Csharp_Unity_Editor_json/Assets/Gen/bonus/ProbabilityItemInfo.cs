@@ -49,7 +49,8 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "bonus.ProbabilityItemInfo";
         {
             _json["item_id"] = new JSONNumber(ItemId);
         }

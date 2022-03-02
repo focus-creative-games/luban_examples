@@ -23,7 +23,14 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["learn_component_id"];
             if (_fieldJson != null)
@@ -35,8 +42,11 @@ public sealed partial class DesignDrawing :  item.ItemExtra
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "item.DesignDrawing";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
         {
 
             if (LearnComponentId == null) { throw new System.ArgumentNullException(); }

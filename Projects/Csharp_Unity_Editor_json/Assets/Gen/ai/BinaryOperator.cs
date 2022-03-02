@@ -23,7 +23,6 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["oper"];
             if (_fieldJson != null)
@@ -43,8 +42,8 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.BinaryOperator";
         {
             _json["oper"] = new JSONNumber((int)Oper);
         }

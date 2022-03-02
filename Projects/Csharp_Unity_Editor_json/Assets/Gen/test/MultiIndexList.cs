@@ -67,7 +67,8 @@ public sealed partial class MultiIndexList :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.MultiIndexList";
         {
             _json["id1"] = new JSONNumber(Id1);
         }

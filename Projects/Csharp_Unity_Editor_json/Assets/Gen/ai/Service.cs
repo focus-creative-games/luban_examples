@@ -20,15 +20,6 @@ public abstract partial class Service :  ai.Node
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-    }
 
     public static Service LoadJsonService(SimpleJSON.JSONNode _json)
     {
@@ -36,12 +27,18 @@ public abstract partial class Service :  ai.Node
         Service obj;
         switch (type)
         {
-            case "UeSetDefaultFocus": obj = new ai.UeSetDefaultFocus(); break;
-            case "ExecuteTimeStatistic": obj = new ai.ExecuteTimeStatistic(); break;
-            case "ChooseTarget": obj = new ai.ChooseTarget(); break;
-            case "KeepFaceTarget": obj = new ai.KeepFaceTarget(); break;
-            case "GetOwnerPlayer": obj = new ai.GetOwnerPlayer(); break;
-            case "UpdateDailyBehaviorProps": obj = new ai.UpdateDailyBehaviorProps(); break;
+            case "ai.UeSetDefaultFocus":   
+            case "UeSetDefaultFocus":obj = new ai.UeSetDefaultFocus(); break;
+            case "ai.ExecuteTimeStatistic":   
+            case "ExecuteTimeStatistic":obj = new ai.ExecuteTimeStatistic(); break;
+            case "ai.ChooseTarget":   
+            case "ChooseTarget":obj = new ai.ChooseTarget(); break;
+            case "ai.KeepFaceTarget":   
+            case "KeepFaceTarget":obj = new ai.KeepFaceTarget(); break;
+            case "ai.GetOwnerPlayer":   
+            case "GetOwnerPlayer":obj = new ai.GetOwnerPlayer(); break;
+            case "ai.UpdateDailyBehaviorProps":   
+            case "UpdateDailyBehaviorProps":obj = new ai.UpdateDailyBehaviorProps(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

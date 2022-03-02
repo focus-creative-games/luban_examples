@@ -20,24 +20,6 @@ public abstract partial class DemoDynamic :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        { 
-            var _fieldJson = _json["x1"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  X1 = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        {
-            _json["x1"] = new JSONNumber(X1);
-        }
-    }
 
     public static DemoDynamic LoadJsonDemoDynamic(SimpleJSON.JSONNode _json)
     {
@@ -45,10 +27,13 @@ public abstract partial class DemoDynamic :  Bright.Config.EditorBeanBase
         DemoDynamic obj;
         switch (type)
         {
-            case "DemoD2": obj = new test.DemoD2(); break;
-            case "DemoE1": obj = new test.DemoE1(); break;
-            case "test.login.RoleInfo": obj = new test.login.RoleInfo(); break;
-            case "DemoD5": obj = new test.DemoD5(); break;
+            case "test.DemoD2":   
+            case "DemoD2":obj = new test.DemoD2(); break;
+            case "test.DemoE1":   
+            case "DemoE1":obj = new test.DemoE1(); break;
+            case "test.login.RoleInfo":obj = new test.login.RoleInfo(); break;
+            case "test.DemoD5":   
+            case "DemoD5":obj = new test.DemoD5(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

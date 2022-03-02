@@ -42,7 +42,8 @@ public sealed partial class EnumField :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "blueprint.EnumField";
         {
 
             if (Name == null) { throw new System.ArgumentNullException(); }

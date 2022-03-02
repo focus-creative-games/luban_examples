@@ -22,7 +22,14 @@ public sealed partial class Clothes :  item.ItemExtra
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["attack"];
             if (_fieldJson != null)
@@ -58,8 +65,11 @@ public sealed partial class Clothes :  item.ItemExtra
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "item.Clothes";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
         {
             _json["attack"] = new JSONNumber(Attack);
         }

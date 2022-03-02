@@ -23,7 +23,6 @@ public sealed partial class CoefficientItem :  bonus.Bonus
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["bonus_id"];
             if (_fieldJson != null)
@@ -43,8 +42,8 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "bonus.CoefficientItem";
         {
             _json["bonus_id"] = new JSONNumber(BonusId);
         }

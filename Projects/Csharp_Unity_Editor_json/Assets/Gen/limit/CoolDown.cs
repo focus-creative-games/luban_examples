@@ -22,7 +22,6 @@ public sealed partial class CoolDown :  limit.LimitBase
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["duration"];
             if (_fieldJson != null)
@@ -34,8 +33,8 @@ public sealed partial class CoolDown :  limit.LimitBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "limit.CoolDown";
         {
             _json["duration"] = new JSONNumber(Duration);
         }

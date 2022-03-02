@@ -22,7 +22,22 @@ public sealed partial class RoleInfo :  test.DemoD3
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["x1"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  X1 = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["x3"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  X3 = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["role_id"];
             if (_fieldJson != null)
@@ -34,8 +49,14 @@ public sealed partial class RoleInfo :  test.DemoD3
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "test.login.RoleInfo";
+        {
+            _json["x1"] = new JSONNumber(X1);
+        }
+        {
+            _json["x3"] = new JSONNumber(X3);
+        }
         {
             _json["role_id"] = new JSONNumber(RoleId);
         }

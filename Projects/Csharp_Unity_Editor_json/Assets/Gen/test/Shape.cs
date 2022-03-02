@@ -20,13 +20,6 @@ public abstract partial class Shape :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static Shape LoadJsonShape(SimpleJSON.JSONNode _json)
     {
@@ -34,8 +27,9 @@ public abstract partial class Shape :  Bright.Config.EditorBeanBase
         Shape obj;
         switch (type)
         {
-            case "Circle": obj = new test.Circle(); break;
-            case "test2.Rectangle": obj = new test2.Rectangle(); break;
+            case "test.Circle":   
+            case "Circle":obj = new test.Circle(); break;
+            case "test2.Rectangle":obj = new test2.Rectangle(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

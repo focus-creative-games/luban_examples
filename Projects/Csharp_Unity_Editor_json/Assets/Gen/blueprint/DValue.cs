@@ -20,13 +20,6 @@ public abstract partial class DValue :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static DValue LoadJsonDValue(SimpleJSON.JSONNode _json)
     {
@@ -34,13 +27,20 @@ public abstract partial class DValue :  Bright.Config.EditorBeanBase
         DValue obj;
         switch (type)
         {
-            case "DBool": obj = new blueprint.DBool(); break;
-            case "DInt": obj = new blueprint.DInt(); break;
-            case "DLong": obj = new blueprint.DLong(); break;
-            case "DDouble": obj = new blueprint.DDouble(); break;
-            case "DString": obj = new blueprint.DString(); break;
-            case "DObject": obj = new blueprint.DObject(); break;
-            case "DArray": obj = new blueprint.DArray(); break;
+            case "blueprint.DBool":   
+            case "DBool":obj = new blueprint.DBool(); break;
+            case "blueprint.DInt":   
+            case "DInt":obj = new blueprint.DInt(); break;
+            case "blueprint.DLong":   
+            case "DLong":obj = new blueprint.DLong(); break;
+            case "blueprint.DDouble":   
+            case "DDouble":obj = new blueprint.DDouble(); break;
+            case "blueprint.DString":   
+            case "DString":obj = new blueprint.DString(); break;
+            case "blueprint.DObject":   
+            case "DObject":obj = new blueprint.DObject(); break;
+            case "blueprint.DArray":   
+            case "DArray":obj = new blueprint.DArray(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

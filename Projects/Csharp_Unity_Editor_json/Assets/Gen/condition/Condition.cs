@@ -20,13 +20,6 @@ public abstract partial class Condition :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static Condition LoadJsonCondition(SimpleJSON.JSONNode _json)
     {
@@ -34,14 +27,22 @@ public abstract partial class Condition :  Bright.Config.EditorBeanBase
         Condition obj;
         switch (type)
         {
-            case "TimeRange": obj = new condition.TimeRange(); break;
-            case "MultiRoleCondition": obj = new condition.MultiRoleCondition(); break;
-            case "GenderLimit": obj = new condition.GenderLimit(); break;
-            case "MinLevel": obj = new condition.MinLevel(); break;
-            case "MaxLevel": obj = new condition.MaxLevel(); break;
-            case "MinMaxLevel": obj = new condition.MinMaxLevel(); break;
-            case "ClothesPropertyScoreGreaterThan": obj = new condition.ClothesPropertyScoreGreaterThan(); break;
-            case "ContainsItem": obj = new condition.ContainsItem(); break;
+            case "condition.TimeRange":   
+            case "TimeRange":obj = new condition.TimeRange(); break;
+            case "condition.MultiRoleCondition":   
+            case "MultiRoleCondition":obj = new condition.MultiRoleCondition(); break;
+            case "condition.GenderLimit":   
+            case "GenderLimit":obj = new condition.GenderLimit(); break;
+            case "condition.MinLevel":   
+            case "MinLevel":obj = new condition.MinLevel(); break;
+            case "condition.MaxLevel":   
+            case "MaxLevel":obj = new condition.MaxLevel(); break;
+            case "condition.MinMaxLevel":   
+            case "MinMaxLevel":obj = new condition.MinMaxLevel(); break;
+            case "condition.ClothesPropertyScoreGreaterThan":   
+            case "ClothesPropertyScoreGreaterThan":obj = new condition.ClothesPropertyScoreGreaterThan(); break;
+            case "condition.ContainsItem":   
+            case "ContainsItem":obj = new condition.ContainsItem(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

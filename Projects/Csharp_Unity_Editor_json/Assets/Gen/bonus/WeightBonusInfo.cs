@@ -41,7 +41,8 @@ public sealed partial class WeightBonusInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "bonus.WeightBonusInfo";
         {
 
             if (Bonus == null) { throw new System.ArgumentNullException(); }

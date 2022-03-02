@@ -25,7 +25,6 @@ public sealed partial class Rectangle :  test.Shape
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["width"];
             if (_fieldJson != null)
@@ -45,8 +44,8 @@ public sealed partial class Rectangle :  test.Shape
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "test2.Rectangle";
         {
             _json["width"] = new JSONNumber(Width);
         }

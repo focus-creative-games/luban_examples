@@ -85,7 +85,7 @@ public sealed partial class TestDesc :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
         {
             _json["id"] = new JSONNumber(Id);
         }

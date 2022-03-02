@@ -131,7 +131,8 @@ public sealed partial class GlobalMail :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "mail.GlobalMail";
         {
             _json["id"] = new JSONNumber(Id);
         }

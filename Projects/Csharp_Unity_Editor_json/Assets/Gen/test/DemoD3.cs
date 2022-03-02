@@ -20,26 +20,6 @@ public abstract partial class DemoD3 :  test.DemoDynamic
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-        { 
-            var _fieldJson = _json["x3"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  X3 = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-        {
-            _json["x3"] = new JSONNumber(X3);
-        }
-    }
 
     public static DemoD3 LoadJsonDemoD3(SimpleJSON.JSONNode _json)
     {
@@ -47,8 +27,9 @@ public abstract partial class DemoD3 :  test.DemoDynamic
         DemoD3 obj;
         switch (type)
         {
-            case "DemoE1": obj = new test.DemoE1(); break;
-            case "test.login.RoleInfo": obj = new test.login.RoleInfo(); break;
+            case "test.DemoE1":   
+            case "DemoE1":obj = new test.DemoE1(); break;
+            case "test.login.RoleInfo":obj = new test.login.RoleInfo(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

@@ -41,7 +41,8 @@ public sealed partial class ChooseOneBonus :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "item.ChooseOneBonus";
         {
             _json["drop_id"] = new JSONNumber(DropId);
         }

@@ -41,7 +41,8 @@ public sealed partial class H2 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.H2";
         {
             _json["z2"] = new JSONNumber(Z2);
         }

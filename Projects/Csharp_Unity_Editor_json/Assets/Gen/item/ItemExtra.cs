@@ -20,24 +20,6 @@ public abstract partial class ItemExtra :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        { 
-            var _fieldJson = _json["id"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        {
-            _json["id"] = new JSONNumber(Id);
-        }
-    }
 
     public static ItemExtra LoadJsonItemExtra(SimpleJSON.JSONNode _json)
     {
@@ -45,11 +27,16 @@ public abstract partial class ItemExtra :  Bright.Config.EditorBeanBase
         ItemExtra obj;
         switch (type)
         {
-            case "TreasureBox": obj = new item.TreasureBox(); break;
-            case "InteractionItem": obj = new item.InteractionItem(); break;
-            case "Clothes": obj = new item.Clothes(); break;
-            case "DesignDrawing": obj = new item.DesignDrawing(); break;
-            case "Dymmy": obj = new item.Dymmy(); break;
+            case "item.TreasureBox":   
+            case "TreasureBox":obj = new item.TreasureBox(); break;
+            case "item.InteractionItem":   
+            case "InteractionItem":obj = new item.InteractionItem(); break;
+            case "item.Clothes":   
+            case "Clothes":obj = new item.Clothes(); break;
+            case "item.DesignDrawing":   
+            case "DesignDrawing":obj = new item.DesignDrawing(); break;
+            case "item.Dymmy":   
+            case "Dymmy":obj = new item.Dymmy(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

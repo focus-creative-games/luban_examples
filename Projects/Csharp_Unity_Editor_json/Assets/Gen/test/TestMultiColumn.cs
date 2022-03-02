@@ -60,7 +60,8 @@ public sealed partial class TestMultiColumn :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.TestMultiColumn";
         {
             _json["id"] = new JSONNumber(Id);
         }

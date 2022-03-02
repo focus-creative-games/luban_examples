@@ -20,15 +20,6 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-    }
 
     public static BoolRoleCondition LoadJsonBoolRoleCondition(SimpleJSON.JSONNode _json)
     {
@@ -36,11 +27,16 @@ public abstract partial class BoolRoleCondition :  condition.RoleCondition
         BoolRoleCondition obj;
         switch (type)
         {
-            case "GenderLimit": obj = new condition.GenderLimit(); break;
-            case "MinLevel": obj = new condition.MinLevel(); break;
-            case "MaxLevel": obj = new condition.MaxLevel(); break;
-            case "MinMaxLevel": obj = new condition.MinMaxLevel(); break;
-            case "ClothesPropertyScoreGreaterThan": obj = new condition.ClothesPropertyScoreGreaterThan(); break;
+            case "condition.GenderLimit":   
+            case "GenderLimit":obj = new condition.GenderLimit(); break;
+            case "condition.MinLevel":   
+            case "MinLevel":obj = new condition.MinLevel(); break;
+            case "condition.MaxLevel":   
+            case "MaxLevel":obj = new condition.MaxLevel(); break;
+            case "condition.MinMaxLevel":   
+            case "MinMaxLevel":obj = new condition.MinMaxLevel(); break;
+            case "condition.ClothesPropertyScoreGreaterThan":   
+            case "ClothesPropertyScoreGreaterThan":obj = new condition.ClothesPropertyScoreGreaterThan(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

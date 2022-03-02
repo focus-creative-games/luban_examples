@@ -21,37 +21,6 @@ public abstract partial class Node :  Bright.Config.EditorBeanBase
             NodeName = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        { 
-            var _fieldJson = _json["id"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
-            }
-        }
-        
-        { 
-            var _fieldJson = _json["node_name"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  NodeName = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        {
-            _json["id"] = new JSONNumber(Id);
-        }
-        {
-
-            if (NodeName == null) { throw new System.ArgumentNullException(); }
-            _json["node_name"] = new JSONString(NodeName);
-        }
-    }
 
     public static Node LoadJsonNode(SimpleJSON.JSONNode _json)
     {
@@ -59,29 +28,52 @@ public abstract partial class Node :  Bright.Config.EditorBeanBase
         Node obj;
         switch (type)
         {
-            case "UeSetDefaultFocus": obj = new ai.UeSetDefaultFocus(); break;
-            case "ExecuteTimeStatistic": obj = new ai.ExecuteTimeStatistic(); break;
-            case "ChooseTarget": obj = new ai.ChooseTarget(); break;
-            case "KeepFaceTarget": obj = new ai.KeepFaceTarget(); break;
-            case "GetOwnerPlayer": obj = new ai.GetOwnerPlayer(); break;
-            case "UpdateDailyBehaviorProps": obj = new ai.UpdateDailyBehaviorProps(); break;
-            case "UeLoop": obj = new ai.UeLoop(); break;
-            case "UeCooldown": obj = new ai.UeCooldown(); break;
-            case "UeTimeLimit": obj = new ai.UeTimeLimit(); break;
-            case "UeBlackboard": obj = new ai.UeBlackboard(); break;
-            case "UeForceSuccess": obj = new ai.UeForceSuccess(); break;
-            case "IsAtLocation": obj = new ai.IsAtLocation(); break;
-            case "DistanceLessThan": obj = new ai.DistanceLessThan(); break;
-            case "Sequence": obj = new ai.Sequence(); break;
-            case "Selector": obj = new ai.Selector(); break;
-            case "SimpleParallel": obj = new ai.SimpleParallel(); break;
-            case "UeWait": obj = new ai.UeWait(); break;
-            case "UeWaitBlackboardTime": obj = new ai.UeWaitBlackboardTime(); break;
-            case "MoveToTarget": obj = new ai.MoveToTarget(); break;
-            case "ChooseSkill": obj = new ai.ChooseSkill(); break;
-            case "MoveToRandomLocation": obj = new ai.MoveToRandomLocation(); break;
-            case "MoveToLocation": obj = new ai.MoveToLocation(); break;
-            case "DebugPrint": obj = new ai.DebugPrint(); break;
+            case "ai.UeSetDefaultFocus":   
+            case "UeSetDefaultFocus":obj = new ai.UeSetDefaultFocus(); break;
+            case "ai.ExecuteTimeStatistic":   
+            case "ExecuteTimeStatistic":obj = new ai.ExecuteTimeStatistic(); break;
+            case "ai.ChooseTarget":   
+            case "ChooseTarget":obj = new ai.ChooseTarget(); break;
+            case "ai.KeepFaceTarget":   
+            case "KeepFaceTarget":obj = new ai.KeepFaceTarget(); break;
+            case "ai.GetOwnerPlayer":   
+            case "GetOwnerPlayer":obj = new ai.GetOwnerPlayer(); break;
+            case "ai.UpdateDailyBehaviorProps":   
+            case "UpdateDailyBehaviorProps":obj = new ai.UpdateDailyBehaviorProps(); break;
+            case "ai.UeLoop":   
+            case "UeLoop":obj = new ai.UeLoop(); break;
+            case "ai.UeCooldown":   
+            case "UeCooldown":obj = new ai.UeCooldown(); break;
+            case "ai.UeTimeLimit":   
+            case "UeTimeLimit":obj = new ai.UeTimeLimit(); break;
+            case "ai.UeBlackboard":   
+            case "UeBlackboard":obj = new ai.UeBlackboard(); break;
+            case "ai.UeForceSuccess":   
+            case "UeForceSuccess":obj = new ai.UeForceSuccess(); break;
+            case "ai.IsAtLocation":   
+            case "IsAtLocation":obj = new ai.IsAtLocation(); break;
+            case "ai.DistanceLessThan":   
+            case "DistanceLessThan":obj = new ai.DistanceLessThan(); break;
+            case "ai.Sequence":   
+            case "Sequence":obj = new ai.Sequence(); break;
+            case "ai.Selector":   
+            case "Selector":obj = new ai.Selector(); break;
+            case "ai.SimpleParallel":   
+            case "SimpleParallel":obj = new ai.SimpleParallel(); break;
+            case "ai.UeWait":   
+            case "UeWait":obj = new ai.UeWait(); break;
+            case "ai.UeWaitBlackboardTime":   
+            case "UeWaitBlackboardTime":obj = new ai.UeWaitBlackboardTime(); break;
+            case "ai.MoveToTarget":   
+            case "MoveToTarget":obj = new ai.MoveToTarget(); break;
+            case "ai.ChooseSkill":   
+            case "ChooseSkill":obj = new ai.ChooseSkill(); break;
+            case "ai.MoveToRandomLocation":   
+            case "MoveToRandomLocation":obj = new ai.MoveToRandomLocation(); break;
+            case "ai.MoveToLocation":   
+            case "MoveToLocation":obj = new ai.MoveToLocation(); break;
+            case "ai.DebugPrint":   
+            case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

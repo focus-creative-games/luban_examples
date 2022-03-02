@@ -20,15 +20,6 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-    }
 
     public static DailyLimitBase LoadJsonDailyLimitBase(SimpleJSON.JSONNode _json)
     {
@@ -36,7 +27,8 @@ public abstract partial class DailyLimitBase :  limit.LimitBase
         DailyLimitBase obj;
         switch (type)
         {
-            case "DailyLimit": obj = new limit.DailyLimit(); break;
+            case "limit.DailyLimit":   
+            case "DailyLimit":obj = new limit.DailyLimit(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

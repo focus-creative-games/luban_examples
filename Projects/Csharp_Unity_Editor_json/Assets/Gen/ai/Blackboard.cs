@@ -61,7 +61,8 @@ public sealed partial class Blackboard :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "ai.Blackboard";
         {
 
             if (Name == null) { throw new System.ArgumentNullException(); }

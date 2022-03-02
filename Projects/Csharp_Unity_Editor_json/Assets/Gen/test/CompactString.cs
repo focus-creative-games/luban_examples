@@ -51,7 +51,8 @@ public sealed partial class CompactString :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.CompactString";
         {
             _json["id"] = new JSONNumber(Id);
         }

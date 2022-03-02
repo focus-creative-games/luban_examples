@@ -20,13 +20,6 @@ public abstract partial class Bonus :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static Bonus LoadJsonBonus(SimpleJSON.JSONNode _json)
     {
@@ -34,17 +27,28 @@ public abstract partial class Bonus :  Bright.Config.EditorBeanBase
         Bonus obj;
         switch (type)
         {
-            case "OneItem": obj = new bonus.OneItem(); break;
-            case "OneItems": obj = new bonus.OneItems(); break;
-            case "Item": obj = new bonus.Item(); break;
-            case "Items": obj = new bonus.Items(); break;
-            case "CoefficientItem": obj = new bonus.CoefficientItem(); break;
-            case "WeightItems": obj = new bonus.WeightItems(); break;
-            case "ProbabilityItems": obj = new bonus.ProbabilityItems(); break;
-            case "MultiBonus": obj = new bonus.MultiBonus(); break;
-            case "ProbabilityBonus": obj = new bonus.ProbabilityBonus(); break;
-            case "WeightBonus": obj = new bonus.WeightBonus(); break;
-            case "DropBonus": obj = new bonus.DropBonus(); break;
+            case "bonus.OneItem":   
+            case "OneItem":obj = new bonus.OneItem(); break;
+            case "bonus.OneItems":   
+            case "OneItems":obj = new bonus.OneItems(); break;
+            case "bonus.Item":   
+            case "Item":obj = new bonus.Item(); break;
+            case "bonus.Items":   
+            case "Items":obj = new bonus.Items(); break;
+            case "bonus.CoefficientItem":   
+            case "CoefficientItem":obj = new bonus.CoefficientItem(); break;
+            case "bonus.WeightItems":   
+            case "WeightItems":obj = new bonus.WeightItems(); break;
+            case "bonus.ProbabilityItems":   
+            case "ProbabilityItems":obj = new bonus.ProbabilityItems(); break;
+            case "bonus.MultiBonus":   
+            case "MultiBonus":obj = new bonus.MultiBonus(); break;
+            case "bonus.ProbabilityBonus":   
+            case "ProbabilityBonus":obj = new bonus.ProbabilityBonus(); break;
+            case "bonus.WeightBonus":   
+            case "WeightBonus":obj = new bonus.WeightBonus(); break;
+            case "bonus.DropBonus":   
+            case "DropBonus":obj = new bonus.DropBonus(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

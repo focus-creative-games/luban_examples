@@ -22,12 +22,11 @@ public sealed partial class ErrorStyleTip :  error.ErrorStyle
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "error.ErrorStyleTip";
     }
 
     public static ErrorStyleTip LoadJsonErrorStyleTip(SimpleJSON.JSONNode _json)

@@ -59,7 +59,8 @@ public sealed partial class DropInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "bonus.DropInfo";
         {
             _json["id"] = new JSONNumber(Id);
         }

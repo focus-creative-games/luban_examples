@@ -25,7 +25,6 @@ public sealed partial class Circle :  Shape
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["radius"];
             if (_fieldJson != null)
@@ -37,8 +36,8 @@ public sealed partial class Circle :  Shape
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "test.Circle";
         {
             _json["radius"] = new JSONNumber(Radius);
         }

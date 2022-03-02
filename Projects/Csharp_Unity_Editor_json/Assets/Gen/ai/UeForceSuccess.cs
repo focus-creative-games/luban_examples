@@ -22,12 +22,46 @@ public sealed partial class UeForceSuccess :  ai.Decorator
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["node_name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  NodeName = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["flow_abort_mode"];
+            if (_fieldJson != null)
+            {
+                if(_fieldJson.IsString) { FlowAbortMode = (ai.EFlowAbortMode)System.Enum.Parse(typeof(ai.EFlowAbortMode), _fieldJson); } else if(_fieldJson.IsNumber) { FlowAbortMode = (ai.EFlowAbortMode)(int)_fieldJson; } else { throw new SerializationException(); }  
+            }
+        }
+        
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.UeForceSuccess";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
+        {
+
+            if (NodeName == null) { throw new System.ArgumentNullException(); }
+            _json["node_name"] = new JSONString(NodeName);
+        }
+        {
+            _json["flow_abort_mode"] = new JSONNumber((int)FlowAbortMode);
+        }
     }
 
     public static UeForceSuccess LoadJsonUeForceSuccess(SimpleJSON.JSONNode _json)

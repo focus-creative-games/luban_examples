@@ -52,7 +52,8 @@ public sealed partial class Field :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "blueprint.Field";
         {
 
             if (Name == null) { throw new System.ArgumentNullException(); }

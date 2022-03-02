@@ -20,13 +20,6 @@ public abstract partial class LimitBase :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static LimitBase LoadJsonLimitBase(SimpleJSON.JSONNode _json)
     {
@@ -34,12 +27,18 @@ public abstract partial class LimitBase :  Bright.Config.EditorBeanBase
         LimitBase obj;
         switch (type)
         {
-            case "DailyLimit": obj = new limit.DailyLimit(); break;
-            case "MultiDayLimit": obj = new limit.MultiDayLimit(); break;
-            case "WeeklyLimit": obj = new limit.WeeklyLimit(); break;
-            case "MonthlyLimit": obj = new limit.MonthlyLimit(); break;
-            case "CoolDown": obj = new limit.CoolDown(); break;
-            case "GroupCoolDown": obj = new limit.GroupCoolDown(); break;
+            case "limit.DailyLimit":   
+            case "DailyLimit":obj = new limit.DailyLimit(); break;
+            case "limit.MultiDayLimit":   
+            case "MultiDayLimit":obj = new limit.MultiDayLimit(); break;
+            case "limit.WeeklyLimit":   
+            case "WeeklyLimit":obj = new limit.WeeklyLimit(); break;
+            case "limit.MonthlyLimit":   
+            case "MonthlyLimit":obj = new limit.MonthlyLimit(); break;
+            case "limit.CoolDown":   
+            case "CoolDown":obj = new limit.CoolDown(); break;
+            case "limit.GroupCoolDown":   
+            case "GroupCoolDown":obj = new limit.GroupCoolDown(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

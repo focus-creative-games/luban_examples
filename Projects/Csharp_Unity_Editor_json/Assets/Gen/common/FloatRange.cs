@@ -41,7 +41,8 @@ public sealed partial class FloatRange :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "common.FloatRange";
         {
             _json["min"] = new JSONNumber(Min);
         }

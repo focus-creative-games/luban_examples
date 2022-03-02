@@ -50,7 +50,8 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.EditorBeanBas
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.ExcelFromJsonMultiRow";
         {
             _json["id"] = new JSONNumber(Id);
         }

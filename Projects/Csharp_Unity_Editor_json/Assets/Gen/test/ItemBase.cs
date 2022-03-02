@@ -22,50 +22,6 @@ public abstract partial class ItemBase :  Bright.Config.EditorBeanBase
             Desc = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        { 
-            var _fieldJson = _json["id"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
-            }
-        }
-        
-        { 
-            var _fieldJson = _json["name"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Name = _fieldJson;
-            }
-        }
-        
-        { 
-            var _fieldJson = _json["desc"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsString) { throw new SerializationException(); }  Desc = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        {
-            _json["id"] = new JSONNumber(Id);
-        }
-        {
-
-            if (Name == null) { throw new System.ArgumentNullException(); }
-            _json["name"] = new JSONString(Name);
-        }
-        {
-
-            if (Desc == null) { throw new System.ArgumentNullException(); }
-            _json["desc"] = new JSONString(Desc);
-        }
-    }
 
     public static ItemBase LoadJsonItemBase(SimpleJSON.JSONNode _json)
     {
@@ -73,9 +29,12 @@ public abstract partial class ItemBase :  Bright.Config.EditorBeanBase
         ItemBase obj;
         switch (type)
         {
-            case "Item": obj = new test.Item(); break;
-            case "Equipment": obj = new test.Equipment(); break;
-            case "Decorator": obj = new test.Decorator(); break;
+            case "test.Item":   
+            case "Item":obj = new test.Item(); break;
+            case "test.Equipment":   
+            case "Equipment":obj = new test.Equipment(); break;
+            case "test.Decorator":   
+            case "Decorator":obj = new test.Decorator(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

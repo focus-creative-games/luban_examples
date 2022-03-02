@@ -20,13 +20,6 @@ public abstract partial class ErrorStyle :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static ErrorStyle LoadJsonErrorStyle(SimpleJSON.JSONNode _json)
     {
@@ -34,10 +27,14 @@ public abstract partial class ErrorStyle :  Bright.Config.EditorBeanBase
         ErrorStyle obj;
         switch (type)
         {
-            case "ErrorStyleTip": obj = new error.ErrorStyleTip(); break;
-            case "ErrorStyleMsgbox": obj = new error.ErrorStyleMsgbox(); break;
-            case "ErrorStyleDlgOk": obj = new error.ErrorStyleDlgOk(); break;
-            case "ErrorStyleDlgOkCancel": obj = new error.ErrorStyleDlgOkCancel(); break;
+            case "error.ErrorStyleTip":   
+            case "ErrorStyleTip":obj = new error.ErrorStyleTip(); break;
+            case "error.ErrorStyleMsgbox":   
+            case "ErrorStyleMsgbox":obj = new error.ErrorStyleMsgbox(); break;
+            case "error.ErrorStyleDlgOk":   
+            case "ErrorStyleDlgOk":obj = new error.ErrorStyleDlgOk(); break;
+            case "error.ErrorStyleDlgOkCancel":   
+            case "ErrorStyleDlgOkCancel":obj = new error.ErrorStyleDlgOkCancel(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

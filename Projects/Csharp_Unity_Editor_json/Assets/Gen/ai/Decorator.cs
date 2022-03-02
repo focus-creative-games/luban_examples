@@ -21,26 +21,6 @@ public abstract partial class Decorator :  ai.Node
             FlowAbortMode = ai.EFlowAbortMode.NONE;
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-        { 
-            var _fieldJson = _json["flow_abort_mode"];
-            if (_fieldJson != null)
-            {
-                if(_fieldJson.IsString) { FlowAbortMode = (ai.EFlowAbortMode)System.Enum.Parse(typeof(ai.EFlowAbortMode), _fieldJson); } else if(_fieldJson.IsNumber) { FlowAbortMode = (ai.EFlowAbortMode)(int)_fieldJson; } else { throw new SerializationException(); }  
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-        {
-            _json["flow_abort_mode"] = new JSONNumber((int)FlowAbortMode);
-        }
-    }
 
     public static Decorator LoadJsonDecorator(SimpleJSON.JSONNode _json)
     {
@@ -48,13 +28,20 @@ public abstract partial class Decorator :  ai.Node
         Decorator obj;
         switch (type)
         {
-            case "UeLoop": obj = new ai.UeLoop(); break;
-            case "UeCooldown": obj = new ai.UeCooldown(); break;
-            case "UeTimeLimit": obj = new ai.UeTimeLimit(); break;
-            case "UeBlackboard": obj = new ai.UeBlackboard(); break;
-            case "UeForceSuccess": obj = new ai.UeForceSuccess(); break;
-            case "IsAtLocation": obj = new ai.IsAtLocation(); break;
-            case "DistanceLessThan": obj = new ai.DistanceLessThan(); break;
+            case "ai.UeLoop":   
+            case "UeLoop":obj = new ai.UeLoop(); break;
+            case "ai.UeCooldown":   
+            case "UeCooldown":obj = new ai.UeCooldown(); break;
+            case "ai.UeTimeLimit":   
+            case "UeTimeLimit":obj = new ai.UeTimeLimit(); break;
+            case "ai.UeBlackboard":   
+            case "UeBlackboard":obj = new ai.UeBlackboard(); break;
+            case "ai.UeForceSuccess":   
+            case "UeForceSuccess":obj = new ai.UeForceSuccess(); break;
+            case "ai.IsAtLocation":   
+            case "IsAtLocation":obj = new ai.IsAtLocation(); break;
+            case "ai.DistanceLessThan":   
+            case "DistanceLessThan":obj = new ai.DistanceLessThan(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

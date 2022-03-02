@@ -23,7 +23,6 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["prop"];
             if (_fieldJson != null)
@@ -43,8 +42,8 @@ public sealed partial class ClothesPropertyScoreGreaterThan :  condition.BoolRol
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "condition.ClothesPropertyScoreGreaterThan";
         {
             _json["prop"] = new JSONNumber((int)Prop);
         }

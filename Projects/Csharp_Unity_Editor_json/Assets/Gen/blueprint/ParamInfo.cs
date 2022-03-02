@@ -51,7 +51,8 @@ public sealed partial class ParamInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "blueprint.ParamInfo";
         {
 
             if (Name == null) { throw new System.ArgumentNullException(); }

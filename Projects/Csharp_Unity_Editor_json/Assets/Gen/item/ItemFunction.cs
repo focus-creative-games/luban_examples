@@ -60,7 +60,8 @@ public sealed partial class ItemFunction :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "item.ItemFunction";
         {
             _json["minor_type"] = new JSONNumber((int)MinorType);
         }

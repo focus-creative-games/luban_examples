@@ -22,7 +22,6 @@ public sealed partial class ContainsItem :  condition.RoleCondition
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["item_id"];
             if (_fieldJson != null)
@@ -50,8 +49,8 @@ public sealed partial class ContainsItem :  condition.RoleCondition
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "condition.ContainsItem";
         {
             _json["item_id"] = new JSONNumber(ItemId);
         }

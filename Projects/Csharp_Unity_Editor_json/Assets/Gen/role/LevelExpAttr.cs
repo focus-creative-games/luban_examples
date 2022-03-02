@@ -50,7 +50,8 @@ public sealed partial class LevelExpAttr :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "role.LevelExpAttr";
         {
             _json["level"] = new JSONNumber(Level);
         }

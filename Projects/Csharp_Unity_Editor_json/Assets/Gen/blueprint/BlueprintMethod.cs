@@ -22,12 +22,74 @@ public sealed partial class BlueprintMethod :  blueprint.Method
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Name = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["desc"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Desc = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["is_static"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsBoolean) { throw new SerializationException(); }  IsStatic = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["return_type"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  ReturnType = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["parameters"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(); foreach(JSONNode __e in _fieldJson.Children) { blueprint.ParamInfo __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = blueprint.ParamInfo.LoadJsonParamInfo(__e);  Parameters.Add(__v); }  
+            }
+        }
+        
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "blueprint.BlueprintMethod";
+        {
+
+            if (Name == null) { throw new System.ArgumentNullException(); }
+            _json["name"] = new JSONString(Name);
+        }
+        {
+
+            if (Desc == null) { throw new System.ArgumentNullException(); }
+            _json["desc"] = new JSONString(Desc);
+        }
+        {
+            _json["is_static"] = new JSONBool(IsStatic);
+        }
+        {
+
+            if (ReturnType == null) { throw new System.ArgumentNullException(); }
+            _json["return_type"] = new JSONString(ReturnType);
+        }
+        {
+
+            if (Parameters == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in Parameters) { { var __bjson = new JSONObject();  blueprint.ParamInfo.SaveJsonParamInfo(_e, __bjson); __cjson["null"] = __bjson; } } _json["parameters"] = __cjson; }
+        }
     }
 
     public static BlueprintMethod LoadJsonBlueprintMethod(SimpleJSON.JSONNode _json)

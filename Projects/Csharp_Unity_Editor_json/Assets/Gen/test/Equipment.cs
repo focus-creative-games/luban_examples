@@ -23,7 +23,30 @@ public sealed partial class Equipment :  test.ItemBase
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Name = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["desc"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  Desc = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["attr"];
             if (_fieldJson != null)
@@ -43,8 +66,21 @@ public sealed partial class Equipment :  test.ItemBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "test.Equipment";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
+        {
+
+            if (Name == null) { throw new System.ArgumentNullException(); }
+            _json["name"] = new JSONString(Name);
+        }
+        {
+
+            if (Desc == null) { throw new System.ArgumentNullException(); }
+            _json["desc"] = new JSONString(Desc);
+        }
         {
             _json["attr"] = new JSONNumber((int)Attr);
         }

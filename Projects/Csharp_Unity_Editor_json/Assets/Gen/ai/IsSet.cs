@@ -22,12 +22,11 @@ public sealed partial class IsSet :  ai.KeyQueryOperator
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.IsSet";
     }
 
     public static IsSet LoadJsonIsSet(SimpleJSON.JSONNode _json)

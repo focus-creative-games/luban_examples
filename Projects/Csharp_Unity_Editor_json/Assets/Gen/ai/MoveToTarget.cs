@@ -23,7 +23,46 @@ public sealed partial class MoveToTarget :  ai.Task
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["node_name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  NodeName = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["decorators"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } Decorators = new System.Collections.Generic.List<ai.Decorator>(); foreach(JSONNode __e in _fieldJson.Children) { ai.Decorator __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Decorator.LoadJsonDecorator(__e);  Decorators.Add(__v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["services"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } Services = new System.Collections.Generic.List<ai.Service>(); foreach(JSONNode __e in _fieldJson.Children) { ai.Service __v;  if(!__e.IsObject) { throw new SerializationException(); }  __v = ai.Service.LoadJsonService(__e);  Services.Add(__v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["ignore_restart_self"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsBoolean) { throw new SerializationException(); }  IgnoreRestartSelf = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["target_actor_key"];
             if (_fieldJson != null)
@@ -43,8 +82,29 @@ public sealed partial class MoveToTarget :  ai.Task
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.MoveToTarget";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
+        {
+
+            if (NodeName == null) { throw new System.ArgumentNullException(); }
+            _json["node_name"] = new JSONString(NodeName);
+        }
+        {
+
+            if (Decorators == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in Decorators) { { var __bjson = new JSONObject();  ai.Decorator.SaveJsonDecorator(_e, __bjson); __cjson["null"] = __bjson; } } _json["decorators"] = __cjson; }
+        }
+        {
+
+            if (Services == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in Services) { { var __bjson = new JSONObject();  ai.Service.SaveJsonService(_e, __bjson); __cjson["null"] = __bjson; } } _json["services"] = __cjson; }
+        }
+        {
+            _json["ignore_restart_self"] = new JSONBool(IgnoreRestartSelf);
+        }
         {
 
             if (TargetActorKey == null) { throw new System.ArgumentNullException(); }

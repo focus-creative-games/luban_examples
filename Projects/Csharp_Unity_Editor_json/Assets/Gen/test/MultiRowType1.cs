@@ -41,7 +41,8 @@ public sealed partial class MultiRowType1 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.MultiRowType1";
         {
             _json["id"] = new JSONNumber(Id);
         }

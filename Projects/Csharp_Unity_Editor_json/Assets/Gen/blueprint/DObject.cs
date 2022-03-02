@@ -24,7 +24,6 @@ public sealed partial class DObject :  blueprint.DValue
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["type"];
             if (_fieldJson != null)
@@ -44,8 +43,8 @@ public sealed partial class DObject :  blueprint.DValue
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "blueprint.DObject";
         {
 
             if (Type == null) { throw new System.ArgumentNullException(); }

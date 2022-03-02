@@ -53,7 +53,8 @@ public sealed partial class TestExcelBean2 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.TestExcelBean2";
         {
             _json["y1"] = new JSONNumber(Y1);
         }

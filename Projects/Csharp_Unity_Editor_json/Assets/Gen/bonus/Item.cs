@@ -22,7 +22,6 @@ public sealed partial class Item :  bonus.Bonus
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["item_id"];
             if (_fieldJson != null)
@@ -42,8 +41,8 @@ public sealed partial class Item :  bonus.Bonus
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "bonus.Item";
         {
             _json["item_id"] = new JSONNumber(ItemId);
         }

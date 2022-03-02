@@ -69,7 +69,8 @@ public sealed partial class SystemMail :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "mail.SystemMail";
         {
             _json["id"] = new JSONNumber(Id);
         }

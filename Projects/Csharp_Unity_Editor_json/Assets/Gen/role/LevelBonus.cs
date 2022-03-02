@@ -42,7 +42,8 @@ public sealed partial class LevelBonus :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "role.LevelBonus";
         {
             _json["id"] = new JSONNumber(Id);
         }

@@ -22,7 +22,6 @@ public sealed partial class FloatKeyData :  ai.KeyData
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["value"];
             if (_fieldJson != null)
@@ -34,8 +33,8 @@ public sealed partial class FloatKeyData :  ai.KeyData
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.FloatKeyData";
         {
             _json["value"] = new JSONNumber(Value);
         }

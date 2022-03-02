@@ -20,15 +20,6 @@ public abstract partial class ComposeNode :  ai.FlowNode
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-    }
 
     public static ComposeNode LoadJsonComposeNode(SimpleJSON.JSONNode _json)
     {
@@ -36,9 +27,12 @@ public abstract partial class ComposeNode :  ai.FlowNode
         ComposeNode obj;
         switch (type)
         {
-            case "Sequence": obj = new ai.Sequence(); break;
-            case "Selector": obj = new ai.Selector(); break;
-            case "SimpleParallel": obj = new ai.SimpleParallel(); break;
+            case "ai.Sequence":   
+            case "Sequence":obj = new ai.Sequence(); break;
+            case "ai.Selector":   
+            case "Selector":obj = new ai.Selector(); break;
+            case "ai.SimpleParallel":   
+            case "SimpleParallel":obj = new ai.SimpleParallel(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

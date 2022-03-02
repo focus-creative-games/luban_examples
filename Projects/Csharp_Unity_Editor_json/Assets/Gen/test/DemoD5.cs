@@ -23,7 +23,14 @@ public sealed partial class DemoD5 :  test.DemoDynamic
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["x1"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  X1 = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["time"];
             if (_fieldJson != null)
@@ -35,8 +42,11 @@ public sealed partial class DemoD5 :  test.DemoDynamic
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "test.DemoD5";
+        {
+            _json["x1"] = new JSONNumber(X1);
+        }
         {
 
             if (Time == null) { throw new System.ArgumentNullException(); }

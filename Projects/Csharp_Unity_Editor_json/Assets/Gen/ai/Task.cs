@@ -20,26 +20,6 @@ public abstract partial class Task :  ai.FlowNode
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-        base.LoadJson(_json);
-        { 
-            var _fieldJson = _json["ignore_restart_self"];
-            if (_fieldJson != null)
-            {
-                if(!_fieldJson.IsBoolean) { throw new SerializationException(); }  IgnoreRestartSelf = _fieldJson;
-            }
-        }
-        
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
-        {
-            _json["ignore_restart_self"] = new JSONBool(IgnoreRestartSelf);
-        }
-    }
 
     public static Task LoadJsonTask(SimpleJSON.JSONNode _json)
     {
@@ -47,13 +27,20 @@ public abstract partial class Task :  ai.FlowNode
         Task obj;
         switch (type)
         {
-            case "UeWait": obj = new ai.UeWait(); break;
-            case "UeWaitBlackboardTime": obj = new ai.UeWaitBlackboardTime(); break;
-            case "MoveToTarget": obj = new ai.MoveToTarget(); break;
-            case "ChooseSkill": obj = new ai.ChooseSkill(); break;
-            case "MoveToRandomLocation": obj = new ai.MoveToRandomLocation(); break;
-            case "MoveToLocation": obj = new ai.MoveToLocation(); break;
-            case "DebugPrint": obj = new ai.DebugPrint(); break;
+            case "ai.UeWait":   
+            case "UeWait":obj = new ai.UeWait(); break;
+            case "ai.UeWaitBlackboardTime":   
+            case "UeWaitBlackboardTime":obj = new ai.UeWaitBlackboardTime(); break;
+            case "ai.MoveToTarget":   
+            case "MoveToTarget":obj = new ai.MoveToTarget(); break;
+            case "ai.ChooseSkill":   
+            case "ChooseSkill":obj = new ai.ChooseSkill(); break;
+            case "ai.MoveToRandomLocation":   
+            case "MoveToRandomLocation":obj = new ai.MoveToRandomLocation(); break;
+            case "ai.MoveToLocation":   
+            case "MoveToLocation":obj = new ai.MoveToLocation(); break;
+            case "ai.DebugPrint":   
+            case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

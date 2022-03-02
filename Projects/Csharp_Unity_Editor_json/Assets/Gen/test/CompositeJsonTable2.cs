@@ -41,7 +41,8 @@ public sealed partial class CompositeJsonTable2 :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.CompositeJsonTable2";
         {
             _json["id"] = new JSONNumber(Id);
         }

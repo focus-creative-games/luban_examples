@@ -51,7 +51,8 @@ public sealed partial class ErrorInfo :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "error.ErrorInfo";
         {
 
             if (Code == null) { throw new System.ArgumentNullException(); }

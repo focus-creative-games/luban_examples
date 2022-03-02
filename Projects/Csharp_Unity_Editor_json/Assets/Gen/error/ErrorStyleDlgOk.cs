@@ -23,7 +23,6 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["btn_name"];
             if (_fieldJson != null)
@@ -35,8 +34,8 @@ public sealed partial class ErrorStyleDlgOk :  error.ErrorStyle
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "error.ErrorStyleDlgOk";
         {
 
             if (BtnName == null) { throw new System.ArgumentNullException(); }

@@ -23,7 +23,6 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["gender"];
             if (_fieldJson != null)
@@ -35,8 +34,8 @@ public sealed partial class GenderLimit :  condition.BoolRoleCondition
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "condition.GenderLimit";
         {
             _json["gender"] = new JSONNumber((int)Gender);
         }

@@ -20,13 +20,6 @@ public abstract partial class Cost :  Bright.Config.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
-    {
-    }
-
-    public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-    }
 
     public static Cost LoadJsonCost(SimpleJSON.JSONNode _json)
     {
@@ -34,11 +27,16 @@ public abstract partial class Cost :  Bright.Config.EditorBeanBase
         Cost obj;
         switch (type)
         {
-            case "CostCurrency": obj = new cost.CostCurrency(); break;
-            case "CostCurrencies": obj = new cost.CostCurrencies(); break;
-            case "CostOneItem": obj = new cost.CostOneItem(); break;
-            case "CostItem": obj = new cost.CostItem(); break;
-            case "CostItems": obj = new cost.CostItems(); break;
+            case "cost.CostCurrency":   
+            case "CostCurrency":obj = new cost.CostCurrency(); break;
+            case "cost.CostCurrencies":   
+            case "CostCurrencies":obj = new cost.CostCurrencies(); break;
+            case "cost.CostOneItem":   
+            case "CostOneItem":obj = new cost.CostOneItem(); break;
+            case "cost.CostItem":   
+            case "CostItem":obj = new cost.CostItem(); break;
+            case "cost.CostItems":   
+            case "CostItems":obj = new cost.CostItems(); break;
             default: throw new SerializationException();
         }
         obj.LoadJson((SimpleJSON.JSONObject)_json);

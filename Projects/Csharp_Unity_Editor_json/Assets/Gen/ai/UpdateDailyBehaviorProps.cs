@@ -31,7 +31,22 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
+        { 
+            var _fieldJson = _json["id"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsNumber) { throw new SerializationException(); }  Id = _fieldJson;
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["node_name"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsString) { throw new SerializationException(); }  NodeName = _fieldJson;
+            }
+        }
+        
         { 
             var _fieldJson = _json["satiety_key"];
             if (_fieldJson != null)
@@ -107,8 +122,16 @@ public sealed partial class UpdateDailyBehaviorProps :  ai.Service
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "ai.UpdateDailyBehaviorProps";
+        {
+            _json["id"] = new JSONNumber(Id);
+        }
+        {
+
+            if (NodeName == null) { throw new System.ArgumentNullException(); }
+            _json["node_name"] = new JSONString(NodeName);
+        }
         {
 
             if (SatietyKey == null) { throw new System.ArgumentNullException(); }

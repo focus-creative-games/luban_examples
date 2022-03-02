@@ -23,7 +23,6 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
     {
-        base.LoadJson(_json);
         { 
             var _fieldJson = _json["conditions"];
             if (_fieldJson != null)
@@ -35,8 +34,8 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
-        base.SaveJson(_json);
+    {
+        _json["$type"] = "condition.MultiRoleCondition";
         {
 
             if (Conditions == null) { throw new System.ArgumentNullException(); }

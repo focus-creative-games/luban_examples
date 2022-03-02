@@ -57,7 +57,8 @@ public sealed partial class InnerGroup :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.InnerGroup";
         {
             _json["y1"] = new JSONNumber(Y1);
         }

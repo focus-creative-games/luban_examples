@@ -42,7 +42,8 @@ public sealed partial class ClothesProp :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "item.ClothesProp";
         {
             _json["prop_enum"] = new JSONNumber((int)PropEnum);
         }

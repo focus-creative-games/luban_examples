@@ -68,7 +68,8 @@ public sealed partial class BehaviorTree :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "ai.BehaviorTree";
         {
             _json["id"] = new JSONNumber(Id);
         }

@@ -49,7 +49,8 @@ public sealed partial class SepVector :  Bright.Config.EditorBeanBase
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
-    {        
+    {
+        _json["$type"] = "test.SepVector";
         {
             _json["x"] = new JSONNumber(X);
         }
