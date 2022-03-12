@@ -2,7 +2,7 @@
   x: 5
   items:
   - x: 1
-    y: True
+    y: true
     z: 'abcd'
     a:
       x: 10
@@ -12,7 +12,7 @@
     - 3
     - 5
   - x: 2
-    y: False
+    y: false
     z: 'abcd'
     a:
       x: 22
@@ -24,7 +24,7 @@
   x: 9
   items:
   - x: 2
-    y: True
+    y: true
     z: 'abcd'
     a:
       x: 10
@@ -34,7 +34,7 @@
     - 3
     - 5
   - x: 4
-    y: False
+    y: false
     z: 'abcd'
     a:
       x: 22
@@ -43,7 +43,7 @@
     - 4
     - 5
   - x: 5
-    y: False
+    y: false
     z: 'abcd'
     a:
       x: 22

@@ -1,9 +1,9 @@
 - id: 5
   name:
-    key: key_name
-    text: aabbcc
+    key: 'key_name'
+    text: 'aabbcc'
   date:
-    $type: DemoD5
+    $type: 'DemoD5'
     x1: 1
     time:
       start_time: 398966400

@@ -4,7 +4,7 @@
   content: '测试内容1'
   award:
   - 1
-  all_server: True
+  all_server: true
   server_list: []
   platform: '1'
   channel: '1'
@@ -25,7 +25,7 @@
   content: '测试内容2'
   award:
   - 1
-  all_server: False
+  all_server: false
   server_list:
   - 1
   platform: '1'
@@ -46,7 +46,7 @@
   content: '测试内容3'
   award:
   - 1
-  all_server: False
+  all_server: false
   server_list:
   - 1
   platform: '1'
@@ -65,7 +65,7 @@
   content: '测试内容3'
   award:
   - 1
-  all_server: False
+  all_server: false
   server_list:
   - 1
   platform: '1'

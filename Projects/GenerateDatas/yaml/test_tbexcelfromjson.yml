@@ -1,11 +1,11 @@
 - x4: 1
-  x1: True
+  x1: true
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 2
@@ -23,7 +23,7 @@
     x1: 10
   x13: 1
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   k1:
@@ -35,24 +35,24 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 3
 - x4: 2
-  x1: True
+  x1: true
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 2
@@ -70,7 +70,7 @@
     x1: 10
   x13: 2
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   k1:
@@ -82,24 +82,24 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 3
 - x4: 3
-  x1: True
+  x1: true
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 2
@@ -117,7 +117,7 @@
     x1: 10
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   k1:
@@ -129,24 +129,24 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 3
 - x4: 6
-  x1: False
+  x1: false
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 2
@@ -164,7 +164,7 @@
     x1: 10
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   k1:
@@ -176,24 +176,24 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 3
 - x4: 7
-  x1: False
+  x1: false
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 3
@@ -211,7 +211,7 @@
     x1: 11
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 3
   k1:
@@ -223,24 +223,24 @@
     - 11
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 3
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 4
 - x4: 8
-  x1: False
+  x1: false
   x5: 100
   x6: 1.2
   s1: 'hq'
   s2:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 4
@@ -258,7 +258,7 @@
     x1: 12
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 4
   k1:
@@ -270,14 +270,14 @@
     - 12
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 4
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 2
     x2: 5
 ...

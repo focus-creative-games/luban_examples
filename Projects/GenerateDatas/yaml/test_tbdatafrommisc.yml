@@ -1,5 +1,5 @@
 - x4: 1
-  x1: True
+  x1: true
   x2: 3
   x3: 128
   x5: 11223344
@@ -13,12 +13,12 @@
     x1: 10
   x13: 2
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   s1:
-    key: /asfa
-    text: aabbcc
+    key: '/asfa'
+    text: 'aabbcc'
   v2:
     x: 1
     y: 2
@@ -48,15 +48,15 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
 - x4: 11
-  x1: True
+  x1: true
   x2: 4
   x3: 128
   x5: 112233445566
@@ -70,12 +70,12 @@
     x1: 1
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   s1:
-    key: xml_key1
-    text: xml text
+    key: 'xml_key1'
+    text: 'xml text'
   v2:
     x: 1
     y: 2
@@ -105,15 +105,15 @@
     - 30
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
 - x4: 2
-  x1: True
+  x1: true
   x2: 3
   x3: 128
   x5: 11223344
@@ -127,12 +127,12 @@
     x1: 10
   x13: 2
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   s1:
-    key: /asfa32
-    text: aabbcc22
+    key: '/asfa32'
+    text: 'aabbcc22'
   v2:
     x: 1
     y: 2
@@ -162,15 +162,15 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
 - x4: 12
-  x1: True
+  x1: true
   x2: 4
   x3: 128
   x5: 112233445566
@@ -184,12 +184,12 @@
     x1: 1
   x13: 4
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   s1:
-    key: xml_key2
-    text: xml text222
+    key: 'xml_key2'
+    text: 'xml text222'
   v2:
     x: 1
     y: 2
@@ -219,15 +219,15 @@
     - 30
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
 - x4: 40
-  x1: True
+  x1: true
   x2: 3
   x3: 128
   x5: 11223344
@@ -241,12 +241,12 @@
     x1: 10
   x13: 2
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 2
   s1:
-    key: /asfa32
-    text: aabbcc22
+    key: '/asfa32'
+    text: 'aabbcc22'
   v2:
     x: 1
     y: 2
@@ -276,15 +276,15 @@
     - 10
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 2
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 2
 - x4: 22
-  x1: False
+  x1: false
   x2: 2
   x3: 128
   x5: 112233445566
@@ -298,11 +298,11 @@
     x1: 1
   x13: 5
   x14:
-    $type: DemoD2
+    $type: 'DemoD2'
     x1: 1
     x2: 3
   s1:
-    key: lua/key1
+    key: 'lua/key1'
     text: 'lua text '
   v2:
     x: 1
@@ -333,11 +333,11 @@
     - 12
   k9:
   - y1: 1
-    y2: True
+    y2: true
   - y1: 10
-    y2: False
+    y2: false
   k15:
-  - $type: DemoD2
+  - $type: 'DemoD2'
     x1: 1
     x2: 3
 ...

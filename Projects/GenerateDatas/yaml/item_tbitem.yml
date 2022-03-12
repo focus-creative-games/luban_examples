@@ -10,12 +10,12 @@
   desc: 'rmb兑换的主要货币'
   show_order: 1
   quantifier: '个'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 2
   name: '金币'
@@ -29,12 +29,12 @@
   desc: '主要的高级流通代币'
   show_order: 2
   quantifier: '个'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 3
   name: '银币'
@@ -48,12 +48,12 @@
   desc: '主要的流通代币'
   show_order: 3
   quantifier: '个'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 4
   name: '经验'
@@ -67,12 +67,12 @@
   desc: '人物升级需要的经验'
   show_order: 4
   quantifier: '点'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 5
   name: '能量点'
@@ -86,12 +86,12 @@
   desc: '人物变身需要的能量点'
   show_order: 5
   quantifier: '点'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020100001
   name: '初始发型'
@@ -105,12 +105,12 @@
   desc: '初始发型'
   show_order: 6
   quantifier: '套'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020200001
   name: '初始外套'
@@ -124,12 +124,12 @@
   desc: '初始外套'
   show_order: 7
   quantifier: '件'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020300001
   name: '初始上衣'
@@ -143,12 +143,12 @@
   desc: '初始上衣'
   show_order: 8
   quantifier: '件'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020400001
   name: '初始裤子'
@@ -162,12 +162,12 @@
   desc: '初始下装'
   show_order: 9
   quantifier: '件'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020500001
   name: '初始袜子'
@@ -181,12 +181,12 @@
   desc: '初始袜子'
   show_order: 10
   quantifier: '双'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020600001
   name: '初始鞋子'
@@ -200,12 +200,12 @@
   desc: '初始鞋子'
   show_order: 11
   quantifier: '双'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1020700001
   name: '初始发饰'
@@ -219,12 +219,12 @@
   desc: '初始发饰'
   show_order: 12
   quantifier: '套'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1022490000
   name: '测试数据-包子'
@@ -238,12 +238,12 @@
   desc: '包子'
   show_order: 29
   quantifier: '个'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: True
+  show_hint_when_use: false
+  droppable: true
   use_type: 1
 - id: 1022490001
   name: '测试数据-铲子'
@@ -257,12 +257,12 @@
   desc: '一把铲子'
   show_order: 30
   quantifier: '把'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   price: 100
   use_type: 0
 - id: 1021490001
@@ -277,12 +277,12 @@
   desc: '初始手持物'
   show_order: 19
   quantifier: '件'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   use_type: 0
 - id: 1022490002
   name: '测试数据-不要动'
@@ -296,12 +296,12 @@
   desc: '初始套装'
   show_order: 26
   quantifier: '个'
-  show_in_bag: True
+  show_in_bag: true
   min_show_level: 5
-  batch_usable: True
+  batch_usable: true
   progress_time_when_use: 1
-  show_hint_when_use: False
-  droppable: False
+  show_hint_when_use: false
+  droppable: false
   price: 8
   use_type: 0
 ...
