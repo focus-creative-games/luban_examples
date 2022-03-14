@@ -27,7 +27,7 @@ func (*ItemTreasureBox) GetTypeId() int32 {
 
 func (_v *ItemTreasureBox)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; var __json_key_item_id__ interface{}; if __json_key_item_id__, _ok_ = _buf["key_item_id"]; !_ok_ || __json_key_item_id__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_key_item_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.KeyItemId = &__x__ }}
+    { var _ok_ bool; var __json_key_item_id__ interface{}; if __json_key_item_id__, _ok_ = _buf["key_item_id"]; !_ok_ || __json_key_item_id__ == nil { _v.KeyItemId = nil } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_key_item_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.KeyItemId = &__x__ }}
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["open_level"].(map[string]interface{}); !_ok_ { err = errors.New("open_level error"); return }; if _v.OpenLevel, err = DeserializeConditionMinLevel(_x_); err != nil { return } }
     { var _ok_ bool; if _v.UseOnObtain, _ok_ = _buf["use_on_obtain"].(bool); !_ok_ { err = errors.New("use_on_obtain error"); return } }
      {

@@ -26,12 +26,12 @@ func (_v *TestShape)Deserialize(_buf map[string]interface{}) (err error) {
 func DeserializeTestShape(_buf map[string]interface{}) (interface{}, error) {
     var id string
     var _ok_ bool
-    if id, _ok_ = _buf["__type__"].(string) ; !_ok_ {
+    if id, _ok_ = _buf["$type"].(string) ; !_ok_ {
         return nil, errors.New("type id missing")
     }
     switch id {
         case "Circle": _v := &TestCircle{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("test.Circle") } else { return _v, nil }
-        case "Rectangle": _v := &TestRectangle{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("test.Rectangle") } else { return _v, nil }
+        case "test2.Rectangle": _v := &Test2Rectangle{}; if err := _v.Deserialize(_buf); err != nil { return nil, errors.New("test2.Rectangle") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")
     }
 }

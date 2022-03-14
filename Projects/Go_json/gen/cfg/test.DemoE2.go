@@ -22,7 +22,7 @@ func (*TestDemoE2) GetTypeId() int32 {
 }
 
 func (_v *TestDemoE2)Deserialize(_buf map[string]interface{}) (err error) {
-    { var _ok_ bool; var __json_y1__ interface{}; if __json_y1__, _ok_ = _buf["y1"]; !_ok_ || __json_y1__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_y1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Y1 = &__x__ }}
+    { var _ok_ bool; var __json_y1__ interface{}; if __json_y1__, _ok_ = _buf["y1"]; !_ok_ || __json_y1__ == nil { _v.Y1 = nil } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_y1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Y1 = &__x__ }}
     { var _ok_ bool; if _v.Y2, _ok_ = _buf["y2"].(bool); !_ok_ { err = errors.New("y2 error"); return } }
     return
 }

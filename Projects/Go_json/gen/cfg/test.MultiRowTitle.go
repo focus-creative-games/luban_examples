@@ -30,7 +30,7 @@ func (_v *TestMultiRowTitle)Deserialize(_buf map[string]interface{}) (err error)
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x1"].(map[string]interface{}); !_ok_ { err = errors.New("x1 error"); return }; if _v.X1, err = DeserializeTestH1(_x_); err != nil { return } }
-    { var _ok_ bool; var __json_x2_0__ interface{}; if __json_x2_0__, _ok_ = _buf["x2_0"]; !_ok_ || __json_x2_0__ == nil { return } else { var __x__ *TestH2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x2_0__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = DeserializeTestH2(_x_); err != nil { return } }; _v.X20 = __x__ }}
+    { var _ok_ bool; var __json_x2_0__ interface{}; if __json_x2_0__, _ok_ = _buf["x2_0"]; !_ok_ || __json_x2_0__ == nil { _v.X20 = nil } else { var __x__ *TestH2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x2_0__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = DeserializeTestH2(_x_); err != nil { return } }; _v.X20 = __x__ }}
      {
                 var _arr_ []interface{}
                 var _ok_ bool

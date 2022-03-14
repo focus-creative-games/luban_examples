@@ -59,9 +59,9 @@ func (_v *ItemItem)Deserialize(_buf map[string]interface{}) (err error) {
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["progress_time_when_use"].(float64); !_ok_ { err = errors.New("progress_time_when_use error"); return }; _v.ProgressTimeWhenUse = float32(_tempNum_) }
     { var _ok_ bool; if _v.ShowHintWhenUse, _ok_ = _buf["show_hint_when_use"].(bool); !_ok_ { err = errors.New("show_hint_when_use error"); return } }
     { var _ok_ bool; if _v.Droppable, _ok_ = _buf["droppable"].(bool); !_ok_ { err = errors.New("droppable error"); return } }
-    { var _ok_ bool; var __json_price__ interface{}; if __json_price__, _ok_ = _buf["price"]; !_ok_ || __json_price__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_price__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Price = &__x__ }}
+    { var _ok_ bool; var __json_price__ interface{}; if __json_price__, _ok_ = _buf["price"]; !_ok_ || __json_price__ == nil { _v.Price = nil } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_price__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Price = &__x__ }}
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["use_type"].(float64); !_ok_ { err = errors.New("use_type error"); return }; _v.UseType = int32(_tempNum_) }
-    { var _ok_ bool; var __json_level_up_id__ interface{}; if __json_level_up_id__, _ok_ = _buf["level_up_id"]; !_ok_ || __json_level_up_id__ == nil { return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_level_up_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.LevelUpId = &__x__ }}
+    { var _ok_ bool; var __json_level_up_id__ interface{}; if __json_level_up_id__, _ok_ = _buf["level_up_id"]; !_ok_ || __json_level_up_id__ == nil { _v.LevelUpId = nil } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_level_up_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.LevelUpId = &__x__ }}
     return
 }
 
