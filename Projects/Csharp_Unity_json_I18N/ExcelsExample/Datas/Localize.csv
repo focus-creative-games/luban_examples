@@ -1,0 +1,4 @@
+##	key	text_cn	text_en	text_tw
+##type	string	string	string	string
+##comment	键	中文	英文	繁中
+	Test	测试	测试英文	测试繁体
