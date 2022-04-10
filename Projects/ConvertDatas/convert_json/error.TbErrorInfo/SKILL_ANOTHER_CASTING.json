@@ -1,0 +1,7 @@
+{
+  "code": "SKILL_ANOTHER_CASTING",
+  "desc": "",
+  "style": {
+    "$type": "ErrorStyleTip"
+  }
+}

@@ -1,0 +1,4 @@
+return {
+    id = 15,
+    text = {key='/demo/5',text="测试5"},
+}

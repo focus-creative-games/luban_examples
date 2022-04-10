@@ -1,0 +1,7 @@
+{
+  "code": "EXCEED_LIMIT",
+  "desc": "超过限制",
+  "style": {
+    "$type": "ErrorStyleTip"
+  }
+}

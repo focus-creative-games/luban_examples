@@ -1,0 +1,7 @@
+{
+  "code": "SKILL_NOT_IN_LIST",
+  "desc": "",
+  "style": {
+    "$type": "ErrorStyleTip"
+  }
+}

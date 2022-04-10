@@ -1,0 +1,7 @@
+{
+  "code": "OVER_TIME",
+  "desc": "超时",
+  "style": {
+    "$type": "ErrorStyleTip"
+  }
+}

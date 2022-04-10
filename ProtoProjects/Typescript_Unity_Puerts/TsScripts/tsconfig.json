@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react",
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "typeRoots": [
+      "../Assets/Puerts/Typing",
+      "../Assets/Gen/Typing",
+      "./node_modules/@types"
+    ],
+    "outDir": "output"
+  },
+  "include" :["src/**/*", "test/**/*"]
+}

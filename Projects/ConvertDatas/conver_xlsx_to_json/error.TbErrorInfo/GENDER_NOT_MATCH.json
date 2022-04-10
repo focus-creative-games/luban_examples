@@ -1,0 +1,7 @@
+{
+  "code": "GENDER_NOT_MATCH",
+  "desc": "",
+  "style": {
+    "__type__": "ErrorStyleTip"
+  }
+}

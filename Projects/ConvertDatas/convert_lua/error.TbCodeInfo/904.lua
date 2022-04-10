@@ -1,0 +1,4 @@
+return {
+    code = 'SUIT_COMPONENT_NO_NEED_LEARN',
+    key = "SUIT_COMPONENT_NO_NEED_LEARN",
+}

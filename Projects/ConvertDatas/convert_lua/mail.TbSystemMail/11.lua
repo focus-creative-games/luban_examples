@@ -1,0 +1,9 @@
+return {
+    id = 11,
+    title = "测试1",
+    sender = "系统",
+    content = "测试内容1",
+    award = {
+        1,
+    },
+}

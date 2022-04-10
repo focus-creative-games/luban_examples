@@ -1,0 +1,100 @@
+<module name="test">
+
+<enum name="EnumType">
+    <var name="A" value="1"/>
+    <var name="B" value="3"/>
+</enum>
+
+<bean name="Simple">
+    <var name="x" type="int"/>
+    <var name="y" type="int"/>
+</bean>
+
+<bean name="Dyn">
+    <var name="a1" type="int"/>
+    <bean name="Child2" id="1">
+        <var name="a20" type="int"/>
+    </bean>
+    <bean name="Child21">
+        <var name="a24" type="int"/>
+        <bean name="Child31" id="10">
+            <var name="a31" type="int"/>
+            <var name="a32" type="int"/>
+        </bean>
+        <bean name="Child32" id="11">
+            <var name="b31" type="int"/>
+            <var name="b32" type="int"/>
+        </bean>
+    </bean>
+</bean>
+
+<bean name="AllType">
+    <var name="x1" type="bool"/>
+    <var name="x2" type="byte"/>
+    <var name="x3" type="short"/>
+    <var name="x4" type="fshort"/>
+    <var name="x5" type="int"/>
+    <var name="x6" type="fint"/>
+    <var name="x7" type="long"/>
+    <var name="x8" type="flong"/>
+    <var name="a1" type="string"/>
+    <var name="a2" type="bytes"/>
+    
+    <var name="a3" type="Simple"/>
+    <var name="a4" type="Dyn"/>
+    
+    <var name="b1" type="array,int"/>
+    <var name="b2" type="array,Simple"/>
+    <var name="b3" type="array,Dyn"/>
+    
+    <var name="c1" type="list,int"/>
+    <var name="c2" type="list,Simple"/>
+    <var name="c3" type="list,Dyn"/>
+    
+    <var name="d1" type="set,int"/>
+    
+    <var name="e1" type="map,int,int"/>
+    <var name="e2" type="map,int,Simple"/>
+    <var name="e3" type="map,int,Dyn"/>
+</bean>
+
+<bean name="TestNullable">
+    <var name="f1" type="int?"/>
+    <var name="f2" type="string?"/>
+    <var name="f3" type="Simple?"/>
+    <var name="f4" type="Dyn?"/>
+</bean>
+
+<proto name="TestProto1">
+    <var name="x" type="int"/>
+    <var name="y" type="string"/>
+    <var name="z" type="TestNullable"/>
+</proto>
+
+<proto name="Foo" id="1234">
+    <var name="x" type="int"/>
+    <var name="y" type="AllType"/>
+    <var name="z" type="Simple"/>
+</proto>
+
+<bean name="TestRpcArg">
+    <var name="x" type="int"/>
+    <var name="y" type="string"/>
+</bean>
+
+<bean name="TestRpcRes">
+    <var name="x" type="int"/>
+    <var name="y" type="int"/>
+</bean>
+
+<bean name="MyIntVector3">
+    <var name="x" type="int"/>
+    <var name="y" type="int"/>
+    <var name="z" type="int"/>
+</bean>
+
+<rpc name="TestRpc" arg="TestRpcArg" res="TestRpcRes"/>
+
+<rpc id="2233" name="TestRpc2" arg="TestRpcArg" res="TestRpcRes"/>
+
+</module>

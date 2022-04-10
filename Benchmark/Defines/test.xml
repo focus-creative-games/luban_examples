@@ -1,0 +1,67 @@
+<module name="benchmark">
+	<enum name="DemoEnum">
+		<var name="A" alias="aa" value="1"/>
+		<var name="B" alias="bb"/>
+		<var name="C" alias="cc" value="4"/>
+		<var name="D" alias="dd"/>
+	</enum>
+	
+	<bean name="DemoType1">
+		<var name="x1" type="int"/>
+	</bean>
+	
+	<bean name="DemoDynamic"> 多态数据结构
+		<var name="x1" type="int"/>
+		
+		<bean name="DemoD2" alias="测试别名">
+			<var name="x2" type="int"/>
+		</bean>
+		
+		<bean name="DemoD3">
+			<var name="x3" type="int"/>
+			<bean name="DemoE1">
+				<var name="x4" type="int"/>
+			</bean>
+		</bean>
+	</bean>
+	
+	<bean name="DemoE2">
+		<var name="y1" type="int?"/>
+		<var name="y2" type="bool"/>
+	</bean>
+	
+	
+	<bean name="BenchmarkValue" >
+		<var name="x4" type="int"/>
+		<var name="x1" type="bool"/>
+		<var name="x2" type="byte"/>
+		<var name="x3" type="short"/>
+		<var name="x5" type="long"/>
+		<var name="x6" type="float"/>
+		<var name="x7" type="double"/>
+		<var name="x8_0" type="fshort"/>
+		<var name="x8" type="fint"/>
+		<var name="x9" type="flong"/>
+		
+		<var name="x10" type="string" path="unity"/>
+		<var name="x12" type="DemoType1"/>
+		<var name="x13" type="DemoEnum"/>
+		<var name="x14" type="DemoDynamic"/>多态数据结构
+		
+		<var name="s1" type="text"/>
+		
+		<var name="v2" type="vector2"/>
+		<var name="v3" type="vector3"/>
+		<var name="v4" type="vector4"/>
+		
+		<var name="t1" type="datetime"/>
+
+		<var name="k1" type="array,int"/>
+		<var name="k2" type="list,int"/>
+		<var name="k5" type="set,int"/>
+		<var name="k8" type="map,int,int"/>
+		<var name="k9" type="list,DemoE2" />
+		<var name="k15" type="array,DemoDynamic"/> 
+	</bean>
+
+</module>

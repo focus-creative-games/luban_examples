@@ -1,0 +1,22 @@
+{
+  "id": 1022490002,
+  "name": "测试数据-不要动",
+  "major_type": "服装",
+  "minor_type": "连衣裙",
+  "max_pile_num": 1,
+  "quality": "蓝",
+  "icon": "/Game/UI/UIText/IocnResource/Frames/S0090D_png.S0090D_png",
+  "icon_backgroud": "",
+  "icon_mask": "",
+  "desc": "初始套装",
+  "show_order": 26,
+  "quantifier": "个",
+  "show_in_bag": true,
+  "min_show_level": 5,
+  "batch_usable": true,
+  "progress_time_when_use": 1,
+  "show_hint_when_use": false,
+  "droppable": false,
+  "price": 8,
+  "use_type": "手动"
+}

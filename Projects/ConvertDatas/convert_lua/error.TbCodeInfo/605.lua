@@ -1,0 +1,4 @@
+return {
+    code = 'NO_INTERACTION_COMPONENT',
+    key = "NO_INTERACTION_COMPONENT",
+}

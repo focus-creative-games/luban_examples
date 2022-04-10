@@ -1,0 +1,6 @@
+{
+  "$type": "InteractionItem",
+  "id": 1040020001,
+  "holding_static_mesh": "StaticMesh\u0027/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple\u0027",
+  "holding_static_mesh_mat": "MaterialInstanceConstant\u0027/Game/X6GameData/Prototype/PrototypeAssets/Material/LD_Red.LD_Red\u0027"
+}

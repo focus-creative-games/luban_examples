@@ -1,0 +1,22 @@
+/asf/asfa|abcdef
+/asfa|aabbcc
+/asfa32|aabbcc22
+/demo/6|测试6
+/demo/7|测试7
+/demo/8|测试8
+/keyasf|asf
+/test/key1|测试本地化字符串1
+/test/key2|测试本地化字符串2
+/test/key3|测试本地化字符串3
+/test/key4|测试本地化字符串4
+asdfasew|hahaha
+key_name|aabbcc
+key1|abcdef
+key2|asdfa7
+key3|asdfa8
+key4|asdfa9
+key5|asdfa10
+key6|asdfa11
+lua/key1|lua text 
+xml_key1|xml text
+xml_key2|xml text222

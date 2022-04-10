@@ -1,0 +1,12 @@
+{
+    "name": "BetterStreamingAssets-Editor",
+    "references": [
+        "BetterStreamingAssets"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

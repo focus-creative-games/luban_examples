@@ -1,0 +1,7 @@
+{
+  "code": "SKILL_TARGET_NOT_EXIST",
+  "desc": "",
+  "style": {
+    "$type": "ErrorStyleTip"
+  }
+}

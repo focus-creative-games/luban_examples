@@ -1,0 +1,4 @@
+return {
+    code = 'SUIT_COMPONENT_STATE_ERROR',
+    key = "SUIT_COMPONENT_STATE_ERROR",
+}

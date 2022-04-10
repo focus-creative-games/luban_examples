@@ -1,0 +1,9 @@
+{
+  "code": "AUTH_FAIL",
+  "desc": "认证失败",
+  "style": {
+    "__type__": "ErrorStyleMsgbox",
+    "btn_name": "ok",
+    "operation": "重启"
+  }
+}
