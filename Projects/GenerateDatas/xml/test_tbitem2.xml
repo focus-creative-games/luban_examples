@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record type="Item">
+    <id>1001</id>
+    <name>道具1</name>
+    <desc>道具1</desc>
+    <num>100</num>
+    <price>15</price>
+  </record>
+  <record type="Item">
+    <id>1002</id>
+    <name>道具2</name>
+    <desc>道具1</desc>
+    <num>20</num>
+    <price>30</price>
+  </record>
+  <record type="Equipment">
+    <id>2001</id>
+    <name>装备1</name>
+    <desc>装备1</desc>
+    <attr>1</attr>
+    <value>100</value>
+  </record>
+  <record type="Equipment">
+    <id>2002</id>
+    <name>装备2</name>
+    <desc>装备2好</desc>
+    <attr>2</attr>
+    <value>15</value>
+  </record>
+  <record type="Decorator">
+    <id>3001</id>
+    <name>耳环</name>
+    <desc>耳环</desc>
+    <duration>100</duration>
+  </record>
+  <record type="Decorator">
+    <id>3002</id>
+    <name>耳环</name>
+    <desc>耳环</desc>
+    <duration>100</duration>
+  </record>
+  <record type="Item">
+    <id>1010</id>
+    <name>道具10</name>
+    <desc>道具10</desc>
+    <num>100</num>
+    <price>10</price>
+  </record>
+  <record type="Equipment">
+    <id>2010</id>
+    <name>装备20</name>
+    <desc>装备好</desc>
+    <attr>4</attr>
+    <value>10</value>
+  </record>
+  <record type="Decorator">
+    <id>3010</id>
+    <name>帽子</name>
+    <desc>帽子</desc>
+    <duration>100</duration>
+  </record>
+</table>

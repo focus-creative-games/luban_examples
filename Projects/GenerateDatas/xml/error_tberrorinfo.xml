@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <code>EXAMPLE_FLASH</code>
+    <desc>这是一个例子飘窗</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>EXAMPLE_MSGBOX</code>
+    <desc>例子弹框，消息决定行为</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>要重启了</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>EXAMPLE_DLG_OK</code>
+    <desc>例子：单按钮提示，用户自己提供回调</desc>
+    <style type="ErrorStyleDlgOk">
+      <btn_name>联知道了</btn_name>
+    </style>
+  </record>
+  <record>
+    <code>EXAMPLE_DLG_OK_CANCEL</code>
+    <desc>例子：双按钮提示，用户自己提供回调</desc>
+    <style type="ErrorStyleDlgOkCancel">
+      <btn1_name>别</btn1_name>
+      <btn2_name>好</btn2_name>
+    </style>
+  </record>
+  <record>
+    <code>ROLE_CREATE_NAME_INVALID_CHAR</code>
+    <desc>角色名字有非法字符</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ROLE_CREATE_NAME_EMPTY</code>
+    <desc>名字为空</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ROLE_CREATE_NAME_EXCEED_MAX_LENGTH</code>
+    <desc>名字太长</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ROLE_CREATE_ROLE_LIST_FULL</code>
+    <desc>角色列表已满</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ROLE_CREATE_INVALID_PROFESSION</code>
+    <desc>非法职业</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>PARAM_ILLEGAL</code>
+    <desc>参数非法</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>BAG_IS_FULL</code>
+    <desc>背包已满</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ITEM_NOT_ENOUGH</code>
+    <desc>道具不足</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>ITEM_IN_BAG</code>
+    <desc>道具已在背包中</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>GENDER_NOT_MATCH</code>
+    <desc></desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>LEVEL_TOO_LOW</code>
+    <desc>等级太低</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>LEVEL_TOO_HIGH</code>
+    <desc>等级太高</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>EXCEED_LIMIT</code>
+    <desc>超过限制</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>OVER_TIME</code>
+    <desc>超时</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_NOT_IN_LIST</code>
+    <desc></desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_NOT_COOLDOWN</code>
+    <desc></desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_TARGET_NOT_EXIST</code>
+    <desc></desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_ANOTHER_CASTING</code>
+    <desc></desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_TYPE_ERROR</code>
+    <desc>邮件类型错误</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_HAVE_DELETED</code>
+    <desc>邮件已删除</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_AWARD_HAVE_RECEIVED</code>
+    <desc>邮件奖励已领取</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_OPERATE_TYPE_ERROR</code>
+    <desc>邮件操作类型错误</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_CONDITION_NOT_MEET</code>
+    <desc>邮件条件不满足</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_NO_AWARD</code>
+    <desc>邮件没有奖励</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>MAIL_BOX_IS_FULL</code>
+    <desc>邮箱已满</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>NO_INTERACTION_COMPONENT</code>
+    <desc>在被拾取对象上，找不到交互组件！！</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>BUTTON_TOO_MANY_CLICKS</code>
+    <desc>点击次数太多了</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_ENEYGY_LACK</code>
+    <desc>技能能量不足</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_IS_COOLINGDOWN</code>
+    <desc>技能冷却中</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_NO_REACTION_OBJ</code>
+    <desc>当前没有对技能生效的物体</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_NOT_UNLOCKED</code>
+    <desc>技能尚未解锁</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SKILL_IS_GROUP_COLLINGDOWN</code>
+    <desc>技能释放中</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>CLOTH_CHANGE_TOO_FAST</code>
+    <desc>暖暖正在换衣服中，请稍等</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>CLOTH_CHANGE_NOT_ALLOW</code>
+    <desc>当前状态不允许换装</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>CLOTH_CHANGE_SAME</code>
+    <desc>换的还是目前的套装</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>HAS_BIND_SERVER</code>
+    <desc>已经绑定过该服务器</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>ok</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>AUTH_FAIL</code>
+    <desc>认证失败</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>ok</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>NOT_BIND_SERVER</code>
+    <desc>没有绑定服务器</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>ok</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>SERVER_ACCESS_FAIL</code>
+    <desc>访问服务器失败</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>ok</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>SERVER_NOT_EXISTS</code>
+    <desc>该服务器不存在</desc>
+    <style type="ErrorStyleMsgbox">
+      <btn_name>ok</btn_name>
+      <operation>1</operation>
+    </style>
+  </record>
+  <record>
+    <code>SUIT_NOT_UNLOCK</code>
+    <desc>套装尚未解锁</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SUIT_COMPONENT_NOT_UNLOCK</code>
+    <desc>部件尚未解锁</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SUIT_STATE_ERROR</code>
+    <desc>套装状态错误</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SUIT_COMPONENT_STATE_ERROR</code>
+    <desc>部件状态错误</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+  <record>
+    <code>SUIT_COMPONENT_NO_NEED_LEARN</code>
+    <desc>设计图纸对应的部件均已完成学习</desc>
+    <style type="ErrorStyleTip" />
+  </record>
+</table>

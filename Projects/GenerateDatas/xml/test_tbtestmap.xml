@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <x1>
+      <ele>
+        <key>1</key>
+        <value>2</value>
+      </ele>
+      <ele>
+        <key>3</key>
+        <value>4</value>
+      </ele>
+    </x1>
+    <x2>
+      <ele>
+        <key>1</key>
+        <value>2</value>
+      </ele>
+      <ele>
+        <key>3</key>
+        <value>4</value>
+      </ele>
+    </x2>
+    <x3>
+      <ele>
+        <key>aaa</key>
+        <value>1</value>
+      </ele>
+      <ele>
+        <key>bbb</key>
+        <value>2</value>
+      </ele>
+    </x3>
+    <x4>
+      <ele>
+        <key>1</key>
+        <value>1</value>
+      </ele>
+      <ele>
+        <key>2</key>
+        <value>20</value>
+      </ele>
+    </x4>
+  </record>
+</table>

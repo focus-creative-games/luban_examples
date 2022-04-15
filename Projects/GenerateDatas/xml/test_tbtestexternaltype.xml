@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <audio_type>1</audio_type>
+    <color>
+      <r>0.2</r>
+      <g>0.2</g>
+      <b>0.4</b>
+      <a>1</a>
+    </color>
+  </record>
+  <record>
+    <id>2</id>
+    <audio_type>2</audio_type>
+    <color>
+      <r>0.2</r>
+      <g>0.2</g>
+      <b>0.4</b>
+      <a>0.8</a>
+    </color>
+  </record>
+</table>
