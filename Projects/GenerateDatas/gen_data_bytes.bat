@@ -9,7 +9,6 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_data_dir bytes ^
  --gen_types data_bin ^
- --data_file_extension bytes ^
  -s all
 
 
