@@ -1,17 +1,18 @@
 # luban_examples
 
-更多文档请参见 [Document](https://focus-creative-games.github.io/lubandoc/)
+更多文档请参见 [Document](https://focus-creative-games.github.io/luban/)
 
 一个示例工程，包含
 
 - Tools
   - Luban.Client
     - Luban.Client 客户端
+
   - Luban.ClientServer
     - Luban.Server 服务端
     - Luban.ClientServer 一体化程序。免去部属Luban.Server的麻烦
 
-  - [LubanAssistant](https://github.com/focus-creative-games/luban/tree/main/src/LubanAssistant) Excel插件
+  - [LubanAssistant](https://focus-creative-games.github.io/luban/tools/#lubanassistant) Excel插件
 
     在Tools/LubanAssistant目录。
 
@@ -70,7 +71,7 @@ Projects里的项目都已经过测试，已经包含了生成代码和数据，
 
 将运行脚本中%LUBAN_CLIENT%变量的Luban.Client/Luban.Client 改为 Luban.ClientServer/Luban.ClientServer，同时删除 -h (--host ) 选项及其参数。
 
-命令行的详细用法，请见wiki [luban命令工具](https://github.com/focus-creative-games/luban/wiki/command_tools)
+命令行的详细用法，请见 [luban命令工具](https://focus-creative-games.github.io/luban/command_tools/)
 
 ## 支持与联系
 
