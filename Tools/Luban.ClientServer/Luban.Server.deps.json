@@ -20,7 +20,7 @@
       },
       "Bright.Core/1.1.0.34": {
         "dependencies": {
-          "NLog": "4.7.0"
+          "NLog": "4.7.15"
         },
         "runtime": {
           "lib/netcoreapp3.1/Bright.Core.dll": {
@@ -226,11 +226,11 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "NLog/4.7.0": {
+      "NLog/4.7.15": {
         "runtime": {
           "lib/netstandard2.0/NLog.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.7.0.11381"
+            "fileVersion": "4.7.15.867"
           }
         }
       },
@@ -1053,7 +1053,8 @@
       },
       "Luban.Job.Db/1.0.0": {
         "dependencies": {
-          "Luban.Job.Common": "1.0.0"
+          "Luban.Job.Common": "1.0.0",
+          "NLog": "4.7.15"
         },
         "runtime": {
           "Luban.Job.Db.dll": {}
@@ -1209,12 +1210,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "NLog/4.7.0": {
+    "NLog/4.7.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ch4piF/ifV6ZapFx5Vj8MGaiCZkztHwTMFghJJSOkA/LeWcNdvqW8VzRw7ZMvS8anUmsH81FV334Vay6+ja4Kg==",
-      "path": "nlog/4.7.0",
-      "hashPath": "nlog.4.7.0.nupkg.sha512"
+      "sha512": "sha512-vXMmsK17hXnMsKd8BdCrJzvb8JMT0+cPgBGRfnqcXIb6y8b6RMIZexO4hMhQgifcTHgU7dbubvCR5A5wX6Ne+A==",
+      "path": "nlog/4.7.15",
+      "hashPath": "nlog.4.7.15.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

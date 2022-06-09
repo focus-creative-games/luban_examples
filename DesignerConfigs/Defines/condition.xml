@@ -19,8 +19,8 @@
 					<var name="level" type="int"/>
 				</bean>
 				<bean name="MinMaxLevel" alias="等级范围">
-					<var name="min" type="int"/>
-					<var name="max" type="int"/>
+					<var name="min_level" type="int"/>
+					<var name="max_level" type="int"/>
 				</bean>
 				
 				<bean name="ClothesPropertyScoreGreaterThan" alias="属性超过">
