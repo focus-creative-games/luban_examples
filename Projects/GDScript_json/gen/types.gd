@@ -2660,7 +2660,6 @@ class TestTbNotIndexList:
         return self._data_list[index]
 
 
-
 class TestNotIndexList:
     
     var x
@@ -2687,7 +2686,6 @@ class TestTbMultiUnionIndexList:
         return self._data_list[index]
 
 
-
 class TestMultiUnionIndexList:
     
     var id1
@@ -2704,21 +2702,38 @@ class TestMultiUnionIndexList:
 
 
 class TestTbMultiIndexList:
-    var _data_list
+    var _data_id1_map = {}    
+    var _data_id2_map = {}    
+    var _data_id3_map = {}    
+    var _data_list = []
+
     func _init(_json_) -> void:
+        self._data_id1_map = {}
+        self._data_id2_map = {}
+        self._data_id3_map = {}
         self._data_list = []
         
         for _json2_ in _json_:
             var _v
             _v = TestMultiIndexList.new(_json2_)
             self._data_list.append(_v)
+            self._data_id1_map[_v.id1] = _v
+            self._data_id2_map[_v.id2] = _v
+            self._data_id3_map[_v.id3] = _v
 
-    func get_data_list():
+    func get_data_map() -> Dictionary:
+        return self._data_id1_map
+    func get_data_list() -> Array:
         return self._data_list
+    func get_by_id1(id1):
+        return self._data_id1_map.get(id1)
+    func get_by_id2(id2):
+        return self._data_id2_map.get(id2)
+    func get_by_id3(id3):
+        return self._data_id3_map.get(id3)
 
-    func get(index):
-        return self._data_list[index]
-
+    func get(key): 
+        return self._data_id1_map.get(key)
 
 
 class TestMultiIndexList:
@@ -4304,26 +4319,33 @@ class TestTestExcelBean1:
 
 
 class TestTbTestDesc:
-    var _data_map = {}
+    var _data_id_map = {}    
+    var _data_name_map = {}    
     var _data_list = []
 
     func _init(_json_) -> void:
-        self._data_map = {}
+        self._data_id_map = {}
+        self._data_name_map = {}
         self._data_list = []
         
         for _json2_ in _json_:
             var _v
             _v = TestTestDesc.new(_json2_)
             self._data_list.append(_v)
-            self._data_map[_v.id] = _v
+            self._data_id_map[_v.id] = _v
+            self._data_name_map[_v.name] = _v
 
     func get_data_map() -> Dictionary:
-        return self._data_map
+        return self._data_id_map
     func get_data_list() -> Array:
         return self._data_list
+    func get_by_id(id):
+        return self._data_id_map.get(id)
+    func get_by_name(name):
+        return self._data_name_map.get(name)
 
     func get(key): 
-        return self._data_map.get(key)
+        return self._data_id_map.get(key)
 
 
 class TestTestDesc:
