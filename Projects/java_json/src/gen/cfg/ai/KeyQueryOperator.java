@@ -20,7 +20,7 @@ public abstract class KeyQueryOperator {
     }
 
     public static KeyQueryOperator deserializeKeyQueryOperator(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "IsSet": return new cfg.ai.IsSet(__json__);
             case "IsNotSet": return new cfg.ai.IsNotSet(__json__);
             case "BinaryOperator": return new cfg.ai.BinaryOperator(__json__);

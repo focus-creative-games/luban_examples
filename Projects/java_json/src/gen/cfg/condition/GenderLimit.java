@@ -15,10 +15,10 @@ import com.google.gson.JsonObject;
 public final class GenderLimit extends cfg.condition.BoolRoleCondition {
     public GenderLimit(JsonObject __json__) { 
         super(__json__);
-        gender = cfg.role.EGenderType.valueOf(__json__.get("gender").getAsInt());
+        gender = __json__.get("gender").getAsInt();
     }
 
-    public GenderLimit(cfg.role.EGenderType gender ) {
+    public GenderLimit(int gender ) {
         super();
         this.gender = gender;
     }
@@ -27,7 +27,7 @@ public final class GenderLimit extends cfg.condition.BoolRoleCondition {
         return new GenderLimit(__json__);
     }
 
-    public final cfg.role.EGenderType gender;
+    public final int gender;
 
     public static final int __ID__ = 103675143;
 

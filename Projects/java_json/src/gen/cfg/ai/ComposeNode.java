@@ -22,7 +22,7 @@ public abstract class ComposeNode extends cfg.ai.FlowNode {
     }
 
     public static ComposeNode deserializeComposeNode(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "Sequence": return new cfg.ai.Sequence(__json__);
             case "Selector": return new cfg.ai.Selector(__json__);
             case "SimpleParallel": return new cfg.ai.SimpleParallel(__json__);

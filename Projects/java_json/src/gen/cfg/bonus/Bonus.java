@@ -20,7 +20,7 @@ public abstract class Bonus {
     }
 
     public static Bonus deserializeBonus(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "OneItem": return new cfg.bonus.OneItem(__json__);
             case "OneItems": return new cfg.bonus.OneItems(__json__);
             case "Item": return new cfg.bonus.Item(__json__);

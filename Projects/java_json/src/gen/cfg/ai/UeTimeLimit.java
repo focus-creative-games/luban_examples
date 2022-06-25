@@ -18,7 +18,7 @@ public final class UeTimeLimit extends cfg.ai.Decorator {
         limitTime = __json__.get("limit_time").getAsFloat();
     }
 
-    public UeTimeLimit(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float limit_time ) {
+    public UeTimeLimit(int id, String node_name, int flow_abort_mode, float limit_time ) {
         super(id, node_name, flow_abort_mode);
         this.limitTime = limit_time;
     }

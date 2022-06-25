@@ -20,7 +20,7 @@ public final class IsAtLocation extends cfg.ai.Decorator {
         inverseCondition = __json__.get("inverse_condition").getAsBoolean();
     }
 
-    public IsAtLocation(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float acceptable_radius, String keyboard_key, boolean inverse_condition ) {
+    public IsAtLocation(int id, String node_name, int flow_abort_mode, float acceptable_radius, String keyboard_key, boolean inverse_condition ) {
         super(id, node_name, flow_abort_mode);
         this.acceptableRadius = acceptable_radius;
         this.keyboardKey = keyboard_key;

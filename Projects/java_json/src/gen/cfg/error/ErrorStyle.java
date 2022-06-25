@@ -20,7 +20,7 @@ public abstract class ErrorStyle {
     }
 
     public static ErrorStyle deserializeErrorStyle(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "ErrorStyleTip": return new cfg.error.ErrorStyleTip(__json__);
             case "ErrorStyleMsgbox": return new cfg.error.ErrorStyleMsgbox(__json__);
             case "ErrorStyleDlgOk": return new cfg.error.ErrorStyleDlgOk(__json__);

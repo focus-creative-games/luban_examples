@@ -21,7 +21,7 @@ public final class DistanceLessThan extends cfg.ai.Decorator {
         reverseResult = __json__.get("reverse_result").getAsBoolean();
     }
 
-    public DistanceLessThan(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, String actor1_key, String actor2_key, float distance, boolean reverse_result ) {
+    public DistanceLessThan(int id, String node_name, int flow_abort_mode, String actor1_key, String actor2_key, float distance, boolean reverse_result ) {
         super(id, node_name, flow_abort_mode);
         this.actor1Key = actor1_key;
         this.actor2Key = actor2_key;

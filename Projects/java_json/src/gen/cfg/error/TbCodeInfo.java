@@ -11,11 +11,11 @@ import com.google.gson.JsonElement;
 
 
 public final class TbCodeInfo {
-    private final java.util.HashMap<cfg.error.EErrorCode, cfg.error.CodeInfo> _dataMap;
+    private final java.util.HashMap<Integer, cfg.error.CodeInfo> _dataMap;
     private final java.util.ArrayList<cfg.error.CodeInfo> _dataList;
     
     public TbCodeInfo(JsonElement __json__) {
-        _dataMap = new java.util.HashMap<cfg.error.EErrorCode, cfg.error.CodeInfo>();
+        _dataMap = new java.util.HashMap<Integer, cfg.error.CodeInfo>();
         _dataList = new java.util.ArrayList<cfg.error.CodeInfo>();
         
         for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
@@ -26,10 +26,10 @@ public final class TbCodeInfo {
         }
     }
 
-    public java.util.HashMap<cfg.error.EErrorCode, cfg.error.CodeInfo> getDataMap() { return _dataMap; }
+    public java.util.HashMap<Integer, cfg.error.CodeInfo> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.error.CodeInfo> getDataList() { return _dataList; }
 
-    public cfg.error.CodeInfo get(cfg.error.EErrorCode key) { return _dataMap.get(key); }
+    public cfg.error.CodeInfo get(int key) { return _dataMap.get(key); }
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
         for(cfg.error.CodeInfo v : _dataList) {

@@ -20,7 +20,7 @@ public final class UeLoop extends cfg.ai.Decorator {
         infiniteLoopTimeoutTime = __json__.get("infinite_loop_timeout_time").getAsFloat();
     }
 
-    public UeLoop(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, int num_loops, boolean infinite_loop, float infinite_loop_timeout_time ) {
+    public UeLoop(int id, String node_name, int flow_abort_mode, int num_loops, boolean infinite_loop, float infinite_loop_timeout_time ) {
         super(id, node_name, flow_abort_mode);
         this.numLoops = num_loops;
         this.infiniteLoop = infinite_loop;

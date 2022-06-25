@@ -7,40 +7,15 @@
 //------------------------------------------------------------------------------
 
 package cfg.ai;
-public enum EKeyType {
-    BOOL(1),
-    INT(2),
-    FLOAT(3),
-    STRING(4),
-    VECTOR(5),
-    ROTATOR(6),
-    NAME(7),
-    CLASS(8),
-    ENUM(9),
-    OBJECT(10),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EKeyType(int value) {
-        this.value = value;
-    }
-
-    public static EKeyType valueOf(int value) {
-        if (value == 1) return BOOL;
-        if (value == 2) return INT;
-        if (value == 3) return FLOAT;
-        if (value == 4) return STRING;
-        if (value == 5) return VECTOR;
-        if (value == 6) return ROTATOR;
-        if (value == 7) return NAME;
-        if (value == 8) return CLASS;
-        if (value == 9) return ENUM;
-        if (value == 10) return OBJECT;
-        throw new IllegalArgumentException("");
-    }
+public final class EKeyType {
+    public static final int BOOL = 1;
+    public static final int INT = 2;
+    public static final int FLOAT = 3;
+    public static final int STRING = 4;
+    public static final int VECTOR = 5;
+    public static final int ROTATOR = 6;
+    public static final int NAME = 7;
+    public static final int CLASS = 8;
+    public static final int ENUM = 9;
+    public static final int OBJECT = 10;
 }

@@ -7,26 +7,8 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum AudioType {
-    UNKNOWN(0),
-    ACC(1),
-    AIFF(2),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    AudioType(int value) {
-        this.value = value;
-    }
-
-    public static AudioType valueOf(int value) {
-        if (value == 0) return UNKNOWN;
-        if (value == 1) return ACC;
-        if (value == 2) return AIFF;
-        throw new IllegalArgumentException("");
-    }
+public final class AudioType {
+    public static final int UNKNOWN = 0;
+    public static final int ACC = 1;
+    public static final int AIFF = 2;
 }

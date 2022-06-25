@@ -7,30 +7,13 @@
 //------------------------------------------------------------------------------
 
 package cfg.role;
-public enum EGenderType {
+public final class EGenderType {
     /**
      * 男
      */
-    MALE(1),
+    public static final int MALE = 1;
     /**
      * 女
      */
-    FEMALE(2),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EGenderType(int value) {
-        this.value = value;
-    }
-
-    public static EGenderType valueOf(int value) {
-        if (value == 1) return MALE;
-        if (value == 2) return FEMALE;
-        throw new IllegalArgumentException("");
-    }
+    public static final int FEMALE = 2;
 }

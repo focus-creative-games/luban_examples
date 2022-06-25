@@ -24,7 +24,7 @@ public abstract class DemoD3 extends cfg.test.DemoDynamic {
     }
 
     public static DemoD3 deserializeDemoD3(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "DemoE1": return new cfg.test.DemoE1(__json__);
             case "test.login.RoleInfo": return new cfg.test.login.RoleInfo(__json__);
             default: throw new bright.serialization.SerializationException();

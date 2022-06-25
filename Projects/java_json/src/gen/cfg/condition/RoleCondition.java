@@ -22,7 +22,7 @@ public abstract class RoleCondition extends cfg.condition.Condition {
     }
 
     public static RoleCondition deserializeRoleCondition(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "MultiRoleCondition": return new cfg.condition.MultiRoleCondition(__json__);
             case "GenderLimit": return new cfg.condition.GenderLimit(__json__);
             case "MinLevel": return new cfg.condition.MinLevel(__json__);

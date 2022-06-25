@@ -22,7 +22,7 @@ public abstract class Service extends cfg.ai.Node {
     }
 
     public static Service deserializeService(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "UeSetDefaultFocus": return new cfg.ai.UeSetDefaultFocus(__json__);
             case "ExecuteTimeStatistic": return new cfg.ai.ExecuteTimeStatistic(__json__);
             case "ChooseTarget": return new cfg.ai.ChooseTarget(__json__);

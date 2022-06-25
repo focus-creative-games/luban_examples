@@ -14,11 +14,11 @@ import com.google.gson.JsonObject;
 
 public final class CodeInfo {
     public CodeInfo(JsonObject __json__) { 
-        code = cfg.error.EErrorCode.valueOf(__json__.get("code").getAsInt());
+        code = __json__.get("code").getAsInt();
         key = __json__.get("key").getAsString();
     }
 
-    public CodeInfo(cfg.error.EErrorCode code, String key ) {
+    public CodeInfo(int code, String key ) {
         this.code = code;
         this.key = key;
     }
@@ -27,7 +27,7 @@ public final class CodeInfo {
         return new CodeInfo(__json__);
     }
 
-    public final cfg.error.EErrorCode code;
+    public final int code;
     public final String key;
 
 

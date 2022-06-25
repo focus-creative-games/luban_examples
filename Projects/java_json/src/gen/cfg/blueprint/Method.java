@@ -30,7 +30,7 @@ public abstract class Method {
     }
 
     public static Method deserializeMethod(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "AbstraceMethod": return new cfg.blueprint.AbstraceMethod(__json__);
             case "ExternalMethod": return new cfg.blueprint.ExternalMethod(__json__);
             case "BlueprintMethod": return new cfg.blueprint.BlueprintMethod(__json__);

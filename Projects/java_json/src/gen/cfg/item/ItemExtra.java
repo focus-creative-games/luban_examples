@@ -22,7 +22,7 @@ public abstract class ItemExtra {
     }
 
     public static ItemExtra deserializeItemExtra(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "TreasureBox": return new cfg.item.TreasureBox(__json__);
             case "InteractionItem": return new cfg.item.InteractionItem(__json__);
             case "Clothes": return new cfg.item.Clothes(__json__);

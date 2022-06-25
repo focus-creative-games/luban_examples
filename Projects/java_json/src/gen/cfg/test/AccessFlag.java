@@ -7,30 +7,10 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum AccessFlag {
-    WRITE(1),
-    READ(2),
-    TRUNCATE(4),
-    NEW(8),
-    READ_WRITE(3),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    AccessFlag(int value) {
-        this.value = value;
-    }
-
-    public static AccessFlag valueOf(int value) {
-        if (value == 1) return WRITE;
-        if (value == 2) return READ;
-        if (value == 4) return TRUNCATE;
-        if (value == 8) return NEW;
-        if (value == 3) return READ_WRITE;
-        throw new IllegalArgumentException("");
-    }
+public final class AccessFlag {
+    public static final int WRITE = 1;
+    public static final int READ = 2;
+    public static final int TRUNCATE = 4;
+    public static final int NEW = 8;
+    public static final int READ_WRITE = 3;
 }

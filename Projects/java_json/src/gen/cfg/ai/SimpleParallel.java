@@ -15,12 +15,12 @@ import com.google.gson.JsonObject;
 public final class SimpleParallel extends cfg.ai.ComposeNode {
     public SimpleParallel(JsonObject __json__) { 
         super(__json__);
-        finishMode = cfg.ai.EFinishMode.valueOf(__json__.get("finish_mode").getAsInt());
+        finishMode = __json__.get("finish_mode").getAsInt();
         mainTask = cfg.ai.Task.deserializeTask(__json__.get("main_task").getAsJsonObject());
         backgroundNode = cfg.ai.FlowNode.deserializeFlowNode(__json__.get("background_node").getAsJsonObject());
     }
 
-    public SimpleParallel(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, cfg.ai.EFinishMode finish_mode, cfg.ai.Task main_task, cfg.ai.FlowNode background_node ) {
+    public SimpleParallel(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, int finish_mode, cfg.ai.Task main_task, cfg.ai.FlowNode background_node ) {
         super(id, node_name, decorators, services);
         this.finishMode = finish_mode;
         this.mainTask = main_task;
@@ -31,7 +31,7 @@ public final class SimpleParallel extends cfg.ai.ComposeNode {
         return new SimpleParallel(__json__);
     }
 
-    public final cfg.ai.EFinishMode finishMode;
+    public final int finishMode;
     public final cfg.ai.Task mainTask;
     public final cfg.ai.FlowNode backgroundNode;
 

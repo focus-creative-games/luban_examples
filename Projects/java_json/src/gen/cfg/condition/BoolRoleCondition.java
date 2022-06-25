@@ -22,7 +22,7 @@ public abstract class BoolRoleCondition extends cfg.condition.RoleCondition {
     }
 
     public static BoolRoleCondition deserializeBoolRoleCondition(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "GenderLimit": return new cfg.condition.GenderLimit(__json__);
             case "MinLevel": return new cfg.condition.MinLevel(__json__);
             case "MaxLevel": return new cfg.condition.MaxLevel(__json__);

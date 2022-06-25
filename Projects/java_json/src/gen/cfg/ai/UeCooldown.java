@@ -18,7 +18,7 @@ public final class UeCooldown extends cfg.ai.Decorator {
         cooldownTime = __json__.get("cooldown_time").getAsFloat();
     }
 
-    public UeCooldown(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode, float cooldown_time ) {
+    public UeCooldown(int id, String node_name, int flow_abort_mode, float cooldown_time ) {
         super(id, node_name, flow_abort_mode);
         this.cooldownTime = cooldown_time;
     }

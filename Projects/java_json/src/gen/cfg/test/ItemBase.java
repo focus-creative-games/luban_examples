@@ -26,7 +26,7 @@ public abstract class ItemBase {
     }
 
     public static ItemBase deserializeItemBase(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "Item": return new cfg.test.Item(__json__);
             case "Equipment": return new cfg.test.Equipment(__json__);
             case "Decorator": return new cfg.test.Decorator(__json__);

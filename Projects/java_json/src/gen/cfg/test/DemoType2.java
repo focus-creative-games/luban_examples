@@ -26,7 +26,7 @@ public final class DemoType2 {
         x9 = __json__.get("x9").getAsLong();
         x10 = __json__.get("x10").getAsString();
         x12 = new cfg.test.DemoType1(__json__.get("x12").getAsJsonObject());
-        x13 = cfg.test.DemoEnum.valueOf(__json__.get("x13").getAsInt());
+        x13 = __json__.get("x13").getAsInt();
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x14").getAsJsonObject());
         __json__.get("s1").getAsJsonObject().get("key").getAsString(); s1 = __json__.get("s1").getAsJsonObject().get("text").getAsString();
         { com.google.gson.JsonObject _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
@@ -41,7 +41,7 @@ public final class DemoType2 {
         { com.google.gson.JsonArray _json0_ = __json__.get("k15").getAsJsonArray(); int _n = _json0_.size(); k15 = new cfg.test.DemoDynamic[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.test.DemoDynamic __v;  __v = cfg.test.DemoDynamic.deserializeDemoDynamic(__e.getAsJsonObject());  k15[_index++] = __v; }   }
     }
 
-    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
+    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x2 = x2;
@@ -85,7 +85,7 @@ public final class DemoType2 {
     public final long x9;
     public final String x10;
     public final cfg.test.DemoType1 x12;
-    public final cfg.test.DemoEnum x13;
+    public final int x13;
     public final cfg.test.DemoDynamic x14;
     public final String s1;
     public final bright.math.Vector2 v2;

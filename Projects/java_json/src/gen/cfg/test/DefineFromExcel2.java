@@ -20,7 +20,7 @@ public final class DefineFromExcel2 {
         x6 = __json__.get("x6").getAsFloat();
         x8 = __json__.get("x8").getAsInt();
         x10 = __json__.get("x10").getAsString();
-        x13 = cfg.test.ETestQuality.valueOf(__json__.get("x13").getAsInt());
+        x13 = __json__.get("x13").getAsInt();
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x14").getAsJsonObject());
         x15 = cfg.test.Shape.deserializeShape(__json__.get("x15").getAsJsonObject());
         { com.google.gson.JsonObject _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
@@ -31,7 +31,7 @@ public final class DefineFromExcel2 {
         { com.google.gson.JsonArray _json0_ = __json__.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoE2 __v;  __v = new cfg.test.DemoE2(__e.getAsJsonObject());  k9.add(__v); }   }
     }
 
-    public DefineFromExcel2(int id, boolean x1, long x5, float x6, int x8, String x10, cfg.test.ETestQuality x13, cfg.test.DemoDynamic x14, cfg.test.Shape x15, bright.math.Vector2 v2, int t1, int[] k1, int[] k2, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 ) {
+    public DefineFromExcel2(int id, boolean x1, long x5, float x6, int x8, String x10, int x13, cfg.test.DemoDynamic x14, cfg.test.Shape x15, bright.math.Vector2 v2, int t1, int[] k1, int[] k2, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 ) {
         this.id = id;
         this.x1 = x1;
         this.x5 = x5;
@@ -65,7 +65,7 @@ public final class DefineFromExcel2 {
     public final float x6;
     public final int x8;
     public final String x10;
-    public final cfg.test.ETestQuality x13;
+    public final int x13;
     public final cfg.test.DemoDynamic x14;
     public final cfg.test.Shape x15;
     public final bright.math.Vector2 v2;

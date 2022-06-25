@@ -15,11 +15,11 @@ import com.google.gson.JsonObject;
 public final class CostCurrency extends cfg.cost.Cost {
     public CostCurrency(JsonObject __json__) { 
         super(__json__);
-        type = cfg.item.ECurrencyType.valueOf(__json__.get("type").getAsInt());
+        type = __json__.get("type").getAsInt();
         num = __json__.get("num").getAsInt();
     }
 
-    public CostCurrency(cfg.item.ECurrencyType type, int num ) {
+    public CostCurrency(int type, int num ) {
         super();
         this.type = type;
         this.num = num;
@@ -29,7 +29,7 @@ public final class CostCurrency extends cfg.cost.Cost {
         return new CostCurrency(__json__);
     }
 
-    public final cfg.item.ECurrencyType type;
+    public final int type;
     public final int num;
 
     public static final int __ID__ = 911838111;

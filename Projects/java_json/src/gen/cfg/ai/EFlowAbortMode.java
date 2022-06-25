@@ -7,28 +7,9 @@
 //------------------------------------------------------------------------------
 
 package cfg.ai;
-public enum EFlowAbortMode {
-    NONE(0),
-    LOWER_PRIORITY(1),
-    SELF(2),
-    BOTH(3),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EFlowAbortMode(int value) {
-        this.value = value;
-    }
-
-    public static EFlowAbortMode valueOf(int value) {
-        if (value == 0) return NONE;
-        if (value == 1) return LOWER_PRIORITY;
-        if (value == 2) return SELF;
-        if (value == 3) return BOTH;
-        throw new IllegalArgumentException("");
-    }
+public final class EFlowAbortMode {
+    public static final int NONE = 0;
+    public static final int LOWER_PRIORITY = 1;
+    public static final int SELF = 2;
+    public static final int BOTH = 3;
 }

@@ -15,11 +15,11 @@ import com.google.gson.JsonObject;
 public final class TestExternalType {
     public TestExternalType(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        audioType = cfg.test.AudioType.valueOf(__json__.get("audio_type").getAsInt());
+        audioType = __json__.get("audio_type").getAsInt();
         color = new cfg.test.Color(__json__.get("color").getAsJsonObject());
     }
 
-    public TestExternalType(int id, cfg.test.AudioType audio_type, cfg.test.Color color ) {
+    public TestExternalType(int id, int audio_type, cfg.test.Color color ) {
         this.id = id;
         this.audioType = audio_type;
         this.color = color;
@@ -30,7 +30,7 @@ public final class TestExternalType {
     }
 
     public final int id;
-    public final cfg.test.AudioType audioType;
+    public final int audioType;
     public final cfg.test.Color color;
 
 

@@ -16,10 +16,10 @@ public final class ErrorStyleMsgbox extends cfg.error.ErrorStyle {
     public ErrorStyleMsgbox(JsonObject __json__) { 
         super(__json__);
         btnName = __json__.get("btn_name").getAsString();
-        operation = cfg.error.EOperation.valueOf(__json__.get("operation").getAsInt());
+        operation = __json__.get("operation").getAsInt();
     }
 
-    public ErrorStyleMsgbox(String btn_name, cfg.error.EOperation operation ) {
+    public ErrorStyleMsgbox(String btn_name, int operation ) {
         super();
         this.btnName = btn_name;
         this.operation = operation;
@@ -30,7 +30,7 @@ public final class ErrorStyleMsgbox extends cfg.error.ErrorStyle {
     }
 
     public final String btnName;
-    public final cfg.error.EOperation operation;
+    public final int operation;
 
     public static final int __ID__ = -1920482343;
 

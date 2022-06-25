@@ -19,10 +19,10 @@ public final class Item {
     public Item(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         name = __json__.get("name").getAsString();
-        majorType = cfg.item.EMajorType.valueOf(__json__.get("major_type").getAsInt());
-        minorType = cfg.item.EMinorType.valueOf(__json__.get("minor_type").getAsInt());
+        majorType = __json__.get("major_type").getAsInt();
+        minorType = __json__.get("minor_type").getAsInt();
         maxPileNum = __json__.get("max_pile_num").getAsInt();
-        quality = cfg.item.EItemQuality.valueOf(__json__.get("quality").getAsInt());
+        quality = __json__.get("quality").getAsInt();
         icon = __json__.get("icon").getAsString();
         iconBackgroud = __json__.get("icon_backgroud").getAsString();
         iconMask = __json__.get("icon_mask").getAsString();
@@ -36,11 +36,11 @@ public final class Item {
         showHintWhenUse = __json__.get("show_hint_when_use").getAsBoolean();
         droppable = __json__.get("droppable").getAsBoolean();
         { if (__json__.has("price") && !__json__.get("price").isJsonNull()) { price = __json__.get("price").getAsInt(); } else { price = null; } }
-        useType = cfg.item.EUseType.valueOf(__json__.get("use_type").getAsInt());
+        useType = __json__.get("use_type").getAsInt();
         { if (__json__.has("level_up_id") && !__json__.get("level_up_id").isJsonNull()) { levelUpId = __json__.get("level_up_id").getAsInt(); } else { levelUpId = null; } }
     }
 
-    public Item(int id, String name, cfg.item.EMajorType major_type, cfg.item.EMinorType minor_type, int max_pile_num, cfg.item.EItemQuality quality, String icon, String icon_backgroud, String icon_mask, String desc, int show_order, String quantifier, boolean show_in_bag, int min_show_level, boolean batch_usable, float progress_time_when_use, boolean show_hint_when_use, boolean droppable, Integer price, cfg.item.EUseType use_type, Integer level_up_id ) {
+    public Item(int id, String name, int major_type, int minor_type, int max_pile_num, int quality, String icon, String icon_backgroud, String icon_mask, String desc, int show_order, String quantifier, boolean show_in_bag, int min_show_level, boolean batch_usable, float progress_time_when_use, boolean show_hint_when_use, boolean droppable, Integer price, int use_type, Integer level_up_id ) {
         this.id = id;
         this.name = name;
         this.majorType = major_type;
@@ -73,10 +73,10 @@ public final class Item {
      */
     public final int id;
     public final String name;
-    public final cfg.item.EMajorType majorType;
-    public final cfg.item.EMinorType minorType;
+    public final int majorType;
+    public final int minorType;
     public final int maxPileNum;
-    public final cfg.item.EItemQuality quality;
+    public final int quality;
     public final String icon;
     public final String iconBackgroud;
     public final String iconMask;
@@ -90,7 +90,7 @@ public final class Item {
     public final boolean showHintWhenUse;
     public final boolean droppable;
     public final Integer price;
-    public final cfg.item.EUseType useType;
+    public final int useType;
     public final Integer levelUpId;
 
 

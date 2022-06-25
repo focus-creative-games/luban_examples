@@ -32,6 +32,8 @@ public final class TbDefineFromExcelOne {
      public int getUnlockHero() { return _data.unlockHero; }
      public String getDefaultAvatar() { return _data.defaultAvatar; }
      public String getDefaultItem() { return _data.defaultItem; }
+     public cfg.test.DemoE2 getE2() { return _data.e2; }
+     public java.util.ArrayList<String> getIcons() { return _data.icons; }
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
         _data.resolve(_tables);

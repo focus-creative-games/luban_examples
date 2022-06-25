@@ -20,7 +20,7 @@ public abstract class Condition {
     }
 
     public static Condition deserializeCondition(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "TimeRange": return new cfg.condition.TimeRange(__json__);
             case "MultiRoleCondition": return new cfg.condition.MultiRoleCondition(__json__);
             case "GenderLimit": return new cfg.condition.GenderLimit(__json__);

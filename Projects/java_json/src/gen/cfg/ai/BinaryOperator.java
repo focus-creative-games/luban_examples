@@ -15,11 +15,11 @@ import com.google.gson.JsonObject;
 public final class BinaryOperator extends cfg.ai.KeyQueryOperator {
     public BinaryOperator(JsonObject __json__) { 
         super(__json__);
-        oper = cfg.ai.EOperator.valueOf(__json__.get("oper").getAsInt());
+        oper = __json__.get("oper").getAsInt();
         data = cfg.ai.KeyData.deserializeKeyData(__json__.get("data").getAsJsonObject());
     }
 
-    public BinaryOperator(cfg.ai.EOperator oper, cfg.ai.KeyData data ) {
+    public BinaryOperator(int oper, cfg.ai.KeyData data ) {
         super();
         this.oper = oper;
         this.data = data;
@@ -29,7 +29,7 @@ public final class BinaryOperator extends cfg.ai.KeyQueryOperator {
         return new BinaryOperator(__json__);
     }
 
-    public final cfg.ai.EOperator oper;
+    public final int oper;
     public final cfg.ai.KeyData data;
 
     public static final int __ID__ = -979891605;

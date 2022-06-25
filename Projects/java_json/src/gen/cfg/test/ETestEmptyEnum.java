@@ -7,20 +7,5 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum ETestEmptyEnum {
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    ETestEmptyEnum(int value) {
-        this.value = value;
-    }
-
-    public static ETestEmptyEnum valueOf(int value) {
-        throw new IllegalArgumentException("");
-    }
+public final class ETestEmptyEnum {
 }

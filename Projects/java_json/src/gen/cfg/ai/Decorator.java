@@ -15,16 +15,16 @@ import com.google.gson.JsonObject;
 public abstract class Decorator extends cfg.ai.Node {
     public Decorator(JsonObject __json__) { 
         super(__json__);
-        flowAbortMode = cfg.ai.EFlowAbortMode.valueOf(__json__.get("flow_abort_mode").getAsInt());
+        flowAbortMode = __json__.get("flow_abort_mode").getAsInt();
     }
 
-    public Decorator(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode ) {
+    public Decorator(int id, String node_name, int flow_abort_mode ) {
         super(id, node_name);
         this.flowAbortMode = flow_abort_mode;
     }
 
     public static Decorator deserializeDecorator(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "UeLoop": return new cfg.ai.UeLoop(__json__);
             case "UeCooldown": return new cfg.ai.UeCooldown(__json__);
             case "UeTimeLimit": return new cfg.ai.UeTimeLimit(__json__);
@@ -36,7 +36,7 @@ public abstract class Decorator extends cfg.ai.Node {
         }
     }
 
-    public final cfg.ai.EFlowAbortMode flowAbortMode;
+    public final int flowAbortMode;
 
 
     @Override

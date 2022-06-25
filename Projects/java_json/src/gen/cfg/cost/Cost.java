@@ -20,7 +20,7 @@ public abstract class Cost {
     }
 
     public static Cost deserializeCost(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "CostCurrency": return new cfg.cost.CostCurrency(__json__);
             case "CostCurrencies": return new cfg.cost.CostCurrencies(__json__);
             case "CostOneItem": return new cfg.cost.CostOneItem(__json__);

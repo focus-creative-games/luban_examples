@@ -15,11 +15,11 @@ import com.google.gson.JsonObject;
 public final class ClothesPropertyScoreGreaterThan extends cfg.condition.BoolRoleCondition {
     public ClothesPropertyScoreGreaterThan(JsonObject __json__) { 
         super(__json__);
-        prop = cfg.item.EClothesPropertyType.valueOf(__json__.get("prop").getAsInt());
+        prop = __json__.get("prop").getAsInt();
         value = __json__.get("value").getAsInt();
     }
 
-    public ClothesPropertyScoreGreaterThan(cfg.item.EClothesPropertyType prop, int value ) {
+    public ClothesPropertyScoreGreaterThan(int prop, int value ) {
         super();
         this.prop = prop;
         this.value = value;
@@ -29,7 +29,7 @@ public final class ClothesPropertyScoreGreaterThan extends cfg.condition.BoolRol
         return new ClothesPropertyScoreGreaterThan(__json__);
     }
 
-    public final cfg.item.EClothesPropertyType prop;
+    public final int prop;
     public final int value;
 
     public static final int __ID__ = 696630835;

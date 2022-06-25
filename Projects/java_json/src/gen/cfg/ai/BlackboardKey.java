@@ -17,11 +17,11 @@ public final class BlackboardKey {
         name = __json__.get("name").getAsString();
         desc = __json__.get("desc").getAsString();
         isStatic = __json__.get("is_static").getAsBoolean();
-        type = cfg.ai.EKeyType.valueOf(__json__.get("type").getAsInt());
+        type = __json__.get("type").getAsInt();
         typeClassName = __json__.get("type_class_name").getAsString();
     }
 
-    public BlackboardKey(String name, String desc, boolean is_static, cfg.ai.EKeyType type, String type_class_name ) {
+    public BlackboardKey(String name, String desc, boolean is_static, int type, String type_class_name ) {
         this.name = name;
         this.desc = desc;
         this.isStatic = is_static;
@@ -36,7 +36,7 @@ public final class BlackboardKey {
     public final String name;
     public final String desc;
     public final boolean isStatic;
-    public final cfg.ai.EKeyType type;
+    public final int type;
     public final String typeClassName;
 
 

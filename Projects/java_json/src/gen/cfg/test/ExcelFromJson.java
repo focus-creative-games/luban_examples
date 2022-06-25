@@ -25,7 +25,7 @@ public final class ExcelFromJson {
         { com.google.gson.JsonObject _json0_ = __json__.get("v4").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  float __w; __w = _json0_.get("w").getAsFloat(); v4 = new bright.math.Vector4(__x, __y, __z, __w); }
         t1 = __json__.get("t1").getAsInt();
         x12 = new cfg.test.DemoType1(__json__.get("x12").getAsJsonObject());
-        x13 = cfg.test.DemoEnum.valueOf(__json__.get("x13").getAsInt());
+        x13 = __json__.get("x13").getAsInt();
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x14").getAsJsonObject());
         { com.google.gson.JsonArray _json0_ = __json__.get("k1").getAsJsonArray(); int _n = _json0_.size(); k1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k1[_index++] = __v; }   }
         { com.google.gson.JsonArray _json0_ = __json__.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  k8.put(__k, __v); }   }
@@ -33,7 +33,7 @@ public final class ExcelFromJson {
         { com.google.gson.JsonArray _json0_ = __json__.get("k15").getAsJsonArray(); int _n = _json0_.size(); k15 = new cfg.test.DemoDynamic[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.test.DemoDynamic __v;  __v = cfg.test.DemoDynamic.deserializeDemoDynamic(__e.getAsJsonObject());  k15[_index++] = __v; }   }
     }
 
-    public ExcelFromJson(int x4, boolean x1, long x5, float x6, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, cfg.test.DemoType1 x12, cfg.test.DemoEnum x13, cfg.test.DemoDynamic x14, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
+    public ExcelFromJson(int x4, boolean x1, long x5, float x6, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x5 = x5;
@@ -68,7 +68,7 @@ public final class ExcelFromJson {
     public final bright.math.Vector4 v4;
     public final int t1;
     public final cfg.test.DemoType1 x12;
-    public final cfg.test.DemoEnum x13;
+    public final int x13;
     public final cfg.test.DemoDynamic x14;
     public final int[] k1;
     public final java.util.HashMap<Integer, Integer> k8;

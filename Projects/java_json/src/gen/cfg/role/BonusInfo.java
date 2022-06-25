@@ -14,11 +14,11 @@ import com.google.gson.JsonObject;
 
 public final class BonusInfo {
     public BonusInfo(JsonObject __json__) { 
-        type = cfg.item.ECurrencyType.valueOf(__json__.get("type").getAsInt());
+        type = __json__.get("type").getAsInt();
         coefficient = __json__.get("coefficient").getAsFloat();
     }
 
-    public BonusInfo(cfg.item.ECurrencyType type, float coefficient ) {
+    public BonusInfo(int type, float coefficient ) {
         this.type = type;
         this.coefficient = coefficient;
     }
@@ -27,7 +27,7 @@ public final class BonusInfo {
         return new BonusInfo(__json__);
     }
 
-    public final cfg.item.ECurrencyType type;
+    public final int type;
     public final float coefficient;
 
 

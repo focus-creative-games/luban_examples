@@ -7,24 +7,7 @@
 //------------------------------------------------------------------------------
 
 package cfg.ai;
-public enum EFinishMode {
-    IMMEDIATE(0),
-    DELAYED(1),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EFinishMode(int value) {
-        this.value = value;
-    }
-
-    public static EFinishMode valueOf(int value) {
-        if (value == 0) return IMMEDIATE;
-        if (value == 1) return DELAYED;
-        throw new IllegalArgumentException("");
-    }
+public final class EFinishMode {
+    public static final int IMMEDIATE = 0;
+    public static final int DELAYED = 1;
 }

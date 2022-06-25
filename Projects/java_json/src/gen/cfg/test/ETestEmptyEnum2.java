@@ -7,26 +7,8 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum ETestEmptyEnum2 {
-    SMALL_THAN_256(255),
-    X_256(256),
-    X_257(257),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    ETestEmptyEnum2(int value) {
-        this.value = value;
-    }
-
-    public static ETestEmptyEnum2 valueOf(int value) {
-        if (value == 255) return SMALL_THAN_256;
-        if (value == 256) return X_256;
-        if (value == 257) return X_257;
-        throw new IllegalArgumentException("");
-    }
+public final class ETestEmptyEnum2 {
+    public static final int SMALL_THAN_256 = 255;
+    public static final int X_256 = 256;
+    public static final int X_257 = 257;
 }

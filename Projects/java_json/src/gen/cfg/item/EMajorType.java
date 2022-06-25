@@ -7,75 +7,49 @@
 //------------------------------------------------------------------------------
 
 package cfg.item;
-public enum EMajorType {
+public final class EMajorType {
     /**
      * 货币
      */
-    CURRENCY(1),
+    public static final int CURRENCY = 1;
     /**
      * 服装
      */
-    CLOTH(2),
+    public static final int CLOTH = 2;
     /**
      * 任务
      */
-    QUEST(3),
+    public static final int QUEST = 3;
     /**
      * 消耗品
      */
-    CONSUMABLES(4),
+    public static final int CONSUMABLES = 4;
     /**
      * 宝箱
      */
-    TREASURE_BOX(5),
+    public static final int TREASURE_BOX = 5;
     /**
      * 成就和称谓
      */
-    ACHIEVEMENT_AND_TITLE(6),
+    public static final int ACHIEVEMENT_AND_TITLE = 6;
     /**
      * 头像框
      */
-    HEAD_FRAME(7),
+    public static final int HEAD_FRAME = 7;
     /**
      * 语音
      */
-    VOICE(8),
+    public static final int VOICE = 8;
     /**
      * 动作
      */
-    ACTION(9),
+    public static final int ACTION = 9;
     /**
      * 扩容道具
      */
-    EXPANSION(10),
+    public static final int EXPANSION = 10;
     /**
      * 制作材料
      */
-    MATERIAL(11),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EMajorType(int value) {
-        this.value = value;
-    }
-
-    public static EMajorType valueOf(int value) {
-        if (value == 1) return CURRENCY;
-        if (value == 2) return CLOTH;
-        if (value == 3) return QUEST;
-        if (value == 4) return CONSUMABLES;
-        if (value == 5) return TREASURE_BOX;
-        if (value == 6) return ACHIEVEMENT_AND_TITLE;
-        if (value == 7) return HEAD_FRAME;
-        if (value == 8) return VOICE;
-        if (value == 9) return ACTION;
-        if (value == 10) return EXPANSION;
-        if (value == 11) return MATERIAL;
-        throw new IllegalArgumentException("");
-    }
+    public static final int MATERIAL = 11;
 }

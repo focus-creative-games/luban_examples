@@ -7,42 +7,22 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum DemoEnum {
-    NONE(0),
+public final class DemoEnum {
+    public static final int NONE = 0;
     /**
      * aa
      */
-    A(1),
+    public static final int A = 1;
     /**
      * bb
      */
-    B(2),
+    public static final int B = 2;
     /**
      * cc
      */
-    C(4),
+    public static final int C = 4;
     /**
      * dd
      */
-    D(5),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    DemoEnum(int value) {
-        this.value = value;
-    }
-
-    public static DemoEnum valueOf(int value) {
-        if (value == 0) return NONE;
-        if (value == 1) return A;
-        if (value == 2) return B;
-        if (value == 4) return C;
-        if (value == 5) return D;
-        throw new IllegalArgumentException("");
-    }
+    public static final int D = 5;
 }

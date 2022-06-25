@@ -16,14 +16,14 @@ public final class TestNull {
     public TestNull(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         { if (__json__.has("x1") && !__json__.get("x1").isJsonNull()) { x1 = __json__.get("x1").getAsInt(); } else { x1 = null; } }
-        { if (__json__.has("x2") && !__json__.get("x2").isJsonNull()) { x2 = cfg.test.DemoEnum.valueOf(__json__.get("x2").getAsInt()); } else { x2 = null; } }
+        { if (__json__.has("x2") && !__json__.get("x2").isJsonNull()) { x2 = __json__.get("x2").getAsInt(); } else { x2 = null; } }
         { if (__json__.has("x3") && !__json__.get("x3").isJsonNull()) { x3 = new cfg.test.DemoType1(__json__.get("x3").getAsJsonObject()); } else { x3 = null; } }
         { if (__json__.has("x4") && !__json__.get("x4").isJsonNull()) { x4 = cfg.test.DemoDynamic.deserializeDemoDynamic(__json__.get("x4").getAsJsonObject()); } else { x4 = null; } }
         { if (__json__.has("s1") && !__json__.get("s1").isJsonNull()) { s1 = __json__.get("s1").getAsString(); } else { s1 = null; } }
         { if (__json__.has("s2") && !__json__.get("s2").isJsonNull()) { __json__.get("s2").getAsJsonObject().get("key").getAsString(); s2 = __json__.get("s2").getAsJsonObject().get("text").getAsString(); } else { s2 = null; } }
     }
 
-    public TestNull(int id, Integer x1, cfg.test.DemoEnum x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 ) {
+    public TestNull(int id, Integer x1, Integer x2, cfg.test.DemoType1 x3, cfg.test.DemoDynamic x4, String s1, String s2 ) {
         this.id = id;
         this.x1 = x1;
         this.x2 = x2;
@@ -39,7 +39,7 @@ public final class TestNull {
 
     public final int id;
     public final Integer x1;
-    public final cfg.test.DemoEnum x2;
+    public final Integer x2;
     public final cfg.test.DemoType1 x3;
     public final cfg.test.DemoDynamic x4;
     public final String s1;

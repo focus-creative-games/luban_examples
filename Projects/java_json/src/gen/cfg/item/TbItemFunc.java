@@ -11,11 +11,11 @@ import com.google.gson.JsonElement;
 
 
 public final class TbItemFunc {
-    private final java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction> _dataMap;
+    private final java.util.HashMap<Integer, cfg.item.ItemFunction> _dataMap;
     private final java.util.ArrayList<cfg.item.ItemFunction> _dataList;
     
     public TbItemFunc(JsonElement __json__) {
-        _dataMap = new java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction>();
+        _dataMap = new java.util.HashMap<Integer, cfg.item.ItemFunction>();
         _dataList = new java.util.ArrayList<cfg.item.ItemFunction>();
         
         for(com.google.gson.JsonElement _e_ : __json__.getAsJsonArray()) {
@@ -26,10 +26,10 @@ public final class TbItemFunc {
         }
     }
 
-    public java.util.HashMap<cfg.item.EMinorType, cfg.item.ItemFunction> getDataMap() { return _dataMap; }
+    public java.util.HashMap<Integer, cfg.item.ItemFunction> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.item.ItemFunction> getDataList() { return _dataList; }
 
-    public cfg.item.ItemFunction get(cfg.item.EMinorType key) { return _dataMap.get(key); }
+    public cfg.item.ItemFunction get(int key) { return _dataMap.get(key); }
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
         for(cfg.item.ItemFunction v : _dataList) {

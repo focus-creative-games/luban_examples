@@ -22,7 +22,7 @@ public abstract class DemoDynamic {
     }
 
     public static DemoDynamic deserializeDemoDynamic(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "DemoD2": return new cfg.test.DemoD2(__json__);
             case "DemoE1": return new cfg.test.DemoE1(__json__);
             case "test.login.RoleInfo": return new cfg.test.login.RoleInfo(__json__);

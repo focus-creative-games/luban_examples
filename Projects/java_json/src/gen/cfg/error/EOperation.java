@@ -7,30 +7,13 @@
 //------------------------------------------------------------------------------
 
 package cfg.error;
-public enum EOperation {
+public final class EOperation {
     /**
      * 登出
      */
-    LOGOUT(0),
+    public static final int LOGOUT = 0;
     /**
      * 重启
      */
-    RESTART(1),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EOperation(int value) {
-        this.value = value;
-    }
-
-    public static EOperation valueOf(int value) {
-        if (value == 0) return LOGOUT;
-        if (value == 1) return RESTART;
-        throw new IllegalArgumentException("");
-    }
+    public static final int RESTART = 1;
 }

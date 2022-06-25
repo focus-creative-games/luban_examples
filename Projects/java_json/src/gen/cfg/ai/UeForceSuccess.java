@@ -17,7 +17,7 @@ public final class UeForceSuccess extends cfg.ai.Decorator {
         super(__json__);
     }
 
-    public UeForceSuccess(int id, String node_name, cfg.ai.EFlowAbortMode flow_abort_mode ) {
+    public UeForceSuccess(int id, String node_name, int flow_abort_mode ) {
         super(id, node_name, flow_abort_mode);
     }
 

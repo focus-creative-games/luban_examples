@@ -7,30 +7,13 @@
 //------------------------------------------------------------------------------
 
 package cfg.mail;
-public enum EMailType {
+public final class EMailType {
     /**
      * 全局邮件
      */
-    GLOBAL(0),
+    public static final int GLOBAL = 0;
     /**
      * 系统邮件
      */
-    SYSTEM(1),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    EMailType(int value) {
-        this.value = value;
-    }
-
-    public static EMailType valueOf(int value) {
-        if (value == 0) return GLOBAL;
-        if (value == 1) return SYSTEM;
-        throw new IllegalArgumentException("");
-    }
+    public static final int SYSTEM = 1;
 }

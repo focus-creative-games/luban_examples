@@ -15,11 +15,11 @@ import com.google.gson.JsonObject;
 public final class Equipment extends cfg.test.ItemBase {
     public Equipment(JsonObject __json__) { 
         super(__json__);
-        attr = cfg.test.DemoEnum.valueOf(__json__.get("attr").getAsInt());
+        attr = __json__.get("attr").getAsInt();
         value = __json__.get("value").getAsInt();
     }
 
-    public Equipment(int id, String name, String desc, cfg.test.DemoEnum attr, int value ) {
+    public Equipment(int id, String name, String desc, int attr, int value ) {
         super(id, name, desc);
         this.attr = attr;
         this.value = value;
@@ -29,7 +29,7 @@ public final class Equipment extends cfg.test.ItemBase {
         return new Equipment(__json__);
     }
 
-    public final cfg.test.DemoEnum attr;
+    public final int attr;
     public final int value;
 
     public static final int __ID__ = -76837102;

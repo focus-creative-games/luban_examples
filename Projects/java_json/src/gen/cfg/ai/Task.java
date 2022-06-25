@@ -24,7 +24,7 @@ public abstract class Task extends cfg.ai.FlowNode {
     }
 
     public static Task deserializeTask(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "UeWait": return new cfg.ai.UeWait(__json__);
             case "UeWaitBlackboardTime": return new cfg.ai.UeWaitBlackboardTime(__json__);
             case "MoveToTarget": return new cfg.ai.MoveToTarget(__json__);

@@ -18,13 +18,17 @@ public final class DefineFromExcelOne {
         unlockHero = __json__.get("unlock_hero").getAsInt();
         defaultAvatar = __json__.get("default_avatar").getAsString();
         defaultItem = __json__.get("default_item").getAsString();
+        e2 = new cfg.test.DemoE2(__json__.get("e2").getAsJsonObject());
+        { com.google.gson.JsonArray _json0_ = __json__.get("icons").getAsJsonArray(); icons = new java.util.ArrayList<String>(_json0_.size()); for(JsonElement __e : _json0_) { String __v;  __v = __e.getAsString();  icons.add(__v); }   }
     }
 
-    public DefineFromExcelOne(int unlock_equip, int unlock_hero, String default_avatar, String default_item ) {
+    public DefineFromExcelOne(int unlock_equip, int unlock_hero, String default_avatar, String default_item, cfg.test.DemoE2 e2, java.util.ArrayList<String> icons ) {
         this.unlockEquip = unlock_equip;
         this.unlockHero = unlock_hero;
         this.defaultAvatar = default_avatar;
         this.defaultItem = default_item;
+        this.e2 = e2;
+        this.icons = icons;
     }
 
     public static DefineFromExcelOne deserializeDefineFromExcelOne(JsonObject __json__) {
@@ -41,9 +45,12 @@ public final class DefineFromExcelOne {
     public final int unlockHero;
     public final String defaultAvatar;
     public final String defaultItem;
+    public final cfg.test.DemoE2 e2;
+    public final java.util.ArrayList<String> icons;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
+        if (e2 != null) {e2.resolve(_tables);}
     }
 
     @Override
@@ -53,6 +60,8 @@ public final class DefineFromExcelOne {
         + "unlockHero:" + unlockHero + ","
         + "defaultAvatar:" + defaultAvatar + ","
         + "defaultItem:" + defaultItem + ","
+        + "e2:" + e2 + ","
+        + "icons:" + icons + ","
         + "}";
     }
 }

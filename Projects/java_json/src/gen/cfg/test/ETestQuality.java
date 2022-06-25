@@ -7,40 +7,21 @@
 //------------------------------------------------------------------------------
 
 package cfg.test;
-public enum ETestQuality {
+public final class ETestQuality {
     /**
      * 最高品质
      */
-    A(1),
+    public static final int A = 1;
     /**
      * 黑色的
      */
-    B(2),
+    public static final int B = 2;
     /**
      * 蓝色的
      */
-    C(3),
+    public static final int C = 3;
     /**
      * 最差品质
      */
-    D(4),
-    ;
-
-    private final int value;
-
-    public int getValue() {
-        return value;
-    }
-
-    ETestQuality(int value) {
-        this.value = value;
-    }
-
-    public static ETestQuality valueOf(int value) {
-        if (value == 1) return A;
-        if (value == 2) return B;
-        if (value == 3) return C;
-        if (value == 4) return D;
-        throw new IllegalArgumentException("");
-    }
+    public static final int D = 4;
 }

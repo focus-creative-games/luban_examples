@@ -28,7 +28,7 @@ public abstract class Clazz {
     }
 
     public static Clazz deserializeClazz(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "Interface": return new cfg.blueprint.Interface(__json__);
             case "NormalClazz": return new cfg.blueprint.NormalClazz(__json__);
             case "EnumClazz": return new cfg.blueprint.EnumClazz(__json__);

@@ -14,13 +14,13 @@ import com.google.gson.JsonObject;
 
 public final class ItemFunction {
     public ItemFunction(JsonObject __json__) { 
-        minorType = cfg.item.EMinorType.valueOf(__json__.get("minor_type").getAsInt());
-        funcType = cfg.item.EItemFunctionType.valueOf(__json__.get("func_type").getAsInt());
+        minorType = __json__.get("minor_type").getAsInt();
+        funcType = __json__.get("func_type").getAsInt();
         method = __json__.get("method").getAsString();
         closeBagUi = __json__.get("close_bag_ui").getAsBoolean();
     }
 
-    public ItemFunction(cfg.item.EMinorType minor_type, cfg.item.EItemFunctionType func_type, String method, boolean close_bag_ui ) {
+    public ItemFunction(int minor_type, int func_type, String method, boolean close_bag_ui ) {
         this.minorType = minor_type;
         this.funcType = func_type;
         this.method = method;
@@ -31,8 +31,8 @@ public final class ItemFunction {
         return new ItemFunction(__json__);
     }
 
-    public final cfg.item.EMinorType minorType;
-    public final cfg.item.EItemFunctionType funcType;
+    public final int minorType;
+    public final int funcType;
     public final String method;
     public final boolean closeBagUi;
 

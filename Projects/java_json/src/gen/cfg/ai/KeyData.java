@@ -20,7 +20,7 @@ public abstract class KeyData {
     }
 
     public static KeyData deserializeKeyData(JsonObject __json__) {
-        switch (__json__.get("__type__").getAsString()) {
+        switch (__json__.get("$type").getAsString()) {
             case "FloatKeyData": return new cfg.ai.FloatKeyData(__json__);
             case "IntKeyData": return new cfg.ai.IntKeyData(__json__);
             case "StringKeyData": return new cfg.ai.StringKeyData(__json__);
