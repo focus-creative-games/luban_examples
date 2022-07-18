@@ -1,0 +1,632 @@
+{
+	"0": {
+		"id": {
+			"$numberInt": "1"
+		},
+		"name": "钻石",
+		"major_type": {
+			"$numberInt": "1"
+		},
+		"minor_type": {
+			"$numberInt": "101"
+		},
+		"max_pile_num": {
+			"$numberInt": "9999999"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_3.UI_TestIcon_3",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "rmb兑换的主要货币",
+		"show_order": {
+			"$numberInt": "1"
+		},
+		"quantifier": "个",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"1": {
+		"id": {
+			"$numberInt": "2"
+		},
+		"name": "金币",
+		"major_type": {
+			"$numberInt": "1"
+		},
+		"minor_type": {
+			"$numberInt": "102"
+		},
+		"max_pile_num": {
+			"$numberInt": "9999999"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "主要的高级流通代币",
+		"show_order": {
+			"$numberInt": "2"
+		},
+		"quantifier": "个",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"2": {
+		"id": {
+			"$numberInt": "3"
+		},
+		"name": "银币",
+		"major_type": {
+			"$numberInt": "1"
+		},
+		"minor_type": {
+			"$numberInt": "103"
+		},
+		"max_pile_num": {
+			"$numberInt": "9999999"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_2.UI_TestIcon_2",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "主要的流通代币",
+		"show_order": {
+			"$numberInt": "3"
+		},
+		"quantifier": "个",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"3": {
+		"id": {
+			"$numberInt": "4"
+		},
+		"name": "经验",
+		"major_type": {
+			"$numberInt": "1"
+		},
+		"minor_type": {
+			"$numberInt": "104"
+		},
+		"max_pile_num": {
+			"$numberInt": "9999999"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "人物升级需要的经验",
+		"show_order": {
+			"$numberInt": "4"
+		},
+		"quantifier": "点",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"4": {
+		"id": {
+			"$numberInt": "5"
+		},
+		"name": "能量点",
+		"major_type": {
+			"$numberInt": "1"
+		},
+		"minor_type": {
+			"$numberInt": "105"
+		},
+		"max_pile_num": {
+			"$numberInt": "9999999"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "人物变身需要的能量点",
+		"show_order": {
+			"$numberInt": "5"
+		},
+		"quantifier": "点",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"5": {
+		"id": {
+			"$numberInt": "1020100001"
+		},
+		"name": "初始发型",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "210"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0012H_png.S0012H_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始发型",
+		"show_order": {
+			"$numberInt": "6"
+		},
+		"quantifier": "套",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"6": {
+		"id": {
+			"$numberInt": "1020200001"
+		},
+		"name": "初始外套",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "220"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0006_2C_png.S0006_2C_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始外套",
+		"show_order": {
+			"$numberInt": "7"
+		},
+		"quantifier": "件",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"7": {
+		"id": {
+			"$numberInt": "1020300001"
+		},
+		"name": "初始上衣",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "230"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0090ABS_png.S0090ABS_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始上衣",
+		"show_order": {
+			"$numberInt": "8"
+		},
+		"quantifier": "件",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"8": {
+		"id": {
+			"$numberInt": "1020400001"
+		},
+		"name": "初始裤子",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "242"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始下装",
+		"show_order": {
+			"$numberInt": "9"
+		},
+		"quantifier": "件",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"9": {
+		"id": {
+			"$numberInt": "1020500001"
+		},
+		"name": "初始袜子",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "250"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0012S_png.S0012S_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始袜子",
+		"show_order": {
+			"$numberInt": "10"
+		},
+		"quantifier": "双",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"10": {
+		"id": {
+			"$numberInt": "1020600001"
+		},
+		"name": "初始鞋子",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "260"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0012BS_png.S0012BS_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始鞋子",
+		"show_order": {
+			"$numberInt": "11"
+		},
+		"quantifier": "双",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"11": {
+		"id": {
+			"$numberInt": "1020700001"
+		},
+		"name": "初始发饰",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "271"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0090_X1AHC_png.S0090_X1AHC_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始发饰",
+		"show_order": {
+			"$numberInt": "12"
+		},
+		"quantifier": "套",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"12": {
+		"id": {
+			"$numberInt": "1022490000"
+		},
+		"name": "测试数据-包子",
+		"major_type": {
+			"$numberInt": "4"
+		},
+		"minor_type": {
+			"$numberInt": "403"
+		},
+		"max_pile_num": {
+			"$numberInt": "100"
+		},
+		"quality": {
+			"$numberInt": "2"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "包子",
+		"show_order": {
+			"$numberInt": "29"
+		},
+		"quantifier": "个",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": true,
+		"use_type": {
+			"$numberInt": "1"
+		}
+	},
+	"13": {
+		"id": {
+			"$numberInt": "1022490001"
+		},
+		"name": "测试数据-铲子",
+		"major_type": {
+			"$numberInt": "4"
+		},
+		"minor_type": {
+			"$numberInt": "424"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "3"
+		},
+		"icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "一把铲子",
+		"show_order": {
+			"$numberInt": "30"
+		},
+		"quantifier": "把",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"price": {
+			"$numberInt": "100"
+		},
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"14": {
+		"id": {
+			"$numberInt": "1021490001"
+		},
+		"name": "测试数据-不要动",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "278"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "0"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0090FE_01_png.S0090FE_01_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始手持物",
+		"show_order": {
+			"$numberInt": "19"
+		},
+		"quantifier": "件",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"use_type": {
+			"$numberInt": "0"
+		}
+	},
+	"15": {
+		"id": {
+			"$numberInt": "1022490002"
+		},
+		"name": "测试数据-不要动",
+		"major_type": {
+			"$numberInt": "2"
+		},
+		"minor_type": {
+			"$numberInt": "290"
+		},
+		"max_pile_num": {
+			"$numberInt": "1"
+		},
+		"quality": {
+			"$numberInt": "2"
+		},
+		"icon": "/Game/UI/UIText/IocnResource/Frames/S0090D_png.S0090D_png",
+		"icon_backgroud": "",
+		"icon_mask": "",
+		"desc": "初始套装",
+		"show_order": {
+			"$numberInt": "26"
+		},
+		"quantifier": "个",
+		"show_in_bag": true,
+		"min_show_level": {
+			"$numberInt": "5"
+		},
+		"batch_usable": true,
+		"progress_time_when_use": {
+			"$numberDouble": "1.0"
+		},
+		"show_hint_when_use": false,
+		"droppable": false,
+		"price": {
+			"$numberInt": "8"
+		},
+		"use_type": {
+			"$numberInt": "0"
+		}
+	}
+}
