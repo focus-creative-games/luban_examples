@@ -345,9 +345,9 @@
     <bean name="TestSize">
         <var name="id" type="int"/>
         <var name="x1" type="(array#size=2),int"/>
-        <var name="x2" type="(list#size=2),int"/>
-        <var name="x3" type="(set#size=2),int"/>
-        <var name="x4" type="(map#size=2),int,int"/>
+        <var name="x2" type="(list#(size=[1, 3])),int"/>
+        <var name="x3" type="(set#(size=[1,])),int"/>
+        <var name="x4" type="(map#(size=(1, 3))),int,int"/>
     </bean>
     <table name="TbTestSize" value="TestSize" input="test/test_size.xlsx"/>
     
