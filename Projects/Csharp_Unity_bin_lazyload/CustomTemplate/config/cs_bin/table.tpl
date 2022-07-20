@@ -171,7 +171,7 @@ namespace {{x.namespace_with_top_module}}
                 {{cs_define_type value_type}} _v;
                 {{cs_deserialize '_buf' '_v' value_type}}
                 _dataList.Add(_v);
-                _dataMap.Add(i, _v);
+                _dataMap[i] = _v;
             }
             _readAll = true;
             return _dataList;

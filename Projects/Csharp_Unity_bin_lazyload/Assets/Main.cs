@@ -15,6 +15,11 @@ public class Main : MonoBehaviour
         Debug.Log(tables.TbGlobalConfig.DamageParamD);
         Debug.Log(tables.TbMultiUnionIndexList.Get(1, 1, "ab1").Desc);
         Debug.Log(tables.TbNotIndexList.Get(2).X);
+        Debug.Log(tables.TbNotIndexList.DataList.Count);
+        foreach (var item in tables.TbNotIndexList.DataList)
+        {
+            Debug.Log($"======{item.X},{item.Y}======");
+        }
     }
 
     private static ByteBuf LoadIdxByteBuf(string file)
