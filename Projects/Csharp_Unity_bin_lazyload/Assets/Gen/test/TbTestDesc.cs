@@ -7,13 +7,14 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
    
     public partial class TbTestDesc
     {
-        private readonly List<test.TestDesc> _dataList;
+        private List<test.TestDesc> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<int, test.TestDesc> _dataMap_id;

@@ -7,13 +7,14 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
    
     public partial class TbNotIndexList
     {
-        private readonly List<test.NotIndexList> _dataList;
+        private List<test.NotIndexList> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<int,int> _indexMap;
@@ -52,6 +53,7 @@ namespace cfg.test
                 _dataMap[i] = _v;
             }
             _readAll = true;
+            _buf = null;
             return _dataList;
         }
         public test.NotIndexList this[int index] => Get(index);
@@ -65,6 +67,12 @@ namespace cfg.test
             ResetByteBuf(_indexMap[index]);
             _v = test.NotIndexList.DeserializeNotIndexList(_buf);
             _dataMap[index] = _v;
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _dataList = _dataMap.OrderBy(kvp=>kvp.Key).Select(kvp=>kvp.Value).ToList();
+                _readAll = true;
+                _buf = null;
+            }
             return _v;
         }
         private ByteBuf _buf = null;

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.mail
 {
@@ -39,7 +40,6 @@ namespace cfg.mail
         public Dictionary<int, mail.GlobalMail> DataMap => _dataMap;
         public List<mail.GlobalMail> DataList => _dataList;
 
-        public mail.GlobalMail GetOrDefault(int key) => Get(key) ?? null;
         public mail.GlobalMail this[int key] => Get(key);
         public mail.GlobalMail Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.mail
             _v = mail.GlobalMail.DeserializeGlobalMail(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public mail.GlobalMail GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

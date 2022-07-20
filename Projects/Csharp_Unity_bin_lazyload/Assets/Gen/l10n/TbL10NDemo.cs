@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.l10n
 {
@@ -39,7 +40,6 @@ namespace cfg.l10n
         public Dictionary<int, l10n.L10NDemo> DataMap => _dataMap;
         public List<l10n.L10NDemo> DataList => _dataList;
 
-        public l10n.L10NDemo GetOrDefault(int key) => Get(key) ?? null;
         public l10n.L10NDemo this[int key] => Get(key);
         public l10n.L10NDemo Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.l10n
             _v = l10n.L10NDemo.DeserializeL10NDemo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public l10n.L10NDemo GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

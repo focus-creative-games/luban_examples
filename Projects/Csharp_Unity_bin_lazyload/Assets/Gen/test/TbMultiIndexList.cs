@@ -7,13 +7,14 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
    
     public partial class TbMultiIndexList
     {
-        private readonly List<test.MultiIndexList> _dataList;
+        private List<test.MultiIndexList> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<int, test.MultiIndexList> _dataMap_id1;

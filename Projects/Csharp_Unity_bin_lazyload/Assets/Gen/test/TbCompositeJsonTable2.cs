@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
@@ -39,7 +40,6 @@ namespace cfg.test
         public Dictionary<int, test.CompositeJsonTable2> DataMap => _dataMap;
         public List<test.CompositeJsonTable2> DataList => _dataList;
 
-        public test.CompositeJsonTable2 GetOrDefault(int key) => Get(key) ?? null;
         public test.CompositeJsonTable2 this[int key] => Get(key);
         public test.CompositeJsonTable2 Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.test
             _v = test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public test.CompositeJsonTable2 GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

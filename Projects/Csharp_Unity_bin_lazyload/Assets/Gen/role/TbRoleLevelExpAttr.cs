@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.role
 {
@@ -39,7 +40,6 @@ namespace cfg.role
         public Dictionary<int, role.LevelExpAttr> DataMap => _dataMap;
         public List<role.LevelExpAttr> DataList => _dataList;
 
-        public role.LevelExpAttr GetOrDefault(int key) => Get(key) ?? null;
         public role.LevelExpAttr this[int key] => Get(key);
         public role.LevelExpAttr Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.role
             _v = role.LevelExpAttr.DeserializeLevelExpAttr(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Level, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public role.LevelExpAttr GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

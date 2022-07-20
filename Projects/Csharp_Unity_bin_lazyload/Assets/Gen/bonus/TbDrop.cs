@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.bonus
 {
@@ -39,7 +40,6 @@ namespace cfg.bonus
         public Dictionary<int, bonus.DropInfo> DataMap => _dataMap;
         public List<bonus.DropInfo> DataList => _dataList;
 
-        public bonus.DropInfo GetOrDefault(int key) => Get(key) ?? null;
         public bonus.DropInfo this[int key] => Get(key);
         public bonus.DropInfo Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.bonus
             _v = bonus.DropInfo.DeserializeDropInfo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public bonus.DropInfo GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

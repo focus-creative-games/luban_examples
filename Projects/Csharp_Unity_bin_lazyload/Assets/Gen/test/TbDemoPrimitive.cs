@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
@@ -39,7 +40,6 @@ namespace cfg.test
         public Dictionary<int, test.DemoPrimitiveTypesTable> DataMap => _dataMap;
         public List<test.DemoPrimitiveTypesTable> DataList => _dataList;
 
-        public test.DemoPrimitiveTypesTable GetOrDefault(int key) => Get(key) ?? null;
         public test.DemoPrimitiveTypesTable this[int key] => Get(key);
         public test.DemoPrimitiveTypesTable Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.test
             _v = test.DemoPrimitiveTypesTable.DeserializeDemoPrimitiveTypesTable(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.X4, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public test.DemoPrimitiveTypesTable GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

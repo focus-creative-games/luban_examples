@@ -1,5 +1,6 @@
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace {{x.namespace_with_top_module}}
 {
@@ -45,10 +46,16 @@ namespace {{x.namespace_with_top_module}}
         public List<{{cs_define_type value_type}}> DataList => _dataList;
 
     {{~if value_type.is_dynamic~}}
-        public T GetOrDefaultAs<T>({{cs_define_type key_type}} key) where T : {{cs_define_type value_type}} => (T)Get(key) ?? null;
+        public T GetOrDefaultAs<T>({{cs_define_type key_type}} key) where T : {{cs_define_type value_type}}
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return (T)Get(key);
+            }
+            return default(T);
+        }
         public T GetAs<T>({{cs_define_type key_type}} key) where T : {{cs_define_type value_type}} => (T)Get(key);
     {{~end~}}
-        public {{cs_define_type value_type}} GetOrDefault({{cs_define_type key_type}} key) => Get(key) ?? null;
         public {{cs_define_type value_type}} this[{{cs_define_type key_type}} key] => Get(key);
         public {{cs_define_type value_type}} Get({{cs_define_type key_type}} key)
         {
@@ -61,10 +68,22 @@ namespace {{x.namespace_with_top_module}}
             {{cs_deserialize '_buf' '_v' value_type}}
             _dataList.Add(_v);
             _dataMap.Add(_v.{{x.index_field.convention_name}}, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
         }
+        public {{cs_define_type value_type}} GetOrDefault({{cs_define_type key_type}} key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
+        }
         {{~else if x.is_list_table ~}}
-        private readonly List<{{cs_define_type value_type}}> _dataList;
+        private List<{{cs_define_type value_type}}> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
         {{~if x.is_union_index~}}
@@ -138,6 +157,11 @@ namespace {{x.namespace_with_top_module}}
             {{cs_deserialize '_buf' '__v' value_type}}
             _dataList.Add(__v);
             _dataMapUnion.Add(({{cs_table_get_param_name_list x}}), __v);
+            
+            if(_indexMap.Count == _dataMapUnion.Count)
+            {
+                _buf = null;
+            }
             return __v;
         }
         {{~else if !x.index_list.empty? ~}}
@@ -163,6 +187,7 @@ namespace {{x.namespace_with_top_module}}
                 _dataMap[i] = _v;
             }
             _readAll = true;
+            _buf = null;
             return _dataList;
         }
         public {{cs_define_type value_type}} this[int index] => Get(index);
@@ -176,6 +201,12 @@ namespace {{x.namespace_with_top_module}}
             ResetByteBuf(_indexMap[index]);
             {{cs_deserialize '_buf' '_v' value_type}}
             _dataMap[index] = _v;
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _dataList = _dataMap.OrderBy(kvp=>kvp.Key).Select(kvp=>kvp.Value).ToList();
+                _readAll = true;
+                _buf = null;
+            }
             return _v;
         }
         {{~end~}}

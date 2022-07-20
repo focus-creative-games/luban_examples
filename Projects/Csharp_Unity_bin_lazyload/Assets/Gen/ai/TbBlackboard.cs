@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.ai
 {
@@ -39,7 +40,6 @@ namespace cfg.ai
         public Dictionary<string, ai.Blackboard> DataMap => _dataMap;
         public List<ai.Blackboard> DataList => _dataList;
 
-        public ai.Blackboard GetOrDefault(string key) => Get(key) ?? null;
         public ai.Blackboard this[string key] => Get(key);
         public ai.Blackboard Get(string key)
         {
@@ -52,7 +52,19 @@ namespace cfg.ai
             _v = ai.Blackboard.DeserializeBlackboard(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public ai.Blackboard GetOrDefault(string key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

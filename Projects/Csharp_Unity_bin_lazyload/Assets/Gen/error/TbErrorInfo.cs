@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.error
 {
@@ -39,7 +40,6 @@ namespace cfg.error
         public Dictionary<string, error.ErrorInfo> DataMap => _dataMap;
         public List<error.ErrorInfo> DataList => _dataList;
 
-        public error.ErrorInfo GetOrDefault(string key) => Get(key) ?? null;
         public error.ErrorInfo this[string key] => Get(key);
         public error.ErrorInfo Get(string key)
         {
@@ -52,7 +52,19 @@ namespace cfg.error
             _v = error.ErrorInfo.DeserializeErrorInfo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Code, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public error.ErrorInfo GetOrDefault(string key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

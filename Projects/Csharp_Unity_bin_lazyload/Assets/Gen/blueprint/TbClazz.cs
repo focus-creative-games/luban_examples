@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.blueprint
 {
@@ -39,9 +40,15 @@ namespace cfg.blueprint
         public Dictionary<string, blueprint.Clazz> DataMap => _dataMap;
         public List<blueprint.Clazz> DataList => _dataList;
 
-        public T GetOrDefaultAs<T>(string key) where T : blueprint.Clazz => (T)Get(key) ?? null;
+        public T GetOrDefaultAs<T>(string key) where T : blueprint.Clazz
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return (T)Get(key);
+            }
+            return default(T);
+        }
         public T GetAs<T>(string key) where T : blueprint.Clazz => (T)Get(key);
-        public blueprint.Clazz GetOrDefault(string key) => Get(key) ?? null;
         public blueprint.Clazz this[string key] => Get(key);
         public blueprint.Clazz Get(string key)
         {
@@ -54,7 +61,19 @@ namespace cfg.blueprint
             _v = blueprint.Clazz.DeserializeClazz(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public blueprint.Clazz GetOrDefault(string key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

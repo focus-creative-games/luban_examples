@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
@@ -39,7 +40,6 @@ namespace cfg.test
         public Dictionary<int, test.TestExcelBean1> DataMap => _dataMap;
         public List<test.TestExcelBean1> DataList => _dataList;
 
-        public test.TestExcelBean1 GetOrDefault(int key) => Get(key) ?? null;
         public test.TestExcelBean1 this[int key] => Get(key);
         public test.TestExcelBean1 Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.test
             _v = test.TestExcelBean1.DeserializeTestExcelBean1(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.X1, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public test.TestExcelBean1 GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

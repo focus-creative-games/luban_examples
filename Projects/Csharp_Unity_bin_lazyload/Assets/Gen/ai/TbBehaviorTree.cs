@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.ai
 {
@@ -39,7 +40,6 @@ namespace cfg.ai
         public Dictionary<int, ai.BehaviorTree> DataMap => _dataMap;
         public List<ai.BehaviorTree> DataList => _dataList;
 
-        public ai.BehaviorTree GetOrDefault(int key) => Get(key) ?? null;
         public ai.BehaviorTree this[int key] => Get(key);
         public ai.BehaviorTree Get(int key)
         {
@@ -52,7 +52,19 @@ namespace cfg.ai
             _v = ai.BehaviorTree.DeserializeBehaviorTree(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public ai.BehaviorTree GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

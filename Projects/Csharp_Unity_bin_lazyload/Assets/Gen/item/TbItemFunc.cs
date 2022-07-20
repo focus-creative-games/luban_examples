@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.item
 {
@@ -39,7 +40,6 @@ namespace cfg.item
         public Dictionary<item.EMinorType, item.ItemFunction> DataMap => _dataMap;
         public List<item.ItemFunction> DataList => _dataList;
 
-        public item.ItemFunction GetOrDefault(item.EMinorType key) => Get(key) ?? null;
         public item.ItemFunction this[item.EMinorType key] => Get(key);
         public item.ItemFunction Get(item.EMinorType key)
         {
@@ -52,7 +52,19 @@ namespace cfg.item
             _v = item.ItemFunction.DeserializeItemFunction(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.MinorType, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public item.ItemFunction GetOrDefault(item.EMinorType key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.item
 {
@@ -39,9 +40,15 @@ namespace cfg.item
         public Dictionary<int, item.ItemExtra> DataMap => _dataMap;
         public List<item.ItemExtra> DataList => _dataList;
 
-        public T GetOrDefaultAs<T>(int key) where T : item.ItemExtra => (T)Get(key) ?? null;
+        public T GetOrDefaultAs<T>(int key) where T : item.ItemExtra
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return (T)Get(key);
+            }
+            return default(T);
+        }
         public T GetAs<T>(int key) where T : item.ItemExtra => (T)Get(key);
-        public item.ItemExtra GetOrDefault(int key) => Get(key) ?? null;
         public item.ItemExtra this[int key] => Get(key);
         public item.ItemExtra Get(int key)
         {
@@ -54,7 +61,19 @@ namespace cfg.item
             _v = item.ItemExtra.DeserializeItemExtra(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            if(_indexMap.Count == _dataMap.Count)
+            {
+                _buf = null;
+            }
             return _v;
+        }
+        public item.ItemExtra GetOrDefault(int key)
+        {
+            if(_indexMap.TryGetValue(key,out var _))
+            {
+                return Get(key);
+            }
+            return null;
         }
         private ByteBuf _buf = null;
         

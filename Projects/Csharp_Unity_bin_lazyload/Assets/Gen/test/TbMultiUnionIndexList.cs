@@ -7,13 +7,14 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cfg.test
 {
    
     public partial class TbMultiUnionIndexList
     {
-        private readonly List<test.MultiUnionIndexList> _dataList;
+        private List<test.MultiUnionIndexList> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<(int, long, string), test.MultiUnionIndexList> _dataMapUnion;
@@ -58,6 +59,11 @@ namespace cfg.test
             __v = test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_buf);
             _dataList.Add(__v);
             _dataMapUnion.Add((id1, id2, id3), __v);
+            
+            if(_indexMap.Count == _dataMapUnion.Count)
+            {
+                _buf = null;
+            }
             return __v;
         }
         private ByteBuf _buf = null;
