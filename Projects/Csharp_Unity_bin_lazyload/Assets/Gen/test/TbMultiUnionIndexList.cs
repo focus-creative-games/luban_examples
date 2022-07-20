@@ -28,19 +28,15 @@ namespace cfg.test
             
             for (int i = _buf.ReadSize(); i > 0; i--)
             {
-                
-                int key0;
-                key0 = _buf.ReadInt();
-                
-                
-                long key1;
-                key1 = _buf.ReadLong();
-                
-                
-                string key2;
-                key2 = _buf.ReadString();
-                
-                _indexMap.Add((key0, key1, key2), _buf.ReadInt());
+			int item0;
+			item0 = _buf.ReadInt();
+			long item1;
+			item1 = _buf.ReadLong();
+			string item2;
+			item2 = _buf.ReadString();
+			(int id1, long id2, string id3) key = (item0,item1,item2);
+
+            _indexMap.Add(key, _buf.ReadInt());
             }
         }
 

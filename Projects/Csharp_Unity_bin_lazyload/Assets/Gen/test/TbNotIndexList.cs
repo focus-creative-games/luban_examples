@@ -49,7 +49,7 @@ namespace cfg.test
                 test.NotIndexList _v;
                 _v = test.NotIndexList.DeserializeNotIndexList(_buf);
                 _dataList.Add(_v);
-                _dataMap.Add(i, _v);
+                _dataMap[i] = _v;
             }
             _readAll = true;
             return _dataList;
