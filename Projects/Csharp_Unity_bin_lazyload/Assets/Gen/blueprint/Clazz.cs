@@ -40,20 +40,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     public System.Collections.Generic.List<blueprint.Clazz> Parents { get; private set; }
     public System.Collections.Generic.List<blueprint.Method> Methods { get; private set; }
 
-
-    public virtual void Resolve(Dictionary<string, object> _tables)
-    {
-        foreach(var _e in Parents) { _e?.Resolve(_tables); }
-        foreach(var _e in Methods) { _e?.Resolve(_tables); }
-        PostResolve();
-    }
-
-    public virtual void TranslateText(System.Func<string, string, string> translator)
-    {
-        foreach(var _e in Parents) { _e?.TranslateText(translator); }
-        foreach(var _e in Methods) { _e?.TranslateText(translator); }
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -65,7 +51,6 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

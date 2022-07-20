@@ -39,23 +39,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
 
     public const int __ID__ = 1494222369;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        OpenLevel?.Resolve(_tables);
-        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.DropIds_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in DropIds) { this.DropIds_Ref.Add(__table.GetOrDefault(__e)); } }
-        foreach(var _e in ChooseList) { _e?.Resolve(_tables); }
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-        OpenLevel?.TranslateText(translator);
-        foreach(var _e in ChooseList) { _e?.TranslateText(translator); }
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -69,7 +52,6 @@ public sealed partial class TreasureBox :  item.ItemExtra
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

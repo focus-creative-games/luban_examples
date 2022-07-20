@@ -64,25 +64,6 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
 
     public const int __ID__ = -1485706483;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        X12?.Resolve(_tables);
-        X14?.Resolve(_tables);
-        foreach(var _e in K9) { _e?.Resolve(_tables); }
-        foreach(var _e in K15) { _e?.Resolve(_tables); }
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        S2 = translator(S2_l10n_key, S2);
-        X12?.TranslateText(translator);
-        X14?.TranslateText(translator);
-        foreach(var _e in K9) { _e?.TranslateText(translator); }
-        foreach(var _e in K15) { _e?.TranslateText(translator); }
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -107,7 +88,6 @@ public sealed partial class ExcelFromJson :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

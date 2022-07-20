@@ -18,10 +18,10 @@ namespace cfg.test
 
         public TbCompositeJsonTable3(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
-            int n = _buf.ReadSize();
-            if (n != 1) throw new SerializationException("table mode=one, but size != 1");
             ByteBuf _dataBuf = _loader(_tbName);
-            _dataBuf.ReaderIndex = 1;
+            int n = _buf.ReadSize();
+            int m = _dataBuf.ReadSize();
+            if (n != 1 || m != 1) throw new SerializationException("table mode=one, but size != 1");
             _data = test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_dataBuf);
         }
 
@@ -29,19 +29,8 @@ namespace cfg.test
         public int A => _data.A;
         public int B => _data.B;
 
-        public void Resolve(Dictionary<string, object> _tables)
-        {
-            _data.Resolve(_tables);
-            PostResolve();
-        }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            _data.TranslateText(translator);
-        }
-
-
+        private ByteBuf _buf = null;
+        
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

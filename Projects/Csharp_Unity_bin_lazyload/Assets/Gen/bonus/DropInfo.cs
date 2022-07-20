@@ -36,20 +36,6 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
 
     public const int __ID__ = -2014781108;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        foreach(var _e in ClientShowItems) { _e?.Resolve(_tables); }
-        Bonus?.Resolve(_tables);
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        foreach(var _e in ClientShowItems) { _e?.TranslateText(translator); }
-        Bonus?.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -61,7 +47,6 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

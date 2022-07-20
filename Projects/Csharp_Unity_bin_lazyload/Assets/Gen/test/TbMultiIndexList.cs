@@ -41,25 +41,16 @@ namespace cfg.test
         public test.MultiIndexList GetById1(int key) => _dataMap_id1.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
         public test.MultiIndexList GetById2(long key) => _dataMap_id2.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
         public test.MultiIndexList GetById3(string key) => _dataMap_id3.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
-
-        public void Resolve(Dictionary<string, object> _tables)
+        private ByteBuf _buf = null;
+        
+        private void ResetByteBuf(int readerInex = 0)
         {
-            foreach(var v in _dataList)
+            if( _buf == null)
             {
-                v.Resolve(_tables);
+                _buf = _dataLoader();
             }
-            PostResolve();
+            _buf.ReaderIndex = readerInex;
         }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
-
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

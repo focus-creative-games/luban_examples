@@ -34,16 +34,6 @@ public sealed partial class SepBean1 :  Bright.Config.BeanBase
 
     public const int __ID__ = -1534339393;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -54,7 +44,6 @@ public sealed partial class SepBean1 :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

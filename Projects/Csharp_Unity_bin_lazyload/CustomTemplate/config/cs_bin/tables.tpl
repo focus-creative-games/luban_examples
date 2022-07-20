@@ -29,21 +29,8 @@ public partial class {{name}}
         {{~end~}}
 
         PostInit();
-        {{~for table in tables ~}}
-        {{table.name}}.Resolve(tables); 
-        {{~end~}}
-        PostResolve();
     }
-
-    public void TranslateText(System.Func<string, string, string> translator)
-    {
-        {{~for table in tables ~}}
-        {{table.name}}.TranslateText(translator); 
-        {{~end~}}
-    }
-    
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

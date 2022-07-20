@@ -35,19 +35,6 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
 
     public const int __ID__ = 539196998;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        Date?.Resolve(_tables);
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        Name = translator(Name_l10n_key, Name);
-        Date?.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -58,7 +45,6 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

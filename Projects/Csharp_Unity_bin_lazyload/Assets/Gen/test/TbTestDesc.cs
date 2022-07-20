@@ -37,25 +37,16 @@ namespace cfg.test
 
         public test.TestDesc GetById(int key) => _dataMap_id.TryGetValue(key, out test.TestDesc __v) ? __v : null;
         public test.TestDesc GetByName(string key) => _dataMap_name.TryGetValue(key, out test.TestDesc __v) ? __v : null;
-
-        public void Resolve(Dictionary<string, object> _tables)
+        private ByteBuf _buf = null;
+        
+        private void ResetByteBuf(int readerInex = 0)
         {
-            foreach(var v in _dataList)
+            if( _buf == null)
             {
-                v.Resolve(_tables);
+                _buf = _dataLoader();
             }
-            PostResolve();
+            _buf.ReaderIndex = readerInex;
         }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
-
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

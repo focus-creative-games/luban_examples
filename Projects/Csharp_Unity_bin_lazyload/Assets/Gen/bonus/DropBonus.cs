@@ -31,19 +31,6 @@ public sealed partial class DropBonus :  bonus.Bonus
 
     public const int __ID__ = 1959868225;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        this.Id_Ref = (_tables["bonus.TbDrop"] as bonus.TbDrop).GetOrDefault(Id);
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -52,7 +39,6 @@ public sealed partial class DropBonus :  bonus.Bonus
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

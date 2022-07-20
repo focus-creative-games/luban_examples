@@ -48,33 +48,22 @@ namespace cfg.test
             {
                 return _v;
             }
-            int index = _indexMap[key];
-            var _buf = _dataLoader();
-            _buf.ReaderIndex = index;
+            ResetByteBuf(_indexMap[key]);
             _v = test.TestMap.DeserializeTestMap(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
             return _v;
         }
-
-        public void Resolve(Dictionary<string, object> _tables)
+        private ByteBuf _buf = null;
+        
+        private void ResetByteBuf(int readerInex = 0)
         {
-            foreach(var v in _dataList)
+            if( _buf == null)
             {
-                v.Resolve(_tables);
+                _buf = _dataLoader();
             }
-            PostResolve();
+            _buf.ReaderIndex = readerInex;
         }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
-
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

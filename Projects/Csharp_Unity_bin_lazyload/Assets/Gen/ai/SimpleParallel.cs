@@ -34,22 +34,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
 
     public const int __ID__ = -1952582529;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        MainTask?.Resolve(_tables);
-        BackgroundNode?.Resolve(_tables);
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-        MainTask?.TranslateText(translator);
-        BackgroundNode?.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -64,7 +48,6 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

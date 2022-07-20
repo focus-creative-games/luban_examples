@@ -34,16 +34,6 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
 
     public const int __ID__ = -1569837022;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -54,7 +44,6 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

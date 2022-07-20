@@ -42,7 +42,7 @@ namespace cfg.test
             {
                 return _dataList;
             }
-            ByteBuf _buf = _dataLoader();
+            ResetByteBuf();
             _dataList.Clear();
             for(int i = _buf.ReadSize(); i > 0; i--)
             {
@@ -62,32 +62,21 @@ namespace cfg.test
             {
                 return _v;
             }
-            int i = _indexMap[index];
-            var _buf = _dataLoader();
-            _buf.ReaderIndex = i;
+            ResetByteBuf(_indexMap[index]);
             _v = test.NotIndexList.DeserializeNotIndexList(_buf);
             _dataMap[index] = _v;
             return _v;
         }
-
-        public void Resolve(Dictionary<string, object> _tables)
+        private ByteBuf _buf = null;
+        
+        private void ResetByteBuf(int readerInex = 0)
         {
-            foreach(var v in _dataList)
+            if( _buf == null)
             {
-                v.Resolve(_tables);
+                _buf = _dataLoader();
             }
-            PostResolve();
+            _buf.ReaderIndex = readerInex;
         }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
-
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

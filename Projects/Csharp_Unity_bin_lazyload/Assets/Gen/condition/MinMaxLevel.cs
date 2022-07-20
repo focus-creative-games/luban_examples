@@ -32,18 +32,6 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
 
     public const int __ID__ = 907499647;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -53,7 +41,6 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

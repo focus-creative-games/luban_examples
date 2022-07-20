@@ -30,20 +30,6 @@ public sealed partial class WeightItems :  bonus.Bonus
 
     public const int __ID__ = -356202311;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        foreach(var _e in ItemList) { _e?.Resolve(_tables); }
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-        foreach(var _e in ItemList) { _e?.TranslateText(translator); }
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -52,7 +38,6 @@ public sealed partial class WeightItems :  bonus.Bonus
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

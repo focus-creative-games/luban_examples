@@ -32,18 +32,6 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
 
     public const int __ID__ = -572269677;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        foreach(var _e in DistinctBonusInfos) { _e?.Resolve(_tables); }
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        foreach(var _e in DistinctBonusInfos) { _e?.TranslateText(translator); }
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -53,7 +41,6 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

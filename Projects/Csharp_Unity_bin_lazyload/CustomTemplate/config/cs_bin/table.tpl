@@ -57,30 +57,11 @@ namespace {{x.namespace_with_top_module}}
             {
                 return _v;
             }
-            int index = _indexMap[key];
-            var _buf = _dataLoader();
-            _buf.ReaderIndex = index;
+            ResetByteBuf(_indexMap[key]);
             {{cs_deserialize '_buf' '_v' value_type}}
             _dataList.Add(_v);
             _dataMap.Add(_v.{{x.index_field.convention_name}}, _v);
             return _v;
-        }
-
-        public void Resolve(Dictionary<string, object> _tables)
-        {
-            foreach(var v in _dataList)
-            {
-                v.Resolve(_tables);
-            }
-            PostResolve();
-        }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
         }
         {{~else if x.is_list_table ~}}
         private readonly List<{{cs_define_type value_type}}> _dataList;
@@ -152,8 +133,7 @@ namespace {{x.namespace_with_top_module}}
             {
                 return __v;
             }
-            ByteBuf _buf = _dataLoader();
-            _buf.ReaderIndex = _indexMap[({{cs_table_get_param_name_list x}})];
+            ResetByteBuf(_indexMap[({{cs_table_get_param_name_list x}})]);
 
             {{cs_deserialize '_buf' '__v' value_type}}
             _dataList.Add(__v);
@@ -173,7 +153,7 @@ namespace {{x.namespace_with_top_module}}
             {
                 return _dataList;
             }
-            ByteBuf _buf = _dataLoader();
+            ResetByteBuf();
             _dataList.Clear();
             for(int i = _buf.ReadSize(); i > 0; i--)
             {
@@ -193,41 +173,22 @@ namespace {{x.namespace_with_top_module}}
             {
                 return _v;
             }
-            int i = _indexMap[index];
-            var _buf = _dataLoader();
-            _buf.ReaderIndex = i;
+            ResetByteBuf(_indexMap[index]);
             {{cs_deserialize '_buf' '_v' value_type}}
             _dataMap[index] = _v;
             return _v;
         }
         {{~end~}}
-
-        public void Resolve(Dictionary<string, object> _tables)
-        {
-            foreach(var v in _dataList)
-            {
-                v.Resolve(_tables);
-            }
-            PostResolve();
-        }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
         {{~else~}}
 
         private readonly {{cs_define_type value_type}} _data;
 
         public {{name}}(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
-            int n = _buf.ReadSize();
-            if (n != 1) throw new SerializationException("table mode=one, but size != 1");
             ByteBuf _dataBuf = _loader(_tbName);
-            _dataBuf.ReaderIndex = 1;
+            int n = _buf.ReadSize();
+            int m = _dataBuf.ReadSize();
+            if (n != 1 || m != 1) throw new SerializationException("table mode=one, but size != 1");
             {{cs_deserialize '_dataBuf' '_data' value_type}}
         }
 
@@ -241,20 +202,19 @@ namespace {{x.namespace_with_top_module}}
         public {{cs_define_type field.ctype}} {{field.convention_name}} => _data.{{field.convention_name}};
         {{~end~}}
 
-        public void Resolve(Dictionary<string, object> _tables)
-        {
-            _data.Resolve(_tables);
-            PostResolve();
-        }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            _data.TranslateText(translator);
-        }
-
         {{~end~}}
-
+        private ByteBuf _buf = null;
+        
+    {{~if x.is_map_table||x.is_list_table ~}}
+        private void ResetByteBuf(int readerInex = 0)
+        {
+            if( _buf == null)
+            {
+                _buf = _dataLoader();
+            }
+            _buf.ReaderIndex = readerInex;
+        }
+    {{~end~}}
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

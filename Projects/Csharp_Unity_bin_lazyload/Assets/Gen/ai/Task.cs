@@ -38,18 +38,6 @@ public abstract partial class Task :  ai.FlowNode
 
     public bool IgnoreRestartSelf { get; private set; }
 
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -62,7 +50,6 @@ public abstract partial class Task :  ai.FlowNode
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

@@ -56,16 +56,6 @@ public abstract partial class Node :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public string NodeName { get; private set; }
 
-
-    public virtual void Resolve(Dictionary<string, object> _tables)
-    {
-        PostResolve();
-    }
-
-    public virtual void TranslateText(System.Func<string, string, string> translator)
-    {
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -75,7 +65,6 @@ public abstract partial class Node :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

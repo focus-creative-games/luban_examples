@@ -53,33 +53,23 @@ namespace cfg.test
             {
                 return __v;
             }
-            ByteBuf _buf = _dataLoader();
-            _buf.ReaderIndex = _indexMap[(id1, id2, id3)];
+            ResetByteBuf(_indexMap[(id1, id2, id3)]);
 
             __v = test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_buf);
             _dataList.Add(__v);
             _dataMapUnion.Add((id1, id2, id3), __v);
             return __v;
         }
-
-        public void Resolve(Dictionary<string, object> _tables)
+        private ByteBuf _buf = null;
+        
+        private void ResetByteBuf(int readerInex = 0)
         {
-            foreach(var v in _dataList)
+            if( _buf == null)
             {
-                v.Resolve(_tables);
+                _buf = _dataLoader();
             }
-            PostResolve();
+            _buf.ReaderIndex = readerInex;
         }
-
-        public void TranslateText(System.Func<string, string, string> translator)
-        {
-            foreach(var v in _dataList)
-            {
-                v.TranslateText(translator);
-            }
-        }
-
         partial void PostInit();
-        partial void PostResolve();
     }
 } 

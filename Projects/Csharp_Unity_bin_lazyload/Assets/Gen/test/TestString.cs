@@ -36,20 +36,6 @@ public sealed partial class TestString :  Bright.Config.BeanBase
 
     public const int __ID__ = 338485823;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        Cs1?.Resolve(_tables);
-        Cs2?.Resolve(_tables);
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        Cs1?.TranslateText(translator);
-        Cs2?.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -61,7 +47,6 @@ public sealed partial class TestString :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

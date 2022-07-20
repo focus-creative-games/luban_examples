@@ -43,21 +43,6 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
 
     public const int __ID__ = -379263008;
     public override int GetTypeId() => __ID__;
-
-    public  void Resolve(Dictionary<string, object> _tables)
-    {
-        this.X1_Ref = (_tables["test.TbDemoGroup_C"] as test.TbDemoGroup_C).GetOrDefault(X1);
-        this.X2_Ref = (_tables["test.TbDemoGroup_S"] as test.TbDemoGroup_S).GetOrDefault(X2);
-        this.X3_Ref = (_tables["test.TbDemoGroup_E"] as test.TbDemoGroup_E).GetOrDefault(X3);
-        X5?.Resolve(_tables);
-        PostResolve();
-    }
-
-    public  void TranslateText(System.Func<string, string, string> translator)
-    {
-        X5?.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -71,7 +56,6 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }

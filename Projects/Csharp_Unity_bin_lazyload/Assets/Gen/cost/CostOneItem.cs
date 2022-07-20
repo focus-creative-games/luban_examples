@@ -31,19 +31,6 @@ public sealed partial class CostOneItem :  cost.Cost
 
     public const int __ID__ = -1033587381;
     public override int GetTypeId() => __ID__;
-
-    public override void Resolve(Dictionary<string, object> _tables)
-    {
-        base.Resolve(_tables);
-        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
-        PostResolve();
-    }
-
-    public override void TranslateText(System.Func<string, string, string> translator)
-    {
-        base.TranslateText(translator);
-    }
-
     public override string ToString()
     {
         return "{ "
@@ -52,7 +39,6 @@ public sealed partial class CostOneItem :  cost.Cost
     }
     
     partial void PostInit();
-    partial void PostResolve();
 }
 
 }
