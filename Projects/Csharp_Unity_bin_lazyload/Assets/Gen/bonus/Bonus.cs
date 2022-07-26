@@ -40,6 +40,16 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
     }
 
 
+
+    public virtual void Resolve(Dictionary<string, object> _tables)
+    {
+        PostResolve();
+    }
+
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -47,6 +57,7 @@ public abstract partial class Bonus :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -32,6 +32,12 @@ namespace cfg.test
 
         private ByteBuf _buf = null;
         
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            _data.Resolve(_tables);
+        }
         partial void PostInit();
     }
 } 

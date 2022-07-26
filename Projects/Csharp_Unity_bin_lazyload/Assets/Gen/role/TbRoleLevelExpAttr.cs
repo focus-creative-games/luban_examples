@@ -17,6 +17,7 @@ namespace cfg.role
         private readonly Dictionary<int, role.LevelExpAttr> _dataMap;
         private readonly List<role.LevelExpAttr> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbRoleLevelExpAttr(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.role
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, role.LevelExpAttr> DataMap => _dataMap;
-        public List<role.LevelExpAttr> DataList => _dataList;
 
         public role.LevelExpAttr this[int key] => Get(key);
         public role.LevelExpAttr Get(int key)
@@ -52,6 +50,7 @@ namespace cfg.role
             _v = role.LevelExpAttr.DeserializeLevelExpAttr(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Level, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.role
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

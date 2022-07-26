@@ -36,6 +36,22 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
 
     public const int __ID__ = -294473599;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        A?.Resolve(_tables);
+        B?.Resolve(_tables);
+        C?.Resolve(_tables);
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        A?.TranslateText(translator);
+        B?.TranslateText(translator);
+        C?.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -47,6 +63,7 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

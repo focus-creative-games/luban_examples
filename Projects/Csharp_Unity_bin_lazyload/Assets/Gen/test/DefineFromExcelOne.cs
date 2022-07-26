@@ -46,6 +46,18 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
 
     public const int __ID__ = 528039504;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        E2?.Resolve(_tables);
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        E2?.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -59,6 +71,7 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

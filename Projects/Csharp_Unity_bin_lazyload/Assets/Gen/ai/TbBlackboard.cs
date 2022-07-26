@@ -17,6 +17,7 @@ namespace cfg.ai
         private readonly Dictionary<string, ai.Blackboard> _dataMap;
         private readonly List<ai.Blackboard> _dataList;
         private readonly Dictionary<string,int> _indexMap;
+        public readonly List<string> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbBlackboard(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.ai
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<string, ai.Blackboard> DataMap => _dataMap;
-        public List<ai.Blackboard> DataList => _dataList;
 
         public ai.Blackboard this[string key] => Get(key);
         public ai.Blackboard Get(string key)
@@ -52,6 +50,7 @@ namespace cfg.ai
             _v = ai.Blackboard.DeserializeBlackboard(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.ai
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

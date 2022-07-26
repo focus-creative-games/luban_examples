@@ -30,6 +30,20 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 
     public const int __ID__ = 934079583;
     public override int GetTypeId() => __ID__;
+
+    public override void Resolve(Dictionary<string, object> _tables)
+    {
+        base.Resolve(_tables);
+        foreach(var _e in Conditions) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        foreach(var _e in Conditions) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -38,6 +52,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -32,6 +32,18 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 
     public const int __ID__ = 46960455;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        Bonus?.Resolve(_tables);
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        Bonus?.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -41,6 +53,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

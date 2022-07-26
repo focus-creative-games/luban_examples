@@ -17,6 +17,7 @@ namespace cfg.l10n
         private readonly Dictionary<int, l10n.L10NDemo> _dataMap;
         private readonly List<l10n.L10NDemo> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbL10NDemo(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.l10n
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, l10n.L10NDemo> DataMap => _dataMap;
-        public List<l10n.L10NDemo> DataList => _dataList;
 
         public l10n.L10NDemo this[int key] => Get(key);
         public l10n.L10NDemo Get(int key)
@@ -52,6 +50,7 @@ namespace cfg.l10n
             _v = l10n.L10NDemo.DeserializeL10NDemo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.l10n
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

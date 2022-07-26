@@ -18,26 +18,67 @@ namespace cfg.test
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<int, test.TestDesc> _dataMap_id;
+        private readonly Dictionary<int,int> _indexMap_id;
+        public readonly List<int> Indexes_id;
         private Dictionary<string, test.TestDesc> _dataMap_name;
+        private readonly Dictionary<string,int> _indexMap_name;
+        public readonly List<string> Indexes_name;
 
         public TbTestDesc(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
             _dataList = new List<test.TestDesc>();
             _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
-            //MULTI
             _dataMap_id = new Dictionary<int, test.TestDesc>();
+            _indexMap_id = new Dictionary<int,int>();
             _dataMap_name = new Dictionary<string, test.TestDesc>();
-            foreach(var _v in _dataList)
-            {
-                _dataMap_id.Add(_v.Id, _v);
-                _dataMap_name.Add(_v.Name, _v);
+            _indexMap_name = new Dictionary<string,int>();
+        
+
+            int size = _buf.ReadSize();
+            for(int i = 0; i < size; i++)
+            {     
+                int key_id;
+                key_id = _buf.ReadInt();
+                string key_name;
+                key_name = _buf.ReadString();
+                int index = _buf.ReadInt();
+                _indexMap_id.Add(key_id,index);
+                _indexMap_name.Add(key_name,index);
             }
+            Indexes_id = _indexMap_id.Keys.ToList();
+            Indexes_name = _indexMap_name.Keys.ToList();
         }
 
 
 
-        public test.TestDesc GetById(int key) => _dataMap_id.TryGetValue(key, out test.TestDesc __v) ? __v : null;
-        public test.TestDesc GetByName(string key) => _dataMap_name.TryGetValue(key, out test.TestDesc __v) ? __v : null;
+        public test.TestDesc GetById(int key)
+        {
+            if(_dataMap_id.TryGetValue(key,out var value))
+            {
+                return value;
+            }
+            int index = _indexMap_id[key];
+            ResetByteBuf(index);
+            test.TestDesc _v;
+            _v = test.TestDesc.DeserializeTestDesc(_buf);
+            _dataMap_id.Add(key, _v);
+            _v.Resolve(tables);
+            return _v;
+        }    
+        public test.TestDesc GetByName(string key)
+        {
+            if(_dataMap_name.TryGetValue(key,out var value))
+            {
+                return value;
+            }
+            int index = _indexMap_name[key];
+            ResetByteBuf(index);
+            test.TestDesc _v;
+            _v = test.TestDesc.DeserializeTestDesc(_buf);
+            _dataMap_name.Add(key, _v);
+            _v.Resolve(tables);
+            return _v;
+        }    
         private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
@@ -47,6 +88,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

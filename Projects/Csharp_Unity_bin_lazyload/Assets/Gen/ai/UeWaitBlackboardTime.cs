@@ -30,6 +30,18 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
 
     public const int __ID__ = 1215378271;
     public override int GetTypeId() => __ID__;
+
+    public override void Resolve(Dictionary<string, object> _tables)
+    {
+        base.Resolve(_tables);
+        PostResolve();
+    }
+
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -43,6 +55,7 @@ public sealed partial class UeWaitBlackboardTime :  ai.Task
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

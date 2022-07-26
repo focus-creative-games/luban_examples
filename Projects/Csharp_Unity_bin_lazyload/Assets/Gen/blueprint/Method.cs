@@ -42,6 +42,18 @@ public abstract partial class Method :  Bright.Config.BeanBase
     public string ReturnType { get; private set; }
     public System.Collections.Generic.List<blueprint.ParamInfo> Parameters { get; private set; }
 
+
+    public virtual void Resolve(Dictionary<string, object> _tables)
+    {
+        foreach(var _e in Parameters) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public virtual void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Parameters) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -54,6 +66,7 @@ public abstract partial class Method :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -35,6 +35,18 @@ public abstract partial class Service :  ai.Node
     }
 
 
+
+    public override void Resolve(Dictionary<string, object> _tables)
+    {
+        base.Resolve(_tables);
+        PostResolve();
+    }
+
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -44,6 +56,7 @@ public abstract partial class Service :  ai.Node
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

@@ -17,6 +17,7 @@ namespace cfg.test
         private readonly Dictionary<int, test.ItemBase> _dataMap;
         private readonly List<test.ItemBase> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbItem2(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.test
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, test.ItemBase> DataMap => _dataMap;
-        public List<test.ItemBase> DataList => _dataList;
 
         public T GetOrDefaultAs<T>(int key) where T : test.ItemBase
         {
@@ -61,6 +59,7 @@ namespace cfg.test
             _v = test.ItemBase.DeserializeItemBase(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -84,6 +83,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

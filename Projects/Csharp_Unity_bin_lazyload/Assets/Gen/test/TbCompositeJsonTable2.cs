@@ -17,6 +17,7 @@ namespace cfg.test
         private readonly Dictionary<int, test.CompositeJsonTable2> _dataMap;
         private readonly List<test.CompositeJsonTable2> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbCompositeJsonTable2(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.test
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, test.CompositeJsonTable2> DataMap => _dataMap;
-        public List<test.CompositeJsonTable2> DataList => _dataList;
 
         public test.CompositeJsonTable2 this[int key] => Get(key);
         public test.CompositeJsonTable2 Get(int key)
@@ -52,6 +50,7 @@ namespace cfg.test
             _v = test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

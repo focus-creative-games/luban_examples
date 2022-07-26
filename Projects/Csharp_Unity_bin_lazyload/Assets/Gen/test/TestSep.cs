@@ -55,6 +55,27 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
 
     public const int __ID__ = -543221520;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        X2?.Resolve(_tables);
+        X3?.Resolve(_tables);
+        foreach(var _e in X4) { _e?.Resolve(_tables); }
+        foreach(var _e in X5) { _e?.Resolve(_tables); }
+        foreach(var _e in X6) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X1 = translator(X1_l10n_key, X1);
+        X2?.TranslateText(translator);
+        X3?.TranslateText(translator);
+        foreach(var _e in X4) { _e?.TranslateText(translator); }
+        foreach(var _e in X5) { _e?.TranslateText(translator); }
+        foreach(var _e in X6) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -69,6 +90,7 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

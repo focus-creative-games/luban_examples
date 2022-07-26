@@ -35,6 +35,17 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
 
     public const int __ID__ = 1547874631;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        this.ItemId_Ref = (_tables["item.TbItem"] as item.TbItem).GetOrDefault(ItemId);
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -45,6 +56,7 @@ public sealed partial class ProbabilityItemInfo :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

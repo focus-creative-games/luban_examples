@@ -46,6 +46,28 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
 
     public const int __ID__ = -501249394;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        foreach(var _e in OneRows) { _e?.Resolve(_tables); }
+        foreach(var _e in MultiRows1) { _e?.Resolve(_tables); }
+        foreach(var _e in MultiRows2) { _e?.Resolve(_tables); }
+        foreach(var _e in MultiRows4.Values) { _e?.Resolve(_tables); }
+        foreach(var _e in MultiRows5) { _e?.Resolve(_tables); }
+        foreach(var _e in MultiRows6.Values) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in OneRows) { _e?.TranslateText(translator); }
+        foreach(var _e in MultiRows1) { _e?.TranslateText(translator); }
+        foreach(var _e in MultiRows2) { _e?.TranslateText(translator); }
+        foreach(var _e in MultiRows4.Values) { _e?.TranslateText(translator); }
+        foreach(var _e in MultiRows5) { _e?.TranslateText(translator); }
+        foreach(var _e in MultiRows6.Values) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -62,6 +84,7 @@ public sealed partial class MultiRowRecord :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

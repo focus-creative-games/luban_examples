@@ -74,6 +74,17 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
 
     public const int __ID__ = -848234488;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        this.BagInitItemsDropId_Ref = this.BagInitItemsDropId != null ? (_tables["bonus.TbDrop"] as  bonus.TbDrop).GetOrDefault(BagInitItemsDropId.Value) : null;
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -102,6 +113,7 @@ public sealed partial class GlobalConfig :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

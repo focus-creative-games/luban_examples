@@ -17,6 +17,7 @@ namespace cfg.error
         private readonly Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;
         private readonly List<error.CodeInfo> _dataList;
         private readonly Dictionary<error.EErrorCode,int> _indexMap;
+        public readonly List<error.EErrorCode> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbCodeInfo(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.error
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<error.EErrorCode, error.CodeInfo> DataMap => _dataMap;
-        public List<error.CodeInfo> DataList => _dataList;
 
         public error.CodeInfo this[error.EErrorCode key] => Get(key);
         public error.CodeInfo Get(error.EErrorCode key)
@@ -52,6 +50,7 @@ namespace cfg.error
             _v = error.CodeInfo.DeserializeCodeInfo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Code, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.error
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

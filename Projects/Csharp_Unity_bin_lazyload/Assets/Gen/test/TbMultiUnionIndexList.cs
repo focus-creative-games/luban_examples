@@ -18,7 +18,8 @@ namespace cfg.test
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<(int, long, string), test.MultiUnionIndexList> _dataMapUnion;
-        private Dictionary<(int id1, long id2, string id3),int> _indexMap;
+        private readonly Dictionary<(int id1, long id2, string id3),int> _indexMap;
+        public readonly List<(int id1, long id2, string id3)> Indexes;
 
         public TbMultiUnionIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
@@ -43,6 +44,7 @@ namespace cfg.test
                 
                 _indexMap.Add((key0, key1, key2), _buf.ReadInt());
             }
+            Indexes = _indexMap.Keys.ToList();
         }
 
 
@@ -59,7 +61,7 @@ namespace cfg.test
             __v = test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_buf);
             _dataList.Add(__v);
             _dataMapUnion.Add((id1, id2, id3), __v);
-            
+            __v.Resolve(tables);
             if(_indexMap.Count == _dataMapUnion.Count)
             {
                 _buf = null;
@@ -75,6 +77,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

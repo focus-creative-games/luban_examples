@@ -39,6 +39,17 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
 
     public const int __ID__ = 1214073149;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        { bonus.TbDrop __table = (bonus.TbDrop)_tables["bonus.TbDrop"]; this.Award_Ref = new System.Collections.Generic.List<bonus.DropInfo>(); foreach(var __e in Award) { this.Award_Ref.Add(__table.GetOrDefault(__e)); } }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -51,6 +62,7 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

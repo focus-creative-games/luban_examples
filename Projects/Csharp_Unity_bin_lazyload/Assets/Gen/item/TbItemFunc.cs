@@ -17,6 +17,7 @@ namespace cfg.item
         private readonly Dictionary<item.EMinorType, item.ItemFunction> _dataMap;
         private readonly List<item.ItemFunction> _dataList;
         private readonly Dictionary<item.EMinorType,int> _indexMap;
+        public readonly List<item.EMinorType> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbItemFunc(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.item
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<item.EMinorType, item.ItemFunction> DataMap => _dataMap;
-        public List<item.ItemFunction> DataList => _dataList;
 
         public item.ItemFunction this[item.EMinorType key] => Get(key);
         public item.ItemFunction Get(item.EMinorType key)
@@ -52,6 +50,7 @@ namespace cfg.item
             _v = item.ItemFunction.DeserializeItemFunction(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.MinorType, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.item
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

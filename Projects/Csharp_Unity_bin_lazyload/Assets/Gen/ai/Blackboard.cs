@@ -37,6 +37,19 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
 
     public const int __ID__ = 1576193005;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        this.ParentName_Ref = (_tables["ai.TbBlackboard"] as ai.TbBlackboard).GetOrDefault(ParentName);
+        foreach(var _e in Keys) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Keys) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -48,6 +61,7 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

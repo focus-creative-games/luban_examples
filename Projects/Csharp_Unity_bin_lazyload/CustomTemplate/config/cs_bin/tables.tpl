@@ -29,7 +29,11 @@ public partial class {{name}}
         {{~end~}}
 
         PostInit();
+        {{~for table in tables ~}}
+        {{table.name}}.CacheTables(tables); 
+        {{~end~}}
     }
+    
     partial void PostInit();
 }
 

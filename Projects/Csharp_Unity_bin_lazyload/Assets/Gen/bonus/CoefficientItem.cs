@@ -32,6 +32,20 @@ public sealed partial class CoefficientItem :  bonus.Bonus
 
     public const int __ID__ = -229470727;
     public override int GetTypeId() => __ID__;
+
+    public override void Resolve(Dictionary<string, object> _tables)
+    {
+        base.Resolve(_tables);
+        BonusList?.Resolve(_tables);
+        PostResolve();
+    }
+
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+        BonusList?.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -41,6 +55,7 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

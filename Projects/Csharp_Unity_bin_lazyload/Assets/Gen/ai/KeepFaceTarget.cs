@@ -30,6 +30,18 @@ public sealed partial class KeepFaceTarget :  ai.Service
 
     public const int __ID__ = 1195270745;
     public override int GetTypeId() => __ID__;
+
+    public override void Resolve(Dictionary<string, object> _tables)
+    {
+        base.Resolve(_tables);
+        PostResolve();
+    }
+
+    public override void TranslateText(System.Func<string, string, string> translator)
+    {
+        base.TranslateText(translator);
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -40,6 +52,7 @@ public sealed partial class KeepFaceTarget :  ai.Service
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

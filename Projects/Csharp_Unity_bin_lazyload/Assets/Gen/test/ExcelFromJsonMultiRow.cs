@@ -34,6 +34,18 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
 
     public const int __ID__ = 715335694;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        foreach(var _e in Items) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        foreach(var _e in Items) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -44,6 +56,7 @@ public sealed partial class ExcelFromJsonMultiRow :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

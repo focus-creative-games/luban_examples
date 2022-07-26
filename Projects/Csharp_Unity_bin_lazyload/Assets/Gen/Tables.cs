@@ -193,7 +193,65 @@ public partial class Tables
         tables.Add("test.TbTestDesc", TbTestDesc);
 
         PostInit();
+        TbBlackboard.CacheTables(tables); 
+        TbBehaviorTree.CacheTables(tables); 
+        TbClazz.CacheTables(tables); 
+        TbDrop.CacheTables(tables); 
+        TbGlobalConfig.CacheTables(tables); 
+        TbErrorInfo.CacheTables(tables); 
+        TbCodeInfo.CacheTables(tables); 
+        TbItem.CacheTables(tables); 
+        TbItemFunc.CacheTables(tables); 
+        TbItemExtra.CacheTables(tables); 
+        TbL10NDemo.CacheTables(tables); 
+        TbPatchDemo.CacheTables(tables); 
+        TbSystemMail.CacheTables(tables); 
+        TbGlobalMail.CacheTables(tables); 
+        TbRoleLevelExpAttr.CacheTables(tables); 
+        TbRoleLevelBonusCoefficient.CacheTables(tables); 
+        TbTestTag.CacheTables(tables); 
+        TbFullTypes.CacheTables(tables); 
+        TbSingleton.CacheTables(tables); 
+        TbNotIndexList.CacheTables(tables); 
+        TbMultiUnionIndexList.CacheTables(tables); 
+        TbMultiIndexList.CacheTables(tables); 
+        TbDataFromMisc.CacheTables(tables); 
+        TbMultiRowRecord.CacheTables(tables); 
+        TbTestMultiColumn.CacheTables(tables); 
+        TbMultiRowTitle.CacheTables(tables); 
+        TbTestNull.CacheTables(tables); 
+        TbDemoPrimitive.CacheTables(tables); 
+        TbTestString.CacheTables(tables); 
+        TbDemoGroup.CacheTables(tables); 
+        TbDemoGroup_C.CacheTables(tables); 
+        TbDemoGroup_S.CacheTables(tables); 
+        TbDemoGroup_E.CacheTables(tables); 
+        TbTestGlobal.CacheTables(tables); 
+        TbTestBeRef.CacheTables(tables); 
+        TbTestBeRef2.CacheTables(tables); 
+        TbTestRef.CacheTables(tables); 
+        TbTestSize.CacheTables(tables); 
+        TbTestSet.CacheTables(tables); 
+        TbDetectCsvEncoding.CacheTables(tables); 
+        TbItem2.CacheTables(tables); 
+        TbDefineFromExcel.CacheTables(tables); 
+        TbDefineFromExcelOne.CacheTables(tables); 
+        TbTestIndex.CacheTables(tables); 
+        TbTestMap.CacheTables(tables); 
+        TbExcelFromJson.CacheTables(tables); 
+        TbCompositeJsonTable1.CacheTables(tables); 
+        TbCompositeJsonTable2.CacheTables(tables); 
+        TbCompositeJsonTable3.CacheTables(tables); 
+        TbExcelFromJsonMultiRow.CacheTables(tables); 
+        TbTestSep.CacheTables(tables); 
+        TbTestScriptableObject.CacheTables(tables); 
+        TbTestExternalType.CacheTables(tables); 
+        TbDemoGroupDefineFromExcel.CacheTables(tables); 
+        TbDefineFromExcel2.CacheTables(tables); 
+        TbTestExcelBean.CacheTables(tables); 
+        TbTestDesc.CacheTables(tables); 
     }
+    
     partial void PostInit();
 }
 

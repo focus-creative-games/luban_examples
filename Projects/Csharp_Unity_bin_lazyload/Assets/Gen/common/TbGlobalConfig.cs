@@ -40,6 +40,7 @@ namespace cfg.common
         public int ClothBagInitCapacity => _data.ClothBagInitCapacity;
         public int ClothBagCapacitySpecial => _data.ClothBagCapacitySpecial;
         public int? BagInitItemsDropId => _data.BagInitItemsDropId;
+        public bonus.DropInfo BagInitItemsDropId_Ref => _data.BagInitItemsDropId_Ref;
         public int MailBoxCapacity => _data.MailBoxCapacity;
         public float DamageParamC => _data.DamageParamC;
         public float DamageParamE => _data.DamageParamE;
@@ -54,6 +55,12 @@ namespace cfg.common
 
         private ByteBuf _buf = null;
         
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            _data.Resolve(_tables);
+        }
         partial void PostInit();
     }
 } 

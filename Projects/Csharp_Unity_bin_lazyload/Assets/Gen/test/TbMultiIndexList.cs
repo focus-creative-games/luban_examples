@@ -18,30 +18,90 @@ namespace cfg.test
         private System.Func<ByteBuf> _dataLoader;
 
         private Dictionary<int, test.MultiIndexList> _dataMap_id1;
+        private readonly Dictionary<int,int> _indexMap_id1;
+        public readonly List<int> Indexes_id1;
         private Dictionary<long, test.MultiIndexList> _dataMap_id2;
+        private readonly Dictionary<long,int> _indexMap_id2;
+        public readonly List<long> Indexes_id2;
         private Dictionary<string, test.MultiIndexList> _dataMap_id3;
+        private readonly Dictionary<string,int> _indexMap_id3;
+        public readonly List<string> Indexes_id3;
 
         public TbMultiIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
             _dataList = new List<test.MultiIndexList>();
             _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
-            //MULTI
             _dataMap_id1 = new Dictionary<int, test.MultiIndexList>();
+            _indexMap_id1 = new Dictionary<int,int>();
             _dataMap_id2 = new Dictionary<long, test.MultiIndexList>();
+            _indexMap_id2 = new Dictionary<long,int>();
             _dataMap_id3 = new Dictionary<string, test.MultiIndexList>();
-            foreach(var _v in _dataList)
-            {
-                _dataMap_id1.Add(_v.Id1, _v);
-                _dataMap_id2.Add(_v.Id2, _v);
-                _dataMap_id3.Add(_v.Id3, _v);
+            _indexMap_id3 = new Dictionary<string,int>();
+        
+
+            int size = _buf.ReadSize();
+            for(int i = 0; i < size; i++)
+            {     
+                int key_id1;
+                key_id1 = _buf.ReadInt();
+                long key_id2;
+                key_id2 = _buf.ReadLong();
+                string key_id3;
+                key_id3 = _buf.ReadString();
+                int index = _buf.ReadInt();
+                _indexMap_id1.Add(key_id1,index);
+                _indexMap_id2.Add(key_id2,index);
+                _indexMap_id3.Add(key_id3,index);
             }
+            Indexes_id1 = _indexMap_id1.Keys.ToList();
+            Indexes_id2 = _indexMap_id2.Keys.ToList();
+            Indexes_id3 = _indexMap_id3.Keys.ToList();
         }
 
 
 
-        public test.MultiIndexList GetById1(int key) => _dataMap_id1.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
-        public test.MultiIndexList GetById2(long key) => _dataMap_id2.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
-        public test.MultiIndexList GetById3(string key) => _dataMap_id3.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
+        public test.MultiIndexList GetById1(int key)
+        {
+            if(_dataMap_id1.TryGetValue(key,out var value))
+            {
+                return value;
+            }
+            int index = _indexMap_id1[key];
+            ResetByteBuf(index);
+            test.MultiIndexList _v;
+            _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
+            _dataMap_id1.Add(key, _v);
+            _v.Resolve(tables);
+            return _v;
+        }    
+        public test.MultiIndexList GetById2(long key)
+        {
+            if(_dataMap_id2.TryGetValue(key,out var value))
+            {
+                return value;
+            }
+            int index = _indexMap_id2[key];
+            ResetByteBuf(index);
+            test.MultiIndexList _v;
+            _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
+            _dataMap_id2.Add(key, _v);
+            _v.Resolve(tables);
+            return _v;
+        }    
+        public test.MultiIndexList GetById3(string key)
+        {
+            if(_dataMap_id3.TryGetValue(key,out var value))
+            {
+                return value;
+            }
+            int index = _indexMap_id3[key];
+            ResetByteBuf(index);
+            test.MultiIndexList _v;
+            _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
+            _dataMap_id3.Add(key, _v);
+            _v.Resolve(tables);
+            return _v;
+        }    
         private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
@@ -51,6 +111,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

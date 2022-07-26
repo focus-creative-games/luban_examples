@@ -17,6 +17,7 @@ namespace cfg.tag
         private readonly Dictionary<int, tag.TestTag> _dataMap;
         private readonly List<tag.TestTag> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbTestTag(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.tag
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, tag.TestTag> DataMap => _dataMap;
-        public List<tag.TestTag> DataList => _dataList;
 
         public tag.TestTag this[int key] => Get(key);
         public tag.TestTag Get(int key)
@@ -52,6 +50,7 @@ namespace cfg.tag
             _v = tag.TestTag.DeserializeTestTag(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.tag
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

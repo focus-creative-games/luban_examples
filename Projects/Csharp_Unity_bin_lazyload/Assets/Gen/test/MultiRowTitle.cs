@@ -42,6 +42,26 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
 
     public const int __ID__ = 540002427;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        X1?.Resolve(_tables);
+        X20?.Resolve(_tables);
+        foreach(var _e in X2) { _e?.Resolve(_tables); }
+        foreach(var _e in X3) { _e?.Resolve(_tables); }
+        foreach(var _e in X4) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X1?.TranslateText(translator);
+        X20?.TranslateText(translator);
+        foreach(var _e in X2) { _e?.TranslateText(translator); }
+        foreach(var _e in X3) { _e?.TranslateText(translator); }
+        foreach(var _e in X4) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -56,6 +76,7 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

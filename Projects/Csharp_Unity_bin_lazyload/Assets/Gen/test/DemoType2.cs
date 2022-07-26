@@ -81,6 +81,26 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
 
     public const int __ID__ = -367048295;
     public override int GetTypeId() => __ID__;
+
+    public  void Resolve(Dictionary<string, object> _tables)
+    {
+        X12?.Resolve(_tables);
+        X14?.Resolve(_tables);
+        { test.TbFullTypes __table = (test.TbFullTypes)_tables["test.TbFullTypes"]; this.K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>(); foreach(var __e in K8) { this.K8_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
+        foreach(var _e in K9) { _e?.Resolve(_tables); }
+        foreach(var _e in K15) { _e?.Resolve(_tables); }
+        PostResolve();
+    }
+
+    public  void TranslateText(System.Func<string, string, string> translator)
+    {
+        X12?.TranslateText(translator);
+        X14?.TranslateText(translator);
+        S1 = translator(S1_l10n_key, S1);
+        foreach(var _e in K9) { _e?.TranslateText(translator); }
+        foreach(var _e in K15) { _e?.TranslateText(translator); }
+    }
+
     public override string ToString()
     {
         return "{ "
@@ -113,6 +133,7 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

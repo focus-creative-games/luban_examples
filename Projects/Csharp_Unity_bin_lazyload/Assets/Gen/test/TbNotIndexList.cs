@@ -17,7 +17,8 @@ namespace cfg.test
         private List<test.NotIndexList> _dataList;
         private System.Func<ByteBuf> _dataLoader;
 
-        private Dictionary<int,int> _indexMap;
+        private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly Dictionary<int, test.NotIndexList> _dataMap;
 
         public TbNotIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -31,31 +32,11 @@ namespace cfg.test
             {
                 _indexMap.Add(i,_buf.ReadInt());
             }
+            Indexes = _indexMap.Keys.ToList();
         }
 
 
 
-        private bool _readAll = false;
-        public List<test.NotIndexList> DataList => GetAllDatas();
-        private List<test.NotIndexList> GetAllDatas()
-        {
-            if(_readAll)
-            {
-                return _dataList;
-            }
-            ResetByteBuf();
-            _dataList.Clear();
-            for(int i = _buf.ReadSize(); i > 0; i--)
-            {
-                test.NotIndexList _v;
-                _v = test.NotIndexList.DeserializeNotIndexList(_buf);
-                _dataList.Add(_v);
-                _dataMap[i] = _v;
-            }
-            _readAll = true;
-            _buf = null;
-            return _dataList;
-        }
         public test.NotIndexList this[int index] => Get(index);
         public test.NotIndexList Get(int index)
         {
@@ -67,10 +48,10 @@ namespace cfg.test
             ResetByteBuf(_indexMap[index]);
             _v = test.NotIndexList.DeserializeNotIndexList(_buf);
             _dataMap[index] = _v;
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _dataList = _dataMap.OrderBy(kvp=>kvp.Key).Select(kvp=>kvp.Value).ToList();
-                _readAll = true;
                 _buf = null;
             }
             return _v;
@@ -84,6 +65,12 @@ namespace cfg.test
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }

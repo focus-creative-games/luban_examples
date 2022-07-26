@@ -17,6 +17,7 @@ namespace cfg.bonus
         private readonly Dictionary<int, bonus.DropInfo> _dataMap;
         private readonly List<bonus.DropInfo> _dataList;
         private readonly Dictionary<int,int> _indexMap;
+        public readonly List<int> Indexes;
         private readonly System.Func<ByteBuf> _dataLoader;
 
         public TbDrop(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
@@ -33,12 +34,9 @@ namespace cfg.bonus
                 int index = _buf.ReadInt();
                 _indexMap[key] = index;
             }
-
+            Indexes = _indexMap.Keys.ToList();
             PostInit();
         }
-
-        public Dictionary<int, bonus.DropInfo> DataMap => _dataMap;
-        public List<bonus.DropInfo> DataList => _dataList;
 
         public bonus.DropInfo this[int key] => Get(key);
         public bonus.DropInfo Get(int key)
@@ -52,6 +50,7 @@ namespace cfg.bonus
             _v = bonus.DropInfo.DeserializeDropInfo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
+            _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
                 _buf = null;
@@ -75,6 +74,12 @@ namespace cfg.bonus
                 _buf = _dataLoader();
             }
             _buf.ReaderIndex = readerInex;
+        }
+    
+        private Dictionary<string, object> tables;
+        public void CacheTables(Dictionary<string, object> _tables)
+        {
+            tables = _tables;
         }
         partial void PostInit();
     }
