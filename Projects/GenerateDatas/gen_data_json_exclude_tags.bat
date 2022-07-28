@@ -10,7 +10,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --output_data_dir json_exclude_tags ^
  --gen_types data_json ^
  -s all ^
- --export_exclude_tags test,dev
+ --output:exclude_tags test,dev
 
 
 pause

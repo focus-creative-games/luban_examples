@@ -321,6 +321,7 @@
         <var name="x1_2" type="int" ref="test.TbTestBeRef,test.TbTestBeRef"/> var中的ref属性纯粹是语法糖，理论上只应该如x2那样定义在type里
         <var name="x2" type="int#ref=test_ref_group2"/>
         <var name="x3" type="int#ref=test_ref_group"/>
+		<var name="x4" type="int#ref=tag.TbTestTag"/>
         
         <var name="a1" type="array,int" ref="test.TbTestBeRef"/>
         <var name="a2" type="array,int#ref=(test.TbTestBeRef)"/>
