@@ -14,11 +14,13 @@ namespace cfg.test
    
     public partial class TbCompositeJsonTable3
     {
+        public static TbCompositeJsonTable3 Instance { get; private set; }
 
-        private readonly test.CompositeJsonTable3 _data;
+        private test.CompositeJsonTable3 _data;
 
-        public TbCompositeJsonTable3(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public TbCompositeJsonTable3 (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -30,10 +32,8 @@ namespace cfg.test
         public int A => _data.A;
         public int B => _data.B;
 
-        private ByteBuf _buf = null;
         
     
-        private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
             _data.Resolve(_tables);

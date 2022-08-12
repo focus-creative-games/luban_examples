@@ -14,14 +14,53 @@ namespace cfg.l10n
    
     public partial class TbL10NDemo
     {
-        private readonly Dictionary<int, l10n.L10NDemo> _dataMap;
-        private readonly List<l10n.L10NDemo> _dataList;
-        private readonly Dictionary<int,int> _indexMap;
-        public readonly List<int> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbL10NDemo(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbL10NDemo Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<int, l10n.L10NDemo> _dataMap;
+        private List<l10n.L10NDemo> _dataList;
+        public Dictionary<int, l10n.L10NDemo> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<l10n.L10NDemo> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<int,int> _indexMap;
+        public List<int> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbL10NDemo(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<int, l10n.L10NDemo>();
             _dataList = new List<l10n.L10NDemo>();
             _indexMap = new Dictionary<int, int>();
@@ -65,17 +104,20 @@ namespace cfg.l10n
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

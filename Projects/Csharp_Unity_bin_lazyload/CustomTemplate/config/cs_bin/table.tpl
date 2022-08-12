@@ -18,15 +18,54 @@ namespace {{x.namespace_with_top_module}}
 {{~end~}}
     public partial class {{name}}
     {
+        public static {{name}} Instance { get; private set; }
         {{~if x.is_map_table ~}}
-        private readonly Dictionary<{{cs_define_type key_type}}, {{cs_define_type value_type}}> _dataMap;
-        private readonly List<{{cs_define_type value_type}}> _dataList;
-        private readonly Dictionary<{{cs_define_type key_type}},int> _indexMap;
-        public readonly List<{{cs_define_type key_type}}> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public {{name}}(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        private bool _readAll = false;
+        private Dictionary<{{cs_define_type key_type}}, {{cs_define_type value_type}}> _dataMap;
+        private List<{{cs_define_type value_type}}> _dataList;
+        public Dictionary<{{cs_define_type key_type}}, {{cs_define_type value_type}}> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<{{cs_define_type value_type}}> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<{{cs_define_type key_type}},int> _indexMap;
+        public List<{{cs_define_type key_type}}> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public {{name}}(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<{{cs_define_type key_type}}, {{cs_define_type value_type}}>();
             _dataList = new List<{{cs_define_type value_type}}>();
             _indexMap = new Dictionary<{{cs_define_type key_type}}, int>();
@@ -82,29 +121,139 @@ namespace {{x.namespace_with_top_module}}
             return null;
         }
         {{~else if x.is_list_table ~}}
+        private bool _readAllList = false;
         private List<{{cs_define_type value_type}}> _dataList;
+        public List<{{cs_define_type value_type}}> DataList
+        {
+            get
+            {
+                if(!_readAllList)
+                {
+                    ReadAllList();
+                    _readAllList = true;
+                }
+                return _dataList;
+            }
+        }
         private System.Func<ByteBuf> _dataLoader;
 
         {{~if x.is_union_index~}}
+        private bool _readAll;
         private {{cs_table_union_map_type_name x}} _dataMapUnion;
-        private readonly Dictionary<({{cs_table_get_param_def_list x}}),int> _indexMap;
-        public readonly List<({{cs_table_get_param_def_list x}})> Indexes;
+        public {{cs_table_union_map_type_name x}} DataMapUnion
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMapUnion;
+            }            
+        }
+        private void ReadAll()
+        {
+            _dataMapUnion.Clear();
+            foreach(var index in Indexes)
+            {
+                var ({{cs_table_get_param_name_list x}}) = index;
+                var v = Get({{cs_table_get_param_name_list x}});
+                _dataMapUnion[({{cs_table_get_param_name_list x}})] = v;
+            }
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var ({{cs_table_get_param_name_list x}}) = index;
+                var v = Get({{cs_table_get_param_name_list x}});
+                _dataList.Add(v);
+            }
+        }
+        private Dictionary<({{cs_table_get_param_def_list x}}),int> _indexMap;
+        public List<({{cs_table_get_param_def_list x}})> Indexes;
+        
         {{~else if !x.index_list.empty?~}}
         {{~for idx in x.index_list~}}
+        private bool _readAll{{idx.index_field.convention_name}} = false;
         private Dictionary<{{cs_define_type idx.type}}, {{cs_define_type value_type}}> _dataMap_{{idx.index_field.name}};
-        private readonly Dictionary<{{cs_define_type idx.type}},int> _indexMap_{{idx.index_field.name}};
-        public readonly List<{{cs_define_type idx.type}}> Indexes_{{idx.index_field.name}};
+        public Dictionary<{{cs_define_type idx.type}}, {{cs_define_type value_type}}> DataMap_{{idx.index_field.name}}
+        {
+            get
+            {
+                if(!_readAll{{idx.index_field.convention_name}})
+                {
+                    ReadAll{{idx.index_field.convention_name}}();
+                    _readAll{{idx.index_field.convention_name}} = true;
+                }
+                return _dataMap_{{idx.index_field.name}};
+            }   
+        }
+        {{~if for.first ~}}
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+             foreach(var index in Indexes_{{idx.index_field.name}})
+            {
+                var v = GetBy{{idx.index_field.convention_name}}(index);
+                _dataList.Add(v);
+            }
+        }
+        {{~end~}}
+        private void ReadAll{{idx.index_field.convention_name}}()
+        {
+            _dataMap_{{idx.index_field.name}}.Clear();
+            foreach(var index in Indexes_{{idx.index_field.name}})
+            {
+                var v = GetBy{{idx.index_field.convention_name}}(index);
+                _dataMap_{{idx.index_field.name}}[index] = v;
+            }
+        }
+        private Dictionary<{{cs_define_type idx.type}},int> _indexMap_{{idx.index_field.name}};
+        public List<{{cs_define_type idx.type}}> Indexes_{{idx.index_field.name}};
         {{~end~}}
         {{~else~}}
-        private readonly Dictionary<int,int> _indexMap;
-        public readonly List<int> Indexes;
-        private readonly Dictionary<int, {{cs_define_type value_type}}> _dataMap;
-        {{~end~}}
-
-        public {{name}}(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        private bool _readAll = false;
+        private Dictionary<int,int> _indexMap;
+        public List<int> Indexes;
+        private Dictionary<int, {{cs_define_type value_type}}> _dataMap;
+        private Dictionary<int, {{cs_define_type value_type}}> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                }
+                return _dataMap;
+            }
+        }
+        private void ReadAll()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+            }
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataList.Add(v);
+            }
+        }
+        {{~end~}}
+        public {{name}}(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataList = new List<{{cs_define_type value_type}}>();
-            _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
+            _dataLoader = new System.Func<ByteBuf>(()=> _loader(_tbName));
         {{~if x.is_union_index~}}
             _dataMapUnion = new {{cs_table_union_map_type_name x}}();
             _indexMap = new Dictionary<({{cs_table_get_param_def_list x}}),int>();
@@ -220,10 +369,11 @@ namespace {{x.namespace_with_top_module}}
         {{~end~}}
         {{~else~}}
 
-        private readonly {{cs_define_type value_type}} _data;
+        private {{cs_define_type value_type}} _data;
 
-        public {{name}}(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public {{name}} (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -245,27 +395,32 @@ namespace {{x.namespace_with_top_module}}
         {{~end~}}
 
         {{~end~}}
-        private ByteBuf _buf = null;
         
     {{~if x.is_map_table||x.is_list_table ~}}
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     {{~end~}}
     
+    {{~if x.mode != 'ONE'~}}
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
+    {{~end~}}
         public void CacheTables(Dictionary<string, object> _tables)
         {
-        {{~if x.mode == 'ONE'~}}
+    {{~if x.mode == 'ONE'~}}
             _data.Resolve(_tables);
-        {{~else~}}
+    {{~else~}}
             tables = _tables;
-        {{~end~}}
+    {{~end~}}
         }
         partial void PostInit();
     }

@@ -1,0 +1,18 @@
+<module name="test">
+   <bean name="CompositeJsonTable1">
+        <var name="id" type="int"/>
+        <var name="x" type="string"/>
+        <var name="y" type="string"/>
+   </bean>
+   <bean name="CompositeJsonTable2">
+        <var name="id" type="int"/>
+        <var name="y" type="int"/>
+   </bean>
+   <bean name="CompositeJsonTable3">
+        <var name="a" type="int"/>
+        <var name="b" type="int"/>
+   </bean>
+   <table name="TbCompositeJsonTable1" value="CompositeJsonTable1" input="*table1@test/composite_tables.json,*@test/composite_tables2.json"/>
+   <table name="TbCompositeJsonTable2" value="CompositeJsonTable2" input="*table2@test/composite_tables.json"/>
+   <table name="TbCompositeJsonTable3" value="CompositeJsonTable3" mode="one" input="table3@test/composite_tables.json"/>    
+</module>

@@ -14,11 +14,13 @@ namespace cfg.test
    
     public partial class TbTestGlobal
     {
+        public static TbTestGlobal Instance { get; private set; }
 
-        private readonly test.TestGlobal _data;
+        private test.TestGlobal _data;
 
-        public TbTestGlobal(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public TbTestGlobal (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -30,10 +32,8 @@ namespace cfg.test
         public int UnlockEquip => _data.UnlockEquip;
         public int UnlockHero => _data.UnlockHero;
 
-        private ByteBuf _buf = null;
         
     
-        private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
             _data.Resolve(_tables);

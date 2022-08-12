@@ -14,14 +14,53 @@ namespace cfg.ai
    
     public partial class TbBlackboard
     {
-        private readonly Dictionary<string, ai.Blackboard> _dataMap;
-        private readonly List<ai.Blackboard> _dataList;
-        private readonly Dictionary<string,int> _indexMap;
-        public readonly List<string> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbBlackboard(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbBlackboard Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<string, ai.Blackboard> _dataMap;
+        private List<ai.Blackboard> _dataList;
+        public Dictionary<string, ai.Blackboard> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<ai.Blackboard> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<string,int> _indexMap;
+        public List<string> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbBlackboard(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<string, ai.Blackboard>();
             _dataList = new List<ai.Blackboard>();
             _indexMap = new Dictionary<string, int>();
@@ -65,17 +104,20 @@ namespace cfg.ai
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

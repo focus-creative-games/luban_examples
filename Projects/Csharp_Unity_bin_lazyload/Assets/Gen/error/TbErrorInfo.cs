@@ -14,14 +14,53 @@ namespace cfg.error
    
     public partial class TbErrorInfo
     {
-        private readonly Dictionary<string, error.ErrorInfo> _dataMap;
-        private readonly List<error.ErrorInfo> _dataList;
-        private readonly Dictionary<string,int> _indexMap;
-        public readonly List<string> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbErrorInfo(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbErrorInfo Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<string, error.ErrorInfo> _dataMap;
+        private List<error.ErrorInfo> _dataList;
+        public Dictionary<string, error.ErrorInfo> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<error.ErrorInfo> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<string,int> _indexMap;
+        public List<string> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbErrorInfo(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<string, error.ErrorInfo>();
             _dataList = new List<error.ErrorInfo>();
             _indexMap = new Dictionary<string, int>();
@@ -65,17 +104,20 @@ namespace cfg.error
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

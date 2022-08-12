@@ -14,11 +14,13 @@ namespace cfg.test
    
     public partial class TbSingleton
     {
+        public static TbSingleton Instance { get; private set; }
 
-        private readonly test.DemoSingletonType _data;
+        private test.DemoSingletonType _data;
 
-        public TbSingleton(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public TbSingleton (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -31,10 +33,8 @@ namespace cfg.test
         public string Name => _data.Name;
         public test.DemoDynamic Date => _data.Date;
 
-        private ByteBuf _buf = null;
         
     
-        private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
             _data.Resolve(_tables);

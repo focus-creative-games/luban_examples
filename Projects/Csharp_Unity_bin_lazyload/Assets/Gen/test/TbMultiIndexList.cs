@@ -14,23 +14,112 @@ namespace cfg.test
    
     public partial class TbMultiIndexList
     {
+        public static TbMultiIndexList Instance { get; private set; }
+        private bool _readAllList = false;
         private List<test.MultiIndexList> _dataList;
+        public List<test.MultiIndexList> DataList
+        {
+            get
+            {
+                if(!_readAllList)
+                {
+                    ReadAllList();
+                    _readAllList = true;
+                }
+                return _dataList;
+            }
+        }
         private System.Func<ByteBuf> _dataLoader;
 
+        private bool _readAllId1 = false;
         private Dictionary<int, test.MultiIndexList> _dataMap_id1;
-        private readonly Dictionary<int,int> _indexMap_id1;
-        public readonly List<int> Indexes_id1;
-        private Dictionary<long, test.MultiIndexList> _dataMap_id2;
-        private readonly Dictionary<long,int> _indexMap_id2;
-        public readonly List<long> Indexes_id2;
-        private Dictionary<string, test.MultiIndexList> _dataMap_id3;
-        private readonly Dictionary<string,int> _indexMap_id3;
-        public readonly List<string> Indexes_id3;
-
-        public TbMultiIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public Dictionary<int, test.MultiIndexList> DataMap_id1
         {
+            get
+            {
+                if(!_readAllId1)
+                {
+                    ReadAllId1();
+                    _readAllId1 = true;
+                }
+                return _dataMap_id1;
+            }   
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+             foreach(var index in Indexes_id1)
+            {
+                var v = GetById1(index);
+                _dataList.Add(v);
+            }
+        }
+        private void ReadAllId1()
+        {
+            _dataMap_id1.Clear();
+            foreach(var index in Indexes_id1)
+            {
+                var v = GetById1(index);
+                _dataMap_id1[index] = v;
+            }
+        }
+        private Dictionary<int,int> _indexMap_id1;
+        public List<int> Indexes_id1;
+        private bool _readAllId2 = false;
+        private Dictionary<long, test.MultiIndexList> _dataMap_id2;
+        public Dictionary<long, test.MultiIndexList> DataMap_id2
+        {
+            get
+            {
+                if(!_readAllId2)
+                {
+                    ReadAllId2();
+                    _readAllId2 = true;
+                }
+                return _dataMap_id2;
+            }   
+        }
+        private void ReadAllId2()
+        {
+            _dataMap_id2.Clear();
+            foreach(var index in Indexes_id2)
+            {
+                var v = GetById2(index);
+                _dataMap_id2[index] = v;
+            }
+        }
+        private Dictionary<long,int> _indexMap_id2;
+        public List<long> Indexes_id2;
+        private bool _readAllId3 = false;
+        private Dictionary<string, test.MultiIndexList> _dataMap_id3;
+        public Dictionary<string, test.MultiIndexList> DataMap_id3
+        {
+            get
+            {
+                if(!_readAllId3)
+                {
+                    ReadAllId3();
+                    _readAllId3 = true;
+                }
+                return _dataMap_id3;
+            }   
+        }
+        private void ReadAllId3()
+        {
+            _dataMap_id3.Clear();
+            foreach(var index in Indexes_id3)
+            {
+                var v = GetById3(index);
+                _dataMap_id3[index] = v;
+            }
+        }
+        private Dictionary<string,int> _indexMap_id3;
+        public List<string> Indexes_id3;
+        public TbMultiIndexList(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataList = new List<test.MultiIndexList>();
-            _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
+            _dataLoader = new System.Func<ByteBuf>(()=> _loader(_tbName));
             _dataMap_id1 = new Dictionary<int, test.MultiIndexList>();
             _indexMap_id1 = new Dictionary<int,int>();
             _dataMap_id2 = new Dictionary<long, test.MultiIndexList>();
@@ -102,17 +191,20 @@ namespace cfg.test
             _v.Resolve(tables);
             return _v;
         }    
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

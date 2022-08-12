@@ -14,17 +14,61 @@ namespace cfg.test
    
     public partial class TbNotIndexList
     {
+        public static TbNotIndexList Instance { get; private set; }
+        private bool _readAllList = false;
         private List<test.NotIndexList> _dataList;
+        public List<test.NotIndexList> DataList
+        {
+            get
+            {
+                if(!_readAllList)
+                {
+                    ReadAllList();
+                    _readAllList = true;
+                }
+                return _dataList;
+            }
+        }
         private System.Func<ByteBuf> _dataLoader;
 
-        private readonly Dictionary<int,int> _indexMap;
-        public readonly List<int> Indexes;
-        private readonly Dictionary<int, test.NotIndexList> _dataMap;
-
-        public TbNotIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        private bool _readAll = false;
+        private Dictionary<int,int> _indexMap;
+        public List<int> Indexes;
+        private Dictionary<int, test.NotIndexList> _dataMap;
+        private Dictionary<int, test.NotIndexList> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                }
+                return _dataMap;
+            }
+        }
+        private void ReadAll()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+            }
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataList.Add(v);
+            }
+        }
+        public TbNotIndexList(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataList = new List<test.NotIndexList>();
-            _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
+            _dataLoader = new System.Func<ByteBuf>(()=> _loader(_tbName));
             _indexMap = new Dictionary<int,int>();
             _dataMap = new Dictionary<int, test.NotIndexList>();
             int size = _buf.ReadSize();
@@ -56,17 +100,20 @@ namespace cfg.test
             }
             return _v;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

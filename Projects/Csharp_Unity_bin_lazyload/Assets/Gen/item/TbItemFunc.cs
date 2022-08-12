@@ -14,14 +14,53 @@ namespace cfg.item
    
     public partial class TbItemFunc
     {
-        private readonly Dictionary<item.EMinorType, item.ItemFunction> _dataMap;
-        private readonly List<item.ItemFunction> _dataList;
-        private readonly Dictionary<item.EMinorType,int> _indexMap;
-        public readonly List<item.EMinorType> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbItemFunc(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbItemFunc Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<item.EMinorType, item.ItemFunction> _dataMap;
+        private List<item.ItemFunction> _dataList;
+        public Dictionary<item.EMinorType, item.ItemFunction> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<item.ItemFunction> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<item.EMinorType,int> _indexMap;
+        public List<item.EMinorType> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbItemFunc(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<item.EMinorType, item.ItemFunction>();
             _dataList = new List<item.ItemFunction>();
             _indexMap = new Dictionary<item.EMinorType, int>();
@@ -65,17 +104,20 @@ namespace cfg.item
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

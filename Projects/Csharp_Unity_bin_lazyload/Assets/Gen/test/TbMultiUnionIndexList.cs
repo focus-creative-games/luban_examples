@@ -14,17 +14,65 @@ namespace cfg.test
    
     public partial class TbMultiUnionIndexList
     {
+        public static TbMultiUnionIndexList Instance { get; private set; }
+        private bool _readAllList = false;
         private List<test.MultiUnionIndexList> _dataList;
+        public List<test.MultiUnionIndexList> DataList
+        {
+            get
+            {
+                if(!_readAllList)
+                {
+                    ReadAllList();
+                    _readAllList = true;
+                }
+                return _dataList;
+            }
+        }
         private System.Func<ByteBuf> _dataLoader;
 
+        private bool _readAll;
         private Dictionary<(int, long, string), test.MultiUnionIndexList> _dataMapUnion;
-        private readonly Dictionary<(int id1, long id2, string id3),int> _indexMap;
-        public readonly List<(int id1, long id2, string id3)> Indexes;
-
-        public TbMultiUnionIndexList(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public Dictionary<(int, long, string), test.MultiUnionIndexList> DataMapUnion
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMapUnion;
+            }            
+        }
+        private void ReadAll()
+        {
+            _dataMapUnion.Clear();
+            foreach(var index in Indexes)
+            {
+                var (id1, id2, id3) = index;
+                var v = Get(id1, id2, id3);
+                _dataMapUnion[(id1, id2, id3)] = v;
+            }
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var (id1, id2, id3) = index;
+                var v = Get(id1, id2, id3);
+                _dataList.Add(v);
+            }
+        }
+        private Dictionary<(int id1, long id2, string id3),int> _indexMap;
+        public List<(int id1, long id2, string id3)> Indexes;
+        
+        public TbMultiUnionIndexList(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataList = new List<test.MultiUnionIndexList>();
-            _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
+            _dataLoader = new System.Func<ByteBuf>(()=> _loader(_tbName));
             _dataMapUnion = new Dictionary<(int, long, string), test.MultiUnionIndexList>();
             _indexMap = new Dictionary<(int id1, long id2, string id3),int>();
             
@@ -68,17 +116,20 @@ namespace cfg.test
             }
             return __v;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

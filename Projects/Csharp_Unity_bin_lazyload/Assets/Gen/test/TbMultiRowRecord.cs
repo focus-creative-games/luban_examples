@@ -14,14 +14,53 @@ namespace cfg.test
    
     public partial class TbMultiRowRecord
     {
-        private readonly Dictionary<int, test.MultiRowRecord> _dataMap;
-        private readonly List<test.MultiRowRecord> _dataList;
-        private readonly Dictionary<int,int> _indexMap;
-        public readonly List<int> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbMultiRowRecord(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbMultiRowRecord Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<int, test.MultiRowRecord> _dataMap;
+        private List<test.MultiRowRecord> _dataList;
+        public Dictionary<int, test.MultiRowRecord> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<test.MultiRowRecord> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<int,int> _indexMap;
+        public List<int> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbMultiRowRecord(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<int, test.MultiRowRecord>();
             _dataList = new List<test.MultiRowRecord>();
             _indexMap = new Dictionary<int, int>();
@@ -65,17 +104,20 @@ namespace cfg.test
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

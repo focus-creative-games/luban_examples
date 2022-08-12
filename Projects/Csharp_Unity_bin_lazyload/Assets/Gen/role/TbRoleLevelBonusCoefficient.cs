@@ -14,14 +14,53 @@ namespace cfg.role
    
     public partial class TbRoleLevelBonusCoefficient
     {
-        private readonly Dictionary<int, role.LevelBonus> _dataMap;
-        private readonly List<role.LevelBonus> _dataList;
-        private readonly Dictionary<int,int> _indexMap;
-        public readonly List<int> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbRoleLevelBonusCoefficient(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbRoleLevelBonusCoefficient Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<int, role.LevelBonus> _dataMap;
+        private List<role.LevelBonus> _dataList;
+        public Dictionary<int, role.LevelBonus> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<role.LevelBonus> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<int,int> _indexMap;
+        public List<int> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbRoleLevelBonusCoefficient(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<int, role.LevelBonus>();
             _dataList = new List<role.LevelBonus>();
             _indexMap = new Dictionary<int, int>();
@@ -65,17 +104,20 @@ namespace cfg.role
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

@@ -1,0 +1,25 @@
+<root>
+
+	<topmodule name="cfg"/>
+    
+    <option name="editor.topmodule" value="editor.cfg"/>
+
+	<patch name="cn"/>
+	<patch name="tw"/>
+	<patch name="en"/>
+	<patch name="jp"/>
+
+	<group name="c" default="1"/> client
+	<group name="s" default="1"/> server
+	<group name="e" default="1"/> editor
+	
+	<import name="."/>
+	
+	<externalselector name="unity_cs"/>
+	<externalselector name="ue_cpp"/>
+    <externalselector name="dotnet_cs"/>
+
+	<service name="server" manager="Tables" group="s"/>
+	<service name="client" manager="Tables" group="c"/>
+	<service name="all" manager="Tables" group="c,s,e"/>
+</root>

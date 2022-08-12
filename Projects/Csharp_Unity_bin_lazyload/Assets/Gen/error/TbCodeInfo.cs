@@ -14,14 +14,53 @@ namespace cfg.error
    
     public partial class TbCodeInfo
     {
-        private readonly Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;
-        private readonly List<error.CodeInfo> _dataList;
-        private readonly Dictionary<error.EErrorCode,int> _indexMap;
-        public readonly List<error.EErrorCode> Indexes;
-        private readonly System.Func<ByteBuf> _dataLoader;
-
-        public TbCodeInfo(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public static TbCodeInfo Instance { get; private set; }
+        private bool _readAll = false;
+        private Dictionary<error.EErrorCode, error.CodeInfo> _dataMap;
+        private List<error.CodeInfo> _dataList;
+        public Dictionary<error.EErrorCode, error.CodeInfo> DataMap
         {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataMap;
+            }
+        }
+        public List<error.CodeInfo> DataList
+        {
+            get
+            {
+                if(!_readAll)
+                {
+                    ReadAll();
+                    _readAll = true;
+                }
+                return _dataList;
+            }
+        }
+        private Dictionary<error.EErrorCode,int> _indexMap;
+        public List<error.EErrorCode> Indexes;
+        private System.Func<ByteBuf> _dataLoader;
+
+        private void ReadAll()
+        {
+            _dataMap.Clear();
+            _dataList.Clear();
+            foreach(var index in Indexes)
+            {
+                var v = Get(index);
+                _dataMap[index] = v;
+                _dataList.Add(v);
+            }
+        }
+
+        public TbCodeInfo(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataMap = new Dictionary<error.EErrorCode, error.CodeInfo>();
             _dataList = new List<error.CodeInfo>();
             _indexMap = new Dictionary<error.EErrorCode, int>();
@@ -65,17 +104,20 @@ namespace cfg.error
             }
             return null;
         }
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {

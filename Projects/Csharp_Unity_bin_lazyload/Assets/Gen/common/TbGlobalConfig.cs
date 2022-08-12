@@ -14,11 +14,13 @@ namespace cfg.common
    
     public partial class TbGlobalConfig
     {
+        public static TbGlobalConfig Instance { get; private set; }
 
-        private readonly common.GlobalConfig _data;
+        private common.GlobalConfig _data;
 
-        public TbGlobalConfig(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public TbGlobalConfig (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -53,10 +55,8 @@ namespace cfg.common
         public int MaxViality => _data.MaxViality;
         public int PerVialityRecoveryTime => _data.PerVialityRecoveryTime;
 
-        private ByteBuf _buf = null;
         
     
-        private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
             _data.Resolve(_tables);

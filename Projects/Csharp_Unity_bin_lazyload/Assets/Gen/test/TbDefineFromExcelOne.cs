@@ -14,11 +14,13 @@ namespace cfg.test
    
     public partial class TbDefineFromExcelOne
     {
+        public static TbDefineFromExcelOne Instance { get; private set; }
 
-        private readonly test.DefineFromExcelOne _data;
+        private test.DefineFromExcelOne _data;
 
-        public TbDefineFromExcelOne(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public TbDefineFromExcelOne (ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
         {
+            Instance = this;
             ByteBuf _dataBuf = _loader(_tbName);
             int n = _buf.ReadSize();
             int m = _dataBuf.ReadSize();
@@ -40,10 +42,8 @@ namespace cfg.test
         public test.DemoE2 E2 => _data.E2;
         public System.Collections.Generic.List<string> Icons => _data.Icons;
 
-        private ByteBuf _buf = null;
         
     
-        private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
             _data.Resolve(_tables);

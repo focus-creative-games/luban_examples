@@ -14,20 +14,87 @@ namespace cfg.test
    
     public partial class TbTestDesc
     {
+        public static TbTestDesc Instance { get; private set; }
+        private bool _readAllList = false;
         private List<test.TestDesc> _dataList;
+        public List<test.TestDesc> DataList
+        {
+            get
+            {
+                if(!_readAllList)
+                {
+                    ReadAllList();
+                    _readAllList = true;
+                }
+                return _dataList;
+            }
+        }
         private System.Func<ByteBuf> _dataLoader;
 
+        private bool _readAllId = false;
         private Dictionary<int, test.TestDesc> _dataMap_id;
-        private readonly Dictionary<int,int> _indexMap_id;
-        public readonly List<int> Indexes_id;
-        private Dictionary<string, test.TestDesc> _dataMap_name;
-        private readonly Dictionary<string,int> _indexMap_name;
-        public readonly List<string> Indexes_name;
-
-        public TbTestDesc(ByteBuf _buf, string _tbName, System.Func<string, ByteBuf> _loader)
+        public Dictionary<int, test.TestDesc> DataMap_id
         {
+            get
+            {
+                if(!_readAllId)
+                {
+                    ReadAllId();
+                    _readAllId = true;
+                }
+                return _dataMap_id;
+            }   
+        }
+        private void ReadAllList()
+        {
+            _dataList.Clear();
+             foreach(var index in Indexes_id)
+            {
+                var v = GetById(index);
+                _dataList.Add(v);
+            }
+        }
+        private void ReadAllId()
+        {
+            _dataMap_id.Clear();
+            foreach(var index in Indexes_id)
+            {
+                var v = GetById(index);
+                _dataMap_id[index] = v;
+            }
+        }
+        private Dictionary<int,int> _indexMap_id;
+        public List<int> Indexes_id;
+        private bool _readAllName = false;
+        private Dictionary<string, test.TestDesc> _dataMap_name;
+        public Dictionary<string, test.TestDesc> DataMap_name
+        {
+            get
+            {
+                if(!_readAllName)
+                {
+                    ReadAllName();
+                    _readAllName = true;
+                }
+                return _dataMap_name;
+            }   
+        }
+        private void ReadAllName()
+        {
+            _dataMap_name.Clear();
+            foreach(var index in Indexes_name)
+            {
+                var v = GetByName(index);
+                _dataMap_name[index] = v;
+            }
+        }
+        private Dictionary<string,int> _indexMap_name;
+        public List<string> Indexes_name;
+        public TbTestDesc(ByteBuf _buf, string _tbName, System.Func<string,  ByteBuf> _loader)
+        {
+            Instance = this;
             _dataList = new List<test.TestDesc>();
-            _dataLoader = new System.Func<ByteBuf>(()=>_loader(_tbName));
+            _dataLoader = new System.Func<ByteBuf>(()=> _loader(_tbName));
             _dataMap_id = new Dictionary<int, test.TestDesc>();
             _indexMap_id = new Dictionary<int,int>();
             _dataMap_name = new Dictionary<string, test.TestDesc>();
@@ -79,17 +146,20 @@ namespace cfg.test
             _v.Resolve(tables);
             return _v;
         }    
-        private ByteBuf _buf = null;
         
         private void ResetByteBuf(int readerInex = 0)
         {
             if( _buf == null)
             {
+                    if (_buf == null)
+            {
                 _buf = _dataLoader();
+            }
             }
             _buf.ReaderIndex = readerInex;
         }
     
+        private ByteBuf _buf = null;
         private Dictionary<string, object> tables;
         public void CacheTables(Dictionary<string, object> _tables)
         {
