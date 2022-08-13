@@ -48,7 +48,6 @@ namespace cfg.blueprint
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -96,8 +95,7 @@ namespace cfg.blueprint
             }
             ResetByteBuf(_indexMap[key]);
             _v = blueprint.Clazz.DeserializeClazz(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.Name, _v);
+            _dataMap[_v.Name] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {

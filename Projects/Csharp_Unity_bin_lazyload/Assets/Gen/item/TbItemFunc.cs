@@ -48,7 +48,6 @@ namespace cfg.item
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -87,8 +86,7 @@ namespace cfg.item
             }
             ResetByteBuf(_indexMap[key]);
             _v = item.ItemFunction.DeserializeItemFunction(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.MinorType, _v);
+            _dataMap[_v.MinorType] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {

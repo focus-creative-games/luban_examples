@@ -48,7 +48,6 @@ namespace cfg.l10n
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -87,8 +86,7 @@ namespace cfg.l10n
             }
             ResetByteBuf(_indexMap[key]);
             _v = l10n.L10NDemo.DeserializeL10NDemo(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap[_v.Id] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {

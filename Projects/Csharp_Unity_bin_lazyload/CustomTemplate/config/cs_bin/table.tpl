@@ -53,7 +53,6 @@ namespace {{x.namespace_with_top_module}}
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -103,8 +102,7 @@ namespace {{x.namespace_with_top_module}}
             }
             ResetByteBuf(_indexMap[key]);
             {{cs_deserialize '_buf' '_v' value_type}}
-            _dataList.Add(_v);
-            _dataMap.Add(_v.{{x.index_field.convention_name}}, _v);
+            _dataMap[_v.{{x.index_field.convention_name}}] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
@@ -154,7 +152,6 @@ namespace {{x.namespace_with_top_module}}
         }
         private void ReadAll()
         {
-            _dataMapUnion.Clear();
             foreach(var index in Indexes)
             {
                 var ({{cs_table_get_param_name_list x}}) = index;
@@ -204,7 +201,6 @@ namespace {{x.namespace_with_top_module}}
         {{~end~}}
         private void ReadAll{{idx.index_field.convention_name}}()
         {
-            _dataMap_{{idx.index_field.name}}.Clear();
             foreach(var index in Indexes_{{idx.index_field.name}})
             {
                 var v = GetBy{{idx.index_field.convention_name}}(index);
@@ -225,18 +221,9 @@ namespace {{x.namespace_with_top_module}}
             {
                 if(!_readAll)
                 {
-                    ReadAll();
+                    ReadAllList();
                 }
                 return _dataMap;
-            }
-        }
-        private void ReadAll()
-        {
-            _dataList.Clear();
-            foreach(var index in Indexes)
-            {
-                var v = Get(index);
-                _dataMap[index] = v;
             }
         }
         private void ReadAllList()
@@ -341,7 +328,7 @@ namespace {{x.namespace_with_top_module}}
             ResetByteBuf(index);
             {{cs_define_type value_type}} _v;
             {{cs_deserialize '_buf' '_v' value_type}}
-            _dataMap_{{idx.index_field.name}}.Add(key, _v);
+            _dataMap_{{idx.index_field.name}}[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    
@@ -361,7 +348,6 @@ namespace {{x.namespace_with_top_module}}
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
-                _dataList = _dataMap.OrderBy(kvp=>kvp.Key).Select(kvp=>kvp.Value).ToList();
                 _buf = null;
             }
             return _v;

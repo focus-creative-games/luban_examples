@@ -56,7 +56,6 @@ namespace cfg.test
         }
         private void ReadAllId()
         {
-            _dataMap_id.Clear();
             foreach(var index in Indexes_id)
             {
                 var v = GetById(index);
@@ -81,7 +80,6 @@ namespace cfg.test
         }
         private void ReadAllName()
         {
-            _dataMap_name.Clear();
             foreach(var index in Indexes_name)
             {
                 var v = GetByName(index);
@@ -128,7 +126,7 @@ namespace cfg.test
             ResetByteBuf(index);
             test.TestDesc _v;
             _v = test.TestDesc.DeserializeTestDesc(_buf);
-            _dataMap_id.Add(key, _v);
+            _dataMap_id[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    
@@ -142,7 +140,7 @@ namespace cfg.test
             ResetByteBuf(index);
             test.TestDesc _v;
             _v = test.TestDesc.DeserializeTestDesc(_buf);
-            _dataMap_name.Add(key, _v);
+            _dataMap_name[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    

@@ -19,6 +19,14 @@ public class Main : MonoBehaviour
         var idxes = tables.TbMultiIndexList.Indexes_id3;
         Debug.Log(tables.TbMultiIndexList.GetById3(idxes[0]));
         Debug.Log(tables.TbGlobalConfig.BagInitItemsDropId_Ref.Desc);
+        foreach (var item in tables.TbMultiIndexList.DataList)
+        {
+            Debug.Log("测试1:" + item.Num.ToString());
+        }
+        foreach (var item in tables.TbNotIndexList.DataList)
+        {
+            Debug.Log("测试2:" + item.X.ToString());
+        }
     }
 
     private static ByteBuf LoadIdxByteBuf(string file)

@@ -41,18 +41,9 @@ namespace cfg.test
             {
                 if(!_readAll)
                 {
-                    ReadAll();
+                    ReadAllList();
                 }
                 return _dataMap;
-            }
-        }
-        private void ReadAll()
-        {
-            _dataList.Clear();
-            foreach(var index in Indexes)
-            {
-                var v = Get(index);
-                _dataMap[index] = v;
             }
         }
         private void ReadAllList()
@@ -95,7 +86,6 @@ namespace cfg.test
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
-                _dataList = _dataMap.OrderBy(kvp=>kvp.Key).Select(kvp=>kvp.Value).ToList();
                 _buf = null;
             }
             return _v;

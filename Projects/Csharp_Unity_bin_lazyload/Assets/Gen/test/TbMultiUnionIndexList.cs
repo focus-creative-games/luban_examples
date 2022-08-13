@@ -47,7 +47,6 @@ namespace cfg.test
         }
         private void ReadAll()
         {
-            _dataMapUnion.Clear();
             foreach(var index in Indexes)
             {
                 var (id1, id2, id3) = index;

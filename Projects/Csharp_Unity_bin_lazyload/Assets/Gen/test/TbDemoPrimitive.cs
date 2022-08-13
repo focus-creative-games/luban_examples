@@ -48,7 +48,6 @@ namespace cfg.test
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -87,8 +86,7 @@ namespace cfg.test
             }
             ResetByteBuf(_indexMap[key]);
             _v = test.DemoPrimitiveTypesTable.DeserializeDemoPrimitiveTypesTable(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.X4, _v);
+            _dataMap[_v.X4] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {

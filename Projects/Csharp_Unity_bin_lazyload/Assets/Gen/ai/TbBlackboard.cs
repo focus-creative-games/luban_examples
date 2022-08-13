@@ -48,7 +48,6 @@ namespace cfg.ai
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -87,8 +86,7 @@ namespace cfg.ai
             }
             ResetByteBuf(_indexMap[key]);
             _v = ai.Blackboard.DeserializeBlackboard(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.Name, _v);
+            _dataMap[_v.Name] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {

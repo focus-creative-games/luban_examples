@@ -56,7 +56,6 @@ namespace cfg.test
         }
         private void ReadAllId1()
         {
-            _dataMap_id1.Clear();
             foreach(var index in Indexes_id1)
             {
                 var v = GetById1(index);
@@ -81,7 +80,6 @@ namespace cfg.test
         }
         private void ReadAllId2()
         {
-            _dataMap_id2.Clear();
             foreach(var index in Indexes_id2)
             {
                 var v = GetById2(index);
@@ -106,7 +104,6 @@ namespace cfg.test
         }
         private void ReadAllId3()
         {
-            _dataMap_id3.Clear();
             foreach(var index in Indexes_id3)
             {
                 var v = GetById3(index);
@@ -159,7 +156,7 @@ namespace cfg.test
             ResetByteBuf(index);
             test.MultiIndexList _v;
             _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
-            _dataMap_id1.Add(key, _v);
+            _dataMap_id1[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    
@@ -173,7 +170,7 @@ namespace cfg.test
             ResetByteBuf(index);
             test.MultiIndexList _v;
             _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
-            _dataMap_id2.Add(key, _v);
+            _dataMap_id2[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    
@@ -187,7 +184,7 @@ namespace cfg.test
             ResetByteBuf(index);
             test.MultiIndexList _v;
             _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
-            _dataMap_id3.Add(key, _v);
+            _dataMap_id3[key] = _v;
             _v.Resolve(tables);
             return _v;
         }    

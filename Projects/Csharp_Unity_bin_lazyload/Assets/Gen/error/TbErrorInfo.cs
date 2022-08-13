@@ -48,7 +48,6 @@ namespace cfg.error
 
         private void ReadAll()
         {
-            _dataMap.Clear();
             _dataList.Clear();
             foreach(var index in Indexes)
             {
@@ -87,8 +86,7 @@ namespace cfg.error
             }
             ResetByteBuf(_indexMap[key]);
             _v = error.ErrorInfo.DeserializeErrorInfo(_buf);
-            _dataList.Add(_v);
-            _dataMap.Add(_v.Code, _v);
+            _dataMap[_v.Code] = _v;
             _v.Resolve(tables);
             if(_indexMap.Count == _dataMap.Count)
             {
