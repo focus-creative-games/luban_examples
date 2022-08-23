@@ -20,7 +20,7 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         AudioType = (test.AudioType)_json.GetProperty("audio_type").GetInt32();
-        Color =  test.Color.DeserializeColor(_json.GetProperty("color"));
+        Color = test.Color.DeserializeColor(_json.GetProperty("color"));
         PostInit();
     }
 

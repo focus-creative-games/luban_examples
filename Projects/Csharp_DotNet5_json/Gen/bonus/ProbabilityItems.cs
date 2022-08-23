@@ -18,7 +18,7 @@ public sealed partial class ProbabilityItems :  bonus.Bonus
 {
     public ProbabilityItems(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.ProbabilityItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.ProbabilityItemInfo __v;  __v =  bonus.ProbabilityItemInfo.DeserializeProbabilityItemInfo(__e);  ItemList[_index++] = __v; }   }
+        { var __json0 = _json.GetProperty("item_list"); int _n0 = __json0.GetArrayLength(); ItemList = new bonus.ProbabilityItemInfo[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { bonus.ProbabilityItemInfo __v0;  __v0 = bonus.ProbabilityItemInfo.DeserializeProbabilityItemInfo(__e0);  ItemList[__index0++] = __v0; }   }
         PostInit();
     }
 

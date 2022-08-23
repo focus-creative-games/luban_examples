@@ -21,8 +21,8 @@ public sealed partial class TestNull :  Bright.Config.BeanBase
         Id = _json.GetProperty("id").GetInt32();
         { if (_json.TryGetProperty("x1", out var _j) && _j.ValueKind != JsonValueKind.Null) { X1 = _j.GetInt32(); } else { X1 = null; } }
         { if (_json.TryGetProperty("x2", out var _j) && _j.ValueKind != JsonValueKind.Null) { X2 = (test.DemoEnum)_j.GetInt32(); } else { X2 = null; } }
-        { if (_json.TryGetProperty("x3", out var _j) && _j.ValueKind != JsonValueKind.Null) { X3 =  test.DemoType1.DeserializeDemoType1(_j); } else { X3 = null; } }
-        { if (_json.TryGetProperty("x4", out var _j) && _j.ValueKind != JsonValueKind.Null) { X4 =  test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
+        { if (_json.TryGetProperty("x3", out var _j) && _j.ValueKind != JsonValueKind.Null) { X3 = test.DemoType1.DeserializeDemoType1(_j); } else { X3 = null; } }
+        { if (_json.TryGetProperty("x4", out var _j) && _j.ValueKind != JsonValueKind.Null) { X4 = test.DemoDynamic.DeserializeDemoDynamic(_j); } else { X4 = null; } }
         { if (_json.TryGetProperty("s1", out var _j) && _j.ValueKind != JsonValueKind.Null) { S1 = _j.GetString(); } else { S1 = null; } }
         { if (_json.TryGetProperty("s2", out var _j) && _j.ValueKind != JsonValueKind.Null) { S2_l10n_key = _j.GetProperty("key").GetString();S2 = _j.GetProperty("text").GetString(); } else { S2 = null; } }
         PostInit();

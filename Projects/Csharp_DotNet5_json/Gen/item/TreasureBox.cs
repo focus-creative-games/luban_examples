@@ -19,10 +19,10 @@ public sealed partial class TreasureBox :  item.ItemExtra
     public TreasureBox(JsonElement _json)  : base(_json) 
     {
         { if (_json.TryGetProperty("key_item_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { KeyItemId = _j.GetInt32(); } else { KeyItemId = null; } }
-        OpenLevel =  condition.MinLevel.DeserializeMinLevel(_json.GetProperty("open_level"));
+        OpenLevel = condition.MinLevel.DeserializeMinLevel(_json.GetProperty("open_level"));
         UseOnObtain = _json.GetProperty("use_on_obtain").GetBoolean();
-        { var _json0 = _json.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  DropIds.Add(__v); }   }
-        { var _json0 = _json.GetProperty("choose_list"); ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { item.ChooseOneBonus __v;  __v =  item.ChooseOneBonus.DeserializeChooseOneBonus(__e);  ChooseList.Add(__v); }   }
+        { var __json0 = _json.GetProperty("drop_ids"); DropIds = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  DropIds.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("choose_list"); ChooseList = new System.Collections.Generic.List<item.ChooseOneBonus>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { item.ChooseOneBonus __v0;  __v0 = item.ChooseOneBonus.DeserializeChooseOneBonus(__e0);  ChooseList.Add(__v0); }   }
         PostInit();
     }
 

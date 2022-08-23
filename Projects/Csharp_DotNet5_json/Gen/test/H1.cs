@@ -18,7 +18,7 @@ public sealed partial class H1 :  Bright.Config.BeanBase
 {
     public H1(JsonElement _json) 
     {
-        Y2 =  test.H2.DeserializeH2(_json.GetProperty("y2"));
+        Y2 = test.H2.DeserializeH2(_json.GetProperty("y2"));
         Y3 = _json.GetProperty("y3").GetInt32();
         PostInit();
     }

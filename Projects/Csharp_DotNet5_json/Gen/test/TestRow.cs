@@ -21,8 +21,8 @@ public sealed partial class TestRow :  Bright.Config.BeanBase
         X = _json.GetProperty("x").GetInt32();
         Y = _json.GetProperty("y").GetBoolean();
         Z = _json.GetProperty("z").GetString();
-        A =  test.Test3.DeserializeTest3(_json.GetProperty("a"));
-        { var _json0 = _json.GetProperty("b"); B = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  B.Add(__v); }   }
+        A = test.Test3.DeserializeTest3(_json.GetProperty("a"));
+        { var __json0 = _json.GetProperty("b"); B = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  B.Add(__v0); }   }
         PostInit();
     }
 

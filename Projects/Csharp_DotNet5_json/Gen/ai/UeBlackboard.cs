@@ -20,7 +20,7 @@ public sealed partial class UeBlackboard :  ai.Decorator
     {
         NotifyObserver = (ai.ENotifyObserverMode)_json.GetProperty("notify_observer").GetInt32();
         BlackboardKey = _json.GetProperty("blackboard_key").GetString();
-        KeyQuery =  ai.KeyQueryOperator.DeserializeKeyQueryOperator(_json.GetProperty("key_query"));
+        KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_json.GetProperty("key_query"));
         PostInit();
     }
 

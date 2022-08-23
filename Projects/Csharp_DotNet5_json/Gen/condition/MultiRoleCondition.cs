@@ -18,7 +18,7 @@ public sealed partial class MultiRoleCondition :  condition.RoleCondition
 {
     public MultiRoleCondition(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("conditions"); int _n = _json0.GetArrayLength(); Conditions = new condition.RoleCondition[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { condition.RoleCondition __v;  __v =  condition.RoleCondition.DeserializeRoleCondition(__e);  Conditions[_index++] = __v; }   }
+        { var __json0 = _json.GetProperty("conditions"); int _n0 = __json0.GetArrayLength(); Conditions = new condition.RoleCondition[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { condition.RoleCondition __v0;  __v0 = condition.RoleCondition.DeserializeRoleCondition(__e0);  Conditions[__index0++] = __v0; }   }
         PostInit();
     }
 

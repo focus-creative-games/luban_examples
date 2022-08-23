@@ -18,7 +18,7 @@ public sealed partial class Dymmy :  item.ItemExtra
 {
     public Dymmy(JsonElement _json)  : base(_json) 
     {
-        Cost =  cost.Cost.DeserializeCost(_json.GetProperty("cost"));
+        Cost = cost.Cost.DeserializeCost(_json.GetProperty("cost"));
         PostInit();
     }
 

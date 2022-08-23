@@ -18,7 +18,7 @@ public sealed partial class ProbabilityBonusInfo :  Bright.Config.BeanBase
 {
     public ProbabilityBonusInfo(JsonElement _json) 
     {
-        Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
+        Bonus = bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
         Probability = _json.GetProperty("probability").GetSingle();
         PostInit();
     }

@@ -18,7 +18,7 @@ public sealed partial class WeightItems :  bonus.Bonus
 {
     public WeightItems(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("item_list"); int _n = _json0.GetArrayLength(); ItemList = new bonus.WeightItemInfo[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.WeightItemInfo __v;  __v =  bonus.WeightItemInfo.DeserializeWeightItemInfo(__e);  ItemList[_index++] = __v; }   }
+        { var __json0 = _json.GetProperty("item_list"); int _n0 = __json0.GetArrayLength(); ItemList = new bonus.WeightItemInfo[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { bonus.WeightItemInfo __v0;  __v0 = bonus.WeightItemInfo.DeserializeWeightItemInfo(__e0);  ItemList[__index0++] = __v0; }   }
         PostInit();
     }
 

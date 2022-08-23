@@ -73,6 +73,7 @@ public sealed partial class Tables
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public test.TbTestExcelBean TbTestExcelBean {get; }
     public test.TbTestDesc TbTestDesc {get; }
+    public test.TbTestStream TbTestStream {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
@@ -191,6 +192,8 @@ public sealed partial class Tables
         tables.Add("test.TbTestExcelBean", TbTestExcelBean);
         TbTestDesc = new test.TbTestDesc(loader("test_tbtestdesc")); 
         tables.Add("test.TbTestDesc", TbTestDesc);
+        TbTestStream = new test.TbTestStream(loader("test_tbteststream")); 
+        tables.Add("test.TbTestStream", TbTestStream);
         PostInit();
 
         TbBlackboard.Resolve(tables); 
@@ -250,6 +253,7 @@ public sealed partial class Tables
         TbDefineFromExcel2.Resolve(tables); 
         TbTestExcelBean.Resolve(tables); 
         TbTestDesc.Resolve(tables); 
+        TbTestStream.Resolve(tables); 
         PostResolve();
     }
 
@@ -312,6 +316,7 @@ public sealed partial class Tables
         TbDefineFromExcel2.TranslateText(translator); 
         TbTestExcelBean.TranslateText(translator); 
         TbTestDesc.TranslateText(translator); 
+        TbTestStream.TranslateText(translator); 
     }
     
     partial void PostInit();

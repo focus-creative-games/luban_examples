@@ -25,14 +25,14 @@ public sealed partial class DefineFromExcel2 :  Bright.Config.BeanBase
         X8 = _json.GetProperty("x8").GetInt32();
         X10 = _json.GetProperty("x10").GetString();
         X13 = (test.ETestQuality)_json.GetProperty("x13").GetInt32();
-        X14 =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
-        X15 =  test.Shape.DeserializeShape(_json.GetProperty("x15"));
+        X14 = test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
+        X15 = test.Shape.DeserializeShape(_json.GetProperty("x15"));
         { var _json0 = _json.GetProperty("v2"); float __x; __x = _json0.GetProperty("x").GetSingle(); float __y; __y = _json0.GetProperty("y").GetSingle(); V2 = new System.Numerics.Vector2(__x, __y); }
         T1 = _json.GetProperty("t1").GetInt32();
-        { var _json0 = _json.GetProperty("k1"); int _n = _json0.GetArrayLength(); K1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K1[_index++] = __v; }   }
-        { var _json0 = _json.GetProperty("k2"); int _n = _json0.GetArrayLength(); K2 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  K2[_index++] = __v; }   }
-        { var _json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  K8.Add(__k, __v); }   }
-        { var _json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoE2 __v;  __v =  test.DemoE2.DeserializeDemoE2(__e);  K9.Add(__v); }   }
+        { var __json0 = _json.GetProperty("k1"); int _n0 = __json0.GetArrayLength(); K1 = new int[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  K1[__index0++] = __v0; }   }
+        { var __json0 = _json.GetProperty("k2"); int _n0 = __json0.GetArrayLength(); K2 = new int[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  K2[__index0++] = __v0; }   }
+        { var __json0 = _json.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int _k0;  _k0 = __e0[0].GetInt32(); int _v0;  _v0 = __e0[1].GetInt32();  K8.Add(_k0, _v0); }   }
+        { var __json0 = _json.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoE2 __v0;  __v0 = test.DemoE2.DeserializeDemoE2(__e0);  K9.Add(__v0); }   }
         PostInit();
     }
 

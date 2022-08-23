@@ -20,7 +20,7 @@ public sealed partial class DemoSingletonType :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         Name_l10n_key = _json.GetProperty("name").GetProperty("key").GetString();Name = _json.GetProperty("name").GetProperty("text").GetString();
-        Date =  test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("date"));
+        Date = test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("date"));
         PostInit();
     }
 

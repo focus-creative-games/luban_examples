@@ -19,10 +19,10 @@ public sealed partial class TestMap :  Bright.Config.BeanBase
     public TestMap(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _json0 = _json.GetProperty("x1"); X1 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  X1.Add(__k, __v); }   }
-        { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.Dictionary<long, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { long __k;  __k = __e[0].GetInt64(); int __v;  __v = __e[1].GetInt32();  X2.Add(__k, __v); }   }
-        { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.Dictionary<string, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { string __k;  __k = __e[0].GetString(); int __v;  __v = __e[1].GetInt32();  X3.Add(__k, __v); }   }
-        { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoEnum __k;  __k = (test.DemoEnum)__e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  X4.Add(__k, __v); }   }
+        { var __json0 = _json.GetProperty("x1"); X1 = new System.Collections.Generic.Dictionary<int, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int _k0;  _k0 = __e0[0].GetInt32(); int _v0;  _v0 = __e0[1].GetInt32();  X1.Add(_k0, _v0); }   }
+        { var __json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.Dictionary<long, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { long _k0;  _k0 = __e0[0].GetInt64(); int _v0;  _v0 = __e0[1].GetInt32();  X2.Add(_k0, _v0); }   }
+        { var __json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.Dictionary<string, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { string _k0;  _k0 = __e0[0].GetString(); int _v0;  _v0 = __e0[1].GetInt32();  X3.Add(_k0, _v0); }   }
+        { var __json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoEnum _k0;  _k0 = (test.DemoEnum)__e0[0].GetInt32(); int _v0;  _v0 = __e0[1].GetInt32();  X4.Add(_k0, _v0); }   }
         PostInit();
     }
 

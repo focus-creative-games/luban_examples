@@ -18,7 +18,7 @@ public sealed partial class DemoD5 :  test.DemoDynamic
 {
     public DemoD5(JsonElement _json)  : base(_json) 
     {
-        Time =  test.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("time"));
+        Time = test.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("time"));
         PostInit();
     }
 

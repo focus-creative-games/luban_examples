@@ -20,7 +20,7 @@ public sealed partial class LevelExpAttr :  Bright.Config.BeanBase
     {
         Level = _json.GetProperty("level").GetInt32();
         NeedExp = _json.GetProperty("need_exp").GetInt64();
-        { var _json0 = _json.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ClothesAttrs.Add(__v); }   }
+        { var __json0 = _json.GetProperty("clothes_attrs"); ClothesAttrs = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  ClothesAttrs.Add(__v0); }   }
         PostInit();
     }
 

@@ -22,14 +22,14 @@ public sealed partial class GlobalMail :  Bright.Config.BeanBase
         Title = _json.GetProperty("title").GetString();
         Sender = _json.GetProperty("sender").GetString();
         Content = _json.GetProperty("content").GetString();
-        { var _json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
+        { var __json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  Award.Add(__v0); }   }
         AllServer = _json.GetProperty("all_server").GetBoolean();
-        { var _json0 = _json.GetProperty("server_list"); ServerList = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  ServerList.Add(__v); }   }
+        { var __json0 = _json.GetProperty("server_list"); ServerList = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  ServerList.Add(__v0); }   }
         Platform = _json.GetProperty("platform").GetString();
         Channel = _json.GetProperty("channel").GetString();
-        MinMaxLevel =  condition.MinMaxLevel.DeserializeMinMaxLevel(_json.GetProperty("min_max_level"));
-        RegisterTime =  condition.TimeRange.DeserializeTimeRange(_json.GetProperty("register_time"));
-        MailTime =  condition.TimeRange.DeserializeTimeRange(_json.GetProperty("mail_time"));
+        MinMaxLevel = condition.MinMaxLevel.DeserializeMinMaxLevel(_json.GetProperty("min_max_level"));
+        RegisterTime = condition.TimeRange.DeserializeTimeRange(_json.GetProperty("register_time"));
+        MailTime = condition.TimeRange.DeserializeTimeRange(_json.GetProperty("mail_time"));
         PostInit();
     }
 

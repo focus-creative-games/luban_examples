@@ -18,7 +18,7 @@ public sealed partial class WeightBonusInfo :  Bright.Config.BeanBase
 {
     public WeightBonusInfo(JsonElement _json) 
     {
-        Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
+        Bonus = bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
         Weight = _json.GetProperty("weight").GetInt32();
         PostInit();
     }

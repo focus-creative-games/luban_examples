@@ -20,11 +20,11 @@ public sealed partial class MultiRowTitle :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         Name = _json.GetProperty("name").GetString();
-        X1 =  test.H1.DeserializeH1(_json.GetProperty("x1"));
-        { if (_json.TryGetProperty("x2_0", out var _j) && _j.ValueKind != JsonValueKind.Null) { X20 =  test.H2.DeserializeH2(_j); } else { X20 = null; } }
-        { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X2.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x3"); int _n = _json0.GetArrayLength(); X3 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X3[_index++] = __v; }   }
-        { var _json0 = _json.GetProperty("x4"); int _n = _json0.GetArrayLength(); X4 = new test.H2[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { test.H2 __v;  __v =  test.H2.DeserializeH2(__e);  X4[_index++] = __v; }   }
+        X1 = test.H1.DeserializeH1(_json.GetProperty("x1"));
+        { if (_json.TryGetProperty("x2_0", out var _j) && _j.ValueKind != JsonValueKind.Null) { X20 = test.H2.DeserializeH2(_j); } else { X20 = null; } }
+        { var __json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<test.H2>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.H2 __v0;  __v0 = test.H2.DeserializeH2(__e0);  X2.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x3"); int _n0 = __json0.GetArrayLength(); X3 = new test.H2[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.H2 __v0;  __v0 = test.H2.DeserializeH2(__e0);  X3[__index0++] = __v0; }   }
+        { var __json0 = _json.GetProperty("x4"); int _n0 = __json0.GetArrayLength(); X4 = new test.H2[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.H2 __v0;  __v0 = test.H2.DeserializeH2(__e0);  X4[__index0++] = __v0; }   }
         PostInit();
     }
 

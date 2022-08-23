@@ -20,11 +20,11 @@ public sealed partial class TestSep :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         X1_l10n_key = _json.GetProperty("x1").GetProperty("key").GetString();X1 = _json.GetProperty("x1").GetProperty("text").GetString();
-        X2 =  test.SepBean1.DeserializeSepBean1(_json.GetProperty("x2"));
-        X3 =  test.SepVector.DeserializeSepVector(_json.GetProperty("x3"));
-        { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.SepVector>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepVector __v;  __v =  test.SepVector.DeserializeSepVector(__e);  X4.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x5"); X5 = new System.Collections.Generic.List<test.SepBean1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepBean1 __v;  __v =  test.SepBean1.DeserializeSepBean1(__e);  X5.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x6"); X6 = new System.Collections.Generic.List<test.SepBean1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.SepBean1 __v;  __v =  test.SepBean1.DeserializeSepBean1(__e);  X6.Add(__v); }   }
+        X2 = test.SepBean1.DeserializeSepBean1(_json.GetProperty("x2"));
+        X3 = test.SepVector.DeserializeSepVector(_json.GetProperty("x3"));
+        { var __json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.SepVector>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.SepVector __v0;  __v0 = test.SepVector.DeserializeSepVector(__e0);  X4.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x5"); X5 = new System.Collections.Generic.List<test.SepBean1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.SepBean1 __v0;  __v0 = test.SepBean1.DeserializeSepBean1(__e0);  X5.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x6"); X6 = new System.Collections.Generic.List<test.SepBean1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.SepBean1 __v0;  __v0 = test.SepBean1.DeserializeSepBean1(__e0);  X6.Add(__v0); }   }
         PostInit();
     }
 

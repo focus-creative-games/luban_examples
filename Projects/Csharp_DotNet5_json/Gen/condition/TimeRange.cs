@@ -18,7 +18,7 @@ public sealed partial class TimeRange :  condition.Condition
 {
     public TimeRange(JsonElement _json)  : base(_json) 
     {
-        DateTimeRange =  common.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("date_time_range"));
+        DateTimeRange = common.DateTimeRange.DeserializeDateTimeRange(_json.GetProperty("date_time_range"));
         PostInit();
     }
 

@@ -19,7 +19,7 @@ public sealed partial class BinaryOperator :  ai.KeyQueryOperator
     public BinaryOperator(JsonElement _json)  : base(_json) 
     {
         Oper = (ai.EOperator)_json.GetProperty("oper").GetInt32();
-        Data =  ai.KeyData.DeserializeKeyData(_json.GetProperty("data"));
+        Data = ai.KeyData.DeserializeKeyData(_json.GetProperty("data"));
         PostInit();
     }
 

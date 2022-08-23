@@ -23,7 +23,7 @@ public sealed partial class DemoGroup :  Bright.Config.BeanBase
         X2 = _json.GetProperty("x2").GetInt32();
         X3 = _json.GetProperty("x3").GetInt32();
         X4 = _json.GetProperty("x4").GetInt32();
-        X5 =  test.InnerGroup.DeserializeInnerGroup(_json.GetProperty("x5"));
+        X5 = test.InnerGroup.DeserializeInnerGroup(_json.GetProperty("x5"));
         PostInit();
     }
 

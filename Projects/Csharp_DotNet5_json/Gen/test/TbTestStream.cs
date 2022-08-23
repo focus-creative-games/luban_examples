@@ -14,36 +14,31 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class TbTestDesc
+public sealed partial class TbTestStream
 {
-    private readonly List<test.TestDesc> _dataList;
-
-    private Dictionary<int, test.TestDesc> _dataMap_id;
-    private Dictionary<string, test.TestDesc> _dataMap_name;
+    private readonly Dictionary<int, test.TestStream> _dataMap;
+    private readonly List<test.TestStream> _dataList;
     
-    public TbTestDesc(JsonElement _json)
+    public TbTestStream(JsonElement _json)
     {
-        _dataList = new List<test.TestDesc>();
+        _dataMap = new Dictionary<int, test.TestStream>();
+        _dataList = new List<test.TestStream>();
         
         foreach(JsonElement _row in _json.EnumerateArray())
         {
-            var _v = test.TestDesc.DeserializeTestDesc(_row);
+            var _v = test.TestStream.DeserializeTestStream(_row);
             _dataList.Add(_v);
+            _dataMap.Add(_v.X4, _v);
         }
-        _dataMap_id = new Dictionary<int, test.TestDesc>();
-        _dataMap_name = new Dictionary<string, test.TestDesc>();
-    foreach(var _v in _dataList)
-    {
-        _dataMap_id.Add(_v.Id, _v);
-        _dataMap_name.Add(_v.Name, _v);
-    }
         PostInit();
     }
 
-    public List<test.TestDesc> DataList => _dataList;
+    public Dictionary<int, test.TestStream> DataMap => _dataMap;
+    public List<test.TestStream> DataList => _dataList;
 
-    public test.TestDesc GetById(int key) => _dataMap_id.TryGetValue(key, out test.TestDesc __v) ? __v : null;
-    public test.TestDesc GetByName(string key) => _dataMap_name.TryGetValue(key, out test.TestDesc __v) ? __v : null;
+    public test.TestStream GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestStream Get(int key) => _dataMap[key];
+    public test.TestStream this[int key] => _dataMap[key];
 
     public void Resolve(Dictionary<string, object> _tables)
     {
@@ -61,6 +56,7 @@ public sealed partial class TbTestDesc
             v.TranslateText(translator);
         }
     }
+    
 
     partial void PostInit();
     partial void PostResolve();

@@ -19,7 +19,7 @@ public sealed partial class CoefficientItem :  bonus.Bonus
     public CoefficientItem(JsonElement _json)  : base(_json) 
     {
         BonusId = _json.GetProperty("bonus_id").GetInt32();
-        BonusList =  bonus.Items.DeserializeItems(_json.GetProperty("bonus_list"));
+        BonusList = bonus.Items.DeserializeItems(_json.GetProperty("bonus_list"));
         PostInit();
     }
 

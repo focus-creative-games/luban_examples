@@ -20,10 +20,10 @@ public sealed partial class TestSet :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         X0 = _json.GetProperty("x0").GetString();
-        { var _json0 = _json.GetProperty("x1"); X1 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X1.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<long>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { long __v;  __v = __e.GetInt64();  X2.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.List<string>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { string __v;  __v = __e.GetString();  X3.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.DemoEnum>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoEnum __v;  __v = (test.DemoEnum)__e.GetInt32();  X4.Add(__v); }   }
+        { var __json0 = _json.GetProperty("x1"); X1 = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  X1.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<long>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { long __v0;  __v0 = __e0.GetInt64();  X2.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.List<string>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { string __v0;  __v0 = __e0.GetString();  X3.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.List<test.DemoEnum>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoEnum __v0;  __v0 = (test.DemoEnum)__e0.GetInt32();  X4.Add(__v0); }   }
         PostInit();
     }
 

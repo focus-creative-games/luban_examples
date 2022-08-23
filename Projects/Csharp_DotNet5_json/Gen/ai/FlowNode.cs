@@ -18,8 +18,8 @@ public abstract partial class FlowNode :  ai.Node
 {
     public FlowNode(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.Decorator __v;  __v =  ai.Decorator.DeserializeDecorator(__e);  Decorators.Add(__v); }   }
-        { var _json0 = _json.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.Service __v;  __v =  ai.Service.DeserializeService(__e);  Services.Add(__v); }   }
+        { var __json0 = _json.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Decorator __v0;  __v0 = ai.Decorator.DeserializeDecorator(__e0);  Decorators.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Service __v0;  __v0 = ai.Service.DeserializeService(__e0);  Services.Add(__v0); }   }
         PostInit();
     }
 

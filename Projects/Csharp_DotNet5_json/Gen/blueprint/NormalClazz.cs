@@ -19,7 +19,7 @@ public sealed partial class NormalClazz :  blueprint.Clazz
     public NormalClazz(JsonElement _json)  : base(_json) 
     {
         IsAbstract = _json.GetProperty("is_abstract").GetBoolean();
-        { var _json0 = _json.GetProperty("fields"); Fields = new System.Collections.Generic.List<blueprint.Field>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Field __v;  __v =  blueprint.Field.DeserializeField(__e);  Fields.Add(__v); }   }
+        { var __json0 = _json.GetProperty("fields"); Fields = new System.Collections.Generic.List<blueprint.Field>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { blueprint.Field __v0;  __v0 = blueprint.Field.DeserializeField(__e0);  Fields.Add(__v0); }   }
         PostInit();
     }
 

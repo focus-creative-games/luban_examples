@@ -18,7 +18,7 @@ public sealed partial class OneItems :  bonus.Bonus
 {
     public OneItems(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("items"); int _n = _json0.GetArrayLength(); Items = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Items[_index++] = __v; }   }
+        { var __json0 = _json.GetProperty("items"); int _n0 = __json0.GetArrayLength(); Items = new int[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  Items[__index0++] = __v0; }   }
         PostInit();
     }
 

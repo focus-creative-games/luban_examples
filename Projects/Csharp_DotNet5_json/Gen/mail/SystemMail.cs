@@ -22,7 +22,7 @@ public sealed partial class SystemMail :  Bright.Config.BeanBase
         Title = _json.GetProperty("title").GetString();
         Sender = _json.GetProperty("sender").GetString();
         Content = _json.GetProperty("content").GetString();
-        { var _json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  Award.Add(__v); }   }
+        { var __json0 = _json.GetProperty("award"); Award = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  Award.Add(__v0); }   }
         PostInit();
     }
 

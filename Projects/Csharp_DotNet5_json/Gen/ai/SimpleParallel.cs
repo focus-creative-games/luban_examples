@@ -19,8 +19,8 @@ public sealed partial class SimpleParallel :  ai.ComposeNode
     public SimpleParallel(JsonElement _json)  : base(_json) 
     {
         FinishMode = (ai.EFinishMode)_json.GetProperty("finish_mode").GetInt32();
-        MainTask =  ai.Task.DeserializeTask(_json.GetProperty("main_task"));
-        BackgroundNode =  ai.FlowNode.DeserializeFlowNode(_json.GetProperty("background_node"));
+        MainTask = ai.Task.DeserializeTask(_json.GetProperty("main_task"));
+        BackgroundNode = ai.FlowNode.DeserializeFlowNode(_json.GetProperty("background_node"));
         PostInit();
     }
 

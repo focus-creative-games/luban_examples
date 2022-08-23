@@ -19,7 +19,7 @@ public sealed partial class MultiRowType3 :  Bright.Config.BeanBase
     public MultiRowType3(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _json0 = _json.GetProperty("items"); Items = new System.Collections.Generic.List<test.MultiRowType1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.MultiRowType1 __v;  __v =  test.MultiRowType1.DeserializeMultiRowType1(__e);  Items.Add(__v); }   }
+        { var __json0 = _json.GetProperty("items"); Items = new System.Collections.Generic.List<test.MultiRowType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.MultiRowType1 __v0;  __v0 = test.MultiRowType1.DeserializeMultiRowType1(__e0);  Items.Add(__v0); }   }
         PostInit();
     }
 

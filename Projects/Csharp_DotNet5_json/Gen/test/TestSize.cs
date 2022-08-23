@@ -19,10 +19,10 @@ public sealed partial class TestSize :  Bright.Config.BeanBase
     public TestSize(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _json0 = _json.GetProperty("x1"); int _n = _json0.GetArrayLength(); X1 = new int[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X1[_index++] = __v; }   }
-        { var _json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X2.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.HashSet<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  X3.Add(__v); }   }
-        { var _json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<int, int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __k;  __k = __e[0].GetInt32(); int __v;  __v = __e[1].GetInt32();  X4.Add(__k, __v); }   }
+        { var __json0 = _json.GetProperty("x1"); int _n0 = __json0.GetArrayLength(); X1 = new int[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  X1[__index0++] = __v0; }   }
+        { var __json0 = _json.GetProperty("x2"); X2 = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  X2.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x3"); X3 = new System.Collections.Generic.HashSet<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  X3.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("x4"); X4 = new System.Collections.Generic.Dictionary<int, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int _k0;  _k0 = __e0[0].GetInt32(); int _v0;  _v0 = __e0[1].GetInt32();  X4.Add(_k0, _v0); }   }
         PostInit();
     }
 

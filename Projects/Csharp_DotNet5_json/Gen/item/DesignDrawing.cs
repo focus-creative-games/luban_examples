@@ -18,7 +18,7 @@ public sealed partial class DesignDrawing :  item.ItemExtra
 {
     public DesignDrawing(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("learn_component_id"); LearnComponentId = new System.Collections.Generic.List<int>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { int __v;  __v = __e.GetInt32();  LearnComponentId.Add(__v); }   }
+        { var __json0 = _json.GetProperty("learn_component_id"); LearnComponentId = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  LearnComponentId.Add(__v0); }   }
         PostInit();
     }
 

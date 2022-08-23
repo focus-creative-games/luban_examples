@@ -18,7 +18,7 @@ public sealed partial class Selector :  ai.ComposeNode
 {
     public Selector(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.FlowNode __v;  __v =  ai.FlowNode.DeserializeFlowNode(__e);  Children.Add(__v); }   }
+        { var __json0 = _json.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.FlowNode __v0;  __v0 = ai.FlowNode.DeserializeFlowNode(__e0);  Children.Add(__v0); }   }
         PostInit();
     }
 

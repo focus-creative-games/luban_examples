@@ -19,7 +19,7 @@ public sealed partial class DistinctBonusInfos :  Bright.Config.BeanBase
     public DistinctBonusInfos(JsonElement _json) 
     {
         EffectiveLevel = _json.GetProperty("effective_level").GetInt32();
-        { var _json0 = _json.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { role.BonusInfo __v;  __v =  role.BonusInfo.DeserializeBonusInfo(__e);  BonusInfo.Add(__v); }   }
+        { var __json0 = _json.GetProperty("bonus_info"); BonusInfo = new System.Collections.Generic.List<role.BonusInfo>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { role.BonusInfo __v0;  __v0 = role.BonusInfo.DeserializeBonusInfo(__e0);  BonusInfo.Add(__v0); }   }
         PostInit();
     }
 

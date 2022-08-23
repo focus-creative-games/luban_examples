@@ -22,7 +22,7 @@ public abstract partial class Method :  Bright.Config.BeanBase
         Desc = _json.GetProperty("desc").GetString();
         IsStatic = _json.GetProperty("is_static").GetBoolean();
         ReturnType = _json.GetProperty("return_type").GetString();
-        { var _json0 = _json.GetProperty("parameters"); Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.ParamInfo __v;  __v =  blueprint.ParamInfo.DeserializeParamInfo(__e);  Parameters.Add(__v); }   }
+        { var __json0 = _json.GetProperty("parameters"); Parameters = new System.Collections.Generic.List<blueprint.ParamInfo>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { blueprint.ParamInfo __v0;  __v0 = blueprint.ParamInfo.DeserializeParamInfo(__e0);  Parameters.Add(__v0); }   }
         PostInit();
     }
 

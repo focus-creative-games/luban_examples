@@ -20,8 +20,8 @@ public sealed partial class TestString :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         S1 = _json.GetProperty("s1").GetString();
-        Cs1 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs1"));
-        Cs2 =  test.CompactString.DeserializeCompactString(_json.GetProperty("cs2"));
+        Cs1 = test.CompactString.DeserializeCompactString(_json.GetProperty("cs1"));
+        Cs2 = test.CompactString.DeserializeCompactString(_json.GetProperty("cs2"));
         PostInit();
     }
 

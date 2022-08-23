@@ -14,22 +14,18 @@ using System.Text.Json;
 namespace cfg.test
 {
 
-public sealed partial class DemoType2 :  Bright.Config.BeanBase 
+public sealed partial class TestStream :  Bright.Config.BeanBase 
 {
-    public DemoType2(JsonElement _json) 
+    public TestStream(JsonElement _json) 
     {
-        X4 = _json.GetProperty("x4").GetInt32();
         X1 = _json.GetProperty("x1").GetBoolean();
         X2 = _json.GetProperty("x2").GetByte();
         X3 = _json.GetProperty("x3").GetInt16();
+        X4 = _json.GetProperty("x4").GetInt32();
         X5 = _json.GetProperty("x5").GetInt64();
         X6 = _json.GetProperty("x6").GetSingle();
         X7 = _json.GetProperty("x7").GetDouble();
-        X80 = _json.GetProperty("x8_0").GetInt16();
-        X8 = _json.GetProperty("x8").GetInt32();
-        X9 = _json.GetProperty("x9").GetInt64();
         X10 = _json.GetProperty("x10").GetString();
-        X12 = test.DemoType1.DeserializeDemoType1(_json.GetProperty("x12"));
         X13 = (test.DemoEnum)_json.GetProperty("x13").GetInt32();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_json.GetProperty("x14"));
         S1_l10n_key = _json.GetProperty("s1").GetProperty("key").GetString();S1 = _json.GetProperty("s1").GetProperty("text").GetString();
@@ -46,20 +42,16 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public DemoType2(int x4, bool x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, string x10, test.DemoType1 x12, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
+    public TestStream(bool x1, byte x2, short x3, int x4, long x5, float x6, double x7, string x10, test.DemoEnum x13, test.DemoDynamic x14, string s1, System.Numerics.Vector2 v2, System.Numerics.Vector3 v3, System.Numerics.Vector4 v4, int t1, int[] k1, System.Collections.Generic.List<int> k2, System.Collections.Generic.HashSet<int> k5, System.Collections.Generic.Dictionary<int, int> k8, System.Collections.Generic.List<test.DemoE2> k9, test.DemoDynamic[] k15 ) 
     {
-        this.X4 = x4;
         this.X1 = x1;
         this.X2 = x2;
         this.X3 = x3;
+        this.X4 = x4;
         this.X5 = x5;
         this.X6 = x6;
         this.X7 = x7;
-        this.X80 = x8_0;
-        this.X8 = x8;
-        this.X9 = x9;
         this.X10 = x10;
-        this.X12 = x12;
         this.X13 = x13;
         this.X14 = x14;
         this.S1 = s1;
@@ -76,23 +68,22 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public static DemoType2 DeserializeDemoType2(JsonElement _json)
+    public static TestStream DeserializeTestStream(JsonElement _json)
     {
-        return new test.DemoType2(_json);
+        return new test.TestStream(_json);
     }
 
-    public int X4 { get; private set; }
+    /// <summary>
+    ///  随便填
+    /// </summary>
     public bool X1 { get; private set; }
     public byte X2 { get; private set; }
     public short X3 { get; private set; }
+    public int X4 { get; private set; }
     public long X5 { get; private set; }
     public float X6 { get; private set; }
     public double X7 { get; private set; }
-    public short X80 { get; private set; }
-    public int X8 { get; private set; }
-    public long X9 { get; private set; }
     public string X10 { get; private set; }
-    public test.DemoType1 X12 { get; private set; }
     public test.DemoEnum X13 { get; private set; }
     public test.DemoDynamic X14 { get; private set; }
     public string S1 { get; private set; }
@@ -106,18 +97,15 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public System.Collections.Generic.List<int> K2 { get; private set; }
     public System.Collections.Generic.HashSet<int> K5 { get; private set; }
     public System.Collections.Generic.Dictionary<int, int> K8 { get; private set; }
-    public System.Collections.Generic.Dictionary<int, test.DemoType2> K8_Ref { get; private set; }
     public System.Collections.Generic.List<test.DemoE2> K9 { get; private set; }
     public test.DemoDynamic[] K15 { get; private set; }
 
-    public const int __ID__ = -367048295;
+    public const int __ID__ = 338481582;
     public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        X12?.Resolve(_tables);
         X14?.Resolve(_tables);
-        { test.TbFullTypes __table = (test.TbFullTypes)_tables["test.TbFullTypes"]; this.K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>(); foreach(var __e in K8) { this.K8_Ref.Add(__e.Key, __table.GetOrDefault(__e.Value)); } }
         foreach(var _e in K9) { _e?.Resolve(_tables); }
         foreach(var _e in K15) { _e?.Resolve(_tables); }
         PostResolve();
@@ -125,7 +113,6 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
 
     public  void TranslateText(System.Func<string, string, string> translator)
     {
-        X12?.TranslateText(translator);
         X14?.TranslateText(translator);
         S1 = translator(S1_l10n_key, S1);
         foreach(var _e in K9) { _e?.TranslateText(translator); }
@@ -135,18 +122,14 @@ public sealed partial class DemoType2 :  Bright.Config.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "X4:" + X4 + ","
         + "X1:" + X1 + ","
         + "X2:" + X2 + ","
         + "X3:" + X3 + ","
+        + "X4:" + X4 + ","
         + "X5:" + X5 + ","
         + "X6:" + X6 + ","
         + "X7:" + X7 + ","
-        + "X80:" + X80 + ","
-        + "X8:" + X8 + ","
-        + "X9:" + X9 + ","
         + "X10:" + X10 + ","
-        + "X12:" + X12 + ","
         + "X13:" + X13 + ","
         + "X14:" + X14 + ","
         + "S1:" + S1 + ","

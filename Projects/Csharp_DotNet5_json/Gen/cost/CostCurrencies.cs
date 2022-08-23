@@ -18,7 +18,7 @@ public sealed partial class CostCurrencies :  cost.Cost
 {
     public CostCurrencies(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("currencies"); Currencies = new System.Collections.Generic.List<cost.CostCurrency>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { cost.CostCurrency __v;  __v =  cost.CostCurrency.DeserializeCostCurrency(__e);  Currencies.Add(__v); }   }
+        { var __json0 = _json.GetProperty("currencies"); Currencies = new System.Collections.Generic.List<cost.CostCurrency>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { cost.CostCurrency __v0;  __v0 = cost.CostCurrency.DeserializeCostCurrency(__e0);  Currencies.Add(__v0); }   }
         PostInit();
     }
 

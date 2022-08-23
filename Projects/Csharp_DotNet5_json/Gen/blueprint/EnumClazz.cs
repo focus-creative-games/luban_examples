@@ -18,7 +18,7 @@ public sealed partial class EnumClazz :  blueprint.Clazz
 {
     public EnumClazz(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("enums"); Enums = new System.Collections.Generic.List<blueprint.EnumField>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.EnumField __v;  __v =  blueprint.EnumField.DeserializeEnumField(__e);  Enums.Add(__v); }   }
+        { var __json0 = _json.GetProperty("enums"); Enums = new System.Collections.Generic.List<blueprint.EnumField>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { blueprint.EnumField __v0;  __v0 = blueprint.EnumField.DeserializeEnumField(__e0);  Enums.Add(__v0); }   }
         PostInit();
     }
 

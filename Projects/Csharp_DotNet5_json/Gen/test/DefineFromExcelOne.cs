@@ -22,15 +22,19 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
         UnlockHero = _json.GetProperty("unlock_hero").GetInt32();
         DefaultAvatar = _json.GetProperty("default_avatar").GetString();
         DefaultItem = _json.GetProperty("default_item").GetString();
+        E2 = test.DemoE2.DeserializeDemoE2(_json.GetProperty("e2"));
+        { var __json0 = _json.GetProperty("icons"); Icons = new System.Collections.Generic.List<string>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { string __v0;  __v0 = __e0.GetString();  Icons.Add(__v0); }   }
         PostInit();
     }
 
-    public DefineFromExcelOne(int unlock_equip, int unlock_hero, string default_avatar, string default_item ) 
+    public DefineFromExcelOne(int unlock_equip, int unlock_hero, string default_avatar, string default_item, test.DemoE2 e2, System.Collections.Generic.List<string> icons ) 
     {
         this.UnlockEquip = unlock_equip;
         this.UnlockHero = unlock_hero;
         this.DefaultAvatar = default_avatar;
         this.DefaultItem = default_item;
+        this.E2 = e2;
+        this.Icons = icons;
         PostInit();
     }
 
@@ -49,17 +53,21 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
     public int UnlockHero { get; private set; }
     public string DefaultAvatar { get; private set; }
     public string DefaultItem { get; private set; }
+    public test.DemoE2 E2 { get; private set; }
+    public System.Collections.Generic.List<string> Icons { get; private set; }
 
     public const int __ID__ = 528039504;
     public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
+        E2?.Resolve(_tables);
         PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
     {
+        E2?.TranslateText(translator);
     }
 
     public override string ToString()
@@ -69,6 +77,8 @@ public sealed partial class DefineFromExcelOne :  Bright.Config.BeanBase
         + "UnlockHero:" + UnlockHero + ","
         + "DefaultAvatar:" + DefaultAvatar + ","
         + "DefaultItem:" + DefaultItem + ","
+        + "E2:" + E2 + ","
+        + "Icons:" + Bright.Common.StringUtil.CollectionToString(Icons) + ","
         + "}";
     }
 

@@ -18,7 +18,7 @@ public sealed partial class MultiBonus :  bonus.Bonus
 {
     public MultiBonus(JsonElement _json)  : base(_json) 
     {
-        { var _json0 = _json.GetProperty("bonuses"); int _n = _json0.GetArrayLength(); Bonuses = new bonus.Bonus[_n]; int _index=0; foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.Bonus __v;  __v =  bonus.Bonus.DeserializeBonus(__e);  Bonuses[_index++] = __v; }   }
+        { var __json0 = _json.GetProperty("bonuses"); int _n0 = __json0.GetArrayLength(); Bonuses = new bonus.Bonus[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { bonus.Bonus __v0;  __v0 = bonus.Bonus.DeserializeBonus(__e0);  Bonuses[__index0++] = __v0; }   }
         PostInit();
     }
 

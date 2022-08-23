@@ -19,7 +19,7 @@ public sealed partial class LevelBonus :  Bright.Config.BeanBase
     public LevelBonus(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _json0 = _json.GetProperty("distinct_bonus_infos"); DistinctBonusInfos = new System.Collections.Generic.List<role.DistinctBonusInfos>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { role.DistinctBonusInfos __v;  __v =  role.DistinctBonusInfos.DeserializeDistinctBonusInfos(__e);  DistinctBonusInfos.Add(__v); }   }
+        { var __json0 = _json.GetProperty("distinct_bonus_infos"); DistinctBonusInfos = new System.Collections.Generic.List<role.DistinctBonusInfos>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { role.DistinctBonusInfos __v0;  __v0 = role.DistinctBonusInfos.DeserializeDistinctBonusInfos(__e0);  DistinctBonusInfos.Add(__v0); }   }
         PostInit();
     }
 

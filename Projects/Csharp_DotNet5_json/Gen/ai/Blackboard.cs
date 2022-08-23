@@ -21,7 +21,7 @@ public sealed partial class Blackboard :  Bright.Config.BeanBase
         Name = _json.GetProperty("name").GetString();
         Desc = _json.GetProperty("desc").GetString();
         ParentName = _json.GetProperty("parent_name").GetString();
-        { var _json0 = _json.GetProperty("keys"); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { ai.BlackboardKey __v;  __v =  ai.BlackboardKey.DeserializeBlackboardKey(__e);  Keys.Add(__v); }   }
+        { var __json0 = _json.GetProperty("keys"); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.BlackboardKey __v0;  __v0 = ai.BlackboardKey.DeserializeBlackboardKey(__e0);  Keys.Add(__v0); }   }
         PostInit();
     }
 

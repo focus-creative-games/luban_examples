@@ -18,15 +18,15 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
 {
     public MinMaxLevel(JsonElement _json)  : base(_json) 
     {
-        Min = _json.GetProperty("min").GetInt32();
-        Max = _json.GetProperty("max").GetInt32();
+        MinLevel = _json.GetProperty("min_level").GetInt32();
+        MaxLevel = _json.GetProperty("max_level").GetInt32();
         PostInit();
     }
 
-    public MinMaxLevel(int min, int max )  : base() 
+    public MinMaxLevel(int min_level, int max_level )  : base() 
     {
-        this.Min = min;
-        this.Max = max;
+        this.MinLevel = min_level;
+        this.MaxLevel = max_level;
         PostInit();
     }
 
@@ -35,8 +35,8 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
         return new condition.MinMaxLevel(_json);
     }
 
-    public int Min { get; private set; }
-    public int Max { get; private set; }
+    public int MinLevel { get; private set; }
+    public int MaxLevel { get; private set; }
 
     public const int __ID__ = 907499647;
     public override int GetTypeId() => __ID__;
@@ -55,8 +55,8 @@ public sealed partial class MinMaxLevel :  condition.BoolRoleCondition
     public override string ToString()
     {
         return "{ "
-        + "Min:" + Min + ","
-        + "Max:" + Max + ","
+        + "MinLevel:" + MinLevel + ","
+        + "MaxLevel:" + MaxLevel + ","
         + "}";
     }
 

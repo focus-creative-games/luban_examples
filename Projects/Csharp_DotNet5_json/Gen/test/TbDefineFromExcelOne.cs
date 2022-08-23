@@ -37,6 +37,8 @@ public sealed partial class TbDefineFromExcelOne
      public int UnlockHero => _data.UnlockHero;
      public string DefaultAvatar => _data.DefaultAvatar;
      public string DefaultItem => _data.DefaultItem;
+     public test.DemoE2 E2 => _data.E2;
+     public System.Collections.Generic.List<string> Icons => _data.Icons;
 
     public void Resolve(Dictionary<string, object> _tables)
     {

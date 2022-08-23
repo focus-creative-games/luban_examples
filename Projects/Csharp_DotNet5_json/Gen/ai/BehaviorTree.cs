@@ -22,7 +22,7 @@ public sealed partial class BehaviorTree :  Bright.Config.BeanBase
         Name = _json.GetProperty("name").GetString();
         Desc = _json.GetProperty("desc").GetString();
         BlackboardId = _json.GetProperty("blackboard_id").GetString();
-        Root =  ai.ComposeNode.DeserializeComposeNode(_json.GetProperty("root"));
+        Root = ai.ComposeNode.DeserializeComposeNode(_json.GetProperty("root"));
         PostInit();
     }
 

@@ -20,7 +20,7 @@ public sealed partial class ErrorInfo :  Bright.Config.BeanBase
     {
         Code = _json.GetProperty("code").GetString();
         Desc = _json.GetProperty("desc").GetString();
-        Style =  error.ErrorStyle.DeserializeErrorStyle(_json.GetProperty("style"));
+        Style = error.ErrorStyle.DeserializeErrorStyle(_json.GetProperty("style"));
         PostInit();
     }
 

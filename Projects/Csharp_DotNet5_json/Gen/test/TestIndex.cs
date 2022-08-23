@@ -19,7 +19,7 @@ public sealed partial class TestIndex :  Bright.Config.BeanBase
     public TestIndex(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        { var _json0 = _json.GetProperty("eles"); Eles = new System.Collections.Generic.List<test.DemoType1>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { test.DemoType1 __v;  __v =  test.DemoType1.DeserializeDemoType1(__e);  Eles.Add(__v); }   }
+        { var __json0 = _json.GetProperty("eles"); Eles = new System.Collections.Generic.List<test.DemoType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoType1 __v0;  __v0 = test.DemoType1.DeserializeDemoType1(__e0);  Eles.Add(__v0); }   }
         PostInit();
     }
 

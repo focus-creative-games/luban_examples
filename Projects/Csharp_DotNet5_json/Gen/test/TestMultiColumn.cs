@@ -19,9 +19,9 @@ public sealed partial class TestMultiColumn :  Bright.Config.BeanBase
     public TestMultiColumn(JsonElement _json) 
     {
         Id = _json.GetProperty("id").GetInt32();
-        A =  test.Foo.DeserializeFoo(_json.GetProperty("a"));
-        B =  test.Foo.DeserializeFoo(_json.GetProperty("b"));
-        C =  test.Foo.DeserializeFoo(_json.GetProperty("c"));
+        A = test.Foo.DeserializeFoo(_json.GetProperty("a"));
+        B = test.Foo.DeserializeFoo(_json.GetProperty("b"));
+        C = test.Foo.DeserializeFoo(_json.GetProperty("c"));
         PostInit();
     }
 

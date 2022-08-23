@@ -20,8 +20,8 @@ public sealed partial class DropInfo :  Bright.Config.BeanBase
     {
         Id = _json.GetProperty("id").GetInt32();
         Desc = _json.GetProperty("desc").GetString();
-        { var _json0 = _json.GetProperty("client_show_items"); ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { bonus.ShowItemInfo __v;  __v =  bonus.ShowItemInfo.DeserializeShowItemInfo(__e);  ClientShowItems.Add(__v); }   }
-        Bonus =  bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
+        { var __json0 = _json.GetProperty("client_show_items"); ClientShowItems = new System.Collections.Generic.List<bonus.ShowItemInfo>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { bonus.ShowItemInfo __v0;  __v0 = bonus.ShowItemInfo.DeserializeShowItemInfo(__e0);  ClientShowItems.Add(__v0); }   }
+        Bonus = bonus.Bonus.DeserializeBonus(_json.GetProperty("bonus"));
         PostInit();
     }
 

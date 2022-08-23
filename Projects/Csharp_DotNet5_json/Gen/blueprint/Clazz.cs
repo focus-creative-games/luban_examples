@@ -20,8 +20,8 @@ public abstract partial class Clazz :  Bright.Config.BeanBase
     {
         Name = _json.GetProperty("name").GetString();
         Desc = _json.GetProperty("desc").GetString();
-        { var _json0 = _json.GetProperty("parents"); Parents = new System.Collections.Generic.List<blueprint.Clazz>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Clazz __v;  __v =  blueprint.Clazz.DeserializeClazz(__e);  Parents.Add(__v); }   }
-        { var _json0 = _json.GetProperty("methods"); Methods = new System.Collections.Generic.List<blueprint.Method>(_json0.GetArrayLength()); foreach(JsonElement __e in _json0.EnumerateArray()) { blueprint.Method __v;  __v =  blueprint.Method.DeserializeMethod(__e);  Methods.Add(__v); }   }
+        { var __json0 = _json.GetProperty("parents"); Parents = new System.Collections.Generic.List<blueprint.Clazz>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { blueprint.Clazz __v0;  __v0 = blueprint.Clazz.DeserializeClazz(__e0);  Parents.Add(__v0); }   }
+        { var __json0 = _json.GetProperty("methods"); Methods = new System.Collections.Generic.List<blueprint.Method>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { blueprint.Method __v0;  __v0 = blueprint.Method.DeserializeMethod(__e0);  Methods.Add(__v0); }   }
         PostInit();
     }
 
