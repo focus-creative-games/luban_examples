@@ -28,320 +28,320 @@ end
 local enums =
 {
     ---@class ai.EExecutor
-     ---@field public CLIENT int
-     ---@field public SERVER int
+     ---@field public CLIENT integer
+     ---@field public SERVER integer
     ['ai.EExecutor'] = {   CLIENT=0,  SERVER=1,  };
     ---@class ai.EKeyType
-     ---@field public BOOL int
-     ---@field public INT int
-     ---@field public FLOAT int
-     ---@field public STRING int
-     ---@field public VECTOR int
-     ---@field public ROTATOR int
-     ---@field public NAME int
-     ---@field public CLASS int
-     ---@field public ENUM int
-     ---@field public OBJECT int
+     ---@field public BOOL integer
+     ---@field public INT integer
+     ---@field public FLOAT integer
+     ---@field public STRING integer
+     ---@field public VECTOR integer
+     ---@field public ROTATOR integer
+     ---@field public NAME integer
+     ---@field public CLASS integer
+     ---@field public ENUM integer
+     ---@field public OBJECT integer
     ['ai.EKeyType'] = {   BOOL=1,  INT=2,  FLOAT=3,  STRING=4,  VECTOR=5,  ROTATOR=6,  NAME=7,  CLASS=8,  ENUM=9,  OBJECT=10,  };
     ---@class ai.EFlowAbortMode
-     ---@field public NONE int
-     ---@field public LOWER_PRIORITY int
-     ---@field public SELF int
-     ---@field public BOTH int
+     ---@field public NONE integer
+     ---@field public LOWER_PRIORITY integer
+     ---@field public SELF integer
+     ---@field public BOTH integer
     ['ai.EFlowAbortMode'] = {   NONE=0,  LOWER_PRIORITY=1,  SELF=2,  BOTH=3,  };
     ---@class ai.EFinishMode
-     ---@field public IMMEDIATE int
-     ---@field public DELAYED int
+     ---@field public IMMEDIATE integer
+     ---@field public DELAYED integer
     ['ai.EFinishMode'] = {   IMMEDIATE=0,  DELAYED=1,  };
     ---@class ai.ENotifyObserverMode
-     ---@field public ON_VALUE_CHANGE int
-     ---@field public ON_RESULT_CHANGE int
+     ---@field public ON_VALUE_CHANGE integer
+     ---@field public ON_RESULT_CHANGE integer
     ['ai.ENotifyObserverMode'] = {   ON_VALUE_CHANGE=0,  ON_RESULT_CHANGE=1,  };
     ---@class ai.EOperator
-     ---@field public IS_EQUAL_TO int
-     ---@field public IS_NOT_EQUAL_TO int
-     ---@field public IS_LESS_THAN int
-     ---@field public IS_LESS_THAN_OR_EQUAL_TO int
-     ---@field public IS_GREAT_THAN int
-     ---@field public IS_GREAT_THAN_OR_EQUAL_TO int
-     ---@field public CONTAINS int
-     ---@field public NOT_CONTAINS int
+     ---@field public IS_EQUAL_TO integer
+     ---@field public IS_NOT_EQUAL_TO integer
+     ---@field public IS_LESS_THAN integer
+     ---@field public IS_LESS_THAN_OR_EQUAL_TO integer
+     ---@field public IS_GREAT_THAN integer
+     ---@field public IS_GREAT_THAN_OR_EQUAL_TO integer
+     ---@field public CONTAINS integer
+     ---@field public NOT_CONTAINS integer
     ['ai.EOperator'] = {   IS_EQUAL_TO=0,  IS_NOT_EQUAL_TO=1,  IS_LESS_THAN=2,  IS_LESS_THAN_OR_EQUAL_TO=3,  IS_GREAT_THAN=4,  IS_GREAT_THAN_OR_EQUAL_TO=5,  CONTAINS=6,  NOT_CONTAINS=7,  };
     ---@class common.EBoolOperator
-     ---@field public AND int
-     ---@field public OR int
+     ---@field public AND integer
+     ---@field public OR integer
     ['common.EBoolOperator'] = {   AND=0,  OR=1,  };
     ---@class error.EOperation
-     ---@field public LOGOUT int
-     ---@field public RESTART int
+     ---@field public LOGOUT integer
+     ---@field public RESTART integer
     ['error.EOperation'] = {   LOGOUT=0,  RESTART=1,  };
     ---@class error.EErrorCode
-     ---@field public OK int
-     ---@field public SERVER_NOT_EXISTS int
-     ---@field public HAS_BIND_SERVER int
-     ---@field public AUTH_FAIL int
-     ---@field public NOT_BIND_SERVER int
-     ---@field public SERVER_ACCESS_FAIL int
-     ---@field public EXAMPLE_FLASH int
-     ---@field public EXAMPLE_MSGBOX int
-     ---@field public EXAMPLE_DLG_OK int
-     ---@field public EXAMPLE_DLG_OK_CANCEL int
-     ---@field public ROLE_CREATE_NAME_INVALID_CHAR int
-     ---@field public ROLE_CREATE_NAME_EMPTY int
-     ---@field public ROLE_CREATE_NAME_EXCEED_MAX_LENGTH int
-     ---@field public ROLE_CREATE_ROLE_LIST_FULL int
-     ---@field public ROLE_CREATE_INVALID_PROFESSION int
-     ---@field public ROLE_CREATE_INVALID_GENDER int
-     ---@field public ROLE_NOT_OWNED_BY_USER int
-     ---@field public ROLE_LEVEL_NOT_ARRIVE int
-     ---@field public PARAM_ILLEGAL int
-     ---@field public TEMP_BAG_NOT_EMPTY int
-     ---@field public ITEM_CAN_NOT_USE int
-     ---@field public CURRENCY_NOT_ENOUGH int
-     ---@field public BAG_IS_FULL int
-     ---@field public ITEM_NOT_ENOUGH int
-     ---@field public ITEM_IN_BAG int
-     ---@field public GENDER_NOT_MATCH int
-     ---@field public LEVEL_TOO_LOW int
-     ---@field public LEVEL_TOO_HIGH int
-     ---@field public EXCEED_LIMIT int
-     ---@field public OVER_TIME int
-     ---@field public SERVER_ERROR int
-     ---@field public SKILL_NOT_IN_LIST int
-     ---@field public SKILL_NOT_COOLDOWN int
-     ---@field public SKILL_TARGET_NOT_EXIST int
-     ---@field public SKILL_ANOTHER_CASTING int
-     ---@field public SKILL_OUT_OF_DISTANCE int
-     ---@field public SKILL_TARGET_CAMP_NOT_MATCH int
-     ---@field public SKILL_INVALID_DIRECTION int
-     ---@field public SKILL_NOT_IN_SELECT_SHAPE int
-     ---@field public SKILL_ENERGY_NOT_ENOUGH int
-     ---@field public DIALOG_NODE_NOT_CHOOSEN int
-     ---@field public DIALOG_NOT_FINISH int
-     ---@field public DIALOG_HAS_FINISH int
-     ---@field public QUEST_STAGE_NOT_FINISHED int
-     ---@field public QUEST_NOT_DOING int
-     ---@field public QUEST_STAGE_NOT_DOING int
-     ---@field public QUEST_HAS_ACCEPTED int
-     ---@field public MAP_OBJECT_NOT_EXIST int
-     ---@field public INTERACTION_OBJECT_NOT_SUPPORT_OPERATION int
-     ---@field public HAS_NOT_EQUIP int
-     ---@field public HANDHELD_EQUIP_ID_NOT_MATCH int
-     ---@field public NOT_AVAILABLE_SUIT_ID int
-     ---@field public NO_INTERACTION_COMPONENT int
-     ---@field public HAS_INTERACTED int
-     ---@field public VIALITY_NOT_ENOUGH int
-     ---@field public PLAYER_SESSION_NOT_EXIST int
-     ---@field public PLAYER_SESSION_WORLD_PLAYER_NOT_INIT int
-     ---@field public MAP_NOT_EXIST int
-     ---@field public MAIL_TYPE_ERROR int
-     ---@field public MAIL_NOT_EXITST int
-     ---@field public MAIL_HAVE_DELETED int
-     ---@field public MAIL_AWARD_HAVE_RECEIVED int
-     ---@field public MAIL_OPERATE_TYPE_ERROR int
-     ---@field public MAIL_CONDITION_NOT_MEET int
-     ---@field public MAIL_STATE_ERROR int
-     ---@field public MAIL_NO_AWARD int
-     ---@field public MAIL_BOX_IS_FULL int
-     ---@field public PROP_SCORE_NOT_BIGGER_THAN int
-     ---@field public NOT_WEAR_CLOTHES int
-     ---@field public NOT_WEAR_SUIT int
-     ---@field public SUIT_NOT_UNLOCK int
-     ---@field public SUIT_COMPONENT_NOT_UNLOCK int
-     ---@field public SUIT_STATE_ERROR int
-     ---@field public SUIT_COMPONENT_STATE_ERROR int
-     ---@field public SUIT_COMPONENT_NO_NEED_LEARN int
-     ---@field public STORE_NOT_ENABLED int
-     ---@field public SHELF_NOT_ENABLED int
-     ---@field public GOODS_NOT_ENABLED int
-     ---@field public GOODS_NOT_IN_CUR_REFRESH int
-     ---@field public RETRY int
-     ---@field public NOT_COOLDOWN int
-     ---@field public SELFIE_UNLOCK int
-     ---@field public SELFIE_ALREADY_UNLOCK int
-     ---@field public SELFIE_LACK_STARTS int
-     ---@field public SELFIE_HAD_REWARD int
+     ---@field public OK integer
+     ---@field public SERVER_NOT_EXISTS integer
+     ---@field public HAS_BIND_SERVER integer
+     ---@field public AUTH_FAIL integer
+     ---@field public NOT_BIND_SERVER integer
+     ---@field public SERVER_ACCESS_FAIL integer
+     ---@field public EXAMPLE_FLASH integer
+     ---@field public EXAMPLE_MSGBOX integer
+     ---@field public EXAMPLE_DLG_OK integer
+     ---@field public EXAMPLE_DLG_OK_CANCEL integer
+     ---@field public ROLE_CREATE_NAME_INVALID_CHAR integer
+     ---@field public ROLE_CREATE_NAME_EMPTY integer
+     ---@field public ROLE_CREATE_NAME_EXCEED_MAX_LENGTH integer
+     ---@field public ROLE_CREATE_ROLE_LIST_FULL integer
+     ---@field public ROLE_CREATE_INVALID_PROFESSION integer
+     ---@field public ROLE_CREATE_INVALID_GENDER integer
+     ---@field public ROLE_NOT_OWNED_BY_USER integer
+     ---@field public ROLE_LEVEL_NOT_ARRIVE integer
+     ---@field public PARAM_ILLEGAL integer
+     ---@field public TEMP_BAG_NOT_EMPTY integer
+     ---@field public ITEM_CAN_NOT_USE integer
+     ---@field public CURRENCY_NOT_ENOUGH integer
+     ---@field public BAG_IS_FULL integer
+     ---@field public ITEM_NOT_ENOUGH integer
+     ---@field public ITEM_IN_BAG integer
+     ---@field public GENDER_NOT_MATCH integer
+     ---@field public LEVEL_TOO_LOW integer
+     ---@field public LEVEL_TOO_HIGH integer
+     ---@field public EXCEED_LIMIT integer
+     ---@field public OVER_TIME integer
+     ---@field public SERVER_ERROR integer
+     ---@field public SKILL_NOT_IN_LIST integer
+     ---@field public SKILL_NOT_COOLDOWN integer
+     ---@field public SKILL_TARGET_NOT_EXIST integer
+     ---@field public SKILL_ANOTHER_CASTING integer
+     ---@field public SKILL_OUT_OF_DISTANCE integer
+     ---@field public SKILL_TARGET_CAMP_NOT_MATCH integer
+     ---@field public SKILL_INVALID_DIRECTION integer
+     ---@field public SKILL_NOT_IN_SELECT_SHAPE integer
+     ---@field public SKILL_ENERGY_NOT_ENOUGH integer
+     ---@field public DIALOG_NODE_NOT_CHOOSEN integer
+     ---@field public DIALOG_NOT_FINISH integer
+     ---@field public DIALOG_HAS_FINISH integer
+     ---@field public QUEST_STAGE_NOT_FINISHED integer
+     ---@field public QUEST_NOT_DOING integer
+     ---@field public QUEST_STAGE_NOT_DOING integer
+     ---@field public QUEST_HAS_ACCEPTED integer
+     ---@field public MAP_OBJECT_NOT_EXIST integer
+     ---@field public INTERACTION_OBJECT_NOT_SUPPORT_OPERATION integer
+     ---@field public HAS_NOT_EQUIP integer
+     ---@field public HANDHELD_EQUIP_ID_NOT_MATCH integer
+     ---@field public NOT_AVAILABLE_SUIT_ID integer
+     ---@field public NO_INTERACTION_COMPONENT integer
+     ---@field public HAS_INTERACTED integer
+     ---@field public VIALITY_NOT_ENOUGH integer
+     ---@field public PLAYER_SESSION_NOT_EXIST integer
+     ---@field public PLAYER_SESSION_WORLD_PLAYER_NOT_INIT integer
+     ---@field public MAP_NOT_EXIST integer
+     ---@field public MAIL_TYPE_ERROR integer
+     ---@field public MAIL_NOT_EXITST integer
+     ---@field public MAIL_HAVE_DELETED integer
+     ---@field public MAIL_AWARD_HAVE_RECEIVED integer
+     ---@field public MAIL_OPERATE_TYPE_ERROR integer
+     ---@field public MAIL_CONDITION_NOT_MEET integer
+     ---@field public MAIL_STATE_ERROR integer
+     ---@field public MAIL_NO_AWARD integer
+     ---@field public MAIL_BOX_IS_FULL integer
+     ---@field public PROP_SCORE_NOT_BIGGER_THAN integer
+     ---@field public NOT_WEAR_CLOTHES integer
+     ---@field public NOT_WEAR_SUIT integer
+     ---@field public SUIT_NOT_UNLOCK integer
+     ---@field public SUIT_COMPONENT_NOT_UNLOCK integer
+     ---@field public SUIT_STATE_ERROR integer
+     ---@field public SUIT_COMPONENT_STATE_ERROR integer
+     ---@field public SUIT_COMPONENT_NO_NEED_LEARN integer
+     ---@field public STORE_NOT_ENABLED integer
+     ---@field public SHELF_NOT_ENABLED integer
+     ---@field public GOODS_NOT_ENABLED integer
+     ---@field public GOODS_NOT_IN_CUR_REFRESH integer
+     ---@field public RETRY integer
+     ---@field public NOT_COOLDOWN integer
+     ---@field public SELFIE_UNLOCK integer
+     ---@field public SELFIE_ALREADY_UNLOCK integer
+     ---@field public SELFIE_LACK_STARTS integer
+     ---@field public SELFIE_HAD_REWARD integer
     ['error.EErrorCode'] = {   OK=0,  SERVER_NOT_EXISTS=1,  HAS_BIND_SERVER=2,  AUTH_FAIL=3,  NOT_BIND_SERVER=4,  SERVER_ACCESS_FAIL=5,  EXAMPLE_FLASH=6,  EXAMPLE_MSGBOX=7,  EXAMPLE_DLG_OK=8,  EXAMPLE_DLG_OK_CANCEL=9,  ROLE_CREATE_NAME_INVALID_CHAR=100,  ROLE_CREATE_NAME_EMPTY=101,  ROLE_CREATE_NAME_EXCEED_MAX_LENGTH=102,  ROLE_CREATE_ROLE_LIST_FULL=103,  ROLE_CREATE_INVALID_PROFESSION=104,  ROLE_CREATE_INVALID_GENDER=105,  ROLE_NOT_OWNED_BY_USER=106,  ROLE_LEVEL_NOT_ARRIVE=107,  PARAM_ILLEGAL=200,  TEMP_BAG_NOT_EMPTY=201,  ITEM_CAN_NOT_USE=202,  CURRENCY_NOT_ENOUGH=203,  BAG_IS_FULL=204,  ITEM_NOT_ENOUGH=205,  ITEM_IN_BAG=206,  GENDER_NOT_MATCH=300,  LEVEL_TOO_LOW=301,  LEVEL_TOO_HIGH=302,  EXCEED_LIMIT=303,  OVER_TIME=304,  SERVER_ERROR=305,  SKILL_NOT_IN_LIST=400,  SKILL_NOT_COOLDOWN=401,  SKILL_TARGET_NOT_EXIST=402,  SKILL_ANOTHER_CASTING=403,  SKILL_OUT_OF_DISTANCE=404,  SKILL_TARGET_CAMP_NOT_MATCH=405,  SKILL_INVALID_DIRECTION=406,  SKILL_NOT_IN_SELECT_SHAPE=407,  SKILL_ENERGY_NOT_ENOUGH=408,  DIALOG_NODE_NOT_CHOOSEN=500,  DIALOG_NOT_FINISH=501,  DIALOG_HAS_FINISH=502,  QUEST_STAGE_NOT_FINISHED=503,  QUEST_NOT_DOING=504,  QUEST_STAGE_NOT_DOING=505,  QUEST_HAS_ACCEPTED=506,  MAP_OBJECT_NOT_EXIST=600,  INTERACTION_OBJECT_NOT_SUPPORT_OPERATION=601,  HAS_NOT_EQUIP=602,  HANDHELD_EQUIP_ID_NOT_MATCH=603,  NOT_AVAILABLE_SUIT_ID=604,  NO_INTERACTION_COMPONENT=605,  HAS_INTERACTED=606,  VIALITY_NOT_ENOUGH=607,  PLAYER_SESSION_NOT_EXIST=608,  PLAYER_SESSION_WORLD_PLAYER_NOT_INIT=609,  MAP_NOT_EXIST=610,  MAIL_TYPE_ERROR=700,  MAIL_NOT_EXITST=701,  MAIL_HAVE_DELETED=702,  MAIL_AWARD_HAVE_RECEIVED=703,  MAIL_OPERATE_TYPE_ERROR=704,  MAIL_CONDITION_NOT_MEET=705,  MAIL_STATE_ERROR=706,  MAIL_NO_AWARD=707,  MAIL_BOX_IS_FULL=708,  PROP_SCORE_NOT_BIGGER_THAN=800,  NOT_WEAR_CLOTHES=801,  NOT_WEAR_SUIT=802,  SUIT_NOT_UNLOCK=900,  SUIT_COMPONENT_NOT_UNLOCK=901,  SUIT_STATE_ERROR=902,  SUIT_COMPONENT_STATE_ERROR=903,  SUIT_COMPONENT_NO_NEED_LEARN=904,  STORE_NOT_ENABLED=1000,  SHELF_NOT_ENABLED=1001,  GOODS_NOT_ENABLED=1002,  GOODS_NOT_IN_CUR_REFRESH=1003,  RETRY=1100,  NOT_COOLDOWN=1101,  SELFIE_UNLOCK=1200,  SELFIE_ALREADY_UNLOCK=1201,  SELFIE_LACK_STARTS=1202,  SELFIE_HAD_REWARD=1203,  };
     ---@class item.EItemQuality
-     ---@field public WHITE int
-     ---@field public GREEN int
-     ---@field public BLUE int
-     ---@field public PURPLE int
-     ---@field public GOLDEN int
+     ---@field public WHITE integer
+     ---@field public GREEN integer
+     ---@field public BLUE integer
+     ---@field public PURPLE integer
+     ---@field public GOLDEN integer
     ['item.EItemQuality'] = {   WHITE=0,  GREEN=1,  BLUE=2,  PURPLE=3,  GOLDEN=4,  };
     ---@class item.ECurrencyType
-     ---@field public DIAMOND int
-     ---@field public GOLD int
-     ---@field public SILVER int
-     ---@field public EXP int
-     ---@field public POWER_POINT int
+     ---@field public DIAMOND integer
+     ---@field public GOLD integer
+     ---@field public SILVER integer
+     ---@field public EXP integer
+     ---@field public POWER_POINT integer
     ['item.ECurrencyType'] = {   DIAMOND=1,  GOLD=2,  SILVER=3,  EXP=4,  POWER_POINT=5,  };
     ---@class item.EMajorType
-     ---@field public CURRENCY int
-     ---@field public CLOTH int
-     ---@field public QUEST int
-     ---@field public CONSUMABLES int
-     ---@field public TREASURE_BOX int
-     ---@field public ACHIEVEMENT_AND_TITLE int
-     ---@field public HEAD_FRAME int
-     ---@field public VOICE int
-     ---@field public ACTION int
-     ---@field public EXPANSION int
-     ---@field public MATERIAL int
+     ---@field public CURRENCY integer
+     ---@field public CLOTH integer
+     ---@field public QUEST integer
+     ---@field public CONSUMABLES integer
+     ---@field public TREASURE_BOX integer
+     ---@field public ACHIEVEMENT_AND_TITLE integer
+     ---@field public HEAD_FRAME integer
+     ---@field public VOICE integer
+     ---@field public ACTION integer
+     ---@field public EXPANSION integer
+     ---@field public MATERIAL integer
     ['item.EMajorType'] = {   CURRENCY=1,  CLOTH=2,  QUEST=3,  CONSUMABLES=4,  TREASURE_BOX=5,  ACHIEVEMENT_AND_TITLE=6,  HEAD_FRAME=7,  VOICE=8,  ACTION=9,  EXPANSION=10,  MATERIAL=11,  };
     ---@class item.EMinorType
-     ---@field public DIAMOND int
-     ---@field public GOLD int
-     ---@field public SILVER int
-     ---@field public EXP int
-     ---@field public POWER_POINT int
-     ---@field public HAIR_STYLE int
-     ---@field public COAT int
-     ---@field public UPPER_JACKET int
-     ---@field public TROUSERS int
-     ---@field public SKIRT int
-     ---@field public SOCKS int
-     ---@field public SHOES int
-     ---@field public HAIR_ACCESSORY int
-     ---@field public HAT int
-     ---@field public EARRING int
-     ---@field public NECKLACE int
-     ---@field public BRACELET int
-     ---@field public HAIR_CLASP int
-     ---@field public GLOVE int
-     ---@field public HANDHELD_OBJECT int
-     ---@field public SPECIAL int
-     ---@field public BASE_COSMETIC int
-     ---@field public EYEBROW_COSMETIC int
-     ---@field public EYELASH int
-     ---@field public COSMETIC_CONTACT_LENSES int
-     ---@field public LIP_COSMETIC int
-     ---@field public SKIN_COLOR int
-     ---@field public ONE_PIECE_DRESS int
-     ---@field public SWITCH_CLOTHES_SCENE int
-     ---@field public QUEST int
-     ---@field public CAST int
-     ---@field public SWORD int
-     ---@field public BOW_ARROW int
-     ---@field public WANDS int
-     ---@field public SPECIAL_TOOL int
-     ---@field public FOOD int
-     ---@field public TREASURE_BOX int
-     ---@field public KEY int
-     ---@field public MULTI_CHOOSE_TREASURE_BOX int
-     ---@field public ACHIEVEMENT int
-     ---@field public TITLE int
-     ---@field public AVATAR_FRAME int
-     ---@field public VOICE int
-     ---@field public IDLE_POSE int
-     ---@field public PHOTO_POSE int
-     ---@field public BAG int
-     ---@field public FRIEND_CAPACITY int
-     ---@field public CONSTRUCTION_MATERIAL int
-     ---@field public DESIGN_DRAWING int
+     ---@field public DIAMOND integer
+     ---@field public GOLD integer
+     ---@field public SILVER integer
+     ---@field public EXP integer
+     ---@field public POWER_POINT integer
+     ---@field public HAIR_STYLE integer
+     ---@field public COAT integer
+     ---@field public UPPER_JACKET integer
+     ---@field public TROUSERS integer
+     ---@field public SKIRT integer
+     ---@field public SOCKS integer
+     ---@field public SHOES integer
+     ---@field public HAIR_ACCESSORY integer
+     ---@field public HAT integer
+     ---@field public EARRING integer
+     ---@field public NECKLACE integer
+     ---@field public BRACELET integer
+     ---@field public HAIR_CLASP integer
+     ---@field public GLOVE integer
+     ---@field public HANDHELD_OBJECT integer
+     ---@field public SPECIAL integer
+     ---@field public BASE_COSMETIC integer
+     ---@field public EYEBROW_COSMETIC integer
+     ---@field public EYELASH integer
+     ---@field public COSMETIC_CONTACT_LENSES integer
+     ---@field public LIP_COSMETIC integer
+     ---@field public SKIN_COLOR integer
+     ---@field public ONE_PIECE_DRESS integer
+     ---@field public SWITCH_CLOTHES_SCENE integer
+     ---@field public QUEST integer
+     ---@field public CAST integer
+     ---@field public SWORD integer
+     ---@field public BOW_ARROW integer
+     ---@field public WANDS integer
+     ---@field public SPECIAL_TOOL integer
+     ---@field public FOOD integer
+     ---@field public TREASURE_BOX integer
+     ---@field public KEY integer
+     ---@field public MULTI_CHOOSE_TREASURE_BOX integer
+     ---@field public ACHIEVEMENT integer
+     ---@field public TITLE integer
+     ---@field public AVATAR_FRAME integer
+     ---@field public VOICE integer
+     ---@field public IDLE_POSE integer
+     ---@field public PHOTO_POSE integer
+     ---@field public BAG integer
+     ---@field public FRIEND_CAPACITY integer
+     ---@field public CONSTRUCTION_MATERIAL integer
+     ---@field public DESIGN_DRAWING integer
     ['item.EMinorType'] = {   DIAMOND=101,  GOLD=102,  SILVER=103,  EXP=104,  POWER_POINT=105,  HAIR_STYLE=210,  COAT=220,  UPPER_JACKET=230,  TROUSERS=241,  SKIRT=242,  SOCKS=250,  SHOES=260,  HAIR_ACCESSORY=271,  HAT=272,  EARRING=273,  NECKLACE=274,  BRACELET=275,  HAIR_CLASP=276,  GLOVE=277,  HANDHELD_OBJECT=278,  SPECIAL=279,  BASE_COSMETIC=281,  EYEBROW_COSMETIC=282,  EYELASH=283,  COSMETIC_CONTACT_LENSES=284,  LIP_COSMETIC=285,  SKIN_COLOR=286,  ONE_PIECE_DRESS=290,  SWITCH_CLOTHES_SCENE=291,  QUEST=301,  CAST=401,  SWORD=421,  BOW_ARROW=422,  WANDS=423,  SPECIAL_TOOL=424,  FOOD=403,  TREASURE_BOX=501,  KEY=502,  MULTI_CHOOSE_TREASURE_BOX=503,  ACHIEVEMENT=601,  TITLE=602,  AVATAR_FRAME=701,  VOICE=801,  IDLE_POSE=901,  PHOTO_POSE=902,  BAG=1001,  FRIEND_CAPACITY=1002,  CONSTRUCTION_MATERIAL=1101,  DESIGN_DRAWING=1102,  };
     ---@class item.EClothersStarQualityType
-     ---@field public ONE int
-     ---@field public TWO int
-     ---@field public THREE int
-     ---@field public FOUR int
-     ---@field public FIVE int
-     ---@field public SIX int
-     ---@field public SEVEN int
-     ---@field public EIGHT int
-     ---@field public NINE int
-     ---@field public TEN int
+     ---@field public ONE integer
+     ---@field public TWO integer
+     ---@field public THREE integer
+     ---@field public FOUR integer
+     ---@field public FIVE integer
+     ---@field public SIX integer
+     ---@field public SEVEN integer
+     ---@field public EIGHT integer
+     ---@field public NINE integer
+     ---@field public TEN integer
     ['item.EClothersStarQualityType'] = {   ONE=1,  TWO=2,  THREE=3,  FOUR=4,  FIVE=5,  SIX=6,  SEVEN=7,  EIGHT=8,  NINE=9,  TEN=10,  };
     ---@class item.EClothersTag
-     ---@field public FANG_SHAI int
-     ---@field public WU_ZHE int
+     ---@field public FANG_SHAI integer
+     ---@field public WU_ZHE integer
     ['item.EClothersTag'] = {   FANG_SHAI=1,  WU_ZHE=2,  };
     ---@class item.EUseType
-     ---@field public MANUAL int
-     ---@field public AUTO int
+     ---@field public MANUAL integer
+     ---@field public AUTO integer
     ['item.EUseType'] = {   MANUAL=0,  AUTO=1,  };
     ---@class item.EClothesHidePartType
-     ---@field public CHEST int
-     ---@field public HEAD int
-     ---@field public SPINE_UPPER int
-     ---@field public SPINE_LOWER int
-     ---@field public HIP int
-     ---@field public LEG_UPPER int
-     ---@field public LEG_MIDDLE int
-     ---@field public LEG_LOWER int
+     ---@field public CHEST integer
+     ---@field public HEAD integer
+     ---@field public SPINE_UPPER integer
+     ---@field public SPINE_LOWER integer
+     ---@field public HIP integer
+     ---@field public LEG_UPPER integer
+     ---@field public LEG_MIDDLE integer
+     ---@field public LEG_LOWER integer
     ['item.EClothesHidePartType'] = {   CHEST=0,  HEAD=1,  SPINE_UPPER=2,  SPINE_LOWER=3,  HIP=4,  LEG_UPPER=5,  LEG_MIDDLE=6,  LEG_LOWER=7,  };
     ---@class item.EClothesPropertyType
-     ---@field public JIAN_YUE int
-     ---@field public HUA_LI int
-     ---@field public KE_AI int
-     ---@field public CHENG_SHU int
-     ---@field public HUO_PO int
-     ---@field public YOU_YA int
-     ---@field public QING_CHUN int
-     ---@field public XING_GAN int
-     ---@field public QING_LIANG int
-     ---@field public BAO_NUAN int
+     ---@field public JIAN_YUE integer
+     ---@field public HUA_LI integer
+     ---@field public KE_AI integer
+     ---@field public CHENG_SHU integer
+     ---@field public HUO_PO integer
+     ---@field public YOU_YA integer
+     ---@field public QING_CHUN integer
+     ---@field public XING_GAN integer
+     ---@field public QING_LIANG integer
+     ---@field public BAO_NUAN integer
     ['item.EClothesPropertyType'] = {   JIAN_YUE=1,  HUA_LI=2,  KE_AI=3,  CHENG_SHU=4,  HUO_PO=5,  YOU_YA=6,  QING_CHUN=7,  XING_GAN=8,  QING_LIANG=9,  BAO_NUAN=10,  };
     ---@class item.EItemFunctionType
-     ---@field public REPLACE_HANDHELD int
-     ---@field public USE_DESIGN_DRAWING int
+     ---@field public REPLACE_HANDHELD integer
+     ---@field public USE_DESIGN_DRAWING integer
     ['item.EItemFunctionType'] = {   REPLACE_HANDHELD=0,  USE_DESIGN_DRAWING=1,  };
     ---@class limit.ENamespace
-     ---@field public ITEM_DAILY_OBTAIN int
-     ---@field public TREASURE_DAILY_USE int
-     ---@field public STORE_GOODS_LIMIT_BUY int
+     ---@field public ITEM_DAILY_OBTAIN integer
+     ---@field public TREASURE_DAILY_USE integer
+     ---@field public STORE_GOODS_LIMIT_BUY integer
     ['limit.ENamespace'] = {   ITEM_DAILY_OBTAIN=1,  TREASURE_DAILY_USE=2,  STORE_GOODS_LIMIT_BUY=3,  };
     ---@class mail.EMailType
-     ---@field public GLOBAL int
-     ---@field public SYSTEM int
+     ---@field public GLOBAL integer
+     ---@field public SYSTEM integer
     ['mail.EMailType'] = {   GLOBAL=0,  SYSTEM=1,  };
     ---@class role.EGenderType
-     ---@field public MALE int
-     ---@field public FEMALE int
+     ---@field public MALE integer
+     ---@field public FEMALE integer
     ['role.EGenderType'] = {   MALE=1,  FEMALE=2,  };
     ---@class role.EProfession
-     ---@field public TEST_PROFESSION int
+     ---@field public TEST_PROFESSION integer
     ['role.EProfession'] = {   TEST_PROFESSION=1,  };
     ---@class test.DemoEnum
-     ---@field public NONE int
-     ---@field public A int
-     ---@field public B int
-     ---@field public C int
-     ---@field public D int
+     ---@field public NONE integer
+     ---@field public A integer
+     ---@field public B integer
+     ---@field public C integer
+     ---@field public D integer
     ['test.DemoEnum'] = {   NONE=0,  A=1,  B=2,  C=4,  D=5,  };
     ---@class test.DemoFlag
-     ---@field public A int
-     ---@field public B int
-     ---@field public D int
+     ---@field public A integer
+     ---@field public B integer
+     ---@field public D integer
     ['test.DemoFlag'] = {   A=1,  B=2,  D=3,  };
     ---@class test.ETestUeType
-     ---@field public WHITE int
-     ---@field public BLACK int
+     ---@field public WHITE integer
+     ---@field public BLACK integer
     ['test.ETestUeType'] = {   WHITE=0,  BLACK=1,  };
     ---@class test.ETestEmptyEnum
     ['test.ETestEmptyEnum'] = {   };
     ---@class test.ETestEmptyEnum2
-     ---@field public SMALL_THAN_256 int
-     ---@field public X_256 int
-     ---@field public X_257 int
+     ---@field public SMALL_THAN_256 integer
+     ---@field public X_256 integer
+     ---@field public X_257 integer
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
     ---@class test.AudioType
-     ---@field public UNKNOWN int
-     ---@field public ACC int
-     ---@field public AIFF int
+     ---@field public UNKNOWN integer
+     ---@field public ACC integer
+     ---@field public AIFF integer
     ['test.AudioType'] = {   UNKNOWN=0,  ACC=1,  AIFF=2,  };
     ---@class test.ETestQuality
-     ---@field public A int
-     ---@field public B int
-     ---@field public C int
-     ---@field public D int
+     ---@field public A integer
+     ---@field public B integer
+     ---@field public C integer
+     ---@field public D integer
     ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
     ---@class test.AccessFlag
-     ---@field public WRITE int
-     ---@field public READ int
-     ---@field public TRUNCATE int
-     ---@field public NEW int
-     ---@field public READ_WRITE int
+     ---@field public WRITE integer
+     ---@field public READ integer
+     ---@field public TRUNCATE integer
+     ---@field public NEW integer
+     ---@field public READ_WRITE integer
     ['test.AccessFlag'] = {   WRITE=1,  READ=2,  TRUNCATE=4,  NEW=8,  READ_WRITE=3,  };
 }
 
@@ -437,7 +437,7 @@ local function InitTypes(methods)
      ---@field public name string
      ---@field public desc string
      ---@field public is_static bool
-     ---@field public type ai.EKeyType
+     ---@field public type integer
      ---@field public type_class_name string
         local class = SimpleClass()
         class._id = -511559886
@@ -458,7 +458,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.BehaviorTree 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
      ---@field public desc string
      ---@field public blackboard_id string
@@ -482,7 +482,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.Node 
-     ---@field public id int
+     ---@field public id integer
      ---@field public node_name string
         local class = SimpleClass()
         class._id = -1055479768
@@ -630,7 +630,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.Decorator :ai.Node 
-     ---@field public flow_abort_mode ai.EFlowAbortMode
+     ---@field public flow_abort_mode integer
         local class = SimpleClass()
         class._id = 2017109461
         class['_type_'] = 'ai.Decorator'
@@ -643,9 +643,9 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.UeLoop :ai.Decorator 
-     ---@field public num_loops int
+     ---@field public num_loops integer
      ---@field public infinite_loop bool
-     ---@field public infinite_loop_timeout_time float
+     ---@field public infinite_loop_timeout_time number
         local class = SimpleClass()
         class._id = -513308166
         class['_type_'] = 'ai.UeLoop'
@@ -666,7 +666,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.UeCooldown :ai.Decorator 
-     ---@field public cooldown_time float
+     ---@field public cooldown_time number
         local class = SimpleClass()
         class._id = -951439423
         class['_type_'] = 'ai.UeCooldown'
@@ -685,7 +685,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.UeTimeLimit :ai.Decorator 
-     ---@field public limit_time float
+     ---@field public limit_time number
         local class = SimpleClass()
         class._id = 338469720
         class['_type_'] = 'ai.UeTimeLimit'
@@ -704,7 +704,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.UeBlackboard :ai.Decorator 
-     ---@field public notify_observer ai.ENotifyObserverMode
+     ---@field public notify_observer integer
      ---@field public blackboard_key string
      ---@field public key_query ai.KeyQueryOperator
         local class = SimpleClass()
@@ -767,7 +767,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.BinaryOperator :ai.KeyQueryOperator 
-     ---@field public oper ai.EOperator
+     ---@field public oper integer
      ---@field public data ai.KeyData
         local class = SimpleClass()
         class._id = -979891605
@@ -797,7 +797,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.FloatKeyData :ai.KeyData 
-     ---@field public value float
+     ---@field public value number
         local class = SimpleClass()
         class._id = -719747885
         class['_type_'] = 'ai.FloatKeyData'
@@ -813,7 +813,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.IntKeyData :ai.KeyData 
-     ---@field public value int
+     ---@field public value integer
         local class = SimpleClass()
         class._id = -342751904
         class['_type_'] = 'ai.IntKeyData'
@@ -878,7 +878,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.IsAtLocation :ai.Decorator 
-     ---@field public acceptable_radius float
+     ---@field public acceptable_radius number
      ---@field public keyboard_key string
      ---@field public inverse_condition bool
         local class = SimpleClass()
@@ -903,7 +903,7 @@ local function InitTypes(methods)
     ---@class ai.DistanceLessThan :ai.Decorator 
      ---@field public actor1_key string
      ---@field public actor2_key string
-     ---@field public distance float
+     ---@field public distance number
      ---@field public reverse_result bool
         local class = SimpleClass()
         class._id = -1207170283
@@ -992,7 +992,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.SimpleParallel :ai.ComposeNode 
-     ---@field public finish_mode ai.EFinishMode
+     ---@field public finish_mode integer
      ---@field public main_task ai.Task
      ---@field public background_node ai.FlowNode
         local class = SimpleClass()
@@ -1029,8 +1029,8 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.UeWait :ai.Task 
-     ---@field public wait_time float
-     ---@field public random_deviation float
+     ---@field public wait_time number
+     ---@field public random_deviation number
         local class = SimpleClass()
         class._id = -512994101
         class['_type_'] = 'ai.UeWait'
@@ -1074,7 +1074,7 @@ local function InitTypes(methods)
     do
     ---@class ai.MoveToTarget :ai.Task 
      ---@field public target_actor_key string
-     ---@field public acceptable_radius float
+     ---@field public acceptable_radius number
         local class = SimpleClass()
         class._id = 514987779
         class['_type_'] = 'ai.MoveToTarget'
@@ -1120,7 +1120,7 @@ local function InitTypes(methods)
     do
     ---@class ai.MoveToRandomLocation :ai.Task 
      ---@field public origin_position_key string
-     ---@field public radius float
+     ---@field public radius number
         local class = SimpleClass()
         class._id = -2140042998
         class['_type_'] = 'ai.MoveToRandomLocation'
@@ -1142,8 +1142,8 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.MoveToLocation :ai.Task 
-     ---@field public location vector3
-     ---@field public acceptable_radius float
+     ---@field public location {x:number,y:number,z:number}
+     ---@field public acceptable_radius number
         local class = SimpleClass()
         class._id = -969953113
         class['_type_'] = 'ai.MoveToLocation'
@@ -1377,7 +1377,7 @@ local function InitTypes(methods)
     do
     ---@class blueprint.EnumField 
      ---@field public name string
-     ---@field public value int
+     ---@field public value integer
         local class = SimpleClass()
         class._id = 1830049470
         class['_type_'] = 'blueprint.EnumField'
@@ -1394,7 +1394,7 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.DropInfo 
-     ---@field public id int
+     ---@field public id integer
      ---@field public desc string
      ---@field public client_show_items bonus.ShowItemInfo[]
      ---@field public bonus bonus.Bonus
@@ -1416,8 +1416,8 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.ShowItemInfo 
-     ---@field public item_id int
-     ---@field public item_num long
+     ---@field public item_id integer
+     ---@field public item_num integer
         local class = SimpleClass()
         class._id = -1496363507
         class['_type_'] = 'bonus.ShowItemInfo'
@@ -1446,7 +1446,7 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.OneItem :bonus.Bonus 
-     ---@field public item_id int
+     ---@field public item_id integer
         local class = SimpleClass()
         class._id = -1649658966
         class['_type_'] = 'bonus.OneItem'
@@ -1462,7 +1462,7 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.OneItems :bonus.Bonus 
-     ---@field public items int[]
+     ---@field public items integer[]
         local class = SimpleClass()
         class._id = 400179721
         class['_type_'] = 'bonus.OneItems'
@@ -1478,8 +1478,8 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.Item :bonus.Bonus 
-     ---@field public item_id int
-     ---@field public amount int
+     ---@field public item_id integer
+     ---@field public amount integer
         local class = SimpleClass()
         class._id = 1689011106
         class['_type_'] = 'bonus.Item'
@@ -1512,7 +1512,7 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.CoefficientItem :bonus.Bonus 
-     ---@field public bonus_id int
+     ---@field public bonus_id integer
      ---@field public bonus_list bonus.Items
         local class = SimpleClass()
         class._id = -229470727
@@ -1546,9 +1546,9 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.WeightItemInfo 
-     ---@field public item_id int
-     ---@field public num int
-     ---@field public weight int
+     ---@field public item_id integer
+     ---@field public num integer
+     ---@field public weight integer
         local class = SimpleClass()
         class._id = 1239999176
         class['_type_'] = 'bonus.WeightItemInfo'
@@ -1582,9 +1582,9 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.ProbabilityItemInfo 
-     ---@field public item_id int
-     ---@field public num int
-     ---@field public probability float
+     ---@field public item_id integer
+     ---@field public num integer
+     ---@field public probability number
         local class = SimpleClass()
         class._id = 1547874631
         class['_type_'] = 'bonus.ProbabilityItemInfo'
@@ -1635,7 +1635,7 @@ local function InitTypes(methods)
     do
     ---@class bonus.ProbabilityBonusInfo 
      ---@field public bonus bonus.Bonus
-     ---@field public probability float
+     ---@field public probability number
         local class = SimpleClass()
         class._id = 46960455
         class['_type_'] = 'bonus.ProbabilityBonusInfo'
@@ -1669,7 +1669,7 @@ local function InitTypes(methods)
     do
     ---@class bonus.WeightBonusInfo 
      ---@field public bonus bonus.Bonus
-     ---@field public weight int
+     ---@field public weight integer
         local class = SimpleClass()
         class._id = -907244058
         class['_type_'] = 'bonus.WeightBonusInfo'
@@ -1686,7 +1686,7 @@ local function InitTypes(methods)
     end
     do
     ---@class bonus.DropBonus :bonus.Bonus 
-     ---@field public id int
+     ---@field public id integer
         local class = SimpleClass()
         class._id = 1959868225
         class['_type_'] = 'bonus.DropBonus'
@@ -1702,27 +1702,27 @@ local function InitTypes(methods)
     end
     do
     ---@class common.GlobalConfig 
-     ---@field public bag_capacity int
-     ---@field public bag_capacity_special int
-     ---@field public bag_temp_expendable_capacity int
-     ---@field public bag_temp_tool_capacity int
-     ---@field public bag_init_capacity int
-     ---@field public quick_bag_capacity int
-     ---@field public cloth_bag_capacity int
-     ---@field public cloth_bag_init_capacity int
-     ---@field public cloth_bag_capacity_special int
-     ---@field public bag_init_items_drop_id int
-     ---@field public mail_box_capacity int
-     ---@field public damage_param_c float
-     ---@field public damage_param_e float
-     ---@field public damage_param_f float
-     ---@field public damage_param_d float
-     ---@field public role_speed float
-     ---@field public monster_speed float
-     ---@field public init_energy int
-     ---@field public init_viality int
-     ---@field public max_viality int
-     ---@field public per_viality_recovery_time int
+     ---@field public bag_capacity integer
+     ---@field public bag_capacity_special integer
+     ---@field public bag_temp_expendable_capacity integer
+     ---@field public bag_temp_tool_capacity integer
+     ---@field public bag_init_capacity integer
+     ---@field public quick_bag_capacity integer
+     ---@field public cloth_bag_capacity integer
+     ---@field public cloth_bag_init_capacity integer
+     ---@field public cloth_bag_capacity_special integer
+     ---@field public bag_init_items_drop_id integer
+     ---@field public mail_box_capacity integer
+     ---@field public damage_param_c number
+     ---@field public damage_param_e number
+     ---@field public damage_param_f number
+     ---@field public damage_param_d number
+     ---@field public role_speed number
+     ---@field public monster_speed number
+     ---@field public init_energy integer
+     ---@field public init_viality integer
+     ---@field public max_viality integer
+     ---@field public per_viality_recovery_time integer
         local class = SimpleClass()
         class._id = -848234488
         class['_type_'] = 'common.GlobalConfig'
@@ -1805,7 +1805,7 @@ local function InitTypes(methods)
     do
     ---@class error.ErrorStyleMsgbox :error.ErrorStyle 
      ---@field public btn_name string
-     ---@field public operation error.EOperation
+     ---@field public operation integer
         local class = SimpleClass()
         class._id = -1920482343
         class['_type_'] = 'error.ErrorStyleMsgbox'
@@ -1856,7 +1856,7 @@ local function InitTypes(methods)
     end
     do
     ---@class error.CodeInfo 
-     ---@field public code error.EErrorCode
+     ---@field public code integer
      ---@field public key string
         local class = SimpleClass()
         class._id = -1942481535
@@ -1874,27 +1874,27 @@ local function InitTypes(methods)
     end
     do
     ---@class item.Item 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
-     ---@field public major_type item.EMajorType
-     ---@field public minor_type item.EMinorType
-     ---@field public max_pile_num int
-     ---@field public quality item.EItemQuality
+     ---@field public major_type integer
+     ---@field public minor_type integer
+     ---@field public max_pile_num integer
+     ---@field public quality integer
      ---@field public icon string
      ---@field public icon_backgroud string
      ---@field public icon_mask string
      ---@field public desc string
-     ---@field public show_order int
+     ---@field public show_order integer
      ---@field public quantifier string
      ---@field public show_in_bag bool
-     ---@field public min_show_level int
+     ---@field public min_show_level integer
      ---@field public batch_usable bool
-     ---@field public progress_time_when_use float
+     ---@field public progress_time_when_use number
      ---@field public show_hint_when_use bool
      ---@field public droppable bool
-     ---@field public price int
-     ---@field public use_type item.EUseType
-     ---@field public level_up_id int
+     ---@field public price integer
+     ---@field public use_type integer
+     ---@field public level_up_id integer
         local class = SimpleClass()
         class._id = 2107285806
         class['_type_'] = 'item.Item'
@@ -1930,8 +1930,8 @@ local function InitTypes(methods)
     end
     do
     ---@class item.ItemFunction 
-     ---@field public minor_type item.EMinorType
-     ---@field public func_type item.EItemFunctionType
+     ---@field public minor_type integer
+     ---@field public func_type integer
      ---@field public method string
      ---@field public close_bag_ui bool
         local class = SimpleClass()
@@ -1952,7 +1952,7 @@ local function InitTypes(methods)
     end
     do
     ---@class item.ItemExtra 
-     ---@field public id int
+     ---@field public id integer
         local class = SimpleClass()
         class._id = 23433090
         class['_type_'] = 'item.ItemExtra'
@@ -1965,10 +1965,10 @@ local function InitTypes(methods)
     end
     do
     ---@class item.TreasureBox :item.ItemExtra 
-     ---@field public key_item_id int
+     ---@field public key_item_id integer
      ---@field public open_level condition.MinLevel
      ---@field public use_on_obtain bool
-     ---@field public drop_ids int[]
+     ---@field public drop_ids integer[]
      ---@field public choose_list item.ChooseOneBonus[]
         local class = SimpleClass()
         class._id = 1494222369
@@ -2018,8 +2018,8 @@ local function InitTypes(methods)
     end
     do
     ---@class common.DateTimeRange 
-     ---@field public start_time int
-     ---@field public end_time int
+     ---@field public start_time integer
+     ---@field public end_time integer
         local class = SimpleClass()
         class._id = 1642200959
         class['_type_'] = 'common.DateTimeRange'
@@ -2076,7 +2076,7 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.GenderLimit :condition.BoolRoleCondition 
-     ---@field public gender role.EGenderType
+     ---@field public gender integer
         local class = SimpleClass()
         class._id = 103675143
         class['_type_'] = 'condition.GenderLimit'
@@ -2092,7 +2092,7 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.MinLevel :condition.BoolRoleCondition 
-     ---@field public level int
+     ---@field public level integer
         local class = SimpleClass()
         class._id = -1075273755
         class['_type_'] = 'condition.MinLevel'
@@ -2108,7 +2108,7 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.MaxLevel :condition.BoolRoleCondition 
-     ---@field public level int
+     ---@field public level integer
         local class = SimpleClass()
         class._id = 700922899
         class['_type_'] = 'condition.MaxLevel'
@@ -2124,16 +2124,16 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.MinMaxLevel :condition.BoolRoleCondition 
-     ---@field public min int
-     ---@field public max int
+     ---@field public min_level integer
+     ---@field public max_level integer
         local class = SimpleClass()
         class._id = 907499647
         class['_type_'] = 'condition.MinMaxLevel'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
-            min = readInt(bs),
-            max = readInt(bs),
+            min_level = readInt(bs),
+            max_level = readInt(bs),
             }
             setmetatable(o, class)
             return o
@@ -2142,8 +2142,8 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.ClothesPropertyScoreGreaterThan :condition.BoolRoleCondition 
-     ---@field public prop item.EClothesPropertyType
-     ---@field public value int
+     ---@field public prop integer
+     ---@field public value integer
         local class = SimpleClass()
         class._id = 696630835
         class['_type_'] = 'condition.ClothesPropertyScoreGreaterThan'
@@ -2160,8 +2160,8 @@ local function InitTypes(methods)
     end
     do
     ---@class condition.ContainsItem :condition.RoleCondition 
-     ---@field public item_id int
-     ---@field public num int
+     ---@field public item_id integer
+     ---@field public num integer
      ---@field public reverse bool
         local class = SimpleClass()
         class._id = 1961145317
@@ -2180,7 +2180,7 @@ local function InitTypes(methods)
     end
     do
     ---@class item.ChooseOneBonus 
-     ---@field public drop_id int
+     ---@field public drop_id integer
      ---@field public is_unique bool
         local class = SimpleClass()
         class._id = 228058347
@@ -2198,7 +2198,7 @@ local function InitTypes(methods)
     end
     do
     ---@class item.InteractionItem :item.ItemExtra 
-     ---@field public attack_num int
+     ---@field public attack_num integer
      ---@field public holding_static_mesh string
      ---@field public holding_static_mesh_mat string
         local class = SimpleClass()
@@ -2219,10 +2219,10 @@ local function InitTypes(methods)
     end
     do
     ---@class item.Clothes :item.ItemExtra 
-     ---@field public attack int
-     ---@field public hp long
-     ---@field public energy_limit int
-     ---@field public energy_resume int
+     ---@field public attack integer
+     ---@field public hp integer
+     ---@field public energy_limit integer
+     ---@field public energy_resume integer
         local class = SimpleClass()
         class._id = 1659907149
         class['_type_'] = 'item.Clothes'
@@ -2242,7 +2242,7 @@ local function InitTypes(methods)
     end
     do
     ---@class item.DesignDrawing :item.ItemExtra 
-     ---@field public learn_component_id int[]
+     ---@field public learn_component_id integer[]
         local class = SimpleClass()
         class._id = -1679179579
         class['_type_'] = 'item.DesignDrawing'
@@ -2288,8 +2288,8 @@ local function InitTypes(methods)
     end
     do
     ---@class cost.CostCurrency :cost.Cost 
-     ---@field public type item.ECurrencyType
-     ---@field public num int
+     ---@field public type integer
+     ---@field public num integer
         local class = SimpleClass()
         class._id = 911838111
         class['_type_'] = 'cost.CostCurrency'
@@ -2322,7 +2322,7 @@ local function InitTypes(methods)
     end
     do
     ---@class cost.CostOneItem :cost.Cost 
-     ---@field public item_id int
+     ---@field public item_id integer
         local class = SimpleClass()
         class._id = -1033587381
         class['_type_'] = 'cost.CostOneItem'
@@ -2338,8 +2338,8 @@ local function InitTypes(methods)
     end
     do
     ---@class cost.CostItem :cost.Cost 
-     ---@field public item_id int
-     ---@field public amount int
+     ---@field public item_id integer
+     ---@field public amount integer
         local class = SimpleClass()
         class._id = -1249440351
         class['_type_'] = 'cost.CostItem'
@@ -2372,7 +2372,7 @@ local function InitTypes(methods)
     end
     do
     ---@class l10n.L10NDemo 
-     ---@field public id int
+     ---@field public id integer
      ---@field public text string
         local class = SimpleClass()
         class._id = -331195887
@@ -2390,8 +2390,8 @@ local function InitTypes(methods)
     end
     do
     ---@class l10n.PatchDemo 
-     ---@field public id int
-     ---@field public value int
+     ---@field public id integer
+     ---@field public value integer
         local class = SimpleClass()
         class._id = -1707294656
         class['_type_'] = 'l10n.PatchDemo'
@@ -2408,11 +2408,11 @@ local function InitTypes(methods)
     end
     do
     ---@class mail.SystemMail 
-     ---@field public id int
+     ---@field public id integer
      ---@field public title string
      ---@field public sender string
      ---@field public content string
-     ---@field public award int[]
+     ---@field public award integer[]
         local class = SimpleClass()
         class._id = 1214073149
         class['_type_'] = 'mail.SystemMail'
@@ -2432,13 +2432,13 @@ local function InitTypes(methods)
     end
     do
     ---@class mail.GlobalMail 
-     ---@field public id int
+     ---@field public id integer
      ---@field public title string
      ---@field public sender string
      ---@field public content string
-     ---@field public award int[]
+     ---@field public award integer[]
      ---@field public all_server bool
-     ---@field public server_list int[]
+     ---@field public server_list integer[]
      ---@field public platform string
      ---@field public channel string
      ---@field public min_max_level condition.MinMaxLevel
@@ -2470,9 +2470,9 @@ local function InitTypes(methods)
     end
     do
     ---@class role.LevelExpAttr 
-     ---@field public level int
-     ---@field public need_exp long
-     ---@field public clothes_attrs int[]
+     ---@field public level integer
+     ---@field public need_exp integer
+     ---@field public clothes_attrs integer[]
         local class = SimpleClass()
         class._id = -1569837022
         class['_type_'] = 'role.LevelExpAttr'
@@ -2490,7 +2490,7 @@ local function InitTypes(methods)
     end
     do
     ---@class role.LevelBonus 
-     ---@field public id int
+     ---@field public id integer
      ---@field public distinct_bonus_infos role.DistinctBonusInfos[]
         local class = SimpleClass()
         class._id = -572269677
@@ -2508,7 +2508,7 @@ local function InitTypes(methods)
     end
     do
     ---@class role.DistinctBonusInfos 
-     ---@field public effective_level int
+     ---@field public effective_level integer
      ---@field public bonus_info role.BonusInfo[]
         local class = SimpleClass()
         class._id = -854361766
@@ -2526,8 +2526,8 @@ local function InitTypes(methods)
     end
     do
     ---@class role.BonusInfo 
-     ---@field public type item.ECurrencyType
-     ---@field public coefficient float
+     ---@field public type integer
+     ---@field public coefficient number
         local class = SimpleClass()
         class._id = -1354421803
         class['_type_'] = 'role.BonusInfo'
@@ -2544,7 +2544,7 @@ local function InitTypes(methods)
     end
     do
     ---@class tag.TestTag 
-     ---@field public id int
+     ---@field public id integer
      ---@field public value string
         local class = SimpleClass()
         class._id = 1742933812
@@ -2562,29 +2562,29 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoType2 
-     ---@field public x4 int
+     ---@field public x4 integer
      ---@field public x1 bool
-     ---@field public x2 byte
-     ---@field public x3 short
-     ---@field public x5 long
-     ---@field public x6 float
-     ---@field public x7 double
-     ---@field public x8_0 short
-     ---@field public x8 int
-     ---@field public x9 long
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x7 number
+     ---@field public x8_0 integer
+     ---@field public x8 integer
+     ---@field public x9 integer
      ---@field public x10 string
      ---@field public x12 test.DemoType1
-     ---@field public x13 test.DemoEnum
+     ---@field public x13 integer
      ---@field public x14 test.DemoDynamic
      ---@field public s1 string
-     ---@field public v2 vector2
-     ---@field public v3 vector3
-     ---@field public v4 vector4
-     ---@field public t1 int
-     ---@field public k1 int[]
-     ---@field public k2 int[]
-     ---@field public k5 int[]
-     ---@field public k8 table<int,int>
+     ---@field public v2 {x:number,y:number}
+     ---@field public v3 {x:number,y:number,z:number}
+     ---@field public v4 {x:number,y:number,z:number,w:number}
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k5 integer[]
+     ---@field public k8 table<integer,integer>
      ---@field public k9 test.DemoE2[]
      ---@field public k15 test.DemoDynamic[]
         local class = SimpleClass()
@@ -2626,7 +2626,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoType1 
-     ---@field public x1 int
+     ---@field public x1 integer
         local class = SimpleClass()
         class._id = -367048296
         class['_type_'] = 'test.DemoType1'
@@ -2642,7 +2642,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoDynamic 
-     ---@field public x1 int
+     ---@field public x1 integer
         local class = SimpleClass()
         class._id = -1863156384
         class['_type_'] = 'test.DemoDynamic'
@@ -2655,7 +2655,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoD2 :test.DemoDynamic 
-     ---@field public x2 int
+     ---@field public x2 integer
         local class = SimpleClass()
         class._id = -2138341747
         class['_type_'] = 'test.DemoD2'
@@ -2672,7 +2672,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoD3 :test.DemoDynamic 
-     ---@field public x3 int
+     ---@field public x3 integer
         local class = SimpleClass()
         class._id = -2138341746
         class['_type_'] = 'test.DemoD3'
@@ -2685,7 +2685,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoE1 :test.DemoD3 
-     ---@field public x4 int
+     ---@field public x4 integer
         local class = SimpleClass()
         class._id = -2138341717
         class['_type_'] = 'test.DemoE1'
@@ -2703,7 +2703,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.login.RoleInfo :test.DemoD3 
-     ---@field public role_id long
+     ---@field public role_id integer
         local class = SimpleClass()
         class._id = -989153243
         class['_type_'] = 'test.login.RoleInfo'
@@ -2738,8 +2738,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DateTimeRange 
-     ---@field public start_time int
-     ---@field public end_time int
+     ---@field public start_time integer
+     ---@field public end_time integer
         local class = SimpleClass()
         class._id = 495315430
         class['_type_'] = 'test.DateTimeRange'
@@ -2756,7 +2756,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoE2 
-     ---@field public y1 int
+     ---@field public y1 integer
      ---@field public y2 bool
         local class = SimpleClass()
         class._id = -2138341716
@@ -2774,7 +2774,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoSingletonType 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
      ---@field public date test.DemoDynamic
         local class = SimpleClass()
@@ -2794,8 +2794,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.NotIndexList 
-     ---@field public x int
-     ---@field public y int
+     ---@field public x integer
+     ---@field public y integer
         local class = SimpleClass()
         class._id = -50446599
         class['_type_'] = 'test.NotIndexList'
@@ -2812,10 +2812,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiUnionIndexList 
-     ---@field public id1 int
-     ---@field public id2 long
+     ---@field public id1 integer
+     ---@field public id2 integer
      ---@field public id3 string
-     ---@field public num int
+     ---@field public num integer
      ---@field public desc string
         local class = SimpleClass()
         class._id = 1966847134
@@ -2836,10 +2836,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiIndexList 
-     ---@field public id1 int
-     ---@field public id2 long
+     ---@field public id1 integer
+     ---@field public id2 integer
      ---@field public id3 string
-     ---@field public num int
+     ---@field public num integer
      ---@field public desc string
         local class = SimpleClass()
         class._id = 2016237651
@@ -2860,15 +2860,15 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiRowRecord 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
      ---@field public one_rows test.MultiRowType1[]
      ---@field public multi_rows1 test.MultiRowType1[]
      ---@field public multi_rows2 test.MultiRowType1[]
-     ---@field public multi_rows4 table<int,test.MultiRowType2>
+     ---@field public multi_rows4 table<integer,test.MultiRowType2>
      ---@field public multi_rows5 test.MultiRowType3[]
-     ---@field public multi_rows6 table<int,test.MultiRowType2>
-     ---@field public multi_rows7 table<int,int>
+     ---@field public multi_rows6 table<integer,test.MultiRowType2>
+     ---@field public multi_rows7 table<integer,integer>
         local class = SimpleClass()
         class._id = -501249394
         class['_type_'] = 'test.MultiRowRecord'
@@ -2892,8 +2892,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiRowType1 
-     ---@field public id int
-     ---@field public x int
+     ---@field public id integer
+     ---@field public x integer
         local class = SimpleClass()
         class._id = 540474970
         class['_type_'] = 'test.MultiRowType1'
@@ -2910,9 +2910,9 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiRowType2 
-     ---@field public id int
-     ---@field public x int
-     ---@field public y float
+     ---@field public id integer
+     ---@field public x integer
+     ---@field public y number
         local class = SimpleClass()
         class._id = 540474971
         class['_type_'] = 'test.MultiRowType2'
@@ -2930,7 +2930,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiRowType3 
-     ---@field public id int
+     ---@field public id integer
      ---@field public items test.MultiRowType1[]
         local class = SimpleClass()
         class._id = 540474972
@@ -2948,7 +2948,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestMultiColumn 
-     ---@field public id int
+     ---@field public id integer
      ---@field public a test.Foo
      ---@field public b test.Foo
      ---@field public c test.Foo
@@ -2970,9 +2970,9 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Foo 
-     ---@field public y1 int
-     ---@field public y2 int
-     ---@field public y3 int
+     ---@field public y1 integer
+     ---@field public y2 integer
+     ---@field public y3 integer
         local class = SimpleClass()
         class._id = -1147950774
         class['_type_'] = 'test.Foo'
@@ -2990,7 +2990,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.MultiRowTitle 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
      ---@field public x1 test.H1
      ---@field public x2_0 test.H2
@@ -3019,7 +3019,7 @@ local function InitTypes(methods)
     do
     ---@class test.H1 
      ---@field public y2 test.H2
-     ---@field public y3 int
+     ---@field public y3 integer
         local class = SimpleClass()
         class._id = -1422503995
         class['_type_'] = 'test.H1'
@@ -3036,8 +3036,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.H2 
-     ---@field public z2 int
-     ---@field public z3 int
+     ---@field public z2 integer
+     ---@field public z3 integer
         local class = SimpleClass()
         class._id = -1422503994
         class['_type_'] = 'test.H2'
@@ -3054,9 +3054,9 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestNull 
-     ---@field public id int
-     ---@field public x1 int
-     ---@field public x2 test.DemoEnum
+     ---@field public id integer
+     ---@field public x1 integer
+     ---@field public x2 integer
      ---@field public x3 test.DemoType1
      ---@field public x4 test.DemoDynamic
      ---@field public s1 string
@@ -3083,18 +3083,18 @@ local function InitTypes(methods)
     do
     ---@class test.DemoPrimitiveTypesTable 
      ---@field public x1 bool
-     ---@field public x2 byte
-     ---@field public x3 short
-     ---@field public x4 int
-     ---@field public x5 long
-     ---@field public x6 float
-     ---@field public x7 double
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x7 number
      ---@field public s1 string
      ---@field public s2 string
-     ---@field public v2 vector2
-     ---@field public v3 vector3
-     ---@field public v4 vector4
-     ---@field public t1 int
+     ---@field public v2 {x:number,y:number}
+     ---@field public v3 {x:number,y:number,z:number}
+     ---@field public v4 {x:number,y:number,z:number,w:number}
+     ---@field public t1 integer
         local class = SimpleClass()
         class._id = -370934083
         class['_type_'] = 'test.DemoPrimitiveTypesTable'
@@ -3122,7 +3122,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestString 
-     ---@field public id int
+     ---@field public id integer
      ---@field public s1 string
      ---@field public cs1 test.CompactString
      ---@field public cs2 test.CompactString
@@ -3144,7 +3144,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.CompactString 
-     ---@field public id int
+     ---@field public id integer
      ---@field public s2 string
      ---@field public s3 string
         local class = SimpleClass()
@@ -3164,11 +3164,11 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoGroup 
-     ---@field public id int
-     ---@field public x1 int
-     ---@field public x2 int
-     ---@field public x3 int
-     ---@field public x4 int
+     ---@field public id integer
+     ---@field public x1 integer
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
      ---@field public x5 test.InnerGroup
         local class = SimpleClass()
         class._id = -379263008
@@ -3190,10 +3190,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.InnerGroup 
-     ---@field public y1 int
-     ---@field public y2 int
-     ---@field public y3 int
-     ---@field public y4 int
+     ---@field public y1 integer
+     ---@field public y2 integer
+     ---@field public y3 integer
+     ---@field public y4 integer
         local class = SimpleClass()
         class._id = -587873083
         class['_type_'] = 'test.InnerGroup'
@@ -3212,8 +3212,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestGlobal 
-     ---@field public unlock_equip int
-     ---@field public unlock_hero int
+     ---@field public unlock_equip integer
+     ---@field public unlock_hero integer
         local class = SimpleClass()
         class._id = -12548655
         class['_type_'] = 'test.TestGlobal'
@@ -3230,8 +3230,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestBeRef 
-     ---@field public id int
-     ---@field public count int
+     ---@field public id integer
+     ---@field public count integer
         local class = SimpleClass()
         class._id = 1934403938
         class['_type_'] = 'test.TestBeRef'
@@ -3248,25 +3248,27 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestRef 
-     ---@field public id int
-     ---@field public x1 int
-     ---@field public x1_2 int
-     ---@field public x2 int
-     ---@field public x3 int
-     ---@field public a1 int[]
-     ---@field public a2 int[]
-     ---@field public b1 int[]
-     ---@field public b2 int[]
-     ---@field public c1 int[]
-     ---@field public c2 int[]
-     ---@field public d1 table<int,int>
-     ---@field public d2 table<int,int>
-     ---@field public e1 int
-     ---@field public e2 long
+     ---@field public id integer
+     ---@field public x1 integer
+     ---@field public x1_2 integer
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public a1 integer[]
+     ---@field public a2 integer[]
+     ---@field public b1 integer[]
+     ---@field public b2 integer[]
+     ---@field public c1 integer[]
+     ---@field public c2 integer[]
+     ---@field public d1 table<integer,integer>
+     ---@field public d2 table<integer,integer>
+     ---@field public e1 integer
+     ---@field public e2 integer
      ---@field public e3 string
-     ---@field public f1 int
-     ---@field public f2 long
+     ---@field public f1 integer
+     ---@field public f2 integer
      ---@field public f3 string
+     ---@field public s1 test.RefDynamicBase
         local class = SimpleClass()
         class._id = -543222491
         class['_type_'] = 'test.TestRef'
@@ -3278,6 +3280,7 @@ local function InitTypes(methods)
             x1_2 = readInt(bs),
             x2 = readInt(bs),
             x3 = readInt(bs),
+            x4 = readInt(bs),
             a1 = readArray(bs, readInt),
             a2 = readArray(bs, readInt),
             b1 = readList(bs, readInt),
@@ -3292,6 +3295,37 @@ local function InitTypes(methods)
             f1 = readInt(bs),
             f2 = readLong(bs),
             f3 = readString(bs),
+            s1 = beans['test.RefDynamicBase']._deserialize(bs),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.RefDynamicBase 
+     ---@field public x integer
+        local class = SimpleClass()
+        class._id = 772878873
+        class['_type_'] = 'test.RefDynamicBase'
+        local id2name = {  [1963260263] = 'test.RefBean',  }
+        class._deserialize = function(bs)
+            local id = readInt(bs)
+            return beans[id2name[id]]._deserialize(bs)
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.RefBean :test.RefDynamicBase 
+     ---@field public arr integer[]
+        local class = SimpleClass()
+        class._id = 1963260263
+        class['_type_'] = 'test.RefBean'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x = readInt(bs),
+            arr = readList(bs, readInt),
             }
             setmetatable(o, class)
             return o
@@ -3300,11 +3334,11 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestSize 
-     ---@field public id int
-     ---@field public x1 int[]
-     ---@field public x2 int[]
-     ---@field public x3 int[]
-     ---@field public x4 table<int,int>
+     ---@field public id integer
+     ---@field public x1 integer[]
+     ---@field public x2 integer[]
+     ---@field public x3 integer[]
+     ---@field public x4 table<integer,integer>
         local class = SimpleClass()
         class._id = 340006319
         class['_type_'] = 'test.TestSize'
@@ -3324,12 +3358,12 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestSet 
-     ---@field public id int
+     ---@field public id integer
      ---@field public x0 string
-     ---@field public x1 int[]
-     ---@field public x2 long[]
+     ---@field public x1 integer[]
+     ---@field public x2 integer[]
      ---@field public x3 string[]
-     ---@field public x4 test.DemoEnum[]
+     ---@field public x4 integer[]
         local class = SimpleClass()
         class._id = -543221516
         class['_type_'] = 'test.TestSet'
@@ -3350,7 +3384,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DetectEncoding 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
         local class = SimpleClass()
         class._id = -1154609646
@@ -3368,7 +3402,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.ItemBase 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
      ---@field public desc string
         local class = SimpleClass()
@@ -3383,8 +3417,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Item :test.ItemBase 
-     ---@field public num int
-     ---@field public price int
+     ---@field public num integer
+     ---@field public price integer
         local class = SimpleClass()
         class._id = -1226641649
         class['_type_'] = 'test.Item'
@@ -3404,8 +3438,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Equipment :test.ItemBase 
-     ---@field public attr test.DemoEnum
-     ---@field public value int
+     ---@field public attr integer
+     ---@field public value integer
         local class = SimpleClass()
         class._id = -76837102
         class['_type_'] = 'test.Equipment'
@@ -3425,7 +3459,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Decorator :test.ItemBase 
-     ---@field public duration int
+     ---@field public duration integer
         local class = SimpleClass()
         class._id = -625155649
         class['_type_'] = 'test.Decorator'
@@ -3444,20 +3478,20 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DefineFromExcel 
-     ---@field public id int
+     ---@field public id integer
      ---@field public x1 bool
-     ---@field public x5 long
-     ---@field public x6 float
-     ---@field public x8 int
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x8 integer
      ---@field public x10 string
-     ---@field public x13 test.ETestQuality
+     ---@field public x13 integer
      ---@field public x14 test.DemoDynamic
      ---@field public x15 test.Shape
-     ---@field public v2 vector2
-     ---@field public t1 int
-     ---@field public k1 int[]
-     ---@field public k2 int[]
-     ---@field public k8 table<int,int>
+     ---@field public v2 {x:number,y:number}
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k8 table<integer,integer>
      ---@field public k9 test.DemoE2[]
         local class = SimpleClass()
         class._id = 2100429878
@@ -3500,7 +3534,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Circle :Shape 
-     ---@field public radius float
+     ---@field public radius number
         local class = SimpleClass()
         class._id = 2131829196
         class['_type_'] = 'test.Circle'
@@ -3516,8 +3550,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test2.Rectangle :test.Shape 
-     ---@field public width float
-     ---@field public height float
+     ---@field public width number
+     ---@field public height number
         local class = SimpleClass()
         class._id = 694982337
         class['_type_'] = 'test2.Rectangle'
@@ -3534,10 +3568,12 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DefineFromExcelOne 
-     ---@field public unlock_equip int
-     ---@field public unlock_hero int
+     ---@field public unlock_equip integer
+     ---@field public unlock_hero integer
      ---@field public default_avatar string
      ---@field public default_item string
+     ---@field public e2 test.DemoE2
+     ---@field public icons string[]
         local class = SimpleClass()
         class._id = 528039504
         class['_type_'] = 'test.DefineFromExcelOne'
@@ -3548,6 +3584,8 @@ local function InitTypes(methods)
             unlock_hero = readInt(bs),
             default_avatar = readString(bs),
             default_item = readString(bs),
+            e2 = beans['test.DemoE2']._deserialize(bs),
+            icons = readList(bs, readString),
             }
             setmetatable(o, class)
             return o
@@ -3556,7 +3594,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestIndex 
-     ---@field public id int
+     ---@field public id integer
      ---@field public eles test.DemoType1[]
         local class = SimpleClass()
         class._id = 1941154020
@@ -3574,11 +3612,11 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestMap 
-     ---@field public id int
-     ---@field public x1 table<int,int>
-     ---@field public x2 table<long,int>
-     ---@field public x3 table<string,int>
-     ---@field public x4 table<test.DemoEnum,int>
+     ---@field public id integer
+     ---@field public x1 table<integer,integer>
+     ---@field public x2 table<integer,integer>
+     ---@field public x3 table<string,integer>
+     ---@field public x4 table<integer,integer>
         local class = SimpleClass()
         class._id = -543227410
         class['_type_'] = 'test.TestMap'
@@ -3598,21 +3636,21 @@ local function InitTypes(methods)
     end
     do
     ---@class test.ExcelFromJson 
-     ---@field public x4 int
+     ---@field public x4 integer
      ---@field public x1 bool
-     ---@field public x5 long
-     ---@field public x6 float
+     ---@field public x5 integer
+     ---@field public x6 number
      ---@field public s1 string
      ---@field public s2 string
-     ---@field public v2 vector2
-     ---@field public v3 vector3
-     ---@field public v4 vector4
-     ---@field public t1 int
+     ---@field public v2 {x:number,y:number}
+     ---@field public v3 {x:number,y:number,z:number}
+     ---@field public v4 {x:number,y:number,z:number,w:number}
+     ---@field public t1 integer
      ---@field public x12 test.DemoType1
-     ---@field public x13 test.DemoEnum
+     ---@field public x13 integer
      ---@field public x14 test.DemoDynamic
-     ---@field public k1 int[]
-     ---@field public k8 table<int,int>
+     ---@field public k1 integer[]
+     ---@field public k8 table<integer,integer>
      ---@field public k9 test.DemoE2[]
      ---@field public k15 test.DemoDynamic[]
         local class = SimpleClass()
@@ -3646,7 +3684,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.CompositeJsonTable1 
-     ---@field public id int
+     ---@field public id integer
      ---@field public x string
         local class = SimpleClass()
         class._id = 1566207894
@@ -3664,8 +3702,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.CompositeJsonTable2 
-     ---@field public id int
-     ---@field public y int
+     ---@field public id integer
+     ---@field public y integer
         local class = SimpleClass()
         class._id = 1566207895
         class['_type_'] = 'test.CompositeJsonTable2'
@@ -3682,8 +3720,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.CompositeJsonTable3 
-     ---@field public a int
-     ---@field public b int
+     ---@field public a integer
+     ---@field public b integer
         local class = SimpleClass()
         class._id = 1566207896
         class['_type_'] = 'test.CompositeJsonTable3'
@@ -3700,8 +3738,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.ExcelFromJsonMultiRow 
-     ---@field public id int
-     ---@field public x int
+     ---@field public id integer
+     ---@field public x integer
      ---@field public items test.TestRow[]
         local class = SimpleClass()
         class._id = 715335694
@@ -3720,11 +3758,11 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestRow 
-     ---@field public x int
+     ---@field public x integer
      ---@field public y bool
      ---@field public z string
      ---@field public a test.Test3
-     ---@field public b int[]
+     ---@field public b integer[]
         local class = SimpleClass()
         class._id = -543222164
         class['_type_'] = 'test.TestRow'
@@ -3744,8 +3782,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Test3 
-     ---@field public x int
-     ---@field public y int
+     ---@field public x integer
+     ---@field public y integer
         local class = SimpleClass()
         class._id = 638540133
         class['_type_'] = 'test.Test3'
@@ -3762,7 +3800,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestSep 
-     ---@field public id int
+     ---@field public id integer
      ---@field public x1 string
      ---@field public x2 test.SepBean1
      ---@field public x3 test.SepVector
@@ -3790,8 +3828,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.SepBean1 
-     ---@field public a int
-     ---@field public b int
+     ---@field public a integer
+     ---@field public b integer
      ---@field public c string
         local class = SimpleClass()
         class._id = -1534339393
@@ -3810,9 +3848,9 @@ local function InitTypes(methods)
     end
     do
     ---@class test.SepVector 
-     ---@field public x int
-     ---@field public y int
-     ---@field public z int
+     ---@field public x integer
+     ---@field public y integer
+     ---@field public z integer
         local class = SimpleClass()
         class._id = 252769477
         class['_type_'] = 'test.SepVector'
@@ -3830,13 +3868,13 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestScriptableObject 
-     ---@field public id int
+     ---@field public id integer
      ---@field public desc string
-     ---@field public rate float
-     ---@field public num int
-     ---@field public v2 vector2
-     ---@field public v3 vector3
-     ---@field public v4 vector4
+     ---@field public rate number
+     ---@field public num integer
+     ---@field public v2 {x:number,y:number}
+     ---@field public v3 {x:number,y:number,z:number}
+     ---@field public v4 {x:number,y:number,z:number,w:number}
         local class = SimpleClass()
         class._id = -1896814350
         class['_type_'] = 'test.TestScriptableObject'
@@ -3858,8 +3896,8 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestExternalType 
-     ---@field public id int
-     ---@field public audio_type test.AudioType
+     ---@field public id integer
+     ---@field public audio_type integer
      ---@field public color test.Color
         local class = SimpleClass()
         class._id = -990826157
@@ -3878,10 +3916,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.Color 
-     ---@field public r float
-     ---@field public g float
-     ---@field public b float
-     ---@field public a float
+     ---@field public r number
+     ---@field public g number
+     ---@field public b number
+     ---@field public a number
         local class = SimpleClass()
         class._id = 623131367
         class['_type_'] = 'test.Color'
@@ -3900,20 +3938,20 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DefineFromExcel2 
-     ---@field public id int
+     ---@field public id integer
      ---@field public x1 bool
-     ---@field public x5 long
-     ---@field public x6 float
-     ---@field public x8 int
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x8 integer
      ---@field public x10 string
-     ---@field public x13 test.ETestQuality
+     ---@field public x13 integer
      ---@field public x14 test.DemoDynamic
      ---@field public x15 test.Shape
-     ---@field public v2 vector2
-     ---@field public t1 int
-     ---@field public k1 int[]
-     ---@field public k2 int[]
-     ---@field public k8 table<int,int>
+     ---@field public v2 {x:number,y:number}
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k8 table<integer,integer>
      ---@field public k9 test.DemoE2[]
         local class = SimpleClass()
         class._id = 688816828
@@ -3944,10 +3982,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestExcelBean1 
-     ---@field public x1 int
+     ---@field public x1 integer
      ---@field public x2 string
-     ---@field public x3 int
-     ---@field public x4 float
+     ---@field public x3 integer
+     ---@field public x4 number
         local class = SimpleClass()
         class._id = -1738345160
         class['_type_'] = 'test.TestExcelBean1'
@@ -3966,10 +4004,10 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestDesc 
-     ---@field public id int
+     ---@field public id integer
      ---@field public name string
-     ---@field public a1 int
-     ---@field public a2 int
+     ---@field public a1 integer
+     ---@field public a2 integer
      ---@field public x1 test.H1
      ---@field public x2 test.H2[]
      ---@field public x3 test.H2[]
@@ -3986,6 +4024,62 @@ local function InitTypes(methods)
             x1 = beans['test.H1']._deserialize(bs),
             x2 = readList(bs, beans['test.H2']._deserialize),
             x3 = readArray(bs, beans['test.H2']._deserialize),
+            }
+            setmetatable(o, class)
+            return o
+        end
+        beans[class['_type_']] = class
+    end
+    do
+    ---@class test.TestStream 
+     ---@field public x1 bool
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x7 number
+     ---@field public x10 string
+     ---@field public x13 integer
+     ---@field public x14 test.DemoDynamic
+     ---@field public s1 string
+     ---@field public v2 {x:number,y:number}
+     ---@field public v3 {x:number,y:number,z:number}
+     ---@field public v4 {x:number,y:number,z:number,w:number}
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k5 integer[]
+     ---@field public k8 table<integer,integer>
+     ---@field public k9 test.DemoE2[]
+     ---@field public k15 test.DemoDynamic[]
+        local class = SimpleClass()
+        class._id = 338481582
+        class['_type_'] = 'test.TestStream'
+        local id2name = {  }
+        class._deserialize = function(bs)
+            local o = {
+            x1 = readBool(bs),
+            x2 = readByte(bs),
+            x3 = readShort(bs),
+            x4 = readInt(bs),
+            x5 = readLong(bs),
+            x6 = readFloat(bs),
+            x7 = readDouble(bs),
+            x10 = readString(bs),
+            x13 = readInt(bs),
+            x14 = beans['test.DemoDynamic']._deserialize(bs),
+            s1 = readString(bs) and readString(bs),
+            v2 = readVector2(bs),
+            v3 = readVector3(bs),
+            v4 = readVector4(bs),
+            t1 = readInt(bs),
+            k1 = readArray(bs, readInt),
+            k2 = readList(bs, readInt),
+            k5 = readSet(bs, readInt),
+            k8 = readMap(bs, readInt, readInt),
+            k9 = readList(bs, beans['test.DemoE2']._deserialize),
+            k15 = readArray(bs, beans['test.DemoDynamic']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -4051,7 +4145,8 @@ local function InitTypes(methods)
     { name='TbDemoGroupDefineFromExcel', file='test_tbdemogroupdefinefromexcel', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },
-    { name='TbTestDesc', file='test_tbtestdesc', mode='map', index='id', value_type='test.TestDesc' },
+    { name='TbTestDesc', file='test_tbtestdesc', mode='list', index='id,name', value_type='test.TestDesc' },
+    { name='TbTestStream', file='test_tbteststream', mode='map', index='x4', value_type='test.TestStream' },
     }
     return { enums = enums, beans = beans, tables = tables }
     end

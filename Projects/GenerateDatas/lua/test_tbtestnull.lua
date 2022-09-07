@@ -11,4 +11,5 @@ return
 [1] = {id=1,},
 [2] = {id=2,x1=1,x2=1,x3={x1=3,},x4={ _type_='DemoD2',x1=1,x2=2,},s1="asfasfasf",s2={key='/keyasf',text="asf"},},
 [3] = {id=3,s1="",s2={key='',text=""},},
+[4] = {id=4,s1="asfasfasf",s2={key='/keyasf',text="asf"},},
 }
