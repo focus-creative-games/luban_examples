@@ -549,12 +549,7 @@
         </mapper>
     </externaltype>
     
-    <bean name="TestExternalType">
-        <var name="id" type="int"/>
-        <var name="audio_type" type="AudioType"/>
-        <var name="color" type="Color"/>
-    </bean>
-    <table name="TbTestExternalType" value="TestExternalType" input="test/external_type.xlsx"/>
+    <table name="TbTestExternalType" value="TestExternalType" define_from_file="1" input="test/external_type.xlsx"/>
     
     <module name="login">
         支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。

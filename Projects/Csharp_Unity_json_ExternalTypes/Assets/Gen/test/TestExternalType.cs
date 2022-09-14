@@ -21,14 +21,18 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["audio_type"].IsNumber) { throw new SerializationException(); }  AudioType = (UnityEngine.AudioType)_json["audio_type"].AsInt; }
         { if(!_json["color"].IsObject) { throw new SerializationException(); }  Color = ExternalTypeUtil.NewFromCfgColor(test.Color.DeserializeColor(_json["color"]));  }
+        { var __json0 = _json["audio_types"]; if(!__json0.IsArray) { throw new SerializationException(); } AudioTypes = new System.Collections.Generic.List<UnityEngine.AudioType>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { UnityEngine.AudioType __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = (UnityEngine.AudioType)__e0.AsInt; }  AudioTypes.Add(__v0); }   }
+        { var __json0 = _json["colors"]; if(!__json0.IsArray) { throw new SerializationException(); } Colors = new System.Collections.Generic.List<UnityEngine.Color>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { UnityEngine.Color __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = ExternalTypeUtil.NewFromCfgColor(test.Color.DeserializeColor(__e0));  }  Colors.Add(__v0); }   }
         PostInit();
     }
 
-    public TestExternalType(int id, UnityEngine.AudioType audio_type, UnityEngine.Color color ) 
+    public TestExternalType(int id, UnityEngine.AudioType audio_type, UnityEngine.Color color, System.Collections.Generic.List<UnityEngine.AudioType> audio_types, System.Collections.Generic.List<UnityEngine.Color> colors ) 
     {
         this.Id = id;
         this.AudioType = audio_type;
         this.Color = color;
+        this.AudioTypes = audio_types;
+        this.Colors = colors;
         PostInit();
     }
 
@@ -40,6 +44,8 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
     public int Id { get; private set; }
     public UnityEngine.AudioType AudioType { get; private set; }
     public UnityEngine.Color Color { get; private set; }
+    public System.Collections.Generic.List<UnityEngine.AudioType> AudioTypes { get; private set; }
+    public System.Collections.Generic.List<UnityEngine.Color> Colors { get; private set; }
 
     public const int __ID__ = -990826157;
     public override int GetTypeId() => __ID__;
@@ -59,6 +65,8 @@ public sealed partial class TestExternalType :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "AudioType:" + AudioType + ","
         + "Color:" + Color + ","
+        + "AudioTypes:" + Bright.Common.StringUtil.CollectionToString(AudioTypes) + ","
+        + "Colors:" + Bright.Common.StringUtil.CollectionToString(Colors) + ","
         + "}";
     }
     
