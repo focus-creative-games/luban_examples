@@ -10,7 +10,8 @@
     <enum name="DemoFlag" flags="1">
         <var name="A" value="1"/>
         <var name="B" value="2"/>
-        <var name="D" value="A|B"/>
+        <var name="C" value="4"/>
+        <var name="D" value="8"/>
     </enum>
     
     <bean name="DemoType1">
