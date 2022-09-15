@@ -9,7 +9,7 @@ set CONF_ROOT=%WORKSPACE%\DesignerConfigs
  --input_data_dir %CONF_ROOT%\Datas ^
  --output_code_dir Assets/Lua/Gen ^
  --output_data_dir Assets/Lua/Data ^
- --gen_types data_lua ^
+ --gen_types code_lua_lua,data_lua ^
  -s all 
 
 pause
