@@ -312,8 +312,9 @@ local enums =
     ---@class test.DemoFlag
      ---@field public A integer
      ---@field public B integer
+     ---@field public C integer
      ---@field public D integer
-    ['test.DemoFlag'] = {   A=1,  B=2,  D=3,  };
+    ['test.DemoFlag'] = {   A=1,  B=2,  C=4,  D=8,  };
     ---@class test.ETestUeType
      ---@field public WHITE integer
      ---@field public BLACK integer
@@ -436,7 +437,7 @@ local function InitTypes(methods)
     ---@class ai.BlackboardKey 
      ---@field public name string
      ---@field public desc string
-     ---@field public is_static bool
+     ---@field public is_static boolean
      ---@field public type integer
      ---@field public type_class_name string
         local class = SimpleClass()
@@ -644,7 +645,7 @@ local function InitTypes(methods)
     do
     ---@class ai.UeLoop :ai.Decorator 
      ---@field public num_loops integer
-     ---@field public infinite_loop bool
+     ---@field public infinite_loop boolean
      ---@field public infinite_loop_timeout_time number
         local class = SimpleClass()
         class._id = -513308166
@@ -880,7 +881,7 @@ local function InitTypes(methods)
     ---@class ai.IsAtLocation :ai.Decorator 
      ---@field public acceptable_radius number
      ---@field public keyboard_key string
-     ---@field public inverse_condition bool
+     ---@field public inverse_condition boolean
         local class = SimpleClass()
         class._id = 1255972344
         class['_type_'] = 'ai.IsAtLocation'
@@ -904,7 +905,7 @@ local function InitTypes(methods)
      ---@field public actor1_key string
      ---@field public actor2_key string
      ---@field public distance number
-     ---@field public reverse_result bool
+     ---@field public reverse_result boolean
         local class = SimpleClass()
         class._id = -1207170283
         class['_type_'] = 'ai.DistanceLessThan'
@@ -1016,7 +1017,7 @@ local function InitTypes(methods)
     end
     do
     ---@class ai.Task :ai.FlowNode 
-     ---@field public ignore_restart_self bool
+     ---@field public ignore_restart_self boolean
         local class = SimpleClass()
         class._id = -1055314005
         class['_type_'] = 'ai.Task'
@@ -1204,7 +1205,7 @@ local function InitTypes(methods)
     ---@class blueprint.Method 
      ---@field public name string
      ---@field public desc string
-     ---@field public is_static bool
+     ---@field public is_static boolean
      ---@field public return_type string
      ---@field public parameters blueprint.ParamInfo[]
         local class = SimpleClass()
@@ -1221,7 +1222,7 @@ local function InitTypes(methods)
     ---@class blueprint.ParamInfo 
      ---@field public name string
      ---@field public type string
-     ---@field public is_ref bool
+     ---@field public is_ref boolean
         local class = SimpleClass()
         class._id = -729799392
         class['_type_'] = 'blueprint.ParamInfo'
@@ -1314,7 +1315,7 @@ local function InitTypes(methods)
     end
     do
     ---@class blueprint.NormalClazz :blueprint.Clazz 
-     ---@field public is_abstract bool
+     ---@field public is_abstract boolean
      ---@field public fields blueprint.Field[]
         local class = SimpleClass()
         class._id = -2073576778
@@ -1886,12 +1887,12 @@ local function InitTypes(methods)
      ---@field public desc string
      ---@field public show_order integer
      ---@field public quantifier string
-     ---@field public show_in_bag bool
+     ---@field public show_in_bag boolean
      ---@field public min_show_level integer
-     ---@field public batch_usable bool
+     ---@field public batch_usable boolean
      ---@field public progress_time_when_use number
-     ---@field public show_hint_when_use bool
-     ---@field public droppable bool
+     ---@field public show_hint_when_use boolean
+     ---@field public droppable boolean
      ---@field public price integer
      ---@field public use_type integer
      ---@field public level_up_id integer
@@ -1933,7 +1934,7 @@ local function InitTypes(methods)
      ---@field public minor_type integer
      ---@field public func_type integer
      ---@field public method string
-     ---@field public close_bag_ui bool
+     ---@field public close_bag_ui boolean
         local class = SimpleClass()
         class._id = 1205824294
         class['_type_'] = 'item.ItemFunction'
@@ -1967,7 +1968,7 @@ local function InitTypes(methods)
     ---@class item.TreasureBox :item.ItemExtra 
      ---@field public key_item_id integer
      ---@field public open_level condition.MinLevel
-     ---@field public use_on_obtain bool
+     ---@field public use_on_obtain boolean
      ---@field public drop_ids integer[]
      ---@field public choose_list item.ChooseOneBonus[]
         local class = SimpleClass()
@@ -2162,7 +2163,7 @@ local function InitTypes(methods)
     ---@class condition.ContainsItem :condition.RoleCondition 
      ---@field public item_id integer
      ---@field public num integer
-     ---@field public reverse bool
+     ---@field public reverse boolean
         local class = SimpleClass()
         class._id = 1961145317
         class['_type_'] = 'condition.ContainsItem'
@@ -2181,7 +2182,7 @@ local function InitTypes(methods)
     do
     ---@class item.ChooseOneBonus 
      ---@field public drop_id integer
-     ---@field public is_unique bool
+     ---@field public is_unique boolean
         local class = SimpleClass()
         class._id = 228058347
         class['_type_'] = 'item.ChooseOneBonus'
@@ -2437,7 +2438,7 @@ local function InitTypes(methods)
      ---@field public sender string
      ---@field public content string
      ---@field public award integer[]
-     ---@field public all_server bool
+     ---@field public all_server boolean
      ---@field public server_list integer[]
      ---@field public platform string
      ---@field public channel string
@@ -2563,7 +2564,7 @@ local function InitTypes(methods)
     do
     ---@class test.DemoType2 
      ---@field public x4 integer
-     ---@field public x1 bool
+     ---@field public x1 boolean
      ---@field public x2 integer
      ---@field public x3 integer
      ---@field public x5 integer
@@ -2757,7 +2758,7 @@ local function InitTypes(methods)
     do
     ---@class test.DemoE2 
      ---@field public y1 integer
-     ---@field public y2 bool
+     ---@field public y2 boolean
         local class = SimpleClass()
         class._id = -2138341716
         class['_type_'] = 'test.DemoE2'
@@ -3082,7 +3083,7 @@ local function InitTypes(methods)
     end
     do
     ---@class test.DemoPrimitiveTypesTable 
-     ---@field public x1 bool
+     ---@field public x1 boolean
      ---@field public x2 integer
      ---@field public x3 integer
      ---@field public x4 integer
@@ -3479,12 +3480,13 @@ local function InitTypes(methods)
     do
     ---@class test.DefineFromExcel 
      ---@field public id integer
-     ---@field public x1 bool
+     ---@field public x1 boolean
      ---@field public x5 integer
      ---@field public x6 number
      ---@field public x8 integer
      ---@field public x10 string
      ---@field public x13 integer
+     ---@field public x13_2 integer
      ---@field public x14 test.DemoDynamic
      ---@field public x15 test.Shape
      ---@field public v2 {x:number,y:number}
@@ -3506,6 +3508,7 @@ local function InitTypes(methods)
             x8 = readInt(bs),
             x10 = readString(bs),
             x13 = readInt(bs),
+            x13_2 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
             x15 = beans['test.Shape']._deserialize(bs),
             v2 = readVector2(bs),
@@ -3637,7 +3640,7 @@ local function InitTypes(methods)
     do
     ---@class test.ExcelFromJson 
      ---@field public x4 integer
-     ---@field public x1 bool
+     ---@field public x1 boolean
      ---@field public x5 integer
      ---@field public x6 number
      ---@field public s1 string
@@ -3759,7 +3762,7 @@ local function InitTypes(methods)
     do
     ---@class test.TestRow 
      ---@field public x integer
-     ---@field public y bool
+     ---@field public y boolean
      ---@field public z string
      ---@field public a test.Test3
      ---@field public b integer[]
@@ -3899,6 +3902,8 @@ local function InitTypes(methods)
      ---@field public id integer
      ---@field public audio_type integer
      ---@field public color test.Color
+     ---@field public audio_types integer[]
+     ---@field public colors test.Color[]
         local class = SimpleClass()
         class._id = -990826157
         class['_type_'] = 'test.TestExternalType'
@@ -3908,6 +3913,8 @@ local function InitTypes(methods)
             id = readInt(bs),
             audio_type = readInt(bs),
             color = beans['test.Color']._deserialize(bs),
+            audio_types = readList(bs, readInt),
+            colors = readList(bs, beans['test.Color']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -3939,12 +3946,13 @@ local function InitTypes(methods)
     do
     ---@class test.DefineFromExcel2 
      ---@field public id integer
-     ---@field public x1 bool
+     ---@field public x1 boolean
      ---@field public x5 integer
      ---@field public x6 number
      ---@field public x8 integer
      ---@field public x10 string
      ---@field public x13 integer
+     ---@field public x13_2 integer
      ---@field public x14 test.DemoDynamic
      ---@field public x15 test.Shape
      ---@field public v2 {x:number,y:number}
@@ -3966,6 +3974,7 @@ local function InitTypes(methods)
             x8 = readInt(bs),
             x10 = readString(bs),
             x13 = readInt(bs),
+            x13_2 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
             x15 = beans['test.Shape']._deserialize(bs),
             v2 = readVector2(bs),
@@ -4024,62 +4033,6 @@ local function InitTypes(methods)
             x1 = beans['test.H1']._deserialize(bs),
             x2 = readList(bs, beans['test.H2']._deserialize),
             x3 = readArray(bs, beans['test.H2']._deserialize),
-            }
-            setmetatable(o, class)
-            return o
-        end
-        beans[class['_type_']] = class
-    end
-    do
-    ---@class test.TestStream 
-     ---@field public x1 bool
-     ---@field public x2 integer
-     ---@field public x3 integer
-     ---@field public x4 integer
-     ---@field public x5 integer
-     ---@field public x6 number
-     ---@field public x7 number
-     ---@field public x10 string
-     ---@field public x13 integer
-     ---@field public x14 test.DemoDynamic
-     ---@field public s1 string
-     ---@field public v2 {x:number,y:number}
-     ---@field public v3 {x:number,y:number,z:number}
-     ---@field public v4 {x:number,y:number,z:number,w:number}
-     ---@field public t1 integer
-     ---@field public k1 integer[]
-     ---@field public k2 integer[]
-     ---@field public k5 integer[]
-     ---@field public k8 table<integer,integer>
-     ---@field public k9 test.DemoE2[]
-     ---@field public k15 test.DemoDynamic[]
-        local class = SimpleClass()
-        class._id = 338481582
-        class['_type_'] = 'test.TestStream'
-        local id2name = {  }
-        class._deserialize = function(bs)
-            local o = {
-            x1 = readBool(bs),
-            x2 = readByte(bs),
-            x3 = readShort(bs),
-            x4 = readInt(bs),
-            x5 = readLong(bs),
-            x6 = readFloat(bs),
-            x7 = readDouble(bs),
-            x10 = readString(bs),
-            x13 = readInt(bs),
-            x14 = beans['test.DemoDynamic']._deserialize(bs),
-            s1 = readString(bs) and readString(bs),
-            v2 = readVector2(bs),
-            v3 = readVector3(bs),
-            v4 = readVector4(bs),
-            t1 = readInt(bs),
-            k1 = readArray(bs, readInt),
-            k2 = readList(bs, readInt),
-            k5 = readSet(bs, readInt),
-            k8 = readMap(bs, readInt, readInt),
-            k9 = readList(bs, beans['test.DemoE2']._deserialize),
-            k15 = readArray(bs, beans['test.DemoDynamic']._deserialize),
             }
             setmetatable(o, class)
             return o
@@ -4146,7 +4099,6 @@ local function InitTypes(methods)
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='test.DefineFromExcel2' },
     { name='TbTestExcelBean', file='test_tbtestexcelbean', mode='map', index='x1', value_type='test.TestExcelBean1' },
     { name='TbTestDesc', file='test_tbtestdesc', mode='list', index='id,name', value_type='test.TestDesc' },
-    { name='TbTestStream', file='test_tbteststream', mode='map', index='x4', value_type='test.TestStream' },
     }
     return { enums = enums, beans = beans, tables = tables }
     end
