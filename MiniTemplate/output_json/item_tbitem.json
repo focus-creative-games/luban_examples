@@ -59,7 +59,7 @@
     "desc": "初始上衣",
     "price": 100,
     "upgrade_to_item_id": 10003,
-    "batch_useable": false,
+    "batch_useable": true,
     "quality": 2,
     "exchange_stream": {
       "id": 10003,
@@ -86,7 +86,7 @@
     "desc": "初始下装",
     "price": 100,
     "upgrade_to_item_id": 10004,
-    "batch_useable": false,
+    "batch_useable": true,
     "quality": 2,
     "exchange_stream": {
       "id": 10004,
@@ -140,7 +140,7 @@
     "desc": "初始鞋子",
     "price": 100,
     "upgrade_to_item_id": 10006,
-    "batch_useable": false,
+    "batch_useable": true,
     "quality": 3,
     "exchange_stream": {
       "id": 10006,
