@@ -18,7 +18,7 @@ public final class TestRow {
         y = __json__.get("y").getAsBoolean();
         z = __json__.get("z").getAsString();
         a = new cfg.test.Test3(__json__.get("a").getAsJsonObject());
-        { com.google.gson.JsonArray _json0_ = __json__.get("b").getAsJsonArray(); b = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  b.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("b").getAsJsonArray(); b = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  b.add(_v0); }   }
     }
 
     public TestRow(int x, boolean y, String z, cfg.test.Test3 a, java.util.ArrayList<Integer> b ) {

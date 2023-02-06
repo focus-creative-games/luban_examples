@@ -18,9 +18,9 @@ public final class GlobalMail {
         title = __json__.get("title").getAsString();
         sender = __json__.get("sender").getAsString();
         content = __json__.get("content").getAsString();
-        { com.google.gson.JsonArray _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  award.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("award").getAsJsonArray(); award = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  award.add(_v0); }   }
         allServer = __json__.get("all_server").getAsBoolean();
-        { com.google.gson.JsonArray _json0_ = __json__.get("server_list").getAsJsonArray(); serverList = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  serverList.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("server_list").getAsJsonArray(); serverList = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  serverList.add(_v0); }   }
         platform = __json__.get("platform").getAsString();
         channel = __json__.get("channel").getAsString();
         minMaxLevel = new cfg.condition.MinMaxLevel(__json__.get("min_max_level").getAsJsonObject());
@@ -52,6 +52,7 @@ public final class GlobalMail {
     public final String sender;
     public final String content;
     public final java.util.ArrayList<Integer> award;
+    public java.util.ArrayList<cfg.bonus.DropInfo> award_Ref;
     public final boolean allServer;
     public final java.util.ArrayList<Integer> serverList;
     public final String platform;
@@ -62,6 +63,7 @@ public final class GlobalMail {
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
+        { cfg.bonus.TbDrop __table = (cfg.bonus.TbDrop)_tables.get("bonus.TbDrop"); this.award_Ref = new java.util.ArrayList<cfg.bonus.DropInfo>(); for(int __e : award) { this.award_Ref.add(__table.get(__e)); } }
         if (minMaxLevel != null) {minMaxLevel.resolve(_tables);}
         if (registerTime != null) {registerTime.resolve(_tables);}
         if (mailTime != null) {mailTime.resolve(_tables);}

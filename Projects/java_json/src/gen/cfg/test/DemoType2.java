@@ -32,16 +32,16 @@ public final class DemoType2 {
         { com.google.gson.JsonObject _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
         { com.google.gson.JsonObject _json0_ = __json__.get("v3").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  v3 = new bright.math.Vector3(__x, __y,__z); }
         { com.google.gson.JsonObject _json0_ = __json__.get("v4").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  float __w; __w = _json0_.get("w").getAsFloat(); v4 = new bright.math.Vector4(__x, __y, __z, __w); }
-        t1 = __json__.get("t1").getAsInt();
-        { com.google.gson.JsonArray _json0_ = __json__.get("k1").getAsJsonArray(); int _n = _json0_.size(); k1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k1[_index++] = __v; }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("k2").getAsJsonArray(); k2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k2.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("k5").getAsJsonArray(); k5 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  k5.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  k8.put(__k, __v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.DemoE2 __v;  __v = new cfg.test.DemoE2(__e.getAsJsonObject());  k9.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("k15").getAsJsonArray(); int _n = _json0_.size(); k15 = new cfg.test.DemoDynamic[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.test.DemoDynamic __v;  __v = cfg.test.DemoDynamic.deserializeDemoDynamic(__e.getAsJsonObject());  k15[_index++] = __v; }   }
+        t1 = __json__.get("t1").getAsLong();
+        { com.google.gson.JsonArray _json0_ = __json__.get("k1").getAsJsonArray(); int __n0 = _json0_.size(); k1 = new int[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { int __v0;  __v0 = __e0.getAsInt();  k1[__index0++] = __v0; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k2").getAsJsonArray(); k2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  k2.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k5").getAsJsonArray(); k5 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  k5.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _k0;  _k0 = _e0.getAsJsonArray().get(0).getAsInt(); int _v0;  _v0 = _e0.getAsJsonArray().get(1).getAsInt();  k8.put(_k0, _v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.DemoE2 _v0;  _v0 = new cfg.test.DemoE2(_e0.getAsJsonObject());  k9.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("k15").getAsJsonArray(); int __n0 = _json0_.size(); k15 = new cfg.test.DemoDynamic[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.test.DemoDynamic __v0;  __v0 = cfg.test.DemoDynamic.deserializeDemoDynamic(__e0.getAsJsonObject());  k15[__index0++] = __v0; }   }
     }
 
-    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
+    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, long t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x2 = x2;
@@ -91,11 +91,12 @@ public final class DemoType2 {
     public final bright.math.Vector2 v2;
     public final bright.math.Vector3 v3;
     public final bright.math.Vector4 v4;
-    public final int t1;
+    public final long t1;
     public final int[] k1;
     public final java.util.ArrayList<Integer> k2;
     public final java.util.HashSet<Integer> k5;
     public final java.util.HashMap<Integer, Integer> k8;
+    public java.util.HashMap<Integer, cfg.test.DemoType2> k8_Ref;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
     public final cfg.test.DemoDynamic[] k15;
 
@@ -103,6 +104,7 @@ public final class DemoType2 {
     public void resolve(java.util.HashMap<String, Object> _tables) {
         if (x12 != null) {x12.resolve(_tables);}
         if (x14 != null) {x14.resolve(_tables);}
+        { cfg.test.TbFullTypes __table = (cfg.test.TbFullTypes)_tables.get("test.TbFullTypes"); this.k8_Ref = new java.util.HashMap<Integer, cfg.test.DemoType2>(); for(java.util.Map.Entry<Integer, Integer> __e : k8.entrySet()) { int __eKey = __e.getKey(); int __eValue = __e.getValue(); this.k8_Ref.put(__eKey, __table.get(__eValue)); } }
         for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
         for(cfg.test.DemoDynamic _e : k15) { if (_e != null) _e.resolve(_tables); }
     }

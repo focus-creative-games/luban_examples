@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class CostItems extends cfg.cost.Cost {
     public CostItems(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("item_list").getAsJsonArray(); int _n = _json0_.size(); itemList = new cfg.cost.CostItem[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.cost.CostItem __v;  __v = new cfg.cost.CostItem(__e.getAsJsonObject());  itemList[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("item_list").getAsJsonArray(); int __n0 = _json0_.size(); itemList = new cfg.cost.CostItem[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.cost.CostItem __v0;  __v0 = new cfg.cost.CostItem(__e0.getAsJsonObject());  itemList[__index0++] = __v0; }   }
     }
 
     public CostItems(cfg.cost.CostItem[] item_list ) {

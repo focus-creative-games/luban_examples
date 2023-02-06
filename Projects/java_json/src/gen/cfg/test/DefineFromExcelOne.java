@@ -19,7 +19,7 @@ public final class DefineFromExcelOne {
         defaultAvatar = __json__.get("default_avatar").getAsString();
         defaultItem = __json__.get("default_item").getAsString();
         e2 = new cfg.test.DemoE2(__json__.get("e2").getAsJsonObject());
-        { com.google.gson.JsonArray _json0_ = __json__.get("icons").getAsJsonArray(); icons = new java.util.ArrayList<String>(_json0_.size()); for(JsonElement __e : _json0_) { String __v;  __v = __e.getAsString();  icons.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("icons").getAsJsonArray(); icons = new java.util.ArrayList<String>(_json0_.size()); for(JsonElement _e0 : _json0_) { String _v0;  _v0 = _e0.getAsString();  icons.add(_v0); }   }
     }
 
     public DefineFromExcelOne(int unlock_equip, int unlock_hero, String default_avatar, String default_item, cfg.test.DemoE2 e2, java.util.ArrayList<String> icons ) {

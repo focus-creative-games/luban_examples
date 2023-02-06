@@ -18,9 +18,9 @@ public final class TestSep {
         __json__.get("x1").getAsJsonObject().get("key").getAsString(); x1 = __json__.get("x1").getAsJsonObject().get("text").getAsString();
         x2 = new cfg.test.SepBean1(__json__.get("x2").getAsJsonObject());
         x3 = new cfg.test.SepVector(__json__.get("x3").getAsJsonObject());
-        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.ArrayList<cfg.test.SepVector>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.SepVector __v;  __v = new cfg.test.SepVector(__e.getAsJsonObject());  x4.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x5").getAsJsonArray(); x5 = new java.util.ArrayList<cfg.test.SepBean1>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.SepBean1 __v;  __v = new cfg.test.SepBean1(__e.getAsJsonObject());  x5.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x6").getAsJsonArray(); x6 = new java.util.ArrayList<cfg.test.SepBean1>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.SepBean1 __v;  __v = new cfg.test.SepBean1(__e.getAsJsonObject());  x6.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.ArrayList<cfg.test.SepVector>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.SepVector _v0;  _v0 = new cfg.test.SepVector(_e0.getAsJsonObject());  x4.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x5").getAsJsonArray(); x5 = new java.util.ArrayList<cfg.test.SepBean1>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.SepBean1 _v0;  _v0 = new cfg.test.SepBean1(_e0.getAsJsonObject());  x5.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x6").getAsJsonArray(); x6 = new java.util.ArrayList<cfg.test.SepBean1>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.SepBean1 _v0;  _v0 = new cfg.test.SepBean1(_e0.getAsJsonObject());  x6.add(_v0); }   }
     }
 
     public TestSep(int id, String x1, cfg.test.SepBean1 x2, cfg.test.SepVector x3, java.util.ArrayList<cfg.test.SepVector> x4, java.util.ArrayList<cfg.test.SepBean1> x5, java.util.ArrayList<cfg.test.SepBean1> x6 ) {

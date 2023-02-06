@@ -15,22 +15,22 @@ import com.google.gson.JsonObject;
 public final class MinMaxLevel extends cfg.condition.BoolRoleCondition {
     public MinMaxLevel(JsonObject __json__) { 
         super(__json__);
-        min = __json__.get("min").getAsInt();
-        max = __json__.get("max").getAsInt();
+        minLevel = __json__.get("min_level").getAsInt();
+        maxLevel = __json__.get("max_level").getAsInt();
     }
 
-    public MinMaxLevel(int min, int max ) {
+    public MinMaxLevel(int min_level, int max_level ) {
         super();
-        this.min = min;
-        this.max = max;
+        this.minLevel = min_level;
+        this.maxLevel = max_level;
     }
 
     public static MinMaxLevel deserializeMinMaxLevel(JsonObject __json__) {
         return new MinMaxLevel(__json__);
     }
 
-    public final int min;
-    public final int max;
+    public final int minLevel;
+    public final int maxLevel;
 
     public static final int __ID__ = 907499647;
 
@@ -45,8 +45,8 @@ public final class MinMaxLevel extends cfg.condition.BoolRoleCondition {
     @Override
     public String toString() {
         return "{ "
-        + "min:" + min + ","
-        + "max:" + max + ","
+        + "minLevel:" + minLevel + ","
+        + "maxLevel:" + maxLevel + ","
         + "}";
     }
 }

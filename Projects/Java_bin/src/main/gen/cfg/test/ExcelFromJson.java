@@ -22,7 +22,7 @@ public final class ExcelFromJson {
         v2 = _buf.readVector2();
         v3 = _buf.readVector3();
         v4 = _buf.readVector4();
-        t1 = _buf.readInt();
+        t1 = _buf.readLong();
         x12 = new cfg.test.DemoType1(_buf);
         x13 = _buf.readInt();
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
@@ -32,7 +32,7 @@ public final class ExcelFromJson {
         {int n = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[n];for(int i = 0 ; i < n ; i++) { cfg.test.DemoDynamic _e;_e = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); k15[i] = _e;}}
     }
 
-    public ExcelFromJson(int x4, boolean x1, long x5, float x6, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
+    public ExcelFromJson(int x4, boolean x1, long x5, float x6, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, long t1, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, int[] k1, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x5 = x5;
@@ -62,7 +62,7 @@ public final class ExcelFromJson {
     public final bright.math.Vector2 v2;
     public final bright.math.Vector3 v3;
     public final bright.math.Vector4 v4;
-    public final int t1;
+    public final long t1;
     public final cfg.test.DemoType1 x12;
     public final int x13;
     public final cfg.test.DemoDynamic x14;

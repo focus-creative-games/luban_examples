@@ -26,10 +26,10 @@ public final class DemoPrimitiveTypesTable {
         { com.google.gson.JsonObject _json0_ = __json__.get("v2").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); v2 = new bright.math.Vector2(__x, __y); }
         { com.google.gson.JsonObject _json0_ = __json__.get("v3").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  v3 = new bright.math.Vector3(__x, __y,__z); }
         { com.google.gson.JsonObject _json0_ = __json__.get("v4").getAsJsonObject(); float __x; __x = _json0_.get("x").getAsFloat(); float __y; __y = _json0_.get("y").getAsFloat(); float __z; __z = _json0_.get("z").getAsFloat();  float __w; __w = _json0_.get("w").getAsFloat(); v4 = new bright.math.Vector4(__x, __y, __z, __w); }
-        t1 = __json__.get("t1").getAsInt();
+        t1 = __json__.get("t1").getAsLong();
     }
 
-    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1 ) {
+    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, long t1 ) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
@@ -61,7 +61,7 @@ public final class DemoPrimitiveTypesTable {
     public final bright.math.Vector2 v2;
     public final bright.math.Vector3 v3;
     public final bright.math.Vector4 v4;
-    public final int t1;
+    public final long t1;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {

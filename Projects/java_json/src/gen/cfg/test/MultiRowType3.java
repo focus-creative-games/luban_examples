@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class MultiRowType3 {
     public MultiRowType3(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); items = new java.util.ArrayList<cfg.test.MultiRowType1>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.MultiRowType1 __v;  __v = new cfg.test.MultiRowType1(__e.getAsJsonObject());  items.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); items = new java.util.ArrayList<cfg.test.MultiRowType1>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.MultiRowType1 _v0;  _v0 = new cfg.test.MultiRowType1(_e0.getAsJsonObject());  items.add(_v0); }   }
     }
 
     public MultiRowType3(int id, java.util.ArrayList<cfg.test.MultiRowType1> items ) {

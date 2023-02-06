@@ -13,18 +13,18 @@ import bright.serialization.*;
 
 public final class DateTimeRange {
     public DateTimeRange(ByteBuf _buf) { 
-        if(_buf.readBool()){ startTime = _buf.readInt(); } else { startTime = null; }
-        if(_buf.readBool()){ endTime = _buf.readInt(); } else { endTime = null; }
+        if(_buf.readBool()){ startTime = _buf.readLong(); } else { startTime = null; }
+        if(_buf.readBool()){ endTime = _buf.readLong(); } else { endTime = null; }
     }
 
-    public DateTimeRange(Integer start_time, Integer end_time ) {
+    public DateTimeRange(Long start_time, Long end_time ) {
         this.startTime = start_time;
         this.endTime = end_time;
     }
 
 
-    public final Integer startTime;
-    public final Integer endTime;
+    public final Long startTime;
+    public final Long endTime;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {

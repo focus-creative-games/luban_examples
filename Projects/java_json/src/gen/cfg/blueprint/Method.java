@@ -18,7 +18,7 @@ public abstract class Method {
         desc = __json__.get("desc").getAsString();
         isStatic = __json__.get("is_static").getAsBoolean();
         returnType = __json__.get("return_type").getAsString();
-        { com.google.gson.JsonArray _json0_ = __json__.get("parameters").getAsJsonArray(); parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.blueprint.ParamInfo __v;  __v = new cfg.blueprint.ParamInfo(__e.getAsJsonObject());  parameters.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("parameters").getAsJsonArray(); parameters = new java.util.ArrayList<cfg.blueprint.ParamInfo>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.blueprint.ParamInfo _v0;  _v0 = new cfg.blueprint.ParamInfo(_e0.getAsJsonObject());  parameters.add(_v0); }   }
     }
 
     public Method(String name, String desc, boolean is_static, String return_type, java.util.ArrayList<cfg.blueprint.ParamInfo> parameters ) {

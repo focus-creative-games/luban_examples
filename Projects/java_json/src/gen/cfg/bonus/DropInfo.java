@@ -16,7 +16,7 @@ public final class DropInfo {
     public DropInfo(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         desc = __json__.get("desc").getAsString();
-        { com.google.gson.JsonArray _json0_ = __json__.get("client_show_items").getAsJsonArray(); clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.bonus.ShowItemInfo __v;  __v = new cfg.bonus.ShowItemInfo(__e.getAsJsonObject());  clientShowItems.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("client_show_items").getAsJsonArray(); clientShowItems = new java.util.ArrayList<cfg.bonus.ShowItemInfo>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.bonus.ShowItemInfo _v0;  _v0 = new cfg.bonus.ShowItemInfo(_e0.getAsJsonObject());  clientShowItems.add(_v0); }   }
         bonus = cfg.bonus.Bonus.deserializeBonus(__json__.get("bonus").getAsJsonObject());
     }
 

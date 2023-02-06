@@ -31,7 +31,7 @@ public final class DemoType2 {
         v2 = _buf.readVector2();
         v3 = _buf.readVector3();
         v4 = _buf.readVector4();
-        t1 = _buf.readInt();
+        t1 = _buf.readLong();
         {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k2 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k2.add(_e);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k5 = new java.util.HashSet<Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k5.add(_e);}}
@@ -40,7 +40,7 @@ public final class DemoType2 {
         {int n = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[n];for(int i = 0 ; i < n ; i++) { cfg.test.DemoDynamic _e;_e = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf); k15[i] = _e;}}
     }
 
-    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
+    public DemoType2(int x4, boolean x1, byte x2, short x3, long x5, float x6, double x7, short x8_0, int x8, long x9, String x10, cfg.test.DemoType1 x12, int x13, cfg.test.DemoDynamic x14, String s1, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, long t1, int[] k1, java.util.ArrayList<Integer> k2, java.util.HashSet<Integer> k5, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, cfg.test.DemoDynamic[] k15 ) {
         this.x4 = x4;
         this.x1 = x1;
         this.x2 = x2;
@@ -87,11 +87,12 @@ public final class DemoType2 {
     public final bright.math.Vector2 v2;
     public final bright.math.Vector3 v3;
     public final bright.math.Vector4 v4;
-    public final int t1;
+    public final long t1;
     public final int[] k1;
     public final java.util.ArrayList<Integer> k2;
     public final java.util.HashSet<Integer> k5;
     public final java.util.HashMap<Integer, Integer> k8;
+    public java.util.HashMap<Integer, cfg.test.DemoType2> k8_Ref;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
     public final cfg.test.DemoDynamic[] k15;
 
@@ -99,6 +100,7 @@ public final class DemoType2 {
     public void resolve(java.util.HashMap<String, Object> _tables) {
         if (x12 != null) {x12.resolve(_tables);}
         if (x14 != null) {x14.resolve(_tables);}
+        { cfg.test.TbFullTypes __table = (cfg.test.TbFullTypes)_tables.get("test.TbFullTypes"); this.k8_Ref = new java.util.HashMap<Integer, cfg.test.DemoType2>(); for(java.util.Map.Entry<Integer, Integer> __e : k8.entrySet()) { int __eKey = __e.getKey(); int __eValue = __e.getValue(); this.k8_Ref.put(__eKey, __table.get(__eValue)); } }
         for(cfg.test.DemoE2 _e : k9) { if (_e != null) _e.resolve(_tables); }
         for(cfg.test.DemoDynamic _e : k15) { if (_e != null) _e.resolve(_tables); }
     }

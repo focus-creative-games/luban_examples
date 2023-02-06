@@ -35,6 +35,7 @@ public final class TreasureBox extends cfg.item.ItemExtra {
     public final cfg.condition.MinLevel openLevel;
     public final boolean useOnObtain;
     public final java.util.ArrayList<Integer> dropIds;
+    public java.util.ArrayList<cfg.bonus.DropInfo> dropIds_Ref;
     public final java.util.ArrayList<cfg.item.ChooseOneBonus> chooseList;
 
     public static final int __ID__ = 1494222369;
@@ -46,6 +47,7 @@ public final class TreasureBox extends cfg.item.ItemExtra {
     public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
         if (openLevel != null) {openLevel.resolve(_tables);}
+        { cfg.bonus.TbDrop __table = (cfg.bonus.TbDrop)_tables.get("bonus.TbDrop"); this.dropIds_Ref = new java.util.ArrayList<cfg.bonus.DropInfo>(); for(int __e : dropIds) { this.dropIds_Ref.add(__table.get(__e)); } }
         for(cfg.item.ChooseOneBonus _e : chooseList) { if (_e != null) _e.resolve(_tables); }
     }
 

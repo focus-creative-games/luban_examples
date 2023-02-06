@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class Selector extends cfg.ai.ComposeNode {
     public Selector(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("children").getAsJsonArray(); children = new java.util.ArrayList<cfg.ai.FlowNode>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.FlowNode __v;  __v = cfg.ai.FlowNode.deserializeFlowNode(__e.getAsJsonObject());  children.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("children").getAsJsonArray(); children = new java.util.ArrayList<cfg.ai.FlowNode>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.ai.FlowNode _v0;  _v0 = cfg.ai.FlowNode.deserializeFlowNode(_e0.getAsJsonObject());  children.add(_v0); }   }
     }
 
     public Selector(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services, java.util.ArrayList<cfg.ai.FlowNode> children ) {

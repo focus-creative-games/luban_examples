@@ -15,10 +15,10 @@ import com.google.gson.JsonObject;
 public final class TestSize {
     public TestSize(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
-        { com.google.gson.JsonArray _json0_ = __json__.get("x1").getAsJsonArray(); int _n = _json0_.size(); x1 = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  x1[_index++] = __v; }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  x2.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  x3.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __k;  __k = __e.getAsJsonArray().get(0).getAsInt(); int __v;  __v = __e.getAsJsonArray().get(1).getAsInt();  x4.put(__k, __v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x1").getAsJsonArray(); int __n0 = _json0_.size(); x1 = new int[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { int __v0;  __v0 = __e0.getAsInt();  x1[__index0++] = __v0; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  x2.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.HashSet<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  x3.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _k0;  _k0 = _e0.getAsJsonArray().get(0).getAsInt(); int _v0;  _v0 = _e0.getAsJsonArray().get(1).getAsInt();  x4.put(_k0, _v0); }   }
     }
 
     public TestSize(int id, int[] x1, java.util.ArrayList<Integer> x2, java.util.HashSet<Integer> x3, java.util.HashMap<Integer, Integer> x4 ) {

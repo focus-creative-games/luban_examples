@@ -18,9 +18,9 @@ public final class MultiRowTitle {
         name = __json__.get("name").getAsString();
         x1 = new cfg.test.H1(__json__.get("x1").getAsJsonObject());
         { if (__json__.has("x2_0") && !__json__.get("x2_0").isJsonNull()) { x20 = new cfg.test.H2(__json__.get("x2_0").getAsJsonObject()); } else { x20 = null; } }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<cfg.test.H2>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.H2 __v;  __v = new cfg.test.H2(__e.getAsJsonObject());  x2.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); int _n = _json0_.size(); x3 = new cfg.test.H2[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.test.H2 __v;  __v = new cfg.test.H2(__e.getAsJsonObject());  x3[_index++] = __v; }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); int _n = _json0_.size(); x4 = new cfg.test.H2[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.test.H2 __v;  __v = new cfg.test.H2(__e.getAsJsonObject());  x4[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<cfg.test.H2>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.H2 _v0;  _v0 = new cfg.test.H2(_e0.getAsJsonObject());  x2.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); int __n0 = _json0_.size(); x3 = new cfg.test.H2[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.test.H2 __v0;  __v0 = new cfg.test.H2(__e0.getAsJsonObject());  x3[__index0++] = __v0; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); int __n0 = _json0_.size(); x4 = new cfg.test.H2[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.test.H2 __v0;  __v0 = new cfg.test.H2(__e0.getAsJsonObject());  x4[__index0++] = __v0; }   }
     }
 
     public MultiRowTitle(int id, String name, cfg.test.H1 x1, cfg.test.H2 x2_0, java.util.ArrayList<cfg.test.H2> x2, cfg.test.H2[] x3, cfg.test.H2[] x4 ) {

@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class MultiBonus extends cfg.bonus.Bonus {
     public MultiBonus(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("bonuses").getAsJsonArray(); int _n = _json0_.size(); bonuses = new cfg.bonus.Bonus[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.bonus.Bonus __v;  __v = cfg.bonus.Bonus.deserializeBonus(__e.getAsJsonObject());  bonuses[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("bonuses").getAsJsonArray(); int __n0 = _json0_.size(); bonuses = new cfg.bonus.Bonus[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.bonus.Bonus __v0;  __v0 = cfg.bonus.Bonus.deserializeBonus(__e0.getAsJsonObject());  bonuses[__index0++] = __v0; }   }
     }
 
     public MultiBonus(cfg.bonus.Bonus[] bonuses ) {

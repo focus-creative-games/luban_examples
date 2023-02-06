@@ -24,14 +24,15 @@ public final class DefineFromExcel {
         x14 = cfg.test.DemoDynamic.deserializeDemoDynamic(_buf);
         x15 = cfg.test.Shape.deserializeShape(_buf);
         v2 = _buf.readVector2();
-        t1 = _buf.readInt();
+        t1 = _buf.readLong();
         {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k2 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k2[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(int i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = new cfg.test.DemoE2(_buf); k9.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());k10 = new java.util.ArrayList<bright.math.Vector3>(n);for(int i = 0 ; i < n ; i++) { bright.math.Vector3 _e;  _e = _buf.readVector3(); k10.add(_e);}}
     }
 
-    public DefineFromExcel(int id, boolean x1, long x5, float x6, int x8, String x10, int x13, int x13_2, cfg.test.DemoDynamic x14, cfg.test.Shape x15, bright.math.Vector2 v2, int t1, int[] k1, int[] k2, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9 ) {
+    public DefineFromExcel(int id, boolean x1, long x5, float x6, int x8, String x10, int x13, int x13_2, cfg.test.DemoDynamic x14, cfg.test.Shape x15, bright.math.Vector2 v2, long t1, int[] k1, int[] k2, java.util.HashMap<Integer, Integer> k8, java.util.ArrayList<cfg.test.DemoE2> k9, java.util.ArrayList<bright.math.Vector3> k10 ) {
         this.id = id;
         this.x1 = x1;
         this.x5 = x5;
@@ -48,6 +49,7 @@ public final class DefineFromExcel {
         this.k2 = k2;
         this.k8 = k8;
         this.k9 = k9;
+        this.k10 = k10;
     }
 
 
@@ -68,11 +70,12 @@ public final class DefineFromExcel {
     public final cfg.test.DemoDynamic x14;
     public final cfg.test.Shape x15;
     public final bright.math.Vector2 v2;
-    public final int t1;
+    public final long t1;
     public final int[] k1;
     public final int[] k2;
     public final java.util.HashMap<Integer, Integer> k8;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
+    public final java.util.ArrayList<bright.math.Vector3> k10;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
@@ -100,6 +103,7 @@ public final class DefineFromExcel {
         + "k2:" + k2 + ","
         + "k8:" + k8 + ","
         + "k9:" + k9 + ","
+        + "k10:" + k10 + ","
         + "}";
     }
 }

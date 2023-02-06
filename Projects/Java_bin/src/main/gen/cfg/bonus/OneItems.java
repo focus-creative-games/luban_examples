@@ -24,6 +24,7 @@ public final class OneItems extends cfg.bonus.Bonus {
 
 
     public final int[] items;
+    public cfg.item.Item[] items_Ref;
 
     public static final int __ID__ = 400179721;
 
@@ -33,6 +34,7 @@ public final class OneItems extends cfg.bonus.Bonus {
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
+        { int __n = items.length; cfg.item.TbItem __table = (cfg.item.TbItem)_tables.get("item.TbItem"); this.items_Ref = new cfg.item.Item[__n]; for(int i = 0 ; i < __n ; i++) { this.items_Ref[i] =  __table.get(items[i]); } }
     }
 
     @Override

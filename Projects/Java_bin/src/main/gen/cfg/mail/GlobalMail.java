@@ -48,6 +48,7 @@ public final class GlobalMail {
     public final String sender;
     public final String content;
     public final java.util.ArrayList<Integer> award;
+    public java.util.ArrayList<cfg.bonus.DropInfo> award_Ref;
     public final boolean allServer;
     public final java.util.ArrayList<Integer> serverList;
     public final String platform;
@@ -58,6 +59,7 @@ public final class GlobalMail {
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
+        { cfg.bonus.TbDrop __table = (cfg.bonus.TbDrop)_tables.get("bonus.TbDrop"); this.award_Ref = new java.util.ArrayList<cfg.bonus.DropInfo>(); for(int __e : award) { this.award_Ref.add(__table.get(__e)); } }
         if (minMaxLevel != null) {minMaxLevel.resolve(_tables);}
         if (registerTime != null) {registerTime.resolve(_tables);}
         if (mailTime != null) {mailTime.resolve(_tables);}

@@ -16,10 +16,10 @@ public final class TestSet {
     public TestSet(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         x0 = __json__.get("x0").getAsString();
-        { com.google.gson.JsonArray _json0_ = __json__.get("x1").getAsJsonArray(); x1 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  x1.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<Long>(_json0_.size()); for(JsonElement __e : _json0_) { long __v;  __v = __e.getAsLong();  x2.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.ArrayList<String>(_json0_.size()); for(JsonElement __e : _json0_) { String __v;  __v = __e.getAsString();  x3.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  x4.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x1").getAsJsonArray(); x1 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  x1.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x2").getAsJsonArray(); x2 = new java.util.ArrayList<Long>(_json0_.size()); for(JsonElement _e0 : _json0_) { long _v0;  _v0 = _e0.getAsLong();  x2.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x3").getAsJsonArray(); x3 = new java.util.ArrayList<String>(_json0_.size()); for(JsonElement _e0 : _json0_) { String _v0;  _v0 = _e0.getAsString();  x3.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("x4").getAsJsonArray(); x4 = new java.util.ArrayList<Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _v0;  _v0 = _e0.getAsInt();  x4.add(_v0); }   }
     }
 
     public TestSet(int id, String x0, java.util.ArrayList<Integer> x1, java.util.ArrayList<Long> x2, java.util.ArrayList<String> x3, java.util.ArrayList<Integer> x4 ) {

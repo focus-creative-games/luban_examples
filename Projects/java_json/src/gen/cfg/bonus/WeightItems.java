@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class WeightItems extends cfg.bonus.Bonus {
     public WeightItems(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("item_list").getAsJsonArray(); int _n = _json0_.size(); itemList = new cfg.bonus.WeightItemInfo[_n]; int _index=0; for(JsonElement __e : _json0_) { cfg.bonus.WeightItemInfo __v;  __v = new cfg.bonus.WeightItemInfo(__e.getAsJsonObject());  itemList[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("item_list").getAsJsonArray(); int __n0 = _json0_.size(); itemList = new cfg.bonus.WeightItemInfo[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { cfg.bonus.WeightItemInfo __v0;  __v0 = new cfg.bonus.WeightItemInfo(__e0.getAsJsonObject());  itemList[__index0++] = __v0; }   }
     }
 
     public WeightItems(cfg.bonus.WeightItemInfo[] item_list ) {

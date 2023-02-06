@@ -16,7 +16,7 @@ public final class ExcelFromJsonMultiRow {
     public ExcelFromJsonMultiRow(JsonObject __json__) { 
         id = __json__.get("id").getAsInt();
         x = __json__.get("x").getAsInt();
-        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); items = new java.util.ArrayList<cfg.test.TestRow>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.test.TestRow __v;  __v = new cfg.test.TestRow(__e.getAsJsonObject());  items.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); items = new java.util.ArrayList<cfg.test.TestRow>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.TestRow _v0;  _v0 = new cfg.test.TestRow(_e0.getAsJsonObject());  items.add(_v0); }   }
     }
 
     public ExcelFromJsonMultiRow(int id, int x, java.util.ArrayList<cfg.test.TestRow> items ) {

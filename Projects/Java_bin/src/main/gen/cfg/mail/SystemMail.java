@@ -34,9 +34,11 @@ public final class SystemMail {
     public final String sender;
     public final String content;
     public final java.util.ArrayList<Integer> award;
+    public java.util.ArrayList<cfg.bonus.DropInfo> award_Ref;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {
+        { cfg.bonus.TbDrop __table = (cfg.bonus.TbDrop)_tables.get("bonus.TbDrop"); this.award_Ref = new java.util.ArrayList<cfg.bonus.DropInfo>(); for(int __e : award) { this.award_Ref.add(__table.get(__e)); } }
     }
 
     @Override

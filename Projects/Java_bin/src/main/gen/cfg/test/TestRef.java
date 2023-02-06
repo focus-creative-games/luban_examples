@@ -70,13 +70,21 @@ public final class TestRef {
     public final int x4;
     public cfg.tag.TestTag x4_Ref;
     public final int[] a1;
+    public cfg.test.TestBeRef[] a1_Ref;
     public final int[] a2;
+    public cfg.test.TestBeRef[] a2_Ref;
     public final java.util.ArrayList<Integer> b1;
+    public java.util.ArrayList<cfg.test.TestBeRef> b1_Ref;
     public final java.util.ArrayList<Integer> b2;
+    public java.util.ArrayList<cfg.test.TestBeRef> b2_Ref;
     public final java.util.HashSet<Integer> c1;
+    public java.util.HashSet<cfg.test.TestBeRef> c1_Ref;
     public final java.util.HashSet<Integer> c2;
+    public java.util.HashSet<cfg.test.TestBeRef> c2_Ref;
     public final java.util.HashMap<Integer, Integer> d1;
+    public java.util.HashMap<Integer, cfg.test.TestBeRef> d1_Ref;
     public final java.util.HashMap<Integer, Integer> d2;
+    public java.util.HashMap<Integer, cfg.test.TestBeRef> d2_Ref;
     public final int e1;
     public final long e2;
     public final String e3;
@@ -89,6 +97,14 @@ public final class TestRef {
     public void resolve(java.util.HashMap<String, Object> _tables) {
         this.x1_Ref = ((cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef")).get(x1);
         this.x4_Ref = ((cfg.tag.TbTestTag)_tables.get("tag.TbTestTag")).get(x4);
+        { int __n = a1.length; cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.a1_Ref = new cfg.test.TestBeRef[__n]; for(int i = 0 ; i < __n ; i++) { this.a1_Ref[i] =  __table.get(a1[i]); } }
+        { int __n = a2.length; cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.a2_Ref = new cfg.test.TestBeRef[__n]; for(int i = 0 ; i < __n ; i++) { this.a2_Ref[i] =  __table.get(a2[i]); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.b1_Ref = new java.util.ArrayList<cfg.test.TestBeRef>(); for(int __e : b1) { this.b1_Ref.add(__table.get(__e)); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.b2_Ref = new java.util.ArrayList<cfg.test.TestBeRef>(); for(int __e : b2) { this.b2_Ref.add(__table.get(__e)); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.c1_Ref = new java.util.HashSet<cfg.test.TestBeRef>(); for(int __e : c1) { this.c1_Ref.add(__table.get(__e)); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.c2_Ref = new java.util.HashSet<cfg.test.TestBeRef>(); for(int __e : c2) { this.c2_Ref.add(__table.get(__e)); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.d1_Ref = new java.util.HashMap<Integer, cfg.test.TestBeRef>(); for(java.util.Map.Entry<Integer, Integer> __e : d1.entrySet()) { int __eKey = __e.getKey(); int __eValue = __e.getValue(); this.d1_Ref.put(__eKey, __table.get(__eValue)); } }
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.d2_Ref = new java.util.HashMap<Integer, cfg.test.TestBeRef>(); for(java.util.Map.Entry<Integer, Integer> __e : d2.entrySet()) { int __eKey = __e.getKey(); int __eValue = __e.getValue(); this.d2_Ref.put(__eKey, __table.get(__eValue)); } }
         if (s1 != null) {s1.resolve(_tables);}
     }
 

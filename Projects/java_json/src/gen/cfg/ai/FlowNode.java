@@ -15,8 +15,8 @@ import com.google.gson.JsonObject;
 public abstract class FlowNode extends cfg.ai.Node {
     public FlowNode(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("decorators").getAsJsonArray(); decorators = new java.util.ArrayList<cfg.ai.Decorator>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.Decorator __v;  __v = cfg.ai.Decorator.deserializeDecorator(__e.getAsJsonObject());  decorators.add(__v); }   }
-        { com.google.gson.JsonArray _json0_ = __json__.get("services").getAsJsonArray(); services = new java.util.ArrayList<cfg.ai.Service>(_json0_.size()); for(JsonElement __e : _json0_) { cfg.ai.Service __v;  __v = cfg.ai.Service.deserializeService(__e.getAsJsonObject());  services.add(__v); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("decorators").getAsJsonArray(); decorators = new java.util.ArrayList<cfg.ai.Decorator>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.ai.Decorator _v0;  _v0 = cfg.ai.Decorator.deserializeDecorator(_e0.getAsJsonObject());  decorators.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("services").getAsJsonArray(); services = new java.util.ArrayList<cfg.ai.Service>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.ai.Service _v0;  _v0 = cfg.ai.Service.deserializeService(_e0.getAsJsonObject());  services.add(_v0); }   }
     }
 
     public FlowNode(int id, String node_name, java.util.ArrayList<cfg.ai.Decorator> decorators, java.util.ArrayList<cfg.ai.Service> services ) {

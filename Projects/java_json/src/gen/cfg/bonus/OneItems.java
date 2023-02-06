@@ -15,7 +15,7 @@ import com.google.gson.JsonObject;
 public final class OneItems extends cfg.bonus.Bonus {
     public OneItems(JsonObject __json__) { 
         super(__json__);
-        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); int _n = _json0_.size(); items = new int[_n]; int _index=0; for(JsonElement __e : _json0_) { int __v;  __v = __e.getAsInt();  items[_index++] = __v; }   }
+        { com.google.gson.JsonArray _json0_ = __json__.get("items").getAsJsonArray(); int __n0 = _json0_.size(); items = new int[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { int __v0;  __v0 = __e0.getAsInt();  items[__index0++] = __v0; }   }
     }
 
     public OneItems(int[] items ) {
@@ -28,6 +28,7 @@ public final class OneItems extends cfg.bonus.Bonus {
     }
 
     public final int[] items;
+    public cfg.item.Item[] items_Ref;
 
     public static final int __ID__ = 400179721;
 
@@ -37,6 +38,7 @@ public final class OneItems extends cfg.bonus.Bonus {
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
+        { int __n = items.length; cfg.item.TbItem __table = (cfg.item.TbItem)_tables.get("item.TbItem"); this.items_Ref = new cfg.item.Item[__n]; for(int i = 0 ; i < __n ; i++) { this.items_Ref[i] =  __table.get(items[i]); } }
     }
 
     @Override

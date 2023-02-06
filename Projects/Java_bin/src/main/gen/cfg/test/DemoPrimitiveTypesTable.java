@@ -25,10 +25,10 @@ public final class DemoPrimitiveTypesTable {
         v2 = _buf.readVector2();
         v3 = _buf.readVector3();
         v4 = _buf.readVector4();
-        t1 = _buf.readInt();
+        t1 = _buf.readLong();
     }
 
-    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, int t1 ) {
+    public DemoPrimitiveTypesTable(boolean x1, byte x2, short x3, int x4, long x5, float x6, double x7, String s1, String s2, bright.math.Vector2 v2, bright.math.Vector3 v3, bright.math.Vector4 v4, long t1 ) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
@@ -57,7 +57,7 @@ public final class DemoPrimitiveTypesTable {
     public final bright.math.Vector2 v2;
     public final bright.math.Vector3 v3;
     public final bright.math.Vector4 v4;
-    public final int t1;
+    public final long t1;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {

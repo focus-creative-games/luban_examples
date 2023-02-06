@@ -14,11 +14,11 @@ import com.google.gson.JsonObject;
 
 public final class DateTimeRange {
     public DateTimeRange(JsonObject __json__) { 
-        startTime = __json__.get("start_time").getAsInt();
-        endTime = __json__.get("end_time").getAsInt();
+        startTime = __json__.get("start_time").getAsLong();
+        endTime = __json__.get("end_time").getAsLong();
     }
 
-    public DateTimeRange(int start_time, int end_time ) {
+    public DateTimeRange(long start_time, long end_time ) {
         this.startTime = start_time;
         this.endTime = end_time;
     }
@@ -27,8 +27,8 @@ public final class DateTimeRange {
         return new DateTimeRange(__json__);
     }
 
-    public final int startTime;
-    public final int endTime;
+    public final long startTime;
+    public final long endTime;
 
 
     public void resolve(java.util.HashMap<String, Object> _tables) {

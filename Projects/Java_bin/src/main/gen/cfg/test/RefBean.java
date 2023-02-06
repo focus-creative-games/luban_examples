@@ -24,6 +24,7 @@ public final class RefBean extends cfg.test.RefDynamicBase {
 
 
     public final java.util.ArrayList<Integer> arr;
+    public java.util.ArrayList<cfg.test.TestBeRef> arr_Ref;
 
     public static final int __ID__ = 1963260263;
 
@@ -33,6 +34,7 @@ public final class RefBean extends cfg.test.RefDynamicBase {
     @Override
     public void resolve(java.util.HashMap<String, Object> _tables) {
         super.resolve(_tables);
+        { cfg.test.TbTestBeRef __table = (cfg.test.TbTestBeRef)_tables.get("test.TbTestBeRef"); this.arr_Ref = new java.util.ArrayList<cfg.test.TestBeRef>(); for(int __e : arr) { this.arr_Ref.add(__table.get(__e)); } }
     }
 
     @Override
