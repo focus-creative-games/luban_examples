@@ -11,7 +11,7 @@
     "clean": "tsc --build --clean"
   },
   "devDependencies": {
-    "@types/node": "^15.14.2",
+    "@types/node": "^15.14.9",
     "typescript": "^3.9.7"
   },
   "dependencies": {
