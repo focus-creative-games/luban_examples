@@ -745,7 +745,8 @@ enum class DemoFlag
 {
     A = 1,
     B = 2,
-    D = A|B,
+    C = 4,
+    D = 8,
 };
 }
 
@@ -963,6 +964,8 @@ namespace test { class InnerGroup; }
 namespace test { class TestGlobal; }
 namespace test { class TestBeRef; }
 namespace test { class TestRef; }
+namespace test { class RefDynamicBase; }
+namespace test { class RefBean; }
 namespace test { class TestSize; }
 namespace test { class TestSet; }
 namespace test { class DetectEncoding; }
@@ -4379,19 +4382,19 @@ class MinMaxLevel : public  condition::BoolRoleCondition
 
     }
 
-    MinMaxLevel(::bright::int32 min, ::bright::int32 max ) 
+    MinMaxLevel(::bright::int32 min_level, ::bright::int32 max_level ) 
             : condition::BoolRoleCondition()
     {
 
-        this->min = min;
-        this->max = max;
+        this->minLevel = min_level;
+        this->maxLevel = max_level;
     }
     virtual ~MinMaxLevel() {}
 
     bool deserialize(ByteBuf& _buf);
 
-    ::bright::int32 min;
-    ::bright::int32 max;
+    ::bright::int32 minLevel;
+    ::bright::int32 maxLevel;
 
     static constexpr int __ID__ = 907499647;
 
@@ -6538,7 +6541,7 @@ class TestRef : public  bright::CfgBean
 
     }
 
-    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::int32 x3, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2, ::bright::int32 e1, ::bright::int64 e2, ::bright::String e3, ::bright::int32 f1, ::bright::int64 f2, ::bright::String f3 ) 
+    TestRef(::bright::int32 id, ::bright::int32 x1, ::bright::int32 x1_2, ::bright::int32 x2, ::bright::int32 x3, ::bright::int32 x4, ::bright::Vector<::bright::int32> a1, ::bright::Vector<::bright::int32> a2, ::bright::Vector<::bright::int32> b1, ::bright::Vector<::bright::int32> b2, ::bright::HashSet<::bright::int32> c1, ::bright::HashSet<::bright::int32> c2, ::bright::HashMap<::bright::int32, ::bright::int32> d1, ::bright::HashMap<::bright::int32, ::bright::int32> d2, ::bright::int32 e1, ::bright::int64 e2, ::bright::String e3, ::bright::int32 f1, ::bright::int64 f2, ::bright::String f3, ::bright::SharedPtr<test::RefDynamicBase> s1 ) 
     {
 
         this->id = id;
@@ -6546,6 +6549,7 @@ class TestRef : public  bright::CfgBean
         this->x12 = x1_2;
         this->x2 = x2;
         this->x3 = x3;
+        this->x4 = x4;
         this->a1 = a1;
         this->a2 = a2;
         this->b1 = b1;
@@ -6560,6 +6564,7 @@ class TestRef : public  bright::CfgBean
         this->f1 = f1;
         this->f2 = f2;
         this->f3 = f3;
+        this->s1 = s1;
     }
     virtual ~TestRef() {}
 
@@ -6571,6 +6576,8 @@ class TestRef : public  bright::CfgBean
     ::bright::int32 x12;
     ::bright::int32 x2;
     ::bright::int32 x3;
+    ::bright::int32 x4;
+    ::bright::SharedPtr<tag::TestTag> x4_Ref;
     ::bright::Vector<::bright::int32> a1;
     ::bright::Vector<::bright::int32> a2;
     ::bright::Vector<::bright::int32> b1;
@@ -6585,8 +6592,78 @@ class TestRef : public  bright::CfgBean
     ::bright::int32 f1;
     ::bright::int64 f2;
     ::bright::String f3;
+    ::bright::SharedPtr<test::RefDynamicBase> s1;
 
     static constexpr int __ID__ = -543222491;
+
+    int getTypeId() const { return __ID__; }
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+
+namespace test {
+
+
+
+class RefDynamicBase : public  bright::CfgBean 
+{
+    public:
+
+    static bool deserializeRefDynamicBase(ByteBuf& _buf, ::bright::SharedPtr<RefDynamicBase>& _out);
+
+    RefDynamicBase()
+    { 
+
+    }
+
+    RefDynamicBase(::bright::int32 x ) 
+    {
+
+        this->x = x;
+    }
+    virtual ~RefDynamicBase() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::int32 x;
+    ::bright::SharedPtr<test::TestBeRef> x_Ref;
+
+
+    virtual void resolve(::bright::HashMap<::bright::String, void*>& _tables);
+};
+
+}
+
+namespace test {
+
+
+
+class RefBean : public  test::RefDynamicBase 
+{
+    public:
+
+    static bool deserializeRefBean(ByteBuf& _buf, ::bright::SharedPtr<RefBean>& _out);
+
+    RefBean()
+    { 
+
+    }
+
+    RefBean(::bright::int32 x, ::bright::Vector<::bright::int32> arr ) 
+            : test::RefDynamicBase(x)
+    {
+
+        this->arr = arr;
+    }
+    virtual ~RefBean() {}
+
+    bool deserialize(ByteBuf& _buf);
+
+    ::bright::Vector<::bright::int32> arr;
+
+    static constexpr int __ID__ = 1963260263;
 
     int getTypeId() const { return __ID__; }
 
@@ -6883,7 +6960,7 @@ class DefineFromExcel : public  bright::CfgBean
 
     }
 
-    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::SharedPtr<test::Shape> x15, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, test::DemoFlag x13_2, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::SharedPtr<test::Shape> x15, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::Vector3> k10, ::bright::Vector<::bright::Vector4> k11 ) 
     {
 
         this->id = id;
@@ -6893,6 +6970,7 @@ class DefineFromExcel : public  bright::CfgBean
         this->x8 = x8;
         this->x10 = x10;
         this->x13 = x13;
+        this->x132 = x13_2;
         this->x14 = x14;
         this->x15 = x15;
         this->v2 = v2;
@@ -6901,6 +6979,8 @@ class DefineFromExcel : public  bright::CfgBean
         this->k2 = k2;
         this->k8 = k8;
         this->k9 = k9;
+        this->k10 = k10;
+        this->k11 = k11;
     }
     virtual ~DefineFromExcel() {}
 
@@ -6919,6 +6999,7 @@ class DefineFromExcel : public  bright::CfgBean
     ::bright::int32 x8;
     ::bright::String x10;
     test::ETestQuality x13;
+    test::DemoFlag x132;
     ::bright::SharedPtr<test::DemoDynamic> x14;
     ::bright::SharedPtr<test::Shape> x15;
     ::bright::Vector2 v2;
@@ -6927,6 +7008,8 @@ class DefineFromExcel : public  bright::CfgBean
     ::bright::Vector<::bright::int32> k2;
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
+    ::bright::Vector<::bright::Vector3> k10;
+    ::bright::Vector<::bright::Vector4> k11;
 
     static constexpr int __ID__ = 2100429878;
 
@@ -7067,13 +7150,15 @@ class DefineFromExcelOne : public  bright::CfgBean
 
     }
 
-    DefineFromExcelOne(::bright::int32 unlock_equip, ::bright::int32 unlock_hero, ::bright::String default_avatar, ::bright::String default_item ) 
+    DefineFromExcelOne(::bright::int32 unlock_equip, ::bright::int32 unlock_hero, ::bright::String default_avatar, ::bright::String default_item, ::bright::SharedPtr<test::DemoE2> e2, ::bright::Vector<::bright::String> icons ) 
     {
 
         this->unlockEquip = unlock_equip;
         this->unlockHero = unlock_hero;
         this->defaultAvatar = default_avatar;
         this->defaultItem = default_item;
+        this->e2 = e2;
+        this->icons = icons;
     }
     virtual ~DefineFromExcelOne() {}
 
@@ -7089,6 +7174,8 @@ class DefineFromExcelOne : public  bright::CfgBean
     ::bright::int32 unlockHero;
     ::bright::String defaultAvatar;
     ::bright::String defaultItem;
+    ::bright::SharedPtr<test::DemoE2> e2;
+    ::bright::Vector<::bright::String> icons;
 
     static constexpr int __ID__ = 528039504;
 
@@ -7676,12 +7763,14 @@ class TestExternalType : public  bright::CfgBean
 
     }
 
-    TestExternalType(::bright::int32 id, test::AudioType audio_type, ::bright::SharedPtr<test::Color> color ) 
+    TestExternalType(::bright::int32 id, test::AudioType audio_type, ::bright::SharedPtr<test::Color> color, ::bright::Vector<test::AudioType> audio_types, ::bright::Vector<::bright::SharedPtr<test::Color>> colors ) 
     {
 
         this->id = id;
         this->audioType = audio_type;
         this->color = color;
+        this->audioTypes = audio_types;
+        this->colors = colors;
     }
     virtual ~TestExternalType() {}
 
@@ -7690,6 +7779,8 @@ class TestExternalType : public  bright::CfgBean
     ::bright::int32 id;
     test::AudioType audioType;
     ::bright::SharedPtr<test::Color> color;
+    ::bright::Vector<test::AudioType> audioTypes;
+    ::bright::Vector<::bright::SharedPtr<test::Color>> colors;
 
     static constexpr int __ID__ = -990826157;
 
@@ -7756,7 +7847,7 @@ class DefineFromExcel2 : public  bright::CfgBean
 
     }
 
-    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::SharedPtr<test::Shape> x15, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9 ) 
+    DefineFromExcel2(::bright::int32 id, bool x1, ::bright::int64 x5, ::bright::float32 x6, ::bright::int32 x8, ::bright::String x10, test::ETestQuality x13, test::DemoFlag x13_2, ::bright::SharedPtr<test::DemoDynamic> x14, ::bright::SharedPtr<test::Shape> x15, ::bright::Vector2 v2, ::bright::datetime t1, ::bright::Vector<::bright::int32> k1, ::bright::Vector<::bright::int32> k2, ::bright::HashMap<::bright::int32, ::bright::int32> k8, ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9, ::bright::Vector<::bright::Vector3> k10, ::bright::Vector<::bright::Vector4> k11 ) 
     {
 
         this->id = id;
@@ -7766,6 +7857,7 @@ class DefineFromExcel2 : public  bright::CfgBean
         this->x8 = x8;
         this->x10 = x10;
         this->x13 = x13;
+        this->x132 = x13_2;
         this->x14 = x14;
         this->x15 = x15;
         this->v2 = v2;
@@ -7774,6 +7866,8 @@ class DefineFromExcel2 : public  bright::CfgBean
         this->k2 = k2;
         this->k8 = k8;
         this->k9 = k9;
+        this->k10 = k10;
+        this->k11 = k11;
     }
     virtual ~DefineFromExcel2() {}
 
@@ -7792,6 +7886,7 @@ class DefineFromExcel2 : public  bright::CfgBean
     ::bright::int32 x8;
     ::bright::String x10;
     test::ETestQuality x13;
+    test::DemoFlag x132;
     ::bright::SharedPtr<test::DemoDynamic> x14;
     ::bright::SharedPtr<test::Shape> x15;
     ::bright::Vector2 v2;
@@ -7800,6 +7895,8 @@ class DefineFromExcel2 : public  bright::CfgBean
     ::bright::Vector<::bright::int32> k2;
     ::bright::HashMap<::bright::int32, ::bright::int32> k8;
     ::bright::Vector<::bright::SharedPtr<test::DemoE2>> k9;
+    ::bright::Vector<::bright::Vector3> k10;
+    ::bright::Vector<::bright::Vector4> k11;
 
     static constexpr int __ID__ = 688816828;
 
@@ -7929,6 +8026,7 @@ class TestDesc : public  bright::CfgBean
 namespace ai {
 
 
+
 class TbBlackboard
 {
     private:
@@ -7976,6 +8074,7 @@ class TbBlackboard
 };
 }
 namespace ai {
+
 
 
 class TbBehaviorTree
@@ -8027,6 +8126,7 @@ class TbBehaviorTree
 namespace blueprint {
 
 
+
 class TbClazz
 {
     private:
@@ -8076,6 +8176,7 @@ class TbClazz
 namespace bonus {
 
 
+
 class TbDrop
 {
     private:
@@ -8123,6 +8224,7 @@ class TbDrop
 };
 }
 namespace common {
+
 
 
 class TbGlobalConfig
@@ -8176,6 +8278,7 @@ class TbGlobalConfig
 namespace error {
 
 
+
 class TbErrorInfo
 {
     private:
@@ -8223,6 +8326,7 @@ class TbErrorInfo
 };
 }
 namespace error {
+
 
 
 class TbCodeInfo
@@ -8277,6 +8381,7 @@ namespace item {
 /**
  * 道具表
  */
+
 class TbItem
 {
     private:
@@ -8324,6 +8429,7 @@ class TbItem
 };
 }
 namespace item {
+
 
 
 class TbItemFunc
@@ -8375,6 +8481,7 @@ class TbItemFunc
 namespace item {
 
 
+
 class TbItemExtra
 {
     private:
@@ -8422,6 +8529,7 @@ class TbItemExtra
 };
 }
 namespace l10n {
+
 
 
 class TbL10NDemo
@@ -8473,6 +8581,7 @@ class TbL10NDemo
 namespace l10n {
 
 
+
 class TbPatchDemo
 {
     private:
@@ -8520,6 +8629,7 @@ class TbPatchDemo
 };
 }
 namespace mail {
+
 
 
 class TbSystemMail
@@ -8571,6 +8681,7 @@ class TbSystemMail
 namespace mail {
 
 
+
 class TbGlobalMail
 {
     private:
@@ -8618,6 +8729,7 @@ class TbGlobalMail
 };
 }
 namespace role {
+
 
 
 class TbRoleLevelExpAttr
@@ -8669,6 +8781,7 @@ class TbRoleLevelExpAttr
 namespace role {
 
 
+
 class TbRoleLevelBonusCoefficient
 {
     private:
@@ -8716,6 +8829,7 @@ class TbRoleLevelBonusCoefficient
 };
 }
 namespace tag {
+
 
 
 class TbTestTag
@@ -8767,6 +8881,7 @@ class TbTestTag
 namespace test {
 
 
+
 class TbFullTypes
 {
     private:
@@ -8816,6 +8931,7 @@ class TbFullTypes
 namespace test {
 
 
+
 class TbSingleton
 {
      private:
@@ -8846,133 +8962,167 @@ class TbSingleton
 namespace test {
 
 
+
 class TbNotIndexList
 {
     private:
-    ::bright::Vector<::bright::SharedPtr<test::NotIndexList>> _dataList;
+        ::bright::Vector<::bright::SharedPtr<test::NotIndexList>> _dataList;
     
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::NotIndexList> _v;
-            if(!test::NotIndexList::deserializeNotIndexList(_buf, _v)) return false;
-            _dataList.push_back(_v);
+        public:
+        bool load(ByteBuf& _buf)
+        {        
+            int n;
+            if (!_buf.readSize(n)) return false;
+            for(; n > 0 ; --n)
+            {
+                ::bright::SharedPtr<test::NotIndexList> _v;
+                if(!test::NotIndexList::deserializeNotIndexList(_buf, _v)) return false;
+                _dataList.push_back(_v);
+            }
+            return true;
         }
-        return true;
-    }
 
-    const ::bright::Vector<::bright::SharedPtr<test::NotIndexList>>& getDataList() const { return _dataList; }
+        const ::bright::Vector<::bright::SharedPtr<test::NotIndexList>>& getDataList() const { return _dataList; }
 
-    test::NotIndexList* getRaw(size_t index) const
-    { 
-        return _dataList[index].get();
-    }
+            test::NotIndexList* getRaw(size_t index) const
+            { 
+                return _dataList[index].get();
+            }
 
-    ::bright::SharedPtr<test::NotIndexList> get(size_t index) const
-    { 
-        return _dataList[index];
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
+            ::bright::SharedPtr<test::NotIndexList> get(size_t index) const
+            { 
+                return _dataList[index];
+            }
+        void resolve(::bright::HashMap<::bright::String, void*>& _tables)
         {
-            v->resolve(_tables);
-        }
-    }
+            for(auto v : _dataList)
+            {
+                v->resolve(_tables);
+            }
+        }    
 };
 }
 namespace test {
+
 
 
 class TbMultiUnionIndexList
 {
     private:
-    ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>> _dataList;
+        ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>> _dataList;
+
     
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::MultiUnionIndexList> _v;
-            if(!test::MultiUnionIndexList::deserializeMultiUnionIndexList(_buf, _v)) return false;
-            _dataList.push_back(_v);
+        public:
+        bool load(ByteBuf& _buf)
+        {        
+            int n;
+            if (!_buf.readSize(n)) return false;
+            for(; n > 0 ; --n)
+            {
+                ::bright::SharedPtr<test::MultiUnionIndexList> _v;
+                if(!test::MultiUnionIndexList::deserializeMultiUnionIndexList(_buf, _v)) return false;
+                _dataList.push_back(_v);
+
+            }
+            return true;
         }
-        return true;
-    }
 
-    const ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>>& getDataList() const { return _dataList; }
+        const ::bright::Vector<::bright::SharedPtr<test::MultiUnionIndexList>>& getDataList() const { return _dataList; }
 
-    test::MultiUnionIndexList* getRaw(size_t index) const
-    { 
-        return _dataList[index].get();
-    }
 
-    ::bright::SharedPtr<test::MultiUnionIndexList> get(size_t index) const
-    { 
-        return _dataList[index];
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
+        void resolve(::bright::HashMap<::bright::String, void*>& _tables)
         {
-            v->resolve(_tables);
-        }
-    }
+            for(auto v : _dataList)
+            {
+                v->resolve(_tables);
+            }
+        }    
 };
 }
 namespace test {
+
 
 
 class TbMultiIndexList
 {
     private:
-    ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>> _dataList;
+        ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>> _dataList;
+        ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiIndexList>> _dataMap_id1;
+        ::bright::HashMap<::bright::int64, ::bright::SharedPtr<test::MultiIndexList>> _dataMap_id2;
+        ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::MultiIndexList>> _dataMap_id3;
     
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::MultiIndexList> _v;
-            if(!test::MultiIndexList::deserializeMultiIndexList(_buf, _v)) return false;
-            _dataList.push_back(_v);
+        public:
+        bool load(ByteBuf& _buf)
+        {        
+            int n;
+            if (!_buf.readSize(n)) return false;
+            for(; n > 0 ; --n)
+            {
+                ::bright::SharedPtr<test::MultiIndexList> _v;
+                if(!test::MultiIndexList::deserializeMultiIndexList(_buf, _v)) return false;
+                _dataList.push_back(_v);
+                _dataMap_id1[_v->id1] = _v;
+                _dataMap_id2[_v->id2] = _v;
+                _dataMap_id3[_v->id3] = _v;
+            }
+            return true;
         }
-        return true;
-    }
 
-    const ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>>& getDataList() const { return _dataList; }
+        const ::bright::Vector<::bright::SharedPtr<test::MultiIndexList>>& getDataList() const { return _dataList; }
 
-    test::MultiIndexList* getRaw(size_t index) const
-    { 
-        return _dataList[index].get();
-    }
-
-    ::bright::SharedPtr<test::MultiIndexList> get(size_t index) const
-    { 
-        return _dataList[index];
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
+        ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::MultiIndexList>>& getDataMapByid1()
         {
-            v->resolve(_tables);
+            return _dataMap_id1;
         }
-    }
+        test::MultiIndexList* getRawByid1(::bright::int32 key)
+        {                    
+            auto it = _dataMap_id1.find(key);
+            return it != _dataMap_id1.end() ? it->second.get() : nullptr;
+        }
+        ::bright::SharedPtr<test::MultiIndexList> getByid1(::bright::int32 key)
+        {
+            auto it = _dataMap_id1.find(key);
+            return it != _dataMap_id1.end() ? it->second : nullptr;
+        }
+        ::bright::HashMap<::bright::int64, ::bright::SharedPtr<test::MultiIndexList>>& getDataMapByid2()
+        {
+            return _dataMap_id2;
+        }
+        test::MultiIndexList* getRawByid2(::bright::int64 key)
+        {                    
+            auto it = _dataMap_id2.find(key);
+            return it != _dataMap_id2.end() ? it->second.get() : nullptr;
+        }
+        ::bright::SharedPtr<test::MultiIndexList> getByid2(::bright::int64 key)
+        {
+            auto it = _dataMap_id2.find(key);
+            return it != _dataMap_id2.end() ? it->second : nullptr;
+        }
+        ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::MultiIndexList>>& getDataMapByid3()
+        {
+            return _dataMap_id3;
+        }
+        test::MultiIndexList* getRawByid3(::bright::String key)
+        {                    
+            auto it = _dataMap_id3.find(key);
+            return it != _dataMap_id3.end() ? it->second.get() : nullptr;
+        }
+        ::bright::SharedPtr<test::MultiIndexList> getByid3(::bright::String key)
+        {
+            auto it = _dataMap_id3.find(key);
+            return it != _dataMap_id3.end() ? it->second : nullptr;
+        }
+        void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+        {
+            for(auto v : _dataList)
+            {
+                v->resolve(_tables);
+            }
+        }    
 };
 }
 namespace test {
+
 
 
 class TbDataFromMisc
@@ -9024,6 +9174,7 @@ class TbDataFromMisc
 namespace test {
 
 
+
 class TbMultiRowRecord
 {
     private:
@@ -9071,6 +9222,7 @@ class TbMultiRowRecord
 };
 }
 namespace test {
+
 
 
 class TbTestMultiColumn
@@ -9122,6 +9274,7 @@ class TbTestMultiColumn
 namespace test {
 
 
+
 class TbMultiRowTitle
 {
     private:
@@ -9169,6 +9322,7 @@ class TbMultiRowTitle
 };
 }
 namespace test {
+
 
 
 class TbTestNull
@@ -9220,6 +9374,7 @@ class TbTestNull
 namespace test {
 
 
+
 class TbDemoPrimitive
 {
     private:
@@ -9267,6 +9422,7 @@ class TbDemoPrimitive
 };
 }
 namespace test {
+
 
 
 class TbTestString
@@ -9318,6 +9474,7 @@ class TbTestString
 namespace test {
 
 
+
 class TbDemoGroup
 {
     private:
@@ -9365,6 +9522,7 @@ class TbDemoGroup
 };
 }
 namespace test {
+
 
 
 class TbDemoGroup_C
@@ -9416,6 +9574,7 @@ class TbDemoGroup_C
 namespace test {
 
 
+
 class TbDemoGroup_S
 {
     private:
@@ -9463,6 +9622,7 @@ class TbDemoGroup_S
 };
 }
 namespace test {
+
 
 
 class TbDemoGroup_E
@@ -9514,6 +9674,7 @@ class TbDemoGroup_E
 namespace test {
 
 
+
 class TbTestGlobal
 {
      private:
@@ -9541,6 +9702,7 @@ class TbTestGlobal
 };
 }
 namespace test {
+
 
 
 class TbTestBeRef
@@ -9592,6 +9754,7 @@ class TbTestBeRef
 namespace test {
 
 
+
 class TbTestBeRef2
 {
     private:
@@ -9639,6 +9802,7 @@ class TbTestBeRef2
 };
 }
 namespace test {
+
 
 
 class TbTestRef
@@ -9690,6 +9854,7 @@ class TbTestRef
 namespace test {
 
 
+
 class TbTestSize
 {
     private:
@@ -9737,6 +9902,7 @@ class TbTestSize
 };
 }
 namespace test {
+
 
 
 class TbTestSet
@@ -9788,6 +9954,7 @@ class TbTestSet
 namespace test {
 
 
+
 class TbDetectCsvEncoding
 {
     private:
@@ -9835,6 +10002,7 @@ class TbDetectCsvEncoding
 };
 }
 namespace test {
+
 
 
 class TbItem2
@@ -9886,6 +10054,7 @@ class TbItem2
 namespace test {
 
 
+
 class TbDefineFromExcel
 {
     private:
@@ -9935,6 +10104,7 @@ class TbDefineFromExcel
 namespace test {
 
 
+
 class TbDefineFromExcelOne
 {
      private:
@@ -9967,9 +10137,12 @@ class TbDefineFromExcelOne
     ::bright::int32& getUnlockHero() const { return _data->unlockHero; }
     ::bright::String& getDefaultAvatar() const { return _data->defaultAvatar; }
     ::bright::String& getDefaultItem() const { return _data->defaultItem; }
+    ::bright::SharedPtr<test::DemoE2>& getE2() const { return _data->e2; }
+    ::bright::Vector<::bright::String>& getIcons() const { return _data->icons; }
 };
 }
 namespace test {
+
 
 
 class TbTestIndex
@@ -10021,6 +10194,7 @@ class TbTestIndex
 namespace test {
 
 
+
 class TbTestMap
 {
     private:
@@ -10068,6 +10242,7 @@ class TbTestMap
 };
 }
 namespace test {
+
 
 
 class TbExcelFromJson
@@ -10119,6 +10294,7 @@ class TbExcelFromJson
 namespace test {
 
 
+
 class TbCompositeJsonTable1
 {
     private:
@@ -10166,6 +10342,7 @@ class TbCompositeJsonTable1
 };
 }
 namespace test {
+
 
 
 class TbCompositeJsonTable2
@@ -10217,6 +10394,7 @@ class TbCompositeJsonTable2
 namespace test {
 
 
+
 class TbCompositeJsonTable3
 {
      private:
@@ -10244,6 +10422,7 @@ class TbCompositeJsonTable3
 };
 }
 namespace test {
+
 
 
 class TbExcelFromJsonMultiRow
@@ -10295,6 +10474,7 @@ class TbExcelFromJsonMultiRow
 namespace test {
 
 
+
 class TbTestSep
 {
     private:
@@ -10342,6 +10522,7 @@ class TbTestSep
 };
 }
 namespace test {
+
 
 
 class TbTestScriptableObject
@@ -10393,6 +10574,7 @@ class TbTestScriptableObject
 namespace test {
 
 
+
 class TbTestExternalType
 {
     private:
@@ -10440,6 +10622,7 @@ class TbTestExternalType
 };
 }
 namespace test {
+
 
 
 class TbDemoGroupDefineFromExcel
@@ -10491,6 +10674,7 @@ class TbDemoGroupDefineFromExcel
 namespace test {
 
 
+
 class TbDefineFromExcel2
 {
     private:
@@ -10538,6 +10722,7 @@ class TbDefineFromExcel2
 };
 }
 namespace test {
+
 
 
 class TbTestExcelBean
@@ -10589,50 +10774,67 @@ class TbTestExcelBean
 namespace test {
 
 
+
 class TbTestDesc
 {
     private:
-    ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>> _dataMap;
-    ::bright::Vector<::bright::SharedPtr<test::TestDesc>> _dataList;
+        ::bright::Vector<::bright::SharedPtr<test::TestDesc>> _dataList;
+        ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>> _dataMap_id;
+        ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::TestDesc>> _dataMap_name;
     
-    public:
-    bool load(ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::bright::SharedPtr<test::TestDesc> _v;
-            if(!test::TestDesc::deserializeTestDesc(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
+        public:
+        bool load(ByteBuf& _buf)
+        {        
+            int n;
+            if (!_buf.readSize(n)) return false;
+            for(; n > 0 ; --n)
+            {
+                ::bright::SharedPtr<test::TestDesc> _v;
+                if(!test::TestDesc::deserializeTestDesc(_buf, _v)) return false;
+                _dataList.push_back(_v);
+                _dataMap_id[_v->id] = _v;
+                _dataMap_name[_v->name] = _v;
+            }
+            return true;
         }
-        return true;
-    }
 
-    const ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>>& getDataMap() const { return _dataMap; }
-    const ::bright::Vector<::bright::SharedPtr<test::TestDesc>>& getDataList() const { return _dataList; }
+        const ::bright::Vector<::bright::SharedPtr<test::TestDesc>>& getDataList() const { return _dataList; }
 
-    test::TestDesc* getRaw(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::bright::SharedPtr<test::TestDesc> get(::bright::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-    void resolve(::bright::HashMap<::bright::String, void*>& _tables)
-    {
-        for(auto v : _dataList)
+        ::bright::HashMap<::bright::int32, ::bright::SharedPtr<test::TestDesc>>& getDataMapByid()
         {
-            v->resolve(_tables);
+            return _dataMap_id;
         }
-    }
-
+        test::TestDesc* getRawByid(::bright::int32 key)
+        {                    
+            auto it = _dataMap_id.find(key);
+            return it != _dataMap_id.end() ? it->second.get() : nullptr;
+        }
+        ::bright::SharedPtr<test::TestDesc> getByid(::bright::int32 key)
+        {
+            auto it = _dataMap_id.find(key);
+            return it != _dataMap_id.end() ? it->second : nullptr;
+        }
+        ::bright::HashMap<::bright::String, ::bright::SharedPtr<test::TestDesc>>& getDataMapByname()
+        {
+            return _dataMap_name;
+        }
+        test::TestDesc* getRawByname(::bright::String key)
+        {                    
+            auto it = _dataMap_name.find(key);
+            return it != _dataMap_name.end() ? it->second.get() : nullptr;
+        }
+        ::bright::SharedPtr<test::TestDesc> getByname(::bright::String key)
+        {
+            auto it = _dataMap_name.find(key);
+            return it != _dataMap_name.end() ? it->second : nullptr;
+        }
+        void resolve(::bright::HashMap<::bright::String, void*>& _tables)
+        {
+            for(auto v : _dataList)
+            {
+                v->resolve(_tables);
+            }
+        }    
 };
 }
 

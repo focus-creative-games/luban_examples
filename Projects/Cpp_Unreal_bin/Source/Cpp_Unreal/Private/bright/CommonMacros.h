@@ -27,7 +27,7 @@ namespace bright
     typedef ::bright::math::Vector3 Vector3;
     typedef ::bright::math::Vector4 Vector4;
 
-    typedef std::int32_t datetime;
+    typedef std::int64_t datetime;
 
     template<typename T>
     using Vector = std::vector<T>;
