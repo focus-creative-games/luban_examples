@@ -1,6 +1,6 @@
 set WORKSPACE=..\..
 
-set GEN_CLIENT=%WORKSPACE%\Tools\Luban.Client\Luban.Client.exe
+set GEN_CLIENT=%WORKSPACE%\Tools\Luban.ClientServer\Luban.ClientServer.exe
 set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 
 
