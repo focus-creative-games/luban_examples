@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>2</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>3</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>4</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>5</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>6</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>7</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>8</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>9</id>
+    <count>10</count>
+  </record>
+  <record>
+    <id>10</id>
+    <count>10</count>
+  </record>
+</table>

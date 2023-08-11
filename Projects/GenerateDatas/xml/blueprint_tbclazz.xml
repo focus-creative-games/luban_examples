@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record type="NormalClazz">
+    <name>int</name>
+    <desc>primity type:int</desc>
+    <parents />
+    <methods />
+    <is_abstract>false</is_abstract>
+    <fields />
+  </record>
+</table>

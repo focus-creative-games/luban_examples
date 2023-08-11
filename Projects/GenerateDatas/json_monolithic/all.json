@@ -1,0 +1,9001 @@
+{
+"ai.TbBlackboard":
+{
+  "attack_or_patrol": {
+    "name": "attack_or_patrol",
+    "desc": "demo hahaha",
+    "parent_name": "",
+    "keys": [
+      {
+        "name": "OriginPosition",
+        "desc": "",
+        "is_static": false,
+        "type": 5,
+        "type_class_name": ""
+      },
+      {
+        "name": "TargetActor",
+        "desc": "x2 haha",
+        "is_static": false,
+        "type": 10,
+        "type_class_name": ""
+      },
+      {
+        "name": "AcceptableRadius",
+        "desc": "x3 haha",
+        "is_static": false,
+        "type": 3,
+        "type_class_name": ""
+      },
+      {
+        "name": "CurChooseSkillId",
+        "desc": "x4 haha",
+        "is_static": false,
+        "type": 2,
+        "type_class_name": ""
+      }
+    ]
+  },
+  "demo": {
+    "name": "demo",
+    "desc": "demo hahaha",
+    "parent_name": "demo_parent",
+    "keys": [
+      {
+        "name": "x1",
+        "desc": "x1 haha",
+        "is_static": false,
+        "type": 1,
+        "type_class_name": ""
+      },
+      {
+        "name": "x2",
+        "desc": "x2 haha",
+        "is_static": false,
+        "type": 2,
+        "type_class_name": ""
+      },
+      {
+        "name": "x3",
+        "desc": "x3 haha",
+        "is_static": false,
+        "type": 3,
+        "type_class_name": ""
+      },
+      {
+        "name": "x4",
+        "desc": "x4 haha",
+        "is_static": false,
+        "type": 4,
+        "type_class_name": ""
+      },
+      {
+        "name": "x5",
+        "desc": "x5 haha",
+        "is_static": false,
+        "type": 5,
+        "type_class_name": ""
+      },
+      {
+        "name": "x6",
+        "desc": "x6 haha",
+        "is_static": false,
+        "type": 6,
+        "type_class_name": ""
+      },
+      {
+        "name": "x7",
+        "desc": "x7 haha",
+        "is_static": false,
+        "type": 7,
+        "type_class_name": ""
+      },
+      {
+        "name": "x8",
+        "desc": "x8 haha",
+        "is_static": false,
+        "type": 8,
+        "type_class_name": ""
+      },
+      {
+        "name": "x9",
+        "desc": "x9 haha",
+        "is_static": false,
+        "type": 9,
+        "type_class_name": "ABC"
+      },
+      {
+        "name": "x10",
+        "desc": "x10 haha",
+        "is_static": false,
+        "type": 10,
+        "type_class_name": "OBJECT"
+      }
+    ]
+  },
+  "demo_parent": {
+    "name": "demo_parent",
+    "desc": "demo parent",
+    "parent_name": "",
+    "keys": [
+      {
+        "name": "v1",
+        "desc": "v1 haha",
+        "is_static": false,
+        "type": 1,
+        "type_class_name": ""
+      }
+    ]
+  }
+}
+,
+"ai.TbBehaviorTree":
+{
+  "10002": {
+    "id": 10002,
+    "name": "random move",
+    "desc": "demo behaviour tree haha",
+    "blackboard_id": "demo",
+    "root": {
+      "$type": "Sequence",
+      "id": 1,
+      "node_name": "test",
+      "decorators": [
+        {
+          "$type": "UeLoop",
+          "id": 3,
+          "node_name": "",
+          "flow_abort_mode": 2,
+          "num_loops": 0,
+          "infinite_loop": true,
+          "infinite_loop_timeout_time": -1
+        }
+      ],
+      "services": [],
+      "children": [
+        {
+          "$type": "UeWait",
+          "id": 30,
+          "node_name": "",
+          "decorators": [],
+          "services": [],
+          "ignore_restart_self": false,
+          "wait_time": 1,
+          "random_deviation": 0.5
+        },
+        {
+          "$type": "MoveToRandomLocation",
+          "id": 75,
+          "node_name": "",
+          "decorators": [],
+          "services": [],
+          "ignore_restart_self": false,
+          "origin_position_key": "x5",
+          "radius": 30
+        }
+      ]
+    }
+  }
+}
+,
+"blueprint.TbClazz":
+{
+  "int": {
+    "$type": "NormalClazz",
+    "name": "int",
+    "desc": "primity type:int",
+    "parents": [],
+    "methods": [],
+    "is_abstract": false,
+    "fields": []
+  }
+}
+,
+"bonus.TbDrop":
+{
+  "1": {
+    "id": 1,
+    "desc": "奖励一个物品",
+    "client_show_items": [],
+    "bonus": {
+      "$type": "OneItem",
+      "item_id": 1021490001
+    }
+  },
+  "2": {
+    "id": 2,
+    "desc": "随机掉落一个",
+    "client_show_items": [],
+    "bonus": {
+      "$type": "OneItem",
+      "item_id": 1021490001
+    }
+  }
+}
+,
+"common.TbGlobalConfig":
+{
+  "bag_capacity": 500,
+  "bag_capacity_special": 50,
+  "bag_temp_expendable_capacity": 10,
+  "bag_temp_tool_capacity": 4,
+  "bag_init_capacity": 100,
+  "quick_bag_capacity": 4,
+  "cloth_bag_capacity": 1000,
+  "cloth_bag_init_capacity": 500,
+  "cloth_bag_capacity_special": 50,
+  "bag_init_items_drop_id": 1,
+  "mail_box_capacity": 100,
+  "damage_param_c": 1,
+  "damage_param_e": 0.75,
+  "damage_param_f": 10,
+  "damage_param_d": 0.8,
+  "role_speed": 5,
+  "monster_speed": 5,
+  "init_energy": 0,
+  "init_viality": 100,
+  "max_viality": 100,
+  "per_viality_recovery_time": 300
+}
+,
+"error.TbErrorInfo":
+{
+  "EXAMPLE_FLASH": {
+    "code": "EXAMPLE_FLASH",
+    "desc": "这是一个例子飘窗",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "EXAMPLE_MSGBOX": {
+    "code": "EXAMPLE_MSGBOX",
+    "desc": "例子弹框，消息决定行为",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "要重启了",
+      "operation": 1
+    }
+  },
+  "EXAMPLE_DLG_OK": {
+    "code": "EXAMPLE_DLG_OK",
+    "desc": "例子：单按钮提示，用户自己提供回调",
+    "style": {
+      "$type": "ErrorStyleDlgOk",
+      "btn_name": "联知道了"
+    }
+  },
+  "EXAMPLE_DLG_OK_CANCEL": {
+    "code": "EXAMPLE_DLG_OK_CANCEL",
+    "desc": "例子：双按钮提示，用户自己提供回调",
+    "style": {
+      "$type": "ErrorStyleDlgOkCancel",
+      "btn1_name": "别",
+      "btn2_name": "好"
+    }
+  },
+  "ROLE_CREATE_NAME_INVALID_CHAR": {
+    "code": "ROLE_CREATE_NAME_INVALID_CHAR",
+    "desc": "角色名字有非法字符",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ROLE_CREATE_NAME_EMPTY": {
+    "code": "ROLE_CREATE_NAME_EMPTY",
+    "desc": "名字为空",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ROLE_CREATE_NAME_EXCEED_MAX_LENGTH": {
+    "code": "ROLE_CREATE_NAME_EXCEED_MAX_LENGTH",
+    "desc": "名字太长",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ROLE_CREATE_ROLE_LIST_FULL": {
+    "code": "ROLE_CREATE_ROLE_LIST_FULL",
+    "desc": "角色列表已满",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ROLE_CREATE_INVALID_PROFESSION": {
+    "code": "ROLE_CREATE_INVALID_PROFESSION",
+    "desc": "非法职业",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "PARAM_ILLEGAL": {
+    "code": "PARAM_ILLEGAL",
+    "desc": "参数非法",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "BAG_IS_FULL": {
+    "code": "BAG_IS_FULL",
+    "desc": "背包已满",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ITEM_NOT_ENOUGH": {
+    "code": "ITEM_NOT_ENOUGH",
+    "desc": "道具不足",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "ITEM_IN_BAG": {
+    "code": "ITEM_IN_BAG",
+    "desc": "道具已在背包中",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "GENDER_NOT_MATCH": {
+    "code": "GENDER_NOT_MATCH",
+    "desc": "",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "LEVEL_TOO_LOW": {
+    "code": "LEVEL_TOO_LOW",
+    "desc": "等级太低",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "LEVEL_TOO_HIGH": {
+    "code": "LEVEL_TOO_HIGH",
+    "desc": "等级太高",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "EXCEED_LIMIT": {
+    "code": "EXCEED_LIMIT",
+    "desc": "超过限制",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "OVER_TIME": {
+    "code": "OVER_TIME",
+    "desc": "超时",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_NOT_IN_LIST": {
+    "code": "SKILL_NOT_IN_LIST",
+    "desc": "",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_NOT_COOLDOWN": {
+    "code": "SKILL_NOT_COOLDOWN",
+    "desc": "",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_TARGET_NOT_EXIST": {
+    "code": "SKILL_TARGET_NOT_EXIST",
+    "desc": "",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_ANOTHER_CASTING": {
+    "code": "SKILL_ANOTHER_CASTING",
+    "desc": "",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_TYPE_ERROR": {
+    "code": "MAIL_TYPE_ERROR",
+    "desc": "邮件类型错误",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_HAVE_DELETED": {
+    "code": "MAIL_HAVE_DELETED",
+    "desc": "邮件已删除",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_AWARD_HAVE_RECEIVED": {
+    "code": "MAIL_AWARD_HAVE_RECEIVED",
+    "desc": "邮件奖励已领取",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_OPERATE_TYPE_ERROR": {
+    "code": "MAIL_OPERATE_TYPE_ERROR",
+    "desc": "邮件操作类型错误",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_CONDITION_NOT_MEET": {
+    "code": "MAIL_CONDITION_NOT_MEET",
+    "desc": "邮件条件不满足",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_NO_AWARD": {
+    "code": "MAIL_NO_AWARD",
+    "desc": "邮件没有奖励",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "MAIL_BOX_IS_FULL": {
+    "code": "MAIL_BOX_IS_FULL",
+    "desc": "邮箱已满",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "NO_INTERACTION_COMPONENT": {
+    "code": "NO_INTERACTION_COMPONENT",
+    "desc": "在被拾取对象上，找不到交互组件！！",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "BUTTON_TOO_MANY_CLICKS": {
+    "code": "BUTTON_TOO_MANY_CLICKS",
+    "desc": "点击次数太多了",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_ENEYGY_LACK": {
+    "code": "SKILL_ENEYGY_LACK",
+    "desc": "技能能量不足",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_IS_COOLINGDOWN": {
+    "code": "SKILL_IS_COOLINGDOWN",
+    "desc": "技能冷却中",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_NO_REACTION_OBJ": {
+    "code": "SKILL_NO_REACTION_OBJ",
+    "desc": "当前没有对技能生效的物体",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_NOT_UNLOCKED": {
+    "code": "SKILL_NOT_UNLOCKED",
+    "desc": "技能尚未解锁",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SKILL_IS_GROUP_COLLINGDOWN": {
+    "code": "SKILL_IS_GROUP_COLLINGDOWN",
+    "desc": "技能释放中",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "CLOTH_CHANGE_TOO_FAST": {
+    "code": "CLOTH_CHANGE_TOO_FAST",
+    "desc": "暖暖正在换衣服中，请稍等",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "CLOTH_CHANGE_NOT_ALLOW": {
+    "code": "CLOTH_CHANGE_NOT_ALLOW",
+    "desc": "当前状态不允许换装",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "CLOTH_CHANGE_SAME": {
+    "code": "CLOTH_CHANGE_SAME",
+    "desc": "换的还是目前的套装",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "HAS_BIND_SERVER": {
+    "code": "HAS_BIND_SERVER",
+    "desc": "已经绑定过该服务器",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  "AUTH_FAIL": {
+    "code": "AUTH_FAIL",
+    "desc": "认证失败",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  "NOT_BIND_SERVER": {
+    "code": "NOT_BIND_SERVER",
+    "desc": "没有绑定服务器",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  "SERVER_ACCESS_FAIL": {
+    "code": "SERVER_ACCESS_FAIL",
+    "desc": "访问服务器失败",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  "SERVER_NOT_EXISTS": {
+    "code": "SERVER_NOT_EXISTS",
+    "desc": "该服务器不存在",
+    "style": {
+      "$type": "ErrorStyleMsgbox",
+      "btn_name": "ok",
+      "operation": 1
+    }
+  },
+  "SUIT_NOT_UNLOCK": {
+    "code": "SUIT_NOT_UNLOCK",
+    "desc": "套装尚未解锁",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SUIT_COMPONENT_NOT_UNLOCK": {
+    "code": "SUIT_COMPONENT_NOT_UNLOCK",
+    "desc": "部件尚未解锁",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SUIT_STATE_ERROR": {
+    "code": "SUIT_STATE_ERROR",
+    "desc": "套装状态错误",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SUIT_COMPONENT_STATE_ERROR": {
+    "code": "SUIT_COMPONENT_STATE_ERROR",
+    "desc": "部件状态错误",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  },
+  "SUIT_COMPONENT_NO_NEED_LEARN": {
+    "code": "SUIT_COMPONENT_NO_NEED_LEARN",
+    "desc": "设计图纸对应的部件均已完成学习",
+    "style": {
+      "$type": "ErrorStyleTip"
+    }
+  }
+}
+,
+"error.TbCodeInfo":
+{
+  "6": {
+    "code": 6,
+    "key": "EXAMPLE_FLASH"
+  },
+  "7": {
+    "code": 7,
+    "key": "EXAMPLE_MSGBOX"
+  },
+  "8": {
+    "code": 8,
+    "key": "EXAMPLE_DLG_OK"
+  },
+  "9": {
+    "code": 9,
+    "key": "EXAMPLE_DLG_OK_CANCEL"
+  },
+  "100": {
+    "code": 100,
+    "key": "ROLE_CREATE_NAME_INVALID_CHAR"
+  },
+  "101": {
+    "code": 101,
+    "key": "ROLE_CREATE_NAME_EMPTY"
+  },
+  "102": {
+    "code": 102,
+    "key": "ROLE_CREATE_NAME_EXCEED_MAX_LENGTH"
+  },
+  "103": {
+    "code": 103,
+    "key": "ROLE_CREATE_ROLE_LIST_FULL"
+  },
+  "104": {
+    "code": 104,
+    "key": "ROLE_CREATE_INVALID_PROFESSION"
+  },
+  "200": {
+    "code": 200,
+    "key": "PARAM_ILLEGAL"
+  },
+  "202": {
+    "code": 202,
+    "key": "ITEM_CAN_NOT_USE"
+  },
+  "204": {
+    "code": 204,
+    "key": "BAG_IS_FULL"
+  },
+  "205": {
+    "code": 205,
+    "key": "ITEM_NOT_ENOUGH"
+  },
+  "206": {
+    "code": 206,
+    "key": "ITEM_IN_BAG"
+  },
+  "300": {
+    "code": 300,
+    "key": "GENDER_NOT_MATCH"
+  },
+  "301": {
+    "code": 301,
+    "key": "LEVEL_TOO_LOW"
+  },
+  "302": {
+    "code": 302,
+    "key": "LEVEL_TOO_HIGH"
+  },
+  "303": {
+    "code": 303,
+    "key": "EXCEED_LIMIT"
+  },
+  "304": {
+    "code": 304,
+    "key": "OVER_TIME"
+  },
+  "400": {
+    "code": 400,
+    "key": "SKILL_NOT_IN_LIST"
+  },
+  "401": {
+    "code": 401,
+    "key": "SKILL_NOT_COOLDOWN"
+  },
+  "402": {
+    "code": 402,
+    "key": "SKILL_TARGET_NOT_EXIST"
+  },
+  "403": {
+    "code": 403,
+    "key": "SKILL_ANOTHER_CASTING"
+  },
+  "700": {
+    "code": 700,
+    "key": "MAIL_TYPE_ERROR"
+  },
+  "702": {
+    "code": 702,
+    "key": "MAIL_HAVE_DELETED"
+  },
+  "703": {
+    "code": 703,
+    "key": "MAIL_AWARD_HAVE_RECEIVED"
+  },
+  "704": {
+    "code": 704,
+    "key": "MAIL_OPERATE_TYPE_ERROR"
+  },
+  "705": {
+    "code": 705,
+    "key": "MAIL_CONDITION_NOT_MEET"
+  },
+  "707": {
+    "code": 707,
+    "key": "MAIL_NO_AWARD"
+  },
+  "708": {
+    "code": 708,
+    "key": "MAIL_BOX_IS_FULL"
+  },
+  "605": {
+    "code": 605,
+    "key": "NO_INTERACTION_COMPONENT"
+  },
+  "2": {
+    "code": 2,
+    "key": "HAS_BIND_SERVER"
+  },
+  "3": {
+    "code": 3,
+    "key": "AUTH_FAIL"
+  },
+  "4": {
+    "code": 4,
+    "key": "NOT_BIND_SERVER"
+  },
+  "5": {
+    "code": 5,
+    "key": "SERVER_ACCESS_FAIL"
+  },
+  "1": {
+    "code": 1,
+    "key": "SERVER_NOT_EXISTS"
+  },
+  "900": {
+    "code": 900,
+    "key": "SUIT_NOT_UNLOCK"
+  },
+  "901": {
+    "code": 901,
+    "key": "SUIT_COMPONENT_NOT_UNLOCK"
+  },
+  "902": {
+    "code": 902,
+    "key": "SUIT_STATE_ERROR"
+  },
+  "903": {
+    "code": 903,
+    "key": "SUIT_COMPONENT_STATE_ERROR"
+  },
+  "904": {
+    "code": 904,
+    "key": "SUIT_COMPONENT_NO_NEED_LEARN"
+  }
+}
+,
+"item.TbItem":
+{
+  "1": {
+    "id": 1,
+    "name": "钻石",
+    "major_type": 1,
+    "minor_type": 101,
+    "max_pile_num": 9999999,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_3.UI_TestIcon_3",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "rmb兑换的主要货币",
+    "show_order": 1,
+    "quantifier": "个",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "2": {
+    "id": 2,
+    "name": "金币",
+    "major_type": 1,
+    "minor_type": 102,
+    "max_pile_num": 9999999,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "主要的高级流通代币",
+    "show_order": 2,
+    "quantifier": "个",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "3": {
+    "id": 3,
+    "name": "银币",
+    "major_type": 1,
+    "minor_type": 103,
+    "max_pile_num": 9999999,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_2.UI_TestIcon_2",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "主要的流通代币",
+    "show_order": 3,
+    "quantifier": "个",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "4": {
+    "id": 4,
+    "name": "经验",
+    "major_type": 1,
+    "minor_type": 104,
+    "max_pile_num": 9999999,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "人物升级需要的经验",
+    "show_order": 4,
+    "quantifier": "点",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "5": {
+    "id": 5,
+    "name": "能量点",
+    "major_type": 1,
+    "minor_type": 105,
+    "max_pile_num": 9999999,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "人物变身需要的能量点",
+    "show_order": 5,
+    "quantifier": "点",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020100001": {
+    "id": 1020100001,
+    "name": "初始发型",
+    "major_type": 2,
+    "minor_type": 210,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0012H_png.S0012H_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始发型",
+    "show_order": 6,
+    "quantifier": "套",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020200001": {
+    "id": 1020200001,
+    "name": "初始外套",
+    "major_type": 2,
+    "minor_type": 220,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0006_2C_png.S0006_2C_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始外套",
+    "show_order": 7,
+    "quantifier": "件",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020300001": {
+    "id": 1020300001,
+    "name": "初始上衣",
+    "major_type": 2,
+    "minor_type": 230,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090ABS_png.S0090ABS_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始上衣",
+    "show_order": 8,
+    "quantifier": "件",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020400001": {
+    "id": 1020400001,
+    "name": "初始裤子",
+    "major_type": 2,
+    "minor_type": 242,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始下装",
+    "show_order": 9,
+    "quantifier": "件",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020500001": {
+    "id": 1020500001,
+    "name": "初始袜子",
+    "major_type": 2,
+    "minor_type": 250,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0012S_png.S0012S_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始袜子",
+    "show_order": 10,
+    "quantifier": "双",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020600001": {
+    "id": 1020600001,
+    "name": "初始鞋子",
+    "major_type": 2,
+    "minor_type": 260,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0012BS_png.S0012BS_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始鞋子",
+    "show_order": 11,
+    "quantifier": "双",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1020700001": {
+    "id": 1020700001,
+    "name": "初始发饰",
+    "major_type": 2,
+    "minor_type": 271,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090_X1AHC_png.S0090_X1AHC_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始发饰",
+    "show_order": 12,
+    "quantifier": "套",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1022490000": {
+    "id": 1022490000,
+    "name": "测试数据-包子",
+    "major_type": 4,
+    "minor_type": 403,
+    "max_pile_num": 100,
+    "quality": 2,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "包子",
+    "show_order": 29,
+    "quantifier": "个",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": true,
+    "use_type": 1
+  },
+  "1022490001": {
+    "id": 1022490001,
+    "name": "测试数据-铲子",
+    "major_type": 4,
+    "minor_type": 424,
+    "max_pile_num": 1,
+    "quality": 3,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "一把铲子",
+    "show_order": 30,
+    "quantifier": "把",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "price": 100,
+    "use_type": 0
+  },
+  "1021490001": {
+    "id": 1021490001,
+    "name": "测试数据-不要动",
+    "major_type": 2,
+    "minor_type": 278,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090FE_01_png.S0090FE_01_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始手持物",
+    "show_order": 19,
+    "quantifier": "件",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "use_type": 0
+  },
+  "1022490002": {
+    "id": 1022490002,
+    "name": "测试数据-不要动",
+    "major_type": 2,
+    "minor_type": 290,
+    "max_pile_num": 1,
+    "quality": 2,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090D_png.S0090D_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始套装",
+    "show_order": 26,
+    "quantifier": "个",
+    "show_in_bag": true,
+    "min_show_level": 5,
+    "batch_usable": true,
+    "progress_time_when_use": 1,
+    "show_hint_when_use": false,
+    "droppable": false,
+    "price": 8,
+    "use_type": 0
+  }
+}
+,
+"item.TbItemFunc":
+{
+  "401": {
+    "minor_type": 401,
+    "func_type": 0,
+    "method": "使用",
+    "close_bag_ui": true
+  },
+  "1102": {
+    "minor_type": 1102,
+    "func_type": 1,
+    "method": "使用",
+    "close_bag_ui": false
+  }
+}
+,
+"item.TbItemExtra":
+{
+  "1022200001": {
+    "$type": "TreasureBox",
+    "id": 1022200001,
+    "key_item_id": 1022300001,
+    "open_level": {
+      "level": 5
+    },
+    "use_on_obtain": true,
+    "drop_ids": [
+      1
+    ],
+    "choose_list": []
+  },
+  "1022300001": {
+    "$type": "TreasureBox",
+    "id": 1022300001,
+    "open_level": {
+      "level": 5
+    },
+    "use_on_obtain": true,
+    "drop_ids": [],
+    "choose_list": []
+  },
+  "1010010003": {
+    "$type": "TreasureBox",
+    "id": 1010010003,
+    "open_level": {
+      "level": 6
+    },
+    "use_on_obtain": true,
+    "drop_ids": [],
+    "choose_list": []
+  },
+  "1050010001": {
+    "$type": "TreasureBox",
+    "id": 1050010001,
+    "open_level": {
+      "level": 1
+    },
+    "use_on_obtain": false,
+    "drop_ids": [
+      1
+    ],
+    "choose_list": []
+  },
+  "1040010001": {
+    "$type": "InteractionItem",
+    "id": 1040010001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040020001": {
+    "$type": "InteractionItem",
+    "id": 1040020001,
+    "holding_static_mesh": "StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple'",
+    "holding_static_mesh_mat": "MaterialInstanceConstant'/Game/X6GameData/Prototype/PrototypeAssets/Material/LD_Red.LD_Red'"
+  },
+  "1040040001": {
+    "$type": "InteractionItem",
+    "id": 1040040001,
+    "holding_static_mesh": "StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Ball.SM_Ball'",
+    "holding_static_mesh_mat": "MaterialInstanceConstant'/Game/X6GameData/Prototype/PrototypeAssets/CustomizableGrid/Materials/Presets/M_Grid_preset_002.M_Grid_preset_002'"
+  },
+  "1040040002": {
+    "$type": "InteractionItem",
+    "id": 1040040002,
+    "holding_static_mesh": "StaticMesh'/Game/X6GameData/Art_assets/Props/Prop_test/Interactive/PenQuanHua/SM_Penquanhua.SM_Penquanhua'",
+    "holding_static_mesh_mat": ""
+  },
+  "1040040003": {
+    "$type": "InteractionItem",
+    "id": 1040040003,
+    "holding_static_mesh": "StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple'",
+    "holding_static_mesh_mat": "MaterialInstanceConstant'/Game/X6GameData/Art_assets/Props/Prop_test/Materials/Prop_Red_MI.Prop_Red_MI'"
+  },
+  "1040210001": {
+    "$type": "InteractionItem",
+    "id": 1040210001,
+    "attack_num": 3,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040220001": {
+    "$type": "InteractionItem",
+    "id": 1040220001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040230001": {
+    "$type": "InteractionItem",
+    "id": 1040230001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040240001": {
+    "$type": "InteractionItem",
+    "id": 1040240001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040250001": {
+    "$type": "InteractionItem",
+    "id": 1040250001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1040030001": {
+    "$type": "InteractionItem",
+    "id": 1040030001,
+    "holding_static_mesh": "",
+    "holding_static_mesh_mat": ""
+  },
+  "1020100001": {
+    "$type": "Clothes",
+    "id": 1020100001,
+    "attack": 100,
+    "hp": 1000,
+    "energy_limit": 5,
+    "energy_resume": 1
+  },
+  "1020200001": {
+    "$type": "Clothes",
+    "id": 1020200001,
+    "attack": 100,
+    "hp": 1000,
+    "energy_limit": 5,
+    "energy_resume": 1
+  },
+  "1020300001": {
+    "$type": "Clothes",
+    "id": 1020300001,
+    "attack": 100,
+    "hp": 1000,
+    "energy_limit": 5,
+    "energy_resume": 1
+  },
+  "1110010005": {
+    "$type": "DesignDrawing",
+    "id": 1110010005,
+    "learn_component_id": [
+      1020400006
+    ]
+  },
+  "1110010006": {
+    "$type": "DesignDrawing",
+    "id": 1110010006,
+    "learn_component_id": [
+      1020500003
+    ]
+  },
+  "1110020001": {
+    "$type": "DesignDrawing",
+    "id": 1110020001,
+    "learn_component_id": [
+      1021009005
+    ]
+  },
+  "1110020002": {
+    "$type": "DesignDrawing",
+    "id": 1110020002,
+    "learn_component_id": [
+      1022109005
+    ]
+  },
+  "1110020003": {
+    "$type": "DesignDrawing",
+    "id": 1110020003,
+    "learn_component_id": [
+      1020409017
+    ]
+  },
+  "1110020004": {
+    "$type": "DesignDrawing",
+    "id": 1110020004,
+    "learn_component_id": [
+      1021409017
+    ]
+  },
+  "1110020005": {
+    "$type": "DesignDrawing",
+    "id": 1110020005,
+    "learn_component_id": [
+      1021300002
+    ]
+  },
+  "1110020009": {
+    "$type": "DesignDrawing",
+    "id": 1110020009,
+    "learn_component_id": [
+      1020409024
+    ]
+  },
+  "1110020010": {
+    "$type": "DesignDrawing",
+    "id": 1110020010,
+    "learn_component_id": [
+      1020509024
+    ]
+  },
+  "1110020011": {
+    "$type": "DesignDrawing",
+    "id": 1110020011,
+    "learn_component_id": [
+      1020609024
+    ]
+  },
+  "1110020012": {
+    "$type": "DesignDrawing",
+    "id": 1110020012,
+    "learn_component_id": [
+      1020809022
+    ]
+  },
+  "1110020013": {
+    "$type": "DesignDrawing",
+    "id": 1110020013,
+    "learn_component_id": [
+      1020709024
+    ]
+  },
+  "1110020014": {
+    "$type": "DesignDrawing",
+    "id": 1110020014,
+    "learn_component_id": [
+      1021009024
+    ]
+  },
+  "1110020015": {
+    "$type": "DesignDrawing",
+    "id": 1110020015,
+    "learn_component_id": [
+      1021409024
+    ]
+  },
+  "1110020016": {
+    "$type": "DesignDrawing",
+    "id": 1110020016,
+    "learn_component_id": [
+      1021309132
+    ]
+  },
+  "1110020017": {
+    "$type": "DesignDrawing",
+    "id": 1110020017,
+    "learn_component_id": [
+      1020909132
+    ]
+  },
+  "1110020018": {
+    "$type": "DesignDrawing",
+    "id": 1110020018,
+    "learn_component_id": [
+      1021500007
+    ]
+  },
+  "1110020080": {
+    "$type": "DesignDrawing",
+    "id": 1110020080,
+    "learn_component_id": [
+      1021009132
+    ]
+  }
+}
+,
+"l10n.TbL10NDemo":
+{
+  "11": {
+    "id": 11,
+    "text": {
+      "key": "/demo/1",
+      "text": "测试1"
+    }
+  },
+  "12": {
+    "id": 12,
+    "text": {
+      "key": "/demo/2",
+      "text": "测试2"
+    }
+  },
+  "13": {
+    "id": 13,
+    "text": {
+      "key": "/demo/3",
+      "text": "测试3"
+    }
+  },
+  "14": {
+    "id": 14,
+    "text": {
+      "key": "",
+      "text": ""
+    }
+  },
+  "15": {
+    "id": 15,
+    "text": {
+      "key": "/demo/5",
+      "text": "测试5"
+    }
+  },
+  "16": {
+    "id": 16,
+    "text": {
+      "key": "/demo/6",
+      "text": "测试6"
+    }
+  },
+  "17": {
+    "id": 17,
+    "text": {
+      "key": "/demo/7",
+      "text": "测试7"
+    }
+  },
+  "18": {
+    "id": 18,
+    "text": {
+      "key": "/demo/8",
+      "text": "测试8"
+    }
+  }
+}
+,
+"l10n.TbPatchDemo":
+{
+  "11": {
+    "id": 11,
+    "value": 1
+  },
+  "12": {
+    "id": 12,
+    "value": 2
+  },
+  "13": {
+    "id": 13,
+    "value": 3
+  },
+  "14": {
+    "id": 14,
+    "value": 4
+  },
+  "15": {
+    "id": 15,
+    "value": 5
+  },
+  "16": {
+    "id": 16,
+    "value": 6
+  },
+  "17": {
+    "id": 17,
+    "value": 7
+  },
+  "18": {
+    "id": 18,
+    "value": 8
+  }
+}
+,
+"mail.TbSystemMail":
+{
+  "11": {
+    "id": 11,
+    "title": "测试1",
+    "sender": "系统",
+    "content": "测试内容1",
+    "award": [
+      1
+    ]
+  },
+  "12": {
+    "id": 12,
+    "title": "测试2",
+    "sender": "系统",
+    "content": "测试内容2",
+    "award": [
+      1
+    ]
+  },
+  "13": {
+    "id": 13,
+    "title": "测试3",
+    "sender": "系统",
+    "content": "测试内容3",
+    "award": [
+      1
+    ]
+  },
+  "14": {
+    "id": 14,
+    "title": "测试4",
+    "sender": "系统",
+    "content": "测试内容4",
+    "award": [
+      1
+    ]
+  },
+  "15": {
+    "id": 15,
+    "title": "测试5",
+    "sender": "系统",
+    "content": "测试内容5",
+    "award": [
+      1
+    ]
+  }
+}
+,
+"mail.TbGlobalMail":
+{
+  "21": {
+    "id": 21,
+    "title": "测试1",
+    "sender": "系统",
+    "content": "测试内容1",
+    "award": [
+      1
+    ],
+    "all_server": true,
+    "server_list": [],
+    "platform": "1",
+    "channel": "1",
+    "min_max_level": {
+      "min_level": 1,
+      "max_level": 120
+    },
+    "register_time": {
+      "date_time_range": {
+        "start_time": 1589040000,
+        "end_time": 1589904000
+      }
+    },
+    "mail_time": {
+      "date_time_range": {
+        "start_time": 1589040000,
+        "end_time": 1589904000
+      }
+    }
+  },
+  "22": {
+    "id": 22,
+    "title": "",
+    "sender": "系统",
+    "content": "测试内容2",
+    "award": [
+      1
+    ],
+    "all_server": false,
+    "server_list": [
+      1
+    ],
+    "platform": "1",
+    "channel": "1",
+    "min_max_level": {
+      "min_level": 20,
+      "max_level": 120
+    },
+    "register_time": {
+      "date_time_range": {
+        "start_time": 1588608000
+      }
+    },
+    "mail_time": {
+      "date_time_range": {
+        "start_time": 1589904000,
+        "end_time": 1590336000
+      }
+    }
+  },
+  "23": {
+    "id": 23,
+    "title": "",
+    "sender": "系统",
+    "content": "测试内容3",
+    "award": [
+      1
+    ],
+    "all_server": false,
+    "server_list": [
+      1
+    ],
+    "platform": "1",
+    "channel": "1",
+    "min_max_level": {
+      "min_level": 50,
+      "max_level": 60
+    },
+    "register_time": {
+      "date_time_range": {
+        "end_time": 1589644800
+      }
+    },
+    "mail_time": {
+      "date_time_range": {}
+    }
+  },
+  "24": {
+    "id": 24,
+    "title": "",
+    "sender": "系统",
+    "content": "测试内容3",
+    "award": [
+      1
+    ],
+    "all_server": false,
+    "server_list": [
+      1
+    ],
+    "platform": "1",
+    "channel": "1",
+    "min_max_level": {
+      "min_level": 50,
+      "max_level": 60
+    },
+    "register_time": {
+      "date_time_range": {
+        "end_time": 1589644800
+      }
+    },
+    "mail_time": {
+      "date_time_range": {}
+    }
+  }
+}
+,
+"role.TbRoleLevelExpAttr":
+{
+  "1": {
+    "level": 1,
+    "need_exp": 0,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "2": {
+    "level": 2,
+    "need_exp": 100,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "3": {
+    "level": 3,
+    "need_exp": 200,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "4": {
+    "level": 4,
+    "need_exp": 300,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "5": {
+    "level": 5,
+    "need_exp": 400,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "6": {
+    "level": 6,
+    "need_exp": 500,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "7": {
+    "level": 7,
+    "need_exp": 700,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "8": {
+    "level": 8,
+    "need_exp": 900,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "9": {
+    "level": 9,
+    "need_exp": 1100,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "10": {
+    "level": 10,
+    "need_exp": 1300,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "11": {
+    "level": 11,
+    "need_exp": 1500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "12": {
+    "level": 12,
+    "need_exp": 2000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "13": {
+    "level": 13,
+    "need_exp": 2500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "14": {
+    "level": 14,
+    "need_exp": 3000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "15": {
+    "level": 15,
+    "need_exp": 3500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "16": {
+    "level": 16,
+    "need_exp": 4000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "17": {
+    "level": 17,
+    "need_exp": 4500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "18": {
+    "level": 18,
+    "need_exp": 5000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "19": {
+    "level": 19,
+    "need_exp": 5500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "20": {
+    "level": 20,
+    "need_exp": 6000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "21": {
+    "level": 21,
+    "need_exp": 6500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "22": {
+    "level": 22,
+    "need_exp": 7000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "23": {
+    "level": 23,
+    "need_exp": 7500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "24": {
+    "level": 24,
+    "need_exp": 8000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "25": {
+    "level": 25,
+    "need_exp": 8500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "26": {
+    "level": 26,
+    "need_exp": 9000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "27": {
+    "level": 27,
+    "need_exp": 9500,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "28": {
+    "level": 28,
+    "need_exp": 10000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "29": {
+    "level": 29,
+    "need_exp": 11000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "30": {
+    "level": 30,
+    "need_exp": 12000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "31": {
+    "level": 31,
+    "need_exp": 13000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "32": {
+    "level": 32,
+    "need_exp": 14000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "33": {
+    "level": 33,
+    "need_exp": 15000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "34": {
+    "level": 34,
+    "need_exp": 17000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "35": {
+    "level": 35,
+    "need_exp": 19000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "36": {
+    "level": 36,
+    "need_exp": 21000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "37": {
+    "level": 37,
+    "need_exp": 23000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "38": {
+    "level": 38,
+    "need_exp": 25000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "39": {
+    "level": 39,
+    "need_exp": 28000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "40": {
+    "level": 40,
+    "need_exp": 31000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "41": {
+    "level": 41,
+    "need_exp": 34000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "42": {
+    "level": 42,
+    "need_exp": 37000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "43": {
+    "level": 43,
+    "need_exp": 40000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "44": {
+    "level": 44,
+    "need_exp": 45000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "45": {
+    "level": 45,
+    "need_exp": 50000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "46": {
+    "level": 46,
+    "need_exp": 55000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "47": {
+    "level": 47,
+    "need_exp": 60000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "48": {
+    "level": 48,
+    "need_exp": 65000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "49": {
+    "level": 49,
+    "need_exp": 70000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "50": {
+    "level": 50,
+    "need_exp": 75000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "51": {
+    "level": 51,
+    "need_exp": 80000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "52": {
+    "level": 52,
+    "need_exp": 85000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "53": {
+    "level": 53,
+    "need_exp": 90000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "54": {
+    "level": 54,
+    "need_exp": 95000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "55": {
+    "level": 55,
+    "need_exp": 100000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "56": {
+    "level": 56,
+    "need_exp": 105000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "57": {
+    "level": 57,
+    "need_exp": 110000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "58": {
+    "level": 58,
+    "need_exp": 115000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "59": {
+    "level": 59,
+    "need_exp": 120000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "60": {
+    "level": 60,
+    "need_exp": 125000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "61": {
+    "level": 61,
+    "need_exp": 130000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "62": {
+    "level": 62,
+    "need_exp": 135000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "63": {
+    "level": 63,
+    "need_exp": 140000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "64": {
+    "level": 64,
+    "need_exp": 145000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "65": {
+    "level": 65,
+    "need_exp": 150000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "66": {
+    "level": 66,
+    "need_exp": 155000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "67": {
+    "level": 67,
+    "need_exp": 160000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "68": {
+    "level": 68,
+    "need_exp": 165000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "69": {
+    "level": 69,
+    "need_exp": 170000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "70": {
+    "level": 70,
+    "need_exp": 175000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "71": {
+    "level": 71,
+    "need_exp": 180000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "72": {
+    "level": 72,
+    "need_exp": 185000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "73": {
+    "level": 73,
+    "need_exp": 190000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "74": {
+    "level": 74,
+    "need_exp": 195000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "75": {
+    "level": 75,
+    "need_exp": 200000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "76": {
+    "level": 76,
+    "need_exp": 205000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "77": {
+    "level": 77,
+    "need_exp": 210000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "78": {
+    "level": 78,
+    "need_exp": 215000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "79": {
+    "level": 79,
+    "need_exp": 220000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "80": {
+    "level": 80,
+    "need_exp": 225000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "81": {
+    "level": 81,
+    "need_exp": 230000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "82": {
+    "level": 82,
+    "need_exp": 235000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "83": {
+    "level": 83,
+    "need_exp": 240000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "84": {
+    "level": 84,
+    "need_exp": 245000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "85": {
+    "level": 85,
+    "need_exp": 250000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "86": {
+    "level": 86,
+    "need_exp": 255000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "87": {
+    "level": 87,
+    "need_exp": 260000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "88": {
+    "level": 88,
+    "need_exp": 265000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "89": {
+    "level": 89,
+    "need_exp": 270000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "90": {
+    "level": 90,
+    "need_exp": 275000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "91": {
+    "level": 91,
+    "need_exp": 280000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "92": {
+    "level": 92,
+    "need_exp": 285000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "93": {
+    "level": 93,
+    "need_exp": 290000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "94": {
+    "level": 94,
+    "need_exp": 295000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "95": {
+    "level": 95,
+    "need_exp": 300000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "96": {
+    "level": 96,
+    "need_exp": 305000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "97": {
+    "level": 97,
+    "need_exp": 310000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "98": {
+    "level": 98,
+    "need_exp": 315000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "99": {
+    "level": 99,
+    "need_exp": 320000,
+    "clothes_attrs": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "100": {
+    "level": 100,
+    "need_exp": 325000,
+    "clothes_attrs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+}
+,
+"role.TbRoleLevelBonusCoefficient":
+{
+  "1001": {
+    "id": 1001,
+    "distinct_bonus_infos": [
+      {
+        "effective_level": 1,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 1
+          },
+          {
+            "type": 2,
+            "coefficient": 1
+          }
+        ]
+      },
+      {
+        "effective_level": 10,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 1.5
+          },
+          {
+            "type": 2,
+            "coefficient": 2
+          }
+        ]
+      },
+      {
+        "effective_level": 20,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 2
+          },
+          {
+            "type": 2,
+            "coefficient": 3
+          }
+        ]
+      },
+      {
+        "effective_level": 30,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 2.5
+          },
+          {
+            "type": 2,
+            "coefficient": 4
+          }
+        ]
+      },
+      {
+        "effective_level": 40,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 3
+          },
+          {
+            "type": 2,
+            "coefficient": 5
+          }
+        ]
+      },
+      {
+        "effective_level": 50,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 3.5
+          },
+          {
+            "type": 2,
+            "coefficient": 6
+          }
+        ]
+      },
+      {
+        "effective_level": 60,
+        "bonus_info": [
+          {
+            "type": 4,
+            "coefficient": 4
+          },
+          {
+            "type": 2,
+            "coefficient": 7
+          }
+        ]
+      }
+    ]
+  }
+}
+,
+"tag.TbTestTag":
+{
+  "2001": {
+    "id": 2001,
+    "value": "导出"
+  },
+  "2004": {
+    "id": 2004,
+    "value": "any"
+  },
+  "2003": {
+    "id": 2003,
+    "value": "test"
+  },
+  "100": {
+    "id": 100,
+    "value": "导出"
+  },
+  "1": {
+    "id": 1,
+    "value": "导出"
+  },
+  "2": {
+    "id": 2,
+    "value": "导出"
+  },
+  "6": {
+    "id": 6,
+    "value": "导出"
+  },
+  "7": {
+    "id": 7,
+    "value": "导出"
+  },
+  "9": {
+    "id": 9,
+    "value": "测试"
+  },
+  "10": {
+    "id": 10,
+    "value": "测试"
+  },
+  "11": {
+    "id": 11,
+    "value": "any"
+  },
+  "12": {
+    "id": 12,
+    "value": "导出"
+  },
+  "13": {
+    "id": 13,
+    "value": "导出"
+  },
+  "104": {
+    "id": 104,
+    "value": "any"
+  },
+  "102": {
+    "id": 102,
+    "value": "test"
+  },
+  "3001": {
+    "id": 3001,
+    "value": "export"
+  },
+  "3004": {
+    "id": 3004,
+    "value": "any"
+  },
+  "3003": {
+    "id": 3003,
+    "value": "test"
+  }
+}
+,
+"test.TbFullTypes":
+{
+  "1": {
+    "x4": 1,
+    "x1": true,
+    "x2": 5,
+    "x3": 1,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas[10000]",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "test/a",
+      "text": "xxx"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 3
+      }
+    ]
+  },
+  "2": {
+    "x4": 2,
+    "x1": false,
+    "x2": 0,
+    "x3": 2,
+    "x5": 0,
+    "x6": 0,
+    "x7": 0,
+    "x8_0": 0,
+    "x8": 0,
+    "x9": 0,
+    "x10": "",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "name",
+      "text": "asdfa2"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 3,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 4
+      }
+    ]
+  },
+  "3": {
+    "x4": 3,
+    "x1": false,
+    "x2": 0,
+    "x3": 3,
+    "x5": 0,
+    "x6": 0,
+    "x7": 0,
+    "x8_0": 0,
+    "x8": 0,
+    "x9": 0,
+    "x10": "",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "name",
+      "text": "asdfa2"
+    },
+    "v2": {
+      "x": 0,
+      "y": 0
+    },
+    "v3": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "v4": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 0
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 4,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 5
+      }
+    ]
+  },
+  "4": {
+    "x4": 4,
+    "x1": false,
+    "x2": 5,
+    "x3": 4,
+    "x5": 0,
+    "x6": 0,
+    "x7": 0,
+    "x8_0": 0,
+    "x8": 0,
+    "x9": 0,
+    "x10": "",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "key1",
+      "text": "asdfa4"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 933732549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 5,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 6
+      }
+    ]
+  },
+  "5": {
+    "x4": 5,
+    "x1": false,
+    "x2": 5,
+    "x3": 6,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas[20000]",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "",
+      "text": ""
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 6,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 7
+      }
+    ]
+  },
+  "6": {
+    "x4": 6,
+    "x1": true,
+    "x2": 5,
+    "x3": 7,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "",
+      "text": ""
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 7,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 8
+      }
+    ]
+  },
+  "7": {
+    "x4": 7,
+    "x1": true,
+    "x2": 5,
+    "x3": 8,
+    "x5": 1213123,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "key2",
+      "text": "asdfa7"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 8,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 9
+      }
+    ]
+  },
+  "8": {
+    "x4": 8,
+    "x1": true,
+    "x2": 5,
+    "x3": 9,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "key3",
+      "text": "asdfa8"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 9,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 10
+      }
+    ]
+  },
+  "9": {
+    "x4": 9,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1988
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "key3",
+      "text": "asdfa8"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.8
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 10,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 11
+      }
+    ]
+  },
+  "10": {
+    "x4": 10,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1989
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 3
+    },
+    "s1": {
+      "key": "key4",
+      "text": "asdfa9"
+    },
+    "v2": {
+      "x": 1,
+      "y": 3
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 5
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.9
+    },
+    "t1": 935460550,
+    "k1": [
+      1,
+      2,
+      4
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 5
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 11,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 12
+      }
+    ]
+  },
+  "12": {
+    "x4": 12,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1990
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "test.login.RoleInfo",
+      "x1": 1,
+      "x3": 4,
+      "role_id": 10000
+    },
+    "s1": {
+      "key": "key5",
+      "text": "asdfa10"
+    },
+    "v2": {
+      "x": 1,
+      "y": 4
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 6
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.1
+    },
+    "t1": 935460551,
+    "k1": [
+      1,
+      2,
+      5
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 6
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 12,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 13
+      }
+    ]
+  },
+  "30": {
+    "x4": 30,
+    "x1": true,
+    "x2": 5,
+    "x3": 128,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x7": 1.23457891,
+    "x8_0": 1234,
+    "x8": 1234,
+    "x9": 111111111,
+    "x10": "Assets/GoodsIcon/GoodsIcon.spriteatlas",
+    "x12": {
+      "x1": 1991
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 5
+    },
+    "s1": {
+      "key": "key6",
+      "text": "asdfa11"
+    },
+    "v2": {
+      "x": 1,
+      "y": 5
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 7
+    },
+    "v4": {
+      "x": 10.2,
+      "y": 2.3,
+      "z": 3.4,
+      "w": 12.11
+    },
+    "t1": 935460552,
+    "k1": [
+      1,
+      2,
+      6
+    ],
+    "k2": [
+      1,
+      2,
+      4
+    ],
+    "k5": [
+      1,
+      2,
+      7
+    ],
+    "k8": {
+      "1": 2,
+      "3": 7
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 13,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoE1",
+        "x1": 1,
+        "x3": 2,
+        "x4": 14
+      }
+    ]
+  }
+}
+,
+"test.TbSingleton":
+{
+  "id": 5,
+  "name": {
+    "key": "key_name",
+    "text": "aabbcc"
+  },
+  "date": {
+    "$type": "DemoD5",
+    "x1": 1,
+    "time": {
+      "start_time": 398966400,
+      "end_time": 936806400
+    }
+  }
+}
+,
+"test.TbNotIndexList":
+[
+  {
+    "x": 1,
+    "y": 2
+  },
+  {
+    "x": 1,
+    "y": 2
+  },
+  {
+    "x": 2,
+    "y": 3
+  },
+  {
+    "x": 3,
+    "y": 4
+  },
+  {
+    "x": 2,
+    "y": 3
+  }
+]
+,
+"test.TbMultiUnionIndexList":
+[
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab1",
+    "num": 1,
+    "desc": "desc1"
+  },
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab2",
+    "num": 2,
+    "desc": "desc2"
+  },
+  {
+    "id1": 1,
+    "id2": 5,
+    "id3": "ab1",
+    "num": 3,
+    "desc": "desc3"
+  },
+  {
+    "id1": 4,
+    "id2": 5,
+    "id3": "ab1",
+    "num": 4,
+    "desc": "desc4"
+  },
+  {
+    "id1": 5,
+    "id2": 9,
+    "id3": "ab5",
+    "num": 5,
+    "desc": "desc5"
+  },
+  {
+    "id1": 6,
+    "id2": 11,
+    "id3": "ab6",
+    "num": 6,
+    "desc": "desc6"
+  },
+  {
+    "id1": 7,
+    "id2": 13,
+    "id3": "ab7",
+    "num": 7,
+    "desc": "desc7"
+  },
+  {
+    "id1": 8,
+    "id2": 15,
+    "id3": "ab8",
+    "num": 8,
+    "desc": "desc8"
+  },
+  {
+    "id1": 9,
+    "id2": 17,
+    "id3": "ab9",
+    "num": 9,
+    "desc": "desc9"
+  },
+  {
+    "id1": 10,
+    "id2": 19,
+    "id3": "ab10",
+    "num": 10,
+    "desc": "desc10"
+  },
+  {
+    "id1": 11,
+    "id2": 21,
+    "id3": "ab11",
+    "num": 11,
+    "desc": "desc11"
+  }
+]
+,
+"test.TbMultiIndexList":
+[
+  {
+    "id1": 1,
+    "id2": 1,
+    "id3": "ab1",
+    "num": 1,
+    "desc": "desc1"
+  },
+  {
+    "id1": 2,
+    "id2": 3,
+    "id3": "ab2",
+    "num": 2,
+    "desc": "desc2"
+  },
+  {
+    "id1": 3,
+    "id2": 5,
+    "id3": "ab3",
+    "num": 3,
+    "desc": "desc3"
+  },
+  {
+    "id1": 4,
+    "id2": 7,
+    "id3": "ab4",
+    "num": 4,
+    "desc": "desc4"
+  },
+  {
+    "id1": 5,
+    "id2": 9,
+    "id3": "ab5",
+    "num": 5,
+    "desc": "desc5"
+  },
+  {
+    "id1": 6,
+    "id2": 11,
+    "id3": "ab6",
+    "num": 6,
+    "desc": "desc6"
+  },
+  {
+    "id1": 7,
+    "id2": 13,
+    "id3": "ab7",
+    "num": 7,
+    "desc": "desc7"
+  },
+  {
+    "id1": 8,
+    "id2": 15,
+    "id3": "ab8",
+    "num": 8,
+    "desc": "desc8"
+  },
+  {
+    "id1": 9,
+    "id2": 17,
+    "id3": "ab9",
+    "num": 9,
+    "desc": "desc9"
+  },
+  {
+    "id1": 10,
+    "id2": 19,
+    "id3": "ab10",
+    "num": 10,
+    "desc": "desc10"
+  },
+  {
+    "id1": 11,
+    "id2": 21,
+    "id3": "ab11",
+    "num": 11,
+    "desc": "desc11"
+  }
+]
+,
+"test.TbDataFromMisc":
+{
+  "1": {
+    "x4": 1,
+    "x1": true,
+    "x2": 3,
+    "x3": 128,
+    "x5": 11223344,
+    "x6": 1.2,
+    "x7": 1.23432,
+    "x8_0": 12312,
+    "x8": 112233,
+    "x9": 223344,
+    "x10": "hq",
+    "x12": {
+      "x1": 10
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      2,
+      3
+    ],
+    "k5": [
+      1,
+      6
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      }
+    ]
+  },
+  "11": {
+    "x4": 11,
+    "x1": true,
+    "x2": 4,
+    "x3": 128,
+    "x5": 112233445566,
+    "x6": 1.3,
+    "x7": 1112232.43123,
+    "x8_0": 123,
+    "x8": 112233,
+    "x9": 112334,
+    "x10": "yf",
+    "x12": {
+      "x1": 1
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "xml_key1",
+      "text": "xml text"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.2,
+      "y": 2.3,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 1.2,
+      "y": 2.2,
+      "z": 3.2,
+      "w": 4.3
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k5": [
+      1,
+      2
+    ],
+    "k8": {
+      "2": 10,
+      "3": 30
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      }
+    ]
+  },
+  "2": {
+    "x4": 2,
+    "x1": true,
+    "x2": 3,
+    "x3": 128,
+    "x5": 11223344,
+    "x6": 1.2,
+    "x7": 1.23432,
+    "x8_0": 12312,
+    "x8": 112233,
+    "x9": 223344,
+    "x10": "hq",
+    "x12": {
+      "x1": 10
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "/asfa32",
+      "text": "aabbcc22"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      2,
+      3
+    ],
+    "k5": [
+      1,
+      6
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      }
+    ]
+  },
+  "12": {
+    "x4": 12,
+    "x1": true,
+    "x2": 4,
+    "x3": 128,
+    "x5": 112233445566,
+    "x6": 1.3,
+    "x7": 1112232.43123,
+    "x8_0": 123,
+    "x8": 112233,
+    "x9": 112334,
+    "x10": "yf",
+    "x12": {
+      "x1": 1
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "xml_key2",
+      "text": "xml text222"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.2,
+      "y": 2.3,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 1.2,
+      "y": 2.2,
+      "z": 3.2,
+      "w": 4.3
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k5": [
+      1,
+      2
+    ],
+    "k8": {
+      "2": 10,
+      "3": 30
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      }
+    ]
+  },
+  "40": {
+    "x4": 40,
+    "x1": true,
+    "x2": 3,
+    "x3": 128,
+    "x5": 11223344,
+    "x6": 1.2,
+    "x7": 1.23432,
+    "x8_0": 12312,
+    "x8": 112233,
+    "x9": 223344,
+    "x10": "hq",
+    "x12": {
+      "x1": 10
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": {
+      "key": "/asfa32",
+      "text": "aabbcc22"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      2,
+      3
+    ],
+    "k5": [
+      1,
+      6
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      }
+    ]
+  },
+  "22": {
+    "x4": 22,
+    "x1": false,
+    "x2": 2,
+    "x3": 128,
+    "x5": 112233445566,
+    "x6": 1.3,
+    "x7": 1122,
+    "x8_0": 13,
+    "x8": 12,
+    "x9": 123,
+    "x10": "yf",
+    "x12": {
+      "x1": 1
+    },
+    "x13": 5,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 3
+    },
+    "s1": {
+      "key": "lua/key1",
+      "text": "lua text "
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 0.1,
+      "y": 0.2,
+      "z": 0.3
+    },
+    "v4": {
+      "x": 1,
+      "y": 2,
+      "z": 3.5,
+      "w": 4
+    },
+    "t1": -28800,
+    "k1": [
+      1,
+      2
+    ],
+    "k2": [
+      2,
+      3
+    ],
+    "k5": [
+      1,
+      3
+    ],
+    "k8": {
+      "2": 10,
+      "3": 12
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 10,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 3
+      }
+    ]
+  }
+}
+,
+"test.TbMultiRowRecord":
+{
+  "1": {
+    "id": 1,
+    "name": "xxx",
+    "one_rows": [
+      {
+        "id": 1,
+        "x": 2
+      }
+    ],
+    "multi_rows1": [
+      {
+        "id": 1,
+        "x": 2
+      }
+    ],
+    "multi_rows2": [
+      {
+        "id": 1,
+        "x": 2
+      }
+    ],
+    "multi_rows4": {
+      "1": {
+        "id": 1,
+        "x": 2,
+        "y": 3
+      }
+    },
+    "multi_rows5": [
+      {
+        "id": 1,
+        "items": [
+          {
+            "id": 100,
+            "x": 1
+          }
+        ]
+      }
+    ],
+    "multi_rows6": {},
+    "multi_rows7": {
+      "1": 10,
+      "2": 10,
+      "3": 30,
+      "4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "name": "xxx",
+    "one_rows": [
+      {
+        "id": 2,
+        "x": 4
+      }
+    ],
+    "multi_rows1": [
+      {
+        "id": 2,
+        "x": 4
+      },
+      {
+        "id": 2,
+        "x": 4
+      },
+      {
+        "id": 2,
+        "x": 4
+      },
+      {
+        "id": 2,
+        "x": 4
+      },
+      {
+        "id": 2,
+        "x": 4
+      },
+      {
+        "id": 2,
+        "x": 4
+      }
+    ],
+    "multi_rows2": [
+      {
+        "id": 3,
+        "x": 4
+      },
+      {
+        "id": 3,
+        "x": 4
+      }
+    ],
+    "multi_rows4": {
+      "2": {
+        "id": 4,
+        "x": 5,
+        "y": 4
+      }
+    },
+    "multi_rows5": [
+      {
+        "id": 2,
+        "items": [
+          {
+            "id": 100,
+            "x": 1
+          },
+          {
+            "id": 200,
+            "x": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "items": [
+          {
+            "id": 300,
+            "x": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "items": [
+          {
+            "id": 400,
+            "x": 4
+          },
+          {
+            "id": 500,
+            "x": 5
+          },
+          {
+            "id": 600,
+            "x": 6
+          }
+        ]
+      }
+    ],
+    "multi_rows6": {
+      "2": {
+        "id": 2,
+        "x": 2,
+        "y": 2
+      },
+      "22": {
+        "id": 22,
+        "x": 22,
+        "y": 22
+      },
+      "222": {
+        "id": 3,
+        "x": 3,
+        "y": 3
+      },
+      "2222": {
+        "id": 4,
+        "x": 4,
+        "y": 4
+      }
+    },
+    "multi_rows7": {
+      "1": 100,
+      "2": 200
+    }
+  },
+  "3": {
+    "id": 3,
+    "name": "ds",
+    "one_rows": [
+      {
+        "id": 1,
+        "x": 2
+      }
+    ],
+    "multi_rows1": [
+      {
+        "id": 1,
+        "x": 2
+      },
+      {
+        "id": 2,
+        "x": 4
+      }
+    ],
+    "multi_rows2": [
+      {
+        "id": 3,
+        "x": 4
+      },
+      {
+        "id": 3,
+        "x": 4
+      }
+    ],
+    "multi_rows4": {
+      "1": {
+        "id": 1,
+        "x": 2,
+        "y": 3
+      },
+      "2": {
+        "id": 4,
+        "x": 5,
+        "y": 4
+      },
+      "3": {
+        "id": 4,
+        "x": 5,
+        "y": 4
+      }
+    },
+    "multi_rows5": [
+      {
+        "id": 5,
+        "items": [
+          {
+            "id": 100,
+            "x": 1
+          },
+          {
+            "id": 200,
+            "x": 2
+          },
+          {
+            "id": 300,
+            "x": 3
+          },
+          {
+            "id": 400,
+            "x": 4
+          }
+        ]
+      }
+    ],
+    "multi_rows6": {
+      "1": {
+        "id": 2,
+        "x": 3,
+        "y": 4
+      },
+      "10": {
+        "id": 20,
+        "x": 3,
+        "y": 40
+      },
+      "100": {
+        "id": 200,
+        "x": 4,
+        "y": 400
+      },
+      "1000": {
+        "id": 2000,
+        "x": 5,
+        "y": 4000
+      }
+    },
+    "multi_rows7": {
+      "1": 1,
+      "2": 2,
+      "4": 4
+    }
+  }
+}
+,
+"test.TbTestMultiColumn":
+{
+  "1": {
+    "id": 1,
+    "a": {
+      "y1": 1,
+      "y2": 2,
+      "y3": 3
+    },
+    "b": {
+      "y1": 21,
+      "y2": 221,
+      "y3": 23
+    },
+    "c": {
+      "y1": 31,
+      "y2": 32,
+      "y3": 33
+    }
+  },
+  "2": {
+    "id": 2,
+    "a": {
+      "y1": 1,
+      "y2": 2,
+      "y3": 3
+    },
+    "b": {
+      "y1": 21,
+      "y2": 221,
+      "y3": 23
+    },
+    "c": {
+      "y1": 31,
+      "y2": 32,
+      "y3": 33
+    }
+  }
+}
+,
+"test.TbMultiRowTitle":
+{
+  "1": {
+    "id": 1,
+    "name": "xxx",
+    "x1": {
+      "y2": {
+        "z2": 2,
+        "z3": 3
+      },
+      "y3": 4
+    },
+    "x2": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ],
+    "x3": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ],
+    "x4": [
+      {
+        "z2": 12,
+        "z3": 13
+      },
+      {
+        "z2": 22,
+        "z3": 23
+      },
+      {
+        "z2": 32,
+        "z3": 33
+      }
+    ]
+  },
+  "11": {
+    "id": 11,
+    "name": "yyy",
+    "x1": {
+      "y2": {
+        "z2": 12,
+        "z3": 13
+      },
+      "y3": 14
+    },
+    "x2_0": {
+      "z2": 1,
+      "z3": 2
+    },
+    "x2": [
+      {
+        "z2": 11,
+        "z3": 12
+      },
+      {
+        "z2": 13,
+        "z3": 14
+      }
+    ],
+    "x3": [
+      {
+        "z2": 11,
+        "z3": 12
+      },
+      {
+        "z2": 13,
+        "z3": 14
+      }
+    ],
+    "x4": [
+      {
+        "z2": 112,
+        "z3": 113
+      },
+      {
+        "z2": 122,
+        "z3": 123
+      },
+      {
+        "z2": 132,
+        "z3": 133
+      }
+    ]
+  }
+}
+,
+"test.TbTestNull":
+{
+  "10": {
+    "id": 10
+  },
+  "11": {
+    "id": 11
+  },
+  "12": {
+    "id": 12,
+    "x1": 1,
+    "x2": 1,
+    "x3": {
+      "x1": 1
+    },
+    "x4": {
+      "$type": "DemoD2",
+      "x1": 2,
+      "x2": 3
+    },
+    "s1": "asf",
+    "s2": {
+      "key": "key1",
+      "text": "abcdef"
+    }
+  },
+  "20": {
+    "id": 20
+  },
+  "21": {
+    "id": 21
+  },
+  "22": {
+    "id": 22,
+    "x1": 1,
+    "x2": 2,
+    "x3": {
+      "x1": 3
+    },
+    "x4": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": "asfs",
+    "s2": {
+      "key": "/asf/asfa",
+      "text": "abcdef"
+    }
+  },
+  "30": {
+    "id": 30,
+    "x1": 1,
+    "x2": 1,
+    "x3": {
+      "x1": 1
+    },
+    "x4": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 22
+    },
+    "s1": "abcd",
+    "s2": {
+      "key": "asdfasew",
+      "text": "hahaha"
+    }
+  },
+  "31": {
+    "id": 31
+  },
+  "1": {
+    "id": 1
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 1,
+    "x3": {
+      "x1": 3
+    },
+    "x4": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "s1": "asfasfasf",
+    "s2": {
+      "key": "/keyasf",
+      "text": "asf"
+    }
+  },
+  "3": {
+    "id": 3,
+    "s1": "",
+    "s2": {
+      "key": "",
+      "text": ""
+    }
+  },
+  "4": {
+    "id": 4,
+    "s1": "asfasfasf",
+    "s2": {
+      "key": "/keyasf",
+      "text": "asf"
+    }
+  }
+}
+,
+"test.TbDemoPrimitive":
+{
+  "3": {
+    "x1": false,
+    "x2": 1,
+    "x3": 2,
+    "x4": 3,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
+    "s1": "hello",
+    "s2": {
+      "key": "/test/key1",
+      "text": "测试本地化字符串1"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 2,
+      "y": 3,
+      "z": 4
+    },
+    "v4": {
+      "x": 4,
+      "y": 5,
+      "z": 6,
+      "w": 7
+    },
+    "t1": 946742700
+  },
+  "4": {
+    "x1": true,
+    "x2": 1,
+    "x3": 2,
+    "x4": 4,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
+    "s1": "world",
+    "s2": {
+      "key": "/test/key2",
+      "text": "测试本地化字符串2"
+    },
+    "v2": {
+      "x": 2,
+      "y": 3
+    },
+    "v3": {
+      "x": 2.2,
+      "y": 2.3,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 4.5,
+      "y": 5.6,
+      "z": 6.7,
+      "w": 8.8
+    },
+    "t1": 946829099
+  },
+  "5": {
+    "x1": true,
+    "x2": 1,
+    "x3": 2,
+    "x4": 5,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
+    "s1": "nihao",
+    "s2": {
+      "key": "/test/key3",
+      "text": "测试本地化字符串3"
+    },
+    "v2": {
+      "x": 4,
+      "y": 5
+    },
+    "v3": {
+      "x": 2.2,
+      "y": 2.3,
+      "z": 3.5
+    },
+    "v4": {
+      "x": 4.5,
+      "y": 5.6,
+      "z": 6.8,
+      "w": 9.9
+    },
+    "t1": 946915499
+  },
+  "6": {
+    "x1": true,
+    "x2": 1,
+    "x3": 2,
+    "x4": 6,
+    "x5": 4,
+    "x6": 5,
+    "x7": 6,
+    "s1": "shijie",
+    "s2": {
+      "key": "/test/key4",
+      "text": "测试本地化字符串4"
+    },
+    "v2": {
+      "x": 6,
+      "y": 7
+    },
+    "v3": {
+      "x": 2.2,
+      "y": 2.3,
+      "z": 3.6
+    },
+    "v4": {
+      "x": 4.5,
+      "y": 5.6,
+      "z": 6.9,
+      "w": 123
+    },
+    "t1": 947001899
+  }
+}
+,
+"test.TbTestString":
+{
+  "1": {
+    "id": 1,
+    "s1": "asfas",
+    "cs1": {
+      "id": 1,
+      "s2": "asf",
+      "s3": "aaa"
+    },
+    "cs2": {
+      "id": 1,
+      "s2": "asf",
+      "s3": "aaa"
+    }
+  },
+  "2": {
+    "id": 2,
+    "s1": "adsf\"",
+    "cs1": {
+      "id": 2,
+      "s2": "",
+      "s3": "bbb"
+    },
+    "cs2": {
+      "id": 2,
+      "s2": "",
+      "s3": "bbb"
+    }
+  },
+  "3": {
+    "id": 3,
+    "s1": "升级到10级\"\"",
+    "cs1": {
+      "id": 3,
+      "s2": "asdfas",
+      "s3": ""
+    },
+    "cs2": {
+      "id": 3,
+      "s2": "asdfas",
+      "s3": ""
+    }
+  },
+  "4": {
+    "id": 4,
+    "s1": "[Balance:]\n  - Reduce the price of open eggs.\n  - Reduced the price of unlocking new level.\n  - The golden egg will get the initial three-star pet.\n\n[Content:]\n  - 7-DAY Streak (30 Minutes free trial for AutoClick/Additional PET slots+3!!!/Much Gems/ 3.5M+ Free UR Pet )\n  - Wheel (more Free Daily Reward).\n  - A backpack for storing special items.\n  - Quest and The wonderful title tag.\n  - Some art improvements.",
+    "cs1": {
+      "id": 4,
+      "s2": "",
+      "s3": ""
+    },
+    "cs2": {
+      "id": 4,
+      "s2": "",
+      "s3": ""
+    }
+  },
+  "5": {
+    "id": 5,
+    "s1": "升级到10级\nabc",
+    "cs1": {
+      "id": 3,
+      "s2": "asdfas",
+      "s3": ""
+    },
+    "cs2": {
+      "id": 3,
+      "s2": "asdfas",
+      "s3": ""
+    }
+  }
+}
+,
+"test.TbDemoGroup":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "4": {
+    "id": 4,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  }
+}
+,
+"test.TbDemoGroup_C":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "4": {
+    "id": 4,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  }
+}
+,
+"test.TbDemoGroup_S":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "4": {
+    "id": 4,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  }
+}
+,
+"test.TbDemoGroup_E":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "4": {
+    "id": 4,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  }
+}
+,
+"test.TbTestGlobal":
+{
+  "unlock_equip": 10,
+  "unlock_hero": 20
+}
+,
+"test.TbTestBeRef":
+{
+  "1": {
+    "id": 1,
+    "count": 10
+  },
+  "2": {
+    "id": 2,
+    "count": 10
+  },
+  "3": {
+    "id": 3,
+    "count": 10
+  },
+  "4": {
+    "id": 4,
+    "count": 10
+  },
+  "5": {
+    "id": 5,
+    "count": 10
+  },
+  "6": {
+    "id": 6,
+    "count": 10
+  },
+  "7": {
+    "id": 7,
+    "count": 10
+  },
+  "8": {
+    "id": 8,
+    "count": 10
+  },
+  "9": {
+    "id": 9,
+    "count": 10
+  },
+  "10": {
+    "id": 10,
+    "count": 10
+  }
+}
+,
+"test.TbTestBeRef2":
+{
+  "11": {
+    "id": 11,
+    "count": 10
+  },
+  "12": {
+    "id": 12,
+    "count": 10
+  },
+  "13": {
+    "id": 13,
+    "count": 10
+  },
+  "14": {
+    "id": 14,
+    "count": 10
+  },
+  "15": {
+    "id": 15,
+    "count": 10
+  },
+  "16": {
+    "id": 16,
+    "count": 10
+  },
+  "17": {
+    "id": 17,
+    "count": 10
+  },
+  "18": {
+    "id": 18,
+    "count": 10
+  },
+  "19": {
+    "id": 19,
+    "count": 10
+  },
+  "20": {
+    "id": 20,
+    "count": 10
+  }
+}
+,
+"test.TbTestRef":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "x3": 1,
+    "x4": 3001,
+    "a1": [
+      1,
+      2
+    ],
+    "a2": [
+      2,
+      3
+    ],
+    "b1": [
+      3,
+      4
+    ],
+    "b2": [
+      4,
+      5
+    ],
+    "c1": [
+      5,
+      6,
+      7
+    ],
+    "c2": [
+      6,
+      7
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5",
+    "s1": {
+      "$type": "RefBean",
+      "x": 1,
+      "arr": [
+        1,
+        4
+      ]
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "x3": 20,
+    "x4": 3001,
+    "a1": [
+      1,
+      3
+    ],
+    "a2": [
+      2,
+      4
+    ],
+    "b1": [
+      3,
+      5
+    ],
+    "b2": [
+      4,
+      6
+    ],
+    "c1": [
+      5,
+      6,
+      8
+    ],
+    "c2": [
+      6,
+      8
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5",
+    "s1": {
+      "$type": "RefBean",
+      "x": 1,
+      "arr": [
+        1,
+        3
+      ]
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x1_2": 1,
+    "x2": 2,
+    "x3": 19,
+    "x4": 3001,
+    "a1": [
+      1,
+      4
+    ],
+    "a2": [
+      2,
+      5
+    ],
+    "b1": [
+      3,
+      6
+    ],
+    "b2": [
+      4,
+      7
+    ],
+    "c1": [
+      5,
+      6,
+      9
+    ],
+    "c2": [
+      6,
+      9
+    ],
+    "d1": {
+      "1": 2,
+      "3": 4
+    },
+    "d2": {
+      "1": 2,
+      "3": 4
+    },
+    "e1": 1,
+    "e2": 11,
+    "e3": "ab5",
+    "f1": 1,
+    "f2": 11,
+    "f3": "ab5",
+    "s1": {
+      "$type": "RefBean",
+      "x": 1,
+      "arr": [
+        2,
+        3
+      ]
+    }
+  }
+}
+,
+"test.TbTestSize":
+{
+  "1": {
+    "id": 1,
+    "x1": [
+      1,
+      2
+    ],
+    "x2": [
+      3,
+      4
+    ],
+    "x3": [
+      5,
+      6
+    ],
+    "x4": {
+      "1": 2,
+      "3": 4
+    }
+  }
+}
+,
+"test.TbTestSet":
+{
+  "1": {
+    "id": 1,
+    "x0": "ab",
+    "x1": [
+      1,
+      2,
+      3
+    ],
+    "x2": [
+      2,
+      3,
+      4
+    ],
+    "x3": [
+      "ab",
+      "cd"
+    ],
+    "x4": [
+      1,
+      2
+    ]
+  },
+  "2": {
+    "id": 2,
+    "x0": "cd",
+    "x1": [
+      1,
+      2
+    ],
+    "x2": [
+      2,
+      3
+    ],
+    "x3": [
+      "ab",
+      "cd"
+    ],
+    "x4": [
+      1
+    ]
+  }
+}
+,
+"test.TbDetectCsvEncoding":
+{
+  "21": {
+    "id": 21,
+    "name": "测试编码"
+  },
+  "22": {
+    "id": 22,
+    "name": "还果园国要"
+  },
+  "23": {
+    "id": 23,
+    "name": "工枯加盟仍"
+  },
+  "11": {
+    "id": 11,
+    "name": "测试编码"
+  },
+  "12": {
+    "id": 12,
+    "name": "还果园国要"
+  },
+  "13": {
+    "id": 13,
+    "name": "工枯加盟仍"
+  },
+  "31": {
+    "id": 31,
+    "name": "测试编码"
+  },
+  "32": {
+    "id": 32,
+    "name": "还果园国要"
+  },
+  "33": {
+    "id": 33,
+    "name": "工枯加盟仍"
+  },
+  "1": {
+    "id": 1,
+    "name": "测试编码"
+  },
+  "2": {
+    "id": 2,
+    "name": "还果园国要"
+  },
+  "3": {
+    "id": 3,
+    "name": "工枯加盟仍"
+  }
+}
+,
+"test.TbItem2":
+{
+  "1001": {
+    "$type": "Item",
+    "id": 1001,
+    "name": "道具1",
+    "desc": "道具1",
+    "num": 100,
+    "price": 15
+  },
+  "1002": {
+    "$type": "Item",
+    "id": 1002,
+    "name": "道具2",
+    "desc": "道具1",
+    "num": 20,
+    "price": 30
+  },
+  "2001": {
+    "$type": "Equipment",
+    "id": 2001,
+    "name": "装备1",
+    "desc": "装备1",
+    "attr": 1,
+    "value": 100
+  },
+  "2002": {
+    "$type": "Equipment",
+    "id": 2002,
+    "name": "装备2",
+    "desc": "装备2好",
+    "attr": 2,
+    "value": 15
+  },
+  "3001": {
+    "$type": "Decorator",
+    "id": 3001,
+    "name": "耳环",
+    "desc": "耳环",
+    "duration": 100
+  },
+  "3002": {
+    "$type": "Decorator",
+    "id": 3002,
+    "name": "耳环",
+    "desc": "耳环",
+    "duration": 100
+  },
+  "1010": {
+    "$type": "Item",
+    "id": 1010,
+    "name": "道具10",
+    "desc": "道具10",
+    "num": 100,
+    "price": 10
+  },
+  "2010": {
+    "$type": "Equipment",
+    "id": 2010,
+    "name": "装备20",
+    "desc": "装备好",
+    "attr": 4,
+    "value": 10
+  },
+  "3010": {
+    "$type": "Decorator",
+    "id": 3010,
+    "name": "帽子",
+    "desc": "帽子",
+    "duration": 100
+  }
+}
+,
+"test.TbDefineFromExcel":
+{
+  "10000": {
+    "id": 10000,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "Circle",
+      "radius": 1
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 4
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 4
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 4
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      }
+    ]
+  },
+  "10001": {
+    "id": 10001,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 5,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 3,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 20
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 4
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 5
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      }
+    ]
+  },
+  "10002": {
+    "id": 10002,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 6,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 21
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 5
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 6
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      }
+    ]
+  },
+  "10003": {
+    "id": 10003,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 22
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 933732549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 6
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 7
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      }
+    ]
+  },
+  "10004": {
+    "id": 10004,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 4,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 23
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 7
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 8
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      }
+    ]
+  },
+  "10005": {
+    "id": 10005,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 5,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 24
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 8
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 9
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      }
+    ]
+  },
+  "10006": {
+    "id": 10006,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 6,
+    "x10": "",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 25
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 9
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 10
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      }
+    ]
+  },
+  "10007": {
+    "id": 10007,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 4,
+    "x10": "xxx",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 26
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 10
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 11
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 13
+      }
+    ]
+  },
+  "10008": {
+    "id": 10008,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "xxx",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 27
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 11
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 12
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 13
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 14
+      }
+    ]
+  }
+}
+,
+"test.TbDefineFromExcelOne":
+{
+  "unlock_equip": 10,
+  "unlock_hero": 20,
+  "default_avatar": "Assets/Icon/DefaultAvatar.png",
+  "default_item": "Assets/Icon/DefaultAvatar.png",
+  "e2": {
+    "y1": 100,
+    "y2": true
+  },
+  "icons": [
+    "icon1",
+    "icon2"
+  ]
+}
+,
+"test.TbTestIndex":
+{
+  "1": {
+    "id": 1,
+    "eles": [
+      {
+        "x1": 1
+      },
+      {
+        "x1": 2
+      },
+      {
+        "x1": 3
+      },
+      {
+        "x1": 4
+      },
+      {
+        "x1": 5
+      }
+    ]
+  },
+  "2": {
+    "id": 2,
+    "eles": [
+      {
+        "x1": 1
+      },
+      {
+        "x1": 2
+      },
+      {
+        "x1": 3
+      },
+      {
+        "x1": 4
+      },
+      {
+        "x1": 5
+      }
+    ]
+  },
+  "3": {
+    "id": 3,
+    "eles": [
+      {
+        "x1": 1
+      },
+      {
+        "x1": 2
+      },
+      {
+        "x1": 3
+      },
+      {
+        "x1": 4
+      },
+      {
+        "x1": 5
+      }
+    ]
+  },
+  "4": {
+    "id": 4,
+    "eles": [
+      {
+        "x1": 1
+      },
+      {
+        "x1": 2
+      },
+      {
+        "x1": 3
+      },
+      {
+        "x1": 4
+      },
+      {
+        "x1": 5
+      }
+    ]
+  }
+}
+,
+"test.TbTestMap":
+{
+  "1": {
+    "id": 1,
+    "x1": {
+      "1": 2,
+      "3": 4
+    },
+    "x2": {
+      "1": 2,
+      "3": 4
+    },
+    "x3": {
+      "aaa": 1,
+      "bbb": 2
+    },
+    "x4": {
+      "1": 1,
+      "2": 20
+    }
+  }
+}
+,
+"test.TbExcelFromJson":
+{
+  "1": {
+    "x4": 1,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 1,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "2": {
+    "x4": 2,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 2,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "3": {
+    "x4": 3,
+    "x1": true,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "6": {
+    "x4": 6,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.4
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.4
+    },
+    "t1": 631123200,
+    "x12": {
+      "x1": 10
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "k1": [
+      12
+    ],
+    "k8": {
+      "2": 2,
+      "4": 10
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 3
+      }
+    ]
+  },
+  "7": {
+    "x4": 7,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 3
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.5
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.5
+    },
+    "t1": 631209600,
+    "x12": {
+      "x1": 11
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 3
+    },
+    "k1": [
+      13
+    ],
+    "k8": {
+      "2": 2,
+      "4": 11
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 3,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 4
+      }
+    ]
+  },
+  "8": {
+    "x4": 8,
+    "x1": false,
+    "x5": 100,
+    "x6": 1.2,
+    "s1": "hq",
+    "s2": {
+      "key": "/asfa",
+      "text": "aabbcc"
+    },
+    "v2": {
+      "x": 1,
+      "y": 4
+    },
+    "v3": {
+      "x": 1.1,
+      "y": 2.2,
+      "z": 3.6
+    },
+    "v4": {
+      "x": 10.1,
+      "y": 11.2,
+      "z": 12.3,
+      "w": 13.6
+    },
+    "t1": 631296000,
+    "x12": {
+      "x1": 12
+    },
+    "x13": 4,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 4
+    },
+    "k1": [
+      14
+    ],
+    "k8": {
+      "2": 2,
+      "4": 12
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 4,
+        "y2": false
+      }
+    ],
+    "k15": [
+      {
+        "$type": "DemoD2",
+        "x1": 1,
+        "x2": 2
+      },
+      {
+        "$type": "DemoD2",
+        "x1": 2,
+        "x2": 5
+      }
+    ]
+  }
+}
+,
+"test.TbCompositeJsonTable1":
+{
+  "1": {
+    "id": 1,
+    "x": "aaa1"
+  },
+  "2": {
+    "id": 2,
+    "x": "xx2"
+  },
+  "11": {
+    "id": 11,
+    "x": "aaa11"
+  },
+  "12": {
+    "id": 12,
+    "x": "xx12"
+  }
+}
+,
+"test.TbCompositeJsonTable2":
+{
+  "1": {
+    "id": 1,
+    "y": 100
+  },
+  "3": {
+    "id": 3,
+    "y": 300
+  }
+}
+,
+"test.TbCompositeJsonTable3":
+{
+  "a": 111,
+  "b": 222
+}
+,
+"test.TbExcelFromJsonMultiRow":
+{
+  "1": {
+    "id": 1,
+    "x": 5,
+    "items": [
+      {
+        "x": 1,
+        "y": true,
+        "z": "abcd",
+        "a": {
+          "x": 10,
+          "y": 100
+        },
+        "b": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "x": 2,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      }
+    ]
+  },
+  "2": {
+    "id": 2,
+    "x": 9,
+    "items": [
+      {
+        "x": 2,
+        "y": true,
+        "z": "abcd",
+        "a": {
+          "x": 10,
+          "y": 11
+        },
+        "b": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "x": 4,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      },
+      {
+        "x": 5,
+        "y": false,
+        "z": "abcd",
+        "a": {
+          "x": 22,
+          "y": 33
+        },
+        "b": [
+          4,
+          5
+        ]
+      }
+    ]
+  }
+}
+,
+"test.TbTestSep":
+{
+  "1": {
+    "id": 1,
+    "x1": {
+      "key": "key1",
+      "text": "abc"
+    },
+    "x2": {
+      "a": 1,
+      "b": 2,
+      "c": "abc"
+    },
+    "x3": {
+      "x": 1,
+      "y": 2,
+      "z": 3
+    },
+    "x4": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      },
+      {
+        "x": 4,
+        "y": 5,
+        "z": 6
+      }
+    ],
+    "x5": [
+      {
+        "a": 1,
+        "b": 2,
+        "c": "abc"
+      },
+      {
+        "a": 20,
+        "b": 40,
+        "c": "defg"
+      }
+    ],
+    "x6": [
+      {
+        "a": 1,
+        "b": 2,
+        "c": "abc"
+      },
+      {
+        "a": 20,
+        "b": 40,
+        "c": "defg"
+      }
+    ]
+  },
+  "2": {
+    "id": 2,
+    "x1": {
+      "key": "key2",
+      "text": "def"
+    },
+    "x2": {
+      "a": 2,
+      "b": 3,
+      "c": "efg"
+    },
+    "x3": {
+      "x": 4,
+      "y": 5,
+      "z": 6
+    },
+    "x4": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    ],
+    "x5": [
+      {
+        "a": 10,
+        "b": 20,
+        "c": "aaa"
+      }
+    ],
+    "x6": [
+      {
+        "a": 10,
+        "b": 20,
+        "c": "aaa"
+      },
+      {
+        "a": 11,
+        "b": 22,
+        "c": "bbb"
+      },
+      {
+        "a": 12,
+        "b": 33,
+        "c": "ccc"
+      }
+    ]
+  }
+}
+,
+"test.TbTestScriptableObject":
+{
+  "1": {
+    "id": 1,
+    "desc": "aaaa",
+    "rate": 0.45,
+    "num": 12131,
+    "v2": {
+      "x": 1,
+      "y": 1
+    },
+    "v3": {
+      "x": 2,
+      "y": 2,
+      "z": 2
+    },
+    "v4": {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "w": 4
+    }
+  },
+  "2": {
+    "id": 2,
+    "desc": "bbbbb",
+    "rate": 0.8,
+    "num": 1111,
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "v3": {
+      "x": 1,
+      "y": 2,
+      "z": 3
+    },
+    "v4": {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+      "w": 4
+    }
+  }
+}
+,
+"test.TbTestExternalType":
+{
+  "1": {
+    "id": 1,
+    "audio_type": 1,
+    "color": {
+      "r": 0.2,
+      "g": 0.2,
+      "b": 0.4,
+      "a": 1
+    },
+    "audio_types": [
+      1,
+      2
+    ],
+    "colors": [
+      {
+        "r": 0.2,
+        "g": 0.2,
+        "b": 0.4,
+        "a": 1
+      },
+      {
+        "r": 0.2,
+        "g": 0.2,
+        "b": 0.4,
+        "a": 1
+      },
+      {
+        "r": 0.2,
+        "g": 0.2,
+        "b": 0.4,
+        "a": 1
+      }
+    ]
+  },
+  "2": {
+    "id": 2,
+    "audio_type": 2,
+    "color": {
+      "r": 0.2,
+      "g": 0.2,
+      "b": 0.4,
+      "a": 0.8
+    },
+    "audio_types": [
+      1
+    ],
+    "colors": [
+      {
+        "r": 0.2,
+        "g": 0.2,
+        "b": 0.4,
+        "a": 1
+      }
+    ]
+  }
+}
+,
+"test.TbDemoGroupDefineFromExcel":
+{
+  "1": {
+    "id": 1,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "2": {
+    "id": 2,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "3": {
+    "id": 3,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  },
+  "4": {
+    "id": 4,
+    "x1": 1,
+    "x2": 2,
+    "x3": 3,
+    "x4": 4,
+    "x5": {
+      "y1": 10,
+      "y2": 20,
+      "y3": 30,
+      "y4": 40
+    }
+  }
+}
+,
+"test.TbDefineFromExcel2":
+{
+  "10000": {
+    "id": 10000,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "Circle",
+      "radius": 1
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 4
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 4
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 4
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      }
+    ]
+  },
+  "10001": {
+    "id": 10001,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 5,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 3,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 20
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 4
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 5
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 5
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      }
+    ]
+  },
+  "10002": {
+    "id": 10002,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 6,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 21
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 5
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 6
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      }
+    ]
+  },
+  "10003": {
+    "id": 10003,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 22
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 933732549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 6
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 7
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 7
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      }
+    ]
+  },
+  "10004": {
+    "id": 10004,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 4,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 23
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 7
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 8
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 8
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      }
+    ]
+  },
+  "10005": {
+    "id": 10005,
+    "x1": true,
+    "x5": 13234234234,
+    "x6": 1.28,
+    "x8": 5,
+    "x10": "huang",
+    "x13": 1,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 24
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 8
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 9
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 9
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      }
+    ]
+  },
+  "10006": {
+    "id": 10006,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 6,
+    "x10": "",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 25
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 1577808000,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 9
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 10
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 10
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      }
+    ]
+  },
+  "10007": {
+    "id": 10007,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 4,
+    "x10": "xxx",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 26
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 10
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 11
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 11
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 13
+      }
+    ]
+  },
+  "10008": {
+    "id": 10008,
+    "x1": true,
+    "x5": 10,
+    "x6": 1.28,
+    "x8": 3,
+    "x10": "xxx",
+    "x13": 2,
+    "x13_2": 0,
+    "x14": {
+      "$type": "DemoD2",
+      "x1": 1,
+      "x2": 2
+    },
+    "x15": {
+      "$type": "test2.Rectangle",
+      "width": 10,
+      "height": 27
+    },
+    "v2": {
+      "x": 1,
+      "y": 2
+    },
+    "t1": 935460549,
+    "k1": [
+      1,
+      2,
+      3
+    ],
+    "k2": [
+      1,
+      2
+    ],
+    "k8": {
+      "1": 2,
+      "3": 4
+    },
+    "k9": [
+      {
+        "y1": 1,
+        "y2": true
+      },
+      {
+        "y1": 2,
+        "y2": false
+      }
+    ],
+    "k10": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 11
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 12
+      }
+    ],
+    "k11": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 12
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 13
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3,
+        "w": 14
+      }
+    ]
+  }
+}
+,
+"test.TbTestExcelBean":
+{
+  "1": {
+    "x1": 1,
+    "x2": "xx",
+    "x3": 2,
+    "x4": 2.5
+  },
+  "2": {
+    "x1": 2,
+    "x2": "zz",
+    "x3": 2,
+    "x4": 4.3
+  },
+  "3": {
+    "x1": 3,
+    "x2": "ww",
+    "x3": 2,
+    "x4": 5
+  },
+  "4": {
+    "x1": 4,
+    "x2": "ee",
+    "x3": 2,
+    "x4": 6
+  }
+}
+,
+"test.TbTestDesc":
+[
+  {
+    "id": 1,
+    "name": "xxx",
+    "a1": 0,
+    "a2": 0,
+    "x1": {
+      "y2": {
+        "z2": 2,
+        "z3": 3
+      },
+      "y3": 4
+    },
+    "x2": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ],
+    "x3": [
+      {
+        "z2": 1,
+        "z3": 2
+      },
+      {
+        "z2": 3,
+        "z3": 4
+      }
+    ]
+  }
+]
+}

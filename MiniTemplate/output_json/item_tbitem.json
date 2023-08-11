@@ -1,0 +1,274 @@
+[
+  {
+    "id": 10000,
+    "name": "发型",
+    "desc": "初始发型",
+    "price": 100,
+    "upgrade_to_item_id": 10001,
+    "batch_useable": false,
+    "quality": 1,
+    "exchange_stream": {
+      "id": 10001,
+      "num": 2
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 3
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 2
+    }
+  },
+  {
+    "id": 10001,
+    "name": "外套",
+    "desc": "初始外套",
+    "price": 100,
+    "upgrade_to_item_id": 10002,
+    "batch_useable": false,
+    "quality": 1,
+    "exchange_stream": {
+      "id": 10002,
+      "num": 2
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 4
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 3
+    }
+  },
+  {
+    "id": 10002,
+    "name": "上衣",
+    "desc": "初始上衣",
+    "price": 100,
+    "upgrade_to_item_id": 10003,
+    "batch_useable": true,
+    "quality": 2,
+    "exchange_stream": {
+      "id": 10003,
+      "num": 3
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 5
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 4
+    }
+  },
+  {
+    "id": 10003,
+    "name": "裙子",
+    "desc": "初始下装",
+    "price": 100,
+    "upgrade_to_item_id": 10004,
+    "batch_useable": true,
+    "quality": 2,
+    "exchange_stream": {
+      "id": 10004,
+      "num": 3
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 6
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 5
+    }
+  },
+  {
+    "id": 10004,
+    "name": "袜子",
+    "desc": "初始袜子",
+    "price": 100,
+    "upgrade_to_item_id": 10005,
+    "batch_useable": false,
+    "quality": 2,
+    "exchange_stream": {
+      "id": 10005,
+      "num": 4
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 7
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 6
+    }
+  },
+  {
+    "id": 10005,
+    "name": "鞋子",
+    "desc": "初始鞋子",
+    "price": 100,
+    "upgrade_to_item_id": 10006,
+    "batch_useable": true,
+    "quality": 3,
+    "exchange_stream": {
+      "id": 10006,
+      "num": 4
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 8
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 7
+    }
+  },
+  {
+    "id": 10006,
+    "name": "发饰",
+    "desc": "初始发饰",
+    "price": 100,
+    "upgrade_to_item_id": 10007,
+    "batch_useable": false,
+    "quality": 3,
+    "exchange_stream": {
+      "id": 10007,
+      "num": 5
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 9
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 8
+    }
+  },
+  {
+    "id": 10007,
+    "name": "中秋节发饰",
+    "desc": "中秋节发饰",
+    "price": 200,
+    "upgrade_to_item_id": 10008,
+    "expire_time": 1633881599,
+    "batch_useable": false,
+    "quality": 2,
+    "exchange_stream": {
+      "id": 10008,
+      "num": 5
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 10
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 9
+    }
+  },
+  {
+    "id": 10008,
+    "name": "中秋节鞋子",
+    "desc": "中秋节鞋子",
+    "price": 300,
+    "upgrade_to_item_id": 10009,
+    "expire_time": 1633967999,
+    "batch_useable": false,
+    "quality": 3,
+    "exchange_stream": {
+      "id": 10009,
+      "num": 6
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 11
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 10
+    }
+  },
+  {
+    "id": 10009,
+    "name": "礼包",
+    "desc": "中秋节礼包",
+    "price": 100,
+    "upgrade_to_item_id": 10000,
+    "batch_useable": true,
+    "quality": 4,
+    "exchange_stream": {
+      "id": 10000,
+      "num": 6
+    },
+    "exchange_list": [
+      {
+        "id": 10001,
+        "num": 2
+      },
+      {
+        "id": 10002,
+        "num": 12
+      }
+    ],
+    "exchange_column": {
+      "id": 10001,
+      "num": 11
+    }
+  }
+]

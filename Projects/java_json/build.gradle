@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'application'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.8'
+}
+
+project.sourceCompatibility = '1.8'
+project.targetCompatibility = '1.8'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main'
+            srcDir 'src/gen'
+            srcDir 'src/corelib'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

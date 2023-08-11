@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="pb_schemas\**" />
+    <EmbeddedResource Remove="pb_schemas\**" />
+    <None Remove="pb_schemas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".cache.meta" />
+    <None Remove="gen_code_json.bat" />
+    <None Remove="gen_pb.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.19.1" />
+  </ItemGroup>
+
+</Project>

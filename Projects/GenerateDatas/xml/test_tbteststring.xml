@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <s1>asfas</s1>
+    <cs1>
+      <id>1</id>
+      <s2>asf</s2>
+      <s3>aaa</s3>
+    </cs1>
+    <cs2>
+      <id>1</id>
+      <s2>asf</s2>
+      <s3>aaa</s3>
+    </cs2>
+  </record>
+  <record>
+    <id>2</id>
+    <s1>adsf"</s1>
+    <cs1>
+      <id>2</id>
+      <s2></s2>
+      <s3>bbb</s3>
+    </cs1>
+    <cs2>
+      <id>2</id>
+      <s2></s2>
+      <s3>bbb</s3>
+    </cs2>
+  </record>
+  <record>
+    <id>3</id>
+    <s1>升级到10级""</s1>
+    <cs1>
+      <id>3</id>
+      <s2>asdfas</s2>
+      <s3></s3>
+    </cs1>
+    <cs2>
+      <id>3</id>
+      <s2>asdfas</s2>
+      <s3></s3>
+    </cs2>
+  </record>
+  <record>
+    <id>4</id>
+    <s1>[Balance:]
+  - Reduce the price of open eggs.
+  - Reduced the price of unlocking new level.
+  - The golden egg will get the initial three-star pet.
+
+[Content:]
+  - 7-DAY Streak (30 Minutes free trial for AutoClick/Additional PET slots+3!!!/Much Gems/ 3.5M+ Free UR Pet )
+  - Wheel (more Free Daily Reward).
+  - A backpack for storing special items.
+  - Quest and The wonderful title tag.
+  - Some art improvements.</s1>
+    <cs1>
+      <id>4</id>
+      <s2></s2>
+      <s3></s3>
+    </cs1>
+    <cs2>
+      <id>4</id>
+      <s2></s2>
+      <s3></s3>
+    </cs2>
+  </record>
+  <record>
+    <id>5</id>
+    <s1>升级到10级
+abc</s1>
+    <cs1>
+      <id>3</id>
+      <s2>asdfas</s2>
+      <s3></s3>
+    </cs1>
+    <cs2>
+      <id>3</id>
+      <s2>asdfas</s2>
+      <s3></s3>
+    </cs2>
+  </record>
+</table>

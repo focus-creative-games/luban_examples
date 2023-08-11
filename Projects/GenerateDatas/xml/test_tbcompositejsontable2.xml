@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <y>100</y>
+  </record>
+  <record>
+    <id>3</id>
+    <y>300</y>
+  </record>
+</table>

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ProtobufProj</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="msg_datas\**" />
+    <Compile Remove="pb_schemas\**" />
+    <EmbeddedResource Remove="msg_datas\**" />
+    <EmbeddedResource Remove="pb_schemas\**" />
+    <None Remove="msg_datas\**" />
+    <None Remove="pb_schemas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".cache.meta" />
+    <None Remove="gen_code_json.bat" />
+    <None Remove="gen_msgpack_data.bat" />
+    <None Remove="gen_pb.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="2.3.85" />
+  </ItemGroup>
+
+</Project>
