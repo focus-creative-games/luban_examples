@@ -45,7 +45,7 @@ public sealed partial class GlobalConfig : Luban.BeanBase
     }
 
     /// <summary>
-    /// 
+    /// 背包容量
     /// </summary>
     public readonly int BagCapacity;
     public readonly int BagCapacitySpecial;
