@@ -19,6 +19,7 @@ public sealed partial class TestString : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["s1"].IsString) { throw new SerializationException(); }  S1 = _buf["s1"]; }
+        { if(!_buf["s2"].IsString) { throw new SerializationException(); }  S2 = _buf["s2"]; }
         { if(!_buf["cs1"].IsObject) { throw new SerializationException(); }  Cs1 = test.CompactString.DeserializeCompactString(_buf["cs1"]);  }
         { if(!_buf["cs2"].IsObject) { throw new SerializationException(); }  Cs2 = test.CompactString.DeserializeCompactString(_buf["cs2"]);  }
     }
@@ -30,6 +31,7 @@ public sealed partial class TestString : Luban.BeanBase
 
     public readonly int Id;
     public readonly string S1;
+    public readonly string S2;
     public readonly test.CompactString Cs1;
     public readonly test.CompactString Cs2;
    
@@ -38,6 +40,7 @@ public sealed partial class TestString : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
+        
         
         
         Cs1?.ResolveRef(tables);
@@ -49,6 +52,7 @@ public sealed partial class TestString : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "s1:" + S1 + ","
+        + "s2:" + S2 + ","
         + "cs1:" + Cs1 + ","
         + "cs2:" + Cs2 + ","
         + "}";

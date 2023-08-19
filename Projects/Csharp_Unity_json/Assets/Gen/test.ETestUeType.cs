@@ -14,7 +14,7 @@ namespace cfg.test
     public enum ETestUeType
     {
         /// <summary>
-        /// 
+        /// 白
         /// </summary>
         WHITE = 0,
         BLACK = 1,

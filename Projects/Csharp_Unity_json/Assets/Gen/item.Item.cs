@@ -39,7 +39,7 @@ public sealed partial class Item : Luban.BeanBase
     }
 
     /// <summary>
-    /// 
+    /// 道具id
     /// </summary>
     public readonly int Id;
     public readonly string Name;

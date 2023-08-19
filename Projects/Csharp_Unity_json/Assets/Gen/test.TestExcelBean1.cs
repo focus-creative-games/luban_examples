@@ -32,19 +32,19 @@ public sealed partial class TestExcelBean1 : Luban.BeanBase
     }
 
     /// <summary>
-    /// 
+    /// 最高品质
     /// </summary>
     public readonly int X1;
     /// <summary>
-    /// 
+    /// 黑色的
     /// </summary>
     public readonly string X2;
     /// <summary>
-    /// 
+    /// 蓝色的
     /// </summary>
     public readonly int X3;
     /// <summary>
-    /// 
+    /// 最差品质
     /// </summary>
     public readonly float X4;
    

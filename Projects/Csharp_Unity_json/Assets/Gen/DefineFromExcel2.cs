@@ -43,11 +43,11 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     }
 
     /// <summary>
-    /// 
+    /// 这是id
     /// </summary>
     public readonly int Id;
     /// <summary>
-    /// 
+    /// 字段x1
     /// </summary>
     public readonly bool X1;
     public readonly long X5;

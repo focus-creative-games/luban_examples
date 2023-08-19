@@ -263,6 +263,7 @@
     <bean name="TestString">
         <var name="id" type="int"/>
         <var name="s1" type="string"/>
+        <var name="s2" type="string#escape=1"/>
         <var name="cs1" type="CompactString"/>
         <var name="cs2" type="CompactString"/>
     </bean>
