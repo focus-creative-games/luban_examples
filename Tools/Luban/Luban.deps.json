@@ -12,6 +12,7 @@
           "Luban.Bson": "1.0.0",
           "Luban.CSharp": "1.0.0",
           "Luban.Core": "1.0.0",
+          "Luban.Cpp": "1.0.0",
           "Luban.DataLoader.Builtin": "1.0.0",
           "Luban.DataTarget.Builtin": "1.0.0",
           "Luban.DataValidator.Builtin": "1.0.0",
@@ -386,6 +387,14 @@
         },
         "runtime": {
           "Luban.Core.dll": {}
+        }
+      },
+      "Luban.Cpp/1.0.0": {
+        "dependencies": {
+          "Luban.Core": "1.0.0"
+        },
+        "runtime": {
+          "Luban.Cpp.dll": {}
         }
       },
       "Luban.CSharp/1.0.0": {
@@ -825,6 +834,11 @@
       "sha512": ""
     },
     "Luban.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Luban.Cpp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
