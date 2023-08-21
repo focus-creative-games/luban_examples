@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-#include <algorithm>
-
 #include "schema.h"
 
 namespace cfg {

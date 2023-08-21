@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-#include <algorithm>
-
 #include "schema.h"
 
 namespace cfg {
@@ -1186,27 +1184,13 @@ bool ai::DebugPrint::deserializeDebugPrint(::luban::ByteBuf& _buf, ::luban::Shar
 bool common::GlobalConfig::deserialize(::luban::ByteBuf& _buf)
 {
 
-    if(!_buf.readInt(bagCapacity)) return false;
-    if(!_buf.readInt(bagCapacitySpecial)) return false;
-    if(!_buf.readInt(bagTempExpendableCapacity)) return false;
-    if(!_buf.readInt(bagTempToolCapacity)) return false;
-    if(!_buf.readInt(bagInitCapacity)) return false;
-    if(!_buf.readInt(quickBagCapacity)) return false;
-    if(!_buf.readInt(clothBagCapacity)) return false;
-    if(!_buf.readInt(clothBagInitCapacity)) return false;
-    if(!_buf.readInt(clothBagCapacitySpecial)) return false;
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { bagInitItemsDropId.reset(new ::luban::int32()); if(!_buf.readInt(*bagInitItemsDropId)) return false; } else { bagInitItemsDropId.reset(); } }
-    if(!_buf.readInt(mailBoxCapacity)) return false;
-    if(!_buf.readFloat(damageParamC)) return false;
-    if(!_buf.readFloat(damageParamE)) return false;
-    if(!_buf.readFloat(damageParamF)) return false;
-    if(!_buf.readFloat(damageParamD)) return false;
-    if(!_buf.readFloat(roleSpeed)) return false;
-    if(!_buf.readFloat(monsterSpeed)) return false;
-    if(!_buf.readInt(initEnergy)) return false;
-    if(!_buf.readInt(initViality)) return false;
-    if(!_buf.readInt(maxViality)) return false;
-    if(!_buf.readInt(perVialityRecoveryTime)) return false;
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readInt(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readInt(x4)) return false;
+    if(!_buf.readInt(x5)) return false;
+    if(!_buf.readInt(x6)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x7.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e;  if(!_buf.readInt(_e)) return false; x7.push_back(_e);}}
 
     return true;
 }
