@@ -14,27 +14,13 @@ import luban.*;
 
 public final class GlobalConfig extends AbstractBean {
     public GlobalConfig(ByteBuf _buf) { 
-        bagCapacity = _buf.readInt();
-        bagCapacitySpecial = _buf.readInt();
-        bagTempExpendableCapacity = _buf.readInt();
-        bagTempToolCapacity = _buf.readInt();
-        bagInitCapacity = _buf.readInt();
-        quickBagCapacity = _buf.readInt();
-        clothBagCapacity = _buf.readInt();
-        clothBagInitCapacity = _buf.readInt();
-        clothBagCapacitySpecial = _buf.readInt();
-        if(_buf.readBool()){ bagInitItemsDropId = _buf.readInt(); } else { bagInitItemsDropId = null; }
-        mailBoxCapacity = _buf.readInt();
-        damageParamC = _buf.readFloat();
-        damageParamE = _buf.readFloat();
-        damageParamF = _buf.readFloat();
-        damageParamD = _buf.readFloat();
-        roleSpeed = _buf.readFloat();
-        monsterSpeed = _buf.readFloat();
-        initEnergy = _buf.readInt();
-        initViality = _buf.readInt();
-        maxViality = _buf.readInt();
-        perVialityRecoveryTime = _buf.readInt();
+        x1 = _buf.readInt();
+        x2 = _buf.readInt();
+        x3 = _buf.readInt();
+        x4 = _buf.readInt();
+        x5 = _buf.readInt();
+        x6 = _buf.readInt();
+        {int n = Math.min(_buf.readSize(), _buf.size());x7 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); x7.add(_e);}}
     }
 
     public static GlobalConfig deserialize(ByteBuf _buf) {
@@ -44,27 +30,13 @@ public final class GlobalConfig extends AbstractBean {
     /**
      * 背包容量
      */
-    public final int bagCapacity;
-    public final int bagCapacitySpecial;
-    public final int bagTempExpendableCapacity;
-    public final int bagTempToolCapacity;
-    public final int bagInitCapacity;
-    public final int quickBagCapacity;
-    public final int clothBagCapacity;
-    public final int clothBagInitCapacity;
-    public final int clothBagCapacitySpecial;
-    public final Integer bagInitItemsDropId;
-    public final int mailBoxCapacity;
-    public final float damageParamC;
-    public final float damageParamE;
-    public final float damageParamF;
-    public final float damageParamD;
-    public final float roleSpeed;
-    public final float monsterSpeed;
-    public final int initEnergy;
-    public final int initViality;
-    public final int maxViality;
-    public final int perVialityRecoveryTime;
+    public final int x1;
+    public final int x2;
+    public final int x3;
+    public final int x4;
+    public final int x5;
+    public final int x6;
+    public final java.util.ArrayList<Integer> x7;
 
     public static final int __ID__ = -848234488;
     
@@ -74,27 +46,13 @@ public final class GlobalConfig extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + bagCapacity + ","
-        + "(format_field_name __code_style field.name):" + bagCapacitySpecial + ","
-        + "(format_field_name __code_style field.name):" + bagTempExpendableCapacity + ","
-        + "(format_field_name __code_style field.name):" + bagTempToolCapacity + ","
-        + "(format_field_name __code_style field.name):" + bagInitCapacity + ","
-        + "(format_field_name __code_style field.name):" + quickBagCapacity + ","
-        + "(format_field_name __code_style field.name):" + clothBagCapacity + ","
-        + "(format_field_name __code_style field.name):" + clothBagInitCapacity + ","
-        + "(format_field_name __code_style field.name):" + clothBagCapacitySpecial + ","
-        + "(format_field_name __code_style field.name):" + bagInitItemsDropId + ","
-        + "(format_field_name __code_style field.name):" + mailBoxCapacity + ","
-        + "(format_field_name __code_style field.name):" + damageParamC + ","
-        + "(format_field_name __code_style field.name):" + damageParamE + ","
-        + "(format_field_name __code_style field.name):" + damageParamF + ","
-        + "(format_field_name __code_style field.name):" + damageParamD + ","
-        + "(format_field_name __code_style field.name):" + roleSpeed + ","
-        + "(format_field_name __code_style field.name):" + monsterSpeed + ","
-        + "(format_field_name __code_style field.name):" + initEnergy + ","
-        + "(format_field_name __code_style field.name):" + initViality + ","
-        + "(format_field_name __code_style field.name):" + maxViality + ","
-        + "(format_field_name __code_style field.name):" + perVialityRecoveryTime + ","
+        + "(format_field_name __code_style field.name):" + x1 + ","
+        + "(format_field_name __code_style field.name):" + x2 + ","
+        + "(format_field_name __code_style field.name):" + x3 + ","
+        + "(format_field_name __code_style field.name):" + x4 + ","
+        + "(format_field_name __code_style field.name):" + x5 + ","
+        + "(format_field_name __code_style field.name):" + x6 + ","
+        + "(format_field_name __code_style field.name):" + x7 + ","
         + "}";
     }
 }

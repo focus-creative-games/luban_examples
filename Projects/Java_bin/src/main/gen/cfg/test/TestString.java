@@ -16,6 +16,7 @@ public final class TestString extends AbstractBean {
     public TestString(ByteBuf _buf) { 
         id = _buf.readInt();
         s1 = _buf.readString();
+        s2 = _buf.readString();
         cs1 = cfg.test.CompactString.deserialize(_buf);
         cs2 = cfg.test.CompactString.deserialize(_buf);
     }
@@ -26,6 +27,7 @@ public final class TestString extends AbstractBean {
 
     public final int id;
     public final String s1;
+    public final String s2;
     public final cfg.test.CompactString cs1;
     public final cfg.test.CompactString cs2;
 
@@ -39,6 +41,7 @@ public final class TestString extends AbstractBean {
         return "{ "
         + "(format_field_name __code_style field.name):" + id + ","
         + "(format_field_name __code_style field.name):" + s1 + ","
+        + "(format_field_name __code_style field.name):" + s2 + ","
         + "(format_field_name __code_style field.name):" + cs1 + ","
         + "(format_field_name __code_style field.name):" + cs2 + ","
         + "}";

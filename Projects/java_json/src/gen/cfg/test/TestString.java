@@ -18,6 +18,7 @@ public final class TestString extends AbstractBean {
     public TestString(JsonObject _buf) { 
         id = _buf.get("id").getAsInt();
         s1 = _buf.get("s1").getAsString();
+        s2 = _buf.get("s2").getAsString();
         cs1 = cfg.test.CompactString.deserialize(_buf.get("cs1").getAsJsonObject());
         cs2 = cfg.test.CompactString.deserialize(_buf.get("cs2").getAsJsonObject());
     }
@@ -28,6 +29,7 @@ public final class TestString extends AbstractBean {
 
     public final int id;
     public final String s1;
+    public final String s2;
     public final cfg.test.CompactString cs1;
     public final cfg.test.CompactString cs2;
 
@@ -41,6 +43,7 @@ public final class TestString extends AbstractBean {
         return "{ "
         + "(format_field_name __code_style field.name):" + id + ","
         + "(format_field_name __code_style field.name):" + s1 + ","
+        + "(format_field_name __code_style field.name):" + s2 + ","
         + "(format_field_name __code_style field.name):" + cs1 + ","
         + "(format_field_name __code_style field.name):" + cs2 + ","
         + "}";
