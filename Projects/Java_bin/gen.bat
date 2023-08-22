@@ -9,7 +9,7 @@ dotnet %LUBAN_DLL% ^
     -d bin  ^
     --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
     -x inputDataDir=%CONF_ROOT%\Datas ^
-    -x outputCodeDir=src/main/gen ^
+    -x outputCodeDir=src/main/gen/cfg ^
     -x outputDataDir=..\GenerateDatas\bytes ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
