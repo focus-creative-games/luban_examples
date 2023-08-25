@@ -621,49 +621,21 @@ local beans = {}
     end
     do
     ---@class common.GlobalConfig 
-     ---@field public bag_capacity integer
-     ---@field public bag_capacity_special integer
-     ---@field public bag_temp_expendable_capacity integer
-     ---@field public bag_temp_tool_capacity integer
-     ---@field public bag_init_capacity integer
-     ---@field public quick_bag_capacity integer
-     ---@field public cloth_bag_capacity integer
-     ---@field public cloth_bag_init_capacity integer
-     ---@field public cloth_bag_capacity_special integer
-     ---@field public bag_init_items_drop_id integer
-     ---@field public mail_box_capacity integer
-     ---@field public damage_param_c number
-     ---@field public damage_param_e number
-     ---@field public damage_param_f number
-     ---@field public damage_param_d number
-     ---@field public role_speed number
-     ---@field public monster_speed number
-     ---@field public init_energy integer
-     ---@field public init_viality integer
-     ---@field public max_viality integer
-     ---@field public per_viality_recovery_time integer
+     ---@field public x1 integer
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public x5 integer
+     ---@field public x6 integer
+     ---@field public x7 integer[]
         local class = {
-            { name='bag_capacity', type='integer'},
-            { name='bag_capacity_special', type='integer'},
-            { name='bag_temp_expendable_capacity', type='integer'},
-            { name='bag_temp_tool_capacity', type='integer'},
-            { name='bag_init_capacity', type='integer'},
-            { name='quick_bag_capacity', type='integer'},
-            { name='cloth_bag_capacity', type='integer'},
-            { name='cloth_bag_init_capacity', type='integer'},
-            { name='cloth_bag_capacity_special', type='integer'},
-            { name='bag_init_items_drop_id', type='integer'},
-            { name='mail_box_capacity', type='integer'},
-            { name='damage_param_c', type='number'},
-            { name='damage_param_e', type='number'},
-            { name='damage_param_f', type='number'},
-            { name='damage_param_d', type='number'},
-            { name='role_speed', type='number'},
-            { name='monster_speed', type='number'},
-            { name='init_energy', type='integer'},
-            { name='init_viality', type='integer'},
-            { name='max_viality', type='integer'},
-            { name='per_viality_recovery_time', type='integer'},
+            { name='x1', type='integer'},
+            { name='x2', type='integer'},
+            { name='x3', type='integer'},
+            { name='x4', type='integer'},
+            { name='x5', type='integer'},
+            { name='x6', type='integer'},
+            { name='x7', type='integer[]'},
         }
         beans['common.GlobalConfig'] = class
     end
@@ -1117,13 +1089,15 @@ local beans = {}
     end
     do
     ---@class test.TestString 
-     ---@field public id integer
+     ---@field public id string
      ---@field public s1 string
+     ---@field public s2 string
      ---@field public cs1 test.CompactString
      ---@field public cs2 test.CompactString
         local class = {
-            { name='id', type='integer'},
+            { name='id', type='string'},
             { name='s1', type='string'},
+            { name='s2', type='string'},
             { name='cs1', type='test.CompactString'},
             { name='cs2', type='test.CompactString'},
         }
