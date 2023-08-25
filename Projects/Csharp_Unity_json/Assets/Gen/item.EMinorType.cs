@@ -32,11 +32,11 @@ namespace cfg.item
         /// <summary>
         /// 能量点
         /// </summary>
-        POWERPOINT = 105,
+        POWER_POINT = 105,
         /// <summary>
         /// 发型
         /// </summary>
-        HAIRSTYLE = 210,
+        HAIR_STYLE = 210,
         /// <summary>
         /// 外套
         /// </summary>
@@ -44,7 +44,7 @@ namespace cfg.item
         /// <summary>
         /// 上衣
         /// </summary>
-        UPPERJACKET = 230,
+        UPPER_JACKET = 230,
         /// <summary>
         /// 裤子
         /// </summary>
@@ -64,7 +64,7 @@ namespace cfg.item
         /// <summary>
         /// 发饰
         /// </summary>
-        HAIRACCESSORY = 271,
+        HAIR_ACCESSORY = 271,
         /// <summary>
         /// 帽子
         /// </summary>
@@ -84,7 +84,7 @@ namespace cfg.item
         /// <summary>
         /// 发箍
         /// </summary>
-        HAIRCLASP = 276,
+        HAIR_CLASP = 276,
         /// <summary>
         /// 手套
         /// </summary>
@@ -92,7 +92,7 @@ namespace cfg.item
         /// <summary>
         /// 手持物
         /// </summary>
-        HANDHELDOBJECT = 278,
+        HANDHELD_OBJECT = 278,
         /// <summary>
         /// 特殊
         /// </summary>
@@ -100,11 +100,11 @@ namespace cfg.item
         /// <summary>
         /// 底妆
         /// </summary>
-        BASECOSMETIC = 281,
+        BASE_COSMETIC = 281,
         /// <summary>
         /// 眉妆
         /// </summary>
-        EYEBROWCOSMETIC = 282,
+        EYEBROW_COSMETIC = 282,
         /// <summary>
         /// 睫毛
         /// </summary>
@@ -112,23 +112,23 @@ namespace cfg.item
         /// <summary>
         /// 美瞳
         /// </summary>
-        COSMETICCONTACTLENSES = 284,
+        COSMETIC_CONTACT_LENSES = 284,
         /// <summary>
         /// 唇妆
         /// </summary>
-        LIPCOSMETIC = 285,
+        LIP_COSMETIC = 285,
         /// <summary>
         /// 肤色
         /// </summary>
-        SKINCOLOR = 286,
+        SKIN_COLOR = 286,
         /// <summary>
         /// 连衣裙
         /// </summary>
-        ONEPIECEDRESS = 290,
+        ONE_PIECE_DRESS = 290,
         /// <summary>
         /// 换装场景
         /// </summary>
-        SWITCHCLOTHESSCENE = 291,
+        SWITCH_CLOTHES_SCENE = 291,
         /// <summary>
         /// 任务道具
         /// </summary>
@@ -144,7 +144,7 @@ namespace cfg.item
         /// <summary>
         /// 弓箭
         /// </summary>
-        BOWARROW = 422,
+        BOW_ARROW = 422,
         /// <summary>
         /// 法杖
         /// </summary>
@@ -152,7 +152,7 @@ namespace cfg.item
         /// <summary>
         /// 特殊工具
         /// </summary>
-        SPECIALTOOL = 424,
+        SPECIAL_TOOL = 424,
         /// <summary>
         /// 食物
         /// </summary>
@@ -160,7 +160,7 @@ namespace cfg.item
         /// <summary>
         /// 宝箱
         /// </summary>
-        TREASUREBOX = 501,
+        TREASURE_BOX = 501,
         /// <summary>
         /// 钥匙
         /// </summary>
@@ -168,7 +168,7 @@ namespace cfg.item
         /// <summary>
         /// 多选一宝箱
         /// </summary>
-        MULTICHOOSETREASUREBOX = 503,
+        MULTI_CHOOSE_TREASURE_BOX = 503,
         /// <summary>
         /// 成就相关
         /// </summary>
@@ -180,7 +180,7 @@ namespace cfg.item
         /// <summary>
         /// 头像框
         /// </summary>
-        AVATARFRAME = 701,
+        AVATAR_FRAME = 701,
         /// <summary>
         /// 语音
         /// </summary>
@@ -188,11 +188,11 @@ namespace cfg.item
         /// <summary>
         /// 特殊待机动作
         /// </summary>
-        IDLEPOSE = 901,
+        IDLE_POSE = 901,
         /// <summary>
         /// 拍照动作
         /// </summary>
-        PHOTOPOSE = 902,
+        PHOTO_POSE = 902,
         /// <summary>
         /// 背包
         /// </summary>
@@ -200,15 +200,15 @@ namespace cfg.item
         /// <summary>
         /// 好友数量
         /// </summary>
-        FRIENDCAPACITY = 1002,
+        FRIEND_CAPACITY = 1002,
         /// <summary>
         /// 制作材料
         /// </summary>
-        CONSTRUCTIONMATERIAL = 1101,
+        CONSTRUCTION_MATERIAL = 1101,
         /// <summary>
         /// 设计图纸
         /// </summary>
-        DESIGNDRAWING = 1102,
+        DESIGN_DRAWING = 1102,
     }
 
 } 

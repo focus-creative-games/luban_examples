@@ -32,15 +32,15 @@ namespace cfg.item
         /// <summary>
         /// 宝箱
         /// </summary>
-        TREASUREBOX = 5,
+        TREASURE_BOX = 5,
         /// <summary>
         /// 成就和称谓
         /// </summary>
-        ACHIEVEMENTANDTITLE = 6,
+        ACHIEVEMENT_AND_TITLE = 6,
         /// <summary>
         /// 头像框
         /// </summary>
-        HEADFRAME = 7,
+        HEAD_FRAME = 7,
         /// <summary>
         /// 语音
         /// </summary>

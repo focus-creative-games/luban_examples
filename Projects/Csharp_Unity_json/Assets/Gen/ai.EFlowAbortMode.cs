@@ -14,7 +14,7 @@ namespace cfg.ai
     public enum EFlowAbortMode
     {
         NONE = 0,
-        LOWERPRIORITY = 1,
+        LOWER_PRIORITY = 1,
         SELF = 2,
         BOTH = 3,
     }

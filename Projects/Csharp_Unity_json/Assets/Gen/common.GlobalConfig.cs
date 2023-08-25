@@ -17,27 +17,13 @@ public sealed partial class GlobalConfig : Luban.BeanBase
 {
     public GlobalConfig(JSONNode _buf) 
     {
-        { if(!_buf["bag_capacity"].IsNumber) { throw new SerializationException(); }  BagCapacity = _buf["bag_capacity"]; }
-        { if(!_buf["bag_capacity_special"].IsNumber) { throw new SerializationException(); }  BagCapacitySpecial = _buf["bag_capacity_special"]; }
-        { if(!_buf["bag_temp_expendable_capacity"].IsNumber) { throw new SerializationException(); }  BagTempExpendableCapacity = _buf["bag_temp_expendable_capacity"]; }
-        { if(!_buf["bag_temp_tool_capacity"].IsNumber) { throw new SerializationException(); }  BagTempToolCapacity = _buf["bag_temp_tool_capacity"]; }
-        { if(!_buf["bag_init_capacity"].IsNumber) { throw new SerializationException(); }  BagInitCapacity = _buf["bag_init_capacity"]; }
-        { if(!_buf["quick_bag_capacity"].IsNumber) { throw new SerializationException(); }  QuickBagCapacity = _buf["quick_bag_capacity"]; }
-        { if(!_buf["cloth_bag_capacity"].IsNumber) { throw new SerializationException(); }  ClothBagCapacity = _buf["cloth_bag_capacity"]; }
-        { if(!_buf["cloth_bag_init_capacity"].IsNumber) { throw new SerializationException(); }  ClothBagInitCapacity = _buf["cloth_bag_init_capacity"]; }
-        { if(!_buf["cloth_bag_capacity_special"].IsNumber) { throw new SerializationException(); }  ClothBagCapacitySpecial = _buf["cloth_bag_capacity_special"]; }
-        { var _j = _buf["bag_init_items_drop_id"]; if (_j.Tag != JSONNodeType.None && _j.Tag != JSONNodeType.NullValue) { { if(!_j.IsNumber) { throw new SerializationException(); }  BagInitItemsDropId = _j; } } else { BagInitItemsDropId = null; } }
-        { if(!_buf["mail_box_capacity"].IsNumber) { throw new SerializationException(); }  MailBoxCapacity = _buf["mail_box_capacity"]; }
-        { if(!_buf["damage_param_c"].IsNumber) { throw new SerializationException(); }  DamageParamC = _buf["damage_param_c"]; }
-        { if(!_buf["damage_param_e"].IsNumber) { throw new SerializationException(); }  DamageParamE = _buf["damage_param_e"]; }
-        { if(!_buf["damage_param_f"].IsNumber) { throw new SerializationException(); }  DamageParamF = _buf["damage_param_f"]; }
-        { if(!_buf["damage_param_d"].IsNumber) { throw new SerializationException(); }  DamageParamD = _buf["damage_param_d"]; }
-        { if(!_buf["role_speed"].IsNumber) { throw new SerializationException(); }  RoleSpeed = _buf["role_speed"]; }
-        { if(!_buf["monster_speed"].IsNumber) { throw new SerializationException(); }  MonsterSpeed = _buf["monster_speed"]; }
-        { if(!_buf["init_energy"].IsNumber) { throw new SerializationException(); }  InitEnergy = _buf["init_energy"]; }
-        { if(!_buf["init_viality"].IsNumber) { throw new SerializationException(); }  InitViality = _buf["init_viality"]; }
-        { if(!_buf["max_viality"].IsNumber) { throw new SerializationException(); }  MaxViality = _buf["max_viality"]; }
-        { if(!_buf["per_viality_recovery_time"].IsNumber) { throw new SerializationException(); }  PerVialityRecoveryTime = _buf["per_viality_recovery_time"]; }
+        { if(!_buf["x1"].IsNumber) { throw new SerializationException(); }  X1 = _buf["x1"]; }
+        { if(!_buf["x2"].IsNumber) { throw new SerializationException(); }  X2 = _buf["x2"]; }
+        { if(!_buf["x3"].IsNumber) { throw new SerializationException(); }  X3 = _buf["x3"]; }
+        { if(!_buf["x4"].IsNumber) { throw new SerializationException(); }  X4 = _buf["x4"]; }
+        { if(!_buf["x5"].IsNumber) { throw new SerializationException(); }  X5 = _buf["x5"]; }
+        { if(!_buf["x6"].IsNumber) { throw new SerializationException(); }  X6 = _buf["x6"]; }
+        { var __json0 = _buf["x7"]; if(!__json0.IsArray) { throw new SerializationException(); } X7 = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  X7.Add(__v0); }   }
     }
 
     public static GlobalConfig DeserializeGlobalConfig(JSONNode _buf)
@@ -48,27 +34,13 @@ public sealed partial class GlobalConfig : Luban.BeanBase
     /// <summary>
     /// 背包容量
     /// </summary>
-    public readonly int BagCapacity;
-    public readonly int BagCapacitySpecial;
-    public readonly int BagTempExpendableCapacity;
-    public readonly int BagTempToolCapacity;
-    public readonly int BagInitCapacity;
-    public readonly int QuickBagCapacity;
-    public readonly int ClothBagCapacity;
-    public readonly int ClothBagInitCapacity;
-    public readonly int ClothBagCapacitySpecial;
-    public readonly int? BagInitItemsDropId;
-    public readonly int MailBoxCapacity;
-    public readonly float DamageParamC;
-    public readonly float DamageParamE;
-    public readonly float DamageParamF;
-    public readonly float DamageParamD;
-    public readonly float RoleSpeed;
-    public readonly float MonsterSpeed;
-    public readonly int InitEnergy;
-    public readonly int InitViality;
-    public readonly int MaxViality;
-    public readonly int PerVialityRecoveryTime;
+    public readonly int X1;
+    public readonly int X2;
+    public readonly int X3;
+    public readonly int X4;
+    public readonly int X5;
+    public readonly int X6;
+    public readonly System.Collections.Generic.List<int> X7;
    
     public const int __ID__ = -848234488;
     public override int GetTypeId() => __ID__;
@@ -82,46 +54,18 @@ public sealed partial class GlobalConfig : Luban.BeanBase
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "bagCapacity:" + BagCapacity + ","
-        + "bagCapacitySpecial:" + BagCapacitySpecial + ","
-        + "bagTempExpendableCapacity:" + BagTempExpendableCapacity + ","
-        + "bagTempToolCapacity:" + BagTempToolCapacity + ","
-        + "bagInitCapacity:" + BagInitCapacity + ","
-        + "quickBagCapacity:" + QuickBagCapacity + ","
-        + "clothBagCapacity:" + ClothBagCapacity + ","
-        + "clothBagInitCapacity:" + ClothBagInitCapacity + ","
-        + "clothBagCapacitySpecial:" + ClothBagCapacitySpecial + ","
-        + "bagInitItemsDropId:" + BagInitItemsDropId + ","
-        + "mailBoxCapacity:" + MailBoxCapacity + ","
-        + "damageParamC:" + DamageParamC + ","
-        + "damageParamE:" + DamageParamE + ","
-        + "damageParamF:" + DamageParamF + ","
-        + "damageParamD:" + DamageParamD + ","
-        + "roleSpeed:" + RoleSpeed + ","
-        + "monsterSpeed:" + MonsterSpeed + ","
-        + "initEnergy:" + InitEnergy + ","
-        + "initViality:" + InitViality + ","
-        + "maxViality:" + MaxViality + ","
-        + "perVialityRecoveryTime:" + PerVialityRecoveryTime + ","
+        + "x1:" + X1 + ","
+        + "x2:" + X2 + ","
+        + "x3:" + X3 + ","
+        + "x4:" + X4 + ","
+        + "x5:" + X5 + ","
+        + "x6:" + X6 + ","
+        + "x7:" + Luban.StringUtil.CollectionToString(X7) + ","
         + "}";
     }
 }

@@ -16,43 +16,43 @@ namespace cfg.item
         /// <summary>
         /// 简约
         /// </summary>
-        JIANYUE = 1,
+        JIAN_YUE = 1,
         /// <summary>
         /// 华丽
         /// </summary>
-        HUALI = 2,
+        HUA_LI = 2,
         /// <summary>
         /// 可爱
         /// </summary>
-        KEAI = 3,
+        KE_AI = 3,
         /// <summary>
         /// 成熟
         /// </summary>
-        CHENGSHU = 4,
+        CHENG_SHU = 4,
         /// <summary>
         /// 活泼
         /// </summary>
-        HUOPO = 5,
+        HUO_PO = 5,
         /// <summary>
         /// 优雅
         /// </summary>
-        YOUYA = 6,
+        YOU_YA = 6,
         /// <summary>
         /// 清纯
         /// </summary>
-        QINGCHUN = 7,
+        QING_CHUN = 7,
         /// <summary>
         /// 性感
         /// </summary>
-        XINGGAN = 8,
+        XING_GAN = 8,
         /// <summary>
         /// 清凉
         /// </summary>
-        QINGLIANG = 9,
+        QING_LIANG = 9,
         /// <summary>
         /// 保暖
         /// </summary>
-        BAONUAN = 10,
+        BAO_NUAN = 10,
     }
 
 } 

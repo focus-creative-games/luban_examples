@@ -16,11 +16,11 @@ namespace cfg.item
         /// <summary>
         /// 防晒
         /// </summary>
-        FANGSHAI = 1,
+        FANG_SHAI = 1,
         /// <summary>
         /// 舞者
         /// </summary>
-        WUZHE = 2,
+        WU_ZHE = 2,
     }
 
 } 
