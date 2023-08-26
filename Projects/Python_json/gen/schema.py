@@ -979,27 +979,14 @@ class aiDebugPrint (aiTask):
 
 class commonGlobalConfig :
     def __init__(self, _json_):
-        self.bag_capacity = _json_['bag_capacity']
-        self.bag_capacity_special = _json_['bag_capacity_special']
-        self.bag_temp_expendable_capacity = _json_['bag_temp_expendable_capacity']
-        self.bag_temp_tool_capacity = _json_['bag_temp_tool_capacity']
-        self.bag_init_capacity = _json_['bag_init_capacity']
-        self.quick_bag_capacity = _json_['quick_bag_capacity']
-        self.cloth_bag_capacity = _json_['cloth_bag_capacity']
-        self.cloth_bag_init_capacity = _json_['cloth_bag_init_capacity']
-        self.cloth_bag_capacity_special = _json_['cloth_bag_capacity_special']
-        if _json_.get('bag_init_items_drop_id') != None: self.bag_init_items_drop_id = _json_['bag_init_items_drop_id']
-        self.mail_box_capacity = _json_['mail_box_capacity']
-        self.damage_param_c = _json_['damage_param_c']
-        self.damage_param_e = _json_['damage_param_e']
-        self.damage_param_f = _json_['damage_param_f']
-        self.damage_param_d = _json_['damage_param_d']
-        self.role_speed = _json_['role_speed']
-        self.monster_speed = _json_['monster_speed']
-        self.init_energy = _json_['init_energy']
-        self.init_viality = _json_['init_viality']
-        self.max_viality = _json_['max_viality']
-        self.per_viality_recovery_time = _json_['per_viality_recovery_time']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = []
+        for _ele in _json_['x7']: _e = _ele; self.x7.append(_e)
 
 class itemItem :
     def __init__(self, _json_):
@@ -1048,9 +1035,12 @@ class testDemoType2 :
         self.x14 = testDemoDynamic.fromJson(_json_['x14'])
         self.s1 = _json_['s1']
         self.t1 = _json_['t1']
-        self.k1 = _json_['k1']
-        self.k2 = _json_['k2']
-        self.k5 = _json_['k5']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
+        self.k5 = []
+        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
         self.k8 = {}
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
@@ -1253,23 +1243,23 @@ class testDemoPrimitiveTypesTable :
         self.x7 = _json_['x7']
         self.s1 = _json_['s1']
         self.s2 = _json_['s2']
-        self.v2 = vector2(_json_['v2'])
-        self.v3 = vector3(_json_['v3'])
-        self.v4 = vector4(_json_['v4'])
+        self.v2 = vec2(_json_['v2'])
+        self.v3 = vec3(_json_['v3'])
+        self.v4 = vec4(_json_['v4'])
         self.t1 = _json_['t1']
 
-class vector2 :
+class vec2 :
     def __init__(self, _json_):
         self.x = _json_['x']
         self.y = _json_['y']
 
-class vector3 :
+class vec3 :
     def __init__(self, _json_):
         self.x = _json_['x']
         self.y = _json_['y']
         self.z = _json_['z']
 
-class vector4 :
+class vec4 :
     def __init__(self, _json_):
         self.x = _json_['x']
         self.y = _json_['y']
@@ -1280,6 +1270,7 @@ class testTestString :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.s1 = _json_['s1']
+        self.s2 = _json_['s2']
         self.cs1 = testCompactString(_json_['cs1'])
         self.cs2 = testCompactString(_json_['cs2'])
 
@@ -1323,12 +1314,18 @@ class testTestRef :
         self.x2 = _json_['x2']
         self.x3 = _json_['x3']
         self.x4 = _json_['x4']
-        self.a1 = _json_['a1']
-        self.a2 = _json_['a2']
-        self.b1 = _json_['b1']
-        self.b2 = _json_['b2']
-        self.c1 = _json_['c1']
-        self.c2 = _json_['c2']
+        self.a1 = []
+        for _ele in _json_['a1']: _e = _ele; self.a1.append(_e)
+        self.a2 = []
+        for _ele in _json_['a2']: _e = _ele; self.a2.append(_e)
+        self.b1 = []
+        for _ele in _json_['b1']: _e = _ele; self.b1.append(_e)
+        self.b2 = []
+        for _ele in _json_['b2']: _e = _ele; self.b2.append(_e)
+        self.c1 = []
+        for _ele in _json_['c1']: _e = _ele; self.c1.append(_e)
+        self.c2 = []
+        for _ele in _json_['c2']: _e = _ele; self.c2.append(_e)
         self.d1 = {}
         for _ek, _ev in _json_['d1']: _k = _ek; _v = _ev; self.d1[_k] =_v
         self.d2 = {}
@@ -1362,14 +1359,18 @@ class testRefDynamicBase :
 class testRefBean (testRefDynamicBase):
     def __init__(self, _json_):
         testRefDynamicBase.__init__(self, _json_)
-        self.arr = _json_['arr']
+        self.arr = []
+        for _ele in _json_['arr']: _e = _ele; self.arr.append(_e)
 
 class testTestSize :
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
+        self.x1 = []
+        for _ele in _json_['x1']: _e = _ele; self.x1.append(_e)
+        self.x2 = []
+        for _ele in _json_['x2']: _e = _ele; self.x2.append(_e)
+        self.x3 = []
+        for _ele in _json_['x3']: _e = _ele; self.x3.append(_e)
         self.x4 = {}
         for _ek, _ev in _json_['x4']: _k = _ek; _v = _ev; self.x4[_k] =_v
 
@@ -1377,9 +1378,12 @@ class testTestSet :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.x0 = _json_['x0']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
+        self.x1 = []
+        for _ele in _json_['x1']: _e = _ele; self.x1.append(_e)
+        self.x2 = []
+        for _ele in _json_['x2']: _e = _ele; self.x2.append(_e)
+        self.x3 = []
+        for _ele in _json_['x3']: _e = _ele; self.x3.append(_e)
         self.x4 = []
         for _ele in _json_['x4']: _e = _ele; self.x4.append(_e)
 
@@ -1457,7 +1461,8 @@ class testExcelFromJson :
         self.x12 = testDemoType1(_json_['x12'])
         self.x13 = _json_['x13']
         self.x14 = testDemoDynamic.fromJson(_json_['x14'])
-        self.k1 = _json_['k1']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
         self.k8 = {}
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
@@ -1493,7 +1498,8 @@ class testTestRow :
         self.y = _json_['y']
         self.z = _json_['z']
         self.a = testTest3(_json_['a'])
-        self.b = _json_['b']
+        self.b = []
+        for _ele in _json_['b']: _e = _ele; self.b.append(_e)
 
 class testTest3 :
     def __init__(self, _json_):
@@ -1506,15 +1512,15 @@ class testTestScriptableObject :
         self.desc = _json_['desc']
         self.rate = _json_['rate']
         self.num = _json_['num']
-        self.v2 = vector2(_json_['v2'])
-        self.v3 = vector3(_json_['v3'])
-        self.v4 = vector4(_json_['v4'])
+        self.v2 = vec2(_json_['v2'])
+        self.v3 = vec3(_json_['v3'])
+        self.v4 = vec4(_json_['v4'])
 
 class testTestMapper :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.audio_type = _json_['audio_type']
-        self.v2 = vector2(_json_['v2'])
+        self.v2 = vec2(_json_['v2'])
 
 class DefineFromExcel2 :
     def __init__(self, _json_):
@@ -1528,18 +1534,20 @@ class DefineFromExcel2 :
         self.x13_2 = _json_['x13_2']
         self.x14 = testDemoDynamic.fromJson(_json_['x14'])
         self.x15 = testShape.fromJson(_json_['x15'])
-        self.v2 = vector2(_json_['v2'])
+        self.v2 = vec2(_json_['v2'])
         self.t1 = _json_['t1']
-        self.k1 = _json_['k1']
-        self.k2 = _json_['k2']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
         self.k8 = {}
         for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
         self.k9 = []
         for _ele in _json_['k9']: _e = testDemoE2(_ele); self.k9.append(_e)
         self.k10 = []
-        for _ele in _json_['k10']: _e = vector3(_ele); self.k10.append(_e)
+        for _ele in _json_['k10']: _e = vec3(_ele); self.k10.append(_e)
         self.k11 = []
-        for _ele in _json_['k11']: _e = vector4(_ele); self.k11.append(_e)
+        for _ele in _json_['k11']: _e = vec4(_ele); self.k11.append(_e)
 
 class testShape :
     _childrenTypes = None
@@ -1614,29 +1622,15 @@ class commonTbGlobalConfig:
     def getData(self) : return self._data
 
     '''
-    
+    背包容量
     '''
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
 
 class itemTbItem:
 
@@ -1726,9 +1720,9 @@ class testTbSingleton:
 
     def getData(self) : return self._data
 
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
 
 class testTbNotIndexList:
 
@@ -1956,8 +1950,8 @@ class testTbTestGlobal:
 
     def getData(self) : return self._data
 
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
 
 class testTbTestBeRef:
 
@@ -2159,8 +2153,8 @@ class testTbCompositeJsonTable3:
 
     def getData(self) : return self._data
 
-    def bag_capacity(self) : return self._data.bag_capacity
-    def bag_capacity(self) : return self._data.bag_capacity
+    def x1(self) : return self._data.x1
+    def x1(self) : return self._data.x1
 
 class testTbExcelFromJsonMultiRow:
 

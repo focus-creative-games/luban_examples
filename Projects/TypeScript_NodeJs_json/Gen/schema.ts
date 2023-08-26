@@ -674,7 +674,7 @@ export class Blackboard {
         if (_json_.parent_name === undefined) { throw new Error() }
         this.parentName = _json_.parent_name
         if (_json_.keys === undefined) { throw new Error() }
-        { this.keys = []; for(let _ele of _json_.keys) { let _e : ai.BlackboardKey; _e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
+        { this.keys = []; for(let _ele of _json_.keys) { let _e; _e = new ai.BlackboardKey(_ele); this.keys.push(_e);}}
     }
 
     readonly name: string
@@ -1235,9 +1235,9 @@ export abstract class FlowNode extends ai.Node {
     constructor(_json_: any) {
         super(_json_)
         if (_json_.decorators === undefined) { throw new Error() }
-        { this.decorators = []; for(let _ele of _json_.decorators) { let _e : ai.Decorator; _e = ai.Decorator.constructorFrom(_ele); this.decorators.push(_e);}}
+        { this.decorators = []; for(let _ele of _json_.decorators) { let _e; _e = ai.Decorator.constructorFrom(_ele); this.decorators.push(_e);}}
         if (_json_.services === undefined) { throw new Error() }
-        { this.services = []; for(let _ele of _json_.services) { let _e : ai.Service; _e = ai.Service.constructorFrom(_ele); this.services.push(_e);}}
+        { this.services = []; for(let _ele of _json_.services) { let _e; _e = ai.Service.constructorFrom(_ele); this.services.push(_e);}}
     }
 
     readonly decorators: ai.Decorator[]
@@ -1273,7 +1273,7 @@ export class Sequence extends ai.ComposeNode {
     constructor(_json_: any) {
         super(_json_)
         if (_json_.children === undefined) { throw new Error() }
-        { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
+        { this.children = []; for(let _ele of _json_.children) { let _e; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1288,7 +1288,7 @@ export class Selector extends ai.ComposeNode {
     constructor(_json_: any) {
         super(_json_)
         if (_json_.children === undefined) { throw new Error() }
-        { this.children = []; for(let _ele of _json_.children) { let _e : ai.FlowNode; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
+        { this.children = []; for(let _ele of _json_.children) { let _e; _e = ai.FlowNode.constructorFrom(_ele); this.children.push(_e);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1466,73 +1466,32 @@ export namespace common {
 export class GlobalConfig {
 
     constructor(_json_: any) {
-        if (_json_.bag_capacity === undefined) { throw new Error() }
-        this.bagCapacity = _json_.bag_capacity
-        if (_json_.bag_capacity_special === undefined) { throw new Error() }
-        this.bagCapacitySpecial = _json_.bag_capacity_special
-        if (_json_.bag_temp_expendable_capacity === undefined) { throw new Error() }
-        this.bagTempExpendableCapacity = _json_.bag_temp_expendable_capacity
-        if (_json_.bag_temp_tool_capacity === undefined) { throw new Error() }
-        this.bagTempToolCapacity = _json_.bag_temp_tool_capacity
-        if (_json_.bag_init_capacity === undefined) { throw new Error() }
-        this.bagInitCapacity = _json_.bag_init_capacity
-        if (_json_.quick_bag_capacity === undefined) { throw new Error() }
-        this.quickBagCapacity = _json_.quick_bag_capacity
-        if (_json_.cloth_bag_capacity === undefined) { throw new Error() }
-        this.clothBagCapacity = _json_.cloth_bag_capacity
-        if (_json_.cloth_bag_init_capacity === undefined) { throw new Error() }
-        this.clothBagInitCapacity = _json_.cloth_bag_init_capacity
-        if (_json_.cloth_bag_capacity_special === undefined) { throw new Error() }
-        this.clothBagCapacitySpecial = _json_.cloth_bag_capacity_special
-        if(_json_.bag_init_items_drop_id != undefined) { this.bagInitItemsDropId = _json_.bag_init_items_drop_id } else { this.bagInitItemsDropId = undefined }
-        if (_json_.mail_box_capacity === undefined) { throw new Error() }
-        this.mailBoxCapacity = _json_.mail_box_capacity
-        if (_json_.damage_param_c === undefined) { throw new Error() }
-        this.damageParamC = _json_.damage_param_c
-        if (_json_.damage_param_e === undefined) { throw new Error() }
-        this.damageParamE = _json_.damage_param_e
-        if (_json_.damage_param_f === undefined) { throw new Error() }
-        this.damageParamF = _json_.damage_param_f
-        if (_json_.damage_param_d === undefined) { throw new Error() }
-        this.damageParamD = _json_.damage_param_d
-        if (_json_.role_speed === undefined) { throw new Error() }
-        this.roleSpeed = _json_.role_speed
-        if (_json_.monster_speed === undefined) { throw new Error() }
-        this.monsterSpeed = _json_.monster_speed
-        if (_json_.init_energy === undefined) { throw new Error() }
-        this.initEnergy = _json_.init_energy
-        if (_json_.init_viality === undefined) { throw new Error() }
-        this.initViality = _json_.init_viality
-        if (_json_.max_viality === undefined) { throw new Error() }
-        this.maxViality = _json_.max_viality
-        if (_json_.per_viality_recovery_time === undefined) { throw new Error() }
-        this.perVialityRecoveryTime = _json_.per_viality_recovery_time
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x5 === undefined) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 === undefined) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.x7 === undefined) { throw new Error() }
+        { this.x7 = []; for(let _ele of _json_.x7) { let _e; _e = _ele; this.x7.push(_e);}}
     }
 
     /**
      * 背包容量
      */
-    readonly bagCapacity: number
-    readonly bagCapacitySpecial: number
-    readonly bagTempExpendableCapacity: number
-    readonly bagTempToolCapacity: number
-    readonly bagInitCapacity: number
-    readonly quickBagCapacity: number
-    readonly clothBagCapacity: number
-    readonly clothBagInitCapacity: number
-    readonly clothBagCapacitySpecial: number
-    readonly bagInitItemsDropId: number|undefined
-    readonly mailBoxCapacity: number
-    readonly damageParamC: number
-    readonly damageParamE: number
-    readonly damageParamF: number
-    readonly damageParamD: number
-    readonly roleSpeed: number
-    readonly monsterSpeed: number
-    readonly initEnergy: number
-    readonly initViality: number
-    readonly maxViality: number
-    readonly perVialityRecoveryTime: number
+    readonly x1: number
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x7: number[]
 }
 
 }
@@ -1676,17 +1635,17 @@ export class DemoType2 {
         if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
         if (_json_.k1 === undefined) { throw new Error() }
-        this.k1 = _json_.k1
+        { this.k1 = []; for(let _ele of _json_.k1) { let _e; _e = _ele; this.k1.push(_e);}}
         if (_json_.k2 === undefined) { throw new Error() }
-        this.k2 = _json_.k2
+        { this.k2 = []; for(let _ele of _json_.k2) { let _e; _e = _ele; this.k2.push(_e);}}
         if (_json_.k5 === undefined) { throw new Error() }
         this.k5 = _json_.k5
         if (_json_.k8 === undefined) { throw new Error() }
-        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
+        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.k8.set(_k, _v);  }
         if (_json_.k9 === undefined) { throw new Error() }
-        { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
+        { this.k9 = []; for(let _ele of _json_.k9) { let _e; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
         if (_json_.k15 === undefined) { throw new Error() }
-        { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
+        { this.k15 = []; for(let _ele of _json_.k15) { let _e; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
     }
 
     readonly x4: number
@@ -1705,7 +1664,7 @@ export class DemoType2 {
     readonly x14: test.DemoDynamic
     readonly s1: string
     readonly t1: number
-    readonly k1: Float32Array
+    readonly k1: number[]
     readonly k2: number[]
     readonly k5: Set<number>
     readonly k8: Map<number, number>
@@ -1966,19 +1925,19 @@ export class MultiRowRecord {
         if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
         if (_json_.one_rows === undefined) { throw new Error() }
-        { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
+        { this.oneRows = []; for(let _ele of _json_.one_rows) { let _e; _e = new test.MultiRowType1(_ele); this.oneRows.push(_e);}}
         if (_json_.multi_rows1 === undefined) { throw new Error() }
-        { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
+        { this.multiRows1 = []; for(let _ele of _json_.multi_rows1) { let _e; _e = new test.MultiRowType1(_ele); this.multiRows1.push(_e);}}
         if (_json_.multi_rows2 === undefined) { throw new Error() }
-        { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
+        { this.multiRows2 = []; for(let _ele of _json_.multi_rows2) { let _e; _e = new test.MultiRowType1(_ele); this.multiRows2.push(_e);}}
         if (_json_.multi_rows4 === undefined) { throw new Error() }
-        this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
+        this.multiRows4 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows4) { let _k; _k = _entry_[0];  let _v;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows4.set(_k, _v);  }
         if (_json_.multi_rows5 === undefined) { throw new Error() }
-        { this.multiRows5 = []; for(let _ele of _json_.multi_rows5) { let _e : test.MultiRowType3; _e = new test.MultiRowType3(_ele); this.multiRows5.push(_e);}}
+        { this.multiRows5 = []; for(let _ele of _json_.multi_rows5) { let _e; _e = new test.MultiRowType3(_ele); this.multiRows5.push(_e);}}
         if (_json_.multi_rows6 === undefined) { throw new Error() }
-        this.multiRows6 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows6) { let _k:number; _k = _entry_[0];  let _v:test.MultiRowType2;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows6.set(_k, _v);  }
+        this.multiRows6 = new Map<number, test.MultiRowType2>(); for(var _entry_ of _json_.multi_rows6) { let _k; _k = _entry_[0];  let _v;  _v = new test.MultiRowType2(_entry_[1]); this.multiRows6.set(_k, _v);  }
         if (_json_.multi_rows7 === undefined) { throw new Error() }
-        this.multiRows7 = new Map<number, number>(); for(var _entry_ of _json_.multi_rows7) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.multiRows7.set(_k, _v);  }
+        this.multiRows7 = new Map<number, number>(); for(var _entry_ of _json_.multi_rows7) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.multiRows7.set(_k, _v);  }
     }
 
     readonly id: number
@@ -2039,7 +1998,7 @@ export class MultiRowType3 {
         if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.items === undefined) { throw new Error() }
-        { this.items = []; for(let _ele of _json_.items) { let _e : test.MultiRowType1; _e = new test.MultiRowType1(_ele); this.items.push(_e);}}
+        { this.items = []; for(let _ele of _json_.items) { let _e; _e = new test.MultiRowType1(_ele); this.items.push(_e);}}
     }
 
     readonly id: number
@@ -2104,11 +2063,11 @@ export class MultiRowTitle {
         this.x1 = new test.H1(_json_.x1)
         if(_json_.x2_0 != undefined) { this.x20 = new test.H2(_json_.x2_0) } else { this.x20 = undefined }
         if (_json_.x2 === undefined) { throw new Error() }
-        { this.x2 = []; for(let _ele of _json_.x2) { let _e : test.H2; _e = new test.H2(_ele); this.x2.push(_e);}}
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e; _e = new test.H2(_ele); this.x2.push(_e);}}
         if (_json_.x3 === undefined) { throw new Error() }
-        { this.x3 = []; for(let _ele of _json_.x3) { let _e :test.H2; _e = new test.H2(_ele); this.x3.push(_e);}}
+        { this.x3 = []; for(let _ele of _json_.x3) { let _e; _e = new test.H2(_ele); this.x3.push(_e);}}
         if (_json_.x4 === undefined) { throw new Error() }
-        { this.x4 = []; for(let _ele of _json_.x4) { let _e :test.H2; _e = new test.H2(_ele); this.x4.push(_e);}}
+        { this.x4 = []; for(let _ele of _json_.x4) { let _e; _e = new test.H2(_ele); this.x4.push(_e);}}
     }
 
     readonly id: number
@@ -2206,11 +2165,11 @@ export class DemoPrimitiveTypesTable {
         if (_json_.s2 === undefined) { throw new Error() }
         this.s2 = _json_.s2
         if (_json_.v2 === undefined) { throw new Error() }
-        this.v2 = new vector2(_json_.v2)
+        this.v2 = new vec2(_json_.v2)
         if (_json_.v3 === undefined) { throw new Error() }
-        this.v3 = new vector3(_json_.v3)
+        this.v3 = new vec3(_json_.v3)
         if (_json_.v4 === undefined) { throw new Error() }
-        this.v4 = new vector4(_json_.v4)
+        this.v4 = new vec4(_json_.v4)
         if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
     }
@@ -2224,9 +2183,9 @@ export class DemoPrimitiveTypesTable {
     readonly x7: number
     readonly s1: string
     readonly s2: string
-    readonly v2: vector2
-    readonly v3: vector3
-    readonly v4: vector4
+    readonly v2: vec2
+    readonly v3: vec3
+    readonly v4: vec4
     readonly t1: number
 }
 
@@ -2234,7 +2193,7 @@ export class DemoPrimitiveTypesTable {
 
 
  
-export class vector2 {
+export class vec2 {
 
     constructor(_json_: any) {
         if (_json_.x === undefined) { throw new Error() }
@@ -2251,7 +2210,7 @@ export class vector2 {
 
 
  
-export class vector3 {
+export class vec3 {
 
     constructor(_json_: any) {
         if (_json_.x === undefined) { throw new Error() }
@@ -2271,7 +2230,7 @@ export class vector3 {
 
 
  
-export class vector4 {
+export class vec4 {
 
     constructor(_json_: any) {
         if (_json_.x === undefined) { throw new Error() }
@@ -2301,14 +2260,17 @@ export class TestString {
         this.id = _json_.id
         if (_json_.s1 === undefined) { throw new Error() }
         this.s1 = _json_.s1
+        if (_json_.s2 === undefined) { throw new Error() }
+        this.s2 = _json_.s2
         if (_json_.cs1 === undefined) { throw new Error() }
         this.cs1 = new test.CompactString(_json_.cs1)
         if (_json_.cs2 === undefined) { throw new Error() }
         this.cs2 = new test.CompactString(_json_.cs2)
     }
 
-    readonly id: number
+    readonly id: string
     readonly s1: string
+    readonly s2: string
     readonly cs1: test.CompactString
     readonly cs2: test.CompactString
 }
@@ -2439,21 +2401,21 @@ export class TestRef {
         if (_json_.x4 === undefined) { throw new Error() }
         this.x4 = _json_.x4
         if (_json_.a1 === undefined) { throw new Error() }
-        this.a1 = _json_.a1
+        { this.a1 = []; for(let _ele of _json_.a1) { let _e; _e = _ele; this.a1.push(_e);}}
         if (_json_.a2 === undefined) { throw new Error() }
-        this.a2 = _json_.a2
+        { this.a2 = []; for(let _ele of _json_.a2) { let _e; _e = _ele; this.a2.push(_e);}}
         if (_json_.b1 === undefined) { throw new Error() }
-        this.b1 = _json_.b1
+        { this.b1 = []; for(let _ele of _json_.b1) { let _e; _e = _ele; this.b1.push(_e);}}
         if (_json_.b2 === undefined) { throw new Error() }
-        this.b2 = _json_.b2
+        { this.b2 = []; for(let _ele of _json_.b2) { let _e; _e = _ele; this.b2.push(_e);}}
         if (_json_.c1 === undefined) { throw new Error() }
         this.c1 = _json_.c1
         if (_json_.c2 === undefined) { throw new Error() }
         this.c2 = _json_.c2
         if (_json_.d1 === undefined) { throw new Error() }
-        this.d1 = new Map<number, number>(); for(var _entry_ of _json_.d1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.d1.set(_k, _v);  }
+        this.d1 = new Map<number, number>(); for(var _entry_ of _json_.d1) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.d1.set(_k, _v);  }
         if (_json_.d2 === undefined) { throw new Error() }
-        this.d2 = new Map<number, number>(); for(var _entry_ of _json_.d2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.d2.set(_k, _v);  }
+        this.d2 = new Map<number, number>(); for(var _entry_ of _json_.d2) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.d2.set(_k, _v);  }
         if (_json_.e1 === undefined) { throw new Error() }
         this.e1 = _json_.e1
         if (_json_.e2 === undefined) { throw new Error() }
@@ -2476,8 +2438,8 @@ export class TestRef {
     readonly x2: number
     readonly x3: number
     readonly x4: number
-    readonly a1: Float32Array
-    readonly a2: Float32Array
+    readonly a1: number[]
+    readonly a2: number[]
     readonly b1: number[]
     readonly b2: number[]
     readonly c1: Set<number>
@@ -2522,7 +2484,7 @@ export class RefBean extends test.RefDynamicBase {
     constructor(_json_: any) {
         super(_json_)
         if (_json_.arr === undefined) { throw new Error() }
-        this.arr = _json_.arr
+        { this.arr = []; for(let _ele of _json_.arr) { let _e; _e = _ele; this.arr.push(_e);}}
     }
 
     readonly arr: number[]
@@ -2538,17 +2500,17 @@ export class TestSize {
         if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
+        { this.x1 = []; for(let _ele of _json_.x1) { let _e; _e = _ele; this.x1.push(_e);}}
         if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e; _e = _ele; this.x2.push(_e);}}
         if (_json_.x3 === undefined) { throw new Error() }
         this.x3 = _json_.x3
         if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = new Map<number, number>(); for(var _entry_ of _json_.x4) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x4.set(_k, _v);  }
+        this.x4 = new Map<number, number>(); for(var _entry_ of _json_.x4) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.x4.set(_k, _v);  }
     }
 
     readonly id: number
-    readonly x1: Float32Array
+    readonly x1: number[]
     readonly x2: number[]
     readonly x3: Set<number>
     readonly x4: Map<number, number>
@@ -2566,13 +2528,13 @@ export class TestSet {
         if (_json_.x0 === undefined) { throw new Error() }
         this.x0 = _json_.x0
         if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
+        { this.x1 = []; for(let _ele of _json_.x1) { let _e; _e = _ele; this.x1.push(_e);}}
         if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
+        { this.x2 = []; for(let _ele of _json_.x2) { let _e; _e = _ele; this.x2.push(_e);}}
         if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = _json_.x3
+        { this.x3 = []; for(let _ele of _json_.x3) { let _e; _e = _ele; this.x3.push(_e);}}
         if (_json_.x4 === undefined) { throw new Error() }
-        { this.x4 = []; for(let _ele of _json_.x4) { let _e : test.DemoEnum; _e = _ele; this.x4.push(_e);}}
+        { this.x4 = []; for(let _ele of _json_.x4) { let _e; _e = _ele; this.x4.push(_e);}}
     }
 
     readonly id: number
@@ -2689,7 +2651,7 @@ export class TestIndex {
         if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.eles === undefined) { throw new Error() }
-        { this.eles = []; for(let _ele of _json_.eles) { let _e : test.DemoType1; _e = new test.DemoType1(_ele); this.eles.push(_e);}}
+        { this.eles = []; for(let _ele of _json_.eles) { let _e; _e = new test.DemoType1(_ele); this.eles.push(_e);}}
     }
 
     readonly id: number
@@ -2706,13 +2668,13 @@ export class TestMap {
         if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
         if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = new Map<number, number>(); for(var _entry_ of _json_.x1) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x1.set(_k, _v);  }
+        this.x1 = new Map<number, number>(); for(var _entry_ of _json_.x1) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.x1.set(_k, _v);  }
         if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = new Map<number, number>(); for(var _entry_ of _json_.x2) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x2.set(_k, _v);  }
+        this.x2 = new Map<number, number>(); for(var _entry_ of _json_.x2) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.x2.set(_k, _v);  }
         if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = new Map<string, number>(); for(var _entry_ of _json_.x3) { let _k:string; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x3.set(_k, _v);  }
+        this.x3 = new Map<string, number>(); for(var _entry_ of _json_.x3) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.x3.set(_k, _v);  }
         if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = new Map<test.DemoEnum, number>(); for(var _entry_ of _json_.x4) { let _k:test.DemoEnum; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.x4.set(_k, _v);  }
+        this.x4 = new Map<test.DemoEnum, number>(); for(var _entry_ of _json_.x4) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.x4.set(_k, _v);  }
     }
 
     readonly id: number
@@ -2750,13 +2712,13 @@ export class ExcelFromJson {
         if (_json_.x14 === undefined) { throw new Error() }
         this.x14 = test.DemoDynamic.constructorFrom(_json_.x14)
         if (_json_.k1 === undefined) { throw new Error() }
-        this.k1 = _json_.k1
+        { this.k1 = []; for(let _ele of _json_.k1) { let _e; _e = _ele; this.k1.push(_e);}}
         if (_json_.k8 === undefined) { throw new Error() }
-        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
+        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.k8.set(_k, _v);  }
         if (_json_.k9 === undefined) { throw new Error() }
-        { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
+        { this.k9 = []; for(let _ele of _json_.k9) { let _e; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
         if (_json_.k15 === undefined) { throw new Error() }
-        { this.k15 = []; for(let _ele of _json_.k15) { let _e :test.DemoDynamic; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
+        { this.k15 = []; for(let _ele of _json_.k15) { let _e; _e = test.DemoDynamic.constructorFrom(_ele); this.k15.push(_e);}}
     }
 
     readonly x4: number
@@ -2769,7 +2731,7 @@ export class ExcelFromJson {
     readonly x12: test.DemoType1
     readonly x13: test.DemoEnum
     readonly x14: test.DemoDynamic
-    readonly k1: Float32Array
+    readonly k1: number[]
     readonly k8: Map<number, number>
     readonly k9: test.DemoE2[]
     readonly k15: test.DemoDynamic[]
@@ -2838,7 +2800,7 @@ export class ExcelFromJsonMultiRow {
         if (_json_.x === undefined) { throw new Error() }
         this.x = _json_.x
         if (_json_.items === undefined) { throw new Error() }
-        { this.items = []; for(let _ele of _json_.items) { let _e : test.TestRow; _e = new test.TestRow(_ele); this.items.push(_e);}}
+        { this.items = []; for(let _ele of _json_.items) { let _e; _e = new test.TestRow(_ele); this.items.push(_e);}}
     }
 
     readonly id: number
@@ -2862,7 +2824,7 @@ export class TestRow {
         if (_json_.a === undefined) { throw new Error() }
         this.a = new test.Test3(_json_.a)
         if (_json_.b === undefined) { throw new Error() }
-        this.b = _json_.b
+        { this.b = []; for(let _ele of _json_.b) { let _e; _e = _ele; this.b.push(_e);}}
     }
 
     readonly x: number
@@ -2905,20 +2867,20 @@ export class TestScriptableObject {
         if (_json_.num === undefined) { throw new Error() }
         this.num = _json_.num
         if (_json_.v2 === undefined) { throw new Error() }
-        this.v2 = new vector2(_json_.v2)
+        this.v2 = new vec2(_json_.v2)
         if (_json_.v3 === undefined) { throw new Error() }
-        this.v3 = new vector3(_json_.v3)
+        this.v3 = new vec3(_json_.v3)
         if (_json_.v4 === undefined) { throw new Error() }
-        this.v4 = new vector4(_json_.v4)
+        this.v4 = new vec4(_json_.v4)
     }
 
     readonly id: number
     readonly desc: string
     readonly rate: number
     readonly num: number
-    readonly v2: vector2
-    readonly v3: vector3
-    readonly v4: vector4
+    readonly v2: vec2
+    readonly v3: vec3
+    readonly v4: vec4
 }
 
 }
@@ -2933,12 +2895,12 @@ export class TestMapper {
         if (_json_.audio_type === undefined) { throw new Error() }
         this.audioType = _json_.audio_type
         if (_json_.v2 === undefined) { throw new Error() }
-        this.v2 = new vector2(_json_.v2)
+        this.v2 = new vec2(_json_.v2)
     }
 
     readonly id: number
     readonly audioType: AudioType
-    readonly v2: vector2
+    readonly v2: vec2
 }
 
 }
@@ -2969,21 +2931,21 @@ export class DefineFromExcel2 {
         if (_json_.x15 === undefined) { throw new Error() }
         this.x15 = test.Shape.constructorFrom(_json_.x15)
         if (_json_.v2 === undefined) { throw new Error() }
-        this.v2 = new vector2(_json_.v2)
+        this.v2 = new vec2(_json_.v2)
         if (_json_.t1 === undefined) { throw new Error() }
         this.t1 = _json_.t1
         if (_json_.k1 === undefined) { throw new Error() }
-        this.k1 = _json_.k1
+        { this.k1 = []; for(let _ele of _json_.k1) { let _e; _e = _ele; this.k1.push(_e);}}
         if (_json_.k2 === undefined) { throw new Error() }
-        this.k2 = _json_.k2
+        { this.k2 = []; for(let _ele of _json_.k2) { let _e; _e = _ele; this.k2.push(_e);}}
         if (_json_.k8 === undefined) { throw new Error() }
-        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k:number; _k = _entry_[0];  let _v:number;  _v = _entry_[1]; this.k8.set(_k, _v);  }
+        this.k8 = new Map<number, number>(); for(var _entry_ of _json_.k8) { let _k; _k = _entry_[0];  let _v;  _v = _entry_[1]; this.k8.set(_k, _v);  }
         if (_json_.k9 === undefined) { throw new Error() }
-        { this.k9 = []; for(let _ele of _json_.k9) { let _e : test.DemoE2; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
+        { this.k9 = []; for(let _ele of _json_.k9) { let _e; _e = new test.DemoE2(_ele); this.k9.push(_e);}}
         if (_json_.k10 === undefined) { throw new Error() }
-        { this.k10 = []; for(let _ele of _json_.k10) { let _e : vector3; _e = new vector3(_ele); this.k10.push(_e);}}
+        { this.k10 = []; for(let _ele of _json_.k10) { let _e; _e = new vec3(_ele); this.k10.push(_e);}}
         if (_json_.k11 === undefined) { throw new Error() }
-        { this.k11 = []; for(let _ele of _json_.k11) { let _e : vector4; _e = new vector4(_ele); this.k11.push(_e);}}
+        { this.k11 = []; for(let _ele of _json_.k11) { let _e; _e = new vec4(_ele); this.k11.push(_e);}}
     }
 
     /**
@@ -3002,14 +2964,14 @@ export class DefineFromExcel2 {
     readonly x132: test.DemoFlag
     readonly x14: test.DemoDynamic
     readonly x15: test.Shape
-    readonly v2: vector2
+    readonly v2: vec2
     readonly t1: number
-    readonly k1: Float32Array
-    readonly k2: Float32Array
+    readonly k1: number[]
+    readonly k2: number[]
     readonly k8: Map<number, number>
     readonly k9: test.DemoE2[]
-    readonly k10: vector3[]
-    readonly k11: vector4[]
+    readonly k10: vec3[]
+    readonly k11: vec4[]
 }
 
 
@@ -3144,29 +3106,15 @@ export class TbGlobalConfig{
     getData(): common.GlobalConfig { return this._data; }
 
     /**
-     * 
+     * 背包容量
      */
-     get  bagCapacity(): number { return this._data.bagCapacity; }
-     get  bagCapacitySpecial(): number { return this._data.bagCapacitySpecial; }
-     get  bagTempExpendableCapacity(): number { return this._data.bagTempExpendableCapacity; }
-     get  bagTempToolCapacity(): number { return this._data.bagTempToolCapacity; }
-     get  bagInitCapacity(): number { return this._data.bagInitCapacity; }
-     get  quickBagCapacity(): number { return this._data.quickBagCapacity; }
-     get  clothBagCapacity(): number { return this._data.clothBagCapacity; }
-     get  clothBagInitCapacity(): number { return this._data.clothBagInitCapacity; }
-     get  clothBagCapacitySpecial(): number { return this._data.clothBagCapacitySpecial; }
-     get  bagInitItemsDropId(): number|undefined { return this._data.bagInitItemsDropId; }
-     get  mailBoxCapacity(): number { return this._data.mailBoxCapacity; }
-     get  damageParamC(): number { return this._data.damageParamC; }
-     get  damageParamE(): number { return this._data.damageParamE; }
-     get  damageParamF(): number { return this._data.damageParamF; }
-     get  damageParamD(): number { return this._data.damageParamD; }
-     get  roleSpeed(): number { return this._data.roleSpeed; }
-     get  monsterSpeed(): number { return this._data.monsterSpeed; }
-     get  initEnergy(): number { return this._data.initEnergy; }
-     get  initViality(): number { return this._data.initViality; }
-     get  maxViality(): number { return this._data.maxViality; }
-     get  perVialityRecoveryTime(): number { return this._data.perVialityRecoveryTime; }
+     get  x1(): number { return this._data.x1; }
+     get  x2(): number { return this._data.x2; }
+     get  x3(): number { return this._data.x3; }
+     get  x4(): number { return this._data.x4; }
+     get  x5(): number { return this._data.x5; }
+     get  x6(): number { return this._data.x6; }
+     get  x7(): number[] { return this._data.x7; }
 
     
 }
@@ -3539,10 +3487,10 @@ export class TbDemoPrimitive{
 
 export namespace test {
 export class TbTestString{
-    private _dataMap: Map<number, test.TestString>
+    private _dataMap: Map<string, test.TestString>
     private _dataList: test.TestString[]
     constructor(_json_: any) {
-        this._dataMap = new Map<number, test.TestString>()
+        this._dataMap = new Map<string, test.TestString>()
         this._dataList = []
         for(var _json2_ of _json_) {
             let _v: test.TestString
@@ -3552,10 +3500,10 @@ export class TbTestString{
         }
     }
 
-    getDataMap(): Map<number, test.TestString> { return this._dataMap; }
+    getDataMap(): Map<string, test.TestString> { return this._dataMap; }
     getDataList(): test.TestString[] { return this._dataList; }
 
-    get(key: number): test.TestString | undefined { return this._dataMap.get(key); }
+    get(key: string): test.TestString | undefined { return this._dataMap.get(key); }
 
 
 }
