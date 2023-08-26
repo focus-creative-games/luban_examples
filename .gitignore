@@ -328,3 +328,5 @@ Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
 /Projects/TypeScript_Unity_Puerts_Bin/Logs
 /Projects/TypeScript_Unity_Puerts_Json/Logs
 out/
+/Projects/GDScript_json/.godot
+/Projects/GDScript_json/json

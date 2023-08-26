@@ -245,9 +245,9 @@
         <var name="x7" type="double"/>
         <var name="s1" type="string" />
         <var name="s2" type="text"/>
-        <var name="v2" type="vector2"/>
-        <var name="v3" type="vector3"/>
-        <var name="v4" type="vector4"/>
+        <var name="v2" type="vec2"/>
+        <var name="v3" type="vec3"/>
+        <var name="v4" type="vec4"/>
         <var name="t1" type="datetime"/>
     </bean>
 
@@ -495,9 +495,9 @@
         <var name="desc" type="string"/>
         <var name="rate" type="float"/>
         <var name="num" type="int"/>
-        <var name="v2" type="vector2"/>
-        <var name="v3" type="vector3"/>
-        <var name="v4" type="vector4"/>
+        <var name="v2" type="vec2"/>
+        <var name="v3" type="vec3"/>
+        <var name="v4" type="vec4"/>
     </bean>
     <table name="TbTestScriptableObject" value="TestScriptableObject" input="test/unity_scriptable_objects"/>
  
@@ -507,7 +507,7 @@
     <bean name="TestMapper">
         <var name="id" type="int"/>
         <var name="audio_type" type="AudioType"/>
-        <var name="v2" type="vector2"/>
+        <var name="v2" type="vec2"/>
     </bean>
 
     <table name="TbTestMapper" value="TestMapper" input="test/type_mapper.xlsx"/>
