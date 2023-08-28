@@ -84,132 +84,132 @@ local enums =
      ---@field public AND integer
      ---@field public OR integer
     ['common.EBoolOperator'] = {   AND=0,  OR=1,  };
-    ---@class item.EItemQuality
-     ---@field public WHITE integer
-     ---@field public GREEN integer
-     ---@field public BLUE integer
-     ---@field public PURPLE integer
-     ---@field public GOLDEN integer
+    ---@class item.EItemQuality @道具品质
+     ---@field public WHITE integer @白
+     ---@field public GREEN integer @绿
+     ---@field public BLUE integer @蓝
+     ---@field public PURPLE integer @紫
+     ---@field public GOLDEN integer @金
     ['item.EItemQuality'] = {   WHITE=0,  GREEN=1,  BLUE=2,  PURPLE=3,  GOLDEN=4,  };
     ---@class item.ECurrencyType
-     ---@field public DIAMOND integer
-     ---@field public GOLD integer
-     ---@field public SILVER integer
-     ---@field public EXP integer
-     ---@field public POWER_POINT integer
+     ---@field public DIAMOND integer @钻石
+     ---@field public GOLD integer @金币
+     ---@field public SILVER integer @银币
+     ---@field public EXP integer @经验
+     ---@field public POWER_POINT integer @能量点
     ['item.ECurrencyType'] = {   DIAMOND=1,  GOLD=2,  SILVER=3,  EXP=4,  POWER_POINT=5,  };
     ---@class item.EMajorType
-     ---@field public CURRENCY integer
-     ---@field public CLOTH integer
-     ---@field public QUEST integer
-     ---@field public CONSUMABLES integer
-     ---@field public TREASURE_BOX integer
-     ---@field public ACHIEVEMENT_AND_TITLE integer
-     ---@field public HEAD_FRAME integer
-     ---@field public VOICE integer
-     ---@field public ACTION integer
-     ---@field public EXPANSION integer
-     ---@field public MATERIAL integer
+     ---@field public CURRENCY integer @货币
+     ---@field public CLOTH integer @服装
+     ---@field public QUEST integer @任务
+     ---@field public CONSUMABLES integer @消耗品
+     ---@field public TREASURE_BOX integer @宝箱
+     ---@field public ACHIEVEMENT_AND_TITLE integer @成就和称谓
+     ---@field public HEAD_FRAME integer @头像框
+     ---@field public VOICE integer @语音
+     ---@field public ACTION integer @动作
+     ---@field public EXPANSION integer @扩容道具
+     ---@field public MATERIAL integer @制作材料
     ['item.EMajorType'] = {   CURRENCY=1,  CLOTH=2,  QUEST=3,  CONSUMABLES=4,  TREASURE_BOX=5,  ACHIEVEMENT_AND_TITLE=6,  HEAD_FRAME=7,  VOICE=8,  ACTION=9,  EXPANSION=10,  MATERIAL=11,  };
     ---@class item.EMinorType
-     ---@field public DIAMOND integer
-     ---@field public GOLD integer
-     ---@field public SILVER integer
-     ---@field public EXP integer
-     ---@field public POWER_POINT integer
-     ---@field public HAIR_STYLE integer
-     ---@field public COAT integer
-     ---@field public UPPER_JACKET integer
-     ---@field public TROUSERS integer
-     ---@field public SKIRT integer
-     ---@field public SOCKS integer
-     ---@field public SHOES integer
-     ---@field public HAIR_ACCESSORY integer
-     ---@field public HAT integer
-     ---@field public EARRING integer
-     ---@field public NECKLACE integer
-     ---@field public BRACELET integer
-     ---@field public HAIR_CLASP integer
-     ---@field public GLOVE integer
-     ---@field public HANDHELD_OBJECT integer
-     ---@field public SPECIAL integer
-     ---@field public BASE_COSMETIC integer
-     ---@field public EYEBROW_COSMETIC integer
-     ---@field public EYELASH integer
-     ---@field public COSMETIC_CONTACT_LENSES integer
-     ---@field public LIP_COSMETIC integer
-     ---@field public SKIN_COLOR integer
-     ---@field public ONE_PIECE_DRESS integer
-     ---@field public SWITCH_CLOTHES_SCENE integer
-     ---@field public QUEST integer
-     ---@field public CAST integer
-     ---@field public SWORD integer
-     ---@field public BOW_ARROW integer
-     ---@field public WANDS integer
-     ---@field public SPECIAL_TOOL integer
-     ---@field public FOOD integer
-     ---@field public TREASURE_BOX integer
-     ---@field public KEY integer
-     ---@field public MULTI_CHOOSE_TREASURE_BOX integer
-     ---@field public ACHIEVEMENT integer
-     ---@field public TITLE integer
-     ---@field public AVATAR_FRAME integer
-     ---@field public VOICE integer
-     ---@field public IDLE_POSE integer
-     ---@field public PHOTO_POSE integer
-     ---@field public BAG integer
-     ---@field public FRIEND_CAPACITY integer
-     ---@field public CONSTRUCTION_MATERIAL integer
-     ---@field public DESIGN_DRAWING integer
+     ---@field public DIAMOND integer @钻石
+     ---@field public GOLD integer @金币
+     ---@field public SILVER integer @银币
+     ---@field public EXP integer @经验
+     ---@field public POWER_POINT integer @能量点
+     ---@field public HAIR_STYLE integer @发型
+     ---@field public COAT integer @外套
+     ---@field public UPPER_JACKET integer @上衣
+     ---@field public TROUSERS integer @裤子
+     ---@field public SKIRT integer @裙子
+     ---@field public SOCKS integer @袜子
+     ---@field public SHOES integer @鞋子
+     ---@field public HAIR_ACCESSORY integer @发饰
+     ---@field public HAT integer @帽子
+     ---@field public EARRING integer @耳饰
+     ---@field public NECKLACE integer @颈饰
+     ---@field public BRACELET integer @腕饰
+     ---@field public HAIR_CLASP integer @发箍
+     ---@field public GLOVE integer @手套
+     ---@field public HANDHELD_OBJECT integer @手持物
+     ---@field public SPECIAL integer @特殊
+     ---@field public BASE_COSMETIC integer @底妆
+     ---@field public EYEBROW_COSMETIC integer @眉妆
+     ---@field public EYELASH integer @睫毛
+     ---@field public COSMETIC_CONTACT_LENSES integer @美瞳
+     ---@field public LIP_COSMETIC integer @唇妆
+     ---@field public SKIN_COLOR integer @肤色
+     ---@field public ONE_PIECE_DRESS integer @连衣裙
+     ---@field public SWITCH_CLOTHES_SCENE integer @换装场景
+     ---@field public QUEST integer @任务道具
+     ---@field public CAST integer @投掷物
+     ---@field public SWORD integer @刀剑
+     ---@field public BOW_ARROW integer @弓箭
+     ---@field public WANDS integer @法杖
+     ---@field public SPECIAL_TOOL integer @特殊工具
+     ---@field public FOOD integer @食物
+     ---@field public TREASURE_BOX integer @宝箱
+     ---@field public KEY integer @钥匙
+     ---@field public MULTI_CHOOSE_TREASURE_BOX integer @多选一宝箱
+     ---@field public ACHIEVEMENT integer @成就相关
+     ---@field public TITLE integer @称谓相关
+     ---@field public AVATAR_FRAME integer @头像框
+     ---@field public VOICE integer @语音
+     ---@field public IDLE_POSE integer @特殊待机动作
+     ---@field public PHOTO_POSE integer @拍照动作
+     ---@field public BAG integer @背包
+     ---@field public FRIEND_CAPACITY integer @好友数量
+     ---@field public CONSTRUCTION_MATERIAL integer @制作材料
+     ---@field public DESIGN_DRAWING integer @设计图纸
     ['item.EMinorType'] = {   DIAMOND=101,  GOLD=102,  SILVER=103,  EXP=104,  POWER_POINT=105,  HAIR_STYLE=210,  COAT=220,  UPPER_JACKET=230,  TROUSERS=241,  SKIRT=242,  SOCKS=250,  SHOES=260,  HAIR_ACCESSORY=271,  HAT=272,  EARRING=273,  NECKLACE=274,  BRACELET=275,  HAIR_CLASP=276,  GLOVE=277,  HANDHELD_OBJECT=278,  SPECIAL=279,  BASE_COSMETIC=281,  EYEBROW_COSMETIC=282,  EYELASH=283,  COSMETIC_CONTACT_LENSES=284,  LIP_COSMETIC=285,  SKIN_COLOR=286,  ONE_PIECE_DRESS=290,  SWITCH_CLOTHES_SCENE=291,  QUEST=301,  CAST=401,  SWORD=421,  BOW_ARROW=422,  WANDS=423,  SPECIAL_TOOL=424,  FOOD=403,  TREASURE_BOX=501,  KEY=502,  MULTI_CHOOSE_TREASURE_BOX=503,  ACHIEVEMENT=601,  TITLE=602,  AVATAR_FRAME=701,  VOICE=801,  IDLE_POSE=901,  PHOTO_POSE=902,  BAG=1001,  FRIEND_CAPACITY=1002,  CONSTRUCTION_MATERIAL=1101,  DESIGN_DRAWING=1102,  };
     ---@class item.EClothersStarQualityType
-     ---@field public ONE integer
-     ---@field public TWO integer
-     ---@field public THREE integer
-     ---@field public FOUR integer
-     ---@field public FIVE integer
-     ---@field public SIX integer
-     ---@field public SEVEN integer
-     ---@field public EIGHT integer
-     ---@field public NINE integer
-     ---@field public TEN integer
+     ---@field public ONE integer @一星
+     ---@field public TWO integer @二星
+     ---@field public THREE integer @三星
+     ---@field public FOUR integer @四星
+     ---@field public FIVE integer @五星
+     ---@field public SIX integer @六星
+     ---@field public SEVEN integer @七星
+     ---@field public EIGHT integer @八星
+     ---@field public NINE integer @九星
+     ---@field public TEN integer @十星
     ['item.EClothersStarQualityType'] = {   ONE=1,  TWO=2,  THREE=3,  FOUR=4,  FIVE=5,  SIX=6,  SEVEN=7,  EIGHT=8,  NINE=9,  TEN=10,  };
     ---@class item.EClothersTag
-     ---@field public FANG_SHAI integer
-     ---@field public WU_ZHE integer
+     ---@field public FANG_SHAI integer @防晒
+     ---@field public WU_ZHE integer @舞者
     ['item.EClothersTag'] = {   FANG_SHAI=1,  WU_ZHE=2,  };
     ---@class item.EUseType
-     ---@field public MANUAL integer
-     ---@field public AUTO integer
+     ---@field public MANUAL integer @手动
+     ---@field public AUTO integer @自动
     ['item.EUseType'] = {   MANUAL=0,  AUTO=1,  };
     ---@class item.EClothesHidePartType
-     ---@field public CHEST integer
-     ---@field public HEAD integer
-     ---@field public SPINE_UPPER integer
-     ---@field public SPINE_LOWER integer
-     ---@field public HIP integer
-     ---@field public LEG_UPPER integer
-     ---@field public LEG_MIDDLE integer
-     ---@field public LEG_LOWER integer
+     ---@field public CHEST integer @胸部
+     ---@field public HEAD integer @手
+     ---@field public SPINE_UPPER integer @脊柱上
+     ---@field public SPINE_LOWER integer @脊柱下
+     ---@field public HIP integer @臀部
+     ---@field public LEG_UPPER integer @腿上
+     ---@field public LEG_MIDDLE integer @腿中
+     ---@field public LEG_LOWER integer @腿下
     ['item.EClothesHidePartType'] = {   CHEST=0,  HEAD=1,  SPINE_UPPER=2,  SPINE_LOWER=3,  HIP=4,  LEG_UPPER=5,  LEG_MIDDLE=6,  LEG_LOWER=7,  };
     ---@class item.EClothesPropertyType
-     ---@field public JIAN_YUE integer
-     ---@field public HUA_LI integer
-     ---@field public KE_AI integer
-     ---@field public CHENG_SHU integer
-     ---@field public HUO_PO integer
-     ---@field public YOU_YA integer
-     ---@field public QING_CHUN integer
-     ---@field public XING_GAN integer
-     ---@field public QING_LIANG integer
-     ---@field public BAO_NUAN integer
+     ---@field public JIAN_YUE integer @简约
+     ---@field public HUA_LI integer @华丽
+     ---@field public KE_AI integer @可爱
+     ---@field public CHENG_SHU integer @成熟
+     ---@field public HUO_PO integer @活泼
+     ---@field public YOU_YA integer @优雅
+     ---@field public QING_CHUN integer @清纯
+     ---@field public XING_GAN integer @性感
+     ---@field public QING_LIANG integer @清凉
+     ---@field public BAO_NUAN integer @保暖
     ['item.EClothesPropertyType'] = {   JIAN_YUE=1,  HUA_LI=2,  KE_AI=3,  CHENG_SHU=4,  HUO_PO=5,  YOU_YA=6,  QING_CHUN=7,  XING_GAN=8,  QING_LIANG=9,  BAO_NUAN=10,  };
     ---@class test.DemoEnum
      ---@field public NONE integer
-     ---@field public A integer
-     ---@field public B integer
-     ---@field public C integer
-     ---@field public D integer
+     ---@field public A integer @aa
+     ---@field public B integer @bb
+     ---@field public C integer @cc
+     ---@field public D integer @dd
     ['test.DemoEnum'] = {   NONE=0,  A=1,  B=2,  C=4,  D=5,  };
     ---@class test.DemoFlag
      ---@field public A integer
@@ -218,7 +218,7 @@ local enums =
      ---@field public D integer
     ['test.DemoFlag'] = {   A=1,  B=2,  C=4,  D=8,  };
     ---@class test.ETestUeType
-     ---@field public WHITE integer
+     ---@field public WHITE integer @白
      ---@field public BLACK integer
     ['test.ETestUeType'] = {   WHITE=0,  BLACK=1,  };
     ---@class test.ETestEmptyEnum
@@ -229,10 +229,10 @@ local enums =
      ---@field public X_257 integer
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
     ---@class test.ETestQuality
-     ---@field public A integer
-     ---@field public B integer
-     ---@field public C integer
-     ---@field public D integer
+     ---@field public A integer @最高品质
+     ---@field public B integer @黑色的
+     ---@field public C integer @蓝色的
+     ---@field public D integer @最差品质
     ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
     ---@class test.AccessFlag
      ---@field public WRITE integer
@@ -341,11 +341,11 @@ local function InitTypes(methods)
     
     local beans = {}
         do
-        ---@class test.TestExcelBean1 
-         ---@field public x1 integer
-         ---@field public x2 string
-         ---@field public x3 integer
-         ---@field public x4 number
+        ---@class test.TestExcelBean1  @这是个测试excel结构
+         ---@field public x1 integer @最高品质
+         ---@field public x2 string @黑色的
+         ---@field public x3 integer @蓝色的
+         ---@field public x4 number @最差品质
             local class = {
                 { name='x1', type='integer'},
                 { name='x2', type='string'},
@@ -742,55 +742,27 @@ local function InitTypes(methods)
         end
         do
         ---@class common.GlobalConfig 
-         ---@field public bag_capacity integer
-         ---@field public bag_capacity_special integer
-         ---@field public bag_temp_expendable_capacity integer
-         ---@field public bag_temp_tool_capacity integer
-         ---@field public bag_init_capacity integer
-         ---@field public quick_bag_capacity integer
-         ---@field public cloth_bag_capacity integer
-         ---@field public cloth_bag_init_capacity integer
-         ---@field public cloth_bag_capacity_special integer
-         ---@field public bag_init_items_drop_id integer
-         ---@field public mail_box_capacity integer
-         ---@field public damage_param_c number
-         ---@field public damage_param_e number
-         ---@field public damage_param_f number
-         ---@field public damage_param_d number
-         ---@field public role_speed number
-         ---@field public monster_speed number
-         ---@field public init_energy integer
-         ---@field public init_viality integer
-         ---@field public max_viality integer
-         ---@field public per_viality_recovery_time integer
+         ---@field public x1 integer @背包容量
+         ---@field public x2 integer
+         ---@field public x3 integer
+         ---@field public x4 integer
+         ---@field public x5 integer
+         ---@field public x6 integer
+         ---@field public x7 integer[]
             local class = {
-                { name='bag_capacity', type='integer'},
-                { name='bag_capacity_special', type='integer'},
-                { name='bag_temp_expendable_capacity', type='integer'},
-                { name='bag_temp_tool_capacity', type='integer'},
-                { name='bag_init_capacity', type='integer'},
-                { name='quick_bag_capacity', type='integer'},
-                { name='cloth_bag_capacity', type='integer'},
-                { name='cloth_bag_init_capacity', type='integer'},
-                { name='cloth_bag_capacity_special', type='integer'},
-                { name='bag_init_items_drop_id', type='integer'},
-                { name='mail_box_capacity', type='integer'},
-                { name='damage_param_c', type='number'},
-                { name='damage_param_e', type='number'},
-                { name='damage_param_f', type='number'},
-                { name='damage_param_d', type='number'},
-                { name='role_speed', type='number'},
-                { name='monster_speed', type='number'},
-                { name='init_energy', type='integer'},
-                { name='init_viality', type='integer'},
-                { name='max_viality', type='integer'},
-                { name='per_viality_recovery_time', type='integer'},
+                { name='x1', type='integer'},
+                { name='x2', type='integer'},
+                { name='x3', type='integer'},
+                { name='x4', type='integer'},
+                { name='x5', type='integer'},
+                { name='x6', type='integer'},
+                { name='x7', type='integer[]'},
             }
             beans['common.GlobalConfig'] = class
         end
         do
-        ---@class item.Item 
-         ---@field public id integer
+        ---@class item.Item  @道具
+         ---@field public id integer @道具id
          ---@field public name string
          ---@field public major_type integer
          ---@field public minor_type integer
@@ -1179,9 +1151,9 @@ local function InitTypes(methods)
          ---@field public x7 number
          ---@field public s1 string
          ---@field public s2 string
-         ---@field public v2 vector2
-         ---@field public v3 vector3
-         ---@field public v4 vector4
+         ---@field public v2 vec2
+         ---@field public v3 vec3
+         ---@field public v4 vec4
          ---@field public t1 integer
             local class = {
                 { name='x1', type='boolean'},
@@ -1193,25 +1165,25 @@ local function InitTypes(methods)
                 { name='x7', type='number'},
                 { name='s1', type='string'},
                 { name='s2', type='string'},
-                { name='v2', type='vector2'},
-                { name='v3', type='vector3'},
-                { name='v4', type='vector4'},
+                { name='v2', type='vec2'},
+                { name='v3', type='vec3'},
+                { name='v4', type='vec4'},
                 { name='t1', type='integer'},
             }
             beans['test.DemoPrimitiveTypesTable'] = class
         end
         do
-        ---@class vector2 
+        ---@class vec2 
          ---@field public x number
          ---@field public y number
             local class = {
                 { name='x', type='number'},
                 { name='y', type='number'},
             }
-            beans['vector2'] = class
+            beans['vec2'] = class
         end
         do
-        ---@class vector3 
+        ---@class vec3 
          ---@field public x number
          ---@field public y number
          ---@field public z number
@@ -1220,10 +1192,10 @@ local function InitTypes(methods)
                 { name='y', type='number'},
                 { name='z', type='number'},
             }
-            beans['vector3'] = class
+            beans['vec3'] = class
         end
         do
-        ---@class vector4 
+        ---@class vec4 
          ---@field public x number
          ---@field public y number
          ---@field public z number
@@ -1234,17 +1206,19 @@ local function InitTypes(methods)
                 { name='z', type='number'},
                 { name='w', type='number'},
             }
-            beans['vector4'] = class
+            beans['vec4'] = class
         end
         do
         ---@class test.TestString 
-         ---@field public id integer
+         ---@field public id string
          ---@field public s1 string
+         ---@field public s2 string
          ---@field public cs1 test.CompactString
          ---@field public cs2 test.CompactString
             local class = {
-                { name='id', type='integer'},
+                { name='id', type='string'},
                 { name='s1', type='string'},
+                { name='s2', type='string'},
                 { name='cs1', type='test.CompactString'},
                 { name='cs2', type='test.CompactString'},
             }
@@ -1596,17 +1570,17 @@ local function InitTypes(methods)
          ---@field public desc string
          ---@field public rate number
          ---@field public num integer
-         ---@field public v2 vector2
-         ---@field public v3 vector3
-         ---@field public v4 vector4
+         ---@field public v2 vec2
+         ---@field public v3 vec3
+         ---@field public v4 vec4
             local class = {
                 { name='id', type='integer'},
                 { name='desc', type='string'},
                 { name='rate', type='number'},
                 { name='num', type='integer'},
-                { name='v2', type='vector2'},
-                { name='v3', type='vector3'},
-                { name='v4', type='vector4'},
+                { name='v2', type='vec2'},
+                { name='v3', type='vec3'},
+                { name='v4', type='vec4'},
             }
             beans['test.TestScriptableObject'] = class
         end
@@ -1614,18 +1588,18 @@ local function InitTypes(methods)
         ---@class test.TestMapper 
          ---@field public id integer
          ---@field public audio_type integer
-         ---@field public v2 vector2
+         ---@field public v2 vec2
             local class = {
                 { name='id', type='integer'},
                 { name='audio_type', type='integer'},
-                { name='v2', type='vector2'},
+                { name='v2', type='vec2'},
             }
             beans['test.TestMapper'] = class
         end
         do
         ---@class DefineFromExcel2 
-         ---@field public id integer
-         ---@field public x1 boolean
+         ---@field public id integer @这是id
+         ---@field public x1 boolean @字段x1
          ---@field public x5 integer
          ---@field public x6 number
          ---@field public x8 integer
@@ -1634,14 +1608,14 @@ local function InitTypes(methods)
          ---@field public x13_2 integer
          ---@field public x14 test.DemoDynamic
          ---@field public x15 test.Shape
-         ---@field public v2 vector2
+         ---@field public v2 vec2
          ---@field public t1 integer
          ---@field public k1 integer[]
          ---@field public k2 integer[]
          ---@field public k8 table<integer,integer>
          ---@field public k9 test.DemoE2[]
-         ---@field public k10 vector3[]
-         ---@field public k11 vector4[]
+         ---@field public k10 vec3[]
+         ---@field public k11 vec4[]
             local class = {
                 { name='id', type='integer'},
                 { name='x1', type='boolean'},
@@ -1653,14 +1627,14 @@ local function InitTypes(methods)
                 { name='x13_2', type='integer'},
                 { name='x14', type='test.DemoDynamic'},
                 { name='x15', type='test.Shape'},
-                { name='v2', type='vector2'},
+                { name='v2', type='vec2'},
                 { name='t1', type='integer'},
                 { name='k1', type='integer[]'},
                 { name='k2', type='integer[]'},
                 { name='k8', type='table<integer,integer>'},
                 { name='k9', type='test.DemoE2[]'},
-                { name='k10', type='vector3[]'},
-                { name='k11', type='vector4[]'},
+                { name='k10', type='vec3[]'},
+                { name='k11', type='vec4[]'},
             }
             beans['DefineFromExcel2'] = class
         end
@@ -1671,17 +1645,17 @@ local function InitTypes(methods)
             beans['test.Shape'] = class
         end
         do
-        ---@class test.Circle :Shape 
-         ---@field public radius number
+        ---@class test.Circle :Shape  @圆
+         ---@field public radius number @半径
             local class = {
                 { name='radius', type='number'},
             }
             beans['test.Circle'] = class
         end
         do
-        ---@class test2.Rectangle :test.Shape 
-         ---@field public width number
-         ---@field public height number
+        ---@class test2.Rectangle :test.Shape  @矩形
+         ---@field public width number @宽度
+         ---@field public height number @高度
             local class = {
                 { name='width', type='number'},
                 { name='height', type='number'},
@@ -2486,54 +2460,26 @@ local function InitTypes(methods)
     end
     do
     ---@class common.GlobalConfig 
-         ---@field public bag_capacity integer
-         ---@field public bag_capacity_special integer
-         ---@field public bag_temp_expendable_capacity integer
-         ---@field public bag_temp_tool_capacity integer
-         ---@field public bag_init_capacity integer
-         ---@field public quick_bag_capacity integer
-         ---@field public cloth_bag_capacity integer
-         ---@field public cloth_bag_init_capacity integer
-         ---@field public cloth_bag_capacity_special integer
-         ---@field public bag_init_items_drop_id integer
-         ---@field public mail_box_capacity integer
-         ---@field public damage_param_c number
-         ---@field public damage_param_e number
-         ---@field public damage_param_f number
-         ---@field public damage_param_d number
-         ---@field public role_speed number
-         ---@field public monster_speed number
-         ---@field public init_energy integer
-         ---@field public init_viality integer
-         ---@field public max_viality integer
-         ---@field public per_viality_recovery_time integer
+         ---@field public x1 integer
+         ---@field public x2 integer
+         ---@field public x3 integer
+         ---@field public x4 integer
+         ---@field public x5 integer
+         ---@field public x6 integer
+         ---@field public x7 integer[]
         local class = SimpleClass()
         class._id = -848234488
         class._type_ = 'common.GlobalConfig'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
-            bag_capacity = readInt(bs),
-            bag_capacity_special = readInt(bs),
-            bag_temp_expendable_capacity = readInt(bs),
-            bag_temp_tool_capacity = readInt(bs),
-            bag_init_capacity = readInt(bs),
-            quick_bag_capacity = readInt(bs),
-            cloth_bag_capacity = readInt(bs),
-            cloth_bag_init_capacity = readInt(bs),
-            cloth_bag_capacity_special = readInt(bs),
-            bag_init_items_drop_id = readBool(bs) and readInt(bs) or nil,
-            mail_box_capacity = readInt(bs),
-            damage_param_c = readFloat(bs),
-            damage_param_e = readFloat(bs),
-            damage_param_f = readFloat(bs),
-            damage_param_d = readFloat(bs),
-            role_speed = readFloat(bs),
-            monster_speed = readFloat(bs),
-            init_energy = readInt(bs),
-            init_viality = readInt(bs),
-            max_viality = readInt(bs),
-            per_viality_recovery_time = readInt(bs),
+            x1 = readInt(bs),
+            x2 = readInt(bs),
+            x3 = readInt(bs),
+            x4 = readInt(bs),
+            x5 = readInt(bs),
+            x6 = readInt(bs),
+            x7 = readList(bs, readInt),
             }
             setmetatable(o, class)
             return o
@@ -3155,9 +3101,9 @@ local function InitTypes(methods)
          ---@field public x7 number
          ---@field public s1 string
          ---@field public s2 string
-         ---@field public v2 vector2
-         ---@field public v3 vector3
-         ---@field public v4 vector4
+         ---@field public v2 vec2
+         ---@field public v3 vec3
+         ---@field public v4 vec4
          ---@field public t1 integer
         local class = SimpleClass()
         class._id = -370934083
@@ -3174,9 +3120,9 @@ local function InitTypes(methods)
             x7 = readDouble(bs),
             s1 = readString(bs),
             s2 = readString(bs),
-            v2 = beans['vector2']._deserialize(bs),
-            v3 = beans['vector3']._deserialize(bs),
-            v4 = beans['vector4']._deserialize(bs),
+            v2 = beans['vec2']._deserialize(bs),
+            v3 = beans['vec3']._deserialize(bs),
+            v4 = beans['vec4']._deserialize(bs),
             t1 = readLong(bs),
             }
             setmetatable(o, class)
@@ -3185,12 +3131,12 @@ local function InitTypes(methods)
         beans[class._type_] = class
     end
     do
-    ---@class vector2 
+    ---@class vec2 
          ---@field public x number
          ---@field public y number
         local class = SimpleClass()
-        class._id = 337790799
-        class._type_ = 'vector2'
+        class._id = 3615518
+        class._type_ = 'vec2'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3203,13 +3149,13 @@ local function InitTypes(methods)
         beans[class._type_] = class
     end
     do
-    ---@class vector3 
+    ---@class vec3 
          ---@field public x number
          ---@field public y number
          ---@field public z number
         local class = SimpleClass()
-        class._id = 337790800
-        class._type_ = 'vector3'
+        class._id = 3615519
+        class._type_ = 'vec3'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3223,14 +3169,14 @@ local function InitTypes(methods)
         beans[class._type_] = class
     end
     do
-    ---@class vector4 
+    ---@class vec4 
          ---@field public x number
          ---@field public y number
          ---@field public z number
          ---@field public w number
         local class = SimpleClass()
-        class._id = 337790801
-        class._type_ = 'vector4'
+        class._id = 3615520
+        class._type_ = 'vec4'
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
@@ -3246,8 +3192,9 @@ local function InitTypes(methods)
     end
     do
     ---@class test.TestString 
-         ---@field public id integer
+         ---@field public id string
          ---@field public s1 string
+         ---@field public s2 string
          ---@field public cs1 test.CompactString
          ---@field public cs2 test.CompactString
         local class = SimpleClass()
@@ -3256,8 +3203,9 @@ local function InitTypes(methods)
         local id2name = {  }
         class._deserialize = function(bs)
             local o = {
-            id = readInt(bs),
+            id = readString(bs),
             s1 = readString(bs),
+            s2 = readString(bs),
             cs1 = beans['test.CompactString']._deserialize(bs),
             cs2 = beans['test.CompactString']._deserialize(bs),
             }
@@ -3806,9 +3754,9 @@ local function InitTypes(methods)
          ---@field public desc string
          ---@field public rate number
          ---@field public num integer
-         ---@field public v2 vector2
-         ---@field public v3 vector3
-         ---@field public v4 vector4
+         ---@field public v2 vec2
+         ---@field public v3 vec3
+         ---@field public v4 vec4
         local class = SimpleClass()
         class._id = -1896814350
         class._type_ = 'test.TestScriptableObject'
@@ -3819,9 +3767,9 @@ local function InitTypes(methods)
             desc = readString(bs),
             rate = readFloat(bs),
             num = readInt(bs),
-            v2 = beans['vector2']._deserialize(bs),
-            v3 = beans['vector3']._deserialize(bs),
-            v4 = beans['vector4']._deserialize(bs),
+            v2 = beans['vec2']._deserialize(bs),
+            v3 = beans['vec3']._deserialize(bs),
+            v4 = beans['vec4']._deserialize(bs),
             }
             setmetatable(o, class)
             return o
@@ -3832,7 +3780,7 @@ local function InitTypes(methods)
     ---@class test.TestMapper 
          ---@field public id integer
          ---@field public audio_type integer
-         ---@field public v2 vector2
+         ---@field public v2 vec2
         local class = SimpleClass()
         class._id = 149110895
         class._type_ = 'test.TestMapper'
@@ -3841,7 +3789,7 @@ local function InitTypes(methods)
             local o = {
             id = readInt(bs),
             audio_type = readInt(bs),
-            v2 = beans['vector2']._deserialize(bs),
+            v2 = beans['vec2']._deserialize(bs),
             }
             setmetatable(o, class)
             return o
@@ -3860,14 +3808,14 @@ local function InitTypes(methods)
          ---@field public x13_2 integer
          ---@field public x14 test.DemoDynamic
          ---@field public x15 test.Shape
-         ---@field public v2 vector2
+         ---@field public v2 vec2
          ---@field public t1 integer
          ---@field public k1 integer[]
          ---@field public k2 integer[]
          ---@field public k8 table<integer,integer>
          ---@field public k9 test.DemoE2[]
-         ---@field public k10 vector3[]
-         ---@field public k11 vector4[]
+         ---@field public k10 vec3[]
+         ---@field public k11 vec4[]
         local class = SimpleClass()
         class._id = 482045152
         class._type_ = 'DefineFromExcel2'
@@ -3884,14 +3832,14 @@ local function InitTypes(methods)
             x13_2 = readInt(bs),
             x14 = beans['test.DemoDynamic']._deserialize(bs),
             x15 = beans['test.Shape']._deserialize(bs),
-            v2 = beans['vector2']._deserialize(bs),
+            v2 = beans['vec2']._deserialize(bs),
             t1 = readLong(bs),
             k1 = readArray(bs, readInt),
             k2 = readArray(bs, readInt),
             k8 = readMap(bs, readInt, readInt),
             k9 = readList(bs, beans['test.DemoE2']._deserialize),
-            k10 = readList(bs, beans['vector3']._deserialize),
-            k11 = readList(bs, beans['vector4']._deserialize),
+            k10 = readList(bs, beans['vec3']._deserialize),
+            k11 = readList(bs, beans['vec4']._deserialize),
             }
             setmetatable(o, class)
             return o
