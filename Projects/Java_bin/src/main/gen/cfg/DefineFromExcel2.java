@@ -24,14 +24,14 @@ public final class DefineFromExcel2 extends AbstractBean {
         x132 = _buf.readInt();
         x14 = cfg.test.DemoDynamic.deserialize(_buf);
         x15 = cfg.test.Shape.deserialize(_buf);
-        v2 = cfg.vector2.deserialize(_buf);
+        v2 = cfg.vec2.deserialize(_buf);
         t1 = _buf.readLong();
         {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k2 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k2[i] = _e;}}
         {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
         {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(int i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = cfg.test.DemoE2.deserialize(_buf); k9.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k10 = new java.util.ArrayList<cfg.vector3>(n);for(int i = 0 ; i < n ; i++) { cfg.vector3 _e;  _e = cfg.vector3.deserialize(_buf); k10.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k11 = new java.util.ArrayList<cfg.vector4>(n);for(int i = 0 ; i < n ; i++) { cfg.vector4 _e;  _e = cfg.vector4.deserialize(_buf); k11.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());k10 = new java.util.ArrayList<cfg.vec3>(n);for(int i = 0 ; i < n ; i++) { cfg.vec3 _e;  _e = cfg.vec3.deserialize(_buf); k10.add(_e);}}
+        {int n = Math.min(_buf.readSize(), _buf.size());k11 = new java.util.ArrayList<cfg.vec4>(n);for(int i = 0 ; i < n ; i++) { cfg.vec4 _e;  _e = cfg.vec4.deserialize(_buf); k11.add(_e);}}
     }
 
     public static DefineFromExcel2 deserialize(ByteBuf _buf) {
@@ -54,14 +54,14 @@ public final class DefineFromExcel2 extends AbstractBean {
     public final int x132;
     public final cfg.test.DemoDynamic x14;
     public final cfg.test.Shape x15;
-    public final cfg.vector2 v2;
+    public final cfg.vec2 v2;
     public final long t1;
     public final int[] k1;
     public final int[] k2;
     public final java.util.HashMap<Integer, Integer> k8;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
-    public final java.util.ArrayList<cfg.vector3> k10;
-    public final java.util.ArrayList<cfg.vector4> k11;
+    public final java.util.ArrayList<cfg.vec3> k10;
+    public final java.util.ArrayList<cfg.vec4> k11;
 
     public static final int __ID__ = 482045152;
     

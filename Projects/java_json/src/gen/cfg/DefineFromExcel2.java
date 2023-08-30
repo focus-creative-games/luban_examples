@@ -26,14 +26,14 @@ public final class DefineFromExcel2 extends AbstractBean {
         x132 = _buf.get("x13_2").getAsInt();
         x14 = cfg.test.DemoDynamic.deserialize(_buf.get("x14").getAsJsonObject());
         x15 = cfg.test.Shape.deserialize(_buf.get("x15").getAsJsonObject());
-        v2 = cfg.vector2.deserialize(_buf.get("v2").getAsJsonObject());
+        v2 = cfg.vec2.deserialize(_buf.get("v2").getAsJsonObject());
         t1 = _buf.get("t1").getAsLong();
         { com.google.gson.JsonArray _json0_ = _buf.get("k1").getAsJsonArray(); int __n0 = _json0_.size(); k1 = new int[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { int __v0;  __v0 = __e0.getAsInt();  k1[__index0++] = __v0; }   }
         { com.google.gson.JsonArray _json0_ = _buf.get("k2").getAsJsonArray(); int __n0 = _json0_.size(); k2 = new int[__n0]; int __index0=0; for(JsonElement __e0 : _json0_) { int __v0;  __v0 = __e0.getAsInt();  k2[__index0++] = __v0; }   }
         { com.google.gson.JsonArray _json0_ = _buf.get("k8").getAsJsonArray(); k8 = new java.util.HashMap<Integer, Integer>(_json0_.size()); for(JsonElement _e0 : _json0_) { int _k0;  _k0 = _e0.getAsJsonArray().get(0).getAsInt(); int _v0;  _v0 = _e0.getAsJsonArray().get(1).getAsInt();  k8.put(_k0, _v0); }   }
         { com.google.gson.JsonArray _json0_ = _buf.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.DemoE2 _v0;  _v0 = cfg.test.DemoE2.deserialize(_e0.getAsJsonObject());  k9.add(_v0); }   }
-        { com.google.gson.JsonArray _json0_ = _buf.get("k10").getAsJsonArray(); k10 = new java.util.ArrayList<cfg.vector3>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vector3 _v0;  _v0 = cfg.vector3.deserialize(_e0.getAsJsonObject());  k10.add(_v0); }   }
-        { com.google.gson.JsonArray _json0_ = _buf.get("k11").getAsJsonArray(); k11 = new java.util.ArrayList<cfg.vector4>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vector4 _v0;  _v0 = cfg.vector4.deserialize(_e0.getAsJsonObject());  k11.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = _buf.get("k10").getAsJsonArray(); k10 = new java.util.ArrayList<cfg.vec3>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vec3 _v0;  _v0 = cfg.vec3.deserialize(_e0.getAsJsonObject());  k10.add(_v0); }   }
+        { com.google.gson.JsonArray _json0_ = _buf.get("k11").getAsJsonArray(); k11 = new java.util.ArrayList<cfg.vec4>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vec4 _v0;  _v0 = cfg.vec4.deserialize(_e0.getAsJsonObject());  k11.add(_v0); }   }
     }
 
     public static DefineFromExcel2 deserialize(JsonObject _buf) {
@@ -56,14 +56,14 @@ public final class DefineFromExcel2 extends AbstractBean {
     public final int x132;
     public final cfg.test.DemoDynamic x14;
     public final cfg.test.Shape x15;
-    public final cfg.vector2 v2;
+    public final cfg.vec2 v2;
     public final long t1;
     public final int[] k1;
     public final int[] k2;
     public final java.util.HashMap<Integer, Integer> k8;
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
-    public final java.util.ArrayList<cfg.vector3> k10;
-    public final java.util.ArrayList<cfg.vector4> k11;
+    public final java.util.ArrayList<cfg.vec3> k10;
+    public final java.util.ArrayList<cfg.vec4> k11;
 
     public static final int __ID__ = 482045152;
     

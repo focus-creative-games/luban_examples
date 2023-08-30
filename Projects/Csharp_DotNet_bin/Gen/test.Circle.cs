@@ -28,7 +28,7 @@ public sealed partial class Circle : Shape
     }
 
     /// <summary>
-    /// 
+    /// 半径
     /// </summary>
     public readonly float Radius;
    

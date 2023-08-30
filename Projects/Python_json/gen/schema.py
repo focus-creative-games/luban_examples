@@ -554,13 +554,6 @@ class testAccessFlag(Enum):
     READ_WRITE = WRITE|READ
 
 
-class testTestExcelBean1 :
-    def __init__(self, _json_):
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-
 class aiBlackboard :
     def __init__(self, _json_):
         self.name = _json_['name']
@@ -992,11 +985,8 @@ class itemItem :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.name = _json_['name']
-        self.major_type = _json_['major_type']
         self.minor_type = _json_['minor_type']
-        self.max_pile_num = _json_['max_pile_num']
         self.quality = _json_['quality']
-        self.icon = _json_['icon']
         self.icon_backgroud = _json_['icon_backgroud']
         self.icon_mask = _json_['icon_mask']
         self.desc = _json_['desc']
@@ -1283,18 +1273,11 @@ class testCompactString :
 class testDemoGroup :
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
         self.x5 = testInnerGroup(_json_['x5'])
 
 class testInnerGroup :
     def __init__(self, _json_):
         self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
-        self.y4 = _json_['y4']
 
 class testTestGlobal :
     def __init__(self, _json_):
@@ -1894,54 +1877,6 @@ class testTbDemoGroup:
 
     def get(self, key) : return self._dataMap.get(key)
 
-class testTbDemoGroup_C:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = testDemoGroup(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-class testTbDemoGroup_S:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = testDemoGroup(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-class testTbDemoGroup_E:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = testDemoGroup(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.id] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
 class testTbTestGlobal:
 
     def __init__(self, _json_):
@@ -2244,9 +2179,6 @@ class cfg_Tables:
         self.TbDemoPrimitive = testTbDemoPrimitive(loader('test_tbdemoprimitive')); 
         self.TbTestString = testTbTestString(loader('test_tbteststring')); 
         self.TbDemoGroup = testTbDemoGroup(loader('test_tbdemogroup')); 
-        self.TbDemoGroup_C = testTbDemoGroup_C(loader('test_tbdemogroup_c')); 
-        self.TbDemoGroup_S = testTbDemoGroup_S(loader('test_tbdemogroup_s')); 
-        self.TbDemoGroup_E = testTbDemoGroup_E(loader('test_tbdemogroup_e')); 
         self.TbTestGlobal = testTbTestGlobal(loader('test_tbtestglobal')); 
         self.TbTestBeRef = testTbTestBeRef(loader('test_tbtestberef')); 
         self.TbTestBeRef2 = testTbTestBeRef2(loader('test_tbtestberef2')); 

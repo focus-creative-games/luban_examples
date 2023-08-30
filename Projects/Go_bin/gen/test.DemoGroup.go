@@ -18,10 +18,6 @@ import "errors"
 
 type TestDemoGroup struct {
     Id int32
-    X1 int32
-    X2 int32
-    X3 int32
-    X4 int32
     X5 *TestInnerGroup
 }
 
@@ -34,10 +30,6 @@ func (*TestDemoGroup) GetTypeId() int32 {
 func NewTestDemoGroup(_buf *luban.ByteBuf) (_v *TestDemoGroup, err error) {
     _v = &TestDemoGroup{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.X1, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.X2, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.X3, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.X4, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.X5, err = NewTestInnerGroup(_buf); err != nil { err = errors.New("error"); return } }
     return
 }

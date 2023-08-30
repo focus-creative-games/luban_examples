@@ -211,12 +211,6 @@ enum TestAccessFlag {
     TestAccessFlag_READ_WRITE = 3;
 }
 
-message TestTestExcelBean1 {
-     int32 x1 = 1 ;
-     string x2 = 2 ;
-     int32 x3 = 3 ;
-     float x4 = 4 ;
-}
 message AiBlackboard {
      string name = 1 ;
      string desc = 2 ;
@@ -523,36 +517,19 @@ message AiDebugPrint {
      string text = 6 ;
 }
 message CommonGlobalConfig {
-     int32 bag_capacity = 1 ;
-     int32 bag_capacity_special = 2 ;
-     int32 bag_temp_expendable_capacity = 3 ;
-     int32 bag_temp_tool_capacity = 4 ;
-     int32 bag_init_capacity = 5 ;
-     int32 quick_bag_capacity = 6 ;
-     int32 cloth_bag_capacity = 7 ;
-     int32 cloth_bag_init_capacity = 8 ;
-     int32 cloth_bag_capacity_special = 9 ;
-    optional int32 bag_init_items_drop_id = 10 ;
-     int32 mail_box_capacity = 11 ;
-     float damage_param_c = 12 ;
-     float damage_param_e = 13 ;
-     float damage_param_f = 14 ;
-     float damage_param_d = 15 ;
-     float role_speed = 16 ;
-     float monster_speed = 17 ;
-     int32 init_energy = 18 ;
-     int32 init_viality = 19 ;
-     int32 max_viality = 20 ;
-     int32 per_viality_recovery_time = 21 ;
+     int32 x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int32 x4 = 4 ;
+     int32 x5 = 5 ;
+     int32 x6 = 6 ;
+    repeated int32 x7 = 7 [packed = true];
 }
 message ItemItem {
      int32 id = 1 ;
      string name = 2 ;
-     ItemEMajorType major_type = 3 ;
      ItemEMinorType minor_type = 4 ;
-     int32 max_pile_num = 5 ;
      ItemEItemQuality quality = 6 ;
-     string icon = 7 ;
      string icon_backgroud = 8 ;
      string icon_mask = 9 ;
      string desc = 10 ;
@@ -731,31 +708,32 @@ message TestDemoPrimitiveTypesTable {
      double x7 = 7 ;
      string s1 = 8 ;
      string s2 = 9 ;
-     vector2 v2 = 10 ;
-     vector3 v3 = 11 ;
-     vector4 v4 = 12 ;
+     vec2 v2 = 10 ;
+     vec3 v3 = 11 ;
+     vec4 v4 = 12 ;
      int64 t1 = 13 ;
 }
-message vector2 {
+message vec2 {
      float x = 1 ;
      float y = 2 ;
 }
-message vector3 {
+message vec3 {
      float x = 1 ;
      float y = 2 ;
      float z = 3 ;
 }
-message vector4 {
+message vec4 {
      float x = 1 ;
      float y = 2 ;
      float z = 3 ;
      float w = 4 ;
 }
 message TestTestString {
-     int32 id = 1 ;
+     string id = 1 ;
      string s1 = 2 ;
-     TestCompactString cs1 = 3 ;
-     TestCompactString cs2 = 4 ;
+     string s2 = 3 ;
+     TestCompactString cs1 = 4 ;
+     TestCompactString cs2 = 5 ;
 }
 message TestCompactString {
      int32 id = 1 ;
@@ -764,17 +742,10 @@ message TestCompactString {
 }
 message TestDemoGroup {
      int32 id = 1 ;
-     int32 x1 = 2 ;
-     int32 x2 = 3 ;
-     int32 x3 = 4 ;
-     int32 x4 = 5 ;
      TestInnerGroup x5 = 6 ;
 }
 message TestInnerGroup {
      int32 y1 = 1 ;
-     int32 y2 = 2 ;
-     int32 y3 = 3 ;
-     int32 y4 = 4 ;
 }
 message TestTestGlobal {
      int32 unlock_equip = 1 ;
@@ -922,14 +893,14 @@ message TestTestScriptableObject {
      string desc = 2 ;
      float rate = 3 ;
      int32 num = 4 ;
-     vector2 v2 = 5 ;
-     vector3 v3 = 6 ;
-     vector4 v4 = 7 ;
+     vec2 v2 = 5 ;
+     vec3 v3 = 6 ;
+     vec4 v4 = 7 ;
 }
 message TestTestMapper {
      int32 id = 1 ;
      AudioType audio_type = 2 ;
-     vector2 v2 = 3 ;
+     vec2 v2 = 3 ;
 }
 message DefineFromExcel2 {
      int32 id = 1 ;
@@ -942,14 +913,14 @@ message DefineFromExcel2 {
      TestDemoFlag x13_2 = 8 ;
      TestDemoDynamic x14 = 9 ;
      TestShape x15 = 10 ;
-     vector2 v2 = 11 ;
+     vec2 v2 = 11 ;
      int64 t1 = 12 ;
     repeated int32 k1 = 13 [packed = true];
     repeated int32 k2 = 14 [packed = true];
      map<int32, int32> k8 = 15 ;
     repeated TestDemoE2 k9 = 16 [packed = false];
-    repeated vector3 k10 = 17 [packed = false];
-    repeated vector4 k11 = 18 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
 }
 message TestShape {
     oneof value {
@@ -1023,15 +994,6 @@ message TestTbTestString {
     repeated TestTestString data_list = 1 [packed = false];
 }
 message TestTbDemoGroup {
-    repeated TestDemoGroup data_list = 1 [packed = false];
-}
-message TestTbDemoGroup_C {
-    repeated TestDemoGroup data_list = 1 [packed = false];
-}
-message TestTbDemoGroup_S {
-    repeated TestDemoGroup data_list = 1 [packed = false];
-}
-message TestTbDemoGroup_E {
     repeated TestDemoGroup data_list = 1 [packed = false];
 }
 message TestTbTestGlobal {

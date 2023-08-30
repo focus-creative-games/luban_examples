@@ -7,8 +7,7 @@ dotnet %GEN_CLIENT% ^
     -t all ^
     -c cs-simple-json ^
     -d json  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Assets/Gen ^
     -x outputDataDir=..\GenerateDatas\json ^
     -x pathValidator.rootDir=D:\workspace2\luban_examples\Projects\Csharp_Unity_bin ^

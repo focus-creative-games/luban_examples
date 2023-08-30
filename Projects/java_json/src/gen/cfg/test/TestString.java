@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 
 public final class TestString extends AbstractBean {
     public TestString(JsonObject _buf) { 
-        id = _buf.get("id").getAsInt();
+        id = _buf.get("id").getAsString();
         s1 = _buf.get("s1").getAsString();
         s2 = _buf.get("s2").getAsString();
         cs1 = cfg.test.CompactString.deserialize(_buf.get("cs1").getAsJsonObject());
@@ -27,7 +27,7 @@ public final class TestString extends AbstractBean {
             return new cfg.test.TestString(_buf);
     }
 
-    public final int id;
+    public final String id;
     public final String s1;
     public final String s2;
     public final cfg.test.CompactString cs1;

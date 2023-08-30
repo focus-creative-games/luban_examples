@@ -14,7 +14,7 @@ import luban.*;
 
 public final class TestString extends AbstractBean {
     public TestString(ByteBuf _buf) { 
-        id = _buf.readInt();
+        id = _buf.readString();
         s1 = _buf.readString();
         s2 = _buf.readString();
         cs1 = cfg.test.CompactString.deserialize(_buf);
@@ -25,7 +25,7 @@ public final class TestString extends AbstractBean {
             return new cfg.test.TestString(_buf);
     }
 
-    public final int id;
+    public final String id;
     public final String s1;
     public final String s2;
     public final cfg.test.CompactString cs1;

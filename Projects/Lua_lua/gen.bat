@@ -7,8 +7,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c lua-lua ^
     -d lua  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Gen ^
     -x outputDataDir=..\GenerateDatas\lua ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^

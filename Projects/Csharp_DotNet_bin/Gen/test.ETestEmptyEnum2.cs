@@ -13,9 +13,9 @@ namespace cfg.test
 { 
     public enum ETestEmptyEnum2
     {
-        SMALLTHAN256 = 255,
-        X256 = 256,
-        X257 = 257,
+        SMALL_THAN_256 = 255,
+        X_256 = 256,
+        X_257 = 257,
     }
 
 } 

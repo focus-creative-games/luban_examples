@@ -264,18 +264,6 @@ enum TestAccessFlag
 }
 
 
-class TestTestExcelBean1 :
-    var x1: int
-    var x2: String
-    var x3: int
-    var x4: float
-
-    func _init(_json_) -> void:
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-
 class AiBlackboard :
     var name: String
     var desc: String
@@ -745,11 +733,8 @@ class CommonGlobalConfig :
 class ItemItem :
     var id: int
     var name: String
-    var major_type: int
     var minor_type: int
-    var max_pile_num: int
     var quality: int
-    var icon: String
     var icon_backgroud: String
     var icon_mask: String
     var desc: String
@@ -758,11 +743,8 @@ class ItemItem :
     func _init(_json_) -> void:
         self.id = _json_['id']
         self.name = _json_['name']
-        self.major_type = _json_['major_type']
         self.minor_type = _json_['minor_type']
-        self.max_pile_num = _json_['max_pile_num']
         self.quality = _json_['quality']
-        self.icon = _json_['icon']
         self.icon_backgroud = _json_['icon_backgroud']
         self.icon_mask = _json_['icon_mask']
         self.desc = _json_['desc']
@@ -1188,31 +1170,17 @@ class TestCompactString :
 
 class TestDemoGroup :
     var id: int
-    var x1: int
-    var x2: int
-    var x3: int
-    var x4: int
     var x5: TestInnerGroup
 
     func _init(_json_) -> void:
         self.id = _json_['id']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
         self.x5 = TestInnerGroup.new(_json_['x5'])
 
 class TestInnerGroup :
     var y1: int
-    var y2: int
-    var y3: int
-    var y4: int
 
     func _init(_json_) -> void:
         self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
-        self.y4 = _json_['y4']
 
 class TestTestGlobal :
     var unlock_equip: int
@@ -1962,60 +1930,6 @@ class TestTbDemoGroup:
 
     func get_item(key) -> TestDemoGroup : return self._data_map.get(key)
 
-class TestTbDemoGroup_C:
-    var _data_list = []
-    var _data_map = {}
-    func _init(_json_ ) -> void:
-        self._data_map = {}
-        self._data_list = []
-        
-        for _json2_ in _json_:
-            var _v
-            _v = TestDemoGroup.new(_json2_)
-            self._data_list.append(_v)
-            self._data_map[_v.id] = _v
-
-    func get_data_map() -> Dictionary : return self._data_map
-    func get_data_list() -> Array : return self._data_list
-
-    func get_item(key) -> TestDemoGroup : return self._data_map.get(key)
-
-class TestTbDemoGroup_S:
-    var _data_list = []
-    var _data_map = {}
-    func _init(_json_ ) -> void:
-        self._data_map = {}
-        self._data_list = []
-        
-        for _json2_ in _json_:
-            var _v
-            _v = TestDemoGroup.new(_json2_)
-            self._data_list.append(_v)
-            self._data_map[_v.id] = _v
-
-    func get_data_map() -> Dictionary : return self._data_map
-    func get_data_list() -> Array : return self._data_list
-
-    func get_item(key) -> TestDemoGroup : return self._data_map.get(key)
-
-class TestTbDemoGroup_E:
-    var _data_list = []
-    var _data_map = {}
-    func _init(_json_ ) -> void:
-        self._data_map = {}
-        self._data_list = []
-        
-        for _json2_ in _json_:
-            var _v
-            _v = TestDemoGroup.new(_json2_)
-            self._data_list.append(_v)
-            self._data_map[_v.id] = _v
-
-    func get_data_map() -> Dictionary : return self._data_map
-    func get_data_list() -> Array : return self._data_list
-
-    func get_item(key) -> TestDemoGroup : return self._data_map.get(key)
-
 class TestTbTestGlobal:
     var _data: TestTestGlobal
     func _init(_json_):
@@ -2353,9 +2267,6 @@ class cfg_Tables:
     var TbDemoPrimitive: TestTbDemoPrimitive 
     var TbTestString: TestTbTestString 
     var TbDemoGroup: TestTbDemoGroup 
-    var TbDemoGroup_C: TestTbDemoGroup_C 
-    var TbDemoGroup_S: TestTbDemoGroup_S 
-    var TbDemoGroup_E: TestTbDemoGroup_E 
     var TbTestGlobal: TestTbTestGlobal 
     var TbTestBeRef: TestTbTestBeRef 
     var TbTestBeRef2: TestTbTestBeRef2 
@@ -2395,9 +2306,6 @@ class cfg_Tables:
         self.TbDemoPrimitive = TestTbDemoPrimitive.new(loader.call('test_tbdemoprimitive')); 
         self.TbTestString = TestTbTestString.new(loader.call('test_tbteststring')); 
         self.TbDemoGroup = TestTbDemoGroup.new(loader.call('test_tbdemogroup')); 
-        self.TbDemoGroup_C = TestTbDemoGroup_C.new(loader.call('test_tbdemogroup_c')); 
-        self.TbDemoGroup_S = TestTbDemoGroup_S.new(loader.call('test_tbdemogroup_s')); 
-        self.TbDemoGroup_E = TestTbDemoGroup_E.new(loader.call('test_tbdemogroup_e')); 
         self.TbTestGlobal = TestTbTestGlobal.new(loader.call('test_tbtestglobal')); 
         self.TbTestBeRef = TestTbTestBeRef.new(loader.call('test_tbtestberef')); 
         self.TbTestBeRef2 = TestTbTestBeRef2.new(loader.call('test_tbtestberef2')); 

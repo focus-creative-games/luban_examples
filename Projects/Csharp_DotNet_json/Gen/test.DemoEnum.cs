@@ -15,19 +15,19 @@ namespace cfg.test
     {
         NONE = 0,
         /// <summary>
-        /// 
+        /// aa
         /// </summary>
         A = 1,
         /// <summary>
-        /// 
+        /// bb
         /// </summary>
         B = 2,
         /// <summary>
-        /// 
+        /// cc
         /// </summary>
         C = 4,
         /// <summary>
-        /// 
+        /// dd
         /// </summary>
         D = 5,
     }

@@ -19,7 +19,7 @@ public sealed partial class TestMapper : Luban.BeanBase
     {
         Id = _buf.GetProperty("id").GetInt32();
         AudioType = (AudioType)_buf.GetProperty("audio_type").GetInt32();
-        V2 = vector2.Deserializevector2(_buf.GetProperty("v2"));
+        V2 = vec2.Deserializevec2(_buf.GetProperty("v2"));
     }
 
     public static TestMapper DeserializeTestMapper(JsonElement _buf)
@@ -29,7 +29,7 @@ public sealed partial class TestMapper : Luban.BeanBase
 
     public readonly int Id;
     public readonly AudioType AudioType;
-    public readonly vector2 V2;
+    public readonly vec2 V2;
    
     public const int __ID__ = 149110895;
     public override int GetTypeId() => __ID__;

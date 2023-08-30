@@ -26,9 +26,9 @@ type TestDemoPrimitiveTypesTable struct {
     X7 float64
     S1 string
     S2 string
-    V2 *vector2
-    V3 *vector3
-    V4 *vector4
+    V2 *vec2
+    V3 *vec3
+    V4 *vec4
     T1 int64
 }
 
@@ -49,9 +49,9 @@ func NewTestDemoPrimitiveTypesTable(_buf *luban.ByteBuf) (_v *TestDemoPrimitiveT
     { if _v.X7, err = _buf.ReadDouble(); err != nil { err = errors.New("error"); return } }
     { if _v.S1, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.S2, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
-    { if _v.V2, err = Newvector2(_buf); err != nil { err = errors.New("error"); return } }
-    { if _v.V3, err = Newvector3(_buf); err != nil { err = errors.New("error"); return } }
-    { if _v.V4, err = Newvector4(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V2, err = Newvec2(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V3, err = Newvec3(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V4, err = Newvec4(_buf); err != nil { err = errors.New("error"); return } }
     { if _v.T1, err = _buf.ReadLong(); err != nil { err = errors.New("error"); return } }
     return
 }

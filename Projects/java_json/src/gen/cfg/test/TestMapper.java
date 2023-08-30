@@ -18,7 +18,7 @@ public final class TestMapper extends AbstractBean {
     public TestMapper(JsonObject _buf) { 
         id = _buf.get("id").getAsInt();
         audioType = _buf.get("audio_type").getAsInt();
-        v2 = cfg.vector2.deserialize(_buf.get("v2").getAsJsonObject());
+        v2 = cfg.vec2.deserialize(_buf.get("v2").getAsJsonObject());
     }
 
     public static TestMapper deserialize(JsonObject _buf) {
@@ -27,7 +27,7 @@ public final class TestMapper extends AbstractBean {
 
     public final int id;
     public final int audioType;
-    public final cfg.vector2 v2;
+    public final cfg.vec2 v2;
 
     public static final int __ID__ = 149110895;
     

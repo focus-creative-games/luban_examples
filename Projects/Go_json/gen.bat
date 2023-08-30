@@ -7,8 +7,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c go-json ^
     -d json  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=gen ^
     -x outputDataDir=..\GenerateDatas\json ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^

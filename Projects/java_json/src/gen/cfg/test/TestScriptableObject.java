@@ -20,9 +20,9 @@ public final class TestScriptableObject extends AbstractBean {
         desc = _buf.get("desc").getAsString();
         rate = _buf.get("rate").getAsFloat();
         num = _buf.get("num").getAsInt();
-        v2 = cfg.vector2.deserialize(_buf.get("v2").getAsJsonObject());
-        v3 = cfg.vector3.deserialize(_buf.get("v3").getAsJsonObject());
-        v4 = cfg.vector4.deserialize(_buf.get("v4").getAsJsonObject());
+        v2 = cfg.vec2.deserialize(_buf.get("v2").getAsJsonObject());
+        v3 = cfg.vec3.deserialize(_buf.get("v3").getAsJsonObject());
+        v4 = cfg.vec4.deserialize(_buf.get("v4").getAsJsonObject());
     }
 
     public static TestScriptableObject deserialize(JsonObject _buf) {
@@ -33,9 +33,9 @@ public final class TestScriptableObject extends AbstractBean {
     public final String desc;
     public final float rate;
     public final int num;
-    public final cfg.vector2 v2;
-    public final cfg.vector3 v3;
-    public final cfg.vector4 v4;
+    public final cfg.vec2 v2;
+    public final cfg.vec3 v3;
+    public final cfg.vec4 v4;
 
     public static final int __ID__ = -1896814350;
     

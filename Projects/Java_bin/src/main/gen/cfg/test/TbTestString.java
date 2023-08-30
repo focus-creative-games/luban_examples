@@ -13,11 +13,11 @@ import luban.*;
 
 
 public final class TbTestString {
-    private final java.util.HashMap<Integer, cfg.test.TestString> _dataMap;
+    private final java.util.HashMap<String, cfg.test.TestString> _dataMap;
     private final java.util.ArrayList<cfg.test.TestString> _dataList;
     
     public TbTestString(ByteBuf _buf) {
-        _dataMap = new java.util.HashMap<Integer, cfg.test.TestString>();
+        _dataMap = new java.util.HashMap<String, cfg.test.TestString>();
         _dataList = new java.util.ArrayList<cfg.test.TestString>();
         
         for(int n = _buf.readSize() ; n > 0 ; --n) {
@@ -28,9 +28,9 @@ public final class TbTestString {
         }
     }
 
-    public java.util.HashMap<Integer, cfg.test.TestString> getDataMap() { return _dataMap; }
+    public java.util.HashMap<String, cfg.test.TestString> getDataMap() { return _dataMap; }
     public java.util.ArrayList<cfg.test.TestString> getDataList() { return _dataList; }
 
-    public cfg.test.TestString get(int key) { return _dataMap.get(key); }
+    public cfg.test.TestString get(String key) { return _dataMap.get(key); }
 
 }

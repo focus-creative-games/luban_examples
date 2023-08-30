@@ -23,14 +23,14 @@ type DefineFromExcel2 struct {
     X132 int32
     X14 interface{}
     X15 interface{}
-    V2 *vector2
+    V2 *vec2
     T1 int64
     K1 []int32
     K2 []int32
     K8 map[int32]int32
     K9 []*TestDemoE2
-    K10 []*vector3
-    K11 []*vector4
+    K10 []*vec3
+    K11 []*vec4
 }
 
 const TypeId_DefineFromExcel2 = 482045152
@@ -51,7 +51,7 @@ func NewDefineFromExcel2(_buf map[string]interface{}) (_v *DefineFromExcel2, err
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x13_2"].(float64); !_ok_ { err = errors.New("x13_2 error"); return }; _v.X132 = int32(_tempNum_) }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x14"].(map[string]interface{}); !_ok_ { err = errors.New("x14 error"); return }; if _v.X14, err = NewTestDemoDynamic(_x_); err != nil { return } }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x15"].(map[string]interface{}); !_ok_ { err = errors.New("x15 error"); return }; if _v.X15, err = NewTestShape(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }; if _v.V2, err = Newvector2(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }; if _v.V2, err = Newvec2(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["t1"].(float64); !_ok_ { err = errors.New("t1 error"); return }; _v.T1 = int64(_tempNum_) }
      {
                     var _arr_ []interface{}
@@ -117,11 +117,11 @@ func NewDefineFromExcel2(_buf map[string]interface{}) (_v *DefineFromExcel2, err
                     var _ok_ bool
                     if _arr_, _ok_ = _buf["k10"].([]interface{}); !_ok_ { err = errors.New("k10 error"); return }
     
-                    _v.K10 = make([]*vector3, 0, len(_arr_))
+                    _v.K10 = make([]*vec3, 0, len(_arr_))
                     
                     for _, _e_ := range _arr_ {
-                        var _list_v_ *vector3
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = Newvector3(_x_); err != nil { return } }
+                        var _list_v_ *vec3
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = Newvec3(_x_); err != nil { return } }
                         _v.K10 = append(_v.K10, _list_v_)
                     }
                 }
@@ -131,11 +131,11 @@ func NewDefineFromExcel2(_buf map[string]interface{}) (_v *DefineFromExcel2, err
                     var _ok_ bool
                     if _arr_, _ok_ = _buf["k11"].([]interface{}); !_ok_ { err = errors.New("k11 error"); return }
     
-                    _v.K11 = make([]*vector4, 0, len(_arr_))
+                    _v.K11 = make([]*vec4, 0, len(_arr_))
                     
                     for _, _e_ := range _arr_ {
-                        var _list_v_ *vector4
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = Newvector4(_x_); err != nil { return } }
+                        var _list_v_ *vec4
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = Newvec4(_x_); err != nil { return } }
                         _v.K11 = append(_v.K11, _list_v_)
                     }
                 }

@@ -701,7 +701,6 @@ namespace test {
 } 
 
 
-namespace test { struct TestExcelBean1; }
 namespace ai { struct Blackboard; }
 namespace ai { struct BlackboardKey; }
 namespace ai { struct BehaviorTree; }
@@ -773,9 +772,9 @@ namespace test { struct H1; }
 namespace test { struct H2; }
 namespace test { struct TestNull; }
 namespace test { struct DemoPrimitiveTypesTable; }
- struct vector2; 
- struct vector3; 
- struct vector4; 
+ struct vec2; 
+ struct vec3; 
+ struct vec4; 
 namespace test { struct TestString; }
 namespace test { struct CompactString; }
 namespace test { struct DemoGroup; }
@@ -807,43 +806,6 @@ namespace test { struct TestMapper; }
 namespace test { struct Shape; }
 namespace test { struct Circle; }
 namespace test2 { struct Rectangle; }
-
-namespace test {
-
-/**
- * 这是个测试excel结构
- */
-struct TestExcelBean1 : public luban::CfgBean 
-{
-    static bool deserializeTestExcelBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestExcelBean1>& _out);
-
-    virtual ~TestExcelBean1() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    /**
-     * 最高品质
-     */
-    ::luban::int32 x1;
-    /**
-     * 黑色的
-     */
-    ::luban::String x2;
-    /**
-     * 蓝色的
-     */
-    ::luban::int32 x3;
-    /**
-     * 最差品质
-     */
-    ::luban::float32 x4;
-
-    static constexpr int __ID__ = -1738345160;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
 
 namespace ai {
 
@@ -1675,11 +1637,8 @@ struct Item : public luban::CfgBean
      */
     ::luban::int32 id;
     ::luban::String name;
-    item::EMajorType majorType;
     item::EMinorType minorType;
-    ::luban::int32 maxPileNum;
     item::EItemQuality quality;
-    ::luban::String icon;
     ::luban::String iconBackgroud;
     ::luban::String iconMask;
     ::luban::String desc;
@@ -2286,9 +2245,9 @@ struct DemoPrimitiveTypesTable : public luban::CfgBean
     ::luban::float64 x7;
     ::luban::String s1;
     ::luban::String s2;
-    ::luban::SharedPtr<vector2> v2;
-    ::luban::SharedPtr<vector3> v3;
-    ::luban::SharedPtr<vector4> v4;
+    ::luban::SharedPtr<vec2> v2;
+    ::luban::SharedPtr<vec3> v3;
+    ::luban::SharedPtr<vec4> v4;
     ::luban::datetime t1;
 
     static constexpr int __ID__ = -370934083;
@@ -2300,18 +2259,18 @@ struct DemoPrimitiveTypesTable : public luban::CfgBean
 
 
 
-struct vector2 : public luban::CfgBean 
+struct vec2 : public luban::CfgBean 
 {
-    static bool deserializevector2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vector2>& _out);
+    static bool deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out);
 
-    virtual ~vector2() {}
+    virtual ~vec2() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::float32 x;
     ::luban::float32 y;
 
-    static constexpr int __ID__ = 337790799;
+    static constexpr int __ID__ = 3615518;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2320,11 +2279,11 @@ struct vector2 : public luban::CfgBean
 
 
 
-struct vector3 : public luban::CfgBean 
+struct vec3 : public luban::CfgBean 
 {
-    static bool deserializevector3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vector3>& _out);
+    static bool deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out);
 
-    virtual ~vector3() {}
+    virtual ~vec3() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
@@ -2332,7 +2291,7 @@ struct vector3 : public luban::CfgBean
     ::luban::float32 y;
     ::luban::float32 z;
 
-    static constexpr int __ID__ = 337790800;
+    static constexpr int __ID__ = 3615519;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2341,11 +2300,11 @@ struct vector3 : public luban::CfgBean
 
 
 
-struct vector4 : public luban::CfgBean 
+struct vec4 : public luban::CfgBean 
 {
-    static bool deserializevector4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vector4>& _out);
+    static bool deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out);
 
-    virtual ~vector4() {}
+    virtual ~vec4() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
@@ -2354,7 +2313,7 @@ struct vector4 : public luban::CfgBean
     ::luban::float32 z;
     ::luban::float32 w;
 
-    static constexpr int __ID__ = 337790801;
+    static constexpr int __ID__ = 3615520;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2371,7 +2330,7 @@ struct TestString : public luban::CfgBean
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::int32 id;
+    ::luban::String id;
     ::luban::String s1;
     ::luban::String s2;
     ::luban::SharedPtr<test::CompactString> cs1;
@@ -2416,10 +2375,6 @@ struct DemoGroup : public luban::CfgBean
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 id;
-    ::luban::int32 x1;
-    ::luban::int32 x2;
-    ::luban::int32 x3;
-    ::luban::int32 x4;
     ::luban::SharedPtr<test::InnerGroup> x5;
 
     static constexpr int __ID__ = -379263008;
@@ -2440,9 +2395,6 @@ struct InnerGroup : public luban::CfgBean
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 y1;
-    ::luban::int32 y2;
-    ::luban::int32 y3;
-    ::luban::int32 y4;
 
     static constexpr int __ID__ = -587873083;
 
@@ -2922,9 +2874,9 @@ struct TestScriptableObject : public luban::CfgBean
     ::luban::String desc;
     ::luban::float32 rate;
     ::luban::int32 num;
-    ::luban::SharedPtr<vector2> v2;
-    ::luban::SharedPtr<vector3> v3;
-    ::luban::SharedPtr<vector4> v4;
+    ::luban::SharedPtr<vec2> v2;
+    ::luban::SharedPtr<vec3> v3;
+    ::luban::SharedPtr<vec4> v4;
 
     static constexpr int __ID__ = -1896814350;
 
@@ -2945,7 +2897,7 @@ struct TestMapper : public luban::CfgBean
 
     ::luban::int32 id;
     AudioType audioType;
-    ::luban::SharedPtr<vector2> v2;
+    ::luban::SharedPtr<vec2> v2;
 
     static constexpr int __ID__ = 149110895;
 
@@ -2980,14 +2932,14 @@ struct DefineFromExcel2 : public luban::CfgBean
     test::DemoFlag x132;
     ::luban::SharedPtr<test::DemoDynamic> x14;
     ::luban::SharedPtr<test::Shape> x15;
-    ::luban::SharedPtr<vector2> v2;
+    ::luban::SharedPtr<vec2> v2;
     ::luban::datetime t1;
     ::luban::Array<::luban::int32> k1;
     ::luban::Array<::luban::int32> k2;
     ::luban::HashMap<::luban::int32, ::luban::int32> k8;
     ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
-    ::luban::Vector<::luban::SharedPtr<vector3>> k10;
-    ::luban::Vector<::luban::SharedPtr<vector4>> k11;
+    ::luban::Vector<::luban::SharedPtr<vec3>> k10;
+    ::luban::Vector<::luban::SharedPtr<vec4>> k11;
 
     static constexpr int __ID__ = 482045152;
 
@@ -3840,7 +3792,7 @@ namespace test {
 class TbTestString
 {
     private:
-    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::TestString>> _dataMap;
+    ::luban::HashMap<::luban::String, ::luban::SharedPtr<test::TestString>> _dataMap;
     ::luban::Vector<::luban::SharedPtr<test::TestString>> _dataList;
     
     public:
@@ -3858,16 +3810,16 @@ class TbTestString
         return true;
     }
 
-    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::TestString>>& getDataMap() const { return _dataMap; }
+    const ::luban::HashMap<::luban::String, ::luban::SharedPtr<test::TestString>>& getDataMap() const { return _dataMap; }
     const ::luban::Vector<::luban::SharedPtr<test::TestString>>& getDataList() const { return _dataList; }
 
-    test::TestString* getRaw(::luban::int32 key)
+    test::TestString* getRaw(::luban::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second.get() : nullptr;
     }
 
-    ::luban::SharedPtr<test::TestString> get(::luban::int32 key)
+    ::luban::SharedPtr<test::TestString> get(::luban::String key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -3881,135 +3833,6 @@ namespace test {
 
 
 class TbDemoGroup
-{
-    private:
-    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
-    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
-    
-    public:
-    bool load(::luban::ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::luban::SharedPtr<test::DemoGroup> _v;
-            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
-        }
-        return true;
-    }
-
-    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
-
-    test::DemoGroup* getRaw(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-};
-
-}
-
-namespace test {
-
-
-class TbDemoGroup_C
-{
-    private:
-    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
-    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
-    
-    public:
-    bool load(::luban::ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::luban::SharedPtr<test::DemoGroup> _v;
-            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
-        }
-        return true;
-    }
-
-    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
-
-    test::DemoGroup* getRaw(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-};
-
-}
-
-namespace test {
-
-
-class TbDemoGroup_S
-{
-    private:
-    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
-    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
-    
-    public:
-    bool load(::luban::ByteBuf& _buf)
-    {        
-        int n;
-        if (!_buf.readSize(n)) return false;
-        for(; n > 0 ; --n)
-        {
-            ::luban::SharedPtr<test::DemoGroup> _v;
-            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
-            _dataList.push_back(_v);
-            _dataMap[_v->id] = _v;
-        }
-        return true;
-    }
-
-    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
-    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
-
-    test::DemoGroup* getRaw(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second.get() : nullptr;
-    }
-
-    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
-    { 
-        auto it = _dataMap.find(key);
-        return it != _dataMap.end() ? it->second : nullptr;
-    }
-
-};
-
-}
-
-namespace test {
-
-
-class TbDemoGroup_E
 {
     private:
     ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
@@ -4817,9 +4640,6 @@ class Tables
      test::TbDemoPrimitive TbDemoPrimitive;
      test::TbTestString TbTestString;
      test::TbDemoGroup TbDemoGroup;
-     test::TbDemoGroup_C TbDemoGroup_C;
-     test::TbDemoGroup_S TbDemoGroup_S;
-     test::TbDemoGroup_E TbDemoGroup_E;
      test::TbTestGlobal TbTestGlobal;
      test::TbTestBeRef TbTestBeRef;
      test::TbTestBeRef2 TbTestBeRef2;
@@ -4902,15 +4722,6 @@ class Tables
         buf.clear();
         if (!loader(buf, "test_tbdemogroup")) return false;
         if (!TbDemoGroup.load(buf)) return false;
-        buf.clear();
-        if (!loader(buf, "test_tbdemogroup_c")) return false;
-        if (!TbDemoGroup_C.load(buf)) return false;
-        buf.clear();
-        if (!loader(buf, "test_tbdemogroup_s")) return false;
-        if (!TbDemoGroup_S.load(buf)) return false;
-        buf.clear();
-        if (!loader(buf, "test_tbdemogroup_e")) return false;
-        if (!TbDemoGroup_E.load(buf)) return false;
         buf.clear();
         if (!loader(buf, "test_tbtestglobal")) return false;
         if (!TbTestGlobal.load(buf)) return false;

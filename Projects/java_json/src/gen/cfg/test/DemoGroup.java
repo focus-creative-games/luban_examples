@@ -17,10 +17,6 @@ import com.google.gson.JsonObject;
 public final class DemoGroup extends AbstractBean {
     public DemoGroup(JsonObject _buf) { 
         id = _buf.get("id").getAsInt();
-        x1 = _buf.get("x1").getAsInt();
-        x2 = _buf.get("x2").getAsInt();
-        x3 = _buf.get("x3").getAsInt();
-        x4 = _buf.get("x4").getAsInt();
         x5 = cfg.test.InnerGroup.deserialize(_buf.get("x5").getAsJsonObject());
     }
 
@@ -29,10 +25,6 @@ public final class DemoGroup extends AbstractBean {
     }
 
     public final int id;
-    public final int x1;
-    public final int x2;
-    public final int x3;
-    public final int x4;
     public final cfg.test.InnerGroup x5;
 
     public static final int __ID__ = -379263008;
@@ -44,10 +36,6 @@ public final class DemoGroup extends AbstractBean {
     public String toString() {
         return "{ "
         + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
         + "(format_field_name __code_style field.name):" + x5 + ","
         + "}";
     }

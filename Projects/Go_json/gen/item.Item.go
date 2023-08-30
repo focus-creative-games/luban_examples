@@ -15,11 +15,8 @@ import "errors"
 type ItemItem struct {
     Id int32
     Name string
-    MajorType int32
     MinorType int32
-    MaxPileNum int32
     Quality int32
-    Icon string
     IconBackgroud string
     IconMask string
     Desc string
@@ -36,11 +33,8 @@ func NewItemItem(_buf map[string]interface{}) (_v *ItemItem, err error) {
     _v = &ItemItem{}
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
     { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["major_type"].(float64); !_ok_ { err = errors.New("major_type error"); return }; _v.MajorType = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["minor_type"].(float64); !_ok_ { err = errors.New("minor_type error"); return }; _v.MinorType = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["max_pile_num"].(float64); !_ok_ { err = errors.New("max_pile_num error"); return }; _v.MaxPileNum = int32(_tempNum_) }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["quality"].(float64); !_ok_ { err = errors.New("quality error"); return }; _v.Quality = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Icon, _ok_ = _buf["icon"].(string); !_ok_ { err = errors.New("icon error"); return } }
     { var _ok_ bool; if _v.IconBackgroud, _ok_ = _buf["icon_backgroud"].(string); !_ok_ { err = errors.New("icon_backgroud error"); return } }
     { var _ok_ bool; if _v.IconMask, _ok_ = _buf["icon_mask"].(string); !_ok_ { err = errors.New("icon_mask error"); return } }
     { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }

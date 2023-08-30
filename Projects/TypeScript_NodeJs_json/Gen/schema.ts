@@ -625,44 +625,6 @@ export enum AccessFlag {
 
 
 
-export namespace test { 
-/**
- * 这是个测试excel结构
- */
-export class TestExcelBean1 {
-
-    constructor(_json_: any) {
-        if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
-        if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
-        if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = _json_.x3
-        if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = _json_.x4
-    }
-
-    /**
-     * 最高品质
-     */
-    readonly x1: number
-    /**
-     * 黑色的
-     */
-    readonly x2: string
-    /**
-     * 蓝色的
-     */
-    readonly x3: number
-    /**
-     * 最差品质
-     */
-    readonly x4: number
-}
-
-}
-
-
 export namespace ai { 
 export class Blackboard {
 
@@ -1508,16 +1470,10 @@ export class Item {
         this.id = _json_.id
         if (_json_.name === undefined) { throw new Error() }
         this.name = _json_.name
-        if (_json_.major_type === undefined) { throw new Error() }
-        this.majorType = _json_.major_type
         if (_json_.minor_type === undefined) { throw new Error() }
         this.minorType = _json_.minor_type
-        if (_json_.max_pile_num === undefined) { throw new Error() }
-        this.maxPileNum = _json_.max_pile_num
         if (_json_.quality === undefined) { throw new Error() }
         this.quality = _json_.quality
-        if (_json_.icon === undefined) { throw new Error() }
-        this.icon = _json_.icon
         if (_json_.icon_backgroud === undefined) { throw new Error() }
         this.iconBackgroud = _json_.icon_backgroud
         if (_json_.icon_mask === undefined) { throw new Error() }
@@ -1533,11 +1489,8 @@ export class Item {
      */
     readonly id: number
     readonly name: string
-    readonly majorType: item.EMajorType
     readonly minorType: item.EMinorType
-    readonly maxPileNum: number
     readonly quality: item.EItemQuality
-    readonly icon: string
     readonly iconBackgroud: string
     readonly iconMask: string
     readonly desc: string
@@ -2304,23 +2257,11 @@ export class DemoGroup {
     constructor(_json_: any) {
         if (_json_.id === undefined) { throw new Error() }
         this.id = _json_.id
-        if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
-        if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
-        if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = _json_.x3
-        if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = _json_.x4
         if (_json_.x5 === undefined) { throw new Error() }
         this.x5 = new test.InnerGroup(_json_.x5)
     }
 
     readonly id: number
-    readonly x1: number
-    readonly x2: number
-    readonly x3: number
-    readonly x4: number
     readonly x5: test.InnerGroup
 }
 
@@ -2333,18 +2274,9 @@ export class InnerGroup {
     constructor(_json_: any) {
         if (_json_.y1 === undefined) { throw new Error() }
         this.y1 = _json_.y1
-        if (_json_.y2 === undefined) { throw new Error() }
-        this.y2 = _json_.y2
-        if (_json_.y3 === undefined) { throw new Error() }
-        this.y3 = _json_.y3
-        if (_json_.y4 === undefined) { throw new Error() }
-        this.y4 = _json_.y4
     }
 
     readonly y1: number
-    readonly y2: number
-    readonly y3: number
-    readonly y4: number
 }
 
 }
@@ -3536,81 +3468,6 @@ export class TbDemoGroup{
 
 
 export namespace test {
-export class TbDemoGroup_C{
-    private _dataMap: Map<number, test.DemoGroup>
-    private _dataList: test.DemoGroup[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, test.DemoGroup>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: test.DemoGroup
-            _v = new test.DemoGroup(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
-    getDataList(): test.DemoGroup[] { return this._dataList; }
-
-    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
-
-
-}
-}
-
-
-export namespace test {
-export class TbDemoGroup_S{
-    private _dataMap: Map<number, test.DemoGroup>
-    private _dataList: test.DemoGroup[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, test.DemoGroup>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: test.DemoGroup
-            _v = new test.DemoGroup(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
-    getDataList(): test.DemoGroup[] { return this._dataList; }
-
-    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
-
-
-}
-}
-
-
-export namespace test {
-export class TbDemoGroup_E{
-    private _dataMap: Map<number, test.DemoGroup>
-    private _dataList: test.DemoGroup[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, test.DemoGroup>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: test.DemoGroup
-            _v = new test.DemoGroup(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, test.DemoGroup> { return this._dataMap; }
-    getDataList(): test.DemoGroup[] { return this._dataList; }
-
-    get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
-
-
-}
-}
-
-
-export namespace test {
 export class TbTestGlobal{
 
     private _data: test.TestGlobal
@@ -4095,12 +3952,6 @@ export class Tables {
     get TbTestString(): test.TbTestString  { return this._TbTestString;}
     private _TbDemoGroup: test.TbDemoGroup
     get TbDemoGroup(): test.TbDemoGroup  { return this._TbDemoGroup;}
-    private _TbDemoGroup_C: test.TbDemoGroup_C
-    get TbDemoGroup_C(): test.TbDemoGroup_C  { return this._TbDemoGroup_C;}
-    private _TbDemoGroup_S: test.TbDemoGroup_S
-    get TbDemoGroup_S(): test.TbDemoGroup_S  { return this._TbDemoGroup_S;}
-    private _TbDemoGroup_E: test.TbDemoGroup_E
-    get TbDemoGroup_E(): test.TbDemoGroup_E  { return this._TbDemoGroup_E;}
     private _TbTestGlobal: test.TbTestGlobal
     get TbTestGlobal(): test.TbTestGlobal  { return this._TbTestGlobal;}
     private _TbTestBeRef: test.TbTestBeRef
@@ -4159,9 +4010,6 @@ export class Tables {
         this._TbDemoPrimitive = new test.TbDemoPrimitive(loader('test_tbdemoprimitive'))
         this._TbTestString = new test.TbTestString(loader('test_tbteststring'))
         this._TbDemoGroup = new test.TbDemoGroup(loader('test_tbdemogroup'))
-        this._TbDemoGroup_C = new test.TbDemoGroup_C(loader('test_tbdemogroup_c'))
-        this._TbDemoGroup_S = new test.TbDemoGroup_S(loader('test_tbdemogroup_s'))
-        this._TbDemoGroup_E = new test.TbDemoGroup_E(loader('test_tbdemogroup_e'))
         this._TbTestGlobal = new test.TbTestGlobal(loader('test_tbtestglobal'))
         this._TbTestBeRef = new test.TbTestBeRef(loader('test_tbtestberef'))
         this._TbTestBeRef2 = new test.TbTestBeRef2(loader('test_tbtestberef2'))

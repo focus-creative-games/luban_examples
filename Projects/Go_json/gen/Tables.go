@@ -32,9 +32,6 @@ type Tables struct {
     TbDemoPrimitive *TestTbDemoPrimitive
     TbTestString *TestTbTestString
     TbDemoGroup *TestTbDemoGroup
-    TbDemoGroup_C *TestTbDemoGroup_C
-    TbDemoGroup_S *TestTbDemoGroup_S
-    TbDemoGroup_E *TestTbDemoGroup_E
     TbTestGlobal *TestTbTestGlobal
     TbTestBeRef *TestTbTestBeRef
     TbTestBeRef2 *TestTbTestBeRef2
@@ -178,24 +175,6 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbDemoGroup, err = NewTestTbDemoGroup(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("test_tbdemogroup_c") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDemoGroup_C, err = NewTestTbDemoGroup_C(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("test_tbdemogroup_s") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDemoGroup_S, err = NewTestTbDemoGroup_S(buf) ; err != nil {
-        return nil, err
-    }
-    if buf, err = loader("test_tbdemogroup_e") ; err != nil {
-        return nil, err
-    }
-    if tables.TbDemoGroup_E, err = NewTestTbDemoGroup_E(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbtestglobal") ; err != nil {

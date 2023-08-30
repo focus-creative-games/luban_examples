@@ -13,8 +13,9 @@ package cfg;
 import "errors"
 
 type TestTestString struct {
-    Id int32
+    Id string
     S1 string
+    S2 string
     Cs1 *TestCompactString
     Cs2 *TestCompactString
 }
@@ -27,8 +28,9 @@ func (*TestTestString) GetTypeId() int32 {
 
 func NewTestTestString(_buf map[string]interface{}) (_v *TestTestString, err error) {
     _v = &TestTestString{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
+    { var _ok_ bool; if _v.Id, _ok_ = _buf["id"].(string); !_ok_ { err = errors.New("id error"); return } }
     { var _ok_ bool; if _v.S1, _ok_ = _buf["s1"].(string); !_ok_ { err = errors.New("s1 error"); return } }
+    { var _ok_ bool; if _v.S2, _ok_ = _buf["s2"].(string); !_ok_ { err = errors.New("s2 error"); return } }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cs1"].(map[string]interface{}); !_ok_ { err = errors.New("cs1 error"); return }; if _v.Cs1, err = NewTestCompactString(_x_); err != nil { return } }
     { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["cs2"].(map[string]interface{}); !_ok_ { err = errors.New("cs2 error"); return }; if _v.Cs2, err = NewTestCompactString(_x_); err != nil { return } }
     return

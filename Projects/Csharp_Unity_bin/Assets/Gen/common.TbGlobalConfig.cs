@@ -26,7 +26,7 @@ public partial class TbGlobalConfig
 
 
     /// <summary>
-    /// 
+    /// 背包容量
     /// </summary>
      public int X1 => _data.X1;
      public int X2 => _data.X2;

@@ -32,7 +32,7 @@ namespace cfg.item
         /// <summary>
         /// 能量点
         /// </summary>
-        POWERPOINT = 5,
+        POWER_POINT = 5,
     }
 
 } 

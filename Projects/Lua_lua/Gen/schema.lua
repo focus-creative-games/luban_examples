@@ -220,20 +220,6 @@ local enums =
 
 local beans = {}
     do
-    ---@class test.TestExcelBean1  @这是个测试excel结构
-     ---@field public x1 integer @最高品质
-     ---@field public x2 string @黑色的
-     ---@field public x3 integer @蓝色的
-     ---@field public x4 number @最差品质
-        local class = {
-            { name='x1', type='integer'},
-            { name='x2', type='string'},
-            { name='x3', type='integer'},
-            { name='x4', type='number'},
-        }
-        beans['test.TestExcelBean1'] = class
-    end
-    do
     ---@class ai.Blackboard 
      ---@field public name string
      ---@field public desc string
@@ -643,11 +629,8 @@ local beans = {}
     ---@class item.Item  @道具
      ---@field public id integer @道具id
      ---@field public name string
-     ---@field public major_type integer
      ---@field public minor_type integer
-     ---@field public max_pile_num integer
      ---@field public quality integer
-     ---@field public icon string
      ---@field public icon_backgroud string
      ---@field public icon_mask string
      ---@field public desc string
@@ -655,11 +638,8 @@ local beans = {}
         local class = {
             { name='id', type='integer'},
             { name='name', type='string'},
-            { name='major_type', type='integer'},
             { name='minor_type', type='integer'},
-            { name='max_pile_num', type='integer'},
             { name='quality', type='integer'},
-            { name='icon', type='string'},
             { name='icon_backgroud', type='string'},
             { name='icon_mask', type='string'},
             { name='desc', type='string'},
@@ -1118,17 +1098,9 @@ local beans = {}
     do
     ---@class test.DemoGroup 
      ---@field public id integer
-     ---@field public x1 integer
-     ---@field public x2 integer
-     ---@field public x3 integer
-     ---@field public x4 integer
      ---@field public x5 test.InnerGroup
         local class = {
             { name='id', type='integer'},
-            { name='x1', type='integer'},
-            { name='x2', type='integer'},
-            { name='x3', type='integer'},
-            { name='x4', type='integer'},
             { name='x5', type='test.InnerGroup'},
         }
         beans['test.DemoGroup'] = class
@@ -1136,14 +1108,8 @@ local beans = {}
     do
     ---@class test.InnerGroup 
      ---@field public y1 integer
-     ---@field public y2 integer
-     ---@field public y3 integer
-     ---@field public y4 integer
         local class = {
             { name='y1', type='integer'},
-            { name='y2', type='integer'},
-            { name='y3', type='integer'},
-            { name='y4', type='integer'},
         }
         beans['test.InnerGroup'] = class
     end
@@ -1564,9 +1530,6 @@ local tables =
     { name='TbDemoPrimitive', file='test_tbdemoprimitive', mode='map', index='x4', value_type='test.DemoPrimitiveTypesTable' },
     { name='TbTestString', file='test_tbteststring', mode='map', index='id', value_type='test.TestString' },
     { name='TbDemoGroup', file='test_tbdemogroup', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_C', file='test_tbdemogroup_c', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_S', file='test_tbdemogroup_s', mode='map', index='id', value_type='test.DemoGroup' },
-    { name='TbDemoGroup_E', file='test_tbdemogroup_e', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
     { name='TbTestBeRef', file='test_tbtestberef', mode='map', index='id', value_type='test.TestBeRef' },
     { name='TbTestBeRef2', file='test_tbtestberef2', mode='map', index='id', value_type='test.TestBeRef' },

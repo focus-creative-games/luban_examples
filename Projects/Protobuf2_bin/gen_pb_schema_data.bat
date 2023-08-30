@@ -7,8 +7,7 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -c protobuf2 ^
     -d protobuf-bin  ^
-    --schemaPath %CONF_ROOT%\Defines\__root__.xml ^
-    -x inputDataDir=%CONF_ROOT%\Datas ^
+    --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=pb_schemas ^
     -x outputDataDir=pb_datas ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^

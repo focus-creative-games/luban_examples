@@ -14,37 +14,37 @@ namespace cfg.item
     public enum EClothesHidePartType
     {
         /// <summary>
-        /// 
+        /// 胸部
         /// </summary>
         CHEST = 0,
         /// <summary>
-        /// 
+        /// 手
         /// </summary>
         HEAD = 1,
         /// <summary>
-        /// 
+        /// 脊柱上
         /// </summary>
-        SPINEUPPER = 2,
+        SPINE_UPPER = 2,
         /// <summary>
-        /// 
+        /// 脊柱下
         /// </summary>
-        SPINELOWER = 3,
+        SPINE_LOWER = 3,
         /// <summary>
-        /// 
+        /// 臀部
         /// </summary>
         HIP = 4,
         /// <summary>
-        /// 
+        /// 腿上
         /// </summary>
-        LEGUPPER = 5,
+        LEG_UPPER = 5,
         /// <summary>
-        /// 
+        /// 腿中
         /// </summary>
-        LEGMIDDLE = 6,
+        LEG_MIDDLE = 6,
         /// <summary>
-        /// 
+        /// 腿下
         /// </summary>
-        LEGLOWER = 7,
+        LEG_LOWER = 7,
     }
 
 } 

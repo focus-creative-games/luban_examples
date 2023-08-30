@@ -21,9 +21,9 @@ type TestTestScriptableObject struct {
     Desc string
     Rate float32
     Num int32
-    V2 *vector2
-    V3 *vector3
-    V4 *vector4
+    V2 *vec2
+    V3 *vec3
+    V4 *vec4
 }
 
 const TypeId_TestTestScriptableObject = -1896814350
@@ -38,9 +38,9 @@ func NewTestTestScriptableObject(_buf *luban.ByteBuf) (_v *TestTestScriptableObj
     { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.Rate, err = _buf.ReadFloat(); err != nil { err = errors.New("error"); return } }
     { if _v.Num, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.V2, err = Newvector2(_buf); err != nil { err = errors.New("error"); return } }
-    { if _v.V3, err = Newvector3(_buf); err != nil { err = errors.New("error"); return } }
-    { if _v.V4, err = Newvector4(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V2, err = Newvec2(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V3, err = Newvec3(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V4, err = Newvec4(_buf); err != nil { err = errors.New("error"); return } }
     return
 }
 

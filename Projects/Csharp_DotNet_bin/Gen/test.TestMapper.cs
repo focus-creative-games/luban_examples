@@ -18,7 +18,7 @@ public sealed partial class TestMapper : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         AudioType = (AudioType)_buf.ReadInt();
-        V2 = vector2.Deserializevector2(_buf);
+        V2 = vec2.Deserializevec2(_buf);
     }
 
     public static TestMapper DeserializeTestMapper(ByteBuf _buf)
@@ -28,7 +28,7 @@ public sealed partial class TestMapper : Luban.BeanBase
 
     public readonly int Id;
     public readonly AudioType AudioType;
-    public readonly vector2 V2;
+    public readonly vec2 V2;
    
     public const int __ID__ = 149110895;
     public override int GetTypeId() => __ID__;

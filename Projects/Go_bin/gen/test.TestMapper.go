@@ -19,7 +19,7 @@ import "errors"
 type TestTestMapper struct {
     Id int32
     AudioType int32
-    V2 *vector2
+    V2 *vec2
 }
 
 const TypeId_TestTestMapper = 149110895
@@ -32,7 +32,7 @@ func NewTestTestMapper(_buf *luban.ByteBuf) (_v *TestTestMapper, err error) {
     _v = &TestTestMapper{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.AudioType, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.V2, err = Newvector2(_buf); err != nil { err = errors.New("error"); return } }
+    { if _v.V2, err = Newvec2(_buf); err != nil { err = errors.New("error"); return } }
     return
 }
 

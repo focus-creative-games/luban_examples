@@ -17,8 +17,9 @@ import (
 import "errors"
 
 type TestTestString struct {
-    Id int32
+    Id string
     S1 string
+    S2 string
     Cs1 *TestCompactString
     Cs2 *TestCompactString
 }
@@ -31,8 +32,9 @@ func (*TestTestString) GetTypeId() int32 {
 
 func NewTestTestString(_buf *luban.ByteBuf) (_v *TestTestString, err error) {
     _v = &TestTestString{}
-    { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
+    { if _v.Id, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.S1, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
+    { if _v.S2, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.Cs1, err = NewTestCompactString(_buf); err != nil { err = errors.New("error"); return } }
     { if _v.Cs2, err = NewTestCompactString(_buf); err != nil { err = errors.New("error"); return } }
     return

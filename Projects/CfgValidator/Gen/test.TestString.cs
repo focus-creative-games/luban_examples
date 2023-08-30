@@ -17,8 +17,9 @@ public sealed partial class TestString : Luban.BeanBase
 {
     public TestString(JsonElement _buf) 
     {
-        Id = _buf.GetProperty("id").GetInt32();
+        Id = _buf.GetProperty("id").GetString();
         S1 = _buf.GetProperty("s1").GetString();
+        S2 = _buf.GetProperty("s2").GetString();
         Cs1 = test.CompactString.DeserializeCompactString(_buf.GetProperty("cs1"));
         Cs2 = test.CompactString.DeserializeCompactString(_buf.GetProperty("cs2"));
     }
@@ -28,8 +29,9 @@ public sealed partial class TestString : Luban.BeanBase
         return new test.TestString(_buf);
     }
 
-    public readonly int Id;
+    public readonly string Id;
     public readonly string S1;
+    public readonly string S2;
     public readonly test.CompactString Cs1;
     public readonly test.CompactString Cs2;
    
@@ -38,6 +40,7 @@ public sealed partial class TestString : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
+        
         
         
         Cs1?.ResolveRef(tables);
@@ -49,6 +52,7 @@ public sealed partial class TestString : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "s1:" + S1 + ","
+        + "s2:" + S2 + ","
         + "cs1:" + Cs1 + ","
         + "cs2:" + Cs2 + ","
         + "}";

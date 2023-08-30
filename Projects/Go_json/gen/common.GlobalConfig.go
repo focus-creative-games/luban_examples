@@ -13,27 +13,13 @@ package cfg;
 import "errors"
 
 type CommonGlobalConfig struct {
-    BagCapacity int32
-    BagCapacitySpecial int32
-    BagTempExpendableCapacity int32
-    BagTempToolCapacity int32
-    BagInitCapacity int32
-    QuickBagCapacity int32
-    ClothBagCapacity int32
-    ClothBagInitCapacity int32
-    ClothBagCapacitySpecial int32
-    BagInitItemsDropId *int32
-    MailBoxCapacity int32
-    DamageParamC float32
-    DamageParamE float32
-    DamageParamF float32
-    DamageParamD float32
-    RoleSpeed float32
-    MonsterSpeed float32
-    InitEnergy int32
-    InitViality int32
-    MaxViality int32
-    PerVialityRecoveryTime int32
+    X1 int32
+    X2 int32
+    X3 int32
+    X4 int32
+    X5 int32
+    X6 int32
+    X7 []int32
 }
 
 const TypeId_CommonGlobalConfig = -848234488
@@ -44,27 +30,26 @@ func (*CommonGlobalConfig) GetTypeId() int32 {
 
 func NewCommonGlobalConfig(_buf map[string]interface{}) (_v *CommonGlobalConfig, err error) {
     _v = &CommonGlobalConfig{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_capacity"].(float64); !_ok_ { err = errors.New("bag_capacity error"); return }; _v.BagCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_capacity_special"].(float64); !_ok_ { err = errors.New("bag_capacity_special error"); return }; _v.BagCapacitySpecial = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_temp_expendable_capacity"].(float64); !_ok_ { err = errors.New("bag_temp_expendable_capacity error"); return }; _v.BagTempExpendableCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_temp_tool_capacity"].(float64); !_ok_ { err = errors.New("bag_temp_tool_capacity error"); return }; _v.BagTempToolCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["bag_init_capacity"].(float64); !_ok_ { err = errors.New("bag_init_capacity error"); return }; _v.BagInitCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["quick_bag_capacity"].(float64); !_ok_ { err = errors.New("quick_bag_capacity error"); return }; _v.QuickBagCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["cloth_bag_capacity"].(float64); !_ok_ { err = errors.New("cloth_bag_capacity error"); return }; _v.ClothBagCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["cloth_bag_init_capacity"].(float64); !_ok_ { err = errors.New("cloth_bag_init_capacity error"); return }; _v.ClothBagInitCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["cloth_bag_capacity_special"].(float64); !_ok_ { err = errors.New("cloth_bag_capacity_special error"); return }; _v.ClothBagCapacitySpecial = int32(_tempNum_) }
-    { var _ok_ bool; var __json_bag_init_items_drop_id__ interface{}; if __json_bag_init_items_drop_id__, _ok_ = _buf["bag_init_items_drop_id"]; !_ok_ || __json_bag_init_items_drop_id__ == nil { _v.BagInitItemsDropId = nil } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_bag_init_items_drop_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.BagInitItemsDropId = &__x__ }}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["mail_box_capacity"].(float64); !_ok_ { err = errors.New("mail_box_capacity error"); return }; _v.MailBoxCapacity = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["damage_param_c"].(float64); !_ok_ { err = errors.New("damage_param_c error"); return }; _v.DamageParamC = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["damage_param_e"].(float64); !_ok_ { err = errors.New("damage_param_e error"); return }; _v.DamageParamE = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["damage_param_f"].(float64); !_ok_ { err = errors.New("damage_param_f error"); return }; _v.DamageParamF = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["damage_param_d"].(float64); !_ok_ { err = errors.New("damage_param_d error"); return }; _v.DamageParamD = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["role_speed"].(float64); !_ok_ { err = errors.New("role_speed error"); return }; _v.RoleSpeed = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["monster_speed"].(float64); !_ok_ { err = errors.New("monster_speed error"); return }; _v.MonsterSpeed = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["init_energy"].(float64); !_ok_ { err = errors.New("init_energy error"); return }; _v.InitEnergy = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["init_viality"].(float64); !_ok_ { err = errors.New("init_viality error"); return }; _v.InitViality = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["max_viality"].(float64); !_ok_ { err = errors.New("max_viality error"); return }; _v.MaxViality = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["per_viality_recovery_time"].(float64); !_ok_ { err = errors.New("per_viality_recovery_time error"); return }; _v.PerVialityRecoveryTime = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x5"].(float64); !_ok_ { err = errors.New("x5 error"); return }; _v.X5 = int32(_tempNum_) }
+    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x6"].(float64); !_ok_ { err = errors.New("x6 error"); return }; _v.X6 = int32(_tempNum_) }
+     {
+                    var _arr_ []interface{}
+                    var _ok_ bool
+                    if _arr_, _ok_ = _buf["x7"].([]interface{}); !_ok_ { err = errors.New("x7 error"); return }
+    
+                    _v.X7 = make([]int32, 0, len(_arr_))
+                    
+                    for _, _e_ := range _arr_ {
+                        var _list_v_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
+                        _v.X7 = append(_v.X7, _list_v_)
+                    }
+                }
+
     return
 }
 

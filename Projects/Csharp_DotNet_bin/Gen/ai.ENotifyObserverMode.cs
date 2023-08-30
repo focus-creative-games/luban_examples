@@ -13,8 +13,8 @@ namespace cfg.ai
 { 
     public enum ENotifyObserverMode
     {
-        ONVALUECHANGE = 0,
-        ONRESULTCHANGE = 1,
+        ON_VALUE_CHANGE = 0,
+        ON_RESULT_CHANGE = 1,
     }
 
 } 

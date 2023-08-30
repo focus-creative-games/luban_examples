@@ -18,7 +18,7 @@ namespace cfg.test
         READ = 2,
         TRUNCATE = 4,
         NEW = 8,
-        READWRITE = WRITE|READ,
+        READ_WRITE = WRITE|READ,
     }
 
 } 

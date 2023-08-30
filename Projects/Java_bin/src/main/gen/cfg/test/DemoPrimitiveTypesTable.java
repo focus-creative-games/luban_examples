@@ -23,9 +23,9 @@ public final class DemoPrimitiveTypesTable extends AbstractBean {
         x7 = _buf.readDouble();
         s1 = _buf.readString();
         s2 = _buf.readString();
-        v2 = cfg.vector2.deserialize(_buf);
-        v3 = cfg.vector3.deserialize(_buf);
-        v4 = cfg.vector4.deserialize(_buf);
+        v2 = cfg.vec2.deserialize(_buf);
+        v3 = cfg.vec3.deserialize(_buf);
+        v4 = cfg.vec4.deserialize(_buf);
         t1 = _buf.readLong();
     }
 
@@ -42,9 +42,9 @@ public final class DemoPrimitiveTypesTable extends AbstractBean {
     public final double x7;
     public final String s1;
     public final String s2;
-    public final cfg.vector2 v2;
-    public final cfg.vector3 v3;
-    public final cfg.vector4 v4;
+    public final cfg.vec2 v2;
+    public final cfg.vec3 v3;
+    public final cfg.vec4 v4;
     public final long t1;
 
     public static final int __ID__ = -370934083;

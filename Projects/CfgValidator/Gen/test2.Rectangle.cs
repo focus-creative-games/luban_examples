@@ -30,11 +30,11 @@ public sealed partial class Rectangle : test.Shape
     }
 
     /// <summary>
-    /// 
+    /// 宽度
     /// </summary>
     public readonly float Width;
     /// <summary>
-    /// 
+    /// 高度
     /// </summary>
     public readonly float Height;
    

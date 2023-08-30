@@ -17,27 +17,13 @@ public sealed partial class GlobalConfig : Luban.BeanBase
 {
     public GlobalConfig(JsonElement _buf) 
     {
-        BagCapacity = _buf.GetProperty("bag_capacity").GetInt32();
-        BagCapacitySpecial = _buf.GetProperty("bag_capacity_special").GetInt32();
-        BagTempExpendableCapacity = _buf.GetProperty("bag_temp_expendable_capacity").GetInt32();
-        BagTempToolCapacity = _buf.GetProperty("bag_temp_tool_capacity").GetInt32();
-        BagInitCapacity = _buf.GetProperty("bag_init_capacity").GetInt32();
-        QuickBagCapacity = _buf.GetProperty("quick_bag_capacity").GetInt32();
-        ClothBagCapacity = _buf.GetProperty("cloth_bag_capacity").GetInt32();
-        ClothBagInitCapacity = _buf.GetProperty("cloth_bag_init_capacity").GetInt32();
-        ClothBagCapacitySpecial = _buf.GetProperty("cloth_bag_capacity_special").GetInt32();
-        {if (_buf.TryGetProperty("bag_init_items_drop_id", out var _j) && _j.ValueKind != JsonValueKind.Null) { BagInitItemsDropId = _j.GetInt32(); } else { BagInitItemsDropId = null; } }
-        MailBoxCapacity = _buf.GetProperty("mail_box_capacity").GetInt32();
-        DamageParamC = _buf.GetProperty("damage_param_c").GetSingle();
-        DamageParamE = _buf.GetProperty("damage_param_e").GetSingle();
-        DamageParamF = _buf.GetProperty("damage_param_f").GetSingle();
-        DamageParamD = _buf.GetProperty("damage_param_d").GetSingle();
-        RoleSpeed = _buf.GetProperty("role_speed").GetSingle();
-        MonsterSpeed = _buf.GetProperty("monster_speed").GetSingle();
-        InitEnergy = _buf.GetProperty("init_energy").GetInt32();
-        InitViality = _buf.GetProperty("init_viality").GetInt32();
-        MaxViality = _buf.GetProperty("max_viality").GetInt32();
-        PerVialityRecoveryTime = _buf.GetProperty("per_viality_recovery_time").GetInt32();
+        X1 = _buf.GetProperty("x1").GetInt32();
+        X2 = _buf.GetProperty("x2").GetInt32();
+        X3 = _buf.GetProperty("x3").GetInt32();
+        X4 = _buf.GetProperty("x4").GetInt32();
+        X5 = _buf.GetProperty("x5").GetInt32();
+        X6 = _buf.GetProperty("x6").GetInt32();
+        { var __json0 = _buf.GetProperty("x7"); X7 = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  X7.Add(__v0); }   }
     }
 
     public static GlobalConfig DeserializeGlobalConfig(JsonElement _buf)
@@ -46,29 +32,15 @@ public sealed partial class GlobalConfig : Luban.BeanBase
     }
 
     /// <summary>
-    /// 
+    /// 背包容量
     /// </summary>
-    public readonly int BagCapacity;
-    public readonly int BagCapacitySpecial;
-    public readonly int BagTempExpendableCapacity;
-    public readonly int BagTempToolCapacity;
-    public readonly int BagInitCapacity;
-    public readonly int QuickBagCapacity;
-    public readonly int ClothBagCapacity;
-    public readonly int ClothBagInitCapacity;
-    public readonly int ClothBagCapacitySpecial;
-    public readonly int? BagInitItemsDropId;
-    public readonly int MailBoxCapacity;
-    public readonly float DamageParamC;
-    public readonly float DamageParamE;
-    public readonly float DamageParamF;
-    public readonly float DamageParamD;
-    public readonly float RoleSpeed;
-    public readonly float MonsterSpeed;
-    public readonly int InitEnergy;
-    public readonly int InitViality;
-    public readonly int MaxViality;
-    public readonly int PerVialityRecoveryTime;
+    public readonly int X1;
+    public readonly int X2;
+    public readonly int X3;
+    public readonly int X4;
+    public readonly int X5;
+    public readonly int X6;
+    public readonly System.Collections.Generic.List<int> X7;
    
     public const int __ID__ = -848234488;
     public override int GetTypeId() => __ID__;
@@ -82,46 +54,18 @@ public sealed partial class GlobalConfig : Luban.BeanBase
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "bagCapacity:" + BagCapacity + ","
-        + "bagCapacitySpecial:" + BagCapacitySpecial + ","
-        + "bagTempExpendableCapacity:" + BagTempExpendableCapacity + ","
-        + "bagTempToolCapacity:" + BagTempToolCapacity + ","
-        + "bagInitCapacity:" + BagInitCapacity + ","
-        + "quickBagCapacity:" + QuickBagCapacity + ","
-        + "clothBagCapacity:" + ClothBagCapacity + ","
-        + "clothBagInitCapacity:" + ClothBagInitCapacity + ","
-        + "clothBagCapacitySpecial:" + ClothBagCapacitySpecial + ","
-        + "bagInitItemsDropId:" + BagInitItemsDropId + ","
-        + "mailBoxCapacity:" + MailBoxCapacity + ","
-        + "damageParamC:" + DamageParamC + ","
-        + "damageParamE:" + DamageParamE + ","
-        + "damageParamF:" + DamageParamF + ","
-        + "damageParamD:" + DamageParamD + ","
-        + "roleSpeed:" + RoleSpeed + ","
-        + "monsterSpeed:" + MonsterSpeed + ","
-        + "initEnergy:" + InitEnergy + ","
-        + "initViality:" + InitViality + ","
-        + "maxViality:" + MaxViality + ","
-        + "perVialityRecoveryTime:" + PerVialityRecoveryTime + ","
+        + "x1:" + X1 + ","
+        + "x2:" + X2 + ","
+        + "x3:" + X3 + ","
+        + "x4:" + X4 + ","
+        + "x5:" + X5 + ","
+        + "x6:" + X6 + ","
+        + "x7:" + Luban.StringUtil.CollectionToString(X7) + ","
         + "}";
     }
 }

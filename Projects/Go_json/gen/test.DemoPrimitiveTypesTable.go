@@ -22,9 +22,9 @@ type TestDemoPrimitiveTypesTable struct {
     X7 float64
     S1 string
     S2 string
-    V2 *vector2
-    V3 *vector3
-    V4 *vector4
+    V2 *vec2
+    V3 *vec3
+    V4 *vec4
     T1 int64
 }
 
@@ -45,9 +45,9 @@ func NewTestDemoPrimitiveTypesTable(_buf map[string]interface{}) (_v *TestDemoPr
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x7"].(float64); !_ok_ { err = errors.New("x7 error"); return }; _v.X7 = float64(_tempNum_) }
     { var _ok_ bool; if _v.S1, _ok_ = _buf["s1"].(string); !_ok_ { err = errors.New("s1 error"); return } }
     { var _ok_ bool; if _v.S2, _ok_ = _buf["s2"].(string); !_ok_ { err = errors.New("s2 error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }; if _v.V2, err = Newvector2(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v3"].(map[string]interface{}); !_ok_ { err = errors.New("v3 error"); return }; if _v.V3, err = Newvector3(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v4"].(map[string]interface{}); !_ok_ { err = errors.New("v4 error"); return }; if _v.V4, err = Newvector4(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }; if _v.V2, err = Newvec2(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v3"].(map[string]interface{}); !_ok_ { err = errors.New("v3 error"); return }; if _v.V3, err = Newvec3(_x_); err != nil { return } }
+    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v4"].(map[string]interface{}); !_ok_ { err = errors.New("v4 error"); return }; if _v.V4, err = Newvec4(_x_); err != nil { return } }
     { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["t1"].(float64); !_ok_ { err = errors.New("t1 error"); return }; _v.T1 = int64(_tempNum_) }
     return
 }

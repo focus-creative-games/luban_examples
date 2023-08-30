@@ -14,12 +14,12 @@ namespace cfg.test
 {
 public partial class TbTestString
 {
-    private readonly System.Collections.Generic.Dictionary<int, test.TestString> _dataMap;
+    private readonly System.Collections.Generic.Dictionary<string, test.TestString> _dataMap;
     private readonly System.Collections.Generic.List<test.TestString> _dataList;
     
     public TbTestString(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestString>();
+        _dataMap = new System.Collections.Generic.Dictionary<string, test.TestString>();
         _dataList = new System.Collections.Generic.List<test.TestString>();
         
         for(int n = _buf.ReadSize() ; n > 0 ; --n)
@@ -31,12 +31,12 @@ public partial class TbTestString
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestString> DataMap => _dataMap;
+    public System.Collections.Generic.Dictionary<string, test.TestString> DataMap => _dataMap;
     public System.Collections.Generic.List<test.TestString> DataList => _dataList;
 
-    public test.TestString GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public test.TestString Get(int key) => _dataMap[key];
-    public test.TestString this[int key] => _dataMap[key];
+    public test.TestString GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestString Get(string key) => _dataMap[key];
+    public test.TestString this[string key] => _dataMap[key];
 
     public void ResolveRef(Tables tables)
     {

@@ -1,14 +1,16 @@
 set WORKSPACE=..\..
 
-set GEN_CLIENT=%WORKSPACE%\Tools\Luban.ClientServer\Luban.ClientServer.exe
+set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
 set CONF_ROOT=%WORKSPACE%\DesignerConfigs
 
-%GEN_CLIENT% -j cfg --^
- -d %CONF_ROOT%\Defines\__root__.xml ^
- --input_data_dir %CONF_ROOT%\Datas ^
- --output_code_dir Gen ^
- --output_data_dir ..\GenerateDatas\bytes ^
- --gen_types code_cpp_bin,data_bin ^
- -s all 
+dotnet %LUBAN_DLL% ^
+    -t all ^
+    -c cpp-bin ^
+    -d bin  ^
+    --conf %CONF_ROOT%\luban.conf ^
+    -x outputCodeDir=Gen ^
+    -x outputDataDir=..\GenerateDatas\bytes ^
+    -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
+    -x l10n.textProviderFile=*@%WORKSPACE%\DesignerConfigs\Datas\l10n\texts.json
 
 pause

@@ -11,13 +11,13 @@ package cfg;
 
 
 type TestTbTestString struct {
-    _dataMap map[int32]*TestTestString
+    _dataMap map[string]*TestTestString
     _dataList []*TestTestString
 }
 
 func NewTestTbTestString(_buf []map[string]interface{}) (*TestTbTestString, error) {
     _dataList := make([]*TestTestString, 0, len(_buf))
-    dataMap := make(map[int32]*TestTestString)
+    dataMap := make(map[string]*TestTestString)
 
     for _, _ele_ := range _buf {
         if _v, err2 := NewTestTestString(_ele_); err2 != nil {
@@ -30,7 +30,7 @@ func NewTestTbTestString(_buf []map[string]interface{}) (*TestTbTestString, erro
     return &TestTbTestString{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *TestTbTestString) GetDataMap() map[int32]*TestTestString {
+func (table *TestTbTestString) GetDataMap() map[string]*TestTestString {
     return table._dataMap
 }
 
@@ -38,7 +38,7 @@ func (table *TestTbTestString) GetDataList() []*TestTestString {
     return table._dataList
 }
 
-func (table *TestTbTestString) Get(key int32) *TestTestString {
+func (table *TestTbTestString) Get(key string) *TestTestString {
     return table._dataMap[key]
 }
 

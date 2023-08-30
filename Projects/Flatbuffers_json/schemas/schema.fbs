@@ -321,12 +321,6 @@ union TestShape {
     Test2Rectangle,
 }
 
-table TestTestExcelBean1 {
-    x1:int32;
-    x2:string;
-    x3:int32;
-    x4:float32;
-}
 table AiBlackboard {
     name:string;
     desc:string;
@@ -538,36 +532,19 @@ table AiDebugPrint {
     text:string;
 }
 table CommonGlobalConfig {
-    bag_capacity:int32;
-    bag_capacity_special:int32;
-    bag_temp_expendable_capacity:int32;
-    bag_temp_tool_capacity:int32;
-    bag_init_capacity:int32;
-    quick_bag_capacity:int32;
-    cloth_bag_capacity:int32;
-    cloth_bag_init_capacity:int32;
-    cloth_bag_capacity_special:int32;
-    bag_init_items_drop_id:int32;
-    mail_box_capacity:int32;
-    damage_param_c:float32;
-    damage_param_e:float32;
-    damage_param_f:float32;
-    damage_param_d:float32;
-    role_speed:float32;
-    monster_speed:float32;
-    init_energy:int32;
-    init_viality:int32;
-    max_viality:int32;
-    per_viality_recovery_time:int32;
+    x1:int32;
+    x2:int32;
+    x3:int32;
+    x4:int32;
+    x5:int32;
+    x6:int32;
+    x7:[int32](required);
 }
 table ItemItem {
     id:int32;
     name:string;
-    major_type:ItemEMajorType;
     minor_type:ItemEMinorType;
-    max_pile_num:int32;
     quality:ItemEItemQuality;
-    icon:string;
     icon_backgroud:string;
     icon_mask:string;
     desc:string;
@@ -732,29 +709,30 @@ table TestDemoPrimitiveTypesTable {
     x7:float64;
     s1:string;
     s2:string;
-    v2:vector2(required);
-    v3:vector3(required);
-    v4:vector4(required);
+    v2:vec2(required);
+    v3:vec3(required);
+    v4:vec4(required);
     t1:int64;
 }
-table vector2 {
+table vec2 {
     x:float32;
     y:float32;
 }
-table vector3 {
+table vec3 {
     x:float32;
     y:float32;
     z:float32;
 }
-table vector4 {
+table vec4 {
     x:float32;
     y:float32;
     z:float32;
     w:float32;
 }
 table TestTestString {
-    id:int32;
+    id:string;
     s1:string;
+    s2:string;
     cs1:TestCompactString(required);
     cs2:TestCompactString(required);
 }
@@ -765,17 +743,10 @@ table TestCompactString {
 }
 table TestDemoGroup {
     id:int32;
-    x1:int32;
-    x2:int32;
-    x3:int32;
-    x4:int32;
     x5:TestInnerGroup(required);
 }
 table TestInnerGroup {
     y1:int32;
-    y2:int32;
-    y3:int32;
-    y4:int32;
 }
 table TestTestGlobal {
     unlock_equip:int32;
@@ -911,14 +882,14 @@ table TestTestScriptableObject {
     desc:string;
     rate:float32;
     num:int32;
-    v2:vector2(required);
-    v3:vector3(required);
-    v4:vector4(required);
+    v2:vec2(required);
+    v3:vec3(required);
+    v4:vec4(required);
 }
 table TestTestMapper {
     id:int32;
     audio_type:AudioType;
-    v2:vector2(required);
+    v2:vec2(required);
 }
 table DefineFromExcel2 {
     id:int32;
@@ -931,14 +902,14 @@ table DefineFromExcel2 {
     x13_2:TestDemoFlag;
     x14:TestDemoDynamic(required);
     x15:TestShape(required);
-    v2:vector2(required);
+    v2:vec2(required);
     t1:int64;
     k1:[int32](required);
     k2:[int32](required);
     k8:[KeyValue_int32_int32](required);
     k9:[TestDemoE2](required);
-    k10:[vector3](required);
-    k11:[vector4](required);
+    k10:[vec3](required);
+    k11:[vec4](required);
 }
 table TestCircle {
     radius:float32;
@@ -1089,24 +1060,6 @@ table TestTbDemoGroup {
 }
 
 root_type TestTbDemoGroup;
-table TestTbDemoGroup_C {
-    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
-    data_list:[TestDemoGroup](required);
-}
-
-root_type TestTbDemoGroup_C;
-table TestTbDemoGroup_S {
-    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
-    data_list:[TestDemoGroup](required);
-}
-
-root_type TestTbDemoGroup_S;
-table TestTbDemoGroup_E {
-    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
-    data_list:[TestDemoGroup](required);
-}
-
-root_type TestTbDemoGroup_E;
 table TestTbTestGlobal {
     // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
     data_list:[TestTestGlobal](required);

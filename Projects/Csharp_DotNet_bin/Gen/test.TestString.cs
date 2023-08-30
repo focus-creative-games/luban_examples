@@ -16,8 +16,9 @@ public sealed partial class TestString : Luban.BeanBase
 {
     public TestString(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        Id = _buf.ReadString();
         S1 = _buf.ReadString();
+        S2 = _buf.ReadString();
         Cs1 = test.CompactString.DeserializeCompactString(_buf);
         Cs2 = test.CompactString.DeserializeCompactString(_buf);
     }
@@ -27,8 +28,9 @@ public sealed partial class TestString : Luban.BeanBase
         return new test.TestString(_buf);
     }
 
-    public readonly int Id;
+    public readonly string Id;
     public readonly string S1;
+    public readonly string S2;
     public readonly test.CompactString Cs1;
     public readonly test.CompactString Cs2;
    
@@ -37,6 +39,7 @@ public sealed partial class TestString : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
+        
         
         
         Cs1?.ResolveRef(tables);
@@ -48,6 +51,7 @@ public sealed partial class TestString : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "s1:" + S1 + ","
+        + "s2:" + S2 + ","
         + "cs1:" + Cs1 + ","
         + "cs2:" + Cs2 + ","
         + "}";

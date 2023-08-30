@@ -13,14 +13,14 @@ namespace cfg.ai
 { 
     public enum EOperator
     {
-        ISEQUALTO = 0,
-        ISNOTEQUALTO = 1,
-        ISLESSTHAN = 2,
-        ISLESSTHANOREQUALTO = 3,
-        ISGREATTHAN = 4,
-        ISGREATTHANOREQUALTO = 5,
+        IS_EQUAL_TO = 0,
+        IS_NOT_EQUAL_TO = 1,
+        IS_LESS_THAN = 2,
+        IS_LESS_THAN_OR_EQUAL_TO = 3,
+        IS_GREAT_THAN = 4,
+        IS_GREAT_THAN_OR_EQUAL_TO = 5,
         CONTAINS = 6,
-        NOTCONTAINS = 7,
+        NOT_CONTAINS = 7,
     }
 
 } 

@@ -26,29 +26,15 @@ public partial class TbGlobalConfig
 
 
     /// <summary>
-    /// 
+    /// 背包容量
     /// </summary>
-     public int BagCapacity => _data.BagCapacity;
-     public int BagCapacitySpecial => _data.BagCapacitySpecial;
-     public int BagTempExpendableCapacity => _data.BagTempExpendableCapacity;
-     public int BagTempToolCapacity => _data.BagTempToolCapacity;
-     public int BagInitCapacity => _data.BagInitCapacity;
-     public int QuickBagCapacity => _data.QuickBagCapacity;
-     public int ClothBagCapacity => _data.ClothBagCapacity;
-     public int ClothBagInitCapacity => _data.ClothBagInitCapacity;
-     public int ClothBagCapacitySpecial => _data.ClothBagCapacitySpecial;
-     public int? BagInitItemsDropId => _data.BagInitItemsDropId;
-     public int MailBoxCapacity => _data.MailBoxCapacity;
-     public float DamageParamC => _data.DamageParamC;
-     public float DamageParamE => _data.DamageParamE;
-     public float DamageParamF => _data.DamageParamF;
-     public float DamageParamD => _data.DamageParamD;
-     public float RoleSpeed => _data.RoleSpeed;
-     public float MonsterSpeed => _data.MonsterSpeed;
-     public int InitEnergy => _data.InitEnergy;
-     public int InitViality => _data.InitViality;
-     public int MaxViality => _data.MaxViality;
-     public int PerVialityRecoveryTime => _data.PerVialityRecoveryTime;
+     public int X1 => _data.X1;
+     public int X2 => _data.X2;
+     public int X3 => _data.X3;
+     public int X4 => _data.X4;
+     public int X5 => _data.X5;
+     public int X6 => _data.X6;
+     public System.Collections.Generic.List<int> X7 => _data.X7;
     
     public void ResolveRef(Tables tables)
     {

@@ -18,9 +18,6 @@ import "errors"
 
 type TestInnerGroup struct {
     Y1 int32
-    Y2 int32
-    Y3 int32
-    Y4 int32
 }
 
 const TypeId_TestInnerGroup = -587873083
@@ -32,9 +29,6 @@ func (*TestInnerGroup) GetTypeId() int32 {
 func NewTestInnerGroup(_buf *luban.ByteBuf) (_v *TestInnerGroup, err error) {
     _v = &TestInnerGroup{}
     { if _v.Y1, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.Y2, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.Y3, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    { if _v.Y4, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     return
 }
 
