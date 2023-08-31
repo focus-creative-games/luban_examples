@@ -330,3 +330,4 @@ Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
 out/
 /Projects/GDScript_json/.godot
 /Projects/GDScript_json/json
+/Projects/Protobuf3_cppbin/protobuf
