@@ -17,6 +17,8 @@ public sealed partial class InnerGroup : Luban.BeanBase
     public InnerGroup(ByteBuf _buf) 
     {
         Y1 = _buf.ReadInt();
+        Y3 = _buf.ReadInt();
+        Y4 = _buf.ReadInt();
     }
 
     public static InnerGroup DeserializeInnerGroup(ByteBuf _buf)
@@ -25,6 +27,8 @@ public sealed partial class InnerGroup : Luban.BeanBase
     }
 
     public readonly int Y1;
+    public readonly int Y3;
+    public readonly int Y4;
    
     public const int __ID__ = -587873083;
     public override int GetTypeId() => __ID__;
@@ -32,12 +36,16 @@ public sealed partial class InnerGroup : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         
+        
+        
     }
 
     public override string ToString()
     {
         return "{ "
         + "y1:" + Y1 + ","
+        + "y3:" + Y3 + ","
+        + "y4:" + Y4 + ","
         + "}";
     }
 }

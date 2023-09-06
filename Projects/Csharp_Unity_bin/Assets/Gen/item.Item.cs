@@ -21,7 +21,9 @@ public sealed partial class Item : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
+        MajorType = (item.EMajorType)_buf.ReadInt();
         MinorType = (item.EMinorType)_buf.ReadInt();
+        MaxPileNum = _buf.ReadInt();
         Quality = (item.EItemQuality)_buf.ReadInt();
         IconBackgroud = _buf.ReadString();
         IconMask = _buf.ReadString();
@@ -39,7 +41,9 @@ public sealed partial class Item : Luban.BeanBase
     /// </summary>
     public readonly int Id;
     public readonly string Name;
+    public readonly item.EMajorType MajorType;
     public readonly item.EMinorType MinorType;
+    public readonly int MaxPileNum;
     public readonly item.EItemQuality Quality;
     public readonly string IconBackgroud;
     public readonly string IconMask;
@@ -59,6 +63,8 @@ public sealed partial class Item : Luban.BeanBase
         
         
         
+        
+        
     }
 
     public override string ToString()
@@ -66,7 +72,9 @@ public sealed partial class Item : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "name:" + Name + ","
+        + "majorType:" + MajorType + ","
         + "minorType:" + MinorType + ","
+        + "maxPileNum:" + MaxPileNum + ","
         + "quality:" + Quality + ","
         + "iconBackgroud:" + IconBackgroud + ","
         + "iconMask:" + IconMask + ","
