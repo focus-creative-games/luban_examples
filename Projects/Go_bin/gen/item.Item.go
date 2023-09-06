@@ -19,8 +19,11 @@ import "errors"
 type ItemItem struct {
     Id int32
     Name string
+    MajorType int32
     MinorType int32
+    MaxPileNum int32
     Quality int32
+    Icon string
     IconBackgroud string
     IconMask string
     Desc string
@@ -37,8 +40,11 @@ func NewItemItem(_buf *luban.ByteBuf) (_v *ItemItem, err error) {
     _v = &ItemItem{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
+    { if _v.MajorType, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.MinorType, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
+    { if _v.MaxPileNum, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.Quality, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
+    { if _v.Icon, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.IconBackgroud, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.IconMask, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }

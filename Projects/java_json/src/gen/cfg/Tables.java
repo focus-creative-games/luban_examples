@@ -62,6 +62,12 @@ public final class Tables
     public cfg.test.TbTestString getTbTestString() { return _tbteststring; }
     private final cfg.test.TbDemoGroup _tbdemogroup;
     public cfg.test.TbDemoGroup getTbDemoGroup() { return _tbdemogroup; }
+    private final cfg.test.TbDemoGroup_C _tbdemogroup_c;
+    public cfg.test.TbDemoGroup_C getTbDemoGroup_C() { return _tbdemogroup_c; }
+    private final cfg.test.TbDemoGroup_S _tbdemogroup_s;
+    public cfg.test.TbDemoGroup_S getTbDemoGroup_S() { return _tbdemogroup_s; }
+    private final cfg.test.TbDemoGroup_E _tbdemogroup_e;
+    public cfg.test.TbDemoGroup_E getTbDemoGroup_E() { return _tbdemogroup_e; }
     private final cfg.test.TbTestGlobal _tbtestglobal;
     public cfg.test.TbTestGlobal getTbTestGlobal() { return _tbtestglobal; }
     private final cfg.test.TbTestBeRef _tbtestberef;
@@ -120,6 +126,9 @@ public final class Tables
         _tbdemoprimitive = new cfg.test.TbDemoPrimitive(loader.load("test_tbdemoprimitive")); 
         _tbteststring = new cfg.test.TbTestString(loader.load("test_tbteststring")); 
         _tbdemogroup = new cfg.test.TbDemoGroup(loader.load("test_tbdemogroup")); 
+        _tbdemogroup_c = new cfg.test.TbDemoGroup_C(loader.load("test_tbdemogroup_c")); 
+        _tbdemogroup_s = new cfg.test.TbDemoGroup_S(loader.load("test_tbdemogroup_s")); 
+        _tbdemogroup_e = new cfg.test.TbDemoGroup_E(loader.load("test_tbdemogroup_e")); 
         _tbtestglobal = new cfg.test.TbTestGlobal(loader.load("test_tbtestglobal")); 
         _tbtestberef = new cfg.test.TbTestBeRef(loader.load("test_tbtestberef")); 
         _tbtestberef2 = new cfg.test.TbTestBeRef2(loader.load("test_tbtestberef2")); 

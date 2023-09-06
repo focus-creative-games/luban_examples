@@ -21,8 +21,11 @@ public final class Item extends AbstractBean {
     public Item(JsonObject _buf) { 
         id = _buf.get("id").getAsInt();
         name = _buf.get("name").getAsString();
+        majorType = _buf.get("major_type").getAsInt();
         minorType = _buf.get("minor_type").getAsInt();
+        maxPileNum = _buf.get("max_pile_num").getAsInt();
         quality = _buf.get("quality").getAsInt();
+        icon = _buf.get("icon").getAsString();
         iconBackgroud = _buf.get("icon_backgroud").getAsString();
         iconMask = _buf.get("icon_mask").getAsString();
         desc = _buf.get("desc").getAsString();
@@ -38,8 +41,11 @@ public final class Item extends AbstractBean {
      */
     public final int id;
     public final String name;
+    public final int majorType;
     public final int minorType;
+    public final int maxPileNum;
     public final int quality;
+    public final String icon;
     public final String iconBackgroud;
     public final String iconMask;
     public final String desc;
@@ -55,8 +61,11 @@ public final class Item extends AbstractBean {
         return "{ "
         + "(format_field_name __code_style field.name):" + id + ","
         + "(format_field_name __code_style field.name):" + name + ","
+        + "(format_field_name __code_style field.name):" + majorType + ","
         + "(format_field_name __code_style field.name):" + minorType + ","
+        + "(format_field_name __code_style field.name):" + maxPileNum + ","
         + "(format_field_name __code_style field.name):" + quality + ","
+        + "(format_field_name __code_style field.name):" + icon + ","
         + "(format_field_name __code_style field.name):" + iconBackgroud + ","
         + "(format_field_name __code_style field.name):" + iconMask + ","
         + "(format_field_name __code_style field.name):" + desc + ","
