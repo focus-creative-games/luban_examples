@@ -1,0 +1,1172 @@
+namespace cfg;
+
+enum AiEExecutor:int {
+    AiEExecutor_CLIENT = 0,
+    AiEExecutor_SERVER = 1,
+}
+enum AiEKeyType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    AiEKeyType_BOOL = 1,
+    AiEKeyType_INT = 2,
+    AiEKeyType_FLOAT = 3,
+    AiEKeyType_STRING = 4,
+    AiEKeyType_VECTOR = 5,
+    AiEKeyType_ROTATOR = 6,
+    AiEKeyType_NAME = 7,
+    AiEKeyType_CLASS = 8,
+    AiEKeyType_ENUM = 9,
+    AiEKeyType_OBJECT = 10,
+}
+enum AiEFlowAbortMode:int {
+    AiEFlowAbortMode_NONE = 0,
+    AiEFlowAbortMode_LOWER_PRIORITY = 1,
+    AiEFlowAbortMode_SELF = 2,
+    AiEFlowAbortMode_BOTH = 3,
+}
+enum AiEFinishMode:int {
+    AiEFinishMode_IMMEDIATE = 0,
+    AiEFinishMode_DELAYED = 1,
+}
+enum AiENotifyObserverMode:int {
+    AiENotifyObserverMode_ON_VALUE_CHANGE = 0,
+    AiENotifyObserverMode_ON_RESULT_CHANGE = 1,
+}
+enum AiEOperator:int {
+    AiEOperator_IS_EQUAL_TO = 0,
+    AiEOperator_IS_NOT_EQUAL_TO = 1,
+    AiEOperator_IS_LESS_THAN = 2,
+    AiEOperator_IS_LESS_THAN_OR_EQUAL_TO = 3,
+    AiEOperator_IS_GREAT_THAN = 4,
+    AiEOperator_IS_GREAT_THAN_OR_EQUAL_TO = 5,
+    AiEOperator_CONTAINS = 6,
+    AiEOperator_NOT_CONTAINS = 7,
+}
+enum AudioType:int {
+    AudioType_UNKNOWN = 0,
+    AudioType_ACC = 1,
+    AudioType_AIFF = 2,
+}
+enum CommonEBoolOperator:int {
+    CommonEBoolOperator_AND = 0,
+    CommonEBoolOperator_OR = 1,
+}
+enum ItemEItemQuality:int {
+    ItemEItemQuality_WHITE = 0,
+    ItemEItemQuality_GREEN = 1,
+    ItemEItemQuality_BLUE = 2,
+    ItemEItemQuality_PURPLE = 3,
+    ItemEItemQuality_GOLDEN = 4,
+}
+enum ItemECurrencyType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemECurrencyType_DIAMOND = 1,
+    ItemECurrencyType_GOLD = 2,
+    ItemECurrencyType_SILVER = 3,
+    ItemECurrencyType_EXP = 4,
+    ItemECurrencyType_POWER_POINT = 5,
+}
+enum ItemEMajorType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemEMajorType_CURRENCY = 1,
+    ItemEMajorType_CLOTH = 2,
+    ItemEMajorType_QUEST = 3,
+    ItemEMajorType_CONSUMABLES = 4,
+    ItemEMajorType_TREASURE_BOX = 5,
+    ItemEMajorType_ACHIEVEMENT_AND_TITLE = 6,
+    ItemEMajorType_HEAD_FRAME = 7,
+    ItemEMajorType_VOICE = 8,
+    ItemEMajorType_ACTION = 9,
+    ItemEMajorType_EXPANSION = 10,
+    ItemEMajorType_MATERIAL = 11,
+}
+enum ItemEMinorType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemEMinorType_DIAMOND = 101,
+    ItemEMinorType_GOLD = 102,
+    ItemEMinorType_SILVER = 103,
+    ItemEMinorType_EXP = 104,
+    ItemEMinorType_POWER_POINT = 105,
+    ItemEMinorType_HAIR_STYLE = 210,
+    ItemEMinorType_COAT = 220,
+    ItemEMinorType_UPPER_JACKET = 230,
+    ItemEMinorType_TROUSERS = 241,
+    ItemEMinorType_SKIRT = 242,
+    ItemEMinorType_SOCKS = 250,
+    ItemEMinorType_SHOES = 260,
+    ItemEMinorType_HAIR_ACCESSORY = 271,
+    ItemEMinorType_HAT = 272,
+    ItemEMinorType_EARRING = 273,
+    ItemEMinorType_NECKLACE = 274,
+    ItemEMinorType_BRACELET = 275,
+    ItemEMinorType_HAIR_CLASP = 276,
+    ItemEMinorType_GLOVE = 277,
+    ItemEMinorType_HANDHELD_OBJECT = 278,
+    ItemEMinorType_SPECIAL = 279,
+    ItemEMinorType_BASE_COSMETIC = 281,
+    ItemEMinorType_EYEBROW_COSMETIC = 282,
+    ItemEMinorType_EYELASH = 283,
+    ItemEMinorType_COSMETIC_CONTACT_LENSES = 284,
+    ItemEMinorType_LIP_COSMETIC = 285,
+    ItemEMinorType_SKIN_COLOR = 286,
+    ItemEMinorType_ONE_PIECE_DRESS = 290,
+    ItemEMinorType_SWITCH_CLOTHES_SCENE = 291,
+    ItemEMinorType_QUEST = 301,
+    ItemEMinorType_CAST = 401,
+    ItemEMinorType_SWORD = 421,
+    ItemEMinorType_BOW_ARROW = 422,
+    ItemEMinorType_WANDS = 423,
+    ItemEMinorType_SPECIAL_TOOL = 424,
+    ItemEMinorType_FOOD = 403,
+    ItemEMinorType_TREASURE_BOX = 501,
+    ItemEMinorType_KEY = 502,
+    ItemEMinorType_MULTI_CHOOSE_TREASURE_BOX = 503,
+    ItemEMinorType_ACHIEVEMENT = 601,
+    ItemEMinorType_TITLE = 602,
+    ItemEMinorType_AVATAR_FRAME = 701,
+    ItemEMinorType_VOICE = 801,
+    ItemEMinorType_IDLE_POSE = 901,
+    ItemEMinorType_PHOTO_POSE = 902,
+    ItemEMinorType_BAG = 1001,
+    ItemEMinorType_FRIEND_CAPACITY = 1002,
+    ItemEMinorType_CONSTRUCTION_MATERIAL = 1101,
+    ItemEMinorType_DESIGN_DRAWING = 1102,
+}
+enum ItemEClothersStarQualityType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemEClothersStarQualityType_ONE = 1,
+    ItemEClothersStarQualityType_TWO = 2,
+    ItemEClothersStarQualityType_THREE = 3,
+    ItemEClothersStarQualityType_FOUR = 4,
+    ItemEClothersStarQualityType_FIVE = 5,
+    ItemEClothersStarQualityType_SIX = 6,
+    ItemEClothersStarQualityType_SEVEN = 7,
+    ItemEClothersStarQualityType_EIGHT = 8,
+    ItemEClothersStarQualityType_NINE = 9,
+    ItemEClothersStarQualityType_TEN = 10,
+}
+enum ItemEClothersTag:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemEClothersTag_FANG_SHAI = 1,
+    ItemEClothersTag_WU_ZHE = 2,
+}
+enum ItemEUseType:int {
+    ItemEUseType_MANUAL = 0,
+    ItemEUseType_AUTO = 1,
+}
+enum ItemEClothesHidePartType:int {
+    ItemEClothesHidePartType_CHEST = 0,
+    ItemEClothesHidePartType_HEAD = 1,
+    ItemEClothesHidePartType_SPINE_UPPER = 2,
+    ItemEClothesHidePartType_SPINE_LOWER = 3,
+    ItemEClothesHidePartType_HIP = 4,
+    ItemEClothesHidePartType_LEG_UPPER = 5,
+    ItemEClothesHidePartType_LEG_MIDDLE = 6,
+    ItemEClothesHidePartType_LEG_LOWER = 7,
+}
+enum ItemEClothesPropertyType:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    ItemEClothesPropertyType_JIAN_YUE = 1,
+    ItemEClothesPropertyType_HUA_LI = 2,
+    ItemEClothesPropertyType_KE_AI = 3,
+    ItemEClothesPropertyType_CHENG_SHU = 4,
+    ItemEClothesPropertyType_HUO_PO = 5,
+    ItemEClothesPropertyType_YOU_YA = 6,
+    ItemEClothesPropertyType_QING_CHUN = 7,
+    ItemEClothesPropertyType_XING_GAN = 8,
+    ItemEClothesPropertyType_QING_LIANG = 9,
+    ItemEClothesPropertyType_BAO_NUAN = 10,
+}
+enum TestDemoEnum:int {
+    TestDemoEnum_NONE = 0,
+    TestDemoEnum_A = 1,
+    TestDemoEnum_B = 2,
+    TestDemoEnum_C = 4,
+    TestDemoEnum_D = 5,
+}
+enum TestDemoFlag:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    TestDemoFlag_A = 1,
+    TestDemoFlag_B = 2,
+    TestDemoFlag_C = 4,
+    TestDemoFlag_D = 8,
+}
+enum TestETestUeType:int {
+    TestETestUeType_WHITE = 0,
+    TestETestUeType_BLACK = 1,
+}
+enum TestETestEmptyEnum:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+}
+enum TestETestEmptyEnum2:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    TestETestEmptyEnum2_SMALL_THAN_256 = 255,
+    TestETestEmptyEnum2_X_256 = 256,
+    TestETestEmptyEnum2_X_257 = 257,
+}
+enum TestETestQuality:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    TestETestQuality_A = 1,
+    TestETestQuality_B = 2,
+    TestETestQuality_C = 3,
+    TestETestQuality_D = 4,
+}
+enum TestAccessFlag:int {
+    __GENERATE_DEFAULT_VALUE = 0,
+    TestAccessFlag_WRITE = 1,
+    TestAccessFlag_READ = 2,
+    TestAccessFlag_TRUNCATE = 4,
+    TestAccessFlag_NEW = 8,
+    TestAccessFlag_READ_WRITE = 3,
+}
+
+union AiNode {
+    AiUeSetDefaultFocus,
+    AiExecuteTimeStatistic,
+    AiChooseTarget,
+    AiKeepFaceTarget,
+    AiGetOwnerPlayer,
+    AiUpdateDailyBehaviorProps,
+    AiUeLoop,
+    AiUeCooldown,
+    AiUeTimeLimit,
+    AiUeBlackboard,
+    AiUeForceSuccess,
+    AiIsAtLocation,
+    AiDistanceLessThan,
+    AiSequence,
+    AiSelector,
+    AiSimpleParallel,
+    AiUeWait,
+    AiUeWaitBlackboardTime,
+    AiMoveToTarget,
+    AiChooseSkill,
+    AiMoveToRandomLocation,
+    AiMoveToLocation,
+    AiDebugPrint,
+}
+union AiService {
+    AiUeSetDefaultFocus,
+    AiExecuteTimeStatistic,
+    AiChooseTarget,
+    AiKeepFaceTarget,
+    AiGetOwnerPlayer,
+    AiUpdateDailyBehaviorProps,
+}
+union AiDecorator {
+    AiUeLoop,
+    AiUeCooldown,
+    AiUeTimeLimit,
+    AiUeBlackboard,
+    AiUeForceSuccess,
+    AiIsAtLocation,
+    AiDistanceLessThan,
+}
+union AiKeyQueryOperator {
+    AiIsSet,
+    AiIsNotSet,
+    AiBinaryOperator,
+}
+union AiKeyData {
+    AiFloatKeyData,
+    AiIntKeyData,
+    AiStringKeyData,
+    AiBlackboardKeyData,
+}
+union AiFlowNode {
+    AiSequence,
+    AiSelector,
+    AiSimpleParallel,
+    AiUeWait,
+    AiUeWaitBlackboardTime,
+    AiMoveToTarget,
+    AiChooseSkill,
+    AiMoveToRandomLocation,
+    AiMoveToLocation,
+    AiDebugPrint,
+}
+union AiComposeNode {
+    AiSequence,
+    AiSelector,
+    AiSimpleParallel,
+}
+union AiTask {
+    AiUeWait,
+    AiUeWaitBlackboardTime,
+    AiMoveToTarget,
+    AiChooseSkill,
+    AiMoveToRandomLocation,
+    AiMoveToLocation,
+    AiDebugPrint,
+}
+union TestDemoDynamic {
+    TestDemoD2,
+    TestDemoE1,
+    TestLoginRoleInfo,
+    TestDemoD5,
+}
+union TestDemoD3 {
+    TestDemoE1,
+    TestLoginRoleInfo,
+}
+union TestRefDynamicBase {
+    TestRefBean,
+}
+union TestItemBase {
+    TestItem,
+    TestEquipment,
+    TestDecorator,
+}
+union TestShape {
+    TestCircle,
+    Test2Rectangle,
+}
+
+table AiBlackboard {
+    name:string;
+    desc:string;
+    parent_name:string;
+    keys:[AiBlackboardKey](required);
+}
+table AiBlackboardKey {
+    name:string;
+    desc:string;
+    is_static:bool;
+    type:AiEKeyType;
+    type_class_name:string;
+}
+table AiBehaviorTree {
+    id:int32;
+    name:string;
+    desc:string;
+    blackboard_id:string;
+    root:AiComposeNode(required);
+}
+table AiUeSetDefaultFocus {
+    id:int32;
+    node_name:string;
+    keyboard_key:string;
+}
+table AiExecuteTimeStatistic {
+    id:int32;
+    node_name:string;
+}
+table AiChooseTarget {
+    id:int32;
+    node_name:string;
+    result_target_key:string;
+}
+table AiKeepFaceTarget {
+    id:int32;
+    node_name:string;
+    target_actor_key:string;
+}
+table AiGetOwnerPlayer {
+    id:int32;
+    node_name:string;
+    player_actor_key:string;
+}
+table AiUpdateDailyBehaviorProps {
+    id:int32;
+    node_name:string;
+    satiety_key:string;
+    energy_key:string;
+    mood_key:string;
+    satiety_lower_threshold_key:string;
+    satiety_upper_threshold_key:string;
+    energy_lower_threshold_key:string;
+    energy_upper_threshold_key:string;
+    mood_lower_threshold_key:string;
+    mood_upper_threshold_key:string;
+}
+table AiUeLoop {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    num_loops:int32;
+    infinite_loop:bool;
+    infinite_loop_timeout_time:float32;
+}
+table AiUeCooldown {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    cooldown_time:float32;
+}
+table AiUeTimeLimit {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    limit_time:float32;
+}
+table AiUeBlackboard {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    notify_observer:AiENotifyObserverMode;
+    blackboard_key:string;
+    key_query:AiKeyQueryOperator(required);
+}
+table AiIsSet {
+}
+table AiIsNotSet {
+}
+table AiBinaryOperator {
+    oper:AiEOperator;
+    data:AiKeyData(required);
+}
+table AiFloatKeyData {
+    value:float32;
+}
+table AiIntKeyData {
+    value:int32;
+}
+table AiStringKeyData {
+    value:string;
+}
+table AiBlackboardKeyData {
+    value:string;
+}
+table AiUeForceSuccess {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+}
+table AiIsAtLocation {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    acceptable_radius:float32;
+    keyboard_key:string;
+    inverse_condition:bool;
+}
+table AiDistanceLessThan {
+    id:int32;
+    node_name:string;
+    flow_abort_mode:AiEFlowAbortMode;
+    actor1_key:string;
+    actor2_key:string;
+    distance:float32;
+    reverse_result:bool;
+}
+table AiSequence {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    children:[AiFlowNode](required);
+}
+table AiSelector {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    children:[AiFlowNode](required);
+}
+table AiSimpleParallel {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    finish_mode:AiEFinishMode;
+    main_task:AiTask(required);
+    background_node:AiFlowNode(required);
+}
+table AiUeWait {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    wait_time:float32;
+    random_deviation:float32;
+}
+table AiUeWaitBlackboardTime {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    blackboard_key:string;
+}
+table AiMoveToTarget {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    target_actor_key:string;
+    acceptable_radius:float32;
+}
+table AiChooseSkill {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    target_actor_key:string;
+    result_skill_id_key:string;
+}
+table AiMoveToRandomLocation {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    origin_position_key:string;
+    radius:float32;
+}
+table AiMoveToLocation {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    acceptable_radius:float32;
+}
+table AiDebugPrint {
+    id:int32;
+    node_name:string;
+    decorators:[AiDecorator](required);
+    services:[AiService](required);
+    ignore_restart_self:bool;
+    text:string;
+}
+table CommonGlobalConfig {
+    x1:int32;
+    x2:int32;
+    x3:int32;
+    x4:int32;
+    x5:int32;
+    x6:int32;
+    x7:[int32](required);
+}
+table ItemItem {
+    id:int32;
+    name:string;
+    minor_type:ItemEMinorType;
+    quality:ItemEItemQuality;
+    icon_backgroud:string;
+    icon_mask:string;
+    desc:string;
+    show_order:int32;
+}
+table L10nL10NDemo {
+    id:int32;
+    text:string;
+}
+table L10nPatchDemo {
+    id:int32;
+    value:int32;
+}
+table TagTestTag {
+    id:int32;
+    value:string;
+}
+table TestDemoType2 {
+    x4:int32;
+    x1:bool;
+    x2:ubyte;
+    x3:int16;
+    x5:int64;
+    x6:float32;
+    x7:float64;
+    x8_0:int16;
+    x8:int32;
+    x9:int64;
+    x10:string;
+    x12:TestDemoType1(required);
+    x13:TestDemoEnum;
+    x14:TestDemoDynamic(required);
+    s1:string;
+    t1:int64;
+    k1:[int32](required);
+    k2:[int32](required);
+    k5:[int32](required);
+    k8:[KeyValue_int32_int32](required);
+    k9:[TestDemoE2](required);
+    k15:[TestDemoDynamic](required);
+}
+table TestDemoType1 {
+    x1:int32;
+}
+table TestDemoD2 {
+    x1:int32;
+    x2:int32;
+}
+table TestDemoE1 {
+    x1:int32;
+    x3:int32;
+    x4:int32;
+}
+table TestLoginRoleInfo {
+    x1:int32;
+    x3:int32;
+    role_id:int64;
+}
+table TestDemoD5 {
+    x1:int32;
+    time:TestDateTimeRange(required);
+}
+table TestDateTimeRange {
+    start_time:int64;
+    end_time:int64;
+}
+table TestDemoE2 {
+    y1:int32;
+    y2:bool;
+}
+table TestDemoSingletonType {
+    id:int32;
+    name:string;
+    date:TestDemoDynamic(required);
+}
+table TestNotIndexList {
+    x:int32;
+    y:int32;
+}
+table TestMultiUnionIndexList {
+    id1:int32;
+    id2:int64;
+    id3:string;
+    num:int32;
+    desc:string;
+}
+table TestMultiIndexList {
+    id1:int32;
+    id2:int64;
+    id3:string;
+    num:int32;
+    desc:string;
+}
+table TestMultiRowRecord {
+    id:int32;
+    name:string;
+    one_rows:[TestMultiRowType1](required);
+    multi_rows1:[TestMultiRowType1](required);
+    multi_rows2:[TestMultiRowType1](required);
+    multi_rows4:[KeyValue_int32_TestMultiRowType2](required);
+    multi_rows5:[TestMultiRowType3](required);
+    multi_rows6:[KeyValue_int32_TestMultiRowType2](required);
+    multi_rows7:[KeyValue_int32_int32](required);
+}
+table TestMultiRowType1 {
+    id:int32;
+    x:int32;
+}
+table TestMultiRowType2 {
+    id:int32;
+    x:int32;
+    y:float32;
+}
+table TestMultiRowType3 {
+    id:int32;
+    items:[TestMultiRowType1](required);
+}
+table TestTestMultiColumn {
+    id:int32;
+    a:TestFoo(required);
+    b:TestFoo(required);
+    c:TestFoo(required);
+}
+table TestFoo {
+    y1:int32;
+    y2:int32;
+    y3:int32;
+}
+table TestMultiRowTitle {
+    id:int32;
+    name:string;
+    x1:TestH1(required);
+    x2_0:TestH2;
+    x2:[TestH2](required);
+    x3:[TestH2](required);
+    x4:[TestH2](required);
+}
+table TestH1 {
+    y2:TestH2(required);
+    y3:int32;
+}
+table TestH2 {
+    z2:int32;
+    z3:int32;
+}
+table TestTestNull {
+    id:int32;
+    x1:int32;
+    x2:TestDemoEnum;
+    x3:TestDemoType1;
+    x4:TestDemoDynamic;
+    s1:string;
+    s2:string;
+}
+table TestDemoPrimitiveTypesTable {
+    x1:bool;
+    x2:ubyte;
+    x3:int16;
+    x4:int32;
+    x5:int64;
+    x6:float32;
+    x7:float64;
+    s1:string;
+    s2:string;
+    v2:vec2(required);
+    v3:vec3(required);
+    v4:vec4(required);
+    t1:int64;
+}
+table vec2 {
+    x:float32;
+    y:float32;
+}
+table vec3 {
+    x:float32;
+    y:float32;
+    z:float32;
+}
+table vec4 {
+    x:float32;
+    y:float32;
+    z:float32;
+    w:float32;
+}
+table TestTestString {
+    id:string;
+    s1:string;
+    s2:string;
+    cs1:TestCompactString(required);
+    cs2:TestCompactString(required);
+}
+table TestCompactString {
+    id:int32;
+    s2:string;
+    s3:string;
+}
+table TestDemoGroup {
+    id:int32;
+    x5:TestInnerGroup(required);
+}
+table TestInnerGroup {
+    y1:int32;
+}
+table TestTestGlobal {
+    unlock_equip:int32;
+    unlock_hero:int32;
+}
+table TestTestBeRef {
+    id:int32;
+    count:int32;
+}
+table TestTestRef {
+    id:int32;
+    x1:int32;
+    x1_2:int32;
+    x2:int32;
+    x3:int32;
+    x4:int32;
+    a1:[int32](required);
+    a2:[int32](required);
+    b1:[int32](required);
+    b2:[int32](required);
+    c1:[int32](required);
+    c2:[int32](required);
+    d1:[KeyValue_int32_int32](required);
+    d2:[KeyValue_int32_int32](required);
+    e1:int32;
+    e2:int64;
+    e3:string;
+    f1:int32;
+    f2:int64;
+    f3:string;
+    s1:TestRefDynamicBase(required);
+}
+table TestRefBean {
+    x:int32;
+    arr:[int32](required);
+}
+table TestTestSize {
+    id:int32;
+    x1:[int32](required);
+    x2:[int32](required);
+    x3:[int32](required);
+    x4:[KeyValue_int32_int32](required);
+}
+table TestTestSet {
+    id:int32;
+    x0:string;
+    x1:[int32](required);
+    x2:[int64](required);
+    x3:[string](required);
+    x4:[TestDemoEnum](required);
+}
+table TestDetectEncoding {
+    id:int32;
+    name:string;
+}
+table TestItem {
+    id:int32;
+    name:string;
+    desc:string;
+    num:int32;
+    price:int32;
+}
+table TestEquipment {
+    id:int32;
+    name:string;
+    desc:string;
+    attr:TestDemoEnum;
+    value:int32;
+}
+table TestDecorator {
+    id:int32;
+    name:string;
+    desc:string;
+    duration:int32;
+}
+table TestTestIndex {
+    id:int32;
+    eles:[TestDemoType1](required);
+}
+table TestTestMap {
+    id:int32;
+    x1:[KeyValue_int32_int32](required);
+    x2:[KeyValue_int64_int32](required);
+    x3:[KeyValue_string_int32](required);
+    x4:[KeyValue_TestDemoEnum_int32](required);
+}
+table TestExcelFromJson {
+    x4:int32;
+    x1:bool;
+    x5:int64;
+    x6:float32;
+    s1:string;
+    s2:string;
+    t1:int64;
+    x12:TestDemoType1(required);
+    x13:TestDemoEnum;
+    x14:TestDemoDynamic(required);
+    k1:[int32](required);
+    k8:[KeyValue_int32_int32](required);
+    k9:[TestDemoE2](required);
+    k15:[TestDemoDynamic](required);
+}
+table TestCompositeJsonTable1 {
+    id:int32;
+    x:string;
+}
+table TestCompositeJsonTable2 {
+    id:int32;
+    y:int32;
+}
+table TestCompositeJsonTable3 {
+    a:int32;
+    b:int32;
+}
+table TestExcelFromJsonMultiRow {
+    id:int32;
+    x:int32;
+    items:[TestTestRow](required);
+}
+table TestTestRow {
+    x:int32;
+    y:bool;
+    z:string;
+    a:TestTest3(required);
+    b:[int32](required);
+}
+table TestTest3 {
+    x:int32;
+    y:int32;
+}
+table TestTestScriptableObject {
+    id:int32;
+    desc:string;
+    rate:float32;
+    num:int32;
+    v2:vec2(required);
+    v3:vec3(required);
+    v4:vec4(required);
+}
+table TestTestMapper {
+    id:int32;
+    audio_type:AudioType;
+    v2:vec2(required);
+}
+table DefineFromExcel2 {
+    id:int32;
+    x1:bool;
+    x5:int64;
+    x6:float32;
+    x8:int32;
+    x10:string;
+    x13:TestDemoEnum;
+    x13_2:TestDemoFlag;
+    x14:TestDemoDynamic(required);
+    x15:TestShape(required);
+    v2:vec2(required);
+    t1:int64;
+    k1:[int32](required);
+    k2:[int32](required);
+    k8:[KeyValue_int32_int32](required);
+    k9:[TestDemoE2](required);
+    k10:[vec3](required);
+    k11:[vec4](required);
+}
+table TestCircle {
+    radius:float32;
+}
+table Test2Rectangle {
+    width:float32;
+    height:float32;
+}
+
+table KeyValue_int32_int32 {
+    key: int32;
+    value: int32;
+}
+table KeyValue_int32_TestMultiRowType2 {
+    key: int32;
+    value: TestMultiRowType2(required);
+}
+table KeyValue_int64_int32 {
+    key: int64;
+    value: int32;
+}
+table KeyValue_string_int32 {
+    key: string;
+    value: int32;
+}
+table KeyValue_TestDemoEnum_int32 {
+    key: TestDemoEnum;
+    value: int32;
+}
+
+table AiTbBlackboard {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[AiBlackboard](required);
+}
+
+root_type AiTbBlackboard;
+table AiTbBehaviorTree {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[AiBehaviorTree](required);
+}
+
+root_type AiTbBehaviorTree;
+table CommonTbGlobalConfig {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[CommonGlobalConfig](required);
+}
+
+root_type CommonTbGlobalConfig;
+table ItemTbItem {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[ItemItem](required);
+}
+
+root_type ItemTbItem;
+table L10nTbL10NDemo {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[L10nL10NDemo](required);
+}
+
+root_type L10nTbL10NDemo;
+table L10nTbPatchDemo {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[L10nPatchDemo](required);
+}
+
+root_type L10nTbPatchDemo;
+table TagTbTestTag {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TagTestTag](required);
+}
+
+root_type TagTbTestTag;
+table TestTbFullTypes {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDemoType2](required);
+}
+
+root_type TestTbFullTypes;
+table TestTbSingleton {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDemoSingletonType](required);
+}
+
+root_type TestTbSingleton;
+table TestTbNotIndexList {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestNotIndexList](required);
+}
+
+root_type TestTbNotIndexList;
+table TestTbMultiUnionIndexList {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestMultiUnionIndexList](required);
+}
+
+root_type TestTbMultiUnionIndexList;
+table TestTbMultiIndexList {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestMultiIndexList](required);
+}
+
+root_type TestTbMultiIndexList;
+table TestTbDataFromMisc {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDemoType2](required);
+}
+
+root_type TestTbDataFromMisc;
+table TestTbMultiRowRecord {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestMultiRowRecord](required);
+}
+
+root_type TestTbMultiRowRecord;
+table TestTbTestMultiColumn {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestMultiColumn](required);
+}
+
+root_type TestTbTestMultiColumn;
+table TestTbMultiRowTitle {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestMultiRowTitle](required);
+}
+
+root_type TestTbMultiRowTitle;
+table TestTbTestNull {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestNull](required);
+}
+
+root_type TestTbTestNull;
+table TestTbDemoPrimitive {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDemoPrimitiveTypesTable](required);
+}
+
+root_type TestTbDemoPrimitive;
+table TestTbTestString {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestString](required);
+}
+
+root_type TestTbTestString;
+table TestTbDemoGroup {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDemoGroup](required);
+}
+
+root_type TestTbDemoGroup;
+table TestTbTestGlobal {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestGlobal](required);
+}
+
+root_type TestTbTestGlobal;
+table TestTbTestBeRef {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestBeRef](required);
+}
+
+root_type TestTbTestBeRef;
+table TestTbTestBeRef2 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestBeRef](required);
+}
+
+root_type TestTbTestBeRef2;
+table TestTbTestRef {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestRef](required);
+}
+
+root_type TestTbTestRef;
+table TestTbTestSize {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestSize](required);
+}
+
+root_type TestTbTestSize;
+table TestTbTestSet {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestSet](required);
+}
+
+root_type TestTbTestSet;
+table TestTbDetectCsvEncoding {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestDetectEncoding](required);
+}
+
+root_type TestTbDetectCsvEncoding;
+table TestTbItem2 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestItemBase](required);
+}
+
+root_type TestTbItem2;
+table TestTbTestIndex {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestIndex](required);
+}
+
+root_type TestTbTestIndex;
+table TestTbTestMap {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestMap](required);
+}
+
+root_type TestTbTestMap;
+table TestTbExcelFromJson {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestExcelFromJson](required);
+}
+
+root_type TestTbExcelFromJson;
+table TestTbCompositeJsonTable1 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestCompositeJsonTable1](required);
+}
+
+root_type TestTbCompositeJsonTable1;
+table TestTbCompositeJsonTable2 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestCompositeJsonTable2](required);
+}
+
+root_type TestTbCompositeJsonTable2;
+table TestTbCompositeJsonTable3 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestCompositeJsonTable3](required);
+}
+
+root_type TestTbCompositeJsonTable3;
+table TestTbExcelFromJsonMultiRow {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestExcelFromJsonMultiRow](required);
+}
+
+root_type TestTbExcelFromJsonMultiRow;
+table TestTbTestScriptableObject {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestScriptableObject](required);
+}
+
+root_type TestTbTestScriptableObject;
+table TestTbTestMapper {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[TestTestMapper](required);
+}
+
+root_type TestTbTestMapper;
+table TestTbDefineFromExcel2 {
+    // WARN! The name 'data_list' is used by FlatBuffersJsonExporter. don't modify it!
+    data_list:[DefineFromExcel2](required);
+}
+
+root_type TestTbDefineFromExcel2;
+
+

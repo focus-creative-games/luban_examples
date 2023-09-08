@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <unlock_equip>10</unlock_equip>
+    <unlock_hero>20</unlock_hero>
+  </record>
+</table>

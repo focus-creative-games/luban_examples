@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <x1>1</x1>
+    <x2>xx</x2>
+    <x3>2</x3>
+    <x4>2.5</x4>
+  </record>
+  <record>
+    <x1>2</x1>
+    <x2>zz</x2>
+    <x3>2</x3>
+    <x4>4.3</x4>
+  </record>
+  <record>
+    <x1>3</x1>
+    <x2>ww</x2>
+    <x3>2</x3>
+    <x4>5</x4>
+  </record>
+  <record>
+    <x1>4</x1>
+    <x2>ee</x2>
+    <x3>2</x3>
+    <x4>6</x4>
+  </record>
+</table>

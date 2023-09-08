@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>10002</id>
+    <name>random move</name>
+    <desc>demo behaviour tree haha</desc>
+    <blackboard_id>demo</blackboard_id>
+    <root type="Sequence">
+      <id>1</id>
+      <node_name>test</node_name>
+      <decorators>
+        <ele type="UeLoop">
+          <id>3</id>
+          <node_name></node_name>
+          <flow_abort_mode>2</flow_abort_mode>
+          <num_loops>0</num_loops>
+          <infinite_loop>true</infinite_loop>
+          <infinite_loop_timeout_time>-1</infinite_loop_timeout_time>
+        </ele>
+      </decorators>
+      <services />
+      <children>
+        <ele type="UeWait">
+          <id>30</id>
+          <node_name></node_name>
+          <decorators />
+          <services />
+          <ignore_restart_self>false</ignore_restart_self>
+          <wait_time>1</wait_time>
+          <random_deviation>0.5</random_deviation>
+        </ele>
+        <ele type="MoveToRandomLocation">
+          <id>75</id>
+          <node_name></node_name>
+          <decorators />
+          <services />
+          <ignore_restart_self>false</ignore_restart_self>
+          <origin_position_key>x5</origin_position_key>
+          <radius>30</radius>
+        </ele>
+      </children>
+    </root>
+  </record>
+</table>

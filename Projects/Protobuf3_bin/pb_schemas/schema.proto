@@ -1,0 +1,1054 @@
+syntax = "proto3";
+
+package cfg;
+
+enum AiEExecutor {
+    AiEExecutor_CLIENT = 0;
+    AiEExecutor_SERVER = 1;
+}
+enum AiEKeyType {
+    AiEKeyType_BOOL = 1;
+    AiEKeyType_INT = 2;
+    AiEKeyType_FLOAT = 3;
+    AiEKeyType_STRING = 4;
+    AiEKeyType_VECTOR = 5;
+    AiEKeyType_ROTATOR = 6;
+    AiEKeyType_NAME = 7;
+    AiEKeyType_CLASS = 8;
+    AiEKeyType_ENUM = 9;
+    AiEKeyType_OBJECT = 10;
+}
+enum AiEFlowAbortMode {
+    AiEFlowAbortMode_NONE = 0;
+    AiEFlowAbortMode_LOWER_PRIORITY = 1;
+    AiEFlowAbortMode_SELF = 2;
+    AiEFlowAbortMode_BOTH = 3;
+}
+enum AiEFinishMode {
+    AiEFinishMode_IMMEDIATE = 0;
+    AiEFinishMode_DELAYED = 1;
+}
+enum AiENotifyObserverMode {
+    AiENotifyObserverMode_ON_VALUE_CHANGE = 0;
+    AiENotifyObserverMode_ON_RESULT_CHANGE = 1;
+}
+enum AiEOperator {
+    AiEOperator_IS_EQUAL_TO = 0;
+    AiEOperator_IS_NOT_EQUAL_TO = 1;
+    AiEOperator_IS_LESS_THAN = 2;
+    AiEOperator_IS_LESS_THAN_OR_EQUAL_TO = 3;
+    AiEOperator_IS_GREAT_THAN = 4;
+    AiEOperator_IS_GREAT_THAN_OR_EQUAL_TO = 5;
+    AiEOperator_CONTAINS = 6;
+    AiEOperator_NOT_CONTAINS = 7;
+}
+enum AudioType {
+    AudioType_UNKNOWN = 0;
+    AudioType_ACC = 1;
+    AudioType_AIFF = 2;
+}
+enum CommonEBoolOperator {
+    CommonEBoolOperator_AND = 0;
+    CommonEBoolOperator_OR = 1;
+}
+enum ItemEItemQuality {
+    ItemEItemQuality_WHITE = 0;
+    ItemEItemQuality_GREEN = 1;
+    ItemEItemQuality_BLUE = 2;
+    ItemEItemQuality_PURPLE = 3;
+    ItemEItemQuality_GOLDEN = 4;
+}
+enum ItemECurrencyType {
+    ItemECurrencyType_DIAMOND = 1;
+    ItemECurrencyType_GOLD = 2;
+    ItemECurrencyType_SILVER = 3;
+    ItemECurrencyType_EXP = 4;
+    ItemECurrencyType_POWER_POINT = 5;
+}
+enum ItemEMajorType {
+    ItemEMajorType_CURRENCY = 1;
+    ItemEMajorType_CLOTH = 2;
+    ItemEMajorType_QUEST = 3;
+    ItemEMajorType_CONSUMABLES = 4;
+    ItemEMajorType_TREASURE_BOX = 5;
+    ItemEMajorType_ACHIEVEMENT_AND_TITLE = 6;
+    ItemEMajorType_HEAD_FRAME = 7;
+    ItemEMajorType_VOICE = 8;
+    ItemEMajorType_ACTION = 9;
+    ItemEMajorType_EXPANSION = 10;
+    ItemEMajorType_MATERIAL = 11;
+}
+enum ItemEMinorType {
+    ItemEMinorType_DIAMOND = 101;
+    ItemEMinorType_GOLD = 102;
+    ItemEMinorType_SILVER = 103;
+    ItemEMinorType_EXP = 104;
+    ItemEMinorType_POWER_POINT = 105;
+    ItemEMinorType_HAIR_STYLE = 210;
+    ItemEMinorType_COAT = 220;
+    ItemEMinorType_UPPER_JACKET = 230;
+    ItemEMinorType_TROUSERS = 241;
+    ItemEMinorType_SKIRT = 242;
+    ItemEMinorType_SOCKS = 250;
+    ItemEMinorType_SHOES = 260;
+    ItemEMinorType_HAIR_ACCESSORY = 271;
+    ItemEMinorType_HAT = 272;
+    ItemEMinorType_EARRING = 273;
+    ItemEMinorType_NECKLACE = 274;
+    ItemEMinorType_BRACELET = 275;
+    ItemEMinorType_HAIR_CLASP = 276;
+    ItemEMinorType_GLOVE = 277;
+    ItemEMinorType_HANDHELD_OBJECT = 278;
+    ItemEMinorType_SPECIAL = 279;
+    ItemEMinorType_BASE_COSMETIC = 281;
+    ItemEMinorType_EYEBROW_COSMETIC = 282;
+    ItemEMinorType_EYELASH = 283;
+    ItemEMinorType_COSMETIC_CONTACT_LENSES = 284;
+    ItemEMinorType_LIP_COSMETIC = 285;
+    ItemEMinorType_SKIN_COLOR = 286;
+    ItemEMinorType_ONE_PIECE_DRESS = 290;
+    ItemEMinorType_SWITCH_CLOTHES_SCENE = 291;
+    ItemEMinorType_QUEST = 301;
+    ItemEMinorType_CAST = 401;
+    ItemEMinorType_SWORD = 421;
+    ItemEMinorType_BOW_ARROW = 422;
+    ItemEMinorType_WANDS = 423;
+    ItemEMinorType_SPECIAL_TOOL = 424;
+    ItemEMinorType_FOOD = 403;
+    ItemEMinorType_TREASURE_BOX = 501;
+    ItemEMinorType_KEY = 502;
+    ItemEMinorType_MULTI_CHOOSE_TREASURE_BOX = 503;
+    ItemEMinorType_ACHIEVEMENT = 601;
+    ItemEMinorType_TITLE = 602;
+    ItemEMinorType_AVATAR_FRAME = 701;
+    ItemEMinorType_VOICE = 801;
+    ItemEMinorType_IDLE_POSE = 901;
+    ItemEMinorType_PHOTO_POSE = 902;
+    ItemEMinorType_BAG = 1001;
+    ItemEMinorType_FRIEND_CAPACITY = 1002;
+    ItemEMinorType_CONSTRUCTION_MATERIAL = 1101;
+    ItemEMinorType_DESIGN_DRAWING = 1102;
+}
+enum ItemEClothersStarQualityType {
+    ItemEClothersStarQualityType_ONE = 1;
+    ItemEClothersStarQualityType_TWO = 2;
+    ItemEClothersStarQualityType_THREE = 3;
+    ItemEClothersStarQualityType_FOUR = 4;
+    ItemEClothersStarQualityType_FIVE = 5;
+    ItemEClothersStarQualityType_SIX = 6;
+    ItemEClothersStarQualityType_SEVEN = 7;
+    ItemEClothersStarQualityType_EIGHT = 8;
+    ItemEClothersStarQualityType_NINE = 9;
+    ItemEClothersStarQualityType_TEN = 10;
+}
+enum ItemEClothersTag {
+    ItemEClothersTag_FANG_SHAI = 1;
+    ItemEClothersTag_WU_ZHE = 2;
+}
+enum ItemEUseType {
+    ItemEUseType_MANUAL = 0;
+    ItemEUseType_AUTO = 1;
+}
+enum ItemEClothesHidePartType {
+    ItemEClothesHidePartType_CHEST = 0;
+    ItemEClothesHidePartType_HEAD = 1;
+    ItemEClothesHidePartType_SPINE_UPPER = 2;
+    ItemEClothesHidePartType_SPINE_LOWER = 3;
+    ItemEClothesHidePartType_HIP = 4;
+    ItemEClothesHidePartType_LEG_UPPER = 5;
+    ItemEClothesHidePartType_LEG_MIDDLE = 6;
+    ItemEClothesHidePartType_LEG_LOWER = 7;
+}
+enum ItemEClothesPropertyType {
+    ItemEClothesPropertyType_JIAN_YUE = 1;
+    ItemEClothesPropertyType_HUA_LI = 2;
+    ItemEClothesPropertyType_KE_AI = 3;
+    ItemEClothesPropertyType_CHENG_SHU = 4;
+    ItemEClothesPropertyType_HUO_PO = 5;
+    ItemEClothesPropertyType_YOU_YA = 6;
+    ItemEClothesPropertyType_QING_CHUN = 7;
+    ItemEClothesPropertyType_XING_GAN = 8;
+    ItemEClothesPropertyType_QING_LIANG = 9;
+    ItemEClothesPropertyType_BAO_NUAN = 10;
+}
+enum TestDemoEnum {
+    TestDemoEnum_NONE = 0;
+    TestDemoEnum_A = 1;
+    TestDemoEnum_B = 2;
+    TestDemoEnum_C = 4;
+    TestDemoEnum_D = 5;
+}
+enum TestDemoFlag {
+    TestDemoFlag_A = 1;
+    TestDemoFlag_B = 2;
+    TestDemoFlag_C = 4;
+    TestDemoFlag_D = 8;
+}
+enum TestETestUeType {
+    TestETestUeType_WHITE = 0;
+    TestETestUeType_BLACK = 1;
+}
+enum TestETestEmptyEnum {
+
+    TestETestEmptyEnum_EMPTY_PLACEHOLDER = 0;
+}
+enum TestETestEmptyEnum2 {
+    TestETestEmptyEnum2_SMALL_THAN_256 = 255;
+    TestETestEmptyEnum2_X_256 = 256;
+    TestETestEmptyEnum2_X_257 = 257;
+}
+enum TestETestQuality {
+    TestETestQuality_A = 1;
+    TestETestQuality_B = 2;
+    TestETestQuality_C = 3;
+    TestETestQuality_D = 4;
+}
+enum TestAccessFlag {
+    TestAccessFlag_WRITE = 1;
+    TestAccessFlag_READ = 2;
+    TestAccessFlag_TRUNCATE = 4;
+    TestAccessFlag_NEW = 8;
+    TestAccessFlag_READ_WRITE = 3;
+}
+
+message AiBlackboard {
+     string name = 1 ;
+     string desc = 2 ;
+     string parent_name = 3 ;
+    repeated AiBlackboardKey keys = 4 [packed = false];
+}
+message AiBlackboardKey {
+     string name = 1 ;
+     string desc = 2 ;
+     bool is_static = 3 ;
+     AiEKeyType type = 4 ;
+     string type_class_name = 5 ;
+}
+message AiBehaviorTree {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     string blackboard_id = 4 ;
+     AiComposeNode root = 5 ;
+}
+message AiNode {
+    oneof value {
+        AiUeSetDefaultFocus UeSetDefaultFocus = 1;
+        AiExecuteTimeStatistic ExecuteTimeStatistic = 2;
+        AiChooseTarget ChooseTarget = 3;
+        AiKeepFaceTarget KeepFaceTarget = 4;
+        AiGetOwnerPlayer GetOwnerPlayer = 5;
+        AiUpdateDailyBehaviorProps UpdateDailyBehaviorProps = 6;
+        AiUeLoop UeLoop = 7;
+        AiUeCooldown UeCooldown = 8;
+        AiUeTimeLimit UeTimeLimit = 9;
+        AiUeBlackboard UeBlackboard = 10;
+        AiUeForceSuccess UeForceSuccess = 11;
+        AiIsAtLocation IsAtLocation = 12;
+        AiDistanceLessThan DistanceLessThan = 13;
+        AiSequence Sequence = 14;
+        AiSelector Selector = 15;
+        AiSimpleParallel SimpleParallel = 16;
+        AiUeWait UeWait = 17;
+        AiUeWaitBlackboardTime UeWaitBlackboardTime = 18;
+        AiMoveToTarget MoveToTarget = 19;
+        AiChooseSkill ChooseSkill = 20;
+        AiMoveToRandomLocation MoveToRandomLocation = 21;
+        AiMoveToLocation MoveToLocation = 22;
+        AiDebugPrint DebugPrint = 23;
+    }
+}
+message AiService {
+    oneof value {
+        AiUeSetDefaultFocus UeSetDefaultFocus = 1;
+        AiExecuteTimeStatistic ExecuteTimeStatistic = 2;
+        AiChooseTarget ChooseTarget = 3;
+        AiKeepFaceTarget KeepFaceTarget = 4;
+        AiGetOwnerPlayer GetOwnerPlayer = 5;
+        AiUpdateDailyBehaviorProps UpdateDailyBehaviorProps = 6;
+    }
+}
+message AiUeSetDefaultFocus {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string keyboard_key = 3 ;
+}
+message AiExecuteTimeStatistic {
+     int32 id = 1 ;
+     string node_name = 2 ;
+}
+message AiChooseTarget {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string result_target_key = 3 ;
+}
+message AiKeepFaceTarget {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string target_actor_key = 3 ;
+}
+message AiGetOwnerPlayer {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string player_actor_key = 3 ;
+}
+message AiUpdateDailyBehaviorProps {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string satiety_key = 3 ;
+     string energy_key = 4 ;
+     string mood_key = 5 ;
+     string satiety_lower_threshold_key = 6 ;
+     string satiety_upper_threshold_key = 7 ;
+     string energy_lower_threshold_key = 8 ;
+     string energy_upper_threshold_key = 9 ;
+     string mood_lower_threshold_key = 10 ;
+     string mood_upper_threshold_key = 11 ;
+}
+message AiDecorator {
+    oneof value {
+        AiUeLoop UeLoop = 7;
+        AiUeCooldown UeCooldown = 8;
+        AiUeTimeLimit UeTimeLimit = 9;
+        AiUeBlackboard UeBlackboard = 10;
+        AiUeForceSuccess UeForceSuccess = 11;
+        AiIsAtLocation IsAtLocation = 12;
+        AiDistanceLessThan DistanceLessThan = 13;
+    }
+}
+message AiUeLoop {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     int32 num_loops = 4 ;
+     bool infinite_loop = 5 ;
+     float infinite_loop_timeout_time = 6 ;
+}
+message AiUeCooldown {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     float cooldown_time = 4 ;
+}
+message AiUeTimeLimit {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     float limit_time = 4 ;
+}
+message AiUeBlackboard {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     AiENotifyObserverMode notify_observer = 4 ;
+     string blackboard_key = 5 ;
+     AiKeyQueryOperator key_query = 6 ;
+}
+message AiKeyQueryOperator {
+    oneof value {
+        AiIsSet IsSet = 1;
+        AiIsNotSet IsNotSet = 2;
+        AiBinaryOperator BinaryOperator = 3;
+    }
+}
+message AiIsSet {
+}
+message AiIsNotSet {
+}
+message AiBinaryOperator {
+     AiEOperator oper = 1 ;
+     AiKeyData data = 2 ;
+}
+message AiKeyData {
+    oneof value {
+        AiFloatKeyData FloatKeyData = 1;
+        AiIntKeyData IntKeyData = 2;
+        AiStringKeyData StringKeyData = 3;
+        AiBlackboardKeyData BlackboardKeyData = 4;
+    }
+}
+message AiFloatKeyData {
+     float value = 1 ;
+}
+message AiIntKeyData {
+     int32 value = 1 ;
+}
+message AiStringKeyData {
+     string value = 1 ;
+}
+message AiBlackboardKeyData {
+     string value = 1 ;
+}
+message AiUeForceSuccess {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+}
+message AiIsAtLocation {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     float acceptable_radius = 4 ;
+     string keyboard_key = 5 ;
+     bool inverse_condition = 6 ;
+}
+message AiDistanceLessThan {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     string actor1_key = 4 ;
+     string actor2_key = 5 ;
+     float distance = 6 ;
+     bool reverse_result = 7 ;
+}
+message AiFlowNode {
+    oneof value {
+        AiSequence Sequence = 14;
+        AiSelector Selector = 15;
+        AiSimpleParallel SimpleParallel = 16;
+        AiUeWait UeWait = 17;
+        AiUeWaitBlackboardTime UeWaitBlackboardTime = 18;
+        AiMoveToTarget MoveToTarget = 19;
+        AiChooseSkill ChooseSkill = 20;
+        AiMoveToRandomLocation MoveToRandomLocation = 21;
+        AiMoveToLocation MoveToLocation = 22;
+        AiDebugPrint DebugPrint = 23;
+    }
+}
+message AiComposeNode {
+    oneof value {
+        AiSequence Sequence = 14;
+        AiSelector Selector = 15;
+        AiSimpleParallel SimpleParallel = 16;
+    }
+}
+message AiSequence {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+    repeated AiFlowNode children = 5 [packed = false];
+}
+message AiSelector {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+    repeated AiFlowNode children = 5 [packed = false];
+}
+message AiSimpleParallel {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     AiEFinishMode finish_mode = 5 ;
+     AiTask main_task = 6 ;
+     AiFlowNode background_node = 7 ;
+}
+message AiTask {
+    oneof value {
+        AiUeWait UeWait = 17;
+        AiUeWaitBlackboardTime UeWaitBlackboardTime = 18;
+        AiMoveToTarget MoveToTarget = 19;
+        AiChooseSkill ChooseSkill = 20;
+        AiMoveToRandomLocation MoveToRandomLocation = 21;
+        AiMoveToLocation MoveToLocation = 22;
+        AiDebugPrint DebugPrint = 23;
+    }
+}
+message AiUeWait {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     float wait_time = 6 ;
+     float random_deviation = 7 ;
+}
+message AiUeWaitBlackboardTime {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string blackboard_key = 6 ;
+}
+message AiMoveToTarget {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string target_actor_key = 6 ;
+     float acceptable_radius = 7 ;
+}
+message AiChooseSkill {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string target_actor_key = 6 ;
+     string result_skill_id_key = 7 ;
+}
+message AiMoveToRandomLocation {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string origin_position_key = 6 ;
+     float radius = 7 ;
+}
+message AiMoveToLocation {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     float acceptable_radius = 6 ;
+}
+message AiDebugPrint {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string text = 6 ;
+}
+message CommonGlobalConfig {
+     int32 x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int32 x4 = 4 ;
+     int32 x5 = 5 ;
+     int32 x6 = 6 ;
+    repeated int32 x7 = 7 [packed = true];
+}
+message ItemItem {
+     int32 id = 1 ;
+     string name = 2 ;
+     ItemEMinorType minor_type = 4 ;
+     ItemEItemQuality quality = 6 ;
+     string icon_backgroud = 8 ;
+     string icon_mask = 9 ;
+     string desc = 10 ;
+     int32 show_order = 11 ;
+}
+message L10nL10NDemo {
+     int32 id = 1 ;
+     string text = 2 ;
+}
+message L10nPatchDemo {
+     int32 id = 1 ;
+     int32 value = 2 ;
+}
+message TagTestTag {
+     int32 id = 1 ;
+     string value = 2 ;
+}
+message TestDemoType2 {
+     int32 x4 = 1 ;
+     bool x1 = 2 ;
+     int32 x2 = 3 ;
+     int32 x3 = 4 ;
+     int64 x5 = 5 ;
+     float x6 = 6 ;
+     double x7 = 7 ;
+     int32 x8_0 = 8 ;
+     int32 x8 = 9 ;
+     int64 x9 = 10 ;
+     string x10 = 11 ;
+     TestDemoType1 x12 = 12 ;
+     TestDemoEnum x13 = 13 ;
+     TestDemoDynamic x14 = 14 ;
+     string s1 = 15 ;
+     int64 t1 = 16 ;
+    repeated int32 k1 = 17 [packed = true];
+    repeated int32 k2 = 18 [packed = true];
+    repeated int32 k5 = 19 [packed = true];
+     map<int32, int32> k8 = 20 ;
+    repeated TestDemoE2 k9 = 21 [packed = false];
+    repeated TestDemoDynamic k15 = 22 [packed = false];
+}
+message TestDemoType1 {
+     int32 x1 = 1 ;
+}
+message TestDemoDynamic {
+    oneof value {
+        TestDemoD2 DemoD2 = 1;
+        TestDemoE1 DemoE1 = 2;
+        TestLoginRoleInfo RoleInfo = 3;
+        TestDemoD5 DemoD5 = 4;
+    }
+}
+message TestDemoD2 {
+     int32 x1 = 1 ;
+     int32 x2 = 2 ;
+}
+message TestDemoD3 {
+    oneof value {
+        TestDemoE1 DemoE1 = 2;
+        TestLoginRoleInfo RoleInfo = 3;
+    }
+}
+message TestDemoE1 {
+     int32 x1 = 1 ;
+     int32 x3 = 2 ;
+     int32 x4 = 3 ;
+}
+message TestLoginRoleInfo {
+     int32 x1 = 1 ;
+     int32 x3 = 2 ;
+     int64 role_id = 3 ;
+}
+message TestDemoD5 {
+     int32 x1 = 1 ;
+     TestDateTimeRange time = 2 ;
+}
+message TestDateTimeRange {
+     int64 start_time = 1 ;
+     int64 end_time = 2 ;
+}
+message TestDemoE2 {
+    optional int32 y1 = 1 ;
+     bool y2 = 2 ;
+}
+message TestDemoSingletonType {
+     int32 id = 1 ;
+     string name = 2 ;
+     TestDemoDynamic date = 3 ;
+}
+message TestNotIndexList {
+     int32 x = 1 ;
+     int32 y = 2 ;
+}
+message TestMultiUnionIndexList {
+     int32 id1 = 1 ;
+     int64 id2 = 2 ;
+     string id3 = 3 ;
+     int32 num = 4 ;
+     string desc = 5 ;
+}
+message TestMultiIndexList {
+     int32 id1 = 1 ;
+     int64 id2 = 2 ;
+     string id3 = 3 ;
+     int32 num = 4 ;
+     string desc = 5 ;
+}
+message TestMultiRowRecord {
+     int32 id = 1 ;
+     string name = 2 ;
+    repeated TestMultiRowType1 one_rows = 3 [packed = false];
+    repeated TestMultiRowType1 multi_rows1 = 4 [packed = false];
+    repeated TestMultiRowType1 multi_rows2 = 5 [packed = false];
+     map<int32, TestMultiRowType2> multi_rows4 = 6 ;
+    repeated TestMultiRowType3 multi_rows5 = 7 [packed = false];
+     map<int32, TestMultiRowType2> multi_rows6 = 8 ;
+     map<int32, int32> multi_rows7 = 9 ;
+}
+message TestMultiRowType1 {
+     int32 id = 1 ;
+     int32 x = 2 ;
+}
+message TestMultiRowType2 {
+     int32 id = 1 ;
+     int32 x = 2 ;
+     float y = 3 ;
+}
+message TestMultiRowType3 {
+     int32 id = 1 ;
+    repeated TestMultiRowType1 items = 2 [packed = false];
+}
+message TestTestMultiColumn {
+     int32 id = 1 ;
+     TestFoo a = 2 ;
+     TestFoo b = 3 ;
+     TestFoo c = 4 ;
+}
+message TestFoo {
+     int32 y1 = 1 ;
+     int32 y2 = 2 ;
+     int32 y3 = 3 ;
+}
+message TestMultiRowTitle {
+     int32 id = 1 ;
+     string name = 2 ;
+     TestH1 x1 = 3 ;
+    optional TestH2 x2_0 = 4 ;
+    repeated TestH2 x2 = 5 [packed = false];
+    repeated TestH2 x3 = 6 [packed = false];
+    repeated TestH2 x4 = 7 [packed = false];
+}
+message TestH1 {
+     TestH2 y2 = 1 ;
+     int32 y3 = 2 ;
+}
+message TestH2 {
+     int32 z2 = 1 ;
+     int32 z3 = 2 ;
+}
+message TestTestNull {
+     int32 id = 1 ;
+    optional int32 x1 = 2 ;
+    optional TestDemoEnum x2 = 3 ;
+    optional TestDemoType1 x3 = 4 ;
+    optional TestDemoDynamic x4 = 5 ;
+    optional string s1 = 6 ;
+    optional string s2 = 7 ;
+}
+message TestDemoPrimitiveTypesTable {
+     bool x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int32 x4 = 4 ;
+     int64 x5 = 5 ;
+     float x6 = 6 ;
+     double x7 = 7 ;
+     string s1 = 8 ;
+     string s2 = 9 ;
+     vec2 v2 = 10 ;
+     vec3 v3 = 11 ;
+     vec4 v4 = 12 ;
+     int64 t1 = 13 ;
+}
+message vec2 {
+     float x = 1 ;
+     float y = 2 ;
+}
+message vec3 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
+}
+message vec4 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
+     float w = 4 ;
+}
+message TestTestString {
+     string id = 1 ;
+     string s1 = 2 ;
+     string s2 = 3 ;
+     TestCompactString cs1 = 4 ;
+     TestCompactString cs2 = 5 ;
+}
+message TestCompactString {
+     int32 id = 1 ;
+     string s2 = 2 ;
+     string s3 = 3 ;
+}
+message TestDemoGroup {
+     int32 id = 1 ;
+     TestInnerGroup x5 = 6 ;
+}
+message TestInnerGroup {
+     int32 y1 = 1 ;
+}
+message TestTestGlobal {
+     int32 unlock_equip = 1 ;
+     int32 unlock_hero = 2 ;
+}
+message TestTestBeRef {
+     int32 id = 1 ;
+     int32 count = 2 ;
+}
+message TestTestRef {
+     int32 id = 1 ;
+     int32 x1 = 2 ;
+     int32 x1_2 = 3 ;
+     int32 x2 = 4 ;
+     int32 x3 = 5 ;
+     int32 x4 = 6 ;
+    repeated int32 a1 = 7 [packed = true];
+    repeated int32 a2 = 8 [packed = true];
+    repeated int32 b1 = 9 [packed = true];
+    repeated int32 b2 = 10 [packed = true];
+    repeated int32 c1 = 11 [packed = true];
+    repeated int32 c2 = 12 [packed = true];
+     map<int32, int32> d1 = 13 ;
+     map<int32, int32> d2 = 14 ;
+     int32 e1 = 15 ;
+     int64 e2 = 16 ;
+     string e3 = 17 ;
+     int32 f1 = 18 ;
+     int64 f2 = 19 ;
+     string f3 = 20 ;
+     TestRefDynamicBase s1 = 21 ;
+}
+message TestRefDynamicBase {
+    oneof value {
+        TestRefBean RefBean = 1;
+    }
+}
+message TestRefBean {
+     int32 x = 1 ;
+    repeated int32 arr = 2 [packed = true];
+}
+message TestTestSize {
+     int32 id = 1 ;
+    repeated int32 x1 = 2 [packed = true];
+    repeated int32 x2 = 3 [packed = true];
+    repeated int32 x3 = 4 [packed = true];
+     map<int32, int32> x4 = 5 ;
+}
+message TestTestSet {
+     int32 id = 1 ;
+     string x0 = 2 ;
+    repeated int32 x1 = 3 [packed = true];
+    repeated int64 x2 = 4 [packed = true];
+    repeated string x3 = 5 [packed = false];
+    repeated TestDemoEnum x4 = 6 [packed = false];
+}
+message TestDetectEncoding {
+     int32 id = 1 ;
+     string name = 2 ;
+}
+message TestItemBase {
+    oneof value {
+        TestItem Item = 1;
+        TestEquipment Equipment = 2;
+        TestDecorator Decorator = 3;
+    }
+}
+message TestItem {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     int32 num = 4 ;
+     int32 price = 5 ;
+}
+message TestEquipment {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     TestDemoEnum attr = 4 ;
+     int32 value = 5 ;
+}
+message TestDecorator {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     int32 duration = 4 ;
+}
+message TestTestIndex {
+     int32 id = 1 ;
+    repeated TestDemoType1 eles = 2 [packed = false];
+}
+message TestTestMap {
+     int32 id = 1 ;
+     map<int32, int32> x1 = 2 ;
+     map<int64, int32> x2 = 3 ;
+     map<string, int32> x3 = 4 ;
+     map<int32, int32> x4 = 5 ;
+}
+message TestExcelFromJson {
+     int32 x4 = 1 ;
+     bool x1 = 2 ;
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     string s1 = 5 ;
+     string s2 = 6 ;
+     int64 t1 = 7 ;
+     TestDemoType1 x12 = 8 ;
+     TestDemoEnum x13 = 9 ;
+     TestDemoDynamic x14 = 10 ;
+    repeated int32 k1 = 11 [packed = true];
+     map<int32, int32> k8 = 12 ;
+    repeated TestDemoE2 k9 = 13 [packed = false];
+    repeated TestDemoDynamic k15 = 14 [packed = false];
+}
+message TestCompositeJsonTable1 {
+     int32 id = 1 ;
+     string x = 2 ;
+}
+message TestCompositeJsonTable2 {
+     int32 id = 1 ;
+     int32 y = 2 ;
+}
+message TestCompositeJsonTable3 {
+     int32 a = 1 ;
+     int32 b = 2 ;
+}
+message TestExcelFromJsonMultiRow {
+     int32 id = 1 ;
+     int32 x = 2 ;
+    repeated TestTestRow items = 3 [packed = false];
+}
+message TestTestRow {
+     int32 x = 1 ;
+     bool y = 2 ;
+     string z = 3 ;
+     TestTest3 a = 4 ;
+    repeated int32 b = 5 [packed = true];
+}
+message TestTest3 {
+     int32 x = 1 ;
+     int32 y = 2 ;
+}
+message TestTestScriptableObject {
+     int32 id = 1 ;
+     string desc = 2 ;
+     float rate = 3 ;
+     int32 num = 4 ;
+     vec2 v2 = 5 ;
+     vec3 v3 = 6 ;
+     vec4 v4 = 7 ;
+}
+message TestTestMapper {
+     int32 id = 1 ;
+     AudioType audio_type = 2 ;
+     vec2 v2 = 3 ;
+}
+message DefineFromExcel2 {
+     int32 id = 1 ;
+     bool x1 = 2 ;
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     int32 x8 = 5 ;
+     string x10 = 6 ;
+     TestDemoEnum x13 = 7 ;
+     TestDemoFlag x13_2 = 8 ;
+     TestDemoDynamic x14 = 9 ;
+     TestShape x15 = 10 ;
+     vec2 v2 = 11 ;
+     int64 t1 = 12 ;
+    repeated int32 k1 = 13 [packed = true];
+    repeated int32 k2 = 14 [packed = true];
+     map<int32, int32> k8 = 15 ;
+    repeated TestDemoE2 k9 = 16 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
+}
+message TestShape {
+    oneof value {
+        TestCircle Circle = 1;
+        Test2Rectangle Rectangle = 2;
+    }
+}
+message TestCircle {
+     float radius = 1 ;
+}
+message Test2Rectangle {
+     float width = 1 ;
+     float height = 2 ;
+}
+
+message AiTbBlackboard {
+    repeated AiBlackboard data_list = 1 [packed = false];
+}
+message AiTbBehaviorTree {
+    repeated AiBehaviorTree data_list = 1 [packed = false];
+}
+message CommonTbGlobalConfig {
+    repeated CommonGlobalConfig data_list = 1 [packed = false];
+}
+message ItemTbItem {
+    repeated ItemItem data_list = 1 [packed = false];
+}
+message L10nTbL10NDemo {
+    repeated L10nL10NDemo data_list = 1 [packed = false];
+}
+message L10nTbPatchDemo {
+    repeated L10nPatchDemo data_list = 1 [packed = false];
+}
+message TagTbTestTag {
+    repeated TagTestTag data_list = 1 [packed = false];
+}
+message TestTbFullTypes {
+    repeated TestDemoType2 data_list = 1 [packed = false];
+}
+message TestTbSingleton {
+    repeated TestDemoSingletonType data_list = 1 [packed = false];
+}
+message TestTbNotIndexList {
+    repeated TestNotIndexList data_list = 1 [packed = false];
+}
+message TestTbMultiUnionIndexList {
+    repeated TestMultiUnionIndexList data_list = 1 [packed = false];
+}
+message TestTbMultiIndexList {
+    repeated TestMultiIndexList data_list = 1 [packed = false];
+}
+message TestTbDataFromMisc {
+    repeated TestDemoType2 data_list = 1 [packed = false];
+}
+message TestTbMultiRowRecord {
+    repeated TestMultiRowRecord data_list = 1 [packed = false];
+}
+message TestTbTestMultiColumn {
+    repeated TestTestMultiColumn data_list = 1 [packed = false];
+}
+message TestTbMultiRowTitle {
+    repeated TestMultiRowTitle data_list = 1 [packed = false];
+}
+message TestTbTestNull {
+    repeated TestTestNull data_list = 1 [packed = false];
+}
+message TestTbDemoPrimitive {
+    repeated TestDemoPrimitiveTypesTable data_list = 1 [packed = false];
+}
+message TestTbTestString {
+    repeated TestTestString data_list = 1 [packed = false];
+}
+message TestTbDemoGroup {
+    repeated TestDemoGroup data_list = 1 [packed = false];
+}
+message TestTbTestGlobal {
+    repeated TestTestGlobal data_list = 1 [packed = false];
+}
+message TestTbTestBeRef {
+    repeated TestTestBeRef data_list = 1 [packed = false];
+}
+message TestTbTestBeRef2 {
+    repeated TestTestBeRef data_list = 1 [packed = false];
+}
+message TestTbTestRef {
+    repeated TestTestRef data_list = 1 [packed = false];
+}
+message TestTbTestSize {
+    repeated TestTestSize data_list = 1 [packed = false];
+}
+message TestTbTestSet {
+    repeated TestTestSet data_list = 1 [packed = false];
+}
+message TestTbDetectCsvEncoding {
+    repeated TestDetectEncoding data_list = 1 [packed = false];
+}
+message TestTbItem2 {
+    repeated TestItemBase data_list = 1 [packed = false];
+}
+message TestTbTestIndex {
+    repeated TestTestIndex data_list = 1 [packed = false];
+}
+message TestTbTestMap {
+    repeated TestTestMap data_list = 1 [packed = false];
+}
+message TestTbExcelFromJson {
+    repeated TestExcelFromJson data_list = 1 [packed = false];
+}
+message TestTbCompositeJsonTable1 {
+    repeated TestCompositeJsonTable1 data_list = 1 [packed = false];
+}
+message TestTbCompositeJsonTable2 {
+    repeated TestCompositeJsonTable2 data_list = 1 [packed = false];
+}
+message TestTbCompositeJsonTable3 {
+    repeated TestCompositeJsonTable3 data_list = 1 [packed = false];
+}
+message TestTbExcelFromJsonMultiRow {
+    repeated TestExcelFromJsonMultiRow data_list = 1 [packed = false];
+}
+message TestTbTestScriptableObject {
+    repeated TestTestScriptableObject data_list = 1 [packed = false];
+}
+message TestTbTestMapper {
+    repeated TestTestMapper data_list = 1 [packed = false];
+}
+message TestTbDefineFromExcel2 {
+    repeated DefineFromExcel2 data_list = 1 [packed = false];
+}
+
+

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <name>attack_or_patrol</name>
+    <desc>demo hahaha</desc>
+    <parent_name></parent_name>
+    <keys>
+      <ele>
+        <name>OriginPosition</name>
+        <desc></desc>
+        <is_static>false</is_static>
+        <type>5</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>TargetActor</name>
+        <desc>x2 haha</desc>
+        <is_static>false</is_static>
+        <type>10</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>AcceptableRadius</name>
+        <desc>x3 haha</desc>
+        <is_static>false</is_static>
+        <type>3</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>CurChooseSkillId</name>
+        <desc>x4 haha</desc>
+        <is_static>false</is_static>
+        <type>2</type>
+        <type_class_name></type_class_name>
+      </ele>
+    </keys>
+  </record>
+  <record>
+    <name>demo</name>
+    <desc>demo hahaha</desc>
+    <parent_name>demo_parent</parent_name>
+    <keys>
+      <ele>
+        <name>x1</name>
+        <desc>x1 haha</desc>
+        <is_static>false</is_static>
+        <type>1</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x2</name>
+        <desc>x2 haha</desc>
+        <is_static>false</is_static>
+        <type>2</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x3</name>
+        <desc>x3 haha</desc>
+        <is_static>false</is_static>
+        <type>3</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x4</name>
+        <desc>x4 haha</desc>
+        <is_static>false</is_static>
+        <type>4</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x5</name>
+        <desc>x5 haha</desc>
+        <is_static>false</is_static>
+        <type>5</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x6</name>
+        <desc>x6 haha</desc>
+        <is_static>false</is_static>
+        <type>6</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x7</name>
+        <desc>x7 haha</desc>
+        <is_static>false</is_static>
+        <type>7</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x8</name>
+        <desc>x8 haha</desc>
+        <is_static>false</is_static>
+        <type>8</type>
+        <type_class_name></type_class_name>
+      </ele>
+      <ele>
+        <name>x9</name>
+        <desc>x9 haha</desc>
+        <is_static>false</is_static>
+        <type>9</type>
+        <type_class_name>ABC</type_class_name>
+      </ele>
+      <ele>
+        <name>x10</name>
+        <desc>x10 haha</desc>
+        <is_static>false</is_static>
+        <type>10</type>
+        <type_class_name>OBJECT</type_class_name>
+      </ele>
+    </keys>
+  </record>
+  <record>
+    <name>demo_parent</name>
+    <desc>demo parent</desc>
+    <parent_name></parent_name>
+    <keys>
+      <ele>
+        <name>v1</name>
+        <desc>v1 haha</desc>
+        <is_static>false</is_static>
+        <type>1</type>
+        <type_class_name></type_class_name>
+      </ele>
+    </keys>
+  </record>
+</table>

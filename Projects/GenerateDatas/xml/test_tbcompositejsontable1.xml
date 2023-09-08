@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record>
+    <id>1</id>
+    <x>aaa1</x>
+  </record>
+  <record>
+    <id>2</id>
+    <x>xx2</x>
+  </record>
+  <record>
+    <id>11</id>
+    <x>aaa11</x>
+  </record>
+  <record>
+    <id>12</id>
+    <x>xx12</x>
+  </record>
+</table>

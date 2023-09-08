@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <record type="TreasureBox">
+    <id>1022200001</id>
+    <key_item_id>1022300001</key_item_id>
+    <open_level>
+      <level>5</level>
+    </open_level>
+    <use_on_obtain>true</use_on_obtain>
+    <drop_ids>
+      <ele>1</ele>
+    </drop_ids>
+    <choose_list />
+  </record>
+  <record type="TreasureBox">
+    <id>1022300001</id>
+    <open_level>
+      <level>5</level>
+    </open_level>
+    <use_on_obtain>true</use_on_obtain>
+    <drop_ids />
+    <choose_list />
+  </record>
+  <record type="TreasureBox">
+    <id>1010010003</id>
+    <open_level>
+      <level>6</level>
+    </open_level>
+    <use_on_obtain>true</use_on_obtain>
+    <drop_ids />
+    <choose_list />
+  </record>
+  <record type="TreasureBox">
+    <id>1050010001</id>
+    <open_level>
+      <level>1</level>
+    </open_level>
+    <use_on_obtain>false</use_on_obtain>
+    <drop_ids>
+      <ele>1</ele>
+    </drop_ids>
+    <choose_list />
+  </record>
+  <record type="InteractionItem">
+    <id>1040010001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040020001</id>
+    <holding_static_mesh>StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple'</holding_static_mesh>
+    <holding_static_mesh_mat>MaterialInstanceConstant'/Game/X6GameData/Prototype/PrototypeAssets/Material/LD_Red.LD_Red'</holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040040001</id>
+    <holding_static_mesh>StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Ball.SM_Ball'</holding_static_mesh>
+    <holding_static_mesh_mat>MaterialInstanceConstant'/Game/X6GameData/Prototype/PrototypeAssets/CustomizableGrid/Materials/Presets/M_Grid_preset_002.M_Grid_preset_002'</holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040040002</id>
+    <holding_static_mesh>StaticMesh'/Game/X6GameData/Art_assets/Props/Prop_test/Interactive/PenQuanHua/SM_Penquanhua.SM_Penquanhua'</holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040040003</id>
+    <holding_static_mesh>StaticMesh'/Game/X6GameData/Prototype/PrototypeAssets/StaticMesh/SM_Apple.SM_Apple'</holding_static_mesh>
+    <holding_static_mesh_mat>MaterialInstanceConstant'/Game/X6GameData/Art_assets/Props/Prop_test/Materials/Prop_Red_MI.Prop_Red_MI'</holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040210001</id>
+    <attack_num>3</attack_num>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040220001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040230001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040240001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040250001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="InteractionItem">
+    <id>1040030001</id>
+    <holding_static_mesh></holding_static_mesh>
+    <holding_static_mesh_mat></holding_static_mesh_mat>
+  </record>
+  <record type="Clothes">
+    <id>1020100001</id>
+    <attack>100</attack>
+    <hp>1000</hp>
+    <energy_limit>5</energy_limit>
+    <energy_resume>1</energy_resume>
+  </record>
+  <record type="Clothes">
+    <id>1020200001</id>
+    <attack>100</attack>
+    <hp>1000</hp>
+    <energy_limit>5</energy_limit>
+    <energy_resume>1</energy_resume>
+  </record>
+  <record type="Clothes">
+    <id>1020300001</id>
+    <attack>100</attack>
+    <hp>1000</hp>
+    <energy_limit>5</energy_limit>
+    <energy_resume>1</energy_resume>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110010005</id>
+    <learn_component_id>
+      <ele>1020400006</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110010006</id>
+    <learn_component_id>
+      <ele>1020500003</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020001</id>
+    <learn_component_id>
+      <ele>1021009005</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020002</id>
+    <learn_component_id>
+      <ele>1022109005</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020003</id>
+    <learn_component_id>
+      <ele>1020409017</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020004</id>
+    <learn_component_id>
+      <ele>1021409017</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020005</id>
+    <learn_component_id>
+      <ele>1021300002</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020009</id>
+    <learn_component_id>
+      <ele>1020409024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020010</id>
+    <learn_component_id>
+      <ele>1020509024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020011</id>
+    <learn_component_id>
+      <ele>1020609024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020012</id>
+    <learn_component_id>
+      <ele>1020809022</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020013</id>
+    <learn_component_id>
+      <ele>1020709024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020014</id>
+    <learn_component_id>
+      <ele>1021009024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020015</id>
+    <learn_component_id>
+      <ele>1021409024</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020016</id>
+    <learn_component_id>
+      <ele>1021309132</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020017</id>
+    <learn_component_id>
+      <ele>1020909132</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020018</id>
+    <learn_component_id>
+      <ele>1021500007</ele>
+    </learn_component_id>
+  </record>
+  <record type="DesignDrawing">
+    <id>1110020080</id>
+    <learn_component_id>
+      <ele>1021009132</ele>
+    </learn_component_id>
+  </record>
+</table>
