@@ -17,6 +17,9 @@ public sealed partial class DemoGroup : Luban.BeanBase
     public DemoGroup(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
+        X2 = _buf.ReadInt();
+        X2_Ref = null;
+        X4 = _buf.ReadInt();
         X5 = test.InnerGroup.DeserializeInnerGroup(_buf);
     }
 
@@ -26,6 +29,9 @@ public sealed partial class DemoGroup : Luban.BeanBase
     }
 
     public readonly int Id;
+    public readonly int X2;
+    public test.DemoGroup X2_Ref;
+    public readonly int X4;
     public readonly test.InnerGroup X5;
    
     public const int __ID__ = -379263008;
@@ -34,6 +40,8 @@ public sealed partial class DemoGroup : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         
+        X2_Ref = tables.TbDemoGroupS.GetOrDefault(X2);
+        
         X5?.ResolveRef(tables);
     }
 
@@ -41,6 +49,8 @@ public sealed partial class DemoGroup : Luban.BeanBase
     {
         return "{ "
         + "id:" + Id + ","
+        + "x2:" + X2 + ","
+        + "x4:" + X4 + ","
         + "x5:" + X5 + ","
         + "}";
     }

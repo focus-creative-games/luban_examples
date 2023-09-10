@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Gen\ai.IsAtLocation.cs" />
     <Compile Include="Assets\Gen\item.Item.cs" />
+    <Compile Include="Assets\Gen\vec3.cs" />
     <Compile Include="Assets\Gen\ai.Task.cs" />
     <Compile Include="Assets\Gen\ai.UeSetDefaultFocus.cs" />
     <Compile Include="Assets\Gen\test.TestSize.cs" />
@@ -81,10 +82,8 @@
     <Compile Include="Assets\Gen\test.TbTestIndex.cs" />
     <Compile Include="Assets\Gen\ai.MoveToRandomLocation.cs" />
     <Compile Include="Assets\Gen\test.TbTestGlobal.cs" />
-    <Compile Include="Assets\Gen\test.TbDemoGroup_S.cs" />
     <Compile Include="Assets\Gen\ai.KeyData.cs" />
     <Compile Include="Assets\Gen\test.Foo.cs" />
-    <Compile Include="Assets\Gen\vector2.cs" />
     <Compile Include="Assets\Gen\common.EBoolOperator.cs" />
     <Compile Include="Assets\Gen\item.EMajorType.cs" />
     <Compile Include="Assets\Gen\test.ETestUeType.cs" />
@@ -102,11 +101,11 @@
     <Compile Include="Assets\Gen\test.TestString.cs" />
     <Compile Include="Assets\Gen\test.TbFullTypes.cs" />
     <Compile Include="Assets\Gen\test.TbExcelFromJson.cs" />
-    <Compile Include="Assets\LubanLib\ITypeId.cs" />
     <Compile Include="Assets\Gen\test2.Rectangle.cs" />
     <Compile Include="Assets\Gen\test.TbTestMultiColumn.cs" />
     <Compile Include="Assets\Gen\ai.FlowNode.cs" />
     <Compile Include="Assets\Gen\test.Test3.cs" />
+    <Compile Include="Assets\Gen\vec4.cs" />
     <Compile Include="Assets\Gen\test.TbTestScriptableObject.cs" />
     <Compile Include="Assets\Gen\test.TestSet.cs" />
     <Compile Include="Assets\Gen\test.TbMultiRowRecord.cs" />
@@ -145,7 +144,6 @@
     <Compile Include="Assets\Gen\test.Circle.cs" />
     <Compile Include="Assets\Gen\test.MultiRowRecord.cs" />
     <Compile Include="Assets\Gen\ai.ENotifyObserverMode.cs" />
-    <Compile Include="Assets\Gen\test.TbDemoGroup_E.cs" />
     <Compile Include="Assets\Gen\test.MultiUnionIndexList.cs" />
     <Compile Include="Assets\LubanLib\StringUtil.cs" />
     <Compile Include="Assets\Gen\test.ETestEmptyEnum.cs" />
@@ -180,13 +178,12 @@
     <Compile Include="Assets\Gen\test.DetectEncoding.cs" />
     <Compile Include="Assets\Gen\test.TestMultiColumn.cs" />
     <Compile Include="Assets\LubanLib\SimpleJSON\SimpleJSONUnity.cs" />
+    <Compile Include="Assets\ExternalTypeUtil.cs" />
     <Compile Include="Assets\Gen\ai.Blackboard.cs" />
-    <Compile Include="Assets\Gen\vector3.cs" />
     <Compile Include="Assets\Gen\ai.IntKeyData.cs" />
     <Compile Include="Assets\Gen\test.TestMap.cs" />
     <Compile Include="Assets\Gen\ai.UeTimeLimit.cs" />
     <Compile Include="Assets\Gen\test.TbMultiIndexList.cs" />
-    <Compile Include="Assets\Gen\vector4.cs" />
     <Compile Include="Assets\Gen\ai.GetOwnerPlayer.cs" />
     <Compile Include="Assets\Gen\test.CompositeJsonTable1.cs" />
     <Compile Include="Assets\Gen\test.TbTestMapper.cs" />
@@ -211,6 +208,7 @@
     <Compile Include="Assets\Gen\ai.EKeyType.cs" />
     <Compile Include="Assets\Gen\ai.IsSet.cs" />
     <Compile Include="Assets\Gen\ai.KeyQueryOperator.cs" />
+    <Compile Include="Assets\Gen\vec2.cs" />
     <Compile Include="Assets\Gen\item.EClothersStarQualityType.cs" />
     <Compile Include="Assets\Gen\tag.TestTag.cs" />
     <Compile Include="Assets\Gen\ai.MoveToLocation.cs" />

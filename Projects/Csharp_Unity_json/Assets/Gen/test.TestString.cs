@@ -17,7 +17,7 @@ public sealed partial class TestString : Luban.BeanBase
 {
     public TestString(JSONNode _buf) 
     {
-        { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
+        { if(!_buf["id"].IsString) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["s1"].IsString) { throw new SerializationException(); }  S1 = _buf["s1"]; }
         { if(!_buf["s2"].IsString) { throw new SerializationException(); }  S2 = _buf["s2"]; }
         { if(!_buf["cs1"].IsObject) { throw new SerializationException(); }  Cs1 = test.CompactString.DeserializeCompactString(_buf["cs1"]);  }
@@ -29,7 +29,7 @@ public sealed partial class TestString : Luban.BeanBase
         return new test.TestString(_buf);
     }
 
-    public readonly int Id;
+    public readonly string Id;
     public readonly string S1;
     public readonly string S2;
     public readonly test.CompactString Cs1;

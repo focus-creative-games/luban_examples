@@ -4,7 +4,7 @@ set GEN_CLIENT=%WORKSPACE%\Tools\Luban\Luban.dll
 set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %GEN_CLIENT% ^
-    -t all ^
+    -t server ^
     -c cs-dotnet-json ^
     -d json  ^
     --conf %CONF_ROOT%\luban.conf ^

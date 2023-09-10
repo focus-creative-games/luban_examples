@@ -18,7 +18,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
     {
         Y1 = _buf.ReadInt();
         Y2 = _buf.ReadInt();
-        Y3 = _buf.ReadInt();
         Y4 = _buf.ReadInt();
     }
 
@@ -29,7 +28,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
 
     public readonly int Y1;
     public readonly int Y2;
-    public readonly int Y3;
     public readonly int Y4;
    
     public const int __ID__ = -587873083;
@@ -40,7 +38,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
         
         
         
-        
     }
 
     public override string ToString()
@@ -48,7 +45,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
         return "{ "
         + "y1:" + Y1 + ","
         + "y2:" + Y2 + ","
-        + "y3:" + Y3 + ","
         + "y4:" + Y4 + ","
         + "}";
     }
