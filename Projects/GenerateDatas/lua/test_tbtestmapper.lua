@@ -1,5 +1,0 @@
-return
-{
-[1] = {id=1,audio_type=1,v2={x=1,y=2,},},
-[2] = {id=2,audio_type=1,v2={x=1,y=3,},},
-}

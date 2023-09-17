@@ -53,6 +53,7 @@ public partial class Tables
     public test.TbCompositeJsonTable3 TbCompositeJsonTable3 {get; }
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
     public test.TbTestScriptableObject TbTestScriptableObject {get; }
+    public test.TbPath TbPath {get; }
     public test.TbTestMapper TbTestMapper {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
 
@@ -95,6 +96,7 @@ public partial class Tables
         TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader("test_tbcompositejsontable3"));
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow"));
         TbTestScriptableObject = new test.TbTestScriptableObject(loader("test_tbtestscriptableobject"));
+        TbPath = new test.TbPath(loader("test_tbpath"));
         TbTestMapper = new test.TbTestMapper(loader("test_tbtestmapper"));
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2"));
         ResolveRef();
@@ -139,6 +141,7 @@ public partial class Tables
         TbCompositeJsonTable3.ResolveRef(this);
         TbExcelFromJsonMultiRow.ResolveRef(this);
         TbTestScriptableObject.ResolveRef(this);
+        TbPath.ResolveRef(this);
         TbTestMapper.ResolveRef(this);
         TbDefineFromExcel2.ResolveRef(this);
     }

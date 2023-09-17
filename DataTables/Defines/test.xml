@@ -501,6 +501,12 @@
         <var name="v4" type="vec4"/>
     </bean>
     <table name="TbTestScriptableObject" value="TestScriptableObject" input="test/unity_scriptable_objects"/>
+
+    <bean name="Path">
+        <var name="id" type="int"/>
+        <var name="res" type="string#path=unity"/>
+    </bean>
+    <table name="TbPath" value="Path" input="test/path.xlsx"/>
  
     
     <!--table name="TbTestExternalType" value="TestExternalType" define_from_file="1" input="test/external_type.xlsx"/-->

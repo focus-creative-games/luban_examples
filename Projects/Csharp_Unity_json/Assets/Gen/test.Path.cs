@@ -13,30 +13,27 @@ using SimpleJSON;
 
 namespace cfg.test
 {
-public sealed partial class TestMapper : Luban.BeanBase
+public sealed partial class Path : Luban.BeanBase
 {
-    public TestMapper(JSONNode _buf) 
+    public Path(JSONNode _buf) 
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
-        { if(!_buf["audio_type"].IsNumber) { throw new SerializationException(); }  AudioType = (AudioType)_buf["audio_type"].AsInt; }
-        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = vec2.Deserializevec2(_buf["v2"]);  }
+        { if(!_buf["res"].IsString) { throw new SerializationException(); }  Res = _buf["res"]; }
     }
 
-    public static TestMapper DeserializeTestMapper(JSONNode _buf)
+    public static Path DeserializePath(JSONNode _buf)
     {
-        return new test.TestMapper(_buf);
+        return new test.Path(_buf);
     }
 
     public readonly int Id;
-    public readonly AudioType AudioType;
-    public readonly vec2 V2;
+    public readonly string Res;
    
-    public const int __ID__ = 149110895;
+    public const int __ID__ = -1226450911;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
         
         
     }
@@ -45,8 +42,7 @@ public sealed partial class TestMapper : Luban.BeanBase
     {
         return "{ "
         + "id:" + Id + ","
-        + "audioType:" + AudioType + ","
-        + "v2:" + V2 + ","
+        + "res:" + Res + ","
         + "}";
     }
 }

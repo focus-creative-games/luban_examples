@@ -1,4 +1,0 @@
-/abc
-/apple
-/def
-key_name
