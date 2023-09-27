@@ -11,7 +11,7 @@ func loader(file_name:String):
 
 func _ready():
 	# load config
-	config = Schema.cfg_Tables.new(loader)
+	config = Schema.CfgTables.new(loader)
 	# just print a few config, confirm load success.
 	for i in config.TbItem.get_data_list():
 		print(i.id, i.name, i.desc)
