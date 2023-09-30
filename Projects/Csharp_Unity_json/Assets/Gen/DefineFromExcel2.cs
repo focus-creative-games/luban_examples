@@ -27,14 +27,14 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         { if(!_buf["x13_2"].IsNumber) { throw new SerializationException(); }  X132 = (test.DemoFlag)_buf["x13_2"].AsInt; }
         { if(!_buf["x14"].IsObject) { throw new SerializationException(); }  X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf["x14"]);  }
         { if(!_buf["x15"].IsObject) { throw new SerializationException(); }  X15 = test.Shape.DeserializeShape(_buf["x15"]);  }
-        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = vec2.Deserializevec2(_buf["v2"]);  }
+        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf["v2"]));  }
         { if(!_buf["t1"].IsNumber) { throw new SerializationException(); }  T1 = _buf["t1"]; }
         { var __json0 = _buf["k1"]; if(!__json0.IsArray) { throw new SerializationException(); } int _n0 = __json0.Count; K1 = new int[_n0]; int __index0=0; foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  K1[__index0++] = __v0; }   }
         { var __json0 = _buf["k2"]; if(!__json0.IsArray) { throw new SerializationException(); } int _n0 = __json0.Count; K2 = new int[_n0]; int __index0=0; foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  K2[__index0++] = __v0; }   }
         { var __json0 = _buf["k8"]; if(!__json0.IsArray) { throw new SerializationException(); } K8 = new System.Collections.Generic.Dictionary<int, int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int _k0;  { if(!__e0[0].IsNumber) { throw new SerializationException(); }  _k0 = __e0[0]; } int _v0;  { if(!__e0[1].IsNumber) { throw new SerializationException(); }  _v0 = __e0[1]; }  K8.Add(_k0, _v0); }   }
         { var __json0 = _buf["k9"]; if(!__json0.IsArray) { throw new SerializationException(); } K9 = new System.Collections.Generic.List<test.DemoE2>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { test.DemoE2 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.DemoE2.DeserializeDemoE2(__e0);  }  K9.Add(__v0); }   }
-        { var __json0 = _buf["k10"]; if(!__json0.IsArray) { throw new SerializationException(); } K10 = new System.Collections.Generic.List<vec3>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { vec3 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = vec3.Deserializevec3(__e0);  }  K10.Add(__v0); }   }
-        { var __json0 = _buf["k11"]; if(!__json0.IsArray) { throw new SerializationException(); } K11 = new System.Collections.Generic.List<vec4>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { vec4 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = vec4.Deserializevec4(__e0);  }  K11.Add(__v0); }   }
+        { var __json0 = _buf["k10"]; if(!__json0.IsArray) { throw new SerializationException(); } K10 = new System.Collections.Generic.List<UnityEngine.Vector3>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { UnityEngine.Vector3 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(__e0));  }  K10.Add(__v0); }   }
+        { var __json0 = _buf["k11"]; if(!__json0.IsArray) { throw new SerializationException(); } K11 = new System.Collections.Generic.List<UnityEngine.Vector4>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { UnityEngine.Vector4 __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(__e0));  }  K11.Add(__v0); }   }
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(JSONNode _buf)
@@ -58,14 +58,14 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly test.DemoFlag X132;
     public readonly test.DemoDynamic X14;
     public readonly test.Shape X15;
-    public readonly vec2 V2;
+    public readonly UnityEngine.Vector2 V2;
     public readonly long T1;
     public readonly int[] K1;
     public readonly int[] K2;
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly System.Collections.Generic.List<vec3> K10;
-    public readonly System.Collections.Generic.List<vec4> K11;
+    public readonly System.Collections.Generic.List<UnityEngine.Vector3> K10;
+    public readonly System.Collections.Generic.List<UnityEngine.Vector4> K11;
    
     public const int __ID__ = 482045152;
     public override int GetTypeId() => __ID__;

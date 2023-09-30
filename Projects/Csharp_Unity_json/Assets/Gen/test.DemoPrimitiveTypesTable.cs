@@ -26,9 +26,9 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
         { if(!_buf["x7"].IsNumber) { throw new SerializationException(); }  X7 = _buf["x7"]; }
         { if(!_buf["s1"].IsString) { throw new SerializationException(); }  S1 = _buf["s1"]; }
         { if(!_buf["s2"].IsString) { throw new SerializationException(); }  S2 = _buf["s2"]; }
-        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = vec2.Deserializevec2(_buf["v2"]);  }
-        { if(!_buf["v3"].IsObject) { throw new SerializationException(); }  V3 = vec3.Deserializevec3(_buf["v3"]);  }
-        { if(!_buf["v4"].IsObject) { throw new SerializationException(); }  V4 = vec4.Deserializevec4(_buf["v4"]);  }
+        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf["v2"]));  }
+        { if(!_buf["v3"].IsObject) { throw new SerializationException(); }  V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf["v3"]));  }
+        { if(!_buf["v4"].IsObject) { throw new SerializationException(); }  V4 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf["v4"]));  }
         { if(!_buf["t1"].IsNumber) { throw new SerializationException(); }  T1 = _buf["t1"]; }
     }
 
@@ -46,9 +46,9 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
     public readonly double X7;
     public readonly string S1;
     public readonly string S2;
-    public readonly vec2 V2;
-    public readonly vec3 V3;
-    public readonly vec4 V4;
+    public readonly UnityEngine.Vector2 V2;
+    public readonly UnityEngine.Vector3 V3;
+    public readonly UnityEngine.Vector4 V4;
     public readonly long T1;
    
     public const int __ID__ = -370934083;

@@ -24,7 +24,6 @@ public sealed partial class Item : Luban.BeanBase
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["major_type"].IsNumber) { throw new SerializationException(); }  MajorType = (item.EMajorType)_buf["major_type"].AsInt; }
         { if(!_buf["minor_type"].IsNumber) { throw new SerializationException(); }  MinorType = (item.EMinorType)_buf["minor_type"].AsInt; }
-        { if(!_buf["max_pile_num"].IsNumber) { throw new SerializationException(); }  MaxPileNum = _buf["max_pile_num"]; }
         { if(!_buf["quality"].IsNumber) { throw new SerializationException(); }  Quality = (item.EItemQuality)_buf["quality"].AsInt; }
         { if(!_buf["icon"].IsString) { throw new SerializationException(); }  Icon = _buf["icon"]; }
         { if(!_buf["icon_backgroud"].IsString) { throw new SerializationException(); }  IconBackgroud = _buf["icon_backgroud"]; }
@@ -45,7 +44,6 @@ public sealed partial class Item : Luban.BeanBase
     public readonly string Name;
     public readonly item.EMajorType MajorType;
     public readonly item.EMinorType MinorType;
-    public readonly int MaxPileNum;
     public readonly item.EItemQuality Quality;
     public readonly string Icon;
     public readonly string IconBackgroud;
@@ -68,7 +66,6 @@ public sealed partial class Item : Luban.BeanBase
         
         
         
-        
     }
 
     public override string ToString()
@@ -78,7 +75,6 @@ public sealed partial class Item : Luban.BeanBase
         + "name:" + Name + ","
         + "majorType:" + MajorType + ","
         + "minorType:" + MinorType + ","
-        + "maxPileNum:" + MaxPileNum + ","
         + "quality:" + Quality + ","
         + "icon:" + Icon + ","
         + "iconBackgroud:" + IconBackgroud + ","

@@ -29,6 +29,7 @@ namespace editor.cfg.test
         /// dd
         /// </summary>
         D = 5,
+        Any = 6,
     }
 
     public static class DemoEnum_Metadata
@@ -38,6 +39,7 @@ namespace editor.cfg.test
         public static readonly Luban.EditorEnumItemInfo B = new Luban.EditorEnumItemInfo("B", "bb", 2, "bb");
         public static readonly Luban.EditorEnumItemInfo C = new Luban.EditorEnumItemInfo("C", "cc", 4, "cc");
         public static readonly Luban.EditorEnumItemInfo D = new Luban.EditorEnumItemInfo("D", "dd", 5, "dd");
+        public static readonly Luban.EditorEnumItemInfo Any = new Luban.EditorEnumItemInfo("Any", "", 6, "");
 
         private static readonly System.Collections.Generic.List<Luban.EditorEnumItemInfo> __items = new System.Collections.Generic.List<Luban.EditorEnumItemInfo>
         {
@@ -46,6 +48,7 @@ namespace editor.cfg.test
             B,
             C,
             D,
+            Any,
         };
 
         public static System.Collections.Generic.List<Luban.EditorEnumItemInfo> GetItems() => __items;

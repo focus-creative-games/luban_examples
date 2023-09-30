@@ -18,8 +18,8 @@ public sealed partial class TestMapper : Luban.BeanBase
     public TestMapper(JSONNode _buf) 
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
-        { if(!_buf["audio_type"].IsNumber) { throw new SerializationException(); }  AudioType = (AudioType)_buf["audio_type"].AsInt; }
-        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = vec2.Deserializevec2(_buf["v2"]);  }
+        { if(!_buf["audio_type"].IsNumber) { throw new SerializationException(); }  AudioType = (UnityEngine.AudioType)_buf["audio_type"].AsInt; }
+        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf["v2"]));  }
     }
 
     public static TestMapper DeserializeTestMapper(JSONNode _buf)
@@ -28,8 +28,8 @@ public sealed partial class TestMapper : Luban.BeanBase
     }
 
     public readonly int Id;
-    public readonly AudioType AudioType;
-    public readonly vec2 V2;
+    public readonly UnityEngine.AudioType AudioType;
+    public readonly UnityEngine.Vector2 V2;
    
     public const int __ID__ = 149110895;
     public override int GetTypeId() => __ID__;

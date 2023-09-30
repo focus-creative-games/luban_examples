@@ -19,7 +19,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
     {
         { if(!_buf["y1"].IsNumber) { throw new SerializationException(); }  Y1 = _buf["y1"]; }
         { if(!_buf["y2"].IsNumber) { throw new SerializationException(); }  Y2 = _buf["y2"]; }
-        { if(!_buf["y3"].IsNumber) { throw new SerializationException(); }  Y3 = _buf["y3"]; }
         { if(!_buf["y4"].IsNumber) { throw new SerializationException(); }  Y4 = _buf["y4"]; }
     }
 
@@ -30,7 +29,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
 
     public readonly int Y1;
     public readonly int Y2;
-    public readonly int Y3;
     public readonly int Y4;
    
     public const int __ID__ = -587873083;
@@ -41,7 +39,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
         
         
         
-        
     }
 
     public override string ToString()
@@ -49,7 +46,6 @@ public sealed partial class InnerGroup : Luban.BeanBase
         return "{ "
         + "y1:" + Y1 + ","
         + "y2:" + Y2 + ","
-        + "y3:" + Y3 + ","
         + "y4:" + Y4 + ","
         + "}";
     }

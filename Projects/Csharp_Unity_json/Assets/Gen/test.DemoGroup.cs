@@ -20,10 +20,6 @@ public sealed partial class DemoGroup : Luban.BeanBase
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["x1"].IsNumber) { throw new SerializationException(); }  X1 = _buf["x1"]; }
         X1_Ref = null;
-        { if(!_buf["x2"].IsNumber) { throw new SerializationException(); }  X2 = _buf["x2"]; }
-        X2_Ref = null;
-        { if(!_buf["x3"].IsNumber) { throw new SerializationException(); }  X3 = _buf["x3"]; }
-        X3_Ref = null;
         { if(!_buf["x4"].IsNumber) { throw new SerializationException(); }  X4 = _buf["x4"]; }
         { if(!_buf["x5"].IsObject) { throw new SerializationException(); }  X5 = test.InnerGroup.DeserializeInnerGroup(_buf["x5"]);  }
     }
@@ -36,10 +32,6 @@ public sealed partial class DemoGroup : Luban.BeanBase
     public readonly int Id;
     public readonly int X1;
     public test.DemoGroup X1_Ref;
-    public readonly int X2;
-    public test.DemoGroup X2_Ref;
-    public readonly int X3;
-    public test.DemoGroup X3_Ref;
     public readonly int X4;
     public readonly test.InnerGroup X5;
    
@@ -50,8 +42,6 @@ public sealed partial class DemoGroup : Luban.BeanBase
     {
         
         X1_Ref = tables.TbDemoGroupC.GetOrDefault(X1);
-        X2_Ref = tables.TbDemoGroupS.GetOrDefault(X2);
-        X3_Ref = tables.TbDemoGroupE.GetOrDefault(X3);
         
         X5?.ResolveRef(tables);
     }
@@ -61,8 +51,6 @@ public sealed partial class DemoGroup : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "x1:" + X1 + ","
-        + "x2:" + X2 + ","
-        + "x3:" + X3 + ","
         + "x4:" + X4 + ","
         + "x5:" + X5 + ","
         + "}";

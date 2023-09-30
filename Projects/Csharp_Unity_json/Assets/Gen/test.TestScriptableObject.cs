@@ -21,9 +21,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         { if(!_buf["desc"].IsString) { throw new SerializationException(); }  Desc = _buf["desc"]; }
         { if(!_buf["rate"].IsNumber) { throw new SerializationException(); }  Rate = _buf["rate"]; }
         { if(!_buf["num"].IsNumber) { throw new SerializationException(); }  Num = _buf["num"]; }
-        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = vec2.Deserializevec2(_buf["v2"]);  }
-        { if(!_buf["v3"].IsObject) { throw new SerializationException(); }  V3 = vec3.Deserializevec3(_buf["v3"]);  }
-        { if(!_buf["v4"].IsObject) { throw new SerializationException(); }  V4 = vec4.Deserializevec4(_buf["v4"]);  }
+        { if(!_buf["v2"].IsObject) { throw new SerializationException(); }  V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf["v2"]));  }
+        { if(!_buf["v3"].IsObject) { throw new SerializationException(); }  V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf["v3"]));  }
+        { if(!_buf["v4"].IsObject) { throw new SerializationException(); }  V4 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf["v4"]));  }
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JSONNode _buf)
@@ -35,9 +35,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
     public readonly string Desc;
     public readonly float Rate;
     public readonly int Num;
-    public readonly vec2 V2;
-    public readonly vec3 V3;
-    public readonly vec4 V4;
+    public readonly UnityEngine.Vector2 V2;
+    public readonly UnityEngine.Vector3 V3;
+    public readonly UnityEngine.Vector4 V4;
    
     public const int __ID__ = -1896814350;
     public override int GetTypeId() => __ID__;
