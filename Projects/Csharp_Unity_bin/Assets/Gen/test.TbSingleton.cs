@@ -17,6 +17,8 @@ public partial class TbSingleton
 
      private readonly test.DemoSingletonType _data;
 
+     public test.DemoSingletonType Data => _data;
+
     public TbSingleton(ByteBuf _buf)
     {
         int n = _buf.ReadSize();
@@ -36,3 +38,4 @@ public partial class TbSingleton
 }
 
 }
+

@@ -18,6 +18,8 @@ public partial class TbSingleton
 
      private readonly test.DemoSingletonType _data;
 
+     public test.DemoSingletonType Data => _data;
+
     public TbSingleton(JsonElement _buf)
     {
         int n = _buf.GetArrayLength();
@@ -37,3 +39,4 @@ public partial class TbSingleton
 }
 
 }
+

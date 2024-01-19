@@ -20,6 +20,7 @@ public sealed partial class Blackboard : Luban.BeanBase
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["desc"].IsString) { throw new SerializationException(); }  Desc = _buf["desc"]; }
         { if(!_buf["parent_name"].IsString) { throw new SerializationException(); }  ParentName = _buf["parent_name"]; }
+        ParentName_Ref = null;
         { var __json0 = _buf["keys"]; if(!__json0.IsArray) { throw new SerializationException(); } Keys = new System.Collections.Generic.List<ai.BlackboardKey>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { ai.BlackboardKey __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = ai.BlackboardKey.DeserializeBlackboardKey(__e0);  }  Keys.Add(__v0); }   }
     }
 
@@ -31,6 +32,7 @@ public sealed partial class Blackboard : Luban.BeanBase
     public readonly string Name;
     public readonly string Desc;
     public readonly string ParentName;
+    public ai.Blackboard ParentName_Ref;
     public readonly System.Collections.Generic.List<ai.BlackboardKey> Keys;
    
     public const int __ID__ = 1576193005;
@@ -40,7 +42,7 @@ public sealed partial class Blackboard : Luban.BeanBase
     {
         
         
-        
+        ParentName_Ref = tables.TbBlackboard.GetOrDefault(ParentName);
         foreach (var _e in Keys) { _e?.ResolveRef(tables); }
     }
 

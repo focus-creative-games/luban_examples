@@ -18,6 +18,8 @@ public partial class TbCompositeJsonTable3
 
      private readonly test.CompositeJsonTable3 _data;
 
+     public test.CompositeJsonTable3 Data => _data;
+
     public TbCompositeJsonTable3(JSONNode _buf)
     {
         int n = _buf.Count;
@@ -36,3 +38,4 @@ public partial class TbCompositeJsonTable3
 }
 
 }
+

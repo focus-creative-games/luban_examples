@@ -25,6 +25,7 @@ public sealed partial class RefBean : test.RefDynamicBase
     }
 
     public readonly System.Collections.Generic.List<int> Arr;
+    public System.Collections.Generic.List<test.TestBeRef> Arr_Ref;
    
     public const int __ID__ = 1963260263;
     public override int GetTypeId() => __ID__;
@@ -32,7 +33,9 @@ public sealed partial class RefBean : test.RefDynamicBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
+        Arr_Ref = new System.Collections.Generic.List<test.TestBeRef>();
+        foreach (var _v in Arr) { Arr_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
+
     }
 
     public override string ToString()

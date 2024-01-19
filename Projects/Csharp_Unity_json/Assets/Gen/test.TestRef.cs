@@ -58,13 +58,21 @@ public sealed partial class TestRef : Luban.BeanBase
     public readonly int X4;
     public tag.TestTag X4_Ref;
     public readonly int[] A1;
+    public test.TestBeRef[] A1_Ref;
     public readonly int[] A2;
+    public test.TestBeRef[] A2_Ref;
     public readonly System.Collections.Generic.List<int> B1;
+    public System.Collections.Generic.List<test.TestBeRef> B1_Ref;
     public readonly System.Collections.Generic.List<int> B2;
+    public System.Collections.Generic.List<test.TestBeRef> B2_Ref;
     public readonly System.Collections.Generic.HashSet<int> C1;
+    public System.Collections.Generic.HashSet<test.TestBeRef> C1_Ref;
     public readonly System.Collections.Generic.HashSet<int> C2;
+    public System.Collections.Generic.HashSet<test.TestBeRef> C2_Ref;
     public readonly System.Collections.Generic.Dictionary<int, int> D1;
+    public System.Collections.Generic.Dictionary<int, test.TestBeRef> D1_Ref;
     public readonly System.Collections.Generic.Dictionary<int, int> D2;
+    public System.Collections.Generic.Dictionary<int, test.TestBeRef> D2_Ref;
     public readonly int E1;
     public readonly long E2;
     public readonly string E3;
@@ -84,14 +92,30 @@ public sealed partial class TestRef : Luban.BeanBase
         
         
         X4_Ref = tables.TbTestTag.GetOrDefault(X4);
-        
-        
-        
-        
-        
-        
-        
-        
+        A1_Ref = new test.TestBeRef[A1.Length];
+        for (int _i = 0; _i < A1.Length; _i++) { A1_Ref[_i] = tables.TbTestBeRef.GetOrDefault(A1[_i]); }
+
+        A2_Ref = new test.TestBeRef[A2.Length];
+        for (int _i = 0; _i < A2.Length; _i++) { A2_Ref[_i] = tables.TbTestBeRef.GetOrDefault(A2[_i]); }
+
+        B1_Ref = new System.Collections.Generic.List<test.TestBeRef>();
+        foreach (var _v in B1) { B1_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
+
+        B2_Ref = new System.Collections.Generic.List<test.TestBeRef>();
+        foreach (var _v in B2) { B2_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
+
+        C1_Ref = new System.Collections.Generic.HashSet<test.TestBeRef>();
+        foreach (var _v in C1) { C1_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
+
+        C2_Ref = new System.Collections.Generic.HashSet<test.TestBeRef>();
+        foreach (var _v in C2) { C2_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
+
+        D1_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>();
+        foreach (var (_k,_v) in D1) { D1_Ref.Add(_k, tables.TbTestBeRef.GetOrDefault(_v)); }
+
+        D2_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>();
+        foreach (var (_k,_v) in D2) { D2_Ref.Add(_k, tables.TbTestBeRef.GetOrDefault(_v)); }
+
         
         
         

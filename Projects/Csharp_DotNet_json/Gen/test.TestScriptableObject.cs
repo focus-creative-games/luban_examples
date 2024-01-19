@@ -21,9 +21,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         Desc = _buf.GetProperty("desc").GetString();
         Rate = _buf.GetProperty("rate").GetSingle();
         Num = _buf.GetProperty("num").GetInt32();
-        V2 = vec2.Deserializevec2(_buf.GetProperty("v2"));
-        V3 = vec3.Deserializevec3(_buf.GetProperty("v3"));
-        V4 = vec4.Deserializevec4(_buf.GetProperty("v4"));
+        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf.GetProperty("v2")));
+        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf.GetProperty("v3")));
+        V4 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf.GetProperty("v4")));
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JsonElement _buf)
@@ -35,9 +35,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
     public readonly string Desc;
     public readonly float Rate;
     public readonly int Num;
-    public readonly vec2 V2;
-    public readonly vec3 V3;
-    public readonly vec4 V4;
+    public readonly System.Numerics.Vector2 V2;
+    public readonly System.Numerics.Vector3 V3;
+    public readonly System.Numerics.Vector4 V4;
    
     public const int __ID__ = -1896814350;
     public override int GetTypeId() => __ID__;

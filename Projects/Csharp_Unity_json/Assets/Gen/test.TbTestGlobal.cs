@@ -18,6 +18,8 @@ public partial class TbTestGlobal
 
      private readonly test.TestGlobal _data;
 
+     public test.TestGlobal Data => _data;
+
     public TbTestGlobal(JSONNode _buf)
     {
         int n = _buf.Count;
@@ -36,3 +38,4 @@ public partial class TbTestGlobal
 }
 
 }
+

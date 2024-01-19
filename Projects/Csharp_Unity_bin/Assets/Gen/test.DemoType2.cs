@@ -65,6 +65,7 @@ public sealed partial class DemoType2 : Luban.BeanBase
     public readonly System.Collections.Generic.List<int> K2;
     public readonly System.Collections.Generic.HashSet<int> K5;
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
+    public System.Collections.Generic.Dictionary<int, test.DemoType2> K8_Ref;
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
     public readonly test.DemoDynamic[] K15;
    
@@ -92,7 +93,9 @@ public sealed partial class DemoType2 : Luban.BeanBase
         
         
         
-        
+        K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>();
+        foreach (var (_k,_v) in K8) { K8_Ref.Add(_k, tables.TbFullTypes.GetOrDefault(_v)); }
+
         
         foreach (var _e in K15) { _e?.ResolveRef(tables); }
     }

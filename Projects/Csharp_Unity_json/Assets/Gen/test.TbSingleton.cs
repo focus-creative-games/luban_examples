@@ -18,6 +18,8 @@ public partial class TbSingleton
 
      private readonly test.DemoSingletonType _data;
 
+     public test.DemoSingletonType Data => _data;
+
     public TbSingleton(JSONNode _buf)
     {
         int n = _buf.Count;
@@ -37,3 +39,4 @@ public partial class TbSingleton
 }
 
 }
+

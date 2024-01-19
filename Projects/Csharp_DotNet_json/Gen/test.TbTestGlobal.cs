@@ -18,6 +18,8 @@ public partial class TbTestGlobal
 
      private readonly test.TestGlobal _data;
 
+     public test.TestGlobal Data => _data;
+
     public TbTestGlobal(JsonElement _buf)
     {
         int n = _buf.GetArrayLength();
@@ -36,3 +38,4 @@ public partial class TbTestGlobal
 }
 
 }
+
