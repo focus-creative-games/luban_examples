@@ -17,6 +17,8 @@ public partial class TbTestGlobal
 
      private readonly test.TestGlobal _data;
 
+     public test.TestGlobal Data => _data;
+
     public TbTestGlobal(ByteBuf _buf)
     {
         int n = _buf.ReadSize();
@@ -35,3 +37,4 @@ public partial class TbTestGlobal
 }
 
 }
+

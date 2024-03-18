@@ -8,24 +8,25 @@
 //------------------------------------------------------------------------------
 
 using Luban;
+using System.Text.Json;
 
 
 namespace cfg.test
 {
-public partial class TbDemoGroup_E
+public partial class TbDemoGroup_C
 {
     private readonly System.Collections.Generic.Dictionary<int, test.DemoGroup> _dataMap;
     private readonly System.Collections.Generic.List<test.DemoGroup> _dataList;
     
-    public TbDemoGroup_E(ByteBuf _buf)
+    public TbDemoGroup_C(JsonElement _buf)
     {
         _dataMap = new System.Collections.Generic.Dictionary<int, test.DemoGroup>();
         _dataList = new System.Collections.Generic.List<test.DemoGroup>();
         
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.DemoGroup _v;
-            _v = test.DemoGroup.DeserializeDemoGroup(_buf);
+            _v = test.DemoGroup.DeserializeDemoGroup(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }

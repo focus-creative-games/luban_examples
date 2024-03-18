@@ -16,16 +16,6 @@
 namespace cfg {
 
 namespace ai { 
-    enum class EExecutor
-    {
-        CLIENT = 0,
-        SERVER = 1,
-    };
-
-} 
-
-
-namespace ai { 
     enum class EKeyType
     {
         BOOL = 1,
@@ -50,16 +40,6 @@ namespace ai {
         LOWER_PRIORITY = 1,
         SELF = 2,
         BOTH = 3,
-    };
-
-} 
-
-
-namespace ai { 
-    enum class EFinishMode
-    {
-        IMMEDIATE = 0,
-        DELAYED = 1,
     };
 
 } 
@@ -91,81 +71,11 @@ namespace ai {
 } 
 
 
- 
-    enum class AudioType
+namespace ai { 
+    enum class EFinishMode
     {
-        UNKNOWN = 0,
-        ACC = 1,
-        AIFF = 2,
-    };
-
- 
-
-
-namespace common { 
-    enum class EBoolOperator
-    {
-        AND = 0,
-        OR = 1,
-    };
-
-} 
-
-
-namespace item { 
-    /// <summary>
-    /// 道具品质
-    /// </summary>
-    enum class EItemQuality
-    {
-        /// <summary>
-        /// 白
-        /// </summary>
-        WHITE = 0,
-        /// <summary>
-        /// 绿
-        /// </summary>
-        GREEN = 1,
-        /// <summary>
-        /// 蓝
-        /// </summary>
-        BLUE = 2,
-        /// <summary>
-        /// 紫
-        /// </summary>
-        PURPLE = 3,
-        /// <summary>
-        /// 金
-        /// </summary>
-        GOLDEN = 4,
-    };
-
-} 
-
-
-namespace item { 
-    enum class ECurrencyType
-    {
-        /// <summary>
-        /// 钻石
-        /// </summary>
-        DIAMOND = 1,
-        /// <summary>
-        /// 金币
-        /// </summary>
-        GOLD = 2,
-        /// <summary>
-        /// 银币
-        /// </summary>
-        SILVER = 3,
-        /// <summary>
-        /// 经验
-        /// </summary>
-        EXP = 4,
-        /// <summary>
-        /// 能量点
-        /// </summary>
-        POWER_POINT = 5,
+        IMMEDIATE = 0,
+        DELAYED = 1,
     };
 
 } 
@@ -428,168 +338,31 @@ namespace item {
 
 
 namespace item { 
-    enum class EClothersStarQualityType
+    /// <summary>
+    /// 道具品质
+    /// </summary>
+    enum class EItemQuality
     {
         /// <summary>
-        /// 一星
+        /// 白
         /// </summary>
-        ONE = 1,
+        WHITE = 0,
         /// <summary>
-        /// 二星
+        /// 绿
         /// </summary>
-        TWO = 2,
+        GREEN = 1,
         /// <summary>
-        /// 三星
+        /// 蓝
         /// </summary>
-        THREE = 3,
+        BLUE = 2,
         /// <summary>
-        /// 四星
+        /// 紫
         /// </summary>
-        FOUR = 4,
+        PURPLE = 3,
         /// <summary>
-        /// 五星
+        /// 金
         /// </summary>
-        FIVE = 5,
-        /// <summary>
-        /// 六星
-        /// </summary>
-        SIX = 6,
-        /// <summary>
-        /// 七星
-        /// </summary>
-        SEVEN = 7,
-        /// <summary>
-        /// 八星
-        /// </summary>
-        EIGHT = 8,
-        /// <summary>
-        /// 九星
-        /// </summary>
-        NINE = 9,
-        /// <summary>
-        /// 十星
-        /// </summary>
-        TEN = 10,
-    };
-
-} 
-
-
-namespace item { 
-    enum class EClothersTag
-    {
-        /// <summary>
-        /// 防晒
-        /// </summary>
-        FANG_SHAI = 1,
-        /// <summary>
-        /// 舞者
-        /// </summary>
-        WU_ZHE = 2,
-    };
-
-} 
-
-
-namespace item { 
-    enum class EUseType
-    {
-        /// <summary>
-        /// 手动
-        /// </summary>
-        MANUAL = 0,
-        /// <summary>
-        /// 自动
-        /// </summary>
-        AUTO = 1,
-    };
-
-} 
-
-
-namespace item { 
-    enum class EClothesHidePartType
-    {
-        /// <summary>
-        /// 胸部
-        /// </summary>
-        CHEST = 0,
-        /// <summary>
-        /// 手
-        /// </summary>
-        HEAD = 1,
-        /// <summary>
-        /// 脊柱上
-        /// </summary>
-        SPINE_UPPER = 2,
-        /// <summary>
-        /// 脊柱下
-        /// </summary>
-        SPINE_LOWER = 3,
-        /// <summary>
-        /// 臀部
-        /// </summary>
-        HIP = 4,
-        /// <summary>
-        /// 腿上
-        /// </summary>
-        LEG_UPPER = 5,
-        /// <summary>
-        /// 腿中
-        /// </summary>
-        LEG_MIDDLE = 6,
-        /// <summary>
-        /// 腿下
-        /// </summary>
-        LEG_LOWER = 7,
-    };
-
-} 
-
-
-namespace item { 
-    enum class EClothesPropertyType
-    {
-        /// <summary>
-        /// 简约
-        /// </summary>
-        JIAN_YUE = 1,
-        /// <summary>
-        /// 华丽
-        /// </summary>
-        HUA_LI = 2,
-        /// <summary>
-        /// 可爱
-        /// </summary>
-        KE_AI = 3,
-        /// <summary>
-        /// 成熟
-        /// </summary>
-        CHENG_SHU = 4,
-        /// <summary>
-        /// 活泼
-        /// </summary>
-        HUO_PO = 5,
-        /// <summary>
-        /// 优雅
-        /// </summary>
-        YOU_YA = 6,
-        /// <summary>
-        /// 清纯
-        /// </summary>
-        QING_CHUN = 7,
-        /// <summary>
-        /// 性感
-        /// </summary>
-        XING_GAN = 8,
-        /// <summary>
-        /// 清凉
-        /// </summary>
-        QING_LIANG = 9,
-        /// <summary>
-        /// 保暖
-        /// </summary>
-        BAO_NUAN = 10,
+        GOLDEN = 4,
     };
 
 } 
@@ -615,9 +388,21 @@ namespace test {
         /// dd
         /// </summary>
         D = 5,
+        Any = 6,
     };
 
 } 
+
+
+ 
+    enum class AudioType
+    {
+        UNKNOWN = 0,
+        ACC = 1,
+        AIFF = 2,
+    };
+
+ 
 
 
 namespace test { 
@@ -632,75 +417,10 @@ namespace test {
 } 
 
 
-namespace test { 
-    enum class ETestUeType
-    {
-        /// <summary>
-        /// 白
-        /// </summary>
-        WHITE = 0,
-        BLACK = 1,
-    };
-
-} 
-
-
-namespace test { 
-    enum class ETestEmptyEnum
-    {
-    };
-
-} 
-
-
-namespace test { 
-    enum class ETestEmptyEnum2
-    {
-        SMALL_THAN_256 = 255,
-        X_256 = 256,
-        X_257 = 257,
-    };
-
-} 
-
-
-namespace test { 
-    enum class ETestQuality
-    {
-        /// <summary>
-        /// 最高品质
-        /// </summary>
-        A = 1,
-        /// <summary>
-        /// 黑色的
-        /// </summary>
-        B = 2,
-        /// <summary>
-        /// 蓝色的
-        /// </summary>
-        C = 3,
-        /// <summary>
-        /// 最差品质
-        /// </summary>
-        D = 4,
-    };
-
-} 
-
-
-namespace test { 
-    enum class AccessFlag
-    {
-        WRITE = 1,
-        READ = 2,
-        TRUNCATE = 4,
-        NEW = 8,
-        READ_WRITE = WRITE|READ,
-    };
-
-} 
-
-
+ struct vec2; 
+ struct vec3; 
+ struct vec4; 
+namespace test { struct TestExcelBean1; }
 namespace ai { struct Blackboard; }
 namespace ai { struct BlackboardKey; }
 namespace ai { struct BehaviorTree; }
@@ -772,9 +492,6 @@ namespace test { struct H1; }
 namespace test { struct H2; }
 namespace test { struct TestNull; }
 namespace test { struct DemoPrimitiveTypesTable; }
- struct vec2; 
- struct vec3; 
- struct vec4; 
 namespace test { struct TestString; }
 namespace test { struct CompactString; }
 namespace test { struct DemoGroup; }
@@ -801,11 +518,112 @@ namespace test { struct ExcelFromJsonMultiRow; }
 namespace test { struct TestRow; }
 namespace test { struct Test3; }
 namespace test { struct TestScriptableObject; }
+namespace test { struct Path; }
 namespace test { struct TestMapper; }
  struct DefineFromExcel2; 
 namespace test { struct Shape; }
 namespace test { struct Circle; }
 namespace test2 { struct Rectangle; }
+
+
+
+struct vec2 : public luban::CfgBean 
+{
+    static bool deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out);
+
+    virtual ~vec2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+
+    static constexpr int __ID__ = 3615518;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+
+
+struct vec3 : public luban::CfgBean 
+{
+    static bool deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out);
+
+    virtual ~vec3() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+    ::luban::float32 z;
+
+    static constexpr int __ID__ = 3615519;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+
+
+struct vec4 : public luban::CfgBean 
+{
+    static bool deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out);
+
+    virtual ~vec4() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+    ::luban::float32 z;
+    ::luban::float32 w;
+
+    static constexpr int __ID__ = 3615520;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+namespace test {
+
+/**
+ * 这是个测试excel结构
+ */
+struct TestExcelBean1 : public luban::CfgBean 
+{
+    static bool deserializeTestExcelBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestExcelBean1>& _out);
+
+    virtual ~TestExcelBean1() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 最高品质
+     */
+    ::luban::int32 x1;
+    /**
+     * 黑色的
+     */
+    ::luban::String x2;
+    /**
+     * 蓝色的
+     */
+    ::luban::int32 x3;
+    /**
+     * 最差品质
+     */
+    ::luban::float32 x4;
+
+    static constexpr int __ID__ = -1738345160;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
 
 namespace ai {
 
@@ -1637,8 +1455,11 @@ struct Item : public luban::CfgBean
      */
     ::luban::int32 id;
     ::luban::String name;
+    item::EMajorType majorType;
     item::EMinorType minorType;
+    ::luban::int32 maxPileNum;
     item::EItemQuality quality;
+    ::luban::String icon;
     ::luban::String iconBackgroud;
     ::luban::String iconMask;
     ::luban::String desc;
@@ -2257,69 +2078,6 @@ struct DemoPrimitiveTypesTable : public luban::CfgBean
 
 }
 
-
-
-struct vec2 : public luban::CfgBean 
-{
-    static bool deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out);
-
-    virtual ~vec2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 x;
-    ::luban::float32 y;
-
-    static constexpr int __ID__ = 3615518;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-
-
-struct vec3 : public luban::CfgBean 
-{
-    static bool deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out);
-
-    virtual ~vec3() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 x;
-    ::luban::float32 y;
-    ::luban::float32 z;
-
-    static constexpr int __ID__ = 3615519;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-
-
-struct vec4 : public luban::CfgBean 
-{
-    static bool deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out);
-
-    virtual ~vec4() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 x;
-    ::luban::float32 y;
-    ::luban::float32 z;
-    ::luban::float32 w;
-
-    static constexpr int __ID__ = 3615520;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
 namespace test {
 
 struct TestString : public luban::CfgBean 
@@ -2375,6 +2133,10 @@ struct DemoGroup : public luban::CfgBean
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 id;
+    ::luban::int32 x1;
+    ::luban::int32 x2;
+    ::luban::int32 x3;
+    ::luban::int32 x4;
     ::luban::SharedPtr<test::InnerGroup> x5;
 
     static constexpr int __ID__ = -379263008;
@@ -2395,6 +2157,9 @@ struct InnerGroup : public luban::CfgBean
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 y1;
+    ::luban::int32 y2;
+    ::luban::int32 y3;
+    ::luban::int32 y4;
 
     static constexpr int __ID__ = -587873083;
 
@@ -2879,6 +2644,26 @@ struct TestScriptableObject : public luban::CfgBean
     ::luban::SharedPtr<vec4> v4;
 
     static constexpr int __ID__ = -1896814350;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct Path : public luban::CfgBean 
+{
+    static bool deserializePath(::luban::ByteBuf& _buf, ::luban::SharedPtr<Path>& _out);
+
+    virtual ~Path() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String res;
+
+    static constexpr int __ID__ = -1226450911;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -3875,6 +3660,135 @@ class TbDemoGroup
 namespace test {
 
 
+class TbDemoGroup_C
+{
+    private:
+    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
+    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
+    
+    public:
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::luban::SharedPtr<test::DemoGroup> _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+
+    test::DemoGroup* getRaw(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+namespace test {
+
+
+class TbDemoGroup_S
+{
+    private:
+    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
+    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
+    
+    public:
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::luban::SharedPtr<test::DemoGroup> _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+
+    test::DemoGroup* getRaw(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+namespace test {
+
+
+class TbDemoGroup_E
+{
+    private:
+    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>> _dataMap;
+    ::luban::Vector<::luban::SharedPtr<test::DemoGroup>> _dataList;
+    
+    public:
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::luban::SharedPtr<test::DemoGroup> _v;
+            if(!test::DemoGroup::deserializeDemoGroup(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::DemoGroup>>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<::luban::SharedPtr<test::DemoGroup>>& getDataList() const { return _dataList; }
+
+    test::DemoGroup* getRaw(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::luban::SharedPtr<test::DemoGroup> get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+namespace test {
+
+
 class TbTestGlobal
 {
      private:
@@ -4531,6 +4445,49 @@ class TbTestScriptableObject
 namespace test {
 
 
+class TbPath
+{
+    private:
+    ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::Path>> _dataMap;
+    ::luban::Vector<::luban::SharedPtr<test::Path>> _dataList;
+    
+    public:
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            ::luban::SharedPtr<test::Path> _v;
+            if(!test::Path::deserializePath(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, ::luban::SharedPtr<test::Path>>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<::luban::SharedPtr<test::Path>>& getDataList() const { return _dataList; }
+
+    test::Path* getRaw(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second.get() : nullptr;
+    }
+
+    ::luban::SharedPtr<test::Path> get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+namespace test {
+
+
 class TbTestMapper
 {
     private:
@@ -4640,6 +4597,9 @@ class Tables
      test::TbDemoPrimitive TbDemoPrimitive;
      test::TbTestString TbTestString;
      test::TbDemoGroup TbDemoGroup;
+     test::TbDemoGroup_C TbDemoGroup_C;
+     test::TbDemoGroup_S TbDemoGroup_S;
+     test::TbDemoGroup_E TbDemoGroup_E;
      test::TbTestGlobal TbTestGlobal;
      test::TbTestBeRef TbTestBeRef;
      test::TbTestBeRef2 TbTestBeRef2;
@@ -4656,6 +4616,7 @@ class Tables
      test::TbCompositeJsonTable3 TbCompositeJsonTable3;
      test::TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow;
      test::TbTestScriptableObject TbTestScriptableObject;
+     test::TbPath TbPath;
      test::TbTestMapper TbTestMapper;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
 
@@ -4723,6 +4684,15 @@ class Tables
         if (!loader(buf, "test_tbdemogroup")) return false;
         if (!TbDemoGroup.load(buf)) return false;
         buf.clear();
+        if (!loader(buf, "test_tbdemogroup_c")) return false;
+        if (!TbDemoGroup_C.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbdemogroup_s")) return false;
+        if (!TbDemoGroup_S.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbdemogroup_e")) return false;
+        if (!TbDemoGroup_E.load(buf)) return false;
+        buf.clear();
         if (!loader(buf, "test_tbtestglobal")) return false;
         if (!TbTestGlobal.load(buf)) return false;
         buf.clear();
@@ -4770,6 +4740,9 @@ class Tables
         buf.clear();
         if (!loader(buf, "test_tbtestscriptableobject")) return false;
         if (!TbTestScriptableObject.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbpath")) return false;
+        if (!TbPath.load(buf)) return false;
         buf.clear();
         if (!loader(buf, "test_tbtestmapper")) return false;
         if (!TbTestMapper.load(buf)) return false;

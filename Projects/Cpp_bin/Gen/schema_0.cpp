@@ -12,6 +12,107 @@
 namespace cfg {
 
 
+bool vec2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readFloat(x)) return false;
+    if(!_buf.readFloat(y)) return false;
+
+    return true;
+}
+
+bool vec2::deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out)
+{
+    _out.reset(new vec2());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
+bool vec3::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readFloat(x)) return false;
+    if(!_buf.readFloat(y)) return false;
+    if(!_buf.readFloat(z)) return false;
+
+    return true;
+}
+
+bool vec3::deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out)
+{
+    _out.reset(new vec3());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
+bool vec4::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readFloat(x)) return false;
+    if(!_buf.readFloat(y)) return false;
+    if(!_buf.readFloat(z)) return false;
+    if(!_buf.readFloat(w)) return false;
+
+    return true;
+}
+
+bool vec4::deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out)
+{
+    _out.reset(new vec4());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
+bool test::TestExcelBean1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readString(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readFloat(x4)) return false;
+
+    return true;
+}
+
+bool test::TestExcelBean1::deserializeTestExcelBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::TestExcelBean1>& _out)
+{
+    _out.reset(new test::TestExcelBean1());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
 bool ai::Blackboard::deserialize(::luban::ByteBuf& _buf)
 {
 
@@ -1189,8 +1290,11 @@ bool item::Item::deserialize(::luban::ByteBuf& _buf)
 
     if(!_buf.readInt(id)) return false;
     if(!_buf.readString(name)) return false;
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; majorType = item::EMajorType(__enum_temp__); }
     {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; minorType = item::EMinorType(__enum_temp__); }
+    if(!_buf.readInt(maxPileNum)) return false;
     {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; quality = item::EItemQuality(__enum_temp__); }
+    if(!_buf.readString(icon)) return false;
     if(!_buf.readString(iconBackgroud)) return false;
     if(!_buf.readString(iconMask)) return false;
     if(!_buf.readString(desc)) return false;
@@ -1956,81 +2060,6 @@ bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(::luban::
 }
 
 
-bool vec2::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-
-    return true;
-}
-
-bool vec2::deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out)
-{
-    _out.reset(new vec2());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
-}
-
-
-bool vec3::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-    if(!_buf.readFloat(z)) return false;
-
-    return true;
-}
-
-bool vec3::deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out)
-{
-    _out.reset(new vec3());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
-}
-
-
-bool vec4::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-    if(!_buf.readFloat(z)) return false;
-    if(!_buf.readFloat(w)) return false;
-
-    return true;
-}
-
-bool vec4::deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out)
-{
-    _out.reset(new vec4());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
-}
-
-
 bool test::TestString::deserialize(::luban::ByteBuf& _buf)
 {
 
@@ -2087,6 +2116,10 @@ bool test::DemoGroup::deserialize(::luban::ByteBuf& _buf)
 {
 
     if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readInt(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readInt(x4)) return false;
     if(!test::InnerGroup::deserializeInnerGroup(_buf, x5)) return false;
 
     return true;
@@ -2111,6 +2144,9 @@ bool test::InnerGroup::deserialize(::luban::ByteBuf& _buf)
 {
 
     if(!_buf.readInt(y1)) return false;
+    if(!_buf.readInt(y2)) return false;
+    if(!_buf.readInt(y3)) return false;
+    if(!_buf.readInt(y4)) return false;
 
     return true;
 }
@@ -2677,35 +2713,6 @@ bool test::Test3::deserialize(::luban::ByteBuf& _buf)
 bool test::Test3::deserializeTest3(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::Test3>& _out)
 {
     _out.reset(new test::Test3());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
-}
-
-
-bool test::TestScriptableObject::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(desc)) return false;
-    if(!_buf.readFloat(rate)) return false;
-    if(!_buf.readInt(num)) return false;
-    if(!vec2::deserializevec2(_buf, v2)) return false;
-    if(!vec3::deserializevec3(_buf, v3)) return false;
-    if(!vec4::deserializevec4(_buf, v4)) return false;
-
-    return true;
-}
-
-bool test::TestScriptableObject::deserializeTestScriptableObject(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::TestScriptableObject>& _out)
-{
-    _out.reset(new test::TestScriptableObject());
     if (_out->deserialize(_buf))
     {
         return true;

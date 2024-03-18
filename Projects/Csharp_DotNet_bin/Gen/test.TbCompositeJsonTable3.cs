@@ -17,6 +17,8 @@ public partial class TbCompositeJsonTable3
 
      private readonly test.CompositeJsonTable3 _data;
 
+     public test.CompositeJsonTable3 Data => _data;
+
     public TbCompositeJsonTable3(ByteBuf _buf)
     {
         int n = _buf.ReadSize();
@@ -35,3 +37,4 @@ public partial class TbCompositeJsonTable3
 }
 
 }
+

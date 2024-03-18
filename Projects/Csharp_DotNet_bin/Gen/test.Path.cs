@@ -12,30 +12,27 @@ using Luban;
 
 namespace cfg.test
 {
-public sealed partial class InnerGroup : Luban.BeanBase
+public sealed partial class Path : Luban.BeanBase
 {
-    public InnerGroup(ByteBuf _buf) 
+    public Path(ByteBuf _buf) 
     {
-        Y1 = _buf.ReadInt();
-        Y2 = _buf.ReadInt();
-        Y4 = _buf.ReadInt();
+        Id = _buf.ReadInt();
+        Res = _buf.ReadString();
     }
 
-    public static InnerGroup DeserializeInnerGroup(ByteBuf _buf)
+    public static Path DeserializePath(ByteBuf _buf)
     {
-        return new test.InnerGroup(_buf);
+        return new test.Path(_buf);
     }
 
-    public readonly int Y1;
-    public readonly int Y2;
-    public readonly int Y4;
+    public readonly int Id;
+    public readonly string Res;
    
-    public const int __ID__ = -587873083;
+    public const int __ID__ = -1226450911;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
         
         
     }
@@ -43,9 +40,8 @@ public sealed partial class InnerGroup : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "y1:" + Y1 + ","
-        + "y2:" + Y2 + ","
-        + "y4:" + Y4 + ","
+        + "id:" + Id + ","
+        + "res:" + Res + ","
         + "}";
     }
 }

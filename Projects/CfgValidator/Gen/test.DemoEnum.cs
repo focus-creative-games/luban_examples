@@ -30,6 +30,7 @@ namespace cfg.test
         /// dd
         /// </summary>
         D = 5,
+        Any = 6,
     }
 
 } 

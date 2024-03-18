@@ -12,6 +12,59 @@
 namespace cfg {
 
 
+bool test::TestScriptableObject::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(desc)) return false;
+    if(!_buf.readFloat(rate)) return false;
+    if(!_buf.readInt(num)) return false;
+    if(!vec2::deserializevec2(_buf, v2)) return false;
+    if(!vec3::deserializevec3(_buf, v3)) return false;
+    if(!vec4::deserializevec4(_buf, v4)) return false;
+
+    return true;
+}
+
+bool test::TestScriptableObject::deserializeTestScriptableObject(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::TestScriptableObject>& _out)
+{
+    _out.reset(new test::TestScriptableObject());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
+bool test::Path::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(res)) return false;
+
+    return true;
+}
+
+bool test::Path::deserializePath(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::Path>& _out)
+{
+    _out.reset(new test::Path());
+    if (_out->deserialize(_buf))
+    {
+        return true;
+    }
+    else
+    { 
+        _out.reset();
+        return false;
+    }
+}
+
+
 bool test::TestMapper::deserialize(::luban::ByteBuf& _buf)
 {
 

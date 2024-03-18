@@ -26,9 +26,9 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
         X7 = _buf.GetProperty("x7").GetDouble();
         S1 = _buf.GetProperty("s1").GetString();
         S2 = _buf.GetProperty("s2").GetString();
-        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf.GetProperty("v2")));
-        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf.GetProperty("v3")));
-        V4 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf.GetProperty("v4")));
+        V2 = vec2.Deserializevec2(_buf.GetProperty("v2"));
+        V3 = vec3.Deserializevec3(_buf.GetProperty("v3"));
+        V4 = vec4.Deserializevec4(_buf.GetProperty("v4"));
         T1 = _buf.GetProperty("t1").GetInt64();
     }
 
@@ -46,9 +46,9 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
     public readonly double X7;
     public readonly string S1;
     public readonly string S2;
-    public readonly System.Numerics.Vector2 V2;
-    public readonly System.Numerics.Vector3 V3;
-    public readonly System.Numerics.Vector4 V4;
+    public readonly vec2 V2;
+    public readonly vec3 V3;
+    public readonly vec4 V4;
     public readonly long T1;
    
     public const int __ID__ = -370934083;

@@ -18,6 +18,8 @@ public partial class TbGlobalConfig
 
      private readonly common.GlobalConfig _data;
 
+     public common.GlobalConfig Data => _data;
+
     public TbGlobalConfig(JsonElement _buf)
     {
         int n = _buf.GetArrayLength();
@@ -44,3 +46,4 @@ public partial class TbGlobalConfig
 }
 
 }
+

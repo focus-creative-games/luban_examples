@@ -8,7 +8,6 @@
 //------------------------------------------------------------------------------
 
 using Luban;
-using System.Text.Json;
 
 
 namespace cfg.test
@@ -18,15 +17,15 @@ public partial class TbPath
     private readonly System.Collections.Generic.Dictionary<int, test.Path> _dataMap;
     private readonly System.Collections.Generic.List<test.Path> _dataList;
     
-    public TbPath(JsonElement _buf)
+    public TbPath(ByteBuf _buf)
     {
         _dataMap = new System.Collections.Generic.Dictionary<int, test.Path>();
         _dataList = new System.Collections.Generic.List<test.Path>();
         
-        foreach(JsonElement _ele in _buf.EnumerateArray())
+        for(int n = _buf.ReadSize() ; n > 0 ; --n)
         {
             test.Path _v;
-            _v = test.Path.DeserializePath(_ele);
+            _v = test.Path.DeserializePath(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
