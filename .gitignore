@@ -329,7 +329,6 @@ Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
 out/
 /Projects/GDScript_json/.godot
 /Projects/GDScript_json/json
-/Tools/Luban
 /MiniTemplate/output_json
 /Projects/GenerateDatas/bidx
 /Projects/GenerateDatas/bin-offset

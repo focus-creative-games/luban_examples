@@ -7,16 +7,15 @@ luban对应的示例工程，更多文档请参见 [Document](https://luban.doc.
 - DataTables 一个较复杂的用于测试的配置项目。
 - MiniTemplate  一个最简单的配置模板，用于快速创建一个新的配置项目
 - Projects 一些覆盖常见平台、引擎、语言的示例项目
+- Tools/Luban 编译好的Luban工具程序
 
 Projects里的项目都已经过测试，已经包含了生成代码和数据，可以直接运行。
 
 **luban经历了大规模的重构，和旧版本有一定的差异。使用旧版本luban的开发者请切换到classic分支。**
 
-## 下载Luban
+## 下载最新Luban
 
-旧版本每次更新luban后，会同步将发布的Release版Luban复制到Tools/Luban目录。由于会明显增大仓库大小，后面luban_examples
-项目不再附带Luban程序，需要自行从[release](https://github.com/focus-creative-games/luban/releases)下载。下载Luban.7z
-文件，直接解压到Tools目录下即可，确保最终Luban程序的位置为`luban_examples/Tools/Luban/Luban.exe`。
+`Tools/Luban`目录下的Luban不一定是最新版本。既可以从[release](https://github.com/focus-creative-games/luban/releases)获得最新版本Luban，也可以自己从Luban源码编译。
 
 ## 支持与联系
 
