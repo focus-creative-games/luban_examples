@@ -26,18 +26,10 @@ bool test::TestScriptableObject::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test::TestScriptableObject::deserializeTestScriptableObject(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::TestScriptableObject>& _out)
+bool test::TestScriptableObject::deserializeTestScriptableObject(::luban::ByteBuf& _buf, test::TestScriptableObject*& _out)
 {
-    _out.reset(new test::TestScriptableObject());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(test::TestScriptableObject){};
+    return _out->deserialize(_buf);
 }
 
 
@@ -50,18 +42,10 @@ bool test::Path::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test::Path::deserializePath(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::Path>& _out)
+bool test::Path::deserializePath(::luban::ByteBuf& _buf, test::Path*& _out)
 {
-    _out.reset(new test::Path());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(test::Path){};
+    return _out->deserialize(_buf);
 }
 
 
@@ -75,18 +59,10 @@ bool test::TestMapper::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test::TestMapper::deserializeTestMapper(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::TestMapper>& _out)
+bool test::TestMapper::deserializeTestMapper(::luban::ByteBuf& _buf, test::TestMapper*& _out)
 {
-    _out.reset(new test::TestMapper());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(test::TestMapper){};
+    return _out->deserialize(_buf);
 }
 
 
@@ -108,25 +84,17 @@ bool DefineFromExcel2::deserialize(::luban::ByteBuf& _buf)
     {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size()));k1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
     {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size()));k2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; k2.push_back(_e);}}
     {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; k8[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k9.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::SharedPtr<test::DemoE2> _e; if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k10.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::SharedPtr<vec3> _e; if(!vec3::deserializevec3(_buf, _e)) return false; k10.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k11.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::SharedPtr<vec4> _e; if(!vec4::deserializevec4(_buf, _e)) return false; k11.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k9.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoE2* _e; if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k10.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; k10.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k11.reserve(n);for(int i = 0 ; i < n ; i++) { vec4* _e; if(!vec4::deserializevec4(_buf, _e)) return false; k11.push_back(_e);}}
 
     return true;
 }
 
-bool DefineFromExcel2::deserializeDefineFromExcel2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DefineFromExcel2>& _out)
+bool DefineFromExcel2::deserializeDefineFromExcel2(::luban::ByteBuf& _buf, DefineFromExcel2*& _out)
 {
-    _out.reset(new DefineFromExcel2());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(DefineFromExcel2){};
+    return _out->deserialize(_buf);
 }
 
 
@@ -137,14 +105,14 @@ bool test::Shape::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test::Shape::deserializeShape(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::Shape>& _out)
+bool test::Shape::deserializeShape(::luban::ByteBuf& _buf, test::Shape*& _out)
 {
     int32_t id;
     if (!_buf.readInt(id)) return false;
     switch (id)
     {
-        case test::Circle::__ID__: { _out.reset(new test::Circle()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
-        case test2::Rectangle::__ID__: { _out.reset(new test2::Rectangle()); if (_out->deserialize(_buf)) { return true; } else { _out.reset(); return false;} }
+        case test::Circle::__ID__: { _out = LUBAN_NEW(test::Circle){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test2::Rectangle::__ID__: { _out = LUBAN_NEW(test2::Rectangle){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
         default: { _out = nullptr; return false;}
     }
 }
@@ -162,18 +130,10 @@ bool test::Circle::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test::Circle::deserializeCircle(::luban::ByteBuf& _buf, ::luban::SharedPtr<test::Circle>& _out)
+bool test::Circle::deserializeCircle(::luban::ByteBuf& _buf, test::Circle*& _out)
 {
-    _out.reset(new test::Circle());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(test::Circle){};
+    return _out->deserialize(_buf);
 }
 
 
@@ -190,18 +150,10 @@ bool test2::Rectangle::deserialize(::luban::ByteBuf& _buf)
     return true;
 }
 
-bool test2::Rectangle::deserializeRectangle(::luban::ByteBuf& _buf, ::luban::SharedPtr<test2::Rectangle>& _out)
+bool test2::Rectangle::deserializeRectangle(::luban::ByteBuf& _buf, test2::Rectangle*& _out)
 {
-    _out.reset(new test2::Rectangle());
-    if (_out->deserialize(_buf))
-    {
-        return true;
-    }
-    else
-    { 
-        _out.reset();
-        return false;
-    }
+    _out = LUBAN_NEW(test2::Rectangle){};
+    return _out->deserialize(_buf);
 }
 
 }

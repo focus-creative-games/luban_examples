@@ -5,7 +5,7 @@ set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
-    -c cpp-bin ^
+    -c cpp-sharedptr-bin ^
     -d bin  ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Gen ^

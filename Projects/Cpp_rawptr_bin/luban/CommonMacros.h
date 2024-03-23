@@ -40,4 +40,7 @@ namespace luban
 	
 	template <typename T>
 	using Loader=std::function<bool(T&, const String&)>;
+    
+    #define LUBAN_NEW(T) new T
+    #define LUBAN_FREE(ptr) delete ptr
 }
