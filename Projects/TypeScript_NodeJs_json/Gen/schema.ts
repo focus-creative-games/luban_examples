@@ -9,13 +9,6 @@
 
 
 export namespace ai { 
-export enum EExecutor {
-    CLIENT = 0,
-    SERVER = 1,
-}
-
-} 
-export namespace ai { 
 export enum EKeyType {
     BOOL = 1,
     INT = 2,
@@ -40,13 +33,6 @@ export enum EFlowAbortMode {
 
 } 
 export namespace ai { 
-export enum EFinishMode {
-    IMMEDIATE = 0,
-    DELAYED = 1,
-}
-
-} 
-export namespace ai { 
 export enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
@@ -66,71 +52,10 @@ export enum EOperator {
 }
 
 } 
- 
-export enum AudioType {
-    UNKNOWN = 0,
-    ACC = 1,
-    AIFF = 2,
-}
-
- 
-export namespace common { 
-export enum EBoolOperator {
-    AND = 0,
-    OR = 1,
-}
-
-} 
-export namespace item { 
-/**
- * 道具品质
- */
-export enum EItemQuality {
-    /**
-     * 白
-     */
-    WHITE = 0,
-    /**
-     * 绿
-     */
-    GREEN = 1,
-    /**
-     * 蓝
-     */
-    BLUE = 2,
-    /**
-     * 紫
-     */
-    PURPLE = 3,
-    /**
-     * 金
-     */
-    GOLDEN = 4,
-}
-
-} 
-export namespace item { 
-export enum ECurrencyType {
-    /**
-     * 钻石
-     */
-    DIAMOND = 1,
-    /**
-     * 金币
-     */
-    GOLD = 2,
-    /**
-     * 银币
-     */
-    SILVER = 3,
-    /**
-     * 经验
-     */
-    EXP = 4,
-    /**
-     * 能量点
-     */
-    POWER_POINT = 5,
+export namespace ai { 
+export enum EFinishMode {
+    IMMEDIATE = 0,
+    DELAYED = 1,
 }
 
 } 
@@ -385,155 +310,30 @@ export enum EMinorType {
 
 } 
 export namespace item { 
-export enum EClothersStarQualityType {
+/**
+ * 道具品质
+ */
+export enum EItemQuality {
     /**
-     * 一星
+     * 白
      */
-    ONE = 1,
+    WHITE = 0,
     /**
-     * 二星
+     * 绿
      */
-    TWO = 2,
+    GREEN = 1,
     /**
-     * 三星
+     * 蓝
      */
-    THREE = 3,
+    BLUE = 2,
     /**
-     * 四星
+     * 紫
      */
-    FOUR = 4,
+    PURPLE = 3,
     /**
-     * 五星
+     * 金
      */
-    FIVE = 5,
-    /**
-     * 六星
-     */
-    SIX = 6,
-    /**
-     * 七星
-     */
-    SEVEN = 7,
-    /**
-     * 八星
-     */
-    EIGHT = 8,
-    /**
-     * 九星
-     */
-    NINE = 9,
-    /**
-     * 十星
-     */
-    TEN = 10,
-}
-
-} 
-export namespace item { 
-export enum EClothersTag {
-    /**
-     * 防晒
-     */
-    FANG_SHAI = 1,
-    /**
-     * 舞者
-     */
-    WU_ZHE = 2,
-}
-
-} 
-export namespace item { 
-export enum EUseType {
-    /**
-     * 手动
-     */
-    MANUAL = 0,
-    /**
-     * 自动
-     */
-    AUTO = 1,
-}
-
-} 
-export namespace item { 
-export enum EClothesHidePartType {
-    /**
-     * 胸部
-     */
-    CHEST = 0,
-    /**
-     * 手
-     */
-    HEAD = 1,
-    /**
-     * 脊柱上
-     */
-    SPINE_UPPER = 2,
-    /**
-     * 脊柱下
-     */
-    SPINE_LOWER = 3,
-    /**
-     * 臀部
-     */
-    HIP = 4,
-    /**
-     * 腿上
-     */
-    LEG_UPPER = 5,
-    /**
-     * 腿中
-     */
-    LEG_MIDDLE = 6,
-    /**
-     * 腿下
-     */
-    LEG_LOWER = 7,
-}
-
-} 
-export namespace item { 
-export enum EClothesPropertyType {
-    /**
-     * 简约
-     */
-    JIAN_YUE = 1,
-    /**
-     * 华丽
-     */
-    HUA_LI = 2,
-    /**
-     * 可爱
-     */
-    KE_AI = 3,
-    /**
-     * 成熟
-     */
-    CHENG_SHU = 4,
-    /**
-     * 活泼
-     */
-    HUO_PO = 5,
-    /**
-     * 优雅
-     */
-    YOU_YA = 6,
-    /**
-     * 清纯
-     */
-    QING_CHUN = 7,
-    /**
-     * 性感
-     */
-    XING_GAN = 8,
-    /**
-     * 清凉
-     */
-    QING_LIANG = 9,
-    /**
-     * 保暖
-     */
-    BAO_NUAN = 10,
+    GOLDEN = 4,
 }
 
 } 
@@ -560,66 +360,20 @@ export enum DemoEnum {
 }
 
 } 
+ 
+export enum AudioType {
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
+}
+
+ 
 export namespace test { 
 export enum DemoFlag {
     A = 1,
     B = 2,
     C = 4,
     D = 8,
-}
-
-} 
-export namespace test { 
-export enum ETestUeType {
-    /**
-     * 白
-     */
-    WHITE = 0,
-    BLACK = 1,
-}
-
-} 
-export namespace test { 
-export enum ETestEmptyEnum {
-}
-
-} 
-export namespace test { 
-export enum ETestEmptyEnum2 {
-    SMALL_THAN_256 = 255,
-    X_256 = 256,
-    X_257 = 257,
-}
-
-} 
-export namespace test { 
-export enum ETestQuality {
-    /**
-     * 最高品质
-     */
-    A = 1,
-    /**
-     * 黑色的
-     */
-    B = 2,
-    /**
-     * 蓝色的
-     */
-    C = 3,
-    /**
-     * 最差品质
-     */
-    D = 4,
-}
-
-} 
-export namespace test { 
-export enum AccessFlag {
-    WRITE = 1,
-    READ = 2,
-    TRUNCATE = 4,
-    NEW = 8,
-    READ_WRITE = WRITE|READ,
 }
 
 } 
@@ -3377,36 +3131,6 @@ export class Path {
 }
 
 
-
-export class MultiDimensitionCollection {
-
-    constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.x1 === undefined) { throw new Error() }
-        { this.x1 = []; for(let _ele0 of _json_.x1) { let _e0; { _e0 = []; for(let _ele1 of _ele0) { let _e1; _e1 = _ele1; _e0.push(_e1);}}; this.x1.push(_e0);}}
-        if (_json_.x2 === undefined) { throw new Error() }
-        { this.x2 = []; for(let _ele0 of _json_.x2) { let _e0; { _e0 = []; for(let _ele1 of _ele0) { let _e1; _e1 = _ele1; _e0.push(_e1);}}; this.x2.push(_e0);}}
-        if (_json_.x3 === undefined) { throw new Error() }
-        { this.x3 = []; for(let _ele0 of _json_.x3) { let _e0; _e0 = _ele0; this.x3.push(_e0);}}
-        if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = new Map<number, number[]>(); for(var _entry0_ of _json_.x4) { let _k0; _k0 = _entry0_[0];  let _v0;  { _v0 = []; for(let _ele1 of _entry0_[1]) { let _e1; _e1 = _ele1; _v0.push(_e1);}}; this.x4.set(_k0, _v0);  }
-    }
-
-    readonly id: number
-    readonly x1: number[][]
-    readonly x2: number[][]
-    readonly x3: Set<number>[]
-    readonly x4: Map<number, number[]>
-
-    resolve(tables:Tables)
-    {
-    }
-}
-
-
-
-
 export namespace test {
 export class TestMapper {
 
@@ -4835,38 +4559,6 @@ export class TbPath{
 
 
 export namespace test {
-export class TbMultiDimensionCollection{
-    private _dataMap: Map<number, MultiDimensitionCollection>
-    private _dataList: MultiDimensitionCollection[]
-    constructor(_json_: any) {
-        this._dataMap = new Map<number, MultiDimensitionCollection>()
-        this._dataList = []
-        for(var _json2_ of _json_) {
-            let _v: MultiDimensitionCollection
-            _v = new MultiDimensitionCollection(_json2_)
-            this._dataList.push(_v)
-            this._dataMap.set(_v.id, _v)
-        }
-    }
-
-    getDataMap(): Map<number, MultiDimensitionCollection> { return this._dataMap; }
-    getDataList(): MultiDimensitionCollection[] { return this._dataList; }
-
-    get(key: number): MultiDimensitionCollection | undefined { return this._dataMap.get(key); }
-
-    resolve(tables:Tables)
-    {
-        for(let  data of this._dataList)
-        {
-            data.resolve(tables)
-        }
-    }
-
-}
-}
-
-
-export namespace test {
 export class TbTestMapper{
     private _dataMap: Map<number, test.TestMapper>
     private _dataList: test.TestMapper[]
@@ -5017,8 +4709,6 @@ export class Tables {
     get TbTestScriptableObject(): test.TbTestScriptableObject  { return this._TbTestScriptableObject;}
     private _TbPath: test.TbPath
     get TbPath(): test.TbPath  { return this._TbPath;}
-    private _TbMultiDimensionCollection: test.TbMultiDimensionCollection
-    get TbMultiDimensionCollection(): test.TbMultiDimensionCollection  { return this._TbMultiDimensionCollection;}
     private _TbTestMapper: test.TbTestMapper
     get TbTestMapper(): test.TbTestMapper  { return this._TbTestMapper;}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
@@ -5065,7 +4755,6 @@ export class Tables {
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'))
         this._TbTestScriptableObject = new test.TbTestScriptableObject(loader('test_tbtestscriptableobject'))
         this._TbPath = new test.TbPath(loader('test_tbpath'))
-        this._TbMultiDimensionCollection = new test.TbMultiDimensionCollection(loader('test_tbmultidimensioncollection'))
         this._TbTestMapper = new test.TbTestMapper(loader('test_tbtestmapper'))
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'))
 
@@ -5109,7 +4798,6 @@ export class Tables {
         this._TbExcelFromJsonMultiRow.resolve(this)
         this._TbTestScriptableObject.resolve(this)
         this._TbPath.resolve(this)
-        this._TbMultiDimensionCollection.resolve(this)
         this._TbTestMapper.resolve(this)
         this._TbDefineFromExcel2.resolve(this)
     }

@@ -1,15 +1,14 @@
 set WORKSPACE=..\..
 
-set GEN_CLIENT=%WORKSPACE%\Tools\Luban.ClientServer\Luban.ClientServer.exe
+set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
 set CONF_ROOT=%WORKSPACE%\DataTables
 
 
-%GEN_CLIENT% -j cfg --^
- -d %CONF_ROOT%\Defines\__root__.xml ^
- --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir bytes ^
- --gen_types data_bin ^
- -s all
+dotnet %LUBAN_DLL% ^
+    -t all ^
+    -d bin  ^
+    --conf %CONF_ROOT%\luban.conf ^
+    -x outputDataDir=bytes
 
 
 pause

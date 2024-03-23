@@ -6,9 +6,10 @@ set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
-    -d xml  ^
+    -d json  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputDataDir=xml
+    -x outputDataDir=json ^
+    -x compact=1
 
 
 pause

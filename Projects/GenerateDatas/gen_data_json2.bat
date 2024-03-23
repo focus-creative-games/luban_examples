@@ -4,12 +4,17 @@ set GEN_CLIENT=%WORKSPACE%\Tools\Luban.ClientServer\Luban.ClientServer.exe
 set CONF_ROOT=%WORKSPACE%\DataTables
 
 
-%GEN_CLIENT% -j cfg --^
- -d %CONF_ROOT%\Defines\__root__.xml ^
- --input_data_dir %CONF_ROOT%\Datas ^
- --output_data_dir json2 ^
- --gen_types data_json2 ^
- -s all
+set WORKSPACE=..\..
+
+set LUBAN_DLL=%WORKSPACE%\Tools\Luban\Luban.dll
+set CONF_ROOT=%WORKSPACE%\DataTables
+
+
+dotnet %LUBAN_DLL% ^
+    -t all ^
+    -d json2  ^
+    --conf %CONF_ROOT%\luban.conf ^
+    -x outputDataDir=json2
 
 
 pause
