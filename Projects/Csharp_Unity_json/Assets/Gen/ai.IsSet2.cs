@@ -8,23 +8,24 @@
 //------------------------------------------------------------------------------
 
 using Luban;
+using SimpleJSON;
 
 
 namespace cfg.ai
 {
-public sealed partial class IsSet : ai.KeyQueryOperator
+public sealed partial class IsSet2 : ai.KeyQueryOperator
 {
-    public IsSet(ByteBuf _buf)  : base(_buf) 
+    public IsSet2(JSONNode _buf)  : base(_buf) 
     {
     }
 
-    public static IsSet DeserializeIsSet(ByteBuf _buf)
+    public static IsSet2 DeserializeIsSet2(JSONNode _buf)
     {
-        return new ai.IsSet(_buf);
+        return new ai.IsSet2(_buf);
     }
 
    
-    public const int __ID__ = 1635350898;
+    public const int __ID__ = -843729664;
     public override int GetTypeId() => __ID__;
 
     public override void ResolveRef(Tables tables)

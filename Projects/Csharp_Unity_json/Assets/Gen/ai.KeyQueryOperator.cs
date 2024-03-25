@@ -23,7 +23,7 @@ public abstract partial class KeyQueryOperator : Luban.BeanBase
     {
         switch ((string)_buf["$type"])
         {
-            case "IsSet": return new ai.IsSet(_buf);
+            case "IsSet2": return new ai.IsSet2(_buf);
             case "IsNotSet": return new ai.IsNotSet(_buf);
             case "BinaryOperator": return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();
